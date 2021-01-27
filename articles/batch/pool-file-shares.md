@@ -3,12 +3,12 @@ title: Partage de fichiers Azure pour des pools Azure Batch
 description: Guide pratique pour monter un partage Azure Files à partir de nœuds de calcul dans un pool Linux ou Windows dans Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 6bbaba20512a17de563e74ba095057c5c3f71f6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5682e7ba853973592c3a650a06ce72615cec7b6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986421"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735492"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -20,7 +20,7 @@ ms.locfileid: "87986421"
 
 * Les partages de fichiers Azure sont [rentables](https://azure.microsoft.com/pricing/details/storage/files/) et redondants à l’échelle mondiale car ils peuvent être configurés avec la réplication des données d’une autre région. 
 
-* Vous pouvez monter un partage de fichiers Azure simultanément à partir d’un ordinateur local. Toutefois, veillez à bien comprendre les [implications de la concurrence](../storage/common/storage-concurrency.md), en particulier lors de l’utilisation d’API REST.
+* Vous pouvez monter un partage de fichiers Azure simultanément à partir d’un ordinateur local. Toutefois, veillez à bien comprendre les [implications de la concurrence](../storage/blobs/concurrency-manage.md), en particulier lors de l’utilisation d’API REST.
 
 * Consultez également les [considérations de planification](../storage/files/storage-files-planning.md) générales pour les partages de fichiers Azure.
 

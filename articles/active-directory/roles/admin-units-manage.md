@@ -3,23 +3,23 @@ title: Ajouter et supprimer des unités administratives – Azure Active Directo
 description: Utiliser des unités administratives pour limiter l’étendue des autorisations de rôle dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395391"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740446"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gérer des unités administratives dans Azure Active Directory
 
@@ -33,7 +33,7 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
     
     b. Dans la liste des applications, sélectionnez **Afficheur Graph**.
     
-    c. Dans le volet **Autorisations** , sélectionnez **Accorder un consentement administrateur pour Afficheur Graph**.
+    c. Dans le volet **Autorisations**, sélectionnez **Accorder un consentement administrateur pour Afficheur Graph**.
 
     ![Capture d’écran montrant le lien « Accorder un consentement administrateur pour Afficheur Graph ».](./media/admin-units-manage/select-graph-explorer.png)
 
@@ -50,7 +50,7 @@ Vous pouvez ajouter une unité administrative à l’aide du portail Azure ou de
 
     ![Capture d’écran du lien « Unités administratives » dans Azure AD.](./media/admin-units-manage/nav-to-admin-units.png)
 
-1. Sélectionnez le bouton **Ajouter** dans la partie supérieure du volet, puis, dans la zone **Nom** , entrez le nom de l’unité administrative. Si vous le souhaitez, ajoutez une description de l’unité administrative.
+1. Sélectionnez le bouton **Ajouter** dans la partie supérieure du volet, puis, dans la zone **Nom**, entrez le nom de l’unité administrative. Si vous le souhaitez, ajoutez une description de l’unité administrative.
 
     ![Capture d’écran montrant le bouton Ajouter et la zone Nom permettant d’entrer le nom de l’unité administrative.](./media/admin-units-manage/add-new-admin-unit.png)
 

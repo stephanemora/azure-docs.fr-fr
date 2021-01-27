@@ -3,12 +3,12 @@ title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934286"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732409"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -149,7 +149,7 @@ Comme pour les autres tâches, la [tâche de démarrage](jobs-and-tasks.md#start
 
 ### <a name="isolated-nodes"></a>Nœuds isolés
 
-Envisagez d’utiliser des tailles de machines virtuelles isolées pour des charges de travail assorties d’exigences de conformité ou réglementaires. Les tailles isolées prises en charge en mode de configuration de machine virtuelle incluent `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5` et `Standard_E64i_v3`. Pour plus d’informations sur les tailles de machines virtuelles isolées, consultez [Isolation de machine virtuelle dans Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Envisagez d’utiliser des tailles de machines virtuelles isolées pour des charges de travail assorties d’exigences de conformité ou réglementaires. Les tailles isolées prises en charge en mode de configuration de machine virtuelle incluent `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5` et `Standard_E64i_v3`. Pour plus d’informations sur les tailles de machines virtuelles isolées, consultez [Isolation de machine virtuelle dans Azure](../virtual-machines/isolation.md).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gérer les services durables par le biais de l’interface des services du système d’exploitation
 

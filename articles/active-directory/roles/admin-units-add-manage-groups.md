@@ -3,23 +3,23 @@ title: Ajouter, supprimer et répertorier des groupes dans une unité administra
 description: Gérez les groupes et leurs autorisations de rôles dans une unité administrative dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394745"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740548"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Ajouter et gérer des groupes dans une unité administrative dans Azure Active Directory
 
@@ -35,10 +35,10 @@ Vous pouvez ajouter des groupes à une unité administrative à l’aide du port
 
 Vous pouvez uniquement affecter des groupes individuels à une unité administrative. Il n’existe aucune option pour assigner des groupes dans une opération en bloc. Dans le portail Azure, vous pouvez affecter un groupe à une unité administrative de deux manières :
 
-* Dans le volet **Groupes**  :
+* Dans le volet **Groupes** :
 
   1. Dans le portail Azure, accédez à **Azure AD**.
-  1. Sélectionnez **Groupes** , puis sélectionnez le groupe que vous souhaitez affecter à l’unité administrative. 
+  1. Sélectionnez **Groupes**, puis sélectionnez le groupe que vous souhaitez affecter à l’unité administrative. 
   1. Dans le volet gauche, sélectionnez **Unités administratives** pour afficher la liste des unités administratives auxquelles le groupe est affecté. 
 
      ![Capture d’écran du lien « Affecter à une unité administrative » dans le volet « Unités administratives ».](./media/admin-units-add-manage-groups/assign-to-group-1.png)
@@ -46,14 +46,14 @@ Vous pouvez uniquement affecter des groupes individuels à une unité administra
   1. Sélectionnez **Affecter à l’unité administrative**.
   1. Dans le volet droit, sélectionnez l’unité administrative.
 
-* À partir du volet **Unités administratives** > **Tous les groupes**  :
+* À partir du volet **Unités administratives** > **Tous les groupes** :
 
   1. Dans le portail Azure, accédez à **Azure AD**.
   
-  1. Dans le volet gauche, sélectionnez **Unités administratives** , puis sélectionnez **Tous les groupes**. 
+  1. Dans le volet gauche, sélectionnez **Unités administratives**, puis sélectionnez **Tous les groupes**. 
      Tous les groupes qui sont déjà affectés à l’unité administrative sont affichés dans le volet droit. 
 
-  1. Dans le volet **Groupes** , sélectionnez **Ajouter**.
+  1. Dans le volet **Groupes**, sélectionnez **Ajouter**.
     Le volet droit répertorie tous les groupes disponibles dans votre organisation Azure AD. 
 
      ![Capture d’écran du bouton « Ajouter » pour ajouter un groupe à une unité administrative.](./media/admin-units-add-manage-groups/assign-to-admin-unit.png)
@@ -99,7 +99,7 @@ Exemple :
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
-1. Dans le volet gauche, sélectionnez **Unités administratives** , puis sélectionnez l’unité administrative dont vous souhaitez afficher les groupes. Par défaut, **Tous les utilisateurs** est sélectionné dans le volet gauche. 
+1. Dans le volet gauche, sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative dont vous souhaitez afficher les groupes. Par défaut, **Tous les utilisateurs** est sélectionné dans le volet gauche. 
 
 1. Dans le volet gauche, sélectionnez **Groupes**. Le volet droit affiche la liste des groupes qui sont membres de l’unité administrative sélectionnée.
 
@@ -176,7 +176,7 @@ Dans le portail Azure, vous pouvez supprimer un groupe d’une unité administra
 - Supprimez-le à partir d’une vue d’ensemble du groupe :
 
   1. Dans le portail Azure, accédez à **Azure AD**.
-  1. Dans le volet gauche, sélectionnez **Groupes** , puis ouvrez le profil du groupe que vous souhaitez supprimer d’une unité administrative.
+  1. Dans le volet gauche, sélectionnez **Groupes**, puis ouvrez le profil du groupe que vous souhaitez supprimer d’une unité administrative.
   1. Dans le volet gauche, sélectionnez **Unités administratives** pour répertorier toutes les unités administratives auxquelles le groupe est affecté. 
   1. Sélectionnez l’unité administrative dont vous souhaitez supprimer le groupe, puis sélectionnez **Supprimer de l’unité administrative**.
 
@@ -185,7 +185,7 @@ Dans le portail Azure, vous pouvez supprimer un groupe d’une unité administra
 - Supprimez-le à partir d’une unité administrative :
 
   1. Dans le portail Azure, accédez à **Azure AD**.
-  1. Dans le volet gauche, sélectionnez **Unités administratives** , puis sélectionnez l’unité administrative à laquelle le groupe est affecté.
+  1. Dans le volet gauche, sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative à laquelle le groupe est affecté.
   1. Dans le volet gauche, sélectionnez **Groupes** pour répertorier tous les groupes qui sont affectés à l’unité administrative.
   1. Sélectionnez le groupe que vous souhaitez supprimer, puis choisissez **Supprimer les groupes**.
 

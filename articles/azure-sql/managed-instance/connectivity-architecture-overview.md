@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722400"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725834"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Déployer SQL Managed Instance sur un sous-réseau dédié à l’intérieur du 
 - **Nombre d’adresses IP suffisant :** le sous-réseau SQL Managed Instance doit disposer d’au moins 32 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour SQL Managed Instance](vnet-subnet-determine-size.md). Vous pouvez déployer des instances gérées dans [le réseau existant](vnet-existing-add-subnet.md) une fois que vous l’avez configuré de manière à satisfaire les [exigences réseau pour SQL Managed Instance](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Lorsqu’une instance gérée est créée, une stratégie d’intention réseau est appliquée au sous-réseau afin d’empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la stratégie d’intention réseau est également supprimée. Les règles ci-dessous sont fournies à titre d’information uniquement et ne doivent pas être déployées à l’aide d’un modèle ARM/PowerShell/CLI. Si vous souhaitez utiliser le dernier modèle officiel, vous pouvez toujours [le récupérer à partir du portail](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> Lorsqu’une instance gérée est créée, une stratégie d’intention réseau est appliquée au sous-réseau afin d’empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la stratégie d’intention réseau est également supprimée. Les règles ci-dessous sont fournies à titre d’information uniquement et ne doivent pas être déployées à l’aide d’un modèle ARM/PowerShell/CLI. Si vous souhaitez utiliser le dernier modèle officiel, vous pouvez toujours [le récupérer à partir du portail](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Règles de sécurité du trafic entrant obligatoires avec configuration du sous-réseau assistée par le service
 

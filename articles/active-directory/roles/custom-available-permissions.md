@@ -2,23 +2,23 @@
 title: Autorisations de rôle personnalisées pour l’inscription d’applications - Azure AD | Microsoft Docs
 description: Déléguez les autorisations de rôle d’administrateur personnalisé pour gérer les inscriptions d’applications.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2f520f55b9664d2d0b039867ef7670b190fed
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6eb854c8b9ac3b4ee527c9a117edde13479bfeb4
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377069"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740191"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorisations d’inscription d’application pour les rôles personnalisés dans Azure Active Directory
 

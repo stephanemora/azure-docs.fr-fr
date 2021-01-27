@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147026"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732945"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -38,7 +38,7 @@ Vous apprendrez à :
 ## <a name="prerequisites"></a>Prérequis
 
 * Suivez le guide de démarrage rapide [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-* Vérifiez que votre abonnement contient une application Azure Functions. Pour plus d’informations, consultez [Création d’une application Azure Function](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). L’application doit contenir des fonctions avec un déclencheur HTTP et un paramètre de niveau d’autorisation défini sur *Anonyme* ou *Fonction*.
+* Vérifiez que votre abonnement contient une application Azure Functions. Pour plus d’informations, consultez [Création d’une application Azure Function](../azure-functions/functions-get-started.md). L’application doit contenir des fonctions avec un déclencheur HTTP et un paramètre de niveau d’autorisation défini sur *Anonyme* ou *Fonction*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,7 +48,7 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
 
 1. À partir du portail Azure, accédez à votre service Gestion des API, puis sélectionnez **API** dans le menu.
 
-2. Dans la liste **Ajouter une nouvelle API** , sélectionnez **Application de fonction**.
+2. Dans la liste **Ajouter une nouvelle API**, sélectionnez **Application de fonction**.
 
     ![Capture d’écran montrant la vignette Application de fonction.](./media/import-function-app-as-api/add-01.png)
 
@@ -78,7 +78,7 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
 
 Suivez les étapes ci-dessous pour ajouter une application de fonction Azure à une API existante.
 
-1. Dans votre instance du service **Gestion des API Azure** , sélectionnez **API** dans le menu de gauche.
+1. Dans votre instance du service **Gestion des API Azure**, sélectionnez **API** dans le menu de gauche.
 
 2. Choisissez l’API dans laquelle vous souhaitez importer une application de fonction Azure. Cliquez sur **...** et sélectionnez **Importer** dans le menu contextuel.
 
@@ -112,10 +112,10 @@ Suivez les étapes ci-dessous pour ajouter une application de fonction Azure à 
 
 L’importation d’une application de fonction Azure génère automatiquement :
 
-* Une clé d’hôte au sein de l’application de fonction portant le nom apim-{ *nom de votre instance de service Gestion des API Azure* }.
-* Une valeur nommée au sein de l’instance de Gestion des API Azure portant le nom { *nom de votre instance d’Azure Function App* }-key, qui contient la clé d’hôte créée.
+* Une clé d’hôte au sein de l’application de fonction portant le nom apim-{*nom de votre instance de service Gestion des API Azure*}.
+* Une valeur nommée au sein de l’instance de Gestion des API Azure portant le nom {*nom de votre instance d’Azure Function App*}-key, qui contient la clé d’hôte créée.
 
-Pour les API créées après le 4 avril 2019, la clé d’hôte est passée dans les requêtes HTTP de la Gestion des API vers l’application de fonction dans un en-tête. Les API plus anciennes transmettent la clé d’hôte sous la forme d’[un paramètre de requête](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Vous pouvez changer ce comportement par le biais de l’ [appel à l’API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sur l’entité *Backend* associée à l’application de fonction.
+Pour les API créées après le 4 avril 2019, la clé d’hôte est passée dans les requêtes HTTP de la Gestion des API vers l’application de fonction dans un en-tête. Les API plus anciennes transmettent la clé d’hôte sous la forme d’[un paramètre de requête](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Vous pouvez changer ce comportement par le biais de l’[appel à l’API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sur l’entité *Backend* associée à l’application de fonction.
 
 > [!WARNING]
 > En cas de suppression ou de modification de la clé d’hôte Azure Function App ou de la valeur nommée de Gestion des API Azure, la communication entre les services sera interrompue. Les valeurs ne se synchronisent pas automatiquement.
@@ -150,7 +150,7 @@ Vous pouvez appeler des opérations directement depuis le portail Azure. Le port
 
 3. Sélectionnez une opération.
 
-    La page affiche des champs pour les paramètres de requête et des champs pour les en-têtes. L’un des en-têtes est **Ocp-Apim-Subscription-Key** , pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance Gestion des API, la clé est renseignée automatiquement, car vous êtes déjà administrateur. 
+    La page affiche des champs pour les paramètres de requête et des champs pour les en-têtes. L’un des en-têtes est **Ocp-Apim-Subscription-Key**, pour la clé d’abonnement du produit qui est associé à cette API. Si vous avez créé l’instance Gestion des API, la clé est renseignée automatiquement, car vous êtes déjà administrateur. 
 
 4. Sélectionnez **Envoyer**.
 

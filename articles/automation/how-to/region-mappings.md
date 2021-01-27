@@ -1,16 +1,16 @@
 ---
 title: Régions prises en charge pour l’espace de travail Log Analytics lié
 description: Cet article décrit les mappages des régions prises en charge entre un compte Automation et un espace de travail Log Analytics en relation avec certaines fonctionnalités d’Azure Automation.
-ms.date: 12/15/2020
+ms.date: 01/21/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590883"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704319"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Régions prises en charge pour l’espace de travail Log Analytics lié
 
@@ -32,13 +32,17 @@ Le tableau suivant renseigne sur les mappages pris en charge :
 |**États-Unis**||
 |EastUS<sup>1</sup>|USAEst2|
 |USAEst2<sup>2</sup>|USAEst|
+|WestUS|WestUS|
 |WestUS2|WestUS2|
+|CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |USACentreOuest|USACentreOuest|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asie-Pacifique**||
+|AustraliaEast|AustraliaEast|
 |AustralieSudEst|AustralieSudEst|
+|EastAsia|EastAsia|
 |AsieSudEst|AsieSudEst|
 |CentralIndia|CentralIndia|
 |ChineEst2<sup>3</sup>|ChinaEast2|

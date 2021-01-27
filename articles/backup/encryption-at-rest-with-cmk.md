@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562758"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735858"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -77,7 +77,7 @@ Sauvegarde Azure utilise l’identité managée affectée par le système pour a
 
 **Avec PowerShell :**
 
-Utilisez la commande [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) pour activer l’identité managée attribuée par le système pour le coffre Recovery Services.
+Utilisez la commande [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) pour activer l’identité managée attribuée par le système pour le coffre Recovery Services.
 
 Exemple :
 
@@ -121,7 +121,7 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 
 **Avec PowerShell :**
 
-Utilisez la commande [Set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) pour activer le chiffrement à l’aide de clés gérées par le client, et attribuer ou mettre à jour la clé de chiffrement à utiliser.
+Utilisez la commande [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) pour activer le chiffrement à l’aide de clés gérées par le client, et attribuer ou mettre à jour la clé de chiffrement à utiliser.
 
 Exemple :
 
@@ -290,7 +290,7 @@ Le jeu de chiffrement de disque est spécifié en dessous de Paramètres de chif
 
 **Avec PowerShell :**
 
-Utilisez la commande [obtenir-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) avec le paramètre [`-DiskEncryptionSetId <string>`] pour [spécifier le DES](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) à utiliser pour chiffrer le disque restauré. Pour plus d’informations sur la restauration de disques à partir d’une sauvegarde de machine virtuelle, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Utilisez la commande [obtenir-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) avec le paramètre [`-DiskEncryptionSetId <string>`] pour [spécifier le DES](/powershell/module/az.compute/get-azdiskencryptionset) à utiliser pour chiffrer le disque restauré. Pour plus d’informations sur la restauration de disques à partir d’une sauvegarde de machine virtuelle, consultez [cet article](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Exemple :
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222443"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725439"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Déterminer votre posture de sécurité pour l’accès externe 
 
@@ -69,7 +69,7 @@ Quel que soit celui que vous mettez en œuvre pour votre organisation et vos sc�
 
 * **Contrôler l’accès aux applications, aux données et au contenu**. Cela peut être accompli par le biais de différentes méthodes, en fonction de vos versions d’[Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) et de [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Réduire la surface d’attaque**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [prévention contre la perte de données (DLP),](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) et les [fonctionnalités de chiffrement](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) réduisent la surface d’attaque.
+* **Réduire la surface d’attaque**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [prévention contre la perte de données (DLP),](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) et les [fonctionnalités de chiffrement](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) réduisent la surface d’attaque.
 
 * **Examiner régulièrement les activités et le journal d’audit pour confirmer la conformité**. Les TI peuvent déléguer les décisions d’accès aux propriétaires d’entreprises par le biais de la gestion des droits d’utilisation, tandis que les révisions d’accès permettent de confirmer périodiquement le maintien de l’accès. La classification automatisée des données avec des étiquettes de confidentialité contribue à automatiser le chiffrement des contenus sensibles, ce qui permet aux utilisateurs finaux de s’y conformer facilement.
 
@@ -96,4 +96,3 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 9. [Sécuriser l’accès à Microsoft Teams, OneDrive et SharePoint](9-secure-access-teams-sharepoint.md)
  
 
- 

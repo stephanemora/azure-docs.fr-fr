@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1e9d65baacb9c712b92ef6f00abda169031b47e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580956"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735262"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personnaliser la configuration des nœuds pour les pools de nœuds Azure Kubernetes service (AKS) [préversion]
 
@@ -132,7 +132,7 @@ Les paramètres ci-dessous peuvent être utilisés pour régler le fonctionnemen
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Cette valeur détermine si le noyau doit utiliser de manière intensive la compression de la mémoire pour rendre plus de `hugepages` disponibles. | 
 
 > [!IMPORTANT]
-> Pour faciliter la recherche et la lisibilité, les paramètres du système d’exploitation s’affichent dans ce document par leur nom, mais doivent être ajoutés au fichier config JSON ou à l’API AKS en utilisant la [convention de mise en majuscules camelCase](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> Pour faciliter la recherche et la lisibilité, les paramètres du système d’exploitation s’affichent dans ce document par leur nom, mais doivent être ajoutés au fichier config JSON ou à l’API AKS en utilisant la [convention de mise en majuscules camelCase](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Créez un fichier `kubeletconfig.json` avec le contenu suivant :
 

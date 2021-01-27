@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/15/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a1cfabf6ccbb5d580bcad36694cd2e1a74155714
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 52e491c88d3483f21aa74f1a9f176246033bee3c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540351"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735790"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>Création d’un instantané incrémentiel pour les disques managés
 
@@ -33,7 +33,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Une fois la dernière version installée, connectez-vous à votre session PowerShell à l'aide de la commande `Connect-AzAccount`.
 
-Pour créer un instantané incrémentiel avec Azure PowerShell, définissez la configuration avec [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) avec le paramètre `-Incremental`, puis passez-la en tant que variable à [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) par le biais du paramètre `-Snapshot`.
+Pour créer un instantané incrémentiel avec Azure PowerShell, définissez la configuration avec [New-AzSnapShotConfig](/powershell/module/az.compute/new-azsnapshotconfig) avec le paramètre `-Incremental`, puis passez-la en tant que variable à [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) par le biais du paramètre `-Snapshot`.
 
 ```PowerShell
 $diskName = "yourDiskNameHere>"

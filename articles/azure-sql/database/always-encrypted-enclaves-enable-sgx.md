@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 4c77103dbb043ef9d6af9a4078b3e574ab5f953f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: ded1406c47bb3f00c366da7a5b28319f3712f8a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253203"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733754"
 ---
 # <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Activer Intel SGX pour votre instance Azure SQL Database 
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253203"
 > [!NOTE]
 > Always Encrypted avec enclaves sécurisées pour Azure SQL Database est actuellement en **préversion publique**.
 
-[Always Encrypted avec enclaves sécurisées](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) dans Azure SQL Database utilise des enclaves [Intel SGX (Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/). Pour qu’Intel SGX soit disponible, la base de données doit utiliser le [modèle vCore](service-tiers-vcore.md) et la génération matérielle de la [série DC](service-tiers-vcore.md#dc-series).
+[Always Encrypted avec enclaves sécurisées](/sql/relational-databases/security/encryption/always-encrypted-enclaves) dans Azure SQL Database utilise des enclaves [Intel SGX (Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/). Pour qu’Intel SGX soit disponible, la base de données doit utiliser le [modèle vCore](service-tiers-vcore.md) et la génération matérielle de la [série DC](service-tiers-vcore.md#dc-series).
 
 La configuration de la génération de matériel de série DC pour activer des enclaves Intel SGX est la responsabilité de l’administrateur Azure SQL Database. Consultez [Rôles et responsabilités lors de la configuration des enclaves SGX et de l’attestation](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 

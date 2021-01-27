@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71031c7f5db299fbb1b7c99014c30590fec89f03
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222290"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725126"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Contrôler l’accès avec des étiquettes de confidentialité 
 
-Les [étiquettes de confidentialité](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) vous aident à contrôler l’accès à votre contenu dans les applications Office 365 et dans des conteneurs tels que Microsoft Teams, les groupes Microsoft 365 et les sites SharePoint. Elles peuvent protéger votre contenu sans nuire aux capacités de production et de collaboration de vos utilisateurs. Les étiquettes de confidentialité vous permettent d’envoyer le contenu de votre organisation entre des appareils, des applications et des services, tout en protégeant vos données et en respectant vos stratégies de conformité et de sécurité. 
+Les [étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide) vous aident à contrôler l’accès à votre contenu dans les applications Office 365 et dans des conteneurs tels que Microsoft Teams, les groupes Microsoft 365 et les sites SharePoint. Elles peuvent protéger votre contenu sans nuire aux capacités de production et de collaboration de vos utilisateurs. Les étiquettes de confidentialité vous permettent d’envoyer le contenu de votre organisation entre des appareils, des applications et des services, tout en protégeant vos données et en respectant vos stratégies de conformité et de sécurité. 
 
 Les étiquettes de confidentialité vous permettent d’effectuer les tâches suivantes :
 
 * **Classifier le contenu sans ajouter de paramètres de protection**. Vous pouvez affecter une classification à du contenu (comme un autocollant) qui reste et suit votre contenu quand il est utilisé et partagé. Vous pouvez utiliser cette classification pour générer des rapports d’utilisation et voir les données d’activité de votre contenu sensible.
 
-* **Appliquer des paramètres de protection, tels qu’un chiffrement, des filigranes ou des restrictions d’accès**. Par exemple, les utilisateurs peuvent appliquer une étiquette Confidentiel à un document ou à un e-mail, et cette étiquette peut [chiffrer le contenu](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) et ajouter un filigrane « Confidentiel ». De plus, vous pouvez [appliquer une étiquette de confidentialité à un conteneur](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide), tel qu’un site SharePoint, et indiquer si les utilisateurs externes peuvent accéder au contenu qu’il contient.
+* **Appliquer des paramètres de protection, tels qu’un chiffrement, des filigranes ou des restrictions d’accès**. Par exemple, les utilisateurs peuvent appliquer une étiquette Confidentiel à un document ou à un e-mail, et cette étiquette peut [chiffrer le contenu](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) et ajouter un filigrane « Confidentiel ». De plus, vous pouvez [appliquer une étiquette de confidentialité à un conteneur](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide), tel qu’un site SharePoint, et indiquer si les utilisateurs externes peuvent accéder au contenu qu’il contient.
 
 Des étiquettes de confidentialité sur un e-mail et d’autres contenus accompagnent ce contenu. Une étiquette de confidentialité sur un conteneur peut limiter l’accès à ce conteneur, mais le contenu du conteneur n’hérite pas de l’étiquette. Par exemple, un utilisateur peut prendre du contenu d’un site protégé, le télécharger, puis le partager sans restrictions, sauf si le contenu contient également une étiquette de confidentialité.
 
@@ -52,7 +52,7 @@ Lorsque vous réfléchissez à la gouvernance de l’accès externe à votre con
 
 * Comment allez-vous définir à quoi correspondent un impact élevé (HBI), un impact moyen (MBI) et un impact faible (LBI) sur l’entreprise ? Tenez compte de l’impact sur votre organisation si des types spécifiques de contenu sont partagés de façon inappropriée.
 
-   * Contenu avec des types spécifiques de [contenu sensible](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) par nature, tels que des numéros de cartes de crédit ou de passeports
+   * Contenu avec des types spécifiques de [contenu sensible](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) par nature, tels que des numéros de cartes de crédit ou de passeports
 
    * Contenu créé par des groupes ou des personnes spécifiques (par exemple, des responsables de la mise en conformité, des responsables financiers ou des cadres)
 
@@ -66,21 +66,21 @@ Lorsque vous réfléchissez à la gouvernance de l’accès externe à votre con
 
 * Quels paramètres par défaut doivent être en place pour les données HBI, les sites et les groupes Microsoft 365 ?
 
-* Où allez-vous utiliser des étiquettes de confidentialité pour [étiqueter et surveiller](https://docs.microsoft.com/microsoft-365/compliance/label-analytics?view=o365-worldwide), au lieu d’[appliquer un chiffrement](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou d’[appliquer des restrictions d’accès au conteneur](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) ?
+* Où allez-vous utiliser des étiquettes de confidentialité pour [étiqueter et surveiller](/microsoft-365/compliance/label-analytics?view=o365-worldwide), au lieu d’[appliquer un chiffrement](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou d’[appliquer des restrictions d’accès au conteneur](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) ?
 
 **Pour un e-mail et du contenu**
 
-* Voulez-vous [appliquer automatiquement des étiquettes de confidentialité](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) au contenu ou le faire manuellement ?
+* Voulez-vous [appliquer automatiquement des étiquettes de confidentialité](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) au contenu ou le faire manuellement ?
 
-   * Si vous choisissez de le faire manuellement, voulez-vous [recommander aux utilisateurs d’appliquer une étiquette](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) ?
+   * Si vous choisissez de le faire manuellement, voulez-vous [recommander aux utilisateurs d’appliquer une étiquette](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) ?
 
 **Pour les conteneurs**
 
 * Quels sont les critères qui déterminent si des groupes M365, Teams ou des sites SharePoint nécessitent un accès restreint au moyen d’étiquettes de confidentialité ?
 
-* Voulez-vous uniquement étiqueter le contenu de ces conteneurs ou voulez-vous [étiqueter automatiquement](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) les fichiers existants dans SharePoint et OneDrive ?
+* Voulez-vous uniquement étiqueter le contenu de ces conteneurs ou voulez-vous [étiqueter automatiquement](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide) les fichiers existants dans SharePoint et OneDrive ?
 
-Consultez ces [scénarios courants d’étiquettes de confidentialité](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) pour d’autres idées sur la façon d’utiliser les étiquettes de confidentialité.
+Consultez ces [scénarios courants d’étiquettes de confidentialité](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide) pour d’autres idées sur la façon d’utiliser les étiquettes de confidentialité.
 
 ### <a name="sensitivity-labels-on-email-and-content"></a>Étiquettes de confidentialité sur un e-mail et du contenu
 
@@ -100,7 +100,7 @@ Lorsque vous affectez une étiquette de confidentialité à un document ou à un
 
 ### <a name="sensitivity-labels-on-containers"></a>Étiquettes de confidentialité sur les conteneurs
 
-Vous pouvez appliquer des étiquettes de confidentialité sur des conteneurs tels que les [groupes Microsoft 365](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-assign-sensitivity-labels), [Microsoft Teams](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) et les [sites SharePoint](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide). Lorsque vous appliquez cette étiquette de confidentialité à un conteneur pris en charge, l’étiquette applique automatiquement les paramètres de classification et de protection au site ou groupe connecté. Les étiquettes de confidentialité sur ces conteneurs peuvent contrôler les aspects suivants des conteneurs :
+Vous pouvez appliquer des étiquettes de confidentialité sur des conteneurs tels que les [groupes Microsoft 365](../enterprise-users/groups-assign-sensitivity-labels.md), [Microsoft Teams](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) et les [sites SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide). Lorsque vous appliquez cette étiquette de confidentialité à un conteneur pris en charge, l’étiquette applique automatiquement les paramètres de classification et de protection au site ou groupe connecté. Les étiquettes de confidentialité sur ces conteneurs peuvent contrôler les aspects suivants des conteneurs :
 
 * **Confidentialité**. Vous pouvez choisir qui peut voir le site : des utilisateurs spécifiques, tous les utilisateurs internes ou tout le monde.
 
@@ -116,25 +116,25 @@ Vous pouvez appliquer des étiquettes de confidentialité sur des conteneurs tel
 
 Lorsque vous appliquez une étiquette de confidentialité à un conteneur tel qu’un site SharePoint, elle n’est pas appliquée à son contenu : les étiquettes de confidentialité sur les conteneurs contrôlent l’accès au contenu dans le conteneur. 
 
-* Si vous souhaitez appliquer automatiquement des étiquettes au contenu dans le conteneur, consultez [Appliquer automatiquement une étiquette de confidentialité au contenu](https://docs.microsoft.com/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
+* Si vous souhaitez appliquer automatiquement des étiquettes au contenu dans le conteneur, consultez [Appliquer automatiquement une étiquette de confidentialité au contenu](/microsoft-365/compliance/apply-sensitivity-label-automatically?view=o365-worldwide).
 
-* Si vous souhaitez que les utilisateurs puissent appliquer manuellement des étiquettes à ce contenu, veillez à [activer les étiquettes de confidentialité pour les fichiers Office dans SharePoint et OneDrive](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
+* Si vous souhaitez que les utilisateurs puissent appliquer manuellement des étiquettes à ce contenu, veillez à [activer les étiquettes de confidentialité pour les fichiers Office dans SharePoint et OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide).
 
 ### <a name="plan-to-implement-sensitivity-labels"></a>Planifier l’implémentation des étiquettes de confidentialité
 
 Une fois que vous avez déterminé la manière dont vous souhaitez utiliser les étiquettes de confidentialité, ainsi que le contenu et les sites auxquels vous souhaitez les appliquer, consultez la documentation suivante qui vous aidera à effectuer votre implémentation.
 
-1. [Bien démarrer avec les étiquettes de confidentialité](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+1. [Bien démarrer avec les étiquettes de confidentialité](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
 
-2. [Créer une stratégie de déploiement](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
+2. [Créer une stratégie de déploiement](/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide)
 
-3. [Créer et publier des étiquettes de confidentialité](https://docs.microsoft.com/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
+3. [Créer et publier des étiquettes de confidentialité](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide)
 
-4. [Restreindre l’accès à du contenu à l’aide d’étiquettes de confidentialité pour appliquer un chiffrement](https://docs.microsoft.com/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
+4. [Restreindre l’accès à du contenu à l’aide d’étiquettes de confidentialité pour appliquer un chiffrement](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide)
 
-5. [Utiliser des étiquettes de confidentialité avec des équipes, des groupes et des sites](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
+5. [Utiliser des étiquettes de confidentialité avec des équipes, des groupes et des sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)
 
-6. [Activer les étiquettes de confidentialité pour les fichiers Office dans SharePoint et OneDrive](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
+6. [Activer les étiquettes de confidentialité pour les fichiers Office dans SharePoint et OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
 
 ### <a name="next-steps"></a>Étapes suivantes
 

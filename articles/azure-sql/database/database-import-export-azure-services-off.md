@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3a02876234d43df2e98a3a4e60453fc3f1f74ef6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676495"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724167"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importer ou exporter une instance Azure SQL Database sans autoriser les services Azure à accéder au serveur
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-the-azure-virtual-machine"></a>Créer la machine virtuelle Azure
 
-Créez une machine virtuelle Azure en sélectionnant le bouton **Déployer sur Azure** .
+Créez une machine virtuelle Azure en sélectionnant le bouton **Déployer sur Azure**.
 
 Ce modèle vous permet de déployer une machine virtuelle Windows simple à partir de différentes options de version de Windows intégrant les derniers correctifs. La machine virtuelle ainsi déployée présente une taille A2 à l’emplacement du groupe de ressources et le nom de domaine complet de la machine virtuelle est retourné.
 <br><br>
@@ -46,22 +46,22 @@ Les étapes suivantes vous montrent comment vous connecter à votre machine virt
 
    ![Capture d'écran représentant la page de présentation d'une machine virtuelle avec un bouton Se connecter.](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Sélectionnez **Connecter** .
+2. Sélectionnez **Connecter**.
 
    Un formulaire de fichier .rdp (Remote Desktop Protocol) s’affiche avec l’adresse IP publique et le numéro de port de la machine virtuelle.
 
    ![Formulaire RDP](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Sélectionnez **Télécharger le fichier RDP** .
+3. Sélectionnez **Télécharger le fichier RDP**.
 
    > [!NOTE]
    > Vous pouvez également utiliser le protocole SSH pour vous connecter à votre machine virtuelle.
 
-4. Fermez le formulaire **Se connecter à la machine virtuelle** .
+4. Fermez le formulaire **Se connecter à la machine virtuelle**.
 5. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé.
-6. Lorsque vous y êtes invité, sélectionnez **Connexion** . Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponible sur le Mac App Store.
+6. Lorsque vous y êtes invité, sélectionnez **Connexion**. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) disponible sur le Mac App Store.
 
-7. Entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés au moment de créer la machine virtuelle, puis choisissez **OK** .
+7. Entrez le nom d’utilisateur et le mot de passe que vous avez spécifiés au moment de créer la machine virtuelle, puis choisissez **OK**.
 
 8. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Choisissez **Oui** ou **Continuer** pour établir la connexion.
 
@@ -77,7 +77,7 @@ Ajoutez l’adresse IP publique de la machine virtuelle au pare-feu du serveur.
 
 Les étapes suivantes permettent de créer une règle de pare-feu IP au niveau du serveur pour l’adresse IP publique de votre machine virtuelle et d’activer la connectivité à partir de la machine virtuelle.
 
-1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL** . La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom complet du serveur (par exemple, **servername.database.windows.net** ) et fournit des options pour poursuivre la configuration.
+1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom complet du serveur (par exemple, **servername.database.windows.net**) et fournit des options pour poursuivre la configuration.
 
 2. Copiez ce nom de serveur complet pour vous connecter à votre serveur et à ses bases de données.
 
@@ -89,9 +89,9 @@ Les étapes suivantes permettent de créer une règle de pare-feu IP au niveau d
 
 4. Dans la barre d’outils, choisissez **Ajouter une adresse IP de client** pour ajouter l’adresse IP publique de votre machine virtuelle à une nouvelle règle de pare-feu IP au niveau du serveur. Une règle de pare-feu IP au niveau du serveur peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Sélectionnez **Enregistrer** . Une règle de pare-feu IP au niveau du serveur est créée pour l’adresse IP publique de votre machine virtuelle actuelle et ouvre le port 1433 sur le serveur.
+5. Sélectionnez **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour l’adresse IP publique de votre machine virtuelle actuelle et ouvre le port 1433 sur le serveur.
 
-6. Fermez la page **Paramètres de pare-feu** .
+6. Fermez la page **Paramètres de pare-feu**.
 
 ## <a name="export-a-database-using-sqlpackage"></a>Exporter une base de données à l’aide de SqlPackage
 
@@ -111,7 +111,7 @@ Pour importer une base de données SQL Server à l’aide de l’utilitaire de l
 
 Pour bénéficier d’une mise à l’échelle et de performances optimales, nous vous recommandons d’utiliser SqlPackage dans la plupart des environnements de production au lieu du portail Azure. Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers `BACPAC` (en anglais), rendez-vous [ici](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
-La commande SqlPackage ci-dessous importe la base de données **AdventureWorks2017** du stockage local vers une instance Azure SQL Database. Elle crée une base de données appelée **myMigratedDatabase** avec un niveau de service **Premium** et un objectif de service **P6** . Changez ces valeurs en fonction de votre environnement.
+La commande SqlPackage ci-dessous importe la base de données **AdventureWorks2017** du stockage local vers une instance Azure SQL Database. Elle crée une base de données appelée **myMigratedDatabase** avec un niveau de service **Premium** et un objectif de service **P6**. Changez ces valeurs en fonction de votre environnement.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=myMigratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2017.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -147,7 +147,7 @@ Pour obtenir le meilleur niveau de performance, utilisez Azure Files. SqlPackage
 
 Pour réduire les coûts, utilisez des objets blob Azure, qui sont plus économiques qu’un partage de fichiers Azure Premium. Cependant, vous devrez copier le [fichier .BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre l’objet blob et le système de fichiers local avant de procéder à l’importation ou à l’exportation. Par conséquent, le processus prendra plus de temps.
 
-Pour charger ou télécharger des fichiers .BACPAC, consultez [Transférer des données avec AzCopy et le stockage Blob](../../storage/common/storage-use-azcopy-blobs.md) et [Transférer des données avec AzCopy et le stockage de fichiers](../../storage/common/storage-use-azcopy-files.md).
+Pour charger ou télécharger des fichiers .BACPAC, consultez [Transférer des données avec AzCopy et le stockage Blob](../../storage/common/storage-use-azcopy-v10.md#transfer-data) et [Transférer des données avec AzCopy et le stockage de fichiers](../../storage/common/storage-use-azcopy-files.md).
 
 Selon votre environnement, vous devrez peut-être [configurer des pare-feu et des réseaux virtuels dans Stockage Azure](../../storage/common/storage-network-security.md).
 

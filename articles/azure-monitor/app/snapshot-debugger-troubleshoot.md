@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673550"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732725"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes.
@@ -272,4 +272,4 @@ Si vous ne voyez toujours pas d’exception avec cet ID d’instantané, cela si
 
 Si votre application se connecte à Internet via un proxy ou un pare-feu, il se peut que vous deviez mettre à jour les règles pour communiquer avec le service Débogueur de capture instantanée.
 
-Les adresses IP utilisées par Débogueur de capture instantanée Application Insights sont incluses dans l’étiquette de service Azure Monitor. Pour plus d’informations, consultez [Documentation relative aux étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Les adresses IP utilisées par Débogueur de capture instantanée Application Insights sont incluses dans l’étiquette de service Azure Monitor. Pour plus d’informations, consultez [Documentation relative aux étiquettes de service](../../virtual-network/service-tags-overview.md).

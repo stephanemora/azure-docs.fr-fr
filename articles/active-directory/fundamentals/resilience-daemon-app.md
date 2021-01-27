@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: 74bfc9eeeb8375fca2c88a3fd3c31f17e130fc99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a7b8f893026bb96c8d768d2e6d07d0240ecb81fa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919000"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724839"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-daemon-applications-you-develop"></a>Augmenter la résilience de l’authentification et de l’autorisation dans les applications démon que vous développez
 
@@ -26,7 +26,7 @@ Cet article fournit des conseils sur la façon dont les développeurs peuvent ut
 
 ## <a name="use-managed-identities-for-azure-resources"></a>Utiliser des identités managées pour des ressources Azure
 
-Les développeurs qui créent des applications démon sur Microsoft Azure peuvent utiliser des [identités managées pour ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Les identités managées éliminent la nécessité pour les développeurs de gérer les secrets et les informations d’identification. La fonctionnalité améliore la résilience en évitant les erreurs relatives à l’expiration des certificats, aux erreurs de rotation ou à la confiance. Elle offre également plusieurs fonctionnalités intégrées, spécifiquement conçues pour accroître la résilience.
+Les développeurs qui créent des applications démon sur Microsoft Azure peuvent utiliser des [identités managées pour ressources Azure](../managed-identities-azure-resources/overview.md). Les identités managées éliminent la nécessité pour les développeurs de gérer les secrets et les informations d’identification. La fonctionnalité améliore la résilience en évitant les erreurs relatives à l’expiration des certificats, aux erreurs de rotation ou à la confiance. Elle offre également plusieurs fonctionnalités intégrées, spécifiquement conçues pour accroître la résilience.
 
 Les identités managées utilisent des jetons d’accès de longue durée et des informations de Microsoft Identity afin d’acquérir de manière proactive de nouveaux jetons dans un délai important avant l’expiration du jeton existant. Votre application peut continuer à fonctionner pendant que vous essayez d’acquérir un nouveau jeton.
 
@@ -34,11 +34,11 @@ Les identités managées utilisent également des points de terminaison régiona
 
 ## <a name="use-the-microsoft-authentication-library"></a>Utiliser Microsoft Authentication Library
 
-Les développeurs d’applications démon qui n’utilisent pas d’identités managées peuvent utiliser la [bibliothèque d’authentification Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), ce qui facilite l’implémentation de l’authentification et de l’autorisation et utilise automatiquement les meilleures pratiques en matière de résilience. MSAL facilitera le processus de fourniture des informations d’identification du client requises. Par exemple, votre application n’a pas besoin d’implémenter la création et la signature des assertions JSON Web Token lors de l’utilisation d’informations d’identification basées sur des certificats.
+Les développeurs d’applications démon qui n’utilisent pas d’identités managées peuvent utiliser la [bibliothèque d’authentification Microsoft (MSAL)](../develop/msal-overview.md), ce qui facilite l’implémentation de l’authentification et de l’autorisation et utilise automatiquement les meilleures pratiques en matière de résilience. MSAL facilitera le processus de fourniture des informations d’identification du client requises. Par exemple, votre application n’a pas besoin d’implémenter la création et la signature des assertions JSON Web Token lors de l’utilisation d’informations d’identification basées sur des certificats.
 
 ### <a name="use-microsoftidentityweb-for-net-developers"></a>Utiliser Microsoft.Identity.Web pour les développeurs .NET
 
-Les développeurs qui créent des applications démon sur ASP.NET Core peuvent utiliser la bibliothèque [Microsoft.Identity.Web](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web). Cette bibliothèque repose sur MSAL pour faciliter l’implémentation de l’autorisation pour les applications ASP.NET Core. Elle comprend plusieurs stratégies de [cache de jetons distribués](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) pour les applications distribuées qui peuvent s’exécuter dans plusieurs régions.
+Les développeurs qui créent des applications démon sur ASP.NET Core peuvent utiliser la bibliothèque [Microsoft.Identity.Web](../develop/microsoft-identity-web.md). Cette bibliothèque repose sur MSAL pour faciliter l’implémentation de l’autorisation pour les applications ASP.NET Core. Elle comprend plusieurs stratégies de [cache de jetons distribués](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization#distributed-token-cache) pour les applications distribuées qui peuvent s’exécuter dans plusieurs régions.
 
 ## <a name="cache-and-store-tokens"></a>Cache et stockage de jetons
 

@@ -3,12 +3,12 @@ title: Unités d’instance BareMetal dans Azure
 description: Découvrez comment identifier et interagir avec les unités d’instance BareMetal par le biais du portail Azure.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861028"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733261"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gérer des instances nues via le portail Azure
  
@@ -97,7 +97,7 @@ Les révisions matérielles possibles sont les suivantes :
 >[!NOTE]
 >Rev 4.2 est la dernière infrastructure BareMetal rebaptisée qui utilise l’architecture Rev 4 existante. Rev 4 assure une plus grande proximité des hôtes de machine virtuelle Azure. Elle présente des améliorations significatives de latence réseau entre les machines virtuelles Azure et les unités d’instance BareMetal déployées dans les tampons ou lignes Rev 4. Vous pouvez accéder à vos instances BareMetal et les gérer via le portail Azure. Pour plus d’informations, consultez l’article [Infrastructure BareMetal sur Azure](baremetal-overview-architecture.md).
  
-En outre, sur le côté droit, vous trouverez le [Nom du groupe de placement de proximité Azure](../../../virtual-machines/linux/co-location.md), qui est créé automatiquement pour chaque unité d’instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche application. Lorsque vous utilisez le groupe de placement de proximité associé à l’unité d’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’unité d’instance BareMetal.
+En outre, sur le côté droit, vous trouverez le [Nom du groupe de placement de proximité Azure](../../../virtual-machines/co-location.md), qui est créé automatiquement pour chaque unité d’instance BareMetal déployée. Référencez le groupe de placement de proximité lorsque vous déployez les machines virtuelles Azure qui hébergent la couche application. Lorsque vous utilisez le groupe de placement de proximité associé à l’unité d’instance BareMetal, vous vous assurez que les machines virtuelles Azure sont déployées près de l’unité d’instance BareMetal.
  
 >[!TIP]
 >Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).

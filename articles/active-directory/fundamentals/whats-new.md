@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132543"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724218"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -100,7 +100,7 @@ Vous pouvez désormais automatiser la création, la mise à jour et la suppressi
 - [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Pour référencer votre application dans la galerie d’applications Azure AD, l
 **Catégorie de service :** RBAC  
 **Fonctionnalité de produit :** Contrôle d’accès
  
- [Les rôles RBAC personnalisés pour la gestion déléguée des applications d’entreprise](../users-groups-roles/roles-custom-available-permissions.md) sont désormais en préversion publique. Ces nouvelles autorisations s’appuient sur les rôles personnalisés pour la gestion de l’inscription des applications, ce qui permet un contrôle précis de l’accès de vos administrateurs. Au fil du temps, des autorisations supplémentaires pour déléguer la gestion d’Azure AD seront publiées.
+ [Les rôles RBAC personnalisés pour la gestion déléguée des applications d’entreprise](../roles/custom-available-permissions.md) sont désormais en préversion publique. Ces nouvelles autorisations s’appuient sur les rôles personnalisés pour la gestion de l’inscription des applications, ce qui permet un contrôle précis de l’accès de vos administrateurs. Au fil du temps, des autorisations supplémentaires pour déléguer la gestion d’Azure AD seront publiées.
 
 Voici quelques scénarios de délégation courants :
 - affectation des utilisateurs et groupes autorisés à accéder aux applications d’authentification unique SAML
@@ -247,7 +247,7 @@ Vous pouvez désormais automatiser la création, la mise à jour et la suppressi
 - [Tic - Tac Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Pour plus d’informations, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../manage-apps/user-provisioning.md).
+Pour plus d’informations, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ L’agent de provisionnement cloud a été publié préversion publique et est d
  
 Auparavant, vous pouviez récupérer les clés BitLocker via le point de terminaison /bitlocker. Nous allons déprécier ce point de terminaison, et les clients devront commencer à consommer l’API qui se trouve désormais sous /informationProtection. 
 
-Consultez [API de récupération BitLocker](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) pour obtenir des mises à jour de la documentation qui reflète ces modifications.
+Consultez [API de récupération BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) pour obtenir des mises à jour de la documentation qui reflète ces modifications.
 
 ---
 
@@ -1126,4 +1126,3 @@ Si votre organisation utilise le kit de développement logiciel (SDK) Azure MFA,
 
 ---
 
- 

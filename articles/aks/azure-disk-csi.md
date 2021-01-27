@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b75f4c85831fe66158da875c21af60ee73531026
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683129"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728254"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser le disque Azure CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
@@ -101,7 +101,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Clichés instantanés de volume
 
-Le pilote CSI de disque Azure prend en charge la création de [captures instantanées de volumes persistants](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Dans le cadre de cette fonctionnalité, le pilote peut effectuer des *instantanés* [*complets*  ou incrémentiels](../virtual-machines/windows/disks-incremental-snapshots.md) en fonction de la valeur définie dans le paramètre `incremental` (true, par défaut).
+Le pilote CSI de disque Azure prend en charge la création de [captures instantanées de volumes persistants](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Dans le cadre de cette fonctionnalité, le pilote peut effectuer des *instantanés* [*complets*  ou incrémentiels](../virtual-machines/disks-incremental-snapshots.md) en fonction de la valeur définie dans le paramètre `incremental` (true, par défaut).
 
 Pour plus d’informations sur tous les paramètres, consultez [Paramètres de classe des instantanés de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 

@@ -8,12 +8,12 @@ ms.subservice: extensions
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 66675f77d480ce8d9f21e5ffb507c475337c9dab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6a071956565a8bbc31e5be362c41a7c39d8f551
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490728"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738048"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 
@@ -102,14 +102,14 @@ Nous vous recommandons d'ajouter l'extension AzureBackupWindowsWorkload à une m
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
 
-Pour ce faire, vous devez inscrire la machine virtuelle Azure qui contient l’application SQL avec un coffre Recovery Services. Lors de l’inscription, l'extension AzureBackupWindowsWorkload est installée sur la machine virtuelle. Utilisez la cmdlet  [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-1.5.0) pour inscrire la machine virtuelle.
+Pour ce faire, vous devez inscrire la machine virtuelle Azure qui contient l’application SQL avec un coffre Recovery Services. Lors de l’inscription, l'extension AzureBackupWindowsWorkload est installée sur la machine virtuelle. Utilisez la cmdlet  [Register-AzRecoveryServicesBackupContainerPS](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) pour inscrire la machine virtuelle.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
 
-La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’état est défini sur **inscrit** .
+La commande renvoie un **conteneur de sauvegarde** de cette ressource et l’état est défini sur **inscrit**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

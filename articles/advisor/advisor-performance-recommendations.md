@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248426"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735526"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -179,7 +179,7 @@ En savoir plus sur le [kit SDK Lecteur immersif](../cognitive-services/immersive
 
 Advisor détecte que vous disposez d’un pool d’ordinateurs hôtes dont la profondeur est définie en premier en tant qu’algorithme d’équilibrage de charge et que la limite de session maximale de ce pool hôte est supérieure ou égale à 999999. L’équilibrage de charge en profondeur d’abord utilise la limite de session maximale pour déterminer le nombre maximal d’utilisateurs qui peuvent avoir des sessions simultanées sur un même hôte de session. Si la limite de session maximale est trop élevée, toutes les sessions utilisateur sont dirigées vers le même hôte de session, ce qui entraînera des problèmes de performances et de fiabilité. Par conséquent, lors de la définition d’un pool d’hôtes en vue d’un équilibrage de charge en profondeur d’abord, vous devez définir une limite de session maximale appropriée en fonction de la configuration de votre déploiement et de la capacité de vos machines virtuelles. 
 
-Pour en savoir plus sur l’équilibrage de charge dans le bureau virtuel Windows, consultez [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](/azure/virtual-desktop/troubleshoot-set-up-overview).
+Pour en savoir plus sur l’équilibrage de charge dans le bureau virtuel Windows, consultez [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans Advisor
 

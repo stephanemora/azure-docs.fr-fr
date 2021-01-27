@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 9520196c8dce9ea511c2f3b799bd12b34c6f988f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1155b4274b97f540fd97bf39e51fd41c37bc9627
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499745"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730619"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 
@@ -21,7 +21,7 @@ Cet article vous explique comment attacher un disque persistant à votre machine
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Attacher un nouveau disque à une machine virtuelle
 
-Si vous souhaitez ajouter un nouveau disque vide sur votre machine virtuelle, utilisez la commande [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) avec le paramètre `--new`. Si votre machine virtuelle est dans une Zone de disponibilité, le disque est automatiquement créé dans la même zone que la machine virtuelle. Pour plus d'informations, consultez [Vue d’ensemble des zones de disponibilité](../../availability-zones/az-overview.md). L’exemple suivant crée un disque nommé *myDataDisk* avec une taille de 50 Go :
+Si vous souhaitez ajouter un nouveau disque vide sur votre machine virtuelle, utilisez la commande [az vm disk attach](/cli/azure/vm/disk) avec le paramètre `--new`. Si votre machine virtuelle est dans une Zone de disponibilité, le disque est automatiquement créé dans la même zone que la machine virtuelle. Pour plus d'informations, consultez [Vue d’ensemble des zones de disponibilité](../../availability-zones/az-overview.md). L’exemple suivant crée un disque nommé *myDataDisk* avec une taille de 50 Go :
 
 ```azurecli
 az vm disk attach \
@@ -34,7 +34,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>Association d'un disque existant
 
-Pour attacher un disque existant, rechercher l’ID de disque et transmettez-le à la commande [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest). L’exemple suivant interroge pour un disque nommé *myDataDisk* dans *myResourceGroup*, puis l’attache à la machine virtuelle nommée *myVM* :
+Pour attacher un disque existant, rechercher l’ID de disque et transmettez-le à la commande [az vm disk attach](/cli/azure/vm/disk). L’exemple suivant interroge pour un disque nommé *myDataDisk* dans *myResourceGroup*, puis l’attache à la machine virtuelle nommée *myVM* :
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -181,5 +181,5 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](optimization.md) .
+* Pour vous assurer que votre machine virtuelle Linux est correctement configurée, passez en revue les recommandations visant à [optimiser les performances de votre machine virtuelle Linux](/previous-versions/azure/virtual-machines/linux/optimization) .
 * Développez votre capacité de stockage en ajoutant des disques supplémentaires et [configurez RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) pour augmenter les performances.

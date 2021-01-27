@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809715"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733838"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -542,7 +542,7 @@ Le cycle de vie de ces ressources est contrôlé par les propriétés suivantes 
 > [!NOTE]
 > Il n’est pas recommandé d’utiliser le compte de stockage et l’instance de conteneur qui sont générés par le service de script à d’autres fins. Les deux ressources peuvent être supprimées en fonction du cycle de vie du script.
 
-L’instance de conteneur et le compte de stockage sont supprimés en fonction de `cleanupPreference`. Toutefois, si le script échoue et si `cleanupPreference` n’est pas défini sur **Toujours**, le processus de déploiement maintient automatiquement le conteneur en cours d’exécution pendant une heure. Vous pouvez utiliser cette heure pour résoudre des problèmes de script. Si vous souhaitez laisser le conteneur s’exécuter après des déploiements réussis, ajoutez une étape de mise en veille à votre script. Par exemple, ajoutez [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) à la fin de votre script. Si vous n’ajoutez pas l’étape de mise en veille, le conteneur est défini sur un état terminal et n’est pas accessible, même s’il n’a pas encore été supprimé.
+L’instance de conteneur et le compte de stockage sont supprimés en fonction de `cleanupPreference`. Toutefois, si le script échoue et si `cleanupPreference` n’est pas défini sur **Toujours**, le processus de déploiement maintient automatiquement le conteneur en cours d’exécution pendant une heure. Vous pouvez utiliser cette heure pour résoudre des problèmes de script. Si vous souhaitez laisser le conteneur s’exécuter après des déploiements réussis, ajoutez une étape de mise en veille à votre script. Par exemple, ajoutez [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) à la fin de votre script. Si vous n’ajoutez pas l’étape de mise en veille, le conteneur est défini sur un état terminal et n’est pas accessible, même s’il n’a pas encore été supprimé.
 
 ## <a name="run-script-more-than-once"></a>Exécuter le script plusieurs fois
 

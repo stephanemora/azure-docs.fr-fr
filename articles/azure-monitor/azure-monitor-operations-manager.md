@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251826"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736142"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor pour les clients Operations Manager actuels
-Cet article fournit des conseils aux clients qui utilisent actuellement [Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) et qui planifient une transition vers [Azure Monitor](overview.md) dans le cadre d’un migration d’applications métier et d’autres ressources sur Azure. Il part du principe que votre objectif ultime est une transition complète vers le cloud, en remplaçant autant de fonctionnalités d’Operations Manager que possible par Azure Monitor, sans compromettre vos exigences opérationnelles commerciales et informatiques. 
+Cet article fournit des conseils aux clients qui utilisent actuellement [Operations Manager](/system-center/scom/welcome) et qui planifient une transition vers [Azure Monitor](overview.md) dans le cadre d’un migration d’applications métier et d’autres ressources sur Azure. Il part du principe que votre objectif ultime est une transition complète vers le cloud, en remplaçant autant de fonctionnalités d’Operations Manager que possible par Azure Monitor, sans compromettre vos exigences opérationnelles commerciales et informatiques. 
 
 Les recommandations spécifiques faites dans cet article changeront à mesure qu’Azure Monitor et Operations Manager ajouteront des fonctionnalités. La stratégie fondamentale restera cependant cohérente.
 
@@ -22,13 +22,13 @@ Les recommandations spécifiques faites dans cet article changeront à mesure qu
 > L’implémentation de plusieurs fonctionnalités d’Azure Monitor décrites ici a un coût. Vous devez donc évaluer leur valeur avant de les déployer dans l’ensemble de votre environnement.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article part du principe que vous utilisez déjà [Operations Manager](https://docs.microsoft.com/system-center/scom) et que vous avez au moins une compréhension de base d’[Azure Monitor](overview.md). Pour une comparaison complète entre les deux, consultez [Guide de supervision du cloud : Vue d’ensemble des plateformes de supervision](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Cet article détaille les différences de fonctionnalités spécifiques entre les deux plateformes pour vous aider à comprendre certaines des recommandations présentées ici. 
+Cet article part du principe que vous utilisez déjà [Operations Manager](/system-center/scom) et que vous avez au moins une compréhension de base d’[Azure Monitor](overview.md). Pour une comparaison complète entre les deux, consultez [Guide de supervision du cloud : Vue d’ensemble des plateformes de supervision](/azure/cloud-adoption-framework/manage/monitor/platform-overview). Cet article détaille les différences de fonctionnalités spécifiques entre les deux plateformes pour vous aider à comprendre certaines des recommandations présentées ici. 
 
 
 ## <a name="general-strategy"></a>Stratégie générale
 Il n’existe aucun outil de migration permettant de convertir des ressources Operations Manager en ressources Azure Monitor, car les plateformes sont fondamentalement différentes. Votre migration constituera plutôt une [implémentation standard d’Azure Monitor](deploy.md) pendant que vous continuerez à utiliser Operations Manager. Au fur et à mesure que vous personnalisez Azure Monitor pour répondre à vos besoins en matière d’applications et de composants et que la plateforme gagne en fonctionnalités, vous pouvez commencer à mettre hors service différents agents et packs d’administration dans Operations Manager.
 
-La stratégie générale recommandée dans cet article est la même que celle du [guide de supervision du cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/), qui recommande une stratégie de [supervision d’un cloud hybride](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) qui vous permet d’effectuer une transition progressive vers le cloud. Même si certaines fonctionnalités peuvent se chevaucher, cette stratégie vous permet de conserver vos processus d’entreprise existants tout en vous familiarisant avec la nouvelle plateforme. Ne vous éloignez des fonctionnalités d’Operations Manager que si vous pouvez les remplacer par celles d’Azure Monitor. L’utilisation de plusieurs outils de supervision ajoute certes de la complexité, mais elle vous permet de profiter de la capacité d’Azure Monitor à superviser les charges de travail cloud de nouvelle génération tout en conservant la capacité d’Operations Manager à superviser les logiciels serveur et les composants d’infrastructure qui peuvent être locaux ou se trouver dans d’autres clouds. 
+La stratégie générale recommandée dans cet article est la même que celle du [guide de supervision du cloud](/azure/cloud-adoption-framework/manage/monitor/), qui recommande une stratégie de [supervision d’un cloud hybride](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) qui vous permet d’effectuer une transition progressive vers le cloud. Même si certaines fonctionnalités peuvent se chevaucher, cette stratégie vous permet de conserver vos processus d’entreprise existants tout en vous familiarisant avec la nouvelle plateforme. Ne vous éloignez des fonctionnalités d’Operations Manager que si vous pouvez les remplacer par celles d’Azure Monitor. L’utilisation de plusieurs outils de supervision ajoute certes de la complexité, mais elle vous permet de profiter de la capacité d’Azure Monitor à superviser les charges de travail cloud de nouvelle génération tout en conservant la capacité d’Operations Manager à superviser les logiciels serveur et les composants d’infrastructure qui peuvent être locaux ou se trouver dans d’autres clouds. 
 
 
 ## <a name="components-to-monitor"></a>Composants à superviser
@@ -37,7 +37,7 @@ Cela permet de catégoriser les différents types de charges de travail que vous
 Avant le cloud, vous utilisiez Operations Manager pour surveiller toutes les couches. Lorsque vous commencez votre transition avec l’infrastructure as a service, vous continuez à utiliser Operations Manager pour vos machines virtuelles, mais commencez à utiliser Azure Monitor pour vos ressources cloud. Au fur et à mesure que vous migrez vers des applications modernes utilisant un modèle PaaS, vous pouvez vous concentrer davantage sur Azure Monitor et commencer à mettre hors service les fonctionnalités d’Operations Manager.
 
 
-![Modèles cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
+![Modèles cloud](/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
 
 Ces couches peuvent être simplifiées selon les catégories suivantes, qui sont décrites plus en détail dans le reste de cet article. Bien que chaque charge de travail de supervision dans votre environnement puisse ne pas correspondre parfaitement à l’une de ces catégories, chacune d’entre elles doit être suffisamment proche d’une catégorie particulière pour que les recommandations générales s’appliquent.
 

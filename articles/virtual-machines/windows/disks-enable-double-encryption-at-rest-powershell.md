@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: c231aab47f154b6150368b504872d87317c790cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9f0642d3421e775d1c6930b672b37643a961178f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359950"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736286"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-double-encryption-at-rest-for-managed-disks"></a>Utiliser le module Azure PowerShell afin d’activer le double chiffrement au repos pour les disques managés
 
@@ -21,7 +21,7 @@ Le Stockage sur disque Azure prend en charge le double chiffrement au repos pour
 
 ## <a name="prerequisites"></a>Prérequis
 
-Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-az-ps) et connectez-vous à un compte Azure à l’aide de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Installez la dernière [version d’Azure PowerShell](/powershell/azure/install-az-ps) et connectez-vous à un compte Azure à l’aide de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## <a name="getting-started"></a>Prise en main
 

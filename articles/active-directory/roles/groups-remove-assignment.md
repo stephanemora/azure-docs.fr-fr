@@ -2,23 +2,23 @@
 title: Supprimer les attributions de rôle d’un groupe dans Azure Active Directory | Microsoft Docs
 description: Affichez un aperçu des rôles Azure AD personnalisés pour la délégation de la gestion des identités. Gérez les rôles Azure dans le Portail Azure, PowerShell ou l’API Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 89fa3bb94f72ab04c2ea68641b8d1dff7695aa53
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378378"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741024"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Supprimer les attributions de rôle d’un groupe dans Azure Active Directory
 
@@ -28,7 +28,7 @@ Cet article explique comment un administrateur informatique peut supprimer des r
 
 1. Connectez-vous au [centre d’administration Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
 
-1. Sélectionnez **Rôles et administrateurs** > * *_nom du rôle_* _.
+1. Sélectionnez **Rôles et administrateurs** > **_nom du rôle_* _.
 
 1. Sélectionnez le groupe dont vous souhaitez supprimer l’attribution de rôle, puis sélectionnez _*Supprimer l’attribution**.
 

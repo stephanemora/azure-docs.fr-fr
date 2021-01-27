@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c8532637e695b506e372817e6f4531f9a323936b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 25f555038c1ce0d960266eacc673a62a1ffd5ac0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632098"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736360"
 ---
 # <a name="get-started-with-azure-application-consistent-snapshot-tool-preview"></a>Bien démarrer avec l’outil Azure Application Consistent Snapshot Tool (préversion)
 
@@ -126,7 +126,7 @@ Vous pouvez utiliser les outils d’instantané dans les scénarios suivants.
 - TYPE DE RÉFÉRENCE SKU I
 - TYPE DE RÉFÉRENCE SKU II
 
-Consultez [Scénario pris en charge pour des grandes instances HANA](/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+Consultez [Scénario pris en charge pour des grandes instances HANA](../virtual-machines/workloads/sap/hana-supported-scenario.md)
 
 ## <a name="snapshot-support-matrix-from-sap"></a>Matrice de prise en charge des instantanés de SAP
 

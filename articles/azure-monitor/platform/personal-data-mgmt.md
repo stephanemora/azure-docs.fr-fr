@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505271"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734930"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -91,7 +91,7 @@ Pour les requêtes d’affichage et d’exportation des données, vous devez uti
 Nous avons rendu disponible un chemin d’API *de vidage* dans le cadre d’une gestion de la confidentialité. Ce chemin doit être utilisé avec prudence en raison du risque associé à cette opération, de l’impact potentiel sur les performances, et de la possibilité d’influer sur les agrégations, les mesures et d’autres aspects de vos données Log Analytics. Pour d’autres approches de la gestion des données privées, consultez la section [Stratégie de gestion des données personnelles](#strategy-for-personal-data-handling).
 
 > [!NOTE]
-> Une fois l’opération de vidage effectuée, les données ne sont pas accessibles tant que l’[état de l’opération de vidage](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) est *en attente*. 
+> Une fois l’opération de vidage effectuée, les données ne sont pas accessibles tant que l’[état de l’opération de vidage](/rest/api/loganalytics/workspacepurge/getpurgestatus) est *en attente*. 
 
 Le vidage est une opération nécessitant des privilèges élevés, qu’aucune application ni utilisateur dans Azure (y compris même le propriétaire de la ressource) n’a l’autorisation d’exécuter sans qu’un rôle lui soit explicitement accordé dans Azure Resource Manager. Ce rôle est _Videur de données_ et il doit être délégué avec prudence en raison du risque de perte de données. 
 
@@ -129,4 +129,3 @@ Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux che
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur la façon dont les données Log Analytics sont collectées, traitées et sécurisées, consultez [Sécurité des données Log Analytics](./data-security.md).
 - Pour plus d’informations sur la façon dont les données Application Insights sont collectées, traitées et sécurisées, consultez [Sécurité des données Application Insights](../app/data-retention-privacy.md).
-

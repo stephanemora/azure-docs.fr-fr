@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5f5f75e63a0b201144329a6e2b7c0d503de54692
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250483"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736471"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Afficher plusieurs ressources dans Azure Metrics Explorer
 
@@ -33,7 +33,7 @@ Certains types de ressources peuvent interroger des métriques sur plusieurs res
 ![Capture d’écran montrant un menu de ressources compatibles avec plusieurs ressources.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources ou groupes de ressources, ou sur un abonnement. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> Vous devez disposer de l’autorisation Lecteur d’analyse au niveau de l’abonnement pour visualiser les métriques sur plusieurs ressources ou groupes de ressources, ou sur un abonnement. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Pour visualiser les métriques sur plusieurs ressources, commencez par sélectionner plusieurs ressources dans le sélecteur d’étendue des ressources. 
 
@@ -81,13 +81,12 @@ Dans cet exemple, nous filtrons sur TailspinToysDemo. Ici, le filtre supprime le
 
 ## <a name="pin-multiple-resource-charts"></a>Épingler des graphiques de ressources multiples 
 
-Les graphiques de ressources multiples permettant de visualiser les métriques de plusieurs groupes de ressources et abonnements requièrent que l’utilisateur dispose de l’autorisation *Lecteur de surveillance* au niveau de l’abonnement. Assurez-vous que tous les utilisateurs des tableaux de bord auxquels vous épinglez des graphiques de ressources multiples disposent d’autorisations suffisantes. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Les graphiques de ressources multiples permettant de visualiser les métriques de plusieurs groupes de ressources et abonnements requièrent que l’utilisateur dispose de l’autorisation *Lecteur de surveillance* au niveau de l’abonnement. Assurez-vous que tous les utilisateurs des tableaux de bord auxquels vous épinglez des graphiques de ressources multiples disposent d’autorisations suffisantes. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Pour épingler votre graphique de ressources multiples à un tableau de bord, consultez [Épinglage à des tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
+Pour épingler votre graphique de ressources multiples à un tableau de bord, consultez [Épinglage à des tableaux de bord](./metrics-charts.md#pinning-to-dashboards). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes de Metrics Explorer](metrics-troubleshoot.md)
 * [Consulter la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](metric-chart-samples.md)
-

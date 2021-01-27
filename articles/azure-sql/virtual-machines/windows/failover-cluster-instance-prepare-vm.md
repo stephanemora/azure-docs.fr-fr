@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223157"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737793"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Préparer des machines virtuelles pour une instance FCI (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Les paramètres de configuration de votre machine virtuelle varient en fonction 
 
 ## <a name="configure-vm-availability"></a>Configurer la disponibilité des machines virtuelles 
 
-La fonctionnalité de cluster de basculement nécessite que les machines virtuelles soient placées dans un [groupe à haute disponibilité](../../../virtual-machines/linux/tutorial-availability-sets.md) ou dans une [zone de disponibilité](../../../availability-zones/az-overview.md#availability-zones). Si vous choisissez des groupes à haute disponibilité, vous pouvez utiliser des [groupes de placement de proximité](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) pour localiser les machines virtuelles plus près. En fait, les groupes de placement de proximité sont une condition préalable à l’utilisation des disques partagés Azure. 
+La fonctionnalité de cluster de basculement nécessite que les machines virtuelles soient placées dans un [groupe à haute disponibilité](../../../virtual-machines/linux/tutorial-availability-sets.md) ou dans une [zone de disponibilité](../../../availability-zones/az-overview.md#availability-zones). Si vous choisissez des groupes à haute disponibilité, vous pouvez utiliser des [groupes de placement de proximité](../../../virtual-machines/co-location.md#proximity-placement-groups) pour localiser les machines virtuelles plus près. En fait, les groupes de placement de proximité sont une condition préalable à l’utilisation des disques partagés Azure. 
 
 Sélectionnez avec soin l’option de disponibilité de la machine virtuelle qui correspond à la configuration souhaitée pour votre cluster : 
 

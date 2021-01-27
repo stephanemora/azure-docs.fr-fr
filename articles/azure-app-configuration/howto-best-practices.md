@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200445"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737199"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration – Bonnes pratiques
 
@@ -92,7 +92,7 @@ App Configuration est service régional. Pour les applications ayant des configu
 
 ## <a name="client-applications-in-app-configuration"></a>Applications clientes dans App Configuration 
 
-Un nombre excessif de requêtes envoyées à App Configuration peut entraîner des frais de limitation de requêtes ou de dépassement. Les applications tirent parti de la mise en cache et de l’actualisation intelligente actuellement disponibles pour optimiser le nombre de demandes qu’elles envoient. Ce processus peut être mis en miroir dans des applications clientes à volume élevé en évitant les connexions directes au magasin de configuration. Les applications clientes se connectent ainsi à un service personnalisé, qui communique avec le magasin de configuration. Grâce à cette solution de proxy, les applications clientes ne s’approchent pas de la limitation dans le magasin de configuration. Pour plus d’informations sur la limitation, consultez [FAQ](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
+Un nombre excessif de requêtes envoyées à App Configuration peut entraîner des frais de limitation de requêtes ou de dépassement. Les applications tirent parti de la mise en cache et de l’actualisation intelligente actuellement disponibles pour optimiser le nombre de demandes qu’elles envoient. Ce processus peut être mis en miroir dans des applications clientes à volume élevé en évitant les connexions directes au magasin de configuration. Les applications clientes se connectent ainsi à un service personnalisé, qui communique avec le magasin de configuration. Grâce à cette solution de proxy, les applications clientes ne s’approchent pas de la limitation dans le magasin de configuration. Pour plus d’informations sur la limitation, consultez [FAQ](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224237"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725784"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Comprendre et résoudre les problèmes de blocage d’Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -345,7 +345,7 @@ Les scénarios suivants développeront ces scénarios.
     Après l’envoi d’une requête au serveur, toutes les applications doivent extraire immédiatement toutes les lignes de résultat jusqu’au bout. Si une application n’extrait pas toutes les lignes de résultats, des verrous peuvent être maintenus sur les tables et bloquer d’autres utilisateurs. Si vous utilisez une application qui envoie en toute transparence des instructions SQL au serveur, l’application doit extraire toutes les lignes de résultat. Si elle ne le fait pas (et si elle ne peut pas être configurée pour le faire), vous ne pourrez peut-être pas résoudre le problème de blocage. Pour éviter ce problème, vous pouvez limiter les applications au comportement médiocre à un signalement ou à une base de données d’aide à la décision.
     
     > [!NOTE]
-    > Consultez l’[aide relative à la logique de nouvelle tentative](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) pour les applications se connectant à Azure SQL Database. 
+    > Consultez l’[aide relative à la logique de nouvelle tentative](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) pour les applications se connectant à Azure SQL Database. 
     
     **Résolution** : L’application doit être réécrite afin d’extraire toutes les lignes du résultat. Cela n’exclut pas l’utilisation de [OFFSET et FETCH dans la clause ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) d’une requête pour effectuer la pagination côté serveur.
 

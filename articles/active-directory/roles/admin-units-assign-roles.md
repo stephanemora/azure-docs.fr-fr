@@ -3,23 +3,23 @@ title: Attribuer et répertorier les rôles avec une étendue d’unité adminis
 description: Utilisez des unités administratives pour limiter l’étendue des attributions de rôles dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393436"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740395"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Attribuer des rôles dont l’étendue est délimitée à une unité administrative
 
@@ -54,7 +54,7 @@ Vous pouvez attribuer un rôle étendu à l’aide du portail Azure, de PowerShe
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
-1. Sélectionnez **Unités administratives** , puis sélectionnez l’unité administrative à laquelle vous souhaitez attribuer une étendue de rôle utilisateur. 
+1. Sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative à laquelle vous souhaitez attribuer une étendue de rôle utilisateur. 
 
 1. Dans le volet gauche, sélectionnez **Rôles et administrateurs** pour répertorier tous les rôles disponibles.
 
@@ -62,7 +62,7 @@ Vous pouvez attribuer un rôle étendu à l’aide du portail Azure, de PowerShe
 
 1. Sélectionnez le rôle à attribuer, puis choisissez **Ajouter des attributions**. 
 
-1. Dans le volet **Ajouter des attributions** , sélectionnez un ou plusieurs utilisateurs à affecter au rôle.
+1. Dans le volet **Ajouter des attributions**, sélectionnez un ou plusieurs utilisateurs à affecter au rôle.
 
    ![Sélectionner le rôle dont délimiter l’étendue, puis sélectionner Ajouter des attributions](./media/admin-units-assign-roles/select-add-assignment.png)
 
@@ -107,9 +107,9 @@ Vous pouvez afficher toutes les attributions de rôles créées avec une étendu
 
 1. Dans le portail Azure, accédez à **Azure AD**.
 
-1. Dans le volet gauche, sélectionnez **Unités administratives** , puis sélectionnez l’unité administrative pour la liste des attributions de rôles que vous souhaitez afficher. 
+1. Dans le volet gauche, sélectionnez **Unités administratives**, puis sélectionnez l’unité administrative pour la liste des attributions de rôles que vous souhaitez afficher. 
 
-1. Sélectionnez **Rôles et administrateurs** , puis ouvrez un rôle pour afficher les affectations dans l’unité administrative.
+1. Sélectionnez **Rôles et administrateurs**, puis ouvrez un rôle pour afficher les affectations dans l’unité administrative.
 
 ### <a name="use-powershell"></a>Utiliser PowerShell
 

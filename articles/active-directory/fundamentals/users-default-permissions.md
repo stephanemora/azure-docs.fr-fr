@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032760"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724269"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -63,7 +63,7 @@ Vous pouvez restreindre les autorisations par défaut d’utilisateurs invités 
 
 Autorisation | Explication du paramètre
 ---------- | ------------
-Restrictions d’accès d’utilisateurs invités (préversion) | La définition de cette option de façon à attribuer aux utilisateurs invités **le même accès que celui des membres** a pour effet d’accorder par défaut toutes les autorisations des utilisateurs membres aux utilisateurs invités.<p>La définition de cette option de façon à ce que **l’accès des utilisateurs invités soit limité aux propriétés et aux appartenances de leurs propres objets d’annuaire** a pour effet de limiter par défaut l’accès des invités à leur seul propre profil utilisateur. L’accès à d’autres utilisateurs n’est plus autorisé, même lors d’une recherche par nom d’utilisateur principal, ObjectId ou nom d'affichage. L’accès aux informations des groupes, y compris aux appartenances aux groupes, n’est plus autorisé.<p>**Remarque** : Ce paramètre n’empêche pas l’accès aux groupes joints dans certains services Microsoft 365 tels que Microsoft Teams. Pour en savoir plus, consultez [Accès invité à Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/guest-access).<p>Les utilisateurs invités peuvent toujours être ajoutés aux rôles d’administrateur, quels que soient les paramètres de cette autorisation.
+Restrictions d’accès d’utilisateurs invités (préversion) | La définition de cette option de façon à attribuer aux utilisateurs invités **le même accès que celui des membres** a pour effet d’accorder par défaut toutes les autorisations des utilisateurs membres aux utilisateurs invités.<p>La définition de cette option de façon à ce que **l’accès des utilisateurs invités soit limité aux propriétés et aux appartenances de leurs propres objets d’annuaire** a pour effet de limiter par défaut l’accès des invités à leur seul propre profil utilisateur. L’accès à d’autres utilisateurs n’est plus autorisé, même lors d’une recherche par nom d’utilisateur principal, ObjectId ou nom d'affichage. L’accès aux informations des groupes, y compris aux appartenances aux groupes, n’est plus autorisé.<p>**Remarque** : Ce paramètre n’empêche pas l’accès aux groupes joints dans certains services Microsoft 365 tels que Microsoft Teams. Pour en savoir plus, consultez [Accès invité à Microsoft Teams](/MicrosoftTeams/guest-access).<p>Les utilisateurs invités peuvent toujours être ajoutés aux rôles d’administrateur, quels que soient les paramètres de cette autorisation.
 Les invités peuvent inviter | Si cette option est définie sur Oui, les invités sont autorisés à inviter d’autres invités. Pour en savoir plus, consultez [Déléguer des invitations pour B2B Collaboration](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings).
 Les membres peuvent inviter | Définir cette option sur Oui permet aux membres non-administrateurs de votre annuaire de convier des invités. Pour en savoir plus, consultez [Déléguer des invitations pour B2B Collaboration](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings).
 Les administrateurs et utilisateurs ayant le rôle d’inviteur invité peuvent inviter | La définition de cette option sur Oui permet aux administrateurs et aux utilisateurs dont le rôle est « Inviteur d’invités » de convier des invités. Lorsque la valeur est Oui, les utilisateurs dont le rôle est « Inviteur d’invité » peuvent toujours convier des invités, quels que soient les membres pouvant utiliser le paramètre d’invitation. Pour en savoir plus, consultez [Déléguer des invitations pour B2B Collaboration](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user).

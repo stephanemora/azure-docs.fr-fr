@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: b065b36103b69f0601daa1388b45865856543d2b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540516"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736816"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -70,5 +70,5 @@ Certaines actions de l’API [Analyser – Image](https://westcentralus.dev.cogn
 
 Découvrez comment utiliser les fonctionnalités Vision par ordinateur mentionnées dans ce guide.
 
-* [Analyser une image locale (REST)](./quickstarts/csharp-analyze.md)
-* [Extraire du texte imprimé (REST)](./quickstarts/csharp-print-text.md)
+* [Analyser une image locale (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
+* [Extraire du texte imprimé (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

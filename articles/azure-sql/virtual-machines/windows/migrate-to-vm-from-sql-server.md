@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4cd37128893309be5a1e362671b9e28dcc436b1b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f6e9009040d2d02702f8a71c352716491d07d1f7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356206"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704302"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrez une base de données SQL Server dans SQL Server sur une machine virtuelle Azure
 
@@ -68,7 +68,7 @@ Le tableau suivant répertorie les principales méthodes de migration et expliqu
 | [Effectuer une sauvegarde vers l’URL et une restauration dans la machine virtuelle Azure depuis l’URL](#backup-to-url-and-restore-from-url) |SQL Server 2012 SP1 CU2 ou ultérieur | SQL Server 2012 SP1 CU2 ou ultérieur | < 12,8 To pour SQL Server 2016, sinon < 1 To | Cette méthode représente simplement une autre façon de déplacer le fichier de sauvegarde sur la machine virtuelle à l’aide du stockage Azure. |
 | [Détacher, puis copier les données et les fichiers journaux dans Stockage Blob Azure et les rattacher à SQL Server dans la machine virtuelle Azure à partir d’URL](#detach-and-attach-from-a-url) | SQL Server 2005 ou ultérieur |SQL Server 2014 ou ultérieur | [Limite de stockage de machine virtuelle Azure](../../../index.yml) | Utilisez cette méthode quand vous envisagez de [stocker ces fichiers à l’aide du service de stockage d’objets Blob Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) et de les rattacher à SQL Server s’exécutant dans une machine virtuelle Azure, en particulier avec les bases de données très volumineuses. |
 | [Convertir l’ordinateur local pour les disques durs virtuels Hyper-V, charger sur le stockage d’objets Blob Azure, puis déployer une nouvelle machine virtuelle en utilisant le disque dur virtuel chargé](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](../../../index.yml) |À utiliser lors de [la mise en service de votre propre licence SQL Server](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md), lors de la migration d’une base de données que vous allez exécuter sur une version plus ancienne de SQL Server ou lors de la migration d’un système et de bases de données d’un système utilisateur dans le cadre de la migration de base de données dépendant des autres bases de données utilisateur et/ou bases de données système. |
-| [Expédition du disque dur à l’aide du Service d’importation/exportation Windows](#ship-a-hard-drive) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](../../../index.yml) |Utilisez le [Service Import/Export de Windows](../../../storage/common/storage-import-export-service.md) lorsque la méthode de copie manuelle est trop lente, par exemple avec de très grandes bases de données. |
+| [Expédition du disque dur à l’aide du Service d’importation/exportation Windows](#ship-a-hard-drive) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](../../../index.yml) |Utilisez le [Service Import/Export de Windows](../../../import-export/storage-import-export-service.md) lorsque la méthode de copie manuelle est trop lente, par exemple avec de très grandes bases de données. |
 | [Utiliser l’Assistant Ajout de réplica Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability) |SQL Server 2012 ou ultérieur |SQL Server 2012 ou ultérieur |[Limite de stockage de machine virtuelle Azure](../../../index.yml) |Réduit le temps d’arrêt ; à utiliser lorsque vous disposez d’un déploiement local Always On. |
 | [Utiliser la réplication transactionnelle de SQL Server](/sql/relational-databases/replication/transactional/transactional-replication) |SQL Server 2005 ou ultérieur |SQL Server 2005 ou ultérieur |[Limite de stockage de machine virtuelle Azure](../../../index.yml) |À utiliser si vous devez réduire le temps d’arrêt et que vous ne disposez pas d’un déploiement local Always On. |
 
@@ -83,7 +83,7 @@ Sauvegardez votre base de données avec compression, copiez la sauvegarde sur la
 
 ## <a name="backup-to-url-and-restore-from-url"></a>Sauvegarde sur URL et restauration à partir de l’URL
 
-Au lieu de sauvegarder dans un fichier local, vous pouvez utiliser la [sauvegarde sur URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), puis effectuer la restauration sur la machine virtuelle à partir de l’URL. SQL Server 2016 prend en charge les jeux de sauvegarde distribuée. Ils sont recommandés pour les performances et doivent dépasser les limites de taille par objet blob. Pour les bases de données très volumineuses, il est recommandé d’utiliser le [Service d’importation/exportation Windows](../../../storage/common/storage-import-export-service.md) .
+Au lieu de sauvegarder dans un fichier local, vous pouvez utiliser la [sauvegarde sur URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url), puis effectuer la restauration sur la machine virtuelle à partir de l’URL. SQL Server 2016 prend en charge les jeux de sauvegarde distribuée. Ils sont recommandés pour les performances et doivent dépasser les limites de taille par objet blob. Pour les bases de données très volumineuses, il est recommandé d’utiliser le [Service d’importation/exportation Windows](../../../import-export/storage-import-export-service.md) .
 
 ## <a name="detach-and-attach-from-a-url"></a>Détacher et attacher à partir d’une URL
 
@@ -106,7 +106,7 @@ Cette méthode permet de migrer toutes les bases de données système et utilisa
 
 ## <a name="ship-a-hard-drive"></a>Expédier un disque dur
 
-Vous pouvez utiliser la [méthode de service Import/Export Azure](../../../storage/common/storage-import-export-service.md) pour transférer de grandes quantités de données de fichiers vers le stockage d’objets blob Azure lorsque le coût de l’opération de téléchargement via le réseau est prohibitif, voire irréalisable. Avec ce service, vous envoyez un ou plusieurs disques durs contenant ces données à un centre de données Azure, où vos données seront téléchargées sur votre compte de stockage.
+Vous pouvez utiliser la [méthode de service Import/Export Azure](../../../import-export/storage-import-export-service.md) pour transférer de grandes quantités de données de fichiers vers le stockage d’objets blob Azure lorsque le coût de l’opération de téléchargement via le réseau est prohibitif, voire irréalisable. Avec ce service, vous envoyez un ou plusieurs disques durs contenant ces données à un centre de données Azure, où vos données seront téléchargées sur votre compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

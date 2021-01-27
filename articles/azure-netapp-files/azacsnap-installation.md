@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 5c2182fc80c3745e0238c378c1cade0530393181
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632097"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737165"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Installer l’outil Azure Application Consistent Snapshot Tool (préversion)
 
@@ -34,9 +34,9 @@ Le programme d’installation automatique tente de déterminer les paramètres e
 
 Suivez les instructions pour configurer et exécuter les instantanés et les commandes de récupération d’urgence. Nous vous recommandons d’effectuer les étapes suivantes en tant que racine avant d’installer et d’utiliser les outils d’instantané.
 
-1. **Le système d’exploitation est corrigé** : consultez la mise à jour corrective et la configuration de SMT dans le [Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
+1. **Le système d’exploitation est corrigé** : consultez la mise à jour corrective et la configuration de SMT dans le [Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **La synchronisation temporelle est configurée**. Le client doit fournir un serveur de temps compatible avec NTP et configurer le système d’exploitation en conséquence.
-1. **HANA est installé** : consultez les instructions d’installation de HANA dans [Installation de SAP NetWeaver sur une base de données HANA](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
+1. **HANA est installé** : consultez les instructions d’installation de HANA dans [Installation de SAP NetWeaver sur une base de données HANA](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Activer la communication avec le stockage](#enable-communication-with-storage)** (pour plus d’informations, voir la section dédiée) : Le client doit configurer SSH avec une paire de clés privée/publique et fournir la clé publique pour chaque nœud sur lequel les outils d’instantané doivent être exécutés sur Microsoft Operations pour une configuration sur le serveur principal de stockage.
    1. **Pour Azure NetApp Files (pour plus d’informations, voir la section dédiée)**  : le client doit générer le fichier d’authentification du principal du service.
    1. **Pour les grandes instances Azure (pour plus d’informations, voir la section dédiée)**  : le client doit configurer SSH avec une paire de clés privée/publique et fournir la clé publique pour chaque nœud sur lequel les outils d’instantané doivent être exécutés sur Microsoft Operations pour une configuration sur le serveur principal de stockage.

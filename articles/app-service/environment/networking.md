@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013484"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735031"
 ---
 # <a name="app-service-environment-networking"></a>Mise en réseau d’App Service Environment
 
@@ -52,7 +52,7 @@ Contrairement à ASEv2, ASEv3 vous permet de définir des groupes de sécurité 
 
 ## <a name="dns"></a>DNS
 
-Les applications de votre environnement ASE utilisent le DNS avec lequel votre réseau virtuel est configuré. Suivez les instructions de l’article [Utilisation d’un environnement App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) pour configurer votre serveur DNS de façon à ce qu’il pointe vers votre environnement ASE. Si vous souhaitez que certaines applications utilisent un serveur DNS différent de celui avec lequel votre réseau virtuel est configuré, vous pouvez définir celui-ci manuellement pour chaque application avec les paramètres d’application WEBSITE_DNS_SERVER et WEBSITE_DNS_ALT_SERVER. Le paramètre d’application WEBSITE_DNS_ALT_SERVER configure le serveur DNS secondaire. Le serveur DNS secondaire est utilisé uniquement en l’absence de réponse du serveur DNS principal. 
+Les applications de votre environnement ASE utilisent le DNS avec lequel votre réseau virtuel est configuré. Suivez les instructions de l’article [Utilisation d’un environnement App Service Environment](./using.md#dns-configuration) pour configurer votre serveur DNS de façon à ce qu’il pointe vers votre environnement ASE. Si vous souhaitez que certaines applications utilisent un serveur DNS différent de celui avec lequel votre réseau virtuel est configuré, vous pouvez définir celui-ci manuellement pour chaque application avec les paramètres d’application WEBSITE_DNS_SERVER et WEBSITE_DNS_ALT_SERVER. Le paramètre d’application WEBSITE_DNS_ALT_SERVER configure le serveur DNS secondaire. Le serveur DNS secondaire est utilisé uniquement en l’absence de réponse du serveur DNS principal. 
 
 ## <a name="preview-limitation"></a>Limite de la préversion
 
@@ -61,4 +61,3 @@ Certaines fonctionnalités de mise en réseau ne sont pas disponibles avec ASEv3
 • FTP • Débogage à distance • Déploiement de l’équilibrage de charge externe • Possibilité d’accéder à un registre de conteneurs privé pour les déploiements de conteneurs • Possibilité d’effectuer des appels à des réseaux virtuels avec un peering global • Possibilité de sauvegarder/restaurer à l’aide d’un compte de stockage sécurisé avec un point de terminaison de service ou un point de terminaison privé • Possibilité d’avoir des références Key Vault dans les paramètres d’application sur des comptes Key Vault sécurisés avec un point de terminaison de service ou un point de terminaison privé • Possibilité d’utiliser BYOS sur un compte de stockage sécurisé avec un point de terminaison de service ou un point de terminaison privé • Utilisation de Network Watcher ou de NSG Flow sur le trafic sortant
     
     
-

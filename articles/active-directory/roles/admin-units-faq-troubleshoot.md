@@ -3,23 +3,23 @@ title: Résolution des problèmes d’unités administratives et FAQ – Azure A
 description: Examinez les unités administratives pour accorder des autorisations d’étendue restreinte dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394677"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740378"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unités administratives Azure AD : Dépannage et FAQ
 
@@ -29,7 +29,7 @@ Pour un contrôle administratif plus précis dans Azure Active Directory (Azure 
 
 **Q : Pourquoi ne puis-je pas créer d’unité administrative ?**
 
-**R :** Seul un *administrateur général* ou un *administrateur de rôle privilégié* peut créer une unité administrative dans Azure AD. Assurez-vous que l’utilisateur qui tente de créer l’unité administrative se voit attribuer le rôle d’ *administrateur général* ou d’ *administrateur de rôle privilégié*.
+**R :** Seul un *administrateur général* ou un *administrateur de rôle privilégié* peut créer une unité administrative dans Azure AD. Assurez-vous que l’utilisateur qui tente de créer l’unité administrative se voit attribuer le rôle d’*administrateur général* ou d’*administrateur de rôle privilégié*.
 
 **Q : J’ai ajouté un groupe à une unité administrative. Pourquoi les membres du groupe n’apparaissent-ils toujours pas ?**
 
@@ -53,7 +53,7 @@ Les unités administratives, telles les unités d’organisation dans Windows Se
 
 **Q : Qu’implique le fait d’ajouter un groupe à une unité administrative ?**
 
-**R :** L’ajout d’un groupe à une unité administrative a pour effet d’intégrer ce groupe dans l’étendue de gestion d’un *administrateur d’utilisateurs* dont l’étendue définie est également cette unité administrative. Les administrateurs d’utilisateurs de l’unité administrative peuvent gérer le nom et l’appartenance du groupe lui-même. Cela n’a pas pour effet d’accorder à l’ *administrateur d’utilisateurs* des autorisations permettant de gérer les utilisateurs du groupe (par exemple, pour réinitialiser leur mot de passe). Pour accorder à l’ *administrateur d’utilisateurs* la capacité de gérer les utilisateurs, il faut que ceux-ci soient des membres directs de l’unité administrative.
+**R :** L’ajout d’un groupe à une unité administrative a pour effet d’intégrer ce groupe dans l’étendue de gestion d’un *administrateur d’utilisateurs* dont l’étendue définie est également cette unité administrative. Les administrateurs d’utilisateurs de l’unité administrative peuvent gérer le nom et l’appartenance du groupe lui-même. Cela n’a pas pour effet d’accorder à l’*administrateur d’utilisateurs* des autorisations permettant de gérer les utilisateurs du groupe (par exemple, pour réinitialiser leur mot de passe). Pour accorder à l’*administrateur d’utilisateurs* la capacité de gérer les utilisateurs, il faut que ceux-ci soient des membres directs de l’unité administrative.
 
 **Q : Une ressource (utilisateur ou groupe) peut-elle être membre de plusieurs unités administratives ?**
 

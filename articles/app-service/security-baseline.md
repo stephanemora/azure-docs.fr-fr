@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197929"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736086"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Base de référence de sécurité Azure pour App Service
 
@@ -71,7 +71,7 @@ Utilisez Pare-feu Azure pour envoyer du trafic et créer, appliquer et consigner
 
 - [Présentation de la sécurité réseau assurée par Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Guide pratique pour activer la surveillance et la protection d’App Service](/azure/security-center/defender-for-app-service-introduction)
+- [Guide pratique pour activer la surveillance et la protection d’App Service](../security-center/defender-for-app-service-introduction.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -168,7 +168,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Guide pratique pour la configuration du chiffrement TLS de bout en bout avec Application Gateway et le portail](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](/azure/app-service/environment/firewall-integration)
+- [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](./environment/firewall-integration.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -205,7 +205,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 - [Guide pratique pour la configuration du chiffrement TLS de bout en bout avec Application Gateway et le portail](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](/azure/app-service/environment/firewall-integration)
+- [Sécuriser l’environnement ASE comme décrit dans Verrouiller un environnement App Service](./environment/firewall-integration.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -221,7 +221,7 @@ Appliquez n’importe laquelle des définitions Azure Policy intégrées en lien
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-- [Restrictions d’accès dans Azure App Service](/azure/app-service/app-service-ip-restrictions)
+- [Restrictions d’accès dans Azure App Service](./app-service-ip-restrictions.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

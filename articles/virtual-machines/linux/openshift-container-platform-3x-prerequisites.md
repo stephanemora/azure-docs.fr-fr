@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016027"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734728"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Conditions préalables courantes au déploiement d’OpenShift Container Platform 3.11 dans Azure
 
@@ -134,7 +134,7 @@ Prenez note de la propriété appId et du mot de passe renvoyés par la commande
  > [!WARNING] 
  > Veillez à noter le mot de passe sécurisé, car il ne sera pas possible de le récupérer une nouvelle fois.
 
-Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Pour plus d’informations sur les principaux de service, consultez [Créer un principal du service avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Conditions préalables uniquement applicables aux modèles Resource Manager
 

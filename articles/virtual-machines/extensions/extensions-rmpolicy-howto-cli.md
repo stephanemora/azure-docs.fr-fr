@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 26874c33c496b57bf6317a7b837b3afddc2f5e37
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 41457f26c22e3b8ed529ce77cfaf452618b03655
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955648"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737640"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Linux
 
@@ -98,7 +98,7 @@ Quand vous avez terminé, appuyez sur la touche **Échap**, puis tapez **: wq** 
 
 ## <a name="create-the-policy"></a>Création de la stratégie
 
-Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez la définition de stratégie à l’aide de la commande [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
+Une définition de stratégie est un objet servant à stocker la configuration que vous souhaitez utiliser. La définition de stratégie fait appel aux fichiers de règles et de paramètres pour définir la stratégie. Créez la définition de stratégie à l’aide de la commande [az policy definition create](/cli/azure/role/assignment).
 
 Dans cet exemple, les règles et les paramètres correspondent aux fichiers que vous avez créés et stockés en tant que fichiers .json dans votre Cloud Shell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Dans cet exemple, la stratégie est affectée à un groupe de ressources à l’aide de la commande [az policy assignment create](/cli/azure/policy/assignment). N’importe quelle machine virtuelle créée dans le groupe de ressources **myResourceGroup** ne pourra pas installer les extensions VM Access For Linux et Custom Script For Linux. Pour que la stratégie puisse être affectée, le groupe de ressources doit déjà exister.
 
-Utilisez la commande [az account list](/cli/azure/account?view=azure-cli-latest) pour obtenir l’ID d’abonnement à utiliser à la place de celui de l’exemple.
+Utilisez la commande [az account list](/cli/azure/account) pour obtenir l’ID d’abonnement à utiliser à la place de celui de l’exemple.
 
 
 ```azurecli-interactive

@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790625"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734577"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fuseaux horaires d'Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Les fonctions T-SQL comme [GETDATE()](/sql/t-sql/functions/getdate-transact-sql)
 
 Un ensemble de fuseaux horaires pris en charge est hérité du système d'exploitation sous-jacent de l'instance gérée. Il est régulièrement mis à jour pour obtenir de nouvelles définitions de fuseaux horaires et refléter les changements apportés aux fuseaux horaires existants.
 
-[La stratégie Heure d’été/modifications de fuseau horaire](https://aka.ms/time) garantit la précision de l’historique à partir de 2010.
+[La stratégie Heure d’été/modifications de fuseau horaire](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) garantit la précision de l’historique à partir de 2010.
 
 Une liste avec les noms des fuseaux horaires pris en charge est affichée dans la vue système [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql).
 

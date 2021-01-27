@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028928"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728235"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
@@ -139,7 +139,7 @@ Un utilisateur avec un attribut en conflit dans Azure AD doit être effacé avan
 Un utilisateur basé sur le cloud dans Azure AD ne doit pas avoir d’ancre source. Dans ce cas, la mise à jour de l’ancre source n’est pas prise en charge. Une correction manuelle doit être effectuée localement. 
 
 **Le processus de correction n’a pas pu mettre à jour les valeurs.**
-Les paramètres spécifiques tels que [UserWriteback dans Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) ne sont pas pris en charge. Désactivez-les dans les paramètres. 
+Les paramètres spécifiques tels que [UserWriteback dans Azure AD Connect](./how-to-connect-preview.md#user-writeback) ne sont pas pris en charge. Désactivez-les dans les paramètres. 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 **Q.** Que se passe-t-il en cas d’échec de l’**application du correctif** ?  

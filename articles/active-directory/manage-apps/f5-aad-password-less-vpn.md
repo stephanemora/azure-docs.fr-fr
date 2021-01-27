@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2961f3f01f6ea4398fab6144b34fcb4409cdd96f
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: 84e177f1ce55d803f54bb2553078441557e5c191
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317593"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730885"
 ---
 # <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>Tutoriel pour l’intégration de l’authentification unique Azure Active Directory à F5 BIG-IP pour VPN sans mot de passe
 
@@ -24,13 +24,13 @@ Dans ce tutoriel, vous allez apprendre à intégrer la solution SSL-VPN basée s
 
 L’intégration d’un service SSL-VPN BIG-IP avec Azure AD offre [de nombreux avantages clés](f5-aad-integration.md), notamment :
 
-- Gouvernance à confiance zéro améliorée via [la pré-authentification et l’autorisation Azure AD](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
+- Gouvernance à confiance zéro améliorée via [la pré-authentification et l’autorisation Azure AD](../../app-service/overview-authentication-authorization.md)
 
 - [Authentification sans mot de passe pour le service VPN](https://www.microsoft.com/security/business/identity/passwordless)
 
 - Gestion des identités et de l’accès à partir d’un plan de contrôle unique – le [portail Azure](https://portal.azure.com/#home)
 
-Malgré ces remarquables valeurs ajoutées, le réseau VPN classique reste tributaire de la notion d’un périmètre de réseau, qui délimite la confiance à l’intérieur et l’absence de confiance à l’extérieur. Ce modèle ne permet plus d’atteindre une véritable posture à confiance zéro, car les ressources d’entreprise ne sont plus limitées aux murs d’un centre de données d’entreprise, mais couvrent plutôt des environnements multiclouds sans limites fixes. Pour cette raison, nous encourageons nos clients à passer à une approche plus basée sur les identités pour la gestion de l’[accès application par application](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
+Malgré ces remarquables valeurs ajoutées, le réseau VPN classique reste tributaire de la notion d’un périmètre de réseau, qui délimite la confiance à l’intérieur et l’absence de confiance à l’extérieur. Ce modèle ne permet plus d’atteindre une véritable posture à confiance zéro, car les ressources d’entreprise ne sont plus limitées aux murs d’un centre de données d’entreprise, mais couvrent plutôt des environnements multiclouds sans limites fixes. Pour cette raison, nous encourageons nos clients à passer à une approche plus basée sur les identités pour la gestion de l’[accès application par application](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -47,9 +47,9 @@ Aucune expérience ni connaissance préalable de F5 BIG-IP n’est requise. Tout
 
 - Un [abonnement gratuit](https://azure.microsoft.com/trial/get-started-active-directory/) Azure AD ou plus
 
-- Les identités des utilisateurs doivent être [synchronisées à partir de l’annuaire local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) à Azure AD.
+- Les identités des utilisateurs doivent être [synchronisées à partir de l’annuaire local](../hybrid/how-to-connect-sync-whatis.md) à Azure AD.
 
-- Un compte disposant des [autorisations](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator) d’administrateur d’application Azure AD
+- Un compte disposant des [autorisations](../roles/permissions-reference.md#application-administrator) d’administrateur d’application Azure AD
 
 - Une infrastructure BIG-IP existante avec routage du trafic client vers et depuis le système BIG-IP, ou [déployez BIG-IP Virtual Edition dans Azure](f5-bigip-deployment-guide.md).
 
@@ -64,7 +64,7 @@ Vous familiariser avec la [terminologie de F5 BIG-IP](https://www.f5.com/service
 
 ## <a name="add-f5-big-ip-from-the-azure-ad-gallery"></a>Ajouter F5 BIG-IP depuis la galerie Azure AD
 
-La configuration d’une approbation de fédération SAML entre BIG-IP permet au système Azure AD BIG-IP de transmettre la pré-authentification et l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) à Azure AD, avant d’accorder l’accès au service VPN publié.
+La configuration d’une approbation de fédération SAML entre BIG-IP permet au système Azure AD BIG-IP de transmettre la pré-authentification et l’[accès conditionnel](../conditional-access/overview.md) à Azure AD, avant d’accorder l’accès au service VPN publié.
 
 1. Connectez-vous au portail Azure AD à l’aide d’un compte disposant des droits d’administrateur d’application.
 
@@ -105,7 +105,7 @@ Observez les propriétés de la section **User Attributes & Claims** (Attributs 
 
 ![Image montrant les attributs utilisateur et les revendications](media/f5-sso-vpn/user-attributes-claims.png)
 
-N’hésitez pas à ajouter d’autres revendications spécifiques que votre service publié BIG-IP peut attendre, tout en notant que les revendications définies en plus de l’ensemble par défaut sont émises seulement si elles existent dans Azure AD, en tant qu’attributs renseignés. De la même façon, les appartenances à un [groupe ou rôle](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) d’annuaire doivent également être définies par rapport à un objet utilisateur dans Azure AD avant de pouvoir être émises en tant que revendication.
+N’hésitez pas à ajouter d’autres revendications spécifiques que votre service publié BIG-IP peut attendre, tout en notant que les revendications définies en plus de l’ensemble par défaut sont émises seulement si elles existent dans Azure AD, en tant qu’attributs renseignés. De la même façon, les appartenances à un [groupe ou rôle](../hybrid/how-to-connect-fed-group-claims.md) d’annuaire doivent également être définies par rapport à un objet utilisateur dans Azure AD avant de pouvoir être émises en tant que revendication.
 
 ![Image montrant un lien de téléchargement des métadonnées de fédération](media/f5-sso-vpn/saml-signing-certificate.png)
 
@@ -299,11 +299,11 @@ Avec tous les paramètres en place, le service APM nécessite désormais un serv
 
 - [Fin des mots de passe, adoptez l’authentification sans mot de passe](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [Qu’est-ce que l’accès conditionnel ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel ?](../conditional-access/overview.md)
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Cinq étapes pour l’intégration de toutes vos applications à Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
+- [Cinq étapes pour l’intégration de toutes vos applications à Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -312,4 +312,4 @@ Ouvrez un navigateur sur un client Windows distant et accédez à l’URL du **s
 ![Image montrant le lanceur VPN](media/f5-sso-vpn/vpn-launcher.png)
 
 La sélection de la vignette VPN installe le client BIG-IP Edge et établit une connexion VPN configurée pour SHA.
-L’application F5 VPN doit également être visible en tant que ressource cible dans l’accès conditionnel Azure AD. Consultez notre [guide](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) pour créer des stratégies d’accès conditionnel et permettre aux utilisateurs de bénéficier d’une [authentification sans mot de passe](https://www.microsoft.com/security/business/identity/passwordless) Azure AD.
+L’application F5 VPN doit également être visible en tant que ressource cible dans l’accès conditionnel Azure AD. Consultez notre [guide](../conditional-access/concept-conditional-access-policies.md) pour créer des stratégies d’accès conditionnel et permettre aux utilisateurs de bénéficier d’une [authentification sans mot de passe](https://www.microsoft.com/security/business/identity/passwordless) Azure AD.

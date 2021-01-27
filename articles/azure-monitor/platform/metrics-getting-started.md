@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250398"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736387"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -29,7 +29,7 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 Pour créer un graphique de métrique, à partir de votre ressource, groupe de ressources, abonnement ou vue Azure Monitor, ouvrez l’onglet **Métriques** et procédez comme suit :
 
-1. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendues de ressources. Ceci vous permettra de sélectionner la ou les ressources pour lesquelles vous souhaitez voir les métriques. La ressource doit être déjà remplie si vous avez ouvert Metrics Explorer à partir du menu de la ressource. Pour savoir comment voir les métriques de plusieurs ressources, [lisez cet article](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+1. Cliquez sur le bouton « Sélectionner une étendue » pour ouvrir le sélecteur d’étendues de ressources. Ceci vous permettra de sélectionner la ou les ressources pour lesquelles vous souhaitez voir les métriques. La ressource doit être déjà remplie si vous avez ouvert Metrics Explorer à partir du menu de la ressource. Pour savoir comment voir les métriques de plusieurs ressources, [lisez cet article](./metrics-dynamic-scope.md).
     > ![Sélectionner une ressource](./media/metrics-getting-started/scope-picker.png)
 
 2. Pour certaines ressources, vous devez choisir un espace de noms. L’espace de noms est simplement une méthode d’organisation des métriques pour que vous puissiez les retrouver facilement. Par exemple, les comptes de stockage ont des espaces de noms distincts pour le stockage des métriques de fichiers, tables, objets Blob et files d’attente. Plusieurs types de ressources n’ont qu’un seul espace de noms.

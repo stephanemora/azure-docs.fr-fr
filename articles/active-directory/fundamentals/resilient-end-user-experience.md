@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630290"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724439"
 ---
 # <a name="resilient-end-user-experience"></a>Expérience résiliente de l’utilisateur final
 
@@ -34,19 +34,19 @@ L’expérience d’inscription et de connexion de l’utilisateur final est con
 
 ## <a name="choose-between-user-flow-and-custom-policy"></a>Choisir entre un flux d’utilisateurs et une stratégie personnalisée  
 
-Pour vous aider à configurer les tâches d’identité les plus courantes, Azure AD B2C fournit des [flux d’utilisateurs](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview) configurables intégrés. Vous pouvez également créer vos propres [stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview), ce qui vous offre un maximum de flexibilité. Toutefois, il est recommandé d’utiliser des stratégies personnalisées uniquement pour répondre à des scénarios complexes.
+Pour vous aider à configurer les tâches d’identité les plus courantes, Azure AD B2C fournit des [flux d’utilisateurs](../../active-directory-b2c/user-flow-overview.md) configurables intégrés. Vous pouvez également créer vos propres [stratégies personnalisées](../../active-directory-b2c/custom-policy-overview.md), ce qui vous offre un maximum de flexibilité. Toutefois, il est recommandé d’utiliser des stratégies personnalisées uniquement pour répondre à des scénarios complexes.
 
 ### <a name="how-to-decide-between-user-flow-and-custom-policy"></a>Choix entre un flux d’utilisateurs et une stratégie personnalisée
 
 Choisissez des flux d’utilisateurs intégrés si les besoins de votre entreprise peuvent ainsi être satisfaits. Dans la mesure où ils ont été largement testés par Microsoft, vous pouvez réduire au minimum les tests nécessaires à la validation des fonctions, des performances ou de l’échelle de ces flux d’utilisateurs d’identité au niveau des stratégies. Vous devez toujours tester vos applications sur le plan des fonctionnalités, des performances et de la mise à l’échelle.
 
-Si vous [choisissez des stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) en raison des exigences de votre entreprise, veillez à effectuer des tests au niveau des stratégies pour les fonctions, les performances ou l’échelle en plus des tests au niveau des applications.
+Si vous [choisissez des stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md) en raison des exigences de votre entreprise, veillez à effectuer des tests au niveau des stratégies pour les fonctions, les performances ou l’échelle en plus des tests au niveau des applications.
 
-Reportez-vous à l’article qui [compare les flux d’utilisateurs et les stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview#comparing-user-flows-and-custom-policies) pour vous aider à décider.
+Reportez-vous à l’article qui [compare les flux d’utilisateurs et les stratégies personnalisées](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) pour vous aider à décider.
 
 ## <a name="choose-multiple-idps"></a>Choisir plusieurs IDP
 
-Lorsque vous utilisez un [fournisseur d’identité externe](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) tel que Facebook, assurez-vous de disposer d’un plan de secours au cas où le fournisseur externe deviendrait indisponible.
+Lorsque vous utilisez un [fournisseur d’identité externe](../../active-directory-b2c/technical-overview.md#external-identity-providers) tel que Facebook, assurez-vous de disposer d’un plan de secours au cas où le fournisseur externe deviendrait indisponible.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Configuration de plusieurs IDP
 
@@ -58,11 +58,11 @@ Dans le cadre du processus d’inscription du fournisseur d’identité externe,
 
  2. Configurez une stratégie de profil pour permettre aux utilisateurs de [relier l’autre identité à leur compte](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) après s’être connectés.
 
- 3. Informez les utilisateurs et autorisez-les à [basculer sur un autre IDP](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) lors d’une panne.
+ 3. Informez les utilisateurs et autorisez-les à [basculer sur un autre IDP](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) lors d’une panne.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilité de l’authentification multifacteur
 
-Lorsque vous utilisez un [service téléphonique pour l’authentification multifacteur (MFA)](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication), veillez à envisager un autre fournisseur de services. L’opérateur téléphonique local ou le fournisseur de services téléphoniques peut connaître des perturbations dans son service.
+Lorsque vous utilisez un [service téléphonique pour l’authentification multifacteur (MFA)](../../active-directory-b2c/phone-authentication.md), veillez à envisager un autre fournisseur de services. L’opérateur téléphonique local ou le fournisseur de services téléphoniques peut connaître des perturbations dans son service.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Choix d’une autre authentification multifacteur  
 

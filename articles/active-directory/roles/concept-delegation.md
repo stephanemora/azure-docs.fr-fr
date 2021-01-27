@@ -3,7 +3,7 @@ title: Comprendre la délégation de rôle d'administrateur - Azure Active Direc
 description: modèles de délégation, exemples et rôle de sécurité dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378361"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740310"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Déléguer l’administration dans Azure Active Directory
 
@@ -66,8 +66,8 @@ Chaque tâche doit être évaluée du point de vue de la fréquence, de l’impo
 
 La prolifération d’applications au sein de votre organisation peut restreindre votre modèle de délégation. S’il fait peser la gestion de l’accès aux applications sur l’administrateur général, sa surcharge est susceptible d’augmenter au fil du temps. Si vous avez accordé à des personnes le rôle Administrateur général pour des opérations telles que la configuration d’applications d’entreprise, vous pouvez désormais affecter ces opérations aux rôles les moins privilégiés suivants. Cette action permet d’améliorer votre situation de sécurité et de réduire le risque d’erreurs malheureuses. Les rôles d’administrateur d’application les plus privilégiés sont les suivants :
 
-* Le rôle **Administrateur d’application** , qui donne la possibilité de gérer toutes les applications dans l’annuaire, y compris les inscriptions, les paramètres d’authentification unique, la gestion des licences et les affectations d’utilisateurs et de groupes, les paramètres de proxy d’application et le consentement. Il n’accorde pas la possibilité de gérer l’accès conditionnel.
-* Le rôle **Administrateur d’application cloud** , qui accorde toutes les capacités de l’administrateur d’application, à ceci près qu’il n’accorde pas l’accès aux paramètres de proxy d’application (car il n’a aucune autorisation locale).
+* Le rôle **Administrateur d’application**, qui donne la possibilité de gérer toutes les applications dans l’annuaire, y compris les inscriptions, les paramètres d’authentification unique, la gestion des licences et les affectations d’utilisateurs et de groupes, les paramètres de proxy d’application et le consentement. Il n’accorde pas la possibilité de gérer l’accès conditionnel.
+* Le rôle **Administrateur d’application cloud**, qui accorde toutes les capacités de l’administrateur d’application, à ceci près qu’il n’accorde pas l’accès aux paramètres de proxy d’application (car il n’a aucune autorisation locale).
 
 ## <a name="delegate-app-registration"></a>Déléguer l’inscription des applications
 

@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071729"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738116"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostics de démarrage Azure
 
@@ -45,7 +45,7 @@ Lors de la création d’une machine virtuelle dans le portail Azure, le paramè
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Capture d’écran montrant l’activation des diagnostics de démarrage managé pendant la création d’une machine virtuelle.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Activer les diagnostics de démarrage managé à l’aide de l’interface de ligne de commande (CLI)
-Les diagnostics de démarrage avec un compte de stockage managé sont pris en charge dans Azure CLI 2.12.0 et versions ultérieures. Si vous n’entrez pas de nom ou d’URI pour un compte de stockage, un compte managé est utilisé. Pour plus d’informations et des exemples de code, consultez la [documentation de CLI pour les diagnostics de démarrage](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
+Les diagnostics de démarrage avec un compte de stockage managé sont pris en charge dans Azure CLI 2.12.0 et versions ultérieures. Si vous n’entrez pas de nom ou d’URI pour un compte de stockage, un compte managé est utilisé. Pour plus d’informations et des exemples de code, consultez la [documentation de CLI pour les diagnostics de démarrage](/cli/azure/vm/boot-diagnostics).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Activer les diagnostics de démarrage managé à l’aide de modèles Azure Resource Manager (modèles ARM)
 Tout ce qui est postérieur à l’API version 2020-06-01 prend en charge les diagnostics de démarrage managé. Pour plus d’informations, consultez [affichage d’instance de diagnostics de démarrage](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).

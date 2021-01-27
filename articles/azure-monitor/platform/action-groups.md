@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 8e260ae8310807ef9e0dad7d4fe21df8caad9b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968855"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735291"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -148,7 +148,7 @@ Si vous ne recevez pas de notifications sur votre *adresse e-mail principale*, v
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Fonction
-Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md).
 
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 
@@ -164,6 +164,7 @@ Vous pouvez avoir un nombre limité d’actions d’application logique par grou
 
 > [!NOTE]
 > L’utilisation de l’action webhook nécessite que le point de terminaison webhook cible n’ait pas besoin des détails de l’alerte pour fonctionner correctement ou qu’il soit capable d’analyser les informations de contexte d’alerte fournies dans le cadre de l’opération POST. Si le point de terminaison webhook ne peut pas gérer par lui-même les informations de contexte d’alerte, vous pouvez utiliser une solution comme une [action d’application logique](./action-groups-logic-app.md) pour une manipulation personnalisée des informations de contexte d’alerte afin qu’elles correspondent au format de données attendu du webhook.
+> L’utilisateur doit être le **propriétaire** du principal de service webhook pour s’assurer que la sécurité n’est pas enfreinte. Comme tous les clients Azure peuvent accéder à tous les ID d’objet via le portail, sans vérifier le propriétaire, chacun peut ajouter le webhook sécurisé à son propre groupe d’actions pour la notification d’alerte Azure Monitor qui enfreint la sécurité.
 
 L’action de webhook de groupes d’actions vous permet de tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre groupe d’actions et votre API web protégée (point de terminaison webhook). Le workflow global pour tirer parti de cette fonctionnalité est décrit ci-dessous. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
@@ -318,11 +319,7 @@ La tarification pour les pays/régions pris en charge est indiquée dans la [pag
 ### <a name="webhook"></a>webhook
 
 > [!NOTE]
-> L’utilisation de l’action webhook nécessite que le point de terminaison webhook cible n’ait pas besoin des détails de l’alerte pour fonctionner correctement ou qu’il soit capable d’analyser les informations de contexte d’alerte fournies dans le cadre de l’opération POST. 
-
-> L’utilisateur doit être le **propriétaire** du principal de service webhook pour s’assurer que la sécurité n’est pas enfreinte. Comme tous les clients Azure peuvent accéder à tous les ID d’objet via le portail, sans vérifier le propriétaire, chacun peut ajouter le webhook sécurisé à son propre groupe d’actions pour la notification d’alerte Azure Monitor qui enfreint la sécurité.
-
-> Si le point de terminaison webhook ne peut pas gérer par lui-même les informations de contexte d’alerte, vous pouvez utiliser une solution comme une [action d’application logique](./action-groups-logic-app.md) pour une manipulation personnalisée des informations de contexte d’alerte afin qu’elles correspondent au format de données attendu du webhook.
+> L’utilisation de l’action webhook nécessite que le point de terminaison webhook cible n’ait pas besoin des détails de l’alerte pour fonctionner correctement ou qu’il soit capable d’analyser les informations de contexte d’alerte fournies dans le cadre de l’opération POST. Si le point de terminaison webhook ne peut pas gérer par lui-même les informations de contexte d’alerte, vous pouvez utiliser une solution comme une [action d’application logique](./action-groups-logic-app.md) pour une manipulation personnalisée des informations de contexte d’alerte afin qu’elles correspondent au format de données attendu du webhook.
 
 Les Webhooks sont exécutés avec les règles suivantes
 - Un appel de webhook est tenté au maximum 3 fois.

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779864"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724014"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,9 +118,9 @@ Il n’est pas possible de changer le nom d’une instance managée.
 
 Oui, la zone DNS par défaut de l’instance managée *.database.windows.net* peut être modifiée. 
 
-Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, *.contoso.com*  : 
+Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, *.contoso.com* : 
 - Utilisez CliConfig pour définir un alias. L’outil étant simplement un wrapper de paramètres du registre, cela peut aussi se faire à l’aide d’une stratégie de groupe ou d’un script.
-- Utilisez *CNAME* avec l’option *TrustServerCertificate=true* .
+- Utilisez *CNAME* avec l’option *TrustServerCertificate=true*.
 
 ## <a name="migration-options"></a>Options de migration
 
@@ -337,9 +337,9 @@ Non, cette option n'est pas disponible.  Pour le point de terminaison de donnée
 Le peering des circuits de d’Express Route est le meilleur moyen pour y parvenir. L’appairage de réseaux virtuels mondiaux est pris en charge avec la limitation décrite dans la remarque ci-dessous.  
 
 > [!IMPORTANT]
-> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances gérées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances gérées ultérieures créées dans ces sous-réseaux. Pour toutes les autres instances gérées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
+> [Le 22/09/2020, nous avons annoncé l’appairage de réseaux virtuels mondiaux pour les clusters virtuels nouvellement créés](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Cela signifie que l’appairage de réseaux virtuels mondiaux est pris en charge pour les instances managées SQL créées dans des sous-réseaux vides après la date d’annonce, ainsi que pour toutes les instances managées ultérieures, créées dans ces sous-réseaux. Pour toutes les autres instances managées SQL, la prise en charge de l’appairage est limitée aux réseaux de la même région en raison des [contraintes de l’appairage de réseaux virtuels mondiaux](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
-Si le Peering de circuits Express Route et l’appairage de réseaux virtuels mondiaux ne sont pas possibles, la seule autre option consiste à créer une connexion VPN site à site ([Portail Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
+Si le Peering de circuits Express Route et l’appairage de réseaux virtuels mondiaux ne sont pas possibles, la seule autre option consiste à créer une connexion VPN site à site ([Portail Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Atténuer les risques liés à l’exfiltration de données  
 
@@ -409,8 +409,8 @@ Vous pouvez faire tourner le protecteur TDE pour Managed Instance en utilisant A
 
 Oui, vous n’avez pas besoin de déchiffrer votre base de données pour pouvoir la restaurer sur SQL Managed Instance. Vous devez toutefois fournir à SQL Managed Instance un certificat/une clé servant de protecteur de clé de chiffrement sur le système source pour pouvoir lire les données du fichier de sauvegarde chiffré. Il existe deux façons d'effectuer cette opération :
 
-- *Chargez le protecteur de certificat dans SQL Managed Instance* . Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](./tde-certificate-migrate.md) décrit l’ensemble du processus.
-- *Chargez le protecteur de clé asymétrique dans Azure Key Vault et faites pointer SQL Managed Instance vers celui-ci.* . Cette approche ressemble au cas d’usage TDE BYOK (Bring Your Own Key) qui utilise également l’intégration Key Vault pour stocker la clé de chiffrement. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de SQL Managed Instance pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) et ne cochez pas la case **Définir la clé sélectionnée comme protecteur TDE par défaut** .
+- *Chargez le protecteur de certificat dans SQL Managed Instance*. Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](./tde-certificate-migrate.md) décrit l’ensemble du processus.
+- *Chargez le protecteur de clé asymétrique dans Azure Key Vault et faites pointer SQL Managed Instance vers celui-ci.* . Cette approche ressemble au cas d’usage TDE BYOK (Bring Your Own Key) qui utilise également l’intégration Key Vault pour stocker la clé de chiffrement. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de SQL Managed Instance pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption) et ne cochez pas la case **Définir la clé sélectionnée comme protecteur TDE par défaut**.
 
 Une fois que vous mettez le protecteur de chiffrement à disposition de SQL Managed Instance, vous pouvez appliquer la procédure standard de restauration de la base de données.
 
@@ -443,9 +443,9 @@ Pour explorer les options tarifaires de Managed Instance, consultez la [page Tar
 
 **Comment faire pour suivre la facturation de mon instance managée ?**
 
-Vous pouvez le faire à l’aide de la [solution Azure Cost Management](../../cost-management-billing/index.yml). Accédez à **Abonnements** dans le [portail Azure](https://portal.azure.com) et sélectionnez **Analyse des coûts** . 
+Vous pouvez le faire à l’aide de la [solution Azure Cost Management](../../cost-management-billing/index.yml). Accédez à **Abonnements** dans le [portail Azure](https://portal.azure.com) et sélectionnez **Analyse des coûts**. 
 
-Utilisez l’option **Coûts cumulés** , puis filtrez en fonction du **type de ressource** comme `microsoft.sql/managedinstances`.
+Utilisez l’option **Coûts cumulés**, puis filtrez en fonction du **type de ressource** comme `microsoft.sql/managedinstances`.
 
 **Combien coûtent les sauvegardes automatisées ?**
 

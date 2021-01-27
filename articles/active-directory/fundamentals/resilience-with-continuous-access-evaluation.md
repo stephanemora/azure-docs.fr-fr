@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad36c2a7f47948d9362b85e78355e6046cda703
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1a12cc3299fbb5916afba48d2608024f28999634
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918979"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724625"
 ---
 # <a name="build-resilience-by-using-continuous-access-evaluation"></a>Renforcer la résilience en utilisant Évaluation continue de l’accès
 
-[Évaluation continue de l’accès](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) (CAE) permet aux applications Azure AD de s’abonner à des événements critiques qui peuvent ensuite être évalués et appliqués. Cela comprend l’évaluation des événements suivants :
+[Évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) (CAE) permet aux applications Azure AD de s’abonner à des événements critiques qui peuvent ensuite être évalués et appliqués. Cela comprend l’évaluation des événements suivants :
 
 * Le compte d’utilisateur est supprimé ou désactivé.
 
@@ -48,11 +48,11 @@ Microsoft collabore avec le secteur d’activité pour créer des [normes](https
 
 ## <a name="how-do-i-implement-cae"></a>Comment implémenter CAE ?
 
-* [Activez CAE](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) dans la configuration de sécurité Azure AD.
+* [Activez CAE](../conditional-access/concept-continuous-access-evaluation.md) dans la configuration de sécurité Azure AD.
 
-* Assurez-vous que votre organisation utilise des [versions compatibles](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) des applications natives Microsoft Office.
+* Assurez-vous que votre organisation utilise des [versions compatibles](../conditional-access/concept-continuous-access-evaluation.md) des applications natives Microsoft Office.
 
-* [Optimisez vos invites de réauthentification](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+* [Optimisez vos invites de réauthentification](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
  
 ## <a name="next-steps"></a>Étapes suivantes

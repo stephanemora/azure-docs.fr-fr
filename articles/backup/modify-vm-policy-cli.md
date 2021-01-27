@@ -3,12 +3,12 @@ title: Mettre à jour la stratégie existante de sauvegarde des machines virtuel
 description: Découvrez comment mettre à jour la stratégie existante de sauvegarde des machines virtuelles à l’aide d’Azure CLI.
 ms.topic: conceptual
 ms.date: 12/31/2020
-ms.openlocfilehash: ba4ded4c82a1eaea7c20ea94da580a8702467b85
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858817"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728576"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Mettre à jour la stratégie existante de sauvegarde des machines virtuelles à l’aide de CLI
 
@@ -18,7 +18,7 @@ Vous pouvez utiliser Azure CLI pour mettre à jour une stratégie existante de s
 
 Pour modifier une stratégie existante de sauvegarde des machines virtuelles, procédez comme suit :
 
-1. Exécutez la commande [az backup policy show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) pour récupérer les détails de la stratégie que vous souhaitez mettre à jour.
+1. Exécutez la commande [az backup policy show](/cli/azure/backup/policy#az_backup_policy_show) pour récupérer les détails de la stratégie que vous souhaitez mettre à jour.
 
     Exemple :
 
@@ -101,14 +101,14 @@ Pour modifier une stratégie existante de sauvegarde des machines virtuelles, pr
     ```
 
 1. Enregistrez les modifications.
-1. Exécutez la commande [az backup policy set](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_set) et transmettez le chemin d’accès complet du fichier JSON mis à jour en tant que valeur du paramètre **--policy**.
+1. Exécutez la commande [az backup policy set](/cli/azure/backup/policy#az_backup_policy_set) et transmettez le chemin d’accès complet du fichier JSON mis à jour en tant que valeur du paramètre **--policy**.
 
     ```azurecli
     az backup policy set --resource-group rg1234 --vault-name testvault --policy C:\temp2\Policy.json --name testing123
     ```
 
 >[!NOTE]
->Vous pouvez également récupérer l’exemple de stratégie JSON en exécutant la commande [az backup policy get-default-for-vm](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_get_default_for_vm).
+>Vous pouvez également récupérer l’exemple de stratégie JSON en exécutant la commande [az backup policy get-default-for-vm](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

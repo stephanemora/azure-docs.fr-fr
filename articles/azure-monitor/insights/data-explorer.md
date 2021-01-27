@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6f25ff02dee16812898d77d0e801f927b354dc78
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97917935"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734172"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure Monitor pour Azure Data Explorer (préversion)
 
@@ -49,7 +49,7 @@ Dans l’onglet **Vue d’ensemble** de l’abonnement sélectionné, le tableau
 
 La vignette de compteur, sous la liste déroulante, cumule le nombre total de clusters Azure Data Explorer dans les abonnements sélectionnés et indique combien sont sélectionnés. Il existe des codes de couleur conditionnels pour les colonnes : Connexion persistante, UC, Utilisation de l’ingestion et Utilisation du cache. Les cellules codées en orange affichent des valeurs qui ne sont pas viables pour le cluster. 
 
-Pour mieux comprendre ce que chaque métrique représente, nous vous recommandons de lire la documentation relative aux [métriques Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics).
+Pour mieux comprendre ce que chaque métrique représente, nous vous recommandons de lire la documentation relative aux [métriques Azure Data Explorer](/azure/data-explorer/using-metrics#cluster-metrics).
 
 ### <a name="query-performance-tab"></a>Onglet Performances des requêtes
 
@@ -81,7 +81,7 @@ Pour accéder à des clusters Azure Monitor pour Azure Data Explorer directement
 
 Vous pouvez également accéder à ces vues en sélectionnant le nom de ressource d’un cluster Azure Data Explorer à partir de la vue Insights d’Azure Monitor.
 
-Azure Monitor pour Azure Data Explorer combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. L’inclusion de visualisations basées sur les journaux oblige les utilisateurs à [activer la journalisation des diagnostics de leur cluster Azure Data Explorer et à les envoyer à un espace de travail Log Analytics](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Les journaux de diagnostic qui doivent être activés sont les suivants : **Command**, **Query**, **TableDetails** et **TableUsageStatistics**.
+Azure Monitor pour Azure Data Explorer combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. L’inclusion de visualisations basées sur les journaux oblige les utilisateurs à [activer la journalisation des diagnostics de leur cluster Azure Data Explorer et à les envoyer à un espace de travail Log Analytics](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs). Les journaux de diagnostic qui doivent être activés sont les suivants : **Command**, **Query**, **TableDetails** et **TableUsageStatistics**.
 
 ![Capture d’écran du bouton bleu qui affiche le texte « Activer les journaux pour la supervision »](./media/data-explorer/enable-logs.png)
 
@@ -90,7 +90,7 @@ Azure Monitor pour Azure Data Explorer combine les journaux d’activité et les
 
 - Des vignettes de métriques mettant en évidence la disponibilité et l’état global du cluster pour évaluer rapidement son intégrité.
 
-- Un résumé des [recommandations Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor) actives et de l’état [d’intégrité des ressources](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health).
+- Un résumé des [recommandations Advisor](/azure/data-explorer/azure-advisor) actives et de l’état [d’intégrité des ressources](/azure/data-explorer/monitor-with-resource-health).
 
 - Des graphiques présentant les principaux consommateurs d’UC et de mémoire, ainsi que le nombre d’utilisateurs uniques au fil du temps.
 
@@ -114,7 +114,7 @@ L’onglet **Utilisation** permet aux utilisateurs d’approfondir les performan
 
 L’onglet **Tables** affiche les propriétés les plus récentes et l’historique des propriétés des tables du cluster. Vous pouvez voir quelles tables consomment le plus d’espace, suivre l’historique de croissance par taille de table, les données à chaud ainsi que le nombre de lignes dans le temps.
 
-L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations de stratégie de cache particulières sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [principal tableau de bord Azure Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la recherche des requêtes réelles des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
+L’onglet **Cache** permet aux utilisateurs d’analyser leurs modèles de requêtes réelles et de les comparer à la stratégie de cache configurée (pour chaque table). Vous pouvez identifier les tables utilisées par le plus grand nombre de requêtes ainsi que les tables qui ne sont pas interrogées, et adapter ainsi la stratégie de cache en conséquence. Vous pouvez obtenir des recommandations de stratégie de cache particulières sur des tables spécifiques dans Azure Advisor (actuellement, les recommandations de cache sont disponibles uniquement à partir du [principal tableau de bord Azure Advisor](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), en fonction de la recherche des requêtes réelles des 30 derniers jours et d’une stratégie de cache non optimisée pour au moins 95 % des requêtes. Des recommandations de réduction du cache dans Azure Advisor sont disponibles pour les clusters « délimités par les données », ce qui signifie que le cluster a une faible utilisation du processeur et une faible ingestion, mais qu’en raison d’une capacité de données élevée, le cluster ne peut pas faire l’objet d’un scale-in ou d’un scale-down.
 
 [![Capture d’écran des détails du cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -153,7 +153,7 @@ Nous affichons uniquement les abonnements qui contiennent des clusters Azure Dat
 
 ### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>Pourquoi ne vois-je aucune donnée pour mon cluster Azure Data Explorer dans les sections Utilisation, Tables ou Cache ?
 
-Pour afficher vos données basées sur les journaux, vous devrez [activer les journaux de diagnostic](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) pour chacun des clusters Azure Data Explorer que vous souhaitez analyser. Vous pouvez effectuer cette opération dans les paramètres de diagnostic pour chaque cluster. Vous devrez envoyer vos données à un espace de travail Log Analytics. Les journaux de diagnostic qui doivent être activés sont les suivants : Command, Query, TableDetails et TableUsageStatistics.
+Pour afficher vos données basées sur les journaux, vous devrez [activer les journaux de diagnostic](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) pour chacun des clusters Azure Data Explorer que vous souhaitez analyser. Vous pouvez effectuer cette opération dans les paramètres de diagnostic pour chaque cluster. Vous devrez envoyer vos données à un espace de travail Log Analytics. Les journaux de diagnostic qui doivent être activés sont les suivants : Command, Query, TableDetails et TableUsageStatistics.
 
 ### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>J’ai déjà activé les journaux pour mon cluster Azure Data Explorer, pourquoi ne puis-je toujours pas afficher mes données sous Commandes et Requêtes ?
 

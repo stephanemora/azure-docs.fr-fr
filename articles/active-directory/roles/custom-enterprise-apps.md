@@ -2,23 +2,23 @@
 title: Autorisations de rôles personnalisés pour les attributions d’accès aux applications d’entreprise - Azure Active Directory | Microsoft Docs
 description: Créez et attribuez des rôles Azure AD personnalisés pour l’accès aux applications d’entreprise dans Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378548"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741143"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Attribuer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
 
@@ -46,31 +46,31 @@ L’octroi de l’autorisation de mise à jour s’effectue en deux étapes :
 > Les rôles personnalisés sont créés et gérés au niveau de l’organisation, et sont uniquement disponibles à partir de la page Vue d’ensemble de l’organisation.
 
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans votre organisation.
-1. Sélectionnez **Azure Active Directory** , **Rôles et administrateurs** , puis **Nouveau rôle personnalisé**.
+1. Sélectionnez **Azure Active Directory**, **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
 
     ![Ajouter un rôle personnalisé à partir de la liste des rôles dans Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
-1. Sous l’onglet **De base** , indiquez « Gérer les attributions d’utilisateurs et de groupes » pour le nom du rôle et « Octroyer des autorisations pour gérer les attributions d’utilisateurs et de groupes » pour la description de rôle, puis sélectionnez **Suivant**.
+1. Sous l’onglet **De base**, indiquez « Gérer les attributions d’utilisateurs et de groupes » pour le nom du rôle et « Octroyer des autorisations pour gérer les attributions d’utilisateurs et de groupes » pour la description de rôle, puis sélectionnez **Suivant**.
 
     ![Indiquer le nom et la description du rôle personnalisé](./media/custom-enterprise-apps/role-name-and-description.png)
 
-1. Sous l'onglet **Autorisations** , entrez « microsoft.directory/servicePrincipals/appRoleAssignedTo/update » dans la zone de recherche, puis activez les cases à cocher en regard des autorisations souhaitées, puis sélectionnez **Suivant**.
+1. Sous l'onglet **Autorisations**, entrez « microsoft.directory/servicePrincipals/appRoleAssignedTo/update » dans la zone de recherche, puis activez les cases à cocher en regard des autorisations souhaitées, puis sélectionnez **Suivant**.
 
     ![Ajouter les autorisations au rôle personnalisé](./media/custom-enterprise-apps/role-custom-permissions.png)
 
-1. Sur l’onglet **Vérifier + Créer** , vérifiez les permissions, puis sélectionnez **Créer**.
+1. Sur l’onglet **Vérifier + Créer**, vérifiez les permissions, puis sélectionnez **Créer**.
 
     ![Vous pouvez maintenant créer le rôle personnalisé.](./media/custom-enterprise-apps/role-custom-create.png)
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Attribuer le rôle à un utilisateur à l’aide du portail Azure AD
 
 1. Connectez-vous au [centre d'administration Azure AD](https://aad.portal.azure.com) avec les autorisations Administrateur de rôle privilégié.
-1. Sélectionnez **Azure Active Directory** , puis **Rôles et administrateurs**.
+1. Sélectionnez **Azure Active Directory**, puis **Rôles et administrateurs**.
 1. Sélectionnez le rôle **Octroyer des autorisations pour gérer les attributions d’utilisateurs et de groupes**.
 
     ![Ouvrir Rôles et administrateurs et rechercher le rôle personnalisé](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. Sélectionnez **Ajouter une attribution** , sélectionnez l’utilisateur souhaité, puis cliquez sur **Sélectionner** pour ajouter une attribution de rôle à cet utilisateur.
+1. Sélectionnez **Ajouter une attribution**, sélectionnez l’utilisateur souhaité, puis cliquez sur **Sélectionner** pour ajouter une attribution de rôle à cet utilisateur.
 
     ![Ajouter une attribution pour le rôle personnalisé à l’utilisateur](./media/custom-enterprise-apps/assign-user-to-role.png)
 

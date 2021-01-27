@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008586"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732692"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,7 +156,7 @@ Lorsque vous avez terminé la configuration du pool, vous pouvez cliquer sur App
 
 Dans le portail Azure, vous pouvez surveiller l’utilisation d’un pool élastique et des bases de données que contient ce pool. Vous pouvez également apporter un ensemble de modifications à votre pool élastique et soumettre toutes les modifications en même temps. Ces modifications incluent l’ajout ou la suppression de bases de données, ainsi que le changement des paramètres du pool élastique ou des bases de données.
 
-Vous utilisez les outils intégrés [d’analyse des performances](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) et [d’alerte](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal), combinées avec les indices de performance.  De plus, SQL Database peut [émettre des métriques et des journaux de ressources](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) pour faciliter la supervision.
+Vous utilisez les outils intégrés [d’analyse des performances](./performance-guidance.md) et [d’alerte](./alerts-insights-configure-portal.md), combinées avec les indices de performance.  De plus, SQL Database peut [émettre des métriques et des journaux de ressources](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) pour faciliter la supervision.
 
 ## <a name="customer-case-studies"></a>Études de cas clients
 

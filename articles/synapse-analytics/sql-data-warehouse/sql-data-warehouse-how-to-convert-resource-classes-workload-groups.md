@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1207f4856882d8aa0e6d1e41712071536bfecf29
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461898"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728554"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertir les classes de ressources en groupes de charge de travail
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Créer le classifieur
 
-Précédemment, le mappage des requêtes aux classes de ressources a été effectué avec [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Pour obtenir les mêmes fonctionnalités et mapper les demandes aux groupes de charge de travail, utilisez la syntaxe [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL).  L’utilisation de sp_addrolemember vous permettait uniquement de mapper des ressources à une requête basée sur une connexion.  Un classifieur fournit des options supplémentaires en plus de la connexion, telles que :
+Précédemment, le mappage des requêtes aux classes de ressources a été effectué avec [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Pour obtenir les mêmes fonctionnalités et mapper les demandes aux groupes de charge de travail, utilisez la syntaxe [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL).  L’utilisation de sp_addrolemember vous permettait uniquement de mapper des ressources à une requête basée sur une connexion.  Un classifieur fournit des options supplémentaires en plus de la connexion, telles que :
     - label
     - session
     - temps L’exemple ci-dessous affecte des requêtes à partir de la connexion `AdfLogin` qui dispose également de l’[ÉTIQUETTE OPTION](sql-data-warehouse-develop-label.md) définie sur `factloads` sur le groupe de charge de travail `wgDataLoads` créé ci-dessus.
@@ -90,5 +90,5 @@ SELECT request_id, [label], classifier_name, group_name, command
 
 - [Isolation des charges de travail](sql-data-warehouse-workload-isolation.md)
 - [Guide pratique pour la création d’un groupe de charge de travail](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql??view=azure-sqldw-latest&preserve-view=true)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

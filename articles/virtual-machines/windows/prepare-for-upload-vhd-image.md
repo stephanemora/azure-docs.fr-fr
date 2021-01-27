@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e409211c167f7b29128faf9fdfc02aa5c0a7d0e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976180"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736252"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -433,7 +433,7 @@ En particulier, un déchiffrement complet des lecteurs est nécessaire avant l�
 Le disque dur virtuel est maintenant prêt à être chargé. Pour plus d’informations sur la création d’une machine virtuelle à partir d’un disque généralisé, consultez la page [Charger un disque dur virtuel généralisé sur Azure pour créer une machine virtuelle](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
-> Un fichier *unattend.xml* personnalisé n’est pas pris en charge. Bien que nous prenions en charge la propriété **additionalUnattendContent**, celle-ci n’offre qu’une prise en charge limitée de l’ajout d’options [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) dans le fichier *unattend.xml* que l’agent d’approvisionnement Azure utilise. Vous pouvez, par exemple, utiliser [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) pour ajouter FirstLogonCommands et LogonCommands. Pour plus d'informations, consultez l’[exemple additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Un fichier *unattend.xml* personnalisé n’est pas pris en charge. Bien que nous prenions en charge la propriété **additionalUnattendContent**, celle-ci n’offre qu’une prise en charge limitée de l’ajout d’options [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) dans le fichier *unattend.xml* que l’agent d’approvisionnement Azure utilise. Vous pouvez, par exemple, utiliser [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent) pour ajouter FirstLogonCommands et LogonCommands. Pour plus d'informations, consultez l’[exemple additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Convertir le disque virtuel en disque dur virtuel de taille fixe
 

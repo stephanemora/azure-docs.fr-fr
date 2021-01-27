@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703583"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725493"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
@@ -102,7 +102,7 @@ Si vous avez déjà choisi la préversion publique de l’envoi d’un code secr
 
 ![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son activation automatique en mars 2021, vous pouvez revenir aux paramètres par défaut à l’aide du [Type de ressource emailAuthenticationMethodConfiguration](https://aka.ms/exid-graphemailauth) de l’API Microsoft Graph. Les options suivantes seront alors disponibles sous **Envoi d’un code secret à usage unique par e-mail pour les invités** :
+Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son activation automatique en mars 2021, vous pouvez revenir aux paramètres par défaut à l’aide du [Type de ressource emailAuthenticationMethodConfiguration](/graph/api/resources/emailauthenticationmethodconfiguration) de l’API Microsoft Graph. Les options suivantes seront alors disponibles sous **Envoi d’un code secret à usage unique par e-mail pour les invités** :
 
 - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en mars 2021** (par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en mars 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
 

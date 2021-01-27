@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c45b362bc37df71346fc3b635c8ae4a51f62cdc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de01788c01d4d6dedd9563faaaac07bff30bbd97
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918987"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724757"
 ---
 # <a name="build-resilience-in-your-hybrid-architecture"></a>Renforcer la résilience de votre architecture hybride
 
@@ -82,7 +82,7 @@ Pour implémenter l’authentification directe, consultez les ressources suivant
 
 La fédération implique la création d’une relation de confiance entre Azure AD et le service de fédération, qui comprend l’échange de points de terminaison, de certificats de signature de jetons et d’autres métadonnées. Lorsqu’une demande est envoyée à Azure AD, elle lit la configuration et redirige l’utilisateur vers les points de terminaison configurés. À ce stade, l’utilisateur interagit avec le service de fédération, qui émet une assertion SAML validée par Azure AD. 
 
-Le diagramme suivant illustre la topologie de services de fédération Active Directory (AD FS) d’entreprise, déploiement qui comprend des serveurs de fédération et de proxy d’application web redondants sur plusieurs centres de données locaux. Cette configuration s’appuie sur des composants de l’infrastructure réseau de l’entreprise tels que le DNS, l’équilibrage de la charge réseau avec des capacités d’affinité géographique, des pare-feu, etc. Tous les composants et connexions locaux sont susceptibles de tomber en panne. Pour plus d’informations, consultez la [documentation sur la planification de la capacité AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
+Le diagramme suivant illustre la topologie de services de fédération Active Directory (AD FS) d’entreprise, déploiement qui comprend des serveurs de fédération et de proxy d’application web redondants sur plusieurs centres de données locaux. Cette configuration s’appuie sur des composants de l’infrastructure réseau de l’entreprise tels que le DNS, l’équilibrage de la charge réseau avec des capacités d’affinité géographique, des pare-feu, etc. Tous les composants et connexions locaux sont susceptibles de tomber en panne. Pour plus d’informations, consultez la [documentation sur la planification de la capacité AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity).
 
 > [!NOTE]
 >  La fédération présente le plus grand nombre de dépendances locales et, par conséquent, le plus grand nombre de points de défaillance potentiels. Bien que ce diagramme montre AD FS, d’autres fournisseurs d’identité locaux sont soumis à des considérations de conception similaires pour obtenir une haute disponibilité, une scalabilité et un basculement.
@@ -99,9 +99,9 @@ Si vous implémentez une stratégie d’authentification fédérée ou si vous s
 
 * [Liste de compatibilité de fédération Azure AD](../hybrid/how-to-connect-fed-compatibility.md)
 
-* Suivez la [documentation sur la planification de la capacité AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
+* Suivez la [documentation sur la planification de la capacité AD FS](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
 
-* [Déploiement d’AD FS dans Azure IaaS](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Déploiement d’AD FS dans Azure IaaS](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
 * [Activer la PHS](../hybrid/tutorial-phs-backup.md) avec votre fédération
 

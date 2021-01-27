@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656405"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736967"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
 
@@ -33,9 +33,9 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 | Vérifier la galerie d’applications Azure AD à la recherche d’applications  | Azure AD comprend une galerie contenant des milliers d’applications pré-intégrées pour lesquelles Enterprise Single Sign-On (SSO de l’entreprise) est activé. Pour obtenir des instructions de configuration propres à une application, consultez la [Liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md).  | 
 | Utiliser l’authentification unique SAML fédérée  | Lorsqu’elle est prise en charge par l’application, utilisez l’authentification unique SAML fédérée avec Azure AD plutôt que l’authentification unique basée sur les mots de passe et ADFS.  | 
 | Utiliser SHA-256 pour la signature de certificat  | Azure AD utilise l’algorithme SHA-256 par défaut pour signer la réponse SAML. Utilisez SHA-256, sauf si l’application exige SHA-1 (voir [Options de signature de certificat](certificate-signing-options.md) et [Problème de connexion à l’application](application-sign-in-problem-application-error.md).)  | 
-| Exiger l’affectation des utilisateurs  | Par défaut, les utilisateurs peuvent accéder aux applications de votre entreprise sans affectation. Toutefois, si l’application expose des rôles, ou si vous souhaitez qu’elle s’affiche sur le panneau Mes applications d’un utilisateur, demandez l’affectation d’utilisateurs. (Consultez le [Guide du développeur pour l’intégration de l’application](developer-guidance-for-integrating-applications.md).)  | 
+| Exiger l’affectation des utilisateurs  | Par défaut, les utilisateurs peuvent accéder aux applications de votre entreprise sans affectation. Toutefois, si l’application expose des rôles, ou si vous souhaitez qu’elle s’affiche sur le panneau Mes applications d’un utilisateur, demandez l’affectation d’utilisateurs.  | 
 | Déployer Mes applications pour vos utilisateurs | [Mes applications](end-user-experiences.md) sur `https://myapps.microsoft.com` est un portail web qui fournit aux utilisateurs un point unique d’entrée pour leurs applications cloud affectées. À mesure que des fonctionnalités supplémentaires, telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service, sont ajoutées, les utilisateurs peuvent les trouver dans Mes applications. Consultez [Planifier le déploiement de Mes applications](access-panel-deployment-plan.md).
-| Utiliser l’affectation de groupe  | Si cette possibilité est incluse dans votre abonnement, affectez des groupes à une application afin de pouvoir déléguer la gestion des accès en cours au propriétaire du groupe. (Consultez le [Guide du développeur pour l’intégration de l’application](developer-guidance-for-integrating-applications.md).)   | 
+| Utiliser l’affectation de groupe  | Si cette possibilité est incluse dans votre abonnement, affectez des groupes à une application afin de pouvoir déléguer la gestion des accès en cours au propriétaire du groupe.  | 
 | Établir un processus de gestion des certificats | La durée de vie maximale d’un certificat de signature est de trois ans. Pour éviter ou réduire au minimum l’interruption due à l’expiration d’un certificat, utilisez des rôles et des listes de distribution d’e-mails pour vous assurer que les notifications de modifications liées aux certificats sont étroitement supervisées. |
 
 ## <a name="provisioning-recommendations"></a>Recommandations relatives au provisionnement

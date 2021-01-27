@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632096"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730868"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Reprise d’activité avec l’outil Azure Application Consistent Snapshot Tool (préversion)
 
@@ -40,7 +40,7 @@ Vous devez vérifier la conformité des prérequis suivants avant de planifier l
 - La réplication du stockage fonctionne. L’équipe des opérations Microsoft effectue la configuration de la réplication du stockage au moment du provisionnement automatique de la reprise d’activité DR. Vous pouvez superviser la réplication du stockage à l’aide de la commande `azacsnap -c details --details replication` sur le site DR.
 - Vous avez créé et configuré des instantanés de stockage sur le site principal.
 - Une instance HANA est installée sur le site DR pour le site principal. Elle utilise le même SID que celui de l’instance du site principal.
-- Vous avez lu et compris la procédure de basculement DR décrite dans [Haute disponibilité et reprise d’activité de SAP HANA - Grandes instances sur Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- Vous avez lu et compris la procédure de basculement DR décrite dans [Haute disponibilité et reprise d’activité de SAP HANA - Grandes instances sur Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - Vous avez créé et configuré des instantanés de stockage sur le site DR.
 - Un fichier config (par exemple `DR.json`) a été créé avec les volumes de stockage DR et les informations associées sur le serveur DR.
 - Vous avez effectué les étapes nécessaires sur le site DR pour :

@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462657"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735379"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers de stockage avec un pool SQL serverless dans Azure Synapse Analytics
 
 Un pool SQL serverless vous permet d’interroger des données dans votre lac de données. Ce service offre une surface d’exposition de requête T-SQL qui prend en charge les requêtes de données semi-structurées et non structurées. Pour l’interrogation, les aspects T-SQL suivants sont pris en charge :
 
-- Surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) complète, y compris la majorité des [fonctions et opérateurs SQL](overview-features.md).
+- Surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) complète, y compris la majorité des [fonctions et opérateurs SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) crée une [table externe](develop-tables-external-tables.md), puis exporte, en parallèle, les résultats d’une instruction SELECT Transact-SQL vers le stockage Azure.
 
 Pour plus d’informations sur ce qui est pris en charge ou non, consultez l’article [Vue d’ensemble du pool SQL serverless](on-demand-workspace-overview.md) ou les articles suivants :
@@ -184,21 +184,21 @@ Par défaut, la fonction `OPENROWSET` associe le chemin et le nom de champ de la
 - La fonction retourne une valeur scalaire, telle que int, decimal et varchar, à partir de l’élément spécifié, et dans le chemin spécifié, pour tous les types Parquet qui ne sont pas dans le groupe Type imbriqué.
 - Si le chemin pointe vers un élément qui est d’un type imbriqué, la fonction retourne un fragment JSON à partir de l’élément du plus haut niveau dans le chemin spécifié. Le fragment JSON est de type varchar(8000).
 - Si la propriété est introuvable au niveau de l’élément column_name spécifié, la fonction retourne une erreur.
-- Si la propriété est introuvable au niveau de l’élément column_name précisé, en fonction du [mode de chemin](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), la fonction retourne une erreur en mode strict, ou retourne la valeur Null en mode lax.
+- Si la propriété est introuvable au niveau de l’élément column_name précisé, en fonction du [mode de chemin](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), la fonction retourne une erreur en mode strict, ou retourne la valeur Null en mode lax.
 
 Pour obtenir des exemples de requêtes, consultez la section Accéder aux éléments à partir de colonnes imbriquées dans l’article [Interroger des types imbriqués Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Accéder aux éléments à partir de colonnes répétées
 
-Pour accéder aux éléments d’une colonne répétée, par exemple un élément d’un tableau ou d’un plan, utilisez la fonction [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour chaque élément scalaire que vous devez projeter, et fournissez les informations suivantes :
+Pour accéder aux éléments d’une colonne répétée, par exemple un élément d’un tableau ou d’un plan, utilisez la fonction [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour chaque élément scalaire que vous devez projeter, et fournissez les informations suivantes :
 
 - Colonne imbriquée ou répétée, en tant que premier paramètre
-- Un [chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) qui spécifie la propriété ou l’élément auquel accéder, en tant que second paramètre
+- Un [chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) qui spécifie la propriété ou l’élément auquel accéder, en tant que second paramètre
 
-Pour accéder à des éléments non scalaires à partir d’une colonne répétée, utilisez la fonction [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour chaque élément non scalaire que vous devez projeter, et fournissez les informations suivantes :
+Pour accéder à des éléments non scalaires à partir d’une colonne répétée, utilisez la fonction [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour chaque élément non scalaire que vous devez projeter, et fournissez les informations suivantes :
 
 - Colonne imbriquée ou répétée, en tant que premier paramètre
-- Un [chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) qui spécifie la propriété ou l’élément auquel accéder, en tant que second paramètre
+- Un [chemin JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) qui spécifie la propriété ou l’élément auquel accéder, en tant que second paramètre
 
 Consultez le fragment de syntaxe ci-dessous :
 

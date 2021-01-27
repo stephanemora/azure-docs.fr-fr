@@ -3,22 +3,22 @@ title: Délégation de la gestion des utilisateurs avec Mon personnel (préversi
 description: Déléguez la gestion des utilisateurs avec Mon personnel et les unités administratives.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372939"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740140"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestion des utilisateurs avec Mon personnel (préversion)
 
@@ -42,7 +42,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement.
 
   * Si nécessaire, [créez un locataire Azure Active Directory](../fundamentals/sign-up-organization.md) ou [associez un abonnement Azure à votre compte](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
-* Vous devez disposer de privilèges d’ *administrateur d’entreprise* dans votre locataire Azure AD pour activer l’authentification par SMS.
+* Vous devez disposer de privilèges d’*administrateur d’entreprise* dans votre locataire Azure AD pour activer l’authentification par SMS.
 * Chaque utilisateur activé dans la stratégie de méthode d’authentification par SMS doit disposer d’une licence, même s’il ne l’utilise pas. Chaque utilisateur activé doit avoir l’une des licences Azure AD ou Microsoft 365 suivantes :
 
   * [Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
@@ -54,8 +54,8 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 Une fois que vous avez configuré les unités administratives, vous pouvez appliquer cette étendue aux utilisateurs qui accèdent à Mon personnel. Seuls les utilisateurs disposant d’un rôle d’administrateur ont accès à Mon personnel. Pour activer Mon personnel, procédez de la façon suivante :
 
 1. Connectez-vous au Portail Azure en tant qu’Administrateur d’utilisateurs.
-2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Préversion des fonctionnalités utilisateur** > **Gérer les paramètres de préversion des fonctionnalités utilisateur** .
-3. Sous **Les administrateurs peuvent accéder à Mon personnel** , vous pouvez choisir d’activer l’accès pour tous les utilisateurs, les utilisateurs sélectionnés ou aucun utilisateur.
+2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Préversion des fonctionnalités utilisateur** > **Gérer les paramètres de préversion des fonctionnalités utilisateur**.
+3. Sous **Les administrateurs peuvent accéder à Mon personnel**, vous pouvez choisir d’activer l’accès pour tous les utilisateurs, les utilisateurs sélectionnés ou aucun utilisateur.
 
 > [!Note]
 > Seuls les utilisateurs disposant d’un rôle d’administrateur ont accès à Mon personnel. Si vous activez Mon personnel pour un utilisateur à qui aucun rôle d’administrateur n’est attribué, il ne pourra pas accéder à Mon personnel.
@@ -94,7 +94,7 @@ Les rôles suivants sont autorisés à réinitialiser le mot de passe d’un uti
 - [Administrateur d’utilisateurs](permissions-reference.md#user-administrator)
 - [Administrateur de mots de passe](permissions-reference.md#password-administrator)
 
-Dans **Mon personnel** , ouvrez le profil d’un utilisateur. Sélectionnez **Réinitialiser le mot de passe** .
+Dans **Mon personnel**, ouvrez le profil d’un utilisateur. Sélectionnez **Réinitialiser le mot de passe**.
 
 - Si l’utilisateur se trouve uniquement sur le cloud, un mot de passe temporaire s’affiche. Vous pouvez le donner à l’utilisateur.
 - Si l’utilisateur est synchronisé à partir d’Active Directory en local, vous pouvez entrer un mot de passe qui respecte vos stratégies AD locales. Vous pouvez ensuite le donner à l’utilisateur.
@@ -105,7 +105,7 @@ L’utilisateur devra modifier son mot de passe à la prochaine connexion.
 
 ## <a name="manage-a-phone-number"></a>Gestion d’un numéro de téléphone
 
-Dans **Mon personnel** , ouvrez le profil d’un utilisateur.
+Dans **Mon personnel**, ouvrez le profil d’un utilisateur.
 
 - Sélectionnez la section **Ajouter un numéro de téléphone** pour ajouter un numéro de téléphone à l’utilisateur.
 - Sélectionnez **Modifier le numéro de téléphone** pour modifier le numéro de téléphone.

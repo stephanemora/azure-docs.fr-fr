@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914958"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728089"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extraire des paramètres d’App Configuration à l’aide d’Azure Pipelines
 
@@ -47,7 +47,7 @@ Maintenant que votre connexion de service est créée, recherchez le nom du prin
 
 Attribuez le rôle App Configuration approprié à la connexion de service utilisée dans la tâche pour que celle-ci puisse accéder au magasin App Configuration.
 
-1. Accédez à votre magasin App Configuration cible. Pour accéder à une procédure pas à pas de configuration d’un magasin App Configuration, consultez [Créer un magasin App Configuration](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) dans l’un des guides de démarrage rapide consacrés à Azure App Configuration.
+1. Accédez à votre magasin App Configuration cible. Pour accéder à une procédure pas à pas de configuration d’un magasin App Configuration, consultez [Créer un magasin App Configuration](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) dans l’un des guides de démarrage rapide consacrés à Azure App Configuration.
 1. Sur la gauche, sélectionnez **Contrôle d’accès (IAM)** .
 1. En haut, sélectionnez **+ Ajouter** et choisissez **Ajouter une attribution de rôle**.
 1. Sous **Rôle**, sélectionnez **Lecteur de données de l’App Configuration**. Ce rôle permet à la tâche de lire le contenu du magasin App Configuration. 

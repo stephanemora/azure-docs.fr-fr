@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251469"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735238"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -413,7 +413,7 @@ de calcul local, qui met en cache la plupart des pages de données utilisées. E
 |Taille maximale des données TempDB (Go)|83,25|92,5|111|148|166,5|333|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|11520|23040|
+|Nombre maximal d’IOPS de données *|5760|6 400|7680|10240|11520|12800|
 |Taux de journalisation maximal (Mbits/s)|36|36|36|36|36|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|900|1 000|1200|1 600|1800|3600|
 |Nombre maximal de connexions simultanées|1800|2000|2 400|3200|3600|7200|

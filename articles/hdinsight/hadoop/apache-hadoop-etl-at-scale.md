@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e7a8a72d0669f39cc27c997d83af1e6272d045a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462174"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704150"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -82,7 +82,7 @@ Pour le chargement de jeux de données de plusieurs téraoctets, la latence du r
 
 - **Azure ExpressRoute :** créez des connexions privées entre des centres de données Azure et votre infrastructure locale. Ces connexions constituent une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- **Chargement de données à partir de lecteurs de disque dur :** vous pouvez utiliser le [service Azure Import/Export](../../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont d’abord chargées vers le Stockage Blob Azure. Vous pouvez ensuite utiliser Azure Data Factory ou l’outil AdlCopy pour copier des données de Stockage Blob Azure vers Data Lake Storage.
+- **Chargement de données à partir de lecteurs de disque dur :** vous pouvez utiliser le [service Azure Import/Export](../../import-export/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont d’abord chargées vers le Stockage Blob Azure. Vous pouvez ensuite utiliser Azure Data Factory ou l’outil AdlCopy pour copier des données de Stockage Blob Azure vers Data Lake Storage.
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 

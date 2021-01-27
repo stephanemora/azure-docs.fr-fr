@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222358"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725390"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Transition vers une collaboration contrôlée avec Azure Active Directory B2B Collaboration 
 
@@ -100,7 +100,7 @@ Déterminez qui peut inviter des utilisateurs à accéder aux ressources.
 
 Si vous utilisez la gestion des droits d'utilisation Azure AD, vous pouvez configurer des questions auxquelles les utilisateurs externes doivent répondre. Les questions seront ensuite présentées aux approbateurs pour les aider à prendre une décision. Vous pouvez configurer différents ensembles de questions pour chaque [stratégie de package d’accès](../governance/entitlement-management-access-package-approval-policy.md) afin que les approbateurs puissent disposer d’informations pertinentes pour l’accès qu’ils approuvent. Par exemple, si un package d’accès est destiné à l’accès fournisseur, le demandeur peut être invité à entrer son numéro de contrat fournisseur. Un autre package d’accès destiné aux fournisseurs peut leur demander leur pays d’origine.
 
-Si vous disposez d’un portail en libre-service, vous pouvez utiliser des [connecteurs d’API](../external-identities/api-connectors-overview.md) pour recueillir des attributs supplémentaires sur les utilisateurs lors de leur inscription. Vous pouvez ensuite utiliser ces attributs pour attribuer l’accès. Par exemple, si, pendant le processus d’inscription, vous collectez l’ID de fournisseur, vous pouvez utiliser cet attribut pour les affecter de manière dynamique à un groupe ou à un package d’accès pour ce fournisseur. Vous pouvez créer des attributs personnalisés dans le portail Azure et les utiliser dans vos flux utilisateur d’inscription en libre-service. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). 
+Si vous disposez d’un portail en libre-service, vous pouvez utiliser des [connecteurs d’API](../external-identities/api-connectors-overview.md) pour recueillir des attributs supplémentaires sur les utilisateurs lors de leur inscription. Vous pouvez ensuite utiliser ces attributs pour attribuer l’accès. Par exemple, si, pendant le processus d’inscription, vous collectez l’ID de fournisseur, vous pouvez utiliser cet attribut pour les affecter de manière dynamique à un groupe ou à un package d’accès pour ce fournisseur. Vous pouvez créer des attributs personnalisés dans le portail Azure et les utiliser dans vos flux utilisateur d’inscription en libre-service. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Résoudre les problèmes d’acceptation d'invitation d’utilisateurs Azure AD
 
@@ -132,7 +132,7 @@ Nous vous recommandons d’utiliser les restrictions suivantes pour les utilisat
 
 * **Bloquez l’accès au portail Azure. Vous pouvez raréfier les exceptions nécessaires**. 
 
-   * Créez une stratégie d’accès conditionnel qui comprend tous les utilisateurs invités et externes, puis [implémentez une stratégie pour bloquer l’accès](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Créez une stratégie d’accès conditionnel qui comprend tous les utilisateurs invités et externes, puis [implémentez une stratégie pour bloquer l’accès](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -185,7 +185,7 @@ Par défaut, Teams autorise l’accès externe, ce qui signifie que l’organisa
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>Partage direct via SharePoint et OneDrive
 
-Un partage direct via SharePoint et OneDrive peut ajouter des utilisateurs en dehors du processus de gestion des droits d'utilisation. Pour une présentation détaillée de ces configurations, consultez [Gérer l’accès avec Microsoft Teams, SharePoint et OneDrive Entreprise](9-secure-access-teams-sharepoint.md). Vous pouvez également [Bloquer l’utilisation du OneDrive personnel de l’utilisateur](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) si vous le souhaitez.
+Un partage direct via SharePoint et OneDrive peut ajouter des utilisateurs en dehors du processus de gestion des droits d'utilisation. Pour une présentation détaillée de ces configurations, consultez [Gérer l’accès avec Microsoft Teams, SharePoint et OneDrive Entreprise](9-secure-access-teams-sharepoint.md). Vous pouvez également [Bloquer l’utilisation du OneDrive personnel de l’utilisateur](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) si vous le souhaitez.
 
 ### <a name="sending-documents-through-email"></a>Envoi de documents par e-mail
 
@@ -197,9 +197,9 @@ La panoplie des outils de collaboration est vaste. Vos utilisateurs en utilisent
 
 Pour plus d’informations sur la gestion des applications non approuvées, consultez les rubriques suivantes :
 
-* [Gouvernance des applications connectées](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Gouvernance des applications connectées](/cloud-app-security/governance-actions)
 
-* [Approbation/non-approbation d’une application](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Approbation/non-approbation d’une application](/cloud-app-security/governance-discovery)
 
  
 ### <a name="next-steps"></a>Étapes suivantes

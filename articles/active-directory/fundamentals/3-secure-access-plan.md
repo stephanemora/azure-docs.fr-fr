@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 202f2190e68b89d790c628248ae89f0cb274ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222328"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725209"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. Créer un plan de sécurité pour l’accès externe 
 
@@ -93,7 +93,7 @@ Les conditions de connexion sont configurées dans l’[Accès conditionnel Azur
 | Risque élevé| Toujours exiger l’authentification multifacteur pour les utilisateurs externes |
 
 
-Aujourd’hui, vous pouvez [appliquer l’authentification multifacteur pour les utilisateurs B2B dans votre locataire](https://docs.microsoft.com/azure/active-directory/external-identities/b2b-tutorial-require-mfa). 
+Aujourd’hui, vous pouvez [appliquer l’authentification multifacteur pour les utilisateurs B2B dans votre locataire](../external-identities/b2b-tutorial-require-mfa.md). 
 
 **Conditions de connexion basées sur l’utilisateur et l’appareil**.
 
@@ -106,11 +106,11 @@ Aujourd’hui, vous pouvez [appliquer l’authentification multifacteur pour les
 
 Aujourd’hui, pour utiliser l’état de l’appareil en tant qu’entrée d’une stratégie, l’appareil doit être inscrit ou joint à votre locataire. 
 
-Les [stratégies basées sur les risques Identity Protection](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-risk) peuvent être utilisées. Toutefois, les problèmes doivent être atténués dans le locataire de base de l’utilisateur.
+Les [stratégies basées sur les risques Identity Protection](../conditional-access/howto-conditional-access-policy-risk.md) peuvent être utilisées. Toutefois, les problèmes doivent être atténués dans le locataire de base de l’utilisateur.
 
-Pour les [emplacements réseau](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-location), vous pouvez restreindre l’accès à toutes les plages d’adresses IP que vous possédez. Vous pouvez utiliser cela si vous souhaitez que les partenaires externes accèdent à une application quand ils sont sur le site de votre organisation.
+Pour les [emplacements réseau](../conditional-access/howto-conditional-access-policy-location.md), vous pouvez restreindre l’accès à toutes les plages d’adresses IP que vous possédez. Vous pouvez utiliser cela si vous souhaitez que les partenaires externes accèdent à une application quand ils sont sur le site de votre organisation.
 
-[Apprenez-en davantage sur les stratégies d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+[Apprenez-en davantage sur les stratégies d’accès conditionnel](../conditional-access/overview.md).
 
 ## <a name="document-access-review-policies"></a>Documenter les stratégies de révision d’accès
 
@@ -126,13 +126,13 @@ Si vos stratégies sont hautement personnalisées pour vos besoins, tenez compte
 
 * **Révisions de l’accès à la gestion des droits d’utilisation**. Utilisez la fonctionnalité de gestion des droits d’utilisation pour
 
-   * [Faire expirer automatiquement les packages d’accès](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-lifecycle-policy), ainsi que l’accès des utilisateurs externes aux ressources incluses.
+   * [Faire expirer automatiquement les packages d’accès](../governance/entitlement-management-access-package-lifecycle-policy.md), ainsi que l’accès des utilisateurs externes aux ressources incluses.
 
-   * Définissez une [fréquence de révision requise](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-reviews-create) pour les révisions d’accès.
+   * Définissez une [fréquence de révision requise](../governance/entitlement-management-access-reviews-create.md) pour les révisions d’accès.
 
-   * Si vous utilisez des [organisations connectées](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) pour regrouper tous les utilisateurs d’un même partenaire, planifiez des révisions régulières avec le propriétaire de l’entreprise et le représentant du partenaire.
+   * Si vous utilisez des [organisations connectées](../governance/entitlement-management-organization.md) pour regrouper tous les utilisateurs d’un même partenaire, planifiez des révisions régulières avec le propriétaire de l’entreprise et le représentant du partenaire.
 
-* **Groupes Microsoft 365**. Définissez une [stratégie d’expiration de groupe](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) pour les groupes Microsoft 365 auxquels les utilisateurs externes sont invités. 
+* **Groupes Microsoft 365**. Définissez une [stratégie d’expiration de groupe](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) pour les groupes Microsoft 365 auxquels les utilisateurs externes sont invités. 
 
 * **Autres options**. Si les utilisateurs externes ont un accès extérieur à des packages d’accès de la gestion des droits d’utilisation ou à des groupes Microsoft 365, configurez le processus d’entreprise pour déterminer quand les comptes doivent être rendus inactifs ou supprimés. Par exemple :
 
@@ -146,9 +146,9 @@ Si vos stratégies sont hautement personnalisées pour vos besoins, tenez compte
 
 Maintenant que vous savez ce à quoi vous souhaitez contrôler l’accès, comment ces ressources doivent être regroupées pour l’accès courant et quelles sont les stratégies de vérification d’accès et de connexion requises, vous pouvez décider de la façon d’accomplir votre plan. 
 
-Certaines fonctionnalités, comme la [Gestion des droits d’utilisation](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview), sont uniquement disponibles avec une licence Azure AD Premium 2 (P2). Les licences Microsoft 365 E5 et Office 365 E5 incluent des licences Azure AD P2. 
+Certaines fonctionnalités, comme la [Gestion des droits d’utilisation](../governance/entitlement-management-overview.md), sont uniquement disponibles avec une licence Azure AD Premium 2 (P2). Les licences Microsoft 365 E5 et Office 365 E5 incluent des licences Azure AD P2. 
 
-D’autres combinaisons de Microsoft 365, Office 365 et Azure AD activent également certaines fonctionnalités de gestion des utilisateurs externes. Pour plus d’informations, consultez [Protection des informations](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
+D’autres combinaisons de Microsoft 365, Office 365 et Azure AD activent également certaines fonctionnalités de gestion des utilisateurs externes. Pour plus d’informations, consultez [Protection des informations](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance).
 
 > [!NOTE]
 > Les licences sont par utilisateur. Par conséquent, vous pouvez avoir des utilisateurs spécifiques, y compris des administrateurs et responsables d’entreprise, qui délèguent le contrôle d’accès au niveau Azure AD P2 ou Microsoft 365 E5 sans activer ces licences pour tous les utilisateurs. Vos 50 000 premiers utilisateurs externes sont gratuits. Si vous n’activez pas les licences P2 pour vos autres utilisateurs internes, ils ne seront pas en mesure d’utiliser les fonctionnalités de gestion des droits d’utilisation, comme les packages d’accès. 
@@ -180,7 +180,7 @@ Azure AD P2 et Microsoft 365 E5 disposent de la suite complète d’outils de s�
 
 ### <a name="entitlement-management"></a>Gestion des droits d’utilisation 
 
-Les [packages d’accès à la gestion des droits d’utilisation](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-access-package-create) activent l’approvisionnement et l’annulation de l’approvisionnement pour les groupes et équipes, applications et sites SharePoint. Vous pouvez définir quelles organisations connectées ont droit à l’accès, si les demandes en libre-service sont autorisées et quels flux de travail d’approbation sont requis (le cas échéant) pour accorder l’accès. Pour vous assurer que l’accès n’est pas accordé plus longtemps que nécessaire, vous pouvez définir des stratégies d’expiration et des révisions d’accès pour chaque package d’accès. 
+Les [packages d’accès à la gestion des droits d’utilisation](../governance/entitlement-management-access-package-create.md) activent l’approvisionnement et l’annulation de l’approvisionnement pour les groupes et équipes, applications et sites SharePoint. Vous pouvez définir quelles organisations connectées ont droit à l’accès, si les demandes en libre-service sont autorisées et quels flux de travail d’approbation sont requis (le cas échéant) pour accorder l’accès. Pour vous assurer que l’accès n’est pas accordé plus longtemps que nécessaire, vous pouvez définir des stratégies d’expiration et des révisions d’accès pour chaque package d’accès. 
 
  
 

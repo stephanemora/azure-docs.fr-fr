@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f1ded1ce87df1cb57960bbc99cd950ed7b3f97ee
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704621"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau modérée à élevée
  
@@ -95,7 +95,7 @@ Si vous utilisez le transfert de données en ligne, reportez-vous au tableau de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprendre à transférer des données avec Import/Export](./storage-import-export-data-to-blobs.md).
+- [Apprendre à transférer des données avec Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
 - Comprendre comment
 
     - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).

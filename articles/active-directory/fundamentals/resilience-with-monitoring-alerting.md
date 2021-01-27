@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766fd80ae5f7450c8e45d10afa4612a788a8d5fc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 90b2cd4521613a7b449598f0d097a7ec1c2958c6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602154"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724540"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Résilience par la surveillance et l’analytique
 
@@ -34,14 +34,14 @@ De même, pour détecter les défaillances ou les interruptions de performances,
 
 ### <a name="how-to-implement-monitoring-and-alerting"></a>Implémentation de la supervision et des alertes
 
-- **Supervision** : Utilisez [Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor) pour surveiller en continu l’intégrité par rapport aux principaux objectifs de niveau de service (SLO) et recevoir une notification chaque fois qu’une modification critique se produit. Commencez par identifier la stratégie Azure AD B2C ou une application comme un composant essentiel de votre entreprise dont l’intégrité doit être surveillée pour maintenir le SLO. Identifiez les indicateurs clés qui s’alignent sur votre SLO.
+- **Supervision** : Utilisez [Azure Monitor](../../active-directory-b2c/azure-monitor.md) pour surveiller en continu l’intégrité par rapport aux principaux objectifs de niveau de service (SLO) et recevoir une notification chaque fois qu’une modification critique se produit. Commencez par identifier la stratégie Azure AD B2C ou une application comme un composant essentiel de votre entreprise dont l’intégrité doit être surveillée pour maintenir le SLO. Identifiez les indicateurs clés qui s’alignent sur votre SLO.
 Par exemple, suivez les métriques suivantes, car une baisse soudaine de l’une ou l’autre entraînera une perte d’activité.
 
   - **Nombre total de requêtes** : Nombre total « n » de requêtes envoyées à la stratégie Azure AD B2C.
 
   - **Taux de réussite (%)**  : Requêtes réussies/nombre total de requêtes.
 
-  Accédez aux [indicateurs clés](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs) dans [Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights), où sont stockés les journaux Azure AD B2C basés sur les stratégies, les [journaux d’audit](https://docs.microsoft.com/azure/active-directory-b2c/analytics-with-application-insights) et les journaux de connexion.  
+  Accédez aux [indicateurs clés](../../active-directory-b2c/view-audit-logs.md) dans [Application Insights](../../active-directory-b2c/analytics-with-application-insights.md), où sont stockés les journaux Azure AD B2C basés sur les stratégies, les [journaux d’audit](../../active-directory-b2c/analytics-with-application-insights.md) et les journaux de connexion.  
 
    - **Visualisations** : L’utilisation de Log Analytics permet de créer des tableaux de bord pour surveiller visuellement les indicateurs clés.
 
@@ -49,15 +49,15 @@ Par exemple, suivez les métriques suivantes, car une baisse soudaine de l’une
 
    - **Période précédente** : Créez des graphiques temporels pour montrer les changements dans le nombre total de requêtes et le taux de réussite (%) au cours d’une période précédente à des fins de référence, par exemple la semaine dernière.
 
-- **Alertes** : L’utilisation de Log Analytics définit des [alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) qui se déclenchent en cas de changement soudain des indicateurs clés. Ces changements peuvent avoir un impact négatif sur les SLO. Les alertes utilisent diverses formes de méthode de notification, notamment les e-mails, les SMS et les webhooks. Commencez par définir un critère qui sert de seuil de déclenchement de l’alerte. Par exemple :
+- **Alertes** : L’utilisation de Log Analytics définit des [alertes](../../azure-monitor/platform/alerts-log.md) qui se déclenchent en cas de changement soudain des indicateurs clés. Ces changements peuvent avoir un impact négatif sur les SLO. Les alertes utilisent diverses formes de méthode de notification, notamment les e-mails, les SMS et les webhooks. Commencez par définir un critère qui sert de seuil de déclenchement de l’alerte. Par exemple :
   - Alerte sur une chute soudaine du nombre total de requêtes : Déclenchez une alerte lorsque le nombre total de requêtes chute brusquement. Par exemple, en cas de baisse de 25 % du nombre total de requêtes par rapport à la période précédente, déclenchez une alerte.  
   - Alerte sur une chute significative du taux de réussite (%) : Déclenchez une alerte lorsque le taux de réussite de la stratégie sélectionnée chute de manière significative.
-  - Lors de la réception d’une alerte, résolvez le problème à l’aide de [Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views), d’[Application Insights](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-with-application-insights#:~:text=Setup%20Application%20Insights%201%20Go%20to%20the%20Azure,left-menu%2C%20and%20click%20on%20it.%20More%20items...%20) et de l’[extension VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) pour Azure AD B2C. Après avoir résolu le problème et déployé une application ou une stratégie mise à jour, il continue à surveiller les indicateurs clés jusqu’à ce qu’ils reviennent à la normale.
+  - Lors de la réception d’une alerte, résolvez le problème à l’aide de [Log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), d’[Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md) et de l’[extension VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) pour Azure AD B2C. Après avoir résolu le problème et déployé une application ou une stratégie mise à jour, il continue à surveiller les indicateurs clés jusqu’à ce qu’ils reviennent à la normale.
 
-- **Alertes de service** : Utilisez les [alertes de niveau de service Azure AD B2C](https://docs.microsoft.com/azure/service-health/service-health-overview) pour être informé des problèmes de service, de la maintenance planifiée, de l’avis d’intégrité et de l’avis de sécurité.
+- **Alertes de service** : Utilisez les [alertes de niveau de service Azure AD B2C](../../service-health/service-health-overview.md) pour être informé des problèmes de service, de la maintenance planifiée, de l’avis d’intégrité et de l’avis de sécurité.
 
-- **Création de rapports** : [En utilisant Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics), créez des rapports qui vous aideront à mieux comprendre les insights des utilisateurs, les défis techniques et les possibilités de croissance.
-  - **Tableau de bord d’intégrité** : Créez des [tableaux de bord personnalisés à l’aide de la fonctionnalité Tableau de bord Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards), qui prend en charge l’ajout de graphiques à l’aide de requêtes Log Analytics. Par exemple, identifiez le modèle de connexions réussies et ayant échouées, les raisons de l’échec et la télémétrie concernant les appareils utilisés pour effectuer les requêtes.
+- **Création de rapports** : [En utilisant Log Analytics](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), créez des rapports qui vous aideront à mieux comprendre les insights des utilisateurs, les défis techniques et les possibilités de croissance.
+  - **Tableau de bord d’intégrité** : Créez des [tableaux de bord personnalisés à l’aide de la fonctionnalité Tableau de bord Azure](../../azure-monitor/learn/tutorial-app-dashboards.md), qui prend en charge l’ajout de graphiques à l’aide de requêtes Log Analytics. Par exemple, identifiez le modèle de connexions réussies et ayant échouées, les raisons de l’échec et la télémétrie concernant les appareils utilisés pour effectuer les requêtes.
   - **Abandon des parcours Azure AD B2C** : Utilisez le [classeur](https://github.com/azure-ad-b2c/siem#list-of-abandon-journeys) pour suivre la liste des parcours Azure AD B2C abandonnés où l’utilisateur a commencé le parcours de connexion ou d’inscription, mais ne l’a jamais terminé. Il fournit des informations sur l’ID de stratégie et la décomposition des étapes effectuées par l’utilisateur avant d’abandonner le parcours.
   - **Classeurs de surveillance Azure AD B2C** : Utilisez les [classeurs de surveillance](https://github.com/azure-ad-b2c/siem), qui comprennent le tableau de bord Azure AD B2C, les opérations d’authentification multifacteur (AMF), le rapport d’accès conditionnel et les journaux de recherche par correlationId afin d’obtenir de meilleures informations sur l’intégrité de votre environnement Azure AD B2C.
   

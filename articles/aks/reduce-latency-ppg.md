@@ -5,19 +5,19 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: c30051008474a32ae6c847ee3f840c8ae35b469b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349033"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726801"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Réduire la latence au moyen de groupes de placement de proximité
 
 > [!Note]
 > Lors de l’utilisation de groupes de placement de proximité sur AKS, la colocation s’applique uniquement aux nœuds d’agent. La latence entre les nœuds et entre les pods hébergés correspondants est plus faible. La colocation n’affecte pas l’emplacement du plan de contrôle d’un cluster.
 
-Quand vous déployez votre application dans Azure, la répartition des instances de machine virtuelle sur différentes régions ou zones de disponibilité engendre une latence au niveau du réseau, qui peut impacter les performances globales de votre application. Un groupe de placement de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Certaines applications telles que les jeux, les simulations d’ingénierie et les transactions à haute fréquence (HFT) exigent que la latence soit faible et que les tâches s’exécutent rapidement. Dans ces types de scénarios de calcul haute performance (HPC), envisagez d’utiliser des [groupes de placement de proximité](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) pour les pools de nœuds de votre cluster.
+Quand vous déployez votre application dans Azure, la répartition des instances de machine virtuelle sur différentes régions ou zones de disponibilité engendre une latence au niveau du réseau, qui peut impacter les performances globales de votre application. Un groupe de placement de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Certaines applications telles que les jeux, les simulations d’ingénierie et les transactions à haute fréquence (HFT) exigent que la latence soit faible et que les tâches s’exécutent rapidement. Dans ces types de scénarios de calcul haute performance (HPC), envisagez d’utiliser des [groupes de placement de proximité](../virtual-machines/co-location.md#proximity-placement-groups) (PPG) pour les pools de nœuds de votre cluster.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -133,7 +133,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
+[proximity-placement-groups]: ../virtual-machines/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

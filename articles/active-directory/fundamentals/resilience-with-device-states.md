@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602182"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724608"
 ---
 # <a name="build-resilience-with-device-states"></a>Renforcer la résilience grâce aux états des appareils
 
@@ -40,11 +40,11 @@ Lorsqu’un PRT est utilisé pour demander l’accès à une application, ses re
 
   S’il existe des versions antérieures de Windows dans votre organisation, mettez à niveau ces appareils pour utiliser Windows 10.
 
-* Normalisez l’accès des utilisateurs au navigateur pour utiliser soit [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity), soit Google Chrome avec les [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [prises en charge](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) qui permettent une authentification unique transparente pour les applications web utilisant le PRT.
+* Normalisez l’accès des utilisateurs au navigateur pour utiliser soit [Microsoft Edge](/deployedge/microsoft-edge-security-identity), soit Google Chrome avec les [extensions](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [prises en charge](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) qui permettent une authentification unique transparente pour les applications web utilisant le PRT.
 
-* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, déployez l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Outre les capacités de connexion par authentification multifacteur et sans mot de passe, l’application Microsoft Authenticator active l’authentification unique sur une application native via [l’authentification répartie](../develop/brokered-auth.md) avec moins d’invites d’authentification pour les utilisateurs finaux.
+* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, déployez l’[application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Outre les capacités de connexion par authentification multifacteur et sans mot de passe, l’application Microsoft Authenticator active l’authentification unique sur une application native via [l’authentification répartie](../develop/msal-android-single-sign-on.md) avec moins d’invites d’authentification pour les utilisateurs finaux.
 
-* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, utilisez la [gestion des applications mobiles](https://docs.microsoft.com/mem/intune/apps/app-management) pour accéder en toute sécurité aux ressources de l’entreprise avec moins de demandes d’authentification. 
+* Pour les appareils iOS et Android personnels ou appartenant à l’entreprise, utilisez la [gestion des applications mobiles](/mem/intune/apps/app-management) pour accéder en toute sécurité aux ressources de l’entreprise avec moins de demandes d’authentification. 
 
 * [Utilisez le plug-in Microsoft Enterprise Single Sign-On pour les appareils Apple (préversion)](../develop/apple-sso-plugin.md). Celui-ci inscrit l’appareil et fournit une authentification unique sur les différents navigateurs et les applications Azure AD natives. 
 

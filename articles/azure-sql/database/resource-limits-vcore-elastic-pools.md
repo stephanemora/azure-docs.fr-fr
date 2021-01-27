@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/15/2021
-ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251486"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737555"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -218,7 +218,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Taille maximale des données TempDB (Go)|83,25|92,5|111|148|166,5|333|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données par pool <sup>2</sup>|5760|6 400|7680|10240|11520|23040|
+|Nombre maximal d’IOPS de données par pool <sup>2</sup>|5760|6 400|7680|10240|11520|12800|
 |Taux maximal de journaux par pool (Mbits/s)|48|48|48|48|48|48|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|900|1 000|1200|1 600|1800|3600|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|1800|2000|2 400|3200|3600|7200|

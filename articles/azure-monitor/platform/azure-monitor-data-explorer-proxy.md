@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060450"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733181"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Requête inter-ressources Azure Data Explorer à l’aide d’Azure Monitor
-Azure Monitor prend en charge les requêtes inter-services entre Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview) et [Log Analytics](/azure/azure-monitor/platform/data-platform-logs). Vous pouvez ensuite interroger votre cluster Azure Data Explorer à l'aide des outils Log Analytics/Application Insights et y faire référence dans une requête inter-services. L’article montre comment effectuer une requête inter-services.
+Azure Monitor prend en charge les requêtes inter-services entre Azure Data Explorer, [Application Insights](../app/app-insights-overview.md) et [Log Analytics](./data-platform-logs.md). Vous pouvez ensuite interroger votre cluster Azure Data Explorer à l'aide des outils Log Analytics/Application Insights et y faire référence dans une requête inter-services. L’article montre comment effectuer une requête inter-services.
 
 Le diagramme suivant illustre le flux inter-services Azure Monitor :
 
@@ -62,8 +62,8 @@ Les requêtes interlocataires entre les services ne sont pas prises en charge. V
 
 Si la ressource Azure Data Explorer figure dans l’abonné A et que l’espace de travail Log Analytics figure dans l’abonné B, utilisez l’une des deux méthodes suivantes :
 
-*  Azure Data Explorer vous permet d’ajouter des rôles pour les principaux dans différents locataires. Ajoutez votre ID d’utilisateur dans l’abonné B en tant qu’utilisateur autorisé sur le cluster Azure Data Explorer. Validez le fait que la propriété [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) sur le cluster Azure Data Explorer contient l’abonné B. Exécutez la requête croisée entièrement dans l’abonné B.
-*  Utilisez [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) pour projeter la ressource Azure Monitor dans l’abonné A.
+*  Azure Data Explorer vous permet d’ajouter des rôles pour les principaux dans différents locataires. Ajoutez votre ID d’utilisateur dans l’abonné B en tant qu’utilisateur autorisé sur le cluster Azure Data Explorer. Validez le fait que la propriété [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) sur le cluster Azure Data Explorer contient l’abonné B. Exécutez la requête croisée entièrement dans l’abonné B.
+*  Utilisez [Lighthouse](../../lighthouse/index.yml) pour projeter la ressource Azure Monitor dans l’abonné A.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Se connecter à des clusters Azure Data Explorer à partir de différents locataires
 
@@ -72,6 +72,6 @@ Kusto Explorer vous connecte automatiquement à l’abonné auquel le compte d�
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Écrire des requêtes](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Interroger des données dans Azure Monitor à l’aide d’Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Écrire des requêtes](/azure/data-explorer/write-queries)
+* [Interroger des données dans Azure Monitor à l’aide d’Azure Data Explorer](/azure/data-explorer/query-monitor-data)
+* [Effectuer des requêtes de journal inter-ressources dans Azure Monitor](../log-query/cross-workspace-query.md)

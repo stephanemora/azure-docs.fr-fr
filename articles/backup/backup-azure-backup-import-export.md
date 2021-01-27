@@ -4,18 +4,18 @@ description: Découvrez comment utiliser Sauvegarde Azure pour envoyer des donn�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88892012"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704361"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Workflow de la sauvegarde hors connexion dans Sauvegarde Azure
 
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
 
-Le processus d’amorçage hors connexion de Sauvegarde Azure est étroitement intégré au [service Azure Import/Export](../storage/common/storage-import-export-service.md). Vous pouvez utiliser ce service pour transférer des données de sauvegarde initiales vers Azure à l’aide de disques. Si vous devez transférer des téraoctets (To) de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le workflow d’amorçage hors connexion pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. L’image suivante présente les étapes du flux de travail.
+Le processus d’amorçage hors connexion de Sauvegarde Azure est étroitement intégré au [service Azure Import/Export](../import-export/storage-import-export-service.md). Vous pouvez utiliser ce service pour transférer des données de sauvegarde initiales vers Azure à l’aide de disques. Si vous devez transférer des téraoctets (To) de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le workflow d’amorçage hors connexion pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. L’image suivante présente les étapes du flux de travail.
 
   ![Présentation du processus de workflow d’importation hors connexion](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
@@ -64,12 +64,12 @@ Avant de démarrer le workflow de sauvegarde hors connexion, assurez-vous que le
         ![Inscrire le fournisseur de ressources](./media/backup-azure-backup-import-export/registerimportexport.png)
 
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous souhaitez sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go. (bien qu’une quantité inférieure soit utilisée en raison de la compression).
-* Lorsque vous envoyez des disques à Azure, utilisez uniquement des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
+* Lorsque vous envoyez des disques à Azure, utilisez uniquement des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’emplacement intermédiaire vers les disques SATA. Vérifiez que BitLocker est activé sur l’ordinateur de copie.
 
 ## <a name="workflow"></a>Workflow
 
-Cette section décrit le workflow de sauvegarde hors connexion qui permet à vos données d’être transmises à un centre de données Azure et chargées dans Stockage Azure. Si vous avez des questions sur le service d’importation ou sur tout autre aspect du processus, consultez la [documentation de présentation du service Azure Import/Export](../storage/common/storage-import-export-service.md).
+Cette section décrit le workflow de sauvegarde hors connexion qui permet à vos données d’être transmises à un centre de données Azure et chargées dans Stockage Azure. Si vous avez des questions sur le service d’importation ou sur tout autre aspect du processus, consultez la [documentation de présentation du service Azure Import/Export](../import-export/storage-import-export-service.md).
 
 ## <a name="initiate-offline-backup"></a>Lancer la sauvegarde hors connexion
 
@@ -202,7 +202,7 @@ La durée nécessaire au traitement d’une tâche d’importation Azure varie. 
 
 ### <a name="monitor-azure-import-job-status"></a>Surveiller l’état de la tâche d’importation Azure
 
-Vous pouvez suivre l’état de votre tâche d’importation dans le Portail Azure. Accédez à la page **Tâches d’importation/exportation** et sélectionnez votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Qu’est-ce que le service Azure Import/Export ?](../storage/common/storage-import-export-service.md).
+Vous pouvez suivre l’état de votre tâche d’importation dans le Portail Azure. Accédez à la page **Tâches d’importation/exportation** et sélectionnez votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Qu’est-ce que le service Azure Import/Export ?](../import-export/storage-import-export-service.md).
 
 ### <a name="finish-the-workflow"></a>Terminer le workflow
 
@@ -218,4 +218,4 @@ Une fois la sauvegarde initiale terminée, vous pouvez supprimer sans risque les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour toute question concernant le workflow du service Azure Import/Export, consultez [Utilisation du service Microsoft Azure Import/Export pour transférer des données vers Stockage Blob](../storage/common/storage-import-export-service.md).
+* Pour toute question concernant le workflow du service Azure Import/Export, consultez [Utilisation du service Microsoft Azure Import/Export pour transférer des données vers Stockage Blob](../import-export/storage-import-export-service.md).

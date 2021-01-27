@@ -4,16 +4,16 @@ description: Les pools d’images personnalisées représentent un moyen efficac
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327302"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731359"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées avec Shared Image Gallery
 
-Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles en utilisant une image prise en charge de la Place de Marché Azure ou en élaborant une image personnalisée avec une [image Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles en utilisant une image prise en charge de la Place de Marché Azure ou en élaborant une image personnalisée avec une [image Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Avantages de Shared Image Gallery
 
@@ -31,7 +31,7 @@ Le recours à une image partagée pour votre scénario peut offrir plusieurs ava
 - **Copier de grandes quantités de données en une seule fois.** Intégrez les données statiques à l’image partagée managée en les copiant sur les disques de données d’une image managée. Cette opération ne doit être effectuée qu’une seule fois et rend les données accessibles à chaque nœud du pool.
 - **Augmentez la taille des pools.** Avec Shared Image Gallery, vous pouvez créer des pools plus grands avec vos images personnalisées ainsi qu’avec d’autres réplicas d’image partagée.
 - **Amélioration des performances par rapport au recours à une seule image managée comme image personnalisée.** Pour un pool d’images personnalisées Shared Image, le temps nécessaire pour atteindre l’état stable peut être réduit de 25 % et la latence d’inactivité de la machine virtuelle peut être réduite de 30 %.
-- **Gestion des versions et regroupement d’images pour une gestion simplifiée.** La définition du regroupement d’images contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Le regroupement d’images simplifie la gestion des images. Pour plus d’informations, consultez les [Définitions d’images](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Gestion des versions et regroupement d’images pour une gestion simplifiée.** La définition du regroupement d’images contient des informations sur la raison pour laquelle l’image a été créée, le système d’exploitation concerné et l’utilisation de l’image. Le regroupement d’images simplifie la gestion des images. Pour plus d’informations, consultez les [Définitions d’images](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -226,4 +226,4 @@ Si vous envisagez de créer un pool avec des centaines ou des milliers de machin
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une vue d’ensemble détaillée de Batch, consultez [Flux de travail et ressources du service Batch](batch-service-workflow-features.md).
-- Découvrez la [Galerie d’images partagées](../virtual-machines/windows/shared-image-galleries.md) (Shared Image Gallery).
+- Découvrez la [Galerie d’images partagées](../virtual-machines/shared-image-galleries.md) (Shared Image Gallery).

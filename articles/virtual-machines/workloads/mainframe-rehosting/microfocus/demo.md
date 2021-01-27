@@ -6,12 +6,12 @@ ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: b2cac7a8310482305467a1cb3ed3127eb18ae416
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915774"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733147"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurer Micro Focus CICS BankDemo pour Micro Focus Enterprise Developer 4.0 sur Azure
 
@@ -28,7 +28,7 @@ CICS est l’acronyme de Customer Information Control System, la plateforme tran
 
 - [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Téléchargez-le et installez-le sur la machine virtuelle Enterprise Developer. Enterprise Developer nécessite une base de données pour la gestion des régions CICS ; l’application BankDemo utilise également une base de données SQL Server appelée BANKDEMO. Cette démonstration suppose que vous utilisez SQL Server Express pour les deux bases de données. Lors de l’installation, sélectionnez l’installation de base.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) (SSMS). SSMS est utilisé pour la gestion des bases de données et l’exécution d’un script T-SQL. Téléchargez-le et installez-le sur la machine virtuelle Enterprise Developer.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). SSMS est utilisé pour la gestion des bases de données et l’exécution d’un script T-SQL. Téléchargez-le et installez-le sur la machine virtuelle Enterprise Developer.
 
 - [Visual Studio 2019](https://azure.microsoft.com/downloads/) avec le dernier Service Pack ou [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), que vous pouvez télécharger gratuitement.
 

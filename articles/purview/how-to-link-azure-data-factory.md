@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928764"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723878"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -99,9 +99,9 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 
 | Système de stockage de données | Prise en charge en tant que source | Prise en charge en tant que récepteur |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (aucune prise en charge de JSON) | Oui | Oui (copie non binaire uniquement) |
-| ADLS Gen2 (aucune prise en charge de JSON) | Oui | Oui |
-| Objet blob Azure (aucune prise en charge de JSON) | Oui | Oui |
+| ADLS Gen1 | Oui | Oui (copie non binaire uniquement) |
+| ADLS Gen2 | Oui | Oui |
+| Objets blob Azure | Oui | Oui |
 | Azure Cosmos DB (API SQL) | Oui | Oui |
 | Azure Cosmos DB (API Mongo) | Oui | Oui |
 | Recherche cognitive Azure | Oui | Oui |

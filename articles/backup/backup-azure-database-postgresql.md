@@ -4,12 +4,12 @@ description: Découvrir la sauvegarde Azure Database pour PostgreSQL avec conser
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569485"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737570"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Sauvegarde Azure Database pour PostgreSQL avec conservation à long terme (préversion)
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser cette solution indépendamment ou en plus de la solution de
 
 |Support  |Détails  |
 |---------|---------|
-|Déploiements pris en charge   |  [Azure Database pour PostgreSQL - Serveur unique](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Déploiements pris en charge   |  [Azure Database pour PostgreSQL - Serveur unique](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Régions Azure prises en charge |  USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre Ouest, Brésil Sud, Canada Centre, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Allemagne Centre-Ouest, Suisse Nord, Suisse Ouest, Asie Est, Asie Sud-Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Centre, Australie Est, Australie Centre, Australie Centre 2, Émirats arabes unis Nord  |
 |Versions d’Azure PostgreSQL prises en charge    |   9.5, 9.6, 10, 11      |
 

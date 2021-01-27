@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 808357b95f4de904ead0741d848480d548a2e26a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b6ecea10c884bffb10c936ca7c619d70d2449467
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030074"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728489"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -169,7 +169,7 @@ Le meilleur moyen d’identifier et de résoudre les problèmes de connectivité
 Vous pouvez utiliser l’outil de surveillance de votre choix. Dans le cadre de cet article, nous avons utilisé Microsoft Message Analyzer.
 
 > [!NOTE]
-> Le 25 novembre 2019, [Microsoft Message Analyzer (MMA) a été mis hors service](https://docs.microsoft.com/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) et ses packages de téléchargement ont été supprimés des sites microsoft.com.  Aucune fonctionnalité Microsoft n'est actuellement en développement pour remplacer Microsoft Message Analyzer.  Pour bénéficier d'une fonctionnalité similaire, vous devez envisager d'utiliser un outil d'analyse de protocole réseau tiers tel que Wireshark.
+> Le 25 novembre 2019, [Microsoft Message Analyzer (MMA) a été mis hors service](/openspecs/blog/ms-winintbloglp/dd98b93c-0a75-4eb0-b92e-e760c502394f) et ses packages de téléchargement ont été supprimés des sites microsoft.com.  Aucune fonctionnalité Microsoft n'est actuellement en développement pour remplacer Microsoft Message Analyzer.  Pour bénéficier d'une fonctionnalité similaire, vous devez envisager d'utiliser un outil d'analyse de protocole réseau tiers tel que Wireshark.
 
 Les exemples suivants sont spécifiques de Message Analyser, mais les principes peuvent être appliqués à n’importe quel outil d’analyse.
 

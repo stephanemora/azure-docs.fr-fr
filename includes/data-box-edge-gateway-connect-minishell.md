@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e603442bdecf9a627172e24390b06cef573f475
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 10c1680afd6cd6673efe3fe9d2397a0dc6a04859
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027683"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738639"
 ---
 Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil sont différentes.
 
@@ -23,6 +23,8 @@ Suivez cette procédure pour effectuer une connexion distante depuis un client W
 2. Assurez-vous que le service Windows Remote Management est en cours d’exécution sur votre client. À l’invite de commandes, tapez :
 
     `winrm quickconfig`
+
+    Pour plus d’informations, consultez [Installation et configuration de Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
 
 3. Attribuez une variable à l’adresse IP de l’appareil.
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498555"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724675"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Renforcer la résilience de votre infrastructure de gestion des identités et des accès
 
@@ -32,7 +32,7 @@ L’ensemble de documents est conçu pour :
 
 * Les équipes d’opérations d’identité
 
-Reportez-vous également à la documentation pour [les développeurs d’applications](https://aka.ms/azureadresilience/developer) et pour [les systèmes Azure AD B2C](resilience-b2c.md).
+Reportez-vous également à la documentation pour [les développeurs d’applications](./resilience-app-development-overview.md) et pour [les systèmes Azure AD B2C](resilience-b2c.md).
 
 ## <a name="what-is-resilience"></a>Qu’est-ce que la résilience ?
 
@@ -44,7 +44,7 @@ Chaque appel au système d’authentification est soumis à une interruption si 
 
 Dans un système d’authentification basé sur des jetons comme Azure AD, l’application d’un utilisateur (client) doit acquérir un jeton de sécurité auprès du système d’identité pour pouvoir accéder à une application ou à une autre ressource. Pendant la période de validité, un client peut présenter le même jeton plusieurs fois pour accéder à l’application.
 
-Lorsque le jeton présenté à l’application expire, l’application rejette le jeton et le client doit acquérir un nouveau jeton auprès d’Azure AD. L’acquisition d’un nouveau jeton peut nécessiter une interaction avec l’utilisateur, comme les invites à fournir des informations d’identification ou la satisfaction d’autres exigences du système d’authentification. La réduction de la fréquence des appels d’authentification avec des jetons à longue durée de vie réduit les interactions inutiles. Cependant, vous devez trouver un équilibre entre la durée de vie des jetons et le risque créé par moins d’évaluations de stratégie. Pour plus d’informations sur la gestion des durées de vie des jetons, consultez cet article sur [l’optimisation des invites de réauthentification](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Lorsque le jeton présenté à l’application expire, l’application rejette le jeton et le client doit acquérir un nouveau jeton auprès d’Azure AD. L’acquisition d’un nouveau jeton peut nécessiter une interaction avec l’utilisateur, comme les invites à fournir des informations d’identification ou la satisfaction d’autres exigences du système d’authentification. La réduction de la fréquence des appels d’authentification avec des jetons à longue durée de vie réduit les interactions inutiles. Cependant, vous devez trouver un équilibre entre la durée de vie des jetons et le risque créé par moins d’évaluations de stratégie. Pour plus d’informations sur la gestion des durées de vie des jetons, consultez cet article sur [l’optimisation des invites de réauthentification](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ## <a name="ways-to-increase-resilience"></a>Moyens d’accroître la résilience
 Le diagramme suivant illustre six méthodes concrètes permettant d’accroître la résilience. Chaque méthode est expliquée en détail dans les articles liés dans la section Étapes suivantes de cet article.

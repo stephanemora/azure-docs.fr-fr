@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1051859d514c77bad1aa5f14becc2218a923df44
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632142"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730936"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Effectuer une sauvegarde à l’aide de l’outil Azure Application Consistent Snapshot Tool (préversion)
 
@@ -143,7 +143,7 @@ Le nom du *fichier journal* dans cet exemple est `azacsnap-backup-bootVol.log`.
 > Le nom du fichier journal est constitué de « (nom de commande)-(option `-c`)-(nom du fichier config) ».  Par exemple, si vous utilisez l’option `-c backup` avec le nom de fichier journal `h80.json`, le fichier journal est appelé `azacsnap-backup-h80.log`.  Ou si vous utilisez l’option `-c test` avec le même fichier config, le fichier journal est appelé `azacsnap-test-h80.log`.
 
 - Type de grande instance HANA : Il existe deux valeurs valides avec `TYPEI` ou `TYPEII` en fonction de l’unité de grande instance HANA.
-- Consultez [les références SKU disponibles pour les grandes instances HANA](/azure/virtual-machines/workloads/sap/hana-available-skus) pour confirmer les références disponibles.
+- Consultez [les références SKU disponibles pour les grandes instances HANA](../virtual-machines/workloads/sap/hana-available-skus.md) pour confirmer les références disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

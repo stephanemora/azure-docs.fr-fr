@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: devx-track-python
-ms.openlocfilehash: 15714405c683889c0f783359011a0f0f5f9f3f43
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d99f9326b3113742fdc0c14a4ae39d552df47edd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201788"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730154"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
@@ -567,4 +567,4 @@ Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de donnée
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous rencontrez des problèmes de déploiement, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources avec le portail Azure](../../azure-resource-manager/templates/deployment-history.md).
-- En savoir plus sur la [Bibliothèque Python Azure](/python/api/overview/azure/?view=azure-python)
+- En savoir plus sur la [Bibliothèque Python Azure](/python/api/overview/azure/)

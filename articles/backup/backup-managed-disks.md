@@ -3,12 +3,12 @@ title: Sauvegarde des Disques managés Azure
 description: Découvrez comment sauvegarder des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573120"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738150"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Sauvegarde de Disques managés Azure (préversion)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98573120"
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
-Cet article explique comment sauvegarder un [Disque managé Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) sur le Portail Azure.
+Cet article explique comment sauvegarder un [Disque managé Azure](../virtual-machines/managed-disks-overview.md) sur le Portail Azure.
 
 Dans cet article, vous allez apprendre à :
 
@@ -46,7 +46,7 @@ Un coffre Sauvegarde est une entité de stockage dans Azure qui contient les don
 
    ![Lancer : Create vault](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. Dans l’onglet **Informations de base**, indiquez l’abonnement, le groupe de ressources, le nom du coffre Sauvegarde, la région et la redondance du stockage de sauvegarde. Continuez en sélectionnant **Vérifier + créer**. Pour plus d’informations, consultez [Création d’un coffre Sauvegarde](https://docs.microsoft.com/azure/backup/backup-vault-overview#create-a-backup-vault).
+1. Dans l’onglet **Informations de base**, indiquez l’abonnement, le groupe de ressources, le nom du coffre Sauvegarde, la région et la redondance du stockage de sauvegarde. Continuez en sélectionnant **Vérifier + créer**. Pour plus d’informations, consultez [Création d’un coffre Sauvegarde](./backup-vault-overview.md#create-a-backup-vault).
 
    ![Vérifier + créer un coffre](./media/backup-managed-disks/review-and-create.png)
 
@@ -67,7 +67,7 @@ Un coffre Sauvegarde est une entité de stockage dans Azure qui contient les don
 
    ![Sélection de la fréquence de planification de la sauvegarde](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   La sauvegarde de disque Azure propose plusieurs sauvegardes par jour. Si vous avez besoin de sauvegardes plus fréquentes, choisissez la fréquence de sauvegarde **Horaire**, qui offre la possibilité d’effectuer des sauvegardes à intervalles de 4, 6, 8 ou 12 heures. Les sauvegardes sont planifiées en fonction de l’intervalle **Temps** sélectionné. Par exemple, si vous sélectionnez **Toutes les 4 heures**, les sauvegardes sont effectuées à intervalles de 4 heures environ, de façon à être réparties équitablement sur la journée. Si une sauvegarde par jour suffit, choisissez la fréquence de sauvegarde **Quotidienne**. Vous pouvez alors spécifier l’heure à laquelle s’effectuent vos sauvegardes. Il est à noter qu’il s’agit de l’heure de début de la sauvegarde, et non de l’heure de fin. Le temps nécessaire pour effectuer l’opération de sauvegarde dépend de différents facteurs, notamment la taille du disque et le taux d’attrition entre les sauvegardes consécutives. Toutefois, la sauvegarde de disque Azure est une sauvegarde sans agent qui utilise des [instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal) sans impact sur le niveau de performance des applications de production.
+   La sauvegarde de disque Azure propose plusieurs sauvegardes par jour. Si vous avez besoin de sauvegardes plus fréquentes, choisissez la fréquence de sauvegarde **Horaire**, qui offre la possibilité d’effectuer des sauvegardes à intervalles de 4, 6, 8 ou 12 heures. Les sauvegardes sont planifiées en fonction de l’intervalle **Temps** sélectionné. Par exemple, si vous sélectionnez **Toutes les 4 heures**, les sauvegardes sont effectuées à intervalles de 4 heures environ, de façon à être réparties équitablement sur la journée. Si une sauvegarde par jour suffit, choisissez la fréquence de sauvegarde **Quotidienne**. Vous pouvez alors spécifier l’heure à laquelle s’effectuent vos sauvegardes. Il est à noter qu’il s’agit de l’heure de début de la sauvegarde, et non de l’heure de fin. Le temps nécessaire pour effectuer l’opération de sauvegarde dépend de différents facteurs, notamment la taille du disque et le taux d’attrition entre les sauvegardes consécutives. Toutefois, la sauvegarde de disque Azure est une sauvegarde sans agent qui utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md) sans impact sur le niveau de performance des applications de production.
 
 1. Dans l’onglet **Stratégie de sauvegarde**, sélectionnez les paramètres de rétention qui répondent à l’exigence d’objectif de point de récupération (RPO).
 
@@ -80,7 +80,7 @@ Un coffre Sauvegarde est une entité de stockage dans Azure qui contient les don
    ![Paramètres de rétention](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >La Sauvegarde Azure pour Disques managés utilise des instantanés incrémentiels qui sont limités à 200 par disque. Pour vous permettre d’effectuer des sauvegardes à la demande en dehors des sauvegardes planifiées, la stratégie de sauvegarde limite le nombre total de sauvegardes à 180. Pour plus d’informations, consultez [Instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) pour les disques managés.
+   >La Sauvegarde Azure pour Disques managés utilise des instantanés incrémentiels qui sont limités à 200 par disque. Pour vous permettre d’effectuer des sauvegardes à la demande en dehors des sauvegardes planifiées, la stratégie de sauvegarde limite le nombre total de sauvegardes à 180. Pour plus d’informations, consultez [Instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
 
 1. Terminez la création de la stratégie de sauvegarde en sélectionnant **Vérifier + créer**.
 
@@ -88,7 +88,7 @@ Un coffre Sauvegarde est une entité de stockage dans Azure qui contient les don
 
 Le coffre Sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Il est nécessaire, pour configurer la sauvegarde des disques managés, que l’identité managée du coffre Sauvegarde dispose d’un ensemble d’autorisations sur les disques sources et les groupes de ressources dans lesquels les instantanés sont créés et gérés.
 
-Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Pour plus d’informations, consultez [Identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Pour plus d’informations, consultez [Identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 Voici les prérequis de la configuration de la sauvegarde de disques managés :
 
@@ -115,7 +115,7 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
 
    - Vous pouvez utiliser ce groupe de ressources pour stocker des instantanés sur plusieurs disques en cours ou en attente de sauvegarde.  
 
-   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Choisissez par conséquent le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. Pour plus d’informations, consultez [Instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) pour les disques managés.
+   - Il n’est pas possible de créer un instantané incrémentiel pour un disque en particulier en dehors de l’abonnement de ce disque. Choisissez par conséquent le groupe de ressources dans le même abonnement que celui du disque à sauvegarder. Pour plus d’informations, consultez [Instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
 
    Pour attribuer un rôle, procédez comme suit :
 
@@ -129,8 +129,6 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
    >Tapez le nom du coffre Sauvegarde pour sélectionner l’identité managée du coffre.
 
    ![Ajout d’un rôle Contributeur d’instantanés de disque](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. Si le disque à sauvegarder est chiffré avec des [clés gérées par le client (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou un [chiffrement double reposant sur des clés gérées par la plateforme et des clés gérées par le client](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), attribuez l’autorisation de rôle **Lecteur** à l’identité managée du coffre Sauvegarde sur la ressource **Jeu de chiffrement de disque**.
 
 1. Vérifiez que l’identité managée du coffre Sauvegarde possède le bon ensemble d’attributions de rôles sur le disque source et le groupe de ressources servant de magasin de données d’instantanés.
 
@@ -154,7 +152,7 @@ Voici les prérequis de la configuration de la sauvegarde de disques managés :
    ![Sélection de Disque Azure](./media/backup-managed-disks/select-azure-disk.png)
 
    >[!NOTE]
-   >La Sauvegarde Azure utilise des [instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de disques managés qui ne stockent que les modifications différentielles apportées aux disques depuis le dernier instantané sur le stockage HDD Standard, quel que soit le type de stockage du disque parent. Pour plus de fiabilité, les instantanés incrémentiels sont stockés par défaut sur un stockage redondant interzone (ZRS) dans les régions qui le prennent en charge. Actuellement, la sauvegarde de disque Azure gère la sauvegarde opérationnelle des disques managés sans copie des sauvegardes dans le stockage du coffre Sauvegarde. Ainsi, le paramètre de redondance du stockage de sauvegarde du coffre Sauvegarde ne s’applique pas aux points de récupération.
+   >La Sauvegarde Azure utilise des [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) de disques managés qui ne stockent que les modifications différentielles apportées aux disques depuis le dernier instantané sur le stockage HDD Standard, quel que soit le type de stockage du disque parent. Pour plus de fiabilité, les instantanés incrémentiels sont stockés par défaut sur un stockage redondant interzone (ZRS) dans les régions qui le prennent en charge. Actuellement, la sauvegarde de disque Azure gère la sauvegarde opérationnelle des disques managés sans copie des sauvegardes dans le stockage du coffre Sauvegarde. Ainsi, le paramètre de redondance du stockage de sauvegarde du coffre Sauvegarde ne s’applique pas aux points de récupération.
 
 1. Dans l’onglet **Stratégie de sauvegarde**, choisissez une stratégie de sauvegarde.
 

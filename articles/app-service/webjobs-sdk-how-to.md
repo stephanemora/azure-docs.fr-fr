@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352437"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737267"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -794,7 +794,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>Affichage des baux d’objets blob
 
-Le Kit de développement logiciel (SDK) WebJobs utilise des [baux d’objets blob Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) en arrière-plan pour implémenter le verrouillage distribué. Les objets blob de bail utilisés par l’attribut Singleton se trouvent dans le conteneur `azure-webjobs-host` du compte de stockage `AzureWebJobsStorage` dans le chemin « locks ». Par exemple, le chemin d’accès du bail d’objet blob pour le premier exemple `ProcessImage` illustré précédemment peut être `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Tous les chemins d’accès incluent l’ID JobHost, dans le cas présent 061851c758f04938a4426aa9ab3869c0.
+Le Kit de développement logiciel (SDK) WebJobs utilise des [baux d’objets blob Azure](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) en arrière-plan pour implémenter le verrouillage distribué. Les objets blob de bail utilisés par l’attribut Singleton se trouvent dans le conteneur `azure-webjobs-host` du compte de stockage `AzureWebJobsStorage` dans le chemin « locks ». Par exemple, le chemin d’accès du bail d’objet blob pour le premier exemple `ProcessImage` illustré précédemment peut être `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Tous les chemins d’accès incluent l’ID JobHost, dans le cas présent 061851c758f04938a4426aa9ab3869c0.
 
 ## <a name="async-functions"></a>Fonctions asynchrones
 

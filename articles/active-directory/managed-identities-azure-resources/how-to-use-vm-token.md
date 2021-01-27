@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed64df921326ad4d219f934f7a7bc6860bfc7d8
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 541f76ad825f492679530902c571096ca4b01902
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861899"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726229"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtenir un jeton à l’aide de la bibliothèque Microsoft.Azure.Services.AppAuthentication pour .NET
 
-Pour les applications et fonctions .NET, la façon la plus simple d’utiliser des identités managées pour ressources Azure consiste à se servir du package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir de Visual Studio, [d’Azure CLI](/cli/azure) ou de l’authentification intégrée à Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md). Cette section vous montre comment prendre en main la bibliothèque dans votre code.
+Pour les applications et fonctions .NET, la façon la plus simple d’utiliser des identités managées pour ressources Azure consiste à se servir du package Microsoft.Azure.Services.AppAuthentication. Cette bibliothèque vous permet également de tester votre code localement sur votre machine de développement, à l’aide de votre compte d’utilisateur à partir de Visual Studio, [d’Azure CLI](/cli/azure) ou de l’authentification intégrée à Active Directory. Pour plus d’informations sur les options de développement local avec cette bibliothèque, consultez le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication). Cette section vous montre comment prendre en main la bibliothèque dans votre code.
 
 1. Ajoutez des références aux packages NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) et [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) à votre application.
 
@@ -141,7 +141,7 @@ Pour les applications et fonctions .NET, la façon la plus simple d’utiliser d
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, voir le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md) et [l’exemple .NET d’utilisation d’App Service et de Key Vault avec des identités managées pour ressources Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Pour en savoir plus sur Microsoft.Azure.Services.AppAuthentication et les opérations qu’il expose, voir le [Guide de référence technique sur Microsoft.Azure.Services.AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication) et [l’exemple .NET d’utilisation d’App Service et de Key Vault avec des identités managées pour ressources Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obtenir un jeton par C#
 

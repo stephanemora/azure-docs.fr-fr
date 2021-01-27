@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200836"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737250"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -556,7 +556,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 * [Présentation du chiffrement en transit avec Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Mise en œuvre du protocole TLS 1.2 Azure Automation](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+* [Mise en œuvre du protocole TLS 1.2 Azure Automation](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -938,7 +938,7 @@ Si vous vous servez de la fonctionnalité Runbook Worker hybride, il existe plus
 
 Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base combinés à Azure Automation State Configuration peuvent permettre de respecter les exigences de sécurité.
 
-* [Informations sur le téléchargement du modèle de machine virtuelle](../virtual-machines/windows/download-template.md)
+* [Informations sur le téléchargement du modèle de machine virtuelle](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informations sur la création de modèles ARM](../virtual-machines/windows/ps-template.md)
 

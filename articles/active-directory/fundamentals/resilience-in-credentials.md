@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5fd5cf419adb137df5c578e3b17b88749215be5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 399d2f71fa20d63dce89cf3be5c12ffd63264895
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95918998"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724708"
 ---
 # <a name="build-resilience-with-credential-management"></a>Renforcer la résilience grâce à la gestion des informations d’identification
 
@@ -61,7 +61,7 @@ En plus de la résilience des utilisateurs individuels décrite ci-dessus, les e
 
 * Activez [la synchronisation de hachage de mot de passe](../hybrid/whatis-phs.md) pour les comptes hybrides qui sont synchronisés à partir de Windows Server Active Directory. Cette option peut être activée en même temps que les services de fédération tels que AD FS et fournit une solution de repli en cas d’échec du service de fédération.
 
-* [Analysez l’utilisation des méthodes d’authentification multifacteur](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) pour améliorer l’expérience des utilisateurs.
+* [Analysez l’utilisation des méthodes d’authentification multifacteur](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) pour améliorer l’expérience des utilisateurs.
 
 * [Implémentez une stratégie résiliente de contrôle d’accès](../authentication/concept-resilient-controls.md).
 

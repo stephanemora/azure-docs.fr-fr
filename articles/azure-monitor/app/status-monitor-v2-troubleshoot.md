@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 472a7f128ea19cdcc9df5a03d171f345c7d601de
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 7a6fc27321fa924b7ef8f9bd39b5824bb6fe3c72
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616828"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732576"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
@@ -55,7 +55,7 @@ Vous pouvez utiliser les outils de résolution des problèmes pour constater un 
 ### <a name="powershell-versions"></a>Versions de PowerShell
 Ce produit a été écrit et testé à l’aide de PowerShell v5.1.
 Ce module n’est pas compatible avec les versions 6 ou 7 de PowerShell.
-Nous vous recommandons d’utiliser PowerShell v5.1 avec les dernières versions. Pour plus d’informations, consultez [Utilisation de PowerShell 7 côte à côte avec PowerShell 5.1](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
+Nous vous recommandons d’utiliser PowerShell v5.1 avec les dernières versions. Pour plus d’informations, consultez [Utilisation de PowerShell 7 côte à côte avec PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### <a name="conflict-with-iis-shared-configuration"></a>Conflit avec la configuration partagée IIS
 
