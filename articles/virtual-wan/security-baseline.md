@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f124c0b4af69338ad10f7247a4260b4a348beb5
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a0acbe84a98bc63e5806d25241811c0a7591b897
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131200"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872619"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Ligne de base de sécurité Azure Virtual WAN
 
@@ -22,7 +22,7 @@ Pour voir comment Virtual WAN est entièrement mappé au benchmark de sécurité
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1 : Implémenter la sécurité pour le trafic interne
 
@@ -62,9 +62,9 @@ Utilisez le Pare-feu Azure pour protéger les applications et les services contr
 
 Choisissez la protection DDoS fournie par Azure pour protéger vos ressources contre les attaques sur vos réseaux virtuels Azure. Utilisez Azure Security Center pour détecter les risques de configuration incorrecte liés aux ressources associées à votre réseau.
 
-- [Documentation sur le pare-feu Azure](/azure/firewall)
+- [Documentation sur le pare-feu Azure](../firewall/index.yml)
 
-- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](/azure/virtual-network/manage-ddos-protection) 
+- [Gérer la norme Azure DDoS Protection à l’aide du portail Azure](../ddos-protection/manage-ddos-protection.md) 
 
 - [Recommandations relatives à Azure Security Center](../security-center/recommendations-reference.md#recs-networking)
 
@@ -88,9 +88,9 @@ Choisissez la protection DDoS fournie par Azure pour protéger vos ressources co
 
 - [Présentation et utilisation des balises de service](../virtual-network/service-tags-overview.md)
 
-- [Présentation et utilisation des groupes de sécurité d’application](/azure/virtual-network/security-overview#application-security-groups)
+- [Présentation et utilisation des groupes de sécurité d’application](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-- [Documentation sur le pare-feu Azure](/azure/firewall/)
+- [Documentation sur le pare-feu Azure](../firewall/index.yml)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -100,9 +100,9 @@ Choisissez la protection DDoS fournie par Azure pour protéger vos ressources co
 
 **Conseils** : Des fonctionnalités DNS sécurisées sont fournies à Virtual WAN avec le Pare-feu Azure. Configurez le Pare-feu Azure pour qu’il agisse en tant que proxy DNS, qui devient un intermédiaire pour les requêtes DNS adressées par les machines virtuelles clientes à un serveur DNS. Pour les configurations de serveur DNS personnalisées, activez le proxy DNS pour éviter les non-correspondances de la résolution DNS et activez le filtrage de nom de domaine complet (FQDN) dans les règles de réseau. 
 
-- [Documentation sur le pare-feu Azure](/azure/firewall/)
+- [Documentation sur le pare-feu Azure](../firewall/index.yml)
 
-- [Paramètres DNS du Pare-feu Azure](/azure/firewall/dns-settings)
+- [Paramètres DNS du Pare-feu Azure](../firewall/dns-settings.md)
 
 - [Utiliser le Pare-feu Azure comme redirecteur DNS avec Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
@@ -112,7 +112,7 @@ Choisissez la protection DDoS fournie par Azure pour protéger vos ressources co
 
 ## <a name="identity-management"></a>Gestion des identités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des identités](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1 : Normaliser Azure Active Directory comme système d’authentification et d’identité central
 
@@ -189,7 +189,7 @@ Pour GitHub, vous pouvez utiliser la fonctionnalité native d’analyse de secre
 
 ## <a name="privileged-access"></a>Accès privilégié
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Accès privilégié](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2 : Limiter l’accès administratif aux systèmes critiques de l’entreprise
 
@@ -211,7 +211,7 @@ Pour assurer un contrôle d’accès cohérent, tous les types de contrôle d’
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4 : Chiffrement des informations sensibles en transit
 
@@ -229,7 +229,7 @@ Pour assurer un contrôle d’accès cohérent, tous les types de contrôle d’
 
 ## <a name="asset-management"></a>Gestion des ressources
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion des ressources](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1 : S’assurer que l’équipe de sécurité a une visibilité sur les risques pour les ressources
 
@@ -253,7 +253,7 @@ Remarque : Des autorisations supplémentaires peuvent être nécessaires pour o
 
 **Conseils** : Appliquez des étiquettes à vos ressources Azure, groupes de ressources et abonnements pour les organiser de façon logique dans une taxonomie. Chaque balise se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production. Azure Virtual WAN prend également en charge les déploiements de ressources basés sur Azure Resource Manager, avec lesquels vous pouvez exporter des modèles de ressources. 
 
-- [Guides de décision concernant le nommage et l’étiquetage des ressources](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Gestion de l’inventaire de sécurité dans Azure Security Center](../security-center/asset-inventory.md)
 
@@ -284,7 +284,7 @@ Remarque : Des autorisations supplémentaires peuvent être nécessaires pour o
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1 : Activer la détection des menaces pour les ressources Azure
 
@@ -337,7 +337,7 @@ Un grand nombre de journaux de diagnostic sont également disponibles pour Virtu
 
 - [Journaux et métriques de Virtual WAN](logs-metrics.md)
 
-- [Journaux et métriques du pare-feu Azure](/azure/firewall/logs-and-metrics)
+- [Journaux et métriques du pare-feu Azure](../firewall/logs-and-metrics.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -368,11 +368,11 @@ Un grand nombre de journaux de diagnostic sont également disponibles pour Virtu
 
 - [Journaux et métriques de Virtual WAN](logs-metrics.md)
 
-- [Journaux et métriques du pare-feu Azure](/azure/firewall/logs-and-metrics)
+- [Journaux et métriques du pare-feu Azure](../firewall/logs-and-metrics.md)
 
 La sécurité d’Azure Virtual WAN est fournie via le Pare-feu Azure. 
 
-- [Documentation sur le pare-feu Azure](/azure/firewall/overview)
+- [Documentation sur le pare-feu Azure](../firewall/overview.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -394,7 +394,7 @@ La sécurité d’Azure Virtual WAN est fournie via le Pare-feu Azure.
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1 : Préparation – mettre à jour le processus de réponse aux incidents pour Azure
 
@@ -476,7 +476,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md)
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -498,7 +498,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8 : Effectuer une simulation d’attaque régulière
 
@@ -517,7 +517,7 @@ Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous 
 
 ## <a name="endpoint-security"></a>Sécurité des points de terminaison
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sécurité des points de terminaison](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Sécurité des points de terminaison](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1 : Utiliser la détection de point de terminaison et réponse (EDR)
 
@@ -535,7 +535,7 @@ Suivez les règles d’engagement de pénétration du cloud Microsoft pour vous 
 
 ## <a name="governance-and-strategy"></a>Gouvernance et stratégie
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gouvernance et stratégie](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1 : Définir la stratégie de gestion des ressources et de protection des données 
 
@@ -560,15 +560,15 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 -   Normes de chiffrement appropriées
 
 Pour plus d’informations, consultez les références suivantes :
-- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Recommandation d’architecture de sécurité Azure - Stockage, données et chiffrement](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Notions de base de la sécurité Azure - Sécurité, chiffrement et stockage des données Azure](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Benchmark de sécurité Azure - Gestion des ressources](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -596,7 +596,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -637,7 +637,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 Pour plus d’informations, consultez les références suivantes :
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -665,9 +665,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Benchmark de sécurité Azure - Gestion des identités](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks//security-controls-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](../security/benchmarks//security-controls-v2-privileged-access.md)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -699,9 +699,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -715,5 +715,5 @@ Pour plus d’informations, consultez les références suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

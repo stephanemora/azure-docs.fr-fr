@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2fc12385c78135269b6a73038fd0ad810ebaedd6
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576168"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872177"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 
@@ -43,8 +43,8 @@ Avant de commencer, vérifiez que vous disposez des réseaux virtuels et des aut
 
 |Réseau virtuel|Modèle de déploiement| Passerelle de réseau virtuel|
 |---|---|---|---|
-| Hub-RM| [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| [Oui](tutorial-create-gateway-portal.md)|
-| Spoke-RM | [Resource Manager](vpn-gateway-howto-site-to-site-resource-manager-portal.md)| No |
+| Hub-RM| [Resource Manager](./tutorial-site-to-site-portal.md)| [Oui](tutorial-create-gateway-portal.md)|
+| Spoke-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| No |
 | Spoke-Classic | [Classique](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | No |
 
 ### <a name="permissions"></a><a name="permissions"></a>Autorisations

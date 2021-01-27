@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c9bd93e75533e54c42c2041cb9f55a1f0036b6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75862558"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872143"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Résolution des problèmes : déconnexion intermittente du VPN de site à site Azure
 
@@ -66,6 +66,5 @@ La fonctionnalité **Perfect Forward Secrecy** peut provoquer les problèmes de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Création d’une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md)
 - [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configurer la stratégie IPsec/IKE pour les connexions VPN de site à site ou de réseau virtuel à réseau virtuel)
-

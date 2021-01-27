@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0e256f2fe4b8d4275e331e0fe1fadd67e1d96655
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567816"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873499"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Connecter votre solution Proofpoint On Demand Email Security (POD) à Azure Sentinel
 
@@ -37,7 +37,7 @@ Cet article explique comment connecter votre appliance Proofpoint On Demand Emai
 
 - Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
-- Vous devez disposer d’autorisations en lecture et en écriture sur Azure Functions pour créer une application de fonction. [En savoir plus sur Azure Functions](/azure/azure-functions/).
+- Vous devez disposer d’autorisations en lecture et en écriture sur Azure Functions pour créer une application de fonction. [En savoir plus sur Azure Functions](../azure-functions/index.yml).
 
 - Vous devez disposer des informations d’identification de l’API WebSocket suivantes : ProofpointClusterID, ProofpointToken. [En savoir plus sur l’API WebSocket](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API).
 

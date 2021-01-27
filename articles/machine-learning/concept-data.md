@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539893"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872007"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -101,8 +101,8 @@ Avec les jeux de données, vous pouvez effectuer un certain nombre de tâches de
      + [expériences de ML automatisé](how-to-use-automated-ml-for-ml-models.md)
      + le [concepteur](tutorial-designer-automobile-price-train-score.md#import-data)
      + [notebooks](how-to-train-with-datasets.md)
-     + [Pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Accédez aux jeux de données pour le scoring avec l’[inférence par lot](./tutorial-pipeline-batch-scoring-classification.md) dans des [pipelines machine learning](how-to-create-your-first-pipeline.md).
+     + [Pipelines Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ Accédez aux jeux de données pour le scoring avec l’[inférence par lot](./tutorial-pipeline-batch-scoring-classification.md) dans des [pipelines machine learning](./how-to-create-machine-learning-pipelines.md).
 + Configurez un moniteur de jeu de données pour la détection de la [dérive de données](#drift).
 
 <a name="label"></a>

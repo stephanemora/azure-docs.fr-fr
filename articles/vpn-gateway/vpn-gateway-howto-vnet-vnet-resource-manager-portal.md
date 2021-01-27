@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660540"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872398"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -44,7 +44,7 @@ Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, l’esp
 
 ### <a name="site-to-site-ipsec"></a>Site à site (IPsec)
 
-Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide d'une connexion de [site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Lorsque vous suivez les étapes IPsec de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ces étapes vous permettent de spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez manuellement mettre à jour la passerelle réseau local correspondante.
+Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide d'une connexion de [site à site](./tutorial-site-to-site-portal.md). Lorsque vous suivez les étapes IPsec de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ces étapes vous permettent de spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez manuellement mettre à jour la passerelle réseau local correspondante.
 
 ### <a name="vnet-peering"></a>Peering de réseaux virtuels
 
@@ -200,7 +200,7 @@ Créez ensuite une connexion de VNet4 à VNet1. Dans le portail, recherchez la p
 
 ## <a name="add-additional-connections"></a>Ajouter des connexions supplémentaires
 
-Si vous souhaitez ajouter des connexions supplémentaires, accédez à la passerelle de réseau virtuel à partir de laquelle créer la connexion, puis sélectionnez **Connexions**. Vous pouvez créer une autre connexion de réseau virtuel à réseau virtuel, ou créer une connexion de site à site IPsec vers un emplacement local. Veillez à ajuster le **type de connexion** en fonction du type de connexion que vous souhaitez créer. Avant de créer des connexions supplémentaires, vérifiez que l’espace d’adressage de votre réseau virtuel ne chevauche aucun des espaces d’adressage auxquels vous souhaitez vous connecter. Pour connaître la procédure de création d’une connexion site à site, consultez [Créer une connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Si vous souhaitez ajouter des connexions supplémentaires, accédez à la passerelle de réseau virtuel à partir de laquelle créer la connexion, puis sélectionnez **Connexions**. Vous pouvez créer une autre connexion de réseau virtuel à réseau virtuel, ou créer une connexion de site à site IPsec vers un emplacement local. Veillez à ajuster le **type de connexion** en fonction du type de connexion que vous souhaitez créer. Avant de créer des connexions supplémentaires, vérifiez que l’espace d’adressage de votre réseau virtuel ne chevauche aucun des espaces d’adressage auxquels vous souhaitez vous connecter. Pour connaître la procédure de création d’une connexion site à site, consultez [Créer une connexion de site à site](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>Forum Aux Questions sur l’interconnexion de réseaux virtuels
 
