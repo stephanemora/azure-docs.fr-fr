@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196115"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786840"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Utiliser Speech Services via un point de terminaison privé
 
@@ -293,7 +293,7 @@ La solution Speech Services fournit des API REST pour la [reconnaissance vocale]
 La reconnaissance vocale a deux API REST. Chaque API sert un objectif différent, utilise des points de terminaison différents et nécessite une approche différente quand vous l’utilisez dans un scénario avec des points de terminaison privés activés.
 
 Les API REST de reconnaissance vocale sont les suivantes :
-- L’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), qui est utilisée pour la [transcription Batch](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- L’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), qui est utilisée pour la [transcription Batch](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](./migrate-v2-to-v3.md)
 - [L’API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), qui est utilisée pour la transcription en ligne 
 
 L’utilisation de l’API REST de reconnaissance vocale pour audio court et de l’API REST de synthèse vocale dans le scénario avec des points de terminaison privés est identique. Elle est équivalente au [cas d’usage du SDK Speech](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) décrit plus loin dans cet article. 

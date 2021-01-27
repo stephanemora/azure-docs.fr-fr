@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
 ms.author: trbye
-ms.openlocfilehash: 786f9587ab223cf87a48cd791f366049b94af59b
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: c770ca3d619ea443fd5a320f91f3bfae56732bac
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97865974"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792334"
 ---
 Tout d’abord, chargez votre fichier de modèle de mot clé à l’aide de la fonction statique `FromFile()`, qui retourne un élément `KeywordRecognitionModel`. Utilisez le chemin du fichier `.table` que vous avez téléchargé à partir de Speech Studio. De plus, vous créez un fichier `AudioConfig` à l’aide du microphone par défaut, puis instanciez un nouveau `KeywordRecognizer` à l’aide de la configuration audio.
 
@@ -35,6 +35,6 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 
 D’autres classes du Kit de développement logiciel (SDK) Speech prennent en charge la reconnaissance continue (pour la reconnaissance vocale et intentionnelle) avec reconnaissance de mot clé. Cela vous permet d’utiliser le même code que celui que vous utiliseriez normalement pour la reconnaissance continue, avec la possibilité de référencer un fichier `.table` pour votre modèle de mot clé.
 
-Pour la reconnaissance vocale, suivez le même modèle de conception que celui indiqué dans le [démarrage rapide](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=script%2Cbrowser%2Cwindowsinstall&pivots=programming-language-csharp#continuous-recognition) pour configurer la reconnaissance continue. Ensuite, remplacez l’appel à `recognizer.StartContinuousRecognitionAsync()` par `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` et transmettez votre objet `KeywordRecognitionModel`. Pour arrêter la reconnaissance continue avec détection de mots clés, utilisez `recognizer.StopKeywordRecognitionAsync()` au lieu de `recognizer.StopContinuousRecognitionAsync()`.
+Pour la reconnaissance vocale, suivez le même modèle de conception que celui indiqué dans le [démarrage rapide](../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=script%2cbrowser%2cwindowsinstall#continuous-recognition) pour configurer la reconnaissance continue. Ensuite, remplacez l’appel à `recognizer.StartContinuousRecognitionAsync()` par `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` et transmettez votre objet `KeywordRecognitionModel`. Pour arrêter la reconnaissance continue avec détection de mots clés, utilisez `recognizer.StopKeywordRecognitionAsync()` au lieu de `recognizer.StopContinuousRecognitionAsync()`.
 
-La reconnaissance intentionnelle utilise un modèle identique avec les fonctions [`StartKeywordRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) et [`StopKeywordRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync).
+La reconnaissance intentionnelle utilise un modèle identique avec les fonctions [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) et [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync).

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327185"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738082"
 ---
 # <a name="data-collection-for-your-app"></a>Collecte des données pour votre application
 
@@ -71,7 +71,7 @@ Les étapes de prétraitement suivantes vous aideront à améliorer votre applic
 
 ## <a name="test-data-selection-for-batch-testing"></a>Sélection des données de test pour le test par lot
 
-L’ensemble des principes ci-dessus relatifs aux énoncés d’apprentissage s’appliquent aux énoncés que vous devez utiliser pour votre [jeu de test](luis-concept-batch-test.md). Assurez-vous que la répartition entre les intentions et les entités reflète la répartition réelle aussi fidèlement que possible.
+L’ensemble des principes ci-dessus relatifs aux énoncés d’apprentissage s’appliquent aux énoncés que vous devez utiliser pour votre [jeu de test](./luis-how-to-batch-test.md). Assurez-vous que la répartition entre les intentions et les entités reflète la répartition réelle aussi fidèlement que possible.
 
 Ne réutilisez pas les énoncés de votre jeu d’apprentissage dans votre jeu de test. Cela aurait pour conséquence de biaiser vos résultats et ne vous donnerait pas une indication correcte de ce que votre application LUIS ferait en production.
 

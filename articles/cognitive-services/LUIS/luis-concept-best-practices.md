@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019311"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788483"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Meilleures pratiques pour la création d’une application LUIS (Language Understanding)
 Suivez le processus de création d’applications pour générer votre application LUIS :
@@ -141,7 +141,7 @@ Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point d
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 
-Supervisez la précision des prédictions à l’aide d’un jeu de [tests par lots](luis-concept-batch-test.md).
+Supervisez la précision des prédictions à l’aide d’un jeu de [tests par lots](./luis-how-to-batch-test.md).
 
 Conservez un jeu distinct d’énoncés ne servant pas d’[exemples d’énoncés](luis-concept-utterance.md) ou d’énoncés du point de terminaison. Continuez à améliorer l’application pour votre jeu de test. Adaptez celui-ci de façon à refléter les énoncés d’utilisateurs réels. Utilisez ce jeu de test pour évaluer chaque itération ou version de l’application.
 

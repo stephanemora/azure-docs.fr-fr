@@ -1,6 +1,6 @@
 - name: Documentation Azure Digital Twins
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "À propos d’Azure\_Digital\_Twins"
       href: overview.md
@@ -264,7 +264,7 @@
         - name: Azure Cloud Shell
           href: 'https://shell.azure.com'
         - name: Azure PowerShell
-          href: /powershell/module/az.iothub#iot
+          href: /powershell/azure/
         - name: Portail Azure
           href: 'https://portal.azure.com'
     - name: Documentation Azure RBAC

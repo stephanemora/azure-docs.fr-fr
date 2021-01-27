@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561220"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788449"
 ---
 # <a name="testing-for-luis-devops"></a>Tests pour LUIS dans DevOps
 
@@ -28,7 +28,7 @@ Il existe deux types de tests pour une application LUIS à exécuter dans les fl
 Ce type de test est similaire aux [tests interactifs](./luis-concept-test.md) que vous pouvez effectuer dans le [portail LUIS](https://www.luis.ai/).
 
 - Les **tests par lot** sont plus complets et concernent votre modèle en cours d’apprentissage afin d’en mesurer les performances. Contrairement aux tests unitaires, les tests par lot ne sont pas validés ou bloqués. Les tests par lot ne retournent pas forcément l’intention et les entités attendues. Au lieu de cela, un test par lot vous aide à afficher la précision de chaque intention et entité dans votre application et vous aide à effectuer des comparaisons au fil du temps à mesure que vous apportez des améliorations.  
-Ce type de test est le même que les [tests par lot](./luis-concept-batch-test.md) que vous pouvez effectuer de manière interactive dans le portail LUIS.
+Ce type de test est le même que les [tests par lot](./luis-how-to-batch-test.md) que vous pouvez effectuer de manière interactive dans le portail LUIS.
 
 Vous pouvez utiliser des tests unitaires dès le début de votre projet. Les tests par lots ne sont vraiment utiles que lorsque vous avez développé le schéma de votre application LUIS et que vous travaillez à améliorer sa précision.
 
@@ -42,7 +42,7 @@ Lorsque vous écrivez un ensemble de tests, vous devez définir pour chaque test
 * Intention attendue
 * Entités attendues.
 
-Utilisez la [syntaxe du fichier de lot LUIS](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) pour définir un groupe de tests dans un fichier au format JSON. Par exemple :
+Utilisez la [syntaxe du fichier de lot LUIS](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) pour définir un groupe de tests dans un fichier au format JSON. Par exemple :
 
 ```JSON
 [
@@ -85,7 +85,7 @@ Pour les tests unitaires, il est judicieux de vérifier que vos entités clés o
 
 #### <a name="designing-batch-tests"></a>Conception de tests par lot
 
-Les ensembles de tests par lot doivent contenir un grand nombre de cas de test, conçus pour effectuer des tests sur toutes les intentions et toutes les entités de votre application LUIS. Pour plus d’informations sur la définition d’un ensemble de tests par lot, consultez la section [Tests par lot dans le portail LUIS](./luis-concept-batch-test.md).
+Les ensembles de tests par lot doivent contenir un grand nombre de cas de test, conçus pour effectuer des tests sur toutes les intentions et toutes les entités de votre application LUIS. Pour plus d’informations sur la définition d’un ensemble de tests par lot, consultez la section [Tests par lot dans le portail LUIS](./luis-how-to-batch-test.md).
 
 ### <a name="running-tests"></a>Exécution des tests
 
@@ -93,7 +93,7 @@ Le portail LUIS offre des fonctionnalités pour faciliter les tests interactifs�
 
 * Les [**tests interactifs**](./luis-concept-test.md) vous permettent de soumettre un exemple d’énoncé et d’obtenir une réponse à des intentions et des entités reconnues par LUIS. Vous pouvez vérifier si le test est validé par une simple inspection visuelle.
 
-* Les [**tests par lot**](./luis-concept-batch-test.md) utilisent un fichier de test par lot comme source pour valider votre version entraînée active afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre version active, affichant ainsi les résultats avec un graphique.
+* Les [**tests par lot**](./luis-how-to-batch-test.md) utilisent un fichier de test par lot comme source pour valider votre version entraînée active afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre version active, affichant ainsi les résultats avec un graphique.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Exécution des tests dans un flux de travail de génération automatisé
 

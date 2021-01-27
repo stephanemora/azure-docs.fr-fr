@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 8b10f817abf73172018e904eb46d4c9e20b844e2
-  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+  ms.openlocfilehash: f9f5a2934a012ba93accc050ebebee7c844312fc
+  ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/21/2020
-  ms.locfileid: "95015385"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98786235"
 landingContent:
 - title: À propos des assistants vocaux
   linkLists:
@@ -47,11 +47,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Créer une application avec des commandes simples
-      url: how-to-custom-commands-create-application-with-simple-commands.md
+      url: ./how-to-develop-custom-commands-application.md
     - text: Ajouter des paramètres à vos commandes
-      url: how-to-custom-commands-add-parameters-to-commands.md
+      url: ./how-to-develop-custom-commands-application.md
     - text: Ajouter des validations aux paramètres et des invites de correction
-      url: how-to-custom-commands-add-parameter-configuration.md
+      url: ./how-to-develop-custom-commands-application.md
     - text: Intégrer à l’aide du kit de développement logiciel (SDK) Speech
       url: how-to-custom-commands-setup-speech-sdk.md
     - text: Configurer un déploiement continu pour votre application Commandes personnalisées à l’aide d’Azure DevOps

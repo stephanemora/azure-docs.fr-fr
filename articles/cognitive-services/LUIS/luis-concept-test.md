@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535846"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787551"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test d’exemples d’énoncés dans LUIS
 
@@ -33,7 +33,7 @@ Consultez les concepts du [Score de prédiction](luis-concept-prediction-score.m
 Le test interactif s’effectue à partir du panneau **Test** du portail LUIS. Vous pouvez entrer un énoncé pour voir comment les entités et les intentions sont identifiées et évaluées. Si LUIS ne prévoit pas les intentions et les entités comme prévu sur un énoncé dans le panneau de test, copiez l’énoncé dans la page **Intention** en tant que nouvel énoncé. Puis, étiquetez les parties de cet énoncé pour les entités et effectuez l’apprentissage de LUIS. 
 
 ## <a name="batch-testing"></a>Test par lot
-Consultez [Test par lot](luis-concept-batch-test.md) si vous testez plusieurs énoncés à la fois.
+Consultez [Test par lot](./luis-how-to-batch-test.md) si vous testez plusieurs énoncés à la fois.
 
 ## <a name="endpoint-testing"></a>Test des points de terminaison
 Vous pouvez tester en utilisant le [point de terminaison](luis-glossary.md#endpoint) avec deux versions maximum de votre application. Avec la version principale ou live de votre application définie en tant que point de terminaison de **production**, ajoutez une deuxième version au point de terminaison **intermédiaire**. Cette approche vous offre trois versions d’un énoncé : le modèle actuel dans le volet Test du site web [LUIS](luis-reference-regions.md) et les deux versions sur les deux points de terminaison différents. 

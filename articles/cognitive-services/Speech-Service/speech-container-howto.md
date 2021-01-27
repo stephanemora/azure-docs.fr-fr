@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur
-ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862283"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703324"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installer et exécuter des conteneurs Docker pour les API du service Speech 
 
@@ -373,13 +373,6 @@ Si vous avez plusieurs expressions à ajouter, appelez `.addPhrase()` pour chaqu
 # <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
 Le conteneur *Reconnaissance vocale personnalisée* s’appuie sur un modèle Speech personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-speech-train-model.md) à l’aide du [portail Custom Speech](https://speech.microsoft.com/customspeech).
-
-> [!IMPORTANT]
-> Le modèle Custom Speech doit être formé à partir de l’une des versions de modèle suivantes :
-> * **20181201 (v3.3 unifiée)**
-> * **20190520 (v4.14 unifiée)**
-> * **20190701 (v4.17 unifiée)**<br>
-> ![Modèle de conteneur formé à Custom Speech](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 L’**ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>

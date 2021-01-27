@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108190"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787703"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -130,12 +130,12 @@ En savoir plus sur la configuration des [Paramètres généraux](../../../app-se
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurer App Service Environment pour héberger le service d’application QnA Maker
 Un App Service Environment (ASE) peut être utilisé pour héberger le service d’application QnA Maker. Procédez comme suit :
 
-1. Créez un App Service Environment et marquez-le comme étant « externe ». Pour obtenir des instructions, suivez le [tutoriel](https://docs.microsoft.com/azure/app-service/environment/create-external-ase).
+1. Créez un App Service Environment et marquez-le comme étant « externe ». Pour obtenir des instructions, suivez le [tutoriel](../../../app-service/environment/create-external-ase.md).
 2.  Créez un App Service à l’intérieur du App Service Environment.
     * Vérifiez la configuration de l’App Service et ajoutez « PrimaryEndpointKey » en tant que paramètre d’application. La valeur de « PrimaryEndpointKey » doit être définie sur «\<app-name\>-PrimaryEndpointKey ». Le nom de l’application est défini dans l’URL App Service. Par exemple, si l’URL App Service est « mywebsite.myase.p.azurewebsite.net », le nom de l’application est « mywebsite ». Dans ce cas, la valeur de « PrimaryEndpointKey » doit être définie sur « mywebsite-PrimaryEndpointKey ».
     * Créez un service Recherche Azure.
     * Vérifiez que les paramètres d’application et de recherche Azure sont configurés correctement. 
-      Veuillez suivre ce [tutoriel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+      Veuillez suivre ce [tutoriel](../reference-app-service.md?tabs=v1#app-service).
 3.  Mettre à jour le groupe de sécurité réseau associé au App Service Environment
     * Mettez à jour les règles de sécurité de trafic entrant précréées en fonction de vos besoins.
     * Ajoutez une nouvelle règle de sécurité de trafic entrant avec la source « balise de service » et la balise de service source « CognitiveServicesManagement ».

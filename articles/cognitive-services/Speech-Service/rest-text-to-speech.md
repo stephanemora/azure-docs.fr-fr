@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 53be2f6795593bf44cafde149242b13ed4fdfe50
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572338"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790475"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -60,11 +60,9 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Afrique du Sud Nord | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Centre-USA Ouest | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -279,5 +277,5 @@ Si l’état HTTP est `200 OK`, le corps de la réponse contient un fichier audi
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créez un compte Azure gratuit](https://azure.microsoft.com/free/cognitive-services/)
-- [Synthèse asynchrone pour un contenu audio long](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Synthèse asynchrone pour un contenu audio long](./long-audio-api.md)
 - [Bien démarrer avec Custom Voice](how-to-custom-voice.md)

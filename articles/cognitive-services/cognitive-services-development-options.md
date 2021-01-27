@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349467"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873567"
 ---
 # <a name="cognitive-services-development-options"></a>Options de développement Cognitive Services
 
@@ -24,8 +24,8 @@ Azure Cognitive Services est une famille de services informatiques d’intellige
 Cognitive Services est organisée en quatre catégories : Décision, Langage, Parole et Vision. En général, vous accédez à ces services par l’intermédiaire des API REST, des bibliothèques de client et des outils personnalisés (tels que les interfaces de ligne de commande) fournis par Microsoft. Toutefois, ce n’est qu’une voie vers la réussite. Grâce à Azure, vous avez également accès à plusieurs options de développement, notamment :
 
 * des outils d’automatisation et d’intégration tels que Logic Apps et Power Automate ;
-* des options de déploiement telles qu’Azure Functions et App Service ; 
-* des conteneurs Docker Cognitive Services pour un accès sécurisé ;
+* Options de déploiement telles qu’Azure Functions et App Service 
+* Conteneurs Docker Cognitive Services pour un accès sécurisé
 * des outils comme Apache Spark, Azure Databricks, Azure Synapse Analytics et Azure Kubernetes Service pour les scénarios de Big Data. 
 
 Avant de vous lancer, il est important de savoir que Cognitive Services est principalement utilisé pour deux tâches distinctes. En fonction de la tâche que vous souhaitez effectuer, vous avez le choix entre différentes options de développement et de déploiement. 
@@ -125,7 +125,7 @@ Les outils que vous utiliserez pour effectuer l’apprentissage des modèles et 
 | Pilier | Service | Personnalisation de l’interface utilisateur | Démarrage rapide |
 |--------|---------|------------------|------------|
 | Vision | Vision personnalisée | https://www.customvision.ai/ | [Démarrage rapide](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | Outil d’étiquetage des exemples | [Démarrage rapide](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Vision | Form Recognizer | [Outil d’étiquetage des exemples](https://fott-preview.azurewebsites.net/) | [Démarrage rapide](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Décision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Démarrage rapide](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Décision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Démarrage rapide](./metrics-advisor/quickstarts/web-portal.md) |
 | Décision | Personalizer | L’interface utilisateur est disponible dans le portail Azure sous votre ressource Personalizer. | [Démarrage rapide](./personalizer/quickstart-personalizer-sdk.md) |

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033640"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790611"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
 La reconnaissance vocale utilise deux API REST distinctes. Chaque API remplit son objectif particulier et utilise différents ensembles de points de terminaison.
 
 Les API REST de reconnaissance vocale sont les suivantes :
-- L’[API REST de reconnaissance vocale v3.0](#speech-to-text-rest-api-v30) est utilisée pour la [Transcription par lot](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- L’[API REST de reconnaissance vocale v3.0](#speech-to-text-rest-api-v30) est utilisée pour la [Transcription par lot](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](./migrate-v2-to-v3.md).
 - [L’API REST de reconnaissance vocale pour audio court](#speech-to-text-rest-api-for-short-audio) est utilisée pour la transcription en ligne. Elle constitue une alternative au [Kit de développement logiciel (SDK) Speech](speech-sdk.md). Les demandes qui utilisent cette API peuvent transmettre au maximum 60 secondes d’audio chacune. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
@@ -45,7 +45,7 @@ L’API REST v3.0 comprend des fonctionnalités telles que les suivantes :
 
 Pour obtenir des exemples d’utilisation de l’API REST v3.0 avec la transcription par lot, consultez [cet article](batch-transcription.md).
 
-Si vous utilisez l’API REST de reconnaissance vocale v2.0, découvrez comment migrer vers la version v3.0 dans [ce guide](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+Si vous utilisez l’API REST de reconnaissance vocale v2.0, découvrez comment migrer vers la version v3.0 dans [ce guide](./migrate-v2-to-v3.md).
 
 Consultez les informations de référence complètes sur l’API REST de reconnaissance vocale v3.0 [ici](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 

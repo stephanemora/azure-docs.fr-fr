@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955210"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787010"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -99,7 +99,7 @@ L’exemple JSON comprend un énoncé avec une entité étiquetée pour illustre
 
 Pour passer en revue les résultats du test par lot, sélectionnez **Afficher les résultats**. Les résultats des tests montrent sous forme de graphique comment les énoncés de test ont été prédits par rapport à la version active.
 
-Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Le filtre contient des intentions et des entités. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique.
+Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Le filtre contient des intentions et des entités. Lorsque vous sélectionnez un point ou une [section du graphique](#review-batch-results-for-intents), le ou les énoncés associés s’affichent sous le graphique.
 
 Au passage de la souris sur le graphique, la roulette permet d’agrandir ou de réduire l’affichage du graphique, ce qui est utile en présence de nombreux points très rapprochés.
 
@@ -166,7 +166,7 @@ Les deux sections du graphique en vert correspondent à la prédiction attendue.
 
 ## <a name="batch-testing-using-the-rest-api"></a>Test par lot à l’aide de l’API REST 
 
-LUIS vous permet de tester par lots à l’aide du portail LUIS et de l’API REST. Les points de terminaison de l’API REST sont répertoriés ci-dessous. Pour plus d’informations sur les tests par lots à l’aide du portail LUIS, consultez [Tutoriel : jeux de données de test par lot](luis-tutorial-batch-testing.md). Utilisez les URL complètes ci-dessous, en remplaçant les valeurs d’espace réservé par votre propre clé et point de terminaison de prédiction LUIS. 
+LUIS vous permet de tester par lots à l’aide du portail LUIS et de l’API REST. Les points de terminaison de l’API REST sont répertoriés ci-dessous. Pour plus d’informations sur les tests par lots à l’aide du portail LUIS, consultez [Tutoriel : jeux de données de test par lot](). Utilisez les URL complètes ci-dessous, en remplaçant les valeurs d’espace réservé par votre propre clé et point de terminaison de prédiction LUIS. 
 
 N’oubliez pas d’ajouter votre clé LUIS à `Ocp-Apim-Subscription-Key` dans l’en-tête et définissez `Content-Type` sur `application/json`.
 
@@ -265,5 +265,3 @@ Si le test indique que votre application LUIS ne reconnaît pas les entités et 
 
 * [Étiqueter des énoncés suggérés avec LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS](luis-how-to-add-features.md)
-* [Comprendre le test par lot avec ce tutoriel](luis-tutorial-batch-testing.md)
-* [Découvrir les concepts du test par lot](luis-concept-batch-test.md).

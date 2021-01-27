@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131444"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792080"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) avec des modèles de Deep Learning qui comprennent les reçus dans le but d’en extraire des informations clés. L’API Receipt extrait les informations clés des recettes de vente en anglais, telles que le nom du partenaire, la date de transaction, le total de la transaction, les postes, etc. 
+Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning qui comprennent les reçus dans le but d’en extraire des informations clés. L’API Receipt extrait les informations clés des recettes de vente en anglais, telles que le nom du partenaire, la date de transaction, le total de la transaction, les postes, etc. 
 
 ## <a name="understanding-receipts"></a>Comprendre les tickets de caisse 
 

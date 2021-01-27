@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186093"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737334"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -62,7 +62,7 @@ Dans cet article, vous allez télécharger et installer les packages logiciels s
 * Runtime [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md).
 
 #### <a name="azure-vm-with-gpu"></a>[Machine virtuelle Azure avec GPU](#tab/virtual-machine)
-Dans notre exemple, nous utilisons une [machine virtuelle de série NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) dotée d’un GPU K80.
+Dans notre exemple, nous utilisons une [machine virtuelle de série NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dotée d’un GPU K80.
 
 ---
 
@@ -309,13 +309,13 @@ Sur l’ordinateur hôte, ouvrez `/etc/iotedge/config.yaml` pour le modifier. Re
 sudo systemctl restart iotedge
 ```
 
-Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte à partir du [portail Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou de l’[interface de ligne de commande Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Si vous utilisez le portail, définissez l’URI de l’image sur l’emplacement de votre service Azure Container Registry. 
+Déployez le conteneur d’analyse spatiale comme un module IoT sur l’ordinateur hôte à partir du [portail Azure](../../iot-edge/how-to-deploy-modules-portal.md) ou de l’[interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows). Si vous utilisez le portail, définissez l’URI de l’image sur l’emplacement de votre service Azure Container Registry. 
 
 Procédez comme suit pour déployer le conteneur à l’aide de l’interface de ligne de commande Azure.
 
 #### <a name="azure-vm-with-gpu"></a>[Machine virtuelle Azure avec GPU](#tab/virtual-machine)
 
-Une machine virtuelle Azure avec un GPU peut également être utilisée pour exécuter une analyse spatiale. L’exemple ci-dessous utilisera une [machine virtuelle de série NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) dotée d’un GPU K80.
+Une machine virtuelle Azure avec un GPU peut également être utilisée pour exécuter une analyse spatiale. L’exemple ci-dessous utilisera une [machine virtuelle de série NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) dotée d’un GPU K80.
 
 #### <a name="create-the-vm"></a>Création de la machine virtuelle
 
@@ -335,7 +335,7 @@ Sélectionnez ensuite **NC6** ou **NC6_Promo**.
 
 Ensuite, créez la machine virtuelle. Une fois créée, accédez à la ressource de machine virtuelle dans le portail Azure et sélectionnez `Extensions` dans le volet gauche. La fenêtre des extensions s’affiche, montrant toutes les extensions disponibles. Sélectionnez `NVIDIA GPU Driver Extension`, cliquez sur Créer, puis effectuez l’Assistant.
 
-Une fois l’extension correctement appliquée, accédez à la page principale de la machine virtuelle dans le portail Azure, puis cliquez sur `Connect`. La machine virtuelle est accessible via SSH ou RDP. RDP est utile, car il permet d’afficher la fenêtre de visualiseur (expliquée plus loin). Configurez l’accès RDP en suivant [ces étapes](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) et en ouvrant une connexion Bureau à distance à la machine virtuelle.
+Une fois l’extension correctement appliquée, accédez à la page principale de la machine virtuelle dans le portail Azure, puis cliquez sur `Connect`. La machine virtuelle est accessible via SSH ou RDP. RDP est utile, car il permet d’afficher la fenêtre de visualiseur (expliquée plus loin). Configurez l’accès RDP en suivant [ces étapes](../../virtual-machines/linux/use-remote-desktop.md) et en ouvrant une connexion Bureau à distance à la machine virtuelle.
 
 ### <a name="verify-graphics-drivers-are-installed"></a>Vérifier que les pilotes graphiques sont installés
 
@@ -426,7 +426,7 @@ Le tableau suivant présente les différentes variables d’environnement utilis
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
 
-Une fois que vous avez mis à jour le manifeste de déploiement pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), un [appareil de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou une [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189) avec vos propres paramètres et sélection d’opérations, vous pouvez utiliser la commande [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) ci-dessous pour déployer le conteneur en tant que module IoT Edge sur l’ordinateur hôte.
+Une fois que vous avez mis à jour le manifeste de déploiement pour des [appareils Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), un [appareil de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou une [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189) avec vos propres paramètres et sélection d’opérations, vous pouvez utiliser la commande [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows) ci-dessous pour déployer le conteneur en tant que module IoT Edge sur l’ordinateur hôte.
 
 ```azurecli
 sudo az login
@@ -457,7 +457,7 @@ Vous devez utiliser [opérations d’analyse spatiale](spatial-analysis-operatio
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Redéployer ou supprimer le déploiement
 
-Si vous devez mettre à jour le déploiement, vous devez vous assurer que vos déploiements précédents ont abouti, ou supprimer les déploiements d’appareils IoT Edge qui ne se sont pas terminés. Dans le cas contraire, ces déploiements se poursuivront, laissant le système dans un état incorrect. Vous pouvez utiliser le portail Azure ou l’[interface de ligne de commande Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Si vous devez mettre à jour le déploiement, vous devez vous assurer que vos déploiements précédents ont abouti, ou supprimer les déploiements d’appareils IoT Edge qui ne se sont pas terminés. Dans le cas contraire, ces déploiements se poursuivront, laissant le système dans un état incorrect. Vous pouvez utiliser le portail Azure ou l’[interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utiliser la sortie générée par le conteneur
 

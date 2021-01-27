@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151977"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786942"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Ce glossaire décrit les termes que vous pourriez rencontrer lors de l’utilisation de LUIS (Language Understanding Intelligent Service).
@@ -50,12 +50,13 @@ La ressource de création correspond au « genre » Azure `LUIS-Authoring`.
 
 ## <a name="batch-test"></a>Tests par lot
 
-Les tests par lot permettent de valider un modèle actuel d’application LUIS avec un ensemble cohérent et connu d’énoncés utilisateurs. Le test par lot est défini dans un [fichier au format JSON](luis-concept-batch-test.md#batch-file-format).
+Les tests par lot permettent de valider un modèle actuel d’application LUIS avec un ensemble cohérent et connu d’énoncés utilisateurs. Le test par lot est défini dans un [fichier au format JSON](./luis-how-to-batch-test.md#batch-test-file).
+
 
 Voir aussi :
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [Procédure](luis-how-to-batch-test.md) : exécuter un test par lot
-* [Didacticiel](luis-tutorial-batch-testing.md) : créer et exécuter des tests par lot
+* [Didacticiel](./luis-how-to-batch-test.md) : créer et exécuter des tests par lot
 
 ### <a name="f-measure"></a>F-mesure
 
@@ -188,7 +189,7 @@ L’étiquetage, ou marquage, est le processus qui consiste à associer un exemp
 Dans LUIS, les intentions dans une application s’excluent mutuellement. Cela signifie que lorsque vous ajoutez un énoncé à une intention, il est considéré comme un exemple _positif_ à cet intention et un exemple _négatif_ pour toutes les autres intentions. Les exemples négatifs ne doivent pas être confondus avec l’intention « None », qui représente les énoncés qui se trouvent en dehors de l’étendue de l’application.
 
 ### <a name="labeling-for-entities"></a>Étiquetage des entités
-Dans LUIS, vous [étiquetez](label-entity-example-utterance.md) un mot ou une expression dans l’énoncé d’un exemple d’intention avec une entité en tant qu’exemple _positif_ . L’étiquetage indique l’intention qu’il doit prédire pour cet énoncé. Les énoncés étiquetés sont utilisés pour former l’intention.
+Dans LUIS, vous [étiquetez](label-entity-example-utterance.md) un mot ou une expression dans l’énoncé d’un exemple d’intention avec une entité en tant qu’exemple _positif_. L’étiquetage indique l’intention qu’il doit prédire pour cet énoncé. Les énoncés étiquetés sont utilisés pour former l’intention.
 
 ## <a name="luis-app"></a>Application LUIS
 
@@ -305,7 +306,7 @@ Voir [Changer le fuseau horaire de l’entité datetimeV2 prédéfinie](luis-con
 ## <a name="token"></a>par jeton
 Un [jeton](luis-language-support.md#tokenization) est la plus petite unité de texte que LUIS peut reconnaître. Il diffère légèrement d’une langue à l’autre.
 
-Pour l’ **anglais** , un jeton est une étendue continue (sans espaces ni ponctuation) de lettres et de chiffres. Un espace N’EST PAS un jeton.
+Pour l’**anglais**, un jeton est une étendue continue (sans espaces ni ponctuation) de lettres et de chiffres. Un espace N’EST PAS un jeton.
 
 |Expression|Nombre de jetons|Explication|
 |--|--|--|

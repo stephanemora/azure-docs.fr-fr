@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: b8382b76496976054ebb452e39866765d986ccbb
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368174"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790899"
 ---
 # <a name="sign-in-to-luis-portal"></a>Se connecter au portail LUIS
 
@@ -47,8 +47,8 @@ Cet article va vous aider à prendre en main le portail LUIS et à créer une re
     * **Nom du locataire** : locataire auquel votre abonnement Azure est associé. Vous ne serez pas en mesure de basculer les locataires à partir de la fenêtre existante. Vous pouvez changer de locataire en fermant cette fenêtre et en sélectionnant l’avatar contenant vos initiales dans le coin supérieur droit de l’écran. Sélectionnez **Choisir une autre ressource de création** dans la partie supérieure pour rouvrir la fenêtre.
     * **Nom du groupe de ressources Azure** : nom de groupe de ressources personnalisé que vous choisissez dans votre abonnement. Les groupes de ressources vous permettent de regrouper des ressources Azure pour l’accès et la gestion. Si vous n’avez pas de groupe de ressources dans votre abonnement, vous ne serez pas autorisé à en créer un dans le portail LUIS. Accédez au [Portail Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) pour en créer un, puis cliquez sur LUIS pour continuer le processus de connexion.
     * **Nom de la ressource Azure** : nom personnalisé que vous choisissez, utilisé comme élément de l’URL pour vos transactions de création. Le nom de votre ressource doit contenir uniquement des caractères alphanumériques (`-`) et ne peut pas commencer ni se terminer par `-`. Si d’autres symboles sont inclus dans le nom, la création d’une ressource échoue.
-    * **Emplacement** : choisissez de créer vos applications dans l’un des [trois emplacements de création](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions) actuellement pris en charge par LUIS, notamment : USA Ouest, Europe Ouest et Australie Est.
-    * **Niveau tarifaire** : par défaut, le niveau tarifaire de création F0 est sélectionné, car il est recommandé. Créez une [clé gérée par le client](https://docs.microsoft.com/azure/cognitive-services/luis/luis-encryption-of-data-at-rest#customer-managed-keys-for-language-understanding) à partir du portail Azure si vous recherchez une couche supplémentaire de sécurité.
+    * **Emplacement** : choisissez de créer vos applications dans l’un des [trois emplacements de création](./luis-reference-regions.md) actuellement pris en charge par LUIS, notamment : USA Ouest, Europe Ouest et Australie Est.
+    * **Niveau tarifaire** : par défaut, le niveau tarifaire de création F0 est sélectionné, car il est recommandé. Créez une [clé gérée par le client](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) à partir du portail Azure si vous recherchez une couche supplémentaire de sécurité.
 8. Vous êtes maintenant connecté à LUIS. Vous pouvez dès à présent commencer à créer des applications.
 
 ## <a name="troubleshooting"></a>Dépannage

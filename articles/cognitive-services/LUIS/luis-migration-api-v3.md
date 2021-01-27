@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018784"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624301"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -66,9 +66,6 @@ Cette API n’est pas prise en charge dans le point de terminaison de prédictio
 
 Continuez à utiliser l’API V2 de point de terminaison de prédiction jusqu’à ce que la version 4.7 de Bot Framework soit disponible.
 
-## <a name="v2-api-deprecation"></a>Dépréciation de l’API V2
-
-L’API de prédiction V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3, à savoir le 8 juin 2020.
 
 ## <a name="endpoint-url-changes"></a>Modifications de l’URL de point de terminaison
 
@@ -268,9 +265,6 @@ Dans V3, le même résultat est obtenu avec l’indicateur `verbose` pour retour
 
 Découvrez les [concepts](schema-change-prediction-runtime.md) permettant d’étendre l’application au niveau du runtime de prédiction.
 
-## <a name="deprecation"></a>Dépréciation
-
-L’API V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

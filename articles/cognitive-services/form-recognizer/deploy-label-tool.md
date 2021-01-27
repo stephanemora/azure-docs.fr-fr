@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359844"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790425"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -101,7 +101,7 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
 > Lorsque vous créez votre application web, vous pouvez également configurer l’autorisation/l’authentification. Cela n’est pas nécessaire au départ. 
 
 > [!IMPORTANT]
-> Vous devrez peut-être activer TLS pour votre application web afin de l’afficher à son adresse `https`. Suivez les instructions figurant dans [Activer un point de terminaison TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) pour configurer un conteneur sidecar qui active TLS/SSL pour votre application web.
+> Vous devrez peut-être activer TLS pour votre application web afin de l’afficher à son adresse `https`. Suivez les instructions figurant dans [Activer un point de terminaison TLS](../../container-instances/container-instances-container-group-ssl.md) pour configurer un conteneur sidecar qui active TLS/SSL pour votre application web.
 
 ### <a name="azure-cli"></a>Azure CLI
 

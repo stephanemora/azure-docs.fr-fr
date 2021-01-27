@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96000128"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787534"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -177,7 +177,7 @@ Les erreurs indiquent l’existence d’incohérences entre vos étiquettes et l
 * Pour aider LUIS à améliorer la discrimination entre les intentions, ajoutez des étiquettes.
 * Pour aider LUIS à apprendre plus rapidement, ajoutez des fonctionnalités de liste de phrases qui introduisent le vocabulaire spécifique d’un domaine.
 
-Voir le didacticiel [Tests par lot](luis-tutorial-batch-testing.md).
+Voir le didacticiel [Tests par lot](./luis-how-to-batch-test.md).
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quand une application est exportée, puis réimportée dans une nouvelle application (avec un nouvel ID d’application), les scores de prédiction LUIS sont différents. Pourquoi cela se produit-il ?
 
