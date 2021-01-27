@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250976"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876208"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -345,7 +345,7 @@ Pour activer des zones sur un groupe de machines virtuelles identiques, vous dev
 
 * La première valeur est la propriété **zones** qui spécifie les zones de disponibilité présentes dans le groupe de machines virtuelles identiques.
 * La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai). **Le groupe identique s’étend sur 3 zones de disponibilité et peut effectuer un scale-up jusqu’à 300 machines virtuelles, même avec « singlePlacementGroup = true ».**
-* La troisième valeur est « zoneBalance ». Elle garantit un strict équilibrage des zones si sa valeur est true. Nous vous recommandons de définir cette valeur sur true pour éviter la distribution déséquilibrée des machines virtuelles entre les zones. Découvrez [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* La troisième valeur est « zoneBalance ». Elle garantit un strict équilibrage des zones si sa valeur est true. Nous vous recommandons de définir cette valeur sur true pour éviter la distribution déséquilibrée des machines virtuelles entre les zones. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Les remplacements FaultDomain et UpgradeDomain ne doivent pas être configurés.
 
 ```json
@@ -416,9 +416,9 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migration vers le type de nœud avec plusieurs zones de disponibilité
 Pour tous les scénarios de migration, un nouveau nodeType doit être ajouté, qui aura plusieurs zones de disponibilité prises en charge. Un nodeType existant ne peut pas être migré pour prendre en charge plusieurs zones.
-L’article [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) décrit en détail les étapes d’ajout d’un nouveau nodeType, ainsi que d’ajout d’autres ressources requises pour le nouveau nodeType, telles que les ressources IP et LB. Le même article décrit également comment retirer le nodeType existant après l’ajout du nodeType avec plusieurs zones de disponibilité au cluster.
+L’article [ici](./service-fabric-scale-up-primary-node-type.md) décrit en détail les étapes d’ajout d’un nouveau nodeType, ainsi que d’ajout d’autres ressources requises pour le nouveau nodeType, telles que les ressources IP et LB. Le même article décrit également comment retirer le nodeType existant après l’ajout du nodeType avec plusieurs zones de disponibilité au cluster.
 
-* Migration à partir d’un nodeType qui utilise des ressources LB et IP de base : Cette procédure est déjà décrite [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) pour la solution avec un seul type de nœud par AZ. 
+* Migration à partir d’un nodeType qui utilise des ressources LB et IP de base : Cette procédure est déjà décrite [ici](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) pour la solution avec un seul type de nœud par AZ. 
     Pour le nouveau type de nœud, la seule différence est qu’il n’y a qu’un seul groupe de machines virtuelles identiques et 1 nodeType pour tous les AZ au lieu de 1 par AZ.
 * Migration à partir d’un nodeType utilisant les ressources LB et IP de référence (SKU) Standard avec un groupe de sécurité réseau :   Suivez la procédure décrite ci-dessus, sauf qu’il n’est pas nécessaire d’ajouter de nouvelles ressources LB, IP et NSG, et que les mêmes ressources peuvent être réutilisées dans le nouveau nodeType.
 

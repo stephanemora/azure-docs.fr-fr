@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882380"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
@@ -35,8 +35,8 @@ Ces instructions vous sont spécifiquement fournies pour Premium Storage, car le
 >
 > Si vous souhaitez évaluer votre disque, consultez les articles consacrés au benchmarking d'un disque :
 >
-> * Pour Linux : [Créer un benchmark de votre application sur Stockage sur disque Azure](linux/disks-benchmarks.md)
-> * Pour Windows : [Benchmarking d'un disque](windows/disks-benchmarks.md).
+> * Pour Linux : [Créer un benchmark de votre application sur Stockage sur disque Azure](./disks-benchmarks.md)
+> * Pour Windows : [Benchmarking d'un disque](./disks-benchmarks.md).
 >
 > Si votre machine virtuelle prend en charge la mise en réseau accélérée, vous devez vous assurer qu’elle est activée. Si elle n’est pas activée, vous pouvez l’activer sur les machines virtuelles déjà déployées sur [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) et [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -380,8 +380,8 @@ Azure Premium Storage configure la valeur spécifiée d’E/S par seconde et de 
 
 Si vous souhaitez évaluer votre disque, consultez les articles consacrés au benchmarking d'un disque :
 
-* Pour Linux : [Créer un benchmark de votre application sur Stockage sur disque Azure](linux/disks-benchmarks.md)
-* Pour Windows : [Benchmarking d'un disque](windows/disks-benchmarks.md).
+* Pour Linux : [Créer un benchmark de votre application sur Stockage sur disque Azure](./disks-benchmarks.md)
+* Pour Windows : [Benchmarking d'un disque](./disks-benchmarks.md).
 
 En savoir plus sur les types de disque disponibles :
 

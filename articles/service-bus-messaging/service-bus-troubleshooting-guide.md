@@ -3,12 +3,12 @@ title: Guide de dépannage pour Azure Service Bus | Microsoft Docs
 description: Découvrez des conseils et recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126867"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881212"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 L’identité ne dispose pas des autorisations nécessaires pour accéder à la rubrique Service Bus. 
 
 ### <a name="resolution"></a>Résolution
-Pour résoudre cette erreur, installez la bibliothèque [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Pour plus d’informations, consultez [Authentification du développement local](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
+Pour résoudre cette erreur, installez la bibliothèque [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Pour plus d’informations, consultez [Authentification du développement local](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
 
 Pour savoir comment affecter des autorisations à des rôles, consultez [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus](service-bus-managed-service-identity.md).
 

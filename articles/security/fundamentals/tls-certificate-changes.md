@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029691"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881246"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modification des certificats Azure TLS  
 
@@ -30,7 +30,7 @@ Détails spécifiques au service :
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) et [DPS](../../iot-dps/index.yml) resteront dans l’autorité de certification racine Baltimore CyberTrust, mais leurs autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - [Stockage Azure](../../storage/index.yml) restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Azure Cache pour Redis](../../azure-cache-for-redis/index.yml) restera dans l’autorité de certification racine Baltimore CyberTrust, mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](../../azure-cache-for-redis/cache-whats-new.md).
-- Azure Instance Metadata Service restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- Azure Instance Metadata Service restera dans l’autorité de certification racine Baltimore CyberTrust mais ses autorités de certification intermédiaires changeront. [Pour plus d’informations, cliquez ici](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > Les clients devront peut-être mettre à jour leurs applications après cette modification pour éviter les échecs de connectivité quand ils tentent de se connecter aux services Azure.

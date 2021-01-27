@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964556"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881735"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Déclencher des pipelines de Machine Learning avec le kit SDK Azure Machine Learning pour Python
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à planifier un pipeline de manière prog
 
 * Environnement Python dans lequel le kit de développement logiciel (SDK) Azure Machine Learning pour Python est installé. Pour plus d’informations, consultez [Créez et gérez des environnements réutilisables pour la formation et le déploiement avec Azure Machine Learning.](how-to-use-environments.md)
 
-* Un espace de travail Machine Learning avec un pipeline publié. Vous pouvez utiliser l’option intégrée [Créer et exécuter des pipelines Machine Learning avec le kit de développement logiciel (SDK) Azure Machine Learning](how-to-create-your-first-pipeline.md).
+* Un espace de travail Machine Learning avec un pipeline publié. Vous pouvez utiliser l’option intégrée [Créer et exécuter des pipelines Machine Learning avec le kit de développement logiciel (SDK) Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Initialiser l’espace de travail et obtenir des données
 
@@ -142,7 +142,7 @@ Si vous réexécutez ensuite `Schedule.list(ws)`, vous devez obtenir une liste v
 
 Vous pouvez créer un comportement ou des règles de déclencheur plus complexes à l’aide d’une [application logique Azure](../logic-apps/logic-apps-overview.md).
 
-Pour utiliser une application logique Azure afin de déclencher un pipeline de Machine Learning, vous avez besoin du point de terminaison REST pour un pipeline de Machine Learning publié. [Créez et publiez votre pipeline](how-to-create-your-first-pipeline.md). Ensuite, recherchez le point de terminaison REST de votre `PublishedPipeline` à l’aide de l’ID de pipeline :
+Pour utiliser une application logique Azure afin de déclencher un pipeline de Machine Learning, vous avez besoin du point de terminaison REST pour un pipeline de Machine Learning publié. [Créez et publiez votre pipeline](./how-to-create-machine-learning-pipelines.md). Ensuite, recherchez le point de terminaison REST de votre `PublishedPipeline` à l’aide de l’ID de pipeline :
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

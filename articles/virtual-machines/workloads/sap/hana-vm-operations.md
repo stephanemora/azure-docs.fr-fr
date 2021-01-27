@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e28b23f20a0336498abbc357f4c96bdfa5b089f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486519"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881836"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -46,7 +46,7 @@ Les sections suivantes décrivent les considérations de base relatives à la co
 Comme décrit dans le [guide de planification des machines virtuelles Azure](./planning-guide.md), il existe deux méthodes de base pour se connecter à des machines virtuelles Azure :
 
 - Connexion par le biais de points de terminaison publics et Internet sur une machine virtuelle Jump ou la machine virtuelle qui exécute SAP HANA.
-- Connexion par le biais d’un [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) ou d’Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- Connexion par le biais d’un [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) ou d’Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Pour les scénarios de production, vous devez avoir une connectivité de site à site par le biais d’un VPN ou d’ExpressRoute. Ce type de connexion est également nécessaire pour les scénarios hors production qui alimentent des scénarios de production où des logiciels SAP sont utilisés. L’image suivante représente un exemple de connectivité intersite :
 

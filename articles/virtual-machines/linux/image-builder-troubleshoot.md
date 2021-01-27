@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 52801d0d7b02bb3637b5edb03072bde04a023de9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969974"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881786"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Résoudre les problèmes liés au service Azure VM Image Builder
 
@@ -586,7 +586,7 @@ Il peut arriver que vous deviez examiner les builds réussies et que vous souhai
 
 Si la build n’a pas été annulée par un utilisateur, elle a été annulée par l’agent utilisateur Azure DevOps. L’expiration du délai d’une heure s’est probablement produit en raison des capacités d’Azure DevOps. Si vous utilisez un projet et un agent privés, vous bénéficiez de 60 minutes de temps de build. Si le délai d’attente de la build expire, DevOps annule la tâche en cours d’exécution.
 
-Pour plus d’informations sur les capacités et limitations d’Azure DevOps, consultez [Agents hébergés par Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations).
+Pour plus d’informations sur les capacités et limitations d’Azure DevOps, consultez [Agents hébergés par Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations).
  
 #### <a name="solution"></a>Solution
 
@@ -674,4 +674,4 @@ Support Subtopic: Azure Image Builder
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure VM Image Builder](image-builder-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure VM Image Builder](../image-builder-overview.md).

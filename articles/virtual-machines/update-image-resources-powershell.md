@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c6bc4fea05f79c446f318eb4cbc86beb160ea108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d480d880d9b26666f393c179efa953b653c80c3e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82793965"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881989"
 ---
 # <a name="list-update-and-delete-image-resources-using-powershell"></a>Répertorier, mettre à jour et supprimer des ressources d’image à l’aide de PowerShell 
 
@@ -26,4 +26,4 @@ Vous pouvez gérer vos ressources de galerie d’images partagées à l’aide d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Générateur d’image Azure (préversion)](./linux/image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md).
+[Générateur d’image Azure (préversion)](./image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md).

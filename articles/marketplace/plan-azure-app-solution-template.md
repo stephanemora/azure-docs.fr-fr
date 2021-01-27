@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e4d0513808cdc44fc71e182a07fa6b050d182ee
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452512"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876509"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planifier un modèle de solution pour une offre d’application Azure
 
@@ -28,7 +28,7 @@ Le type de plan de modèle de solution nécessite un [modèle Azure Resource Man
 | Facturation et mesure | Les plans de modèle de solution ne peuvent pas faire l’objet d’une transaction, mais peuvent être utilisés pour déployer des offres de machines virtuelles payantes facturées via la Place de marché commerciale Microsoft. Les ressources que le modèle ARM de la solution déploie sont configurées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation font l’objet de transactions avec le client par le biais de Microsoft et sont facturées dans le cadre de l’abonnement Azure du client. <br><br> Pour la facturation BYOL (apportez votre propre licence), bien que Microsoft facture les frais d’infrastructure engagés dans l’abonnement client, vous effectuez la transaction de vos frais de licence logicielle directement avec le client. |
 | Disque dur virtuel compatible avec Azure | Les machines virtuelles doivent être basées sur Windows ou Linux. Pour plus d'informations, consultez les pages suivantes :<ul><li>[Créer une ressource technique de machine virtuelle Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (pour les disques durs virtuels Windows)</li><li>[Distributions Linux approuvées sur Azure](../virtual-machines/linux/endorsed-distros.md) (pour les disques durs virtuel Linux).</li></ul> |
 | Attribution de l’utilisation client | L’activation de l’attribution de l’utilisation de client est obligatoire pour tous les modèles de solution publiés sur la Place de marché Azure. Pour plus d’informations sur l’attribution de l’utilisation de client et sur son activation, consultez [Attribution de l’utilisation de client partenaire Azure](azure-partner-customer-usage-attribution.md). |
-| Utiliser des disques managés | Les [disques managés](../virtual-machines/managed-disks-overview.md) représentent l’option par défaut pour les disques persistants des machines virtuelles IaaS (infrastructure as a service) dans Azure. Vous devez utiliser des disques managés dans les modèles de solution.<ul><li>Pour mettre à jour vos modèles de solution, suivez les instructions dans [Utiliser les disques managés dans les modèles Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md) et utilisez les [exemples](https://github.com/Azure/azure-quickstart-templates) fournis.</li><li>Pour publier le disque dur virtuel sous forme d’image dans la Place de marché Azure, importez les disques durs virtuels sous-jacents des disques managés dans un compte de stockage à l’aide d’[Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) ou de l’[interface de ligne de commande Azure](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md).</ul> |
+| Utiliser des disques managés | Les [disques managés](../virtual-machines/managed-disks-overview.md) représentent l’option par défaut pour les disques persistants des machines virtuelles IaaS (infrastructure as a service) dans Azure. Vous devez utiliser des disques managés dans les modèles de solution.<ul><li>Pour mettre à jour vos modèles de solution, suivez les instructions dans [Utiliser les disques managés dans les modèles Azure Resource Manager](../virtual-machines/using-managed-disks-template-deployments.md) et utilisez les [exemples](https://github.com/Azure/azure-quickstart-templates) fournis.</li><li>Pour publier le disque dur virtuel sous forme d’image dans la Place de marché Azure, importez les disques durs virtuels sous-jacents des disques managés dans un compte de stockage à l’aide d’[Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) ou de l’[interface de ligne de commande Azure](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd).</ul> |
 | Package de déploiement | Vous aurez besoin d’un package de déploiement qui permettra aux clients de déployer votre plan. Si vous créez plusieurs plans nécessitant la même configuration technique, vous pouvez utiliser le même package de plan. Pour plus d’informations, consultez la section suivante : Package de déploiement. |
 |||
 

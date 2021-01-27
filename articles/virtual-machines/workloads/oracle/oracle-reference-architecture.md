@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486740"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882295"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architectures de référence pour Oracle Database Enterprise Edition sur Azure
 
@@ -207,7 +207,7 @@ Lors de la requête initiale, le serveur d'applications se connecte au directeur
 
 Lors du déploiement de vos charges de travail Oracle sur Azure, Microsoft s'occupe de toutes les mises à jour correctives du système d'exploitation hôte. Toute maintenance planifiée du système d'exploitation est communiquée aux clients à l'avance pour leur permettre de s'y préparer. Deux serveurs issus de deux zones de disponibilité différentes ne font jamais l'objet d'une mise à jour corrective simultanée. Pour plus d'informations sur la maintenance et les mises à jour correctives des machines virtuelles, consultez [Gérer la disponibilité des machines virtuelles](../../manage-availability.md). 
 
-Les mises à jour correctives du système d’exploitation de vos machines virtuelles peuvent être automatisées à l’aide d’[Azure Automation Update Management](../../../automation/update-management/overview.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l’aide d’[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou d’[Azure Automation Update Management](../../../automation/update-management/overview.md) afin de minimiser les temps d’arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
+Les mises à jour correctives du système d’exploitation de vos machines virtuelles peuvent être automatisées à l’aide d’[Azure Automation Update Management](../../../automation/update-management/overview.md). Les mises à jour correctives et la maintenance de votre base de données Oracle peuvent être automatisées et planifiées à l’aide d’[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou d’[Azure Automation Update Management](../../../automation/update-management/overview.md) afin de minimiser les temps d’arrêt. Consultez [Livraison continue et déploiements bleus/verts](/azure/devops/learn/what-is-continuous-delivery) pour en savoir plus sur l'utilisation de cette fonctionnalité dans le contexte de vos bases de données Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considérations relatives à l'architecture et à la conception
 
@@ -216,7 +216,7 @@ Les mises à jour correctives du système d’exploitation de vos machines virtu
 - Utilisez les zones de disponibilité pour bénéficier d'une haute disponibilité au sein de la région.
 - Pensez à utiliser des disques Ultra (le cas échéant) ou des disques Premium pour votre base de données Oracle.
 - Pensez à mettre en place une base de données Oracle de secours dans une autre région Azure à l'aide d'Oracle Data Guard.
-- Pensez à utiliser des [groupes de placements de proximité](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) pour réduire la latence entre votre application et la couche Base de données.
+- Pensez à utiliser des [groupes de placements de proximité](../../co-location.md#proximity-placement-groups) pour réduire la latence entre votre application et la couche Base de données.
 - Configurez [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) pour la gestion, la surveillance et la journalisation.
 - Pensez à utiliser Oracle Automatic Storage Management (ASM) pour une gestion rationalisée du stockage de votre base de données.
 - Utilisez [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) pour gérer les correctifs et les mises à jour de votre base de données sans aucun temps d'arrêt.

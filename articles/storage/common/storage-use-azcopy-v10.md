@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108146"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880992"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -79,7 +79,7 @@ Utilisez ce tableau pour vous guider :
 Cette option est disponible uniquement pour le stockage blob. En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.  
 
 > [!NOTE]
-> Dans la version actuelle, si vous envisagez de copier des blobs entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](storage-use-azcopy-blobs.md).
+> Dans la version actuelle, si vous envisagez de copier des blobs entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](#transfer-data).
 
 Pour autoriser l’accès à l’aide d’Azure AD, consultez [Autoriser l’accès aux objets blob avec AzCopy et Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 

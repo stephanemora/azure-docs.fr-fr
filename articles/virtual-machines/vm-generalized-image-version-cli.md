@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501080"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881972"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Créer une machine virtuelle à partir d’une version d’image généralisée à l’aide de l’interface de ligne de commande
 
-Créez une machine virtuelle à partir d’une [version d’image généralisée](./linux/shared-image-galleries.md#generalized-and-specialized-images) stockée dans une galerie d’images partagées. Si vous souhaitez créer une machine virtuelle en utilisant une image spécialisée, consultez [Créer une machine virtuelle à partir d’une image spécialisée](vm-specialized-image-version-powershell.md). 
+Créez une machine virtuelle à partir d’une [version d’image généralisée](./shared-image-galleries.md#generalized-and-specialized-images) stockée dans une galerie d’images partagées. Si vous souhaitez créer une machine virtuelle en utilisant une image spécialisée, consultez [Créer une machine virtuelle à partir d’une image spécialisée](vm-specialized-image-version-powershell.md). 
 
 
 ## <a name="get-the-image-id"></a>Obtenir l’ID de l’image
@@ -59,4 +59,4 @@ Vous pouvez également utiliser une version spécifique en utilisant l’ID de v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Générateur d’image Azure (préversion)](./linux/image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md). 
+[Générateur d’image Azure (préversion)](./image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md).

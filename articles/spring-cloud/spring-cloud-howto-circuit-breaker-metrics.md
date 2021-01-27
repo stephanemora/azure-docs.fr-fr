@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3fd1e644d69fe1d721526afcacb362adca48bf7a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e44e7c5d04695d5bd65d2eedc5474889a707c8bd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831803"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882142"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Collecter les métriques du disjoncteur Spring Cloud Resilience4J (préversion)
 
@@ -22,9 +22,9 @@ Pour en illustrer le fonctionnement, nous allons utiliser [spring-cloud-circuit-
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights). 
+* Activez l’agent In-process Java à partir du [guide de l’agent In-process Java pour Application Insights](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
-* Activez la collecte de dimensions pour les métriques Resilience4J à partir du [guide Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
+* Activez la collecte de dimensions pour les métriques Resilience4J à partir du [guide Application Insights](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 * S’ils ne sont pas déjà utilisés par l’ordinateur de développement, installez git, Maven et Java.
 
@@ -41,7 +41,7 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 
 2. Créer des applications avec des points de terminaison
 
-```azcli
+```azurecli
 az spring-cloud app create --name resilience4j --is-public \
     -s ${asc-service-name} -g ${asc-resource-group}
 az spring-cloud app create --name reactive-resilience4j --is-public \
@@ -50,7 +50,7 @@ az spring-cloud app create --name reactive-resilience4j --is-public \
 
 3. Déployez des applications.
 
-```azcli
+```azurecli
 az spring-cloud app deploy -n resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
@@ -91,7 +91,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >
 > Accédez à l’URL fournie par les applications de passerelle, puis au point de terminaison à partir de [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) comme suit :
 >
->   ```
+>   ```console
 >   /get
 >   /get/delay/{seconds}
 >   /get/fluxdelay/{seconds}
@@ -125,6 +125,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Application Insights](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
+* [Application Insights](./spring-cloud-howto-application-insights.md)
 * [Traçage distribué](spring-cloud-tutorial-distributed-tracing.md)
 * [Tableau de bord Disjoncteur](spring-cloud-tutorial-circuit-breaker.md)

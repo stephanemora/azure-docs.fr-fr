@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/17/2021
-ms.openlocfilehash: aede7e3dec886d6a6213c64b386cacd725dd74f5
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 1b2e914057aa72934524cc4977e3d2292394d0b7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562792"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882067"
 ---
 # <a name="how-to-manually-fix-sync-problems"></a>Comment corriger manuellement les problèmes de synchronisation
 
@@ -22,16 +22,16 @@ Utilisez le processus de synchronisation suivant pour réactiver la connexion et
 
 1. Recherchez la solution dans la bannière de recherche du haut, puis sélectionnez les solutions appropriées.
 
-    ![Capture d’écran montrant la bannière de recherche supérieure et où sélectionner les solutions appropriées.](media/itsmc-resync-servicenow/solution-search-8bit.png)
+    ![Capture d’écran montrant la bannière de recherche supérieure et où sélectionner les solutions appropriées.](media/itsmc-resync-servicenow/solution-search-8-bit.png)
 
 1. Dans l’écran des solutions, choisissez « Sélectionner tout » dans le filtre d’abonnement, puis filtrez par « ServiceDesk ».
 
-    ![Capture d’écran montrant où choisir Sélectionner tout et où filtrer par ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8bit.png)
+    ![Capture d’écran montrant où choisir Sélectionner tout et où filtrer par ServiceDesk.](media/itsmc-resync-servicenow/solutions-list-8-bit.png)
 
 1. Sélectionnez la solution de votre connexion ITSM.
 1. Sélectionnez la connexion ITSM dans la bannière gauche.
 
-    ![Capture d’écran montrant où sélectionner Connexions ITSM.](media/itsmc-resync-servicenow/itsm-connector-8bit.png)
+    ![Capture d’écran montrant où sélectionner Connexions ITSM.](media/itsmc-resync-servicenow/itsm-connector-8-bit.png)
 
 1. Sélectionnez chaque connecteur dans la liste. 
     1. Cliquez sur le nom du connecteur pour le configurer
@@ -41,10 +41,10 @@ Utilisez le processus de synchronisation suivant pour réactiver la connexion et
 
     1. Cliquer sur Synchroniser.
 
-       ![Capture d’écran mettant en évidence le bouton Synchroniser.](media/itsmc-resync-servicenow/resync-8bit2.png)
+       ![Capture d’écran mettant en évidence le bouton Synchroniser.](media/itsmc-resync-servicenow/resync-8-bit-2.png)
 
     1. Cliquez sur Enregistrer.
 
-        ![Nouvelle connexion](media/itsmc-resync-servicenow/save-8bit.png)
+        ![Nouvelle connexion](media/itsmc-resync-servicenow/save-8-bit.png)
 
 f.    Passez en revue les notifications pour voir si le processus a démarré.

@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: cfe3efc77e065ac3685b72d0eab501034609b59b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f617d680b42a2bb7590cf5aaed657c0469f811d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067982"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882414"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configurer des autorisations de service Azure Image Builder à l’aide de PowerShell
 
@@ -214,4 +214,4 @@ New-AzRoleAssignment @parameters
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](image-builder-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](../image-builder-overview.md).

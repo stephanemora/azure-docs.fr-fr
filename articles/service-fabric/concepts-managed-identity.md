@@ -3,12 +3,12 @@ title: Identités managées pour Azure
 description: En savoir plus sur l’utilisation des identités managées pour Azure avec Service Fabric.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574749"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881718"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Utilisation des identités managées pour Azure avec Service Fabric
 
@@ -56,7 +56,7 @@ Les scénarios suivants ne sont pas pris en charge ni recommandés ; notez que 
 
 - Supprimez ou modifiez les identités attribuées à une application. Si vous devez apporter des modifications, envoyez des déploiements distincts pour ajouter d’abord une nouvelle attribution d’identité, puis en supprimer une précédemment attribuée. La suppression d’une identité d’une application existante peut avoir des effets indésirables, notamment la sortie de votre application dans un état qui ne peut pas être mis à niveau. Il est sans danger de supprimer entièrement l’application si la suppression d’une identité est nécessaire ; notez que cette opération supprimera l’identité attribuée par le système (si définie) associée à l’application et supprimera toutes les associations avec les identités attribuées par l’utilisateur et attribuées à l’application.
 
-- La prise en charge par Service Fabric des identités managées n’est pas intégrée à l’heure actuelle dans [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md).
+- La prise en charge par Service Fabric des identités managées n’est pas intégrée à l’heure actuelle dans [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
