@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97917929"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879273"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Comment planifier une offre Service géré pour le marketplace commercial de Microsoft
 
@@ -25,7 +25,7 @@ Les services gérés sont des offres de Place de marché Azure qui permettent un
 
 Pour publier un service géré, vous devez avoir acquis une compétence Microsoft Gold ou Silver dans la plateforme cloud. Cette compétence démontre votre expertise aux clients. Pour plus d’informations, consultez [Compétences Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-Les offres doivent satisfaire à toutes les [stratégies de certification du marketplace commercial](https://docs.microsoft.com/legal/marketplace/certification-policies) en vigueur pour être publiées sur Place de marché Azure.
+Les offres doivent satisfaire à toutes les [stratégies de certification du marketplace commercial](/legal/marketplace/certification-policies) en vigueur pour être publiées sur Place de marché Azure.
 
 ## <a name="customer-leads"></a>Prospects
 

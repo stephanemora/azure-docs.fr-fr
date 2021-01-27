@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539238"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878797"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -206,8 +206,8 @@ Sur le serveur qui porte la mention « Apparaît hors connexion » dans le por
     - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](./storage-sync-files-firewall-and-proxy.md#proxy) du proxy.
     - Utilisez l’applet de commande Test-StorageSyncNetworkConnectivity pour vérifier la connectivité réseau aux points de terminaison de service. Pour plus d’informations, consultez [Tester la connectivité réseau aux points de terminaison de service](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Si l’ordre des suites de chiffrement TLS est configuré sur le serveur, vous pouvez utiliser une stratégie de groupe ou les cmdlets TLS pour ajouter des suites de chiffrement :
-        - Pour utiliser une stratégie de groupe, consultez [Configuration de l’ordre des suites de chiffrement TLS avec une stratégie de groupe](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Pour utiliser les cmdlets TLS, consultez [Configuration de l’ordre des suites de chiffrement TLS avec les cmdlets PowerShell TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Pour utiliser une stratégie de groupe, consultez [Configuration de l’ordre des suites de chiffrement TLS avec une stratégie de groupe](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Pour utiliser les cmdlets TLS, consultez [Configuration de l’ordre des suites de chiffrement TLS avec les cmdlets PowerShell TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Azure File Sync prend actuellement en charge les suites de chiffrement suivantes pour le protocole TLS 1.2 :  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Cette erreur se produit si le répertoire utilisé comme chemin du point de term
 Si le répertoire a été supprimé, procédez comme suit pour supprimer le point de terminaison de serveur actuel et en créer un nouveau avec un nouveau chemin :
 
 1. Supprimez le point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Suppression d’un point de terminaison de serveur](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Créez un point de terminaison de serveur dans le groupe de synchronisation en suivant la procédure décrite dans [Ajout d’un point de terminaison de serveur](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  

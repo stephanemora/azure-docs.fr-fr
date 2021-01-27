@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: ff8704feb2997cd89bbd2bf8cb8801818112732f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879205"
 ---
 # <a name="media-services-architectures"></a>Architectures Media Services
 
@@ -29,7 +29,7 @@ Une solution de streaming en direct vous permet de capturer des vidéos en temps
 
 Cette solution est basée sur les services gérés Azure : Media Services et réseau de distribution de contenu. Ces services fonctionnent dans un environnement à haute disponibilité, avec des correctifs et un support, ce qui vous permet de vous concentrer sur votre solution plutôt que sur l’environnement dans lequel elles opèrent.
 
-Consultez [Streaming en direct de contenu multimédia numérique](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) dans le centre des architectures Azure.
+Consultez [Streaming en direct de contenu multimédia numérique](/azure/architecture/solution-ideas/articles/digital-media-live-stream) dans le centre des architectures Azure.
 
 ## <a name="video-on-demand-digital-media"></a>Vidéo à la demande pour le contenu multimédia numérique
 
@@ -37,13 +37,13 @@ Une solution de vidéo à la demande simple qui vous donne la possibilité de di
 
 Cette solution est basée sur les services gérés Azure : Stockage Blob, Réseau de distribution de contenu et Lecteur multimédia Azure. Ces services fonctionnent dans un environnement à haute disponibilité, avec des correctifs et un support, ce qui vous permet de vous concentrer sur votre solution plutôt que sur l’environnement dans lequel elles opèrent.
 
-Consultez [Vidéo à la demande pour le contenu multimédia numérique](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-video) dans le centre des architectures Azure.
+Consultez [Vidéo à la demande pour le contenu multimédia numérique](/azure/architecture/solution-ideas/articles/digital-media-video) dans le centre des architectures Azure.
 
 ## <a name="gridwich-media-processing-system"></a>Système de traitement multimédia Gridwich
 
 Le système Gridwich représente les meilleures pratiques pour le traitement et la livraison de ressources multimédias sur Azure. Bien que le système Gridwich soit spécifique au média, l’infrastructure de traitement des messages et de gestion des événements peut s’appliquer à tout flux de travail de traitement d’événements sans état.
 
-Consultez [Système de traitement multimédia Gridwich](https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture) dans le centre des architectures Azure.
+Consultez [Système de traitement multimédia Gridwich](/azure/architecture/reference-architectures/media-services/gridwich-architecture) dans le centre des architectures Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

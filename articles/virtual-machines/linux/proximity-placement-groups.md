@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a264996c3a2d907e58746c0fcf3eb8b2aefe43ba
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288419"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878865"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Déployer des machines virtuelles dans des groupes de placements avec Azure CLI
 
-Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](co-location.md#proximity-placement-groups).
+Pour que les machines virtuelles soient aussi proches que possible, avec la latence la plus faible possible, déployez-les dans un [groupe de placements de proximité](../co-location.md#proximity-placement-groups).
 
 Le groupe de placements de proximité est un regroupement logique utilisé pour s’assurer que les ressources de calcul Azure se trouvent proches les unes des autres. Les groupes de placements de proximité sont utiles pour les charges de travail où une latence faible est requise.
 
@@ -67,7 +67,7 @@ Vous pouvez également créer un groupe à haute disponibilité dans votre group
 
 ## <a name="scale-sets"></a>Groupes identiques
 
-Vous pouvez également créer un groupe identique dans votre groupe de placements de proximité. Utilisez le même paramètre `--ppg` avec [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) pour créer un jeu de mise à l’échelle et toutes les instances seront créées dans le même groupe de placements de proximité.
+Vous pouvez également créer un groupe identique dans votre groupe de placements de proximité. Utilisez le même paramètre `--ppg` avec [az vmss create](/cli/azure/vmss#az_vmss_create) pour créer un jeu de mise à l’échelle et toutes les instances seront créées dans le même groupe de placements de proximité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

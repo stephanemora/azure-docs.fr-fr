@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356172"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879154"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Pour plus d’informations, consultez la section des exemples de cet article.
 ## <a name="related-conceptual-articles"></a>Articles conceptuels associés
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
@@ -284,7 +284,7 @@ Transférez des fichiers et des répertoires dans le compte de stockage Azure et
 
 **--include-pattern** string Inclure uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un point-virgule (`;`).
 
-**--list-of-versions** string Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement au blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--list-of-versions** string Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement au blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](./storage-use-azcopy-v10.md#transfer-data).
 
 **--log-level** string Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut `INFO`) 
 

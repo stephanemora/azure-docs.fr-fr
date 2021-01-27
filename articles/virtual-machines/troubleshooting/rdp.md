@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71057269"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878644"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Résoudre les problèmes de connexion RDP
 
@@ -36,7 +36,7 @@ Les problèmes suivants qui surviennent lorsque vous créez un RDP pour vous con
 - [Résoudre une erreur interne](Troubleshoot-rdp-internal-error.md)
 - [Résoudre les problèmes liés à une perte de connexion fréquente](troubleshoot-rdp-intermittent-connectivity.md)
 - [Résoudre une erreur générale](troubleshoot-rdp-general-error.md)
-- [Résoudre les erreurs d’authentification](troubleshoot-authentication-error-rdp-vm.md)
+- [Résoudre les erreurs d’authentification](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Résoudre les problèmes de connexion RDP des machines virtuelles Azure par ID d’événement](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Résoudre une erreur RDP dans une machine virtuelle causée par des adresses IP statiques](troubleshoot-rdp-static-ip.md)
 - [Résoudre une erreur RDP dans une machine virtuelle causée par la désactivation de la carte d’interface réseau](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ Les problèmes suivants qui surviennent lorsque vous créez un RDP pour vous con
 - [Le pare-feu du système d’exploitation invité bloque le trafic entrant](guest-os-firewall-blocking-inbound-traffic.md)
 - [Le pare-feu du système d’exploitation invité est mal configuré](guest-os-firewall-misconfigured.md) 
 - [Résoudre les problèmes d’erreur RDP causés par netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

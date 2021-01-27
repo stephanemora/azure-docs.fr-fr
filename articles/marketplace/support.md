@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602574"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879239"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
 Microsoft prend en charge un large éventail de produits et services. Le fait de trouver l’équipe de support appropriée est primordial pour garantir une réponse appropriée et en temps voulu. Parmi les scénarios suivants, lequel devrait vous aider à acheminer votre demande vers l’équipe appropriée ?
 
 - En tant qu’éditeur, si un client vous pose une question, demandez-lui de faire appel au support via les liens de support dans le  [portail Azure](https://portal.azure.com/).
-- Si vous êtes un éditeur et que vous avez détecté un problème de sécurité sur une application exécutée sur Azure, consultez [Enregistrer un ticket de support d’événement de sécurité](/azure/security/fundamentals/event-support-ticket). Les éditeurs doivent signaler tout événement de sécurité suspect, y compris les incidents et failles de sécurité, en relation avec leurs logiciels et offres de services proposés dans la Place de marché Azure et ce, dans les meilleurs délais.
+- Si vous êtes un éditeur et que vous avez détecté un problème de sécurité sur une application exécutée sur Azure, consultez [Enregistrer un ticket de support d’événement de sécurité](../security/fundamentals/event-support-ticket.md). Les éditeurs doivent signaler tout événement de sécurité suspect, y compris les incidents et failles de sécurité, en relation avec leurs logiciels et offres de services proposés dans la Place de marché Azure et ce, dans les meilleurs délais.
 - Si vous êtes un éditeur et que vous avez une question relative à votre application ou votre service, examinez les options de support suivantes.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtenir de l’aide ou ouvrir un ticket de support

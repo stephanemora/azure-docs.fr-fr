@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
-ms.openlocfilehash: f52d684d1e6ef63fdf4287c610608061f30395f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992678"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878882"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Guide pratique pour configurer le protocole BGP sur des passerelles VPN Azure
 
@@ -45,19 +45,19 @@ Dans cette section, vous allez créer et configurer un réseau virtuel, créer e
 
 **Schéma 2 :**
 
-:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Schéma montrant l’architecture et les paramètres réseau" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-gateway.png" alt-text="Schéma montrant les paramètres de la passerelle de réseau virtuel" border="false":::
 
 ### <a name="1-create-and-configure-testvnet1"></a>1. Créer et configurer TestVNet1
 
-Dans le cadre de cette étape, vous allez créer et configurer un réseau TestVNet1. Suivez les étapes décrites dans le [didacticiel Créer une passerelle](vpn-gateway-tutorial-create-gateway-powershell.md) pour créer et configurer votre réseau virtuel Azure et votre passerelle VPN. Utilisez les paramètres de référence dans les captures d’écran ci-dessous.
+Dans le cadre de cette étape, vous allez créer et configurer un réseau TestVNet1. Suivez les étapes décrites dans le [didacticiel Créer une passerelle](./tutorial-create-gateway-portal.md) pour créer et configurer votre réseau virtuel Azure et votre passerelle VPN. Utilisez les paramètres de référence dans les captures d’écran ci-dessous.
 
 * Réseau virtuel :
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1.png" alt-text="TestVNet1 avec préfixes d’adresse correspondants":::
 
 * Sous-réseaux :
 
-   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+   :::image type="content" source="./media/bgp-howto/testvnet-1-subnets.png" alt-text="Sous-réseaux TestVNet1":::
 
 ### <a name="2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>2. créer la passerelle VPN de TestVNet1 avec les paramètres BGP
 
@@ -67,11 +67,11 @@ Dans le cadre de cette étape, vous allez créer une passerelle VPN avec les par
 
 1. Définissez les paramètres comme ci-dessous :
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1.png" alt-text="Créer VNG1":::
 
 1. Dans la section en surbrillance **Configurer BGP** de la page, configurez les paramètres suivants :
 
-   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+   :::image type="content" source="./media/bgp-howto/create-gateway-1-bgp.png" alt-text="Configurer BGP":::
 
    * Sélectionnez **Configurer BGP** - **Activé** pour afficher la section de configuration du protocole BGP.
 
@@ -96,7 +96,7 @@ Une fois la passerelle créée, vous pouvez obtenir l’adresse IP d’homologue
 
 1. Accédez à la ressource de passerelle de réseau virtuel et sélectionnez la page **Configuration** pour afficher les informations de configuration du protocole BGP, comme dans la capture d’écran suivante. Sur cette page, vous pouvez afficher toutes les informations de configuration du protocole BGP sur votre passerelle VPN Azure : NSA, adresse IP publique et adresses IP d’homologue BGP correspondantes côté Azure (par défaut et APIPA).
 
-   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+   :::image type="content" source="./media/bgp-howto/vnet-1-gw-bgp.png" alt-text="Passerelle BGP":::
 
 1. Dans la page **Configuration**, vous pouvez apporter les modifications de configuration suivantes :
 
@@ -107,17 +107,17 @@ Une fois la passerelle créée, vous pouvez obtenir l’adresse IP d’homologue
 
 ## <a name="part-2-configure-bgp-on-cross-premises-s2s-connections"></a><a name ="crosspremises"></a>Partie 2 : Configurer le protocole BGP sur des connexions S2S intersites
 
-Pour établir une connexion intersite, vous devez créer une *passerelle de réseau local* pour représenter votre appareil VPN local, et une *connexion* entre la passerelle VPN et la passerelle de réseau local, comme décrit dans [Créer une connexion site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Cet article contient les propriétés supplémentaires nécessaires pour spécifier les paramètres de configuration du protocole BGP.
+Pour établir une connexion intersite, vous devez créer une *passerelle de réseau local* pour représenter votre appareil VPN local, et une *connexion* entre la passerelle VPN et la passerelle de réseau local, comme décrit dans [Créer une connexion site à site](./tutorial-site-to-site-portal.md). Cet article contient les propriétés supplémentaires nécessaires pour spécifier les paramètres de configuration du protocole BGP.
 
 **Schéma 3**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Schéma montrant l’architecture et les paramètres réseau" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises.png" alt-text="Schéma montrant IPsec" border="false":::
 
 ### <a name="1-configure-bgp-on-the-local-network-gateway"></a>1. Configurer le protocole BGP sur la passerelle de réseau local
 
 Dans le cadre de cette étape, vous allez configurer le protocole BGP sur la passerelle de réseau local. Utilisez la capture d’écran suivante à titre d’exemple. La capture d’écran montre la passerelle de réseau local (Site5) avec les paramètres spécifiés dans le Schéma 3.
 
-:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+:::image type="content" source="./media/bgp-howto/create-local-bgp.png" alt-text="Configurer le protocole BGP pour la passerelle de réseau local":::
 
 #### <a name="important-configuration-considerations"></a>Considérations importantes relatives à la configuration
 
@@ -130,7 +130,7 @@ Dans le cadre de cette étape, vous allez configurer le protocole BGP sur la pas
 
 Cet exemple utilise une adresse APIPA (169.254.100.1) en tant qu’adresse IP d’homologue BGP local :
 
-:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+:::image type="content" source="./media/bgp-howto/local-apipa.png" alt-text="APIPA et BGP de passerelle de réseau local":::
 
 ### <a name="2-configure-a-s2s-connection-with-bgp-enabled"></a>2. Configurer une connexion S2S avec le protocole BGP activé
 
@@ -140,13 +140,13 @@ Dans le cadre de cette étape, vous allez créer une connexion avec le protocole
 
 Pour créer une connexion avec le protocole BGP activé, dans la page **Ajouter une connexion**, renseignez les valeurs, puis activez l’option **Activer BGP** pour activer le protocole BGP sur cette connexion. Sélectionnez **OK** pour établir la connexion.
 
-:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+:::image type="content" source="./media/bgp-howto/ipsec-connection-bgp.png" alt-text="Connexion intersite IPsec avec BGP":::
 
 #### <a name="to-update-an-existing-connection"></a><a name ="update"></a>Pour mettre à jour une connexion existante
 
 Si vous souhaitez modifier l’option BGP sur une connexion, accédez à la page **Configuration** de la ressource de connexion, puis basculez l’option **BGP** en surbrillance dans l’exemple suivant. Sélectionnez **Save** (Enregistrer) pour enregistrer les modifications.
 
-:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Schéma montrant l’architecture et les paramètres réseau":::
+:::image type="content" source="./media/bgp-howto/update-bgp.png" alt-text="Mettre à jour le protocole BGP pour une connexion":::
 
 ## <a name="part-3-configure-bgp-on-vnet-to-vnet-connections"></a><a name ="v2v"></a>Partie 3 : Configurer le protocole BGP sur des connexions de réseau virtuel à réseau virtuel
 
@@ -160,7 +160,7 @@ Pour le contexte, consultez le **Schéma 4**. Si le protocole BGP devait être d
 
 **Schéma 4**
 
-:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Schéma montrant l’architecture et les paramètres réseau" border="false":::
+:::image type="content" source="./media/bgp-howto/bgp-crosspremises-v2v.png" alt-text="Schéma montrant le réseau complet" border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

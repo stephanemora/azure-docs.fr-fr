@@ -5,17 +5,18 @@ description: Obtenez plus d’informations relatives aux quotas et aux limites s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: nishankgu
-ms.author: nigup
+ms.reviewer: jmartens
+author: SimranArora904
+ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 3f08f401f24d95431bcd3bba48976641cebb28e9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878950"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -81,7 +82,7 @@ Ressources disponibles :
 + Les **clusters par région** ont une limite par défaut de 200. Elles sont partagées entre un cluster de formation et une instance de calcul. (Une instance de calcul est considérée comme un cluster à nœud unique à des fins de quota.)
 
 > [!TIP]
-> Pour en savoir plus sur la famille de machines virtuelles pour laquelle demander une augmentation de quota, consultez [Tailles de machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Par exemple, le nom des familles de machines virtuelles GPU commence par un « N » (exemple : série NCv3).
+> Pour en savoir plus sur la famille de machines virtuelles pour laquelle demander une augmentation de quota, consultez [Tailles de machines virtuelles dans Azure](../virtual-machines/sizes.md). Par exemple, le nom des familles de machines virtuelles GPU commence par un « N » (exemple : série NCv3).
 
 Le tableau suivant présente des limites supplémentaires dans la plateforme. Pour demander une exception, contactez l’équipe produit AzureML par le biais d’un ticket de support **technique**.
 

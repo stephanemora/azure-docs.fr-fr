@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 10/06/2020
-ms.openlocfilehash: 2191a4df5b319ec16a4a6116aa99cfac50c87d9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3be967b611f6b75705a60bfa14523832b0652931
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462909"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879222"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guide de publication par Type d’offre
 
@@ -36,7 +36,7 @@ Le tableau suivant montre les types d’offre de place de marché commerciale pr
 | [**Service de conseil**](./plan-consulting-service-offer.md) | Les services de conseil aident les clients à se connecter aux services pour gérer et étendre leur utilisation des services Azure, Dynamics 365 ou Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Vous pouvez publier des offres AppSource qui étendent ou s’appuient sur Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps et des applications de finance et opérations.|
 | [**Module IoT Edge**](iot-edge-module.md) | Les modules Azure IoT Edge sont les plus petites unités de calcul gérées par IoT Edge. Ils peuvent contenir des services Microsoft (par exemple, Azure Stream Analytics), des services tiers ou votre propre code de solution. |
-| [**Service géré**](partner-center-portal/create-new-managed-service-offer.md) | Vous pouvez créer des offres de service géré et gérer des abonnements ou des groupes de ressources délégués par le client via [Azure Lighthouse](../lighthouse/overview.md).|
+| [**Service géré**](./plan-managed-service-offer.md) | Vous pouvez créer des offres de service géré et gérer des abonnements ou des groupes de ressources délégués par le client via [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Application Power BI**<br/>**Microsoft 365**](appsource-offer-publishing-guide.md) | Vous pouvez publier des offres AppSource qui étendent ou s’appuient sur Power BI et Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Utilisez le type d’offre SaaS (Logiciel en tant que service) pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. Pour obtenir des informations sur les exigences relatives à l’authentification unique pour les offres SaaS, consultez [Azure AD et offres SaaS pouvant faire l’objet d’une transaction dans la Place de marché commerciale](azure-ad-saas.md). |
 

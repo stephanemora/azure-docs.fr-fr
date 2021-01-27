@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545824"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879307"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Stockage non modifiable|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
 |Suppression réversible de conteneur|PRÉVERSION|PRÉVERSION|[Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md)|
 |Inventaire du Stockage Azure|PRÉVERSION|PRÉVERSION|[Gestion des données d’objets blob avec l’inventaire du Stockage Azure (préversion)](blob-inventory.md)|
-|Suppression réversible de blob|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob](storage-blob-soft-delete.md)|
+|Suppression réversible de blob|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob](./soft-delete-blob-overview.md)|
 |Blobfuse|Mise à la disposition générale|Mise à la disposition générale|[Comment monter le stockage Blob en tant que système de fichiers avec blobfuse](storage-how-to-mount-container-linux.md)|
 |Accès public anonyme |Mise à la disposition générale|Mise à la disposition générale| Consultez [Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob](anonymous-read-access-configure.md).|
 |Basculement de compte géré par le client|Pas encore pris en charge|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
