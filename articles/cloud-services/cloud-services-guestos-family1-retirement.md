@@ -9,14 +9,15 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7f6d3feee95d4cce654b2cc1547b8bd7f4eb45d2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073391"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743013"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Informations relatives à la suppression de la famille 1 des systèmes d’exploitation invités
+
 La suppression de la famille 1 des systèmes d'exploitation a été annoncée le 1er juin 2013.
 
 **2 septembre 2014** La famille 1.x des systèmes d'exploitation invités (SE invités) d'Azure, qui est basée sur le système d'exploitation Windows Server 2008, a été officiellement supprimée. Toutes les tentatives de déploiement de nouveaux services ou de mise à niveau des services existants à l'aide de la famille 1 échoueront, et un message d'erreur vous informera que la famille 1 des systèmes d'exploitation invités a été supprimée.

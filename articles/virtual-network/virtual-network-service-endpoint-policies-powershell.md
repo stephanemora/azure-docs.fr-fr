@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e300c9be8f3e59dc9443bf1f1806e4228992ad
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790357"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gérer l’exfiltration de données vers des comptes de stockage Azure avec des stratégies de point de terminaison de service de réseau virtuel à l’aide d’Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Les stratégies de points de terminaison de service de réseau virtuel vous permettent d’appliquer un contrôle d’accès sur des comptes Stockage Azure depuis un réseau virtuel sur des points de terminaison de service. Il s’agit d’une stratégie clé pour sécuriser vos charges de travail, gérer les comptes de stockage autorisés et gérer les destinations d’exfiltration de données autorisées.
 Dans cet article, vous apprendrez comment :
@@ -38,6 +36,8 @@ Dans cet article, vous apprendrez comment :
 * Déployer une machine virtuelle sur le sous-réseau.
 * Vérifier l’accès au compte de stockage autorisé à partir du sous-réseau.
 * Vérifier que l’accès au compte de stockage non autorisé à partir du sous-réseau est refusé.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

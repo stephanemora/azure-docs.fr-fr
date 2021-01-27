@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724746"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790289"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Déplacement d’un coffre Azure Key Vault vers un nouvel abonnement
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724746"
 > Veillez à bien comprendre l’impact de ce changement et suivez attentivement les conseils prodigués dans cet article avant de décider de déplacer le coffre de clés vers un nouvel abonnement.
 > Si vous utilisez des identités de service managées (MSI), lisez les instructions postérieures au déplacement à la fin de ce document. 
 
-[Azure Key Vault](overview.md) est automatiquement lié à l’ID de locataire [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) par défaut pour l’abonnement dans lequel il est créé. Vous pouvez trouver l’ID de locataire associé à votre abonnement en suivant ce [guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). Toutes les entrées de stratégie d’accès les attributions de rôle sont également liées à cet ID de locataire.  Si vous déplacez votre abonnement Azure d’un locataire A vers un locataire B, vos coffres de clés existants ne sont pas accessibles par les principaux du service (utilisateurs et applications) dans le locataire B. Pour résoudre ce problème, vous devez :
+[Azure Key Vault](overview.md) est automatiquement lié à l’ID de locataire [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) par défaut pour l’abonnement dans lequel il est créé. Vous pouvez trouver l’ID de locataire associé à votre abonnement en suivant ce [guide](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Toutes les entrées de stratégie d’accès les attributions de rôle sont également liées à cet ID de locataire.  Si vous déplacez votre abonnement Azure d’un locataire A vers un locataire B, vos coffres de clés existants ne sont pas accessibles par les principaux du service (utilisateurs et applications) dans le locataire B. Pour résoudre ce problème, vous devez :
 
 * remplacer l’ID de locataire associé à tous les coffres de clés existants dans l’abonnement par le locataire B ;
 * supprimer toutes les entrées de stratégie d’accès existantes ;
@@ -37,8 +37,8 @@ ms.locfileid: "97724746"
 
 Pour plus d’informations sur Azure Key Vault et Azure Active Directory, consultez :
 - [À propos d’Azure Key Vault](overview.md)
-- [Qu’est-ce qu’Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Guide pratique pour rechercher un ID de locataire](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Guide pratique pour rechercher un ID de locataire](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limites
 
@@ -49,11 +49,11 @@ Certains principaux du service (utilisateurs et applications) sont liés à un l
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Accès de niveau [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou supérieur à l’abonnement actuel dans lequel se trouve votre coffre de clés. Vous pouvez attribuer un rôle à l’aide de [Portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), d’[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Accès de niveau [Contributeur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou supérieur à l’abonnement dans lequel vous souhaitez déplacer votre coffre de clés. Vous pouvez attribuer un rôle à l’aide de [Portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), d’[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Groupe de ressources dans le nouvel abonnement. Vous pouvez en créer un à l’aide de [Portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell) ou d’[Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* Accès de niveau [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) ou supérieur à l’abonnement actuel dans lequel se trouve votre coffre de clés. Vous pouvez attribuer un rôle à l’aide de [Portail Azure](../../role-based-access-control/role-assignments-portal.md), d’[Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou de [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Accès de niveau [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) ou supérieur à l’abonnement dans lequel vous souhaitez déplacer votre coffre de clés. Vous pouvez attribuer un rôle à l’aide de [Portail Azure](../../role-based-access-control/role-assignments-portal.md), d’[Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou de [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Groupe de ressources dans le nouvel abonnement. Vous pouvez en créer un à l’aide de [Portail Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md), de [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md) ou d’[Azure CLI](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-Vous pouvez vérifier les rôles existants à l’aide de [Portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), d’[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli) ou de l’[API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+Vous pouvez vérifier les rôles existants à l’aide de [Portail Azure](../../role-based-access-control/role-assignments-list-portal.md), de [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), d’[Azure CLI](../../role-based-access-control/role-assignments-list-cli.md) ou de l’[API REST](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>Déplacement d’un coffre de clés vers un nouvel abonnement
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>Mettre à jour les stratégies d’accès et les attributions de rôles
 
 > [!NOTE]
-> Si Key Vault utilise un modèle d’autorisation [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview). Vous devez également supprimer les attributions de rôle de coffre de clés. Vous pouvez supprimer des attributions de rôles à l’aide de [Portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), d’[Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) ou de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> Si Key Vault utilise un modèle d’autorisation [Azure RBAC](../../role-based-access-control/overview.md). Vous devez également supprimer les attributions de rôle de coffre de clés. Vous pouvez supprimer des attributions de rôles à l’aide de [Portail Azure](../../role-based-access-control/role-assignments-portal.md), d’[Azure CLI](../../role-based-access-control/role-assignments-cli.md) ou de [PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Maintenant que votre coffre est associé à l’ID de locataire qui convient et que les anciennes entrées de stratégie d’accès ou attributions de rôle sont supprimées, définissez les nouvelles entrées de stratégie d’accès ou attributions de rôle.
 
@@ -106,9 +106,9 @@ Pour attribuer des stratégies, consultez :
 - [Attribuer une stratégie d’accès à l’aide de PowerShell](assign-access-policy-powershell.md)
 
 Pour ajouter des attributions de rôles, consultez :
-- [Ajouter une attribution de rôle à l’aide du portail](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Ajouter une attribution de rôle à l’aide d’Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Ajouter une attribution de rôle à l’aide de PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Ajouter une attribution de rôle à l’aide du portail](../../role-based-access-control/role-assignments-portal.md)
+- [Ajouter une attribution de rôle à l’aide d’Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Ajouter une attribution de rôle à l’aide de PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Mettre à jour les identités managées

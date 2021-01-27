@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 7d43c128f0f587a32cc4b8673727579043f268eb
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ed1fe2885b1be28a03251bcfcecd08bdbd35adcf
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629593"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790070"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Configurer la journalisation pour superviser des applications logiques dans Azure Security Center
 
@@ -24,7 +24,7 @@ Lorsque vous supervisez vos ressources Logic Apps dans [Microsoft Azure Security
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Applications logiques existantes avec [journalisation des diagnostics activée](#enable-diagnostic-logging)
-* Un espace de travail Log Analytics, nécessaire pour activer la journalisation pour votre application logique. Si vous n’avez pas d’espace de travail, commencez par [créer votre espace de travail](/azure/azure-monitor/learn/quick-create-workspace)
+* Un espace de travail Log Analytics, nécessaire pour activer la journalisation pour votre application logique. Si vous n’avez pas d’espace de travail, commencez par [créer votre espace de travail](../azure-monitor/learn/quick-create-workspace.md)
 
 ## <a name="enable-diagnostic-logging"></a>Activer la journalisation des diagnostics
 

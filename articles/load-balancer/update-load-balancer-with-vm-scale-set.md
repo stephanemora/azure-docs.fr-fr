@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
-ms.openlocfilehash: f8f664375e53a1cef28b0c7b95207770434f67fa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d5614490bfd2cfb67b6b7afd7b7b8643bbf754bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893236"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790087"
 ---
 # <a name="how-to-updatedelete-azure-load-balancer-used-by-virtual-machine-scale-sets"></a>Comment mettre à jour/supprimer Azure Load Balancer utilisé par le service Virtual Machine Scale Sets
 
 ## <a name="how-to-set-up-azure-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Comment configurer Azure Load Balancer pour effectuer un scale-out du service Virtual Machine Scale Sets
-  * Assurez-vous que le [pool NAT de trafic entrant](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) est configuré sur l’équilibreur de charge et que le groupe de machines virtuelles identiques est placé dans le pool back-end de l’équilibreur de charge. Azure Load Balancer crée automatiquement des règles NAT de trafic entrant dans le pool NAT de trafic entrant lorsque de nouvelles instances de machines virtuelles sont ajoutées au groupe de machines virtuelles identiques. 
+  * Assurez-vous que le [pool NAT de trafic entrant](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) est configuré sur l’équilibreur de charge et que le groupe de machines virtuelles identiques est placé dans le pool back-end de l’équilibreur de charge. Azure Load Balancer crée automatiquement des règles NAT de trafic entrant dans le pool NAT de trafic entrant lorsque de nouvelles instances de machines virtuelles sont ajoutées au groupe de machines virtuelles identiques. 
   * Pour vérifier si le pool NAT de trafic entrant est correctement configuré, 
   1. Connectez-vous au portail Azure sur https://portal.azure.com.
   
@@ -35,7 +35,7 @@ Si vous voyez dans le volet droit une liste de règles créées pour chaque inst
 ## <a name="how-to-add-inbound-nat-rules"></a>Comment ajouter des règles NAT de trafic entrant ? 
   * Il est impossible d’ajouter une seule règle NAT de trafic entrant. Toutefois, vous pouvez ajouter un ensemble de règles NAT de trafic entrant avec une plage de ports front-end et un port back-end définis pour toutes les instances du groupe de machines virtuelles identiques.
   * Pour ajouter un ensemble complet de règles NAT de trafic entrant pour le service Virtual Machine Scale Sets, vous devez d’abord créer un pool NAT de trafic entrant dans l’équilibreur de charge, puis faire référence au pool NAT de trafic entrant à partir du profil réseau du groupe de machines virtuelles identiques. Vous trouverez ci-dessous un exemple complet utilisant l’interface CLI.
-  * La plage de ports front-end du nouveau pool NAT de trafic entrant ne doit pas chevaucher les pools NAT de trafic entrant existants. Pour afficher les pools NAT de trafic entrant existants configurés, vous pouvez utiliser cette [commande CLI](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+  * La plage de ports front-end du nouveau pool NAT de trafic entrant ne doit pas chevaucher les pools NAT de trafic entrant existants. Pour afficher les pools NAT de trafic entrant existants configurés, vous pouvez utiliser cette [commande CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
@@ -92,7 +92,7 @@ az network lb inbound-nat-pool update
    
 1. Dans la page **Ajouter une adresse IP front-end**, tapez les valeurs et sélectionnez **OK**
 
-1. Suivez [l’étape 5](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) et [l’étape 6](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) dans ce tutoriel si de nouvelles règles d’équilibrage de charge sont nécessaires
+1. Suivez [l’étape 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) et [l’étape 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) dans ce tutoriel si de nouvelles règles d’équilibrage de charge sont nécessaires
 
 1. Créez un ensemble de règles NAT de trafic entrant en utilisant les configurations IP front-end nouvellement créées, si nécessaire. Vous trouverez un exemple dans la [section précédente].
 

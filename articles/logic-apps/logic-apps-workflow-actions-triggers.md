@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920060"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784306"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -1126,7 +1126,7 @@ Le code extrait les adresses e-mail à partir de la propriété `Body` du décle
 
 ### <a name="function-action"></a>Action function
 
-Cette action appelle une [fonction Azure](../azure-functions/functions-create-first-azure-function.md) créée précédemment.
+Cette action appelle une [fonction Azure](../azure-functions/functions-get-started.md) créée précédemment.
 
 ```json
 "<Azure-function-name>": {

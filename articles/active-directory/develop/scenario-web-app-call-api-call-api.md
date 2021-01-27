@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 016a2917c02deaecf35c526426cb2a6dbc89e338
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173187"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753287"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Application web appelant des API web : Appeler une API web
 
@@ -32,12 +32,12 @@ L’appel d’une API web protégée dépend du langage et de l’infrastructure
 Lorsque vous utilisez *Microsoft.Identity.Web*, vous disposez de trois options pour appeler une API :
 
 - [Option n°1 : Appeler Microsoft Graph à l'aide du kit de développement logiciel (SDK) Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
-- [Option n°2 : Appeler une API web située en aval avec la classe d'assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Option 3 : Appeler une API web située en aval sans la classe d'assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Option n°2 : Appeler une API web située en aval avec la classe d’assistance](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Option 3 : Appeler une API web située en aval sans la classe d’assistance](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Option 1 : Appeler Microsoft Graph à l'aide du SDK
 
-Vous souhaitez appeler Microsoft Graph. Dans ce scénario, vous avez ajouté `AddMicrosoftGraph` dans le fichier *Startup.cs* comme spécifié dans [Configuration de code](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), et vous pouvez injecter directement le `GraphServiceClient` dans votre contrôleur ou constructeur de page pour l'utiliser dans les actions. L'exemple de page Razor suivant affiche la photo de l'utilisateur connecté.
+Vous souhaitez appeler Microsoft Graph. Dans ce scénario, vous avez ajouté `AddMicrosoftGraph` dans le fichier *Startup.cs* comme spécifié dans [Configuration de code](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), et vous pouvez injecter directement le `GraphServiceClient` dans votre contrôleur ou constructeur de page pour l'utiliser dans les actions. L’exemple de page Razor suivant affiche la photo de l’utilisateur connecté.
 
 ```CSharp
 [Authorize]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503163"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785818"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Journaux Azure Monitor pour Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
 ## <a name="view-and-analyze-the-activity-log"></a>Afficher et analyser le journal d’activité
 
-Le journal d’activité est généré par défaut. Vous pouvez le configurer pour l’exporter à un niveau d’abonnement [en suivant les instructions de cet article](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
+Le journal d’activité est généré par défaut. Vous pouvez le configurer pour l’exporter à un niveau d’abonnement [en suivant les instructions de cet article](../azure-monitor/platform/activity-log.md). Pour en savoir plus sur ces journaux, lisez l’article [Afficher les journaux d’activité pour superviser les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 Vous pouvez afficher et analyser les données du journal d’activité en utilisant l’une ou l’autre des méthodes suivantes :
 
@@ -112,5 +112,5 @@ La fonctionnalité d’exportation des métriques sous forme de journaux pour Az
 * Actuellement, les métriques pour les ports SNAT utilisés et les ports SNAT alloués ne sont pas disponibles pour l’exportation sous forme de journaux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Examiner les métriques disponibles pour votre équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Créer et tester des requêtes en suivant les instructions Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [Examiner les métriques disponibles pour votre équilibreur de charge](./load-balancer-standard-diagnostics.md)
+* [Créer et tester des requêtes en suivant les instructions Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

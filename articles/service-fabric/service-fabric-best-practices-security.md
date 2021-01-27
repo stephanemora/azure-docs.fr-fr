@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257605"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784661"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
@@ -56,7 +56,7 @@ Pour déployer des certificats d’un coffre de clés colocalisé sur un groupe 
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Appliquer une liste de contrôle d’accès (ACL) à votre certificat pour votre cluster Service Fabric
 
-Le serveur de publication des [extensions de groupe de machines virtuelles identiques](/cli/azure/vmss/extension?view=azure-cli-latest) Microsoft.Azure.ServiceFabric est utilisé pour configurer la sécurité de vos nœuds.
+Le serveur de publication des [extensions de groupe de machines virtuelles identiques](/cli/azure/vmss/extension) Microsoft.Azure.ServiceFabric est utilisé pour configurer la sécurité de vos nœuds.
 Pour appliquer une ACL à vos certificats pour les processus de votre cluster Service Fabric, utilisez les propriétés du modèle Resource Manager suivantes :
 
 ```json

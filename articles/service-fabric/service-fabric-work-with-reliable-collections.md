@@ -3,12 +3,12 @@ title: Utilisation des collections fiables
 description: Découvrez les bonnes pratiques liées à l’utilisation des collections fiables dans une application Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651904"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787873"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Examinons l'utilisation type d'un objet de dictionnaire fiable afin de découvrir ses fonctionnalités réelles.
@@ -226,4 +226,4 @@ Pour découvrir les meilleures pratiques relatives au contrôle de version des c
 
 Pour savoir comment implémenter des contrats de données à tolérance de version, consultez [Rappels de sérialisation avec tolérance de version](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks).
 
-Pour savoir comment fournir une structure de données capable d'interagir entre plusieurs versions, consultez [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1).
+Pour savoir comment fournir une structure de données capable d'interagir entre plusieurs versions, consultez [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject).

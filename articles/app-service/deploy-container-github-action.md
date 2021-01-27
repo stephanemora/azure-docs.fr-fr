@@ -7,16 +7,16 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1fe09970bcb9b9432b9b6f22de04bb24f1e84fa8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604972"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761769"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Déployer un conteneur personnalisé sur App Service à l’aide de GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) vous donne la possibilité de créer un workflow de développement logiciel automatisé. Grâce à l’[action Azure Web Deploy](https://github.com/Azure/webapps-deploy), vous pouvez automatiser votre workflow pour déployer des conteneurs personnalisés sur [App Service](overview.md) à l’aide de GitHub Actions.
+[GitHub Actions](https://docs.github.com/en/actions) vous donne la possibilité de créer un workflow de développement logiciel automatisé. Grâce à l’[action Azure Web Deploy](https://github.com/Azure/webapps-deploy), vous pouvez automatiser votre workflow pour déployer des conteneurs personnalisés sur [App Service](overview.md) à l’aide de GitHub Actions.
 
 Un workflow est défini par un fichier YAML (.yml) situé dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres définissant le workflow.
 
@@ -39,7 +39,7 @@ Pour un workflow de conteneur Azure App Service, le fichier comporte trois secti
 
 La méthode recommandée pour l’authentification auprès d’Azure App Service pour GitHub Actions consiste à utiliser un profil de publication. Vous pouvez également vous authentifier avec un principal de service, mais le processus requiert des étapes supplémentaires. 
 
-Enregistrez les informations d’identification de votre profil de publication ou le principal du service en tant que [secret GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) pour vous authentifier auprès d’Azure. Vous allez accéder au secret dans votre workflow. 
+Enregistrez les informations d’identification de votre profil de publication ou le principal du service en tant que [secret GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) pour vous authentifier auprès d’Azure. Vous allez accéder au secret dans votre workflow. 
 
 # <a name="publish-profile"></a>[Profil de publication](#tab/publish-profile)
 
@@ -50,7 +50,7 @@ Un profil de publication est une information d’identification au niveau de l�
 1. Dans la page **Vue d’ensemble**, sélectionnez **Obtenir le profil de publication**.
 
     > [!NOTE]
-    > À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le fichier**. Cette condition sera supprimée ultérieurement. Pour savoir comment configurer les paramètres courants d’une application web, consultez [Configurer une application App Service dans le portail Azure](/azure/app-service/configure-common).  
+    > À compter d’octobre 2020, les applications web Linux ont besoin que le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SCM` soit défini sur `true` **avant de télécharger le fichier**. Cette condition sera supprimée ultérieurement. Pour savoir comment configurer les paramètres courants d’une application web, consultez [Configurer une application App Service dans le portail Azure](./configure-common.md).  
 
 1. Enregistrez le fichier téléchargé. Vous utiliserez le contenu du fichier pour créer un secret GitHub.
 
@@ -273,7 +273,7 @@ Vous pouvez trouver notre ensemble d’Actions regroupées dans différents réf
 
 - [Connexion/déconnexion de Docker](https://github.com/Azure/docker-login)
 
-- [Événements qui déclenchent des flux de travail](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [Événements qui déclenchent des flux de travail](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [Déployer K8](https://github.com/Azure/k8s-deploy)
 

@@ -3,12 +3,12 @@ title: Azure Lab Services - Charger une image personnalisée sur Shared Image Ga
 description: Décrit comment charger une image personnalisée sur Shared Image Gallery. Les services informatiques d’université devraient particulièrement apprécier la fonctionnalité d’importation d’images.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e2f38b0cab87eab27181ddef79d0c02bd8c9bdb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654641"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787161"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Charger une image personnalisée sur Shared Image Gallery
 
@@ -66,5 +66,5 @@ De nombreuses options existent pour créer un disque dur virtuel à partir d’u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md)
+* [Présentation de Shared Image Gallery](../virtual-machines/shared-image-galleries.md)
 * [Utilisation de Shared Image Gallery](how-to-use-shared-image-gallery.md)

@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 470857883144f4bf8c21a1921afacb7ba3f5ca00
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666548"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788093"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure serverless : Vue d’ensemble de la création d’applications et de solutions informatiques avec Azure Logic Apps et Azure Functions
 
@@ -35,7 +35,7 @@ Pour commencer avec Logic Apps, [créez votre première application logique](qui
 
 Azure Functions est un service qui permet d’exécuter facilement des éléments de code ou des « fonctions » dans le Cloud. Vous pouvez écrire uniquement le code nécessaire pour le problème actuel, sans vous soucier d’une application complète ou de l’infrastructure requise. Grâce à Functions, le développement gagne en productivité et vous pouvez utiliser votre langage de développement préféré, tel que C#, F#, Node.js, Python ou PHP. Vous payez uniquement pour le temps d’exécution de votre code et Azure évolue en fonction des besoins.
 
-Pour commencer à utiliser Azure Functions, commencez par [créer votre première fonction Azure](../azure-functions/functions-create-first-azure-function.md). Pour plus d’informations techniques sur les fonctions, consultez la [référence du développeur](../azure-functions/functions-reference.md).
+Pour commencer à utiliser Azure Functions, commencez par [créer votre première fonction Azure](../azure-functions/functions-get-started.md). Pour plus d’informations techniques sur les fonctions, consultez la [référence du développeur](../azure-functions/functions-reference.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Comment créer et déployer des applications sans serveur dans Azure ?
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f6daee6d4cfc3c074e004fb3835f62218e48d9ff
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580981"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786610"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ L’un des principaux avantages de Data Box Gateway est la possibilité d’ing�
 
 Utilisez Data Box Gateway quand vous souhaitez conserver vos données à long terme dans le cloud. Vous pouvez utiliser le niveau de stockage Archive pour la conservation à long terme.
 
-Le niveau Archive est optimisé pour stocker les données qui sont rarement sollicitées pendant au moins 180 jours. Le niveau Archive offre les coûts de stockage les plus bas, mais a les coûts d’accès les plus élevés. Pour plus d’informations, consultez [Niveau d’accès archive](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+Le niveau Archive est optimisé pour stocker les données qui sont rarement sollicitées pendant au moins 180 jours. Le niveau Archive offre les coûts de stockage les plus bas, mais a les coûts d’accès les plus élevés. Pour plus d’informations, consultez [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ### <a name="move-data-to-the-archive-tier"></a>Déplacer des données vers le niveau Archive
 
@@ -48,14 +48,14 @@ Avant de commencer, vérifiez que vous avez un dispositif Data Box Gateway en co
 
 - Utilisez le dispositif Data Box Gateway pour charger des données vers Azure à l’aide de la procédure de transfert habituelle décrite dans [Transférer des données avec Azure Data Box Gateway](data-box-gateway-deploy-add-shares.md).
 - Une fois les données chargées, vous devrez les déplacer vers le niveau Archive. Vous pouvez définir le niveau du blob de deux manières : à l’aide d’un script Azure PowerShell ou d’une stratégie de gestion de cycle de vie Stockage Azure.  
-    - Si vous utilisez Azure PowerShell, suivez ces [étapes](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) pour déplacer les données vers le niveau Archive.
+    - Si vous utilisez Azure PowerShell, suivez ces [étapes](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) pour déplacer les données vers le niveau Archive.
     - Si vous utilisez la gestion de cycle de vie Azure, suivez ces étapes pour déplacer les données vers le niveau Archive.
-        - [Inscrivez-vous](/azure/storage/common/storage-lifecycle-management-concepts) à la préversion du service de gestion de cycle de vie de blob afin d’utiliser le niveau Archive.
-        - Utiliser la stratégie suivante pour [archiver des données au moment de l’ingestion](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
+        - [Inscrivez-vous](../storage/blobs/storage-lifecycle-management-concepts.md) à la préversion du service de gestion de cycle de vie de blob afin d’utiliser le niveau Archive.
+        - Utiliser la stratégie suivante pour [archiver des données au moment de l’ingestion](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest).
 - Une fois les blobs marqués comme Archive, ils ne peuvent plus être modifiés par la passerelle, sauf s’ils sont déplacés vers le niveau chaud ou froid. Si le fichier est dans le stockage local, aucune des modifications apportées à la copie locale (y compris les suppressions) n’est chargée vers le niveau Archive.
 - Pour lire des données dans le stockage Archive, vous devez les réhydrater en basculant le niveau du blob sur chaud ou froid. [L’actualisation du partage](data-box-gateway-manage-shares.md#refresh-shares) sur la passerelle ne réactive pas le blob.
 
-Pour plus d’informations, découvrez en détail comment [gérer le cycle de vie de Stockage Blob Azure](/azure/storage/common/storage-lifecycle-management-concepts).
+Pour plus d’informations, découvrez en détail comment [gérer le cycle de vie de Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transfert en bloc initial suivi de transfert incrémentiel
 
@@ -65,10 +65,10 @@ Utilisez Data Box avec Data Box Gateway quand vous souhaitez effectuer un charge
 
 Suivez ces étapes pour copier les données dans Data Box et les charger dans Stockage Azure.
 
-1. [Commandez votre Data Box](/azure/databox/data-box-deploy-ordered).
-2. [Configurez votre Data Box](/azure/databox/data-box-deploy-set-up).
-3. [Copiez des données sur Data Box par le biais de SMB](/azure/databox/data-box-deploy-copy-data).
-4. [Renvoyez la Data Box et vérifiez le chargement des données sur Azure](/azure/databox/data-box-deploy-picked-up).
+1. [Commandez votre Data Box](../databox/data-box-deploy-ordered.md).
+2. [Configurez votre Data Box](../databox/data-box-deploy-set-up.md).
+3. [Copiez des données sur Data Box par le biais de SMB](../databox/data-box-deploy-copy-data.md).
+4. [Renvoyez la Data Box et vérifiez le chargement des données sur Azure](../databox/data-box-deploy-picked-up.md).
 5. Une fois le chargement des données sur Azure terminé, toutes les données doivent être dans des conteneurs de stockage Azure. Dans le compte de stockage pour Data Box, accédez au conteneur Blob (et Fichier) pour vérifier que toutes les données ont été copiées. Notez le nom du conteneur, car vous l’utiliserez plus tard. Par exemple, dans la capture d’écran suivante, le conteneur `databox` sera utilisé pour le transfert incrémentiel.
 
     ![Conteneur avec des données sur Data Box](media/data-box-gateway-use-cases/data-container.png)

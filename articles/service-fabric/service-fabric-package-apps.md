@@ -4,12 +4,12 @@ description: Découvrez la mise en package d’une application Azure Service Fab
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021059"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789700"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 
@@ -75,7 +75,7 @@ D:\Temp> msbuild HelloWorld.sfproj /t:Package
 
 ## <a name="test-the-package"></a>Test du package
 
-Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Vous pouvez vérifier la structure du package localement via PowerShell à l’aide de la commande [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) .
 Cette commande vérifie la présence de problèmes liés à l’analyse du manifeste, ainsi que toutes les références. Cette commande vérifie uniquement l’exactitude structurelle des répertoires et des fichiers du package.
 Elle ne vérifie pas le code ou les données du contenu du package, mais uniquement si tous les fichiers nécessaires sont présents.
 
@@ -121,7 +121,7 @@ Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 ```
 
-Si des [paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) sont définis pour votre application, vous pouvez les transmettre dans [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) pour assurer une validation correcte.
+Si des [paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) sont définis pour votre application, vous pouvez les transmettre dans [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) pour assurer une validation correcte.
 
 Si vous savez dans quel cluster l’application sera déployée, il est recommandé de transmettre le paramètre `ImageStoreConnectionString`. Dans ce cas, le package est également validé par rapport aux versions précédentes de l’application qui sont déjà exécutées dans le cluster. Par exemple, la validation permet de détecter si un package présentant la même version mais un contenu différent a déjà été déployé.  
 
@@ -135,9 +135,9 @@ Pour un package d’application compressé, le [chargement du package d’applic
 Le mécanisme de déploiement est le même pour les packages compressés et non compressés. Si le package est compressé, il est stocké tel quel dans le magasin d’images du cluster et il est décompressé sur le nœud avant l’exécution de l’application.
 La compression remplace le package Service Fabric valide par la version compressée. Le dossier doit autoriser l’accès en écriture. L’exécution d’une compression sur un package déjà compressé ne produit aucun effet.
 
-Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
+Vous pouvez compresser un package en exécutant la commande Powershell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) avec le commutateur `CompressPackage`. Vous pouvez décompresser le package avec la même commande, en utilisant le commutateur `UncompressPackage`.
 
-La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) sans l’indicateur `SkipCopy`.
+La commande suivante permet de compresser le package sans le copier dans le magasin d’images. Vous pouvez copier un package compressé dans un ou plusieurs clusters Service Fabric, selon vos besoins, en utilisant la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) sans l’indicateur `SkipCopy`.
 Le package inclut désormais les fichiers compressés pour les packages `code`, `config` et `data`. Le manifeste de l’application et les manifestes de service ne sont pas compressés, car ils sont exigés pour de nombreuses opérations internes. Par exemple, le partage de package ou l’extraction du nom du type de l’application et de la version pour certaines validations doivent accéder aux manifestes. La compression des manifestes rendrait ces opérations inefficaces.
 
 ```
@@ -179,7 +179,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 ```
 
-Vous pouvez également compresser et copier le package en une seule fois avec la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps).
+Vous pouvez également compresser et copier le package en une seule fois avec la commande [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage).
 Si le package est volumineux, prévoyez un délai d’expiration suffisamment long pour que la compression du package et le chargement dans le cluster aient le temps de se terminer.
 
 ```powershell
@@ -212,7 +212,7 @@ Cette option vous évite de devoir copier le package d’application dans le mag
 `sfpkg` est un fichier zip qui contient le package d’application initial avec l’extension « .sfpkg ».
 Dans le fichier zip, le package d’application peut être compressé ou non compressé. La compression du package d’application dans le fichier zip est effectuée aux niveaux du code, de la configuration et du package de données, comme [mentionné précédemment](service-fabric-package-apps.md#compress-a-package).
 
-Pour créer un `sfpkg`, commencez par un dossier qui contient le package d’application d’origine, compressé ou non. Ensuite, utilisez n’importe quel utilitaire pour compresser le dossier avec l’extension « .sfpkg ». Par exemple, utilisez [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory?view=netcore-3.1#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
+Pour créer un `sfpkg`, commencez par un dossier qui contient le package d’application d’origine, compressé ou non. Ensuite, utilisez n’importe quel utilitaire pour compresser le dossier avec l’extension « .sfpkg ». Par exemple, utilisez [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_).
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

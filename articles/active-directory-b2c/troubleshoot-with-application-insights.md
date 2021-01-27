@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132055"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746000"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -26,7 +26,7 @@ Cet article explique comment collecter les journaux d’activité à partir d’
 Les journaux d’activité détaillés décrits ici doivent être activés **UNIQUEMENT** lors du développement de vos stratégies personnalisées.
 
 > [!WARNING]
-> Ne définissez pas `DeploymentMode` sur `Developer` dans les environnements de production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité. En tant que développeur, vous assumez la responsabilité des données personnelles collectées dans vos journaux Application Insights. Ces journaux détaillés sont collectés uniquement lorsque la stratégie est placée en **MODE DÉVELOPPEUR** .
+> Ne définissez pas `DeploymentMode` sur `Development` dans les environnements de production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité. En tant que développeur, vous assumez la responsabilité des données personnelles collectées dans vos journaux Application Insights. Ces journaux détaillés sont collectés uniquement lorsque la stratégie est placée en **MODE DÉVELOPPEUR**.
 
 ## <a name="set-up-application-insights"></a>Configurer Application Insights
 
@@ -35,15 +35,15 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre abonnement Azure (et non votre annuaire Azure AD B2C).
 1. Sélectionnez **Créer une ressource** dans le menu de navigation de gauche.
-1. Recherchez et sélectionnez **Application Insights** , puis sélectionnez **Créer** .
-1. Remplissez le formulaire, sélectionnez **Vérifier + créer** , puis sélectionnez **Créer** .
-1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** .
-1. Sous **Configurer** dans le menu Application Insights, sélectionnez **Propriétés** .
-1. Enregistrez la **CLÉ D'INSTRUMENTATION** , que vous utiliserez dans une étape ultérieure.
+1. Recherchez et sélectionnez **Application Insights**, puis sélectionnez **Créer**.
+1. Remplissez le formulaire, sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.
+1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
+1. Sous **Configurer** dans le menu Application Insights, sélectionnez **Propriétés**.
+1. Enregistrez la **CLÉ D'INSTRUMENTATION**, que vous utiliserez dans une étape ultérieure.
 
 ## <a name="configure-the-custom-policy"></a>Configurer la stratégie personnalisée
 
-1. Ouvrez le fichier de partie de confiance (RP), par exemple, *SignUpOrSignin.xml* .
+1. Ouvrez le fichier de partie de confiance (RP), par exemple, *SignUpOrSignin.xml*.
 1. Ajoutez les attributs suivants à l’élément `<TrustFrameworkPolicy>` :
 
    ```xml
@@ -89,7 +89,7 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 Il y a un court délai, généralement moins de cinq minutes, avant que les nouveaux journaux d’activité s’affichent dans Application Insights.
 
 1. Ouvrez la ressource Application Insights que vous avez créée sur le [portail Azure](https://portal.azure.com).
-1. Dans la page **Vue d’ensemble** , sélectionnez **Journaux d’activité** .
+1. Dans la page **Vue d’ensemble**, sélectionnez **Journaux d’activité**.
 1. Ouvrez un nouvel onglet dans Application Insights.
 
 Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux d’activité :

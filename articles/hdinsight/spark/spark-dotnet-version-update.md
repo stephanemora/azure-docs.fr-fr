@@ -6,12 +6,12 @@ ms.author: nidutta
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/05/2021
-ms.openlocfilehash: 4b95e4f164eb2c1d0a881cf9ab14696c3cbed4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: a1602f29a6d0066ec3c99e990532411621652c47
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121772"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788127"
 ---
 # <a name="updating-net-for-apache-spark-to-version-v10--in-hdinsight"></a>Mise à jour de .NET pour Apache Spark vers la version v1.0 dans HDInsight
 
@@ -42,9 +42,9 @@ Si vous ne souhaitez pas modifier la version actuelle de .NET pour Apache Spark 
 
 2. Téléchargez le script [install-worker.sh](https://github.com/dotnet/spark/blob/master/deployment/install-worker.sh) pour installer les fichiers binaires du Worker téléchargés à l’étape 1 sur tous les nœuds Worker de votre cluster HDI.  
 
-3. Chargez les fichiers mentionnés ci-dessus dans le compte de stockage Azure auquel votre cluster a accès. Pour plus d’informations, consultez [l’article sur le déploiement de .NET pour Apache Spark HDI](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure).
+3. Chargez les fichiers mentionnés ci-dessus dans le compte de stockage Azure auquel votre cluster a accès. Pour plus d’informations, consultez [l’article sur le déploiement de .NET pour Apache Spark HDI](/dotnet/spark/tutorials/hdinsight-deployment#upload-files-to-azure).
 
-4. Exécutez le script `install-worker.sh` sur tous les nœuds Worker de votre cluster, à l’aide des actions Script. Pour plus d’informations, consultez [l’article sur le déploiement de .NET pour Apache Spark HDI](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action).
+4. Exécutez le script `install-worker.sh` sur tous les nœuds Worker de votre cluster, à l’aide des actions Script. Pour plus d’informations, consultez [l’article sur le déploiement de .NET pour Apache Spark HDI](/dotnet/spark/tutorials/hdinsight-deployment#run-the-hdinsight-script-action).
 
 ### <a name="update-your-application-to-use-specific-version"></a>Mettre à jour votre application pour utiliser une version spécifique
 
@@ -58,4 +58,4 @@ Les clusters HDI existants continueront d’avoir la même version pour .NET pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer votre application .NET pour Apache Spark sur HDInsight](https://docs.microsoft.com/dotnet/spark/tutorials/hdinsight-deployment)
+[Déployer votre application .NET pour Apache Spark sur HDInsight](/dotnet/spark/tutorials/hdinsight-deployment)

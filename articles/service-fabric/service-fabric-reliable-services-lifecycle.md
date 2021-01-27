@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 162ad87f79109cf38d3d0013608812155c6988a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ea8fa6933052374721d8d205d5b07386c807ae2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252247"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784594"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Vue d’ensemble du cycle de vie de Reliable Services
 > [!div class="op_single_selector"]
@@ -113,7 +113,7 @@ Service Fabric peut modifier le réplica principal d’un service avec état pou
 
 Les services qui ne gèrent pas l’annulation « proprement » peuvent être confrontés à plusieurs problèmes. Ces opérations sont lentes, car Service Fabric attend que les services s’arrêtent normalement. Cela peut entraîner l’échec des mises à jour qui expirent et sont annulées. Si vous ne respectez pas le jeton d’annulation, vous pouvez également provoquer des clusters déséquilibrés. Les clusters sont déséquilibrés, car les nœuds deviennent actifs, mais les services ne peuvent pas être rééquilibrés, car leur déplacement prend trop de temps. 
 
-Comme les services sont avec état, il est également probable qu’ils utilisent des [collections fiables](service-fabric-reliable-services-reliable-collections.md). Dans Service Fabric, lorsqu’un réplica principal est rétrogradé, l’une des premières choses qui se produisent est que l’accès en écriture à l’état sous-jacent est révoqué. Cela conduit à un deuxième type de problème qui peut avoir un impact sur le cycle de vie du service. Les collections retournent des exceptions selon le délai et selon que le réplica est déplacé ou arrêté. Ces exceptions doivent être gérées correctement. Les exceptions levées par Service Fabric sont soit permanentes [(`FabricException`)](/dotnet/api/system.fabric.fabricexception?view=azure-dotnet), soit passagères [(`FabricTransientException`)](/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet). Les exceptions permanentes doivent être journalisées et levées, alors que les exceptions passagères peuvent être retentées selon une logique de nouvelle tentative.
+Comme les services sont avec état, il est également probable qu’ils utilisent des [collections fiables](service-fabric-reliable-services-reliable-collections.md). Dans Service Fabric, lorsqu’un réplica principal est rétrogradé, l’une des premières choses qui se produisent est que l’accès en écriture à l’état sous-jacent est révoqué. Cela conduit à un deuxième type de problème qui peut avoir un impact sur le cycle de vie du service. Les collections retournent des exceptions selon le délai et selon que le réplica est déplacé ou arrêté. Ces exceptions doivent être gérées correctement. Les exceptions levées par Service Fabric sont soit permanentes [(`FabricException`)](/dotnet/api/system.fabric.fabricexception), soit passagères [(`FabricTransientException`)](/dotnet/api/system.fabric.fabrictransientexception). Les exceptions permanentes doivent être journalisées et levées, alors que les exceptions passagères peuvent être retentées selon une logique de nouvelle tentative.
 
 Le fait de gérer des exceptions issues de l’utilisation de `ReliableCollections` conjointement aux événements du cycle de vie du service constitue une partie importante du test et de la validation d’un service fiable. Il est recommandé de toujours exécuter votre service sous une charge quand vous effectuez une mise à niveau et des [tests de chaos](service-fabric-controlled-chaos.md) avant de le déployer sur un environnement de production. Ces étapes de base vous permettent de vérifier que votre service est correctement implémenté et qu’il gère correctement les événements de cycle de vie.
 

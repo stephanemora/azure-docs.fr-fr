@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520747"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784810"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -67,7 +67,7 @@ Vous pouvez également créer un Azure Functions afin de pouvoir effectuer un tr
 
 ## <a name="process-data-with-azure-functions"></a>Traiter des données avec Azure Functions
 
-Avant de créer une fonction, créez une application de fonctions dans votre abonnement Azure. En outre, pour que votre application logique appelle directement une fonction, la fonction doit avoir une liaison de déclencheur HTTP, par exemple, utilisez le modèle **HttpTrigger**. Apprenez [à créer votre première application de fonctions et fonction dans le portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Avant de créer une fonction, créez une application de fonctions dans votre abonnement Azure. En outre, pour que votre application logique appelle directement une fonction, la fonction doit avoir une liaison de déclencheur HTTP, par exemple, utilisez le modèle **HttpTrigger**. Apprenez [à créer votre première application de fonctions et fonction dans le portail Azure](../azure-functions/functions-get-started.md).
 
 Dans ce scénario, utilisez le texte du tweet comme corps de la demande pour votre Fonction Azure. Dans votre code de fonction, définissez la logique qui détermine si le texte du tweet contient un mot clé ou une phrase. Conservez la fonction aussi simple ou complexe que nécessaire pour le scénario.
 À la fin de la fonction, renvoyez une réponse à l’application logique avec certaines données, par exemple, une valeur booléenne simple telle que `containsKeyword` ou un objet complexe.

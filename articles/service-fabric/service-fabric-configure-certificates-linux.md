@@ -4,12 +4,12 @@ description: Configurer des certificats pour votre application avec le runtime S
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258665"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785564"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificats et sécurité sur des clusters Linux
 
@@ -21,7 +21,7 @@ Service Fabric s’attend généralement à la présence de certificats X.509 da
 
 Pour les clusters Linux, Service Fabric s’attend à ce que les certificats soient présents sous la forme d’un fichier .pem qui contient à la fois le certificat et une clé privée ou d’un fichier .crt qui contient le certificat et d’un fichier .key qui contient la clé privée. Tous les fichiers doivent être au format PEM. 
 
-Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-create-template.md) ou de commandes [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
+Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-create-template.md) ou de commandes [PowerShell](/powershell/module/az.servicefabric/), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificats référencés dans le manifeste de l’application
 

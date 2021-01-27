@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437868"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755026"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -223,7 +223,7 @@ Cela signifie que l’une des conditions suivantes est remplie :
 - Vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application ; consultez [Demande de consentement d’utilisateur individuel](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Vous avez fourni un moyen à l’administrateur de locataires de donner son consentement pour l’utilisation de l’application ; consultez [Consentement administrateur](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-Le flux d’authentification Windows intégrée est activé pour les applications de bureau .NET, .NET Core et la plateforme universelle Windows. Sur .NET Core, vous devez fournir le nom d’utilisateur à IWA, car .NET Core ne peut pas obtenir les noms d’utilisateur du système d’exploitation.
+Le flux d’authentification Windows intégrée est activé pour les applications de bureau .NET, .NET Core et la plateforme universelle Windows.
 
 Pour plus d’informations sur le consentement, consultez [Autorisations et consentement dans v2.0](v2-permissions-and-consent.md).
 

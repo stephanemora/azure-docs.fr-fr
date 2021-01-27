@@ -4,12 +4,12 @@ description: Découvrez-en plus sur la sérialisation des objets Reliable Collec
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018618"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784357"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Sérialisation des objets Reliable Collections dans Azure Service Fabric
 Les objets Reliable Collections répliquent et conserver leurs éléments pour permettre à ces derniers de résister aux pannes d’ordinateur et de courant.
@@ -20,7 +20,7 @@ Reliable State Manager contient des sérialiseurs intégrés et autorise l’ins
 
 ## <a name="built-in-serializers"></a>Sérialiseurs intégrés
 
-Reliable State Manager intègre un sérialiseur qui est utilisé pour certains types courants de manière à garantir par défaut une sérialisation efficace. Pour d’autres types, Reliable State Manager utilise le [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+Reliable State Manager intègre un sérialiseur qui est utilisé pour certains types courants de manière à garantir par défaut une sérialisation efficace. Pour d’autres types, Reliable State Manager utilise le [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 Les sérialiseurs intégrés sont plus efficaces car ils savent que leurs types ne peuvent pas être modifiés et ils n’ont besoin d’inclure aucune information sur le type, par exemple son nom.
 
 Reliable State Manager intègre un sérialiseur pour les types suivants : 
@@ -140,7 +140,7 @@ Chaque version peut ainsi lire un maximum d’informations et passer à la derni
 
 ## <a name="next-steps"></a>Étapes suivantes
   * [Sérialisation et mise à niveau](service-fabric-application-upgrade-data-serialization.md)
-  * [Référence du développeur pour les Collections fiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Référence du développeur pour les Collections fiables](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l’application à l’aide de Visual Studio.
   * [mise à niveau de votre application à l’aide de PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) vous guide à travers une mise à niveau de l’application à l’aide de PowerShell.
   * Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).

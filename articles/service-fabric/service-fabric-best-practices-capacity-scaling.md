@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095285"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784678"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planification et mise à l’échelle de la capacité pour Azure Service Fabric
 
@@ -161,7 +161,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Lorsque vous effectuez un scale-in d’un cluster, vous voyez l’instance de machine virtuelle/nœud supprimée qui s’affiche dans un état non intègre dans Service Fabric Explorer. Pour obtenir une explication de ce comportement, consultez [Comportements que vous pouvez observer dans Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Vous pouvez :
-> * Appelez la commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) avec le nom de nœud approprié.
+> * Appelez la commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié.
 > * Déployez l’[application auxiliaire mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) sur votre cluster. Cette application permet de s’assurer que les nœuds diminués en puissance sont effacés de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveaux de fiabilité

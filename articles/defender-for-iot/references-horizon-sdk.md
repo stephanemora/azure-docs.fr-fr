@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d6105f65508eff59164246020d9a3f286b68c5a1
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210393"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746017"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissecteur de protocole propriétaire Horizon
 
@@ -885,7 +885,7 @@ Vous pouvez également utiliser des valeurs des protocoles précédemment analys
 
 Par exemple, pour la valeur basée sur TCP, vous pouvez utiliser les valeurs de la couche IPv4. À partir de cette couche, vous pouvez extraire des valeurs telles que la source du paquet et la destination.
 
-Pour ce faire, le fichier de configuration JSON doit être mis à jour à l’aide de la propriété `whitelist`.
+Pour ce faire, le fichier de configuration JSON doit être mis à jour à l’aide de la propriété `whitelists`.
 
 ## <a name="allow-list-data-mining-fields"></a>Champs de la liste verte (exploration de données)
 

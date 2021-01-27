@@ -3,12 +3,12 @@ title: Utilisation de Azure DevTest Labs dans plusieurs laboratoires et abonne
 description: Découvrez comment rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152204"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789936"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rendre compte de l’utilisation d’Azure DevTest Labs dans plusieurs labos et abonnements
 
@@ -82,5 +82,5 @@ Une fois le système configuré et les données déplacées vers le stockage à 
     Les utilisateurs sélectionnent-ils des tailles de machines virtuelles hautes performances (plus coûteuses) ?
 -   Quelles sont les images de la Place de marché utilisées ?
 
-    Les images personnalisées constituent-elles la base la plus commune des machines virtuelles si un magasin d’images commun doit être construit comme une [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) ou une [Fabrique d’images](image-factory-create.md).
+    Les images personnalisées constituent-elles la base la plus commune des machines virtuelles si un magasin d’images commun doit être construit comme une [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) ou une [Fabrique d’images](image-factory-create.md).
 -   Quelles images personnalisées sont utilisées ou non utilisées ?

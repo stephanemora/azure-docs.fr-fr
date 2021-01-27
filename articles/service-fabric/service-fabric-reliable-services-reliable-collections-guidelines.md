@@ -3,12 +3,12 @@ title: Instructions pour les collections fiables
 description: Instructions et recommandations relatives à l’utilisation de collections fiables Service Fabric dans une application Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260920"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784323"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -64,4 +64,4 @@ Lorsque vous décidez d'utiliser des collections fiables volatiles, tenez compte
   * [Configuration du Gestionnaire d’état fiable](service-fabric-reliable-services-configuration.md)
 * Autres
   * [Démarrage rapide de Reliable Services](service-fabric-reliable-services-quick-start.md)
-  * [Référence du développeur pour les Collections fiables](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Référence du développeur pour les Collections fiables](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

@@ -2,23 +2,23 @@
 title: Afficher et affecter des autorisations de rôles d’administrateur - Azure AD | Microsoft Docs
 description: Vous pouvez maintenant consulter et gérer les membres d’un rôle d’administrateur Azure AD dans le portail. Pour les personnes qui gèrent fréquemment les attributions de rôles.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9330c6d34dcf5a799d65ebba176565ff031cb956
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 26217930b79b958ae86d976d06a28ba4a4852ab6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376780"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742010"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Afficher et assigner des rôles d’administrateur dans Azure Active Directory
 
@@ -59,7 +59,7 @@ Lorsque vous affichez les membres d’un rôle, sélectionnez **Description** po
 
 ## <a name="download-role-assignments"></a>Télécharger les attributions de rôle
 
-Pour télécharger toutes les attributions d’un rôle spécifique, dans la page **Rôles et administrateurs** , sélectionnez un rôle, puis sélectionnez **Télécharger les attributions de rôle**. Un fichier CSV qui liste les attributions sur toutes les étendues pour ce rôle est téléchargé.
+Pour télécharger toutes les attributions d’un rôle spécifique, dans la page **Rôles et administrateurs**, sélectionnez un rôle, puis sélectionnez **Télécharger les attributions de rôle**. Un fichier CSV qui liste les attributions sur toutes les étendues pour ce rôle est téléchargé.
 
 ![Télécharger toutes les attributions d’un rôle](./media/manage-roles-portal/download-role-assignments.png)
 
