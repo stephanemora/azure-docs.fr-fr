@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43f07bc26e75b440cde6d26db8ac8fb80aa3e39c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218856"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796906"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>Démarrage rapide : Créer un espace de travail Azure Synapse avec Azure PowerShell
 
@@ -70,26 +70,6 @@ Install-Module -Name Az.Synapse
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $SynapseResourceGroup -Location $Region
-   ```
-
-1. Récupérez la clé du compte de stockage ADLS Gen 2 :
-
-   ```azurepowershell-interactive
-   $StorageAccountKey = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName |
-     Select-Object -First 1 -ExpandProperty Value
-    ```
-
-1. Récupérez l’URL du point de terminaison du stockage ADLS Gen 2 :
-
-   ```azurepowershell-interactive
-   $StorageEndpointUrl = (Get-AzStorageAccount -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName).PrimaryEndpoints.Dfs
-   ```
-
-1. (Facultatif) Vous pouvez toujours vérifier quels sont vos clé et point de terminaison du compte de stockage ADLS Gen2 :
-
-   ```azurepowershell-interactive
-   Write-Output "Storage Account Key: $StorageAccountKey"
-   Write-Output "Storage Endpoint URL: $StorageEndpointUrl"
    ```
 
 1. Créer un espace de travail Azure Synapse :

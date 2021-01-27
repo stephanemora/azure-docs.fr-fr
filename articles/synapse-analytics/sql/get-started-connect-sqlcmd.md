@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b78c2d5c03c95249c7f708f2d660d32c834f123e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451636"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676093"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Se connecter à Synapse SQL avec sqlcmd
 
@@ -25,10 +25,10 @@ ms.locfileid: "96451636"
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Vous pouvez utiliser l’utilitaire en ligne de commande [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour établir une connexion avec le pool SQL serverless et le pool SQL dédié, et les interroger dans Synapse SQL.  
+Vous pouvez utiliser l’utilitaire en ligne de commande [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour établir une connexion avec le pool SQL serverless et le pool SQL dédié, et les interroger dans Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Se connecter
-Pour commencer à utiliser [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données Synapse SQL. La chaîne de connexion requiert les paramètres suivants :
+Pour commencer à utiliser [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données Synapse SQL. La chaîne de connexion requiert les paramètres suivants :
 
 * **Serveur (-S) :** Serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
 * **Base de données (-d) :** Nom de la base de données
@@ -78,7 +78,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### <a name="use-dedicated-sql-pool"></a>Utiliser un pool SQL dédié
 
-Une fois la connexion établie, vous pouvez envoyer toute instruction [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) prise en charge à l’instance. Dans cet exemple, les requêtes sont envoyées de manière interactive :
+Une fois la connexion établie, vous pouvez envoyer toute instruction [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) prise en charge à l’instance. Dans cet exemple, les requêtes sont envoyées de manière interactive :
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -99,7 +99,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ### <a name="use-serverless-sql-pool"></a>Utiliser un pool SQL serverless
 
-Une fois la connexion établie, vous pouvez envoyer des instructions [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) prises en charge à l’instance.  Dans l’exemple suivant, les requêtes sont envoyées en mode interactif :
+Une fois la connexion établie, vous pouvez envoyer des instructions [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (T-SQL) prises en charge à l’instance.  Dans l’exemple suivant, les requêtes sont envoyées en mode interactif :
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -120,4 +120,4 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les options sqlcmd, consultez la [documentation relative à sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Pour plus d’informations sur les options sqlcmd, consultez la [documentation relative à sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).

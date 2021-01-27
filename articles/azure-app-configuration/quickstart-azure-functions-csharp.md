@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: b5c659a673ece8fd7fbb9566d8bb84201a668a7f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964080"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724235"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application Azure Functions avec Azure App Configuration
 
@@ -44,7 +44,7 @@ Dans ce guide de démarrage rapide, vous allez intégrer le service Azure App Co
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
-Ce projet utilise l’[injection de dépendances dans .NET Azure Functions](/azure/azure-functions/functions-dotnet-dependency-injection) et ajoute Azure App Configuration comme source de configuration supplémentaire.
+Ce projet utilise l’[injection de dépendances dans .NET Azure Functions](../azure-functions/functions-dotnet-dependency-injection.md) et ajoute Azure App Configuration comme source de configuration supplémentaire.
 
 1. Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Sous l’onglet **Parcourir**, recherchez les packages NuGet suivants et ajoutez-les à votre projet.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) version 4.1.0 ou ultérieure

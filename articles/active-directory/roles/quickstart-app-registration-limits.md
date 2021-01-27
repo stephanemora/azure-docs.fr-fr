@@ -2,23 +2,23 @@
 title: Supprimer les limites de création d’inscriptions d’applications – Azure AD | Microsoft Docs
 description: Affectez un rôle personnalisé pour accorder des inscriptions d’applications illimitées dans Azure AD Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378786"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740854"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Démarrage rapide : Accorder l’autorisation de créer un nombre illimité d’inscriptions d’applications
 
@@ -29,24 +29,24 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Créer un rôle personnalisé à l’aide du portail Azure AD
 
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans l’organisation Azure AD.
-1. Sélectionnez **Azure Active Directory** , **Rôles et administrateurs** , puis **Nouveau rôle personnalisé**.
+1. Sélectionnez **Azure Active Directory**, **Rôles et administrateurs**, puis **Nouveau rôle personnalisé**.
 
     ![Créer ou modifier des rôles à partir de la page Rôles et administrateurs](./media/quickstart-app-registration-limits/new-custom-role.png)
 
-1. Sous l'onglet **Notions de base** , indiquez « Créateur de l’inscription des applications » comme nom du rôle et « Peut créer un nombre illimité d’inscriptions d’applications » pour la description du rôle, puis sélectionnez **Suivant**.
+1. Sous l'onglet **Notions de base**, indiquez « Créateur de l’inscription des applications » comme nom du rôle et « Peut créer un nombre illimité d’inscriptions d’applications » pour la description du rôle, puis sélectionnez **Suivant**.
 
     ![fournir un nom et une description pour un rôle personnalisé sous l’onglet Notions de base](./media/quickstart-app-registration-limits/basics-tab.png)
 
-1. Sous l'onglet **Autorisations** , entrez « microsoft.directory/applications/create » dans la zone de recherche, puis activez les cases à cocher en regard des autorisations souhaitées, puis sélectionnez **Suivant**.
+1. Sous l'onglet **Autorisations**, entrez « microsoft.directory/applications/create » dans la zone de recherche, puis activez les cases à cocher en regard des autorisations souhaitées, puis sélectionnez **Suivant**.
 
     ![Sélectionnez les permissions pour un rôle personnalisé sous l’onglet Permissions.](./media/quickstart-app-registration-limits/permissions-tab.png)
 
-1. Sur l’onglet **Vérifier + Créer** , vérifiez les permissions, puis sélectionnez **Créer**.
+1. Sur l’onglet **Vérifier + Créer**, vérifiez les permissions, puis sélectionnez **Créer**.
 
 ### <a name="assign-the-role-in-the-azure-ad-portal"></a>Attribuer le rôle dans le portail Azure AD
 
 1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec des autorisations Administrateur de rôle privilégié ou Administrateur général dans votre organisation Azure AD.
-1. Sélectionnez **Azure Active Directory** , puis **Rôles et administrateurs**.
+1. Sélectionnez **Azure Active Directory**, puis **Rôles et administrateurs**.
 1. Sélectionnez le rôle Créateur d’inscription d’application et sélectionnez **Ajouter une attribution**.
 1. Sélectionnez l’utilisateur souhaité, puis cliquez sur **Sélectionner** pour ajouter l’utilisateur au rôle.
 

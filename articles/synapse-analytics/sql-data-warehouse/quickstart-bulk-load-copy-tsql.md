@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116073"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681334"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Démarrage rapide : Charger en masse des données à l’aide de l’instruction COPY
 
-Dans ce guide de démarrage rapide, vous allez charger en masse des données dans votre pool SQL dédié au moyen de l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simple et flexible pour l’ingestion de données à débit élevé. L’instruction COPY est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible en fournissant des fonctionnalités pour :
+Dans ce guide de démarrage rapide, vous allez charger en masse des données dans votre pool SQL dédié au moyen de l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) simple et flexible pour l’ingestion de données à débit élevé. L’instruction COPY est l’utilitaire de chargement recommandé, car il vous permet de charger des données de manière fluide et flexible en fournissant des fonctionnalités pour :
 
 - Autoriser le chargement aux utilisateurs avec privilèges plus restreints, sans avoir besoin d’autorisations CONTROL strictes sur l’entrepôt de données
 - Tirer parti uniquement d’une instruction T-SQL sans avoir à créer d’objets de base de données supplémentaires

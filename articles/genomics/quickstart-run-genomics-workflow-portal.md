@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 85665dbda2ed11ffa04b71e4317f2b34b83d317f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cefb0105a0a95d26aadea2a98fc4d3cec68ccc03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349365"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787349"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow par le biais du service Microsoft Genomics
 
@@ -144,4 +144,4 @@ Une fois le workflow terminé, vous avez accès aux fichiers de sortie dans votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez chargé un exemple de données d’entrée dans le stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur les autres types de fichiers d’entrée pouvant être utilisés avec le service Microsoft Genomics, consultez les pages suivantes : [Soumettre un workflow à l’aide d’entrées de fichiers FASTQ](quickstart-input-pair-FASTQ.md) | [Soumettre un workflow à l’aide d’une entrée de fichier BAM](quickstart-input-BAM.md) | [Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple](quickstart-input-multiple.md). Vous pouvez également explorer ce tutoriel en utilisant notre [exemple de notebook Azure](https://aka.ms/genomicsnotebook), en téléchargeant le fichier « Genomics Tutorial.ipynb » et en utilisant un lecteur de notebook comme [Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) pour ouvrir le fichier et l’exécuter.
+Dans cet article, vous avez chargé un exemple de données d’entrée dans le stockage Azure et soumis un workflow dans le service Microsoft Genomics, via le client Python `msgen`. Pour en savoir plus sur les autres types de fichiers d’entrée pouvant être utilisés avec le service Microsoft Genomics, consultez les pages suivantes : [Soumettre un workflow à l’aide d’entrées de fichiers FASTQ](quickstart-input-pair-FASTQ.md) | [Soumettre un workflow à l’aide d’une entrée de fichier BAM](quickstart-input-BAM.md) | [Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple](quickstart-input-multiple.md). Vous pouvez également explorer ce tutoriel en utilisant notre [exemple de notebook Azure](https://aka.ms/genomicsnotebook), en téléchargeant le fichier « Genomics Tutorial.ipynb » et en utilisant un lecteur de notebook comme [Jupyter](https://notebooks.azure.com) pour ouvrir le fichier et l’exécuter.

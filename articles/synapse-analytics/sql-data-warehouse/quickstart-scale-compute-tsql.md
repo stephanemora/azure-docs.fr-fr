@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f3eaa6383b174e06ff6ce9b1b08c4eba9108d770
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115512"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676321"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Démarrage rapide : Mettre à l’échelle les ressources de calcul d’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics à l’aide de T-SQL
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 ## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>Créer un pool SQL dédié (anciennement SQL DW)
 
@@ -34,7 +34,7 @@ Utilisez [Démarrage rapide : Créer et connecter – Portail](create-data-ware
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) pour établir une connexion à votre serveur Azure SQL.
 
 1. Ouvrez SQL Server Management Studio.
 
@@ -90,7 +90,7 @@ Dans le pool SQL dédié (anciennement SQL DW), vous pouvez augmenter ou réduir
 Pour modifier les unités Data Warehouse Unit :
 
 1. Cliquez avec le bouton droit sur **Master**, puis sélectionnez **Nouvelle requête**.
-2. Utilisez l’instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour modifier l’objectif du service. Exécutez la requête suivante pour définir l’objectif du service sur DW300.
+2. Utilisez l’instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour modifier l’objectif du service. Exécutez la requête suivante pour définir l’objectif du service sur DW300.
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
@@ -136,7 +136,7 @@ Lorsqu’un pool SQL dédié (anciennement SQL DW) est mis en pause, vous ne po
 
 ## <a name="check-operation-status"></a>Vérifier l’état de l’opération
 
-Pour retourner des informations sur les diverses opérations de gestion dans votre pool SQL dédié (anciennement SQL DW), exécutez la requête suivante dans la vue de gestion dynamique [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Par exemple, elle retourne l’opération et l’état de l’opération, soit IN_PROGRESS ou COMPLETED.
+Pour retourner des informations sur les diverses opérations de gestion dans votre pool SQL dédié (anciennement SQL DW), exécutez la requête suivante dans la vue de gestion dynamique [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Par exemple, elle retourne l’opération et l’état de l’opération, soit IN_PROGRESS ou COMPLETED.
 
 ```sql
 SELECT *

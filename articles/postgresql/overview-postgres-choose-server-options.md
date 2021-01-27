@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489691"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797232"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Choisir l’option de serveur PostgreSQL dans Azure
 
@@ -21,7 +21,7 @@ Avec Azure, vos charges de travail de serveur PostgreSQL peuvent s’exécuter d
 Au moment de prendre votre décision, envisagez les trois options suivantes dans PaaS ou une exécution sur des machines virtuelles Azure (IaaS)
 - [Azure Database pour PostgreSQL - Serveur unique](./overview-single-server.md)
 - [Azure Database pour PostgreSQL - Serveur flexible](./flexible-server/overview.md)
-- [Azure Database pour PostgreSQL - Hyperscale (Citus)]()
+- [Azure Database pour PostgreSQL - Hyperscale (Citus)](hyperscale/index.yml)
 
 L’option **PostgreSQL sur machines virtuelles Azure** s’inscrit dans la catégorie de secteur IaaS. Avec ce service, vous pouvez exécuter le serveur PostgreSQL sur une machine virtuelle entièrement managée dans le cadre de la plateforme cloud Azure. Toutes les versions et éditions récentes de PostgreSQL peuvent être installées sur une machine virtuelle IaaS. La différence la plus significative par rapport à Azure Database pour PostgreSQL tient au fait que MySQL sur des machines virtuelles Azure offre le contrôle du moteur de base de données. Toutefois, ce contrôle est fourni au détriment de la responsabilité de gestion des machines virtuelles et de nombreuses tâches d’administration de base de données. Ces tâches incluent la maintenance et la mise à jour corrective des serveurs de base de données, la récupération des bases de données et une conception à haute disponibilité.
 

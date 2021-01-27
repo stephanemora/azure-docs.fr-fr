@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115784"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880031"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Votre propre [locataire Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Votre propre [locataire Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * Votre compte doit avoir l’autorisation de créer des ressources dans l’abonnement.
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
     > Vous n’êtes pas obligé de suivre cette étape si vous ne disposez pas d’Azure Policy, ou si aucune stratégie Azure existante ne bloque la création du **compte de stockage** et de l’**espace de noms EventHub**.
 
     1. Accédez au portail Azure et recherchez **Stratégie**.
-    1. Suivez [Créer une définition de stratégie personnalisée](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
+    1. Suivez [Créer une définition de stratégie personnalisée](../governance/policy/tutorials/create-custom-policy-definition.md) ou modifiez une stratégie existante pour ajouter deux exceptions avec l’opérateur `not` et l’étiquette `resourceBypass` :
 
         ```json
         {
@@ -83,7 +83,7 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Capture d’écran illustrant la création d’une définition de stratégie.":::
 
-    1. [Créez une affectation de stratégie](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) à l’aide de la stratégie personnalisée créée.
+    1. [Créez une affectation de stratégie](../governance/policy/assign-policy-portal.md) à l’aide de la stratégie personnalisée créée.
 
         [ ![Capture d’écran illustrant la création d’une affectation de stratégie](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -155,7 +155,7 @@ Si, après avoir cliqué sur Ajouter, deux options s’affichent marquées (dés
 
 1. Sélectionnez **Ajouter une attribution de rôle**.
 
-1. Pour le rôle, indiquez **Rôle Conservateur de données Purview** ou **Rôle Administrateur de sources de données Purview**, en fonction de l’utilisation qui sera faite du principal de sécurité (pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md) et [Objets application et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
+1. Pour le rôle, indiquez **Rôle Conservateur de données Purview** ou **Rôle Administrateur de sources de données Purview**, en fonction de l’utilisation qui sera faite du principal de sécurité (pour plus d’informations, consultez [Autorisations du catalogue](catalog-permissions.md) et [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)).
 
 1. Pour **Attribuer l’accès à**, laissez la valeur par défaut **Utilisateur, groupe ou principal de service**.
 

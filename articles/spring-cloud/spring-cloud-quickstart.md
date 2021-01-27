@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750898"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880302"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Démarrage rapide : Déployer votre première application Azure Spring Cloud
 
@@ -351,9 +351,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Page Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
-
-> [!NOTE]
-> Nous avons identifié un problème avec Spring Boot 2.4 sur l’authentification TLS entre vos applications et Eureka ; nous travaillons actuellement à sa résolution avec la communauté Spring. Reportez-vous à notre [Forum aux questions](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) pour la solution de contournement.
 
 1. Cliquez sur **Generate** quand toutes les dépendances sont définies. Téléchargez et décompressez le package, puis créez un contrôleur web pour une application web simple en ajoutant `src/main/java/com/example/hellospring/HelloController.java` comme suit :
 

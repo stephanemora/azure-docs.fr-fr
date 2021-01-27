@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400300"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879997"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Démarrage rapide : Créer un compte Azure Purview en utilisant Azure PowerShell ou Azure CLI
 
@@ -27,9 +27,9 @@ Dans ce guide de démarrage rapide, vous créez un compte Azure Purview en utili
 
 * Le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre du rôle Contributeur ou Propriétaire, ou être administrateur de l’abonnement Azure.
 
-* Votre propre [locataire Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Votre propre [locataire Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Installez Azure PowerShell ou Azure CLI dans votre machine cliente pour déployer le modèle : [Déploiement en ligne de commande](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Installez Azure PowerShell ou Azure CLI dans votre machine cliente pour déployer le modèle : [Déploiement en ligne de commande](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

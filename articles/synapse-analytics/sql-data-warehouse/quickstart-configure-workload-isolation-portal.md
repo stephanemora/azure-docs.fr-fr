@@ -11,12 +11,12 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460566"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677502"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>Démarrage rapide : Configurer l’isolation de la charge de travail du pool SQL dédié à l’aide d’un groupe de charge de travail dans le portail Azure
 
@@ -93,7 +93,7 @@ Suivez ces étapes pour nettoyer les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour utiliser le groupe de charges de travail `DataLoads`, vous devez créer un [classifieur de charge de travail](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) afin d’acheminer les demandes vers le groupe de charge de travail.  Passez au tutoriel [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-portal.md) afin de créer un classifieur de charge de travail pour `DataLoads`.
+Pour utiliser le groupe de charges de travail `DataLoads`, vous devez créer un [classifieur de charge de travail](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) afin d’acheminer les demandes vers le groupe de charge de travail.  Passez au tutoriel [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-portal.md) afin de créer un classifieur de charge de travail pour `DataLoads`.
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur la supervision des charges de travail dans le cadre de la gestion des charges de travail, consultez l’article de guide pratique [Gérer et superviser la gestion des charges de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

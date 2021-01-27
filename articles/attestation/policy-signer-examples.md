@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922455"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734144"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Exemples de certificat de signataire de stratégie d’attestation
 
 Les certificats de signataire de stratégie associés à un fournisseur d’attestations sont utilisés par Microsoft Azure Attestation pour valider les stratégies signées.
-En savoir plus sur les [avantages de la signature de stratégie](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
+En savoir plus sur les [avantages de la signature de stratégie](./basic-concepts.md#benefits-of-policy-signing)
 
 **Format de fichier de certificat de signataire de stratégie à utiliser dans le flux de création de fournisseur**
 

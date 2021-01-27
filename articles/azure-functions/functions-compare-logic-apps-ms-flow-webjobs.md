@@ -4,12 +4,12 @@ description: 'Comparez les services cloud Microsoft optimisés pour les tâches 
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 81b143219fd0b53d4cd00761af6b767c173ed88d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934864"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685559"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Choisir les services d’intégration et d’automatisation appropriés dans Azure
 
@@ -79,7 +79,7 @@ Azure Functions repose sur le Kit de développement logiciel (SDK) WebJobs, donc
 |  | Fonctions | WebJobs avec le Kit de développement logiciel (SDK) WebJobs |
 | --- | --- | --- |
 |**[Modèle d’application serverless](https://azure.microsoft.com/solutions/serverless/) avec [mise à l’échelle automatique](event-driven-scaling.md)**|✔||
-|**[Développement et test dans un navigateur](functions-create-first-azure-function.md)** |✔||
+|**[Développement et test dans un navigateur](./functions-get-started.md)** |✔||
 |**[Paiement à l’utilisation](consumption-plan.md)**|✔||
 |**[Intégration à Logic Apps](functions-twitter-email.md)**|✔||
 | **Événements déclencheurs** |[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Minuteur](functions-bindings-timer.md)<br>[Objets blob et files d’attente Stockage Azure](functions-bindings-storage-blob.md)<br>[Files d’attente et rubriques Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Système de fichiers](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
@@ -124,4 +124,4 @@ Commencez en créant votre premier flux, application logique ou application de f
 
 * [Bien démarrer avec Power Automate](/power-automate/getting-started)
 * [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Créer votre première fonction Azure](functions-create-first-azure-function.md)
+* [Créer votre première fonction Azure](./functions-get-started.md)

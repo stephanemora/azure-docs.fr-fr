@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Envoyer des événements personnalisés vers une fo
 description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI ou le portail pour publier une rubrique et vous abonner à cet événement. Une fonction Azure est utilisée pour le point de terminaison.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996341"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791725"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers une fonction Azure avec Event Grid
 
@@ -19,7 +19,7 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Azure
 ## <a name="create-azure-function"></a>Créer une fonction Azure
 Avant de nous abonner à la rubrique personnalisée, créez une fonction pour gérer les événements. 
 
-1. Créez une application de fonction à l’aide des instructions indiquées dans [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Créez une application de fonction à l’aide des instructions indiquées dans [Créer une application de fonction](../azure-functions/functions-get-started.md).
 2. Créez une fonction à l’aide du **déclencheur Event Grid**. Si vous utilisez ce déclencheur pour la première fois, vous devrez peut-être cliquer sur Installer pour installer l’extension.
     1. Dans la page **Application de fonction**, sélectionnez **Fonctions** dans le menu de gauche, recherchez **Event Grid** dans les modèles, puis sélectionnez **Déclencheur Azure Event Grid**. 
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 249f124dc7d4d789ca4396a67fba63fbdd144ba6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6fbc4179bcfc36f094b36966c8e5dd0acac66075
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120051"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683020"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consommation de ressources Synapse SQL
 
@@ -38,7 +38,7 @@ Les performances des DWU sont basées sur les métriques de charge de travail d�
 
 - À quelle vitesse une requête d’entreposage de données standard peut-t-elle analyser un grand nombre de lignes avant d’effectuer une agrégation complexe ? C’est une opération très gourmande en E/S et en UC.
 - À quelle vitesse un entrepôt de données peut-il traiter des données provenant du stockage d'objets blob Azure ou d’Azure Data Lake ? C’est une opération très gourmande en réseau et en UC.
-- Rapidité avec laquelle la commande T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
+- Rapidité avec laquelle la commande T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) peut copier une table. Cette opération implique la lecture des données sur le système de stockage, leur distribution entre les nœuds de l’appliance et la réécriture dans le système de stockage. Cette opération est très gourmande en UC, E/S et réseau.
 
 Augmentation du nombre de DWU :
 
@@ -98,7 +98,7 @@ Le pool SQL est un système de Scale-out qui peut fournir des quantités import
 
 ### <a name="permissions"></a>Autorisations
 
-La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+La modification des DWU requiert les autorisations décrites dans [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Les rôles intégrés Azure, comme Contributeur de base de données SQL et Contributeur de SQL Server, peuvent changer les paramètres des DWU.
 
@@ -150,7 +150,7 @@ Avec T-SQL, vous pouvez afficher les paramètres actuels de DWU, les modifier et
 Pour modifier les unités DWU :
 
 1. Connectez-vous à la base de données MASTER associée à votre serveur.
-2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
+2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -160,7 +160,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 #### <a name="rest-apis"></a>API REST
 
-Pour modifier les DWU, utilisez l’API REST [Créer ou mettre à jour une base de données](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW hébergée sur le serveur MyServer. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
+Pour modifier les DWU, utilisez l’API REST [Créer ou mettre à jour une base de données](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). L’exemple suivant définit l'objectif de niveau de service sur DW1000c pour la base de données MySQLDW hébergée sur le serveur MyServer. Le serveur est un groupe de ressources Azure appelé ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

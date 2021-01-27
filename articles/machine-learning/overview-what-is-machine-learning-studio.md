@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740502"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677612"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Qu’est-ce que le studio Azure Machine Learning ?
 
@@ -90,7 +90,7 @@ Le tableau suivant récapitule les principales différences entre ML Studio (cla
 | Fonctionnalité | ML Studio (classique) | Azure Machine Learning |
 |---| --- | --- |
 | Interface de glisser-déplacer | Expérience classique | Expérience mise à jour : [concepteur Azure Machine Learning](concept-designer.md)| 
-| SDK de code | Non pris en charge | Intégration totale aux SDK [R](/python/api/overview/azure/ml/) et [Python pour Azure Machine Learning](tutorial-1st-r-experiment.md) |
+| SDK de code | Non pris en charge | Intégration totale aux SDK [R](/python/api/overview/azure/ml/) et [Python pour Azure Machine Learning](https://github.com/Azure/azureml-sdk-for-r) |
 | Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
 | Cibles de calcul d’entraînement | Cible de calcul propriétaire, prise en charge CPU uniquement | Vaste gamme de [cibles de calcul d’entraînement](concept-compute-target.md#train) personnalisables. Processeurs et processeurs graphiques pris en charge | 
 | Cibles de calcul de déploiement | Format de service web propriétaire, non personnalisable | Vaste gamme de [cibles de calcul de déploiement](concept-compute-target.md#deploy) personnalisables. Processeurs et processeurs graphiques pris en charge |

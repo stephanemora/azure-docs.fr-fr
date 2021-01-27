@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18d9cb3c64eb41b33a58b248f3826bd9a80c6d90
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754804"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796997"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Présentation d’Azure Defender pour DNS
 
@@ -47,7 +47,7 @@ La liste complète des alertes fournie par Azure Defender pour DNS se trouve sur
 
 Azure Defender pour DNS n’utilise pas d’agent. 
 
-Afin de protéger votre couche DNS, activez Azure Defender pour DNS sur chacun de vos abonnements, comme cela est décrit dans [Activer Azure Defender](security-center-pricing.md).
+Afin de protéger votre couche DNS, activez Azure Defender pour DNS sur chacun de vos abonnements, comme cela est décrit dans [Activer Azure Defender](security-center-pricing.md#enable-azure-defender).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -57,4 +57,4 @@ Dans cet article, vous avez découvert Azure Defender pour DNS. Pour des informa
 - Les alertes de sécurité peuvent être générées par Security Center, ou reçues par Security Center depuis d’autres produits de sécurité. Pour exporter toutes ces alertes vers Azure Sentinel, un système SIEM tiers ou tout autre outil externe, suivez les instructions indiquées dans [Exportation d’alertes vers un système SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Activer Azure Defender](security-center-pricing.md)
+    > [Activer Azure Defender](security-center-pricing.md#enable-azure-defender)

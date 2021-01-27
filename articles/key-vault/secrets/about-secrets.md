@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705266"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786037"
 ---
 # <a name="about-azure-key-vault-secrets"></a>À propos des secrets Azure Key Vault
 
@@ -84,7 +84,7 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 ## <a name="azure-storage-account-key-management"></a>Gestion des clés de compte de stockage Azure
 
-Key Vault peut gérer les clés de [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) :
+Key Vault peut gérer les clés de [compte de stockage Azure](../../storage/common/storage-account-overview.md) :
 
 - En interne, Key Vault peut lister (synchroniser) les clés avec un compte de stockage Azure. 
 - Key Vault regénère (fait tourner) les clés régulièrement.
@@ -92,7 +92,7 @@ Key Vault peut gérer les clés de [compte de stockage Azure](https://docs.micro
 - Key Vault gère les clés des comptes de stockage et des comptes de stockage classiques.
 
 Pour plus d'informations, consultez les pages suivantes :
-- [Clés d’accès au compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md)
 - [Gestion des clés de compte de stockage dans Azure Key Vault](../secrets/overview-storage-keys.md)
 
 

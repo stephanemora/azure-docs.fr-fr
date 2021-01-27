@@ -3,12 +3,12 @@ title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
 description: Cet article offre une vue d’ensemble d’Azure Service Bus, le répartiteur de messages Intégration Entreprise complètement managé.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755733"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881599"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages et des rubriques de publication/abonnement. Service Bus est utilisé pour découpler les applications et les services les uns des autres pour offrir les avantages suivants :
@@ -32,7 +32,7 @@ Les scénarios de messagerie courants sont :
     2. Publier les résultats du traitement dans une ou plusieurs files d’attente différentes.
     3. Déplacer le message d’entrée à partir de la file d’attente d’origine. 
     
-    Pour les consommateurs en aval, les résultats ne sont visibles qu’en cas de réussite, ce qui comprend le règlement du message d’entrée autorisant la sémantique de traitement une fois seulement. Ce modèle de transaction constitue une base solide pour le modèle des [transactions de compensation](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) dans le contexte de solution supérieur. 
+    Pour les consommateurs en aval, les résultats ne sont visibles qu’en cas de réussite, ce qui comprend le règlement du message d’entrée autorisant la sémantique de traitement une fois seulement. Ce modèle de transaction constitue une base solide pour le modèle des [transactions de compensation](/azure/architecture/patterns/compensating-transaction) dans le contexte de solution supérieur. 
 * *Sessions de messagerie* : Implémentez une coordination à grande échelle des flux de travail et des transferts multiplexés qui nécessitent un classement strict des messages ou le report des messages.
 
 Si vous êtes familiarisé avec d’autres répartiteurs de messages, comme Apache ActiveMQ, les concepts de Service Bus sont similaires à ceux que vous connaissez. Service Bus étant une offre PaaS (Platform-as-a-service), la grande différence se situe dans les actions suivantes, dont vous n’avez pas à vous soucier. Azure s’occupe de ces tâches pour vous. 
@@ -138,11 +138,11 @@ Pour la protection contre le trafic indésirable, Service Bus fournit des [fonct
 
 Les bibliothèques de client Service Bus entièrement prises en charge sont disponibles par le biais du kit SDK Azure.
 
-- [Azure Service Bus pour .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Bibliothèques Azure Service Bus pour Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Azure Service Bus pour .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Bibliothèques Azure Service Bus pour Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Fournisseur Azure Service Bus pour Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Modules Azure Service Bus pour JavaScript et TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Bibliothèques Azure Service Bus pour Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Modules Azure Service Bus pour JavaScript et TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Bibliothèques Azure Service Bus pour Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [Le protocole principal d’Azure Service Bus est AMQP 1.0](service-bus-amqp-overview.md) ; il est utilisable depuis n’importe quel client de protocole compatible AMQP 1.0. Quelques clients AMQP open source offrent des exemples illustrant de manière explicite l’interopérabilité de Service Bus. Consultez le [Guide du protocole AMQP 1.0](service-bus-amqp-protocol-guide.md) pour comprendre comment utiliser les fonctionnalités Service Bus directement avec les clients AMQP 1.0.
 

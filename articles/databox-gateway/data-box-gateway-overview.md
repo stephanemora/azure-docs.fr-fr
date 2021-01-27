@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583209"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786637"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Présentation d’Azure Data Box Gateway
 
@@ -89,7 +89,7 @@ La solution Data Box Gateway se compose d’une ressource Data Box Gateway, d’
 
 Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressource Azure et le compte de stockage cible vers lequel vous transférez les données se trouvent dans la même région.
 
-- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Azure Data Box Gateway est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilité des ressources** : pour obtenir la liste de toutes les régions où la ressource Azure Data Box Gateway est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Le déploiement de Data Box Gateway est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](../azure-government/documentation-government-welcome.md).
 
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure.
 
@@ -101,4 +101,3 @@ Il n’est pas nécessaire que l’appareil physique Data Box Gateway, la ressou
 - Passer en revue les [Conditions requises pour le système Data Box Gateway](data-box-gateway-system-requirements.md).
 - Comprendre les [limites de Data Box Gateway](data-box-gateway-limits.md).
 - Déployer [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) sur le portail Azure.
-

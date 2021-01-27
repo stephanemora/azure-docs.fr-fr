@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 52c0dd6825c8576d97e10d3f0568ca5fb81e789e
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210800"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733935"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Démarrage rapide : Configurer Azure Attestation avec le portail Azure
 
@@ -58,7 +58,7 @@ Suivez les étapes ci-dessous pour gérer un fournisseur d’attestation à l’
 
     d. **Emplacement** : choisissez un emplacement. 
     
-    e. **Fichier des certificats de signataire de stratégie** : Pour configurer le fournisseur d’attestation avec des certificats de signature de stratégie, chargez le fichier de certificats. Consultez les exemples [ici](/azure/attestation/policy-signer-examples). 
+    e. **Fichier des certificats de signataire de stratégie** : Pour configurer le fournisseur d’attestation avec des certificats de signature de stratégie, chargez le fichier de certificats. Consultez les exemples [ici](./policy-signer-examples.md). 
 6.  Après avoir fourni les entrées requises, cliquez sur **Vérifier + créer**.
 7.  Corrigez les problèmes de validation, le cas échéant, puis cliquez sur **Créer**.
 
@@ -98,7 +98,7 @@ a.  Vérifiez le nombre de certificats et les certificats téléchargés.
 3.  Sélectionnez le fournisseur d’attestation et accédez à la page de vue d’ensemble.
 4.  Cliquez sur **Certificats de signataire de stratégie** dans le menu gauche de la ressource ou dans le volet inférieur.
 5.  Cliquez sur **Ajouter** dans le menu du haut (le bouton sera désactivé pour les fournisseurs d’attestations créés sans exigence de signature de stratégie).
-6.  Chargez le fichier de certificat de signataire de stratégie, puis cliquez sur **Ajouter**. Consultez les exemples [ici](/azure/attestation/policy-signer-examples).
+6.  Chargez le fichier de certificat de signataire de stratégie, puis cliquez sur **Ajouter**. Consultez les exemples [ici](./policy-signer-examples.md).
 
 ### <a name="delete-policy-signer-certificate"></a>Supprimer le certificat de signataire de stratégie
 
@@ -107,7 +107,7 @@ a.  Vérifiez le nombre de certificats et les certificats téléchargés.
 3.  Sélectionnez le fournisseur d’attestation et accédez à la page de vue d’ensemble.
 4.  Cliquez sur **Certificats de signataire de stratégie** dans le menu gauche de la ressource ou dans le volet inférieur.
 5.  Cliquez sur **Supprimer** dans le menu du haut (le bouton sera désactivé pour les fournisseurs d’attestations créés sans exigence de signature de stratégie).
-6.  Chargez le fichier de certificat de signataire de stratégie, puis cliquez sur **Supprimer**. Consultez les exemples [ici](/azure/attestation/policy-signer-examples). 
+6.  Chargez le fichier de certificat de signataire de stratégie, puis cliquez sur **Supprimer**. Consultez les exemples [ici](./policy-signer-examples.md). 
 
 ## <a name="attestation-policy"></a>Stratégie d’attestation
 
@@ -132,7 +132,7 @@ a.  Vérifiez le nombre de certificats et les certificats téléchargés.
 5.  Cliquez sur **Configurer** dans le menu du haut.
 6.  Lorsque le fournisseur d’attestation est créé sans exigence de signature de stratégie, l’utilisateur peut charger une stratégie au format **JWT** ou **Texte**.
 7.  Sélectionnez **JWT** comme **Format de stratégie**.
-8.  Chargez le fichier de stratégie avec le contenu de la stratégie dans un format **JWT non signé/signé**, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](/azure/attestation/policy-examples).
+8.  Chargez le fichier de stratégie avec le contenu de la stratégie dans un format **JWT non signé/signé**, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](./policy-examples.md).
     
     Pour l’option de chargement de fichier, l’aperçu de la stratégie s’affiche au format texte et n’est pas modifiable.
 
@@ -147,7 +147,7 @@ a.  Vérifiez le nombre de certificats et les certificats téléchargés.
 5.  Cliquez sur **Configurer** dans le menu du haut.
 6.  Lorsque le fournisseur d’attestation est créé sans exigence de signature de stratégie, l’utilisateur peut charger une stratégie au format **JWT** ou **Texte**.
 7.  Sélectionnez **Texte** comme **Format de stratégie**.
-8.  Chargez le fichier de stratégie avec le contenu au format **Texte**, ou entrez le contenu de la stratégie dans la zone de texte, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](/azure/attestation/policy-examples).
+8.  Chargez le fichier de stratégie avec le contenu au format **Texte**, ou entrez le contenu de la stratégie dans la zone de texte, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](./policy-examples.md).
 
     Pour l’option de chargement de fichier, l’aperçu de la stratégie s’affiche au format texte et n’est pas modifiable.
 
@@ -163,20 +163,9 @@ a.  Vérifiez le nombre de certificats et les certificats téléchargés.
 4.  Cliquez sur **Stratégie** dans le menu gauche de la ressource ou dans le volet inférieur.
 5.  Cliquez sur **Configurer** dans le menu du haut.
 6.  Lorsque le fournisseur d’attestation est créé avec exigence de signature de stratégie, l’utilisateur peut charger une stratégie uniquement au **format JWT signé**.
-7.  Chargez le fichier de stratégie au **format JWT signé**, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](/azure/attestation/policy-examples).
+7.  Chargez le fichier de stratégie au **format JWT signé**, puis cliquez sur **Enregistrer**. Consultez les exemples [ici](./policy-examples.md).
 
     Pour l’option de chargement de fichier, l’aperçu de la stratégie s’affiche au format texte et n’est pas modifiable.
     
 8.  Cliquez sur **Actualiser** pour afficher la stratégie configurée.
-
- 
-
-
-
-
-
-
-
-
-
 

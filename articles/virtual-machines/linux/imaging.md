@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842615"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878780"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Intégration et création d’images Linux dans Azure
 
@@ -29,7 +29,7 @@ Azure vous permet d’intégrer un disque dur virtuel à la plateforme, à utili
 
 Les disques managés Azure sont des disques durs virtuels uniques. Vous pouvez soit utiliser un disque dur virtuel existant et créer un disque managé à partir de celui-ci, soit créer un disque managé vide à partir de zéro. Vous pouvez créer des machines virtuelles à partir de disques managés en associant le disque à la machine virtuelle, mais vous pouvez uniquement utiliser un disque dur virtuel avec une seule machine virtuelle. Vous ne pouvez pas modifier les propriétés du système d’exploitation. Azure tente simplement d’activer la machine virtuelle et de démarrer à l’aide de ce disque. 
 
-Les images Azure peuvent être composées de plusieurs disques de système d’exploitation et disques de données. Lorsque vous utilisez une image managée pour créer une machine virtuelle, la plateforme effectue une copie de l’image et l’utilise pour créer la machine virtuelle, de sorte que l’image managée prend en charge la réutilisation de la même image pour plusieurs machines virtuelles. Azure fournit également des fonctionnalités de gestion avancées pour les images, telles que la réplication globale et la gestion de versions via [Shared Image Gallery](shared-image-galleries.md). 
+Les images Azure peuvent être composées de plusieurs disques de système d’exploitation et disques de données. Lorsque vous utilisez une image managée pour créer une machine virtuelle, la plateforme effectue une copie de l’image et l’utilise pour créer la machine virtuelle, de sorte que l’image managée prend en charge la réutilisation de la même image pour plusieurs machines virtuelles. Azure fournit également des fonctionnalités de gestion avancées pour les images, telles que la réplication globale et la gestion de versions via [Shared Image Gallery](../shared-image-galleries.md). 
 
 
 
@@ -65,7 +65,7 @@ Les agents de provisionnement ne sont pas requis pour ces images. Toutefois, vou
 Lors de l’intégration de votre image Linux, vous disposez de deux options :
 
 - Images managées pour la création simple de machines virtuelles dans un environnement de développement et de test.
-- [Shared Image Gallery](shared-image-galleries.md) pour la création et le partage d’images à grande échelle.
+- [Shared Image Gallery](../shared-image-galleries.md) pour la création et le partage d’images à grande échelle.
 
 
 ### <a name="managed-images"></a>Images managées
@@ -76,7 +76,7 @@ Les images managées peuvent être utilisées pour les environnements de dévelo
 
 ### <a name="azure-shared-image-gallery-sig"></a>Azure Shared Image Gallery
 
-Les galeries [Shared Image Gallery](shared-image-galleries.md) sont recommandées pour la création, la gestion et le partage d’images à grande échelle. Ces galeries vous permettent de structurer et d’organiser vos images.  
+Les galeries [Shared Image Gallery](../shared-image-galleries.md) sont recommandées pour la création, la gestion et le partage d’images à grande échelle. Ces galeries vous permettent de structurer et d’organiser vos images.  
 
 - Prise en charge des images généralisées et spécialisées.
 - Prise en charge des images de génération 1 et 2.

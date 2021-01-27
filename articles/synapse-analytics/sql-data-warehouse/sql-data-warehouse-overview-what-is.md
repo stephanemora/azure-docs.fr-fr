@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115818"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685223"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Qu’est-ce qu’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics ?
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics est un service d’analytique qui regroupe l’entreposa
 
 Un pool SQL dédié (anciennement SQL DW) représente une collection de ressources analytiques qui sont provisionnées lors de l’utilisation de Synapse SQL. La taille d’un pool SQL dédié (anciennement SQL DW) est déterminée par les unités d’entreposage de données (DWU).
 
-Dès lors que votre pool SQL dédié est créé, vous pouvez importer des données Big data avec des requêtes T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) simples, puis utiliser la puissance du moteur de requêtes distribuées pour procéder à une analytique hautes performances. Au fil de l’intégration et de l’analyse des données, le pool SQL dédié (anciennement SQL DW) deviendra la seule source pertinente sur laquelle votre activité peut compter pour obtenir des insights plus rapides et plus robustes.
+Dès lors que votre pool SQL dédié est créé, vous pouvez importer des données Big data avec des requêtes T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) simples, puis utiliser la puissance du moteur de requêtes distribuées pour procéder à une analytique hautes performances. Au fil de l’intégration et de l’analyse des données, le pool SQL dédié (anciennement SQL DW) deviendra la seule source pertinente sur laquelle votre activité peut compter pour obtenir des insights plus rapides et plus robustes.
 
 > [!NOTE]
 >Explorez la [Documentation Azure Synapse Analytics](../overview-what-is.md).

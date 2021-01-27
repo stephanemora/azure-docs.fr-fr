@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a5d9412ca77b73c08acbbfdbdc95371bb6f032b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285915"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791204"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Windows
 
@@ -39,7 +39,7 @@ Découvrez comment déployer, gérer et surveiller des machines virtuelles Windo
 - [Créer un groupe de machines virtuelles identiques](/azure/virtual-machines/windows/tutorial-create-vmss)
 - [Équilibrer la charge des machines virtuelles](/azure/virtual-machines/windows/tutorial-load-balancer)
 - [Gérer les machines virtuelles avec des réseaux virtuels](/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Sauvegarder les machines virtuelles](/azure/virtual-machines/windows/tutorial-backup-vms)
+- [Sauvegarder les machines virtuelles](/azure/backup/quick-backup-vm-portal)
 - [Surveiller les machines virtuelles](/azure/virtual-machines/windows/tutorial-monitoring)
 - [Gérer la sécurité sur les machines virtuelles](/azure/virtual-machines/windows/tutorial-azure-security)
 

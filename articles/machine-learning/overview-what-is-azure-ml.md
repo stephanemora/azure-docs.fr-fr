@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2019
+ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9b4cb3117464bfd32e17df4a1dbfdf7efd4ecbe6
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a9d471e81c348bfaa92c5d15774517f0d9e0e43f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127768"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683355"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -25,8 +25,6 @@ Azure Machine Learning peut être utilisé pour tout type de machine learning, d
 Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. 
 
 Le service interagit également avec les outils open source populaires d’apprentissage profond et d’apprentissage par renforcement tels que PyTorch, TensorFlow, scikit-Learn et Ray RLlib. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
 > **Version d’évaluation gratuite !**  Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui. Vous obtenez des crédits à dépenser en services Azure. Une fois ceux-ci épuisés, vous pouvez conserver le compte et utiliser les [services Azure gratuits](https://azure.microsoft.com/free/). Votre carte de crédit n’est pas débitée tant que vous n’avez pas explicitement modifié vos paramètres pour demander à l’être.
@@ -130,7 +128,6 @@ Votre compte de stockage Azure, vos cibles de calcul et d’autres ressources pe
 - Créez votre première expérience avec la méthode de votre choix :
 - + [Bien démarrer avec votre propre environnement de développement](tutorial-1st-experiment-sdk-setup-local.md)
   + [Utiliser des notebooks Jupyter sur une instance de calcul pour entraîner et déployer des modèles ML](tutorial-1st-experiment-sdk-setup.md)
-  + [Utiliser R Markdown pour entraîner et déployer des modèles ML](tutorial-1st-r-experiment.md) 
   + [Utiliser le Machine Learning automatisé pour entraîner et déployer des modèles ML](tutorial-first-experiment-automated-ml.md) 
   + [Utiliser les fonctionnalités glisser-déplacer du concepteur pour entraîner et déployer](tutorial-designer-automobile-price-train-score.md) 
   + [Utiliser l’interface CLI Machine Learning pour entraîner et déployer un modèle](tutorial-train-deploy-model-cli.md)
