@@ -3,15 +3,15 @@ title: Niveaux tarifaires - Azure Database for MariaDB
 description: Découvrez les différents niveaux tarifaires d’Azure Database for MariaDB, notamment les générations de calcul, les types de stockage, la taille de stockage, les vCores, la mémoire et les périodes de conservation des sauvegardes.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6c786ea80ecbe2f174d8c3b701316791e1b6104f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536283"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664246"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 

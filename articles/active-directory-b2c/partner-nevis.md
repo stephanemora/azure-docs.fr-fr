@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629389"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674991"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutoriel pour configurer Nevis avec Azure Active Directory B2C pour une authentification sans mot de passe
 
@@ -30,9 +30,9 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure AD Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
-- Un [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) lié à votre abonnement Azure.
+- Un [locataire Azure AD B2C](./tutorial-create-tenant.md) lié à votre abonnement Azure.
 
-- Un environnement Azure AD B2C configuré pour utiliser des [stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), si vous souhaitez intégrer Nevis dans votre flux de stratégie d’inscription.
+- Un environnement Azure AD B2C configuré pour utiliser des [stratégies personnalisées](./custom-policy-get-started.md), si vous souhaitez intégrer Nevis dans votre flux de stratégie d’inscription.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -134,9 +134,9 @@ Vous allez recevoir deux e-mails :
 
 4. **Enregistrez** les changements apportés au fichier.
 
-5. Suivez les [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account), puis chargez le fichier **nevis.html** dans votre Stockage Blob Azure.
+5. Suivez les [instructions](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account), puis chargez le fichier **nevis.html** dans votre Stockage Blob Azure.
 
-6. Suivez les [instructions](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) et activez le partage CORS (partage de ressources Cross-Origin) pour ce fichier.
+6. Suivez les [instructions](./customize-ui-with-html.md#3-configure-cors) et activez le partage CORS (partage de ressources Cross-Origin) pour ce fichier.
 
 7. Une fois le chargement effectué et le partage CORS activé, sélectionnez le fichier **nevis.html** dans la liste.
 
@@ -268,6 +268,6 @@ Vous allez recevoir deux e-mails :
 
 Pour plus d’informations, consultez les articles suivants
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905721"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625013"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutoriel : Utiliser Creator (préversion) pour créer des cartes d’intérieur
 
 > [!IMPORTANT]
 > Les services d’Azure Maps Creator sont disponibles en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 Ce didacticiel montre comment créer des cartes d’intérieur. Ce tutoriel explique comment utiliser l’API pour effectuer les opérations suivantes :
 
@@ -411,6 +409,10 @@ Un tileset est un ensemble de vignettes vectorielles qui s’affichent sur la ca
 L’[API d’obtention d’états de caractéristique](/rest/api/maps/featurestate/getstatespreview) vous permet de récupérer l’état d’une caractéristique à l’aide de son `ID` de caractéristique. Vous pouvez également supprimer le stateset et ses ressources à l’aide de l’[API de suppression d’état de caractéristique](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Pour en savoir plus sur les différents services Azure Maps Creator (préversion) abordés dans cet article, consultez [Creator pour cartes d’intérieur](creator-indoor-maps.md).
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

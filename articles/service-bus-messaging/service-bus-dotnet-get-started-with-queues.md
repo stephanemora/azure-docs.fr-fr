@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862120"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631638"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Échanger des messages avec des files d’attente Azure Service Bus (.NET)
 Dans ce tutoriel, vous créez une application console .NET Core afin d’échanger des messages avec une file d’attente Service Bus à l’aide du package **Azure.Messaging.ServiceBus**. 
@@ -272,4 +272,4 @@ Consultez la documentation et les exemples suivants :
 
 - [Bibliothèque de client Azure Service Bus pour .NET – Fichier Lisez-moi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemples sur GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Informations de référence sur l’API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [Informations de référence sur l’API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

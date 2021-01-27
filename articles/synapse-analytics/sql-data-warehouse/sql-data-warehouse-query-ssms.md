@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b213954dde6ca4eaa0a69ddf0e40398fc09b9063
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b142c88b0003281237dad125080930c0dd4d3bee
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115767"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673601"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Se connecter à un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics avec SQL Server Management Studio (SSMS)
 
@@ -35,7 +35,7 @@ Utilisez SQL Server Management Studio (SSMS) pour vous connecter à un pool S
 Pour utiliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un pool SQL dédié existant. Pour en créer un, consultez [Créer un pool SQL dédié (anciennement SQL DW)](create-data-warehouse-portal.md).
-* SQL Server Management Studio (SSMS) installé. [Téléchargez SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) gratuitement si vous ne l’avez pas déjà.
+* SQL Server Management Studio (SSMS) installé. [Téléchargez SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) gratuitement si vous ne l’avez pas déjà.
 * Le nom complet du serveur SQL. Pour obtenir ces informations, consultez [Pool SQL dédié (anciennement SQL DW)](sql-data-warehouse-connect-overview.md).
 
 ## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. Se connecter au pool SQL dédié (anciennement SQL DW)

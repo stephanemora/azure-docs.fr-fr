@@ -4,12 +4,12 @@ description: Découvrez comment utiliser les identités managées dans Azure Kub
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e991f7313bae5aa67478043b4f9306dbc274e1e7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599607"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659986"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -25,7 +25,6 @@ La ressource suivante doit être installée :
 
 ## <a name="limitations"></a>Limites
 
-* Pendant les opérations de **mise à niveau** du cluster, l’identité managée est temporairement indisponible.
 * Le déplacement de locataires ou la migration de clusters avec des identités managées ne sont pas pris en charge.
 * Si `aad-pod-identity` est activé dans le cluster, les pods NMI (Node Managed Identity) modifient les tables d’adresses IP des nœuds pour intercepter les appels vers le point de terminaison Azure Instance Metadata. Cette configuration signifie que toutes les requêtes adressées au point de terminaison Metadata sont interceptées par NMI, même si le pod n’utilise pas `aad-pod-identity`. La CRD AzurePodIdentityException peut être configurée de manière à informer `aad-pod-identity` que toutes les requêtes adressées au point de terminaison Metadata depuis un pod correspondant aux étiquettes définies dans la CRD doivent être envoyées par proxy sans aucun traitement dans NMI. Les pods système qui disposent de l’étiquette `kubernetes.azure.com/managedby: aks` dans l’espace de noms _kube-system_ doivent être exclus de `aad-pod-identity` en configurant la CRD AzurePodIdentityException. Pour plus d’informations, consultez [Désactiver aad-pod-identity pour un pod ou une application spécifique](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Pour configurer une exception, installez le fichier [YAML mic-exception](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).

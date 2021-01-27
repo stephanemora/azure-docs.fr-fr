@@ -3,16 +3,16 @@ title: Augmenter automatiquement le stockage - Azure CLI - Azure Database for Ma
 description: Cet article explique comment vous pouvez activer la croissance automatique du stockage à l’aide de l’interface Azure CLI dans Azure Database for MariaDB.
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3c7fc5165766ff5b492f05047000814475235280
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ba997038842a1028b8be5a542adac60186a30cb0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516422"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664433"
 ---
 # <a name="auto-grow-azure-database-for-mariadb-storage-using-the-azure-cli"></a>Activer la croissance automatique du stockage Azure Database for MariaDB à l’aide de l’interface Azure CLI
 Cet article explique comment vous pouvez configurer l’augmentation d’un stockage de serveur Azure Database for MariaDB sans affecter la charge de travail.

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933929"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664348"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Comment créer un coffre de clés Azure et une stratégie d’accès à l’aide d’un modèle Resource Manager
 
@@ -150,7 +150,7 @@ Vous pouvez déployer des stratégies d’accès à un coffre de clés existant 
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Vous pouvez déployer des stratégies d’accès à un coffre de clés existant 
 }
 
 ```
+
 Pour plus d’informations sur les paramètres du modèle de coffre de clés, consultez notre page de [référence sur le modèle ARM de coffre de clés](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Modèles Resource Manager de coffre de clés supplémentaires

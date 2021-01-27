@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997271"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625030"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -471,6 +471,10 @@ Dans la réponse GeoJSON précédente, l’équipement est sorti de la limite g�
 
 
 Vous pouvez également [envoyer des notifications par e-mail à l’aide d’Event Grid et de Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) et vérifier les [gestionnaires d’événements pris en charge dans Event Grid](../event-grid/event-handlers.md) à l’aide d’Azure Maps.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

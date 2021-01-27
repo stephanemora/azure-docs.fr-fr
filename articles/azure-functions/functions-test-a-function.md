@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 2488a476fe40c2bf1f3e290b462babceff30a9b0
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601388"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674148"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -36,8 +36,8 @@ L’exemple suivant explique comment créer une application de fonction C# dans 
 
 Pour configurer votre environnement, créez une fonction et testez l’application. Les étapes suivantes vous permettent de créer les applications et les fonctions requises pour prendre en charge les tests :
 
-1. [Créez une nouvelle application Functions](./functions-create-first-azure-function.md) et nommez-la **Functions**.
-2. [Créez une fonction HTTP à partir du modèle](./functions-create-first-azure-function.md) et nommez-la **MyHttpTrigger**.
+1. [Créez une nouvelle application Functions](./functions-get-started.md) et nommez-la **Functions**.
+2. [Créez une fonction HTTP à partir du modèle](./functions-get-started.md) et nommez-la **MyHttpTrigger**.
 3. [Créez une fonction de minuteur à partir du modèle](./functions-create-scheduled-function.md) et nommez-la **MyTimerTrigger**.
 4. [Créez une application de test xUnit](https://xunit.net/docs/getting-started/netcore/cmdline) dans la solution et nommez-la **Functions.Tests**.
 5. Utilisez NuGet pour ajouter des références à partir de l’application de test à [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)

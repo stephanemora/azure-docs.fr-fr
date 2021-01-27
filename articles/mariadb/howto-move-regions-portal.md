@@ -3,16 +3,16 @@ title: Déplacer des régions Azure - Portail Azure - Azure Database for MariaDB
 description: Déplacez un serveur Azure Database for MariaDB d’une région Azure vers une autre à l’aide d’un réplica en lecture et du portail Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: adb82b3ff371bdcdecbd964fef3c1d0c971df71a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540822"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664934"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Déplacer un serveur Azure Database for MariaDB vers une autre région à l’aide du portail Azure
 
@@ -50,7 +50,7 @@ Pour créer un serveur de réplica en lecture interrégional dans la région cib
 > Le serveur autonome ne peut pas être retransformé en réplica.
 > Avant d’arrêter la réplication sur un réplica en lecture, vérifiez que celui-ci contient toutes les données nécessaires.
 
-En arrêtant la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
+En arrêtant la réplication sur le serveur de réplication, il devient un serveur autonome. Afin d’arrêter la réplication vers le réplica depuis le portail Azure, procédez comme suit :
 
 1. Une fois le réplica créé, recherchez et sélectionnez votre serveur source Azure Database for MariaDB. 
 1. Sélectionnez **Réplication** dans le menu, sous **PARAMÈTRES**.

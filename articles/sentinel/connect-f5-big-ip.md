@@ -15,21 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: ae361c74b261bdd6a5673040f868392282b573ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e895640daeb3fbbba2f2708969ee4cf856bf1033
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588278"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621179"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Connecter votre appliance F5 BIG-IP 
 
-> [!IMPORTANT]
-> Le connecteur de données F5 BIG-IP dans Azure Sentinel est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Le connecteur de données F5 BIG-IP vous permet de connecter facilement tous vos journaux F5 BIG-IP à Azure Sentinel, de consulter des classeurs, de créer des alertes personnalisées et d’améliorer les enquêtes. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. L’intégration entre F5 BIG-IP et Azure Sentinel utilise l’API REST.
-
 
 > [!NOTE]
 > Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.

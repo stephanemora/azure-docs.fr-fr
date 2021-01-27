@@ -3,15 +3,15 @@ title: Magasin de données des requêtes - Azure Database for MariaDB
 description: La fonctionnalité Magasin des requêtes dans Azure Database for MariaDB vous aide à suivre les performances dans le temps.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0841a38ab6e4fe3b4d0faf755209d85cfea1ac17
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233984"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664195"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 

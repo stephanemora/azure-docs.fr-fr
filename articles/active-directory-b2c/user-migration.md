@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178804"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661151"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
-La migration depuis un autre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C) peut également nécessiter la migration des comptes d’utilisateur existants. Deux méthodes de migration sont décrites ici : la *prémigration* et la *migration fluide*. Dans les deux approches, vous devez écrire une application ou un script qui utilise l’[API Microsoft Graph](manage-user-accounts-graph-api.md) pour créer des comptes d’utilisateur dans Azure AD B2C.
+La migration depuis un autre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C) peut également nécessiter la migration des comptes d’utilisateur existants. Deux méthodes de migration sont décrites ici : la *prémigration* et la *migration fluide*. Dans les deux approches, vous devez écrire une application ou un script qui utilise l’[API Microsoft Graph](microsoft-graph-operations.md) pour créer des comptes d’utilisateur dans Azure AD B2C.
 
 ## <a name="pre-migration"></a>Prémigration
 
@@ -34,7 +34,7 @@ Utilisez le flux de prémigration dans l’une ou l’autre de ces deux situatio
 - Vous avez accès aux informations d’identification en texte clair d’un utilisateur (son nom d’utilisateur et son mot de passe).
 - Les informations d’identification sont chiffrées, mais vous pouvez les déchiffrer.
 
-Pour plus d’informations sur la création programmatique de comptes d’utilisateur, consultez [Gérer les comptes d’utilisateurs Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md).
+Pour plus d’informations sur la création programmatique de comptes d’utilisateur, consultez [Gérer les comptes d’utilisateurs Azure AD B2C avec Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="seamless-migration"></a>Migration fluide
 

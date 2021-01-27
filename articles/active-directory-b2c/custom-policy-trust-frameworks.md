@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387035"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674472"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Vue d’ensemble de la stratégie personnalisée Azure AD B2C
 
@@ -53,7 +53,7 @@ Les [transformations de revendications](claimstransformations.md) sont des fonct
 
 ### <a name="customize-and-localize-your-ui"></a>Personnaliser et localiser votre interface utilisateur
 
-Lorsque vous souhaitez collecter des informations de vos utilisateurs en présentant une page dans leur navigateur web, utilisez le [profil technique autodéclaré](self-asserted-technical-profile.md). Vous pouvez modifier votre profil technique autodéclaré pour [ajouter des revendications et personnaliser l’entrée utilisateur](custom-policy-configure-user-input.md).
+Lorsque vous souhaitez collecter des informations de vos utilisateurs en présentant une page dans leur navigateur web, utilisez le [profil technique autodéclaré](self-asserted-technical-profile.md). Vous pouvez modifier votre profil technique autodéclaré pour [ajouter des revendications et personnaliser l’entrée utilisateur](./configure-user-input.md).
 
 Pour [personnaliser l’interface utilisateur](customize-ui-with-html.md) pour votre profil technique autodéclaré, vous spécifiez une URL dans l’élément [définition de contenu](contentdefinitions.md) avec du contenu HTML personnalisé. Dans le profil technique autodéclaré, vous pointez sur cet ID de définition de contenu.
 
@@ -133,11 +133,11 @@ Au sein d’une stratégie personnalisée Azure AD B2C, vous pouvez intégrer vo
 
 - Créez votre logique dans la **stratégie d’extension** ou la **stratégie de partie de confiance**. Vous pouvez ajouter de nouveaux éléments qui remplaceront la stratégie de base en référençant le même ID. Cela vous permettra d’effectuer un scale-out de votre projet tout en facilitant la mise à niveau de la stratégie de base par la suite si Microsoft met en production de nouveaux packs de démarrage.
 - Dans la **stratégie de base**, nous vous recommandons vivement d’éviter d’apporter des modifications.  Si nécessaire, formulez des commentaires sur l’emplacement des modifications.
-- Lorsque vous remplacez un élément, tel que des métadonnées de profil technique, évitez de copier le profil technique entier à partir de la stratégie de base. Au lieu de cela, copiez uniquement la section requise de l’élément. Pour obtenir un exemple illustrant la manière d’apporter la modification, consultez [Désactiver la vérification par e-mail](custom-policy-disable-email-verification.md).
+- Lorsque vous remplacez un élément, tel que des métadonnées de profil technique, évitez de copier le profil technique entier à partir de la stratégie de base. Au lieu de cela, copiez uniquement la section requise de l’élément. Pour obtenir un exemple illustrant la manière d’apporter la modification, consultez [Désactiver la vérification par e-mail](./disable-email-verification.md).
 - Pour réduire la duplication des profils techniques, où les principales fonctionnalités sont partagées, utilisez une [inclusion de profil technique](technicalprofiles.md#include-technical-profile).
 - Évitez d’écrire dans l’annuaire Azure AD lors de la connexion, ce qui peut entraîner des problèmes de limitation.
 - Si votre stratégie a des dépendances externes, telles qu’une API REST, assurez-vous qu’elles sont hautement disponibles.
-- Pour améliorer l’expérience utilisateur, assurez-vous que vos modèles HTML personnalisés sont déployés globalement en utilisant une [distribution de contenu en ligne](https://docs.microsoft.com/azure/cdn/). Azure Content Delivery Network (CDN) vous permet de réduire les temps de chargement, d’économiser de la bande passante et d’accélérer la réactivité.
+- Pour améliorer l’expérience utilisateur, assurez-vous que vos modèles HTML personnalisés sont déployés globalement en utilisant une [distribution de contenu en ligne](../cdn/index.yml). Azure Content Delivery Network (CDN) vous permet de réduire les temps de chargement, d’économiser de la bande passante et d’accélérer la réactivité.
 - Si vous souhaitez apporter une modification au parcours utilisateur. Copiez l’intégralité du parcours utilisateur de la stratégie de base vers la stratégie d’extension. Fournissez un ID de parcours utilisateur unique pour le parcours utilisateur que vous avez copié. Ensuite, dans la [stratégie de partie de confiance](relyingparty.md), modifiez l’élément [parcours utilisateur par défaut](relyingparty.md#defaultuserjourney) pour pointer vers le nouveau parcours utilisateur.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
@@ -168,9 +168,9 @@ Vous commencez avec une stratégie personnalisée Azure AD B2C :
 
 Après avoir configuré et testé votre stratégie de Azure AD B2C, vous pouvez commencer à la personnaliser. Pour savoir comment procéder, consultez les articles suivants :
 
-- [Ajouter des revendications et personnaliser l’entrée utilisateur](custom-policy-configure-user-input.md) dans des stratégies personnalisées. Découvrez comment définir une revendication, ajouter une revendication à l’interface utilisateur en personnalisant certains profils techniques du pack de démarrage.
+- [Ajouter des revendications et personnaliser l’entrée utilisateur](./configure-user-input.md) dans des stratégies personnalisées. Découvrez comment définir une revendication, ajouter une revendication à l’interface utilisateur en personnalisant certains profils techniques du pack de démarrage.
 - [Personnaliser l’interface utilisateur](customize-ui-with-html.md) de votre application à l’aide d’une stratégie personnalisée. Découvrez comment créer votre propre contenu HTML et personnaliser la définition du contenu.
-- [Localiser l’interface utilisateur](custom-policy-localization.md) de votre application à l’aide d’une stratégie personnalisée. Apprenez à configurer la liste des langues prises en charge et fournir des étiquettes spécifiques de la langue en ajoutant l’élément ressources localisées.
-- Lors du développement et du test de votre stratégie, vous pouvez [désactiver la vérification par e-mail](custom-policy-disable-email-verification.md). Découvrez comment remplacer les métadonnées d’un profil technique.
-- [Configurez la connexion avec un compte Google](identity-provider-google-custom.md) en utilisant des stratégies personnalisées. Découvrez comment créer un fournisseur de revendications avec un profil technique OAuth2. Ensuite, personnalisez le parcours utilisateur pour inclure l’option de connexion Google.
+- [Localiser l’interface utilisateur](./language-customization.md) de votre application à l’aide d’une stratégie personnalisée. Apprenez à configurer la liste des langues prises en charge et fournir des étiquettes spécifiques de la langue en ajoutant l’élément ressources localisées.
+- Lors du développement et du test de votre stratégie, vous pouvez [désactiver la vérification par e-mail](./disable-email-verification.md). Découvrez comment remplacer les métadonnées d’un profil technique.
+- [Configurez la connexion avec un compte Google](./identity-provider-google.md) en utilisant des stratégies personnalisées. Découvrez comment créer un fournisseur de revendications avec un profil technique OAuth2. Ensuite, personnalisez le parcours utilisateur pour inclure l’option de connexion Google.
 - Pour diagnostiquer des problèmes liés à vos stratégies personnalisées, vous pouvez [Collecter les journaux Azure Active Directory B2C avec Application Insights](troubleshoot-with-application-insights.md). Découvrez comment ajouter de nouveaux profils techniques et configurer votre stratégie de partie de confiance.

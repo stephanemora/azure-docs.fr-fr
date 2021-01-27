@@ -3,15 +3,15 @@ title: Redémarrer un serveur - Portail Azure - Azure Database for MariaDB
 description: Cet article explique comment redémarrer un serveur Azure Database for MariaDB à l’aide du portail Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 0c16cf8d67394f6aa50cb30a44b4ff5a677159de
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: a912c1cde092b082e4c0229b1f454e80f32e319e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538884"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664883"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Redémarrer un serveur Azure Database for MariaDB à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database for MariaDB. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.

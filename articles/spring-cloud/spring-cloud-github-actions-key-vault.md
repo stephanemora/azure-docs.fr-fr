@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888777"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673330"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions
 
@@ -22,13 +22,14 @@ Le coffre de clés est un emplacement sécurisé pour stocker les clés. Au sein
 
 ## <a name="generate-credential"></a>Générer les informations d’identification
 Pour générer une clé d’accès au coffre de clés, exécutez la commande ci-dessous sur votre ordinateur local :
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 L’étendue spécifiée par le paramètre `--scopes` limite l’accès de la clé à la ressource.  Elle ne peut accéder qu’au coffre-fort.
 
 Avec les résultats :
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -59,12 +60,12 @@ Copiez le nom des informations d’identification, par exemple, `azure-cli-2020-
 ## <a name="generate-full-scope-azure-credential"></a>Générer des informations d’identification Azure à étendue complète
 Il s’agit de la clé principale pour ouvrir toutes les portes du bâtiment. La procédure est similaire à l’étape précédente, mais ici, nous changeons l’étendue pour générer la clé principale :
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Voici de nouveau les résultats :
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -84,7 +85,7 @@ Copiez la chaîne JSON entière.  Retournez au tableau de bord **Key Vault**. Ou
 ## <a name="combine-credentials-in-github-actions"></a>Combiner les informations d’identification dans GitHub Actions
 Définissez les informations d’identification utilisées quand le pipeline CI/CD s’exécute :
 
-```
+```console
 on: [push]
 
 jobs:

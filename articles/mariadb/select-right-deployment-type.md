@@ -3,15 +3,15 @@ title: Sélection du type de déploiement adapté - Azure Database for MariaDB
 description: Cet article décrit les facteurs à prendre en compte avant de déployer Azure Database for MariaDB comme infrastructure en tant que service (IaaS) ou plateforme en tant que service (PaaS).
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 921ad8d187f6c2478bdf92aab0ee0ec3c9e75bce
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240271"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664516"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Choisir l’option MariaDB Server appropriée dans Azure
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62793e0551c914b77310a0e9b72fea31ec621848
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683379"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632459"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -146,4 +146,5 @@ Pour afficher les informations détaillées sur les erreurs du déploiement, sé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment créer des alertes pour vous informer des résultats du déploiement des mises à jour, consultez [Créer des alertes pour Update Management](configure-alerts.md).
+* Pour savoir comment créer des alertes pour vous informer des résultats du déploiement des mises à jour, consultez [Créer des alertes pour Update Management](configure-alerts.md).
+* Pour résoudre les erreurs générales d’Update Management, consultez [Résoudre les problèmes liés à Update Management](../troubleshoot/update-management.md).

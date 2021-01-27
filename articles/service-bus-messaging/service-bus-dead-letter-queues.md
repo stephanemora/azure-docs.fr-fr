@@ -4,12 +4,12 @@ description: Décrit les files d’attente de lettres mortes dans Azure Service 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad62f946584071e7ce6fd55f48b5f7ee8db44a2f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301021"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630096"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -30,7 +30,7 @@ Il n’est pas possible de connaître le nombre de messages en file d’attente 
 
 ![Nombre de messages en file d’attente de lettres mortes](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Vous pouvez également récupérer le nombre de messages en file d’attente de lettres mortes à l’aide de la commande Azure CLI : [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
+Vous pouvez également récupérer le nombre de messages en file d’attente de lettres mortes à l’aide de la commande Azure CLI : [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Déplacer des messages vers la file d’attente de lettres mortes
 

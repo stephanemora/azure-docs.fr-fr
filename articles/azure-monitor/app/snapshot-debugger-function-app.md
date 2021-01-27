@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: 3060bd6ea8d7fbc4a4bf005b84cd07d420987ab6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696303"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675527"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Activer le Débogueur de capture instantanée pour les applications .NET et .NET Core dans Azure Functions
 
@@ -22,7 +22,7 @@ Pour la plupart des applications, la mémoire disponible ou l’espace disque av
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Activer la surveillance d’Application Insights dans votre application de fonction](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#add-to-an-existing-function-app)
+* [Activer la surveillance d’Application Insights dans votre application de fonction](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
 ## <a name="enable-snapshot-debugger"></a> Activer le Débogueur de capture instantanée
 
@@ -147,5 +147,5 @@ Nous vous recommandons d’activer Débogueur de capture instantanée sur toutes
 
 - Générez du trafic vers votre application pouvant déclencher une exception. Attendez ensuite 10 à 15 minutes le temps que des captures instantanées soient envoyées à l’instance Application Insights.
 - [Afficher les captures instantanées](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) dans le portail Azure.
-- Personnalisez la configuration du Débogueur de capture instantanée en fonction de votre utilisation sur votre application de fonction. Pour plus d’informations, consultez [Configuration des captures instantanés dans host.json](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsightssnapshotconfiguration).
+- Personnalisez la configuration du Débogueur de capture instantanée en fonction de votre utilisation sur votre application de fonction. Pour plus d’informations, consultez [Configuration des captures instantanés dans host.json](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
 - Pour obtenir de l’aide sur la résolution des problèmes liés au débogueur de capture instantanée, consultez [Résolution des problèmes liés au Débogueur de capture instantanée](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

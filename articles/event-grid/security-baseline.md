@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e085c5c2dbb608692ff7e766744743d3f640387b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341033"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633203"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Base de référence de sécurité Azure pour Event Grid
 
@@ -96,7 +96,7 @@ Si cela s’avère nécessaire pour analyser une activité anormale, activez la 
 
 - [Guide pratique pour activer Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -183,7 +183,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées relat
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -199,7 +199,7 @@ Vous pouvez également utiliser des définitions de stratégie intégrées relat
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4 : Collecter les journaux de sécurité des systèmes d’exploitation
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -253,7 +253,7 @@ En outre, vous pouvez intégrer votre espace de travail Log Analytics à Azure S
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -293,11 +293,11 @@ Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de g
 
 - [Autorisation de l’accès aux ressources Event Grid](security-authorization.md)
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -359,7 +359,7 @@ Event Grid peut activer une identité de service managé pour des rubriques ou d
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -541,7 +541,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -627,7 +627,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -652,7 +652,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
-**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -696,7 +696,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 Azure Resource Manager a la possibilité d’exporter le modèle au format JSON (JavaScript Object Notation), qui doit être examiné pour vérifier que les configurations répondent aux exigences de sécurité de votre organisation avant les déploiements.
 
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -706,7 +706,7 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -728,7 +728,7 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -738,9 +738,9 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 **Aide** : Si vous utilisez des définitions Azure Policy personnalisées pour vos ressources Event Grid ou associées, utilisez Azure Repos pour stocker et gérer votre code de manière sécurisée.
 
-- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentation Azure Repos](/azure/devops/repos/index)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -748,7 +748,7 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -768,7 +768,7 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -786,7 +786,7 @@ Azure Resource Manager a la possibilité d’exporter le modèle au format JSON 
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
-**Conseils** : Non applicable. Ces conseils concernent les ressources de calcul.
+**Aide** : Non applicable. Ces conseils concernent les ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -928,7 +928,7 @@ Actuellement, Event Grid ne prend pas en charge les clés gérées par le client
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 

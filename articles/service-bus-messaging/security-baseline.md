@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 16320e3f667c413778e166bfaacf81347226f4b1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 00d19d7b554e8a867412cfb982e1377fd90bd936
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202740"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624521"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de référence de sécurité Azure pour Service Bus
 
@@ -231,9 +231,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Rôles Azure intégrés pour Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole) 
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -507,7 +507,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -605,7 +605,7 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus
 
 - [Stratégies intégrées Azure pour Service Bus ](./policy-reference.md)
 
-- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -731,7 +731,7 @@ Veillez à effectuer des sauvegardes automatisées régulières de vos secrets K
 
 - [Comment configurer les clés gérées par le client pour le chiffrement des données Azure Service Bus au repos](configure-customer-managed-key.md)
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Supervision d’Azure Security Center** : Non applicable
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3f56fc1b321396c5cc6aa93e3f47fcaafcbe4ae4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0fbd7cda4723b62863d7d9bb0fe6aa2fac32dcd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202332"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633101"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Base de référence de sécurité Azure pour Event Hubs
 
@@ -293,9 +293,9 @@ Comment intégrer Azure Sentinel : https://docs.microsoft.com/azure/sentinel/qu
 
 **Aide** : Azure Active Directory (AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration. 
 
-Comment obtenir un rôle d’annuaire dans Azure AD avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Comment obtenir un rôle d’annuaire dans Azure AD avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-Comment obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Comment obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell : https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -633,7 +633,7 @@ Comment créer des alertes pour les événements du journal d’activité Azure�
 
 Créer des requêtes avec Azure Resource Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Comprendre Azure RBAC : https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Man
 
 Stratégie intégrée Azure pour l’espace de noms Event Hubs : https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Affichage des alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Pour plus d’informations sur les effets d’Azure Policy : https://docs.micro
 
 **Conseils** : Si vous utilisez des définitions Azure Policy personnalisées pour vos ressources Event Hubs ou associées, utilisez Azure Repos pour stocker et gérer votre code de manière sécurisée.
 
-Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -986,7 +986,7 @@ Comment sauvegarder des secrets Key Vault : https://docs.microsoft.com/powershe
 
  
 
-Comment restaurer des clés de coffre de clés dans Azure : https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Comment restaurer des clés de coffre de clés dans Azure : https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Supervision d’Azure Security Center** : Non applicable
 

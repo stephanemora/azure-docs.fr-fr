@@ -3,15 +3,15 @@ title: Journaux des requêtes lentes - Azure Database for MariaDB
 description: Décrit les journaux d’activité disponibles dans Azure Database for MariaDB et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: a5acf3b6447b2e3722a27951700138f756a99251
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541111"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664161"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.

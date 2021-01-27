@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178719"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675744"
 ---
 # <a name="user-profile-attributes"></a>Attributs de profil utilisateur
 
@@ -160,7 +160,7 @@ Dans les scénarios de migration d’utilisateurs, si les comptes que vous voule
 
 ## <a name="mfa-phone-number-attribute"></a>Attribut de numéro de téléphone MFA
 
-Lorsque vous utilisez un téléphone pour l’authentification multifacteur (MFA), le téléphone mobile est utilisé pour vérifier l’identité de l’utilisateur. Pour [ajouter](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) un nouveau numéro de téléphone par programmation, [mettez à jour](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [obtenez](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get) ou [supprimez](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) le numéro de téléphone, et utilisez la [méthode d’authentification par téléphone](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod) de l’API MS Graph.
+Lorsque vous utilisez un téléphone pour l’authentification multifacteur (MFA), le téléphone mobile est utilisé pour vérifier l’identité de l’utilisateur. Pour [ajouter](/graph/api/authentication-post-phonemethods) un nouveau numéro de téléphone par programmation, [mettez à jour](/graph/api/b2cauthenticationmethodspolicy-update), [obtenez](/graph/api/b2cauthenticationmethodspolicy-get) ou [supprimez](/graph/api/phoneauthenticationmethod-delete) le numéro de téléphone, et utilisez la [méthode d’authentification par téléphone](/graph/api/resources/phoneauthenticationmethod) de l’API MS Graph.
 
 Dans les [stratégies personnalisées](custom-policy-overview.md) d’Azure AD B2C, le numéro de téléphone est disponible via le type de revendication `strongAuthenticationPhoneNumber`.
 

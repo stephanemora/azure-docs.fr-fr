@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398213"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621876"
 ---
 # <a name="configure-private-link"></a>Configurer une liaison privée
-
-> [!IMPORTANT]
-> Cette fonctionnalité en préversion publique est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Une liaison privée vous permet d’accéder à l’API Azure pour FHIR via un point de terminaison privé, une interface réseau qui vous connecte de façon confidentielle et sécurisée en utilisant une adresse IP privée de votre réseau virtuel. Avec une liaison privée, vous pouvez accéder à nos services en toute sécurité à partir de votre réseau virtuel en tant que service interne sans avoir à passer par un DNS public. Cet article explique comment créer, tester et gérer votre point de terminaison privé pour l’API Azure pour FHIR.
 
@@ -90,6 +87,6 @@ Les points de terminaison privés et la carte réseau associée sont visibles da
 
 ### <a name="delete"></a>Supprimer
 
-Vous ne pouvez supprimer des points de terminaison du portail Azure que via le panneau Vue d’ensemble (comme ci-dessous) ou l’option Supprimer sous l’onglet « Connexions de points de terminaison privés » de Mise en réseau (préversion). Un clic sur le bouton Supprimer pour effet de supprimer le point de terminaison privé et la carte réseau associée. Si vous supprimez tous les points de terminaison privés de la ressource FHIR et que l’accès public au réseau est désactivé, aucune demande n’est adressée à votre serveur FHIR. Avant de pouvoir supprimer ou déplacer la ressource FHIR, tous les points de terminaison privés doivent être supprimés de la ressource FHIR.
+Vous ne pouvez supprimer des points de terminaison du portail Azure que via le panneau Vue d’ensemble (comme ci-dessous) ou l’option Supprimer sous l’onglet « Connexions de points de terminaison privés » de Mise en réseau (préversion). Un clic sur le bouton Supprimer pour effet de supprimer le point de terminaison privé et la carte réseau associée. Si vous supprimez tous les points de terminaison privés de la ressource FHIR et que l’accès public au réseau est désactivé, aucune demande n’est adressée à votre serveur FHIR.
 
 ![Supprimer un point de terminaison privé](media/private-link/private-link-delete.png)

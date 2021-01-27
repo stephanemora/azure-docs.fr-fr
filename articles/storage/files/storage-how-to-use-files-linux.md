@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022562"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673685"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -67,7 +67,7 @@ uname -r
 
     Sur les autres distributions, utilisez le gestionnaire de package approprié ou effectuez une [compilation à partir de la source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **La dernière version de l’interface de ligne de commande Azure (CLI).** Pour plus d'informations sur l'installation d’Azure CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) et sélectionnez votre système d’exploitation. Si vous préférez utiliser le module Azure PowerShell dans PowerShell 6+, rien ne vous en empêche. Sachez cependant que les instructions ci-dessous s’appliquent à Azure CLI.
+* **La dernière version de l’interface de ligne de commande Azure (CLI).** Pour plus d'informations sur l'installation d’Azure CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et sélectionnez votre système d’exploitation. Si vous préférez utiliser le module Azure PowerShell dans PowerShell 6+, rien ne vous en empêche. Sachez cependant que les instructions ci-dessous s’appliquent à Azure CLI.
 
 * **Vérifiez que le port 445 est ouvert** : SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 de la machine cliente.  Remplacez `<your-resource-group>` et `<your-storage-account>`, puis exécutez le script suivant :
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     Si la connexion a été établie, vous devez obtenir une sortie semblable à la suivante :
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 

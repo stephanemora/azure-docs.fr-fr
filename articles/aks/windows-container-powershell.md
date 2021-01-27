@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97741423fa8b689a92bd9db78b810e6b86aefcbd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247061"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625112"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Création d’un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide de PowerShell
 
@@ -97,7 +97,7 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
 Par défaut, un cluster AKS est créé avec un pool de nœuds qui peut exécuter des conteneurs Linux. Utilisez la cmdlet `New-AzAksNodePool` pour ajouter un pool de nœuds capable d’exécuter des conteneurs Windows Server en même temps que le pool de nœuds Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 La commande ci-dessus crée un pool de nœuds nommé **npwin** et l’ajoute à **myAKSCluster**. Lorsque vous créez un pool de nœuds pour exécuter des conteneurs Windows Server, la valeur par défaut de **VmSize** est **Standard_D2s_v3**. Si vous choisissez de définir le paramètre **VmSize**, consultez la liste des [tailles de machines virtuelles restreintes][restricted-vm-sizes]. La taille minimale recommandée est **Standard_D2s_v3**. La commande précédente utilise également le sous-réseau par défaut dans le réseau virtuel par défaut créé lors de l’exécution de `New-AzAks`.

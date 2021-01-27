@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724814"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630851"
 ---
 # <a name="smb-multichannel-performance"></a>Performances de SMB Multichannel
 
@@ -119,7 +119,7 @@ Les conseils suivants peuvent vous aider à optimiser vos performances :
 - Assurez-vous que votre compte de stockage et votre client sont colocalisés dans la même région Azure pour réduire la latence du réseau.
 - Utilisez des applications multithread et répartissez la charge sur plusieurs fichiers.
 - Les avantages en matière de performances de SMB Multichannel augmentent avec le nombre de fichiers distribuant la charge.
-- Les performances du partage Premium sont liées à la taille du partage approvisionné (IOPS/sortie/entrée) et les limites de fichiers uniques. Pour plus d’informations, consultez [Comprendre le provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-billing).
+- Les performances du partage Premium sont liées à la taille du partage approvisionné (IOPS/sortie/entrée) et les limites de fichiers uniques. Pour plus d’informations, consultez [Comprendre le provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
 - Les performances maximales d’un seul client de machine virtuelle sont toujours liées aux limites des machines virtuelles. Par exemple, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) peut prendre en charge une bande passante maximale de 16 000 Mbits/s (ou 2 Gbits/s), les sorties de la machine virtuelle (écritures vers le stockage) sont limitées, contrairement aux entrées (lectures depuis le stockage). Les performances des partages de fichiers sont soumises aux limites du réseau des machines, aux UC, à la bande passante réseau disponible du stockage interne, aux tailles d’e/s, au parallélisme, ainsi qu’à de nombreux autres facteurs.
 - Le test initial est généralement un préchauffage, ignore ses résultats et répète le test.
 - Si les performances sont limitées par un seul client et que la charge de travail est toujours inférieure aux limites de partage approvisionnées, les performances peuvent être améliorées en répartissant la charge sur plusieurs clients.

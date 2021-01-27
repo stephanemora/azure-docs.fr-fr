@@ -3,15 +3,15 @@ title: Procédures stockées de gestion - Azure Database for MariaDB
 description: Découvrez les procédures stockées d’Azure Database for MariaDB qui vous aideront à configurer la réplication des données entrantes, à définir le fuseau horaire et à supprimer des requêtes.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 103bba37f5574185f10f5c4e28e66268da0c7f39
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8df6c1d6bd00743be4a56b3bfa7e5416848eb62c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536844"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664629"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Procédures stockées de gestion Azure Database for MariaDB
 

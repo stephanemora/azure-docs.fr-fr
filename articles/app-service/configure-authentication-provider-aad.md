@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0c06cb11d916b417cf577b7b8f3578749feddd62
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092225"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630028"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -78,7 +78,7 @@ Procédez comme suit :
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 1. Sur la page **Inscrire une application**, entrez un **Nom** pour votre inscription d'application.
 1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `<app-url>/.auth/login/aad/callback`. Par exemple : `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Sélectionnez **Create** (Créer).
+1. Sélectionnez **S’INSCRIRE**.
 1. Une fois l’inscription d’application créée, copiez l’**ID de l’application (client)** et l’**ID de l’annuaire (locataire)** pour plus tard.
 1. Sélectionnez **Authentification**. Sous **Octroi implicite**, activez **Jetons d’ID** pour autoriser les connexions utilisateur OpenID Connect à partir d’App Service.
 1. (Facultatif) Sélectionnez **Personnalisation**. Dans **URL de la page d’accueil**, entrez l’URL de votre application App Service, puis sélectionnez **Enregistrer**.

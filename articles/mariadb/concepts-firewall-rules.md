@@ -3,15 +3,15 @@ title: Règles de pare-feu - Azure Database for MariaDB
 description: Découvrez comment utiliser des règles de pare-feu pour activer les connexions à votre serveur Azure Database pour MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 452ef4787812dbdf88eb541cf5a164f2888dddcc
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2a200f25a42bc10b2e986fb710d1e7bc27a48880
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662557"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Règles de pare-feu d’un serveur Azure Database for MariaDB
 Le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.

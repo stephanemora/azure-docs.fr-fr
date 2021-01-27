@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db99fbdea38dd30401a8aeedb7ebc23c71c5236c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655184"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674941"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de fournisseur d'identité SAML dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique SAML vous permet d’opérer une fédération avec un fournisseur d’identité basée sur SAML, tel que [ADFS](identity-provider-adfs2016-custom.md) et [Salesforce](identity-provider-salesforce-saml.md). Une telle fédération permet à vos utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
+Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique SAML vous permet d’opérer une fédération avec un fournisseur d’identité basée sur SAML, tel que [ADFS](./identity-provider-adfs.md) et [Salesforce](identity-provider-salesforce-saml.md). Une telle fédération permet à vos utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
 
 ## <a name="metadata-exchange"></a>Échange de métadonnées
 

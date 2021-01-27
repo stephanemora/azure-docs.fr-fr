@@ -12,29 +12,25 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 95e78c7557092a4d1203a8df3a107fe7b63eac9b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 67bc104434dc0db30f5973bec0979afb7480fe4c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631439"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621377"
 ---
 # <a name="connect-your-data-from-azure-defender-formerly-azure-security-center-for-iot-to-azure-sentinel"></a>Connecter vos données d’Azure Defender (anciennement Azure Security Center) pour IoT à Azure Sentinel 
 
-
-> [!IMPORTANT]
-> Le connecteur de données Defender pour IoT est actuellement en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Utilisez le connecteur Defender pour IoT pour diffuser tous vos événements Defender pour IoT dans Azure Sentinel. 
 
-Cette intégration permet aux organisations de détecter rapidement les attaques multiphases qui, souvent, franchissent les limites de l’informatique et de la formation organisationnelle. En outre, l’intégration de Defender pour IoT aux capacités d’orchestration, d’automatisation et de réponse de la sécurité (SOAR) d’Azure Sentinel permet une réponse et une prévention automatisées grâce à des playbooks intégrés optimisés pour la formation organisationnelle. 
+Cette intégration permet aux organisations de détecter rapidement les attaques multiphases qui, souvent, franchissent les limites de l’informatique et de la formation organisationnelle. En outre, l’intégration de Defender pour IoT aux capacités d’orchestration, d’automatisation et de réponse aux problèmes de sécurité (SOAR) d’Azure Sentinel permet une réponse et une prévention automatisées grâce à des playbooks intégrés optimisés pour la formation organisationnelle. 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 - Autorisations de **lecture** et d’**écriture** sur l’espace de travail sur lequel Azure Sentinel est déployé
-- **Defender pour IoT** doit être **activé** sur vos hubs IoT correspondants
-- Vous devez disposer des autorisations de **contributeur** sur l’**abonnement** si vous souhaitez vous connecter
+- **Defender pour IoT** doit être **activé** sur le ou les hubs IoT correspondants
+- Vous devez disposer des autorisations de **Contributeur** sur **l’Abonnement** à connecter
 
 ## <a name="connect-to-defender-for-iot"></a>Se connecter à Defender pour IoT
 
@@ -45,10 +41,10 @@ Cette intégration permet aux organisations de détecter rapidement les attaques
 1. Cliquez sur **Se connecter** à côté de chaque abonnement IoT Hub dont vous souhaitez diffuser les alertes et les alertes d’appareil dans Azure Sentinel. 
     - Vous recevrez un message d’erreur si Defender pour IoT n’est pas activé sur au moins un IoT Hub au sein d’un abonnement. Activez Defender pour IoT dans IoT Hub pour supprimer l’erreur.
 
-1. Vous pouvez décider si vous souhaitez que les alertes de Defender pour IoT génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour permettre à la règle des analyses par défaut de créer automatiquement des incidents à partir des alertes générées. Cette règle est modifiable sous **Analytics** > **Règles actives**.
+1. Vous pouvez décider si vous souhaitez que les alertes de Defender pour IoT génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour permettre à la règle d’analytique par défaut de créer automatiquement des incidents à partir des alertes générées. Cette règle est modifiable sous **Analytique** > **Règles actives**.
 
 > [!NOTE]
-> L’actualisation de la liste **Abonnement** peut prendre 10 secondes ou plus après avoir apporté des modifications à la connexion. 
+> L’actualisation de la liste **Abonnement** peut prendre 10 secondes ou plus après la modification de la connexion. 
 
 ## <a name="log-analytics-alert-view"></a>Affichage des alertes Log Analytics
 
@@ -64,7 +60,7 @@ SecurityAlert | where ProductName == "Azure Security Center for IoT"
 
 ### <a name="service-notes"></a>Notes de service
 
-Après vous être connecté un **Abonnement**, les données du hub sont disponibles dans Azure Sentinel environ 15 minutes plus tard.
+Après la connexion d’un **Abonnement**, les données du hub sont disponibles dans Azure Sentinel environ 15 minutes plus tard.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 254f8da74a187e88cfb973da7100fe5654c84bb6
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: fe427150b15c6bccb97172ae751235d388c95c7b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732444"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675024"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Zscaler Private Access avec Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Dans ce tutoriel, découvrez comment intégrer l’authentification Azure Active
 Avant de commencer, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).  
-- [Un locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) lié à votre abonnement Azure.  
+- [Un locataire Azure AD B2C](./tutorial-create-tenant.md) lié à votre abonnement Azure.  
 - [Un abonnement ZPA](https://azuremarketplace.microsoft.com/marketplace/apps/aad.zscalerprivateaccess?tab=Overview).
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -96,15 +96,15 @@ Après la configuration d’Azure AD B2C, le reste de la configuration du fourni
 >[!Note]
 >Cette étape est requise uniquement si vous n’avez pas encore configuré de stratégies personnalisées. Si vous disposez déjà d’une ou de plusieurs stratégies personnalisées, vous pouvez ignorer cette étape.
 
-Pour configurer des stratégies personnalisées sur votre abonné Azure Active Directory B2C, consultez [Démarrage avec des stratégies personnalisées dans Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started).
+Pour configurer des stratégies personnalisées sur votre abonné Azure Active Directory B2C, consultez [Démarrage avec des stratégies personnalisées dans Azure Active Directory B2C](./custom-policy-get-started.md).
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>Étape 3 : Inscrire ZPA en tant qu’application SAML dans Azure AD B2C
 
-Pour configurer une application SAML dans Azure AD B2C, consultez [Inscrire une application SAML dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers). 
+Pour configurer une application SAML dans Azure AD B2C, consultez [Inscrire une application SAML dans Azure AD B2C](./connect-with-saml-service-providers.md). 
 
-À l’étape [« 3.2 chargez et testez vos métadonnées de stratégie »](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#32-upload-and-test-your-policy-metadata), copiez ou notez l’URL des métadonnées SAML du fournisseur d'identité utilisée par Azure AD B2C. Vous en aurez besoin ultérieurement.
+À l’étape [« 3.2 chargez et testez vos métadonnées de stratégie »](./connect-with-saml-service-providers.md#32-upload-and-test-your-policy-metadata), copiez ou notez l’URL des métadonnées SAML du fournisseur d'identité utilisée par Azure AD B2C. Vous en aurez besoin ultérieurement.
 
-Suivez les instructions de l’étape [« 4.2 Mettre à jour le manifeste de l’application »](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers#42-update-the-app-manifest). À l’étape 4.2, mettez à jour les propriétés du manifeste de l’application comme suit :
+Suivez les instructions de l’étape [« 4.2 Mettre à jour le manifeste de l’application »](./connect-with-saml-service-providers.md#42-update-the-app-manifest). À l’étape 4.2, mettez à jour les propriétés du manifeste de l’application comme suit :
 
 - Pour **identifierUris** : Utilisez l’ID de l’entité du fournisseur de services que vous avez copié ou noté précédemment à « l’étape 1.6.b ».  
 - Pour **samlMetadataUrl** : ignorez cette propriété, car ZPA n’héberge pas d’URL de métadonnées SAML.  
@@ -149,7 +149,7 @@ Accédez à un portail utilisateur ZPA ou à une application d’accès au navig
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started)
-- [Inscrire une application SAML dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/connect-with-saml-service-providers)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md)
+- [Inscrire une application SAML dans Azure AD B2C](./connect-with-saml-service-providers.md)
 - [Guide de configuration pas à pas pour ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configurer un fournisseur d’identité pour l’authentification unique](https://help.zscaler.com/zpa/configuring-idp-single-sign)

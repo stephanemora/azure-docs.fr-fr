@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724661"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632493"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -46,7 +46,7 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
 ### <a name="solution"></a>Solution
 
 - Si vous utilisez un partage de fichiers standard, activez les [partages de fichiers volumineux](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) sur votre compte de stockage. Les partages de fichiers volumineux prennent en charge jusqu’à 10 000 IOPS par partage.
-- Si vous utilisez un partage de fichiers premium, augmentez la taille du partage de fichiers approvisionné pour rehausser la limite d’IOPS. Pour plus d’informations, consultez [Présentation du provisionnement des partages de fichiers Premium](./understanding-billing.md#provisioned-billing).
+- Si vous utilisez un partage de fichiers premium, augmentez la taille du partage de fichiers approvisionné pour rehausser la limite d’IOPS. Pour plus d’informations, consultez [Présentation du provisionnement des partages de fichiers Premium](./understanding-billing.md#provisioned-model).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Cause 2 : Métadonnées ou charge de travail importante de l’espace de noms
 

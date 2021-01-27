@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 64d66e1b9eab225b38ee21306fea6f9534a708f3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921715"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673844"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configuration des points de terminaison réseau Azure File Sync
 Azure Files et Azure File Sync fournissent deux principaux types de points de terminaison pour l’accès aux partages de fichiers Azure : 
@@ -52,13 +52,13 @@ Lorsque vous créez un point de terminaison privé pour une ressource Azure, les
 
 Si vous disposez d’une machine virtuelle dans votre réseau virtuel, ou si vous avez configuré le transfert DNS comme décrit dans [Configuration du transfert DNS pour Azure Files](storage-files-networking-dns.md), vous pouvez vérifier que votre point de terminaison privé a été correctement configuré en exécutant les commandes suivantes à partir de PowerShell, de la ligne de commande ou du terminal (fonctionne sur Windows, Linux et macOS). Vous devez remplacer `<storage-account-name>` par le nom du compte de stockage approprié :
 
-```
+```console
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
 Si tout a fonctionné correctement, vous devriez voir la sortie suivante, où `192.168.0.5` correspond à l’adresse IP privée du point de terminaison privé de votre réseau virtuel (sortie affichée pour Windows) :
 
-```Output
+```output
 Server:  UnKnown
 Address:  10.2.4.4
 
@@ -73,7 +73,7 @@ Aliases:  storageaccount.file.core.windows.net
 
 Si vous disposez d’une machine virtuelle dans votre réseau virtuel, ou si vous avez configuré le transfert DNS comme décrit dans [Configuration du transfert DNS pour Azure Files](storage-files-networking-dns.md), vous pouvez vérifier que votre point de terminaison privé a été correctement configuré en exécutant les commandes suivantes :
 
-```PowerShell
+```powershell
 $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
     Select-Object -ExpandProperty Host
 
@@ -82,7 +82,7 @@ Resolve-DnsName -Name $storageAccountHostName
 
 Si tout a fonctionné correctement, vous devriez voir la sortie suivante, où `192.168.0.5` correspond à l’adresse IP privée du point de terminaison privé de votre réseau virtuel :
 
-```Output
+```output
 Name                             Type   TTL   Section    NameHost
 ----                             ----   ---   -------    --------
 storageaccount.file.core.windows CNAME  60    Answer     storageaccount.privatelink.file.core.windows.net
@@ -113,7 +113,7 @@ nslookup $hostName
 
 Si tout a fonctionné correctement, vous devriez voir la sortie suivante, où `192.168.0.5` correspond à l’adresse IP privée du point de terminaison privé de votre réseau virtuel :
 
-```Output
+```output
 Server:         127.0.0.53
 Address:        127.0.0.53#53
 
@@ -168,7 +168,7 @@ Get-AzPrivateEndpoint `
 
 Si tout fonctionne correctement, vous devez voir la sortie suivante, où `192.168.1.4`, `192.168.1.5`, `192.168.1.6` et `192.168.1.7` sont les adresses IP privées attribuées au point de terminaison privé :
 
-```Output
+```output
 Name     : mysssmanagement.westus2.afs.azure.net
 Type     : CNAME
 TTL      : 60
@@ -244,7 +244,7 @@ if ($null -eq $storageSyncService) {
 
 Pour créer un point de terminaison privé, vous devez créer une connexion de service sous forme de liaison privée au service de synchronisation du stockage. La connexion sous forme de liaison privée est une entrée pour la création du point de terminaison privé.
 
-```PowerShell 
+```powershell 
 # Disable private endpoint network policies
 $subnet.PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork = $virtualNetwork | `
@@ -325,7 +325,7 @@ if ($null -eq $dnsZone) {
 ```
 Maintenant que vous disposez d’une référence à la zone DNS privée, vous devez créer un enregistrement A pour votre service de synchronisation du stockage.
 
-```PowerShell 
+```powershell 
 $privateEndpointIpFqdnMappings = $privateEndpoint | `
     Select-Object -ExpandProperty NetworkInterfaces | `
     Select-Object -ExpandProperty Id | `
@@ -607,7 +607,8 @@ $storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Forc
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>L’interface Azure CLI ne prend pas en charge la définition de la propriété `incomingTrafficPolicy` sur le service de synchronisation de stockage. Sélectionnez l’onglet Azure PowerShell pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage.
+L’interface Azure CLI ne prend pas en charge la définition de la propriété `incomingTrafficPolicy` sur le service de synchronisation de stockage. Sélectionnez l’onglet Azure PowerShell pour obtenir des instructions sur la façon de désactiver le point de terminaison public du service de synchronisation du stockage.
+
 ---
 
 ## <a name="see-also"></a>Voir aussi

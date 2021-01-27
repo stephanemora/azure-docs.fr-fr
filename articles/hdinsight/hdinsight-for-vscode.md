@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968532"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610979"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -211,31 +211,30 @@ En utilisant la commande interactive PySpark pour envoyer les requêtes, suivez 
 
    ![PySpark a été installé](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Utilisez l’invite de commandes pour exécuter **pip install numpy == 1.19.3**, puis rechargez la fenêtre VSCode.
 
-8. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
+7. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Python : Sélectionnez Interpréteur pour démarrer le serveur Jupyter**.
 
    ![sélectionner Interpréteur pour démarrer le serveur Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. Sélectionnez l’option Python ci-dessous.
+8. Sélectionnez l’option Python ci-dessous.
 
    ![choisit l’option ci-dessous](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-10. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Développeur : Recharger la fenêtre**.
+9. Dans la barre de menus, accédez à **Afficher** > **Palette de commandes...** ou utilisez le raccourci **Maj + Ctrl + P**, puis entrez **Développeur : Recharger la fenêtre**.
 
     ![recharger la fenêtre](./media/hdinsight-for-vscode/reload-window.png)
 
-11. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
+10. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
 
-12. Sélectionnez l’ensemble du code, cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Spark: PySpark Interactive/Synapse : PySpark Interactive** pour envoyer la requête. 
+11. Sélectionnez l’ensemble du code, cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Spark: PySpark Interactive/Synapse : PySpark Interactive** pour envoyer la requête. 
 
     ![Menu contextuel pyspark interactive](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-13. Si vous n’avez pas spécifié de cluster par défaut, sélectionnez le cluster. Après quelques instants, les résultats **Python Interactive** s’affichent sous un nouvel onglet. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse Pyspark**. Le code s’exécute sans erreur. Si vous souhaitez basculer vers le noyau Synapse Pyspark, il est recommandé de désactiver la configuration automatique dans le portail Azure. Dans le cas contraire, la relance du cluster et la définition du noyau de Synapse peuvent prendre un certain temps lors de la première utilisation. Les outils vous permettent également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel :
+12. Si vous n’avez pas spécifié de cluster par défaut, sélectionnez le cluster. Après quelques instants, les résultats **Python Interactive** s’affichent sous un nouvel onglet. Cliquez sur PySpark pour choisir le noyau **PySpark/Synapse Pyspark**. Le code s’exécute sans erreur. Si vous souhaitez basculer vers le noyau Synapse Pyspark, il est recommandé de désactiver la configuration automatique dans le portail Azure. Dans le cas contraire, la relance du cluster et la définition du noyau de Synapse peuvent prendre un certain temps lors de la première utilisation. Les outils vous permettent également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel :
 
     ![Fenêtre Python interactive dans PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-14. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
+13. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
 
     ![informations travail d’affichage interactif pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 

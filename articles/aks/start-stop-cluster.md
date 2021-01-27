@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 026da4237fe14726766b265e55930346293c71df
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968781"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662895"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Arrêter et démarrer un cluster Azure Kubernetes Service (AKS) (préversion)
 
@@ -28,7 +28,6 @@ Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d
 Lorsque vous utilisez la fonctionnalité de démarrage/arrêt du cluster, les restrictions suivantes s’appliquent :
 
 - Cette fonctionnalité est uniquement prise en charge pour les clusters supportés par des groupes de machines virtuelles identiques.
-- Pendant la préversion, cette fonctionnalité n’est pas prise en charge pour les clusters privés.
 - L’état du cluster d’un cluster AKS arrêté est conservé pendant 12 mois au maximum. Si votre cluster est arrêté pendant plus de 12 mois, l’état du cluster ne peut pas être récupéré. Pour plus d’informations, consultez les [Stratégies de support pour AKS](support-policies.md).
 - Pendant la préversion, vous devez arrêter la mise à l’échelle automatique du cluster avant de tenter d’arrêter le cluster.
 - Vous pouvez uniquement démarrer ou supprimer un cluster AKS arrêté. Pour effectuer une opération telle qu’une mise à l’échelle ou une mise à niveau, commencez par démarrer votre cluster.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8e26a4d996e4c1767856b3dd98ae318d8992a89b
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562690"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625163"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -34,7 +34,7 @@ Vous trouverez ci-dessous la plateforme requise pour les différentes fonctionna
 - La fonctionnalité Moniteur ExpressRoute de NPM prend uniquement en charge le système d'exploitation du serveur Windows (2008 SP1 ou version ultérieure).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Puis-je utiliser des machines Linux en tant que nœuds de surveillance dans NPM ?
-La fonctionnalité de surveillance des réseaux utilisant des nœuds basés sur Linux est désormais généralement disponible. Accédez à l’agent [ici](../../virtual-machines/extensions/oms-linux.md). Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
+La fonctionnalité de surveillance des réseaux utilisant des nœuds basés sur Linux est désormais généralement disponible. Accédez à l’agent [ici](../../virtual-machines/extensions/oms-linux.md). 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quelle est la taille requise pour les nœuds à utiliser à des fins de surveillance par NPM ?
 Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n’êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance s’il utilise plus de 5 % de l’UC.

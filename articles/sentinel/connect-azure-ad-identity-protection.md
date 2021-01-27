@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 06/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 69ab76bf213653ea10db8dfd181b615a7e0f47b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f420e80f10072c440f5401c042d6370a061b1a7f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564472"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632239"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad-identity-protection"></a>Connecter les données à partir de Azure Active Directory (Azure AD) Identity Protection
 
@@ -24,7 +24,6 @@ Vous pouvez diffuser des journaux en continu depuis [Azure AD Identity Protecti
 
 - Vous devez disposer d’un [abonnement Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/).
 - Vous devez posséder des autorisations d’administrateur général ou d’administrateur de la sécurité.
-
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Connexion à Azure AD Identity Protection
 

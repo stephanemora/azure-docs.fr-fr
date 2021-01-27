@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fea314d595fb39a1e35dec8ab24533ad4b893f98
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448068"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673516"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Indexer les tables d’un pool SQL dédié dans Azure Synapse Analytics
 
@@ -24,9 +24,9 @@ Recommandations et exemples relatifs à l’indexation de tables dans un pool SQ
 
 ## <a name="index-types"></a>Types d’index
 
-Un pool SQL dédié propose différentes options d’indexation, comme [les index columnstore en cluster](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [les index cluster et les index non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), ainsi qu’une option hors index également connue sous le nom de [segment de mémoire](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Un pool SQL dédié propose différentes options d’indexation, comme [les index columnstore en cluster](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [les index cluster et les index non cluster](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ainsi qu’une option hors index également connue sous le nom de [segment de mémoire](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 
-Pour créer une table dotée d’un index, consultez la documentation [CREATE TABLE (pool SQL dédié)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Pour créer une table dotée d’un index, consultez la documentation [CREATE TABLE (pool SQL dédié)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="clustered-columnstore-indexes"></a>Index columnstore en cluster
 
@@ -230,7 +230,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 Connectez-vous en tant qu’utilisateur à l’étape 1 (par exemple, LoadUser), qui utilise maintenant une classe de ressources supérieure, puis exécutez les instructions ALTER INDEX. N’oubliez pas que cet utilisateur possède l’autorisation ALTER sur les tables où l’index est reconstruit. Ces exemples illustrent comment reconstruire l’index columnstore entier ou comment reconstruire une partition unique. Sur des tables volumineuses, il est plus pratique de reconstruire les index une seule partition à la fois.
 
-Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table.
+Au lieu de reconstruire l’index, vous pouvez également copier la table dans une nouvelle table avec [CTAS](sql-data-warehouse-develop-ctas.md). Quelle méthode est la meilleure ? Pour les gros volumes de données, CTAS est généralement plus rapide qu’[ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Pour les volumes de données plus restreints, ALTER INDEX est plus facile à utiliser et ne vous oblige pas à permuter la table.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-La reconstruction d’un index dans un pool SQL dédié est une opération hors connexion.  Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Défragmentation d’index columnstore) et [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+La reconstruction d’un index dans un pool SQL dédié est une opération hors connexion.  Pour plus d’informations sur la reconstruction d’index, consultez la section ALTER INDEX REBUILD dans [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (Défragmentation d’index columnstore) et [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Étape 3 : Vérifier que la qualité de segment columnstore en cluster a été améliorée
 
@@ -260,7 +260,7 @@ Réexécutez la requête qui a identifié la table présentant une qualité de s
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Reconstruire des index avec CTAS et le basculement de partitions
 
-Cet exemple utilise l’instruction [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et le basculement de partition pour reconstruire une partition de table.
+Cet exemple utilise l’instruction [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et le basculement de partition pour reconstruire une partition de table.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS

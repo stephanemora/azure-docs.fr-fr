@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Service Bus
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 35680819350582062dd4227c65f9e72ae8b3ee5c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489698"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631764"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l’aide de clés gérées par Microsoft. 
@@ -45,12 +45,12 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 Après avoir activé une clé gérée par le client, vous devez l’associer à votre espace de noms Azure Service Bus. Service Bus prend uniquement en charge Azure Key Vault. Si vous activez l'option **Chiffrement à l'aide de la clé gérée par le client** dans la section précédente, vous devez importer la clé dans Azure Key Vault. En outre, les fonctionnalités **Suppression réversible** et **Ne pas vider** doivent être configurées pour la clé. Ces paramètres peuvent être configurés à l'aide de [PowerShell](../key-vault/general/key-vault-recovery.md) ou de l'[interface CLI](../key-vault/general/key-vault-recovery.md).
 
 1. Pour créer un coffre de clés, suivez le [guide de démarrage rapide](../key-vault/general/overview.md) d'Azure Key Vault. Pour plus d'informations sur l'importation de clés existantes, consultez [Présentation des clés, des secrets et des certificats](../key-vault/general/about-keys-secrets-certificates.md).
-1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create).
+1. Pour activer à la fois la suppression réversible et la protection contre le vidage lors de la création d'un coffre, utilisez la commande [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update).
+1. Pour ajouter la protection contre le vidage à un coffre existant (où la suppression réversible est déjà activée), utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update).
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true

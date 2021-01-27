@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f65c1d6fda09d7762a59fb5a932a72ad706a767a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8a59c24100b433719ccfd3a9ea1b6a676695d381
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448020"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673432"
 ---
 # <a name="partitioning-tables-in-dedicated-sql-pool"></a>Partitionnement de tables dans le pool SQL dédié
 
@@ -58,9 +58,9 @@ Pour plus d’informations, consultez l’article [Indexation](sql-data-warehous
 
 Le pool SQL dédié présente un mode de définition des partitions qui est plus simple que SQL Server. Les fonctions et les schémas de partitionnement ne sont pas utilisés dans le pool SQL dédié, car ils se trouvent dans SQL Server. À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite. 
 
-Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes. SQL Server et le pool SQL dédié prennent en charge une colonne de partition par table, qui peut être une partition par spécification de plages de valeurs. Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes. SQL Server et le pool SQL dédié prennent en charge une colonne de partition par table, qui peut être une partition par spécification de plages de valeurs. Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-L’exemple suivant utilise l’instruction [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour partitionner la table FactInternetSales sur la colonne OrderDateKey :
+L’exemple suivant utilise l’instruction [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour partitionner la table FactInternetSales sur la colonne OrderDateKey :
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -90,8 +90,8 @@ WITH
 
 Pour migrer les définitions de partitions SQL Server vers le pool SQL dédié, il vous suffit d’effectuer les opérations suivantes :
 
-- Éliminez le [schéma de partition](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) SQL Server.
-- Ajoutez la définition de la [fonction de partition](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) à votre instruction CREATE TABLE.
+- Éliminez le [schéma de partition](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) SQL Server.
+- Ajoutez la définition de la [fonction de partition](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) à votre instruction CREATE TABLE.
 
 Si vous migrez une table partitionnée à partir d’une instance SQL Server, le SQL ci-dessous peut vous aider à déterminer le nombre de lignes se trouvant dans chaque partition. N’oubliez pas que si la même granularité de partitionnement est utilisée sur le pool SQL dédié, le nombre de lignes par partition diminue d’un facteur de 60.  
 
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Basculement de partitions
 
-Le pool SQL dédié prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Le pool SQL dédié prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte de validation n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Si les limites de partition sont différentes, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
 

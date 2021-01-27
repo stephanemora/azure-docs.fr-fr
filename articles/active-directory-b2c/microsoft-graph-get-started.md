@@ -1,5 +1,5 @@
 ---
-title: Gérer les ressources avec Microsoft Graph
+title: Inscrire une application Microsoft Graph
 titleSuffix: Azure AD B2C
 description: Préparez la gestion des ressources Azure AD B2C avec Microsoft Graph en inscrivant une application disposant des autorisations API Graph requises.
 services: B2C
@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 61e32f50e02e45487830c5ea7ff476a0571960f6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953999"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675184"
 ---
-# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
+# <a name="register-a-microsoft-graph-application"></a>Inscrire une application Microsoft Graph
 
 [Microsoft Graph][ms-graph] vous permet de gérer de nombreuses ressources au sein de votre locataire Azure AD B2C, y compris des comptes d’utilisateur client et des stratégies personnalisées. En écrivant des scripts ou applications appelant l’[API Microsoft Graph][ms-graph-api], vous pouvez automatiser les tâches de gestion du locataire, notamment :
 
@@ -83,14 +83,15 @@ Si votre application ou script doit supprimer des utilisateurs ou mettre à jour
 1. Sélectionnez **Ajouter**. La propagation complète des autorisations peut prendre quelques minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous avez inscrit votre application de gestion et lui avez accordé les autorisations requises, vos applications et services (par exemple, Azure Pipelines) peuvent utiliser ses informations d’identification et autorisations pour interagir avec l’API Microsoft Graph. 
 
 * [Obtenir un jeton d’accès d’Azure AD](/graph/auth-v2-service#4-get-an-access-token)
 * [Utilisez le jeton d’accès pour appeler Microsoft Graph](/graph/auth-v2-service#4-get-an-access-token)
 * [Opérations B2C prises en charge par Microsoft Graph](microsoft-graph-operations.md)
-* [Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md)
+* [Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph](microsoft-graph-operations.md)
 * [Obtenir les journaux d’audit avec l’API de création de rapports Azure AD](view-audit-logs.md#get-audit-logs-with-the-azure-ad-reporting-api)
 
 <!-- LINKS -->
 [ms-graph]: /graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph-api]: /graph/api/overview

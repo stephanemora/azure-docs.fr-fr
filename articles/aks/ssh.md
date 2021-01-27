@@ -4,12 +4,12 @@ description: Découvrez comment créer une connexion SSH avec des nœuds de clus
 services: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.openlocfilehash: 50a52584618e505aa2ae7bd9ed7e0a9f6bc330a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c044b552cd0c28a7073364c48b9572045a290331
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015610"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662867"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
@@ -25,7 +25,7 @@ Par défaut, les clés SSH sont obtenues ou générées, puis ajoutées aux nœu
 
 Cet article présuppose également que vous disposez d’une clé SSH. Vous pouvez créer une clé SSH à l’aide de [macOS, de Linux][ssh-nix] ou de [Windows][ssh-windows]. Si vous utilisez PuTTY Gen pour créer la paire de clés, enregistrez cette paire de clés dans un format OpenSSH plutôt que dans le format de clé privé PuTTy par défaut (fichier .ppk).
 
-Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>Configurer des clusters AKS basés sur des groupes de machines virtuelles pour l’accès à l’aide d’une clé SSH
 
@@ -35,7 +35,7 @@ Utilisez la commande [az aks show][az-aks-show] pour obtenir le nom du groupe de
 
 ```azurecli-interactive
 CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query '[0].name' -o tsv)
 ```
 
 L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite *CLUSTER_RESOURCE_GROUP* pour afficher le nom du groupe identique et l’affecter à *SCALE_SET_NAME*.

@@ -3,15 +3,15 @@ title: Rotation de certificat pour Azure Database for MariaDB
 description: En savoir plus sur les modifications à venir dues aux changements de certificat racine qui affectent Azure Database for MariaDB
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: ac7019abab1aefaee95c155e34fbc0cb551b4d94
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 66db443c4c52e4994e62a9f83f8a624319b349ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538424"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659884"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database for MariaDB
 
@@ -42,7 +42,7 @@ Toutes les applications qui utilisent SSL/TLS et vérifient le certificat racine
 Si vous utilisez un client qui abstrait la chaîne de connexion, consultez la documentation du client pour savoir s’il vérifie les certificats.
 Pour comprendre le mode sslmode d’Azure Database for MariaDB, consultez les [descriptions du mode SSL](concepts-ssl-connection-security.md#default-settings).
 
-Pour éviter toute interruption de la disponibilité de votre application en raison de la révocation inattendue de certificats, ou pour mettre à jour un certificat révoqué, consultez la section [ **« Procédure à suivre pour maintenir la connectivité »** ](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
+Pour éviter toute interruption de la disponibilité de votre application en raison de la révocation inattendue de certificats, ou pour mettre à jour un certificat révoqué, consultez la section [ **« Procédure à suivre pour maintenir la connectivité »**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity).
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Procédure à suivre pour maintenir la connectivité
 

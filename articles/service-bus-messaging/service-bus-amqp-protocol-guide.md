@@ -3,12 +3,12 @@ title: Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs | Micros
 description: Guide du protocole pour les expressions et description d’AMQP 1.0 dans Azure Service Bus et Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736712"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624487"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -73,7 +73,7 @@ Les connexions, les canaux et les sessions sont éphémères. En cas de coupure 
 
 ### <a name="amqp-outbound-port-requirements"></a>Configuration requise de port sortant AMQP
 
-Les clients qui utilisent des connexions AMQP sur TCP nécessitent que les ports 5671 et 5672 soient ouverts dans le pare-feu local. Outre ces ports, il peut être nécessaire d’ouvrir des ports supplémentaires si la fonctionnalité [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) est activée. `EnableLinkRedirect` est une nouvelle fonctionnalité de messagerie qui permet d’ignorer un tronçon tout en recevant des messages, ce qui contribue à augmenter le débit. Le client commence à communiquer directement avec le service principal sur la plage de ports 104XX comme indiqué dans l’image suivante. 
+Les clients qui utilisent des connexions AMQP sur TCP nécessitent que les ports 5671 et 5672 soient ouverts dans le pare-feu local. Outre ces ports, il peut être nécessaire d’ouvrir des ports supplémentaires si la fonctionnalité [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) est activée. `EnableLinkRedirect` est une nouvelle fonctionnalité de messagerie qui permet d’ignorer un tronçon tout en recevant des messages, ce qui contribue à augmenter le débit. Le client commence à communiquer directement avec le service principal sur la plage de ports 104XX comme indiqué dans l’image suivante. 
 
 ![Liste des ports de destination][4]
 
@@ -240,14 +240,14 @@ Il existe plusieurs autres propriétés de message Service Bus qui ne font pas p
 
 | Clé de mappage d’annotation | Usage | Nom de l’API |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Déclare à quelle heure le message doit apparaître sur l’entité |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Clé définie par l’application qui dicte la partition dans laquelle le message doit se retrouver. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | Valeur de clé-partition définie par l’application lorsqu’une transaction doit être utilisée pour envoyer des messages via une file d’attente de transfert. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | Heure UTC définie par le service qui représente la durée réelle de mise en file d’attente du message. Ignoré lors de la saisie. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Numéro unique défini par le service attribué à un message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Numéro de séquence de mise en file d’attente défini par le service du message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | Défini par le service. Date et heure jusqu’où le message est verrouillé dans la file d’attente/l’abonnement. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | Défini par le service. Si le message est reçu à partir de la file d’attente de lettres mortes, la source du message d’origine. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Déclare à quelle heure le message doit apparaître sur l’entité |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Clé définie par l’application qui dicte la partition dans laquelle le message doit se retrouver. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | Valeur de clé-partition définie par l’application lorsqu’une transaction doit être utilisée pour envoyer des messages via une file d’attente de transfert. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | Heure UTC définie par le service qui représente la durée réelle de mise en file d’attente du message. Ignoré lors de la saisie. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Numéro unique défini par le service attribué à un message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Numéro de séquence de mise en file d’attente défini par le service du message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | Défini par le service. Date et heure jusqu’où le message est verrouillé dans la file d’attente/l’abonnement. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | Défini par le service. Si le message est reçu à partir de la file d’attente de lettres mortes, la source du message d’origine. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Fonctionnalité de transaction
 

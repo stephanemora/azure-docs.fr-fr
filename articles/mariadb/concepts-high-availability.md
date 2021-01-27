@@ -3,15 +3,15 @@ title: Haute disponibilité - Azure Database for MariaDB
 description: Cet article donne des informations sur la haute disponibilité dans Azure Database for MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 4dcb1ac7ce4b468374993c11578bce553f766a42
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: dc37474a56ddb7d2c48c7acfce881fb812f0b8a4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241342"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664331"
 ---
 # <a name="high-availability-in-azure-database-for-mariadb"></a>Haute disponibilité dans Azure Database for MariaDB
 Le service Azure Database for MariaDB assure un niveau élevé de disponibilité de [99,99 %](https://azure.microsoft.com/support/legal/sla/MariaDB), financièrement garanti par un contrat de niveau de service (SLA). Il offre une haute disponibilité pendant des événements planifiés, par exemple, une opération de calcul à grande échelle demandée par l’utilisateur, ainsi que pendant des événements non planifiés, par exemple, une défaillance du matériel, des logiciels ou du réseau sous-jacents. Le service Azure Database for MariaDB affiche une récupération rapide après la plupart des circonstances critiques, ce qui garantit une absence quasi totale de temps d’arrêt des applications.

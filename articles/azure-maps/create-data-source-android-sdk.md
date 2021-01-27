@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681261"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674641"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Créer une source de données (SDK Android)
 
@@ -355,10 +355,10 @@ Une source de vignettes vectorielles décrit comment accéder à un calque de vi
 
 Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec), qui est un standard ouvert. Azure Maps fournit les services de vignettes vectorielles suivants dans le cadre de la plateforme :
 
-- Vignettes routières : [Documentation](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
-- Incidents de circulation : [Documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
-- Débit de circulation : [Documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
-- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu de vignette v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview).
+- Vignettes routières : [Documentation](/rest/api/maps/renderv2/getmaptilepreview) | [Détail du format de données](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Incidents de circulation : [Documentation](/rest/api/maps/traffic/gettrafficincidenttile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- Débit de circulation : [Documentation](/rest/api/maps/traffic/gettrafficflowtile) | [Détail du format de données](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps Creator permet également de créer des vignettes vectorielles personnalisées et d’y accéder par le biais du [Rendu de vignette v2](/rest/api/maps/renderv2/getmaptilepreview).
 
 Pour afficher les données d’une source de vignette vectorielle sur la carte, connectez la source à l’une des couches de rendu de données. Toutes les couches qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer` dans les options. Le code suivant charge le service de mosaïque vectorielle Débit de circulation Azure Maps comme source de mosaïque vectorielle, puis l’affiche sur une carte à l’aide d’une couche de lignes. Cette source de vignette vectorielle comporte un seul jeu de données dans la couche source, appelé « Débit de circulation ». Les données de lignes de ce jeu de données possèdent une propriété nommée `traffic_level` qui est utilisée dans ce code pour sélectionner la couleur et mettre à l’échelle la taille des lignes.
 
@@ -523,4 +523,4 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Ajouter une carte thermique](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Exemples de code de kit de développement logiciel web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemples de code de kit de développement logiciel web](/samples/browse/?products=azure-maps)

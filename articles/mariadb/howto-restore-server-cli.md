@@ -3,17 +3,17 @@ title: Sauvegarde et restauration - Azure CLI - Azure Database for MariaDB
 description: Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MySQL à l’aide d’Azure CLI.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a6e46efd7f998437c3998df9a989ef9e1500e888
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ceda6c99493818042aa281ab545465e91493a80e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539581"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664832"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Découvrez comment sauvegarder et restaurer un serveur dans Azure Database pour MariaDB à l’aide d’Azure CLI.
 

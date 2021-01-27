@@ -3,15 +3,15 @@ title: Private Link – Portail Azure – Azure Database for MariaDB
 description: Découvrez comment configurer une instance Private Link pour Azure Database for MariaDB à partir du portail Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005042"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659622"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Création et gestion de Private Link pour Azure Database for MariaDB avec le portail
 

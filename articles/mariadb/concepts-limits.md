@@ -3,15 +3,15 @@ title: Limitations - Azure Database for MariaDB
 description: Cet article décrit les limitations dans Azure Database for MariaDB, telles que le nombre de connexions et les options du moteur de stockage.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 10/2/2020
-ms.openlocfilehash: d4546732f067988c9d7dd2d11c718a15fbe32d23
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: de561f0fdea7ea7085a4a1d3ec6f95071c36f57e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540652"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664297"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.

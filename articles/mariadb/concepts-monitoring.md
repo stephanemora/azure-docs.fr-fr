@@ -3,16 +3,16 @@ title: Supervision - Azure Database for MariaDB
 description: Cet article décrit les métriques de surveillance et d’alerte pour Azure Database pour MariaDB, notamment les statistiques sur l’UC, le stockage et la connexion.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 7420a7c6355fbcd70ce57fbb36ab29d1241df31f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3d2cf88dba44a7f18f73fbafb66381d2ef8b29c5
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453324"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664280"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.

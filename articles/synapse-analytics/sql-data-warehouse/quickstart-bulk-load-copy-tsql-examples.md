@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1551e85bd45d4d64861b43bf53dd0c155520861f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120986"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673635"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Charger des données de façon sécurisée à l’aide de SQL Synapse
 
-Cet article met en évidence et fournit des exemples sur les mécanismes d’authentification sécurisée pour l’instruction [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L’instruction COPY est la manière la plus flexible et sécurisée de charger des données en bloc dans SQL Synapse.
+Cet article met en évidence et fournit des exemples sur les mécanismes d’authentification sécurisée pour l’instruction [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). L’instruction COPY est la manière la plus flexible et sécurisée de charger des données en bloc dans SQL Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Mécanismes d’authentification pris en charge
 
 La matrice suivante décrit les méthodes d’authentification prises en charge pour chaque type de fichier et compte de stockage. Elle s’applique à l’emplacement de stockage source et à l’emplacement du fichier d’erreur.
@@ -176,5 +176,5 @@ L’authentification de l’identité managée est requise lorsque votre compte 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter l’article sur [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) pour connaître la syntaxe détaillée
+- Consulter l’article sur [l’instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) pour connaître la syntaxe détaillée
 - Consulter l’article sur la [vue d’ensemble du chargement des données](./design-elt-data-loading.md#what-is-elt) pour connaître les bonnes pratiques de chargement

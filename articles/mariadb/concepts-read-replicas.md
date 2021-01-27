@@ -3,16 +3,16 @@ title: Réplicas en lecture - Azure Database for MariaDB
 description: 'Découvrez les réplicas en lecture dans Azure Database for MariaDB : choix des régions, création de réplicas, connexion à des réplicas, supervision de la réplication et arrêt de la réplication.'
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 375db7e5c113c2a48642365624207ce3acbde8a2
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540014"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664212"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 

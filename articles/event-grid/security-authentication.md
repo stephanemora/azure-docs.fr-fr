@@ -3,12 +3,12 @@ title: Authentifier la remise des événements aux gestionnaires d’événement
 description: Cet article décrit les différentes façons d’authentifier la remise auprès de gestionnaires d’événements dans Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015536"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633118"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Authentifier la remise des événements aux gestionnaires d’événements (Azure Event Grid)
 Cet article fournit des informations sur l’authentification de la remise d’événements auprès de gestionnaires d’événements. Il vous montre également comment sécuriser les points de terminaison webhook utilisés pour recevoir des événements d’Event Grid à l’aide d’Azure Active Directory (Azure AD) ou d’un secret partagé.
@@ -35,7 +35,7 @@ Vous pouvez sécuriser le point de terminaison webhook utilisé pour recevoir de
 ### <a name="using-client-secret-as-a-query-parameter"></a>Utilisation d’un secret client comme paramètre de requête
 Vous pouvez également sécuriser votre point de terminaison webhook en ajoutant des paramètres de requête à l’URL de destination webhook spécifiée lors de la création d’un abonnement à un événement. Définissez l’un des paramètres de requête en tant que clé secrète client, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) ou un secret partagé. Le service Event Grid inclut tous les paramètres de requête dans chaque demande de remise d’événement au webhook. Le service webhook peut récupérer et valider le secret. Si le secret client est mis à jour, l’abonnement aux événements doit également être mis à jour. Pour éviter les échecs de remise pendant cette rotation de secret, faites en sorte que le webhook accepte l’ancien et le nouveau secrets pendant une durée limitée avant de mettre à jour l’abonnement à l’événement avec le nouveau secret. 
 
-Comme les paramètres de requête peuvent contenir des secrets clients, ils doivent être utilisés avec une prudence particulière. Ils sont stockés sous forme chiffrée hors de portée des opérateurs de service. Ils ne sont pas enregistrés dans les journaux/traces de service. Lors de la récupération des propriétés de l’abonnement à l’événement, par défaut, les paramètres de requête de destination ne sont pas retournés. Par exemple, le paramètre [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) doit être utilisé dans [Azure CLI](/cli/azure?view=azure-cli-latest).
+Comme les paramètres de requête peuvent contenir des secrets clients, ils doivent être utilisés avec une prudence particulière. Ils sont stockés sous forme chiffrée hors de portée des opérateurs de service. Ils ne sont pas enregistrés dans les journaux/traces de service. Lors de la récupération des propriétés de l’abonnement à l’événement, par défaut, les paramètres de requête de destination ne sont pas retournés. Par exemple, le paramètre [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) doit être utilisé dans [Azure CLI](/cli/azure).
 
 Pour plus d’informations sur la remise d’événements à des webhooks, consultez [Remise d’événements webhook](webhook-event-delivery.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Fichier include
-description: Fichier include
+title: Fichier Include
+description: Fichier Include
 services: storage
 author: roygara
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/2/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3af8ecb049717da789df96f7dcc4e46668938ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42f963f5eb79ef5b430f6fc9d2a0144c370353a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465010"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673843"
 ---
 Si vous souhaitez utiliser des points de terminaison de service pour limiter l’accès au point de terminaison public du compte de stockage à certains réseaux virtuels, vous devez d’abord collecter des informations sur le compte de stockage et le réseau virtuel. Renseignez `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>` et `<subnet-name>` pour recueillir ces informations.
 
@@ -84,7 +84,7 @@ fi
 
 La dernière étape concernant la restriction du trafic vers le compte de stockage consiste à créer une règle de réseau, puis à l’ajouter au jeu de règles de réseau du compte de stockage.
 
-```bash
+```azurecli
 az storage account network-rule add \
         --resource-group $storageAccountResourceGroupName \
         --account-name $storageAccountName \

@@ -3,12 +3,12 @@ title: Ajouter dynamiquement des partitions à un Event Hub dans Azure Event Hub
 description: Cet article vous montre comment ajouter dynamiquement des partitions à un Event Hub dans Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e6efdc7bab309f825032555c97f1e1128f5addd6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132169"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625263"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Ajouter dynamiquement des partitions à un Event Hub (rubrique Apache Kafka) dans Azure Event Hubs
 Azure Event Hubs diffuse des messages via un modèle de consommateur partitionné, dans lequel chaque consommateur lit uniquement un sous-ensemble spécifique, ou partition, du flux de messages. Ce modèle permet la mise à l’échelle horizontale pour le traitement des événements et fournit d’autres fonctionnalités de flux qui ne sont pas disponibles dans les rubriques et les files d’attente. Une partition est une séquence ordonnée d’événements qui est conservée dans un concentrateur d’événements. Les événements les plus récents sont ajoutés à la fin de cette séquence. Pour plus d’informations sur les partitions en général, consultez [Partitions](event-hubs-scalability.md#partitions).
@@ -26,14 +26,14 @@ Vous pouvez spécifier le nombre de partitions au moment de la création d’un 
 Cette section vous montre comment mettre à jour le nombre de partitions d’un Event Hub de différentes façons (PowerShell, CLI, etc.).
 
 ### <a name="powershell"></a>PowerShell
-Utilisez la commande PowerShell [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) pour mettre à jour les partitions d’un Event Hub. 
+Utilisez la commande PowerShell [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) pour mettre à jour les partitions d’un Event Hub. 
 
 ```azurepowershell-interactive
 Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### <a name="cli"></a>Interface de ligne de commande
-Utilisez la commande CLI [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) pour mettre à jour les partitions d’un Event Hub. 
+Utilisez la commande CLI [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az-eventhubs-eventhub-update) pour mettre à jour les partitions d’un Event Hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12

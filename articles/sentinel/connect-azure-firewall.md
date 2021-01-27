@@ -7,20 +7,16 @@ ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 08/30/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b21ce75bfb33b5a8869c63b7d3f71fb9f0c93768
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656018"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621293"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Connecter des données à partir de Pare-feu Azure
-
-> [!IMPORTANT]
-> Le connecteur de données Pare-feu Azure dans Azure Sentinel est disponible en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité sans limites du cloud. 
 

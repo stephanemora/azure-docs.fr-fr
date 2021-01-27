@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655525"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623364"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Connecter des alertes de Microsoft Defender for Endpoint (anciennement Microsoft Defender ATP)
 
@@ -28,10 +28,6 @@ ms.locfileid: "94655525"
 > - **Microsoft Defender for Endpoint** était précédemment appelé **Microsoft Defender Advanced Threat Protection**, ou **MDATP**.
 >
 >     Il se peut que vous constatiez que l’ancien nom sera encore utilisé dans le produit (notamment son connecteur de données dans Azure Sentinel) pendant un certain temps.
->
-> - L’ingestion des alertes de Microsoft Defender pour Endpoint est actuellement disponible en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le connecteur [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) vous permet de diffuser en continu des alertes de Microsoft Defender for Endpoint vers Azure Sentinel. Vous pouvez ainsi analyser de manière plus détaillée les événements de sécurité se produisant dans votre organisation et générer des playbooks afin d'y répondre immédiatement et efficacement.
 

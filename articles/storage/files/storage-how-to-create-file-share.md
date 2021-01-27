@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724797"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673804"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -129,7 +129,7 @@ Pour créer un compte de stockage en utilisant l’interface Azure CLI, nous all
 
 Pour simplifier la création du compte de stockage et du partage de fichiers suivant, nous allons stocker plusieurs paramètres dans des variables. Vous pouvez remplacer les contenu des variables par les valeurs de votre choix. Toutefois, notez que le nom du compte de stockage doit être globalement unique.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 Pour créer un compte de stockage apte à stocker les partages de fichiers Azure Standard, nous allons utiliser la commande suivante. Le paramètre `--sku` est associé au type de redondance souhaité. Si vous souhaitez disposer d’un compte de stockage géoredondant ou géoredondant interzone, vous devez également supprimer le paramètre `--enable-large-file-share`.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 Pour créer un compte de stockage apte à stocker les partages de fichiers Azure Premium, nous allons utiliser la commande suivante. Notez que le paramètre `--sku` a changé pour inclure à la fois `Premium` et le niveau de redondance souhaité en local (`LRS`). Le paramètre `--kind` est `FileStorage` à la place de `StorageV2`, car les partages de fichiers Premium doivent être créés dans un compte de stockage FileStorage au lieu d’un compte de stockage GPv2.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -172,7 +172,7 @@ La propriété **quota** du partage de fichiers Premium est légèrement différ
 
 - Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. La finalité principale du quota d’un partage de fichiers Standard est budgétaire : « Je ne veux pas que ce partage de fichiers augmente au-delà de ce point ». Si aucun quota n’est spécifié, le partage de fichiers Standard peut s’étendre jusqu’à 100 Tio (ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage).
 
-- Pour les partages de fichiers Premium, le quota est surchargé pour signifier de **taille provisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Lorsque vous provisionnez un partage de fichiers Premium, vous devez prendre en compte deux facteurs : 1) la croissance future du partage au niveau de l’utilisation de l’espace et 2) les IOPS nécessaires pour votre charge de travail. Chaque Gio provisionné vous donne droit à des e/s par seconde supplémentaires, réservées et en rafale. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-billing).
+- Pour les partages de fichiers Premium, le quota est surchargé pour signifier de **taille provisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Lorsque vous provisionnez un partage de fichiers Premium, vous devez prendre en compte deux facteurs : 1) la croissance future du partage au niveau de l’utilisation de l’espace et 2) les IOPS nécessaires pour votre charge de travail. Chaque Gio provisionné vous donne droit à des e/s par seconde supplémentaires, réservées et en rafale. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Si vous venez de créer votre compte de stockage, vous pouvez accéder à celui-ci depuis l’écran de déploiement en sélectionnant **Accéder à la ressource**. Si vous avez déjà créé le compte de stockage, vous pouvez y accéder par le groupe de ressources qui le contient. Une fois dans le compte de stockage, sélectionnez la vignette intitulée **Partages de fichiers** (vous pouvez également accéder à **Partages de fichiers** en utilisant le sommaire pour le compte de stockage).
@@ -233,7 +233,7 @@ Les fonctionnalités permettant de créer ou de déplacer un partage de fichiers
 > [!Important]  
 > Pour les partages de fichiers Premium, le paramètre `--quota` fait référence à la taille provisionnée du partage de fichiers. La taille provisionnée du partage de fichiers est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Les partages de fichiers Standard sont facturés en fonction de l’utilisation, et non par rapport à la taille provisionnée.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 La commande Azure CLI suivante suppose que vous avez défini les variables `$resourceGroupName`, `$storageAccountName` et `$shareName`, comme indiqué dans les sections précédentes de ce document.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

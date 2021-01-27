@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655368"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632180"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Connecter des journaux Office 365 à Azure Sentinel
 
 Le connecteur de journal d’activité [Office 365](/office/) fournit des informations Azure Sentinel sur les activités de l’utilisateur et de l’administrateur en cours dans **Exchange** et **SharePoint** (y compris **OneDrive**), ainsi que, maintenant, dans **Teams**. Ces informations comportent des détails relatifs aux actions telles que le téléchargement de fichiers, les demandes d’accès envoyées, les changements apportés aux événements de groupe, les opérations de boîtes aux lettres, les événements Teams (par ex. concernant la conversation, l’équipe, les membres et les canaux), ainsi que les détails de l’utilisateur qui a effectué les actions. En connectant les journaux Office 365 à Azure Sentinel, vous pouvez afficher et analyser ces données dans vos classeurs, les interroger pour créer des alertes personnalisées et les incorporer pour améliorer votre processus d’investigation, ce qui vous donne plus d’informations sur la sécurité d’Office 365.
-
-> [!IMPORTANT]
-> L’extension du connecteur  **du journal Office 365 pour les journaux Microsoft Teams** est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 

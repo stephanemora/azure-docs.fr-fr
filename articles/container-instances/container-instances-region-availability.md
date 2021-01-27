@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763891"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661372"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -40,6 +40,7 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | USA Est | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | USA Est 2 | 4 | 16 | 4 | 16 | 50 | N/A |
 | France Centre | 4 | 16 | 4 | 16 | 50 | N/A |
+| Allemagne Centre-Ouest | 3 | 16 | N/A | N/A | 50 | N/A |
 | Japon Est | 2 | 8 | 4 | 16 | 50 | N/A |
 | Centre de la Corée | 4 | 16 | N/A | N/A | 50 | N/A |
 | Centre-Nord des États-Unis | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
@@ -48,6 +49,7 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Asie Sud-Est | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Inde Sud | 4 | 16 | N/A | N/A | 50 | N/A |
 | Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 50 | N/A |
+| Émirats arabes unis Nord | 3 | 16 | N/A | N/A | 50 | N/A |
 | Centre-USA Ouest| 4 | 16 | 4 | 16 | 50 | N/A |
 | Europe Ouest | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | USA Ouest | 4 | 16 | 4 | 16 | 50 | N/A |

@@ -3,16 +3,16 @@ title: Chaînes de connexion - Azure Database for MariaDB
 description: Ce document répertorie les chaînes de connexion actuellement prises en charge pour la connexion des applications à Azure Database for MariaDB, notamment ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python et Ruby.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8119f0bfd1f9007cab0df93ad2c7ef22b4db2199
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 309c8b55910c5223f377571edb7207e5b34bd219
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533002"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662175"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Guide pratique pour connecter des applications à Azure Database for MariaDB
 Cette rubrique répertorie les types de chaînes de connexion pris en charge par Azure Database for MariaDB, ainsi que des modèles et des exemples. Vous pouvez avoir des paramètres et des réglages différents dans votre chaîne de connexion.
