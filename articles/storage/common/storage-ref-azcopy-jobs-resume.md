@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: dd25bec04d651c01d622f0652a29a65069421786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c0a31cc58ee6f1bbe78af017be42ae7d410fe0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281954"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878407"
 ---
 # <a name="azcopy-jobs-resume"></a>azcopy jobs resume
 
@@ -28,7 +28,7 @@ azcopy jobs resume [jobID] [flags]
 ## <a name="related-conceptual-articles"></a>Articles conceptuels associés
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 

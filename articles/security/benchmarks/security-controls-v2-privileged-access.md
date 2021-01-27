@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7721100d902948364c9e4b1373f1fa805c680a50
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202213"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880723"
 ---
 # <a name="security-control-v2-privileged-access"></a>Contrôle de sécurité V2 : Accès privilégié
 
@@ -159,7 +159,7 @@ Les stations de travail sécurisées et isolées sont extrêmement importantes p
 
 - [Comprendre les stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Déployer une station de travail d’accès privilégié](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Déployer une station de travail d’accès privilégié](/security/compass/privileged-access-deployment)
 
 **Responsabilité** : Customer
 
@@ -217,4 +217,3 @@ Dans le cadre des scénarios de support où Microsoft a besoin d’accéder aux 
 - [Gestion de la conformité de la sécurité](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Gestion des identités et des clés](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

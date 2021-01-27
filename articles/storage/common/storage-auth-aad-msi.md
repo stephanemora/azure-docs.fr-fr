@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e58cbef74aa9b6f58207abf780fd63176d5edd7d
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 552d2587f35ed391b470c6d5b1693b79fd57306b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680933"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879576"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure
 
@@ -171,4 +171,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 - [Gérer les droits d’accès aux données de stockage avec le contrôle RBAC Azure](./storage-auth-aad-rbac-portal.md).
 - [Utiliser Azure AD avec des applications de stockage](storage-auth-aad-app.md).
 - [Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob](../blobs/authorize-data-operations-powershell.md)
-- [Tutoriel : Accéder au stockage à partir d’App Service à l’aide d’identités managées](/azure/app-service/scenario-secure-app-access-storage)
+- [Tutoriel : Accéder au stockage à partir d’App Service à l’aide d’identités managées](../../app-service/scenario-secure-app-access-storage.md)

@@ -1,6 +1,6 @@
 - name: Documentation sur les modèles ARM
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Que sont les modèles ARM\_?"
       href: overview.md
@@ -162,6 +162,8 @@
               href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Réseau de distribution de contenu
               href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Protection DDOS
+              href: ../../ddos-protection/manage-ddos-protection-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: DNS
               href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: ExpressRoute

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f4f55e9a5d08b2c2cd14b1ca94efac15f84f1978
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976281"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879525"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Utiliser Azure Image Builder pour les machines virtuelles Windows autorisant l’accès à un réseau virtuel Azure existant
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-Maintenant que la build est terminée, vous pouvez générer une machine virtuelle à partir de l’image. Utilisez les exemples de la [documentation PowerShell New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Maintenant que la build est terminée, vous pouvez générer une machine virtuelle à partir de l’image. Utilisez les exemples de la [documentation PowerShell New-AzVM](/powershell/module/az.compute/new-azvm#description).
 
 ## <a name="clean-up"></a>Nettoyer
 
@@ -296,4 +296,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [galeries d’images partagées Azure](shared-image-galleries.md).
+En savoir plus sur les [galeries d’images partagées Azure](../shared-image-galleries.md).

@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968396"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879879"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrer des données à l’aide de l’accélération des requêtes d’Azure Data Lake Storage
 
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Cet exemple envoie la requête à l’API d’accélération des requêtes, puis retourne les résultats. L’objet `blob` passé dans la fonction d’assistance `queryHemingway` est de type [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). Pour en savoir plus sur l’obtention d’un objet [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient), consultez [Démarrage rapide : Gérer les blobs avec le kit SDK JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md).
+Cet exemple envoie la requête à l’API d’accélération des requêtes, puis retourne les résultats. L’objet `blob` passé dans la fonction d’assistance `queryHemingway` est de type [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Pour en savoir plus sur l’obtention d’un objet [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient), consultez [Démarrage rapide : Gérer les blobs avec le kit SDK JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)

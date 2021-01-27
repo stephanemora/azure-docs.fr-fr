@@ -10,20 +10,20 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/19/2021
+ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 8396656f490da9730cd46c68190ed6875cc87fa5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602410"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877507"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="january-2021-guest-os"></a>Système d’exploitation invité, janvier 2021
-">[!NOTE]
+>[!NOTE]
 >Le système d'exploitation invité de janvier est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d'exploitation invité de janvier. Cette liste est soumise à modification. »
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

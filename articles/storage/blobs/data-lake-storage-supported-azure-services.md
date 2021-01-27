@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: cbbbf4ddc651c535cb1266257990f149c80b4742
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: caa0390dfd3a98e6537a7a60a2895461e2efd52a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562495"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879862"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Services Azure qui prennent en charge Azure Data Lake Storage Gen2
 
@@ -39,12 +39,12 @@ Ce tableau répertorie les services Azure que vous pouvez utiliser avec Azure Da
 |HDInsight |Mise à la disposition générale|Oui|Oui|[Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutoriel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
 |IoT Hub |Mise à la disposition générale|Oui|Oui|[Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Mise à la disposition générale|Oui|Oui|[Analyse des données dans Data Lake Storage Gen2 à l’aide de Power BI](/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (anciennement SQL Data Warehouse)|Mise à la disposition générale|Oui|Oui|[Analyser des données dans un compte de stockage](/azure/synapse-analytics/get-started-analyze-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Synapse Analytics (anciennement SQL Data Warehouse)|Mise à la disposition générale|Oui|Oui|[Analyser des données dans un compte de stockage](../../synapse-analytics/get-started-analyze-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |SQL Server Integration Services (SSIS)|Mise à la disposition générale|Oui|Oui|[Gestionnaire de connexions Stockage Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Explorateur de données Azure|Mise à la disposition générale|Oui|Oui|[Interroger des données dans Azure Data Lake à l’aide d’Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Recherche cognitive Azure|PRÉVERSION|Oui|Oui|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Azure Content Delivery Network|Pas encore pris en charge|Non applicable|Non applicable|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|Pas encore pris en charge|Non applicable|Non applicable|[Qu’est-ce qu’Azure SQL Database ?](/azure/azure-sql/database/sql-database-paas-overview)|
+|Azure SQL Database|Pas encore pris en charge|Non applicable|Non applicable|[Qu’est-ce qu’Azure SQL Database ?](../../azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897856"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881042"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -22,7 +22,7 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 > [!NOTE]
 > Si vous recherchez du contenu pour vous aider à bien démarrer avec AzCopy, consultez les articles suivants :
 > - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-> - [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
+> - [Transférer des données avec AzCopy et le Stockage Blob](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 > - [Transférer des données avec AzCopy et des compartiments Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ Les niveaux d’enregistrement disponibles sont : `NONE`, `DEBUG`, `INFO`, `WAR
 Si vous souhaitez supprimer tous les fichiers journaux et de plan de votre ordinateur local pour économiser de l’espace disque, utilisez la commande `azcopy jobs clean`.
 
 Pour supprimer les fichiers journaux et de plan associés à un seul travail, utilisez `azcopy jobs rm <job-id>`. Remplacez l’espace réservé `<job-id>` dans cet exemple par l’ID du travail.
-
-

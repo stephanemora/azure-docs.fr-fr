@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657888"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880523"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurer une connexion VPN site à site via un peering privé ExpressRoute
 
@@ -72,7 +72,7 @@ Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion V
 
 ## <a name="portal-steps"></a><a name="portal"></a>Étapes dans le portail
 
-1. Configurez une connexion site à site. Pour connaître les étapes à suivre, consultez l’article [Configuration de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Veillez à sélectionner une référence SKU de passerelle redondante interzone pour la passerelle. 
+1. Configurez une connexion site à site. Pour connaître les étapes à suivre, consultez l’article [Configuration de site à site](./tutorial-site-to-site-portal.md). Veillez à sélectionner une référence SKU de passerelle redondante interzone pour la passerelle. 
 
    Les références SKU redondantes interzones comportent « AZ » à la fin de la référence SKU. Par exemple, **VpnGw1AZ**. Les passerelles redondantes interzone sont uniquement disponibles dans les régions où le service de zones de disponibilité est proposé. Pour plus d'informations sur les régions dans lesquelles nous prenons en charge les zones de disponibilité, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-region.md).
 
@@ -89,7 +89,7 @@ Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion V
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>étapes PowerShell
 
-1. Configurez une connexion site à site. Pour connaître les étapes à suivre, consultez l’article [Configurer un VPN site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Veillez à sélectionner une référence SKU de passerelle redondante interzone pour la passerelle. Les références SKU redondantes interzones comportent « AZ » à la fin de la référence SKU. Par exemple, VpnGw1AZ.
+1. Configurez une connexion site à site. Pour connaître les étapes à suivre, consultez l’article [Configurer un VPN site à site](./tutorial-site-to-site-portal.md). Veillez à sélectionner une référence SKU de passerelle redondante interzone pour la passerelle. Les références SKU redondantes interzones comportent « AZ » à la fin de la référence SKU. Par exemple, VpnGw1AZ.
 1. Définissez l’indicateur pour utiliser l’adresse IP privée sur la passerelle à l’aide des commandes PowerShell suivantes :
 
    ```azurepowershell-interactive

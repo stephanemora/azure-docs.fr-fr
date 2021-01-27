@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746316"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880285"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -49,7 +49,7 @@ Ce tableau répertorie les étapes et conditions requises pour que votre offre a
 ||Dynamics|<ul><li>Vous avez une inscription active au niveau Premium ISV Connect.</li></ul>|Co-vente d'applications métier avec incentives|
 |||
 
-Pour plus d’informations sur les exigences relatives aux offres de solutions de co-vente, consultez [Prérequis relatifs à l’état de co-vente](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Pour plus d’informations sur les exigences relatives aux offres de solutions de co-vente, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Soumettre des documents de co-vente dans l'Espace partenaires
 

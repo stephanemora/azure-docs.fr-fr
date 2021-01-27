@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 16f903e34c64214d54fc01fa621f561f1786de08
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755988"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881365"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Présentation d’Azure Defender pour SQL
 
@@ -27,7 +27,7 @@ Azure Defender pour SQL comprend deux plans Azure Defender qui étendent le [pac
 |----|:----|
 |État de sortie :|**Azure Defender pour les serveurs de base de données Azure SQL** – Disponibilité générale (GA)<br>**Azure Defender pour les serveurs SQL sur les machines** - Disponibilité générale |
 |Prix :|Les deux plans qui forment **Azure Defender pour SQL** sont facturés conformément aux indications de la [page des tarifs](security-center-pricing.md).|
-|Versions de SQL protégées :|[SQL sur machines virtuelles Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Serveurs SQL avec Azure Arc](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Serveurs SQL locaux sur machines Windows sans Azure Arc<br>[Bases de données uniques](../azure-sql/database/single-database-overview.md) et [pools élastiques](../azure-sql/database/elastic-pool-overview.md) Azure SQL<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Pool SQL dédié Azure Synapse Analytics (anciennement SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
+|Versions de SQL protégées :|[SQL sur machines virtuelles Azure](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Serveurs SQL avec Azure Arc](/sql/sql-server/azure-arc/overview)<br>Serveurs SQL locaux sur machines Windows sans Azure Arc<br>[Bases de données uniques](../azure-sql/database/single-database-overview.md) et [pools élastiques](../azure-sql/database/elastic-pool-overview.md) Azure SQL<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Pool SQL dédié Azure Synapse Analytics (anciennement SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) US Gov<br>![Oui](./media/icons/yes-icon.png) China Gov (**Partiel**: Sous-ensemble d’alertes et évaluation des vulnérabilités pour les serveurs SQL. Les protections contre les menaces comportementales ne sont pas disponibles.)|
 |||
 
@@ -43,7 +43,7 @@ Azure Defender pour SQL comprend deux plans Azure Defender qui étendent le [pac
 - **Azure Defender pour les serveurs SQL Server sur les machines** étend les protections de vos serveurs SQL Azure natifs pour prendre en charge les environnements hybrides et protéger les serveurs SQL (toutes les versions prises en charge) hébergés dans Azure, d’autres environnements cloud et même les machines locales :
     - [SQL Server sur les machines virtuelles](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Serveurs SQL locaux :
-        - [SQL Server avec Azure Arc (préversion)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server avec Azure Arc (préversion)](/sql/sql-server/azure-arc/overview)
         - [SQL Server exécuté sur des machines Windows sans Azure Arc](../azure-monitor/platform/agent-windows.md)
 
 

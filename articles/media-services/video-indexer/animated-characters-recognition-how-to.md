@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763385"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880925"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Utiliser la détection de personnages animés (préversion) avec le portail et l’API 
 
@@ -35,7 +35,7 @@ Si vous êtes propriétaire d’un compte Video Indexer payant, vous devez d’a
 > [!NOTE]
 > Les deux comptes doivent se trouver dans la même région. L’intégration de Custom Vision n’est actuellement pas prise en charge dans la région du Japon.
 
-Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. Apprenez-en davantage sur l’ [amélioration de votre classifieur dans Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. Apprenez-en davantage sur l’ [amélioration de votre classifieur dans Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
 Notez que l’entraînement du modèle doit être effectué uniquement via Video Indexer, et non pas via le site web de Custom Vision. 
 
@@ -108,7 +108,7 @@ Avant de marquer et de former le modèle, tous les personnages animés sont nomm
 1. Comptes payants uniquement : passez en revue les groupes dans Custom Vision 
 
     > [!NOTE]
-    > Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. Apprenez-en davantage sur l’ [amélioration de votre classifieur dans Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). Il est important de noter que l’entraînement du modèle doit être effectué uniquement via Video Indexer (comme décrit dans cette rubrique), et non pas via le site web de Custom Vision. 
+    > Les comptes payants qui ont accès à leur compte Custom Vision peuvent voir les modèles et les images marquées à cet endroit. Apprenez-en davantage sur l’ [amélioration de votre classifieur dans Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). Il est important de noter que l’entraînement du modèle doit être effectué uniquement via Video Indexer (comme décrit dans cette rubrique), et non pas via le site web de Custom Vision. 
 
     1. Accédez à la page **Modèles personnalisés** dans Video Indexer et choisissez l’onglet **Personnages animés**. 
     1. Cliquez sur le bouton Modifier du modèle sur lequel vous travaillez pour le gérer dans Custom Vision. 

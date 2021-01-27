@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500272"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879627"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -343,4 +343,4 @@ Utilisez l’indicateur **--expand ReplicationStatus** pour vérifier si la rép
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [ galeries d’images partagées](./linux/shared-image-galleries.md)
+En savoir plus sur les [ galeries d’images partagées](./shared-image-galleries.md)

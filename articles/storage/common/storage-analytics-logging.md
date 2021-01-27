@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: eb71de223e2d840e0caa0444b837e16e1f091414
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f0f9832a8128a447970535f18cceca3cd4dccc69
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484785"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880251"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -204,7 +204,7 @@ L’exemple suivant montre comment vous pouvez télécharger les données de jou
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Pour en savoir plus sur le téléchargement de fichiers spécifiques, consultez [Télécharger des fichiers spécifiques](./storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Pour en savoir plus sur le téléchargement de fichiers spécifiques, consultez [Télécharger des fichiers spécifiques](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#transfer-data).
 
 Lorsque vous avez téléchargé vos données de journal, vous pouvez afficher les entrées de journal dans les fichiers. Ces fichiers journaux utilisent un format de texte délimité que de nombreux outils de lecture de journaux sont en mesure d’analyser (pour plus d’informations, consultez le guide [Surveiller, diagnostiquer et résoudre les problèmes liés au service Stockage Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Différents outils possèdent des fonctionnalités différentes de mise en forme, de filtrage, de tri et de recherche de contenu de vos fichiers journaux. Pour plus d’informations sur le format du fichier journal de journalisation du stockage et son contenu, consultez [Format du journal de l’analyse de stockage](/rest/api/storageservices/storage-analytics-log-format) et [Opérations et messages d’état enregistrés Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

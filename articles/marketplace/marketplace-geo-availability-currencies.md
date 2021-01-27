@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 12/07/2020
-ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853745"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879762"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la Place de marché commerciale
 
@@ -195,13 +195,13 @@ Les prix individuels (qui, selon la façon dont ils ont été définis, peuvent 
 Pour plus d’informations sur la façon d’entrer les prix de certains types d’offres, reportez-vous aux articles suivants :
 
 - [Créer une offre Azure Application](create-new-azure-apps-offer.md)
-- [Créer une offre de conteneur Azure](partner-center-portal/create-azure-container-offer.md)
+- [Créer une offre de conteneur Azure](./create-azure-container-offer.md)
 - [Créer une offre de machine virtuelle Azure](azure-vm-create.md)
 - [Créer une offre de services de conseil](./create-consulting-service-offer.md)
 - [Créer une offre Dynamics 365 for Customer Engagement et PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Créer une offre Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Créer une offre Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Créer une offre de module IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Créer une offre de service managé](partner-center-portal/create-new-managed-service-offer.md)
+- [Créer une offre de service managé](./plan-managed-service-offer.md)
 - [Créer une application dans Power BI](partner-center-portal/create-power-bi-app-offer.md)
 - [Créer une offre SaaS](./create-new-saas-offer.md)

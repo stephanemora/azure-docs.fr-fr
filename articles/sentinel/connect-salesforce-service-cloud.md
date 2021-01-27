@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: d323af2695a41e685e722c98603cf5df09866a15
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567819"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878916"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Connecter Salesforce Service Cloud à Azure Sentinel
 
@@ -37,7 +37,7 @@ Cet article explique comment connecter votre solution Salesforce Service Cloud �
 
 - Vous devez disposer d’autorisations de lecture sur les clés partagées pour accéder à l’espace de travail. [En savoir plus sur les clés d’espace de travail](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
-- Vous devez disposer d’autorisations en lecture et en écriture sur Azure Functions pour créer une application de fonction. [En savoir plus sur Azure Functions](/azure/azure-functions/).
+- Vous devez disposer d’autorisations en lecture et en écriture sur Azure Functions pour créer une application de fonction. [En savoir plus sur Azure Functions](../azure-functions/index.yml).
 
 - Vous devez disposer des informations d’identification suivantes de l’API REST Salesforce : **Nom d’utilisateur de l’API Salesforce**, **Mot de passe de l’API Salesforce**, **Jeton de sécurité Salesforce**, **Clé consommateur Salesforce**, **Secret consommateur Salesforce**. [En savoir plus sur l’API REST Salesforce](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm).
 

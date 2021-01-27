@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: cff0c54cf5aa8854273be9502f5cf6df4e0a055b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632112"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879542"
 ---
 # <a name="monitoring-time-series-insights"></a>Supervision de Time Series Insights
 
@@ -27,9 +27,9 @@ La page **Vue d’ensemble** du portail Azure pour chaque environnement Time Ser
 
 ## <a name="what-is-azure-monitor"></a>Présentation d’Azure Monitor
 
-Time Series Insights crée des données de supervision avec [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités permettant de superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et localement.
+Time Series Insights crée des données de supervision avec [Azure Monitor](../azure-monitor/overview.md), un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités permettant de superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et localement.
 
-Commencez avec l’article [Supervision de ressources Azure avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), qui décrit les concepts suivants :
+Commencez avec l’article [Supervision de ressources Azure avec Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md), qui décrit les concepts suivants :
 
 - Qu’est-ce qu’Azure Monitor ?
 - Coûts associés à la supervision
@@ -63,7 +63,7 @@ Vous pouvez collecter des journaux à partir des catégories suivantes pour Azur
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
 
-Vous pouvez analyser les métriques d’Azure Time Series Insights, ainsi que celles d’autres services Azure, en ouvrant Métriques dans le menu Azure Monitor. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+Vous pouvez analyser les métriques d’Azure Time Series Insights, ainsi que celles d’autres services Azure, en ouvrant Métriques dans le menu Azure Monitor. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
 
 Pour obtenir la liste des métriques de plateforme collectées, consultez [Supervision des informations de référence sur les données Azure Time Series Insights](how-to-monitor-tsi-reference.md#metrics)
 
@@ -88,7 +88,7 @@ Azure Time Series Insights stocke des données dans les tables suivantes.
 |:---|:---|
 | TSIIngress | Table qui stocke les données de la catégorie Ingress (Entrée). La catégorie Ingress (Entrée) effectue le suivi des erreurs qui se produisent dans le pipeline d’entrée. Cette catégorie comprend les erreurs qui se produisent lors de la réception d’événements (comme les échecs de connexion à une source d’événement) et le traitement d’événements (comme les erreurs survenant lors de l’analyse d’une charge utile d’événement).
 
-Pour router des données vers Azure Monitor Logs, vous devez créer un paramètre de diagnostic pour envoyer les journaux de ressources ou les métriques de plateforme à un espace de travail Log Analytics. Pour plus d’informations, consultez [Collecte et routage](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing).
+Pour router des données vers Azure Monitor Logs, vous devez créer un paramètre de diagnostic pour envoyer les journaux de ressources ou les métriques de plateforme à un espace de travail Log Analytics. Pour plus d’informations, consultez [Collecte et routage](../iot-hub/monitor-iot-hub.md#collection-and-routing).
 
 ## <a name="sample-queries"></a>Exemples de requêtes
 
@@ -115,7 +115,7 @@ Voici des requêtes que vous pouvez utiliser pour superviser plus facilement vot
 
 ## <a name="alerts"></a>Alertes
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), sur des [journaux](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) et sur le [journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). Les différents types d’alertes présentent des avantages et des inconvénients.
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](../azure-monitor/platform/alerts-metric-overview.md), sur des [journaux](../azure-monitor/platform/alerts-unified-log.md) et sur le [journal d’activité](../azure-monitor/platform/activity-log-alerts.md). Les différents types d’alertes présentent des avantages et des inconvénients.
 
 Lors de la création d’une règle d’alerte basée sur des métriques de plateforme Time Series Insights qui sont collectées à l’unité, certaines agrégations peuvent ne pas être disponibles ou utilisables.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400158"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880150"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.
@@ -27,7 +27,7 @@ La première configuration de l’exemple présente un tunnel VPN S2S unique ent
 
 ![Diagramme d’un tunnel VPN S2S unique](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Pour obtenir des instructions pas à pas pour configurer un tunnel VPN unique, consultez [Configurer une connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Les sections suivantes spécifient les paramètres de connexion de l’exemple de configuration et fournissent un script PowerShell pour vous aider à démarrer.
+Pour obtenir des instructions pas à pas pour configurer un tunnel VPN unique, consultez [Configurer une connexion de site à site](./tutorial-site-to-site-portal.md). Les sections suivantes spécifient les paramètres de connexion de l’exemple de configuration et fournissent un script PowerShell pour vous aider à démarrer.
 
 ### <a name="connection-parameters"></a>Paramètres de connexion
 Cette section répertorie les paramètres des exemples décrits dans les sections précédentes.
@@ -150,4 +150,3 @@ Quand vous créez la connexion VPN S2S, vous pouvez éventuellement utiliser le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour configurer des passerelles VPN en mode actif/actif, consultez [Configuration de passerelles VPN en mode actif/actif pour des connexions entre différents locaux et entre deux réseaux virtuels](vpn-gateway-activeactive-rm-powershell.md).
-

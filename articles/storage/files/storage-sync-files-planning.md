@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492090"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880573"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -50,6 +50,9 @@ Les groupes de synchronisation sont déployés dans des **services de synchronis
 Pour créer un groupe de synchronisation dans un service de synchronisation de stockage, vous devez préalablement inscrire une instance de Windows Server auprès du service de synchronisation de stockage. L'objet **serveur inscrit** qui est alors créé représente une relation d'approbation entre votre serveur, ou cluster, et le service de synchronisation de stockage. Pour inscrire un service de synchronisation de stockage, vous devez d'abord installer l'agent Azure File Sync sur le serveur. Un serveur ou un cluster ne peut être inscrit qu'auprès d'un seul service de synchronisation de stockage à la fois.
 
 Un groupe de synchronisation contient un point de terminaison cloud, ou un partage de fichiers Azure, et au moins un point de terminaison de serveur. L'objet point de terminaison de serveur contient les paramètres de configuration de la fonctionnalité de **hiérarchisation cloud**, qui fournit la fonctionnalité de mise en cache d'Azure File Sync. Pour la synchronisation avec un partage de fichiers Azure, le compte de stockage contenant le partage de fichiers Azure doit se trouver dans la même région Azure que le service de synchronisation de stockage.
+
+> [!Important]  
+> Vous pouvez apporter des modifications à un point de terminaison cloud ou un point de terminaison de serveur dans le groupe de synchronisation, et synchroniser vos fichiers avec les autres points de terminaison du groupe de synchronisation. Si vous apportez une modification au point de terminaison cloud (partage de fichiers Azure) directement, cette modification doit être détectée au préalable par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
 
 ### <a name="management-guidance"></a>Conseils de gestion
 Lors du déploiement d'Azure File Sync, suivez les recommandations ci-dessous :
@@ -384,6 +387,6 @@ Si vous préférez utiliser une solution de sauvegarde locale, les sauvegardes d
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
-* [Déployer Azure Files](storage-files-deployment-guide.md)
+* [Déployer Azure Files](./storage-how-to-create-file-share.md)
 * [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Superviser Azure File Sync](storage-sync-files-monitoring.md)

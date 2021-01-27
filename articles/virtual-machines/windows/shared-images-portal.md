@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 57cebed8ac229ed54945d75786b84b3cd2a36252
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 25cd75035a814fd718cc1101e6575f78c50f105e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844197"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879695"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une instance Azure Shared Image Gallery à l’aide du portail
 
-Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des tâches de déploiement comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
+Une [galerie d’images partagées](../shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des tâches de déploiement comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
 La galerie d’images partagées vous permet de partager vos images de machine virtuelle personnalisées avec d’autres personnes de votre organisation, dans ou entre les régions, à l’intérieur d’un locataire AAD. Choisissez les images à partager, les régions dans lesquelles vous souhaitez les rendre disponibles et les personnes avec lesquelles vous voulez les partager. Vous pouvez créer plusieurs galeries afin de regrouper logiquement les images partagées. 
 
@@ -69,4 +69,4 @@ Vous pouvez également créer la ressource de galerie d’images partagées à l
 - [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../troubleshooting-shared-images.md).
+Pour plus d’informations sur les galeries d’images partagées, consultez la [vue d’ensemble](../shared-image-galleries.md). Si vous rencontrez des problèmes, consultez [Résoudre les problèmes des galeries d’images partagées](../troubleshooting-shared-images.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: b8da0b5c55b291af42d9a30db23d6f55f7c0bf2d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8c5281b4fe596cf9807d6f0dacb844562dc152dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022783"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880622"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Récupération d’urgence pour une base de données Oracle Database 12c dans votre environnement Azure
 
@@ -100,4 +100,4 @@ Voici un résumé de la configuration Azure :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
-- [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)
+- [Explorer des exemples Azure CLI de déploiement de machines virtuelles](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
