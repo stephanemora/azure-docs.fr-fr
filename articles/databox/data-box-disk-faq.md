@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654623"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702132"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -66,7 +66,7 @@ Par exemple, si vous souhaitez transférer des données de votre emplacement au 
 
 ### <a name="option-1"></a>Option 1 : 
 
-Expédiez un [disque pris en charge](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contenant des données à l’aide du [service Azure Import/Export](../storage/common/storage-import-export-service.md) depuis l’emplacement source au Canada vers le centre de données Azure USA Ouest.
+Expédiez un [disque pris en charge](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contenant des données à l’aide du [service Azure Import/Export](../import-export/storage-import-export-service.md) depuis l’emplacement source au Canada vers le centre de données Azure USA Ouest.
 
 ### <a name="option-2"></a>Option n°2 :
 

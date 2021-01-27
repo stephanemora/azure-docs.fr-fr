@@ -4,12 +4,12 @@ description: Automatiser des rapports quotidients/hebdomadaires/mensuels personn
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010603"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680448"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -33,7 +33,7 @@ Vous pouvez [interroger par programmation des données Application Insights](htt
 
 * [Automatiser des rapports avec Power Automate](../platform/logicapp-flow-connector.md)
 * [Automatiser des rapports avec Logic Apps](automate-with-logic-apps.md)
-* Utilisez le modèle de [fonction Azure](../../azure-functions/functions-create-first-azure-function.md) « synthèse planifiée Application Insights » dans le scénario de surveillance. Cette fonction utilise SendGrid pour remettre l’e-mail. 
+* Utilisez le modèle de [fonction Azure](../../azure-functions/functions-get-started.md) « synthèse planifiée Application Insights » dans le scénario de surveillance. Cette fonction utilise SendGrid pour remettre l’e-mail. 
 
     ![Modèle de fonction Azure](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Créez une application de fonction Azure. (Application Insights _Activé_ est requis uniquement si vous souhaitez superviser votre nouvelle application de fonction avec Application Insights)
 
-   Consultez la documentation Azure Functions pour découvrir comment [créer une application de fonction](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+   Consultez la documentation Azure Functions pour découvrir comment [créer une application de fonction](../../azure-functions/functions-get-started.md).
 
 2. Dès que la nouvelle application Function App a terminé le déploiement, sélectionnez **Accéder à la ressource**.
 
@@ -154,4 +154,3 @@ Ces étapes s’appliquent uniquement si vous n’avez pas encore configuré de 
 * En savoir plus sur l’[interrogation par programmation de données Application Insights](https://dev.applicationinsights.io/)
 * Découvrez plus en détail les [applications logiques](../../logic-apps/logic-apps-overview.md).
 * En savoir plus sur [Microsoft Power Automate](https://ms.flow.microsoft.com).
-

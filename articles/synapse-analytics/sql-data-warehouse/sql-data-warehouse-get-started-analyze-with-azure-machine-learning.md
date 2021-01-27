@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 5348c0ed5d80e2738bb865ca3ec1ddf5aaed009a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 76a154d3a137017f374247308a3980d598698246
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118045"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678657"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 
@@ -161,4 +161,4 @@ En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (pr
 
 Pour en savoir plus sur Azure Machine Learning, reportez-vous à [Introduction à Machine Learning sur Azure](../../machine-learning/overview-what-is-azure-ml.md).
 
-En savoir plus sur le scoring intégré dans l’entrepôt de données, [ici](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+En savoir plus sur le scoring intégré dans l’entrepôt de données, [ici](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

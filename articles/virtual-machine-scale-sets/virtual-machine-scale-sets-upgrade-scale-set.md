@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: c255a3d68b1a24e25c1c0e308faa3fd364a15861
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358739"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684591"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -350,7 +350,7 @@ La capacité à modifier certaines propriétés peut dépendre de la valeur actu
 
 - **singlePlacementGroup** : si singlePlacementGroup a la valeur true, celle-ci peut être remplacée par false. Toutefois, si singlePlacementGroup a la valeur false, elle **ne peut pas** avoir la valeur true.
 - **subnet** : le sous-réseau d’un groupe identique peut être modifié, tant que le sous-réseau d’origine et le nouveau sous-réseau se trouvent dans le même réseau virtuel.
-- **imageReferenceSku** : une référence (SKU) d’image peut être mise à jour pour des [distributions Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) approuvées, des images de serveur/client Windows et des images sans [informations de plan](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage#view-plan-properties). 
+- **imageReferenceSku** : une référence (SKU) d’image peut être mise à jour pour des [distributions Linux](../virtual-machines/linux/endorsed-distros.md) approuvées, des images de serveur/client Windows et des images sans [informations de plan](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriétés qui nécessitent une désallocation pour être modifiées
 La valeur de certaines propriétés peut uniquement être modifiée si les machines virtuelles du groupe identique sont libérées. Ces propriétés sont les suivantes :

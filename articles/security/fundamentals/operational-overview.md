@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 9dcb1113bb37cb0f5f65c54ae9d6ca76a88330c1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698663"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693610"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -171,21 +171,21 @@ Blueprints fournit un moyen déclaratif d’orchestrer le déploiement de divers
 
 ## <a name="devops"></a>DevOps
 
-Avant le développement d’applications [DevOps](https://www.visualstudio.com/learn/what-is-devops/), des équipes sont chargées de définir les fonctionnalités métier d’un programme logiciel et d’écrire le code. Ensuite, une autre équipe de contrôle qualité teste le programme dans un environnement de développement isolé. Si le programme passe le contrôle, l’équipe de contrôle qualité transmet le code à l’équipe des opérations pour qu’elle le déploie. Les équipes de déploiement sont ensuite réparties en groupes, par exemple mise en réseau et base de données. Chaque fois qu’un logiciel est transmis à une équipe indépendante, cela crée des goulots d’étranglement.
+Avant le développement d’applications [DevOps](https://azure.microsoft.com/overview/what-is-devops/), des équipes sont chargées de définir les fonctionnalités métier d’un programme logiciel et d’écrire le code. Ensuite, une autre équipe de contrôle qualité teste le programme dans un environnement de développement isolé. Si le programme passe le contrôle, l’équipe de contrôle qualité transmet le code à l’équipe des opérations pour qu’elle le déploie. Les équipes de déploiement sont ensuite réparties en groupes, par exemple mise en réseau et base de données. Chaque fois qu’un logiciel est transmis à une équipe indépendante, cela crée des goulots d’étranglement.
 
 DevOps permet aux équipes de proposer des solutions plus sécurisées et de meilleure qualité, plus rapidement et à moindre coût. Les clients s’attendent à une expérience dynamique et fiable lors de l’utilisation de logiciels et de services. Les équipes doivent effectuer rapidement une itération sur les mises à jour logicielles et mesurer l’impact de ces mises à jour. Elles doivent réagir rapidement avec des nouvelles itérations de développement pour résoudre les problèmes ou valoriser la solution.  
 
 Les plateformes cloud comme Microsoft Azure ont supprimé les goulots d’étranglement traditionnels et aidé à faire de l’infrastructure une marchandise. Dans tous les secteurs, ce sont les logiciels qui font la différence dans les résultats des entreprises. Aucune organisation, aucun développeur ni aucun professionnel de l’informatique ne peut se permettre d’ignorer le mouvement DevOps.
 
-Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivantes. Ces pratiques [impliquent de faire appel à des collaborateurs](https://www.visualstudio.com/learn/what-is-devops-culture/) pour concevoir des stratégies basées sur les scénarios spécifiques de l’entreprise. Les outils contribuent à automatiser les différentes pratiques.
+Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivantes. Ces pratiques [impliquent de faire appel à des collaborateurs](/azure/devops/learn/what-is-devops-culture) pour concevoir des stratégies basées sur les scénarios spécifiques de l’entreprise. Les outils contribuent à automatiser les différentes pratiques.
 
 - Des techniques de [planification et gestion de projets agiles](https://www.visualstudio.com/learn/what-is-agile/) sont utilisées pour planifier et répartir le travail en sprints, pour gérer la capacité de l’équipe et pour aider les équipes à s’adapter rapidement à l’évolution des besoins de l’entreprise.
-- Le [contrôle de version, généralement avec Git](https://www.visualstudio.com/learn/what-is-git/), permet à des équipes situées n’importe où dans le monde de partager la source et d’effectuer des intégrations avec des outils de développement logiciel pour automatiser le pipeline de mise en production.
-- L’[intégration continue ](https://www.visualstudio.com/learn/what-is-continuous-integration/) stimule la fusion et le test de code en continu, ce qui permet de trouver les erreurs plus tôt.  Les autres avantages sont notamment un gain de temps sur la résolution des problèmes de fusion et la rapidité des retours pour les équipes de développement.
-- La [livraison continue](https://www.visualstudio.com/learn/what-is-continuous-delivery/) de solutions logicielles dans les environnements de production et de test permet aux organisations de corriger rapidement les bogues et de répondre aux besoins de l’entreprise en constante évolution.
-- La [surveillance](https://www.visualstudio.com/learn/what-is-monitoring/) des applications en cours d’exécution, y compris des environnements de production pour l’intégrité des applications et l’utilisation par les clients, aide les organisations à formuler une hypothèse et à confirmer/infirmer rapidement des stratégies.  Les données enrichies sont capturées et stockées dans divers formats d’enregistrement.
-- L’[infrastructure en tant que code (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) est une pratique qui permet d’automatiser et de valider la création et la suppression de réseaux et de machines virtuelles afin de fournir des plateformes stables et sûres pour l’hébergement d’applications.
-- L’architecture en [microservices](https://www.visualstudio.com/learn/what-are-microservices/) permet d’isoler des cas d’usage métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
+- Le [contrôle de version, généralement avec Git](/azure/devops/learn/git/what-is-git), permet à des équipes situées n’importe où dans le monde de partager la source et d’effectuer des intégrations avec des outils de développement logiciel pour automatiser le pipeline de mise en production.
+- L’[intégration continue ](/azure/devops/learn/what-is-continuous-integration) stimule la fusion et le test de code en continu, ce qui permet de trouver les erreurs plus tôt.  Les autres avantages sont notamment un gain de temps sur la résolution des problèmes de fusion et la rapidité des retours pour les équipes de développement.
+- La [livraison continue](/azure/devops/learn/what-is-continuous-delivery) de solutions logicielles dans les environnements de production et de test permet aux organisations de corriger rapidement les bogues et de répondre aux besoins de l’entreprise en constante évolution.
+- La [surveillance](/azure/devops/learn/what-is-monitoring) des applications en cours d’exécution, y compris des environnements de production pour l’intégrité des applications et l’utilisation par les clients, aide les organisations à formuler une hypothèse et à confirmer/infirmer rapidement des stratégies.  Les données enrichies sont capturées et stockées dans divers formats d’enregistrement.
+- L’[infrastructure en tant que code (IaC)](/azure/devops/learn/what-is-infrastructure-as-code) est une pratique qui permet d’automatiser et de valider la création et la suppression de réseaux et de machines virtuelles afin de fournir des plateformes stables et sûres pour l’hébergement d’applications.
+- L’architecture en [microservices](/azure/devops/learn/what-are-microservices) permet d’isoler des cas d’usage métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

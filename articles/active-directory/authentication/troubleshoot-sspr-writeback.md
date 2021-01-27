@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 0620304de1866d24719b137836419502cd25bee9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346598"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682235"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Résoudre les problèmes relatifs à l’écriture différée de réinitialisation de mot de passe libre-service dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Pour Azure AD Connect version *1.1.443.0* et versions ultérieures, vous avez b
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
 
-[Points de terminaison GOV](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers) Azure :
+[Points de terminaison GOV](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) Azure :
 
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*

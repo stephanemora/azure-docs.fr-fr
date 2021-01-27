@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: fc89790c7d268bcfa0c08bd26249bc91979d7fca
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7fb84d544138b771170f95b5df71c33087252564
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186896"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679481"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Supervision de machines virtuelles Azure avec Azure Monitor
 Cet article explique comment utiliser Azure Monitor pour collecter et analyser des données de supervision sur des machines virtuelles Azure pour maintenir leur intégrité. Les machines virtuelles peuvent être supervisées pour vérifier leur disponibilité et leurs performances avec Azure Monitor comme n’importe quelle [autre ressource Azure](monitor-azure-resource.md), mais elles se distinguent des autres ressources, car vous devez également superviser le système d’exploitation invité et les charges de travail qui y sont exécutées. 
@@ -113,7 +113,7 @@ Collectez les métriques de plateforme avec un paramètre de diagnostic pour la 
 Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
 ```
 
-```CLI
+```azurecli
 az monitor diagnostic-settings create \
 --name VM-Diagnostics 
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm \

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/3/2020
 ms.author: inhenkel
-ms.openlocfilehash: 001c535a2b39898673f2d587ee807d43b4d5f60a
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: d195ad6715c47b9b4c14dc2e65ba1d07ebf79ce8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348540"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696259"
 ---
 # <a name="microsoft-azure-media-services-common-scenarios"></a>Scénarios courants de Microsoft Azure Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, [Media Services v3](../latest/media-services-overview.md). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, [Media Services v3](../latest/media-services-overview.md). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Microsoft Azure Media Services (AMS) vous permet de charger, de stocker, d’encoder et d’empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en streaming en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
 
@@ -130,9 +130,9 @@ Les clients AMS peuvent mettre à l’échelle les points de terminaison de stre
 
 * En fonction de leurs besoins, les clients Media Services peuvent choisir un point de terminaison de streaming **Standard** ou **Premium**. Le point de terminaison de streaming **Standard** convient à la plupart des charges de travail de streaming. Il inclut les mêmes fonctionnalités que les points de terminaison de streaming **Premium** et met automatiquement à l’échelle la bande passante sortante.
 
-    Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Les clients disposant d’un point de terminaison de streaming **Premium** ont par défaut une unité de streaming. Le point de terminaison de streaming peut être adapté avec l’ajout d’unités de streaming. Chaque unité de streaming fournit une capacité de bande passante supplémentaire à l’application. Pour plus d’informations sur la scalabilité des points de terminaison de streaming **Premium** , consultez la rubrique [Mettre à l’échelle des points de terminaison de streaming](media-services-portal-scale-streaming-endpoints.md).
+    Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Les clients disposant d’un point de terminaison de streaming **Premium** ont par défaut une unité de streaming. Le point de terminaison de streaming peut être adapté avec l’ajout d’unités de streaming. Chaque unité de streaming fournit une capacité de bande passante supplémentaire à l’application. Pour plus d’informations sur la scalabilité des points de terminaison de streaming **Premium**, consultez la rubrique [Mettre à l’échelle des points de terminaison de streaming](media-services-portal-scale-streaming-endpoints.md).
 
-* Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1** , **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**.
+* Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous pouvez choisir entre les types d’unités réservées suivantes : **S1**, **S2** ou **S3**. Par exemple, un même travail d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **S2** que le type **S1**.
 
     En plus de spécifier le type d’unité réservée, vous pouvez approvisionner votre compte avec des **unités réservées**. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches multimédias qui peuvent être traitées simultanément dans un compte donné.
 

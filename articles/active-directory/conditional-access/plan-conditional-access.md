@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116005"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682136"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -485,4 +485,4 @@ Dès que vous avez collecté les informations, consultez les ressources suivante
 
 [En savoir plus sur Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gérer les stratégies d’accès conditionnel avec l’API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)
+[Gérer les stratégies d’accès conditionnel avec l’API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy)

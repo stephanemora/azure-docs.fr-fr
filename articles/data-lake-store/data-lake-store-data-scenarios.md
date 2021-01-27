@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452232"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702495"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen1 pour le Big Data
 
@@ -88,7 +88,7 @@ De grandes quantités de données peuvent être stockées dans des clusters Hado
 Pour télécharger des jeux de données qui comptent plusieurs téraoctets, l’utilisation des méthodes décrites ci-dessus peut parfois être lente et coûteuse. Dans ce cas, vous pouvez utiliser les options ci-dessous.
 
 * **Utilisation d’Azure ExpressRoute**. Azure ExpressRoute vous permet de créer des connexions privées entre les infrastructures et les centres de données Azure dans votre environnement local. Ceci constitue une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Téléchargement « hors connexion » des données**. Si vous ne pouvez pas utiliser Azure ExpressRoute pour une raison ou une autre, vous pouvez utiliser le [service Azure Import/Export](../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou [l’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob de stockage Azure vers Data Lake Storage Gen1.
+* **Téléchargement « hors connexion » des données**. Si vous ne pouvez pas utiliser Azure ExpressRoute pour une raison ou une autre, vous pouvez utiliser le [service Azure Import/Export](../import-export/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou [l’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob de stockage Azure vers Data Lake Storage Gen1.
 
   > [!NOTE]
   > Si vous utilisez le service Import/Export, la taille des fichiers sur les disques durs que vous envoyez au centre de données Azure ne doit pas être supérieure à 195 Go.

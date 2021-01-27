@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460750"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678489"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Réglage des performances avec des vues matérialisées
 
@@ -29,7 +29,7 @@ Une vue standard calcule ses données chaque fois que la vue est utilisée.  Auc
 
 Une vue matérialisée précalcule, stocke et conserve ses données dans le pool SQL à l'instar d'une table.  Aucun recalcul n’est nécessaire à chaque utilisation d’une vue matérialisée.  C’est pourquoi les requêtes qui utilisent la totalité ou un sous-ensemble des données incluses dans des vues matérialisées peuvent être plus rapides.  Mieux encore, les requêtes peuvent utiliser une vue matérialisée sans y faire référence directement. Il n’est donc pas nécessaire de modifier le code de l’application.  
 
-La plupart des exigences relatives à une vue standard s’appliquent aussi à une vue matérialisée. Pour plus d'informations sur la syntaxe d'une vue matérialisée et autres exigences, consultez [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+La plupart des exigences relatives à une vue standard s’appliquent aussi à une vue matérialisée. Pour plus d'informations sur la syntaxe d'une vue matérialisée et autres exigences, consultez [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 | Comparaison                     | Affichage                                         | Vue matérialisée
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ Les vues matérialisées implémentées dans le pool SQL offrent également les 
 En comparaison avec d’autres fournisseurs d’entrepôts de données, les vues matérialisées implémentées dans Azure Synapse Analytics offrent également les avantages supplémentaires suivants :
 
 - Actualisation automatique et synchrone des données avec les modifications apportées aux données dans les tables de base. Aucune action de l'utilisateur n'est requise.
-- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Prise en charge étendue des fonctions d’agrégation. Consultez [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- Prise en charge de la recommandation de vue matérialisée propre à la requête.  Consultez [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Scénarios courants  
 

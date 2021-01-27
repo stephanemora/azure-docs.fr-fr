@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233744"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678110"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -534,7 +534,7 @@ Si un [échantillonnage](./sampling.md) est en cours, la propriété itemCount a
 Utilisez l’appel à TrackDependency pour suivre les temps de réponse et les taux de réussite des appels vers un bloc de code externe. Les résultats s'affichent dans les graphiques de dépendance sur le portail. L’extrait de code ci-dessous doit être ajouté chaque fois qu’un appel de dépendance est effectué.
 
 > [!NOTE]
-> Pour .NET et .NET Core, vous pouvez également utiliser la méthode `TelemetryClient.StartOperation` (extension) qui remplit les propriétés `DependencyTelemetry` nécessaires pour la corrélation et d’autres propriétés telles que l’heure de début et la durée. Vous n’avez donc pas besoin de créer un minuteur personnalisé comme dans les exemples ci-dessous. Pour plus d’informations, consultez la [section relative au suivi des dépendances sortantes](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking) de cet article.
+> Pour .NET et .NET Core, vous pouvez également utiliser la méthode `TelemetryClient.StartOperation` (extension) qui remplit les propriétés `DependencyTelemetry` nécessaires pour la corrélation et d’autres propriétés telles que l’heure de début et la durée. Vous n’avez donc pas besoin de créer un minuteur personnalisé comme dans les exemples ci-dessous. Pour plus d’informations, consultez la [section relative au suivi des dépendances sortantes](./custom-operations-tracking.md#outgoing-dependencies-tracking) de cet article.
 
 *C#*
 

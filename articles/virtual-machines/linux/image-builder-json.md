@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae477dd04237e285915157615dcb6a6b841ca99
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307277"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678253"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -154,7 +154,7 @@ L’API nécessite un « SourceType » qui définit la source pour la générati
 > Lors de l’utilisation d’images personnalisées Windows existantes, vous pouvez exécuter la commande Sysprep jusqu’à 8 fois sur une même image Windows. Pour plus d’informations, consultez la documentation [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep).
 
 ### <a name="platformimage-source"></a>Source PlatformImage 
-Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](../windows/image-builder-overview.md#os-support). 
+Azure Image Builder prend en charge les images Windows Server et client, ainsi que les images de la Place de marché Azure pour Linux. Pour la liste complète, voir [ici](../image-builder-overview.md#os-support). 
 
 ```json
         "source": {

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6df8c3238ed6dfeb37fd10d0a7e97aa839e7bf26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118759"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681075"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des types imbriqués dans des fichiers Parquet et JSON à l’aide d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Accéder aux éléments à partir de colonnes répétées
 
-La requête suivante lit le fichier justSimpleArray.parquet et utilise [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer un élément scalaire à partir d’une colonne répétée, comme un tableau ou une carte :
+La requête suivante lit le fichier justSimpleArray.parquet et utilise [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour récupérer un élément scalaire à partir d’une colonne répétée, comme un tableau ou une carte :
 
 ```sql
 SELECT
@@ -172,7 +172,7 @@ Voici le résultat :
 
 ## <a name="access-sub-objects-from-complex-columns"></a>Accéder à des sous-objets à partir de colonnes complexes
 
-La requête suivante lit le fichier mapExample.parquet et utilise [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer un élément non scalaire à partir d’une colonne répétée, telle qu’un tableau ou une carte :
+La requête suivante lit le fichier mapExample.parquet et utilise [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour récupérer un élément non scalaire à partir d’une colonne répétée, telle qu’un tableau ou une carte :
 
 ```sql
 SELECT

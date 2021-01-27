@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678202"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -28,7 +28,7 @@ Une réponse en temps utile aux violations de stratégie ou autres problèmes de
 
 L’implémentation initiale de l’évaluation continue de l’accès se concentre sur Exchange, Teams et SharePoint Online.
 
-Pour préparer vos applications à utiliser l’évaluation continue de l’accès, consultez [Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+Pour préparer vos applications à utiliser l’évaluation continue de l’accès, consultez [Guide pratique pour utiliser les API d’évaluation continue de l’accès dans vos applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Principaux avantages
 

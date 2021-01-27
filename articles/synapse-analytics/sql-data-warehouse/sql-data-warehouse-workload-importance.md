@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06d1957d182f2cabc336afcfc47a790442a3cb9a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322125"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678404"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importance des charges de travail Azure Synapse Analytics
 
@@ -38,7 +38,7 @@ Au-delà du scénario avec importance de base décrit ci-dessus et portant sur d
 
 ### <a name="locking"></a>Verrouillage
 
-L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](sql-data-warehouse-tables-partition.md) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans l’importance des charges de travail, un pool SQL dédié dans Azure Synapse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
+L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](sql-data-warehouse-tables-partition.md) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) requièrent des verrous avec élévation de privilèges.  Sans l’importance des charges de travail, un pool SQL dédié dans Azure Synapse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
 
 Prenons l’exemple suivant :
 
@@ -62,8 +62,8 @@ La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 - Pour plus d’informations sur la classification des charges de travail, consultez [Classification des charges de travail](sql-data-warehouse-workload-classification.md).  
 - Pour savoir comment créer un classifieur de charge de travail, consultez le démarrage rapide [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md).
 - Consultez les articles qui expliquent comment [Configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [Gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour voir les requêtes et l’importance attribuée.
+- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour voir les requêtes et l’importance attribuée.

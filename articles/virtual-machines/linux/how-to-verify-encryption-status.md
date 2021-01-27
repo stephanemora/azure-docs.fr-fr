@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42b1aed2f6c66dbfc0f04759b232855f3b7f0a2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487651"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676816"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Vérifier l’état du chiffrement pour Linux 
 
@@ -31,19 +31,19 @@ Ce scénario s’applique aux extensions Azure Disk Encryption en une seule pass
 
 ## <a name="portal"></a>Portail
 
-Dans le portail Azure, à l’intérieur de la section **Extensions** , sélectionnez l’extension Azure Disk Encryption dans la liste. Les informations du **message d’état** indiquent l’état actuel du chiffrement :
+Dans le portail Azure, à l’intérieur de la section **Extensions**, sélectionnez l’extension Azure Disk Encryption dans la liste. Les informations du **message d’état** indiquent l’état actuel du chiffrement :
 
 ![Vérification dans le portail montrant l’état, la version et le message d’état](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
 Dans la liste des extensions, vous verrez la version de l’extension Azure Disk Encryption correspondante. La version 0.x correspond à Azure Disk Encryption en deux passes et la version 1.x correspond à Azure Disk Encryption en une seule passe.
 
-Vous pouvez obtenir plus d’informations en sélectionnant l’extension, puis en sélectionnant **Afficher l’état détaillé** . L’état détaillé du processus de chiffrement apparaît au format JSON.
+Vous pouvez obtenir plus d’informations en sélectionnant l’extension, puis en sélectionnant **Afficher l’état détaillé**. L’état détaillé du processus de chiffrement apparaît au format JSON.
 
 ![Vérification dans le portail montrant le lien « Afficher l’état détaillé »](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
 ![État détaillé au format JSON](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-Pour valider l’état de chiffrement, vous pouvez également consulter la section **Paramètres de disque** .
+Pour valider l’état de chiffrement, vous pouvez également consulter la section **Paramètres de disque**.
 
 ![État du chiffrement pour le disque du système d’exploitation et les disques de données](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
@@ -70,7 +70,7 @@ Vous pouvez capturer les paramètres de chiffrement de chaque disque à l’aide
 ### <a name="single-pass"></a>Une passe
 En une seule passe, les paramètres de chiffrement sont marqués sur chacun des disques (système d’exploitation et données). Vous pouvez capturer les paramètres de chiffrement d’un disque de système d’exploitation en une seule passe comme suit :
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -160,7 +160,7 @@ Write-Host "====================================================================
 
 Vous pouvez valider l’état *général* du chiffrement d’une machine virtuelle chiffrée à l’aide des commandes d’interface CLI Azure suivantes :
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -170,14 +170,14 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### <a name="single-pass"></a>Une passe
 Vous pouvez valider les paramètres de chiffrement de chaque disque à l’aide des commandes Azure CLI suivantes :
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
 ![Paramètres de chiffrement des données](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Si le disque n’a pas de paramètres de chiffrement marqués, vous pouvez voir le texte **Le disque n’est pas chiffré** .
+> Si le disque n’a pas de paramètres de chiffrement marqués, vous pouvez voir le texte **Le disque n’est pas chiffré**.
 
 Utilisez les commandes suivantes pour obtenir l’état détaillé et les paramètres de chiffrement.
 
@@ -203,7 +203,7 @@ done
 
 Disques de données :
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -223,7 +223,7 @@ done
 
 ### <a name="dual-pass"></a>Deux passes
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -276,7 +276,7 @@ Pour obtenir les détails sur un disque en particulier, vous devez fournir les �
 
 Cette commande répertorie tous les ID de tous vos comptes de stockage :
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 Les ID de compte de stockage sont répertoriés sous la forme suivante :
@@ -295,7 +295,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 La commande suivante répertorie tous les conteneurs sous un compte de stockage :
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Le conteneur utilisé pour les disques s’appelle normalement « VHD ».
@@ -306,7 +306,7 @@ ContainerName="name of the container"
 ```
 
 Utilisez cette commande pour lister tous les objets blob d’un conteneur particulier :
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Choisissez le disque que vous voulez interroger et stockez son nom sur une variable :
@@ -314,16 +314,16 @@ Choisissez le disque que vous voulez interroger et stockez son nom sur une varia
 DiskName="diskname.vhd"
 ```
 Interrogez les paramètres de chiffrement du disque :
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
 ## <a name="operating-system"></a>Système d’exploitation
 Vérifiez si les partitions du disque de données sont chiffrées (et que le disque du système d’exploitation ne l’est pas).
 
-Quand une partition ou un disque sont chiffrés, ils s’affichent en tant que type **crypt** . Non chiffrés, ils s’affichent en tant que type **part/disk** .
+Quand une partition ou un disque sont chiffrés, ils s’affichent en tant que type **crypt**. Non chiffrés, ils s’affichent en tant que type **part/disk**.
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -331,7 +331,7 @@ lsblk
 
 Vous pouvez obtenir plus d’informations à l’aide de la variante **lsblk** suivante. 
 
-Vous verrez une couche de type **crypt** , qui est montée par l’extension. L’exemple suivant présente des volumes logiques et des disques normaux avec **crypto\_LUKS FSTYPE** .
+Vous verrez une couche de type **crypt**, qui est montée par l’extension. L’exemple suivant présente des volumes logiques et des disques normaux avec **crypto\_LUKS FSTYPE**.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
@@ -340,15 +340,15 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 En guise d’étape supplémentaire, vous pouvez vérifier si des clés sont chargées sur le disque de données :
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 
-Vous pouvez aussi vérifier quels appareils **dm** sont listés en tant que **crypt**  :
+Vous pouvez aussi vérifier quels appareils **dm** sont listés en tant que **crypt** :
 
 ```bash
 dmsetup ls --target crypt

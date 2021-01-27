@@ -4,12 +4,12 @@ description: Découvrez les différentes façons de déployer du code sur Azure 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936955"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681828"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -181,7 +181,7 @@ Vous pouvez utiliser FTP pour transférer les fichiers directement vers Azure Fu
 
 Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans votre application de fonction (en effectuant le déploiement essentiellement dès que vous enregistrez vos modifications).
 
->__Comment l’utiliser ?__ Pour avoir la possibilité de modifier vos fonctions dans le portail Azure, vous devez avoir [créé les fonctions dans le portail](functions-create-first-azure-function.md). Pour garantir l’existence d’une seule source de confiance, l’utilisation d’une autre méthode de déploiement rend votre fonction accessible en lecture seule et empêche la poursuite de la modification dans le portail. Pour revenir à un état où vous pouvez modifier vos fichiers dans le portail Azure, vous pouvez rétablir manuellement le mode d’édition à `Read/Write` et supprimer tous les paramètres d’application relatifs au déploiement (comme `WEBSITE_RUN_FROM_PACKAGE`).
+>__Comment l’utiliser ?__ Pour avoir la possibilité de modifier vos fonctions dans le portail Azure, vous devez avoir [créé les fonctions dans le portail](./functions-get-started.md). Pour garantir l’existence d’une seule source de confiance, l’utilisation d’une autre méthode de déploiement rend votre fonction accessible en lecture seule et empêche la poursuite de la modification dans le portail. Pour revenir à un état où vous pouvez modifier vos fichiers dans le portail Azure, vous pouvez rétablir manuellement le mode d’édition à `Read/Write` et supprimer tous les paramètres d’application relatifs au déploiement (comme `WEBSITE_RUN_FROM_PACKAGE`).
 
 >__Quand l’utiliser ?__ Le portail est un excellent moyen de vous familiariser avec Azure Functions. Toutefois, pour un travail de développement plus complexe, nous vous recommandons l’un des outils clients suivants :
 >

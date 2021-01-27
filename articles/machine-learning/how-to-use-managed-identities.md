@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311031"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683338"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utiliser les identités managées avec Azure Machine Learning (préversion)
 
@@ -38,7 +38,7 @@ Cet article explique comment utiliser les identités managées pour :
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 - L’[extension Azure CLI pour le service Machine Learning](reference-azure-machine-learning-cli.md)
 - Le [kit SDK Python d’Azure Machine Learning](/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Pour attribuer des rôles, la connexion de votre abonnement Azure doit avoir le rôle [Opérateur d’identité managée](../role-based-access-control/built-in-roles.md#managed-identity-operator) ou un autre rôle qui accorde les actions requises (par exemple, __Propriétaire__ ).
+- Pour attribuer des rôles, la connexion de votre abonnement Azure doit avoir le rôle [Opérateur d’identité managée](../role-based-access-control/built-in-roles.md#managed-identity-operator) ou un autre rôle qui accorde les actions requises (par exemple, __Propriétaire__).
 - Vous devez être familiarisé avec la création et l’utilisation des [identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Configurer des identités managées
@@ -59,7 +59,7 @@ Si l’accès utilisateur administrateur pour ACR n’est pas autorisé par la s
 [Créez un ACR à partir d’Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) sans définir d’argument ```--admin-enabled```, ou à partir du portail Azure sans activer l’accès utilisateur administrateur. Ensuite, lors de la création de l’espace de travail Azure Machine Learning, spécifiez l’ID de ressource Azure de l’ACR. L’exemple suivant illustre la création d’un espace de travail Azure ML qui utilise un ACR existant :
 
 > [!TIP]
-> Pour obtenir la valeur du paramètre `--container-registry` , utilisez la commande [az acr show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) pour afficher des informations pour votre ACR. Le champ `id` contient l’ID de ressource de votre ACR.
+> Pour obtenir la valeur du paramètre `--container-registry` , utilisez la commande [az acr show](/cli/azure/acr#az_acr_show) pour afficher des informations pour votre ACR. Le champ `id` contient l’ID de ressource de votre ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Si vous n’utilisez pas votre propre ACR, le service Azure Machine Learning en 
 
     Cette commande retourne une valeur semblable au texte suivant. Vous souhaitez uniquement la dernière partie du texte, c’est-à-dire le nom de l’instance ACR :
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 
@@ -173,8 +173,8 @@ env.python.user_managed_dependencies = True
 
 Dans ce scénario, Azure Machine Learning Service crée l’environnement de formation ou d’inférence en plus d’une image de base que vous fournissez à partir d’un ACR privé. Étant donné que la tâche de création d’image s’effectue sur l’ACR d’espace de travail à l’aide de ACR Tasks, vous devez effectuer des étapes supplémentaires pour autoriser l’accès.
 
-1. Créez une __identité managée attribuée par l’utilisateur__ et accordez-lui l’accès ACRPull sur l’ __ACR privé__.  
-1. Accordez à l’ __identité managée attribuée par le système__ de l’espace de travail un rôle Opérateur de l’identité managée sur l’ __identité managée attribuée par l’utilisateur__  de l’étape précédente. Ce rôle permet à l’espace de travail d’attribuer l’identité managée attribuée par l’utilisateur à ACR Task pour la création de l’environnement managé. 
+1. Créez une __identité managée attribuée par l’utilisateur__ et accordez-lui l’accès ACRPull sur l’__ACR privé__.  
+1. Accordez à l’__identité managée attribuée par le système__ de l’espace de travail un rôle Opérateur de l’identité managée sur l’__identité managée attribuée par l’utilisateur__  de l’étape précédente. Ce rôle permet à l’espace de travail d’attribuer l’identité managée attribuée par l’utilisateur à ACR Task pour la création de l’environnement managé. 
 
     1. Obtenez l’ID du principal de l’identité managée attribuée par le système de l’espace de travail :
 
@@ -190,7 +190,7 @@ Dans ce scénario, Azure Machine Learning Service crée l’environnement de for
 
         L’ID de ressource UAI est l’ID de ressource Azure de l’identité attribuée par l’utilisateur, au format `/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAI name>`.
 
-1. Spécifiez l’ID client et l’ACR externe de l’ __identité managée attribuée par l’utilisateur__ dans les connexions de l’espace de travail à l’aide de la [méthode Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) :
+1. Spécifiez l’ID client et l’ACR externe de l’__identité managée attribuée par l’utilisateur__ dans les connexions de l’espace de travail à l’aide de la [méthode Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) :
 
     ```python
     workspace.set_connection(

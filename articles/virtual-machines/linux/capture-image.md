@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 53fb11216e65ebead43c02a7153d937c37b841a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655167"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681058"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Créer une image managée d’une machine virtuelle ou d’un disque dur virtuel
 
 Pour créer plusieurs copies d’une machine virtuelle à utiliser dans Azure à des fins de développement et de test, capturez une image managée de la machine virtuelle ou du disque dur virtuel de système d’exploitation. Pour créer, stocker et partager des images à grande échelle, consultez [Galeries d’images partagées](../shared-images-cli.md).
 
-Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une tentative de création simultanée de plus de 20 machines virtuelles à partir de la même image managée peut entraîner l’expiration des délais d’approvisionnement en raison des limites de performances de stockage d’un disque dur virtuel unique. Pour créer plus de 20 machines virtuelles simultanément, utilisez une image de la [galerie d’images partagées](shared-image-galleries.md) configurée avec 1 réplica tous les 20 déploiements simultanés de machines virtuelles.
+Une image managée prend en charge jusqu’à 20 déploiements simultanés. Une tentative de création simultanée de plus de 20 machines virtuelles à partir de la même image managée peut entraîner l’expiration des délais d’approvisionnement en raison des limites de performances de stockage d’un disque dur virtuel unique. Pour créer plus de 20 machines virtuelles simultanément, utilisez une image de la [galerie d’images partagées](../shared-image-galleries.md) configurée avec 1 réplica tous les 20 déploiements simultanés de machines virtuelles.
 
 Pour créer une image managée, vous devez supprimer les informations personnelles du compte. Les étapes suivantes vous permettent de déprovisionner une machine virtuelle existante, de la désallouer et de créer une image. Vous pouvez utiliser cette image pour créer des machines virtuelles dans n’importe quel groupe de ressources de votre abonnement.
 
 Pour créer une copie de votre machine virtuelle Linux actuelle à des fins de sauvegarde ou de débogage, ou pour charger un disque dur virtuel Linux spécialisé à partir d’une machine virtuelle locale, consultez [Charger et créer une machine virtuelle Linux à partir d’une image de disque personnalisée](upload-vhd.md).  
 
-Vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure (préversion publique)** pour créer votre image personnalisée ; il suffit de fournir une configuration d’image et le Générateur créera l’image (inutile d’apprendre à utiliser tous les outils, ou de configurer les pipelines de build). Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](./image-builder-overview.md).
+Vous pouvez utiliser le service **Générateur d’images de machine virtuelle Azure (préversion publique)** pour créer votre image personnalisée ; il suffit de fournir une configuration d’image et le Générateur créera l’image (inutile d’apprendre à utiliser tous les outils, ou de configurer les pipelines de build). Pour en savoir plus, voir [Aperçu : Vue d’ensemble du Générateur d’images Azure](../image-builder-overview.md).
 
 Vous avez besoin des éléments suivants avant de créer une image :
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5564051ae11a1237cc924ee6bf557e3c85d8866a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017809"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696411"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Terminologie et concepts de Media Services
 
@@ -38,7 +38,7 @@ Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubr
 
 |Terme|Description|
 |---|---|
-|Événement en direct|Un **événement en direct** représente un pipeline d’ingestion, de transcodage (éventuellement) et d’empaquetage des streams en direct des fichiers vidéo et audio et des métadonnées en temps réel.<br/><br/>Pour les clients migrant depuis les API Media Services v2, **l’événement en direct** remplace l’entité **Channel** dans la version 2. Pour plus d’informations, consultez l’article [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md).|
+|Événement en direct|Un **événement en direct** représente un pipeline d’ingestion, de transcodage (éventuellement) et d’empaquetage des streams en direct des fichiers vidéo et audio et des métadonnées en temps réel.<br/><br/>Pour les clients migrant depuis les API Media Services v2, **l’événement en direct** remplace l’entité **Channel** dans la version 2. Pour plus d’informations, consultez l’article [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-v-2-v-3-migration-introduction.md).|
 |Point de terminaison de streaming/empaquetage/origine|Un **point de terminaison de streaming** représente un empaquetage dynamique (juste-à-temps) et un service d’origine qui permet de transmettre votre contenu en direct et à la demande directement à une application de lecteur cliente. Il utilise un des protocoles courants de diffusion multimédia en continu (HLS ou DASH). En outre, le **point de terminaison de streaming** offre un chiffrement dynamique (juste-à-temps) aux systèmes de gestion des droits numériques (DRM) leaders sur le marché.<br/><br/>Dans le secteur de la diffusion multimédia en continu, ce service est communément appelé **packager** ou **origine**.  Autres termes courants de ce secteur pour cette capacité : JITP (packager juste-à-temps) ou JITE (chiffrement juste-à-temps).
 
 ## <a name="media-services-v3-concepts"></a>Concepts Media Services v3

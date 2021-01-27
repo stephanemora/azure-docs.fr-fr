@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 902bcaa97658802b35fb523a1213e6bbd47f357f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740468"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684506"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)
 L’intégrité des invités d’Azure Monitor pour machines virtuelles vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à des intervalles réguliers. Cet article explique comment activer cette fonctionnalité dans votre abonnement et comment activer la supervision des invités pour chaque machine virtuelle.
@@ -127,9 +127,9 @@ Déployez le modèle à l’aide de toute [méthode de déploiement de modèles 
 New-AzResourceGroupDeployment -Name GuestHealthDataCollectionRule -ResourceGroupName my-resource-group -TemplateFile Health.DataCollectionRule.template.json -TemplateParameterFile Health.DataCollectionRule.template.parameters.json
 ```
 
-# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```cli
+```azurecli
 az deployment group create --name GuestHealthDataCollectionRule --resource-group my-resource-group --template-file Health.DataCollectionRule.template.json --parameters Health.DataCollectionRule.template.parameters.json
 ```
 
@@ -267,9 +267,9 @@ Par exemple, utilisez les commandes suivantes pour déployer le fichier de modè
 New-AzResourceGroupDeployment -Name GuestHealthDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
 ```
 
-# <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-```cli
+```azurecli
 az deployment group create --name GuestHealthDeployment --resource-group my-resource-group --template-file Health.VirtualMachine.template.json --parameters Health.VirtualMachine.template.parameters.json
 ```
 

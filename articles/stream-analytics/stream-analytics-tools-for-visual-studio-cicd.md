@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019888"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693373"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utiliser le package NuGet CI/CD Azure Stream Analytics pour l’intégration et le développement 
 Cet article explique comment utiliser le package NuGet CI/CD Azure Stream Analytics pour configurer un processus de déploiement et d’intégration continus.
@@ -51,7 +51,7 @@ Les paramètres par défaut dans le fichier parameters.json proviennent des para
       "value": null
     },
 ```
-Découvrez comment [effectuer un déploiement avec un fichier de modèle Resource Manager et Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Découvrez comment [utiliser un objet en tant que paramètre dans un modèle Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Découvrez comment [effectuer un déploiement avec un fichier de modèle Resource Manager et Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Découvrez comment [utiliser un objet en tant que paramètre dans un modèle Resource Manager](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 Pour utiliser une identité managée pour Azure Data Lake Store Gen1 comme récepteur de sortie, vous devez fournir l’accès au principal de service à l’aide de PowerShell avant de déployer sur Azure. Découvrez plus d’informations sur le [déploiement d’ADLS Gen1 avec une identité managée et le modèle Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

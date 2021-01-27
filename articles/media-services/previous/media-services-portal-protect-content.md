@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 061d66f08e79f935c778eb84dd47f71cab1a62d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ddd31f96ca88a02fa667f8809a00e2a4e3ecc50
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266627"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695422"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurer des stratégies de protection du contenu à l’aide du portail Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 >
 
  Avec Azure Media Services, vous pouvez sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Vous pouvez utiliser Media Services pour délivrer du contenu chiffré de manière dynamique avec la norme AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits. Vous pouvez aussi l’utiliser avec le chiffrement commun (CENC) à l’aide de la gestion des droits numériques (DRM) PlayReady et/ou Widevine et Apple FairPlay. 

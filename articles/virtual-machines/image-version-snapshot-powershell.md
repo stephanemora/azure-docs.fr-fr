@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4ca28efce28933eed9be5cca7bd412f2d9505aa
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300253"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679532"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Créez une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide de PowerShell
 
@@ -90,7 +90,7 @@ Les définitions d’image créent un regroupement logique des images. Elles son
 
 Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le disque managé sont issus d’une machine virtuelle en cours d’utilisation et qui n’a pas été généralisée. Si le disque managé ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
 
-Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./windows/shared-image-galleries.md#image-definitions).
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
 
 Créez la définition d’image à l’aide de [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, la définition d’image est nommée *myImageDefinition* et est destinée à un système d’exploitation Windows spécialisé. Pour créer une définition pour des images utilisant un système d’exploitation Linux, utilisez `-OsType Linux`. 
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cfb1fe6d2050a63070e9c21e4b8c3ef59efcb15
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297091"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682679"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Créer une image à partir d’un disque managé ou d’une capture instantanée dans Shared Image Gallery à l’aide d’Azure CLI
 
@@ -69,11 +69,11 @@ Les définitions d’image créent un regroupement logique des images. Elles son
 
 Lors de la définition de votre image, assurez-vous de disposer de toutes les informations correctes. Dans cet exemple, nous supposons que la capture instantanée ou le disque managé sont issus d’une machine virtuelle en cours d’utilisation et qui n’a pas été généralisée. Si le disque managé ou la capture instantanée ont été tirés d’un système d’exploitation généralisé (après l’exécution de Sysprep pour Windows ou [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou `-deprovision+user` pour Linux), remplacez `-OsState` par `generalized`. 
 
-Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./linux/shared-image-galleries.md#image-definitions).
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
 
 Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./linux/shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
+Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./shared-image-galleries.md#generalized-and-specialized-images). Pour créer une définition pour des images utilisant un système d’exploitation Windows, utilisez `--os-type Windows`. 
 
 Dans cet exemple, la galerie est nommée *myGallery*, elle se trouve dans le groupe de ressources *myGalleryRG*, et le nom de la définition d’image est *mImageDefinition*.
 

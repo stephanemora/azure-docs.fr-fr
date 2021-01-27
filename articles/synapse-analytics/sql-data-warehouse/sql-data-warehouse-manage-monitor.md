@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 1992c3d525fc1f5a098e1969887a752233d47990
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 62064eaae6aa7fb3438845170497035473227d30
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453797"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685206"
 ---
 # <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Superviser la charge de travail de votre pool SQL dédié Azure Synapse Analytics à l’aide de vues de gestion dynamique
 
@@ -32,7 +32,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 
 ## <a name="monitor-connections"></a>Suivi des connexions
 
-Toutes les connexions à votre entrepôt de données sont journalisées dans [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Cette DMV contient les 10 000 dernières connexions.  L’ID de session (session_id) est la clé principale. Elle est affectée de façon séquentielle pour chaque nouvelle connexion.
+Toutes les connexions à votre entrepôt de données sont journalisées dans [sys.dm_pdw_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-sessions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Cette DMV contient les 10 000 dernières connexions.  L’ID de session (session_id) est la clé principale. Elle est affectée de façon séquentielle pour chaque nouvelle connexion.
 
 ```sql
 -- Other Active Connections
@@ -41,7 +41,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 ## <a name="monitor-query-execution"></a>Surveillance de l’exécution des rêquetes
 
-Toutes les requêtes exécutées sur le pool SQL sont journalisées dans [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Cette DMV contient les 10 000 dernières requêtes exécutées.  L’ID de requête (request_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette DMV.  L’ID de requête (request_id) est affecté de façon séquentielle pour chaque nouvelle requête et a le préfixe QID, qui signifie ID de requête.  En interrogeant cette DMV pour un ID de session (session_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
+Toutes les requêtes exécutées sur le pool SQL sont journalisées dans [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  Cette DMV contient les 10 000 dernières requêtes exécutées.  L’ID de requête (request_id) identifie de manière unique chaque requête. Il s’agit de la clé principale pour cette DMV.  L’ID de requête (request_id) est affecté de façon séquentielle pour chaque nouvelle requête et a le préfixe QID, qui signifie ID de requête.  En interrogeant cette DMV pour un ID de session (session_id) donné, vous obtenez toutes les requêtes pour une connexion donnée.
 
 > [!NOTE]
 > Les procédures stockées utilisent plusieurs ID de requête.  Les ID de requête sont affectés dans un ordre séquentiel.
@@ -67,9 +67,9 @@ ORDER BY total_elapsed_time DESC;
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes dont l’état est **Interrompu** peuvent être mises en file d’attente en raison d’un grand nombre de requêtes actives en cours d’exécution. Ces requêtes apparaissent également dans la requête [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Limites de mémoire et de concurrence](memory-concurrency-limits.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources](#monitor-waiting-queries) plus loin dans cet article.
+Les requêtes dont l’état est **Interrompu** peuvent être mises en file d’attente en raison d’un grand nombre de requêtes actives en cours d’exécution. Ces requêtes apparaissent également dans la requête [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Limites de mémoire et de concurrence](memory-concurrency-limits.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez la rubrique [Examen des requêtes en attente de ressources](#monitor-waiting-queries) plus loin dans cet article.
 
-Pour simplifier la recherche d’une requête dans la table [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), utilisez [LABEL](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour attribuer un commentaire à votre requête qui peut être recherché dans l’affichage sys.dm_pdw_exec_requests.
+Pour simplifier la recherche d’une requête dans la table [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), utilisez [LABEL](/sql/t-sql/queries/option-clause-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour attribuer un commentaire à votre requête qui peut être recherché dans l’affichage sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -87,7 +87,7 @@ WHERE   [label] = 'My Query';
 
 ### <a name="step-2-investigate-the-query-plan"></a>ÉTAPE 2 : examiner le plan de requête
 
-Utilisez l’ID de requête pour récupérer le plan SQL distribué (DSQL) de la requête dans [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Utilisez l’ID de requête pour récupérer le plan SQL distribué (DSQL) de la requête dans [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -107,7 +107,7 @@ Pour examiner les détails d’une seule étape, vérifiez la colonne *operation
 
 ### <a name="step-3-investigate-sql-on-the-distributed-databases"></a>ÉTAPE 3 : examiner SQL dans les bases de données distribuées
 
-Utilisez l’ID de requête et l’index de l’étape pour récupérer des détails dans [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), qui contient des informations sur l’exécution de l’étape de la requête sur toutes les bases de données distribuées.
+Utilisez l’ID de requête et l’index de l’étape pour récupérer des détails dans [sys.dm_pdw_sql_requests](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), qui contient des informations sur l’exécution de l’étape de la requête sur toutes les bases de données distribuées.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -117,7 +117,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Quand l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
+Quand l’étape de la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) peut être utilisé pour récupérer le plan estimé de SQL Server dans le cache du plan SQL Server pour l’étape en cours d’exécution dans une distribution particulière.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL pool or control node.
@@ -128,7 +128,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
 ### <a name="step-4-investigate-data-movement-on-the-distributed-databases"></a>ÉTAPE 4 : examiner le déplacement des données dans les bases de données distribuées
 
-Utilisez l’ID de requête et l’index de l’étape pour récupérer des informations sur une étape de déplacement des données en cours d’exécution sur chaque distribution dans [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Utilisez l’ID de requête et l’index de l’étape pour récupérer des informations sur une étape de déplacement des données en cours d’exécution sur chaque distribution dans [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 -- Find information about all the workers completing a Data Movement Step.
@@ -141,7 +141,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Vérifiez la colonne *total_elapsed_time* pour voir si une distribution particulière prend un temps significativement plus important que les autres pour le déplacement des données.
 * Pour la distribution longue, consultez la colonne *rows_processed* pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que les autres. Dans ce cas, cette recherche peut indiquer un décalage des données sous-jacentes. L’une des causes de l’asymétrie des données est la distribution sur une colonne avec de nombreuses valeurs NULL (dont les lignes sont toutes placées dans la même distribution). Réduisez les requêtes lentes en évitant la distribution sur ces types de colonnes ou en filtrant votre requête pour éliminer les valeurs NULL lorsque cela est possible. 
 
-Si la requête est en cours d’exécution, vous pouvez utiliser [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour récupérer le plan estimé de SQL Server auprès du cache de plans SQL Serveur pour l’étape SQL en cours d’exécution dans une distribution particulière.
+Si la requête est en cours d’exécution, vous pouvez utiliser [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour récupérer le plan estimé de SQL Server auprès du cache de plans SQL Serveur pour l’étape SQL en cours d’exécution dans une distribution particulière.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL pool Compute or control node.
@@ -216,7 +216,7 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Si vous avez une requête qui consomme une grande quantité de mémoire ou si vous avez reçu un message d’erreur à propos de l’allocation de tempdb, le problème peut être dû à une instruction [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) très lourde en cours d’exécution qui échoue pendant l’opération de déplacement des données finale. Vous pouvez généralement identifier ce problème dans une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.  Utilisez [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) pour surveiller les opérations ShuffleMove.
+Si vous avez une requête qui consomme une grande quantité de mémoire ou si vous avez reçu un message d’erreur à propos de l’allocation de tempdb, le problème peut être dû à une instruction [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) très lourde en cours d’exécution qui échoue pendant l’opération de déplacement des données finale. Vous pouvez généralement identifier ce problème dans une opération ShuffleMove dans le plan de requête distribuée juste avant la dernière instruction INSERT SELECT.  Utilisez [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pour surveiller les opérations ShuffleMove.
 
 Pour atténuer ce problème, vous pouvez diviser l’instruction CTAS ou INSERT SELECT en plusieurs instructions de chargement de sorte que le volume des données ne dépasse pas la limite de tempdb définie à 1 To par nœud. Vous pouvez également mettre à l’échelle votre cluster vers une taille plus grande qui répartit la taille de tempdb sur plus de nœuds en la réduisant sur chaque nœud individuel.
 

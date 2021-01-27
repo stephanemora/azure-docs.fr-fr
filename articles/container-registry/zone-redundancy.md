@@ -3,12 +3,12 @@ title: Registre redondant interzone pour la haute disponibilité
 description: Découvrez comment activer la redondance de zone dans Azure Container Registry. Créez un registre de conteneurs ou une réplication dans une zone de disponibilité Azure. La redondance de zone est une fonctionnalité du niveau de service Premium.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127348"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696276"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Activer la redondance de zone dans Azure Container Registry à des fins de résilience et de haute disponibilité
 
@@ -39,7 +39,7 @@ Pour activer la redondance de zone avec Azure CLI, vous devez disposer de la ve
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Si besoin, exécutez la commande [az group create](/cli/az/group#az_group_create) afin de créer un groupe de ressources pour le registre.
+Si besoin, exécutez la commande [az group create](/cli/azure/group#az_group_create) afin de créer un groupe de ressources pour le registre.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -47,7 +47,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Création d’un registre compatible avec les zones
 
-Exécutez la commande [az acr create](/cli/az/acr#az_acr_create) pour créer un registre redondant interzone dans le niveau de service Premium. Choisissez une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry. Dans l’exemple suivant, la redondance de zone est activée dans la région *eastus*. Pour connaître d’autres options de registre, consultez l’aide de la commande `az acr create`.
+Exécutez la commande [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) pour créer un registre redondant interzone dans le niveau de service Premium. Choisissez une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry. Dans l’exemple suivant, la redondance de zone est activée dans la région *eastus*. Pour connaître d’autres options de registre, consultez l’aide de la commande `az acr create`.
 
 ```azurecli
 az acr create \
@@ -69,7 +69,7 @@ Dans la sortie de la commande, repérez la propriété `zoneRedundancy` du regis
 
 ### <a name="create-zone-redundant-replication"></a>Création d’une réplication redondante interzone
 
-Exécutez la commande [az acr replication create](/cli/az/acr/replication#az_acr_replication_create) pour créer un réplica de registre redondant interzone dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *westus2*. 
+Exécutez la commande [az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) pour créer un réplica de registre redondant interzone dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -113,7 +113,7 @@ Pour créer un réplica redondant interzone :
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Si nécessaire, exécutez la commande [az group create](/cli/az/group#az_group_create) pour créer un groupe de ressources pour le registre dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *eastus*. Cette région est utilisée par le modèle pour définir l’emplacement du registre.
+Si nécessaire, exécutez la commande [az group create](/cli/azure/group#az_group_create) pour créer un groupe de ressources pour le registre dans une région qui [prend en charge les zones de disponibilité](../availability-zones/az-region.md) pour Azure Container Registry, par exemple *eastus*. Cette région est utilisée par le modèle pour définir l’emplacement du registre.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -219,7 +219,7 @@ Copiez le contenu suivant dans un nouveau fichier et enregistrez-le à l’aide 
   }
 ```
 
-Exécutez la commande [az deployment group create](/cli/az/deployment#az_group_deployment_create) suivante pour créer le Registre à l’aide du fichier de modèle précédent. Si indiqué, fournissez :
+Exécutez la commande [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) suivante pour créer le Registre à l’aide du fichier de modèle précédent. Si indiqué, fournissez :
 
 * un nom de registre unique, ou déployez le modèle sans paramètres et il créera un nom unique pour vous
 * un emplacement pour le réplica qui prend en charge les zones de disponibilité, par exemple *westus2*

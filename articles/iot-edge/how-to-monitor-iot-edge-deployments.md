@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450176"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684201"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Superviser les déploiements IoT Edge
 
@@ -41,7 +41,7 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre hub IoT.
 1. Sélectionnez **IoT Edge** dans le menu du volet gauche.
 1. Sélectionnez l’onglet **Déploiements IoT Edge**.
-1. Inspectez la liste des déploiements. Pour chaque déploiement, vous pouvez consulter les détails suivants :
+1. Inspectez la liste des déploiements.  Pour chaque déploiement, vous pouvez consulter les détails suivants :
 
     | Colonne | Description |
     | --- | --- |
@@ -54,7 +54,7 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
     | Métriques personnalisées | Nombre d’appareils IoT Edge rapportant des données pour les métriques définies dans le cadre du déploiement. |
     | Heure de création | Horodateur de création du déploiement. Cet horodatage sert à départager deux déploiements ayant la même priorité. |
 
-1. Sélectionnez le déploiement que vous souhaitez surveiller.  
+1. Sélectionnez le déploiement que vous souhaitez surveiller.  
 1. Sur la page **Détails du déploiement**, accédez à la section du bas, puis sélectionnez l’onglet **Condition cible**. Sélectionnez **Afficher** pour faire apparaître les appareils qui remplissent la condition cible. Vous pouvez modifier cette condition ainsi que la **Priorité**. Le cas échéant, sélectionnez **Enregistrer**.
 
    ![Affichage des appareils ciblés pour un déploiement](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
@@ -69,7 +69,7 @@ Pour apporter des modifications à votre déploiement, consultez [Modification d
 
 Utilisez la commande [az iot edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) pour afficher les détails d’un déploiement unique :
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -78,7 +78,7 @@ La commande « deployment show » utilise les paramètres suivants :
 * **--deployment-id** : nom du déploiement qui existe dans le hub IoT. Paramètre obligatoire.
 * **--hub-name** : nom du hub IoT dans lequel le déploiement existe. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.
 
-Inspectez le déploiement dans la fenêtre de commande. La propriété **metrics** répertorie un nombre pour chaque métrique évaluée par chaque hub :
+Inspectez le déploiement dans la fenêtre de commande.  La propriété **metrics** répertorie un nombre pour chaque métrique évaluée par chaque hub :
 
 * **targetedCount** : métrique système qui spécifie le nombre de jumeaux d’appareil dans le hub IoT qui correspondent à la condition de ciblage.
 * **appliedCount** : métrique système qui spécifie le nombre d’appareils dont les jumeaux de module se sont vu appliquer le contenu de déploiement dans IoT Hub.
@@ -87,7 +87,7 @@ Inspectez le déploiement dans la fenêtre de commande. La propriété **metric
 
 Vous pouvez afficher la liste des ID d’appareil ou des objets de chacune des métriques avec la commande [az iot edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) :
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

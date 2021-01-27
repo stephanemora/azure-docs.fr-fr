@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556885"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698026"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -191,6 +191,8 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
 1. Cliquez sur **Ajouter des approbateurs de substitution**, puis sélectionnez les approbateurs de substitution dans la liste.
 
     ![Package d’accès – Stratégie – Ajouter des approbateurs de substitution](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    Si vous sélectionnez Gestionnaire en tant qu’approbateur pour le premier approbateur, vous disposez d’une option supplémentaire, **Gestionnaire de second niveau en tant qu’approbateur de substitution**, sélectionnable dans le champ d’approbateur de substitution. Si vous sélectionnez cette option, vous devez ajouter un approbateur de secours auquel transférer la demande au cas où le système ne peut pas trouver le gestionnaire de second niveau.
 
 1. Dans la zone **Passer aux autres approbateurs après combien de jours ?** , entrez le nombre de jours dont les approbateurs disposent pour approuver ou refuser une demande. Si aucun approbateur n’a approuvé ou refusé la demande pendant la durée de validité de celle-ci, la demande expire (délai d’expiration) et l’utilisateur doit soumettre une autre demande pour le package d’accès. 
 

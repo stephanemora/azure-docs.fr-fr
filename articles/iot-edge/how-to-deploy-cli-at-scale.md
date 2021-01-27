@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f8e4925f721b307abd85a8b881caff3e5fc04fde
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042981"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685660"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 
@@ -44,7 +44,7 @@ Pour déployer des modules avec Azure CLI, enregistrez localement le manifeste d
 Par exemple, voici un manifeste de déploiement de base comportant un seul module :
 
 >[!NOTE]
->Cet exemple de manifeste de déploiement utilise la version de schéma 1.1 pour l’agent IoT Edge et le hub. La version de schéma 1.1 a été publiée avec IoT Edge version 1.0.10 et active des fonctionnalités telles que l’ordre de démarrage des modules et la hiérarchisation des itinéraires.
+>Cet exemple de manifeste de déploiement utilise la version de schéma 1.1 pour l’agent et le hub IoT Edge. La version de schéma 1.1 a été publiée avec IoT Edge version 1.0.10 et active des fonctionnalités telles que l’ordre de démarrage des modules et la hiérarchisation des itinéraires.
 
 ```json
 {
@@ -191,7 +191,7 @@ Vous déployez les modules sur vos appareils cibles en créant un déploiement c
 
 Utilisez la commande [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) pour créer un déploiement :
 
-```cli
+```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
@@ -204,7 +204,7 @@ La commande « deployment create » utilise les paramètres suivants :
 * **--content** : chemin du fichier JSON du manifeste de déploiement. Paramètre obligatoire.
 * **--hub-name** : nom du hub IoT dans lequel le déploiement sera créé. Le hub doit être dans l’abonnement actuel. Modifiez votre abonnement actuel avec la commande `az account set -s [subscription name]`.
 * **--labels** : ajoutez des étiquettes pour faciliter le suivi de vos déploiements. Les étiquettes sont des paires Nom, Valeur qui décrivent votre déploiement. Les étiquettes utilisent le format JSON pour les noms et les valeurs. Par exemple, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition** : entrez une condition cible pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression.Par exemple : `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **--target-condition** : entrez une condition cible pour déterminer quels sont les appareils ciblés par ce déploiement.  La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple : `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--priority** : entier positif. Si deux ou plusieurs déploiements sont ciblés sur le même appareil, le déploiement ayant la valeur numérique la plus élevée pour Priority s’applique.
 * **--metrics** : créez des métriques qui interrogent les propriétés signalées par edgeHub afin de suivre l’état d’un déploiement. Les métriques utilisent une entrée JSON ou un chemin d'accès. Par exemple : `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
@@ -224,7 +224,7 @@ Vous ne pouvez pas mettre à jour le contenu d’un déploiement, ce qui compren
 
 Utilisez la commande [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) pour mettre à jour un déploiement :
 
-```cli
+```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
@@ -245,7 +245,7 @@ Quand vous supprimez un déploiement, tous les appareils prennent leur déploiem
 
 Utilisez la commande [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) pour supprimer un déploiement :
 
-```cli
+```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 

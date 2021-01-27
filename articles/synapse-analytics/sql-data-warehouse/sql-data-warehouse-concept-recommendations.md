@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121190"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685274"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recommandations de pool SQL dédié pour Azure Advisor dans Azure Synapse Analytics
 
@@ -73,4 +73,4 @@ Les performances des requêtes peuvent se dégrader en cas de forte contention s
 
 ## <a name="data-loading-misconfiguration"></a>Échec de la configuration du chargement des données
 
-Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL dédié. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](./guidance-for-loading-data.md) suivante.
+Pour réduire la latence, vous devez toujours charger les données à partir d’un compte de stockage situé dans la même région que votre pool SQL dédié. Utilisez l’[instruction COPY pour l’ingestion de données à débit élevé](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) et fractionnez vos fichiers intermédiaires dans votre compte de stockage pour optimiser le débit. Si vous ne pouvez pas utiliser l’instruction COPY, vous pouvez utiliser l’API SqlBulkCopy ou BCP avec une taille de lot élevée pour obtenir un meilleur débit. Pour obtenir de l’aide sur le chargement de données supplémentaires, consultez la [documentation](./guidance-for-loading-data.md) suivante.

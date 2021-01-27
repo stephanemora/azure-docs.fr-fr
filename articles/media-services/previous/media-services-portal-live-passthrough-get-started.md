@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040724"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695439"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Effectuer un streaming en direct avec des encodeurs locaux à l’aide du portail Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "93040724"
 > 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Ce didacticiel vous guide tout au long des étapes d’utilisation du portail Azure afin de créer un **canal** configuré pour une livraison directe. 
 
@@ -112,7 +112,7 @@ Cette section explique comment utiliser l’option **Création rapide** pour cr�
 Pour plus d’informations sur les canaux directs, consultez [Streaming en direct avec des encodeurs locaux qui créent des flux multidébits](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
-2. Dans la fenêtre **Paramètres** , cliquez sur **Diffusion en continu**. 
+2. Dans la fenêtre **Paramètres**, cliquez sur **Diffusion en continu**. 
    
     ![Prise en main](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    

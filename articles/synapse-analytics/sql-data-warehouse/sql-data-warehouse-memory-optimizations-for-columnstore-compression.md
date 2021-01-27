@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6984ad41c07f7790a746dbd197c18dce2aa83e2f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453726"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676160"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>Optimisation de la qualité du rowgroup pour les index columnstore dans un pool SQL dédié 
 
@@ -28,7 +28,7 @@ Dans la mesure où un index columnstore analyse une table en examinant les segme
 
 Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
 
-Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Taille cible des rowgroups
 
@@ -42,11 +42,11 @@ Pendant un chargement en masse ou une reconstruction d’index columnstore, la m
 
 Quand la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, une erreur est générée.
 
-Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
 
-La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contient la définition de vue correspondant à SQL DB) expose des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage, le cas échéant.
+La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contient la définition de vue correspondant à SQL DB) expose des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage, le cas échéant.
 
 Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
 

@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: bc101e6bb743b9290593937a4d1bac656430b438
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120034"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685308"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Meilleures pratiques de développement pour le pool SQL Synapse
 
@@ -80,7 +80,7 @@ Un autre moyen d’éliminer les restaurations consiste à utiliser des opérati
 
 Pour les tables non partitionnées, utilisez une instruction CTAS pour écrire les données que vous souhaitez conserver dans une table plutôt que l’instruction DELETE.  Si une instruction CTAS prend le même laps de temps, elle permet une opération beaucoup plus sûre car elle offre une journalisation des transactions minimale et peut être annulée rapidement si nécessaire.
 
-Voir aussi [Transactions](sql-data-warehouse-develop-transactions.md), [Optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md), [Partitionnement de table](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
+Voir aussi [Transactions](sql-data-warehouse-develop-transactions.md), [Optimisation des transactions](sql-data-warehouse-develop-best-practices-transactions.md), [Partitionnement de table](sql-data-warehouse-tables-partition.md), [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et [Create table as select (CTAS)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="use-the-smallest-possible-column-size"></a>Utiliser la plus petite taille de colonne possible
 
@@ -114,7 +114,7 @@ Si votre table ne possède pas six milliards de lignes dans cet exemple, réduis
 > [!TIP]
 > Lorsque vous interrogez une table columnstore, les requêtes s’exécutent plus vite si vous sélectionnez uniquement les colonnes dont vous avez besoin.  
 
-Voir aussi [Index de table](sql-data-warehouse-tables-index.md), [Guide des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) et [Reconstruction des index columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Voir aussi [Index de table](sql-data-warehouse-tables-index.md), [Guide des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et [Reconstruction des index columnstore](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

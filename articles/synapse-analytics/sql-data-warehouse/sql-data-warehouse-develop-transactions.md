@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 67cb4868ee8d4190c47e23315bf2a22e5c847ff1
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8144c588d4b6794cadc0577bf63dabc2cc3e0efd
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121173"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677284"
 ---
 # <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Utiliser des transactions dans un pool SQL dans Azure Synapse 
 
@@ -30,7 +30,7 @@ Comme vous le savez, le pool SQL prend en charge les transactions dans le cadre 
 
 Le pool SQL implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l’option de base de données READ_COMMITTED_SNAPSHOT pour un pool SQL utilisateur lorsqu’il est connecté à la base de données MASTER.  
 
-Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="transaction-size"></a>Taille de la transaction
 

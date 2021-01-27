@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cf84e45ff43643c7e9a983b867194a7920aa1b57
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351835"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695795"
 ---
 # <a name="media-services-regional-availability"></a>Disponibilité régionale de Media Services
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, [Media Services v3](../latest/media-services-overview.md). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. Découvrez la dernière version, [Media Services v3](../latest/media-services-overview.md). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Microsoft Azure Media Services (AMS) vous permet de charger, de stocker, d’encoder et d’empaqueter en toute sécurité du contenu vidéo ou audio destiné à être diffusé à la demande ou en streaming en direct sur différents clients (par exemple, téléviseurs, PC et appareils mobiles).
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510989"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684557"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Disques de système d’exploitation éphémères pour les machines virtuelles Azure
 
@@ -26,7 +26,7 @@ Les principales caractéristiques des disques éphémères sont les suivantes :
 - Faible latence, comparable à celle d’un disque temporaire. 
 - Le disque de système d’exploitation éphémère est gratuit ; autrement dit, aucun coût de stockage ne s’applique à l’utilisation de celui-ci.
 - Ils sont disponibles dans toutes les régions Azure. 
-- Le disque de système d’exploitation éphémère est pris en charge par la [Galerie d’images partagées](./linux/shared-image-galleries.md). 
+- Le disque de système d’exploitation éphémère est pris en charge par la [Galerie d’images partagées](./shared-image-galleries.md). 
  
 
  

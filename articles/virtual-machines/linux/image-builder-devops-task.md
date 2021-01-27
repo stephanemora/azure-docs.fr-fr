@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196501"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684540"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tâche DevOps du service Azure Image Builder
 
@@ -71,10 +71,10 @@ Utilisez le groupe de ressources dans lequel l’artefact du modèle d’image t
  
 ### <a name="location"></a>Emplacement
 
-L’emplacement est la région dans laquelle Image Builder sera exécuté. Seul un nombre défini de [régions](../windows/image-builder-overview.md#regions) sont prises en charge. Les images sources doivent être présentes à cet emplacement. Par exemple, si vous utilisez Shared Image Gallery, un réplica doit exister dans cette région.
+L’emplacement est la région dans laquelle Image Builder sera exécuté. Seul un nombre défini de [régions](../image-builder-overview.md#regions) sont prises en charge. Les images sources doivent être présentes à cet emplacement. Par exemple, si vous utilisez Shared Image Gallery, un réplica doit exister dans cette région.
 
 ### <a name="managed-identity-required"></a>Identité managée (obligatoire)
-Image Builder nécessite une identité managée, qu’il utilise pour lire les images personnalisées sources, se connecter au Stockage Azure et créer des images personnalisées. Consultez [ce document](./image-builder-overview.md#permissions) pour plus d’informations.
+Image Builder nécessite une identité managée, qu’il utilise pour lire les images personnalisées sources, se connecter au Stockage Azure et créer des images personnalisées. Consultez [ce document](../image-builder-overview.md#permissions) pour plus d’informations.
 
 ### <a name="vnet-support"></a>Prise en charge du réseau virtuel
 
@@ -335,4 +335,4 @@ L’artefact de ressource du modèle d’image se trouve dans le groupe de resso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](image-builder-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](../image-builder-overview.md).

@@ -3,12 +3,12 @@ title: Sauvegarder des ordinateurs Windows en utilisant l’agent MARS
 description: Utilisez l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des ordinateurs Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052220"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702766"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Sauvegarder les fichiers et dossiers de Windows Server sur Azure
 
@@ -104,7 +104,7 @@ Pour effectuer un transfert en mode hors connexion :
 1. Écrivez les données de sauvegarde dans un emplacement intermédiaire.
 1. Utilisez l’outil AzureOfflineBackupDiskPrep pour copier les données de l’emplacement intermédiaire sur un ou plusieurs disques SATA.
 
-    L’outil crée une tâche d’importation Azure. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export](../storage/common/storage-import-export-service.md).
+    L’outil crée une tâche d’importation Azure. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export](../import-export/storage-import-export-service.md).
 1. Envoyez les disques SATA à un centre de données Azure.
 
     Dans le centre de données, les données de disque sont copiées vers un compte de stockage Azure. Sauvegarde Azure copie les données de sauvegarde à partir du compte de stockage vers le coffre, et des sauvegardes incrémentielles sont planifiées.

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763538"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684608"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -49,7 +49,7 @@ L’orchestrateur de mise à niveau du système d’exploitation du groupe ident
 >La mise à niveau automatique du système d’exploitation ne met pas à niveau la référence SKU d’image de référence sur le groupe identique. Pour modifier la référence (par exemple, Ubuntu 16,04-LTS à 18,04-LTS), vous devez [mettre à jour le modèle](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) de groupe de machines virtuelles directement avec la référence SKU d’image souhaitée. L’éditeur d’images et l’offre ne peuvent pas être modifiés pour un groupe identique existant.  
 
 ## <a name="supported-os-images"></a>Images de système d’exploitation prises en charge
-Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. Les images personnalisées [sont prises en charge](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si le groupe identique utilise des images personnalisées via [Shared Image Gallery](shared-image-galleries.md).
+Seules certaines images de plateforme de système d’exploitation sont actuellement prises en charge. Les images personnalisées [sont prises en charge](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) si le groupe identique utilise des images personnalisées via [Shared Image Gallery](../virtual-machines/shared-image-galleries.md).
 
 Les références SKU de plateforme suivantes sont prises en charge (et d’autres sont régulièrement ajoutées) :
 
@@ -89,11 +89,11 @@ Assurez-vous que les paramètres de durabilité ne sont pas incompatibles avec l
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Mise à niveau automatique de l’image du système d’exploitation pour les images personnalisées
 
-La mise à niveau automatique de l’image du système d’exploitation est prise en charge pour les images personnalisées déployées via [Shared Image Gallery](shared-image-galleries.md). Les autres images personnalisées ne sont pas prises en charge pour les mises à niveau automatiques de l’image du système d’exploitation.
+La mise à niveau automatique de l’image du système d’exploitation est prise en charge pour les images personnalisées déployées via [Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Les autres images personnalisées ne sont pas prises en charge pour les mises à niveau automatiques de l’image du système d’exploitation.
 
 ### <a name="additional-requirements-for-custom-images"></a>Exigences supplémentaires pour les images personnalisées
 - Le processus de paramétrage et de configuration de la mise à niveau automatique de l’image du système d’exploitation est le même pour tous les groupes identiques, comme indiqué dans la [section Configuration](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) de cette page.
-- Les instances de groupes identiques configurées pour les mises à niveau automatiques de l’image du système d’exploitation sont mises à niveau vers la dernière version de l’image de la Galerie d’images partagées lorsqu’une nouvelle version de l’image est publiée et [répliquée](shared-image-galleries.md#replication) dans la région de ce groupe identique. Si la nouvelle image n’est pas répliquée vers la région où le groupe est déployé, les instances du groupe identique ne seront pas mises à niveau vers la dernière version. La réplication régionale d’images vous permet de contrôler le déploiement de la nouvelle image pour vos groupes identiques.
+- Les instances de groupes identiques configurées pour les mises à niveau automatiques de l’image du système d’exploitation sont mises à niveau vers la dernière version de l’image de la Galerie d’images partagées lorsqu’une nouvelle version de l’image est publiée et [répliquée](../virtual-machines/shared-image-galleries.md#replication) dans la région de ce groupe identique. Si la nouvelle image n’est pas répliquée vers la région où le groupe est déployé, les instances du groupe identique ne seront pas mises à niveau vers la dernière version. La réplication régionale d’images vous permet de contrôler le déploiement de la nouvelle image pour vos groupes identiques.
 - La nouvelle version de l’image ne doit pas être exclue de la version la plus récente pour cette image de la galerie. Les versions d’image exclues de la dernière version de l’image de la galerie ne sont pas déployées dans le groupe identique via la mise à niveau automatique de l’image du système d’exploitation.
 
 > [!NOTE]

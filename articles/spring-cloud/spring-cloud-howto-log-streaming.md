@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcfddce568be6c641a5bf5be70c2cd0ad368095f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843602"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680516"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel
 
@@ -31,7 +31,7 @@ Azure Spring Cloud active la diffusion en continu de journaux dans Azure CLI 
 ## <a name="use-cli-to-tail-logs"></a>Utiliser l’interface CLI pour les dernières lignes des journaux
 
 Pour éviter de spécifier à plusieurs reprises le nom de votre groupe de ressources et de votre instance de service, définissez le nom du groupe de ressources et le nom du cluster par défaut.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
@@ -39,11 +39,11 @@ Dans les exemples suivants, le groupe de ressources et le nom du service sont om
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Dernières lignes du journal pour l’application avec une seule instance
 Si une application nommée « auth-service » ne dispose que d’une seule instance, vous pouvez afficher le journal de l’instance de l’application à l’aide de la commande suivante :
-```
+```azurecli
 az spring-cloud app logs -n auth-service
 ```
 Des journaux seront retournés :
-```
+```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
 2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
@@ -58,12 +58,12 @@ Si plusieurs instances existent pour l’application nommée `auth-service`, vou
 
 Tout d’abord, vous pouvez récupérer les noms des instances de l’application à l’aide de la commande suivante.
 
-```
+```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
 Avec les résultats :
 
-```
+```output
 Name                                         Status    DiscoveryStatus
 -------------------------------------------  --------  -----------------
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
@@ -72,7 +72,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
 Ensuite, vous pouvez diffuser en continu des journaux d’une instance d’application avec l’option `-i/--instance` :
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
@@ -81,11 +81,11 @@ Vous pouvez également obtenir des informations sur les instances d’applicatio
 ### <a name="continuously-stream-new-logs"></a>Diffuser en continu de nouveaux journaux
 Par défaut, `az spring-cloud ap log tail` imprime uniquement les journaux existants diffusés en continu à la console d’application, puis se ferme. Si vous souhaitez diffuser de nouveaux journaux, ajoutez la lettre  f (--Follow) :  
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -f
 ``` 
 Pour vérifier toutes les options de journalisation prises en charge :
-``` 
+```azurecli
 az spring-cloud app logs -h 
 ```
 

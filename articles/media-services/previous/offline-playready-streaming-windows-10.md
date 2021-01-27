@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a26be590d5f7b467f57e8e18eac54ce57be24094
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd1d50003ef4334f1ea83ac256b371b20d021936
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266593"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693890"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
 
@@ -31,7 +31,7 @@ ms.locfileid: "89266593"
 > * [Version 2](offline-playready-streaming-windows-10.md)
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Azure Media Services prend en charge le téléchargement/la lecture hors connexion avec la protection DRM. Cet article décrit la prise en charge hors connexion d’Azure Media Services pour les clients Windows 10/PlayReady. Pour en savoir plus sur la prise en charge du mode hors connexion pour les appareils iOS/FairPlay et Android/Widevine, consultez les articles suivants :
 
@@ -42,7 +42,7 @@ Azure Media Services prend en charge le téléchargement/la lecture hors connexi
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 
-* Dans certains pays/certaines régions, la disponibilité Internet et/ou la bande passante sont encore limitées. Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu en résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème ne concerne pas majoritairement la disponibilité du réseau, mais une bande passante réseau limitée. Les fournisseurs OTT/OVP doivent fournir une prise en charge du mode hors connexion.
+* Dans certains pays/certaines régions, la disponibilité Internet et/ou la bande passante sont encore limitées.  Les utilisateurs peuvent choisir de télécharger d’abord afin de pouvoir regarder le contenu en résolution suffisamment élevée pour une expérience d’affichage satisfaisante. Dans ce cas, le problème ne concerne pas majoritairement la disponibilité du réseau, mais une bande passante réseau limitée. Les fournisseurs OTT/OVP doivent fournir une prise en charge du mode hors connexion.
 * Comme l’a indiqué Reed Hastings, PDG de Netflix, lors de la réunion des actionnaires Netflix du troisième trimestre 2016, le téléchargement de contenu est une « fonctionnalité très demandée » à laquelle « nous sommes ouverts ».
 * Certains fournisseurs de contenu peuvent interdire la remise de licence de gestion des droits numériques (DRM) au-delà de la frontière d’un pays/d’une région. Si un utilisateur en voyage à l’étranger souhaite regarder du contenu, le téléchargement hors connexion est nécessaire.
  

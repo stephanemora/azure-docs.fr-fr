@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127139"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676757"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Dépannage des échecs d’extension de machine virtuelle Windows dans Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Ce certificat est automatiquement régénéré lors du redémarrage de l’agent
 - Cliquez avec le bouton droit, puis sélectionnez « Terminer la tâche ». Le processus sera redémarré automatiquement.
 
 
-Vous pouvez également déclencher un nouveau GoalState sur la machine virtuelle, en exécutant « VM Reapply ». L’API VM [Reapply](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply), introduite en 2020, permet de réappliquer l’état d’une machine virtuelle. Nous vous recommandons de le faire à un moment où vous pouvez tolérer un court temps d’arrêt des machines virtuelles. Reapply ne provoque pas en elle-même le redémarrage d’une machine virtuelle, qui la plupart du temps ne se produit pas. Cependant, il est très peu probable qu’une autre mise à jour en attente du modèle de machine virtuelle soit appliquée lorsque Reapply déclenche un nouveau GoalState et qu’une autre modification exige un redémarrage. 
+Vous pouvez également déclencher un nouveau GoalState sur la machine virtuelle, en exécutant « VM Reapply ». L’API VM [Reapply](/rest/api/compute/virtualmachines/reapply), introduite en 2020, permet de réappliquer l’état d’une machine virtuelle. Nous vous recommandons de le faire à un moment où vous pouvez tolérer un court temps d’arrêt des machines virtuelles. Reapply ne provoque pas en elle-même le redémarrage d’une machine virtuelle, qui la plupart du temps ne se produit pas. Cependant, il est très peu probable qu’une autre mise à jour en attente du modèle de machine virtuelle soit appliquée lorsque Reapply déclenche un nouveau GoalState et qu’une autre modification exige un redémarrage. 
 
 Portail Azure :
 

@@ -3,12 +3,12 @@ title: Surveiller les performances sur les machines virtuelles Azure - Azure App
 description: Analyse des performances des applications pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 6bc70b3d9a1a7a2d3fffb71ad28f2cf64cbd323b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ed56bc88a9d2e8a9490331605cd4a72aef6930db
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461726"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677941"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 
@@ -17,7 +17,7 @@ Désormais, l’activation de la supervision pour vos applications web .NET qui 
 Cet article vous explique comment activer la supervision Application Insights à l’aide du module Application Insights Agent. De plus, il fournit une aide préliminaire à l’automatisation des déploiements à grande échelle.
 
 > [!IMPORTANT]
-> L’agent Azure Application Insights pour les applications ASP.NET s’exécutant sur **machines virtuelles Azure et VMSS** est actuellement disponible en version préliminaire publique. Pour surveiller vos applications ASP.Net qui s’exécutent **localement**, utilisez l’agent [Azure Application Insights pour les serveurs locaux](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview), qui est généralement disponible et pris en charge intégralement.
+> L’agent Azure Application Insights pour les applications ASP.NET s’exécutant sur **machines virtuelles Azure et VMSS** est actuellement disponible en version préliminaire publique. Pour surveiller vos applications ASP.Net qui s’exécutent **localement**, utilisez l’agent [Azure Application Insights pour les serveurs locaux](./status-monitor-v2-overview.md), qui est généralement disponible et pris en charge intégralement.
 > La préversion pour les machines virtuelles Azure et VMSS est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

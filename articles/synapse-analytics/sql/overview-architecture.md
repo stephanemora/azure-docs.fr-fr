@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462708"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679616"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architecture Azure Synapse SQL 
 
@@ -67,7 +67,7 @@ Dans un pool SQL serverless, le moteur de traitement des requêtes distribuées 
 
 Les nœuds de calcul fournissent la puissance de calcul. 
 
-Dans un pool SQL dédié, les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, le pool re-mappe les distributions aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service du pool SQL dédié. Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, consultez [Vues système Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Dans un pool SQL dédié, les distributions sont mappées aux nœuds de calcul pour traitement. À mesure que vous payez pour davantage de ressources de calcul, le pool re-mappe les distributions aux nœuds de calcul disponibles. Le nombre de nœuds calcul (entre 1 et 60) est déterminé par le niveau de service du pool SQL dédié. Chaque nœud de calcul a un ID de nœud visible dans les vues système. Vous pouvez voir l’ID de nœud de calcul en effectuant une recherche dans la colonne node_id des vues système dont le nom commence par sys.pdw_nodes. Pour obtenir la liste de ces vues système, consultez [Vues système Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true).
 
 Dans un pool SQL serverless, chaque nœud de calcul reçoit une tâche et un ensemble de fichiers sur lesquels exécuter la tâche. La tâche est une unité d’exécution de requête distribuée, qui fait partie de la requête envoyée par l’utilisateur. La mise à l’échelle automatique est activée afin de s’assurer qu’un nombre suffisant de nœuds de calcul est utilisé pour exécuter une requête utilisateur.
 

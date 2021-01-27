@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844401"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682069"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. La surveillance et les diagnostics pour Service Fabric mesh portent sur trois types principaux de données de diagnostic :
@@ -26,7 +26,7 @@ Cet article décrit les options de surveillance et de diagnostic pour la derniè
 
 Vous pouvez afficher les journaux d’activité Docker de vos conteneurs déployés, séparément pour chaque conteneur. Dans le modèle d’application Service Fabric mesh, chaque conteneur est un package de code dans votre application. Pour afficher les journaux d’activité associés avec un package de code, utilisez la commande suivante :
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +35,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Voici à quoi cela ressemble pour l’affichage de journaux d’activité du conteneur VotingWeb.Code de l’application de vote :
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -74,7 +74,7 @@ Chaque dimension correspond à différents composants du [modèle d’applicatio
 
 ### <a name="azure-monitor-cli"></a>Interface de ligne de commande Azure Monitor
 
-Une liste complète des commandes est disponible dans les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list), mais nous avons inclus quelques exemples utiles ci-dessous 
+Une liste complète des commandes est disponible dans les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list), mais nous avons inclus quelques exemples utiles ci-dessous 
 
 Dans chaque exemple, l’ID de ressource suit ce modèle
 
@@ -83,21 +83,21 @@ Dans chaque exemple, l’ID de ressource suit ce modèle
 
 * Utilisation de l’UC des conteneurs dans une application
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Utilisation de la mémoire pour chaque réplica de service
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Redémarre pour chaque conteneur dans une fenêtre d’une heure 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Utilisation moyenne de l’UC entre les services nommés « VotingWeb » dans une fenêtre d’une heure
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour en savoir plus sur Service Fabric mesh, voir la [vue d’ensemble de Service Fabric mesh](service-fabric-mesh-overview.md).
-* Pour en savoir plus sur les commandes des métriques Azure Monitor, consultez les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Pour en savoir plus sur les commandes des métriques Azure Monitor, consultez les [documents de l’interface de ligne de commande Azure Monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list).

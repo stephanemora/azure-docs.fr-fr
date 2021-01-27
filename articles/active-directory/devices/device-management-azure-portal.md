@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232316"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683808"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -168,7 +168,7 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 - **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) : vous pouvez déterminer si les utilisateurs doivent indiquer un facteur d’authentification supplémentaire pour joindre ou inscrire leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger l’authentification multifacteur au moment de l’inscription ou de la jointure d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les différents services Azure AD Multi-Factor Authentication, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> Le paramètre **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) s’applique aux appareils joints à Azure AD (sauf exception) et aux appareils inscrits à Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
+> Le paramètre **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) s’applique aux appareils joints à Azure AD (sauf exception) et aux appareils inscrits à Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
 

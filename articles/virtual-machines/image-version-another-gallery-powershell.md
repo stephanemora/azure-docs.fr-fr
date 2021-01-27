@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bc6f4468e0365d247b0adc204bd53ce9fa3006
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299947"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676714"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiez une image à partir d’une autre galerie en utilisant PowerShell
 
@@ -164,6 +164,6 @@ $job.State
 
 Créez une machine virtuelle à partir d’une version d’image [généralisée](vm-generalized-image-version-powershell.md) ou [spécialisée](vm-specialized-image-version-powershell.md).
 
-[Générateur d’image Azure (préversion)](./linux/image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md). 
+[Générateur d’image Azure (préversion)](./image-builder-overview.md) permet d’automatiser la création d’une version de l’image. Vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une image existante](./linux/image-builder-gallery-update-image-version.md). 
 
 Pour savoir comment fournir des informations sur le plan d'achat, consultez [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md) (Donner des informations sur le plan d'achat de la place de marché Azure lors de la création d’images).

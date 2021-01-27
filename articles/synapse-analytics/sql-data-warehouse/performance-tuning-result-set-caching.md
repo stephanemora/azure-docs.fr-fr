@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d8c6c8d22c059c63fb4f84c84a02a70de30d4ebe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678523"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats
 
@@ -24,13 +24,13 @@ Lorsque la mise en cache du jeu de résultats est activée, le pool SQL dédié 
 
 ## <a name="key-commands"></a>Commandes clés
 
-[Activer/désactiver la mise en cache du jeu de résultats pour une base de données utilisateur](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Activer/désactiver la mise en cache du jeu de résultats pour une base de données utilisateur](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Activer/désactiver la mise en cache du jeu de résultats pour une session](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Activer/désactiver la mise en cache du jeu de résultats pour une session](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Vérifier la taille du jeu de résultats mis en cache](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+[Vérifier la taille du jeu de résultats mis en cache](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  
 
-[Nettoyer le cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Nettoyer le cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="whats-not-cached"></a>Éléments non mis en cache  
 
@@ -74,7 +74,7 @@ Le jeu de résultats mis en cache est réutilisé pour une requête si toutes le
 - Il existe une correspondance exacte entre la nouvelle requête et la requête précédente qui a généré le cache du jeu de résultats.
 - Il n’y a aucune modification de données ou de schéma dans les tables à partir desquelles le jeu de résultats mis en cache a été généré.
 
-Exécutez cette commande pour vérifier si une requête a été exécutée avec un accès ou un échec du cache de résultats. La colonne result_cache_hit retourne 1 pour la correspondance dans le cache, 0 pour l’absence dans le cache et des valeurs négatives reflétant les raisons pour lesquelles la mise en cache du jeu de résultats n’a pas été utilisée. Pour plus d’informations, consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Exécutez cette commande pour vérifier si une requête a été exécutée avec un accès ou un échec du cache de résultats. La colonne result_cache_hit retourne 1 pour la correspondance dans le cache, 0 pour l’absence dans le cache et des valeurs négatives reflétant les raisons pour lesquelles la mise en cache du jeu de résultats n’a pas été utilisée. Pour plus d’informations, consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: a1d94166c6c56a3652dc0ad532bd481c6e792c52
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0b5e8f28be9960a2bb4e1406a293ab5e03962681
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217088"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680567"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Attribuer plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI
 
@@ -38,7 +38,7 @@ Les étapes qui suivent expliquent comment créer un exemple de machine virtuell
 3. À partir d’un interpréteur de commandes, connectez-vous avec la commande `az login`, puis sélectionnez l’abonnement que vous utilisez.
 4. Créez la machine virtuelle en exécutant le script suivant sur un ordinateur Linux ou Mac. Le script crée un groupe de ressources, un réseau virtuel (VNet), une carte réseau avec trois configurations IP et une machine virtuelle avec les deux cartes réseau qui lui sont associées. La carte réseau, l’adresse IP publique, le réseau virtuel et les ressources de la machine virtuelle doivent se trouver au même emplacement et correspondre au même abonnement. Bien que les ressources n’aient pas toutes à se trouver dans le même groupe de ressources, c’est le cas dans le script suivant.
 
-```bash
+```azurecli
     
 #!/bin/sh
     

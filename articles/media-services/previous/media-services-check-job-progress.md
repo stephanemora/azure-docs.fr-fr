@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 591f69855204c4489eb3e9c6edb3900044dda2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a1c45290d07099c1f7d202854284ef638ad638
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258399"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695973"
 ---
 # <a name="monitor-job-progress-using-net"></a>Surveiller la progression des travaux à l’aide de .NET
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez vérifier la progression en définissant un gestionnaire d’événements StateChanged (comme le décrit cette rubrique) ou en utilisant Azure Queue Storage pour contrôler les notifications de travaux Media Services (comme le décrit [cette](media-services-dotnet-check-job-progress-with-queues.md) rubrique).
 

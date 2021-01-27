@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016996"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678821"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -71,7 +71,7 @@ Lorsque vous créez une identité d’appareil, fournissez les informations suiv
 
 Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération. L’exemple suivant utilise la commande [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) pour créer un appareil IoT avec authentification par clé symétrique et affecter un appareil parent :
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ Pour l’authentification par certificat X.509 autosigné, parfois appelée aut
 
 Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération de création d’appareil. L’exemple suivant utilise la commande [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) pour créer un appareil IoT avec authentification auto-signée X.509 et affecter un appareil parent :
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -170,7 +170,7 @@ Cette section est basée sur les instructions de l’article IoT Hub [Configurer
 
 Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération de création d’appareil. L’exemple suivant utilise la commande [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) pour créer un appareil IoT avec authentification X.509 signée par une autorité de certification et affecter un appareil parent :
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ Pour les appareils en aval, les chaînes de connexion ont besoin des composants 
 
 Dans son intégralité, une chaîne de connexion ressemble à ceci :
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Ou :
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Grâce à la relation parent/enfant, vous pouvez simplifier la chaîne de connexion en appelant directement la passerelle en tant qu’hôte de connexion. Par exemple :
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

@@ -4,12 +4,12 @@ description: Découvrez comment connecter votre application de fonction à Appli
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937278"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684706"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Comment configurer l’analyse pour Azure Functions
 
@@ -233,7 +233,7 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 Pour qu’une application de fonction envoie des données à Application Insights, elle a besoin de connaître la clé d’instrumentation d’une ressource Application Insights. Cette clé doit se trouver dans un paramètre d’application nommé **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
-Lorsque vous créez votre application de fonction dans le [portail Azure](functions-create-first-azure-function.md), à partir de la ligne de commande avec [Azure Functions Core Tools](./create-first-function-cli-csharp.md), ou à l’aide de [Visual Studio Code](./create-first-function-vs-code-csharp.md), l’intégration d’Application Insights est activée par défaut. La ressource Application Insights, qui porte le même nom que votre application de fonction est créée dans la même région ou dans la région la plus proche.
+Lorsque vous créez votre application de fonction dans le [portail Azure](./functions-get-started.md), à partir de la ligne de commande avec [Azure Functions Core Tools](./create-first-function-cli-csharp.md), ou à l’aide de [Visual Studio Code](./create-first-function-vs-code-csharp.md), l’intégration d’Application Insights est activée par défaut. La ressource Application Insights, qui porte le même nom que votre application de fonction est créée dans la même région ou dans la région la plus proche.
 
 ### <a name="new-function-app-in-the-portal"></a>Nouvelle application de fonction dans le portail
 

@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 44afd8ea4ef2ab06ec31b7528e9776faebc3b4dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978895"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98690087"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
 Vous pouvez utiliser les protocoles suivants avec Azure Event Hubs pour envoyer et recevoir des événements :
@@ -36,10 +36,10 @@ Les kits SDK officiels Azure utilisent généralement le protocole AMQP pour env
 
 | Language | Option   |
 | -------- | ----- |
-| .NET     | Propriété [EventHubConnectionOptions.TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) avec [EventHubsTransportType.AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) ou [EventHubsTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
-| Java     | [com.microsoft.azure.eventhubs.EventProcessorClientBuilder.transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) avec [AmqpTransportType.AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
-| Nœud  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) possède une propriété `webSocketOptions`. |
-| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) avec [TransportType.Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) ou [TransportType.AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+| .NET     | Propriété [EventHubConnectionOptions.TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype) avec [EventHubsTransportType.AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) ou [EventHubsTransportType.AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) |
+| Java     | [com.microsoft.azure.eventhubs.EventProcessorClientBuilder.transporttype](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype) avec [AmqpTransportType.AMQP](/java/api/com.azure.core.amqp.amqptransporttype) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype) |
+| Nœud  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions) possède une propriété `webSocketOptions`. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient) avec [TransportType.Amqp](/python/api/azure-eventhub/azure.eventhub.transporttype) ou [TransportType.AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype) |
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quelles adresses IP dois-je autoriser ?
 Lorsque vous utilisez Azure, vous devez parfois autoriser des plages d’adresses IP ou des URL spécifiques dans votre pare-feu ou proxy d’entreprise pour accéder à tous les services Azure que vous utilisez ou essayez d’utiliser. Vérifiez que le trafic est autorisé sur les adresses IP utilisées par Event Hubs. Pour les adresses IP utilisées par Azure Event Hubs : consultez le document [Plages d’adresses IP Azure et balises de service – Cloud public](https://www.microsoft.com/download/details.aspx?id=56519).

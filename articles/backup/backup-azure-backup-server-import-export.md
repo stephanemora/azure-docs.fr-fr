@@ -3,12 +3,12 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Grâce à Sauvegarde Azure, vous pouvez envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le workflow de sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378455"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701811"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure (MABS)
 
@@ -17,7 +17,7 @@ ms.locfileid: "89378455"
 
 System Center Data Protection Manager et le serveur de sauvegarde Azure (MABS) sont intégrés au service Sauvegarde Azure et utilisent plusieurs fonctionnalités intégrées qui permettent d’économiser les coûts de stockage et de réseau pendant les sauvegardes initiales complètes des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. La sauvegarde Azure compresse les sauvegardes initiales. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure.
 
-Le processus d’amorçage hors connexion de Sauvegarde Azure est étroitement intégré au [service Azure Import/Export](../storage/common/storage-import-export-service.md). Vous pouvez utiliser ce service pour transférer des données vers Azure à l’aide de disques. Si vous devez transférer des téraoctets (To) de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le workflow d’amorçage hors connexion pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. Cet article donne une vue d’ensemble et des étapes supplémentaires qui terminent ce workflow pour Microsoft System Center Data Protection Manager (DPM) et le serveur de sauvegarde Microsoft Azure (MABS).
+Le processus d’amorçage hors connexion de Sauvegarde Azure est étroitement intégré au [service Azure Import/Export](../import-export/storage-import-export-service.md). Vous pouvez utiliser ce service pour transférer des données vers Azure à l’aide de disques. Si vous devez transférer des téraoctets (To) de données de sauvegarde initiales sur un réseau à latence élevée et à faible bande passante, vous pouvez utiliser le workflow d’amorçage hors connexion pour expédier la copie de sauvegarde initiale sur un ou plusieurs disques durs à un centre de données Azure. Cet article donne une vue d’ensemble et des étapes supplémentaires qui terminent ce workflow pour Microsoft System Center Data Protection Manager (DPM) et le serveur de sauvegarde Microsoft Azure (MABS).
 
 > [!NOTE]
 > Le processus de sauvegarde hors connexion pour l’agent Microsoft Azure Recovery Services (MARS) est distinct de celui de DPM et de MABS. Pour plus d’informations sur l’utilisation de la sauvegarde hors connexion avec l’agent MARS, consultez [Workflow de la sauvegarde hors connexion dans Sauvegarde Azure](backup-azure-backup-import-export.md). La sauvegarde hors connexion n’est pas prise en charge pour les sauvegardes d’état du système effectuées à l’aide de l’agent de sauvegarde Azure.
@@ -59,12 +59,12 @@ Assurez-vous que les prérequis suivants sont remplis avant de démarrer le work
        ![Inscription du fournisseur de ressources](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous souhaitez sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go. (bien qu’une quantité inférieure soit utilisée en raison de la compression).
-* Pour les disques envoyés à Azure, assurez-vous que seuls des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
+* Pour les disques envoyés à Azure, assurez-vous que seuls des disques SSD de 2,5 pouces ou des disques durs internes SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../import-export/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’emplacement intermédiaire vers les disques SATA. Vérifiez que BitLocker est activé sur l’ordinateur de copie.
 
 ## <a name="workflow"></a>Workflow
 
-Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](../storage/common/storage-import-export-service.md) susmentionnée.
+Les informations de cette section vous permettent d’effectuer le flux de travail de sauvegarde hors connexion, afin que vos données puissent être remises à un centre de données Azure et chargées dans le stockage Azure. Si vous avez des questions sur le service Import ou sur un aspect du processus, consultez la documentation sur la [vue d’ensemble du service Import](../import-export/storage-import-export-service.md) susmentionnée.
 
 ## <a name="initiate-offline-backup"></a>Lancer la sauvegarde hors connexion
 
@@ -188,7 +188,7 @@ La durée nécessaire au traitement d’une tâche d’importation Azure varie. 
 
 ### <a name="monitor-azure-import-job-status"></a>Surveiller l’état de la tâche d’importation Azure
 
-Vous pouvez suivre l’état de votre tâche d’importation à partir du portail Azure en accédant à la page **Tâches d’importation/exportation** et en sélectionnant votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Storage Import Export service](../storage/common/storage-import-export-service.md) (Service d’importation/exportation du stockage).
+Vous pouvez suivre l’état de votre tâche d’importation à partir du portail Azure en accédant à la page **Tâches d’importation/exportation** et en sélectionnant votre tâche. Pour en savoir plus sur l’état des tâches d’importation, consultez l’article [Storage Import Export service](../import-export/storage-import-export-service.md) (Service d’importation/exportation du stockage).
 
 ### <a name="complete-the-workflow"></a>Terminer le flux de travail
 
@@ -198,4 +198,4 @@ Lors du prochain travail de création de réplica planifié, Data Protection Man
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour toute question concernant le workflow du service Azure Import/Export, consultez [Utilisation du service Microsoft Azure Import/Export pour transférer des données vers Stockage Blob](../storage/common/storage-import-export-service.md).
+* Pour toute question concernant le workflow du service Azure Import/Export, consultez [Utilisation du service Microsoft Azure Import/Export pour transférer des données vers Stockage Blob](../import-export/storage-import-export-service.md).

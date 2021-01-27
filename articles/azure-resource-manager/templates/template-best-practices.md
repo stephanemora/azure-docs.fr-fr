@@ -3,12 +3,12 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager (modèles ARM). Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724984"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696344"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -26,7 +26,7 @@ Vous devez également respecter les limites suivantes :
 * 64 valeurs de sortie
 * 24 576 caractères dans une expression de modèle
 
-Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez [Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure](linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters) (Utiliser un objet en tant que paramètre).
+Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez [Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure](linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters) (Utiliser un objet en tant que paramètre).
 
 ## <a name="resource-group"></a>Resource group
 

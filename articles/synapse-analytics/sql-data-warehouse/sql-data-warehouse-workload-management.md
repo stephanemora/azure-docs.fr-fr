@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 761976741bf794a21182e8f962b274ae32925060
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5640c1e254c4738ab53881544a09808b4894a462
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324472"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676967"
 ---
 # <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
@@ -44,7 +44,7 @@ Par exemple, l’octroi d’une appartenance à un rôle d’utilisateur ad hoc 
 
 La gestion des charges de travail du pool SQL dédié dans Azure Synapse se compose de trois concepts généraux : [Classification des charges de travail](sql-data-warehouse-workload-classification.md), [importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  Ces fonctionnalités vous permettent de mieux contrôler la façon dont votre charge de travail utilise les ressources système.
 
-La classification des charges de travail est le concept d’affectation d’une requête à un groupe de charge de travail et de définition de niveaux d’importance.  Historiquement, cette affectation était effectuée via l’appartenance à un rôle à l’aide de [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Cette action peut être à présent exécutée via la fonctionnalité [CRÉER UN CLASSIFICATEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La fonctionnalité de classification fournit un ensemble plus riche d’options, avec les balises, les sessions et le temps nécessaire pour classer les requêtes.
+La classification des charges de travail est le concept d’affectation d’une requête à un groupe de charge de travail et de définition de niveaux d’importance.  Historiquement, cette affectation était effectuée via l’appartenance à un rôle à l’aide de [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Cette action peut être à présent exécutée via la fonctionnalité [CRÉER UN CLASSIFICATEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  La fonctionnalité de classification fournit un ensemble plus riche d’options, avec les balises, les sessions et le temps nécessaire pour classer les requêtes.
 
 L’importance de la charge de travail influence l’ordre dans lequel une requête accède aux ressources.  Sur un système occupé, une requête ayant une importance plus élevée a accès en premier aux ressources.  L’importance peut également garantir un accès ordonné aux verrous.
 

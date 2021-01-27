@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9dae3b1adc1f7fecf6a34fc51d2a35bf4c98ea65
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: a26359c46caa8085384313f1c385c5740abc0b32
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425916"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694533"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD 
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
@@ -40,7 +40,7 @@ Ce document donne une vue d’ensemble de l’accès à l’API Media Services �
 
 Pour que la demande Azure Media REST réussisse, l’utilisateur appelant doit avoir un rôle Collaborateur ou Propriétaire pour le compte Media Services auquel il tente d’accéder.  
 Seul un utilisateur avec le rôle Propriétaire peut donner accès aux ressources médias (compte) pour les nouveaux utilisateurs ou les nouvelles applications. Le rôle Collaborateur ne peut accéder qu’à la ressource média.
-Les requêtes non autorisées échouent et génèrent le code d’état 401. Si vous voyez ce code d’erreur, vérifiez que le rôle Collaborateur ou Propriétaire est assigné à votre utilisateur pour le compte Media Services de l’utilisateur. Vous pouvez le vérifier dans le portail Azure. Recherchez votre compte média, puis cliquez sur l’onglet **Contrôle d’accès** . 
+Les requêtes non autorisées échouent et génèrent le code d’état 401. Si vous voyez ce code d’erreur, vérifiez que le rôle Collaborateur ou Propriétaire est assigné à votre utilisateur pour le compte Media Services de l’utilisateur. Vous pouvez le vérifier dans le portail Azure. Recherchez votre compte média, puis cliquez sur l’onglet **Contrôle d’accès**. 
 
 ![Onglet Contrôle d’accès](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
@@ -48,8 +48,8 @@ Les requêtes non autorisées échouent et génèrent le code d’état 401. Si
  
 Lorsque vous utilisez l’authentification Azure AD avec Azure Media Services, vous disposez de deux options d’authentification :
 
-- **Authentification utilisateur** . Authentifiez une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct. 
-- **Authentification d’un principal de service** . Authentifiez un service. Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, par exemple les applications web, les applications de fonction, les applications logiques, les API ou les microservices.
+- **Authentification utilisateur**. Authentifiez une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct. 
+- **Authentification d’un principal de service**. Authentifiez un service. Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, par exemple les applications web, les applications de fonction, les applications logiques, les API ou les microservices.
 
 ### <a name="user-authentication"></a>Authentification utilisateur 
 

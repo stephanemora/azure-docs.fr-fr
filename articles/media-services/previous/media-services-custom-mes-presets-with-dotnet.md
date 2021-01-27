@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a300345749351a360a16dc00424ee41ece7a17c9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6c1c74f86a9cf0e4bcd73844222f256a715cbfe5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652967"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695888"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personnalisation des présélections de tâches Media Encoder Standard
 
@@ -33,7 +33,7 @@ Cet article explique comment exécuter un encodage avancé avec Media Encoder St
 Cet article vous explique comment personnaliser une présélection en utilisant la présélection [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) et en réduisant le nombre de couches. L’article [Personnalisation des présélections de tâches Media Encoder Standard](media-services-advanced-encoding-with-mes.md) présente des présélections personnalisées qui peuvent être utilisées pour effectuer les tâches d’encodage avancées.
 
 > [!NOTE]
-> Les présélections personnalisées décrites dans cet article ne peuvent pas être utilisées dans les transformations [Media Services v3](../latest/index.yml) ou les commandes CLI. Pour plus d’informations, consultez [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Les présélections personnalisées décrites dans cet article ne peuvent pas être utilisées dans les transformations [Media Services v3](../latest/index.yml) ou les commandes CLI. Pour plus d’informations, consultez [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personnalisation d'une présélection MES
 

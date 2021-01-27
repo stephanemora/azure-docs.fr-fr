@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: a02f1fd873c0578bb4ec3a7788a06b10eebec7bd
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91532701"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695469"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Effectuer une diffusion dynamique en continu à l’aide de Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "91532701"
 > 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](../latest/index.yml). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
@@ -158,7 +158,7 @@ Il existe deux façons de démarrer un événement :
 
     Si vous avez laissé la case **Publier cet événement en direct maintenant** cochée, l’événement de publication des URL est créé.
 
-    Vous pouvez appuyer sur **Démarrer**chaque fois que vous êtes prêt à diffuser l’événement.
+    Vous pouvez appuyer sur **Démarrer** chaque fois que vous êtes prêt à diffuser l’événement.
 
     Une fois que vous avez démarré l’événement, vous pouvez appuyer sur **Regarder** pour commencer à lire le contenu.
 2. Vous pouvez également utiliser un raccourci et appuyer sur le bouton **Direct** dans la page **Canal**. Un élément multimédia, un programme et un localisateur de diffusion en continu par défaut sont alors créés.
