@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701889"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880506"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique ou l’attachement sans code Azure Monitor Application Insights ?
 
@@ -23,17 +23,17 @@ Application Insights est intégré à différents fournisseurs de ressources et 
 
 Avec l’ajout d’un nombre de plus en plus important d’intégrations, la matrice des capacités de l’instrumentation automatique gagne en complexité. Le tableau ci-dessous montre l’état actuel de la question de la prise en charge de divers fournisseurs de ressources, langages et environnements.
 
-|Environnement/fournisseur de ressources          | .NET            | .NET Core       | Java            | Node.js         |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | Version préliminaire privée | Version préliminaire privée |
-|Azure App Service sur Linux             | N/A             | Non pris en charge   | Version préliminaire privée | Version préliminaire publique  |
-|Azure App Service sur AKS               | N/A             | Intégré       | Intégré       | Intégré       |
-|Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
-|Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   |
-|Azure Kubernetes Service               | N/A             | Intégré       | Via l’agent   | Intégré       |
-|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Non pris en charge   | Non pris en charge   |
-|Machines virtuelles locales - Windows                | Disponibilité générale, consentement      | Non pris en charge   | Via l’agent   | Non pris en charge   |
-|Agent autonome - Tous les env.            | Non pris en charge   | Non pris en charge   | GA              | Non pris en charge   |
+|Environnement/fournisseur de ressources          | .NET            | .NET Core       | Java            | Node.js         | Python          |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | Version préliminaire privée | Version préliminaire privée | Non pris en charge   |
+|Azure App Service sur Linux             | N/A             | Non pris en charge   | Version préliminaire privée | Version préliminaire publique  | Non pris en charge   |
+|Azure App Service sur AKS               | N/A             | Intégré       | Intégré       | Intégré       | Non pris en charge   |
+|Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
+|Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
+|Azure Kubernetes Service               | N/A             | Intégré       | Via l’agent   | Intégré       | Non pris en charge   |
+|Machines virtuelles Azure - Windows                      | Version préliminaire publique  | Non pris en charge   | Non pris en charge   | Non pris en charge   | Non pris en charge   |
+|Machines virtuelles locales - Windows                | Disponibilité générale, consentement      | Non pris en charge   | Via l’agent   | Non pris en charge   | Non pris en charge   |
+|Agent autonome - Tous les env.            | Non pris en charge   | Non pris en charge   | GA              | Non pris en charge   | Non pris en charge   |
 
 *APD signifie Activé par défaut : Application Insights est activé automatiquement une fois que vous avez déployé votre application dans les environnements pris en charge. 
 

@@ -1,6 +1,6 @@
 - name: Documentation Azure Policy
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Policy
       displayName: 'rbac, assign, initiative, parameters, count'
@@ -85,8 +85,12 @@
       items:
         - name: Benchmark de sécurité Azure
           href: ./samples/azure-security-benchmark.md
+        - name: "Azure Security Benchmark\_v1"
+          href: ./samples/azure-security-benchmarkv1.md
         - name: "CIS Microsoft Azure Foundations Benchmark\_1.1.0"
           href: ./samples/cis-azure-1-1-0.md
+        - name: "CMMC niveau\_3"
+          href: ./samples/cmmc-l3.md
         - name: HIPAA HITRUST 9.2
           href: ./samples/hipaa-hitrust-9-2.md
         - name: "NIST SP\_800-53 R4"
@@ -215,7 +219,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Policy
+        - name: Stratégie
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -241,7 +245,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Policy
+        - name: Stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient

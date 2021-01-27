@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c0fbc2c7830961ca8820e874daaffcf0c58faab
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ef5cddc131e25a1966ca86c3c8650452f73be69e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202111"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879678"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Base de sécurité Azure pour machines virtuelles Windows
 
@@ -845,7 +845,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 * [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Informations sur le téléchargement du modèle de machine virtuelle](./download-template.md)
+* [Informations sur le téléchargement du modèle de machine virtuelle](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Supervision d’Azure Security Center** : Non disponible
 
@@ -889,7 +889,7 @@ Outre l’utilisation de Change Tracking pour la surveillance d’applications l
 
 Pour la plupart des scénarios, les modèles de machine virtuelle de base de Microsoft combinés à Azure Automation Desired State Configuration peuvent permettre de satisfaire les exigences de sécurité.
 
-* [Informations sur le téléchargement du modèle de machine virtuelle](./download-template.md)
+* [Informations sur le téléchargement du modèle de machine virtuelle](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informations sur la création de modèles ARM](./ps-template.md)
 

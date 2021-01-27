@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621346"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880268"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
@@ -32,8 +32,8 @@ Pour obtenir une vue d’ensemble du programme Solutions intégrées, regardez l
 ## <a name="eligibility-criteria"></a>Critères d’éligibilité
 
 * Les partenaires participants doivent disposer d’un ID MPN.
-* Les fournisseurs de services participants doivent être [prêts pour la co-vente](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
-* Les fournisseurs de logiciels participants doivent être [prêts pour la co-vente IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Les fournisseurs de services participants doivent être [prêts pour la co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Les fournisseurs de logiciels participants doivent être [prêts pour la co-vente IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * Au moins un des partenaires participants doit avoir une compétence Gold dans l’un des domaines suivants :
     - Développement d'applications
     - Intégration des applications

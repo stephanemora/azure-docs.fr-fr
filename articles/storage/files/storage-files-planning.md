@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724224"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879845"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -131,6 +131,6 @@ L’[article vue d’ensemble de la migration](storage-files-migration-overview.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)
-* [Déploiement d’Azure Files](storage-files-deployment-guide.md)
+* [Déploiement d’Azure Files](./storage-how-to-create-file-share.md)
 * [Déploiement d’Azure File Sync](storage-sync-files-deployment-guide.md)
 * [Consultez l’article de vue d’ensemble de la migration pour trouver le guide de migration de votre scénario](storage-files-migration-overview.md)

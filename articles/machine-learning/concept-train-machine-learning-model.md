@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555887"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880942"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
@@ -76,7 +76,7 @@ Définissez les itérations, la configuration des hyperparamètres, la caractér
 Les pipelines d’apprentissage automatique peuvent utiliser les méthodes d’apprentissage mentionnées précédemment. Les pipelines visent plus à créer un workflow et ne se limitent donc pas au simple entraînement de modèles. Dans un pipeline, vous pouvez effectuer l’apprentissage d’un modèle en utilisant le Machine Learning automatisé ou des configurations de série de tests.
 
 * [En quoi consistent les pipelines ML dans Azure Machine Learning ?](concept-ml-pipelines.md)
-* [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Créer et exécuter des pipelines de machine learning avec le kit SDK Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 * [Tutoriel : Utiliser des pipelines Azure Machine Learning pour le scoring par lots](tutorial-pipeline-batch-scoring-classification.md)
 * [Exemples : exemples Jupyter Notebook pour les pipelines de machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemples : pipeline avec machine learning automatisé](https://aka.ms/pl-automl)
@@ -109,7 +109,6 @@ Le SDK R vous permet d’utiliser le langage R avec Azure Machine Learning. Le S
 
 Pour plus d’informations, consultez les articles suivants :
 
-* [Tutoriel : Créer un modèle de régression logistique](tutorial-1st-r-experiment.md)
 * [Référence relative au SDK Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/index.html)
 
 ## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning

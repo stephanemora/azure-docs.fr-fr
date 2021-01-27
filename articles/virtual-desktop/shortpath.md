@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: bfcd8b3c482b4d429a9e3a4d7bc75e27ada63a98
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134396"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876696"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>RDP Shortpath de Windows Virtual Desktop (préversion)
 
@@ -58,7 +58,7 @@ Le diagramme ci-dessous donne une vue d’ensemble des connexions réseau de RDP
 Pour prendre en charge RDP Shortpath, le client Windows Virtual Desktop a besoin d’une ligne de vue directe sur l’hôte de la session. Vous pouvez obtenir une ligne de vue directe à l’aide de l’une des technologies suivantes :
 
 * [Peering privé ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
-* [VPN site à site (basé sur IPsec)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [VPN site à site (basé sur IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [VPN point à site (basé sur IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Affectation d’adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md)
 

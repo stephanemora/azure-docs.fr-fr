@@ -468,7 +468,7 @@
           href: generation-2.md
         - name: Usage général
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sizes-general.md
             - name: "Série\_Av2"
               href: av2-series.md
@@ -488,7 +488,7 @@
               href: dv4-dsv4-series.md
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sizes-compute.md
             - name: Série Fsv2
               href: fsv2-series.md
@@ -601,24 +601,24 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
+    - name: Machines virtuelles Spot
+      displayName: 'pre-empt, preempt, spot'
+      items:
+        - name: Vue d’ensemble
+          href: spot-vms.md
+        - name: Interface de ligne de commande
+          href: ./linux/spot-cli.md
+        - name: Portail
+          href: spot-portal.md
+        - name: PowerShell
+          href: ./windows/spot-powershell.md
+        - name: Modèle ARM
+          displayName: template ARM
+          href: ./linux/spot-template.md
+        - name: Codes d’erreur
+          href: error-codes-spot.md
     - name: Options d’achat
       items:
-        - name: Machines virtuelles Spot
-          displayName: 'pre-empt, preempt, spot'
-          items:
-            - name: Vue d'ensemble
-              href: spot-vms.md
-            - name: Interface de ligne de commande
-              href: ./linux/spot-cli.md
-            - name: Portail
-              href: spot-portal.md
-            - name: PowerShell
-              href: ./windows/spot-powershell.md
-            - name: Modèle ARM
-              displayName: template ARM
-              href: ./linux/spot-template.md
-            - name: Codes d’erreur
-              href: error-codes-spot.md
         - name: Azure Hybrid Benefit
           items:
             - name: Linux
@@ -1557,7 +1557,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: maintenance-notifications.md
             - name: Interface de ligne de commande
               href: maintenance-notifications-cli.md
@@ -1747,7 +1747,7 @@
         - name: Tarifs
           href: ../backup/azure-backup-pricing.md
         - name: Questions fréquentes (FAQ)
-          href: ../backup/backup-azure-vm-backup-faq.md
+          href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Récupération d'urgence
       items:
         - name: Vue d'ensemble

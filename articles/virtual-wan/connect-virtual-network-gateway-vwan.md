@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880370"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connecter une passerelle VPN (passerelle de réseau virtuel) à Virtual WAN
 
@@ -91,7 +91,7 @@ Dans cette section, vous téléchargez le fichier de configuration VPN pour chac
 
 Dans cette section, vous créez deux passerelles de réseau local de passerelle VPN Azure. Les fichiers de configuration de l’étape précédente contiennent les paramètres de configuration de la passerelle. Utilisez ces paramètres pour créer et configurer les passerelles de réseau local de la passerelle VPN Azure.
 
-1. Créez la passerelle de réseau local en utilisant ces paramètres. Pour plus d’informations sur la création d’une passerelle de réseau local de passerelle VPN, consultez l’article sur la passerelle VPN [Créer une passerelle de réseau local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Créez la passerelle de réseau local en utilisant ces paramètres. Pour plus d’informations sur la création d’une passerelle de réseau local de passerelle VPN, consultez l’article sur la passerelle VPN [Créer une passerelle de réseau local](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Adresse IP** : utilisez l’adresse IP Instance0 indiquée pour *gatewayconfiguration* à partir du fichier de configuration.
    * **BGP** : si la connexion est sur BGP, sélectionnez **Configurer les paramètres BGP** et entrez l’ASN « 65515 ». Entrez l’adresse IP homologue BGP Utilisez « Instance0 BgpPeeringAddresses » pour *gatewayconfiguration* à partir du fichier de configuration.
@@ -105,7 +105,7 @@ Dans cette section, vous créez deux passerelles de réseau local de passerelle 
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. Créer des connexions
 
-Dans cette section, vous créez une connexion entre les passerelles de réseau local de la passerelle VPN et la passerelle de réseau virtuel. Pour connaître les étapes de création d’une connexion de passerelle VPN, consultez [Configurer une connexion](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+Dans cette section, vous créez une connexion entre les passerelles de réseau local de la passerelle VPN et la passerelle de réseau virtuel. Pour connaître les étapes de création d’une connexion de passerelle VPN, consultez [Configurer une connexion](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. Dans le portail, accédez à votre passerelle de réseau virtuel, puis cliquez sur **Connexions**. En haut du panneau Connexions, cliquez sur **+ Ajouter** pour ouvrir la page **Ajouter une connexion**.
 2. Sur la page **Ajouter une connexion**, configurez les valeurs suivantes de votre connexion :

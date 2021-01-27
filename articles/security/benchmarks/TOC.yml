@@ -194,9 +194,9 @@
     - name: Base de référence de sécurité Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Base de référence de la sécurité Microsoft Cloud App Security
-      href: 'https://docs.microsoft.com/cloud-app-security/security-baseline'
+      href: /cloud-app-security/security-baseline
     - name: Base de référence de la sécurité Microsoft Defender pour Identity
-      href: 'https://docs.microsoft.com/defender-for-identity/security-baseline'
+      href: /defender-for-identity/security-baseline
     - name: Base de référence de sécurité Network Watcher
       href: ../../network-watcher/security-baseline.md
     - name: "Base de référence de la sécurité Power\_BI"
@@ -229,3 +229,5 @@
       href: ../../virtual-wan/security-baseline.md
     - name: Base de référence de la sécurité pour la passerelle VPN
       href: ../../vpn-gateway/security-baseline.md
+    - name: Base de référence de la sécurité Windows Virtual Desktop
+      href: ../../virtual-desktop/security-baseline.md

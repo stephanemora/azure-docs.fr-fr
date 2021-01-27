@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 36f04b02774a01814811ea131388629de27e9f07
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621023"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879425"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Présentation du pare-feu d’applications web Azure sur Azure Application Gateway
 
@@ -157,7 +157,7 @@ Le journaux d’Application Gateway sont intégrés avec [Azure Monitor](../../a
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../../security-center/security-center-introduction.md) vous aide à vous empêcher, détecter et traiter les menaces. Il offre une visibilité et un contrôle accrus sur la sécurité de vos ressources Azure. Application Gateway est [intégré avec Azure Security Center](../../application-gateway/application-gateway-integration-security-center.md). Azure Security Center analyse votre environnement pour détecter les applications web non protégées. Il peut recommander au pare-feu d’applications web d’Application Gateway de protéger ces ressources vulnérables. Vous créez les pare-feux directement à partir de Security Center. Ces instances de pare-feu d’applications web sont intégrées avec Security Center. Elles envoient des alertes et des informations de contrôle d’intégrité au Security Center pour la génération de rapports.
+[Azure Security Center](../../security-center/security-center-introduction.md) vous aide à vous empêcher, détecter et traiter les menaces. Il offre une visibilité et un contrôle accrus sur la sécurité de vos ressources Azure. Application Gateway est [intégré avec Azure Security Center](../../security-center/security-center-partner-integration.md#integrated-azure-security-solutions). Azure Security Center analyse votre environnement pour détecter les applications web non protégées. Il peut recommander au pare-feu d’applications web d’Application Gateway de protéger ces ressources vulnérables. Vous créez les pare-feux directement à partir de Security Center. Ces instances de pare-feu d’applications web sont intégrées avec Security Center. Elles envoient des alertes et des informations de contrôle d’intégrité au Security Center pour la génération de rapports.
 
 ![Fenêtre Vue d’ensemble de Security Center](../media/ag-overview/figure1.png)
 

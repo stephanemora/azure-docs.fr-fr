@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 70d9a8069979a299ad3031de37c525438ab0159d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394599"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879492"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
 
@@ -34,7 +34,7 @@ Un réseau VPN intersite se compose d’une passerelle VPN Azure, d’un périph
 3. Créer et configurer une connexion VPN Azure entre la passerelle VPN Azure et la passerelle de réseau local
 4. Configurer le périphérique VPN local représenté par la passerelle de réseau local pour établir le tunnel VPN S2S réel avec la passerelle VPN Azure
 
-Vous pouvez effectuer les étapes 1 à 3 sur le [portail](vpn-gateway-howto-site-to-site-resource-manager-portal.md) Azure, [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) ou la [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). La dernière étape consiste à configurer les périphériques VPN locaux en dehors d’Azure. Cette fonctionnalité vous permet de télécharger un script de configuration pour votre périphérique VPN avec les valeurs correspondantes de votre passerelle VPN Azure, du réseau virtuel et des préfixes d’adresse du réseau local, ainsi que des propriétés de connexion VPN, etc. déjà renseignées. Vous pouvez utiliser le script comme point de départ ou appliquer le script directement à vos périphériques VPN locaux au moyen de la console de configuration.
+Vous pouvez effectuer les étapes 1 à 3 sur le [portail](./tutorial-site-to-site-portal.md) Azure, [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) ou la [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). La dernière étape consiste à configurer les périphériques VPN locaux en dehors d’Azure. Cette fonctionnalité vous permet de télécharger un script de configuration pour votre périphérique VPN avec les valeurs correspondantes de votre passerelle VPN Azure, du réseau virtuel et des préfixes d’adresse du réseau local, ainsi que des propriétés de connexion VPN, etc. déjà renseignées. Vous pouvez utiliser le script comme point de départ ou appliquer le script directement à vos périphériques VPN locaux au moyen de la console de configuration.
 
 > [!IMPORTANT]
 > * La syntaxe de chaque script de configuration de périphérique VPN est différente et repose sur les modèles et les versions du microprogramme. Faites particulièrement attention au modèle et aux informations de version de votre périphérique par rapport aux modèles disponibles.
@@ -49,7 +49,7 @@ Vous pouvez effectuer les étapes 1 à 3 sur le [portail](vpn-gateway-howto-site
 
 Créez une passerelle VPN Azure, une passerelle de réseau local et une ressource de connexion entre les deux. La page suivante va vous guider tout au long des étapes :
 
-* [Créer une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Créer une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md)
 
 Une fois que la ressource de connexion est créée, suivez les instructions ci-dessous pour télécharger les scripts de configuration de périphérique VPN :
 
@@ -99,4 +99,4 @@ Une fois que vous avez téléchargé et validé le script de configuration, l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Poursuivez la configuration de votre [connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Poursuivez la configuration de votre [connexion de site à site](./tutorial-site-to-site-portal.md).

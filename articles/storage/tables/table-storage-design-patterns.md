@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019223"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879593"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -711,7 +711,7 @@ Les exceptions levées lorsque la bibliothèque cliente de stockage exécute une
 Nous vous conseillons de réfléchir également à la façon dont votre conception affecte la méthode de votre application cliente pour gérer les opérations d'accès concurrentiel et de mises à jour.  
 
 ### <a name="managing-concurrency"></a>Gérer l'accès concurrentiel
-Par défaut, le service de Table implémente des contrôles d’accès concurrentiel optimiste au niveau des entités individuelles pour les opérations **d’insertion** (Insert), de **fusion** (Merge) et de **suppression** (Delete), bien qu’il soit possible pour un client de forcer le service de Table à ignorer ces contrôles. Pour plus d’informations sur la façon dont le service de Table gère l’accès concurrentiel, consultez [Gestion de l’accès concurrentiel dans Stockage Microsoft Azure](../../storage/common/storage-concurrency.md).  
+Par défaut, le service de Table implémente des contrôles d’accès concurrentiel optimiste au niveau des entités individuelles pour les opérations **d’insertion** (Insert), de **fusion** (Merge) et de **suppression** (Delete), bien qu’il soit possible pour un client de forcer le service de Table à ignorer ces contrôles. Pour plus d’informations sur la façon dont le service de Table gère l’accès concurrentiel, consultez [Gestion de l’accès concurrentiel dans Stockage Microsoft Azure](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Fusion ou remplacement
 La méthode de **remplacement** (Replace) de la classe **TableOperation** remplace toujours l’entité complète du service de Table. Si vous n'incluez pas une propriété dans la demande lorsque cette propriété existe dans l'entité stockée, la demande supprime cette propriété de l'entité stockée. Si vous ne souhaitez pas supprimer une propriété explicitement à partir d'une entité stockée, vous devez inclure chaque propriété dans la demande.  

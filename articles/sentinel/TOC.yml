@@ -1,6 +1,6 @@
 - name: Documentation sur Azure Sentinel
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   href: overview.md
 - name: Démarrages rapides
   expanded: true
@@ -223,14 +223,26 @@
           href: bookmarks.md
         - name: Utiliser LiveStream pour chasser
           href: livestream.md
-        - name: Gérer les requêtes de chasse avec REST-API
-          href: hunting-with-rest-api.md
     - name: Supprimer Azure Sentinel
       href: offboard.md
 - name: "Référence (Nouveau\_!)"
   items:
+    - name: Rôles RBAC Azure
+      items:
+        - name: Tous les rôles Azure
+          href: /azure/role-based-access-control/built-in-roles#all
+        - name: Rôles Azure Sentinel
+          href: /azure/role-based-access-control/built-in-roles#security
     - name: API REST
-      href: /rest/api/securityinsights/
+      items:
+        - name: API REST Azure Sentinel
+          href: /rest/api/securityinsights/
+        - name: Gérer les requêtes de chasse avec REST-API
+          href: hunting-with-rest-api.md
+        - name: Gérer les watchlists avec l’API REST
+          href: watchlist-with-rest-api.md
+    - name: Connecteur Logic Apps Azure Sentinel
+      href: /connectors/azuresentinel/
     - name: Schéma de normalisation du réseau
       href: normalization-schema.md
     - name: Enrichissements UEBA

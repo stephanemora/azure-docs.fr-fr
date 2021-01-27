@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354858"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880404"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Meilleures pratiques pour un niveau de performance optimal d’Azure Database pour MySQL – Serveur unique
 
@@ -46,9 +46,9 @@ L’établissement d’une nouvelle connexion est toujours une tâche coûteuse 
 
 Concernant le niveau de performance d’Azure Database pour MySQL, l’une des meilleures pratiques consiste à allouer suffisamment de RAM pour que la plage de travail se trouve presque entièrement en mémoire. 
 
-- Vérifiez si le pourcentage de mémoire utilisé atteint les [limites](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) à l’aide des [métriques du serveur MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Vérifiez si le pourcentage de mémoire utilisé atteint les [limites](./concepts-pricing-tiers.md) à l’aide des [métriques du serveur MySQL](./concepts-monitoring.md). 
 - Configurez des alertes sur ces nombres afin de pouvoir prendre des mesures pour résoudre le problème quand les serveurs atteignent les limites. En fonction des limites définies, regardez si un scale-up de la référence SKU de base de données (taille de calcul supérieure ou meilleur niveau tarifaire) entraînerait une augmentation considérable du niveau de performance. 
-- Effectuez un scale-up jusqu’à ce que votre niveau de performance ne chute plus après une opération de mise à l’échelle. Pour plus d’informations sur le suivi des métriques d’une instance de base de données, consultez [Métriques de base de données MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics).
+- Effectuez un scale-up jusqu’à ce que votre niveau de performance ne chute plus après une opération de mise à l’échelle. Pour plus d’informations sur le suivi des métriques d’une instance de base de données, consultez [Métriques de base de données MySQL](./concepts-monitoring.md#metrics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

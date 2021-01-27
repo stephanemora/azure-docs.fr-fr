@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879610"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
 Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. Cette sensibilité est due au fait que la plupart de la logique métier s’exécute dans la couche Application. Étant donné que la couche Application SAP exécute la logique métier, elle émet des requêtes à la base de données à une fréquence élevée (plusieurs milliers ou dizaines de milliers par seconde). Dans la plupart des cas, la nature de ces requêtes est simple. Elles peuvent souvent être exécutées sur la couche Base de données en 500 microsecondes ou moins.
@@ -30,11 +30,11 @@ Le temps passé sur le réseau à envoyer une telle requête de la couche Applic
 
 Dans de nombreuses régions Azure, le nombre de centres de données a augmenté. En même temps, les clients, en particulier pour les systèmes SAP haut de gamme, utilisent des références SKU de machines virtuelles spéciales de la série M ou Mv2, ou de grandes instances HANA. Ces types de machines virtuelles Azure ne sont pas toujours disponibles dans tous les centres de données qui complètent une région Azure spécifique. Ces faits peuvent créer des opportunités d’optimisation de la latence du réseau entre la couche application SAP et la couche SGBD SAP.
 
-Pour vous permettre d’optimiser la latence du réseau, Azure propose des [groupes de placement de proximité](../../linux/co-location.md). Les groupes de placement de proximité peuvent être utilisés pour forcer le regroupement de différents types de machines virtuelles dans un même centre de donnée Azure afin d’optimiser au maximum la latence du réseau entre ces différents types de machines virtuelles. Lors du déploiement de la première machine virtuelle dans un groupe de placement de proximité, la machine virtuelle est liée à un centre de donnée spécifique. Comme c’est le cas pour ce prospect, l’utilisation de la construction introduit également des restrictions :
+Pour vous permettre d’optimiser la latence du réseau, Azure propose des [groupes de placement de proximité](../../co-location.md). Les groupes de placement de proximité peuvent être utilisés pour forcer le regroupement de différents types de machines virtuelles dans un même centre de donnée Azure afin d’optimiser au maximum la latence du réseau entre ces différents types de machines virtuelles. Lors du déploiement de la première machine virtuelle dans un groupe de placement de proximité, la machine virtuelle est liée à un centre de donnée spécifique. Comme c’est le cas pour ce prospect, l’utilisation de la construction introduit également des restrictions :
 
 - Vous ne pouvez pas supposer que tous les types de machines virtuelles Azure sont disponibles dans tous les centres de données Azure. Par conséquent, la combinaison de différents types de machines virtuelles dans un groupe de placement de proximité peut être restreinte. Ces restrictions sont dues au fait que le matériel hôte nécessaire pour exécuter un certain type de machine virtuelle peut ne pas être présent dans le centre de donnés où le groupe de placement a été déployé
 - Lorsque vous redimensionnez des parties de machines virtuelles qui se trouvent dans un groupe de placement de proximité, vous ne pouvez pas supposer automatiquement que, dans tous les cas, le nouveau type de machine virtuelle est disponible dans le même centre de centres que les autres machines virtuelles qui font partie du groupe de placement de proximité
-- Comme Azure désactive le matériel, il peut forcer certaines machines virtuelles d’un groupe de placement de proximité dans un autre centre de donnés Azure. Pour plus d’informations sur ce cas, lisez le document [Colocaliser des ressources pour améliorer la latence](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
+- Comme Azure désactive le matériel, il peut forcer certaines machines virtuelles d’un groupe de placement de proximité dans un autre centre de donnés Azure. Pour plus d’informations sur ce cas, lisez le document [Colocaliser des ressources pour améliorer la latence](../../co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > En raison de restrictions potentielles, les groupes de placement de proximité doivent être utilisés :

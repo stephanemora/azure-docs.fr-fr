@@ -3,12 +3,12 @@ title: Réplication des messages et fédération interrégionale - Azure Servic
 description: Cet article fournit une vue d’ensemble de la réplication d’événements et de la fédération interrégionale avec Azure Service Bus.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803270"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880825"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>Réplication des messages et fédération interrégionale
 
@@ -150,7 +150,7 @@ Azure Functions peut s’exécuter sous une [identité managée Azure](../active
 
 De plus, Azure Functions permet aux tâches de réplication de s’intégrer directement aux réseaux virtuels Azure et aux [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) pour tous les services de messagerie Azure, et il est facilement intégré à [Azure Monitor](../azure-monitor/overview.md).
 
-Plus important encore, Azure Functions dispose de déclencheurs et de liens de sortie préconstruits et évolutifs pour [Azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md) et [Stockage File d’attente Azure](/azure/azure-functions/functions-bindings-storage-queue), ainsi que d’extensions personnalisées pour [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) et [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La plupart des déclencheurs s’adaptent de manière dynamique aux besoins de débit en mettant à l’échelle le nombre d’instances exécutées simultanément sur la base des métriques documentées. 
+Plus important encore, Azure Functions dispose de déclencheurs et de liens de sortie préconstruits et évolutifs pour [Azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md) et [Stockage File d’attente Azure](../azure-functions/functions-bindings-storage-queue.md), ainsi que d’extensions personnalisées pour [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension) et [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La plupart des déclencheurs s’adaptent de manière dynamique aux besoins de débit en mettant à l’échelle le nombre d’instances exécutées simultanément sur la base des métriques documentées. 
 
 Grâce au plan de consommation d’Azure Functions, les déclencheurs prédéfinis peuvent même être réduits à zéro alors qu’aucun message n’est disponible pour la réplication, ce qui signifie qu’aucuns frais ne vous sont facturés pour garder la configuration prête à une mise à l’échelle. Le principal inconvénient de l’utilisation du plan de consommation est que la latence des tâches de réplication sortant de cet état est nettement plus élevée qu’avec les plans d’hébergement où l’infrastructure est maintenue en fonctionnement.  
 
@@ -167,4 +167,4 @@ Ensuite, vous voudrez peut-être lire comment configurer une application de rép
 - [Routage d’événements vers Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
 - [Acquérir des événements à partir d’Azure Event Hubs](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
-[1]: ./media/service-bus-auto-forwarding/IC628632.gif 
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif

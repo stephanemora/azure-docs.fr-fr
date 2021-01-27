@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95526117"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880706"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Niveaux de performance du stockage d’objets blob de blocs
 
@@ -65,7 +65,7 @@ Le niveau de performance Standard prend en charge différents [niveaux d'accès]
 
 Vous ne pouvez pas convertir un compte de stockage avec niveau de performance Standard existant en compte de stockage d’objets blob de blocs avec un niveau de performance Premium. Pour migrer vers un compte de stockage avec niveau de performance Premium, vous devez créer un compte BlockBlobStorage et migrer les données vers le nouveau compte. Pour plus d’informations, consultez la rubrique [Créer un compte BlockBlobStorage](storage-blob-create-account-block-blob.md).
 
-Pour copier des blobs entre des comptes de stockage, vous pouvez utiliser la dernière version de l’outil en ligne de commande [AzCopy](../common/storage-use-azcopy-blobs.md). D’autres outils tels qu’Azure Data Factory sont également disponibles pour le déplacement et la transformation des données.
+Pour copier des blobs entre des comptes de stockage, vous pouvez utiliser la dernière version de l’outil en ligne de commande [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data). D’autres outils tels qu’Azure Data Factory sont également disponibles pour le déplacement et la transformation des données.
 
 ## <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
 

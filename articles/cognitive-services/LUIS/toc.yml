@@ -1,6 +1,6 @@
 - name: Documentation LUIS
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le service Language Understanding\_?"
@@ -191,7 +191,7 @@
           href: luis-how-to-azure-subscription.md
         - name: Paramètres d’application et de version
           href: how-to-application-settings-portal.md
-        - name: Créateurs et collaborateurs
+        - name: Auteurs et contributeurs
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
         - name: Avec des versions

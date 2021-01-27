@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/08/2020
-ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904906"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880959"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Option de co-vente dans la place de marché commerciale
 
-La fourniture d’informations sous l’onglet **Co-vendre avec Microsoft** est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir [Co-sell Ready et IP Co-sell Incentivized](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre offre lors de l’évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d’informations, consultez [Co-vendre avec Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+La fourniture d’informations sous l’onglet **Co-vendre avec Microsoft** est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir [Co-sell Ready et IP Co-sell Incentivized](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre offre lors de l’évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d’informations, consultez [Co-vendre avec Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 L’option Co-vente dans l’Espace partenaires est disponible pour les types d’offres suivants.
 

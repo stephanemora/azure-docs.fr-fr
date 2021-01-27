@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419773"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880099"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -38,7 +38,7 @@ Non.
 
 Les connexions intersites suivantes sont prises en charge :
 
-* Site à site : connexion VPN sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service RRAS. Pour plus d’informations, consultez [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Site à site : connexion VPN sur IPsec (IKE v1 et IKE v2). Ce type de connexion requiert un périphérique VPN ou le service RRAS. Pour plus d’informations, consultez [Création d’une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md).
 * Point à site : connexion VPN sur SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configuration d’une connexion point à site à un réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Réseau virtuel à réseau virtuel : ce type de connexion est identique à une configuration site à site. La connexion de réseau virtuel à réseau virtuel est une connexion VPN sur IPsec (IKE v1 et IKE v2). Cette connexion ne nécessite pas un périphérique VPN. Pour plus d’informations, consultez [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multisite : il s’agit d’une variante d’une configuration site à site qui vous permet de connecter plusieurs sites locaux à un réseau virtuel. Pour plus d’informations, consultez [Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -70,13 +70,13 @@ Les passerelles basées sur des itinéraires implémentent les VPN basés sur de
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
 
-Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
+Non.  Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
 1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
 1. Supprimez la passerelle :
    - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell - Classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Créez une passerelle du type souhaité et terminer la configuration VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+1. [Créez une passerelle du type souhaité et terminer la configuration VPN](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Ai-je besoin d’un « sous-réseau de passerelle » ?
 

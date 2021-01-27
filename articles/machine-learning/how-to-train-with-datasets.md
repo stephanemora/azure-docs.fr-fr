@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539667"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881684"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
 Cet article explique comment utiliser des [jeux de données Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) pour entraîner des modèles Machine Learning.  Vous pouvez utiliser des jeux de données dans votre cible de calcul locale ou distante sans vous soucier des chaînes de connexion ou des chemins de données. 
 
-Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les fonctionnalités de formation d’Azure Machine Learning telles que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) et les [pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les fonctionnalités de formation d’Azure Machine Learning telles que [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) et les [pipelines Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 Si vous ne voulez pas encore rendre vos données disponibles pour l’apprentissage du modèle, mais que vous souhaitez charger vos données dans votre notebook pour l’exploration des données, consultez [Guide pratique pour explorer les données d’un jeu de données](how-to-create-register-datasets.md#explore-data). 
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
 * **Échec de l'initialisation du jeu de données :  le délai d'attente lié à la préparation du point de montage a expiré** : 
-  * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
+  * Si vous n’avez pas de règles de trafic sortant pour le [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md) et que vous utilisez `azureml-sdk>=1.12.0`, mettez à jour `azureml-dataset-runtime` et ses dépendances pour qu’ils disposent des améliorations les plus récentes de la version mineure spécifique ou, si vous l’utilisez dans une exécution, recréez votre environnement pour qu’il puisse disposer du patch le plus récent avec le correctif. 
   * Si vous utilisez `azureml-sdk<1.12.0`, effectuez une mise à niveau vers la version la plus récente.
   * Si vous avez des règles de trafic sortant NSG, assurez-vous qu’il existe une règle de trafic sortant qui autorise tout le trafic pour l’étiquette de service `AzureResourceMonitor`.
 
@@ -293,4 +293,4 @@ Si vous utilisez le partage de fichiers pour d’autres charges de travail, tell
 
 * [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets.
 
-* [Effectuez l’apprentissage des jeux de données à l'aide de pipelines](how-to-create-your-first-pipeline.md).
+* [Effectuez l’apprentissage des jeux de données à l'aide de pipelines](./how-to-create-machine-learning-pipelines.md).

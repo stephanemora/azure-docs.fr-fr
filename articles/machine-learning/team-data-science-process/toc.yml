@@ -1,6 +1,6 @@
 - name: Documentation sur le processus TDSP (Team Data Science Process)
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   href: overview.md
 - name: Cycle de vie
   href: lifecycle.md
@@ -144,7 +144,7 @@
               items:
                 - name: Vue d’ensemble
                   href: sample-data.md
-                - name: Utiliser le stockage d’objets blob
+                - name: Utiliser le stockage Blob
                   href: sample-data-blob.md
                 - name: Utiliser SQL Server
                   href: sample-data-sql-server.md

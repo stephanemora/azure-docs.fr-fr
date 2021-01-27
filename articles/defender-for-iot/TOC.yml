@@ -3,13 +3,12 @@
 - name: Vue d'ensemble
   href: overview.md
   items:
-    - name: Nouveautés
-      href: release-notes.md
     - name: Architecture de solution
       href: architecture.md
-- name: Démarrages rapides
-  expanded: true
-  items:
+    - name: Nouveautés
+      href: release-notes.md
+    - name: Démarrages rapides
+      expanded: true
     - name: Solution sans agent pour les organisations
       items:
         - name: Prérequis système
@@ -154,6 +153,16 @@
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
         - name: Utiliser les alertes dans la console de gestion locale
           href: how-to-work-with-alerts-on-premises-management-console.md
+        - name: Créer des rapports
+          items:
+            - name: Créer des rapports d’évaluation des risques
+              href: how-to-create-risk-assessment-reports.md
+            - name: Créer des rapports de vecteur d’attaque
+              href: how-to-create-attack-vector-reports.md
+            - name: Créer des rapports d’exploration de données
+              href: how-to-create-data-mining-queries.md
+            - name: Créer des rapports de tendances et de statistiques
+              href: how-to-create-data-mining-queries.md
         - name: Enrichir les informations sur les appareils
           items:
             - name: Utiliser les notifications des appareils
@@ -168,8 +177,6 @@
         - name: Suivre l’activité d’un capteur
           href: how-to-track-sensor-activity.md
           displayName: 'timeline, time line, time-line, event'
-        - name: Génération de rapports
-          href: how-to-generate-reports.md
         - name: Résoudre les problèmes du capteur et de la console de gestion locale
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Configurer la supervision de SNMP MIB

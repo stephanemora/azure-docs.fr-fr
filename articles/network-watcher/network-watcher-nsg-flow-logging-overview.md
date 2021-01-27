@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 987281bd13b7ac053f07a4ef1fb7605c85686d56
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898621"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878661"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -362,7 +362,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
-**Problème avec le groupe de sécurité réseau du sous-réseau d’Application Gateway v2** : La journalisation de flux sur le groupe de sécurité réseau du sous-réseau d’Application Gateway v2 [n’est pas prise en charge](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actuellement. Ce problème ne concerne pas Application Gateway v1.
+**Problème avec le groupe de sécurité réseau du sous-réseau d’Application Gateway v2** : La journalisation de flux sur le groupe de sécurité réseau du sous-réseau d’Application Gateway v2 [n’est pas prise en charge](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) actuellement. Ce problème ne concerne pas Application Gateway v1.
 
 **Services incompatibles** : En raison des limitations actuelles de la plateforme, un petit ensemble de services Azure n’est pas pris en charge par les journaux de flux NSG. La liste actuelle des services incompatibles est
 - [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)

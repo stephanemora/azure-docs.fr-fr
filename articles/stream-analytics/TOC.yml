@@ -1,6 +1,6 @@
 - name: Documentation sur Azure Stream Analytics
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Bienvenue dans Stream\_Analytics"
       href: stream-analytics-introduction.md
@@ -39,7 +39,7 @@
     - name: Créer un désérialiseur .NET personnalisé
       href: custom-deserializer.md
     - name: Créer un travail IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+      href: ../iot-edge/tutorial-deploy-stream-analytics.md?view=iotedge-2018-06
       maintainContext: true
 - name: Exemples
   items:
@@ -701,7 +701,7 @@
       href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stream-analytics'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: Études de cas clients
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'

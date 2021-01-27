@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410213"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879712"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -45,11 +45,11 @@ Avec le chiffrement côté client, les fournisseurs de services cloud n’ont pa
 
 Les trois modèles de chiffrement côté serveur offrent différentes caractéristiques de gestion de clés, que vous pouvez choisir en fonction de vos besoins :
 
-- **Clés gérées par le service**  : ce modèle fournit une combinaison de contrôle et de fonctionnalités avec une faible surcharge.
+- **Clés gérées par le service** : ce modèle fournit une combinaison de contrôle et de fonctionnalités avec une faible surcharge.
 
-- **Clés gérées par le client**  : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de BYOK (Bring Your Own Keys), ou d’en générer de nouvelles.
+- **Clés gérées par le client** : ce modèle vous permet de contrôler les clés, avec notamment la prise en charge de BYOK (Bring Your Own Keys), ou d’en générer de nouvelles.
 
-- **Clés gérées par le service sur le matériel contrôlé par le client**  : ce modèle vous permet de gérer les clés dans votre référentiel propriétaire, en dehors du contrôle de Microsoft. Cette caractéristique est appelée HYOK (Host Your Own Key). Toutefois, la configuration est complexe et la plupart des services Azure ne prennent pas en charge ce modèle.
+- **Clés gérées par le service sur le matériel contrôlé par le client** : ce modèle vous permet de gérer les clés dans votre référentiel propriétaire, en dehors du contrôle de Microsoft. Cette caractéristique est appelée HYOK (Host Your Own Key). Toutefois, la configuration est complexe et la plupart des services Azure ne prennent pas en charge ce modèle.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -181,7 +181,7 @@ Vous pouvez configurer une connexion VPN de site à site à un réseau virtuel �
 
 Pour plus d'informations, consultez les pages suivantes :
 
-[Créer une connexion de site à site dans le portail Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Créer une connexion de site à site dans le portail Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Créer une connexion de site à site à l’aide de PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

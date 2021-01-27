@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 028250e25f4d67628c08970e25b4621e78526b6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0291b18952efc643de18e111154ebe58f041af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440836"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880082"
 ---
 # <a name="remote-work-using-azure-vpn-gateway-point-to-site"></a>Travail à distance à l’aide d’une connexion point à site par passerelle VPN Azure
 
@@ -65,7 +65,7 @@ Dans ce scénario, les utilisateurs distants doivent accéder à des ressources 
 4. Configurer l’appareil local pour se connecter à la passerelle de réseau virtuel Azure.
 5. Télécharger le profil point à site à partir du portail Azure et le distribuer aux clients
 
-Pour découvrir comment configurer un tunnel VPN site à site, suivez [ce lien](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Pour découvrir comment configurer un tunnel VPN site à site, suivez [ce lien](./tutorial-site-to-site-portal.md).
 
 ## <a name="faq-for-native-azure-certificate-authentication"></a><a name="faqcert"></a>Forum Aux Questions (FAQ) sur l’authentification par certificat Azure native
 
