@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637919"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796898"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -151,7 +151,7 @@ Le runtime d’intégration SSIS est automatiquement mis à jour régulièrement
 
 Si le provisionnement du runtime d’intégration SSIS échoue, toutes les ressources qui ont été créées sont supprimées. Toutefois, s’il existe un verrou de suppression de ressource au niveau de l’abonnement ou du groupe de ressources, les ressources du réseau virtuel ne sont pas supprimées comme prévu. Pour corriger cette erreur, supprimez le verrou de suppression et redémarrez le runtime d’intégration.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 Lorsque vous arrêtez le runtime d’intégration SSIS, toutes les ressources liées au réseau virtuel sont supprimées. Toutefois, la suppression peut échouer s’il existe un verrou de suppression de ressource au niveau de l’abonnement ou du groupe de ressources. Ici aussi, le client contrôle et définit le verrou de suppression. Par conséquent, il doit supprimer le verrou de suppression, puis arrêter le runtime d’intégration SSIS.
 
@@ -172,7 +172,7 @@ Cette erreur peut se produire pour diverses raisons quand vous démarrez l’Azu
 | Message d’erreur | Solution|
 |:--- |:--- |
 | L’IP publique statique fournie est déjà utilisée, fournissez-en deux non utilisées pour votre Azure-SSIS Integration Runtime. | Vous devez sélectionner deux IP publiques statiques inutilisées ou supprimer les références actuelles à l’IP publique spécifiée, puis redémarrer l’Azure-SSIS IR. |
-| L’IP publique statique fournie n’a pas de nom DNS, fournissez-en deux dotées d’un nom DNS pour votre Azure-SSIS Integration Runtime. | Vous pouvez configurer le nom DNS de l’IP publique dans le Portail Azure, comme le montre l’image ci-dessous. Les étapes spécifiques sont les suivantes : (1) Ouvrez le Portail Azure et accédez à la page des ressources de cette IP publique ; (2) sélectionnez la section **Configuration** et configurez le nom DNS, puis cliquez sur bouton **Enregistrer**  ; (3) redémarrez votre Azure-SSIS IR. |
+| L’IP publique statique fournie n’a pas de nom DNS, fournissez-en deux dotées d’un nom DNS pour votre Azure-SSIS Integration Runtime. | Vous pouvez configurer le nom DNS de l’IP publique dans le Portail Azure, comme le montre l’image ci-dessous. Les étapes spécifiques sont les suivantes : (1) Ouvrez le Portail Azure et accédez à la page des ressources de cette IP publique ; (2) sélectionnez la section **Configuration** et configurez le nom DNS, puis cliquez sur bouton **Enregistrer** ; (3) redémarrez votre Azure-SSIS IR. |
 | Le réseau virtuel et les IP publiques statiques fournis pour votre Azure-SSIS Integration Runtime doivent se trouver au même emplacement. | Selon les exigences du réseau Azure, l’IP publique statique et le réseau virtuel doivent se trouver dans le même emplacement et le même abonnement. Indiquez deux IP publiques statiques valides et redémarrez l’Azure-SSIS IR. |
 | L’IP publique statique fournie est une adresse de base, fournissez-en deux standard pour votre Azure-SSIS Integration Runtime. | Pour obtenir de l’aide, consultez [SKU d’IP publique](../virtual-network/public-ip-addresses.md#sku). |
 
