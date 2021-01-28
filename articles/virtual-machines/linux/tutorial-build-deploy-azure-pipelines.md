@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739703"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731249"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -24,7 +24,7 @@ L’intégration continue (CI) et le déploiement continu (CD) constituent un pi
 
 Azure Pipelines fournit un ensemble complet d’outils d’automatisation CI/CD pour les déploiements réalisés sur les machines virtuelles, que ce soit localement ou dans le cloud.
 
-Dans ce tutoriel, vous allez configurer un pipeline CI/CD basé sur YAML pour déployer votre application dans un [environnement](/azure/devops/pipelines/process/environments?view=azure-devops) Azure Pipelines, sur des machines virtuelles Linux utilisées comme des ressources agissant chacune comme des serveurs web permettant d’exécuter l’application.
+Dans ce tutoriel, vous allez configurer un pipeline CI/CD basé sur YAML pour déployer votre application dans un [environnement](/azure/devops/pipelines/process/environments) Azure Pipelines, sur des machines virtuelles Linux utilisées comme des ressources agissant chacune comme des serveurs web permettant d’exécuter l’application.
 
 Vous allez apprendre à effectuer les actions suivantes :
 
@@ -41,7 +41,7 @@ Vous allez apprendre à effectuer les actions suivantes :
   Vous pouvez obtenir une [organisation Azure DevOps Services gratuite](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Pour plus d’informations, consultez [Se connecter à Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Pour plus d’informations, consultez [Se connecter à Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](./tutorial-manage-vm.md).
 
@@ -222,7 +222,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
        tags: web
    ```
 2. Vous pouvez sélectionner des groupes de machines virtuelles appartenant à l’environnement pour recevoir le déploiement en spécifiant les **étiquettes** que vous avez définies pour chaque machine virtuelle de l’environnement.
-Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job).
+Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job).
 
 3. Vous pouvez spécifier `runOnce` ou `rolling` comme stratégie de déploiement. 
 

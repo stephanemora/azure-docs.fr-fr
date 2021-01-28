@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 259db10aa8f5cd2b711eca001bc6d48057d5280d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 276dd5b7eba33081c5131eba722df91d8685adff
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683208"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678161"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ L’énergie éolienne est une alternative aux énergies fossiles qui permet de 
 Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
-> * Utiliser des fichiers de données dans [Azure Notebooks](../notebooks/index.yml), dans le cloud.
+> * Utiliser des fichiers de données dans [Azure Notebooks](https://notebooks.azure.com), dans le cloud.
 > * Charger les données de démonstration à partir d’un fichier.
 > * Appeler les API REST Azure Maps en Python.
 > * Afficher les données d’emplacement sur la carte.
@@ -197,9 +197,13 @@ Pour explorer les API Azure Maps qui sont utilisées dans ce tutoriel, consulte
 
 Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](./consumption-model.md).
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Azure Notebooks, consultez
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

@@ -4,12 +4,12 @@ description: Découvrez comment générer, tester et déployer en continu des mo
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588129"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701710"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles ARM avec Azure Pipelines
 
@@ -39,12 +39,12 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 * **Un compte GitHub**, que vous utiliserez pour créer un référentiel pour vos modèles. Si vous n’en avez pas, vous pouvez en [créer un gratuitement](https://github.com). Pour plus d’informations sur l’utilisation de référentiels GitHub, consultez [Développer des référentiels GitHub](/azure/devops/pipelines/repos/github).
 * **Installer Git**. Lors de ce didacticiel, nous utiliserons *Git Bash* ou *Git Shell*. Pour en savoir plus sur leur installation, veuillez consulter la page [Installer Git](https://www.atlassian.com/git/tutorials/install-git).
-* **Une organisation Azure DevOps**. Si vous n’en avez pas, vous pouvez en créer une gratuitement. Pour en savoir plus, veuillez consulter [Créer une organisation ou une collection de projet](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* **Une organisation Azure DevOps**. Si vous n’en avez pas, vous pouvez en créer une gratuitement. Pour en savoir plus, veuillez consulter [Créer une organisation ou une collection de projet](/azure/devops/organizations/accounts/create-organization).
 * (facultatif) **Visual Studio Code avec l’extension Outils Resource Manager**. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Préparer un dépôt GitHub
 
-GitHub est utilisé pour stocker le code source de votre projet, y compris les modèles Resource Manager. Pour connaître les autres référentiels pris en charge, veuillez consulter [Référentiels pris en charge par Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+GitHub est utilisé pour stocker le code source de votre projet, y compris les modèles Resource Manager. Pour connaître les autres référentiels pris en charge, veuillez consulter [Référentiels pris en charge par Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### <a name="create-a-github-repository"></a>Créer un référentiel GitHub
 

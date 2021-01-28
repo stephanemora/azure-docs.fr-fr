@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896658"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624965"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -41,7 +41,7 @@ Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utilise
 
 L’API Map Control est une bibliothèque de client pratique. Elle vous permet d’intégrer facilement des cartes dans votre application web. Elle masque la complexité des appels de service REST bruts et améliore votre productivité grâce à des composants personnalisables. Les étapes suivantes vous indiquent comment créer une page HTML statique intégrée avec l’API Map Control.
 
-1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html** .
+1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html**.
 2. Ajoutez les composants HTML suivants au fichier :
 
    ```HTML
@@ -185,7 +185,7 @@ Cette section montre comment utiliser l’[API de recherche](/rest/api/maps/sear
     });
     ```
 
-3. Enregistrez le fichier **MapSearch.html** , puis actualisez votre navigateur. Vous devriez voir que la carte est centrée sur Seattle, avec des épingles de couleur bleu pour les stations-service dans la zone.
+3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez voir que la carte est centrée sur Seattle, avec des épingles de couleur bleu pour les stations-service dans la zone.
 
    ![Afficher la carte avec les résultats de la recherche](./media/tutorial-search-location/pins-map.png)
 
@@ -246,6 +246,10 @@ La carte développée jusqu’à présent produit des résultats de recherche co
     ![Azure Map Control et Search Service](./media/tutorial-search-location/popup-map.png)
 
 Pour voir le code complet de ce tutoriel, cliquez [ici](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Pour voir l’exemple en direct, cliquez [ici](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

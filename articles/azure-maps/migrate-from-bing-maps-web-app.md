@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679400"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684823"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutoriel : Migrer une application web à partir de Bing Cartes
 
@@ -85,7 +85,7 @@ Azure Maps a également de nombreux [modules open- source supplémentaires pour 
 
 Voici quelques-unes des principales différences entre les SDK web Bing Cartes et Azure Maps à connaître :
 
-* En plus de fournir un point de terminaison hébergé pour accéder au kit de développement logiciel (SDK) Web d’Azure Maps, un package NPM est également disponible pour incorporer le kit de développement logiciel (SDK) Web dans les applications, si vous préférez. Pour plus d’informations, consultez cette [documentation](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control). Ce package inclut aussi des définitions de TypeScript.
+* En plus de fournir un point de terminaison hébergé pour accéder au kit de développement logiciel (SDK) Web d’Azure Maps, un package NPM est également disponible pour incorporer le kit de développement logiciel (SDK) Web dans les applications, si vous préférez. Pour plus d’informations, consultez cette [documentation](./how-to-use-map-control.md). Ce package inclut aussi des définitions de TypeScript.
 * Bing Cartes fournit deux branches hébergées de son kit SDK : Release et Experimental. La branche Experimental peut recevoir plusieurs mises à jour par jour pendant le nouveau développement. Azure Maps héberge uniquement une branche Release ; toutefois, des fonctionnalités expérimentales sont créées en tant que modules personnalisés dans le projet d’exemples de code open source Azure Maps. Avant, Bing Cartes avait également une branche figée qui était mise à jour moins fréquemment, réduisant ainsi le risque de changements cassants dus à une mise en production. Dans Azure Maps, vous pouvez utiliser le module NPM et pointer vers n’importe quelle version mineure précédente.
 
 > [!TIP]
@@ -95,7 +95,7 @@ Voici quelques-unes des principales différences entre les SDK web Bing Cartes e
 * Les deux plateformes utilisent un système de mosaïque similaire pour les cartes de base, mais les mosaïques dans Bing Cartes ont une dimension de 256 pixels tandis que celles d’Azure Maps ont une dimension de 512 pixels. Par conséquent, pour obtenir la même vue cartographique que Bing Cartes dans Azure Maps, le niveau de zoom utilisé dans Bing Cartes doit être soustrait d’une unité dans Azure Maps.
 * Dans Bing Cartes, les coordonnées se présentent sous la forme `latitude, longitude`, tandis qu’Azure Maps utilise `longitude, latitude`. Ce format est conforme à la norme `[x, y]` qui est respectée par la plupart des plateformes GIS.
 
-* Les formes du kit de développement logiciel (SDK) Web Azure Maps sont basées sur le schéma GeoJSON. Les classes d’assistance sont exposées par le biais de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). Il existe également la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) qui peut être utilisée pour encapsuler des objets GeoJSON et simplifier leur mise à jour et leur gestion, de manière pouvant être liée aux données.
+* Les formes du kit de développement logiciel (SDK) Web Azure Maps sont basées sur le schéma GeoJSON. Les classes d’assistance sont exposées par le biais de l’espace de noms [atlas.data](/javascript/api/azure-maps-control/atlas.data). Il existe également la classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) qui peut être utilisée pour encapsuler des objets GeoJSON et simplifier leur mise à jour et leur gestion, de manière pouvant être liée aux données.
 * Les coordonnées dans Azure Maps sont définies comme des objets Position qui peuvent être spécifiés sous forme d’un simple tableau de nombres au format `[longitude, latitude]` ou `new atlas.data.Position(longitude, latitude)`.
 
 > [!TIP]

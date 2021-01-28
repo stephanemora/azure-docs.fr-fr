@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040793"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682612"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Créer un cluster Pivotal Cloud Foundry sur Azure
 
@@ -42,11 +42,13 @@ Pour plus d’informations, consultez [Utiliser des clés SSH avec Windows sur A
 
 > [!NOTE]
 >
-> Pour créer un principal du service, vous devez disposer de l’autorisation de compte propriétaire. Vous pouvez également créer un script pour automatiser la création du principal du service. Par exemple, vous pouvez utiliser la commande de l’interface de ligne de commande Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> Pour créer un principal du service, vous devez disposer de l’autorisation de compte propriétaire. Vous pouvez également créer un script pour automatiser la création du principal du service. Par exemple, vous pouvez utiliser la commande de l’interface de ligne de commande Azure [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Connectez-vous à votre compte Azure.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Connexion à Azure CLI](media/deploy/az-login-output.png )
  
@@ -54,11 +56,15 @@ Pour plus d’informations, consultez [Utiliser des clés SSH avec Windows sur A
 
 2. Définissez votre abonnement par défaut pour cette configuration.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Créez une application Azure Active Directory pour votre PCF. Spécifiez un mot de passe alphanumérique unique. Enregistrez le mot de passe comme étant votre **clientSecret** à utiliser ultérieurement.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Copiez la valeur « appId » dans la sortie en tant que **clientID** à utiliser ultérieurement.
 
@@ -68,23 +74,31 @@ Pour plus d’informations, consultez [Utiliser des clés SSH avec Windows sur A
 
 4. Créez un principal du service à l’aide de votre nouvel ID d’application.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Définissez le rôle d’autorisation de votre principal du service en tant que Contributeur.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     Vous pouvez également utiliser
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![Attribution du rôle de principal du service](media/deploy/svc-princ.png )
 
 6. Vérifiez que vous pouvez vous connecter à votre principal du service à l’aide de l’ID d’application, du mot de passe et de l’ID de locataire.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. Créez un fichier .json au format suivant. Utilisez les valeurs **ID d’abonnement** , **tenantID** , **clientID** et **clientSecret** que vous avez copiées précédemment. Enregistrez le fichier .
+7. Créez un fichier .json au format suivant. Utilisez les valeurs **ID d’abonnement**, **tenantID**, **clientID** et **clientSecret** que vous avez copiées précédemment. Enregistrez le fichier .
 
     ```json
     {

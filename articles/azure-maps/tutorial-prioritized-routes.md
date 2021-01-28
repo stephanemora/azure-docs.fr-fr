@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896699"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624997"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher et afficher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -39,7 +39,7 @@ Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.c
 
 Les étapes suivantes vous montrent comment créer et afficher le contrôle de carte dans une page web.
 
-1. Sur votre ordinateur local, créez un fichier et nommez-le **MapTruckRoute.html** .
+1. Sur votre ordinateur local, créez un fichier et nommez-le **MapTruckRoute.html**.
 2. Copiez/collez le balisage HTML suivant dans le fichier.
 
     ```HTML
@@ -121,7 +121,7 @@ Les étapes suivantes vous montrent comment créer et afficher le contrôle de c
 
 2. Enregistrez le fichier **MapTruckRoute.html** et actualisez la page dans votre navigateur. Si vous effectuez un zoom sur une ville, par exemple Los Angeles, vous verrez que les rues sont affichées avec les données de circulation actuelles.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Voir le trafic sur une carte":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
 
 3. Enregistrez **TruckRoute.html** et actualisez votre navigateur. La carte est maintenant centrée sur Seattle. La broche bleue en forme de larme marque le point de départ. La broche bleue ronde marque le point d’arrivée.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Afficher la carte avec les points de départ et d’arrivée":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
 Cette section montre comment utiliser le service Route Azure Maps pour trouver des directions d’un point à un autre, en fonction du mode de transport. Nous allons utiliser deux modes de transport : camion et voiture.
 
 >[!TIP]
->Le service Route fournit des API afin de planifier l’itinéraire le plus *rapide* , le plus *court* , le plus *économique* ou le plus *intéressant* en fonction de la distance, des conditions de circulation et du mode de transport utilisé. Il permet également aux utilisateurs de planifier de futurs itinéraires en fonction de l’historique des conditions de circulation. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](/rest/api/maps/route/getroutedirections).
+>Le service Route fournit des API afin de planifier l’itinéraire le plus *rapide*, le plus *court*, le plus *économique* ou le plus *intéressant* en fonction de la distance, des conditions de circulation et du mode de transport utilisé. Il permet également aux utilisateurs de planifier de futurs itinéraires en fonction de l’historique des conditions de circulation. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](/rest/api/maps/route/getroutedirections).
 
 1. Dans la fonction `GetMap`, à l’intérieur du gestionnaire d’événements `ready` du contrôle, ajoutez le code suivant au code JavaScript.
 
@@ -277,7 +277,7 @@ Cette section montre comment utiliser le service Route Azure Maps pour trouver d
 
 4. Enregistrez le fichier **TruckRoute.html** et actualisez votre navigateur web. La carte doit maintenant afficher les itinéraires pour camion et pour voiture.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Itinéraires pour véhicules privés et commerciaux sur une carte avec le service d’itinéraire Azure":::
 
     L’itinéraire pour camion est affiché à l’aide d’une ligne bleue épaisse. L’itinéraire pour voiture est affichée à l’aide d’une fine ligne violette. L’itinéraire pour voiture passe au-dessus du Lac Washington via l’I-90, qui traverse des tunnels installés sous des zones résidentielles. Les tunnels étant proches de zones résidentielles, tout transport de déchets dangereux est interdit. L’itinéraire pour camion, pour lequel est défini le type de chargement `USHazmatClass2`, utilise une voie de circulation différente.
 
@@ -285,7 +285,9 @@ Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.c
 
 Vous pouvez également [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
+Aucune ressource ne nécessite un nettoyage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896678"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624981"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutoriel : Comment afficher les directions de route à l’aide du service Route Azure Maps et du contrôle de carte
 
@@ -39,7 +39,7 @@ Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.c
 
 Les étapes suivantes vous montrent comment créer et afficher le contrôle de carte dans une page web.
 
-1. Sur votre ordinateur local, créez un fichier et nommez-le **MapRoute.html** .
+1. Sur votre ordinateur local, créez un fichier et nommez-le **MapRoute.html**.
 2. Copiez/collez le balisage HTML suivant dans le fichier.
 
     ```HTML
@@ -174,7 +174,7 @@ Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couch
 
 3. Enregistrez **MapRoute.html** et actualisez votre navigateur. La carte est maintenant centrée sur Seattle. La broche bleue en forme de larme marque le point de départ. La broche bleue ronde marque le point d’arrivée.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Voir le point de départ et d’arrivée des routes sur la carte":::
 
 <a id="getroute"></a>
 
@@ -183,7 +183,7 @@ Dans ce tutoriel, nous allons afficher l’itinéraire à l’aide d’une couch
 Cette section montre comment utiliser l’API Obtenir des directions Azure Maps pour obtenir des directions d’un point à un autre et l’heure d’arrivée estimée.
 
 >[!TIP]
->Le service Route Azure Maps fournit des API afin de planifier des itinéraires basés sur différents types d’itinéraires, par exemple *le plus rapide* , *le plus court* , le plus *économique* ou le plus *intéressant* en fonction de la distance, des conditions de circulation et du mode de transport utilisé. Il permet également aux utilisateurs de planifier des itinéraires futurs en fonction de l’historique des conditions de circulation. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](/rest/api/maps/route/getroutedirections).
+>Le service Route Azure Maps fournit des API afin de planifier des itinéraires basés sur différents types d’itinéraires, par exemple *le plus rapide*, *le plus court*, le plus *économique* ou le plus *intéressant* en fonction de la distance, des conditions de circulation et du mode de transport utilisé. Il permet également aux utilisateurs de planifier des itinéraires futurs en fonction de l’historique des conditions de circulation. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour un moment donné. Pour plus d’informations, consultez l’[API Obtenir les itinéraires](/rest/api/maps/route/getroutedirections).
 
 1. Dans la fonction `GetMap`, à l’intérieur du gestionnaire d’événements `ready` du contrôle, ajoutez le code suivant au code JavaScript.
 
@@ -216,9 +216,13 @@ Cette section montre comment utiliser l’API Obtenir des directions Azure Maps 
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur web. La carte doit maintenant afficher l’itinéraire du point de départ au point d’arrivée.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure Map Control et service Route":::
 
 Vous pouvez obtenir le code source complet de l’exemple [ici](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Vous pouvez trouver un exemple en direct [ici](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Aucune ressource ne nécessite un nettoyage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
