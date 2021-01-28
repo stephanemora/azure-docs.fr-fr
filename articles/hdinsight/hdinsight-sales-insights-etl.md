@@ -1,19 +1,16 @@
 ---
 title: 'Tutoriel : Créer un pipeline ETL de bout en bout pour dériver des insights de ventes dans Azure HDInsight'
 description: Découvrez comment créer et utiliser des pipelines ETL avec Azure HDInsight pour dériver des insights à partir de données de ventes à l’aide de clusters à la demande Spark et de Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746471"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932043"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutoriel : Créer un pipeline de données de bout en bout pour dériver des insights de ventes dans Azure HDInsight
 
@@ -110,7 +107,7 @@ Le mot de passe par défaut utilisé pour l’accès SSH aux clusters est `Thisi
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Vérifier le déploiement et recueillir des informations sur les ressources
 
-1. Si vous souhaitez vérifier l’état de votre déploiement, accédez au groupe de ressources dans le portail Azure. Sous **Paramètres** , sélectionnez **Déploiements** , puis votre déploiement. Ici, vous pouvez voir les ressources qui ont été déployées avec succès et celles qui sont toujours en cours de déploiement.
+1. Si vous souhaitez vérifier l’état de votre déploiement, accédez au groupe de ressources dans le portail Azure. Sous **Paramètres**, sélectionnez **Déploiements**, puis votre déploiement. Ici, vous pouvez voir les ressources qui ont été déployées avec succès et celles qui sont toujours en cours de déploiement.
 
 1. Pour voir les noms des clusters, entrez la commande suivante :
 
@@ -214,7 +211,7 @@ Pour déclencher le pipeline, vous pouvez effectuer l’une des deux actions sui
 
     ou
 
-* Ouvrez la fabrique de données et sélectionnez **Créer et surveiller** . Déclenchez le pipeline `IngestAndTransform` à partir du portail. Pour plus d’informations sur le déclenchement de pipelines par le biais du portail, consultez [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Ouvrez la fabrique de données et sélectionnez **Créer et surveiller**. Déclenchez le pipeline `IngestAndTransform` à partir du portail. Pour plus d’informations sur le déclenchement de pipelines par le biais du portail, consultez [Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Pour vérifier que le pipeline a été exécuté, vous pouvez effectuer l’une des opérations suivantes :
 
@@ -252,21 +249,21 @@ Pour découvrir d’autres façons de transformer des données avec HDInsight, c
 
 1. Ouvrez Power BI Desktop.
 
-1. Dans le menu, accédez à **Obtenir des données** > **Plus...**  > **Azure** > **HDInsight Interactive Query** .
+1. Dans le menu, accédez à **Obtenir des données** > **Plus...**  > **Azure** > **HDInsight Interactive Query**.
 
-1. Sélectionnez **Connecter** .
+1. Sélectionnez **Connecter**.
 
-1. Dans la boîte de dialogue **HDInsight Interactive Query**  :
-    1. Dans la zone de texte **Serveur** , entrez le nom de votre cluster LLAP au format `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. Dans la zone de texte **Base de données** , entrez `default`.
-    1. Sélectionnez **OK** .
+1. Dans la boîte de dialogue **HDInsight Interactive Query** :
+    1. Dans la zone de texte **Serveur**, entrez le nom de votre cluster LLAP au format `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. Dans la zone de texte **Base de données**, entrez `default`.
+    1. Sélectionnez **OK**.
 
-1. Dans la boîte de dialogue **AzureHive**  :
-    1. Dans la zone de texte **Nom d’utilisateur** , entrez `admin`.
-    1. Dans la zone de texte **Mot de passe** , entrez `Thisisapassword1`.
-    1. Sélectionnez **Connecter** .
+1. Dans la boîte de dialogue **AzureHive** :
+    1. Dans la zone de texte **Nom d’utilisateur**, entrez `admin`.
+    1. Dans la zone de texte **Mot de passe**, entrez `Thisisapassword1`.
+    1. Sélectionnez **Connecter**.
 
-1. Dans **Navigateur** , sélectionnez `sales` et/ou `sales_raw` pour afficher un aperçu des données. Une fois les données chargées, vous pouvez faire des essais avec le tableau de bord que vous souhaitez créer. Pour bien démarrer avec les tableaux de bord Power BI, consultez les liens suivants :
+1. Dans **Navigateur**, sélectionnez `sales` et/ou `sales_raw` pour afficher un aperçu des données. Une fois les données chargées, vous pouvez faire des essais avec le tableau de bord que vous souhaitez créer. Pour bien démarrer avec les tableaux de bord Power BI, consultez les liens suivants :
 
 * [Introduction aux tableaux de bord pour les concepteurs Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutoriel : Bien démarrer avec le service Power BI](https://docs.microsoft.com/power-bi/service-get-started)

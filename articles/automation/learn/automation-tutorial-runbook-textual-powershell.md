@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896b4db433164471f41aa09791ede5d677028bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014998"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896611"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Tutoriel : Créer un runbook PowerShell
 
@@ -131,7 +131,7 @@ Le runbook que vous avez créé est toujours en mode Brouillon. Il doit être pu
 
 Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Pour ce faire, le runbook doit pouvoir s’authentifier à l’aide du compte d’identification qui a été créé automatiquement lors de la création de votre compte Automation.
 
-Comme le montre l’exemple ci-dessous, la connexion d’identification est établie avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Si vous gérez des ressources associées à plusieurs abonnements, utilisez le paramètre `AzContext` avec [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+Comme le montre l’exemple ci-dessous, la connexion d’identification est établie avec l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Si vous gérez des ressources associées à plusieurs abonnements, utilisez le paramètre `AzContext` avec [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext).
 
 > [!NOTE]
 > Pour les runbooks PowerShell, `Add-AzAccount` et `Add-AzureRMAccount` sont des alias de `Connect-AzAccount`. Vous pouvez utiliser ces cmdlets ou [mettre à jour vos modules](../automation-update-azure-modules.md) dans votre compte Automation vers les dernières versions. Il est possible que vous deviez mettre à jour vos modules, même si vous venez de créer un compte Automation.
@@ -198,7 +198,7 @@ Comme le montre l’exemple ci-dessous, la connexion d’identification est éta
 
 À présent que votre runbook s’authentifie auprès de votre abonnement Azure, vous pouvez gérer les ressources. Ajoutons une commande pour démarrer une machine virtuelle. Vous pouvez choisir n’importe quelle machine virtuelle dans votre abonnement Azure et coder pour l’instant ce nom en dur dans le runbook.
 
-1. Pour votre script de runbook, ajoutez l’applet de commande [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) pour démarrer la machine virtuelle. Comme indiqué ci-dessous, l’applet de commande démarre une machine virtuelle nommée `VMName` et avec un groupe de ressources nommé `ResourceGroupName`.
+1. Pour votre script de runbook, ajoutez l’applet de commande [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) pour démarrer la machine virtuelle. Comme indiqué ci-dessous, l’applet de commande démarre une machine virtuelle nommée `VMName` et avec un groupe de ressources nommé `ResourceGroupName`.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -275,7 +275,7 @@ Votre runbook démarre actuellement la machine virtuelle que vous avez codée en
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](/powershell/scripting/overview).
-* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Pour obtenir des informations de référence sur les cmdlets PowerShell, consultez [Az.Automation](/powershell/module/az.automation).
 * Pour démarrer avec les runbooks graphiques, consultez [Créer un runbook graphique](automation-tutorial-runbook-graphical.md).
 * Pour démarrer avec les runbooks de workflow PowerShell, consultez [Créer un runbook de workflow PowerShell](automation-tutorial-runbook-textual.md).
 * Pour en savoir plus sur les types de runbook, leurs avantages et leurs limites, consultez [Types de runbooks Azure Automation](../automation-runbook-types.md).

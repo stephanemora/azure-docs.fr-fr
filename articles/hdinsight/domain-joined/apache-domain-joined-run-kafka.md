@@ -1,18 +1,15 @@
 ---
 title: Tutoriel – Apache Kafka et Sécurité Entreprise – Azure HDInsight
 description: Didacticiel - Découvrez comment configurer des stratégies Apache Ranger pour Kafka dans Azure HDInsight avec le Pack Sécurité Entreprise (ESP, Enterprise Security Package).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010127"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933681"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 

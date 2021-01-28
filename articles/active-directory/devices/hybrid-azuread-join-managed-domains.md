@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861049"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893404"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -90,23 +90,21 @@ Pour configurer une jointure Azure AD hybride à l’aide d’Azure AD Connect
 
 1. Démarrez Azure AD Connect, puis sélectionnez **Configurer**.
 
-   ![Bienvenue](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. Dans **Tâches supplémentaires**, sélectionnez **Configurer les options de l’appareil**, puis **Suivant**.
 
    ![Tâches supplémentaires](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. Dans **Vue d’ensemble**, sélectionnez **Suivant**.
 
-   ![Vue d’ensemble](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. Dans **Connexion à Azure AD**, entrez les informations d’identification d’un administrateur général pour votre locataire Azure AD.  
-
-   ![Se connecter à Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. Dans **Options de l’appareil**, sélectionnez **Configurer joindre Hybrid Azure AD**, puis **Suivant**.
 
    ![Options de l’appareil](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. Dans **Systèmes d’exploitation de l’appareil**, sélectionnez les systèmes d’exploitation utilisés par les appareils dans votre environnement Active Directory, puis sélectionnez **Suivant**.
+
+   ![Systèmes d’exploitation des appareils](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. Dans **Configuration du SCP**, pour chaque forêt où vous souhaitez qu’Azure AD Connect configure le SCP (point de connexion de service), suivez les étapes ci-dessous, puis sélectionnez **Suivant**.
 
@@ -116,17 +114,9 @@ Pour configurer une jointure Azure AD hybride à l’aide d’Azure AD Connect
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. Dans **Systèmes d’exploitation de l’appareil**, sélectionnez les systèmes d’exploitation utilisés par les appareils dans votre environnement Active Directory, puis sélectionnez **Suivant**.
-
-   ![Systèmes d’exploitation des appareils](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. Dans **Prêt pour la configuration**, sélectionnez **Configurer**.
 
-   ![Prêt à configurer](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. Dans **Configuration terminée**, sélectionnez **Quitter**.
-
-   ![Configuration terminée](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Activer des appareils Windows de bas niveau
 

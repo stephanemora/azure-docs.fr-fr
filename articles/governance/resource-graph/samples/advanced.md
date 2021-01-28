@@ -1,14 +1,14 @@
 ---
 title: Exemples de requêtes avancées
 description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment en utilisant des colonnes, en listant les étiquettes utilisées et en mettant en correspondance des ressources avec des expressions régulières.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b0a13fb798a9403b240c97fb207bf9b76e01028f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918868"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemples de requêtes Resource Graph avancées
 

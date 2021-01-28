@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf8fc9916384c9eef24c4c50f7647632c0e6b7a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e3521603c4651133f1420809e4921ad27279860
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077458"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873183"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Tutoriel : Créer des images de machines virtuelles Windows avec Azure PowerShell
 
@@ -37,7 +37,7 @@ Pour exécuter l’exemple dans ce didacticiel, vous devez disposer d’une mach
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
+Une [galerie d’images partagées](../shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
 Shared Image Gallery vous permet de partager vos images de machines virtuelles personnalisées avec d’autres utilisateurs. Choisissez les images à partager, les régions dans lesquelles vous souhaitez les rendre disponibles et les personnes avec lesquelles vous voulez les partager. 
 
@@ -91,7 +91,7 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>Créer une définition d’image 
 
-Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
+Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../shared-image-galleries.md#image-definitions).
 
 Créez la définition d’image à l’aide de [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, l’image de la galerie se nomme *myGalleryImage* et est créée pour une image spécialisée. 
 
@@ -207,7 +207,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## <a name="azure-image-builder"></a>Azure Image Builder
 
-Azure propose également un service, basé sur Packer, nommé [Azure VM Image Builder](./image-builder-overview.md). Il vous suffit de décrire vos personnalisations dans un modèle, et celui-ci gère la création d’images. 
+Azure propose également un service, basé sur Packer, nommé [Azure VM Image Builder](../image-builder-overview.md). Il vous suffit de décrire vos personnalisations dans un modèle, et celui-ci gère la création d’images. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

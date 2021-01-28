@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: f9e7547b8b9a8728c2c1ce7d1d01d06ad1d55dc1
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387239"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879459"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
@@ -90,7 +90,7 @@ Activez la réplication comme suit :
     - Chiffrement au repos avec une clé gérée par le client
 
    > [!NOTE]
-   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](https://go.microsoft.com/fwlink/?linkid=2151800) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
+   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
 10. Dans **Azure Hybrid Benefit** :
 

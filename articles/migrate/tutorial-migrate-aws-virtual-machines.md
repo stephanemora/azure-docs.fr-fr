@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cab7bc7f79cccb1704d7046f79a2000028ffb729
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233251"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878187"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Découvrir, évaluer et migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -80,7 +80,7 @@ Préparez Azure à la migration avec l’outil Server Migration d’Azure Migrat
 
 **Tâche** | **Détails**
 --- | ---
-**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+**Créer un projet Azure Migrate** | Votre compte Azure doit disposer d’autorisations Contributeur ou Propriétaire pour [créer un projet](./create-manage-projects.md).
 **Vérifier les autorisations pour votre compte Azure** | Votre compte Azure a besoin d’autorisations pour créer une machine virtuelle et écrire sur un disque managé Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet
@@ -256,7 +256,7 @@ Un agent du service Mobility doit être installé sur les machines virtuelles AW
     - Chiffrement double avec les clés gérées par la plateforme et les clés gérées par le client
 
    > [!NOTE]
-   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](https://go.microsoft.com/fwlink/?linkid=2151800) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
+   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
 12. Dans **Azure Hybrid Benefit** :
 

@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint HIPAA HITRUST 9.2
 description: Vue d’ensemble de l’exemple de blueprint HIPAA HITRUST 9.2. Cet exemple de blueprint aide les clients à évaluer des contrôles HIPAA HITRUST 9.2 spécifiques.
-ms.date: 09/04/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 4df6f05019976b3de1172cc5127c27ac00fe3c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd65b6113f291457096bacc02bdbcfd92d6e0f84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89493230"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915542"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>Exemple de blueprint HIPAA HITRUST 9.2
 
@@ -35,7 +35,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
+1. Dans la page **Démarrage** à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Recherchez l’exemple de blueprint **HIPAA HITRUST** sous _Autres exemples_ et sélectionnez **Utiliser cet exemple**.
 

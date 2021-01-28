@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de l’exemple de blueprint NIST SP 800-53 R4
 description: Vue d’ensemble de l’exemple de blueprint NIST SP 800-53 R4. Cet exemple de blueprint aide les clients à évaluer des contrôles NIST SP 800-53 R4 spécifiques.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: f40451e1e82833aba4f626052e708f2c1136f832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b773013c61a8bed3c5c5f4e8b24878f10889f954
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048769"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918126"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Exemple de blueprint NIST SP 800-53 R4
 
@@ -35,7 +35,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
+1. Dans la page **Démarrage** à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Recherchez l’exemple de blueprint **NIST SP 800-53 R4** sous _Autres exemples_ et sélectionnez **Utiliser cet exemple**.
 

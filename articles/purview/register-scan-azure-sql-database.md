@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555948"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879729"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -39,7 +39,7 @@ Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-data
 
 ### <a name="set-up-authentication-for-a-scan"></a>Configurer l’authentification pour une analyse
 
-Authentification pour analyser Azure SQL Database. Si vous avez besoin de créer une nouvelle authentification, vous devez [autoriser l’accès aux bases de données à SQL Database](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Il existe actuellement trois méthodes d’authentification prises en charge par Purview :
+Authentification pour analyser Azure SQL Database. Si vous avez besoin de créer une nouvelle authentification, vous devez [autoriser l’accès aux bases de données à SQL Database](../azure-sql/database/logins-create-manage.md). Il existe actuellement trois méthodes d’authentification prises en charge par Purview :
 
 - Authentification SQL
 - Principal de service
@@ -88,8 +88,8 @@ Vous pouvez utiliser un principal de service existant ou en créer un nouveau.
 
 Le principal de service ou l’identité managée doivent avoir l’autorisation d’obtenir des métadonnées pour la base de données, les schémas et les tables. Ils doivent également être en mesure d’interroger les tables à échantillonner pour la classification.
 
-- [Configurer et gérer l’authentification Azure AD avec Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation adaptée (par exemple, `db_owner` ou `db_datareader`) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
+- [Configurer et gérer l’authentification Azure AD avec Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Si vous utilisez une identité managée, votre compte Purview possède sa propre identité managée, qui est fondamentalement votre nom Purview lorsque vous l’avez créé. Vous devez créer un utilisateur Azure AD dans Azure SQL Database avec l’identité managée exacte de Purview ou votre propre principal de service en suivant le tutoriel [Créer l’utilisateur de principal de service dans Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Vous devez affecter l’autorisation adaptée (par exemple, `db_owner` ou `db_datareader`) à l’identité. Exemple de syntaxe SQL pour créer l’utilisateur et accorder l’autorisation :
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER

@@ -1,14 +1,14 @@
 ---
 title: Exemple de blueprint CIS Microsoft Azure Foundations Benchmark
 description: Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark. Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc9e2443cd1e413588487646d6400ae1f2185208
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005603"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918414"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark
 

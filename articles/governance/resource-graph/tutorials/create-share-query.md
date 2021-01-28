@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Gérer les requêtes dans le portail Azure'
 description: Dans ce tutoriel, vous créez une requête Resource Graph et vous la partagez avec d’autres personnes dans le portail Azure.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057924"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916677"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutoriel : Créer et partager une requête Azure Resource Graph sur le portail Azure
 
@@ -88,7 +88,7 @@ Contrairement à une requête privée, une requête partagée est une ressource 
 
 1. Sélectionnez **Enregistrer** en bas du volet **Enregistrer la requête**. Le titre de l'onglet change : **Requête 1** est remplacé par **Nombre de machines virtuelles par système d'exploitation**. La première fois que le groupe de ressources **resource-graph-queries** est utilisé, l'enregistrement peut prendre un certain temps car le groupe de ressources est en cours de création.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Enregistrer la nouvelle requête à l’aide du bouton Enregistrer" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Enregistrer la nouvelle requête en tant que requête partagée" border="false":::
 
    > [!NOTE] 
    > Vous pouvez décocher la case **Publier dans le groupe de ressources resource-graph-queries** si vous souhaitez fournir le nom d'un groupe de ressources existant pour l'enregistrement de la requête partagée. L'utilisation du groupe de ressources nommé par défaut pour les requêtes facilite la découverte des requêtes partagées et permet de mieux comprendre la raison d'être de ce groupe de ressources. Vous pouvez toutefois choisir de sélectionner un groupe de ressources existant pour des raisons de sécurité, en fonction des autorisations existantes.
@@ -97,7 +97,7 @@ Contrairement à une requête privée, une requête partagée est une ressource 
 
 1. Sélectionnez **Ouvrir une requête**. Vérifiez que le type est défini sur **Requête partagée** et que la combinaison **Abonnement**/**Groupe de ressources** correspond à l'emplacement où vous avez enregistré la requête. L'élément **Nombre de machines virtuelles par système d'exploitation** enregistré apparaît désormais dans la liste **Nom de la requête**. Sélectionnez le lien titre de la requête enregistrée pour le charger dans un nouvel onglet portant le nom de cette requête. Comme il s'agit d'une requête partagée, une icône apparaît dans l'onglet situé en regard du titre pour indiquer qu'elle est partagée.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Enregistrer la nouvelle requête à l’aide du bouton Enregistrer" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Afficher la requête partagée avec l’icône" border="false":::
 
    > [!NOTE] 
    > Lorsqu'une requête enregistrée est ouverte et que l'onglet affiche son nom, le bouton **Enregistrer** la met à jour avec les modifications apportées. Pour créer une nouvelle requête enregistrée, sélectionnez **Enregistrer sous** et procédez comme si vous enregistriez une nouvelle requête.

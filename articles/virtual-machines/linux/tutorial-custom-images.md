@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 22609465abfa0cbf30165bc9327d786b3244357e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 956e7c18deb597f6347dfd5dfdca99709a7052a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844776"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880976"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI
 
@@ -35,7 +35,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
+Une [galerie d’images partagées](../shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
 Shared Image Gallery vous permet de partager vos images de machines virtuelles personnalisées avec d’autres utilisateurs. Choisissez les images à partager, les régions dans lesquelles vous souhaitez les rendre disponibles et les personnes avec lesquelles vous voulez les partager. 
 
@@ -90,11 +90,11 @@ Les définitions d’image créent un regroupement logique des images. Elles son
 
 Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. 
 
-Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](./shared-image-galleries.md#image-definitions).
+Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../shared-image-galleries.md#image-definitions).
 
 Créez une définition d’image dans la galerie avec la commande [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
 
-Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](./shared-image-galleries.md#generalized-and-specialized-images). 
+Dans cet exemple, la définition d’image se nomme *myImageDefinition* et est destinée à une image de système d’exploitation Linux [spécialisée](../shared-image-galleries.md#generalized-and-specialized-images). 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -180,7 +180,7 @@ Pour plus d’informations sur la façon de partager des ressources à l’aide 
 
 ## <a name="azure-image-builder"></a>Azure Image Builder
 
-Azure propose également un service, basé sur Packer, nommé [Azure VM Image Builder](./image-builder-overview.md). Il vous suffit de décrire vos personnalisations dans un modèle, et celui-ci gère la création d’images. 
+Azure propose également un service, basé sur Packer, nommé [Azure VM Image Builder](../image-builder-overview.md). Il vous suffit de décrire vos personnalisations dans un modèle, et celui-ci gère la création d’images. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

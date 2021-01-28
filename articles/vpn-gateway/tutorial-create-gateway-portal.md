@@ -6,12 +6,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746163"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880557"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Tutoriel : Créer et gérer une passerelle VPN à l’aide du portail Azure
 
@@ -103,7 +103,7 @@ Si vous n’envisagez pas de continuer à utiliser cette application ni de passe
 Une fois que vous disposez d’une passerelle VPN, vous pouvez configurer des connexions. Les articles ci-dessous vous aideront à créer quelques-unes des configurations les plus courantes :
 
 > [!div class="nextstepaction"]
-> [Connexions VPN de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Connexions VPN de site à site](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
 > [Connexions VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
