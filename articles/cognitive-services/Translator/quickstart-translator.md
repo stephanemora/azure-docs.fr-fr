@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traducteur, service de traduction, traduire du texte, translittérer du texte, détection de la langue
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369526"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733492"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Démarrage rapide : Bien démarrer avec Translator
 
@@ -59,7 +59,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le service Transla
 # <a name="java"></a>[Java](#tab/java)
 
 * Créez un répertoire de travail pour votre projet. Par exemple : `mkdir sample-project`.
-* Initialisez votre projet avec Gradle : `gradle init --type basic`. Quand vous êtes invité à choisir un **DSL** , sélectionnez **Kotlin**.
+* Initialisez votre projet avec Gradle : `gradle init --type basic`. Quand vous êtes invité à choisir un **DSL**, sélectionnez **Kotlin**.
 * Mettez à jour `build.gradle.kts`. N’oubliez pas que vous avez besoin de mettre à jour votre `mainClassName` en fonction de l’exemple.
   ```java
   plugins {
@@ -123,7 +123,7 @@ Quand vous appelez le service Translator par le biais de REST, vous devez vérif
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Clés et points de terminaison)
 
-Les exemples de cette page utilisent des clés et points de terminaison codés en dur pour des raisons de simplicité. N’oubliez pas de **supprimer la clé de votre code une fois que vous avez terminé** , et **ne la postez jamais publiquement**. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../cognitive-services-security.md) de Cognitive Services.
+Les exemples de cette page utilisent des clés et points de terminaison codés en dur pour des raisons de simplicité. N’oubliez pas de **supprimer la clé de votre code une fois que vous avez terminé**, et **ne la postez jamais publiquement**. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../cognitive-services-security.md) de Cognitive Services.
 
 ## <a name="translate-text"></a>Traduire le texte 
 
@@ -968,7 +968,8 @@ Si vous traduisez dans une langue qui utilise un autre alphabet (ou d’autres p
 
 Pour obtenir une translittération à partir du point de terminaison `translate`, utilisez le paramètre `toScript`.
 
-> ![NOTE] Pour obtenir la liste complète des langues et options de translittération disponibles, consultez [Prise en charge linguistique](language-support.md).
+> [!NOTE]
+> Pour obtenir la liste complète des langues et options de translittération disponibles, consultez [Langues prises en charge](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Quand l’appel aboutit, vous devez voir la réponse suivante. N’oubliez pas q
 
 Vous pouvez également utiliser le point de terminaison `transliterate` pour obtenir une translittération. Quand vous utilisez le point de terminaison de translittération, vous devez fournir la langue source (`language`), l’écriture/alphabet source (`fromScript`) et l’écriture/alphabet de sortie (`toScript`) en tant que paramètres. Dans cet exemple, nous allons obtenir la translittération de สวัสดี. 
 
-> ![NOTE] Pour obtenir la liste complète des langues et options de translittération disponibles, consultez [Prise en charge linguistique](language-support.md).
+> [!NOTE]
+> Pour obtenir la liste complète des langues et options de translittération disponibles, consultez [Langues prises en charge](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
