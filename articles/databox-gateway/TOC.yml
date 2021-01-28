@@ -1,6 +1,6 @@
 - name: Documentation Azure Data Box Gateway
-  href: /azure/databox-gateway/
-- name: Vue d’ensemble
+  href: ./index.yml
+- name: Vue d'ensemble
   Expanded: true
   items:
     - name: Qu’est-ce que Data Box Gateway ?
