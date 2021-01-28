@@ -1,18 +1,15 @@
 ---
 title: 'Tutoriel : Configurer des notifications par e-mail Apache Ambari dans Azure HDInsight'
 description: Cet article explique comment utiliser SendGrid avec Apache Ambari pour les notifications par e-mail.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542554"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946971"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Tutoriel : Configurer des notifications par e-mail Apache Ambari dans Azure HDInsight
 
@@ -38,11 +35,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
     ![Présentation de SendGrid dans le portail Azure](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. Dans le menu de gauche, accédez au nom de votre compte, puis à **Détails du compte** .
+1. Dans le menu de gauche, accédez au nom de votre compte, puis à **Détails du compte**.
 
     ![Navigation dans le tableau de bord SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Dans la page **Détails du compte** , notez le **Nom d’utilisateur** .
+1. Dans la page **Détails du compte**, notez le **Nom d’utilisateur**.
 
     ![Détails du compte SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,7 +47,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Dans la liste déroulante **Actions** , sélectionnez **Manage Notifications** (Gérer les notifications).
+1. Dans la liste déroulante **Actions**, sélectionnez **Manage Notifications** (Gérer les notifications).
 
 1. Dans la fenêtre **Manage Alert Notifications** (Gérer les notifications d’alerte), sélectionnez l’icône **+** .
 
@@ -64,7 +61,7 @@ Dans ce tutoriel, vous allez apprendre à :
     |Groupes|Configurez selon vos besoins.|
     |severity|Configurez selon vos besoins.|
     |Description|facultatif.|
-    |Méthode|Laissez **EMAIL** .|
+    |Méthode|Laissez **EMAIL**.|
     |Email To (Adresse e-mail de destination)|Indiquez la ou les adresses e-mails auxquelles envoyer les notifications, séparées par une virgule.|
     |SMTP Server (Serveur SMTP)|`smtp.sendgrid.net`|
     |SMTP Port (Port SMTP)|25 ou 587 (pour les connexions non chiffrées/TLS).|
@@ -77,9 +74,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
     ![La capture d’écran présente la boîte de dialogue Create Alert Notification (Créer une notification d’alerte).](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Sélectionnez **Enregistrer** . Vous revenez à la fenêtre **Manage Alert Notifications** (Gérer les notifications d’alerte).
+    Sélectionnez **Enregistrer**. Vous revenez à la fenêtre **Manage Alert Notifications** (Gérer les notifications d’alerte).
 
-1. Dans la fenêtre **Manage Alert Notifications** , sélectionnez l’icône **Close** (Fermer).
+1. Dans la fenêtre **Manage Alert Notifications**, sélectionnez l’icône **Close** (Fermer).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
