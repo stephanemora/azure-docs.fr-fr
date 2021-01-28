@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b6745ed879f02a341027417b54eb459b5bfed705
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935401"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762945"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Mini R
 
@@ -121,11 +121,11 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 7. Sélectionnez **Suivant : Adresse de livraison**.
 
-    - Si vous disposez déjà d’un appareil, cochez la case **J’ai déjà un appareil**.
+   - Si vous disposez déjà d’un appareil, cochez la case **J’ai déjà un appareil**.
 
      ![Créer une ressource 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
+   - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
 
      ![Créer une ressource 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -145,9 +145,12 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
     
     ![Accéder à la ressource Azure Stack Edge Pro](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
+Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
-   Si vous rencontrez des problèmes pendant le processus de commande, consultez [Résoudre les problèmes de commande](azure-stack-edge-troubleshoot-ordering.md).
+> [!NOTE]
+> Si vous souhaitez créer plusieurs commandes à la fois ou cloner une commande existante, vous pouvez utiliser les [scripts dans les exemples Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Pour plus d’informations, consultez le fichier README.
+
+Si vous rencontrez des problèmes pendant le processus de commande, consultez [Résoudre les problèmes de commande](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obtenir la clé d'activation
 

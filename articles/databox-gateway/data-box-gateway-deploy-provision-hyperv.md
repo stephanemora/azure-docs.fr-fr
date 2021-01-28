@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740655"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791559"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutoriel : Provisionner Azure Data Box Gateway dans Hyper-V
 
@@ -84,7 +84,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 ## <a name="bitlocker-considerations"></a>Considérations relatives à BitLocker
 
 * Nous vous recommandons d’activer BitLocker sur votre machine virtuelle Data Box Gateway. Par défaut, BitLocker n’est pas activé. Pour plus d'informations, consultez les pages suivantes :
-  * [Paramètres de prise en charge du chiffrement dans le Gestionnaire Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Paramètres de prise en charge du chiffrement dans le Gestionnaire Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [Prise en charge de BitLocker sur une machine virtuelle](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Configurer un appareil virtuel dans l’hyperviseur

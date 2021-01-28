@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059651"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789025"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Créer et fusionner une demande de signature de certificat dans Key Vault
 
@@ -123,7 +123,7 @@ Exemple
 
 - Comment surveiller ou gérer ma demande de signature de certificat ?
 
-     Consultez [Surveiller et gérer la création de certificats](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
+     Consultez [Surveiller et gérer la création de certificats](./create-certificate-scenarios.md).
 
 - Que se passe-t-il si je vois **Type d’erreur « La clé publique du certificat d’entité finale dans le contenu du certificat X.509 spécifié ne correspond pas à la partie publique de la clé privée spécifiée. Vérifiez que le certificat est valide. »**  ?
 

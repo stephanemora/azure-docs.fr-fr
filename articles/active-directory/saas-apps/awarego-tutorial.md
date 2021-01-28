@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 6599abd6282d0d1eb7cb81002c34ddd5158dab6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4682396f68d6ff1af0b2fb6a5b1a8419d6963529
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511057"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735333"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AwareGo
 
@@ -139,11 +139,9 @@ Dans cette section, vous pouvez tester votre configuration de l’authentificati
 
 * Accédez directement à la page de connexion AwareGo et lancez le flux de connexion.
 
-* Accédez à Mes applications Microsoft. Quand vous sélectionnez la vignette **AwareGo** dans Mes applications, vous êtes redirigé vers la page de connexion AwareGo. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Accédez à Mes applications Microsoft. Quand vous sélectionnez la vignette **AwareGo** dans Mes applications, vous êtes redirigé vers la page de connexion AwareGo. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré AwareGo, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir du contrôle d’application par accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré AwareGo, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir du contrôle d’application par accès conditionnel. Pour plus d’informations, consultez [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

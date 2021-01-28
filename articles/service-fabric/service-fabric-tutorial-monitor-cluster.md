@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331989"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791776"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutoriel : Superviser un cluster Service Fabric dans Azure
 
@@ -55,7 +55,7 @@ Pour accéder à la solution Service Fabric Analytics, accédez au [portail Azur
 
 Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** .
 
-Dans **Vue d’ensemble** , des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
+Dans **Vue d’ensemble**, des vignettes de type graphe s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
 ![Capture d’écran montrant le graphe Service Fabric.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
@@ -74,7 +74,7 @@ L’image ci-dessus montre la page d’accueil de la solution Service Fabric Ana
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Afficher les événements Service Fabric, notamment les actions sur les nœuds
 
-Dans la page Service Fabric Analytics, cliquez sur le graphe des **Événements de cluster** .  Les journaux pour tous les événements système qui ont été collectés s’affichent. Pour référence, il s’agit de la table **WADServiceFabricSystemEventsTable** dans le compte Stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
+Dans la page Service Fabric Analytics, cliquez sur le graphe des **Événements de cluster**.  Les journaux pour tous les événements système qui ont été collectés s’affichent. Pour référence, il s’agit de la table **WADServiceFabricSystemEventsTable** dans le compte Stockage Azure. De même, les services fiables et les événements acteurs que vous voyez ensuite proviennent de ces tables respectives.
     
 ![Canal opérationnel de requêtes](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-events.png)
 
@@ -183,7 +183,7 @@ app('PlunkoServiceFabricCluster').traces
 
 ### <a name="view-service-fabric-application-events"></a>Afficher les événements d’application Service Fabric
 
-Vous pouvez afficher les événements pour les services fiables et les applications d’acteurs fiables déployés sur le cluster.  Dans la page Service Fabric Analytics, cliquez sur le graphe de **Événements d’application** .
+Vous pouvez afficher les événements pour les services fiables et les applications d’acteurs fiables déployés sur le cluster.  Dans la page Service Fabric Analytics, cliquez sur le graphe de **Événements d’application**.
 
 Exécutez la requête suivante pour afficher les événements de vos applications de services fiables :
 ```kusto
@@ -227,20 +227,20 @@ Pour configurer des événements plus détaillés pour des acteurs fiables, vous
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Afficher les compteurs de performances avec les journaux Azure Monitor
 Pour afficher les compteurs de performances, ouvrez le [portail Azure](https://portal.azure.com) et accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. 
 
-Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** , puis **espace de travail Log Analytics** , puis **Paramètres avancés** .
+Sélectionnez la ressource **ServiceFabric(mysfomsworkspace)** , puis **espace de travail Log Analytics**, puis **Paramètres avancés**.
 
-Cliquez sur **Données** , puis sur **Compteurs de performances Windows** . Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Cliquez sur **Enregistrer** , puis sur **OK** .
+Cliquez sur **Données**, puis sur **Compteurs de performances Windows**. Une liste des compteurs par défaut que vous pouvez choisir d’activer s’affiche, et vous pouvez également définir l’intervalle de collecte. En outre, vous pouvez ajouter [d’autres compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) à collecter. Le format approprié est référencé dans cet [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Cliquez sur **Enregistrer**, puis sur **OK**.
 
-Fermez le panneau Paramètres avancés et sélectionnez **Récapitulatif de l’espace de travail** sous le titre **Général** . Pour chacune des solutions activées il existe une vignette graphique, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
+Fermez le panneau Paramètres avancés et sélectionnez **Récapitulatif de l’espace de travail** sous le titre **Général**. Pour chacune des solutions activées il existe une vignette graphique, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 
-Il existe des vignettes graphiques pour le canal opérationnel et les événements de services fiables. La représentation graphique du flux de données correspondant aux compteurs que vous avez sélectionnés s’affiche dans **Métriques de nœud** . 
+Il existe des vignettes graphiques pour le canal opérationnel et les événements de services fiables. La représentation graphique du flux de données correspondant aux compteurs que vous avez sélectionnés s’affiche dans **Métriques de nœud**. 
 
 Sélectionnez un graphe de **métrique de conteneur** pour afficher des détails supplémentaires. Vous pouvez également interroger les données du compteur de performances de la même façon que les événements de cluster et appliquer des filtres sur les nœuds, le nom du compteur de performances et les valeurs à l’aide du langage de requête Kusto.
 
 ## <a name="query-the-eventstore-service"></a>Interroger le service EventStore
 Le [service EventStore](service-fabric-diagnostics-eventstore.md) offre un moyen de comprendre l’état de votre cluster ou de vos charges de travail à un moment donné dans le temps. EventStore est un service Service Fabric avec état qui conserve les événements du cluster. Les événements sont exposés par le biais de [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), de REST et des API. EventStore interroge le cluster directement pour obtenir des données de diagnostics sur une entité dans votre cluster. Pour voir une liste complète des événements disponibles dans l’EventStore, consultez [Événements Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 
-Vous pouvez interroger les API EventStore par programmation à l’aide de la [bibliothèque de client Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+Vous pouvez interroger les API EventStore par programmation à l’aide de la [bibliothèque de client Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Voici un exemple de requête pour tous les événements de cluster entre 2018-04-03T18:00:00Z et 2018-04-04T18:00:00Z, par le biais de la fonction GetClusterEventListAsync.
 
@@ -299,10 +299,10 @@ Service Fabric propose un [modèle d’intégrité](service-fabric-health-intro
 
 Les rapports d’intégrité envoyés par les composants système alimentent automatiquement le cluster. Pour en savoir plus, consultez l’article [Utiliser les rapports d’intégrité du système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric expose les requêtes d’intégrité pour chacun des [types d’entité](service-fabric-health-introduction.md#health-entities-and-hierarchy)pris en charge. Elles sont accessibles par l’intermédiaire de l’API, via les méthodes sur [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), des applets de commande PowerShell et de REST. Ces requêtes renvoient des informations complètes sur l’intégrité de l’entité : l’état d’intégrité agrégé, les événements d’intégrité de l’entité, les états d’intégrité enfants (le cas échéant), les évaluations de défaut d’intégrité (lorsque l’entité n’est pas intègre) et les statistiques d’intégrité enfants (au besoin).
+Service Fabric expose les requêtes d’intégrité pour chacun des [types d’entité](service-fabric-health-introduction.md#health-entities-and-hierarchy)pris en charge. Elles sont accessibles par l’intermédiaire de l’API, via les méthodes sur [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), des applets de commande PowerShell et de REST. Ces requêtes renvoient des informations complètes sur l’intégrité de l’entité : l’état d’intégrité agrégé, les événements d’intégrité de l’entité, les états d’intégrité enfants (le cas échéant), les évaluations de défaut d’intégrité (lorsque l’entité n’est pas intègre) et les statistiques d’intégrité enfants (au besoin).
 
 ### <a name="get-cluster-health"></a>Obtenir les données d’intégrité du cluster
-L’applet de commande [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) retourne les données d’intégrité de l’entité du cluster et contient les états d’intégrité des applications et des nœuds (enfants du cluster).  Commencez par vous connecter au cluster à l’aide de l’[applet de commande Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps).
+L’applet de commande [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) retourne les données d’intégrité de l’entité du cluster et contient les états d’intégrité des applications et des nœuds (enfants du cluster).  Commencez par vous connecter au cluster à l’aide de l’[applet de commande Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 L’état du cluster indique 11 nœuds, l’application système et l’application fabric:/Voting, configurés comme indiqué.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>Obtenir les données d’intégrité du nœud
-L’applet de commande [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) retourne les données d’intégrité d’une entité de nœud et contient les événements d’intégrité signalés sur le nœud. Commencez par vous connecter au cluster à l’aide de l’[applet de commande Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). L’exemple suivant obtient l’intégrité d’un nœud spécifique à l’aide des stratégies de contrôle d’intégrité par défaut :
+L’applet de commande [Get-ServiceFabricNodeHealth](/powershell/module/servicefabric/get-servicefabricnodehealth) retourne les données d’intégrité d’une entité de nœud et contient les événements d’intégrité signalés sur le nœud. Commencez par vous connecter au cluster à l’aide de l’[applet de commande Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster). L’exemple suivant obtient l’intégrité d’un nœud spécifique à l’aide des stratégies de contrôle d’intégrité par défaut :
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

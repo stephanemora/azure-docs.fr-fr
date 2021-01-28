@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fec95dc033eb5eacaf79f5bbd2b6b294628667b9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97725075"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735964"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EasySSO pour Bamboo
 
@@ -199,7 +199,7 @@ Toutefois, si vous ne souhaitez pas activer le provisionnement automatique d’u
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide de Mes applications.
 
-Quand vous cliquez sur la vignette EasySSO for Bamboo dans Mes applications, vous devez être connecté automatiquement à l’instance de Bamboo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette EasySSO for Bamboo dans Mes applications, vous devez être connecté automatiquement à l’instance de Bamboo pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Workflow lancé par le fournisseur de services
 

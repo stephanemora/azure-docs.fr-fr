@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948950"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737318"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurer Azure Functions pour les fournisseurs personnalisés Azure
 
@@ -21,7 +21,7 @@ Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et
 > [!NOTE]
 > Dans ce tutoriel, vous allez créer un point de terminaison de service simple qui utilise une application de fonction Azure. Toutefois, un fournisseur personnalisé peut utiliser n’importe quel point de terminaison accessible publiquement. Les alternatives sont notamment Azure Logic Apps, la gestion des API Azure et la fonctionnalité Web Apps d’Azure App Service.
 
-Pour démarrer ce tutoriel, vous devez d’abord suivre le tutoriel [Créer votre première application de fonction à l’aide du portail Azure](../../azure-functions/functions-create-first-azure-function.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure. C’est également la base du tutoriel actuel.
+Pour démarrer ce tutoriel, vous devez d’abord suivre le tutoriel [Créer votre première application de fonction à l’aide du portail Azure](../../azure-functions/functions-get-started.md). Ce tutoriel crée une fonction webhook .NET Core qui peut être modifiée dans le portail Azure. C’est également la base du tutoriel actuel.
 
 ## <a name="install-azure-table-storage-bindings"></a>Installer les liaisons du stockage Table Azure
 
@@ -32,7 +32,7 @@ Pour installer les liaisons du stockage Table Azure :
 1. Sélectionnez **Stockage Table Azure**.
 1. Installez l’extension Microsoft.Azure.WebJobs.Extensions.Storage si celle-ci n’est pas déjà installée.
 1. Dans la zone **Nom du paramètre de table**, entrez **tableStorage**.
-1. Dans la zone**Nom de la table**, entrez **myCustomResources**.
+1. Dans la zone **Nom de la table**, entrez **myCustomResources**.
 1. Sélectionnez **Enregistrer** pour enregistrer le paramètre d’entrée mis à jour.
 
 ![Vue d’ensemble du fournisseur personnalisé montrant les liaisons de table](./media/create-custom-provider/azure-functions-table-bindings.png)

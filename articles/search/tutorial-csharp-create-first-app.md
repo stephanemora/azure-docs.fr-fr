@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939719"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791676"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutoriel : Créer votre première application de recherche à l’aide du SDK .NET
 
@@ -77,7 +77,7 @@ Si vous souhaitez profiter sans tarder d’une application opérationnelle, suiv
 
 1. Il s’agit d’un index d’hôtels. Tapez donc des mots permettant de rechercher des hôtels (par exemple, « wifi », « view » (vue), « bar », « parking ») et examinez les résultats.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Recherche de *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Recherche de *wifi*" border="true":::
 
 Nous espérons que ce projet se déroule normalement et que l’application web est opérationnelle. De nombreux composants essentiels pour des recherches plus sophistiquées étant inclus dans cette application, il est judicieux de la suivre et de la recréer étape par étape. Les sections suivantes couvrent ces étapes.
 
@@ -87,17 +87,17 @@ Pour créer ce projet à partir de zéro et ainsi mieux connaître les concepts 
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet**, puis **Application web ASP.NET Core**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Recherche de *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Création d’un projet cloud" border="true":::
 
 1. Donnez un nom au projet, tel que « FirstSearchApp », puis définissez l’emplacement. Sélectionnez **Create** (Créer).
 
 1. Choisissez le modèle de projet **Application web (Model-View-Controller)** .
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Recherche de *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Création d’un projet MVC" border="true":::
 
 1. Installez la bibliothèque de client. Dans **Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution...** , sélectionnez **Parcourir**, puis recherchez « azure.search.documents ». Installez **Azure.Search.Documents** (version 11 ou ultérieure), en acceptant les contrats de licence et les dépendances.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Recherche de *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Utilisation de NuGet pour ajouter des bibliothèques Azure" border="true":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Initialiser Recherche cognitive Azure
 
@@ -114,7 +114,7 @@ Pour cet exemple, vous utilisez des données d’hôtels disponibles publiquemen
 
 1. Dans l’Explorateur de solutions, sélectionnez le fichier, puis dans Propriétés, définissez le paramètre **Copier dans le répertoire de sortie** sur **Copier si plus récent**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Recherche de *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copie des paramètres d’application dans la sortie" border="true":::
 
 ## <a name="model-data-structures"></a>Modéliser des structures de données
 
@@ -534,11 +534,11 @@ L’appel de Recherche cognitive Azure est encapsulé dans notre méthode **RunQ
 
 1. Sélectionnez **Déboguer** > **Démarrer sans débogage** ou appuyez sur **F5**. Si l’application s’exécute comme prévu, vous devez obtenir la vue d’index initiale.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Recherche de *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Ouverture de l’application" border="true":::
 
 1. Entrez une chaîne de requête telle que « beach » (ou n’importe quel texte qui vous vient à l’esprit), puis cliquez sur l’icône de recherche pour envoyer la demande.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Recherche de *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Recherche de *beach*" border="true":::
 
 1. Essayez d’entrer « five star ». Notez que cette requête ne retourne aucun résultat. Une recherche plus sophistiquée traiterait « five star » (cinq étoiles) comme un synonyme de « luxury » (luxe) et retournerait les résultats correspondants. La prise en charge des [synonymes](search-synonyms.md) est disponible dans Recherche cognitive Azure, mais n’est pas traitée dans cette série de tutoriels.
 
@@ -554,7 +554,7 @@ Il est important de vérifier que nos fonctionnalités de gestion des erreurs fo
 
 2. Exécutez l’application, entrez « bar » comme texte de recherche, puis cliquez sur l’icône de recherche. L’exception doit aboutir à la vue d’erreur.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Recherche de *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Forcer une erreur" border="true":::
 
     > [!Important]
     > Il est considéré comme risqué du point de vue de la sécurité de retourner des numéros d’erreur interne dans les pages d’erreur. Si votre application est prévue pour une utilisation générale, effectuez quelques recherches concernant la sécurité et les bonnes pratiques relatives à ce qu’il faut retourner en cas d’erreur.

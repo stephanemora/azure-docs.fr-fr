@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à effectuer un scale-out et
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702172"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788008"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -809,7 +809,7 @@ Après avoir créé un cluster Service Fabric, vous pouvez rendre scalable un cl
 > [!WARNING]
 > Nous vous recommandons de ne pas utiliser fréquemment Remove-AzServiceFabricNodeType pour supprimer un type de nœud d’un cluster de production. Il s’agit d’une commande dangereuse, car elle supprime le groupe de machines virtuelles identiques derrière le type de nœud. 
 
-Pour supprimer le type de nœud, exécutez l’applet de commande [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Le type de nœud doit être de [niveau de durabilité][durability] Silver ou Gold. L’applet de commande supprime le groupe identique associé au type de nœud et son exécution prend un certain temps.  Exécutez ensuite l’applet de commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) sur chacun des nœuds à supprimer. Elle efface l’état du nœud et supprime les nœuds du cluster. S’il existe des services sur le nœuds, ils sont tout d’abord déplacés vers un autre nœud. Si le Gestionnaire du cluster ne trouve pas de nœud pour le réplica/service, l’opération est retardée/bloquée.
+Pour supprimer le type de nœud, exécutez l’applet de commande [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Le type de nœud doit être de [niveau de durabilité][durability] Silver ou Gold. L’applet de commande supprime le groupe identique associé au type de nœud et son exécution prend un certain temps.  Exécutez ensuite l’applet de commande [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) sur chacun des nœuds à supprimer. Elle efface l’état du nœud et supprime les nœuds du cluster. S’il existe des services sur le nœuds, ils sont tout d’abord déplacés vers un autre nœud. Si le Gestionnaire du cluster ne trouve pas de nœud pour le réplica/service, l’opération est retardée/bloquée.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

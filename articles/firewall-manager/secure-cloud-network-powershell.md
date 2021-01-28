@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 093b962bb9f42b660fb8cc5c0584ec67ebc87e48
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656137"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789160"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Tutoriel : Sécuriser votre hub virtuel avec Azure PowerShell
 
@@ -265,7 +265,7 @@ TimeGenerated            Protocol    SourceIP       SourcePort TargetIP      Tar
 2020-10-04T20:52:52.356Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
 ```
 
-Si vous souhaitez afficher les journaux des règles d’application (décrivant les connexions HTTP autorisées et refusées) ou modifier la façon dont les journaux sont affichés, vous pouvez essayer d’autres requêtes KQL. Vous trouverez des exemples dans [Journaux Azure Monitor pour Pare-feu Azure](../firewall/log-analytics-samples.md).
+Si vous souhaitez afficher les journaux des règles d’application (décrivant les connexions HTTP autorisées et refusées) ou modifier la façon dont les journaux sont affichés, vous pouvez essayer d’autres requêtes KQL. Vous trouverez des exemples dans [Journaux Azure Monitor pour Pare-feu Azure](../firewall/firewall-workbook.md).
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

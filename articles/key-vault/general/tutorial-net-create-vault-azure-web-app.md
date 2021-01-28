@@ -10,23 +10,23 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733054"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788735"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>Tutoriel : Utiliser une identité managée pour connecter Key Vault à une application web Azure dans .NET
 
 [Azure Key Vault](./overview.md) fournit un moyen de stocker des informations d’identification et d’autres secrets avec une sécurité renforcée. Mais votre code a besoin de s’authentifier auprès de Key Vault pour les récupérer. Les [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md) facilitent la résolution de ce problème en fournissant aux services Azure une identité managée automatiquement dans Azure AD (Azure Active Directory). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir à afficher les informations d’identification dans votre code.
 
-Dans ce tutoriel, vous allez créer et déployer une application web Azure dans [Azure App Service](https://docs.microsoft.com/azure/app-service/overview). Vous allez utiliser une identité managée pour authentifier votre application web Azure auprès d’un coffre de clés Azure à l’aide de la [bibliothèque de client de secrets Azure Key Vault pour .NET](/dotnet/api/overview/azure/key-vault) et d’[Azure CLI](/cli/azure/get-started-with-azure-cli). Les mêmes principes de base s’appliquent quand vous utilisez le langage de développement de votre choix, Azure PowerShell et/ou le portail Azure.
+Dans ce tutoriel, vous allez créer et déployer une application web Azure dans [Azure App Service](../../app-service/overview.md). Vous allez utiliser une identité managée pour authentifier votre application web Azure auprès d’un coffre de clés Azure à l’aide de la [bibliothèque de client de secrets Azure Key Vault pour .NET](/dotnet/api/overview/azure/key-vault) et d’[Azure CLI](/cli/azure/get-started-with-azure-cli). Les mêmes principes de base s’appliquent quand vous utilisez le langage de développement de votre choix, Azure PowerShell et/ou le portail Azure.
 
 Pour plus d’informations sur les applications web et le déploiement du service Azure App présentés dans ce tutoriel, consultez :
-- [Vue d'ensemble d'App Service](https://docs.microsoft.com/azure/app-service/overview)
-- [Créer une application web ASP.NET Core dans Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
-- [Déploiement Git local vers Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+- [Vue d'ensemble d'App Service](../../app-service/overview.md)
+- [Créer une application web ASP.NET Core dans Azure App Service](../../app-service/quickstart-dotnetcore.md)
+- [Déploiement Git local vers Azure App Service](../../app-service/deploy-local-git.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -67,7 +67,7 @@ Dans un navigateur web, accédez à l’application à l’adresse `http://local
 
 Vous voyez apparaître le message « Hello World! » de l’exemple d’application.
 
-Pour plus d’informations sur la création d’applications web pour Azure, consultez [Créer une application web ASP.NET Core dans Azure App Service](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore).
+Pour plus d’informations sur la création d’applications web pour Azure, consultez [Créer une application web ASP.NET Core dans Azure App Service](../../app-service/quickstart-dotnetcore.md).
 
 ## <a name="deploy-the-app-to-azure"></a>Déploiement de l’application dans Azure
 
@@ -228,7 +228,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 Vous voyez apparaître le message « Hello World! » que vous avez vu précédemment quand vous avez accédé à `http://localhost:5000`.
 
-Pour plus d’informations sur le déploiement d’applications web à l’aide de Git, consultez [Déploiement Git local vers Azure App Service](https://docs.microsoft.com/azure/app-service/deploy-local-git).
+Pour plus d’informations sur le déploiement d’applications web à l’aide de Git, consultez [Déploiement Git local vers Azure App Service](../../app-service/deploy-local-git.md).
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>Configurer l’application web pour se connecter au coffre de clés
 
@@ -264,7 +264,7 @@ Vous pouvez également affecter des stratégies d’accès à l’aide du [porta
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>Modifier l’application pour accéder à votre coffre de clés
 
-Dans ce tutoriel, vous allez utiliser la [bibliothèque de client de secrets Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme) à des fins de démonstration. Vous pouvez également utiliser la [bibliothèque de client de certificats Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme) ou la [bibliothèque de client de clés Azure Key Vault](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme).
+Dans ce tutoriel, vous allez utiliser la [bibliothèque de client de secrets Azure Key Vault](/dotnet/api/overview/azure/security.keyvault.secrets-readme) à des fins de démonstration. Vous pouvez également utiliser la [bibliothèque de client de certificats Azure Key Vault](/dotnet/api/overview/azure/security.keyvault.certificates-readme) ou la [bibliothèque de client de clés Azure Key Vault](/dotnet/api/overview/azure/security.keyvault.keys-readme).
 
 #### <a name="install-the-packages"></a>Installer les packages
 
