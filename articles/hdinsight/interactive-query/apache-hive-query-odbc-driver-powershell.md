@@ -2,19 +2,16 @@
 title: Requêtes Apache Hive avec le pilote ODBC et PowerShell – Azure HDInsight
 description: Utilisez le pilote ODBC Microsoft Hive et PowerShell pour interroger les clusters Apache Hive sur Azure HDInsight.
 keywords: hive,hive odbc,powershell
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078569"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941368"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutoriel : Requête Apache Hive avec ODBC et PowerShell
 

@@ -1,19 +1,16 @@
 ---
 title: 'Tutoriel : API de producteur et de consommateur Apache Kafka – Azure HDInsight'
 description: Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Dans ce didacticiel, vous allez apprendre à utiliser ces API avec Kafka sur HDInsight à partir d’une application Java.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945166"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -40,7 +37,7 @@ Pour plus d’informations sur les API, consultez la documentation Apache sur l�
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-L’exemple d’application se trouve sur [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), dans le sous-répertoire `Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise** , vous devez utiliser la version de l’application qui est située dans le sous-répertoire `DomainJoined-Producer-Consumer`.
+L’exemple d’application se trouve sur [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), dans le sous-répertoire `Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise**, vous devez utiliser la version de l’application qui est située dans le sous-répertoire `DomainJoined-Producer-Consumer`.
 
 L’application se compose principalement de quatre fichiers :
 * `pom.xml`: ce fichier définit les dépendances du projet, la version Java et les méthodes d’empaquetage.
@@ -129,7 +126,7 @@ Si vous souhaitez ignorer cette étape, vous pouvez télécharger les fichiers 
 
 1. Téléchargez et extrayez les exemples à partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Configurez votre répertoire actuel sur l’emplacement du répertoire `hdinsight-kafka-java-get-started\Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise** , vous devez définir l’emplacement sur le sous-répertoire `DomainJoined-Producer-Consumer`. Exécutez la commande suivante pour générer l’application :
+2. Configurez votre répertoire actuel sur l’emplacement du répertoire `hdinsight-kafka-java-get-started\Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise**, vous devez définir l’emplacement sur le sous-répertoire `DomainJoined-Producer-Consumer`. Exécutez la commande suivante pour générer l’application :
 
     ```cmd
     mvn clean package
@@ -213,13 +210,13 @@ La consommation par les clients au sein du même groupe est gérée par le biais
 > [!IMPORTANT]  
 > Il ne peut pas y avoir plus d’instances de consommateurs dans un groupe de consommateurs que de partitions. Dans cet exemple, un groupe de consommateurs peut contenir jusqu’à huit consommateurs puisque c’est le nombre de partitions de la rubrique. Vous pouvez également disposer de plusieurs groupes de consommateurs, chacun ne dépassant pas huit consommateurs.
 
-Les enregistrements stockés dans Kafka le sont dans l’ordre de réception au sein d’une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition* , créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique* , créez un groupe de consommateurs avec une seule instance de consommateur.
+Les enregistrements stockés dans Kafka le sont dans l’ordre de réception au sein d’une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.
 
 ## <a name="common-issues-faced"></a>Problèmes courants rencontrés
 
 1. **La création de rubriques échoue** Si le Pack Sécurité Entreprise est activé sur votre cluster, utilisez les [fichiers JAR prédéfinis pour le producteur et le consommateur](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Le fichier jar du Pack Sécurité Entreprise peut être généré à partir du code dans le [sous-répertoire `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Les propriétés producteur et consommateur sont dotées d’une propriété supplémentaire `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` pour les clusters dont le Pack Sécurité Entreprise est activé.
 
-2. **Échec dans les clusters dont le Pack Sécurité Entreprise est activé**  : Si les opérations de production et de consommation échouent et que vous utilisez un cluster dont le Pack Sécurité Entreprise est activé, vérifiez que l’utilisateur `kafka` est présent dans toutes les stratégies Ranger. S’il ne l’est pas, ajoutez-le à toutes les stratégies Ranger.
+2. **Échec dans les clusters dont le Pack Sécurité Entreprise est activé** : Si les opérations de production et de consommation échouent et que vous utilisez un cluster dont le Pack Sécurité Entreprise est activé, vérifiez que l’utilisateur `kafka` est présent dans toutes les stratégies Ranger. S’il ne l’est pas, ajoutez-le à toutes les stratégies Ranger.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

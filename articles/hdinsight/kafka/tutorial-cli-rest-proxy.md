@@ -1,19 +1,16 @@
 ---
 title: 'Tutoriel : Créer un cluster Apache Kafka activé pour le proxy REST dans HDInsight avec Azure CLI'
 description: Découvrez comment effectuer des opérations Apache Kafka à l’aide d’un proxy REST Kafka sur Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539477"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944018"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Tutoriel : Créer un cluster Apache Kafka activé pour le proxy REST dans HDInsight avec Azure CLI
 
@@ -56,8 +53,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     |location|Remplacez LOCATION par une région où le cluster sera créé. Pour obtenir la liste des emplacements valides, utilisez la commande `az account list-locations`|
     |clusterName|Remplacez CLUSTERNAME par un nom global unique pour votre nouveau cluster.|
     |storageAccount|Remplacez STORAGEACCOUNTNAME par le nom de votre nouveau compte de stockage.|
-    |httpPassword|Remplacez PASSWORD par le mot de passe de la connexion au cluster, **admin** .|
-    |sshPassword|Remplacez PASSWORD par un mot de passe pour le nom d’utilisateur de Secure Shell, **sshuser** .|
+    |httpPassword|Remplacez PASSWORD par le mot de passe de la connexion au cluster, **admin**.|
+    |sshPassword|Remplacez PASSWORD par un mot de passe pour le nom d’utilisateur de Secure Shell, **sshuser**.|
     |securityGroupName|Remplacez SECURITYGROUPNAME par le nom du groupe de sécurité AAD client pour le proxy REST Kafka. La variable sera passée au paramètre `--kafka-client-group-name` pour `az-hdinsight-create`.|
     |securityGroupID|Remplacez SECURITYGROUPID par l’ID du groupe de sécurité AAD client pour le proxy REST Kafka. La variable sera passée au paramètre `--kafka-client-group-id` pour `az-hdinsight-create`.|
     |storageContainer|Conteneur de stockage que le cluster utilisera ; laissez-le tel quel pour ce tutoriel. Cette variable sera définie avec le nom du cluster.|
@@ -130,18 +127,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
         |Paramètre | Description|
         |---|---|
-        |--type|La valeur doit être **Kafka** .|
-        |--workernode-data-disks-per-node|Nombre de disques de données à utiliser par nœud Worker. HDInsight Kafka est pris en charge seulement avec des disques de données. Ce tutoriel utilise une valeur de **2** .|
+        |--type|La valeur doit être **Kafka**.|
+        |--workernode-data-disks-per-node|Nombre de disques de données à utiliser par nœud Worker. HDInsight Kafka est pris en charge seulement avec des disques de données. Ce tutoriel utilise une valeur de **2**.|
 
     1. Paramètres nécessaires pour le proxy REST Kafka :
 
         |Paramètre | Description|
         |---|---|
-        |--kafka-management-node-size|Taille du nœud. Ce tutoriel utilise la valeur **Standard_D4_v2** .|
-        |--kafka-client-group-id|ID du groupe de sécurité AAD client pour le proxy REST Kafka. La valeur est passée depuis la variable **$securityGroupID** .|
-        |--kafka-client-group-name|Nom du groupe de sécurité AAD client pour le proxy REST Kafka. La valeur est passée depuis la variable **$securityGroupName** .|
-        |--version|La version du cluster HDInsight doit être au moins 4.0. La valeur est passée depuis la variable **$clusterVersion** .|
-        |--component-version|La version de Kafka doit être au moins 2.1. La valeur est passée depuis la variable **$componentVersion** .|
+        |--kafka-management-node-size|Taille du nœud. Ce tutoriel utilise la valeur **Standard_D4_v2**.|
+        |--kafka-client-group-id|ID du groupe de sécurité AAD client pour le proxy REST Kafka. La valeur est passée depuis la variable **$securityGroupID**.|
+        |--kafka-client-group-name|Nom du groupe de sécurité AAD client pour le proxy REST Kafka. La valeur est passée depuis la variable **$securityGroupName**.|
+        |--version|La version du cluster HDInsight doit être au moins 4.0. La valeur est passée depuis la variable **$clusterVersion**.|
+        |--component-version|La version de Kafka doit être au moins 2.1. La valeur est passée depuis la variable **$componentVersion**.|
     
         Si vous voulez créer le cluster sans proxy REST, éliminez `--kafka-management-node-size`, `--kafka-client-group-id` et `--kafka-client-group-name` de la commande `az hdinsight create`.
 

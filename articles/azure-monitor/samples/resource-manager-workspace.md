@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: c755ee0ee91156da9910a9d43c891c87f86cd430
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683480"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945042"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Exemples de modèle Resource Manager pour les espaces de travail Log Analytics dans Azure Monitor
 Cet article contient des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des espace de travail Log Analytics dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -610,7 +610,7 @@ L’exemple suivant ajoute une collecte de [journaux personnalisés](../platform
 
 ### <a name="notes"></a>Notes
 
-- La configuration des délimiteurs et des extractions peut être complexe. Pour vous aider, vous pouvez définir un journal personnalisé à l’aide du portail Azure, puis récupérer sa configuration au moyen de la commande [AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) avec **-Kind** prenant la valeur **CustomLog**.
+- La configuration des délimiteurs et des extractions peut être complexe. Pour vous aider, vous pouvez définir un journal personnalisé à l’aide du portail Azure, puis récupérer sa configuration au moyen de la commande [AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) avec **-Kind** prenant la valeur **CustomLog**.
 
   
 ### <a name="template-file"></a>Fichier de modèle

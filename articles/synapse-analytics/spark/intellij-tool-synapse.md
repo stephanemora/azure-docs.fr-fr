@@ -2,19 +2,19 @@
 title: Tutoriel - Azure Toolkit for IntelliJ (application Spark)
 description: Tutoriel - Utiliser Azure Toolkit for IntelliJ pour développer des applications Spark, écrites en Scala, et les envoyer à un pool Apache Spark serverless.
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 04faaa05cf51f740958238ece0a9a211c43fca41
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121224"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935441"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutoriel : Créer une application Apache Spark avec IntelliJ en utilisant un espace de travail Synapse
 

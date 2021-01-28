@@ -4,12 +4,12 @@ description: Créer une fonction PowerShell serverless déclenchée par HTTP pou
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e7315796f2f7f89800b58f5fa607e69cd7ae3447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349246"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935412"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutoriel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
 
@@ -105,7 +105,7 @@ Une notification s’affiche après que votre application de fonction a été cr
 
 ## <a name="run-the-function-in-azure"></a>Exécuter la fonction dans Azure
 
-Une fois le déploiement terminé, obtenez l’URL de la fonction. Par exemple, utilisez la zone **Azure : Fonctions** dans Visual Studio Code pour copier l’URL de fonction **HttpTrigger** ou pour obtenir l’URL de fonction dans le [portail Azure](../azure-functions/functions-create-first-azure-function.md#test-the-function).
+Une fois le déploiement terminé, obtenez l’URL de la fonction. Par exemple, utilisez la zone **Azure : Fonctions** dans Visual Studio Code pour copier l’URL de fonction **HttpTrigger** ou pour obtenir l’URL de fonction dans le [portail Azure](../azure-functions/functions-get-started.md).
 
 L’URL de la fonction est au format :
 
