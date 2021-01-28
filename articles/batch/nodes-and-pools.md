@@ -3,12 +3,12 @@ title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934643"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741772"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -114,7 +114,7 @@ Pour obtenir les informations de tarification des nœuds dédiés et à faible p
 
 ## <a name="node-size"></a>Taille du nœud
 
-Lorsque vous créez un pool Azure Batch, vous avez le choix entre quasiment toutes les tailles et les familles de machine virtuelle disponibles dans Azure. Azure offre une plage de tailles de machines virtuelles pour différentes charges de travail, y compris des tailles de machines virtuelles spécialisées [HPC](../virtual-machines/sizes-hpc.md) ou [compatibles GPU](../virtual-machines/sizes-gpu.md). 
+Lorsque vous créez un pool Azure Batch, vous avez le choix entre quasiment toutes les tailles et les familles de machine virtuelle disponibles dans Azure. Azure offre une plage de tailles de machines virtuelles pour différentes charges de travail, y compris des tailles de machines virtuelles spécialisées [HPC](../virtual-machines/sizes-hpc.md) ou [compatibles GPU](../virtual-machines/sizes-gpu.md). Notez que les tailles de nœud ne peuvent être choisies qu’au moment de la création d’un pool. En d’autres termes, une fois qu’un pool est créé, sa taille de nœud ne peut pas être modifiée.
 
 Pour plus d’informations, consultez [Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch](batch-pool-vm-sizes.md).
 

@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511188"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752739"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
 
@@ -41,7 +41,7 @@ Le diagramme suivant montre à quoi ressemble le flux implicite de connexion com
 
 ## <a name="send-the-sign-in-request"></a>Envoyer la requête de connexion
 
-Pour connecter une première fois l’utilisateur à votre application, vous pouvez envoyer une demande d’authentification [OpenID Connect](v2-protocols-oidc.md) et obtenir un jeton `id_token` à partir du point de terminaison de la plateforme d’identités Microsoft.
+Pour connecter une première fois l’utilisateur à votre application, vous pouvez envoyer une demande d’authentification [OpenID Connect](v2-protocols-oidc.md) et obtenir un jeton `id_token` à partir de la plateforme d’identités Microsoft.
 
 > [!IMPORTANT]
 > Pour demander un jeton d’ID ou d’accès avec succès, le flux d’octroi implicite correspondant à l’inscription d’application sur la page [Inscriptions d’applications du Portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908) doit être activé. Pour ce faire, sélectionnez **Jetons d’ID** et/ou **Jetons d’accès** sous la section **Octroi implicite**. S’il n’est pas activé, une erreur `unsupported_response` est retournée : **La valeur fournie pour le paramètre d’entrée 'response_type' n’est pas autorisée pour ce client. La valeur attendue est ’code’**
@@ -73,13 +73,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | facultatif |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application. Par défaut demande simplement un jeton d’accès, mais fragmente si la requête inclut un jeton id_token. |
 | `state` | recommandé |Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Une valeur unique générée de manière aléatoire est généralement utilisée pour [empêcher les falsifications de requête intersite](https://tools.ietf.org/html/rfc6749#section-10.12). La valeur d’état est également utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
 | `nonce` | Obligatoire |Valeur incluse dans la requête, générée par l’application, qui sera incluse dans l’id_token résultant en tant que revendication. L’application peut ensuite vérifier cette valeur pour atténuer les attaques par relecture de jetons. La valeur est généralement une chaîne unique et aléatoire qui peut être utilisée pour identifier l’origine de la requête. Nécessaire uniquement lorsqu’un jeton id_token est demandé. |
-| `prompt` | facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none », « select_account » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, le point de terminaison de la plateforme d’identités Microsoft renvoie une erreur. `prompt=select_account` envoie l’utilisateur vers un sélecteur de compte dans lequel tous les comptes mémorisés dans la session seront affichés. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
+| `prompt` | facultatif |Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont « login », « none », « select_account » et « consent ». `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique. Avec `prompt=none`, c’est le comportement inverse. Cette valeur vous garantit qu’aucune invite interactive d’aucune sorte n’est présentée à l’utilisateur. Si la demande ne peut pas être exécutée en mode silencieux au moyen d’une authentification unique, la plateforme d’identités Microsoft renvoie une erreur. `prompt=select_account` envoie l’utilisateur vers un sélecteur de compte dans lequel tous les comptes mémorisés dans la session seront affichés. `prompt=consent` déclenche l’affichage de la boîte de dialogue de consentement OAuth après la connexion de l’utilisateur, afin de lui demander d’octroyer des autorisations à l’application. |
 | `login_hint`  |facultatif |Peut être utilisé pour préremplir le champ Nom d’utilisateur/Adresse e-mail de la page de connexion pour l’utilisateur, si vous connaissez son nom d’utilisateur à l’avance. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.|
 | `domain_hint` | facultatif |S’il est inclus, ce paramètre ignore le processus de découverte par e-mail auquel l’utilisateur doit se soumettre sur la page de connexion, ce qui améliore légèrement l’expérience utilisateur. Ce paramètre est couramment utilisé pour les applications métier qui fonctionnent dans un locataire unique, où l’utilisateur est transféré vers le fournisseur de fédération pour ce locataire.  Notez que cette méthode empêche les invités de se connecter à cette application et limite l’utilisation des informations d’identification cloud comme FIDO.  |
 
-À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison de la plateforme d’identités Microsoft s’assure également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a accepté **aucune** de ces autorisations, il lui demande de corriger ce manquement. Pour plus d’informations, consultez [Autorisations, consentement et applications multi-locataires](v2-permissions-and-consent.md).
+À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. La plateforme d’identités Microsoft s’assure également que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope`. Si l’utilisateur n’a accepté **aucune** de ces autorisations, il lui demande de corriger ce manquement. Pour plus d’informations, consultez [Autorisations, consentement et applications multi-locataires](v2-permissions-and-consent.md).
 
-Une fois que l’utilisateur a procédé à l’authentification et accordé son consentement, le point de terminaison de la plateforme d’identités Microsoft renvoie une réponse à votre application à l’URI `redirect_uri` indiqué à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
+Une fois que l’utilisateur a procédé à l’authentification et accordé son consentement, la plateforme d’identités Microsoft renvoie une réponse à votre application à l’URI `redirect_uri` indiqué à l’aide de la méthode spécifiée dans le paramètre `response_mode`.
 
 #### <a name="successful-response"></a>Réponse correcte
 
@@ -199,7 +199,7 @@ Dans les navigateurs qui ne prennent pas en charge les cookies tiers, cela gén�
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 
-L’élément `end_session_endpoint` OpenID Connect permet à votre application d’envoyer une demande au point de terminaison de la plateforme d’identités Microsoft pour mettre fin à la session d’un utilisateur et effacer les cookies définis par le point de terminaison de la plateforme d’identités Microsoft. Pour déconnecter complètement un utilisateur d’une application web, votre application doit mettre fin à sa propre session avec l’utilisateur (généralement en vidant un cache de jeton ou en supprimant les cookies), puis rediriger le navigateur vers :
+L’élément `end_session_endpoint` OpenID Connect permet à votre application d’envoyer une demande à la plateforme d’identités Microsoft pour mettre fin à la session d’un utilisateur et effacer les cookies définis par la plateforme d’identités Microsoft. Pour déconnecter complètement un utilisateur d’une application web, votre application doit mettre fin à sa propre session avec l’utilisateur (généralement en vidant un cache de jeton ou en supprimant les cookies), puis rediriger le navigateur vers :
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
@@ -208,7 +208,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 | Paramètre | Type | Description |
 | --- | --- | --- |
 | `tenant` |Obligatoire |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
-| `post_logout_redirect_uri` | recommandé | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Cette valeur doit correspondre à l’un des URI de redirection inscrits pour l’application. Si elle n’est pas incluse, le point de terminaison de la plateforme d’identités Microsoft affiche un message générique. |
+| `post_logout_redirect_uri` | recommandé | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Cette valeur doit correspondre à l’un des URI de redirection inscrits pour l’application. Si elle n’est pas incluse, la plateforme d’identités Microsoft affiche un message générique. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

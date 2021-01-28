@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165856"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808002"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Les clients seront informés très tôt de toute modification apportée aux pass
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+## <a name="february-2021"></a>Février 2021
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+
+- USA Centre : 13.89.169.20
+
+Ces passerelles SQL devraient commencer à accepter le trafic client le 28 février 2021.
+
 ## <a name="january-2021"></a>Janvier 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 
@@ -41,7 +48,7 @@ De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 - Corée Centre : 52.231.17.22, 52.231.17.23
 - Inde Ouest : 104.211.144.4
 
-Ces passerelles SQL devraient commencer à accepter le trafic client le 31 janvier 2021
+Ces passerelles SQL devraient commencer à accepter le trafic client le 31 janvier 2021.
 
 # <a name="completed"></a>[Terminé](#tab/completed-ip)
 Les migrations de passerelle suivantes sont terminées : 
