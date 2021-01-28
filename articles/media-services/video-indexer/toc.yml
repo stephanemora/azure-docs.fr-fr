@@ -1,6 +1,6 @@
 - name: Documentation relative à Video Indexer
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Video Indexer ?
       href: video-indexer-overview.md
@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Tutoriels
   items:
-    - name: Créer un compte connecté à Azure
+    - name: Créer un nouveau compte
       href: connect-to-azure.md
     - name: Utiliser l’API Video Indexer
       href: video-indexer-use-apis.md

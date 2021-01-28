@@ -1,6 +1,6 @@
 - name: Documentation d’Azure AD B2C
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure AD B2C
       expanded: true
@@ -393,6 +393,8 @@
           href: partner-nevis.md
         - name: Onfido
           href: partner-onfido.md
+        - name: Identité Ping
+          href: partner-ping-identity.md
         - name: Saviynt
           href: partner-saviynt.md
         - name: Strata

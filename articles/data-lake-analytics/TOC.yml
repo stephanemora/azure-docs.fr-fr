@@ -1,6 +1,6 @@
 - name: Documentation Data Lake Analytics
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Data Lake Analytics\_?"
       href: data-lake-analytics-overview.md
@@ -68,7 +68,7 @@
             - name: Concepts de base
               href: data-lake-analytics-u-sql-get-started.md
             - name: Référence sur le langage
-              href: 'https://docs.microsoft.com/u-sql'
+              href: /u-sql
             - name: Catalogue
               href: data-lake-analytics-u-sql-catalog.md
             - name: Opérateurs définis par l’utilisateur

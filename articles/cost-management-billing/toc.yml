@@ -1,6 +1,6 @@
 - name: Documentation Azure Cost Management + Facturation
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Cost Management et Facturation\_?"
       href: cost-management-billing-overview.md
@@ -393,7 +393,7 @@
     - name: Scénarios relatifs à l’automatisation de la facturation
       href: manage/cost-management-automation-scenarios.md
     - name: Présentation de l’API Facturation Azure
-      href: manage/usage-rate-card-overview.md
+      href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST de facturation Azure
       href: /rest/api/billing
     - name: Présentation de l’API Azure Consumption
