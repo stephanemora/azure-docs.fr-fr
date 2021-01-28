@@ -1,6 +1,6 @@
 - name: "Documentation de l’utilisateur Azure\_Automation"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Automation\_?"
       href: automation-intro.md
@@ -43,6 +43,8 @@
       href: automation-runbook-types.md
     - name: DSC PowerShell
       href: /powershell/scripting/dsc/overview/overview
+    - name: Détails de la configuration réseau Automation
+      href: automation-network-configuration.md
     - name: Sécurité
       items:
         - name: Contrôles de sécurité par Azure Policy

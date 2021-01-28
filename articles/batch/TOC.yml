@@ -1,6 +1,6 @@
 - name: Documentation Batch
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Batch
       href: batch-technical-overview.md
@@ -101,13 +101,11 @@
   items:
     - name: Gestion des comptes Batch
       items:
-        - name: Gérer votre compte
-          href: batch-manage-account-basics.md
-        - name: Gérer des comptes Batch avec le portail
+        - name: Gérer les comptes Batch dans le portail Azure
           href: batch-account-create-portal.md
         - name: Gérer les comptes Batch avec Batch Management .NET
           href: batch-management-dotnet.md
-        - name: Analyse des coûts et budgets
+        - name: Obtenir une analyse des coûts et définir des budgets
           href: budget.md
         - name: Utiliser des points de terminaison privés avec des comptes Batch
           href: private-connectivity.md
@@ -291,16 +289,18 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Communauté Batch
       href: 'https://github.com/Azure/Batch'
+    - name: Batch Explorer
+      href: 'https://azure.github.io/BatchExplorer/'
     - name: Commentaires sur Batch
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Page de questions Microsoft Q&A sur Batch
-      href: /answers/topics/azure-batch.html
     - name: Lot chantier
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
       href: /archive/blogs/windowshpc/
     - name: HPC sur Azure
       href: /azure/architecture/topics/high-performance-computing/
+    - name: Page de questions Microsoft Q&A sur Batch
+      href: /answers/topics/azure-batch.html
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Calculatrice de prix

@@ -1,6 +1,6 @@
 - name: Documentation sur le provisionnement d’applications et de RH
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le provisionnement d’application\_?"
@@ -10,8 +10,10 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Créer un point de terminaison SCIM et configurer le provisionnement
+    - name: Planifier le provisionnement d’un point de terminaison SCIM
       href: use-scim-to-provision-users-and-groups.md
+    - name: Développer un exemple de point de terminaison SCIM
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Personnaliser des mappages d’attributs
       href: customize-application-attributes.md
     - name: Tutoriels sur le provisionnement spécifique aux applications

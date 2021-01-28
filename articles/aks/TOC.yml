@@ -1,6 +1,6 @@
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de AKS
       href: intro-kubernetes.md
@@ -296,8 +296,8 @@
         - name: Azure Monitor pour des conteneurs
           href: ../azure-monitor/insights/container-insights-overview.md
           maintainContext: true
-        - name: Afficher les journaux d’activité du composant principal
-          href: view-master-logs.md
+        - name: Afficher les journaux des composants de plan de contrôle
+          href: view-control-plane-logs.md
         - name: Afficher les journaux d’activité Kubelet
           href: kubelet-logs.md
         - name: Consulter les données d’un conteneur en temps réel
