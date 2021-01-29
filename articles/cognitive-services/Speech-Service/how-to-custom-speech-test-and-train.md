@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: ed79d9fb3be192d300587eda5198d9b153109241
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209778"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702200"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -174,7 +174,7 @@ Servez-vous de ce tableau pour vérifier que votre fichier de données associée
 
 Par ailleurs, vous devez prendre en compte les restrictions suivantes :
 
-* Évitez de répéter un même caractère plus de 4 fois. Par exemple : « aaaa » ou « uuuu ».
+* Évitez de répéter des caractères, des mots ou des groupes de mots plus de trois fois. Par exemple : « aaaa », « oui oui oui oui » ou « c’est tout c’est tout c’est tout c’est tout ». Le service Speech peut supprimer des lignes avec un trop grand nombre de répétitions.
 * N’utilisez pas de caractères spéciaux ou de caractères UTF-8 au-delà de `U+00A1`.
 * Les URI sont rejetés.
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913479"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871398"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
 
@@ -42,6 +42,9 @@ Le nombre d’images d’apprentissage par projet et le nombre de balises par pr
 |Hauteur/largeur d’image maximale en pixels|10 240|10 240|
 |Taille maximale de l’image (chargement de l’image d’apprentissage) |6 Mo|6 Mo|
 |Taille maximale de l’image (prédiction)|4 Mo|4 Mo|
-|Nombre maximal de régions par image d’entraînement de détection d’objets|300|300|
-|Nombre maximal de balises par image de classification|100|100|
+|Nombre maximal de régions par image (détection d’objets)|300|300|
+|Nombre maximal d’étiquettes par image (classification)|100|100|
 
+> [!NOTE]
+> Les images inférieures à 256 pixels seront acceptées mais mises à l’échelle.
+> Les proportions de l’image ne doivent pas être supérieures à 25.

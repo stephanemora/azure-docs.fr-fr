@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 97f1f5d0f1f351164e05d18b9f80c7f26450f31b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573239"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661589"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -65,7 +65,7 @@ Le [*Tutoriel Azure Digital Twins : Connecter une solution de bout en bout*](./
 4. Créez un [point de terminaison](concepts-route-events.md#create-an-endpoint) Azure Digital Twins qui lie votre hub d’événements à votre instance Azure Digital Twins.
 
     ```azurecli-interactive
-    az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
+    az dt endpoint create eventhub -n <your Azure Digital Twins instance name> --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above>
     ```
 
 5. Créez un [itinéraire](concepts-route-events.md#create-an-event-route) dans Azure Digital Twins pour envoyer des événements de mise à jour de jumeaux à votre point de terminaison. Le filtre de cet itinéraire permet uniquement aux messages de mise à jour de jumeaux d’être transmis à votre point de terminaison.
@@ -89,11 +89,16 @@ Cette fonction convertit ces événements de mise à jour de jumeaux de leur for
 
 Pour plus d’informations sur l’utilisation d’Event Hubs avec Azure Functions, consultez [*Déclencheur Azure Event Hubs pour Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Dans votre application de fonction publiée, remplacez le code de fonction par le code suivant.
+Dans votre application de fonction publiée, ajoutez une nouvelle fonction appelée **ProcessDTUpdatetoTSI** avec le code suivant.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
-À partir de là, la fonction enverra les objets JSON qu’elle crée à un deuxième Event Hub, que vous connecterez à Time Series Insights.
+>[!NOTE]
+>Vous devrez peut-être ajouter les packages à votre projet à l’aide de la commande `dotnet add package` ou du gestionnaire de package NuGet de Visual Studio.
+
+Ensuite, **publiez** la nouvelle fonction Azure. Pour obtenir des instructions sur la façon de procéder, consultez [*Procédure : Configurer une fonction Azure pour le traitement des données*](how-to-create-azure-function.md#publish-the-function-app-to-azure).
+
+Par la suite, cette fonction enverra les objets JSON qu’elle crée à un deuxième hub d’événements que vous connecterez à Time Series Insights. Vous créerez ce hub d’événements dans la section suivante.
 
 Plus tard, vous définirez également certaines variables d’environnement qui seront utilisées par cette fonction pour se connecter à vos propres instances Event Hub.
 
@@ -130,7 +135,7 @@ Ensuite, vous devez définir des variables d’environnement dans votre applicat
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. Utilisez la chaîne de connexion obtenue pour créer un paramètre d’application dans votre application de fonction qui contient votre chaîne de connexion :
+2. Utilisez la valeur *primaryConnectionString* du résultat pour créer un paramètre d’application dans votre application de fonction qui contient votre chaîne de connexion :
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -152,15 +157,15 @@ Ensuite, vous devez définir des variables d’environnement dans votre applicat
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Créer et connecter une instance Time Series Insights
 
-Ensuite, vous allez configurer une instance Time Series Insights pour recevoir les données de votre second Event Hub. Suivez les étapes ci-dessous, et pour plus d’informations sur ce processus, consultez le [*Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+Ensuite, vous allez configurer une instance Time Series Insights pour recevoir les données de votre second hub d’événements (TSI). Suivez les étapes ci-dessous, et pour plus d’informations sur ce processus, consultez le [*Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
-1. Dans le portail Azure, commencez à créer une ressource Time Series Insights. 
+1. Dans le portail Azure, commencez à créer un environnement Time Series Insights. 
     1. Sélectionnez le niveau tarifaire **Gen2(L1)** .
     2. Vous devez choisir un **ID de série chronologique** pour cet environnement. Votre ID de série chronologique peut comporter jusqu’à trois valeurs que vous allez utiliser pour rechercher vos données dans Time Series Insights. Pour ce tutoriel, vous pouvez sélectionner **$dtId**. Pour plus d’informations sur la sélection d’une valeur d’ID, consultez [*Meilleures pratiques pour choisir un ID de série chronologique*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="L’expérience utilisateur du portail de création pour un environnement de Time Series Insights. Le niveau tarifaire Gen2(L1) est sélectionné et le nom de la propriété de l’ID de la série chronologique est $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
-2. Sélectionnez **Suivant : Source de l'événement** et sélectionnez les informations d’Event Hubs ci-dessus. Vous devrez également créer un groupe de consommateurs Event Hubs.
+2. Sélectionnez **Suivant : Source de l’événement** et sélectionnez les informations du hub d’événements TSI mentionné précédemment. Vous devrez également créer un groupe de consommateurs Event Hubs.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="L’expérience utilisateur du portail de création pour une source d’événements de l’environnement Time Series Insights. Vous créez une source d’événement avec les informations Event Hub ci-dessus. Vous créez également un groupe de consommateurs." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
@@ -174,7 +179,7 @@ Si vous utilisez le Tutoriel de bout en bout ([*Tutoriel : Connecter une solutio
 
 À présent, les données devraient être transmises à votre instance Time Series Insights, prêtes à être analysées. Suivez les étapes ci-dessous pour explorer les données entrantes.
 
-1. Ouvrez votre instance Time Series Insights dans le [portail Azure](https://portal.azure.com) (vous pouvez rechercher le nom de votre instance dans la barre de recherche du portail). Accédez à l’*URL de l’Explorateur Time Series Insights* affichée dans la vue d’ensemble de l’instance.
+1. Ouvrez votre environnement Time Series Insights dans le [portail Azure](https://portal.azure.com) (vous pouvez rechercher le nom de votre environnement dans la barre de recherche du portail). Accédez à l’*URL de l’Explorateur Time Series Insights* affichée dans la vue d’ensemble de l’instance.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Sélectionnez l’URL de l’explorateur de Time Series Insights sous l’onglet Vue d’ensemble de votre environnement Time Series Insights":::
 

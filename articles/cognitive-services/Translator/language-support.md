@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882413"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789277"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -91,7 +91,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Pachto | `ps` |
 | Persan | `fa` |
 | Polonais | `pl` |
-| Portugais (Brésil) | `pt-br` |
+| Portugais (Brésil) | `pt` |
 | Portugais (Portugal) | `pt-pt` |
 | Pendjabi | `pa` |
 | Queretaro Otomi | `otq` |
@@ -194,25 +194,42 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Langage    | Code langue | Script | Vers/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabe | `ar` | Arabe `Arab` | <--> | Latin `Latn` |
+| Assamais | `as` | Bengali `Beng` | <--> | Latin `Latn` |
 | Bangla  | `bn` | Bengali `Beng` | <--> | Latin `Latn` |
+|Biélorusse| `be` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
+|Bulgare| `bg` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Latin `Latn` |
 | Chinois (simplifié) | `zh-Hans` | Chinois (simplifié) `Hans`| <--> | Chinois (traditionnel) `Hant`|
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Latin `Latn` |
 | Chinois (traditionnel) | `zh-Hant` | Chinois (traditionnel) `Hant`| <--> | Chinois (simplifié) `Hans` |
+|Grec| `el` | Grec `Grek`  | <--> | Latin `Latn` |
 | Goudjrati | `gu`  | Goudjrati `Gujr` | <--> | Latin `Latn` |
 | Hébreu | `he` | Hébreu `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
 | Japonais | `ja` | Japonais `Jpan` | <--> | Latin `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+|Kazakh| `kk` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
+|Coréen| `ko` | Coréen `Kore`  | <--> | Latin `Latn` |
+|Kirghiz| `ky` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
+|Macédonien| `mk` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
 | Marathi | `mr` | Dévanâgarî `Deva` | <--> | Latin `Latn` |
+|Mongol| `mn` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
+|Persan| `fa` | Arabe `Arab`  | <--> | Latin `Latn` |
 | Pendjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
+|Russe| `ru` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Serbe (cyrillique) | `sr-Cyrl` | Cyrillique `Cyrl`  | --> | Latin `Latn` |
 | Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
+|Sindhi| `sd` | Arabe `Arab`  | <--> | Latin `Latn` |
+|Cingalais| `si` | Cingalais `Sinh`  | <--> | Latin `Latn` |
+|Tadjik| `tg` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Tamoul | `ta` | Tamoul `Taml` | <--> | Latin `Latn` |
+|Tatar| `tt` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
 | Télougou | `te` | Télougou `Telu` | <--> | Latin `Latn` |
 | Thaï | `th` | Thaï `Thai` | --> | Latin `Latn` |
+|Ukrainien| `uk` | Cyrillique `Cyrl`  | <--> | Latin `Latn` |
+|Ourdou| `ur` | Arabe `Arab`  | <--> | Latin `Latn` |
 
 ### <a name="dictionary"></a>Dictionnaire
 
@@ -326,7 +343,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Norvégien      | `nb`          |
 | Persan      | `fa`          |
 | Polonais      | `pl`          |
-| Portugais (Brésil) | `pt-br` |
+| Portugais (Brésil) | `pt` |
 | Pendjabi|`pa`|
 | Roumain      | `ro`          |
 | Russe      | `ru`          |

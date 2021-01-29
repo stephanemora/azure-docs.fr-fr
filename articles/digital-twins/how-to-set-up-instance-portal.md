@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044371"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882441"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -71,13 +71,13 @@ Vous disposez maintenant d’une instance Azure Digital Twins opérationnelle. E
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Commencez par ouvrir la page de votre instance Azure Digital Twins dans le portail Azure. Dans le menu de l’instance, sélectionnez *Contrôle d’accès (IAM)* . Sélectionnez le bouton *Ajouter* sous *Ajouter une attribution de rôle*.
+Commencez par ouvrir la page de votre instance Azure Digital Twins dans le portail Azure. Dans le menu de l’instance, sélectionnez *Contrôle d’accès (IAM)* . Sélectionnez le bouton **+ Ajouter** pour ajouter une nouvelle attribution de rôle.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Sélection de l’ajout d’une attribution de rôle à partir de la page « Contrôle d’accès (IAM) »":::
 
 Sur la page *Ajouter une attribution de rôle* ci-dessous, renseignez les valeurs (elles doivent être complétées par un utilisateur disposant des [autorisations suffisantes](#prerequisites-permission-requirements) dans l’abonnement Azure) :
 * **Rôle** : Sélectionnez *Propriétaire des données Azure Digital Twins* dans le menu déroulant.
-* **Attribuer l’accès à** : Sélectionnez *Utilisateur, groupe ou principal de service Azure AD* dans le menu déroulant.
+* **Attribuer l’accès à** : Utilisez *Utilisateur, groupe ou principal de service*
 * **Select** : Recherchez le nom ou l’adresse e-mail de l’utilisateur à attribuer. Lorsque vous sélectionnez le résultat, l’utilisateur s’affiche dans une section *Membres sélectionnés*.
 
 :::row:::

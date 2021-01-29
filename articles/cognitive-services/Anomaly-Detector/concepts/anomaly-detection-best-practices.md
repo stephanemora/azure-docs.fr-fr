@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705147"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702724"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Bonnes pratiques pour l’utilisation de l’API Détecteur d’anomalies
 
@@ -25,7 +25,7 @@ L’API Détecteur d’anomalies est un service de détection d’anomalies sans
 * les paramètres de l’API Détecteur d’anomalies qui ont été utilisés ;
 * le nombre de points de données dans votre requête d’API. 
 
-Utilisez cet article pour en savoir plus sur les meilleures pratiques d’utilisation de l’API afin d’obtenir les meilleurs résultats pour vos données. 
+Utilisez cet article pour en savoir plus sur les bonnes pratiques d’utilisation de l’API afin d’obtenir les meilleurs résultats pour vos données. 
 
 ## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quand utiliser la détection d'anomalies par lots (complète) ou sur les points les plus récents (derniers)
 
@@ -34,7 +34,7 @@ Le point de terminaison de détection par lots de l’API Détecteur d'anomalies
 * Une série chronologique saisonnière, avec des anomalies occasionnelles.
 * Une série chronologique à tendance stable, avec des pics/creux occasionnels. 
 
-Nous ne recommandons pas l’utilisation de la détection d’anomalie par lots pour la surveillance des données en temps réel ou sur des données de série chronologique ne présentant les caractéristiques ci-dessus. 
+Nous ne recommandons pas l’utilisation de la détection d’anomalie par lots pour la supervision des données en temps réel ou sur des données de série chronologique ne présentant les caractéristiques ci-dessus. 
 
 * La détection par lots crée un seul modèle auquel elle s’applique, la détection pour chaque point étant effectuée dans le cadre de la série entière. Si le nombre d’anomalies constatées sur les données de série chronologique a tendance à augmenter et à diminuer sans saisonnalité, certains points de changement (creux et pics dans les données) peuvent être absents du modèle. Similairement, certains points de changement moins importants que ceux mis en évidence ultérieurement dans les données ne sont pas obligatoirement considérés comme assez importants pour être incorporés au modèle.
 
@@ -54,7 +54,7 @@ Voici le même jeu de données avec la détection d’anomalies par lots. Le mod
 
 L’API Détecteur d’anomalies accepte la série chronologique mise en forme dans un objet de demande JSON. Une série chronologique peut être n’importe quel type de données numériques enregistrées au fil du temps dans l’ordre séquentiel. Vous pouvez envoyer des fenêtres de vos données de série chronologique au point de terminaison de l’API Détecteur d’anomalies pour améliorer les performances de l’API. Le nombre minimum de points de données que vous pouvez envoyer est de 12, et le nombre maximum est de 8 640 points. La [granularité](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) est définie comme la vitesse à laquelle vos données sont échantillonnées. 
 
-Les points de données envoyés à l’API Détecteur d'anomalies doivent avoir un timestamp de temps universel coordonné (UTC) et une valeur numérique. 
+Les points de données envoyés à l’API Détecteur d’anomalies doivent avoir un horodatage UTC (temps universel coordonné) et une valeur numérique. 
 
 ```json
 {
@@ -87,7 +87,7 @@ Les données manquantes sont courantes dans les jeux de données de séries chro
 
 ### <a name="aggregate-distributed-data"></a>Agréger des données distribuées
 
-L’API Détecteur d’anomalies fonctionne le mieux sur une série chronologique distribuée de manière homogène. Si vos données sont réparties de façon aléatoire, vous devez les agréger par unité de temps, par exemple, par minute, par heure ou par jour.
+L’API Détecteur d’anomalies fonctionne le mieux sur une série chronologique distribuée de manière homogène. Si vos données sont réparties de façon aléatoire, vous devez les agréger par unité de temps, par exemple par minute, par heure ou par jour.
 
 ## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Détection d’anomalies sur les données avec des modèles saisonniers
 
@@ -95,7 +95,7 @@ Si vous savez que vos données de série chronologique ont un modèle saisonnier
 
 Spécifier une `period` lorsque vous construisez votre demande JSON peut réduire la latence de la détection d’anomalies de jusqu'à 50 %. La `period` est un entier qui spécifie grossièrement combien de points de données la série chronologique utilise pour répéter un modèle. Par exemple, une série chronologique avec un point de données par jour aurait une `period` de `7`, et une série chronologique avec un point par heure (avec le même modèle hebdomadaire) aurait une `period` de  `7*24`. Si vous ne connaissez pas les modèles de vos données, vous n’êtes pas obligé de spécifier ce paramètre.
 
-Pour de meilleurs résultats, fournissez une valeur de points de données correspondant à 4 `period`, plus un point de données supplémentaire. Par exemple, des données horaires avec un modèle hebdomadaire conformément à la description ci-dessus doivent fournir 673 points de données dans le corps de la demande (`7 * 24 * 4 + 1`).
+Pour de meilleurs résultats, fournissez une valeur de points de données correspondant à quatre `period`, plus un point de données supplémentaire. Par exemple, des données horaires avec un modèle hebdomadaire conformément à la description ci-dessus doivent fournir 673 points de données dans le corps de la demande (`7 * 24 * 4 + 1`).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Données d’échantillonnage pour une analyse en temps réel
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 63184a623c6f0a8c53e09e6af92c05e45c5e0794
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185974"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734537"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -61,7 +61,7 @@ Il s’agit des paramètres requis par chacune de ces opérations d’analyse sp
 |---------|---------|
 | ID de l'opération | Identificateur d’opération de la table ci-dessus.|
 | enabled | Booléen : true ou false|
-| VIDEO_URL| URL RTSP de la caméra (exemple : `rtsp://username:password@url`). L’analyse spatiale prend en charge les flux encodés en H.264 via RTSP, http ou mp4. Video_URL peut être fourni en tant que valeur de chaîne base64 masquée à l’aide du chiffrement AES, et si l’URL de la vidéo est masquée, `KEY_ENV` et `IV_ENV` doivent être fournis en tant que variables d’environnement. L’exemple d’utilitaire permettant de générer des clés et un chiffrement est disponible [ici](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true). |
+| VIDEO_URL| URL RTSP de la caméra (exemple : `rtsp://username:password@url`). L’analyse spatiale prend en charge les flux encodés en H.264 via RTSP, http ou mp4. Video_URL peut être fourni en tant que valeur de chaîne base64 masquée à l’aide du chiffrement AES, et si l’URL de la vidéo est masquée, `KEY_ENV` et `IV_ENV` doivent être fournis en tant que variables d’environnement. L’exemple d’utilitaire permettant de générer des clés et un chiffrement est disponible [ici](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
 | VIDEO_SOURCE_ID | Nom convivial de la caméra ou du flux vidéo. Retourné avec la sortie JSON de l’événement.|
 | VIDEO_IS_LIVE| True pour les caméras ; false pour les vidéos enregistrées.|
 | VIDEO_DECODE_GPU_INDEX| Le GPU pour décoder la trame vidéo. 0 par défaut. Doit être identique à `gpu_index` dans les autres configurations de nœud, comme `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -69,6 +69,38 @@ Il s’agit des paramètres requis par chacune de ces opérations d’analyse sp
 | DETECTOR_NODE_CONFIG | JSON indiquant le GPU sur lequel exécuter le nœud de détecteur. Doit respecter le format suivant : `"{ \"gpu_index\": 0 }",`|
 | SPACEANALYTICS_CONFIG | Configuration JSON pour la zone et la ligne, comme indiqué ci-dessous.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` pour activer la détection des personnes qui portent des masques dans le flux vidéo, `False` pour la désactiver. Par défaut, cette fonctionnalité est désactivée. La détection des masques nécessite que le paramètre de largeur de vidéo d’entrée soit égal à 1920 (`"INPUT_VIDEO_WIDTH": 1920`). L’attribut de masque n’est pas retourné si les personnes détectées ne font pas face à la caméra ou sont trop éloignées de celle-ci. Pour plus d’informations, consultez le guide de [positionnement de la caméra](spatial-analysis-camera-placement.md). |
+
+Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les opérations d’analyse spatiale.
+
+```json
+{
+"gpu_index": 0,
+"do_calibration": true,
+"enable_recalibration": true,
+"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_sampling_num": 80,
+"calibration_quality_check_sampling_times": 5,
+"calibration_quality_check_sample_collect_frequency_seconds": 300,
+"calibration_quality_check_one_round_sample_collect_num":10,
+"calibration_quality_check_queue_max_size":1000,
+"recalibration_score": 75
+}
+```
+
+| Nom | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | string| Index GPU sur lequel cette opération s’exécutera.|
+| `do_calibration` | string | Indique que l’étalonnage est activé. `do_calibration` doit avoir la valeur true pour que **cognitiveservices.vision.spatialanalysis-persondistance** fonctionne correctement. Par défaut, do_calibration a la valeur True. |
+| `enable_recalibration` | bool | Indique si le réétalonnage automatique est activé. La valeur par défaut est `true`.|
+| `calibration_quality_check_frequency_seconds` | int | Nombre minimal de secondes entre chaque contrôle de qualité pour déterminer si le réétalonnage est nécessaire. La valeur par défaut est `86400` (24 heures). Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_num` | int | Nombre d’échantillons de données stockés sélectionnés de manière aléatoire à utiliser par mesure d’erreur pour le contrôle de qualité. La valeur par défaut est `80`. Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_quality_check_sampling_times` | int | Nombre de fois où les mesures d’erreur sont exécutées sur différents jeux d’échantillons de données sélectionnés de façon aléatoire par contrôle de qualité. La valeur par défaut est `5`. Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | Nombre minimal de secondes entre la collecte de nouveaux échantillons de données pour le réétalonnage et le contrôle de la qualité. La valeur par défaut est `300` (5 minutes). Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_quality_check_one_round_sample_collect_num` | int | Nombre minimal de nouveaux échantillons de données à collecter par cycle de collecte d’échantillons. La valeur par défaut est `10`. Utilisé uniquement si `enable_recalibration=True`.|
+| `calibration_quality_check_queue_max_size` | int | Nombre maximal d’échantillons de données à stocker quand le modèle de caméra est étalonné. La valeur par défaut est `1000`. Utilisé uniquement si `enable_recalibration=True`.|
+| `recalibration_score` | int | Seuil de qualité maximal pour commencer le réétalonnage. La valeur par défaut est `75`. Utilisé uniquement si `enable_recalibration=True`. La qualité de l’étalonnage est calculée en fonction d’une relation inverse avec l’erreur de reprojection de la cible de l’image. Les cibles détectées dans les trames d’images 2D sont projetées dans l’espace 3D et reprojetées dans la trame d’images 2D à l’aide des paramètres d’étalonnage de caméra existants. L’erreur de reprojection est mesurée par les distances moyennes entre les cibles détectées et les cibles reprojetées.|
+| `enable_breakpad`| bool | Indique si vous souhaitez activer la fonctionnalité breakpad, qui est utilisé pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.
+
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Configuration de la zone pour cognitiveservices.vision.spatialanalysis-personcount
 
@@ -142,10 +174,10 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `line` | list| Définition de la ligne. Il s’agit d’une ligne directionnelle qui vous permet de comprendre les « Enter » par rapport aux « Exit ».|
 | `start` | Paire de valeurs| Coordonnées x, y pour le point de départ de la ligne. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. |
 | `end` | Paire de valeurs| Coordonnées x, y pour le point de fin de la ligne. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. |
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
+| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. La valeur par défaut est 16. Il s’agit de la valeur recommandée pour obtenir une précision maximale. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcrossingline**, cela doit être `linecrossing`.|
 |`trigger`|string|Type de déclencheur pour l’envoi d’un événement.<br>Valeurs prises en charge : « event » : se déclenche quand quelqu’un traverse la ligne.|
-| `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne).|
+| `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne). La valeur par défaut est footprint.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Configuration de la zone pour cognitiveservices.vision.spatialanalysis-personcrossingpolygon
 
@@ -186,10 +218,10 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `zones` | list| Liste de zones. |
 | `name` | string| Nom convivial de cette zone.|
 | `polygon` | list| Chaque paire de valeurs représente x et y pour les vertex d’un polygone. Le polygone représente les zones dans lesquelles les personnes sont suivies ou comptées. Les valeurs float représentent la position du vertex par rapport au coin supérieur gauche. Pour calculer les valeurs x, y absolues, vous multipliez ces valeurs par la taille de cadre. 
-| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
+| `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. La valeur par défaut est 48 quand le type est zonecrossing et 16 quand l’heure est DwellTime. Il s’agit des valeurs recommandées pour obtenir une précision maximale.  |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcrossingpolygon**, cela doit être `zonecrossing` ou `zonedwelltime`.|
 | `trigger`|string|Type de déclencheur pour l’envoi d’un événement<br>Valeurs prises en charge : « event » : se déclenche quand une personne entre ou quitte la zone.|
-| `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne).|
+| `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne). La valeur par défaut est footprint.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Configuration de la zone pour cognitiveservices.vision.spatialanalysis-persondistance
 
@@ -228,29 +260,6 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `minimum_distance_threshold` | float| Distance en pieds qui déclenchera un événement « TooClose » lorsque les personnes sont moins éloignées que cette distance.|
 | `maximum_distance_threshold` | float| Distance en pieds qui déclenchera un événement « TooFar » lorsque les personnes sont plus éloignées que cette distance.|
 | `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne).|
-
-Voici un exemple d’entrée JSON pour le paramètre DETECTOR_NODE_CONFIG qui configure une zone **cognitiveservices.vision.spatialanalysis-persondistance**.
-
-```json
-{ 
-"gpu_index": 0, 
-"do_calibration": true
-}
-```
-
-| Nom | Type| Description|
-|---------|---------|---------|
-| `gpu_index` | string| Index GPU sur lequel cette opération s’exécutera.|
-| `do_calibration` | string | Indique que l’étalonnage est activé. `do_calibration` doit avoir la valeur true pour que **cognitiveservices.vision.spatialanalysis-persondistance** fonctionne correctement.|
-| `enable_recalibration` | bool | Indique si le réétalonnage automatique est activé. La valeur par défaut est `true`.|
-| `calibration_quality_check_frequency_seconds` | int | Nombre minimal de secondes entre chaque contrôle de qualité pour déterminer si le réétalonnage est nécessaire. La valeur par défaut est `86400` (24 heures). Utilisé uniquement si `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_num` | int | Nombre d’échantillons de données stockés sélectionnés de manière aléatoire à utiliser par mesure d’erreur pour le contrôle de qualité. La valeur par défaut est `80`. Utilisé uniquement si `enable_recalibration=True`.|
-| `calibration_quality_check_sampling_times` | int | Nombre de fois où les mesures d’erreur sont exécutées sur différents jeux d’échantillons de données sélectionnés de façon aléatoire par contrôle de qualité. La valeur par défaut est `5`. Utilisé uniquement si `enable_recalibration=True`.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | Nombre minimal de secondes entre la collecte de nouveaux échantillons de données pour le réétalonnage et le contrôle de la qualité. La valeur par défaut est `300` (5 minutes). Utilisé uniquement si `enable_recalibration=True`.|
-| `calibration_quality_check_one_round_sample_collect_num` | int | Nombre minimal de nouveaux échantillons de données à collecter par cycle de collecte d’échantillons. La valeur par défaut est `10`. Utilisé uniquement si `enable_recalibration=True`.|
-| `calibration_quality_check_queue_max_size` | int | Nombre maximal d’échantillons de données à stocker quand le modèle de caméra est étalonné. La valeur par défaut est `1000`. Utilisé uniquement si `enable_recalibration=True`.|
-| `recalibration_score` | int | Seuil de qualité maximal pour commencer le réétalonnage. La valeur par défaut est `75`. Utilisé uniquement si `enable_recalibration=True`. La qualité de l’étalonnage est calculée en fonction d’une relation inverse avec l’erreur de reprojection de la cible de l’image. Les cibles détectées dans les trames d’images 2D sont projetées dans l’espace 3D et reprojetées dans la trame d’images 2D à l’aide des paramètres d’étalonnage de caméra existants. L’erreur de reprojection est mesurée par les distances moyennes entre les cibles détectées et les cibles reprojetées.|
-| `enable_breakpad`| bool | Indique si vous souhaitez activer la fonctionnalité breakpad, qui est utilisé pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.
 
 Pour en savoir plus sur les configurations de zone et de ligne, consultez les instructions relatives au [Positionnement de la caméra](spatial-analysis-camera-placement.md).
 
@@ -606,7 +615,7 @@ Exemple de code JSON pour une sortie de détections par cette opération avec le
 | `trackinId` | string| Identificateur unique de la personne détectée|
 | `status` | string| Direction des polygones croisés, « Enter » ou « Exit »|
 | `side` | int| Numéro du côté du polygone traversé par la personne. Chaque côté est un bord numéroté entre les deux sommets du polygone qui représente votre zone. Le bord entre les deux premiers sommets du polygone représente le premier côté.|
-| `durationMs` | int | Nombre de millisecondes qui représentent le temps passé par la personne dans la zone. Ce champ est fourni quand le type d’événement est _personZoneDwellTimeEvent_|
+| `durationMs` | float | Nombre de millisecondes qui représentent le temps passé par la personne dans la zone. Ce champ est fourni quand le type d’événement est _personZoneDwellTimeEvent_|
 | `zone` | string | Le champ « name » du polygone qui représente la zone qui a été franchie|
 
 | Nom du champ de détection | Type| Description|

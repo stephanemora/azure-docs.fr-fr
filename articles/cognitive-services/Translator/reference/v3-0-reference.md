@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c93b8254e1fc80865d9889072b33cbf3fc94326d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024498"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880774"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -39,9 +39,9 @@ Microsoft Translator est desservi par des centres de données situés dans plusi
 
 Les requêtes adressées à Microsoft Translator sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique Azure.
 
-Pour forcer la gestion de la requête par une zone géographique Azure spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison régional souhaité :
+Pour forcer la gestion de la requête par une zone géographique Azure spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison géographique souhaité :
 
-|Description|Zone géographique Azure|URL de base|
+|Description|Zone géographique Azure|URL de base (point de terminaison géographique)|
 |:--|:--|:--|
 |Azure|Global (région non précisée)|   api.cognitive.microsofttranslator.com|
 |Azure|États-Unis|   api-nam.cognitive.microsofttranslator.com|

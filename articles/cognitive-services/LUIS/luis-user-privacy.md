@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Vous avez le contrôle total sur l’affichage, l’exportation et la suppression de leurs données. Supprimer les données des clients pour garantir la confidentialité et la conformité.
 services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/08/2020
-ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/10/2020
+ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007736"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680177"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
 
@@ -58,31 +58,38 @@ Pour activer l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md
 
 À l’exception des données d’apprentissage actif (décrites ci-dessous), LUIS suit les [pratiques de stockage de données pour les services régionaux](https://azuredatacentermap.azurewebsites.net/).
 
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+
 ### <a name="europe"></a>Europe
 
-Le portail [eu.luis.ai](https://eu.luis.ai) et Europe Authoring (également appelé API programmatiques) sont hébergés dans la zone géographique Europe d’Azure. Le portail eu.luis.ai et Europe Authoring (également appelé API programmatiques) prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
+Les ressources Europe Authoring (également appelées API programmatiques) sont hébergées dans la zone géographique Europe d’Azure et prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
 
 * Europe
 * France
-* United Kingdom
+* Royaume-Uni
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Europe d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Europe d’Azure pour l’apprentissage actif.
 
 ### <a name="australia"></a>Australie
 
-Le portail [au.luis.ai](https://au.luis.ai) et Australia Authoring (également appelé API programmatiques) sont hébergés dans la zone géographique Australie d’Azure. Le portail au.luis.ai et Australia Authoring (également appelé API programmatiques) prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
+Les ressources Australia Authoring (également appelées API programmatiques) sont hébergées dans la zone géographique Australie d’Azure et prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
 
 * Australie
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Australie d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Australie d’Azure pour l’apprentissage actif.
 
 ### <a name="united-states"></a>États-Unis
 
-Le portail [luis.ai](https://www.luis.ai) et United States Authoring (également appelé API programmatiques) sont hébergés dans la zone géographique États-Unis d’Azure. Le portail luis.ai et United States Authoring (également appelé API programmatiques) prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
+Les ressources United States (également appelées API programmatiques) sont hébergées dans la zone géographique États-Unis d’Azure et prennent en charge le déploiement de points de terminaison dans les zones géographiques Azure suivantes :
 
 * Zones géographiques Azure pas prises en charge par les régions de création d’Europe ou d’Australie
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif. 
+
+## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
+
+Pour désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

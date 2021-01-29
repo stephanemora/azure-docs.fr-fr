@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844924"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624830"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Sélectionner un domaine pour un projet Custom Vision
 
@@ -25,7 +25,8 @@ Sous l’onglet Paramètres de votre projet Custom Vision, vous pouvez sélectio
 
 |Domain|Objectif|
 |---|---|
-|__Généralités__| Optimisé pour un large éventail de tâches de classification d’images. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Général. ID : `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Généralités__| Optimisé pour un large éventail de tâches de classification d’images. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine General. ID : `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__General [A1]__| Optimisé pour une meilleure précision avec un temps d’inférence comparable à celui du domaine General. Recommandé pour les jeux de données volumineux ou les scénarios utilisateur plus difficiles. Ce domaine nécessite un entraînement plus long. ID : `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
 |__Food__ (Nourriture)|Optimisé pour les photographies de plats, tels que vous pouvez les voir dans un menu de restaurant. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Food (Nourriture). ID : `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Landmarks__ (Monuments et sites)|Optimisé pour les monuments et sites reconnaissables, naturels et artificiels. Ce domaine fonctionne mieux lorsque le monument ou le site est clairement visible dans la photographie. Ce domaine fonctionne même si le monument ou le site est légèrement masqué par des personnes placées devant lui. ID : `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Retail__ (Commerce)|Optimisé pour les images qui se trouvent dans des catalogues de vente ou sur des site Web commerciaux. Si vous souhaitez un classement de grande précision pour des robes, des pantalons et des chemises, utilisez ce domaine. ID : `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
@@ -36,6 +37,7 @@ Sous l’onglet Paramètres de votre projet Custom Vision, vous pouvez sélectio
 |Domain|Objectif|
 |---|---|
 |__Généralités__| Optimisé pour un large éventail de tâches de détection d’objets. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Général. ID : `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__General [A1]__| Optimisé pour une meilleure justesse avec un temps d’inférence comparable à celui du domaine General. Recommandé pour des besoins de localisation de région plus précis, des jeux de données plus importants ou des scénarios utilisateur plus difficiles. Ce domaine nécessite un entraînement plus long, et les résultats ne sont pas déterministes : attendez-vous à une différence mAP de +-1 % avec les mêmes données d’entraînement fournies. ID : `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logo__|Optimisé pour rechercher des logos de marque dans les images. ID : `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Products on shelves__ (Produits en rayon)|Optimisé pour la détection et la classification des produits en rayon. ID : `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Compact Domains__ (Domaines compacts)| Optimisés en fonction des contraintes liées à la détection d'objets en temps réel sur les périphériques.|
@@ -48,7 +50,8 @@ Les performances du modèle varient selon le domaine sélectionné. Le tableau c
 
 |Tâche|Domain|id|Taille des modèles|Temps d'inférence sur processeur|Temps d'inférence sur GPU|
 |---|---|---|---|---|---|
-|classification ;|General (compact) (Général (compact))|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 Mo|13 ms|5 ms|
+|classification ;|General (compact) (Général (compact))|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 Mo|10 ms|5 ms|
+|classification ;|General (compact) [S1] (Général (compact) [S1])|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 Mo|50 ms|5 ms|
 |Détection d’objets|General (compact) (Général (compact))|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 Mo|35 ms|5 ms|
 |Détection d’objets|General (compact) [S1] (Général (compact) [S1])|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 Mo|27 ms|7 ms|
 

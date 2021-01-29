@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 402ee6d5efdd489914cb7d283c7c46d4f7d175f6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: f90e4e5e187977f0ee77a565ff9143902ea3a10d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968056"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736833"
 ---
 # <a name="introduction-to-computer-vision-spatial-analysis"></a>Présentation de l’analyse spatiale Vision par ordinateur
 
-L’analyse spatiale de Vision par ordinateur est une nouvelle fonctionnalité de l’API Vision par ordinateur d’Azure Cognitive Services qui permet aux organisations de maximiser la valeur de leurs espaces physiques en comprenant les déplacements et la présence des personnes dans une zone donnée. Elle vous permet d’ingérer le flux vidéo de caméras de télésurveillance, d’exploiter des compétences d’intelligence artificielle pour extraire des Insights de flux vidéo, et de générer des événements que d’autres systèmes peuvent utiliser. À partir d’un flux de caméra, une compétence d’IA peut effectuer des opérations telles que dénombrer les personnes entrant dans un espace ou mesurer le respect de consignes de distanciation sociale.
+L’analyse spatiale de Vision par ordinateur est une nouvelle fonctionnalité de l’API Vision par ordinateur d’Azure Cognitive Services qui permet aux organisations de maximiser la valeur de leurs espaces physiques en comprenant les déplacements et la présence des personnes dans une zone donnée. Elle vous permet d’ingérer le flux vidéo de caméras de télésurveillance, d’exploiter des opérations d’intelligence artificielle (IA) pour extraire des insights de flux vidéo, et de générer des événements que d’autres systèmes peuvent utiliser. À partir d’un flux de caméra, une opération d’IA peut effectuer des opérations telles que dénombrer les personnes entrant dans un espace ou mesurer le respect des consignes de port du masque ou de distanciation sociale.
 
 ## <a name="the-basics-of-spatial-analysis"></a>Concepts de base de l’analyse spatiale
 
@@ -30,9 +30,10 @@ Aujourd’hui, les principales opérations en lien avec l’analyse spatiale s�
 | Terme | Définition |
 |------|------------|
 | Détection de personnes | Ce composant répond à la question « où sont les personnes dans cette image » ? Il recherche les êtres humains dans une image et transmet un rectangle englobant indiquant l’emplacement de chaque personne au composant de suivi des personnes. |
-| Suivi des personnes | Ce composant connecte les détections de personnes au fil du temps à mesure que les personnes se déplacent devant une caméra. Pour ce faire, il utilise une logique temporelle relative à la manière dont les personnes se déplacent généralement, ainsi que des informations de base sur l’apparence globale des personnes. Il ne peut pas suivre les personnes sur plusieurs caméras ou ré-identifier une personne qui a disparu pendant plus d’une minute. Le suivi des personnes n’utilise pas de marqueurs biométriques tels que la reconnaissance faciale ou le suivi de la démarche. |
-| Zone d’intérêt | Il s’agit d’une zone ou d’une ligne définie dans la vidéo d’entrée lors de la configuration. Quand une personne interagit avec la zone de la vidéo, le système génère un événement. Par exemple, pour la compétence PersonCrossingLine, une ligne est définie dans la vidéo. Quand une personne franchit cette ligne, un événement est généré. |
-| Événement | Un événement est la sortie principale de l’analyse spatiale. Chaque compétence émet un événement spécifique soit périodiquement (par exemple, une fois par minute), soit quand un déclencheur spécifique s’active. L’événement inclut des informations sur ce qui s’est produit dans la vidéo d’entrée, mais n’inclut aucune image ou vidéo. Par exemple, la compétence PeopleCount peut émettre un événement contenant le nombre actualisé chaque fois que le nombre de personnes change (déclencheur) ou une fois par minute (périodiquement). |
+| Suivi des personnes | Ce composant connecte les détections de personnes au fil du temps à mesure que les personnes se déplacent devant une caméra. Pour ce faire, il utilise une logique temporelle relative à la manière dont les personnes se déplacent généralement, ainsi que des informations de base sur l’apparence globale des personnes. Il ne fait pas le suivi des personnes sur plusieurs caméras. Si une personne sort du champ d’une caméra pendant plus d’une minute environ, puis entre à nouveau dans le champ de la caméra, le système la considère comme une nouvelle personne. Le suivi des personnes n’identifie pas de manière unique les individus sur plusieurs caméras. Il n’utilise pas la reconnaissance faciale ni le suivi de la démarche. |
+| Détection de masque | Ce composant détecte l’emplacement du visage d’une personne dans le champ de la caméra et identifie la présence d’un masque. Pour ce faire, l’opération d’IA analyse les images de la vidéo. Quand un visage est détecté, le service dessine un cadre englobant autour du visage. À l’aide des fonctionnalités de détection d’objets, il identifie la présence d’un masque dans le cadre englobant. La détection de masque ne nécessite pas de faire la distinction entre les visages, de prédire ou de classifier les attributs faciaux ni d’utiliser la reconnaissance faciale. |
+| Zone d’intérêt | Il s’agit d’une zone ou d’une ligne définie dans la vidéo d’entrée lors de la configuration. Quand une personne interagit avec la zone de la vidéo, le système génère un événement. Par exemple, pour l’opération PersonCrossingLine, une ligne est définie dans la vidéo. Quand une personne franchit cette ligne, un événement est généré. |
+| Événement | Un événement est la sortie principale de l’analyse spatiale. Chaque opération émet un événement spécifique soit périodiquement (par exemple, une fois par minute), soit quand un déclencheur spécifique s’active. L’événement inclut des informations sur ce qui s’est produit dans la vidéo d’entrée, mais n’inclut aucune image ou vidéo. Par exemple, l’opération PeopleCount peut émettre un événement contenant le nombre actualisé chaque fois que le nombre de personnes change (déclencheur) ou une fois par minute (périodiquement). |
 
 ## <a name="example-use-cases-for-spatial-analysis"></a>Exemples de cas d’usage de l’analyse spatiale
 
@@ -43,6 +44,8 @@ Voici quelques exemples de cas d’usage que nous avions à l’esprit quand nou
 **Analyse de client** : un supermarché utilise des caméras pointées sur des présentoirs de produits pour mesurer l’impact d’un changement de marchandisage sur le trafic au sein du magasin. Le système permet au gérant du magasin d’identifier les nouveaux produits qui modifient le plus l’engagement des clients.
 
 **Gestion de file d’attente** : des caméras pointées sur les files aux caisses alertent les responsables quand le délai d’attente est trop long, ce qui leur permet d’ouvrir davantage de caisses. Les données historiques sur l’abandon des files d’attente fournissent des informations sur le comportement des consommateurs.
+
+**Respect du port du masque** : dans un magasin, vous pouvez diriger des caméras vers l’entrée pour vérifier si les clients qui entrent portent un masque. Vous pouvez ainsi veiller au respect des règles de sécurité et analyser des statistiques d’agrégation pour obtenir des insights sur les tendances liées au port du masque. 
 
 **Occupation et analyse de bâtiment** : un immeuble de bureaux utilise des caméras pointées sur les accès à des espaces clés pour mesurer la fréquentation de ceux-ci et la façon dont les personnes utilisent l’espace de travail. Les insights permettent au gestionnaire du bâtiment d’ajuster le service et l’agencement pour mieux servir les occupants.
 
@@ -73,4 +76,4 @@ L’accès à la préversion publique de l’analyse spatiale est à l’entièr
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Caractéristiques et limitations de l’analyse spatiale](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [Caractéristiques et limitations de l’analyse spatiale](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)

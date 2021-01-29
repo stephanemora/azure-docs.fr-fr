@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126884"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704429"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetées à la main
 
@@ -47,6 +47,8 @@ La normalisation du texte consiste à transformer les mots dans un format cohér
 - Les caractères non alphabétiques ou les caractères alphanumériques mixtes doivent être retranscrits comme ils se prononcent.
 - Les abréviations prononcées comme des mots n’ont pas besoin d’être modifiés (par exemple, « radar », « laser », « RAM » ou « OTAN »).
 - Écrivez les abréviations dont les lettres se prononcent en les séparant avec un espace.
+- Si vous utilisez l’audio, transcrivez les nombres en mots correspondant à l’audio (par exemple, « 101 » peut être prononcé « un zéro un » ou « cent un »).
+- Évitez de répéter des caractères, des mots ou des groupes de mots plus de trois fois, par exemple « oui oui oui oui ». Les lignes avec de telles répétitions peuvent être supprimées par le service Speech.
 
 Voici quelques exemples de normalisation à effectuer au niveau de la transcription :
 

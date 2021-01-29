@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630393"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Créer une ressource Lecteur immersif et configurer l’authentification Azure Active Directory
 
@@ -143,21 +143,27 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
     }
     ```
 
-1. Exécutez la fonction `Create-ImmersiveReaderResource` en fournissant les paramètres appropriés.
+1. Exécutez la fonction `Create-ImmersiveReaderResource` en remplaçant les espaces réservés '<VALEURS_DE_PARAMÈTRE>' ci-dessous par vos propres valeurs, selon le cas.
 
     ```azurepowershell-interactive
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    ```
+
+    La commande complète doit ressembler à ce qui suit. Ici, nous avons placé chaque paramètre sur sa propre ligne pour plus de clarté, ce qui vous permet de voir l’ensemble de la commande. Ne copiez pas ou n’utilisez pas cette commande telle quelle. Copiez et utilisez la commande ci-dessus avec vos propres valeurs. Cet exemple utilise des valeurs factices pour les espaces réservés '<VALEURS_DE_PARAMÈTRE>' ci-dessus. Votre commande sera différente, car vous indiquerez vos propres noms pour ces valeurs.
+
+    ```
     Create-ImmersiveReaderResource
-      -SubscriptionName '<SUBSCRIPTION_NAME>' `
-      -ResourceName '<RESOURCE_NAME>' `
-      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
-      -ResourceSKU '<RESOURCE_SKU>' `
-      -ResourceLocation '<RESOURCE_LOCATION>' `
-      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
-      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
-      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
-      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
-      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
-      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+        -SubscriptionName 'MyOrganizationSubscriptionName'
+        -ResourceName 'MyOrganizationImmersiveReader'
+        -ResourceSubdomain 'MyOrganizationImmersiveReader'
+        -ResourceSKU 'S0'
+        -ResourceLocation 'westus2'
+        -ResourceGroupName 'MyResourceGroupName'
+        -ResourceGroupLocation 'westus2'
+        -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
+        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
+        -AADAppClientSecret 'SomeStrongPassword'
+        -AADAppClientSecretExpiration '2021-12-31'
     ```
 
     | Paramètre | Commentaires |
@@ -165,7 +171,7 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
     | SubscriptionName |Nom de l’abonnement Azure à utiliser pour votre ressource Lecteur immersif. Vous devez avoir un abonnement pour pouvoir créer une ressource. |
     | Nom_ressource |  Doit être de type alphanumérique et peut contenir « - », du moment que « - » ne soit pas le premier ou le dernier caractère. La longueur ne doit pas dépasser 63 caractères.|
     | ResourceSubdomain |Un sous-domaine personnalisé est nécessaire pour votre ressource Lecteur immersif. Le sous-domaine est utilisé par le kit SDK lors de l’appel du service Lecteur immersif pour lancer le Lecteur. Le sous-domaine doit être globalement unique. Le sous-domaine doit être de type alphanumérique et peut contenir « - », du moment que « - » ne soit pas le premier ou le dernier caractère. La longueur ne doit pas dépasser 63 caractères. Ce paramètre est facultatif si la ressource existe déjà. |
-    | ResourceSKU |Options : `S0`. Visitez notre [page des prix de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) pour en savoir plus sur chaque référence SKU disponible. Ce paramètre est facultatif si la ressource existe déjà. |
+    | ResourceSKU |Options : `S0` (niveau standard) ou `S1` (établissements scolaires/associations à but non lucratif). Visitez notre [page des prix de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) pour en savoir plus sur chaque référence SKU disponible. Ce paramètre est facultatif si la ressource existe déjà. |
     | ResourceLocation |Options : `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Ce paramètre est facultatif si la ressource existe déjà. |
     | ResourceGroupName |Les ressources sont créées dans des groupes de ressources au sein d’abonnements. Donnez le nom d’un groupe de ressources existant. Si le groupe de ressources n’existe pas encore, un nouveau groupe avec ce nom est créé. |
     | ResourceGroupLocation |Si votre groupe de ressources n’existe pas, vous devez fournir un emplacement dans lequel créer le groupe. Pour trouver une liste d’emplacements, exécutez `az account list-locations`. Utilisez la propriété *name* (sans espaces) du résultat retourné. Ce paramètre est facultatif si votre groupe de ressources existe déjà. |
