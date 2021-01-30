@@ -1,6 +1,6 @@
 - name: API Azure pour FHIR
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de l’API Azure pour FHIR
       href: overview.md
@@ -127,6 +127,10 @@
           href: iot-data-flow.md
         - name: Modèles de mappage du connecteur Azure IoT pour FHIR (préversion)
           href: iot-mapping-templates.md
+    - name: Sécurité
+      items:
+        - name: Contrôles de sécurité par Azure Policy
+          href: ./security-controls-policy.md
 - name: Ressources
   items:
     - name: Questions fréquentes (FAQ)
