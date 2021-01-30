@@ -188,14 +188,17 @@
       items:
         - name: Configurer des entrées d’utilisateur
           href: configure-user-input.md
-        - name: Personnaliser l’interface utilisateur avec la marque de l’entreprise
-          href: company-branding.md
+        - name: Personnaliser l’interface utilisateur
+          displayName: company branding
+          href: customize-ui.md
         - name: Personnaliser l’interface utilisateur avec un modèle HTML
+          displayName: content definitions
           href: customize-ui-with-html.md
         - name: JavaScript et mises en page
           href: javascript-and-page-layout.md
         - name: Personnaliser le langage
           href: language-customization.md
+          displayName: localization
         - name: Complexité du mot de passe
           href: password-complexity.md
         - name: Désactiver la vérification e-mail
@@ -259,12 +262,13 @@
           items:
             - name: Collecter les journaux d’activité à l’aide d’Application Insights
               href: troubleshoot-with-application-insights.md
-              displayName: troubleshooting
+              displayName: 'troubleshooting, app insights'
             - name: Validation de la stratégie
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
         - name: Analyse de l'utilisation
           href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
         - name: Informations de référence
           items:
             - name: TrustFrameworkPolicy
@@ -452,6 +456,8 @@
           href: user-migration.md
 - name: Informations de référence
   items:
+    - name: Restrictions et limites du service
+      href: service-limits.md
     - name: Inscriptions des applications
       href: app-registrations-training-guide.md
     - name: Modèle de facturation

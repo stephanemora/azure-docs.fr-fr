@@ -1,6 +1,6 @@
 - name: Documentation sur Virtual WAN
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Virtual WAN\_?"
       href: virtual-wan-about.md
@@ -41,22 +41,22 @@
       items:
         - name: À propos du routage de hub virtuel
           href: about-virtual-hub-routing.md
-        - name: Scénarios de routage
-          items:
-            - name: Any-to-any
-              href: scenario-any-to-any.md
-            - name: Isolation des réseaux virtuels
-              href: scenario-isolate-vnets.md
-            - name: Isolation des réseaux virtuels - personnalisé
-              href: scenario-isolate-vnets-custom.md
-            - name: Réseaux virtuels des services partagés
-              href: scenario-shared-services-vnet.md
-            - name: Router via une NVA
-              href: scenario-route-through-nva.md
-            - name: Router via une NVA - personnalisé
-              href: scenario-route-through-nvas-custom.md
-            - name: Pare-feu Azure - personnalisé
-              href: scenario-route-between-vnets-firewall.md
+    - name: Scénarios de routage
+      items:
+        - name: Any-to-any
+          href: scenario-any-to-any.md
+        - name: Isolation des réseaux virtuels
+          href: scenario-isolate-vnets.md
+        - name: Isolation des réseaux virtuels - personnalisé
+          href: scenario-isolate-vnets-custom.md
+        - name: Réseaux virtuels des services partagés
+          href: scenario-shared-services-vnet.md
+        - name: Router via une NVA
+          href: scenario-route-through-nva.md
+        - name: Router via une NVA - personnalisé
+          href: scenario-route-through-nvas-custom.md
+        - name: Pare-feu Azure - personnalisé
+          href: scenario-route-between-vnets-firewall.md
     - name: Supervision
       items:
         - name: À propos d’Azure Monitor Insights pour Virtual WAN

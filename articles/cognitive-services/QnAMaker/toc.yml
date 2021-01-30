@@ -1,6 +1,6 @@
 - name: Documentation relative à QnA Maker
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que QnA Maker\_?"
       href: Overview/overview.md
@@ -113,6 +113,8 @@
           href: reference-data-guidelines.md
     - name: Format d’affichage
       href: reference-markdown-format.md
+    - name: Liaisons privées
+      href: reference-private-endpoint.md
     - name: Format des tests par lot
       href: reference-tsv-format-batch-testing.md
     - name: Chiffrement

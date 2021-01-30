@@ -1,6 +1,6 @@
 - name: "Documentation relative aux services de données avec Azure\_Arc"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Présentation des services de données avec Azure\_Arc"
       href: overview.md
@@ -96,6 +96,8 @@
       items:
         - name: Présentation de PostgreSQL Hyperscale avec Azure Arc
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Limitations
+          href: limitations-postgresql-hyperscale.md
     - name: Démarrages rapides
       items:
         - name: Versions prises en charge

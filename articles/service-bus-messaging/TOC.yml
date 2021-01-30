@@ -1,6 +1,6 @@
 - name: Documentation sur la messagerie Service Bus
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que la messagerie Service Bus\_?"
       href: service-bus-messaging-overview.md
@@ -210,14 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Traitement des transactions
               href: service-bus-transactions.md
-        - name: Diagnostics et suivi de bout en bout
-          href: service-bus-end-to-end-tracing.md
         - name: Créer une application Service Bus à plusieurs niveaux
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrer
       items:
         - name: Migrer d’ActiveMQ vers Azure Service Bus
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Superviser
+      items:
+        - name: Diagnostics et suivi de bout en bout
+          href: service-bus-end-to-end-tracing.md
+        - name: Journaux de diagnostic
+          href: service-bus-diagnostic-logs.md
+        - name: Mesures Azure Monitor
+          href: service-bus-metrics-azure-monitor.md
     - name: Integrate
       items:
         - name: Intégrer à RabbitMQ
@@ -228,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Utiliser Azure PowerShell pour approvisionner des entités
           href: service-bus-manage-with-ps.md
-        - name: Superviser Service Bus avec Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Bibliothèques de gestion Service Bus
           href: service-bus-management-libraries.md
-        - name: Journaux d’activité de ressources
-          href: service-bus-diagnostic-logs.md
         - name: Interrompre et réactiver des entités de messagerie
           href: entity-suspend.md
         - name: Utilisez l’Explorateur Service Bus pour effectuer des opérations de données dans Service Bus

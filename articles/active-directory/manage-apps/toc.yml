@@ -1,6 +1,6 @@
 - name: Documentation Gestion des applications
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la gestion des applications\_?"
@@ -50,7 +50,7 @@
         - name: Planifier pour des applications non listées dans la galerie
           href: non-gallery-apps.md
         - name: Planifier un déploiement de Mes applications
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Authentification unique
       items:
         - name: Planifier un déploiement de l’authentification unique

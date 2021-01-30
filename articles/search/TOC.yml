@@ -1,6 +1,6 @@
 - name: Documentation sur la recherche cognitive Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la Recherche cognitive\_?"
@@ -91,7 +91,7 @@
     - name: Exemples Python
       href: samples-python.md
     - name: Exemples REST
-      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+      href: samples-rest.md
 - name: Concepts
   items:
     - name: Recherche en texte intégral
