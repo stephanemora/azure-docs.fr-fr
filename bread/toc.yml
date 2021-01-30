@@ -273,8 +273,8 @@
       topicHref: /azure/partner-solutions/
       items:
         - name: Apache Kafka pour Confluent Cloud
-          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud
-          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud
+          tocHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
+          topicHref: /azure/partner-solutions/apache-kafka-confluent-cloud/overview
     - name: Service SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -511,7 +511,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph

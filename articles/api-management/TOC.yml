@@ -1,6 +1,6 @@
 - name: Documentation Gestion des API Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: En savoir plus sur la Gestion des API
       href: api-management-key-concepts.md
@@ -64,6 +64,8 @@
           href: api-management-error-handling-policies.md
     - name: Sécurité
       items:
+        - name: Contrôles de sécurité par Azure Policy
+          href: ./security-controls-policy.md
         - name: Base de référence de la sécurité
           href: security-baseline.md
     - name: Abonnements

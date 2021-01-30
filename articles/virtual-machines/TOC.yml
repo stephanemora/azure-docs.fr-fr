@@ -468,7 +468,7 @@
           href: generation-2.md
         - name: Usage général
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sizes-general.md
             - name: "Série\_Av2"
               href: av2-series.md
@@ -488,7 +488,7 @@
               href: dv4-dsv4-series.md
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sizes-compute.md
             - name: Série Fsv2
               href: fsv2-series.md
@@ -1558,7 +1558,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: maintenance-notifications.md
             - name: Interface de ligne de commande
               href: maintenance-notifications-cli.md
@@ -1742,7 +1742,7 @@
         - name: Sauvegarder plusieurs machines virtuelles
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Options de restauration
-          href: ../backup/backup-azure-arm-restore-vms.md
+          href: /azure/backup/backup-azure-arm-restore-vms
         - name: Matrice de prise en charge
           href: ../backup/backup-support-matrix-iaas.md
         - name: Tarifs

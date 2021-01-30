@@ -1,6 +1,6 @@
 - name: Documentation Azure Monitor
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Monitor\_?"
       href: overview.md
@@ -586,10 +586,12 @@
                   href: platform/it-service-management-connector-secure-webhook-connections.md
                 - name: Configuration d’Azure pour utiliser Exportation sécurisée
                   href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
-                - name: BMC
-                  href: platform/itsmc-secure-webhook-connections-bmc.md
-                - name: ServiceNow
-                  href: platform/itsmc-secure-webhook-connections-servicenow.md
+                - name: Configuration des partenaires du connecteur ITSM
+                  items:
+                    - name: BMC
+                      href: platform/itsmc-secure-webhook-connections-bmc.md
+                    - name: ServiceNow
+                      href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: Migrer les règles d’alerte classiques
           items:
             - name: À propos des alertes classiques

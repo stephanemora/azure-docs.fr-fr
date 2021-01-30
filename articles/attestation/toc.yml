@@ -1,6 +1,6 @@
-- name: Microsoft Azure Attestation (préversion)
+- name: Microsoft Azure Attestation
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Microsoft Azure Attestation
       href: overview.md

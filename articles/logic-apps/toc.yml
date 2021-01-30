@@ -1,6 +1,6 @@
 - name: Documentation Azure Logic Apps
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Logic Apps\_?"
       href: logic-apps-overview.md
@@ -57,6 +57,14 @@
           href: security-baseline.md
 - name: Guides pratiques
   items:
+    - name: Préversion Azure Logic Apps
+      items:
+        - name: Vue d’ensemble de la préversion Azure Logic Apps
+          href: logic-apps-overview-preview.md
+        - name: Créer des workflows avec et sans état - Portail Azure
+          href: create-stateful-stateless-workflows-azure-portal.md
+        - name: Créer des workflows avec et sans état - Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Développer
       items:
         - name: Créer à partir de modèles prédéfinis
@@ -67,14 +75,6 @@
           href: logic-apps-move-from-mabs.md
         - name: Exporter des flux de Power Automate et les déployer sur Azure Logic Apps
           href: export-from-microsoft-flow-logic-app-template.md
-        - name: Préversion Azure Logic Apps
-          items:
-            - name: Vue d’ensemble de la préversion Azure Logic Apps
-              href: logic-apps-overview-preview.md
-            - name: Créer des workflows avec et sans état - Portail Azure
-              href: create-stateful-stateless-workflows-azure-portal.md
-            - name: Créer des workflows avec et sans état - Visual Studio Code
-              href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Appeler des applications logiques à partir de Power Automate et Power Apps
           href: call-from-power-automate-power-apps.md
         - name: Contrôler l’exécution des flux de travail
@@ -330,6 +330,8 @@
           href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Gérer les environnements de service d’intégration
           href: ise-manage-integration-service-environment.md
+        - name: Prévoir et gérer les coûts
+          href: plan-manage-costs.md
         - name: Déplacer des ressources d’application logique
           href: move-logic-app-resources.md
         - name: Migrer vers le schéma le plus récent

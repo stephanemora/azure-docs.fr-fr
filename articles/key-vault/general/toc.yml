@@ -1,6 +1,6 @@
 - name: Général
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Key Vault
       href: overview.md
@@ -43,9 +43,11 @@
   items:
     - name: Concepts de base
       href: basic-concepts.md
+    - name: Meilleures pratiques
+      href: best-practices.md
     - name: Sécurité
       items:
-        - name: Présentation de la sécurité
+        - name: Vue d'ensemble
           href: security-overview.md
         - name: Sécuriser l’accès à un coffre de clés
           href: secure-your-key-vault.md

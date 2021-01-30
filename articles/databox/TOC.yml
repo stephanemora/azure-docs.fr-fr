@@ -76,6 +76,8 @@
               items:
                 - name: Base de référence de la sécurité
                   href: security-baseline.md
+                - name: Contrôles de sécurité par Azure Policy
+                  href: ./security-controls-policy.md
                 - name: Vérifier la sécurité
                   href: data-box-security.md
             - name: Transférer les listes ACL et les métadonnées

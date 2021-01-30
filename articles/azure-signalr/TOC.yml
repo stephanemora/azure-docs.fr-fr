@@ -1,6 +1,6 @@
 - name: Documentation Azure SignalR Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -86,6 +86,8 @@
       items:
         - name: Base de référence de la sécurité
           href: security-baseline.md
+        - name: Contrôles de sécurité par Azure Policy
+          href: ./security-controls-policy.md
 - name: Guides pratiques
   items:
     - name: Scale
