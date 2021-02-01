@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f1a1d43f9bfc960628447a3c20e7dab2ac701dc5
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588588"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762580"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -101,6 +101,10 @@ Voici quelques conseils pour résoudre cette erreur :
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Quelle est la durée du délai d’expiration back-end par défaut « long » ? Peut-il être prolongé ?
 
 La durée par défaut s’élève à 85 secondes. Le paramètre « long » s’élève à 180 secondes. Il n’est pas possible d’augmenter la limite du délai d’expiration.
+
+### <a name="can-a-service-principal-manage-application-proxy-using-powershell-or-microsoft-graph-apis"></a>Un principal du service peut-il gérer le Proxy d’application à l’aide des API PowerShell ou Microsoft Graph ?
+
+Non, cela n’est pas pris en charge actuellement.
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Comment puis-je modifier la page d’arrivée chargée par mon application ?
 

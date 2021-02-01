@@ -4,14 +4,14 @@ description: Guide de démarrage rapide pour Application Insights Agent. Surveil
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 690304ecef80d988f9a554cd10ce4689f5c72133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f340b4fdf7fef6daecf8801d16d19aee9b89e4d5
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070137"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746456"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Bien démarrer avec Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -26,6 +26,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="download-and-install-via-powershell-gallery"></a>Télécharger et installer via PowerShell Gallery
 
 ### <a name="install-prerequisites"></a>Prérequis à installer
+
+> [!NOTE]
+> Depuis avril 2020, le protocole TLS versions 1.1 et 1.0 est déconseillé avec PowerShell Gallery.
+>
+> Pour connaître les conditions préalables supplémentaires dont vous pouvez avoir besoin, consultez [Prise en charge de TLS par PowerShell Gallery](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Exécutez PowerShell en tant qu’administrateur.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -45,7 +52,7 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ### <a name="enable-monitoring"></a>Activer la supervision
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
     
         
@@ -63,7 +70,7 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### <a name="enable-monitoring"></a>Activer la supervision
 ```powershell
-Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 

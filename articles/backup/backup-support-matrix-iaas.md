@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ade92e445897e36139e74353fa703ddf50d3f9b3
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562724"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757404"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -81,6 +81,7 @@ Pour les sauvegardes de machines virtuelles Azure Linux, Sauvegarde Azure prend 
 - Sauvegarde Azure ne prend pas en charge les systèmes d’exploitation 32 bits.
 - Les autres distributions « Bring-Your-Own-Linux » peuvent fonctionner, dès lors que l’[agent de machine virtuelle Azure pour Linux](../virtual-machines/extensions/agent-linux.md) est disponible sur la machine virtuelle et que Python est pris en charge.
 - La Sauvegarde Azure ne prend pas en charge une machine virtuelle Linux configurée avec un proxy si elle n’a pas Python version 2.7 installé.
+- Le service Sauvegarde Azure ne prend pas en charge la sauvegarde de fichiers NFS montés à partir du stockage, ou de tout autre serveur NFS, sur des ordinateurs Linux ou Windows. Il sauvegarde uniquement les disques qui sont attachés localement à la machine virtuelle.
 
 ## <a name="backup-frequency-and-retention"></a>Fréquence et conservation des sauvegardes
 
@@ -144,10 +145,11 @@ Sauvegarder des machines virtuelles déployées à partir d’une image personna
 Sauvegarder des machines virtuelles migrées vers Azure| Pris en charge.<br/><br/> Pour sauvegarder la machine virtuelle, l’agent de machine virtuelle doit être installé sur la machine migrée.
 Cohérence multimachine virtuelle de la sauvegarde | La Sauvegarde Azure ne fournit pas la cohérence des données et des applications sur plusieurs machines virtuelles.
 Sauvegarde avec les [Paramètres de diagnostic](../azure-monitor/platform/platform-logs-overview.md)  | Non prise en charge. <br/><br/> Si la restauration de la machine virtuelle Azure avec les paramètres de diagnostic est déclenchée à l’aide de l’option [Créer](backup-azure-arm-restore-vms.md#create-a-vm), la restauration échoue.
-Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle les [zones de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) sont disponibles).<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible, la restauration échoue.
+Restauration des machines virtuelles épinglées par zone | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle les [zones de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) sont disponibles).<br/><br/>Nous prenons actuellement en charge la restauration dans la même zone que celle épinglée dans des machines virtuelles. Toutefois, si la zone n’est pas disponible en raison d’une panne, la restauration échoue.
 Machines virtuelles de deuxième génération | Prise en charge <br> Sauvegarde Azure prend en charge la sauvegarde et la restauration des [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Lorsque ces machines virtuelles sont restaurées à partir du point de récupération, elles sont restaurées sous la forme de [machines virtuelles de deuxième génération](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge pour les machines virtuelles non managées. <br><br> Pris en charge pour les machines virtuelles managées.
 [Machines virtuelles Spot](../virtual-machines/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
+[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Prise en charge
 
 ## <a name="vm-storage-support"></a>Prise en charge du stockage des machines virtuelles
 
@@ -165,6 +167,7 @@ Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas prise en charge. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 [Disques partagés](../virtual-machines/disks-shared-enable.md) | Non pris en charge.
 Disques SSD Ultra | Non pris en charge. Pour plus d’informations, consultez ces [Limitations](selective-disk-backup-restore.md#limitations).
+[Disques temporaires](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Les disques temporaires ne sont pas sauvegardés par Sauvegarde Azure.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 
@@ -221,7 +224,7 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
 Machines Windows locales sans DPM/MAB | N/D | ![Oui][green]
-Machines virtuelles Azure | NA | N/D
+Machines virtuelles Azure | N/D | N/D
 Machines virtuelles locales/Azure avec DPM | ![Oui][green] | ![Oui][green]
 Machines virtuelles locales/Azure avec MABS | ![Oui][green] | ![Oui][green]
 

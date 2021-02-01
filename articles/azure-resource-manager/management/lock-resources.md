@@ -4,12 +4,12 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602213"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802448"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -38,7 +38,7 @@ Si vous appliquez des verrous, il se peut que vous obteniez des résultats inatt
 
 * Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** empêche Azure Resource Manager de [supprimer automatiquement les déploiements](../templates/deployment-history-deletions.md) dans l’historique. Si vous atteignez 800 déploiements dans l’historique, vos déploiements échouent.
 
-* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Un verrou cannot-delete (suppression impossible) sur un **groupe de ressources** créé par le **service Sauvegarde Azure**, fera échouer les sauvegardes. Le service prend en charge un maximum de 18 points de restauration. Lorsqu’il est verrouillé, le service de sauvegarde ne peut pas nettoyer les points de restauration. Pour plus d’informations, consultez le [Forum aux questions – Sauvegarde de machines virtuelles Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Un verrou en lecture seule sur un **abonnement** empêche **Azure Advisor** de fonctionner correctement. Advisor ne peut pas stocker les résultats de ses requêtes.
 
@@ -254,10 +254,17 @@ Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Pour supprimer un verrou, utilisez :
+Pour supprimer un verrou pour une ressource, utilisez :
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Pour supprimer un verrou pour un groupe de ressources, utilisez :
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
@@ -295,10 +302,17 @@ Pour obtenir tous les verrous d’un groupe de ressources, utilisez :
 az lock list --resource-group exampleresourcegroup
 ```
 
-Pour supprimer un verrou, utilisez :
+Pour supprimer un verrou pour une ressource, utilisez :
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+Pour supprimer un verrou pour un groupe de ressources, utilisez :
+
+```azurecli
+lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup  --output tsv --query id)
 az lock delete --ids $lockid
 ```
 

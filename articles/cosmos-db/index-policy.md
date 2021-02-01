@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019174"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681648"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ Azure Cosmos DB prend en charge deux modes d’indexation :
 > Azure Cosmos DB prend également en charge un mode d’indexation différée. L’indexation différée effectue des mises à jour de l’index à un niveau de priorité nettement inférieur quand le moteur ne fait aucun autre travail. Cela peut entraîner des résultats de requête **incohérents ou incomplets**. Si vous prévoyez d’interroger un conteneur Cosmos, vous ne devez pas sélectionner l’indexation différée. Les nouveaux conteneurs ne peuvent pas sélectionner l’indexation différée. Vous pouvez demander une exemption en contactant le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (sauf si vous utilisez un compte Azure Cosmos en mode [serverless](serverless.md), qui ne prend pas en charge l’indexation différée).
 
 Par défaut, la stratégie d’indexation a la valeur `automatic`. Ce résultat est obtenu en affectant à la propriété `automatic` de la stratégie d’indexation la valeur `true`. L’affectation de `true` à cette propriété permet à Azure CosmosDB d’indexer automatiquement les documents au fur et à mesure de leur rédaction.
+
+## <a name="index-size"></a><a id="index-size"></a>Taille d’index
+
+Dans Azure Cosmos DB, la consommation totale du stockage correspond à la somme de la taille des données et de la taille de l’index. Voici quelques-unes des fonctionnalités de la taille d’index :
+
+* La taille d’index dépend de la stratégie d’indexation. Si toutes les propriétés sont indexées, la taille d’index peut être supérieure à la taille des données.
+* Lorsque des données sont supprimées, les index sont compactés de manière quasi continue. Toutefois, pour les petites suppressions de données, vous risquez de ne pas observer de diminution immédiate de la taille d’index.
+* La taille d’index peut croître dans les cas suivants :
+
+  * Durée de fractionnement de la partition : l’espace d’index est libéré après fractionnement de la partition.
+  * Lors du fractionnement d’une partition, l’espace d’index augmente temporairement pendant le processus. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusion et exclusion de chemins de propriété
 

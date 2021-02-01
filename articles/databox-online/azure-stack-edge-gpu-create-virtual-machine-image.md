@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763659"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806681"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Créer des images de machine virtuelle personnalisées pour votre appareil Azure Stack Edge Pro
 
@@ -23,7 +23,7 @@ Pour déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro, 
 
 ## <a name="vm-image-workflow"></a>Workflow d’image de machine virtuelle
 
-Le workflow nécessite la création d’une machine virtuelle dans Azure, la personnalisation de la machine virtuelle, la généralisation, puis le téléchargement du disque dur virtuel correspondant à cette machine virtuelle. Ce disque dur virtuel généralisé est chargé sur Azure Stack Edge Pro, le disque managé est créé à partir de ce disque dur virtuel, l’image est créée à partir du disque managé et, pour finir, les machines virtuelles sont créées à partir de cette image.   
+Le workflow nécessite la création d’une machine virtuelle dans Azure, la personnalisation de la machine virtuelle, la généralisation, puis le téléchargement du disque dur virtuel correspondant à cette machine virtuelle. Ce disque dur virtuel généralisé est chargé sur Azure Stack Edge Pro. Un disque managé est créé à partir de ce disque dur virtuel. Une image est créée à partir du disque managé. Enfin, les machines virtuelles sont créées à partir de cette image.
 
 Pour plus d’informations, consultez [Déployer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -76,7 +76,7 @@ Utilisez ce disque dur virtuel pour créer et déployer maintenant une machine v
 |[Serveur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server est le Linux le plus populaire au monde pour les environnements cloud.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux est l’une des distributions Linux les plus populaires.     |credativ|
 
-Pour obtenir la liste complète des images de la Place de Marché Azure qui peuvent fonctionner (non testées pour le moment), accédez à [Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Pour obtenir la liste complète des images de la Place de Marché Azure qui peuvent fonctionner (non testées pour le moment), accédez à [Éléments disponibles sur la Place de Marché Azure pour Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

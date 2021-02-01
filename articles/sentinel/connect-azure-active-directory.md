@@ -13,25 +13,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 279f54c3de964580cc37d1288a6e1b7726348e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208623"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802256"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connecter des données à partir d’Azure Active Directory (Azure AD)
-
-
 
 Vous pouvez utiliser le connecteur intégré d’Azure Sentinel pour collecter des données à partir d’[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) et de les diffuser en continu vers Azure Sentinel. Le connecteur vous permet de diffuser des [journaux de connexion](../active-directory/reports-monitoring/concept-sign-ins.md) et [journaux d’audit](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-
-- Toute licence Azure AD (Free/O365/P1/P2) est suffisante pour recevoir les journaux de connexion dans Azure Sentinel. Des frais supplémentaires par gigaoctet peuvent s’appliquer pour Azure Monitor (Log Analytics) et Azure Sentinel.
+- Vous devez disposer d’un abonnement [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) pour recevoir les journaux de connexion dans Azure Sentinel. Des frais supplémentaires par gigaoctet peuvent s’appliquer pour Azure Monitor (Log Analytics) et Azure Sentinel.
 
 - Le rôle Contributeur Azure Sentinel doit être attribué à votre utilisateur sur l’espace de travail.
 
@@ -39,18 +36,25 @@ Vous pouvez utiliser le connecteur intégré d’Azure Sentinel pour collecter d
 
 - Votre utilisateur doit disposer d’autorisations en lecture et en écriture sur les paramètres de diagnostic Azure AD pour pouvoir voir l’état de la connexion. 
 
-
 ## <a name="connect-to-azure-active-directory"></a>Connexion à Azure Active Directory
 
 1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** dans le menu de navigation.
 
 1. Dans la galerie des connecteurs de données, sélectionnez **Azure Active Directory**, puis sélectionnez **Ouvrir la page du connecteur**.
 
-1. Cochez les cases associées aux journaux que vous souhaitez diffuser dans Azure Sentinel, puis cliquez sur **Se connecter**.
+1. Cochez les cases associées aux types de journaux que vous souhaitez diffuser dans Azure Sentinel, puis cliquez sur **Se connecter**. Vous pouvez choisir parmi les types de journaux suivants :
 
-1. Vous pouvez indiquer si vous voulez que les alertes d’Azure AD génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle analytique par défaut qui crée automatiquement des incidents à partir des alertes générées dans le service de sécurité connecté. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
+    - **Journaux d’activité de connexion** : Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
+    - **Journaux d’audit**: Informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, aux applications gérées et aux activités de répertoire.
 
-1. Pour utiliser le schéma approprié dans Log Analytics afin d’exécuter une requête pour les alertes Azure AD, saisissez `SigninLogs` ou `AuditLogs` dans la fenêtre de requête.
+## <a name="find-your-data"></a>Recherche de données
+
+Une fois la connexion établie, les données s’affichent dans **Journaux**, sous la section **LogManagement**, dans les tables suivantes :
+
+- `SigninLogs`
+- `AuditLogs`
+
+Pour interroger les journaux Azure AD, entrez le nom de table approprié en haut de la fenêtre de requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Azure Active Directory à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :

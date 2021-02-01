@@ -1,22 +1,25 @@
 ---
-title: Schéma NetworkConfiguration d’Azure Cloud Services | Microsoft Docs
+title: Schéma NetworkConfiguration d’Azure Cloud Services (classique) | Microsoft Docs
 description: Découvrez les éléments enfants de l’élément NetworkConfiguration du fichier de configuration de service, qui spécifie les valeurs de réseau virtuel et DNS.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a3f62bb33332e818cc40c5195a1cc2f667f819b4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+'---thor': tagore
+ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072575"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743455"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration de configuration d’Azure Cloud Services
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration de configuration d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 L’élément `NetworkConfiguration` du fichier de configuration de service spécifie les valeurs du réseau virtuel et DNS. Ces paramètres sont facultatifs pour les services cloud.
 

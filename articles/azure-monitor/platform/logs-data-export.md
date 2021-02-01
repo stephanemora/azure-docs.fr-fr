@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797109"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804946"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
 
 ## <a name="overview"></a>Vue d’ensemble
-Une fois que l’exportation de données est configurée pour votre espace de travail Log Analytics, toutes les nouvelles données envoyées aux tables sélectionnées dans l’espace de travail sont automatiquement exportées vers votre compte de stockage toutes les heures ou vers Event Hubs en temps quasi-réel.
+Une fois que l’exportation de données est configurée pour votre espace de travail Log Analytics, toutes les nouvelles données envoyées aux tables sélectionnées dans l’espace de travail sont automatiquement exportées vers votre compte de stockage ou vers votre Event Hub en temps quasi-réel.
 
 ![Vue d’ensemble de l’exportation de données](media/logs-data-export/data-export-overview.png)
 
@@ -33,15 +33,18 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 - Exportation unique vers l’ordinateur local à l’aide d’un script PowerShell. Consultez [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
-## <a name="current-limitations"></a>Limites actuelles
+## <a name="limitations"></a>Limites
 
-- La configuration ne peut actuellement être effectuée qu’à l’aide d’une interface CLI ou de requêtes REST. Vous ne pouvez pas utiliser le Portail Azure ou PowerShell.
+- Actuellement, la configuration peut être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
 - L’option ```--export-all-tables``` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
-- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. Si la règle d’exportation de données comprend une table non prise en charge, l’opération échoue, mais aucune donnée n’est exportée pour cette table. Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace.```
+- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. 
+- Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
+- Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace```.
 - Votre espace de travail Log Analytics peut se trouver dans n’importe quelle région, à l’exception des suivantes :
   - Suisse Nord
   - Suisse Ouest
   - Régions Azure Government
+- Vous pouvez créer deux règles d’exportation dans un espace de travail : il peut s’agir d’une règle pour Event Hub et d’une règle pour le compte de stockage.
 - Le compte de stockage de destination ou Event Hub doit se trouver dans la même région que l’espace de travail Log Analytics.
 - Les noms des tables à exporter ne peuvent pas dépasser 60 caractères pour un compte de stockage et 47 caractères pour un Event Hub. Les tables avec des noms plus longs ne seront pas exportées.
 
@@ -64,7 +67,7 @@ Il n’y a actuellement pas de frais supplémentaires pour la fonctionnalité d�
 ## <a name="export-destinations"></a>Destinations d’exportation
 
 ### <a name="storage-account"></a>Compte de stockage
-Les données sont envoyées aux comptes de stockage toutes les heures. La configuration de l’exportation de données crée un conteneur pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent*.
+Les données sont envoyées aux comptes de stockage quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. La configuration de l’exportation de données crée un conteneur pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent*.
 
 Le chemin d'accès à l’objet Blob du compte de stockage est *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=00/PT1H.json*. Étant donné que les objets Blob d’ajout sont limités à 50 000 écritures dans le stockage, le nombre d’objets Blob exportés peut s’étendre si le nombre d’ajouts est élevé. Dans ce cas, le modèle d’affectation de noms pour les objets Blob serait PT1H_#.json, où # est le nombre d’objets Blob incrémenté.
 
@@ -115,7 +118,7 @@ Si vous avez configuré votre compte de stockage pour autoriser l’accès à pa
 
 
 ### <a name="create-or-update-data-export-rule"></a>Créer ou mettre à jour une règle d’exportation de données
-Une règle d’exportation de données définit les données qui doivent être exportées pour un certain ensemble de tables vers une destination unique. Vous pouvez créer une règle pour chaque destination.
+Une règle d’exportation de données définit les données qui doivent être exportées pour un certain ensemble de tables vers une destination unique. Vous pouvez créer une règle unique pour chaque destination.
 
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)

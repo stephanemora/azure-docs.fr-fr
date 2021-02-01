@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812537"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752646"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
@@ -29,7 +29,7 @@ La plateforme d’identité Microsoft prend en charge l’[octroi des informatio
 
 > [!IMPORTANT]
 >
-> * Le point de terminaison de la plateforme d’identité Microsoft prend en charge ROPC seulement pour les locataires Azure AD, et non pas pour les comptes personnels. Cela signifie que vous devez utiliser un point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou le point de terminaison `organizations`.
+> * La plateforme d’identité Microsoft prend en charge ROPC seulement pour les locataires Azure AD, et pas pour les comptes personnels. Cela signifie que vous devez utiliser un point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`) ou le point de terminaison `organizations`.
 > * Les comptes personnels qui sont invités sur un locataire Azure AD ne peuvent pas utiliser ROPC.
 > * Les comptes qui n’ont pas de mots de passe ne peuvent pas se connecter via ROPC. Pour ce scénario, nous vous recommandons d’utiliser à la place un autre flux pour votre application.
 > * Si les utilisateurs doivent utiliser l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md) pour se connecter à l’application, ils seront au lieu de cela bloqués.
