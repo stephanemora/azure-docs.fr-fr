@@ -1,6 +1,6 @@
 - name: Documentation Spatial Anchors
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Spatial Anchors
       href: overview.md
@@ -83,6 +83,8 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: En C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Utiliser la relocalisation approximative sans session d’ancre
+      href: how-tos/use-coarse-relocalization-without-anchor-session.md
     - name: Configuration du projet
       items:
         - name: C++/WinRT

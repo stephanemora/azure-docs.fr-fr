@@ -1,10 +1,10 @@
 ---
-title: Gérer des comptes administrateur d’accès en cas d’urgence – Azure AD | Microsoft Docs
+title: Gérer des comptes administrateur d’accès en cas d’urgence – Azure AD
 description: Cet article explique comment utiliser des comptes d’accès d’urgence pour éviter de vous retrouver empêché par inadvertance d’accéder à votre organisation Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 manager: daveba
-ms.author: curtand
+ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d6a1e4b3b44004ec6d03c293bbd10617b3d3af69
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834436"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740820"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -60,7 +60,7 @@ En cas d’urgence, vous ne souhaitez pas qu’une stratégie risque de vous emp
 
 ## <a name="federation-guidance"></a>Conseils sur la fédération
 
-Une option supplémentaire pour les organisations qui utilisent Azure AD Domain Services et ADFS ou un fournisseur d’identité similaire pour fédérer sur Azure AD, consiste à configurer un compte d’accès d’urgence dont la revendication MFA pourrait être fournie par ce fournisseur d’identité.  Par exemple, le compte d’accès d’urgence pourrait s’appuyer sur un certificat et une paire de clés stockée sur une carte à puce.  Quand cet utilisateur est authentifié auprès d’AD, ADFS peut transmettre une revendication à Azure AD, indiquant que l’utilisateur a satisfait aux exigences de MFA.  Même avec cette approche, les organisations doivent toujours disposer de comptes d’accès d’urgence basés sur le cloud au cas où une fédération ne pourrait pas être établie. 
+Certaines organisations utilisent les services de domaine Active Directory et ADFS ou un fournisseur d’identité similaire pour se fédérer dans Azure AD. [Il ne doit y avoir aucun compte local avec des privilèges d’administration](../fundamentals/protect-m365-from-on-premises-attacks.md). La maîtrise ou l’authentification de l’approvisionnement pour les comptes ayant des privilèges d’administration en dehors d’Azure AD ajoute un risque inutile en cas de panne ou de compromission de ces systèmes.
 
 ## <a name="store-account-credentials-safely"></a>Stocker les informations d’identification de compte en toute sécurité
 

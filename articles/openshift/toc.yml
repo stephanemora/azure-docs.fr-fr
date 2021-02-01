@@ -1,6 +1,6 @@
 - name: Azure Red Hat OpenShift
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: À propos d’Azure Red Hat OpenShift
@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: Guides pratiques
   items:
+    - name: Opérations de cluster
+      items:
+        - name: Mettre à niveau un cluster ARO
+          href: howto-upgrade.md
     - name: Mise en réseau
       items:
         - name: Créer un cluster ARO privé
@@ -28,6 +32,8 @@
           href: howto-create-a-storageclass.md
         - name: Utiliser le registre de conteneurs intégré
           href: built-in-container-registry.md
+        - name: Utiliser un registre de conteneurs Azure
+          href: howto-use-acr-with-aro.md
     - name: Sécurité et authentification
       items:
         - name: Configurer l’authentification Azure Active Directory (CLI)

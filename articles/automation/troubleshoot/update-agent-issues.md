@@ -4,17 +4,17 @@ description: Cet article explique comment détecter et résoudre les problèmes 
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187130"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762112"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Windows
 
@@ -27,10 +27,10 @@ De nombreuses raisons peuvent expliquer pourquoi votre machine n’apparaît pas
 > [!NOTE]
 > L’état actuel d’une machine peut s’afficher avec un léger retard sur le Portail Azure.
 
-Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure, et comment exécuter les machines non Azure dans un [scénario hors connexion](#troubleshoot-offline). 
+Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure, et comment exécuter les machines non Azure dans un [scénario hors connexion](#troubleshoot-offline).
 
 > [!NOTE]
-> Le script de l’utilitaire de résolution des problèmes comprend désormais des vérifications pour Windows Server Update Services (WSUS), ainsi que pour les clés de téléchargement automatique et d’installation. 
+> Le script de l’utilitaire de résolution des problèmes comprend désormais des vérifications pour Windows Server Update Services (WSUS), ainsi que pour les clés de téléchargement automatique et d’installation.
 
 ## <a name="start-the-troubleshooter"></a>Démarrer l’utilitaire de résolution des problèmes
 
@@ -110,7 +110,7 @@ La vérification d’accès au dossier Crypto détermine si le compte système L
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Résolution des problèmes hors connexion
 
-Vous pouvez utiliser l’utilitaire de résolution des problèmes sur un Runbook Worker hybride hors connexion en exécutant le script localement. Obtenez le script suivant à partir de PowerShell Gallery : [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Pour exécuter le script, vous devez avoir installé WMF 4.0 ou ultérieur. Pour télécharger la dernière version de PowerShell, consultez [Installer plusieurs versions de PowerShell](/powershell/scripting/install/installing-powershell).
+Vous pouvez utiliser l’utilitaire de résolution des problèmes sur un Runbook Worker hybride hors connexion en exécutant le script localement. Récupérez le script suivant sur GitHub : [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Pour exécuter le script, vous devez avoir installé WMF 4.0 ou ultérieur. Pour télécharger la dernière version de PowerShell, consultez [Installer plusieurs versions de PowerShell](/powershell/scripting/install/installing-powershell).
 
 La sortie de ce script ressemble à l’exemple suivant :
 

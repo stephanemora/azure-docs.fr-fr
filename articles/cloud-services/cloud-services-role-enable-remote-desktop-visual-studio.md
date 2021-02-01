@@ -1,25 +1,24 @@
 ---
-title: Activer le Bureau à distance pour un rôle à l’aide de Visual Studio (Azure Cloud Services)
+title: Activer le Bureau à distance pour un rôle à l’aide de Visual Studio (Azure Cloud Services classique)
 description: Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294388"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743234"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services (classique) avec Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
@@ -40,7 +39,7 @@ Lorsque vous utilisez Visual Studio 2017 version 15.4 et les versions antérieur
 
 2. Connectez-vous à votre abonnement Azure si nécessaire, puis sélectionnez **Suivant**.
 
-3. Sur la page **Paramètres**, sélectionnez **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez le lien **Paramètres...**  pour ouvrir la boîte de dialogue **Configuration Bureau à distance**.
+3. Sur la page **Paramètres**, sélectionnez **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez le lien **Paramètres...** pour ouvrir la boîte de dialogue **Configuration Bureau à distance**.
 
 4. Au bas de la boîte de dialogue, sélectionnez **Plus d’options**. Cette commande affiche une liste déroulante dans laquelle vous pouvez créer ou sélectionner un certificat afin de chiffrer les informations d’identification lors de la connexion Bureau à distance.
 
@@ -59,7 +58,7 @@ Lorsque vous utilisez Visual Studio 2017 version 15.4 et les versions antérieur
 
 ## <a name="configure-remote-desktop-when-using-visual-studio-2017-version-155-and-later"></a>Configurer le Bureau à distance lorsque vous utilisez Visual Studio 2017 version 15.5 et versions ultérieures
 
-Avec Visual Studio 2017 15.5 et versions ultérieures, vous pouvez toujours utiliser l’Assistant publication avec un projet de service cloud. Vous pouvez également utiliser l’option**Activer le Bureau à distance pour tous les rôles** si vous êtes l’unique développeur.
+Avec Visual Studio 2017 15.5 et versions ultérieures, vous pouvez toujours utiliser l’Assistant publication avec un projet de service cloud. Vous pouvez également utiliser l’option **Activer le Bureau à distance pour tous les rôles** si vous êtes l’unique développeur.
 
 Si vous travaillez dans le cadre d’une équipe, vous devez activer à la place le Bureau à distance sur le service cloud Azure à l’aide du [portail Azure](cloud-services-role-enable-remote-desktop-new-portal.md) ou de [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
@@ -95,7 +94,7 @@ Pour utiliser l’extension RDP à partir d’Azure DevOps Services, incluez les
 
 1. Après vos étapes de génération, ajouter l’étape de **déploiement du Service Cloud Azure** et définissez ses propriétés.
 
-1. Après l’étape de déploiement, ajoutez une étape **Azure Powershell**, définissez sa propriété de **nom d’affichage** comme « Déploiement : activer RDP Extension Azure » (ou tout autre nom approprié) et sélectionnez l’abonnement Azure qui convient.
+1. Après l’étape de déploiement, ajoutez une étape **Azure Powershell**, définissez sa propriété de **nom d’affichage** comme « Déploiement : activer RDP Extension Azure » (ou tout autre nom approprié) et sélectionnez l’abonnement Azure approprié.
 
 1. Définissez le **Type de Script** à « Inline » et collez le code ci-dessous dans le champ **Script Inline**. (Vous pouvez également créer un fichier `.ps1` dans votre projet avec ce script, définissez le **Type de script** sur « Chemin d’accès de fichier de script » et définissez le **Chemin d’accès du Script** pour qu’il pointe vers le fichier.)
 

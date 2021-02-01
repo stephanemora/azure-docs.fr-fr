@@ -1,6 +1,6 @@
 - name: Documentation Azure Migrate
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos d’Azure Migrate
       href: migrate-services-overview.md
@@ -190,6 +190,8 @@
           href: how-to-delete-project.md
         - name: Utiliser une version précédente d’Azure Migrate
           href: migrate-v1.md
+        - name: Gérer la migration des projets avec Azure Lighthouse
+          href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Dépanner
   items:
     - name: Général

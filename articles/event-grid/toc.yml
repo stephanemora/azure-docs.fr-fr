@@ -42,6 +42,8 @@
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Gérer les événements Azure Communication Services
       href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Événements Azure Cache pour Redis
+      href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutoriels
   items:
     - name: M’avertir par e-mail lorsque la machine virtuelle subit des modifications
@@ -138,6 +140,8 @@
               href: event-schema-azure-signalr.md
             - name: Abonnements Azure
               href: event-schema-subscriptions.md
+            - name: Cache Azure pour Redis
+              href: event-schema-azure-cache.md
     - name: Événements partenaire
       items:
         - name: Vue d’ensemble des événements partenaire
@@ -159,7 +163,7 @@
     - name: Gestionnaires d’événements
       href: event-handlers.md
       items:
-        - name: webhooks
+        - name: Webhooks
           displayName: 'Azure Automation, Webhooks, Logic Apps'
           href: handler-webhooks.md
         - name: Azure Functions
@@ -188,6 +192,8 @@
       items:
         - name: Base de référence de la sécurité
           href: security-baseline.md
+        - name: Contrôles de sécurité par Azure Policy
+          href: ./security-controls-policy.md
         - name: Authentifier la remise des événements aux gestionnaires d’événements
           href: security-authentication.md
         - name: Authentifier les clients de publication

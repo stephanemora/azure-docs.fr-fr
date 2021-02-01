@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2f8dc9f53c36f59a152fc34361b3726ea2cc001c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797056"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -129,16 +129,19 @@ Vous pouvez appliquer des filtres aux graphiques dont les métriques ont des dim
 
    ![Capture d’écran montrant les dimensions (propriétés) que vous pouvez filtrer.](./media/metrics-charts/028.png)
 
-3. Sélectionnez les valeurs de dimension que vous souhaitez inclure lorsque vous tracez le graphique. L’exemple suivant filtre les transactions de stockage réussies :
+3. Sélectionnez l’opérateur que vous souhaitez appliquer à la dimension (propriété). L'opérateur par défaut est = (égal à).
+
+   ![Capture d’écran représentant l’opérateur que vous pouvez utiliser avec le filtre.](./media/metrics-charts/filter-operator.png)
+
+4. Sélectionnez les valeurs de dimension que vous souhaitez appliquer au filtre lors du traçage du graphique (cet exemple illustre le filtrage des transactions de stockage qui ont réussi) :
 
    ![Capture d’écran montrant les transactions de stockage filtrées ayant réussi.](./media/metrics-charts/029.png)
 
-4. Cliquez à l’extérieur du **sélecteur de filtre** pour le fermer. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
+5. Après avoir sélectionné les valeurs de filtre, cliquez à côté du sélecteur de filtre pour fermer celui-ci. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
 
    ![Capture d’écran montrant le nombre de transactions de stockage ayant échoué.](./media/metrics-charts/030.png)
 
-Vous pouvez répéter ces étapes pour appliquer plusieurs filtres aux mêmes graphiques.
-
+6. Vous pouvez répéter les étapes 1 à 5 pour appliquer plusieurs filtres aux mêmes graphiques.
 
 
 ## <a name="metric-splitting"></a>Fractionnement des métriques
@@ -158,9 +161,18 @@ Vous pouvez fractionner une métrique par dimension pour visualiser les différe
 
    Le graphique montre à présent plusieurs courbes, une par segment de dimension :
 
-   ![Capture d’écran montrant des courbes pour chaque segment de dimension.](./media/metrics-charts/032.png)
+   ![Capture d’écran montrant plusieurs lignes, une pour chaque segment de dimension.](./media/metrics-charts/segment-dimension.png)
+   
+3. Choisissez une limite sur le nombre de valeurs à afficher après le fractionnement par dimension sélectionnée. La limite par défaut est 10, comme indiqué dans le graphique ci-dessus. La plage de limites est compris de 1 à 50.
+   
+   ![Capture d’écran montrant la limite de fractionnement, qui limite le nombre de valeurs après le fractionnement.](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. Choisissez l’ordre de tri sur les segments : Croissant ou Décroissant. Décroissant est sélectionné par défaut.
+   
+   ![Capture d’écran montrant l’ordre de tri des valeurs de fractionnement.](./media/metrics-charts/segment-dimension-sort.png)
 
-3. Cliquez à l’extérieur du **sélecteur de regroupement** pour le fermer.
+5. Cliquez à côté du **sélecteur de regroupement** pour fermer celui-ci.
+   
 
    > [!NOTE]
    > Pour masquer les segments non pertinents pour votre scénario et faciliter la lecture des graphiques, utilisez un filtrage et un fractionnement sur la même dimension.

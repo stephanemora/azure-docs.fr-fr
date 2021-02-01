@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/03/2017
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 600934e2d46c1a84a83fa1290db13b3d0d1508f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bed1c8fd77e84c69571cfad7dd6b7eeb6607209f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995401"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808042"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>Résolution des problèmes de déploiement d’un appareil StorSimple
 ## <a name="overview"></a>Vue d’ensemble
@@ -58,10 +58,10 @@ Les étapes suivantes résument le processus de l’Assistant Installation. Pour
      > [!IMPORTANT]
      > Les mots de passe sont collectés avant l’inscription, mais appliqués seulement après que vous avez inscrit correctement l’appareil. En cas de non-application d’un mot de passe, vous devez fournir le mot de passe à nouveau jusqu’à ce que les mots de passe requis (qui répondent aux exigences de complexité) soient collectés.
      
-4. Inscrivez l’appareil : la dernière étape consiste à inscrire l’appareil auprès du service StorSimple Device Manager en cours d’exécution dans Microsoft Azure. L’inscription vous oblige à [obtenir la clé d’inscription](storsimple-8000-manage-service.md#get-the-service-registration-key) à partir du portail Azure et à le fournir dans l’Assistant Installation. **Une fois que l’appareil est inscrit correctement, une clé de chiffrement des données du service vous est fournie. Veillez à conserver cette clé de chiffrement dans un emplacement sûr, car elle sera nécessaire pour inscrire tous les autres appareils auprès du service.**
+4. Inscrivez l’appareil : la dernière étape consiste à inscrire l’appareil auprès du service StorSimple Device Manager en cours d’exécution dans Microsoft Azure. L’inscription vous oblige à [obtenir la clé d’inscription](storsimple-8000-manage-service.md#get-the-service-registration-key) à partir du portail Azure et à le fournir dans l’Assistant Installation. **Une fois que l’appareil est inscrit correctement, une clé de chiffrement des données du service vous est fournie. Veillez à conserver cette clé de chiffrement dans un emplacement sûr, car elle sera nécessaire pour inscrire tous les appareils ultérieurs auprès du service.**
 
 ## <a name="common-errors-during-device-deployment"></a>Erreurs courantes lors du déploiement de l’appareil
-Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencontrer lorsque vous :
+Les tableaux suivants répertorient les erreurs courantes que vous pouvez rencontrer lorsque vous :
 
 * configurez les paramètres réseau requis ;
 * configurez les paramètres de proxy web facultatifs ;
@@ -94,7 +94,7 @@ Le mot de passe par défaut de l’appareil est **Password1**. Ce mot de passe e
 Assurez-vous que vos mots de passe répondent aux exigences suivantes :
 
 * Le mot de passe Administrateur de votre appareil doit comprendre entre 8 et 15 caractères.
-* Les mots de passe doivent contenir 3 des 4 types de caractères suivants : minuscules, majuscules, numériques et spéciaux. 
+* Les mots de passe doivent contenir trois des types de caractères suivants : minuscules, majuscules, numériques et spéciaux. 
 * Votre mot de passe ne peut pas être identique aux 24 derniers mots de passe.
 
 En outre, n’oubliez pas que les mots de passe expirent chaque année et qu’ils peuvent être modifiés uniquement après l’inscription correcte de l’appareil. Si l’inscription échoue pour une raison quelconque, les mots de passe ne sont pas modifiés.
@@ -139,10 +139,10 @@ Vous utilisez le service StorSimple Device Manager en cours d’exécution dans 
 | 9 |Avertissement : Impossible d’activer l’appareil. Les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple n’ont pas été modifiés. |Si l’inscription échoue, les mots de passe de l’administrateur de l’appareil et du Gestionnaire d’instantanés StorSimple ne sont pas modifiés. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Outils de résolution des problèmes de déploiement de StorSimple
-StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. notamment :
+StorSimple comprend plusieurs outils que vous pouvez utiliser pour résoudre les problèmes de votre solution StorSimple. Ces outils incluent :
 
 * Packages de prise en charge et journaux d’activité d’appareil.
-* Applets de commande conçues spécialement pour la résolution des problèmes.
+* Applets de commande conçues pour la résolution des problèmes.
 
 ## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Packages de prise en charge et journaux d’activité d’appareil disponibles pour la résolution des problèmes
 Un package de prise en charge contient tous les journaux d’activité pertinents qui peuvent aider l’équipe de support technique de Microsoft à résoudre les problèmes des appareils. Vous pouvez utiliser Windows PowerShell pour StorSimple pour générer un package de prise en charge chiffré que vous pouvez ensuite partager avec le personnel du support technique.
@@ -153,7 +153,7 @@ Un package de prise en charge contient tous les journaux d’activité pertinent
 3. Utilisez cette [procédure pas à pas](storsimple-8000-create-manage-support-package.md#edit-a-support-package) pour ouvrir et déchiffrer le package de prise en charge.
 4. Les journaux d’activité du package de prise en charge déchiffré sont au format etw/etvx. Vous pouvez afficher ces fichiers dans l’Observateur d’événements Windows en procédant comme suit :
    
-   1. Exécutez la commande **eventvwr** sur votre client Windows. L’Observateur d’événements démarre.
+   1. Exécutez la commande **eventvwr** sur votre client Windows pour démarrer l’Observateur d'événements.
    2. Dans le volet **Actions**, cliquez sur **Ouvrir le journal enregistré** et pointez sur les fichiers journaux au format etvx/etw (le package de prise en charge). Vous pouvez maintenant consulter le fichier. Après avoir ouvert le fichier, vous pouvez cliquer dessus avec le bouton droit et l’enregistrer au format texte.
       
       > [!IMPORTANT]
@@ -189,7 +189,7 @@ Au moment de configurer des interfaces réseau pour un premier déploiement d’
    * Si l’interface est intègre mais pas activée, l’état d’**ifIndex** indique **Absent**.
    * Si l’interface n’existe pas, il n’apparaît pas dans cette liste. L’interface utilisateur du service StorSimple Device Manager continue d’afficher cette interface avec l’état Échec.
 
-Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps) dans le document de référence des applets de commande Windows PowerShell.
+Pour plus d’informations sur l’utilisation de cette applet de commande, accédez à la page [GetNetAdapter](/powershell/module/netadapter/get-netadapter?view=win10-ps&preserve-view=true) dans le document de référence des applets de commande Windows PowerShell.
 
 Les sections suivantes présentent des exemples de sortie de l’applet de commande `Get-NetAdapter` .
 
@@ -206,7 +206,7 @@ Le contrôleur 1 était le contrôleur actif et a été configuré comme suit :
 
 **Exemple de sortie – contrôleur 0**
 
-Voici la sortie du contrôleur 0 (le contrôleur passif). DATA 1, DATA 2 et DATA 3 ne sont pas connectées. DATA 4 et DATA 5 ne sont pas répertoriées, car elles sont absentes de l’appareil.
+Voici un exemple de données de sortie du contrôleur 0 (le contrôleur passif). DATA 1, DATA 2 et DATA 3 ne sont pas connectées. DATA 4 et DATA 5 ne sont pas répertoriées, car elles sont absentes de l’appareil.
 
 ```output
 Controller0>Get-NetAdapter
@@ -222,7 +222,7 @@ DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
 
 **Exemple de sortie – contrôleur 1**
 
-Voici la sortie du contrôleur 1 (le contrôleur actif). Seule l’interface réseau DATA 0 est configurée et fonctionne sur l’appareil.
+Voici un exemple de données de sortie du contrôleur 1 (le contrôleur actif). Seule l’interface réseau DATA 0 est configurée et fonctionne sur l’appareil.
 
 ```output
 Controller1>Get-NetAdapter
@@ -241,7 +241,7 @@ DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPre
 ## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Résolution des problèmes avec l’applet de commande Test-Connection
 Vous pouvez utiliser l’applet de commande `Test-Connection` pour déterminer si votre appareil StorSimple peut se connecter au réseau externe. Si tous les paramètres réseau, y compris le DNS, sont correctement configurés dans l’Assistant Installation, vous pouvez utiliser l’applet de commande `Test-Connection` pour effectuer un test ping sur une adresse connue à l’extérieur du réseau, comme outlook.com.
 
-Vous devez activer la commande ping pour résoudre les problèmes de connectivité avec cette applet de commande si la commande ping est désactivée.
+Si l’applet de commande ping est désactivée, vous devez activer la commande ping pour résoudre les problèmes de connectivité.
 
 Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-Connection` .
 
@@ -250,7 +250,7 @@ Consultez ci-dessous les exemples de sortie de l’applet de commande `Test-Conn
 
 **Exemple de sortie – DNS incorrect**
 
-Dans l’exemple suivant, il n’y a pas de sortie pour les adresses IPV4 et IPV6, ce qui indique que le DNS n’est pas résolu. Cela signifie qu’il n’y a pas de connectivité vers le réseau externe et qu’un DNS correct doit être fourni.
+L’exemple suivant n’inclut pas de sortie pour les adresses IPV4 et IPV6, ce qui indique que le DNS n’est pas résolu. Il n’y a pas de connectivité vers le réseau externe et un DNS correct doit être fourni.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -263,7 +263,7 @@ HCSNODE0      outlook.com
 
 **Exemple de sortie : DNS correct**
 
-Dans l’exemple suivant, le DNS renvoie l’adresse IPV4, ce qui indique que le DNS est correctement configuré. Cela confirme qu’il existe une connectivité vers le réseau externe.
+Dans l’exemple suivant, le DNS renvoie l’adresse IPV4, ce qui indique que le DNS est correctement configuré. La sortie confirme qu’il existe une connectivité vers le réseau externe.
 
 ```output
 Source        Destination     IPV4Address      IPV6Address
@@ -281,29 +281,29 @@ Utilisez l’applet de commande `Test-HcsmConnection` pour un appareil qui est d
 1. Assurez-vous que l’appareil est inscrit.
 2. Vérifiez l’état de l’appareil. Si l’appareil est désactivé, en mode de maintenance ou hors connexion, l’une des erreurs suivantes peut s’afficher :
    
-   * ErrorCode.CiSDeviceDecommissioned : indique que l’appareil est désactivé.
-   * ErrorCode.DeviceNotReady : indique que l’appareil est en mode maintenance.
-   * ErrorCode.DeviceNotReady : indique que l’appareil n’est pas en ligne.
+   * ErrorCode.CiSDeviceDecommissioned : Indique que l’appareil est désactivé.
+   * ErrorCode.DeviceNotReady : Indique que l’appareil est en mode Maintenance.
+   * ErrorCode.DeviceNotReady : Indique que l’appareil n’est pas en ligne.
 3. Vérifiez que le service StorSimple Device Manager est en cours d’exécution (utilisez l’applet de commande [Get-ClusterResource](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee461004(v=technet.10)) ). Si le service n’est pas en cours d’exécution, les erreurs suivantes peuvent s’afficher :
    
    * ErrorCode.CiSApplianceAgentNotOnline
-   * ErrorCode.CisPowershellScriptHcsError : indique qu’une exception est survenue lors de l’exécution de Get-ClusterResource.
+   * ErrorCode.CisPowershellScriptHcsError : Indique qu’une exception est survenue lors de l’exécution de Get-ClusterResource.
 4. Vérifiez le jeton du service de contrôle d’accès (ACS) S’il lève une exception web, cela peut résulter d’un problème de passerelle, d’une authentification proxy manquante, d’un DNS incorrect ou d’un échec d’authentification. Les erreurs suivantes peuvent s’afficher :
    
-   * ErrorCode.CiSApplianceGateway : indique une exception HttpStatusCode.BadGateway : le service de résolution de noms n’a pas pu résoudre le nom de l’hôte.
-   * ErrorCode.CiSApplianceProxy : indique une exception HttpStatusCode.ProxyAuthenticationRequired (code d’état HTTP 407) : le client n’a pas pu s’authentifier auprès du serveur proxy.
-   * ErrorCode.CiSApplianceDNSError : indique une exception WebExceptionStatus.NameResolutionFailure : le service de résolution de noms n’a pas pu résoudre le nom d’hôte.
-   * ErrorCode.CiSApplianceACSError : indique que le service a renvoyé une erreur d’authentification, mais qu’il existe une connectivité.
+   * ErrorCode.CiSApplianceGateway : Indique une exception HttpStatusCode.BadGateway : le service de résolution de noms n’a pas pu résoudre le nom de l’hôte.
+   * ErrorCode.CiSApplianceProxy : Indique une exception HttpStatusCode.ProxyAuthenticationRequired (code d’état HTTP 407) : le client n’a pas pu s’authentifier auprès du serveur proxy.
+   * ErrorCode.CiSApplianceDNSError : Indique une exception WebExceptionStatus.NameResolutionFailure : le service de résolution de noms n'a pas pu résoudre le nom d'hôte.
+   * ErrorCode.CiSApplianceACSError : Indique que le service a renvoyé une erreur d’authentification, mais qu’il existe une connectivité.
      
-     Si l’erreur ne lève pas d’exception web, recherchez ErrorCode.CiSApplianceFailure. Cette erreur indique un échec de l’appliance.
+     Si l’erreur ne lève pas d’exception web, recherchez ErrorCode.CiSApplianceFailure, ce qui indique que l’appliance a échoué.
 5. Vérifiez la connectivité du service cloud. Si le service lève une exception web, vous pouvez voir les erreurs suivantes :
    
-   * ErrorCode.CiSApplianceGateway – indique une exception HttpStatusCode.BadGateway : un serveur proxy intermédiaire a reçu une demande incorrecte à partir d’un autre proxy ou du serveur d’origine.
-   * ErrorCode.CiSApplianceProxy : indique une exception HttpStatusCode.ProxyAuthenticationRequired (code d’état HTTP 407) : le client n’a pas pu s’authentifier auprès du serveur proxy.
-   * ErrorCode.CiSApplianceDNSError : indique une exception WebExceptionStatus.NameResolutionFailure : le service de résolution de noms n’a pas pu résoudre le nom d’hôte.
-   * ErrorCode.CiSApplianceACSError : indique que le service a renvoyé une erreur d’authentification, mais qu’il existe une connectivité.
+   * ErrorCode.CiSApplianceGateway : Indique une exception HttpStatusCode.BadGateway : un serveur proxy intermédiaire a reçu une demande incorrecte à partir d’un autre proxy ou du serveur d’origine.
+   * ErrorCode.CiSApplianceProxy : Indique une exception HttpStatusCode.ProxyAuthenticationRequired (code d’état HTTP 407) : le client n’a pas pu s’authentifier auprès du serveur proxy.
+   * ErrorCode.CiSApplianceDNSError : Indique une exception WebExceptionStatus.NameResolutionFailure : le service de résolution de noms n’a pas pu résoudre le nom d’hôte.
+   * ErrorCode.CiSApplianceACSError : Indique que le service a renvoyé une erreur d’authentification, mais qu’il existe une connectivité.
      
-     Si l’erreur ne lève pas d’exception web, recherchez ErrorCode.CiSApplianceSaasServiceError. Cette erreur indique un problème lié au service StorSimple Device Manager.
+     S’il ne lève pas d’exception web, recherchez ErrorCode. CiSApplianceSaasServiceError, qui indique un problème avec le service StorSimple Device Manager.
 6. Vérifiez la connectivité d’Azure Service Bus. ErrorCode.CiSApplianceServiceBusError indique que l’appareil ne peut pas se connecter à Service Bus.
 
 Les fichiers journaux CiSCommandletLog0Curr.errlog et CiSAgentsvc0Curr.errlog comporteront plus d’informations, notamment les détails de l’exception.
@@ -421,9 +421,9 @@ Utilisez cette applet de commande pour afficher la table de routage de votre app
 
 La table de routage présente les interfaces et la passerelle qui achemine les données vers les réseaux spécifiés. Elle indique également la métrique de routage, qui décide du chemin d’accès emprunté pour atteindre une destination particulière. La métrique de routage est inversement proportionnelle à la préférence.
 
-Exemple : vous avez 2 interfaces réseau, DATA 2 et DATA 3, connectées à Internet. Si les métriques de routage de DATA 2 et 3 sont respectivement 15 et 261, l’interface DATA 2 pourvue de la métrique de routage inférieure est l’interface préférée utilisée pour accéder à Internet.
+Exemple : supposons que vous ayez 2 interfaces réseau, DATA 3 et DATA 3, connectées à Internet. Si les métriques de routage de DATA 2 et 3 sont respectivement 15 et 261, l’interface DATA 2 pourvue de la métrique de routage inférieure est l’interface préférée utilisée pour accéder à Internet.
 
-Si vous utilisez Update 1 sur votre appareil StorSimple, votre interface réseau DATA 0 a la préférence la plus élevée pour le trafic de cloud. Cela signifie que même s’il existe d’autres interfaces compatibles avec le cloud, le trafic de cloud est acheminé via l’interface DATA 0.
+Si vous utilisez Update 1 sur votre appareil StorSimple, votre interface réseau DATA 0 a la préférence la plus élevée pour le trafic de cloud. Avec cette configuration même s’il existe d’autres interfaces compatibles avec le cloud, la plus grande partie du trafic de cloud est acheminé via l’interface DATA 0.<!--This implies that even if there are other cloud-enabled interfaces, the cloud traffic would be routed through DATA 0. - Preceding sentence replaces this one. Use of "This implies" is a bit murky. DATA 0 will be the preferred network interface? Is my translation OK?-->
 
 Si vous exécutez l’applet de commande `Get-HcsRoutingTable` sans spécifier de paramètres (comme dans l’exemple suivant), l’applet de commande génère en sortie des tables de routage IPv4 et IPv6. Vous pouvez également spécifier `Get-HcsRoutingTable -IPv4` ou `Get-HcsRoutingTable -IPv6` pour obtenir une table de routage pertinente.
 
@@ -504,7 +504,7 @@ Invoke-HcsSetupWizard: An error has occurred while registering the device. This 
 +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 ```
 
-L’erreur peut provenir des éléments suivants :
+L’erreur peut provenir des problèmes suivants :
 
 * Installation matérielle incorrecte
 * Interface(s) réseau défectueuse(s)
@@ -526,8 +526,9 @@ L’erreur peut provenir des éléments suivants :
 3. Vérifiez l’intégrité de l’interface réseau :
    
    * Utilisez l’applet de commande Get-NetAdapter pour détecter l’intégrité des interfaces réseau pour DATA 0. 
-   * Si le lien ne fonctionne pas, l’état **ifindex** indique que l’interface est arrêtée. Vous devez ensuite vérifier la connexion réseau du port au matériel et au commutateur. Vous devez également écarter les câbles défectueux. 
-   * Si vous pensez que le port DATA 0 sur le contrôleur actif est défectueux, vous pouvez le vérifier en vous connectant au port DATA 0 sur le contrôleur 1. Pour vérifier cela, débranchez le câble réseau du contrôleur 0 au dos de l’appareil, raccordez le câble au contrôleur 1, puis réexécutez l’applet de commande Get-NetAdapter.
+   * Si le lien ne fonctionne pas, l’état `ifindex` indique que l’interface est arrêtée. Vous devez ensuite vérifier la connexion réseau du port au matériel et au commutateur. Vous devez également écarter les câbles défectueux. 
+   * Si vous pensez que le port DATA 0 sur le contrôleur actif est défectueux, vous pouvez le vérifier en vous connectant au port DATA 0 sur le contrôleur 1. Débranchez le câble réseau du contrôleur 0 au dos de l’appareil, raccordez le câble au contrôleur 1, puis réexécutez l’applet de commande Get-NetAdapter.
+   
      Si le port DATA 0 sur un contrôleur échoue, [contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour les étapes suivantes. Vous devrez peut-être remplacer le contrôleur sur votre système.
 4. Vérifiez la connectivité au commutateur :
    

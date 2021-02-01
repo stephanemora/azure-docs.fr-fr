@@ -12,12 +12,12 @@ ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96f7d7c94ce908d953a6941bfa237fe8da1dc482
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932581"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752664"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -46,9 +46,9 @@ Ces deux méthodes sont les plus courantes dans Azure AD et sont recommandées p
 
 ### <a name="access-control-lists"></a>Listes de contrôle d'accès
 
-Un fournisseur de ressources peut appliquer une vérification d’autorisation basée sur une liste d’ID d’application (client) qu’il connaît et octroyer un niveau d’accès spécifique. Lorsque la ressource reçoit un jeton à partir du point de terminaison de la plateforme d’identités Microsoft, elle peut décoder le jeton et extraire l’ID d’application du client à partir des revendications `appid` et `iss`. Elle compare ensuite l’application par rapport à une liste de contrôle d'accès qu’elle gère. La granularité et la méthode ACL peuvent varier considérablement entre les ressources.
+Un fournisseur de ressources peut appliquer une vérification d’autorisation basée sur une liste d’ID d’application (client) qu’il connaît et octroyer un niveau d’accès spécifique. Lorsque la ressource reçoit un jeton à partir de la plateforme d’identités Microsoft, elle peut décoder le jeton et extraire l’ID d’application du client à partir des revendications `appid` et `iss`. Elle compare ensuite l’application par rapport à une liste de contrôle d'accès qu’elle gère. La granularité et la méthode ACL peuvent varier considérablement entre les ressources.
 
-Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécuter des tests pour une application web ou une API Web. L’API Web peut accorder uniquement un sous-ensemble d'autorisations complètes à un client spécifique. Pour exécuter des tests de bout en bout sur l’API, créez un client test qui acquiert des jetons à partir du point de terminaison de la plateforme d’identités Microsoft, puis envoie ceux-ci à l’API. L’API vérifie ensuite l’ID d’application du client de test dans la liste de contrôle d'accès pour lui accorder un accès complet à toutes les fonctionnalités de l’API. Si vous utilisez ce type de liste de contrôle d'accès, veillez à valider non seulement la valeur `appid` de l'appelant, mais également que la valeur `iss` du jeton est approuvée.
+Un cas d’utilisation typique consiste à utiliser une liste ACL afin d'exécuter des tests pour une application web ou une API Web. L’API Web peut accorder uniquement un sous-ensemble d'autorisations complètes à un client spécifique. Pour exécuter des tests de bout en bout sur l’API, créez un client test qui acquiert des jetons à partir de la plateforme d’identités Microsoft, puis envoie ceux-ci à l’API. L’API vérifie ensuite l’ID d’application du client de test dans la liste de contrôle d'accès pour lui accorder un accès complet à toutes les fonctionnalités de l’API. Si vous utilisez ce type de liste de contrôle d'accès, veillez à valider non seulement la valeur `appid` de l'appelant, mais également que la valeur `iss` du jeton est approuvée.
 
 Ce type d’autorisation est courant pour les démons et les comptes de service qui doivent accéder à des données qui appartiennent à des utilisateurs avec des comptes Microsoft personnels. Pour les données appartenant à des organisations, nous vous recommandons d’acquérir l’autorisation requise via les autorisations de l’application.
 
@@ -77,7 +77,7 @@ Pour en savoir plus sur les autorisations d’application, consultez [Autorisati
 
 En général, lorsque vous créez une application qui utilise des autorisations d’application, l’application doit disposer d’une page/vue qui permet à l’administrateur d’approuver les autorisations de l’application. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application ou d’un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur se soit connecté avec un compte Microsoft professionnel ou scolaire.
 
-Si vous connectez l’utilisateur à votre application vous pouvez identifier l’organisation à laquelle l’utilisateur appartient avant de lui demander d’approuver les autorisations d’application. Bien que cela ne soit pas strictement nécessaire, cela peut vous aider à créer une expérience plus intuitive pour vos utilisateurs. Pour connecter l’utilisateur, suivez nos [tutoriels sur le protocole de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
+Si vous connectez l’utilisateur à votre application vous pouvez identifier l’organisation à laquelle l’utilisateur appartient avant de lui demander d’approuver les autorisations d’application. Bien que cela ne soit pas strictement nécessaire, cela peut vous aider à créer une expérience plus intuitive pour vos utilisateurs. Pour connecter l’utilisateur, suivez les [tutoriels sur le protocole de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Demander les autorisations à un administrateur d’annuaire
 
@@ -141,7 +141,7 @@ Une fois que vous avez reçu une réponse correcte du point de terminaison de mi
 
 ## <a name="get-a-token"></a>Obtention d’un jeton
 
-Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST au point de terminaison de la plateforme d’identités Microsoft `/token` :
+Une fois que vous avez acquis l’autorisation nécessaire pour votre application, passez à l’acquisition des jetons d’accès pour les API. Pour obtenir un jeton à l’aide de l’octroi des informations d’identification du client, envoyez une demande POST à la plateforme d’identités Microsoft `/token` :
 
 > [!TIP]
 > Essayez d'exécuter cette requête dans Postman ! Utilisez votre propre ID d’application pour de meilleurs résultats. L’application du tutoriel ne vous demande pas d’autorisations utiles. [![Essayez d’exécuter cette requête dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
@@ -168,7 +168,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
 | `client_id` | Obligatoire | Copiez l’ID d’application affecté à votre application. Ces informations sont disponibles dans le portail où vous avez inscrit votre application. |
-| `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. <br/>Cette valeur indique au point de terminaison de la plateforme d’identités Microsoft que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, le point de terminaison doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. Pour en savoir plus sur l’étendue `/.default`, consultez la [documentation sur le consentement](v2-permissions-and-consent.md#the-default-scope). |
+| `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. <br/>Cette valeur indique à la plateforme d’identités Microsoft que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, le point de terminaison doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. Pour en savoir plus sur l’étendue `/.default`, consultez la [documentation sur le consentement](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` | Obligatoire | La clé secrète client que vous avez générée pour votre application dans le portail d’inscription des applications. Le secret du client doit être codé en URL avant d’être envoyé. |
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `client_credentials`. |
 
@@ -190,7 +190,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
 | `client_id` | Obligatoire |L'ID d'application (client) affecté à votre application. |
-| `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. <br/>Cette valeur indique au point de terminaison de la plateforme d’identités Microsoft que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, il doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. Pour en savoir plus sur l’étendue `/.default`, consultez la [documentation sur le consentement](v2-permissions-and-consent.md#the-default-scope). |
+| `scope` | Obligatoire | La valeur transmise pour le paramètre `scope` dans cette demande doit être l’identificateur de ressource (URI ID d’application) de la ressource souhaitée, avec le suffixe `.default`. Dans l’exemple Microsoft Graph, la valeur est `https://graph.microsoft.com/.default`. <br/>Cette valeur indique à la plateforme d’identités Microsoft que parmi toutes les autorisations directes d’application que vous avez configurées pour votre application, elle doit émettre un jeton pour celles associées à la ressource que vous souhaitez utiliser. Pour en savoir plus sur l’étendue `/.default`, consultez la [documentation sur le consentement](v2-permissions-and-consent.md#the-default-scope). |
 | `client_assertion_type` | Obligatoire | Elle doit avoir la valeur `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obligatoire | Assertion (jeton Web JSON) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la rubrique traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `client_credentials`. |

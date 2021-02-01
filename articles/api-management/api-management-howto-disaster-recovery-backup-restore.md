@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 25356e7101293fc27d4107b3a618cfc481aee969
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779581"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762399"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -221,8 +221,8 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 
 ## <a name="what-is-not-backed-up"></a>Éléments non sauvegardés
 -   Les **données d’utilisation** servant à la création des rapports analytiques **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][azure api management rest api] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
--   Certificats [TLS/SSL de domaine personnalisé](configure-custom-domain.md)
--   [Certificat d’autorité de certification personnalisé](api-management-howto-ca-certificates.md) qui inclut des certificats intermédiaires ou racines chargés par le client
+-   Certificats [TLS/SSL de domaine personnalisé](configure-custom-domain.md).
+-   [Certificat d’autorité de certification personnalisé](api-management-howto-ca-certificates.md) qui inclut des certificats intermédiaires ou racines chargés par le client.
 -   Paramètres d’intégration du [réseau virtuel](api-management-using-with-vnet.md).
 -   Configuration d’[identité managée](api-management-howto-use-managed-service-identity.md).
 -   Configuration des [diagnostics Azure Monitor](api-management-howto-use-azure-monitor.md).

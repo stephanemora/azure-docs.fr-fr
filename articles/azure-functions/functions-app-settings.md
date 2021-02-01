@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937108"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881921"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -229,15 +229,17 @@ La valeur de cette clé est fournie au format `<DESTINATION>:<VERBOSITY>`, qui e
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Pour les plans Consommation et Premium uniquement. Chaîne de connexion du compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
+Chaîne de connexion du compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés dans les plans de mise à l’échelle pilotés par les événements fonctionnant sous Windows. Pour plus d’informations, consultez [Créer une application de fonction](functions-infrastructure-as-code.md#windows).
 
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
+Utilisé uniquement lors du déploiement vers un plan Consommation ou Premium s’exécutant sous Windows. Non pris en charge pour Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
-Pour les plans Premium uniquement. La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Pour les plans Premium uniquement. La valeur `1` permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. Vous devez activer ce paramètre lorsque vous limitez votre compte de stockage à un réseau virtuel. Pour en savoir plus, consultez [Restreindre votre compte de stockage à un réseau virtuel](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -245,11 +247,15 @@ Pour les plans Premium uniquement. La valeur `1` permet à votre application de 
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Pour les plans Consommation et Premium uniquement. Chemin d’accès au fichier contenant la configuration et le code de l’application de fonction. Utilisé avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. La valeur par défaut est une chaîne unique qui commence par le nom de l’application de fonction. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
+Chemin d’accès au code de l’application et à la configuration de la fonction dans un plan de mise à l'échelle piloté par les événements sous Windows. Utilisé avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. La valeur par défaut est une chaîne unique qui commence par le nom de l’application de fonction. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#windows).
 
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Utilisé uniquement par les applications de fonction sur un plan Consommation ou Premium s’exécutant sur Windows. Non pris en charge pour Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Lorsque vous utilisez Azure Resource Manager pour créer une application de fonction pendant le déploiement, n'incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 

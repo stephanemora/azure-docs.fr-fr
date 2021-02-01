@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916369"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752216"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -54,7 +54,7 @@ Vous pouvez connaître votre niveau de sécurité global, ainsi que votre niveau
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtenir votre score de sécurité à partir du portail
 
-Security Center indique le niveau de sécurité de manière bien visible sur le portail puisqu'il s'agit de la première vignette que l'on voit sur la page de présentation. En sélectionnant cette vignette, vous accédez à la page consacrée au niveau de sécurité, où celui-ci est présenté par abonnement. Sélectionnez un abonnement pour voir la liste détaillée des recommandations classées par ordre de priorité ainsi que l'impact que peut avoir leur prise en compte sur le niveau de sécurité de l'abonnement.
+Security Center indique le niveau de sécurité de manière bien visible sur le portail puisqu'il s'agit de la première vignette que l'on voit sur la page de présentation. En sélectionnant cette vignette, vous accédez à la page consacrée au niveau de sécurité, où celui-ci est présenté par abonnement. Sélectionnez un abonnement pour voir la liste détaillée des recommandations classées par ordre de priorité ainsi que l'impact que peut avoir leur prise en compte sur le niveau de sécurité de l'abonnement. 
 
 Pour récapituler, votre niveau de sécurité apparaît aux emplacements suivants sur les pages du portail de Security Center.
 
@@ -62,9 +62,14 @@ Pour récapituler, votre niveau de sécurité apparaît aux emplacements suivant
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Niveau de sécurité sur le tableau de bord de Security Center":::
 
-- Sur la page **Niveau de sécurité** :
+- La page **Score sécurisé** dédiée affiche le score sécurisé pour votre abonnement et vos groupes d’administration :
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Niveau de sécurité sur la page Niveau de sécurité de Security Center":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Niveau de sécurité des abonnements sur la page Niveau de sécurité de Security Center":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Niveau de sécurité des groupes d’administration sur la page Niveau de sécurité de Security Center":::
+
+    > [!NOTE]
+    > Les groupes d’administration pour lesquels vous ne disposez pas d’autorisations suffisantes affichent leur score comme « restreint ». 
 
 - En haut de la page **Recommandations** :
 
@@ -125,7 +130,7 @@ Le tableau de bord contient les deux rapports suivants pour vous aider à analys
 - **Résumé des ressources** : fournit des données résumées concernant l’intégrité de vos ressources.
 - **Synthèse des scores sécurisés** : fournit des données résumées concernant la progression de votre score. Utilisez le graphique « Score sécurisé dans le temps par abonnement » pour afficher les modifications apportées au score. Si vous remarquez une modification spectaculaire de votre score, consultez la table « modifications détectées qui peuvent affecter votre score sécurisé » pour les éventuelles modifications susceptibles d’avoir provoqué la modification. Ce tableau présente les ressources supprimées, les ressources récemment déployées ou les ressources dont le statut de sécurité a changé pour l’une des recommandations.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Le tableau de bord PowerBI de score sécurisé facultatif pour le suivi de vos scores sécurisés au fil du temps et l’examen des modifications":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Le tableau de bord Power BI de score sécurisé facultatif pour le suivi de vos scores sécurisés au fil du temps et l’examen des modifications":::
 
 
 

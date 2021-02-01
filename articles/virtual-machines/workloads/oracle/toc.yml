@@ -30,6 +30,12 @@
       href: oracle-reference-architecture.md
     - name: Créer l’architecture d’une base de données Oracle
       href: oracle-design.md
+    - name: Stratégies de sauvegarde Oracle Database
+      href: oracle-database-backup-strategies.md
+    - name: Sauvegarde Oracle Database avec Stockage Azure
+      href: oracle-database-backup-azure-storage.md
+    - name: Sauvegarde Oracle Database avec Sauvegarde Azure
+      href: oracle-database-backup-azure-backup.md
     - name: Options de reprise d’activité après sinistre Oracle
       href: oracle-disaster-recovery.md
 - name: Guides pratiques

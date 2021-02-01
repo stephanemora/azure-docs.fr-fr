@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994976"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797783"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -303,6 +303,10 @@ Consultez le référentiel d’[exemples de code](https://github.com/Azure-Sampl
 | `embed-both-widgets`              | Incorporer VI Player et VI Insights et établir une communication entre les deux.                      |
 | `url-generator`                   | Génère des widgets avec une URL d’incorporation personnalisée en fonction des options spécifiées par l’utilisateur.             |
 | `html5-player`                    | Incorporer VI Insights à un lecteur vidéo HTML5 par défaut.                           |
+
+## <a name="supported-browsers"></a>Navigateurs pris en charge
+
+Pour en savoir plus, consultez [Navigateurs pris en charge](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

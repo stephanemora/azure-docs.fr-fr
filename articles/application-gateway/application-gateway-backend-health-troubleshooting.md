@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934898"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746102"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -21,9 +21,6 @@ ms.locfileid: "97934898"
 --------
 
 Par défaut, Azure Application Gateway sonde les serveurs back-end afin de vérifier leur état d’intégrité et leur disponibilité pour traiter les requêtes. Les utilisateurs peuvent également créer des sondes personnalisées pour indiquer le nom d’hôte, le chemin à sonder et les codes d’état à considérer comme sains. Dans les deux cas, si le serveur back-end ne répond pas, Application Gateway marque le serveur comme Non sain et arrête la transmission des requêtes au serveur. Quand le serveur répond de nouveau, Application Gateway reprend la transmission des requêtes.
-
-> [!NOTE]
-> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ### <a name="how-to-check-backend-health"></a>Comment vérifier l’intégrité des back-ends
 
@@ -245,7 +242,7 @@ Pour plus d’informations sur l’extraction et le chargement de certificats ra
 
 #### <a name="trusted-root-certificate-mismatch"></a>Non-correspondance du certificat racine approuvé
 
-**Message :** Le certificat racine du certificat de serveur utilisé par le serveur back-end ne correspond pas au certificat racine approuvé qui a été ajouté dans Application Gateway. Assurez-vous d’ajouter le certificat racine approprié pour faire figurer le serveur back-end dans la liste approuvée
+**Message :** Le certificat racine du certificat de serveur utilisé par le serveur back-end ne correspond pas au certificat racine approuvé qui a été ajouté dans Application Gateway. Assurez-vous d’ajouter le certificat racine approprié pour faire figurer le serveur back-end dans la liste d’autorisation.
 
 **Cause :** Le chiffrement SSL de bout en bout avec Application Gateway v2 implique la vérification du certificat du serveur back-end pour garantir que le serveur est sain.
 Pour qu’un certificat TLS/SSL soit approuvé, le certificat du serveur back-end doit être émis par l’une des autorités de certification figurant dans le magasin de certificats approuvés d’Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée (ce qui est le cas des certificats auto-signés, par exemple), les utilisateurs doivent charger le certificat de l’émetteur dans Application Gateway.

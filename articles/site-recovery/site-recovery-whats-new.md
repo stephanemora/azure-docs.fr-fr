@@ -2,13 +2,13 @@
 title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 3667f963eac0ebc719872db00ac069c7da70ec91
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.date: 01/26/2021
+ms.openlocfilehash: 51d54ca4d46af3b9e0746f36114fadc47edd5b1f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805048"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -22,13 +22,27 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 **Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
+[Rollup 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Cumul 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Cumul 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Cumul 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Cumul 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+
 
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
+
+## <a name="updates-january-2021"></a>Mises à jour (janvier 2021)
+
+### <a name="update-rollup-53"></a>Correctif cumulatif 53
+
+Le [correctif cumulatif 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) fournit les mises à jour suivantes :
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery comme décrit dans le correctif cumulatif.
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif. 
+**Récupération d’urgence de machine virtuelle Azure** | La réplication des balises est désormais prise en charge. Toutes les balises ajoutées aux machines virtuelles Azure, aux disques et aux cartes réseau dans la région source sont répliquées sur les machines de la région cible.<br/><br/> Les machines virtuelles Azure exécutant Debian 10 sont désormais prises en charge pour la réplication.
+**Récupération d’urgence des machines virtuelles VMware physiques sur Azure** | Cette mise à jour comprend des améliorations de la journalisation pour la réplication de machines virtuelles VMware vers Azure et une meilleure messagerie des erreurs.<br/><br/> Les machines virtuelles VMware et les machines physiques exécutant Debian 10 sont désormais prises en charge pour la réplication.
 
 
 ## <a name="updates-november-2020"></a>Mises à jour (novembre 2020)

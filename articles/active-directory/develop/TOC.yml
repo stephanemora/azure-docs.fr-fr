@@ -68,6 +68,8 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Démon de console Python
           href: quickstart-v2-python-daemon.md
+        - name: Démon de console Java
+          href: quickstart-v2-java-daemon.md
 - name: Tutoriels
   items:
     - name: Application monopage (SPA)

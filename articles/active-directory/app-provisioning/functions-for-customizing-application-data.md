@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 462f60bbae9fd7b61993a2ccccd40fa5ca4ccc28
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e87211789280c3439d71d8fa63da09416eaaf18e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012965"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805137"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure AD
 
@@ -483,7 +483,7 @@ Renvoie « Joh ».
  - Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
  - Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.   
  - Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
- - Cette fonction est actuellement prise en charge uniquement pour le « Provisionnement d’utilisateurs de Workday vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications de provisionnement. 
+ - Cette fonction est actuellement prise en charge uniquement pour l’option « Approvisionnement d’utilisateurs de Workday vers Active Directory » et « Approvisionnement d’utilisateurs de SuccessFactors vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications de provisionnement. 
 
 
 **Paramètres :** 

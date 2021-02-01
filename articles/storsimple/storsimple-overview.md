@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 01/11/2021
 ms.author: timlt
-ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 286f00318715764a5943387e6b362b3c8e69a82e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021830"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808140"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple série 8000 : une solution de stockage de cloud hybride
 
@@ -44,7 +44,7 @@ Le tableau suivant décrit certains des principaux avantages offerts par Microso
 | Intégration transparente |Utilise le protocole iSCSI pour lier de façon invisible les équipements de stockage de données. Cela garantit que les données stockées dans le cloud, dans un centre de données ou sur des serveurs distants semblent être stockées dans un emplacement unique. |
 | Coûts de stockage réduits |Alloue suffisamment de stockage local ou cloud pour répondre aux besoins actuels et étend le stockage cloud uniquement quand cela est nécessaire. Il réduit les besoins et les dépenses de stockage en éliminant les redondances de données (déduplication) et en utilisant la compression. |
 | Gestion simplifiée du stockage |Fournit des outils d’administration système permettant de configurer et gérer les données stockées localement, sur un serveur distant et dans le cloud. En outre, vous pouvez gérer la sauvegarde et la restauration des fonctions depuis un composant logiciel enfichable Microsoft Management Console (MMC).|
-| Récupération d’urgence et conformité améliorées |Ne nécessite pas un long délai de récupération. Au contraire, il restaure les données lorsque vous en avez besoin. Cela signifie que les opérations normales peuvent se poursuivre, avec une interruption minimale. En outre, vous pouvez configurer des stratégies pour spécifier les planifications de sauvegarde et la conservation des données. |
+| Récupération d’urgence et conformité améliorées |Ne nécessite pas un long délai de récupération. Au lieu de cela, elle restaure les données lorsque cela est nécessaire afin que les opérations normales puissent continuer avec une interruption minimale. En outre, vous pouvez configurer des stratégies pour spécifier les planifications de sauvegarde et la conservation des données. |
 | Mobilité des données |Les données chargées sur Microsoft Azure Cloud Services sont accessibles à partir d’autres sites à des fins de récupération et de migration. En outre, vous pouvez utiliser StorSimple pour configurer les appliances cloud StorSimple sur les machines virtuelles de Microsoft Azure. Les machines virtuelles peuvent ensuite utiliser les appareils virtuels pour accéder aux données stockées à des fins de test ou de récupération. |
 | Continuité de l’activité |Permet aux utilisateurs de StorSimple série 5000-7000 de migrer leurs données vers un appareil StorSimple série 8000. |
 | Disponibilité sur le portail Azure Government |StorSimple est disponible sur le portail Azure Government. Pour plus d’informations, consultez [Déploiement de votre appareil StorSimple local sur le portail Microsoft Azure Government](storsimple-8000-deployment-walkthrough-gov-u2.md). |
@@ -60,7 +60,7 @@ La solution Microsoft Azure StorSimple comprend les composants suivants :
 * **StorSimple Cloud Appliance** : également appelé appliance virtuelle StorSimple, il s’agit d’une version logicielle du périphérique StorSimple qui réplique l’architecture et la plupart des fonctionnalités de l’appareil de stockage hybride physique. StorSimple Cloud Appliance s’exécute sur un nœud unique dans une machine virtuelle Azure. Les appareils virtuels Premium, qui tirent parti d’Azure Premium Storage, sont disponibles dans Update 2 et version ultérieure.
 * **Service StorSimple Device Manager** : extension du portail Azure qui vous permet de gérer un appareil StorSimple ou une appliance cloud StorSimple à partir d’une seule interface web. Vous pouvez utiliser le service StorSimple Device Manager pour créer et gérer les services, afficher et gérer des appareils, afficher les alertes, gérer des volumes, ainsi qu’afficher et gérer des stratégies de sauvegarde et le catalogue de sauvegarde.
 * **Windows PowerShell pour StorSimple** : une interface de ligne de commande que vous pouvez utiliser pour gérer l’appareil StorSimple. Windows PowerShell pour StorSimple dispose de fonctionnalités qui vous permettent d’inscrire votre appareil StorSimple, de configurer l’interface réseau sur votre appareil, d’installer certains types de mises à jour, de résoudre les problèmes de votre appareil en accédant à la session de support et de modifier l’état de l’appareil. Vous pouvez accéder à Windows PowerShell pour StorSimple en vous connectant à la console série ou à l’aide de l’accès distant Windows PowerShell.
-* **Cmdlets PowerShell d’Azure StorSimple** : une collection de cmdlets Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0#azure).
+* **Cmdlets PowerShell d’Azure StorSimple** : une collection de cmdlets Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true#azure).
 * **Gestionnaire d’instantanés StorSimple** : un composant logiciel enfichable MMC qui utilise des groupes de volumes et Windows Volume Shadow Copy Service pour générer des sauvegardes cohérentes avec les applications. En outre, vous pouvez utiliser le gestionnaire d’instantanés StorSimple pour créer des planifications de sauvegarde et cloner ou restaurer des volumes.
 * **Adaptateur StorSimple pour SharePoint** : un outil qui étend le stockage et la protection des données Microsoft Azure StorSimple de manière transparente aux batteries de serveurs SharePoint, tout en permettant d’afficher et de gérer le stockage StorSimple à partir du portail d’administration central de SharePoint.
 
@@ -95,7 +95,7 @@ L’appliance cloud présente les caractéristiques suivantes :
 * Vous pouvez créer un nombre illimité d’appliances cloud dans le cloud, et les activer/désactiver selon vos besoins.
 * Il peut aider à simuler les environnements locaux dans les scénarios de test et de développement ou de récupération d’urgence, tout en facilitant la récupération au niveau des éléments à partir de sauvegardes.
 
-StorSimple Cloud Appliance est disponible en deux modèles : l’appareil 8010 (anciennement modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Dans des niveaux locaux, Azure Premium Storage stocke les données sur des disques SSD, alors que les données sont stockées sur des disques durs avec un stockage standard.) Notez que vous devez disposer d'un compte Azure Premium Storage pour utiliser le stockage premium.
+StorSimple Cloud Appliance est disponible en deux modèles : l’appareil 8010 (anciennement modèle 1100) et l’appareil 8020. L’appareil 8010 possède une capacité maximale de 30 To. L’appareil 8020, qui tire parti d’Azure Premium Storage, possède une capacité maximale de 64 To. (Dans des niveaux locaux, Azure Premium Storage stocke les données sur des disques SSD, alors que les données sont stockées sur des disques durs avec un stockage standard.) Vous devez disposer d’un compte Azure Premium Storage pour utiliser le stockage Premium.
 
 Pour plus d’informations sur StorSimple Cloud Appliance, consultez la page [Déployer et gérer une appliance cloud StorSimple dans Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -124,12 +124,12 @@ Windows PowerShell pour StorSimple fournit une interface de ligne de commande q
 * Dépanner votre appareil en accédant à la session de support.
 * Modifier l’état de l’appareil.
 
-Vous pouvez accéder à Windows PowerShell pour StorSimple à partir d’une console série (sur un ordinateur hôte connecté directement à l’appareil) ou à distance, à l’aide de l’accès distant Windows PowerShell. Notez que certains travaux Windows PowerShell pour StorSimple, comme l’inscription initiale de l’appareil, peuvent uniquement être effectués sur la console série.
+Vous pouvez accéder à Windows PowerShell pour StorSimple à partir d’une console série (sur un ordinateur hôte connecté directement à l’appareil) ou à distance, à l’aide de l’accès distant Windows PowerShell. Certains travaux Windows PowerShell pour StorSimple, comme l’inscription initiale de l’appareil, peuvent uniquement être effectués sur la console série.
 
 Pour plus d’informations, consultez [Utiliser Windows PowerShell pour StorSimple pour gérer votre appareil](storsimple-8000-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Cmdlets PowerShell d’Azure StorSimple
-Les applets de commande Azure PowerShell StorSimple sont une collection d'applets de commande Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0).
+Les applets de commande Azure PowerShell StorSimple sont une collection d'applets de commande Windows PowerShell qui vous permettent d'automatiser les tâches de niveau de service et la migration à partir de la ligne de commande. Pour plus d’informations sur les cmdlets Azure PowerShell pour StorSimple, consultez la page [Documentation de référence des cmdlets](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0&preserve-view=true).
 
 ## <a name="storsimple-snapshot-manager"></a>Gestionnaire d’instantanés StorSimple
 StorSimple Snapshot Manager est un composant logiciel enfichable MMC (Microsoft Management Console) qui vous permet de créer des copies de sauvegarde à un moment donné, cohérentes, des données locales et du cloud. Le composant logiciel enfichable s’exécute sur un hôte Windows Server. Vous pouvez utiliser StorSimple Snapshot Manager pour :
@@ -139,7 +139,7 @@ StorSimple Snapshot Manager est un composant logiciel enfichable MMC (Microsoft 
 * Gérer les stratégies de sauvegarde afin que les données soient sauvegardées selon un calendrier prédéterminé et stockées dans un emplacement désigné (localement ou dans le cloud).
 * Restaurer des volumes et des fichiers individuels.
 
-Les sauvegardes sont capturées sous forme d’instantanés, qui enregistrent uniquement les modifications apportées depuis la dernière capture instantanée et nécessitent beaucoup moins d’espace de stockage que les sauvegardes complètes. Vous pouvez créer des planifications de sauvegarde ou effectuer des sauvegardes immédiates en fonction de vos besoins. En outre, vous pouvez utiliser StorSimple Snapshot Manager pour établir des stratégies de rétention qui contrôlent le nombre d’instantanés enregistrés. Si vous avez besoin de restaurer les données à partir d’une sauvegarde par la suite, StorSimple Snapshot Manager vous permet de choisir dans le catalogue d’instantanés locaux ou de cloud. 
+Les sauvegardes sont capturées sous forme d’instantanés, qui enregistrent uniquement les modifications apportées depuis la dernière capture instantanée et nécessitent beaucoup moins d’espace de stockage que les sauvegardes complètes. Vous pouvez créer des planifications de sauvegarde ou effectuer des sauvegardes immédiates en fonction de vos besoins. En outre, vous pouvez utiliser StorSimple Snapshot Manager pour établir des stratégies de rétention qui contrôlent le nombre d’instantanés enregistrés. Si vous avez besoin de restaurer les données à partir d’une sauvegarde ultérieurement, StorSimple Snapshot Manager vous permet de choisir dans le catalogue d’instantanés locaux ou de cloud. 
 
 Si un incident se produit ou si vous devez restaurer des données pour une autre raison, StorSimple Snapshot Manager les restaure de façon incrémentielle, selon les besoins. La restauration des données ne nécessite pas d’arrêter l’ensemble du système lorsque vous restaurez un fichier, remplacez un équipement ou déplacez des opérations vers un autre site.
 
@@ -217,8 +217,8 @@ Voici un tableau résumant les charges de travail StorSimple prises en charge.
 | Virtualisation |Machines virtuelles |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Base de données |SQL |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Update 2 et versions ultérieures |
 | Surveillance vidéo |Surveillance vidéo |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 2 et versions ultérieures |
-| Backup |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
-| Backup |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Sauvegarde |Sauvegarde de la cible principale |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
+| Sauvegarde |Sauvegarde de la cible secondaire |Oui* |Pris en charge lorsque l’appareil StorSimple est exclusivement dédié à cette charge de travail |Update 3 et versions ultérieures |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
@@ -241,7 +241,7 @@ Voici une liste des composants d’infrastructure pris en charge par StorSimple.
 | Général |DataCore FC |Oui* |Prise en charge avec DataCore SANsymphony |Toutes les versions |
 | Général |DFSR |Oui* |Pris en charge uniquement avec des volumes épinglés localement |Toutes les versions |
 | Général |Indexation |Oui* |Pour les volumes hiérarchisés, seule l’indexation des métadonnées est prise en charge (aucune donnée).<br>Pour les volumes épinglés localement, l’indexation complète est prise en charge. |Toutes les versions |
-| Général |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br> Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
+| Général |Protection contre les virus |Oui* |Pour les volumes hiérarchisés, seule l’analyse des ouvertures et des fermetures est prise en charge.<br>  Pour les volumes épinglés localement, l’analyse complète est prise en charge. |Toutes les versions |
 
 *Oui&#42; - Des restrictions et des recommandations sur la solution doivent s’appliquer.*
 
@@ -307,7 +307,7 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 | exécuter une sauvegarde |Fonctionnalité qui permet à l’utilisateur d’exécuter une sauvegarde interactive d’un volume. Il s’agit d’une autre façon d’effectuer une sauvegarde manuelle d’un volume par opposition à une sauvegarde automatique via une stratégie définie. |
 | Allocation dynamique |Méthode qui permet d’optimiser l’efficacité avec laquelle l’espace de stockage disponible est utilisé dans les systèmes de stockage. Dans une allocation dynamique, le stockage est réparti entre plusieurs utilisateurs en fonction de l’espace minimal dont chaque utilisateur a besoin à un moment donné. Voir aussi *allocation fixe*. |
 | hiérarchisation |Organisation des données en regroupements logiques basés sur l’utilisation actuelle, l’âge et les relations aux autres données. StorSimple organise automatiquement les données en niveaux. |
-| volume |Zones de stockage logiques présentées sous forme de disques. Les volumes StorSimple correspondent aux volumes montés par l’hôte, notamment ceux détectés via l’utilisation d’iSCSI et d’un appareil StorSimple. |
+| volume |Zones de stockage logiques présentées sous forme de disques. Les volumes StorSimple correspondent aux volumes montés par l’hôte, notamment les volumes détectés via l’utilisation d’iSCSI et d’un appareil StorSimple. |
 | conteneur de volumes |Groupe de volumes et paramètres qui s’y appliquent. Tous les volumes de votre appareil StorSimple sont regroupés dans des conteneurs de volumes. Les paramètres de conteneur de volumes incluent les comptes de stockage, les paramètres de chiffrement des données envoyées vers le cloud avec la clé de chiffrement associée, ainsi que la bande passante consommée pour les opérations impliquant le cloud. |
 | groupe de volumes |Dans StorSimple Snapshot Manager, un groupe de volumes est un ensemble de volumes configurés pour faciliter le traitement de la sauvegarde. |
 | service VSS |Service du système d’exploitation Windows Server qui facilite la cohérence des applications en communiquant avec les applications compatibles VSS pour coordonner la création d’instantanés incrémentiels. Le service VSS vérifie que les applications sont temporairement inactives quand les instantanés sont créés. |

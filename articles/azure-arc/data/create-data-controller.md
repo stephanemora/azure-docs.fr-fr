@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608780"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745932"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Créer le contrôleur de données Azure Arc
 
@@ -54,7 +54,7 @@ Quelle que soit l'option choisie, pendant le processus de création, vous devez 
 - **Nom d’utilisateur du contrôleur de données** : tout nom d’utilisateur pour l’administrateur du contrôleur de données.
 - **Mot de passe du contrôleur de données** : mot de passe pour l’utilisateur administrateur du contrôleur de données.
 - **Nom de votre espace de noms Kubernetes** : nom de l'espace de noms Kubernetes dans lequel vous souhaitez créer le contrôleur de données.
-- **Mode de connectivité** : [mode de connectivité](./connectivity.md) de votre cluster. Actuellement, seul le mode « indirect » est pris en charge.
+- **Mode de connectivité** : le mode de connectivité détermine le degré de connectivité de votre environnement de services de données avec Azure Arc vers Azure. L’aperçu ne prend actuellement en charge que les modes connectés indirectement et connectés directement.  Pour plus d’informations, consultez [mode de connectivité](./connectivity.md). 
 - **ID d'abonnement Azure** : GUID de l'abonnement Azure dans lequel vous souhaitez que soit créée la ressource de contrôleur de données dans Azure.
 - **Nom du groupe de ressources Azure** : nom du groupe de ressources dans lequel vous souhaitez que soit créée la ressource de contrôleur de données dans Azure.
 - **Emplacement Azure** : emplacement Azure où les métadonnées de la ressource de contrôleur de données seront stockées. Pour obtenir la liste des régions disponibles, consultez [Infrastructure globale Azure / Produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).

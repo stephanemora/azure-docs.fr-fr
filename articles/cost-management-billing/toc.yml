@@ -384,15 +384,15 @@
       href: /rest/api/cost-management
     - name: API REST d’Azure Consumption
       href: /rest/api/consumption
-    - name: Modèle Resource Manager
+    - name: Modèle de budget ARM de l’API REST Consumption
       href: /azure/templates/microsoft.consumption/budgets
     - name: Exemples d’API REST Cost Management
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
-    - name: Cost Management - Azure PowerShell
+    - name: Applets de commande Azure PowerShell pour la gestion des coûts
       href: /powershell/module/Az.CostManagement
     - name: Scénarios relatifs à l’automatisation de la facturation
       href: manage/cost-management-automation-scenarios.md
-    - name: Présentation de l’API Facturation Azure
+    - name: API REST de prix de vente Azure
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST de facturation Azure
       href: /rest/api/billing
@@ -400,11 +400,7 @@
       href: manage/consumption-api-overview.md
     - name: API REST d’Azure Consumption
       href: /rest/api/consumption
-    - name: API REST RateCard
-      href: /previous-versions/azure/reference/mt219005(v=azure.100)
-    - name: Utilisation de l’API REST
-      href: /previous-versions/azure/reference/mt219003(v=azure.100)
-    - name: Présentation des rapports d’entreprise
+    - name: Vue d’ensemble de l’API REST des rapports d’entreprise
       href: manage/enterprise-api.md
     - name: API REST des rapports d’entreprise
       href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
@@ -412,13 +408,13 @@
       items:
         - name: API REST de réservations
           href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-        - name: "Réservations\_- Azure PowerShell"
+        - name: Applets de commande Azure PowerShell pour les réservations
           href: /powershell/module/azurerm.reservations
-        - name: "Réservations\_- CLI"
+        - name: Azure CLI pour les réservations
           href: /cli/azure/reservations/reservation
-        - name: "Cost Management\_- API REST des détails d’utilisation de la consommation"
+        - name: API REST des détails d’utilisation
           href: /rest/api/consumption/usagedetails
-        - name: "Cost Management\_- API REST des détails des réservations de consommation"
+        - name: API REST des détails des réservations
           href: /rest/api/consumption/reservationsdetails
 - name: Ressources
   items:

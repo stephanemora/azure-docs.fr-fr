@@ -3,12 +3,12 @@ title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964187"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802898"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -402,7 +402,7 @@ Pour plus d’informations, consultez [Tailles de machines virtuelles](../../vir
 
 #### <a name="disk-encryption-sets"></a>Jeux de chiffrement Azure Data Box Disk
 
-Il y a une limite de 50 jeux de chiffrements de disques par région et par abonnement. Pour plus d’informations, consultez la documentation relative aux chiffrement pour les machines virtuelles [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/disk-encryption.md#restrictions). Pour augmenter ce quota, contactez le support Azure.
+Il y a une limite de 1 000 jeux de chiffrements de disques par région et par abonnement. Pour plus d’informations, consultez la documentation relative aux chiffrement pour les machines virtuelles [Linux](../../virtual-machines/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/disk-encryption.md#restrictions). Pour augmenter ce quota, contactez le support Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Disques de machines virtuelles gérées
 

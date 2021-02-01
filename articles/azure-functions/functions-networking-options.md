@@ -1,16 +1,16 @@
 ---
 title: Options de mise en réseau d’Azure Functions
 description: Vue d’ensemble de toutes les options de mise en réseau disponibles dans Azure Functions.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936859"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806982"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -85,12 +85,9 @@ Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un n
 
 Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restreindre votre compte de stockage à un réseau virtuel (préversion)
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restreindre votre compte de stockage à un réseau virtuel 
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type.  Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé.  Cette fonctionnalité d'évaluation n’est actuellement compatible qu’avec les plans Windows Premium dans la région Europe Ouest.  Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
-
-> [!NOTE]
-> La restriction du compte de stockage ne fonctionne actuellement que pour les fonctions Premium utilisant Windows dans la région Europe Ouest
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type.  Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé.  Cette fonctionnalité ne fonctionne actuellement qu’avec les plans Windows Premium.  Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
 
 1. Créez une fonction avec un compte de stockage pour lequel les points de terminaison de service ne sont pas activés.
 1. Configurez la fonction pour qu’elle se connecte à votre réseau virtuel.

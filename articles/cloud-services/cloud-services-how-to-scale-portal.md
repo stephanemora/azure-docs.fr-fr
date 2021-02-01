@@ -1,20 +1,24 @@
 ---
-title: Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs
+title: Mise à l’échelle automatique d’un service cloud (classique) dans le portail | Microsoft Docs
 description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165483"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743353"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud (classique) dans le portail
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Des conditions peuvent être définies pour un rôle de travail de service cloud qui déclenchent une opération de scale-in ou de scale-out. Les conditions pour le rôle peuvent être basées sur le processeur, le disque ou la charge réseau du rôle. Vous pouvez également définir une condition basée sur une file d’attente de messages ou sur des mesures d’une autre ressource Azure associée à votre abonnement.
 
@@ -34,14 +38,14 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
-* La mise à l’échelle automatique se produit uniquement lorsque tous les rôles sont dans un état **Prêt** .  
+* La mise à l’échelle automatique se produit uniquement lorsque tous les rôles sont dans un état **Prêt**.  
 
 
 ## <a name="where-scale-is-located"></a>Emplacement de la mise à l’échelle
 Une fois votre service cloud sélectionné, le panneau du service cloud doit s’afficher.
 
 1. Dans le panneau du service cloud, sélectionnez le nom du service cloud dans la vignette **Rôles et instances** .   
-   **IMPORTANT**  : veillez à cliquer sur le rôle de service cloud, non sur l’instance de rôle qui se trouve sous le rôle.
+   **IMPORTANT** : veillez à cliquer sur le rôle de service cloud, non sur l’instance de rôle qui se trouve sous le rôle.
 
     ![Capture d’écran de la vignette des Rôles et des instances avec l’option Worker Role With S B Queue 1 indiquée en rouge.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Sélectionnez la vignette **Mise à l’échelle** .
@@ -49,17 +53,17 @@ Une fois votre service cloud sélectionné, le panneau du service cloud doit s�
     ![Capture d’écran de la page Opérations avec la vignette Vente indiquée en rouge.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>Mise à l’échelle automatique
-Vous pouvez configurer les paramètres de mise à l’échelle d’un rôle avec deux modes : **manuel** ou **automatique** . Le mode Manuel permet définir le nombre absolu d’instances. Le mode Automatique vous permet toutefois de définir des règles qui déterminent le type et le volume de la mise à l’échelle.
+Vous pouvez configurer les paramètres de mise à l’échelle d’un rôle avec deux modes : **manuel** ou **automatique**. Le mode Manuel permet définir le nombre absolu d’instances. Le mode Automatique vous permet toutefois de définir des règles qui déterminent le type et le volume de la mise à l’échelle.
 
-Définissez l’option **Mettre à l’échelle selon** sur **Règles de planification et de performance** .
+Définissez l’option **Mettre à l’échelle selon** sur **Règles de planification et de performance**.
 
-![Capture d’écran montrant l’option de planification et de règles de performance.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![image Paramètres de mise à l’échelle de services cloud avec profil et règle](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Un profil existant.
 2. Ajouter une règle pour le profil parent.
 3. Ajoutez un autre profil.
 
-Sélectionnez **Ajouter un profil** . Le profil détermine le mode que vous souhaitez utiliser pour la mise à l’échelle : **toujours** , **périodicité** , **date fixe** .
+Sélectionnez **Ajouter un profil**. Le profil détermine le mode que vous souhaitez utiliser pour la mise à l’échelle : **toujours**, **périodicité**, **date fixe**.
 
 Après avoir configuré le profil et les règles, sélectionnez l’icône **Enregistrer** en haut.
 
@@ -94,7 +98,7 @@ Le déclencheur de la règle est basé sur une mesure du service cloud (utilisat
 Après avoir configuré la règle, sélectionnez le bouton **OK** en bas du panneau de la règle.
 
 ## <a name="back-to-manual-scale"></a>Retour à la mise à l’échelle manuelle
-Accédez aux [Paramètres de mise à l’échelle](#where-scale-is-located) et définissez l’option **Mettre à l’échelle selon** sur **un nombre d’instances que j’entre manuellement** .
+Accédez aux [Paramètres de mise à l’échelle](#where-scale-is-located) et définissez l’option **Mettre à l’échelle selon** sur **un nombre d’instances que j’entre manuellement**.
 
 ![Paramètres de mise à l’échelle de services cloud avec profil et règle](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 

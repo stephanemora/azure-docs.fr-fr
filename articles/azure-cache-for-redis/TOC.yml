@@ -1,6 +1,6 @@
 - name: Documentation du cache Azure pour Redis
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos du cache Azure pour Redis
       href: cache-overview.md
@@ -45,6 +45,14 @@
       items:
         - name: Utiliser un initialiseur Spring Boot
           href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+    - name: Azure Event Grid
+      items:
+        - name: Router les événements avec le portail Azure
+          href: cache-event-grid-quickstart-portal.md
+        - name: "Router les événements avec Azure\_CLI"
+          href: cache-event-grid-quickstart-cli.md
+        - name: Router les événements avec PowerShell
+          href: cache-event-grid-quickstart-powershell.md
     - name: Créer des leaderboards
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Déployer un modèle Machine Learning
@@ -59,7 +67,7 @@
       href: cache-high-availability.md
     - name: Basculement et correctif
       href: cache-failover.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: cache-best-practices.md
     - name: Sécurité
       items:
@@ -128,6 +136,8 @@
           href: cache-administration.md#schedule-updates
         - name: Configurer l’accès redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
+        - name: Publication des événements Azure Cache pour Redis
+          href: cache-event-grid.md
         - name: "Supprimer TLS\_1.0 et\_1.1"
           href: cache-remove-tls-10-11.md
         - name: Questions fréquentes (FAQ) sur la gestion

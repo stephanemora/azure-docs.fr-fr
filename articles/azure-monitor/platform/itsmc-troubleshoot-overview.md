@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601897"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761981"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Résolution des problèmes liés au connecteur ITSM
 
@@ -43,24 +43,23 @@ Si vous utilisez Service Map, vous pouvez afficher les éléments de service d�
 
 ![Capture d’écran montrant l’écran Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
-
-- Si une connexion au système ITSM échoue et que le message **Erreur lors de l’enregistrement de la connexion** s’affiche, effectuez les étapes suivantes :
-   - Pour les connexions ServiceNow, Cherwell et Provance :  
-     - Vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et le secret client pour chacune des connexions.  
-     - Veillez à disposer de privilèges suffisants dans le produit ITSM correspondant afin d’établir la connexion.  
-   - Pour les connexions Service Manager :  
-     - Vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Si des alertes Log Analytics se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM, si aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations, consultez ces ressources :
-   -  ITSMC : La solution montre un [récapitulatif des connexions](itsmc-dashboard.md), éléments de travail, ordinateurs, etc. Sélectionnez la vignette qui a l’étiquette **État du connecteur**. Cela vous permet d’accéder à **Recherche dans les journaux** avec la requête appropriée. Pour plus d’informations, examinez les enregistrements de journal dont `LogType_S` a la valeur `ERROR`.
-   Vous pouvez afficher des détails sur les messages dans le tableau [ici](itsmc-dashboard-errors.md).
-   - Page **Recherche dans les journaux** : Consultez les erreurs et les informations associées directement à l’aide de la requête `*ServiceDeskLog_CL*`.
-
-## <a name="common-symptoms---how-it-should-be-resolved"></a>Symptômes courants : comment les résoudre ?
+## <a name="common-symptoms---how-should-it-be-resolved"></a>Symptômes courants : comment les résoudre ?
 
 La liste ci-dessous contient des symptômes courants et montre comment les résoudre :
 
+* **Symptôme** : Si une connexion au système ITSM échoue et que le message **Erreur lors de l’enregistrement de la connexion** s’affiche.
+
+    **Cause**: la cause peut être l’une des options suivantes :
+    * Informations d’identification incorrectes
+     * Privilèges insuffisants
+     * L’application web doit être déployée correctement
+
+    **Résolution** :
+    * Pour les connexions ServiceNow, Cherwell et Provance :
+        * Vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et le secret client pour chacune des connexions.  
+        * Pour ServiceNow : Veillez à disposer de privilèges suffisants dans le produit ITSM correspondant afin d’établir la connexion comme [indiqué](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * Pour les connexions Service Manager :  
+      * Vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Symptôme** : des éléments de travail en double sont créés
 
     **Cause**: la cause peut être l’une des deux options suivantes :

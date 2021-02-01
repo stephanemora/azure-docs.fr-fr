@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219740"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796970"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Contrôle de code source dans Azure Synapse Studio
 
-Par défaut, Azure Synapse Studio crée directement par rapport au service Synapse. Mais cette expérience présente les limites suivantes :
+Par défaut, Azure Synapse Studio crée directement par rapport au service Synapse. Si vous avez besoin de collaboration à l’aide de Git pour le contrôle de code source, Synapse Studio vous permet d’associer votre espace de travail à un référentiel Git, Azure DevOps ou GitHub. 
 
-- Synapse Studio n’inclut pas de stockage temporaire pour le stockage de vos modifications. La seule façon d’enregistrer et de partager les modifications consiste à utiliser l’option **Publier** pour publier toutes les modifications directement vers le service Synapse.
-
-- Synapse Studio n’est pas optimisé pour la collaboration ou le contrôle de version.
-
-Pour le contrôle de code source, Synapse Studio vous permet d'associer votre espace de travail à un référentiel Git, Azure DevOps ou GitHub. Cet article explique comment configurer et utiliser un espace de travail Synapse avec le référentiel Git activé. Nous mettons également en évidence quelques bonnes pratiques et un guide de dépannage.
+Cet article explique comment configurer et utiliser un espace de travail Synapse avec le référentiel Git activé. Nous mettons également en évidence quelques bonnes pratiques et un guide de dépannage.
 
 > [!NOTE]
 > L’intégration Git d’Azure Synapse Studio n’est pas disponible dans le cloud Azure Government.

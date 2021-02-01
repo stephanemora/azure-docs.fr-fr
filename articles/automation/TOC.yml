@@ -66,14 +66,20 @@
           href: automation-create-standalone-account.md
         - name: Créer un compte Automation avec un modèle Resource Manager
           href: quickstart-create-automation-account-template.md
+        - name: compte d'identification
+          items:
+            - name: Créer un compte d’identification
+              href: create-run-as-account.md
+            - name: Supprimer un compte d’identification
+              href: delete-run-as-account.md
+            - name: Gérer un compte d’identification
+              href: manage-runas-account.md
         - name: Configurer l’authentification avec Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configurer l’authentification avec Azure AD
           href: automation-use-azure-ad.md
-        - name: Gérer l’enregistrement DNS utilisé par Automation
+        - name: Gérer les enregistrements DNS utilisés par Automation
           href: how-to/automation-region-dns-records.md
-        - name: Gérer un compte d’identification Automation
-          href: manage-runas-account.md
         - name: Se connecter en privé à un compte Automation
           href: how-to/private-link-security.md
         - name: Gérer la sécurité et les autorisations des rôles

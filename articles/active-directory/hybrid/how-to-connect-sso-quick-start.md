@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504387"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762256"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
 ## <a name="deploy-seamless-single-sign-on"></a>Déploiement de l'authentification unique transparente
 
 L’authentification unique transparente (Seamless SSO) Azure Active Directory (Azure AD) connecte automatiquement les utilisateurs lorsque leurs ordinateurs d’entreprise sont connectés au réseau de l’entreprise. Seamless SSO offre à vos utilisateurs un accès facilité à vos applications dans le cloud sans nécessiter de composants sur site supplémentaires.
-
-> [!NOTE]
-> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 
@@ -40,7 +37,7 @@ Vérifiez que les prérequis suivants sont remplis :
 
 * **Configurez votre serveur Azure AD Connect** : Si vous utilisez [l’authentification directe](how-to-connect-pta.md) comme méthode de connexion utilisateur, aucune vérification de prérequis n’est nécessaire. Si vous utilisez la [synchronisation de hachage de mot de passe](how-to-connect-password-hash-synchronization.md) comme méthode de connexion, et s’il existe un pare-feu entre Azure AD Connect et Azure AD, vérifiez les points suivants :
    - Vous utilisez Azure AD Connect 1.1.644.0 ou version ultérieure. 
-   - Si votre pare-feu ou votre proxy le permet, ajoutez les connexions à la liste verte pour les URL **\*.msappproxy.net** via le port 443. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine. Cette condition préalable est applicable uniquement lorsque vous activez la fonctionnalité. Elle n'est pas requise pour les connexions d'utilisateur réelles.
+   - Si votre pare-feu ou votre proxy le permet, ajoutez les connexions à la liste verte pour les URL **\*.msappproxy.net** via le port 443. Si vous avez besoin d’une URL spécifique plutôt que d’un caractère générique pour la configuration du proxy, vous pouvez configurer **tenantid.registration.msappproxy.net**, où tenantid est le GUID du locataire dans lequel vous configurez la fonctionnalité. Si les exceptions de proxy basées sur les URL ne sont pas possibles dans votre organisation, vous pouvez à la place autoriser l'accès aux [plages IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine. Cette condition préalable est applicable uniquement lorsque vous activez la fonctionnalité. Elle n'est pas requise pour les connexions d'utilisateur réelles.
 
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](./reference-connect-version-history.md) pour en savoir plus.

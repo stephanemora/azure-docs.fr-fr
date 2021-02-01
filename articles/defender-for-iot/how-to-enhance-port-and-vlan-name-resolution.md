@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1747af77468ebe41f59892dea4bb49ce24757f37
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835653"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803577"
 ---
 # <a name="enhance-port-and-vlan-name-resolution"></a>Améliorer la résolution des noms de ports et de VLAN
 
@@ -84,7 +84,8 @@ Pour configurer des VLAN :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Affichez des informations enrichies sur les appareils dans les rapports pour l’inventaire des appareils et l’exploration de données :
+Affichez des informations sur les appareils enrichis dans différents rapports :
 
 - [Examiner les détections de capteur dans un inventaire d’appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Générer des rapports](how-to-generate-reports.md)
+- [Rapports de tendances et de statistiques des capteurs](how-to-create-trends-and-statistics-reports.md)
+- [Requêtes d’exploration de données de capteur](how-to-create-data-mining-queries.md)

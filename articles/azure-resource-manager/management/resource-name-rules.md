@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.date: 01/26/2021
+ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132747"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806879"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -633,7 +633,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > [!div class="mx-tableFixed"]
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
-> | managedInstances | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
+> | managedInstances | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. <br><br> Ne peut pas contenir de caractères spéciaux, tels que `@`. |
 > | servers | globale | 1-63 | Lettres minuscules, chiffres et traits d’union.<br><br>Ne peut pas commencer ou se terminer par un trait d’union. |
 > | servers / administrators | server |  | Doit être `ActiveDirectory`. |
 > | servers / databases | server | 1-128 | Impossibilité d’utiliser :<br>`<>*%&:\/?`<br><br>Ne peut pas se terminer par un point ou un espace. |
