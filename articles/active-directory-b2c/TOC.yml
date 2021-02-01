@@ -1,6 +1,6 @@
 - name: Documentation d’Azure AD B2C
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure AD B2C
       expanded: true
@@ -266,9 +266,6 @@
             - name: Validation de la stratégie
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
-        - name: Analyse de l'utilisation
-          href: analytics-with-application-insights.md
-          displayName: 'application insights, app insights'
         - name: Informations de référence
           items:
             - name: TrustFrameworkPolicy
@@ -321,8 +318,6 @@
                   items:
                     - name: À propos des profils techniques de validation
                       href: validation-technical-profile.md
-                    - name: Application Insights
-                      href: application-insights-technical-profile.md
                     - name: Azure Active Directory
                       href: active-directory-technical-profile.md
                     - name: "Authentification multifacteur Azure\_AD"
@@ -422,9 +417,6 @@
           displayName: 'migrate, b2clogin, owin'
     - name: Automatisation
       items:
-        - name: Azure Monitor
-          href: azure-monitor.md
-          displayName: 'log, logs, logging, usage, events'
         - name: API Microsoft Graph
           href: microsoft-graph-operations.md
           displayName: 'account, accounts, msgraph, ms graph, graph'
@@ -434,14 +426,23 @@
         - name: Gérer les stratégies avec PowerShell
           href: manage-custom-policies-powershell.md
           displayName: 'scripting, scripts, psh, custom policy'
-    - name: Journaux d’audit
-      href: view-audit-logs.md
     - name: Gérer les utilisateurs - Portail Azure
       href: manage-users-portal.md
       displayName: 'create users, add users, delete users'
     - name: Sécuriser l’API Gestion des API
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
+    - name: Journaux et supervision
+      items:
+        - name: Journaux d’audit
+          href: view-audit-logs.md
+          displayName: 'log, logs, logging, usage, events'
+        - name: Azure Monitor
+          href: azure-monitor.md
+          displayName: 'log, logs, logging, usage, events'
+        - name: Analyse de l'utilisation
+          href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
     - name: Conformité
       items:
         - name: Accès utilisateur

@@ -1,6 +1,6 @@
 - name: Documentation sur la recherche cognitive Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la Recherche cognitive\_?"
@@ -230,7 +230,7 @@
           items:
             - name: Rechercher sur des objets blob
               href: search-blob-storage-integration.md
-            - name: Comprendre les objets blob avec l’IA
+            - name: Enrichissement par IA sur les objets blobs
               href: search-blob-ai-integration.md
             - name: Configurer un indexeur d’objets blob
               href: search-howto-indexing-azure-blob-storage.md
