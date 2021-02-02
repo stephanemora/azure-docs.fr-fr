@@ -1,5 +1,5 @@
 ---
-title: Communiquer avec une application d’appareil en Node.js avec des flux d'appareil Azure IoT Hub
+title: Démarrage rapide - Communiquer avec une application d’appareil en Node.js avec des flux d’appareil Azure IoT Hub
 description: Dans ce guide de démarrage rapide, vous allez exécuter une application côté service Node.js qui communique avec un appareil IoT par le biais d’un flux d’appareil.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832005"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624386"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -79,7 +79,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Notez la chaîne de connexion de service retournée ; vous en aurez besoin plus loin dans ce guide de démarrage rapide. Cela ressemble à l’exemple suivant :
@@ -154,4 +154,4 @@ Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un 
 Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareils :
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md) 
+> [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md)

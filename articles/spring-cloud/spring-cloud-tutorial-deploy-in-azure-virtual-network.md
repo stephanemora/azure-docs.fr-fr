@@ -1,5 +1,5 @@
 ---
-title: Tutoriel – Déployer Azure Spring Cloud dans un réseau virtuel
+title: Déployer Azure Spring Cloud dans un réseau virtuel
 description: Déployez Azure Spring Cloud dans un réseau virtuel (injection de réseau virtuel).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587721"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880595"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Tutoriel : Déployer Azure Spring Cloud dans un réseau virtuel
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
 
 **Cet article s’applique à :** ✔️ Java ✔️ C#
 
@@ -25,6 +25,9 @@ Le déploiement permet :
 * L’isolement des applications et du runtime du service Azure Spring Cloud par rapport à Internet sur votre réseau d’entreprise
 * L’interaction d’Azure Spring Cloud avec des systèmes de centres de données locaux ou des services Azure d’autres réseaux virtuels
 * La possibilité pour les clients de contrôler les communications réseau entrantes et sortantes pour Azure Spring Cloud
+
+> [!Note]
+> Vous pouvez sélectionner votre réseau virtuel Azure uniquement quand vous créez une instance de service Azure Spring Cloud. Vous ne pouvez pas choisir d’utiliser un autre réseau virtuel après la création de l’instance Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -77,6 +80,7 @@ Si vous disposez déjà d’un réseau virtuel pour héberger une instance Azure
 1. Sélectionnez **Revoir + créer**. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Accorder l’autorisation du service au réseau virtuel
+Azure Spring Cloud nécessite l’autorisation **Propriétaire** sur votre réseau virtuel, afin d’accorder un principal de service dédié et dynamique sur le réseau virtuel en vue d’un déploiement et d’une maintenance supplémentaires.
 
 Sélectionnez le réseau virtuel **azure-spring-cloud-vnet** que vous avez créé précédemment.
 
@@ -160,9 +164,9 @@ Ces ressources réseau sont connectées à votre réseau virtuel créé dans l�
    > [!Important]
    > Les groupes de ressources sont entièrement gérés par le service Azure Spring Cloud. Veillez *à ne pas* y supprimer ou modifier manuellement des ressources.
 
-## <a name="limitations"></a>Limites
+## <a name="using-smaller-subnet-ranges"></a>Utilisation de plages de sous-réseaux plus petites
 
-Une petite plage de sous-réseau permet d’économiser des adresses IP, mais elle limite le nombre maximal d’instances d’application que l’instance Azure Spring Cloud peut contenir.
+Ce tableau indique le nombre maximal d’instances d’application prises en charge par Azure Spring Cloud à l’aide de plages de sous-réseaux plus petites.
 
 | CIDR du sous-réseau d’application | Nombre total d’adresses IP | Adresses IP disponibles | Nombre maximal d’instances d’application                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

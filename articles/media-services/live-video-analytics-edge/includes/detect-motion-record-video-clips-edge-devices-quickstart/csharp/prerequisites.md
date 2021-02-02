@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: 4b6e89d6a4a89927e6e9942f0b4aaa842bab3b0a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d3a65122772a7cb89de6d3f7f27c2f49d3f74c98
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061192"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633471"
 ---
 * Compte Azure avec un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > Vous aurez besoin d’un abonnement Azure avec des autorisations pour créer des principaux de service (le **rôle propriétaire** permet d’effectuer cette opération). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de votre compte pour qu’il vous les accorde. 
 * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
     * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
         > [!TIP]

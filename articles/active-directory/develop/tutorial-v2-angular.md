@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979927"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756154"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage Angular
 
@@ -271,7 +271,7 @@ Par exemple :
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Parfois, vous avez besoin que l’utilisateur interagisse avec le point de terminaison de la plateforme d’identité Microsoft. Par exemple :
+Parfois, vous avez besoin que l’utilisateur interagisse avec la plateforme d’identité Microsoft. Par exemple :
 
 * Les utilisateurs doivent réentrer leurs informations d’identification, car leur mot de passe a expiré.
 * Votre application demande l’accès à des étendues de ressources supplémentaires pour laquelle l’utilisateur doit donner son consentement.
@@ -279,7 +279,7 @@ Parfois, vous avez besoin que l’utilisateur interagisse avec le point de termi
 
 Le modèle recommandé pour la plupart des applications est de d’abord appeler `acquireTokenSilent`, puis d’intercepter l’exception, puis d’appeler `acquireTokenPopup` (ou `acquireTokenRedirect`) pour démarrer une demande interactive.
 
-L’appel de `acquireTokenPopup` fait apparaître une fenêtre de connexion contextuelle. Une alternative est que `acquireTokenRedirect` redirige les utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft. Dans cette fenêtre, les utilisateurs doivent confirmer leurs informations d’identification, donner leur consentement pour la ressource demandée ou effectuer une authentification à deux facteurs.
+L’appel de `acquireTokenPopup` fait apparaître une fenêtre de connexion contextuelle. Sinon, `acquireTokenRedirect` redirige les utilisateurs vers la plateforme d’identité Microsoft. Dans cette fenêtre, les utilisateurs doivent confirmer leurs informations d’identification, donner leur consentement pour la ressource demandée ou effectuer une authentification à deux facteurs.
 
 ```javascript
   const requestObj = {

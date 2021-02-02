@@ -1,30 +1,30 @@
 ---
 title: Modifier l’offre d’abonnement Azure
-description: Découvrez comment changer votre abonnement Azure et basculer vers une autre offre à l’aide du Centre des comptes Azure.
+description: Découvrez comment changer votre abonnement Azure et basculer vers une autre offre.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686817"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685455"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Changer votre abonnement Azure pour une autre offre
 
-En tant que client disposant d’un [abonnement individuel avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/), vous pouvez basculer votre abonnement Azure vers une autre offre du [Centre des comptes](https://account.windowsazure.com/Subscriptions). Par exemple, vous pouvez utiliser cette fonctionnalité pour tirer parti des [crédits mensuels pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+En tant que client disposant d’un [abonnement avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/), vous pouvez changer votre abonnement Azure et basculer vers une autre offre dans le portail Azure. Par exemple, vous pouvez utiliser cette fonctionnalité pour tirer parti des [crédits mensuels pour les abonnés Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 **Vous voulez juste mettre à niveau votre abonnement d’essai gratuit ?** Consultez [Mettre à niveau votre abonnement](upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Opérations prises en charge :
 
-Vous pouvez basculer votre abonnement individuel avec tarifs de paiement à l’utilisation vers les offres suivantes :
+Vous pouvez passer d’un abonnement avec paiement à l’utilisation à :
 
 - [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ Vous pouvez basculer votre abonnement individuel avec tarifs de paiement à l’
 
 > [!NOTE]
 > Pour les autres changements d’offre, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
->
 
 ## <a name="switch-subscription-offer"></a>Changer d’offre d’abonnement
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. Connectez-vous au [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez votre abonnement individuel avec tarifs de paiement à l’utilisation.
-1. Cliquez sur **Changer d’offre**. L’option n’est disponible que si vous disposez d’un abonnement individuel avec tarifs de paiement à l’utilisation et que vous avez terminé votre première période de facturation.
-
-   ![Notez le bouton de changement d’offre sur le côté droit de la page](./media/switch-azure-offer/switchbutton.png)
-1. **Sélectionnez l’offre souhaitée** dans la liste des offres vers lesquelles il est possible de basculer votre abonnement. La liste varie en fonction des adhésions auxquelles est associé votre compte. Si rien n’est disponible, examinez la [liste des offres disponibles vers lesquelles il est possible de basculer](#whats-supported) et vérifiez que vous disposez des adhésions appropriées.
-
-   ![Sélectionnez une offre à laquelle vous souhaitez passer](./media/switch-azure-offer/selectoffer.png)
-1. Selon l’offre que vous envisagez d’adopter, une note peut apparaître sur l’impact du changement. Lisez attentivement la liste et suivez les instructions avant de continuer.
-
-   ![Passez en revue les notes](./media/switch-azure-offer/thingstonote.png)
-1. Vous pouvez renommer votre abonnement. Par défaut, il n’est pas défini sur le nom de la nouvelle offre. Cliquez sur **Changer d’offre** pour terminer le processus.
-
-   ![Cliquez sur le bouton vert](./media/switch-azure-offer/confirmpage.png)
-1. Opération réussie. Votre abonnement est désormais associé à la nouvelle offre.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à **Abonnements** puis sélectionnez votre abonnement avec paiement à l’utilisation.
+1. En haut de la page, sélectionnez **Changer d’offre**. L’option est disponible uniquement si vous avez un abonnement avec paiement à l’utilisation et si vous avez terminé votre première période de facturation.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImage montrant les détails de l’abonnement avec l’option Changer d’offreTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. Sélectionnez l’offre souhaitée dans la liste des offres vers lesquelles il est possible de basculer votre abonnement. La liste varie en fonction des adhésions auxquelles est associé votre compte. Si rien n’est disponible, examinez la [liste des offres disponibles vers lesquelles il est possible de basculer](#whats-supported) et vérifiez que vous disposez des adhésions appropriées. Sélectionnez ensuite **Suivant**.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Sélectionnez une offre à laquelle vous souhaitez passer" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    Selon l’offre que vous envisagez d’adopter, une note peut apparaître sur l’impact du changement. Lisez attentivement la liste et suivez les instructions avant de continuer. Vous devrez peut-être également vérifier votre numéro de téléphone.
+1. Après avoir examiné les notes ou vérifié votre numéro de téléphone, sélectionnez **Changer d’offre**.
+1. Votre abonnement est désormais associé à la nouvelle offre.
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 Les sections suivantes répondent aux questions fréquemment posées.
 
 ### <a name="what-is-an-azure-offer"></a>Qu'est-ce qu'une offre Azure ?
 
-Une offre Azure correspond au *type* d’abonnement Azure que vous avez. Par exemple, [un abonnement avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure en licence Open](https://azure.microsoft.com/offers/ms-azr-0111p/) et [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sont tous des offres Azure. Chaque offre a différents [termes](https://azure.microsoft.com/support/legal/offer-details/) et certaines présentent des avantages particuliers. Vous trouverez l’offre de votre abonnement dans la page d’abonnement Centre des comptes. Cliquez sur le nom de l’offre pour obtenir plus de détails.
+Une offre Azure correspond au *type* d’abonnement Azure que vous avez. Par exemple, [un abonnement avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure en licence Open](https://azure.microsoft.com/offers/ms-azr-0111p/) et [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sont tous des offres Azure. Chaque offre a différents [termes](https://azure.microsoft.com/support/legal/offer-details/) et certaines présentent des avantages particuliers. L’offre de votre abonnement est affichée dans la page Détails de l’abonnement.
 
-   ![Cliquez sur le lien de l’offre dans le Centre des comptes pour obtenir plus de détails](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Page de détails de l’abonnement avec le type d’offre" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>Pourquoi le bouton n’apparaît-il pas ?
 
-Il est possible que le bouton **Changer pour une autre offre** ne s’affiche pas si :
+Il est possible que le bouton **Changer d’offre** ne soit pas visible si :
 
 * Vous ne disposez pas d’un [abonnement avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/). Actuellement, seuls les abonnements avec tarifs de paiement à l’utilisation peuvent basculer vers une autre offre.
   * Si vous avez un [essai gratuit](https://azure.microsoft.com/free/), découvrez comment [mettre à niveau vers une offre de paiement à l’utilisation](upgrade-azure-subscription.md).
@@ -85,7 +73,7 @@ Il est possible que le bouton **Changer pour une autre offre** ne s’affiche pa
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Quel impact le basculement des offres Azure a-t-il sur mon service et ma facturation ?
 
-Voilà ce qui se passe lorsque vous changez d’offres Azure dans le Centre des comptes.
+Voilà ce qui se passe lorsque vous changez d’offre Azure.
 
 #### <a name="no-service-downtime"></a>Aucune interruption de service.
 
@@ -102,7 +90,7 @@ Le jour où vous changez d’offre, une facture est générée pour l’ensemble
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Puis-je effectuer la migration d’un abonnement avec paiement à l’utilisation vers un fournisseur de solutions cloud (CSP) ou un Contrat Entreprise (EA) ?
 
 * Pour migrer vers un CSP, consultez [Transfert d’abonnements Azure entre des abonnés et des CSP](transfer-subscriptions-subscribers-csp.md).
-* Pour migrer vers contrat Entreprise, demandez à votre administrateur d’inscription d’ajouter votre compte au contrat Entreprise. Suivez les instructions figurant dans l’e-mail d’invitation pour que vos abonnements soient déplacés vers l’inscription au contrat Entreprise. Pour plus d’informations, consultez [Associer un compte existant](https://ea.azure.com/helpdocs/associateExistingAccount) dans le portail EA.
+* Pour migrer vers contrat Entreprise, demandez à votre administrateur d’inscription d’ajouter votre compte au contrat Entreprise. Suivez les instructions figurant dans l’e-mail d’invitation pour que vos abonnements soient déplacés vers l’inscription au Contrat Entreprise.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Puis-je migrer des données et des services vers un nouvel abonnement ?
 

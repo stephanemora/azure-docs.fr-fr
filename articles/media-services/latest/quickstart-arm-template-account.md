@@ -1,25 +1,11 @@
 ---
-title: Modèle ARM de compte Media Services
-titleSuffix: Azure Media Services
-description: Cet article explique comment utiliser un modèle ARM pour créer un compte Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185032"
+titre : Modèle ARM de compte Media Services : Description d’Azure Media Services : Cet article explique comment utiliser un modèle ARM pour créer un compte Media Services.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 11/24/2020 ms.author: inhenkel ms.custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>Démarrage rapide : Modèle ARM de compte Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -41,7 +27,7 @@ Les lecteurs qui sont familiarisés avec les modèles ARM peuvent passer à la [
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Si vous n’avez jamais déployé de modèle ARM, nous vous conseillons de lire [cet article sur les modèles ARM Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/) et de suivre le [tutoriel](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+Si vous n’avez jamais déployé de modèle ARM, nous vous conseillons de lire [cet article sur les modèles ARM Azure](../../azure-resource-manager/templates/index.yml) et de suivre le [tutoriel](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
@@ -118,8 +104,8 @@ The syntax for the JSON code fence is:
 
 Trois types de ressources Azure sont définis dans le modèle :
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices) : créer un compte Media Services
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts) : créer un compte de stockage
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices) : créer un compte Media Services
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) : créer un compte de stockage
 
 ## <a name="set-the-account"></a>Définir le compte
 
@@ -277,4 +263,4 @@ az group delete --name {name of the resource group}
 Pour en savoir plus sur l’utilisation d’un modèle ARM en suivant le processus de création d’un modèle avec des paramètres, des variables, et ainsi de suite, essayez
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutoriel : Créer et déployer votre premier modèle Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

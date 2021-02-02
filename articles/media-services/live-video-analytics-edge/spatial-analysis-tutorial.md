@@ -3,12 +3,12 @@ title: Analyser des flux vidéo en direct avec le service Vision par ordinateur 
 description: Ce didacticiel explique comment utiliser Live Video Analytics avec la fonctionnalité IA d’analyse spatiale Vision par ordinateur d’Azure Cognitive Services pour analyser un flux vidéo en direct à partir d’une caméra IP (simulée).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 1c6fe6e10a91034d794437f31d495b85ef086848
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060178"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632941"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analyser des flux vidéo en direct avec le service Vision par ordinateur pour l’analyse spatiale (préversion)
 
@@ -23,7 +23,8 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > * Analyser des événements.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > Vous aurez besoin d’un abonnement Azure avec des autorisations pour créer des principaux de service (le **rôle propriétaire** permet d’effectuer cette opération). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de votre compte pour qu’il vous les accorde. 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée
 
 Lisez ces articles avant de commencer :
@@ -136,10 +137,10 @@ Il y a plusieurs éléments auxquels vous devez faire attention dans le fichier 
 1. Le paramètre `IpcMode` dans le module lvaEdge et le paramètre createOptions dans le module d’analyse spatiale doivent être identiques et être définis sur l’hôte.
 1. Pour que le simulateur RTSP fonctionne, assurez-vous que vous avez configuré le paramètre Volume Bounds. Pour plus d’informations, consultez la page [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts) (Configurer les montages de volumes Docker).
 
-    1. [Connectez-vous au partage SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.
+    1. [Connectez-vous au partage SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) et copiez l’[exemple de fichier vidéo bulldozer](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) sur le partage local.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Vérifiez que le module rtspsim présente la configuration suivante :
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Il y a plusieurs éléments auxquels vous devez faire attention dans le fichier 
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Générer et déployer le manifeste de déploiement
 
 Le manifeste de déploiement définit les modules qui sont déployés sur un appareil de périphérie. Il définit également les paramètres de configuration de ces modules.

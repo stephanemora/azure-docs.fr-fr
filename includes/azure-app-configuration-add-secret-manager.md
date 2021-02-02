@@ -1,14 +1,35 @@
 ---
-ms.openlocfilehash: c3c5b8ef94b507cad433e587c9ebfc2ec16c0ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b1be5e903994f0a2c4a3d457f0c2bb5572a889c3
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440414"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663027"
 ---
 ## <a name="add-secret-manager"></a>Ajouter Secret Manager
 
 Un outil appelé Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source. Procédez comme suit pour activer l’utilisation de Secret Manager dans le projet ASP.NET Core :
+
+#### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+Accédez au répertoire racine du projet, puis exécutez la commande suivante pour activer le stockage des secrets dans le projet :
+
+```dotnetcli
+dotnet user-secrets init
+```
+
+Un élément `UserSecretsId` contenant un GUID est ajouté au fichier *.csproj* :
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
 
 #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 

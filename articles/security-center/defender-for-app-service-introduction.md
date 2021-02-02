@@ -1,26 +1,24 @@
 ---
 title: Azure Defender pour App Service - avantages et fonctionnalités
-description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour App Service.
+description: Découvrez les fonctionnalités d’Azure Defender pour App Service et comment activer ce service dans votre abonnement
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796633"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Présentation d’Azure Defender pour App Service
 
-Azure App Service est une plateforme entièrement gérée pour la création et l’hébergement de vos applications Web et API sans vous soucier de la gestion de l’infrastructure. Elle fournit des informations sur la gestion, la surveillance et l’exploitation afin de répondre à des exigences en matière de performances, de sécurité et de conformité de classe entreprise. Pour en savoir plus, consultez [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Azure App Service est une plateforme complètement managée qui permet de créer et d’héberger vos applications web et vos API. Étant donné que la plateforme est complètement managée, vous n’avez pas à vous soucier de l’infrastructure. Elle fournit des informations sur la gestion, la surveillance et l’exploitation afin de répondre à des exigences en matière de performances, de sécurité et de conformité de classe entreprise. Pour en savoir plus, consultez [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 **Azure Defender pour App Service** utilise l’échelle du cloud pour identifier les attaques ciblant les applications exécutées sur App Service. Les attaquants sondent les applications web pour trouver et exploiter les faiblesses. Avant d’être routées vers des environnements spécifiques, les demandes adressées aux applications s’exécutant dans Azure passent par plusieurs passerelles, où elles sont inspectées et journalisées. Ces données sont ensuite utilisées pour identifier les codes malveillants exploitant une faille de sécurité ainsi que les attaquants, et pour découvrir de nouveaux modèles qui seront utilisés ultérieurement.
-
-En utilisant la visibilité dont Azure bénéficie en tant que fournisseur de cloud, Security Center analyse les journaux internes d’App Service pour identifier la méthodologie d’attaque sur plusieurs cibles. Les attaques distribuées et les attaques par analyse généralisée sont des exemples de méthodologie. En général, ce type d’attaque provient d’un petit sous-ensemble d’adresses IP, et présente des modèles de progression vers des points de terminaison similaires sur plusieurs hôtes. Les attaques recherchent une page ou un plug-in vulnérable et ne peuvent pas être identifiées du point de vue d’un seul hôte.
 
 
 ## <a name="availability"></a>Disponibilité
@@ -28,34 +26,68 @@ En utilisant la visibilité dont Azure bénéficie en tant que fournisseur de cl
 |Aspect|Détails|
 |----|:----|
 |État de sortie :|Disponibilité générale (GA)|
-|Prix :|[Azure Defender pour App Service](azure-defender.md) est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)|
+|Prix :|[Azure Defender pour App Service](azure-defender.md) est facturé comme indiqué sur [la page de tarification](security-center-pricing.md)<br>La page des tarifs et des paramètres liste les instances de votre **quantité de ressources**. Cela correspond au nombre total d’instances de calcul dans l’ensemble des plans App Service de cet abonnement qui étaient en cours d’exécution lorsque vous avez ouvert la page des niveaux tarifaires.<br>Pour vérifier ce nombre, ouvrez **Plans App Service** dans le portail Azure et regardez le nombre d’instances de calcul qui sont utilisées par chaque plan.|
 |Plans App Service pris en charge :|![Oui](./media/icons/yes-icon.png) De base, Standard, Premium, Isolé ou Linux<br>![Non](./media/icons/no-icon.png) Gratuit, Partagé ou Consommation<br>[En savoir plus sur les plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
-## <a name="what-does-azure-defender-for-app-service-protect"></a>Quels sont les éléments protégés par Azure Defender pour App Service ?
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quels sont les avantages d’Azure Defender pour App Service ?
 
-Une fois le plan App Service activé, Security Center évalue les ressources couvertes par votre plan App Service et génère des suggestions en matière de sécurité en fonction de ses résultats. Security Center protège l’instance de machine virtuelle dans laquelle votre App Service s’exécute et l’interface de gestion. Il surveille également les demandes et réponses échangées avec vos applications s’exécutant dans App Service.
+Quand vous activez Azure Defender pour App Service, vous bénéficiez immédiatement des services suivants proposés par ce plan Azure Defender :
 
-Si vous exécutez un plan App Service Windows, Security Center a également accès aux machines virtuelles et aux bacs à sable sous-jacents. Couplée aux données de journal mentionnées ci-dessus, l’infrastructure peut raconter l’histoire, depuis une nouvelle attaque lâchée dans la nature à la compromission des machines des clients. Par conséquent, même si Security Center est déployé après qu’une application web a été attaquée, il est capable de détecter les attaques en cours.
+- **Sécurisation** : Security Center évalue les ressources couvertes par votre plan App Service et génère des suggestions de sécurité en fonction de ses résultats. Utilisez les instructions détaillées de ces recommandations pour durcir la sécurité de vos ressources App Service.
+
+- **Détection** : Azure Defender détecte une multitude de menaces pour vos ressources App Service en supervisant les éléments suivants :
+    - L’instance de machine virtuelle dans laquelle App Service s’exécute et son interface de gestion
+    - Les requêtes et les réponses échangées avec vos applications App Service
+    - Les bacs à sable et les machines virtuelles sous-jacents
+    - Journaux internes App Service : disponibles grâce à la visibilité dont bénéficie Azure en tant que fournisseur de cloud
+
+En tant que solution native Cloud, Azure Defender peut identifier les méthodologies d’attaque qui s’appliquent à plusieurs cibles. Par exemple, il serait difficile, à partir d’un seul hôte, d’identifier une attaque distribuée en se basant sur un petit sous-ensemble d’adresses IP et en analysant des points de terminaison similaires sur plusieurs hôtes.
+
+Ensemble, les données des journaux et l’infrastructure peuvent expliquer ce qui s’est passé, depuis la circulation d’une nouvelle attaque à la compromission des machines clients. Par conséquent, même si Security Center est déployé après qu’une application web a été attaquée, il est capable de détecter les attaques en cours.
 
 
-## <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Protéger vos applications Web et API Azure App Service
+## <a name="what-threats-can-azure-defender-for-app-service-detect"></a>Quelles sont les menaces qui peuvent être détectées par Azure Defender pour App Service ?
+
+### <a name="threats-by-mitre-attck-tactics"></a>Menaces émanant des tactiques MITRE ATT&CK
+
+Azure Defender recherche de nombreuses menaces sur vos ressources App Service. Les alertes couvrent la quasi totalité des tactiques MITRE ATT&CK, de la pré-attaque jusqu’à l’attaque « commande et contrôle ». Azure Defender peut détecter les menaces suivantes :
+
+- **Menaces de pré-attaque** : Defender peut détecter plusieurs types d’analyseurs de vulnérabilité que les attaquants utilisent fréquemment pour sonder les failles des applications.
+
+- **Menaces d’accès initial** - [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) génère ces alertes, notamment lorsqu’une adresse IP malveillante connue se connecte à votre interface FTP Azure App Service.
+
+- **Menaces d’exécution** : Defender peut détecter les tentatives d’exécution de commandes à privilèges élevés et de commandes Linux sur App Service Windows, mais également les comportements d’attaque sans fichier, les outils d’exploration de données monétaires numériques et de nombreuses autres activités d’exécution de code suspect et malveillant.
+
+### <a name="dangling-dns-detection"></a>Détection des entrées DNS non résolues
+
+Azure Defender pour App Service identifie également les entrées DNS restantes dans votre bureau d’enregistrement DNS lors de la mise hors service d’un site web App Service. Ces entrées DNS sont appelées « entrées non résolues ». Lorsque vous supprimez un site web sans supprimer son domaine personnalisé de votre bureau d’enregistrement DNS, l’entrée DNS pointe vers une ressource inexistante, ce qui rend votre sous-domaine vulnérable aux prises de contrôle. Azure Defender ne recherche pas les entrées DNS non résolues *existantes* dans votre bureau d’enregistrement DNS. Il vous avertit quand un site web App Service a été désactivé, mais que son domaine personnalisé (entrée DNS) n’a pas été supprimé.
+
+La prise de contrôle des sous-domaines constitue une menace grave et courante pour les organisations. Lorsqu’un acteur de menace détecte une entrée DNS non résolue, il crée son propre site à l’adresse de destination. Le trafic destiné au domaine de l’organisation est ensuite dirigé vers le site de l’acteur de menace, qui peut utiliser ce trafic pour un large éventail d’activités malveillantes.
+
+La protection des entrées DNS non résolues est disponible pour les domaines gérés par Azure DNS et pour ceux gérés par un bureau d’enregistrement de domaines externes. En outre, elle s’applique aussi bien à App Service sur Windows qu’à App Service sur Linux.
+
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="Exemple d’alerte Azure Defender concernant la détection d’une entrée DNS non résolue. Activez Azure Defender pour App Service afin de recevoir ce message et d’autres alertes concernant votre environnement." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
+
+Pour plus d’informations sur la prise de sous-domaine et les entrées DNS non résolues, consultez [Empêcher les entrées DNS non résolues et la prise de contrôle des sous-domaines](../security/fundamentals/subdomain-takeover.md).
+
+Pour obtenir la liste complète des alertes Azure App Service, consultez la [table de référence des alertes](alerts-reference.md#alerts-azureappserv).
+
+> [!NOTE]
+> Defender peut ne pas déclencher d’alertes concernant des entrées DNS non résolues si votre domaine personnalisé ne pointe pas directement vers une ressource App Service, ou si Defender n’a pas supervisé le trafic vers votre site web depuis l’activation de la protection des entrées DNS non résolues (car il n’y a pas de journaux pour faciliter l’identification du domaine personnalisé).
+
+## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Comment protéger vos applications web et vos API Azure App Service
+
 Pour protéger votre plan Azure App Service avec Azure Defender pour App Service :
 
-- Vérifiez que vous disposez d’un plan App Service pris en charge et associé aux ordinateurs dédiés. Les plans pris en charge sont répertoriés ci-dessus dans la section [Disponibilité](#availability).
+1. Vérifiez que vous disposez d’un plan App Service pris en charge et associé aux ordinateurs dédiés. Les plans pris en charge sont répertoriés ci-dessus dans la section [Disponibilité](#availability).
 
-- Activez **Azure Defender** dans votre abonnement (vous pouvez éventuellement activer uniquement le plan **Azure Defender pour App Service**), comme décrit dans [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md)
+2. Activez **Azure Defender** dans votre abonnement, comme décrit dans [Niveaux tarifaires d’Azure Security Center](security-center-pricing.md).
 
-Security Center étant intégré en mode natif avec App Service, aucun déploiement ou intégration ne sont nécessaires. L’intégration est transparente.
+    Si vous le souhaitez, vous pouvez activer plusieurs plans dans Azure Defender (comme Azure Defender pour App Service).
 
->[!NOTE]
-> La page de tarification et des paramètres répertorie un certain nombre d’instances pour votre **quantité de ressources**. Cela représente le nombre total d’instances de calcul, dans tous les plans App Service sur cet abonnement, en cours d’exécution lorsque vous avez ouvert la page du niveau tarifaire.
->
-> Azure App Service offre une variété de plans. Votre plan App Service définit un ensemble de ressources de calcul nécessaires à l’exécution d’une application web. Ils sont équivalents aux batteries de serveurs dans l’hébergement web conventionnel. Une ou plusieurs applications peuvent être configurées pour s’exécuter sur les mêmes ressources informatiques (ou dans le même plan App Service).
->
->Pour valider le nombre, reportez-vous à la section « Plans App Service » dans le portail Azure, où vous pouvez voir le nombre d’instances de calcul utilisées par chaque plan. 
-
+    Security Center étant intégré en mode natif avec App Service, aucun déploiement ou intégration ne sont nécessaires. L’intégration est transparente.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -64,8 +96,8 @@ Dans cet article, vous avez découvert Azure Defender pour App Service.
 
 Pour des informations connexes, consultez les articles suivants : 
 
-- Qu’une alerte soit générée par Security Center ou reçue par Security Center à partir d’un autre produit de sécurité, vous pouvez l’exporter. Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions fournies dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
-- Pour obtenir la liste des alertes Azure App Service, consultez la [table de référence des alertes](alerts-reference.md#alerts-azureappserv).
+- Pour exporter vos alertes vers Azure Sentinel (ou un système SIEM tiers) ou tout autre outil externe, suivez les instructions fournies dans [Diffuser des alertes vers un système SIEM, SOAR ou une solution de gestion des services informatiques](export-to-siem.md).
+- Pour obtenir la liste des alertes Azure Defender pour App Service, consultez la [table de référence des alertes](alerts-reference.md#alerts-azureappserv).
 - Pour plus d’informations sur les plans App Service, consultez [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
-- > [!div class="nextstepaction"]
-    > [Activer Azure Defender](security-center-pricing.md)
+> [!div class="nextstepaction"]
+> [Activer Azure Defender](security-center-pricing.md#enable-azure-defender)

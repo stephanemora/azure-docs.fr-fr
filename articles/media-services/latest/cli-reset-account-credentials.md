@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Réinitialiser vos informations d’identification de compte | Microsoft Docs
+title: Exemple de script Azure CLI – Réinitialiser vos informations d’identification de compte
 description: Utilisez le script Azure CLI pour réinitialiser vos informations d’identification de compte et récupérer les paramètres du fichier app.config.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: da997ec71655231876749d9f3aa65ba06fd3a1f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b9b95af79b8aac11f56fe576f860d719b5fb50e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295833"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897677"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Exemple Azure CLI : Réinitialiser les informations d’identification
 

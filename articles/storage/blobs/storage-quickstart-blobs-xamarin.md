@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de stockage d’objets Blob Azure v12 – Xamarin'
-description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 avec Xamarin afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre appareil mobile et à lister tous les objets blob dans un conteneur.
+title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - Xamarin'
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser la bibliothèque de client Stockage Blob Azure version 12 avec Xamarin afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre appareil mobile et à lister tous les objets blob dans un conteneur.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 10/09/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004736"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802361"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 avec Xamarin
 
-Bien démarrer avec la bibliothèque de client Azure Storage Blob v12 avec Xamarin. Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
+Découvrez comment bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 avec Xamarin. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
 
-Utilisez la bibliothèque de client Azure Storage Blob v12 avec Xamarin pour :
+Utilisez la bibliothèque de client Stockage Blob Azure v12 avec Xamarin pour :
 
 * Créez un conteneur.
 * Charger un blob dans le stockage Azure
@@ -44,7 +44,7 @@ Liens de référence :
 
 ## <a name="setting-up"></a>Configuration
     
-Cette section vous guide tout au long de la préparation d’un projet à utiliser avec la bibliothèque de client Azure Storage Blob v12 avec Xamarin.
+Cette section vous guide tout au long de la préparation d’un projet à utiliser avec la bibliothèque de client Stockage Blob Azure v12 avec Xamarin.
     
 ### <a name="create-the-project"></a>Créer le projet
 
@@ -80,7 +80,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 ## <a name="object-model"></a>Modèle objet
 
-Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
+Stockage Blob Azure est optimisé pour stocker des quantités massives de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
@@ -99,7 +99,7 @@ Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces exemples d’extraits de code vous montrent comment effectuer les tâches suivantes avec la bibliothèque cliente Stockage Blob Azure pour .NET dans une application Xamarin.Forms :
+Ces exemples d’extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Stockage Blob Azure pour .NET dans une application Xamarin.Forms :
 
 * [Créer des variables au niveau de la classe](#create-class-level-variables)
 * [Créer un conteneur](#create-a-container)
@@ -110,7 +110,7 @@ Ces exemples d’extraits de code vous montrent comment effectuer les tâches su
 
 ### <a name="create-class-level-variables"></a>Créer des variables au niveau de la classe
 
-Le code ci-dessous déclare plusieurs variables au niveau de la classe. Elles sont nécessaires pour communiquer avec le stockage d’objets BLOB Azure dans le reste de cet exemple.
+Le code ci-dessous déclare plusieurs variables au niveau de la classe. Elles sont nécessaires pour communiquer avec Stockage Blob Azure dans le reste de cet exemple.
 
 Celles-ci s’ajoutent à la chaîne de connexion pour le compte de stockage défini dans la section [Configurer votre chaîne de connexion au stockage](#configure-your-storage-connection-string).
 
@@ -269,12 +269,12 @@ Une fois que vous avez vérifié les valeurs, confirmez l’invite de suppressio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à télécharger et répertorier des objets BLOB à l’aide de la bibliothèque cliente de stockage BLOB Azure V12 avec Xamarin.
+Dans ce guide de démarrage rapide, vous avez appris à charger, télécharger et lister des objets blob à l’aide de la bibliothèque de client Stockage Blob Azure V12 avec Xamarin.
 
 Pour afficher des exemples d’applications de stockage blob, passez à :
 
 > [!div class="nextstepaction"]
-> [Exemple Xamarin du kit de développement logiciel (SDK) du stockage d’objets Blob Azure v12](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Exemple Xamarin du SDK Stockage Blob Azure v12](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * Pour obtenir des didacticiels, des exemples, des démarrages rapides et d’autres documents, visitez [Azure pour les développeurs mobiles](/azure/mobile-apps).
 * Pour en savoir plus sur Xamarin, consultez [Prise en main de Xamarin](/xamarin/get-started/).

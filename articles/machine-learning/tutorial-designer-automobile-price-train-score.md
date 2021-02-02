@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796106"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879795"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutoriel : Prédire le prix de voitures avec le concepteur
 
@@ -103,7 +103,7 @@ Un certain nombre d’exemples de jeux de données que vous pouvez expérimenter
 
 Vous pouvez visualiser les données pour comprendre le jeu de données que vous allez utiliser.
 
-1. Cliquez avec le bouton droit sur **Données sur le prix des véhicules automobiles (brutes)** , puis sélectionnez **Visualiser**.
+1. Cliquez avec le bouton droit sur **Données sur le prix des véhicules automobiles (brutes)** , puis sélectionnez **Visualiser** > **Sortie de jeu de données**.
 
 1. Cliquez sur différentes colonnes dans la fenêtre de données pour visualiser des informations les concernant.
 
@@ -284,7 +284,7 @@ Quand vous avez terminé la configuration de votre pipeline, vous pouvez lancer 
 
 Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécution du pipeline. Tout d’abord, examinez les prédictions générées par le modèle de régression.
 
-1. Cliquez avec le bouton droit sur le module **Score Model** et sélectionnez **Visualiser** pour afficher sa sortie.
+1. Cliquez avec le bouton droit sur le module **Score Model** et sélectionnez **Visualiser** > **Jeu de données scoré** pour afficher sa sortie.
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
@@ -294,7 +294,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
 Utilisez **Evaluate Model** pour voir ce que donne le modèle entraîné sur le jeu de données de test.
 
-1. Cliquez avec le bouton droit sur le module **Evaluate Model** (Évaluer le modèle) et sélectionnez **Visualiser** pour afficher sa sortie.
+1. Cliquez avec le bouton droit sur le module **Evaluate Model** et sélectionnez **Visualiser** > **Résultats de l’évaluation** pour afficher sa sortie.
 
 Les statistiques suivantes s’affichent pour votre modèle :
 

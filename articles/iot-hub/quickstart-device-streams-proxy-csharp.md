@@ -1,20 +1,20 @@
 ---
-title: Démarrage rapide C# sur les flux d’appareil Azure IoT Hub pour SSH et RDP
+title: Démarrage rapide - Démarrage rapide C# sur les flux d’appareil Azure IoT Hub pour SSH et RDP
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications C# qui permettent des scénarios SSH et RDP sur un flux d’appareil IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 12e26818f86fc4abdc1873d031182fd994c04687
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831920"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624369"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C# (préversion)
 
@@ -25,25 +25,6 @@ Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en ta
 Les [flux d’appareil IoT Hub](iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Le présent guide de démarrage rapide implique deux applications C# qui permettent l’envoi du trafic d’application client-serveur (comme Secure Shell [SSH] et Remote Desktop Protocol [RDP] sur un flux d’appareil établi par le biais d’un hub IoT. Pour obtenir une vue d’ensemble de la configuration, consultez [Exemple d’application de proxy locale pour SSH ou RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Cet article décrit tout d’abord la configuration pour SSH (à l’aide du port 22), puis la manière de modifier le port pour RDP. Étant donné que les flux d’appareil ne dépendent pas des applications et des protocoles, vous pouvez modifier ce même exemple pour prendre en charge d’autres types de trafic d’application. Cette modification implique généralement de remplacer uniquement le port de communication par celui utilisé par l’application souhaitée.
-
-## <a name="how-it-works"></a>Fonctionnement
-
-La figure suivante illustre la manière dont les applications de proxy locales d’appareil et de service de cet exemple activent une connectivité de bout en bout entre le client SSH et les processus de démon SSH. Ici, nous partons du principe que le démon s’exécute sur le même appareil que l’application de proxy locale d’appareil.
-
-![Configuration de l’application de proxy locale](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
-
-1. L’application de proxy locale de service se connecte au hub IoT et lance un flux d’appareil sur l’appareil cible.
-
-1. L’application de proxy locale d’appareil termine la négociation du lancement du flux et établit un tunnel de streaming de bout en bout par le biais du point de terminaison de streaming du hub IoT côté service.
-
-1. L’application de proxy locale d’appareil se connecte au démon SSH qui écoute le port 22 sur l’appareil. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale de l’appareil ».
-
-1. L’application de proxy locale de service attend de nouvelles connexions SSH de la part d’un utilisateur en écoutant un port désigné, le port 2222 ici. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale du service ». Quand l’utilisateur se connecte par le biais du client SSH, le tunnel permet au trafic d’application SSH d’être transféré entre le client SSH et l’application serveur.
-
-> [!NOTE]
-> Le trafic SSH envoyé sur un flux d’appareil est traité par tunnel par le biais d’un point de terminaison de streaming du hub IoT, plutôt que directement entre le service et l’appareil. Pour plus d’informations, consultez les [avantages de l’utilisation des flux d’appareil Iot Hub](iot-hub-device-streams-overview.md#benefits).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -72,6 +53,25 @@ La figure suivante illustre la manière dont les applications de proxy locales d
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
+## <a name="how-it-works"></a>Fonctionnement
+
+La figure suivante illustre la manière dont les applications de proxy locales d’appareil et de service de cet exemple activent une connectivité de bout en bout entre le client SSH et les processus de démon SSH. Ici, nous partons du principe que le démon s’exécute sur le même appareil que l’application de proxy locale d’appareil.
+
+![Configuration de l’application de proxy locale](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
+
+1. L’application de proxy locale de service se connecte au hub IoT et lance un flux d’appareil sur l’appareil cible.
+
+1. L’application de proxy locale d’appareil termine la négociation du lancement du flux et établit un tunnel de streaming de bout en bout par le biais du point de terminaison de streaming du hub IoT côté service.
+
+1. L’application de proxy locale d’appareil se connecte au démon SSH qui écoute le port 22 sur l’appareil. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale de l’appareil ».
+
+1. L’application de proxy locale de service attend de nouvelles connexions SSH de la part d’un utilisateur en écoutant un port désigné, le port 2222 ici. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale du service ». Quand l’utilisateur se connecte par le biais du client SSH, le tunnel permet au trafic d’application SSH d’être transféré entre le client SSH et l’application serveur.
+
+> [!NOTE]
+> Le trafic SSH envoyé sur un flux d’appareil est traité par tunnel par le biais d’un point de terminaison de streaming du hub IoT, plutôt que directement entre le service et l’appareil. Pour plus d’informations, consultez les [avantages de l’utilisation des flux d’appareil Iot Hub](iot-hub-device-streams-overview.md#benefits).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -96,7 +96,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
    > Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Notez la chaîne de connexion d’appareil retournée ; vous en aurez besoin plus loin dans ce guide de démarrage rapide. Cela ressemble à l’exemple suivant :

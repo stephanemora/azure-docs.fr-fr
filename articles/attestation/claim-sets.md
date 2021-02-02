@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572746"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762543"
 ---
 # <a name="claim-sets"></a>Ensembles de revendications
 
@@ -55,6 +55,12 @@ Les revendications ci-dessous sont définies par le document [IETF JWT](https://
 Les revendications ci-dessous sont définies par le document [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) et utilisées par Azure Attestation dans l’objet de réponse :
 - **« Revendication nonce » (nonce)**
 
+Les revendications ci-dessous sont générées par défaut en fonction des revendications entrantes
+- **x-ms-ver** : version du schéma JWT (valeur « 1.0 » attendue)
+- **x-ms-attestation-type** : valeur de chaîne représentant le type d’attestation 
+- **x-ms-policy-hash** : valeur de chaîne contenant le hachage SHA256 du texte de la stratégie calculé par BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texte de la stratégie)))))
+- **x-ms-policy-signer** : Contient un objet JWK avec la clé publique ou la chaîne de certificats présente dans l’en-tête de stratégie signé. x-ms-policy-signer n’est ajouté que si la stratégie est signée
+
 ## <a name="claims-specific-to-sgx-enclaves"></a>Revendications propres aux enclaves SGX
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Revendications entrantes propres à l’attestation SGX
@@ -71,7 +77,6 @@ Les revendications ci-dessous sont générées par le service pour l’attestati
 Les revendications ci-dessous sont générées par le service et incluses dans l’objet de réponse pour l’attestation SGX :
 - **x-ms-sgx-is-debuggable** : valeur booléenne qui indique si le débogage est activé ou non pour l’enclave.
 - **x-ms-sgx-product-id**
-- **x-ms-ver**
 - **x-ms-sgx-mrsigner** : valeur encodée hexadécimale du champ « mrsigner » de la déclaration
 - **x-ms-sgx-mrenclave** : valeur encodée hexadécimale du champ « mrenclave » de la déclaration
 - **x-ms-sgx-svn** : numéro de version de sécurité encodé dans la déclaration 
@@ -99,36 +104,39 @@ maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-attestationcollateral | x-ms-sgx-collateral
 
-## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>Revendications émises propres à l’attestation de Module de plateforme sécurisée (TPM)
+## <a name="claims-specific-to-trusted-platform-module-tpm-vbs-attestation"></a>Revendications propres à l’attestation TPM (Module de plateforme sécurisée)/VBS
 
-### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>Revendications entrantes (également utilisables comme revendications sortantes)
+### <a name="incoming-claims-for-tpm-attestation"></a>Revendications entrantes pour l’attestation TPM
 
-- **aikValidated** :  valeur booléenne contenant des informations si le certificat de la clé d’attestation d’identité (AIK) a été validé ou non.
-- **aikPubHash** :  chaîne contenant la valeur base64(SHA256(clé publique AIK au format DER)).
-- **tpmVersion** :   valeur entière contenant la version principale du module de plateforme sécurisée (TPM).
-- **secureBootEnabled** : valeur booléenne indiquant si le démarrage sécurisé est activé.
-- **iommuEnabled** :  valeur booléenne indiquant si l’unité de gestion de la mémoire d’entrée-sortie (Iommu) est activée.
-- **bootDebuggingDisabled** : valeur booléenne pour indiquer si le débogage de démarrage est désactivé.
-- **notSafeMode** :  valeur booléenne indiquant si Windows ne s’exécute pas en mode sans échec.
-- **notWinPE** :  valeur booléenne indiquant si Windows ne s’exécute pas en mode WinPE.
-- **vbsEnabled** :  valeur booléenne indiquant si VBS est activé.
-- **vbsReportPresent** :  valeur booléenne indiquant si le rapport de l’enclave VBS est disponible.
-- **enclaveAuthorId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de l’auteur de l’enclave. Identificateur de l’auteur du module principal de l’enclave.
-- **enclaveImageId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de l’image de l’enclave. Identificateur de l’image du module principal de l’enclave.
-- **enclaveOwnerId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID du propriétaire de l’enclave. Identificateur du propriétaire de l’enclave.
-- **enclaveFamilyId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de famille de l’enclave. Identificateur de la famille du module principal de l’enclave.
-- **enclaveSvn** :  valeur entière contenant le numéro de la version de sécurité du module principal de l’enclave.
-- **enclavePlatformSvn** :  valeur entière contenant le numéro de la version de sécurité de la plateforme qui héberge l’enclave.
-- **enclaveFlags** :  la revendication enclaveFlags est une valeur entière qui contient des indicateurs décrivant la stratégie d’exécution pour l’enclave.
-  
-### <a name="outgoing-claims-specific-to-tpm-attestation"></a>Revendications sortantes propres à l’attestation TPM
+Revendications émises par Azure Attestation pour l’attestation TPM. La disponibilité des revendications dépend de la preuve fournie pour l’attestation.
 
-- **policy_hash** :  valeur de chaîne contenant le hachage SHA256 du texte de la stratégie calculé par BASE64URL(SHA256(BASE64URL(UTF8(texte de la stratégie)))).
-- **policy_signer** :  Contient un objet JWK avec la clé publique ou la chaîne de certificats présente dans l’en-tête de stratégie signé.
-- **ver (Version)**  :  valeur de chaîne contenant la version du rapport. Il s’agit de la version 1.0.
-- **Revendication cnf (confirmation)**  :  La revendication « cnf » est utilisée pour identifier la clé de preuve de possession. Les revendications de confirmation telles que définies dans le document RFC 7800 contiennent la partie publique de la clé de l’enclave attestée représentée sous la forme d’un objet JWK (JSON Web Key) (RFC 7517).
-- **rp_data (données de la partie de confiance)**  :  données de la partie de confiance, le cas échéant, spécifiées dans la demande, utilisées par la partie de confiance comme nonce pour garantir le caractère actuel du rapport.
-- **Revendication « jti »(ID JWT)**  : La revendication « JTI » (ID JWT) fournit un identificateur unique pour le jeton JWT. La valeur de l’identificateur est attribuée de manière à garantir qu’il y a une probabilité négligeable que la même valeur soit affectée par accident à un objet de données différent.
+- **aikValidated** : valeur booléenne contenant des informations indiquant si le certificat de la clé d’attestation d’identité (AIK) a été validé ou non
+- **aikPubHash** :  chaîne contenant la valeur base64(SHA256(clé publique AIK au format DER))
+- **tpmVersion** :   valeur entière contenant la version principale du module de plateforme sécurisée (TPM)
+- **secureBootEnabled** : valeur booléenne indiquant si le démarrage sécurisé est activé
+- **iommuEnabled** :  valeur booléenne indiquant si l’unité de gestion de la mémoire d’entrée-sortie (Iommu) est activée
+- **bootDebuggingDisabled** : valeur booléenne pour indiquer si le débogage de démarrage est désactivé
+- **notSafeMode** :  valeur booléenne indiquant si Windows ne s’exécute pas en mode sans échec
+- **notWinPE** :  valeur booléenne indiquant si Windows ne s’exécute pas en mode WinPE
+- **vbsEnabled** :  valeur booléenne indiquant si VBS est activé
+- **vbsReportPresent** :  valeur booléenne indiquant si le rapport de l’enclave VBS est disponible
+
+### <a name="incoming-claims-for-vbs-attestation"></a>Revendications entrantes pour l’attestation VBS
+
+Les revendications émises par Azure Attestation pour l’attestation VBS s’ajoutent aux revendications mises à disposition pour l’attestation TPM. La disponibilité des revendications dépend de la preuve fournie pour l’attestation.
+
+- **enclaveAuthorId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de l’auteur de l’enclave. Identificateur de l’auteur du module principal de l’enclave
+- **enclaveImageId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de l’image de l’enclave. Identificateur de l’image du module principal de l’enclave
+- **enclaveOwnerId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID du propriétaire de l’enclave. Identificateur du propriétaire de l’enclave
+- **enclaveFamilyId** :  valeur de chaîne contenant la valeur encodée Base64Url de l’ID de famille de l’enclave. Identificateur de la famille du module principal de l’enclave
+- **enclaveSvn** :  valeur entière contenant le numéro de la version de sécurité du module principal de l’enclave
+- **enclavePlatformSvn** :  valeur entière contenant le numéro de la version de sécurité de la plateforme qui héberge l’enclave
+- **enclaveFlags** :  la revendication enclaveFlags est une valeur entière qui contient des indicateurs décrivant la stratégie d’exécution pour l’enclave
+
+### <a name="outgoing-claims-specific-to-tpm-and-vbs-attestation"></a>Revendications sortantes propres à l’attestation TPM ou VBS
+
+- **cnf (Confirmation)**  : La revendication « cnf » est utilisée pour identifier la clé de preuve de possession. La revendication de confirmation telle que définie dans le document RFC 7800 contient la partie publique de la clé de l’enclave attestée représentée sous la forme d’un objet JWK (JSON Web Key) (RFC 7517)
+- **rp_data (données de la partie de confiance)**  : données de la partie de confiance, le cas échéant, spécifiées dans la demande, utilisées par la partie de confiance comme nonce pour garantir le caractère actuel du rapport. rp_data est ajouté uniquement si rp_data est présent
 
 ### <a name="property-claims"></a>Revendications de propriété
 

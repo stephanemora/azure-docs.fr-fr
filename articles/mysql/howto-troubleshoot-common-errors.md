@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510960"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631365"
 ---
 # <a name="common-errors"></a>Erreurs courantes
 
 Azure Database pour MySQL est un service complètement managé, reposant sur MySQL Community Edition. L’expérience MySQL dans un environnement de service managé peut différer de l’exécution de MySQL dans votre environnement spécifique. Dans cet article, vous verrez certaines des erreurs courantes que les utilisateurs peuvent rencontrer en migrant vers le service Azure Database pour MySQL ou en développant sur ce service pour la première fois.
+
+## <a name="common-connection-errors"></a>Erreurs de connexion courantes
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
+L’erreur ci-dessus se produit après la réussite de la connexion mais avant l’exécution de toute commande lorsque la session est établie. Le message ci-dessus indique que vous avez affecté une valeur incorrecte au paramètre de serveur init_connect, qui provoque l’échec de l’initialisation de la session.
+
+Certains paramètres de serveur comme require_secure_transport ne sont pas pris en charge au niveau de la session et, par conséquent, toute tentative de modification des valeurs de ces paramètres à l’aide d’init_connect peut provoquer l’erreur 1184 lors de la connexion au serveur MySQL, comme indiqué ci-dessous.
+
+mysql> show databases; ERREUR 2006 (HY000) : Le serveur MySQL a disparu. Aucune connexion. Tentative de reconnexion... ID de connexion :    64897 Base de données active : *** AUCUNE**_ ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
+
+_ *Résolution* : Vous devez réinitialiser la valeur init_connect sous l’onglet Paramètres du serveur dans le portail Azure, et définir uniquement les paramètres de serveur pris en charge à l’aide du paramètre init_connect. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erreurs dues à l’absence du SUPER privilège et au rôle DBA
 

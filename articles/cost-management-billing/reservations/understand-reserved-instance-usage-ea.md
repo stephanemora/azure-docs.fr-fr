@@ -1,24 +1,24 @@
 ---
-title: Comprendre l’utilisation des réservations Azure pour les Contrats Entreprise
-description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure pour votre Accord de Mise en Œuvre Entreprise.
+title: Comprendre l’utilisation des réservations Azure pour les Contrats Entreprise et les Contrats client Microsoft
+description: Découvrez comment lire vos informations d’utilisation afin de bien comprendre comment une réservation Azure s’applique à l’utilisation de Contrat Entreprise et Contrat client Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545602"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683715"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Obtenir l’utilisation et les coûts de réservation Contrat Entreprise Contrat client Microsoft
 
-Les données d’utilisation et de coûts de la réservation sont disponibles pour les clients Contrat Entreprise dans le portail Azure et les API REST. Cet article vous aide à :
+Des données améliorées pour l’utilisation et les coûts de réservation sont disponibles pour l’utilisation de Contrat Entreprise (EA) et Contrat client Microsoft dans Cost Management. Cet article vous aide à :
 
 - Obtenir les données d’achat de réservation
 - Connaître l’abonnement, le groupe de ressources ou la ressource qui a utilisé la réservation
@@ -61,9 +61,7 @@ Les autres informations disponibles dans les données d’utilisation Azure ont 
 
 Vous pouvez obtenir les données à l’aide de l’API ou les télécharger à partir du portail Azure.
 
-Vous appelez l’[API Détails d’utilisation](/rest/api/consumption/usagedetails/list) pour obtenir les nouvelles données. Pour plus d’informations sur la terminologie, consultez [Termes relatifs à l’utilisation](../understand/understand-usage.md). L’appelant doit être administrateur d’entreprise pour le contrat entreprise utilisant le [portail EA](https://ea.azure.com). Les administrateurs d’entreprise disposant d’un accès en lecture seule peuvent également obtenir les données.
-
-Notez que ces données ne sont pas disponibles dans [API de création de rapports pour les clients Enterprise - Détails d’utilisation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Vous appelez l’[API Détails d’utilisation](/rest/api/consumption/usagedetails/list) pour obtenir les nouvelles données. Pour plus d’informations sur la terminologie, consultez [Termes relatifs à l’utilisation](../understand/understand-usage.md).
 
 Voici un exemple d’appel de l’API Détails d’utilisation :
 
@@ -150,7 +148,7 @@ Les coûts des réservations sont disponibles dans l’[analyse des coûts](http
 
 Regroupez par type de coût pour voir une ventilation de l’utilisation, des achats et des remboursements, ou regroupez par réservation pour une ventilation de la réservation et des coûts à la demande. Rappelez-vous que les seuls coûts de réservation que vous voyez en examinant le coût réel sont des achats, mais que les coûts sont alloués aux ressources individuelles qui ont utilisé l’avantage quand vous regardez le coût amorti. Vous voyez aussi un nouveau type de coût, **UnusedReservation**, quand vous regardez le coût amorti.
 
-## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
+## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
 Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 

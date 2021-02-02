@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09d793f3d8ed544a386a362677f24be6d18673d7
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 27a97ceb2ca9a7b58df7200930e4e47d89c9ae89
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748725"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762184"
 ---
 # <a name="workflow"></a>Workflow
 
@@ -38,6 +38,18 @@ Voici les étapes générales d’un workflow d’attestation d’enclave SGX ty
 
 > [!Note]
 > Quand vous envoyez des demandes d’attestation dans la version d’API [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview), le client doit envoyer la preuve à Azure Attestation avec le jeton d’accès Azure AD.
+
+## <a name="trusted-platform-module-tpm-enclave-validation-work-flow"></a>Workflow de validation de l’enclave TPM (Module de plateforme sécurisée)
+
+Voici les étapes générales d’un workflow d’attestation d’enclave TPM type (en utilisant Azure Attestation) :
+
+1.  Au démarrage de l’appareil ou de la plateforme, divers chargeurs de démarrage et services de démarrage mesurent les événements qui sont sauvegardés par le TPM et sont stockés de manière sécurisée (journal TCG).
+2.  Le client collecte les journaux TCG de l’appareil et la déclaration TPM, qui sert de preuve d’attestation.
+3.  Le client a un URI qui fait référence à une instance d’Azure Attestation. Le client envoie la preuve à Azure Attestation. Les informations exactes envoyées au fournisseur varient selon le type d’enclave.
+4.  Azure Attestation valide les informations soumises et les évalue par rapport à une stratégie configurée. Si la vérification est réussie, Azure Attestation émet un jeton d’attestation et le retourne au client. Si cette étape échoue, Azure Attestation signale une erreur au client. La communication entre le client et le service d’attestation est dictée par le protocole TPM d’attestation Azure.
+5.  Le client envoie ensuite le jeton d’attestation à la partie de confiance. La partie de confiance appelle le point de terminaison de métadonnées de clé publique d’Azure Attestation pour récupérer les certificats de signature. La partie de confiance vérifie ensuite la signature du jeton d’attestation et garantit la fiabilité des plateformes.
+
+![Flux de validation TPM](./media/tpm-validation-flow.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Guide pratique pour créer et signer une stratégie d’attestation](author-sign-policy.md)

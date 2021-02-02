@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015944"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937833"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft
 
@@ -49,7 +49,7 @@ L’application est une application multilocataire destinée aux clients profess
 
 ![Le diagramme illustre l’application UserSync avec trois éléments locaux se connectant à Azure : Start dot Auth acquérant un jeton de manière interactive pour se connecter à Azure AD, AccountController obtenant le consentement de l’administrateur pour se connecter à Azure AD et SyncController lisant un utilisateur pour une connexion à Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour le point de terminaison de la plateforme d’identités](v2-oauth2-client-creds-grant-flow.md).
+Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour la plateforme d’identité](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="clone-or-download-this-repository"></a>Cloner ou télécharger ce dépôt
 
@@ -109,7 +109,7 @@ Si vous ne souhaitez pas utiliser l’automatisation, suivez les étapes décrit
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur de l’**ID d’application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
 1. Sous **Gérer**, sélectionnez **Authentification**.
-1. Définissez **URL de déconnexion** sur `https://localhost:44316/Account/EndSession`.
+1. Définissez **Front-channel logout URL** (URL de déconnexion du canal frontal) sur `https://localhost:44316/Account/EndSession`.
 1. Dans la section **Octroi implicite**, sélectionnez **Jetons d’accès** et **Jetons d’ID**. Cet exemple nécessite l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour la connexion de l’utilisateur et l’appel d’une API.
 1. Sélectionnez **Enregistrer**.
 1. Sous **Gérer**, sélectionnez **Certificats et secrets**.
@@ -227,7 +227,7 @@ Visual Studio publie le projet et ouvre automatiquement l’URL du projet dans u
 1. Revenez au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Sélectionnez l’application **dotnet-web-daemon-v2**.
-1. Dans la page **Authentification** de votre application, mettez à jour les champs **URL de déconnexion** avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Dans la page d’**authentification** de votre application, mettez à jour les champs **Front-channel logout URL** (URL de déconnexion du canal frontal) avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. Dans le menu **Personnalisation**, mettez à jour l’**URL de la page d’accueil** avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Enregistrez la configuration.
 1. Ajoutez la même URL à la liste d’URL du menu **Authentification** > **URI de redirection**. Si vous avez plusieurs URL de redirection, vérifiez qu’il existe une nouvelle entrée correspondant à l’URI du service d’application pour chaque URL de redirection.

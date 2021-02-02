@@ -1,5 +1,5 @@
 ---
-title: 'Exemple de script Azure CLI : Création et envoi d’un travail | Microsoft Docs'
+title: Exemple de script Azure CLI – Créer et envoyer un travail
 description: Le script Azure CLI de cette rubrique montre comment envoyer un travail pour transformation à encodage simple avec une URL HTTPs.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0f2e1d901e674c3fecf957bd10314e51195f8b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e35ab78b83c0daa96e9b958d70f6e341cdcc537
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295986"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891418"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemple d’interface de ligne de commande : Créer et envoyer un travail
 

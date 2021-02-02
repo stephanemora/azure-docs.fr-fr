@@ -1,6 +1,6 @@
 ---
-title: Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub | Microsoft Docs
-description: Découvrez comment implémenter un processus de mise à jour de microprogramme d’appareil, qui peut être déclenché à partir d’une application back-end connectée à votre hub IoT.
+title: 'Tutoriel : Mise à jour d’un microprogramme d’appareil avec Azure IoT Hub | Microsoft Docs'
+description: 'Tutoriel : Découvrez comment implémenter un processus de mise à jour de microprogramme d’appareil, qui peut être déclenché à partir d’une application back-end connectée à votre hub IoT.'
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 807de3c41ec8026edd2b2d8859eb70863ae5697b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572335"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621394"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.openlocfilehash: 3f55e2a7d62d2f32173d382dc9be0d6eb4f83fae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/23/2021
+ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249752"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746694"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
-La Recherche cognitive Azure est une ressource autonome utilisée pour raccorder une expérience de recherche à des applications personnalisées. La Recherche cognitive s’intègre facilement à de nombreux autres services Azure, à des applications situées sur des serveurs réseau ou à des logiciels s’exécutant sur d’autres plateformes cloud.
+[Recherche cognitive Azure](search-what-is-azure-search.md) est une ressource Azure qui permet d’ajouter une expérience de recherche en texte intégral à des applications personnalisées. Vous pouvez facilement l’intégrer à d’autres services Azure qui fournissent des données ou un traitement supplémentaire, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Dans cet article, découvrez comment créer une ressource dans le [portail Azure](https://portal.azure.com/).
+Dans cet article, vous allez découvrir comment créer un service de recherche dans le [portail Azure](https://portal.azure.com/).
 
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -31,7 +31,7 @@ Les propriétés de service suivantes sont fixes pendant la durée de vie du ser
 
 * Le nom du service fait désormais partie du point de terminaison de l’URL ([Passez en revue ces conseils](#name-the-service) pour des noms de service explicites).
 * Le [niveau de service](search-sku-tier.md) affecte la facturation et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
-* La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez placer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
+* La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez créer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 
@@ -43,7 +43,7 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
+1. Cliquez sur le signe plus ( **« + Créer une ressource »** ) en haut à gauche.
 
 1. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
 

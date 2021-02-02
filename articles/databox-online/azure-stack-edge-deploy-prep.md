@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968491"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761717"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Pro  
 
@@ -118,14 +118,14 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
     ![Détails du projet et de l’instance](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Sélectionnez **Suivant : Adresse de livraison**.
 
-    - Si vous disposez déjà d'un appareil, cochez la case **J'ai un appareil Azure Stack Edge Pro**.
+    - Si vous disposez déjà d’un appareil, cochez la case **J’ai un appareil Azure Stack Edge**.
     - Si vous commandez un nouvel appareil, entrez le nom du contact, la société, l’adresse de livraison de l’appareil et les informations de contact.
 
     ![Adresse de livraison du nouvel appareil](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,13 +138,17 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 8. Sélectionnez **Create** (Créer).
 
-La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
+   La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
-![Accéder à la ressource Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Accéder à la ressource Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Une fois la commande passée, Microsoft l’examine et vous communique (par e-mail) les détails de l’expédition.
 
 ![Notification relative à l’examen de la commande Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+
+> [!NOTE]
+> Si vous souhaitez créer plusieurs commandes à la fois ou cloner une commande existante, vous pouvez utiliser les [scripts dans les exemples Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Pour plus d’informations, consultez le fichier README.
 
 ## <a name="get-the-activation-key"></a>Obtenir la clé d'activation
 

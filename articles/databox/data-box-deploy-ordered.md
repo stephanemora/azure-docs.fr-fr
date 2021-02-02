@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210339"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797613"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -231,7 +231,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
     |Pays/région source    |    Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données. <br> Pour plus d’informations, consultez la [disponibilité des régions](data-box-overview.md#region-availability).            |
 
-    [![Démarrage d’une commande d’importation Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [ ![Démarrage d’une commande d’importation Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png) ](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
@@ -338,9 +338,9 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
 14. Sélectionnez une identité d’utilisateur que vous utiliserez pour gérer l’accès à cette ressource. Choisissez **Sélectionner une identité d’utilisateur**. Dans le volet de droite, sélectionnez l’abonnement et l’identité managée à utiliser. Choisissez ensuite **Sélectionner**.
 
-    Une identité managée affectée par l’utilisateur est une ressource Azure autonome qui peut être utilisée pour gérer plusieurs ressources. Pour plus d’informations, consultez [Types d’identités managées](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Une identité managée affectée par l’utilisateur est une ressource Azure autonome qui peut être utilisée pour gérer plusieurs ressources. Pour plus d’informations, consultez [Types d’identités managées](../active-directory/managed-identities-azure-resources/overview.md).  
 
-    Si vous avez besoin de créer une identité managée, suivez les instructions indiquées dans [Créer, lister, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Si vous avez besoin de créer une identité managée, suivez les instructions indiquées dans [Créer, lister, supprimer ou affecter un rôle à une identité managée affectée par l’utilisateur à l’aide du portail Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Sélectionner une identité d’utilisateur](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

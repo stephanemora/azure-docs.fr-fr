@@ -1,29 +1,11 @@
 ---
-title: Vue d’ensemble d’Azure Media Services v3
-titleSuffix: Azure Media Services
-description: Présentation détaillée d’Azure Media Services V3 avec des liens vers des démarrages rapides, des didacticiels et des exemples de code.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: azure media services, flux, diffusion, en direct, hors connexion
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308964"
+titre : Vue d’ensemble d’Azure Media Services v3 : Description d’Azure Media Services : Présentation détaillée d’Azure Media Services V3 avec des liens vers des démarrages rapides, des didacticiels et des exemples de code.
+services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
+
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 08/31/2020 ms.author: inhenkel ms.custom: mvc
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Intention client : En tant que développeur ou fournisseur de contenu, je souhaite encoder, diffuser en continu (à la demande ou en direct) et analyser mon contenu multimédia afin que mes clients puissent afficher le contenu dans un grand nombre de navigateurs et d’appareils, et obtenir des insights à partir du contenu enregistré.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

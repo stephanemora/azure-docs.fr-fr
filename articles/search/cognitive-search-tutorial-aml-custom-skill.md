@@ -1,23 +1,23 @@
 ---
-title: 'Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning'
+title: 'Exemple : Créer et déployer une compétence personnalisée avec Azure Machine Learning'
 titleSuffix: Azure Cognitive Search
-description: Ce tutoriel montre comment utiliser Azure Machine Learning pour créer et déployer une compétence personnalisée destinée au pipeline d’enrichissement par IA de la Recherche cognitive Azure.
+description: Cet exemple montre comment utiliser Azure Machine Learning pour créer et déployer une compétence personnalisée pour le pipeline d’enrichissement par IA de la Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057601"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745632"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Tutoriel : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Exemple : Créer et déployer une compétence personnalisée avec Azure Machine Learning 
 
-Dans ce tutoriel, vous utilisez le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](./cognitive-search-aml-skill.md) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
+Dans cet exemple, vous allez utiliser le [jeu de données des avis sur les hôtels](https://www.kaggle.com/datafiniti/hotel-reviews) (distribué dans le cadre de la licence Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) et vous créez une [compétence personnalisée](./cognitive-search-aml-skill.md) à l’aide d’Azure Machine Learning pour extraire, à partir des avis, des sentiments basés sur les aspects. L’affectation de sentiments positifs et négatifs au sein d’un même avis est ainsi possible, et une imputation correcte est alors effectuée aux entités identifiées, telles que le personnel, la chambre, la réception ou la piscine.
 
 Pour entraîner le modèle de sentiment basé sur l’aspect dans Azure Machine Learning, vous allez utiliser le [dépôt de recettes nlp](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Le modèle sera ensuite déployé en tant que point de terminaison sur un cluster Azure Kubernetes. Aussitôt déployé, le point de terminaison est ajouté au pipeline d’enrichissement en tant que compétence Azure Machine Learning à utiliser par le service Recherche cognitive.
 

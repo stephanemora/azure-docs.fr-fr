@@ -1,17 +1,17 @@
 ---
-title: Utiliser le portail Azure pour utiliser des clés managées par le client ou BYOK avec la plateforme Media Services
+title: Utiliser des clés gérées par le client ou BYOK dans le portail Azure
 description: Dans ce tutoriel, vous allez utiliser le portail Azure pour activer des clés gérées par le client ou BYOK (Bring Your Own Key) avec un compte de stockage Azure Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 003b8e066a6161baedbc70e9becbca23566813ef
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 61df4b3424a4d73eca7a946c6bd8e5160fd6c529
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "96013227"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935384"
 ---
 # <a name="tutorial-use-the-azure-portal-to-use-customer-managed-keys-or-byok-with-media-services"></a>Tutoriel : Utiliser le portail Azure pour utiliser des clés gérées par le client ou BYOK avec la plateforme Media Services
 

@@ -2,13 +2,13 @@
 title: 'Tutoriel : Appairer des environnements locaux avec un cloud privé'
 description: Découvrez comment créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 1/5/2021
-ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/27/2021
+ms.openlocfilehash: e7b1e349f67fe63f63183c0ff6d1522498c65f8c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913156"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918719"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
@@ -33,7 +33,7 @@ Avant d’activer la connectivité entre deux circuits ExpressRoute à l’aide 
 - Connectivité établie vers et depuis un cloud privé Azure VMware Solution avec son circuit ExpressRoute appairé avec une passerelle ExpressRoute dans un réseau virtuel Azure, c’est-à-dire le _circuit 2_ dans le contexte des procédures d’appairage.  
 - Un circuit ExpressRoute fonctionnel distinct utilisé pour connecter des environnements locaux à Azure, c’est-à-dire le _circuit 1_ dans le contexte des procédures d’appairage.
 - Un [bloc d’adresses réseau](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) /29 sans chevauchement pour l’appairage ExpressRoute Global Reach
-- Vérifiez que tous les routeurs, y compris le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des ASN publics à 4 octets pour publier des routes.
+- Veillez à ce que toutes les passerelles, y compris le service du fournisseur ExpressRoute, prennent en charge un numéro de système autonome (ASN) à 4 octets. Azure VMware Solution utilise des numéros de système autonome (ASN) publics à 4 octets pour publier les routes.
 
 > [!TIP]
 > Dans le cadre de ces prérequis, votre circuit ExpressRoute local est le _circuit 1_. Quant à votre circuit ExpressRoute de cloud privé, il se trouve dans un abonnement différent et est nommé _circuit 2_. 

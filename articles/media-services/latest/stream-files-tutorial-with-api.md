@@ -1,25 +1,10 @@
 ---
-title: Télécharger, encoder et diffuser avec Media Services v3
-titleSuffix: Azure Media Services
-description: Didacticiel illustrant le chargement d’un fichier, l’encodage d'une vidéo et la diffusion de contenu avec Azure Media Services v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: eedbb63f4928c0397150b40a47fdc7c3e87d1991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256765"
+titre : Charger, encoder et diffuser avec Media Services v3 : Description d’Azure Media Services : Didacticiel illustrant le chargement d’un fichier, l’encodage d'une vidéo et la diffusion de contenu avec Azure Media Services v3.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

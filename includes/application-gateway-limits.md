@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: ff97aa6c6f04ad41ba6e1b986f3cc0734ec7a326
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92526113"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612917"
 ---
 | Ressource | Limite | Remarque |
 | --- | --- | --- |
@@ -32,6 +32,9 @@ ms.locfileid: "92526113"
 | Mappages d’URL par écouteur |1 | |
 | Nombre maximal de règles basées sur le chemin par mappage d’URL|100||
 | Configurations de redirection |100<sup>1</sup>| |
+| Nombre d’ensembles de règles de réécriture |400| |
+| Nombre de configurations d’en-tête ou d’URL par ensemble de règles de réécriture|40| |
+| Nombre de conditions par ensemble de règles de réécriture|40| |
 | Connexions WebSocket simultanées |Passerelles moyenne 20 Ko<br> Passerelles volumineuses 50 Ko| |
 | Longueur maximale d’URL|32 Ko| |
 | Taille d’en-tête maximale pour HTTP/2 |4 Ko| |

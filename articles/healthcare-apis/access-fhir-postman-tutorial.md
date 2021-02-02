@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b0acfbf9636c2ad1df7df3197a0a1a83ec91b5c3
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145648"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747338"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Accéder à l’API Azure pour FHIR avec Postman
 
@@ -32,7 +32,7 @@ Pour pouvoir utiliser Postman, les informations suivantes sont nécessaires :
 
 - L’URL de votre serveur FHIR, par exemple `https://MYACCOUNT.azurehealthcareapis.com`
 - L’élément `Authority` du fournisseur d’identité de votre serveur FHIR, par exemple, `https://login.microsoftonline.com/{TENANT-ID}`
-- L’élément `audience` configuré. Il s’agit généralement de l’URL du serveur FHIR, par exemple `https://MYACCOUNT.azurehealthcareapis.com` ou simplement `https://azurehealthcareapis.com`.
+- L’élément `audience` configuré. Il s’agit généralement de l’URL du serveur FHIR, par exemple `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` ou simplement `https://azurehealthcareapis.com`.
 - L’élément `client_id` (ou ID d’application) de l’[application cliente](register-confidential-azure-ad-client-app.md) que prévoyez d’utiliser pour accéder au service FHIR.
 - L’élément `client_secret` (ou secret d’application) de l’application cliente.
 

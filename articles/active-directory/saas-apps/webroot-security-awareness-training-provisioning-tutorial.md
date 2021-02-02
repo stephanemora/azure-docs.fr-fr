@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f015718c59178b8094f535280edadd641d22a806
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181334"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741891"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutoriel : Configurer Webroot Security Awareness Training pour le provisionnement automatique d’utilisateurs
 
@@ -120,7 +120,8 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
    |Attribut|Type|Pris en charge pour le filtrage|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|
@@ -156,7 +157,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
-3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Journal des modifications
+* 21/1/2021 – Ajout de la prise en charge de l’attribut de base « userName » pour les utilisateurs.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

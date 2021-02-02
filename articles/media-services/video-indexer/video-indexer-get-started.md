@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/30/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505595"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797800"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Démarrage rapide : Comment s’inscrire et charger votre première vidéo
 
@@ -57,7 +57,11 @@ Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Vide
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Chargement du téléchargement":::
- 
+
+## <a name="supported-browsers"></a>Navigateurs pris en charge
+
+Pour en savoir plus, consultez [Navigateurs pris en charge](video-indexer-overview.md#supported-browsers).
+
 ## <a name="see-also"></a>Voir aussi
 
 Pour plus d’informations, consultez [Charger et indexer des vidéos](upload-index-videos.md).

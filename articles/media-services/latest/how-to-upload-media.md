@@ -1,24 +1,10 @@
 ---
-title: Charger des éléments multimédia
-titleSuffix: Azure Media Services
-description: Découvrez comment charger des médias pour le streaming ou l’encodage.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015844"
+titre : Charger des médias : Description d’Azure Media Services : Découvrez comment charger des médias pour le streaming ou l’encodage.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: how-to ms.date: 08/31/2020 ms.author: inhenkel
 ---
+
 # <a name="upload-media-for-streaming-or-encoding"></a>Charger des médias pour le streaming ou l’encodage
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

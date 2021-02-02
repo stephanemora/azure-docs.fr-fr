@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232350"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754624"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -84,8 +84,8 @@ Pour configurer des paramètres d’application en fonction de la plateforme ou 
 
     | Plateforme | Paramètres de configuration |
     | -------- | ---------------------- |
-    | **Web** | Entrez un **URI de redirection** pour votre application, qui est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme pour les applications web standard qui s’exécutent sur un serveur. |
-    | **Application monopage** | Entrez un **URI de redirection** pour votre application, qui est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme si vous générez une application web côté client dans JavaScript ou avec un framework comme Angular, Vue.js, React.js ou Blazor WebAssembly. |
+    | **Web** | Entrez un **URI de redirection** pour votre application. Cet URI correspond à l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme pour les applications web standard qui s’exécutent sur un serveur. |
+    | **Application monopage** | Entrez un **URI de redirection** pour votre application. Cet URI correspond à l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme si vous générez une application web côté client dans JavaScript ou avec un framework comme Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS / macOS** | Entrez l’**ID de bundle** de l’application, qui se trouve dans Xcode dans *Info.plist* ou Paramètres de build.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez un ID de bundle. |
     | **Android** | Entrez le **Nom du package** de l’application, que vous trouverez dans le fichier *AndroidManifest.xml*. Générez et entrez ensuite le **hachage de signature**.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez ces paramètres. |
     | **Applications de bureau et mobiles** | Sélectionnez l’un des **URI de redirection suggérés** ou spécifiez un **URI de redirection personnalisé**.<br/>Pour les applications de bureau, nous vous recommandons d’effectuer les opérations suivantes :<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Sélectionnez cette plateforme pour les applications mobiles qui n’utilisent pas la dernière bibliothèque d’authentification Microsoft (MSAL) ou qui n’utilisent pas de répartiteur. Sélectionnez également cette plateforme pour les applications de bureau. |

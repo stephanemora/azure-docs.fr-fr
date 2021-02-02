@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949766"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785479"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurer Identity Protection et l’accès conditionnel dans Azure AD B2C
 
@@ -94,9 +94,7 @@ Pour ajouter une stratégie d’accès conditionnel basée sur les détections d
 
 1. Sous **Sécurité**, sélectionnez **Accès conditionnel (préversion)** . La page **Stratégies d’accès conditionnel** s’ouvre. 
 
-1. Sélectionnez **Nouvelle stratégie** et suivez la documentation sur l’accès conditionnel Azure AD pour créer une stratégie. Par exemple :
-
-   - [Accès conditionnel basé sur les risques de connexion : Activer avec la stratégie d’accès conditionnel](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Sélectionnez **Nouvelle stratégie** et suivez la documentation sur l’accès conditionnel Azure AD pour créer une stratégie. Pour les stratégies basées sur les risques, vous devez configurer des stratégies distinctes basées sur le [risque de l’utilisateur](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) ou le [risque de connexion](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy), en fonction du type de risque que vous souhaitez utiliser comme condition. Nous vous déconseillons d’utiliser les deux types de risque dans une même stratégie.
 
    > [!IMPORTANT]
    > Lorsque vous sélectionnez les utilisateurs auxquels vous souhaitez appliquer la stratégie, ne sélectionnez pas uniquement **Tous les utilisateurs**, car vous risqueriez de ne pas pouvoir vous connecter.

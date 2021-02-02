@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861506"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660995"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
@@ -24,10 +24,14 @@ Azure Active Directory Domain Services (AD DS) fournit des services de domaine m
 
 Un domaine managé Azure AD DS vous permet d’exécuter des applications héritées dans le cloud qui ne peuvent pas utiliser les méthodes d'authentification modernes ou pour lesquelles vous ne voulez pas que les recherches de répertoire retournent systématiquement à un environnement AD DS local. Vous pouvez effectuer un lift-and-shift de ces applications héritées de votre environnement local à un domaine managé sans devoir gérer l’environnement AD DS dans le cloud.
 
-Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter au service et aux applications connectés au domaine managé à l’aide de leurs informations d’identification existantes. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources. Ces fonctionnalités fournissent une migration lift-and-shift plus simple des ressources locales vers Azure.
+Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter aux services et aux applications connectés au domaine managé à l’aide de leurs informations d’identification existantes. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources. Ces fonctionnalités fournissent une migration lift-and-shift plus simple des ressources locales vers Azure.
 
 > [!div class="nextstepaction"]
 > [Pour commencer, créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
+
+Jetez un coup d’œil à notre courte vidéo pour en savoir plus sur Azure AD DS.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LblD]
 
 ## <a name="how-does-azure-ad-ds-work"></a>Fonctionnement d’Azure AD DS
 

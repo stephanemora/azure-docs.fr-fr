@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072154"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622793"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -99,6 +99,20 @@ tutorial
 ```
 
 Si vous n’avez pas exécuté `train.py` localement dans le tutoriel précédent, vous n’avez pas le répertoire `data/`. Dans ce cas, exécutez la méthode `torchvision.datasets.CIFAR10` en local avec `download=True` dans votre script `train.py`.
+
+En outre, pour une exécution sur un environnement local, veillez à quitter l’environnement du tutoriel et à activer le nouvel environnement conda :
+
+```bash
+conda deactivate                # If you are still using the tutorial environment, exit it
+```
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+```
+
+```bash
+conda activate pytorch-aml-env          # activate new conda environment
+```
 
 Pour exécuter en local le script de formation modifié, appelez :
 

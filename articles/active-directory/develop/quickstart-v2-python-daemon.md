@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Appeler Microsoft Graph à partir d’un démon Python | Azure'
 titleSuffix: Microsoft identity platform
-description: Dans ce guide de démarrage rapide, vous allez découvrir comment un processus Python peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identités Microsoft à l’aide de la propre identité de l’application
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment un processus Python peut obtenir un jeton d’accès et appeler une API protégée par une plateforme d’identités Microsoft en utilisant la propre identité de l’application
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 47aaf67c9ae2402e0445de60de439b77242bd87d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178226"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754068"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Python à l’aide de l’identité de l’application
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612640"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98798665"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN est-il en disponibilité générale ?
 
@@ -199,6 +199,9 @@ Lorsque des sites VPN se connectent à un hub, ils le font à l’aide de connex
 
 Le débit VPN total maximal d’un hub est de 20 Gbit/s, en fonction de l’unité d’échelle choisie pour la passerelle VPN. Le débit est partagé par toutes les connexions existantes. Chaque tunnel dans une connexion peut prendre en charge jusqu’à 1 Gbit/s.
 
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Puis-je utiliser NAT-T sur mes connexions VPN ?
+Oui, NAT Traversal (NAT-T) est pris en charge. La passerelle VPN Virtual WAN n’effectue AUCUNE fonctionnalité de type NAT sur les paquets internes vers/à partir des tunnels IPsec. Dans cette configuration, vérifiez que l’appareil local initie le tunnel IPSec.
+
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>Je ne vois pas le paramètre 20 Gbit/s pour le hub virtuel dans le portail. Comment le configurer ?
 
 Accédez à la passerelle VPN à l’intérieur d’un hub sur le portail, puis cliquez sur l’unité d’échelle pour la remplacer par le paramètre approprié.
@@ -221,7 +224,7 @@ Oui. Une connexion Internet et un appareil physique qui prend en charge IPsec, d
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Comment activer la route par défaut (0.0.0.0/0) dans une connexion (VPN, ExpressRoute ou Réseau virtuel) ?
 
-Un hub virtuel peut propager un itinéraire par défaut appris à une connexion de réseau virtuel/VPN site à site/ExpressRoute si l’indicateur est « Activé » sur la connexion. Cet indicateur est visible lorsque l’utilisateur modifie une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Par défaut, cet indicateur est désactivé lorsqu’un site ou un circuit ExpressRoute est connecté à un hub. Il est activé par défaut lorsqu’une connexion de réseau virtuel est ajoutée pour connecter un réseau virtuel à un hub virtuel. L’itinéraire par défaut ne provient pas du hub Virtual WAN ; il est propagé s’il est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté.
+Un hub virtuel peut propager un itinéraire par défaut appris à une connexion de réseau virtuel/VPN site à site/ExpressRoute si l’indicateur est « Activé » sur la connexion. Cet indicateur est visible lorsque l’utilisateur modifie une connexion de réseau virtuel, une connexion VPN ou une connexion ExpressRoute. Par défaut, cet indicateur est désactivé lorsqu’un site ou un circuit ExpressRoute est connecté à un hub. Il est activé par défaut lorsqu’une connexion de réseau virtuel est ajoutée pour connecter un réseau virtuel à un hub virtuel. L’itinéraire par défaut ne provient pas du hub Virtual WAN ; il est propagé s’il est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté. Une route par défaut ne se propage pas entre les hubs (inter-hub).
 
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Comment le hub virtuel d’un réseau étendu virtuel sélectionne le meilleur chemin pour une route à partir de plusieurs hubs ?
 

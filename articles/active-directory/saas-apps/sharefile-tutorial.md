@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 03f2ec7aef1faadcb72d6c7a5a058c7d06596539
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723964"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Didacticiel : Intégration d’Azure Active Directory à Citrix ShareFile
 
@@ -31,7 +31,7 @@ L’intégration de Citrix ShareFile à Azure AD vous offre les avantages suivan
 
 Pour configurer l’intégration d’Azure AD à Citrix ShareFile, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 * Un abonnement Citrix ShareFile pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -126,7 +126,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configurer l’authentification unique Citrix ShareFile
@@ -165,7 +165,9 @@ Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le s
     
     f. Dans la zone de texte **Logout URL** (URL de déconnexion), collez la valeur **URL de déconnexion** que vous avez copiée dans le Portail Azure.
 
-5. Cliquez sur **Enregistrer** sur le portail de gestion Citrix ShareFile.
+    g. Sous **Optional Settings** (Paramètres facultatifs), dans **SP-Initiated Auth Context** (Contexte d’authentification initié par le fournisseur de services), choisissez **User Name and Password** (Nom d’utilisateur et mot de passe) et **Exact**.
+
+5. Cliquez sur **Enregistrer**.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Créer un utilisateur de test Citrix ShareFile
 
@@ -198,7 +200,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Citrix ShareFile pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Citrix ShareFile dans Mes applications vous redirige vers l’URL de connexion Citrix ShareFile. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Un clic sur la vignette Citrix ShareFile dans Mes applications vous redirige vers l’URL de connexion Citrix ShareFile. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 72c7f1dd6652a51a960c80829a697b97fd74f8de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500025"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704488"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Linux avec Azure CLI
 
@@ -300,7 +300,4 @@ Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant l
 > * sécurisent le trafic réseau
 > * Créer une machine virtuelle principale
 
-Passez au didacticiel suivant pour découvrir comment sécuriser les données sur des machines virtuelles avec Sauvegarde Azure. 
-
-> [!div class="nextstepaction"]
-> [Sauvegarder des machines virtuelles Linux dans Azure](./tutorial-backup-vms.md)
+Pour plus d’informations sur la protection de vos disques de machine virtuelle, consultez [Sauvegarde et récupération d’urgence pour les disques](backup-and-disaster-recovery-for-azure-iaas-disks.md).

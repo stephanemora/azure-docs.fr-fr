@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 51b548beae57ce1da32006b61dfd222b0a4e6218
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015859"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753066"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez :
 
 ![Fonctionnement de l’exemple d’application généré par ce tutoriel](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-L’exemple d’application créé par ce guide permet à une application monopage (SPA) JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons provenant du point de terminaison de la plateforme d’identités Microsoft. Dans ce scénario, une fois qu’un utilisateur s’est connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP par le biais de l’en-tête d’autorisation. Ce jeton sera utilisé pour acquérir le profil et les e-mails de l’utilisateur via l’**API MS Graph**.
+L’exemple d’application créé par ce guide permet à une application monopage JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons provenant de la plateforme d’identité Microsoft. Dans ce scénario, une fois qu’un utilisateur s’est connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP par le biais de l’en-tête d’autorisation. Ce jeton sera utilisé pour acquérir le profil et les e-mails de l’utilisateur via l’**API MS Graph**.
 
 L’acquisition et le renouvellement des jetons sont gérés par la [bibliothèque d’authentification Microsoft (MSAL) pour JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
@@ -413,13 +413,13 @@ L’application SPA créée dans ce guide appelle `acquireTokenSilent` et/ou `ac
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Après la première connexion, il n’est pas souhaitable de demander aux utilisateurs de se réauthentifier chaque fois qu’ils ont besoin d’un jeton pour accéder à une ressource. Par conséquent, *acquireTokenSilent* doit être utilisé pour acquérir des jetons dans la plupart des cas. Il existe toutefois des situations dans lesquelles vous devez forcer les utilisateurs à interagir avec le point de terminaison de la plateforme d’identités Microsoft. Voici quelques exemples :
+Après la première connexion, il n’est pas souhaitable de demander aux utilisateurs de se réauthentifier chaque fois qu’ils ont besoin d’un jeton pour accéder à une ressource. Par conséquent, *acquireTokenSilent* doit être utilisé pour acquérir des jetons dans la plupart des cas. Dans certains cas, vous devez cependant forcer les utilisateurs à interagir avec la plateforme d’identité Microsoft. Voici quelques exemples :
 
 - Les utilisateurs doivent entrer à nouveau leurs informations d’identification car le mot de passe a expiré.
 - Votre application demande l’accès à une ressource et vous avez besoin du consentement de l’utilisateur.
 - Une authentification à 2 facteurs est demandée.
 
-L’appel d’*acquireTokenPopup* ouvre une fenêtre contextuelle (ou *acquireTokenRedirect* redirige les utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft). Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à 2 facteurs.
+L’appel d’*acquireTokenPopup* ouvre une fenêtre contextuelle (ou *acquireTokenRedirect* redirige les utilisateurs vers la plateforme d’identité Microsoft). Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à 2 facteurs.
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -483,7 +483,7 @@ Dans l’exemple d’application créé par ce guide, la méthode `callMSGraph()
    ```
 1. Dans votre navigateur, entrez **http://localhost:3000** ou **http://localhost:{port}** , où *port* est le port que votre serveur web écoute. Vous devez voir apparaître le contenu de votre fichier *index.html*, ainsi que le bouton **Se connecter**.
 
-Une fois que le navigateur a chargé votre fichier *index.html*, sélectionnez **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison de la plateforme d’identités Microsoft :
+Une fois que le navigateur a chargé votre fichier *index.html*, sélectionnez **Se connecter**. Vous êtes invité à vous connecter avec la plateforme d’identité Microsoft :
 
 ![La fenêtre de connexion au compte JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

@@ -1,26 +1,9 @@
 ---
-title: Chiffrement de gestion des droits numériques (DRM) et service de remise de licence Azure Media Services
-titleSuffix: Azure Media Services
-description: Découvrez comment utiliser le chiffrement dynamique DRM et le service de remise de licences pour remettre des flux chiffrés avec des licences Microsoft PlayReady, Google Widevine ou Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289355"
+titre : Chiffrement de gestion des droits numériques (DRM) et service de remise de licence Azure Media Services : Description d’Azure Media Services : Découvrez comment utiliser le chiffrement dynamique DRM et le service de remise de licences pour remettre des flux chiffrés avec des licences Microsoft PlayReady, Google Widevine ou Apple FairPlay.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutoriel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 

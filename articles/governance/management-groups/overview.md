@@ -1,15 +1,15 @@
 ---
 title: Organiser vos ressources avec des groupes d’administration - Azure Governance
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030669"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736320"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -162,16 +162,16 @@ Il existe plusieurs solutions pour corriger ce scénario :
 - Supprimez l’attribution de rôle de l’abonnement avant de déplacer ce dernier vers un autre groupe d’administration parent.
 - Ajoutez l’abonnement dans l’étendue attribuable de la définition de rôle.
 - Changez l’étendue attribuable dans la définition de rôle. Dans l’exemple ci-dessus, vous pouvez changer les étendues attribuables du groupe d’administration Marketing vers le groupe d’administration racine afin que la définition soit disponible dans les deux branches de la hiérarchie.  
-- Créez un rôle personnalisé supplémentaire qui sera défini dans l’autre branche. Pour ce nouveau rôle, vous devrez également changer l’attribution de rôle dans l’abonnement.  
+- Créez un autre rôle personnalisé défini dans l’autre branche. Pour ce nouveau rôle, vous devez également changer l’attribution de rôle dans l’abonnement.  
 
 ### <a name="limitations"></a>Limites  
 
 Certaines limitations s’appliquent quand vous utilisez des rôles personnalisés dans des groupes d’administration. 
 
  - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle. Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue. Cette situation se produit quand un abonnement ou un groupe d’administration comportant une attribution de rôle est déplacé vers un autre parent dépourvu de la définition de rôle.  
- - Il n’est pas possible de définir les actions du plan de données du fournisseur de ressources dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence avec la mise à jour des fournisseurs de ressources du plan de données.
-   Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
+ - Il n’est pas possible de définir les actions du plan de données du fournisseur de ressources dans des rôles personnalisés de groupe d’administration. Cette restriction s’explique par un problème de latence avec la mise à jour des fournisseurs de ressources du plan de données. Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
  - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle. Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.
+ - L’attribution de rôle pour un rôle avec _dataActions_ n’est pas prise en charge. Créez plutôt l’attribution de rôle au niveau de l’étendue de l’abonnement.
 
 > [!IMPORTANT]
 > L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production.

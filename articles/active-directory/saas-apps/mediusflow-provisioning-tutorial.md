@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607879"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661998"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutoriel : Configurer MediusFlow pour l’approvisionnement automatique d’utilisateurs
 
@@ -155,17 +155,25 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 9. Passez en revue les attributs utilisateur synchronisés d’Azure AD vers MediusFlow dans la section **Mappages des attributs**. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans MediusFlow pour les opérations de mise à jour. Si vous choisissez de modifier l’[attribut cible correspondant](../app-provisioning/customize-application-attributes.md), vous devez vous assurer que l’API MediusFlow prend en charge le filtrage des utilisateurs en fonction de cet attribut. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-   |Attribut|Type|
-   |---|---|
-   |userName|String|
+   |Attribut|Type|Pris en charge pour le filtrage|
+   |---|---|---|
+   |userName|String|&check;|
    |emails[type eq "work"].value|String|
    |name.displayName|String|
    |active|Boolean|
    |name.givenName|String|
    |name.familyName|String|
    |name.formatted|String|
-   |externalID|String|
+   |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informations de référence|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:configurationFilter|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:identityProvider|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:nameIdentifier|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText1|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText2|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText3|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText4|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText5|String|
 
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec MediusFlow**.
@@ -200,6 +208,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Journal des modifications
+
+* 21/1/2021 – Ajout des attributs d’extension personnalisés **configurationFilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** et **customFieldText5**.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

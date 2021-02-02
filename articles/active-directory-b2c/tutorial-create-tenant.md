@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859588"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725752"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     ![Formulaire de création de locataire avec des exemples de valeurs dans le portail Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Sélectionnez **Revoir + créer**.
-1. Passez en revue les paramètres de votre annuaire. Sélectionnez ensuite **Créer**.
+1. Passez en revue les paramètres de votre annuaire. Sélectionnez ensuite **Créer**. Pour la [résolution d’erreurs de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 Vous pouvez lier plusieurs locataires Azure AD B2C à un seul abonnement Azure pour la facturation. Pour lier un locataire, vous devez être administrateur du locataire Azure AD B2C et vous devez disposer d’au moins le rôle Contributeur dans l’abonnement Azure. Consultez [Lier un locataire Azure AD B2C à un abonnement](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

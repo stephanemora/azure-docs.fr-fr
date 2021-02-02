@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a0751e7e4c90f04cd5e28610e2c62dbec6a7adcf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: bedb152a8fecfdb1ee699f431e4e43ef3ceed564
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047379"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807538"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,3 +19,4 @@ ms.locfileid: "98047379"
 |[Un réseau virtuel d’espace de travail managé sur les espaces de travail Azure Synapse doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |L’activation d’un réseau virtuel d’espace de travail managé garantit que le réseau de votre espace de travail est isolé de celui des autres espaces de travail. L’intégration de données et les ressources Spark déployées dans ce réseau virtuel fournissent également l’isolation de niveau utilisateur pour les activités Spark. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Les connexions des points de terminaison privés sur les espaces de travail Azure Synapse doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Les points de terminaison privés peuvent être configurés pour se connecter en privé à un espace de travail Azure Synapse. Cela permet d’appliquer un canal de communication sécurisé à l’espace de travail Azure Synapse. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Les points de terminaison privés managés Synapse doivent uniquement se connecter aux ressources de locataires Azure Active Directory approuvés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Protégez votre espace de travail Synapse en autorisant uniquement les connexions aux ressources de locataires Azure Active Directory (Azure AD) approuvés. Les locataires Azure AD approuvés peuvent être définis lors de l’attribution de stratégie. |Audit, Désactivé, Refus |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
+|[L’évaluation des vulnérabilités doit être activée sur vos espaces de travail Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Découvrez, suivez et corrigez les vulnérabilités potentielles en configurant des analyses récurrentes d’évaluation des vulnérabilités SQL sur vos espaces de travail Synapse. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

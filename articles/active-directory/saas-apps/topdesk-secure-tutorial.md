@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1dd57dd31c0dcf42b7847dc8e3f3945961c3d37f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 93b4030101ab273182a8f9207bc40aa46dbb11c3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520389"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure
 
-Dans ce didacticiel, vous allez apprendre à intégrer TOPdesk - Secure à Azure Active Directory (Azure AD).
-L’intégration de TOPdesk - Secure à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer TOPdesk - Secure à Azure Active Directory (Azure AD). Quand vous intégrez TOPdesk - Secure à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à TOPdesk - Secure.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à TOPdesk - Secure (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à TOPdesk - Secure.
+* Permettre à vos utilisateurs de se connecter automatiquement à TOPdesk - Secure (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables requises
-
-Pour configurer l’intégration d’Azure AD à TOPdesk - Secure, vous avez besoin des éléments suivants :
-
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement TOPdesk - Secure pour lequel l’authentification unique est activée
+Pour commencer, vous devez disposer de ce qui suit :
+ 
+ * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement TOPdesk - Secure pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -43,114 +39,115 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * TOPdesk - Secure prend en charge l’authentification unique initiée par le **fournisseur de services**
 
-## <a name="adding-topdesk---secure-from-the-gallery"></a>Ajout de TOPdesk - Secure à partir de la galerie
+## <a name="add-topdesk---secure-from-the-gallery"></a>Ajouter TOPdesk - Secure à partir de la galerie
 
 Pour configurer l’intégration de TOPdesk - Secure à Azure AD, vous devez ajouter TOPdesk - Secure à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter TOPdesk - Secure à partir de la galerie, effectuez les étapes suivantes :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **TOPdesk - Secure** dans la zone de recherche.
+1. Sélectionnez **TOPdesk - Secure** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+## <a name="configure-and-test-azure-ad-sso-for-topdesk---secure"></a>Configurer et tester l’authentification unique Azure AD pour TOPdesk - Secure
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, tapez **TOPdesk - Secure** , sélectionnez **TOPdesk - Secure** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-     ![TOPdesk - Secure dans la liste des résultats](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec TOPdesk - Secure avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec TOPdesk - Secure avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur TOPdesk - Secure associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec TOPdesk - Secure, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec TOPdesk - Secure, vous devez effectuer les étapes suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique TOPdesk - Secure](#configure-topdesk---secure-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test TOPdesk - Secure](#create-topdesk---secure-test-user)** pour avoir un équivalent de Britta Simon dans TOPdesk - Secure lié à la représentation de l’utilisateur dans Azure AD.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+    2. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+2. **[Configurer l’authentification unique TOPdesk - Secure](#configure-topdesk---secure-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test TOPdesk - Secure](#create-topdesk---secure-test-user)** pour avoir un équivalent de Britta Simon dans TOPdesk - Secure lié à la représentation de l’utilisateur dans Azure AD.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
 Pour configurer l’authentification unique Azure AD avec TOPdesk - Secure, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **TOPdesk - Secure** , sélectionnez **Authentification unique** .
+1. Dans le portail Azure, dans la page d’intégration de l’application **TOPdesk - Secure**, cliquez sur **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône Crayon pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL TOPdesk - Secure](common/sp-identifier-reply.png)
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.topdesk.net`.
 
-    a. Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<companyname>.topdesk.net`.
+    b. Dans la zone **URL d’identificateur**, renseignez l’URL des métadonnées TOPdesk que vous pouvez récupérer à partir de la configuration TOPdesk. Elle doit utiliser le modèle suivant : `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
-    b. Dans la zone **URL d’identificateur** , renseignez l’URL des métadonnées TOPdesk que vous pouvez récupérer à partir de la configuration TOPdesk. Elle doit utiliser le modèle suivant : `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
-
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.topdesk.net/tas/secure/login/verify`
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Contactez l’[équipe de support technique TOPdesk - Secure](https://www.topdesk.com/us/support/) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer TOPdesk - Secure** , copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer TOPdesk - Secure**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
-    b. Identificateur Azure AD
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    c. URL de déconnexion
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
-### <a name="configure-topdesk---secure-single-sign-on"></a>Configurer l’authentification unique TOPdesk - Secure
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-1. Connectez-vous à votre site d’entreprise **TOPdesk - Secure** en tant qu’administrateur.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TOPdesk - Secure.
 
-2. Dans le menu **TOPdesk** , cliquez sur **Settings** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **TOPdesk - Secure**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="configure-topdesk---secure-sso"></a>Configurer l’authentification unique TOPdesk - Secure
+
+1. Connectez-vous à votre site d'entreprise **TOPdesk - Secure** en tant qu'administrateur.
+
+2. Dans le menu **TOPdesk**, cliquez sur **Settings**.
 
     ![Paramètres](./media/topdesk-secure-tutorial/ic790598.png "Paramètres")
 
-3. Cliquez sur **Login Settings** .
+3. Cliquez sur **Login Settings**.
 
     ![Paramètres de connexion](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
 
-4. Développez le menu **Login Settings** , puis cliquez sur **General** .
+4. Développez le menu **Login Settings**, puis cliquez sur **General**.
 
     ![Généralités](./media/topdesk-secure-tutorial/ic790600.png "Général")
 
-5. Dans la section **Secure** de la section de configuration **SAML login** , procédez comme suit :
+5. Dans la section **Secure** de la section de configuration **SAML login**, procédez comme suit :
 
     ![Paramètres techniques](./media/topdesk-secure-tutorial/ic790855.png "Technical Settings")
 
-    a. Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
+    a. Cliquez sur **Download** pour télécharger le fichier de métadonnées public et l'enregistrer localement sur votre ordinateur.
 
-    b. Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService** .
+    b. Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.
 
     ![Assertion Consumer Service](./media/topdesk-secure-tutorial/ic790856.png "Assertion Consumer Service")
 
-    c. Copiez la valeur **AssertionConsumerService** , collez-la dans la zone de texte URL de réponse dans la section **Domaine et URL TOPdesk - Secure** .
+    c. Copiez la valeur **AssertionConsumerService**, collez-la dans la zone de texte URL de réponse dans la section **Domaine et URL TOPdesk - Secure**.
 
 6. Pour créer un fichier de certificat, procédez comme suit :
 
@@ -158,84 +155,33 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Secure, effe
 
     a. Ouvrez le fichier de métadonnées téléchargé à partir du portail Azure.
 
-    b. Développez le nœud **RoleDescriptor** dont le **xsi:type** est **fed:ApplicationServiceType** .
+    b. Développez le nœud **RoleDescriptor** qui a un **xsi:type** égal à **fed:ApplicationServiceType**.
 
-    c. Copiez la valeur du nœud **X509Certificate** .
+    c. Copiez la valeur du nœud **X509Certificate**.
 
-    d. Enregistrez la valeur de **X509Certificate** copiée, dans un fichier local sur votre ordinateur.
+    d. Enregistrez la valeur **X509Certificate** copiée sur votre ordinateur dans un fichier.
 
-7. Dans la section **Public** , cliquez sur **Add** .
+7. Dans la section **Public**, cliquez sur **Add**.
 
     ![Ajouter](./media/topdesk-secure-tutorial/ic790607.png "Ajouter")
 
-8. Dans la boîte de dialogue **SAML configuration assistant** , procédez comme suit :
+8. Dans la page de boîte de dialogue **SAML configuration assistant**, procédez comme suit :
 
     ![Assistant de configuration SAML](./media/topdesk-secure-tutorial/ic790608.png "SAML configuration assistant")
 
-    a. Pour charger votre fichier de métadonnées téléchargé à partir du portail Azure, dans **Métadonnées de fédération** , cliquez sur **Parcourir** .
+    a. Pour charger votre fichier de métadonnées téléchargé à partir du portail Azure, dans **Métadonnées de fédération**, cliquez sur **Parcourir**.
 
-    b. Pour charger votre fichier de certificat, sous **Certificate (RSA)** , cliquez sur **Browse** .
+    b. Pour charger le fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
 
-    c. Pour **Private key(RSA, PKCS8, DER)** , vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](https://www.topdesk.com/us/support) pour obtenir la clé privée.
+    c. Pour **Private key(RSA, PKCS8, DER)**, vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](https://www.topdesk.com/us/support) pour obtenir la clé privée.
 
-    d. Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon** , cliquez sur **Browse** .
+    d. Pour charger le fichier de logo que vous a fourni l'équipe de support technique TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
 
     e. Dans la zone de texte **User name attribute** (Attribut de nom d’utilisateur), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Dans la zone de texte **Display name** , indiquez le nom de votre configuration.
+    f. Dans la zone de texte **Display name**, tapez un nom pour votre configuration.
 
-    g. Cliquez sur **Enregistrer** .
-
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
-
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
-  
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
-    Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer** .
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TOPdesk - Secure.
-
-1. Sur le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **TOPdesk - Secure** .
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, tapez et sélectionnez **TOPdesk - Secure** .
-
-    ![Lien TOPdesk - Secure dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+    g. Cliquez sur **Enregistrer**.
 
 ### <a name="create-topdesk---secure-test-user"></a>Créer un utilisateur de test TOPdesk - Secure
 
@@ -246,37 +192,38 @@ Dans le cas de TOPdesk - Secure, l’approvisionnement est une tâche manuelle.
 
 1. Connectez-vous à votre site d’entreprise **TOPdesk - Secure** en tant qu’administrateur.
 
-2. Dans le menu en haut, cliquez sur **TOPdesk \> New \> Support Files \> Operator** .
+2. Dans le menu en haut, cliquez sur **TOPdesk \> New \> Support Files \> Operator**.
 
     ![Opérateur](./media/topdesk-secure-tutorial/ic790610.png "Opérateur")
 
-3. Dans la boîte de dialogue **New Operator** , procédez comme suit :
+3. Dans la boîte de dialogue **New Operator**, procédez comme suit :
 
-    ![Nouvel opérateur](./media/topdesk-secure-tutorial/ic790611.png "New Operator")
+    ![Nouvel opérateur](./media/topdesk-secure-tutorial/ic790611.png "New, opérateur")
 
     a. Cliquez sur l’onglet **General** (Général).
 
-    b. Dans la zone de texte **Surname** (Nom), tapez le nom de l’utilisateur, par exemple **Simon** .
+    b. Dans la zone de texte **Surname** (Nom), tapez le nom de l’utilisateur, par exemple **Simon**.
 
-    c. Sélectionnez un **Site** pour le compte dans la section **Emplacement** .
+    c. Sélectionnez un **Site** pour le compte dans la section **Location**.
 
-    d. Dans la zone de texte **Login Name** de la section **TOPdesk Login** , indiquez le nom de connexion de votre utilisateur.
+    d. Dans la zone de texte **Login Name** de la section **TOPdesk Login**, tapez un nom de connexion pour votre utilisateur.
 
-    e. Cliquez sur **Enregistrer** .
+    e. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
 > Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur TOPdesk - Secure fourni par TOPdesk - Secure pour provisionner des comptes d’utilisateur Azure AD.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette TOPdesk - Secure dans le panneau d’accès doit vous connecter automatiquement à l’application TOPdesk - Secure pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à TOPdesk - Secure, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion à TOPdesk - Secure pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette TOPdesk - Secure dans Mes applications, vous devez être connecté automatiquement à l’application TOPdesk - Secure pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré TOPdesk - Secure, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+

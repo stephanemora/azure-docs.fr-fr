@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 01/21/2021
 ms.author: justinha
-ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208486"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673466"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutoriel : Créer une approbation de forêt sortante pour un domaine local dans Azure Active Directory Domain Services
 
-Dans les environnements ne permettant pas la synchronisation des hachages de mot de passe, ou en présence d’utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (Azure AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Dans une forêt de ressources, les hachages de mots de passe ne sont jamais synchronisés.
+Dans les environnements ne permettant pas la synchronisation des hachages de mot de passe, ou en présence d’utilisateurs se connectant exclusivement à l’aide de cartes à puce et ne connaissant pas leur mot de passe, vous pouvez utiliser une forêt de ressources dans Azure Active Directory Domain Services (Azure AD DS). Une forêt de ressources utilise une approbation unidirectionnelle sortante entre Azure AD DS et un ou plusieurs environnements AD DS locaux. Cette relation d’approbation permet aux utilisateurs, applications et ordinateurs de s’authentifier auprès d’un domaine local à partir du domaine managé Azure AD DS. Dans une forêt de ressources, les hachages de mots de passe ne sont jamais synchronisés.
 
 ![Diagramme d'approbation de forêt entre Azure AD DS et les instances AD DS locales](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -84,8 +84,8 @@ Le domaine AD DS local nécessite une approbation de forêt entrante pour le dom
 
 Pour configurer l’approbation entrante sur le domaine AD DS local, procédez comme suit à partir d’une station de travail de gestion pour le domaine AD DS local :
 
-1. Sélectionnez **Démarrer | Outils d’administration | Domaines et approbations Active Directory**.
-1. Cliquez avec le bouton droit sur un domaine, par exemple *onprem.contoso.com*, puis sélectionnez **Propriétés**.
+1. Sélectionnez **Démarrer** > **Outils d’administration** > **Domaines et approbations Active Directory**.
+1. Cliquez avec le bouton droit sur le domaine, par exemple *onprem.contoso.com*, puis sélectionnez **Propriétés**.
 1. Choisissez l’onglet **Approbations**, puis **Nouvelle approbation**.
 1. Entrez le nom du domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
@@ -93,6 +93,14 @@ Pour configurer l’approbation entrante sur le domaine AD DS local, procédez c
 1. Choisissez d’utiliser l'**authentification à l'échelle de la forêt**, puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
 1. Parcourez les fenêtres suivantes avec les options par défaut, puis sélectionnez l’option pour **Non, ne pas confirmer l'approbation sortante**.
 1. Sélectionnez **Terminer**.
+
+Si l’approbation de forêt n’est plus nécessaire pour un environnement, procédez comme suit pour la supprimer du domaine local :
+
+1. Sélectionnez **Démarrer** > **Outils d’administration** > **Domaines et approbations Active Directory**.
+1. Cliquez avec le bouton droit sur le domaine, par exemple *onprem.contoso.com*, puis sélectionnez **Propriétés**.
+1. Choisissez l’onglet **Approbations**, puis **Domaines qui approuvent ce domaine (approbations entrantes)** , cliquez sur l’approbation à supprimer, puis cliquez sur **Supprimer**.
+1. Sous l’onglet Approbations, sous **Domaines approuvés par ce domaine (approbations sortantes)** , cliquez sur l’approbation à supprimer, puis cliquez sur Supprimer.
+1. Cliquez sur **Non, supprimer l’approbation du domaine local uniquement**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Créer une approbation de forêt sortante dans Azure AD DS
 
@@ -107,11 +115,17 @@ Pour créer l’approbation sortante destinée au domaine managé dans le portai
    > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine managé. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
 
 1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*.
-1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente lors de la configuration de l’approbation de forêt entrante pour le domaine AD DS local.
+1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente pour configurer l’approbation de forêt entrante pour le domaine AD DS local.
 1. Fournissez au moins deux serveurs DNS pour le domaine AD DS local, par exemple *10.1.1.4* et *10.1.1.5*.
 1. Lorsque vous êtes prêt, **enregistrez** l’approbation de forêt sortante.
 
     ![Créer une approbation de forêt sortante dans le portail Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+
+Si l’approbation de forêt n’est plus nécessaire pour un environnement, procédez comme suit pour la supprimer d’Azure AD DS :
+
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*.
+1. Dans le menu de gauche du domaine managé, sélectionnez **Approbations**, choisissez l’approbation, puis cliquez sur **Supprimer**.
+1. Spécifiez le mot de passe d’approbation qui a été utilisé pour configurer l’approbation de forêt, puis cliquez sur **OK**.
 
 ## <a name="validate-resource-authentication"></a>Valider l’authentification des ressources
 

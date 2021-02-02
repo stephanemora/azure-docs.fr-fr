@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un blueprint avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec Azure CLI.
-ms.date: 10/14/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
-ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920557"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875192"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec Azure CLI
 
@@ -16,7 +16,8 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+- Si vous n’avez encore jamais utilisé Azure Blueprints, inscrivez le fournisseur de ressources par le biais d’Azure CLI avec `az provider register --namespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

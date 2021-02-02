@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide (Android) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
+title: Démarrage rapide - Démarrage rapide (Android) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez un exemple d’application Android pour envoyer des données de télémétrie simulée à un hub IoT et lire les données de télémétrie provenant du hub IoT afin de les traiter dans le cloud.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: d9598f7a0bc8e4a8b92ac53612023585eb19f4c4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dd622f0d55be000e2318c53f200bebf49c373724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121513"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624318"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Démarrage rapide : Envoyer des données de télémétrie IoT à partir d’un appareil Android
 
@@ -100,7 +100,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lire les données de télémétrie envoyées par votre hub
 
-Dans cette section, vous allez utiliser Azure Cloud Shell avec l’[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) pour surveiller les messages d’appareil envoyés par l’appareil Android.
+Dans cette section, vous allez utiliser Azure Cloud Shell avec l’[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) pour surveiller les messages d’appareil envoyés par l’appareil Android.
 
 1. À l’aide d’Azure Cloud Shell, exécutez la commande suivante pour vous connecter et lire les messages à partir de votre hub IoT :
 

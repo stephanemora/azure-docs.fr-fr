@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Connecter des utilisateurs et appeler Microsoft Graph dans une application de bureau UWP | Azure'
-description: Dans ce guide de démarrage rapide, découvrez comment une application .NET du bureau Windows (XAML) peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de la plateforme d’identités Microsoft.
+description: Dans ce guide de démarrage rapide, découvrez comment une application .NET du bureau Windows (XAML) peut obtenir un jeton d’accès et appeler une API protégée par la plateforme d’identités Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178294"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753995"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -145,7 +145,7 @@ MSAL utilise deux méthodes d’acquisition de jetons : `AcquireTokenInteractive
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Certaines situations nécessitent d’obliger les utilisateurs à interagir avec un point de terminaison de la plateforme d’identités Microsoft via une fenêtre contextuelle pour valider leurs informations d’identification ou donner leur consentement. Voici quelques exemples :
+Certaines situations nécessitent d’obliger les utilisateurs à interagir avec la plateforme d’identités Microsoft via une fenêtre contextuelle pour qu’ils valident leurs informations d’identification ou qu’ils donnent leur consentement. Voici quelques exemples :
 
 - La première connexion des utilisateurs à l’application
 - Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré

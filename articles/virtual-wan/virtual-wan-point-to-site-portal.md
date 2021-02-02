@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411199"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919062"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de VPN utilisateur à l’aide d’Azure Virtual WAN
 
@@ -24,6 +24,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer un WAN virtuel
 > * Créer une configuration P2S
 > * Créer un hub virtuel
+> * Choisir des pools d’adresses clients
 > * Spécifier les serveurs DNS
 > * Générer un package de configuration pour le profil du client VPN
 > * Configurer les clients VPN
@@ -49,6 +50,11 @@ Une configuration P2S définit les paramètres permettant de connecter des clien
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Choisir des pools d’adresses clients P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Spécifier un serveur DNS
 
 Vous pouvez configurer ce paramètre lors de la création du hub, ou le modifier ultérieurement. Pour le modifier, localisez le hub virtuel. Sous **VPN utilisateur (point à site)** , sélectionnez **Configurer**, puis entrez les adresses IP de serveur DNS dans les zones de texte **Serveurs DNS personnalisés**. Vous pouvez spécifier jusqu’à 5 serveurs DNS.
@@ -73,6 +79,8 @@ Une fois que vous avez terminé de configurer votre client, vous pouvez vous con
 1. Accédez au WAN virtuel.
 1. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub.
 1. Dans la section **Hubs et connexions**, vous pouvez voir l’état du hub, le site, la région, l’état de la connexion VPN et les octets entrés et sortis.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Supprimer des ressources
 

@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide (Python) pour contrôler un appareil à partir d’Azure IoT Hub | Microsoft Docs
+title: Démarrage rapide - Démarrage rapide (Python) pour contrôler un appareil à partir d’Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications Python. Une application est une application back-end qui peut contrôler à distance des appareils connectés à votre concentrateur. L’autre application simule un appareil connecté à votre concentrateur qui peut être contrôlé à distance.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: 5db51e78a6770a642728cc058f425baf7c7e095b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7ee30398ccfdad3ea7b28f277e45c2224de827e8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832158"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624657"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
@@ -68,7 +68,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Notez la chaîne de connexion à l’appareil, qui ressemble à ce qui suit :

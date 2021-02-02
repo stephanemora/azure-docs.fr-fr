@@ -1,20 +1,20 @@
 ---
-title: Démarrage rapide Node.js sur les flux d’appareil Azure IoT Hub pour SSH et RDP
+title: Démarrage rapide - Démarrage rapide Node.js sur les flux d’appareil Azure IoT Hub pour SSH et RDP
 description: Dans ce guide de démarrage rapide, vous exécutez un exemple d’application Node.js qui joue le rôle de proxy pour activer des scénarios SSH et RDP sur des flux d’appareil IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: f32882dcb423c6f42a21a242a7e628ef6acda006
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ef45a6277adeff09a34fe22b7abeb21d3e603167
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902134"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624352"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy Node.js (préversion)
 

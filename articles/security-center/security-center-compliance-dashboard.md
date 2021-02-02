@@ -11,18 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/28/2021
 ms.author: memildin
-ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f8d92ff0835948637761d7d2a98ec95a1c6dfccd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533908"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944204"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
-Le **tableau de bord Conformité avec la réglementation** d’Azure Security Center simplifie le processus visant à respecter les exigences de conformité aux règlementations. Dans le tableau de bord, Security Center fournit des insights sur votre niveau de conformité sur la base d’évaluations continues de votre environnement Azure. Security Center analyse les facteurs de risque dans votre environnement de cloud hybride conformément aux bonnes pratiques en matière de sécurité. Ces évaluations sont comparées à des contrôles de conformité provenant d’un ensemble de normes prises en charge. Le tableau de bord de conformité réglementaire indique l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation particulières. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
+Le **tableau de bord Conformité avec la réglementation** d’Azure Security Center simplifie le processus visant à respecter les exigences de conformité aux règlementations. 
+
+Security Center effectue des évaluations continues de votre environnement cloud hybride pour analyser les facteurs de risque en fonction des contrôles et des bonnes pratiques du point de vue des normes appliqués à vos abonnements. Le tableau de bord reflète l’état de votre conformité à ces normes. 
+
+Quand vous activez Security Center sur un abonnement Azure, le [benchmark de sécurité Azure](../security/benchmarks/introduction.md) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
+
+Le tableau de bord de conformité réglementaire indique l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation particulières. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -41,17 +47,13 @@ Pour parcourir les fonctionnalités couvertes dans ce tutoriel :
 
 ##  <a name="assess-your-regulatory-compliance"></a>Évaluer votre conformité aux réglementations
 
-Security Center évalue en permanence la configuration de vos ressources pour identifier les vulnérabilités et les problèmes de sécurité. Ces évaluations sont présentées comme des recommandations visant à améliorer votre hygiène en matière de sécurité. Dans le tableau de bord de conformité réglementaire, vous pouvez voir un ensemble de normes de conformité et toutes leurs exigences, celles prises en charge étant comparées aux évaluations de sécurité applicables. Vous pouvez ainsi examiner votre niveau de conformité par rapport à la norme, en fonction de l’état de ces évaluations.
+Le tableau de bord de conformité réglementaire montre vos normes de conformité sélectionnées et toutes leurs exigences, celles prises en charge étant comparées aux évaluations de sécurité applicables. L’état de ces évaluations reflète votre conformité à la norme.
 
-La vue du tableau de bord Conformité avec la réglementation peut vous aider à prendre conscience d’un manque de conformité à une norme ou à une réglementation qui est importante pour vous. Cette vue ciblée vous permet également de faire le suivi de votre score de conformité au fil du temps dans les environnements cloud et hybrides dynamiques.
+Utilisez le tableau de bord de conformité réglementaire pour vous aider à prendre conscience d’un manque de conformité aux normes et aux réglementations qui sont importantes pour vous. Cette vue ciblée vous permet également de superviser votre conformité au fil du temps dans les environnements cloud et hybrides dynamiques.
 
->[!NOTE]
-> Par défaut, Security Center prend en charge les normes réglementaires suivantes : Azure CIS, PCI DSS 3.2, ISO 27001 et SOC TSP. 
->
-> La fonctionnalité [packages de conformité dynamiques (préversion)](update-regulatory-compliance-packages.md) permet de mettre à niveau les normes présentées dans votre tableau de bord de conformité réglementaire vers les nouveaux packages *dynamiques* Vous pouvez également utiliser la même fonctionnalité en préversion pour ajouter de nouveaux packages de conformité et surveiller votre conformité à des normes supplémentaires. 
+1. Dans le menu de Security Center, sélectionnez **Conformité réglementaire**.
 
-1. Dans le menu de Security Center, sélectionnez **Conformité réglementaire**. <br>
-Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous pouvez voir votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
+    Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous pouvez voir votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire":::
 
@@ -59,7 +61,7 @@ Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de 
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploration des détails de la conformité à une norme spécifique":::
 
-1. Pour générer et télécharger un rapport PDF résumant votre état de compatibilité actuel pour une norme particulière, cliquez sur **Télécharger un rapport**.
+1. Pour générer un rapport PDF comportant un résumé de votre état de compatibilité actuel pour une norme particulière, sélectionnez **Télécharger un rapport**.
 
     Le rapport fournit un résumé détaillé de votre état de conformité pour la norme sélectionnée en fonction des données des évaluations de Security Center, et il est organisé selon les contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
 
@@ -71,7 +73,7 @@ Compte tenu des informations figurant dans le tableau de bord de conformité ré
 
 1.  Cliquez sur l’une des évaluations ayant échoué dans le tableau de bord pour voir les détails de cette recommandation. Chaque recommandation comprend un ensemble d’étapes de correction que vous devez suivre pour résoudre le problème.
 
-1.  Vous pouvez sélectionner une ressource particulière pour voir plus de détails et suivre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0 (nouveau)** , vous pouvez sélectionner la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
+1.  Vous pouvez sélectionner une ressource particulière pour voir plus de détails et suivre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0**, vous pouvez sélectionner la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La sélection d’une recommandation concernant une norme vous amène directement à la page des détails de la recommandation":::
 

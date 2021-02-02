@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929189"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734981"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -37,7 +37,6 @@ Dans ce didacticiel, vous apprendrez à :
 ## <a name="set-up-feature-management"></a>Configurer la gestion des fonctionnalités
 
 Ajoutez une référence aux packages NuGet `Microsoft.FeatureManagement.AspNetCore` et `Microsoft.FeatureManagement` pour utiliser le gestionnaire de fonctionnalités .NET Core.
-    
 Le gestionnaire de fonctionnalités de .NET Core `IFeatureManager` obtient les indicateurs de fonctionnalités à partir du système de configuration natif du framework. En conséquence, vous pouvez définir les indicateurs de fonctionnalités de votre application à l’aide de n’importe quelle source de configuration prise en charge par .NET Core, notamment le fichier *appsettings.json* local ou des variables d’environnement. `IFeatureManager` s’appuie sur l’injection de dépendances .NET Core. Vous pouvez inscrire les services de gestion des fonctionnalités à l’aide de conventions standard :
 
 ```csharp
@@ -106,16 +105,23 @@ Le moyen le plus simple de connecter votre application ASP.NET Core à App Confi
               .UseStartup<Startup>();
    ```
 
-2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` pour ajouter l’intergiciel (middleware) intégré appelé `UseAzureAppConfiguration`. Ce middleware permet l’actualisation des valeurs d’indicateurs de fonctionnalités à intervalles réguliers pendant que l’application web ASP.NET continue de recevoir des requêtes.
+2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` et `ConfigureServices` pour ajouter l’intergiciel (middleware) intégré appelé `UseAzureAppConfiguration`. Ce middleware permet l’actualisation des valeurs d’indicateurs de fonctionnalités à intervalles réguliers pendant que l’application web ASP.NET continue de recevoir des requêtes.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Les valeurs des indicateurs de fonctionnalités sont supposées changer au fil du temps. Par défaut, les valeurs d’indicateur de fonctionnalité sont mises en cache pendant une période de 30 secondes. Une opération d’actualisation déclenchée quand le middleware reçoit une demande ne met donc à jour la valeur qu’après l’expiration de la valeur mise en cache. Le code suivant montre comment faire passer l’heure d’expiration du cache ou l’intervalle d’interrogation à 5 minutes dans l’appel `options.UseFeatureFlags()`.
 
 ```csharp
@@ -189,6 +195,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances :
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;

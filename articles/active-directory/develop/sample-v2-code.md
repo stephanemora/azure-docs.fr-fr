@@ -1,6 +1,6 @@
 ---
 title: Exemples de code pour la plateforme d’identité Microsoft
-description: Fournit un index des exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0) disponibles, organisés par scénario.
+description: Fournit un index des exemples de code disponibles pour la plateforme d’identité Microsoft, organisés par scénario.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064519"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756643"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
-Vous pouvez utiliser la plateforme d’identités Microsoft pour effectuer les opérations suivantes :
+Vous pouvez utiliser la plateforme d’identité Microsoft pour :
 
 - Ajouter l’authentification et l’autorisation à vos applications web et API web.
 - Exiger un jeton d’accès pour accéder à une API web protégée.
 
-Cet article fournit une brève description et des liens vers des exemples pour le point de terminaison V2 de la plateforme d’identité Microsoft. Ces exemples vous montrent comment procéder, et fournissent des extraits de code que vous pouvez utiliser dans vos applications. Dans la page d’exemples de code, vous trouverez des rubriques Lisez-moi détaillées, qui offrent une aide relative à la configuration requise, à l’installation et à la configuration. Les commentaires figurant dans le code sont là pour vous aider à comprendre les sections critiques.
+Cet article fournit une brève description et des liens vers des exemples pour la plateforme d’identité Microsoft. Ces exemples vous montrent comment procéder, et fournissent des extraits de code que vous pouvez utiliser dans vos applications. Dans la page d’exemples de code, vous trouverez des rubriques Lisez-moi détaillées, qui offrent une aide relative à la configuration requise, à l’installation et à la configuration. Les commentaires figurant dans le code sont là pour vous aider à comprendre les sections critiques.
 
-Pour comprendre le scénario de base pour chaque type d’exemple, voir [Types d’applications pour la plateforme d’identité Microsoft](v2-app-types.md).
+Pour comprendre le scénario de base pour chaque type d’exemple, consultez [Types d’applications pour la plateforme d’identité Microsoft](v2-app-types.md).
 
 Vous pouvez également contribuer aux exemples sur GitHub. Pour en savoir plus, consultez [Documentation et exemples Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -121,7 +121,7 @@ Les exemples suivants montrent comment configurer votre application de façon à
 
 ## <a name="web-apis"></a>API Web
 
-Les exemples suivants montrent comment protéger une API web avec le point de terminaison de la plateforme d’identité Microsoft, et comment appeler une API en aval à partir de l’API web.
+Les exemples suivants montrent comment protéger une API web avec la plateforme d’identité Microsoft et comment appeler une API en aval à partir de l’API web.
 
 | Plateforme | Exemple |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ Les exemples suivants montrent comment protéger une API web avec le point de te
 
 ## <a name="azure-functions-as-web-apis"></a>Fonctions Azure en tant qu’API web
 
-Les exemples suivants montrent comment protéger une fonction Azure en utilisant HttpTrigger et en exposant une API web avec le point de terminaison de la plateforme d’identité Microsoft, et comment appeler une API en aval à partir de l’API web.
+Les exemples suivants montrent comment protéger une fonction Azure en utilisant HttpTrigger et en exposant une API web avec la plateforme d’identité Microsoft et comment appeler une API en aval à partir de l’API web.
 
 | Plateforme | Exemple |
 | -------- | ------------------- |

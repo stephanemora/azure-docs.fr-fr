@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953047"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918210"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -98,6 +98,14 @@ Pour une application web, vous devez créer un secret d’application. Ce secret
 1. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
 
 * * *
+
+## <a name="enable-id-token-implicit-grant"></a>Activer l’octroi implicite du jeton d’ID
+
+La définition de l’octroi implicite stipule que les jetons, tels que les jetons d’ID et les jetons d’accès, sont retournés directement à partir d’Azure AD B2C à l’application. Pour les applications web, telles que les applications web ASP.NET Core et [https://jwt.ms](https://jwt.ms), qui demandent un jeton d’ID directement à partir du point de terminaison d’autorisation, activez le flux d’octroi implicite dans l’inscription de l’application.
+
+1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
+1. Sous Octroi implicite, cochez les deux cases **Jetons d’accès** et **Jetons d’ID**.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

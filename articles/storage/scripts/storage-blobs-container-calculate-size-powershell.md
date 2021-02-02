@@ -1,7 +1,7 @@
 ---
 title: Calculer la taille d’un conteneur d’objets blob avec PowerShell
 titleSuffix: Azure Storage
-description: Calculez la taille d’un conteneur dans le stockage d’objets blob Azure en effectuant le total des tailles de chacun de ses objets blob.
+description: Calculez la taille d’un conteneur dans Stockage Blob Azure en effectuant le total des tailles de chacun de ses objets blob.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de275bcca1644750532809b35ae85d954d3cac6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ef18530c549396b7d8fe1ec4ff0e08cb8535e8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784273"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calculer la taille d’un conteneur d’objets blob avec PowerShell
 
-Ce script calcule la taille d’un conteneur dans le stockage d’objets blob Azure en effectuant le total des tailles des objets blob inclus dans le conteneur.
+Ce script calcule la taille d’un conteneur dans Stockage Blob Azure en effectuant le total des tailles des objets blob inclus dans le conteneur.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

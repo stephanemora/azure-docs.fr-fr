@@ -7,14 +7,14 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787956"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745715"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutoriel : Contenu recherchable généré par l’IA issu d’objets blob Azure avec le SDK .NET
 
@@ -24,7 +24,7 @@ Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Configurer un environnement de développement
-> * Définir un pipeline sur des objets blob qui utilise la reconnaissance optique de caractères, la détection de la langue et la reconnaissance d’entités et d’expressions clés
+> * Définir un pipeline qui utilise la reconnaissance optique de caractères, la détection de la langue et la reconnaissance d’entités et d’expressions clés
 > * Exécuter le pipeline pour appeler des transformations et pour créer et charger un index de recherche
 > * Explorez les résultats à l’aide de la recherche en texte intégral et d’une syntaxe de requête enrichie.
 
@@ -32,9 +32,11 @@ Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://az
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce tutoriel utilise C# et la bibliothèque de client **Azure.Search.Documents** pour créer une source de données, un index, un indexeur et des compétences.
+Ce tutoriel utilise C# et la [bibliothèque de client **Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) pour créer une source de données, un index, un indexeur et des compétences.
 
-L’ensemble de compétences utilise des compétences intégrées basées sur les API Cognitive Services. Les étapes du pipeline incluent la reconnaissance optique de caractères (OCR) sur des images, la détection de la langue d’un texte, l’extraction des expressions clés et la reconnaissance d’entités (organisations). Les nouvelles informations sont stockées dans de nouveaux champs que vous pouvez exploiter dans les requêtes, les facettes et les filtres.
+L’indexeur se connecte à un conteneur d’objets blob qui est spécifié dans l’objet source de données et envoie tout le contenu indexé à un index de recherche existant.
+
+Les compétences sont attachées à l’indexeur. Il utilise des compétences intégrées de Microsoft pour rechercher et extraire des informations. Les étapes du pipeline incluent la reconnaissance optique de caractères (OCR) sur des images, la détection de la langue d’un texte, l’extraction des expressions clés et la reconnaissance d’entités (organisations). Les informations créées par le pipeline sont stockées dans les nouveaux champs d’un index. Une fois l’index rempli, vous pouvez utiliser les champs dans des requêtes, des facettes et des filtres.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,7 +54,7 @@ Les exemples de données sont constitués de 14 fichiers de type de contenu mix
 
 1. Ouvrez ce [dossier OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) et en haut à gauche, cliquez sur **Télécharger** pour copier les fichiers sur votre ordinateur. 
 
-1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire** . Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire**. Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
 
 Vous pouvez également télécharger le code source de ce tutoriel. Le code source se trouve dans le dossier **tutorial-ai-enrichment/v11** du dépôt [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
@@ -64,7 +66,7 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 ### <a name="start-with-azure-storage"></a>Démarrer avec le stockage Azure
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource** .
+1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource**.
 
 1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
 
@@ -72,23 +74,23 @@ Si possible, créez les deux services dans la même région et le même groupe d
 
 1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
 
-   * **Groupe de ressources** . Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
+   * **Groupe de ressources**. Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
 
-   * **Nom du compte de stockage** . Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus* . 
+   * **Nom du compte de stockage**. Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus*. 
 
-   * **Emplacement** . Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
+   * **Emplacement**. Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
 
-   * **Type de compte** . Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
+   * **Type de compte**. Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
 
 1. Cliquez sur **Vérifier + créer** pour créer le service.
 
 1. Une fois qu’il est créé, cliquez sur **Accéder à la ressource** pour ouvrir la page Vue d’ensemble.
 
-1. Cliquez sur le service **Objets blob** .
+1. Cliquez sur le service **Objets blob**.
 
-1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo* .
+1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo*.
 
-1. Sélectionnez *cog-search-demo* , puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez les quatorze fichiers, puis cliquez sur **OK** pour charger.
+1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez les quatorze fichiers, puis cliquez sur **OK** pour charger.
 
    ![Charger les exemples de fichiers](media/cognitive-search-quickstart-blob/sample-data.png "Charger les exemples de fichiers")
 
@@ -124,7 +126,7 @@ Pour interagir avec votre service Recherche cognitive Azure, vous devrez dispose
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-1. Dans **Paramètres** > **Clés** , copiez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+1. Dans **Paramètres** > **Clés**, copiez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
    Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
@@ -146,7 +148,7 @@ Pour ce projet, installez la version 11 ou ultérieure de la bibliothèque `Azu
 
 1. Recherchez [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Sélectionnez la version la plus récente, puis cliquez sur **Installer** .
+1. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
 
 1. Répétez les étapes précédentes pour installer [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) et [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
@@ -154,11 +156,11 @@ Pour ce projet, installez la version 11 ou ultérieure de la bibliothèque `Azu
 
 1. Cliquez avec le bouton droit sur votre projet dans l’Explorateur de solutions et sélectionnez **Ajouter** > **Nouvel élément...** . 
 
-1. Nommez le fichier `appsettings.json` et sélectionnez **Ajouter** . 
+1. Nommez le fichier `appsettings.json` et sélectionnez **Ajouter**. 
 
 1. Incluez ce fichier dans votre répertoire de sortie.
-    1. Cliquez avec le bouton droit sur `appsettings.json`, puis sélectionnez **Propriétés** . 
-    1. Remplacez la valeur **Copier dans le répertoire de sortie** par **Copie du plus récent** .
+    1. Cliquez avec le bouton droit sur `appsettings.json`, puis sélectionnez **Propriétés**. 
+    1. Remplacez la valeur **Copier dans le répertoire de sortie** par **Copie du plus récent**.
 
 1. Copiez le code JSON ci-dessous dans votre nouveau fichier JSON.
 
@@ -173,7 +175,7 @@ Pour ce projet, installez la version 11 ou ultérieure de la bibliothèque `Azu
 
 Ajoutez les informations relatives à votre service de recherche, ainsi qu'à votre compte de stockage d'objets blob. Rappelez-vous que vous pouvez récupérer ces informations à partir des étapes de configuration du service indiquées dans la section précédente.
 
-Pour **SearchServiceUri** , entrez l’URL complète.
+Pour **SearchServiceUri**, entrez l’URL complète.
 
 ### <a name="add-namespaces"></a>Ajouter des espaces de noms
 
@@ -285,7 +287,7 @@ Créez et exécutez la solution. Dans la mesure où il s’agit de votre premiè
 
 ### <a name="step-2-create-a-skillset"></a>Étape 2 : Créer un ensemble de compétences
 
-Dans cette section, vous définissez un ensemble d’étapes d’enrichissement que vous souhaitez appliquer à vos données. Chaque étape d’enrichissement est appelée *compétence* et l’ensemble des étapes d’enrichissement, *ensemble de compétences* . Ce tutoriel utilise des [compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) pour l’ensemble de compétences :
+Dans cette section, vous définissez un ensemble d’étapes d’enrichissement que vous souhaitez appliquer à vos données. Chaque étape d’enrichissement est appelée *compétence* et l’ensemble des étapes d’enrichissement, *ensemble de compétences*. Ce tutoriel utilise des [compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) pour l’ensemble de compétences :
 
 * [Reconnaissance optique de caractères](cognitive-search-skill-ocr.md) pour reconnaître le texte imprimé et manuscrit dans des fichiers image.
 
@@ -377,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Compétence Détection de langue
 
-La compétence **Détection de langue** détecte la langue du texte d’entrée et renvoie un code de langue unique pour chaque document soumis dans la requête. Nous allons utiliser la sortie de la compétence **Détection de langue** en tant qu'entrée pour la compétence **Fractionnement de texte** .
+La compétence **Détection de langue** détecte la langue du texte d’entrée et renvoie un code de langue unique pour chaque document soumis dans la requête. Nous allons utiliser la sortie de la compétence **Détection de langue** en tant qu'entrée pour la compétence **Fractionnement de texte**.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -580,7 +582,7 @@ Cet exercice utilise les champs et les types de champ suivants :
 
 Les champs de cet index sont définis à l’aide d’une classe de modèle. Chaque propriété de la classe de modèle comporte des attributs qui déterminent les comportements liés à la recherche du champ d’index correspondant. 
 
-Nous allons ajouter la classe de modèle à un nouveau fichier C#. Cliquez avec le bouton droit sur votre projet, sélectionnez **Ajouter** > **Nouvel élément...** , sélectionnez « Classe » et nommez le fichier `DemoIndex.cs`, puis sélectionnez **Ajouter** .
+Nous allons ajouter la classe de modèle à un nouveau fichier C#. Cliquez avec le bouton droit sur votre projet, sélectionnez **Ajouter** > **Nouvel élément...** , sélectionnez « Classe » et nommez le fichier `DemoIndex.cs`, puis sélectionnez **Ajouter**.
 
 Veillez à indiquer que vous souhaitez utiliser des types à partir des espaces de noms `Azure.Search.Documents.Indexes` et `System.Text.Json.Serialization`.
 
@@ -826,13 +828,13 @@ Dans les applications console des tutoriels sur Recherche cognitive Azure, nous 
 
 L’option la plus simple consiste à utiliser l’[Explorateur de recherche](search-explorer.md) dans le portail. Vous pouvez d’abord exécuter une requête vide qui retourne tous les documents ou une recherche plus ciblée qui retourne un contenu de champ créé par le pipeline. 
 
-1. Dans le portail Azure, dans la page de présentation de la recherche, sélectionnez **index** .
+1. Dans le portail Azure, dans la page de présentation de la recherche, sélectionnez **index**.
 
 1. Recherchez **`demoindex`** dans la liste. Il doit comporter 14 documents. Si le nombre de documents est égal à zéro, l’indexeur est toujours en cours d’exécution ou la page n’a pas encore été actualisée. 
 
-1. Sélectionnez **`demoindex`** . L’Explorateur de recherche est le premier onglet.
+1. Sélectionnez **`demoindex`**. L’Explorateur de recherche est le premier onglet.
 
-1. Le contenu peut faire l’objet d’une recherche dès que le premier document est chargé. Pour vérifier que le contenu existe, exécutez une requête non spécifiée en cliquant sur **Rechercher** . Cette requête retourne tous les documents indexés, ce qui vous donne une idée du contenu de l’index.
+1. Le contenu peut faire l’objet d’une recherche dès que le premier document est chargé. Pour vérifier que le contenu existe, exécutez une requête non spécifiée en cliquant sur **Rechercher**. Cette requête retourne tous les documents indexés, ce qui vous donne une idée du contenu de l’index.
 
 1. Collez ensuite la chaîne suivante pour obtenir des résultats plus faciles à gérer : `search=*&$select=id, languageCode, organizations`
 

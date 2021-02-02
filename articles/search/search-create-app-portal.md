@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 01/23/2021
+ms.openlocfilehash: 590afe4c396942c5179826cd831908e37f48c3e4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91399820"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745748"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Démarrage rapide : Créer une application de démonstration dans le portail (Recherche cognitive Azure)
 
@@ -61,7 +61,7 @@ L’Assistant fournit une disposition de base pour l’affichage des résultats 
 
 1. Dans Description, choisissez un champ qui fournit des détails pouvant faciliter la décision de cliquer ou non pour accéder à ce document particulier.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="Page source de données de l’exemple de données" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configurer les résultats pour les exemples de données" border="false":::
 
 ## <a name="add-a-sidebar"></a>Ajouter une barre latérale
 
@@ -72,8 +72,9 @@ Dans Recherche cognitive Azure, la navigation par facettes est une expérience d
 > [!TIP]
 > Vous pouvez voir le schéma d’index complet dans le portail. Recherchez le lien **Définition d’index (JSON)** dans la page de vue d’ensemble de chaque index. Les champs éligibles à la navigation par facettes ont des attributs « filtrable : true » et « à choix multiples : true ».
 
-Acceptez la sélection actuelle des facettes et passez à la page suivante.
+1. Dans l’Assistant, sélectionnez l’onglet **Barre latérale** en haut de la page. Vous verrez une liste de tous les champs qui sont attribués comme pouvant être filtrés et à choix multiples dans l’index.
 
+1. Acceptez la sélection actuelle des champs à choix multiples et passez à la page suivante.
 
 ## <a name="add-typeahead"></a>Ajouter la saisie semi-automatique
 
@@ -83,20 +84,44 @@ Les suggestions sont activées sur des définitions de champs spécifiques. L’
 
 La capture d’écran suivante montre les options de l’Assistant, en regard d’une page rendue dans l’application. Vous pouvez voir comment les sélections de champs sont utilisées et comment l’option « Afficher le nom du champ » est utilisée pour inclure ou exclure un étiquetage au sein de la suggestion.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Page source de données de l’exemple de données":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Configuration des suggestions de requêtes":::
+
+## <a name="add-suggestions"></a>Ajouter des suggestions
+
+Les suggestions font référence aux invites de requête automatisées qui sont attachées à la zone de recherche. Recherche cognitive en prend deux en charge : la *saisie semi-automatique* d’un terme de recherche partiellement entré, et les *suggestions* pour une liste déroulante des documents potentiels correspondants.
+
+L’Assistant prend en charge les suggestions, et les champs qui peuvent fournir des résultats suggérés sont dérivés d’une construction [`Suggesters`](index-add-suggesters.md) dans l’index :
+
+```JSON
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [
+        "number",
+        "street",
+        "city",
+        "region",
+        "postCode",
+        "tags"
+      ]
+```
+
+1. Dans l’Assistant, sélectionnez l’onglet **Suggestions** en haut de la page. Vous verrez une liste de tous les champs qui sont désignés dans le schéma d’index en tant que fournisseurs de suggestions.
+
+1. Acceptez la sélection actuelle et passez à la page suivante.
 
 ## <a name="create-download-and-execute"></a>Créer, télécharger et exécuter
 
-1. Sélectionnez **Créer une application de démonstration** pour générer le fichier HTML.
+1. Sélectionnez **Créer une application de démonstration** en bas de la page pour générer le fichier HTML.
 
 1. À l’invite, sélectionnez **Télécharger votre application** pour télécharger le fichier.
 
-1. Ouvrez le fichier. Une page similaire à la capture d’écran suivante doit s’afficher. Entrez un terme et utilisez des filtres pour affiner les résultats. 
+1. Ouvrez le fichier et cliquez sur le bouton Rechercher. Cette action exécute une requête, qui peut être une requête vide (`*`) retournant un jeu de résultats arbitraire. La page doit ressembler à la capture d’écran suivante. Entrez un terme et utilisez des filtres pour affiner les résultats. 
 
 L’index sous-jacent se compose de données générées et fictives qui ont été dupliquées dans tous les documents, et les descriptions ne correspondent parfois pas à l’image. Vous pouvez vous attendre à une expérience plus cohérente quand vous créez une application basée sur vos propres index.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Page source de données de l’exemple de données":::
-
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Exécuter l’application":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -108,7 +133,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’application par défaut est pratique pour une première exploration et les petites tâches, tandis que l’examen préalable des API vous aidera à comprendre les concepts et le workflow à un niveau plus approfondi :
+L’application de démonstration est utile pour le prototypage, car vous pouvez simuler une expérience utilisateur final sans avoir à écrire de code JavaScript ou front-end. Pour plus d’informations sur les fonctionnalités front-end, commencez par la navigation par facettes :
 
 > [!div class="nextstepaction"]
-> [Création d’un index à l’aide du Kit de développement logiciel .NET](./search-get-started-dotnet.md)
+> [Guide pratique pour générer un filtre de facette](search-filters-facets.md)

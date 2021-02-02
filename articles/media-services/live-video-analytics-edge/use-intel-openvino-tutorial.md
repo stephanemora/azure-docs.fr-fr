@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez utiliser un serveur de modèles IA fou
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 9fb2f533d433c89d13ee0c29058f87aab3521a78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 4ef0b919384839108c003488b0697054ebfa14a0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060195"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629162"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser la vidéo en direct à l’aide de l’extension IA OpenVINO™ Model Server d’Intel 
 
@@ -23,6 +23,8 @@ Ce tutoriel utilise une machine virtuelle Azure comme appareil IoT Edge, ainsi 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un compte Azure incluant un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > Vous aurez besoin d’un abonnement Azure avec des autorisations pour créer des principaux de service (le **rôle propriétaire** permet d’effectuer cette opération). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de votre compte pour qu’il vous les accorde. 
 * [Visual Studio Code](https://code.visualstudio.com/), avec les extensions suivantes :
     * [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)

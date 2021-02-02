@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912663"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730038"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Tutoriel : Créer et gérer des réseaux virtuels Azure pour des machines virtuelles Windows avec Azure PowerShell
 
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Définissez le nom d’utilisateur et le mot de passe pour le compte Administrateur sur la machine virtuelle avec [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true). Vous utilisez ces informations d’identification pour vous connecter à la machine virtuelle en suivant des étapes supplémentaires :
+Définissez le nom d’utilisateur et le mot de passe pour le compte Administrateur sur la machine virtuelle avec [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential). Vous utilisez ces informations d’identification pour vous connecter à la machine virtuelle en suivant des étapes supplémentaires :
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -280,7 +280,4 @@ Dans ce tutoriel, vous avez créé et sécurisé des réseaux Azure concernant l
 > * sécurisent le trafic réseau
 > * Créer une machine virtuelle principale
 
-Passez au didacticiel suivant pour découvrir comment sécuriser et surveiller les données sur des machines virtuelles avec Sauvegarde Azure.
-
-> [!div class="nextstepaction"]
-> [Sauvegarde de machines virtuelles Windows dans Azure](./tutorial-backup-vms.md)
+Pour plus d’informations sur la protection de vos disques de machine virtuelle, consultez [Sauvegarde et récupération d’urgence pour les disques](backup-and-disaster-recovery-for-azure-iaas-disks.md).

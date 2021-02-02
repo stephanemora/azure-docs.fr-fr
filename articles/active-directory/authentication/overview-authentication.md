@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c6f4659b9ee809cc1f1caeb1cb9c0d626b1b3a3b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741250"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725652"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Qu’est-ce que l’authentification Azure Active Directory ?
 
@@ -27,6 +27,10 @@ L’une des principales fonctionnalités d’une plateforme d’identités consi
 * Intégration hybride pour écrire les changements de mot de passe dans l’environnement local
 * Intégration hybride afin d’appliquer des stratégies de protection par mot de passe pour un environnement local
 * Authentification sans mot de passe
+
+Regardez notre courte vidéo pour en savoir plus sur ces composants d’authentification.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## <a name="improve-the-end-user-experience"></a>Améliorer l’expérience de l’utilisateur final
 
@@ -80,7 +84,7 @@ L’objectif final de nombreux environnements est de supprimer l’utilisation d
 
 ![Sécurité versus côté pratique avec le processus d’authentification sans mot de passe](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-Quand vous vous connectez avec une méthode sans mot de passe, les informations d’identification sont fournies par le biais de l’utilisation de méthodes telles que la biométrie avec Windows Hello Entreprise ou une clé de sécurité FIDO2. Ces méthodes d’authentification ne peuvent pas être facilement dupliquées par un attaquant.
+Quand vous vous connectez avec une méthode sans mot de passe, les informations d’identification sont fournies au moyen de méthodes telles que la biométrie avec Windows Hello Entreprise ou une clé de sécurité FIDO2. Ces méthodes d’authentification ne peuvent pas être facilement dupliquées par un attaquant.
 
 Azure AD permet d’effectuer une authentification en mode natif à l’aide de méthodes non basées sur un mot de passe afin de simplifier l’expérience de connexion des utilisateurs et de réduire le risque d’attaques.
 

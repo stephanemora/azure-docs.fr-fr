@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566929"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897508"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutoriel : Découvrir les machines virtuelles Hyper-V avec Server Assessment
 
@@ -83,7 +83,7 @@ Vous pouvez préparer les hôtes Hyper-V manuellement ou à l’aide d’un scri
 
 **Étape** | **Script** | **Manuel**
 --- | --- | ---
-Vérifier la configuration requise pour l’hôte | Vérifie que l’hôte exécute une version prise en charge d’Hyper-V et le rôle Hyper-V.<br/><br/>Active le service WinRM et ouvre les ports 5985 (HTTP) et 5986 (HTTPs) sur l’ordinateur hôte (nécessaire pour la collecte de métadonnées). | L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).
+Vérifier la configuration requise pour l’hôte | Vérifie que l’hôte exécute une version prise en charge d’Hyper-V et le rôle Hyper-V.<br/><br/>Active le service WinRM et ouvre les ports 5985 (HTTP) et 5986 (HTTPs) sur l’ordinateur hôte (nécessaire pour la collecte de métadonnées). | L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de machines virtuelles à l’aide d’une session CIM (Common Information Model).<br/><br/> Le script n’est pas pris en charge sur les hôtes avec des paramètres régionaux non anglais.  
 Vérifier la version de PowerShell | Vérifie que vous exécutez le script sur une version de PowerShell prise en charge. | Vérifiez que vous exécutez PowerShell version 4.0 ou ultérieure sur l’hôte Hyper-V.
 Créer un compte | Vérifie que vous disposez des autorisations appropriées sur l’hôte Hyper-V.<br/><br/> Permet de créer un compte d’utilisateur local avec les autorisations appropriées. | Option 1 : Préparez un compte disposant d’un accès Administrateur sur l’hôte Hyper-V.<br/><br/> Option n°2 : Préparez un compte d’administrateur local ou un compte d’administrateur de domaine, puis ajoutez le compte à ces groupes : Utilisateurs de gestion à distance, Administrateurs Hyper-V et Utilisateurs de l’Analyseur de performances.
 Activer la communication à distance de PowerShell | Active la communication à distance de PowerShell sur l’hôte, ce qui permet à l’appliance Azure Migrate d’exécuter des commandes PowerShell sur l’hôte, par le biais d’une connexion WinRM. | Pour la configurer, sur chaque hôte, ouvrez une console PowerShell en tant qu’administrateur, puis exécutez cette commande : ``` powershell Enable-PSRemoting -force ```

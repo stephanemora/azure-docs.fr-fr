@@ -8,17 +8,15 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f85a76a7ce01c11255f54c6b956088f9328dfc9f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918463"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880540"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Démarrage rapide : Connecter un compte Azure Purview à un espace de travail Synapse 
 
-> [!IMPORTANT]
-> L’intégration entre Azure Synapse Analytics et Azure Purview est actuellement en préversion. Si vous voulez essayer Azure Purview dans Synapse, contactez votre représentant commercial Microsoft.
 
 Dans ce guide de démarrage rapide, vous allez inscrire un compte Azure Purview auprès d’un espace de travail Synapse. Cette connexion vous permet de découvrir des ressources Azure Purview et d’interagir avec celles-ci en utilisant les fonctionnalités de Synapse. 
 
@@ -34,11 +32,11 @@ Vous pouvez effectuer les tâches suivantes dans Synapse :
 
 ## <a name="signin-toa-synapse-workspace"></a>Se connecter à un espace de travail Synapse 
 
-Accédez à https://web.azuresynapse.net et connectez-vous à votre espace de travail. 
+Accédez à [https://web.azuresynapse.net](https://web.azuresynapse.net) et connectez-vous à votre espace de travail. 
 
 ## <a name="permissions-for-connecting-an-azure-purview-account"></a>Autorisations pour la connexion d’un compte Azure Purview 
 
-- Pour connecter un compte Azure Purview à un espace de travail Synapse, vous devez disposer d’un rôle **Contributeur** dans l’espace de travail Synapse provenant de la gestion des identités et des accès (IAM) du portail Azure et d’un accès à ce compte Azure Purview.
+- Pour connecter un compte Azure Purview à un espace de travail Synapse, vous devez disposer d’un rôle **Contributeur** dans l’espace de travail Synapse provenant de la gestion des identités et des accès (IAM) du portail Azure et d’un accès à ce compte Azure Purview. Pour plus d’informations, consultez [Autorisations Azure Purview](../../purview/catalog-permissions.md).
 
 ## <a name="connect-an-azure-purview-account"></a>Se connecter à un compte Azure Purview  
 

@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Publication d’un élément multimédia | Microsoft Docs
+title: Exemple de script Azure CLI – Publier un élément multimédia
 description: Cet article explique comment utiliser le script d’interface de ligne de commande Azure pour publier une ressource.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3b3c358a84dd74595c476f029a1c8f28bc3c901f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c283c39f1ea90275c42de1481a9cb9006f2b2c5f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295867"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897086"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemple CLI : Publier un élément multimédia
 

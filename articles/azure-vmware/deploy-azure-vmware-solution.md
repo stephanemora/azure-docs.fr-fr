@@ -2,17 +2,20 @@
 title: Déployer et configurer Azure VMware Solution
 description: Découvrez comment utiliser les informations collectées au cours de la phase de planification pour déployer le cloud privé de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861514"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760886"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
-Dans cet article, vous allez utiliser les informations de la [section de planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution. Si vous n’avez pas défini les informations, revenez à la [section de planification](production-ready-deployment-steps.md) avant de continuer.
+Dans cet article, vous allez utiliser les informations de la [section de planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution. 
+
+>[!IMPORTANT]
+>Si vous n’avez pas encore défini ces informations, revenez à la [section de planification](production-ready-deployment-steps.md) avant de continuer.
 
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 
@@ -36,25 +39,26 @@ Utilisez les informations que vous avez rassemblées dans l’article [Planifica
 >[!IMPORTANT]
 >Si vous avez laissé l’option **Réseau virtuel** vierge au cours de l’approvisionnement initial sur l’écran **Créer un cloud privé**, suivez le didacticiel [Configurer la mise en réseau pour votre cloud privé VMware](tutorial-configure-networking.md)**avant** de passer à cette section.  
 
-Après avoir déployé Azure VMware Solution, vous créerez le serveur de rebond du réseau virtuel qui se connecte à vCenter et NSX. Une fois que vous avez configuré les circuits ExpressRoute et ExpressRoute Global Reach, le serveur de renvoi n’est pas nécessaire.  Mais il est pratique d’accéder à vCenter et à NSX dans votre Azure VMware Solution.  
+Après le déploiement d’Azure VMware Solution, vous allez créer le serveur de rebond du réseau virtuel qui se connecte à vCenter et NSX. Une fois que vous avez configuré les circuits ExpressRoute et ExpressRoute Global Reach, le serveur de renvoi n’est pas nécessaire.  Mais il est pratique d’accéder à vCenter et à NSX dans votre Azure VMware Solution.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Créer la jumpbox Azure VMware Solution" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Pour créer une machine virtuelle dans le réseau virtuel que vous avez [identifié ou créé dans le cadre du processus de déploiement](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), suivez les instructions ci-dessous : 
+Pour créer une machine virtuelle dans le réseau virtuel que vous avez [identifié ou créé dans le cadre du processus de déploiement](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), suivez les instructions ci-dessous : 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>Connexion à un réseau virtuel avec ExpressRoute
 
-Si vous n’avez pas défini de réseau virtuel à l’étape de déploiement et que vous avez l’intention de connecter l’ExpressRoute d’Azure VMware Solution à une passerelle ExpressRoute existante, suivez les étapes ci-dessous.
+>[!IMPORTANT]
+>Si vous avez déjà défini un réseau virtuel dans l’écran de déploiement dans Azure, passez à la section suivante.
 
-Si vous avez déjà défini un réseau virtuel dans l’écran de déploiement dans Azure, passez à la section suivante.
+Si vous n’avez pas défini de réseau virtuel à l’étape de déploiement et que vous avez l’intention de connecter ExpressRoute d’Azure VMware Solution à une passerelle ExpressRoute existante, suivez les étapes ci-dessous.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 ## <a name="verify-network-routes-advertised"></a>Vérifier les itinéraires réseau publiés
 
-Le secteur de rebond se trouve dans le réseau virtuel où Azure VMware Solution se connecte via son circuit ExpressRoute.  Dans Azure, accédez à l’interface réseau du serveur de rebond et [affichez les itinéraires effectifs](../virtual-network/manage-route-table.md#view-effective-routes).
+Le serveur de rebond se trouve dans le réseau virtuel où Azure VMware Solution se connecte via son circuit ExpressRoute.  Dans Azure, accédez à l’interface réseau du serveur de rebond et [affichez les itinéraires effectifs](../virtual-network/manage-route-table.md#view-effective-routes).
 
 Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [`/22` réseau que vous avez défini](production-ready-deployment-steps.md#ip-address-segment) au cours de l’[étape de déploiement](#deploy-azure-vmware-solution) plus haut dans cet article.
 
@@ -70,7 +74,7 @@ Vous pouvez identifier les adresses IP et les informations d’identification de
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Créez un segment réseau dans Azure VMware Solution
 
-Vous utilisez NSX-T pour créer des segments réseau dans votre environnement Azure VMware Solution.  Vous avez défini le ou les réseaux que vous souhaitez créer dans la [section de planification](production-ready-deployment-steps.md).  Si vous ne les avez pas définis, revenez à la [Section de planification](production-ready-deployment-steps.md) avant de continuer.
+Vous utilisez NSX-T pour créer des segments réseau dans votre environnement Azure VMware Solution.  Vous avez défini les réseaux que vous souhaitez créer dans la [section de planification](production-ready-deployment-steps.md).  Si vous ne les avez pas définis, revenez à la [Section de planification](production-ready-deployment-steps.md) avant de continuer.
 
 >[!IMPORTANT]
 >Assurez-vous que le bloc d’adresses réseau CIDR que vous avez défini n’empiète sur rien dans vos environnements Azure ou locaux.  
@@ -79,9 +83,9 @@ Pour créer un segment réseau NSX-T dans Azure VMware Solution, suivez le didac
 
 ## <a name="verify-advertised-nsx-t-segment"></a>Vérifier le segment NSX-T publié
 
-Revenez à l’étape [Vérifier les itinéraires réseau publiés](#verify-network-routes-advertised) . Vous verrez un ou plusieurs itinéraires supplémentaires dans la liste représentant le ou les segments réseau que vous avez créés à l’étape précédente.  
+Revenez à l’étape [Vérifier les itinéraires réseau publiés](#verify-network-routes-advertised) . Vous verrez d’autres routes dans la liste représentant les segments réseau que vous avez créés à l’étape précédente.  
 
-Pour les machines virtuelles, vous allez attribuer le ou les segments que vous avez créés à l’étape [Créer un segment réseau sur Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution).  
+Pour les machines virtuelles, vous allez attribuer les segments que vous avez créés à l’étape [Créer un segment réseau sur Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution).  
 
 Comme DNS est requis, identifiez le serveur DNS que vous souhaitez utiliser.  
 
@@ -104,13 +108,13 @@ Maintenant que vous avez créé votre segment réseau NSX-T, vous pouvez créer 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Ajouter une machine virtuelle au segment de réseau NSX-T
 
-Dans votre Azure VMware Solution vCenter, déployez une machine virtuelle et utilisez-la pour vérifier la connectivité entre votre ou vos réseaux de solutions VMware Azure et :
+Dans votre Azure VMware Solution vCenter, déployez une machine virtuelle et utilisez-la pour vérifier la connectivité entre vos réseaux Azure VMware Solution et :
 
 - Internet
 - Réseaux virtuels Azure
 - Local.  
 
-Déployez la machine virtuelle comme vous le feriez dans n’importe quel environnement vSphere.  Associez la machine virtuelle à l’un des segments réseau que vous avez créés précédemment dans NSX-T.  
+Déployez la machine virtuelle comme vous le feriez dans n’importe quel environnement vSphere.  Attachez la machine virtuelle à l’un des segments réseau que vous avez créés précédemment dans NSX-T.  
 
 >[!NOTE]
 >Si vous configurez un serveur DHCP, vous obtenez la configuration réseau de la machine virtuelle à partir de celle-ci (n’oubliez pas d’en configurer l’étendue).  Si vous envisagez une configuration statique, configurez comme vous le feriez normalement.
@@ -119,12 +123,11 @@ Déployez la machine virtuelle comme vous le feriez dans n’importe quel enviro
 
 Connectez-vous à la machine virtuelle créée à l’étape précédente et vérifiez la connectivité.
 
-1. Effectuez un test ping d’une IP sur Internet.
-2. Accédez à un site Internet via un navigateur web.
+1. Effectuez un test ping d’une adresse IP sur Internet.
+2. Dans un navigateur web, accédez à un site Internet.
 3. Effectuez un test ping sur le serveur de rebond qui se trouve sur le réseau virtuel Azure.
 
->[!IMPORTANT]
->À ce stade, Azure VMware Solution est opérationnel et vous avez pu établir une connectivité avec et depuis le réseau virtuel Azure et Internet.
+Azure VMware Solution est désormais opérationnel et vous avez pu établir une connectivité avec et depuis le réseau virtuel Azure et Internet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

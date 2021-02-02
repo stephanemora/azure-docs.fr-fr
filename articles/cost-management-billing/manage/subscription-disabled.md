@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/19/2021
 ms.author: banders
-ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744423"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685530"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>Réactivation d’un abonnement Azure désactivé
 
@@ -23,35 +23,37 @@ Votre abonnement Azure peut être désactivé suite à l’arrivée à expiratio
 
 ## <a name="your-credit-is-expired"></a>Votre crédit a expiré
 
-Quand vous vous inscrivez pour obtenir un compte gratuit Azure, vous obtenez un abonnement d’essai gratuit qui fournit 200 $ de crédits Azure pour 30 jours et 12 mois de services gratuits. Au bout des 30 jours, Azure désactive votre abonnement. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit et les services gratuits inclus dans votre abonnement. Pour continuer à utiliser les services Azure, vous devez [mettre à niveau votre abonnement](upgrade-azure-subscription.md). Une fois la mise à niveau effectuée, votre abonnement a toujours accès aux services gratuits pendant 12 mois. Vous ne payez que pour l’utilisation ne couvrant pas les services et quantités gratuits.
+Quand vous vous inscrivez pour obtenir un compte gratuit Azure, vous obtenez un abonnement d’essai gratuit qui fournit 200 $ de crédits Azure pour 30 jours et 12 mois de services gratuits. Au bout des 30 jours, Azure désactive votre abonnement. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit et les services gratuits inclus dans votre abonnement. Pour continuer à utiliser les services Azure, vous devez [mettre à niveau votre abonnement](upgrade-azure-subscription.md). Une fois la mise à niveau effectuée, votre abonnement a toujours accès aux services gratuits pendant 12 mois. Vous ne payez que pour l’utilisation ne couvrant pas les limites de quantités de services gratuits.
 
 ## <a name="you-reached-your-spending-limit"></a>Vous avez atteint votre limite de dépense
 
-Les abonnements Azure avec un crédit tel que Essai gratuit et Visual Studio Enterprise ont des limites de dépense. Cela signifie que vous ne pouvez utiliser les services que jusqu’à la limite de crédit inclus. Quand votre utilisation atteint la limite de dépense, Azure désactive votre abonnement pour le reste de cette période de facturation. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit inclus dans votre abonnement. Pour supprimer votre limite de dépense, consultez [Supprimer la limite de dépense dans le Centre des comptes](spending-limit.md#remove).
+Les abonnements Azure avec un crédit tel que Essai gratuit et Visual Studio Enterprise ont des limites de dépense. Vous ne pouvez utiliser les services que jusqu’à la limite de crédit inclus. Quand votre utilisation atteint la limite de dépense, Azure désactive votre abonnement pour le reste de cette période de facturation. Votre abonnement est désactivé pour vous protéger contre tout risque d’encourir accidentellement des frais d’utilisation dépassant le crédit inclus dans votre abonnement. Pour supprimer votre limite de dépense, consultez [Supprimer la limite de dépense dans le portail Azure](spending-limit.md#remove).
 
 > [!NOTE]
 > Si vous utilisez un abonnement d’essai gratuit et que vous supprimez la limite de dépense, ce dernier est converti en abonnement individuel, avec des taux de paiement à l’utilisation, au terme de l’essai gratuit. Vous conservez votre crédit restant pendant les 30 jours complets suivant la création de l’abonnement. Vous avez également accès aux services gratuits pendant 12 mois.
 
 Pour surveiller et gérer les activités de facturation pour Azure, consultez [Planifier la gestion des coûts Azure](../understand/plan-manage-costs.md).
 
-
 ## <a name="your-bill-is-past-due"></a>Votre facture est en retard
 
-Pour résoudre un solde impayé, consultez [Résoudre un solde impayé pour votre abonnement Azure après avoir un reçu un e-mail de la part d’Azure](resolve-past-due-balance.md).
+Pour résoudre un solde impayé, consultez l’un des articles suivants :
+
+- Pour les abonnements au Microsoft Online Subscription Program, y compris le paiement à l’utilisation, consultez [Résoudre un solde impayé pour votre abonnement Azure après avoir un reçu un e-mail de la part d’Azure](resolve-past-due-balance.md).
+- Pour les abonnements Contrat client Microsoft, consultez [Comment payer votre facture Microsoft Azure](../understand/pay-bill.md).
 
 ## <a name="the-bill-exceeds-your-credit-card-limit"></a>La facture dépasse la limite de votre carte de crédit
 
-Pour résoudre ce problème, [basculez vers une autre carte de crédit](change-credit-card.md). Ou si vous représentez une entreprise, vous pouvez [basculer vers le paiement par facture](pay-by-invoice.md).
+Pour résoudre le problème, [basculez vers une autre carte de crédit](change-credit-card.md). Ou si vous représentez une entreprise, vous pouvez [basculer vers le paiement par facture](pay-by-invoice.md).
 
 ## <a name="the-subscription-was-accidentally-canceled"></a>L’abonnement a été accidentellement annulé
 
-Si vous êtes administrateur de compte et que vous avez accidentellement annulé un abonnement individuel avec paiement à l’utilisation, vous pouvez le réactiver dans le Centre des comptes.
+Si vous êtes administrateur de compte et que vous avez accidentellement annulé un abonnement avec paiement à l’utilisation, vous pouvez le réactiver dans le portail Azure.
 
-1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez l’abonnement annulé.
-1. Cliquez sur **Réactiver**.
-
-    ![Capture d’écran montrant des liens de réactivation dans le volet droit](./media/subscription-disabled/reactivate-sub.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à Abonnements, puis sélectionnez l’abonnement annulé.
+1. Sélectionnez **Réactiver**.
+1. Confirmez la réactivation en sélectionnant **OK**.  
+    :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="Capture d’écran montrant la confirmation de la réactivation" :::
 
 Pour les autres types d’abonnement, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour réactiver votre abonnement.
 

@@ -2,15 +2,15 @@
 title: Déployer un modèle - Portail Azure
 description: Découvrez comment créer votre premier modèle ARM (Azure Resource Manager) à l’aide du portail Azure, et comment le déployer.
 author: mumian
-ms.date: 06/29/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349620"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892494"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles ARM à l’aide du portail Azure
 
@@ -33,9 +33,11 @@ De nombreux développeurs de modèles expérimentés utilisent cette méthode po
 
     ![Sélectionner Créer une ressource depuis le menu du portail Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Sélectionnez **Stockage** > **Compte de stockage**.
+1. Dans la zone de recherche, tapez **compte de stockage**, puis appuyez sur **[ENTRÉE]** .
+1. Sélectionnez **Create** (Créer).
 
     ![Créer un compte de stockage Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+
 1. Entrez les informations suivantes :
 
     |Nom|Valeur|

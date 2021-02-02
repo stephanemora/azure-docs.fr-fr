@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178345"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752760"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutoriel : Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -47,7 +47,7 @@ L’exemple d’application que vous créez avec ce guide permet à une applicat
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestion de l’acquisition de jetons pour accéder à des API web protégées
 
-Une fois l’utilisateur authentifié, l’exemple d’application reçoit un jeton que vous pouvez utiliser pour interroger l’API Microsoft Graph ou une API web sécurisée par la plateforme d’identités Microsoft pour les développeurs.
+Une fois l’utilisateur authentifié, l’exemple d’application reçoit un jeton que vous pouvez utiliser pour interroger l’API Microsoft Graph ou une API web sécurisée par la plateforme d’identité Microsoft.
 
 Les API comme Microsoft Graph nécessitent un jeton d’accès pour autoriser l’accès à des ressources spécifiques. Par exemple, un jeton est nécessaire pour lire le profil d’un utilisateur, accéder au calendrier d’un utilisateur ou envoyer un e-mail. Votre application peut demander un jeton d’accès à l’aide de MSAL pour accéder à ces ressources en spécifiant les étendues d’API. Ce jeton d’accès est ensuite ajouté à l’en-tête d’autorisation HTTP pour chaque appel effectué sur la ressource protégée.
 

@@ -1,19 +1,19 @@
 ---
 title: Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro par le biais d’Azure CLI et Python
-description: Décrit comment créer et gérer des machines virtuelles sur un appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et de Python.
+description: Explique comment créer et gérer des machines virtuelles sur un appareil Azure Stack Edge Pro avec GPU à l’aide d’Azure CLI et de Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762914"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808052"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et Python
 
@@ -70,9 +70,9 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
 3. Vous avez créé et installé tous les certificats sur votre appareil Azure Stack Edge Pro et dans le magasin approuvé de votre client. Appliquez la procédure décrite dans [Étape 2 : Créer et installer des certificats](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Vous avez créé un certificat *.cer* encodé en base 64 pour votre appareil Azure Stack Edge Pro. Celui-ci est déjà chargé en tant que chaîne de signature sur l’appareil et installé dans le magasin racine approuvé sur votre client. Ce certificat est également requis au format *pem* pour que Python fonctionne sur ce client.
+4. Vous avez créé un certificat *.cer* encodé en base 64 pour votre appareil Azure Stack Edge Pro. Ce certificat est déjà chargé en tant que chaîne de signature sur l’appareil, et installé dans le magasin racine approuvé sur votre client. Ce certificat est également requis au format *pem* pour que Python fonctionne sur ce client.
 
-    Convertissez ce certificat au format pem à l’aide de la commande `certutil`. Vous devez exécuter cette commande dans le répertoire qui contient votre certificat.
+    Convertissez ce certificat au format `pem` à l’aide de la commande `certutil`. Vous devez exécuter cette commande dans le répertoire qui contient votre certificat.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    Vous ajouterez également ce certificat pem à la boutique Python ultérieurement.
+    Vous ajouterez plus tard ce certificat `pem` au magasin Python.
 
-5. Vous avez affecté l’adresse IP de l’appareil dans votre page **Réseau** dans l’interface utilisateur web locale de l’appareil. Vous devez ajouter cette adresse IP :
+5. Vous avez affecté l’adresse IP de l’appareil dans votre page **Réseau** dans l’interface utilisateur web locale de l’appareil. Ajoutez cette adresse IP aux éléments suivants :
 
     - Au fichier hosts sur le client, ou
     - À la configuration du serveur DNS.
@@ -117,13 +117,13 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Vérifier le profil et installer Azure CLI
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Installez Azure CLI sur votre client. Dans cet exemple, Azure CLI 2.0.80 a été installé. Pour vérifier la version d’Azure CLI, exécutez la commande `az --version` .
 
-    Voici un exemple de sortie de la commande ci-dessus :
+    Voici un exemple de sortie pour la commande ci-dessus :
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,9 +147,9 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
     PS C:\windows\system32>
     ```
 
-    Si vous n’avez pas Azure CLI, téléchargez et [installez Azure CLI sur Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Vous pouvez exécuter Azure CLI à l’aide de l’invite de commandes Windows ou de Windows PowerShell.
+    Si vous n’avez pas Azure CLI, téléchargez et [installez Azure CLI sur Windows](/cli/azure/install-azure-cli-windows). Vous pouvez exécuter Azure CLI à l’aide de l’invite de commandes Windows ou de Windows PowerShell.
 
-2. Prenez note de l’emplacement Python de l’interface CLI. Vous en aurez besoin pour déterminer l’emplacement du magasin de certificats racines de confiance pour Azure CLI.
+2. Prenez note de l’emplacement Python de l’interface CLI. Vous aurez besoin de l’emplacement Python pour déterminer l’emplacement du magasin de certificats racines approuvés pour Azure CLI.
 
 3. Pour exécuter l’exemple de script utilisé dans cet article, vous aurez besoin des versions de bibliothèques Python suivantes :
 
@@ -171,7 +171,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
     L’exemple de sortie suivant montre l’installation de Haikunator :
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
     L’exemple de sortie suivant montre l’installation de pip pour `msrestazure` : 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
     
     L’applet de commande retourne l’emplacement du certificat, comme indiqué ci-dessous :  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -323,7 +323,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
    Voici un exemple de sortie pour une connexion réussie après avoir fourni le mot de passe :  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [
@@ -342,7 +342,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-   Notez les valeurs `id` et `tenantId`, car elles correspondent à votre ID d’abonnement Azure Resource Manager et à l’ID de locataire Azure Resource Manager, respectivement, et elles seront utilisées lors de l’étape suivante.
+   Notez les valeurs `id` et `tenantId`, car elles correspondent à votre ID d’abonnement Azure Resource Manager et à l’ID de locataire Azure Resource Manager, respectivement, et qu’elles seront utilisées lors de l’étape suivante.
        
    Les variables d’environnement suivantes doivent être définies pour fonctionner en tant que *principal de service* :
 

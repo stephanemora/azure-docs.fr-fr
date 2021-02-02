@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064400"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756177"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
@@ -28,7 +28,7 @@ Dans ce tutoriel :
 > * Effectuer le flux de code d’autorisation OAuth 2.0 avec PKCE.
 > * Connecter des comptes personnels Microsoft, ainsi que des comptes professionnels et scolaires.
 > * Obtenir un jeton d’accès
-> * Appeler l’API Microsoft Graph ou votre propre API qui exige des jetons d’accès obtenus à partir du point de terminaison de la plateforme d’identités Microsoft.
+> * Appeler l’API Microsoft Graph ou votre propre API qui exige les jetons d’accès obtenus à partir de la plateforme d’identité Microsoft
 
 MSAL.js 2.0 offre une amélioration par rapport à MSAL.js 1.0 en prenant en charge le flux de code d’autorisation dans le navigateur au lieu du flux d’octroi implicite. MSAL.js 2.0 ne prend **PAS** en charge le flux implicite.
 
@@ -41,7 +41,7 @@ MSAL.js 2.0 offre une amélioration par rapport à MSAL.js 1.0 en prenant en c
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagramme montrant le flux de code d’autorisation dans une application monopage":::
 
-L’application que vous créez dans ce tutoriel permet à une application monopage JavaScript d’interroger l’API Microsoft Graph en faisant l’acquisition de jetons de sécurité provenant du point de terminaison de la plateforme d’identités Microsoft. Dans ce scénario, une fois l’utilisateur connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP dans l’en-tête d’autorisation. L’acquisition et le renouvellement des jetons sont gérés par la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
+L’application que vous allez créer dans ce tutoriel permet à une application monopage JavaScript d’interroger l’API Microsoft Graph en faisant l’acquisition de jetons de sécurité auprès de la plateforme d’identité Microsoft. Dans ce scénario, une fois l’utilisateur connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP dans l’en-tête d’autorisation. L’acquisition et le renouvellement des jetons sont gérés par la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js).
 
 Ce tutoriel utilise la bibliothèque suivante :
 
@@ -558,13 +558,13 @@ L’application monopage que vous avez créée dans ce tutoriel appelle `acquire
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Après la première connexion, votre application ne doit pas demander aux utilisateurs de se réauthentifier (autrement dit, demander un jeton) chaque fois qu’ils ont besoin d’accéder à une ressource protégée. Pour empêcher ces requêtes de réauthentification, appelez `acquireTokenSilent`. Il existe toutefois certaines situations dans lesquelles vous aurez à forcer les utilisateurs à interagir avec le point de terminaison de la plateforme d’identités Microsoft. Par exemple :
+Après la première connexion, votre application ne doit pas demander aux utilisateurs de se réauthentifier (autrement dit, demander un jeton) chaque fois qu’ils ont besoin d’accéder à une ressource protégée. Pour empêcher ces requêtes de réauthentification, appelez `acquireTokenSilent`. Dans certains cas, vous pouvez cependant être amené à forcer les utilisateurs à interagir avec la plateforme d’identité Microsoft. Par exemple :
 
 - Les utilisateurs doivent entrer à nouveau leurs informations d’identification car le mot de passe a expiré.
 - Votre application demande l’accès à une ressource et vous avez besoin du consentement de l’utilisateur.
 - Une authentification à 2 facteurs est demandée.
 
-L’appel de `acquireTokenPopup` ouvre une fenêtre contextuelle (ou `acquireTokenRedirect` redirige les utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft). Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à 2 facteurs.
+L’appel de `acquireTokenPopup` ouvre une fenêtre contextuelle (ou `acquireTokenRedirect` redirige les utilisateurs vers la plateforme d’identité Microsoft). Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à 2 facteurs.
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -618,7 +618,7 @@ Vous avez terminé la création de l’application, et êtes maintenant prêt à
 
 ### <a name="sign-in-to-the-application"></a>Se connecter à l’application
 
-Une fois que le navigateur a chargé votre fichier *index.html*, sélectionnez **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison de la plateforme d’identités Microsoft :
+Une fois que le navigateur a chargé votre fichier *index.html*, sélectionnez **Se connecter**. Vous êtes invité à vous connecter avec la plateforme d’identité Microsoft :
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Navigateur web affichant la boîte de dialogue de connexion":::
 

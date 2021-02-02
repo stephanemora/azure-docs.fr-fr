@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503792"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735773"
 ---
 # <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
@@ -79,7 +79,7 @@ Si vous disposez d’un abonnement d’essai gratuit, vous n’êtes pas tenu d�
 
 ## <a name="reactivate-a-subscription"></a>Réactiver un abonnement
 
-Si vous annulez par inadvertance votre abonnement assorti d’un paiement à l’utilisation, vous pouvez [le réactiver dans le Centre des comptes](subscription-disabled.md).
+Si vous annulez par inadvertance votre abonnement assorti d’un paiement à l’utilisation, vous pouvez [le réactiver dans le portail Azure](subscription-disabled.md).
 
 Si votre abonnement n’est pas un abonnement assorti d’un paiement à l’utilisation, contactez le support dans les 90 jours suivant l’annulation pour le réactiver.
 
@@ -101,4 +101,4 @@ Consultez l’article [Renouvellement et annulation](/visualstudio/subscriptions
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si nécessaire, vous pouvez réactiver un abonnement avec paiement à l’utilisation dans le [Centre des comptes](subscription-disabled.md).
+- Si nécessaire, vous pouvez réactiver un abonnement avec paiement à l’utilisation dans le [portail Azure](subscription-disabled.md).

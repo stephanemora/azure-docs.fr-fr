@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701277"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746135"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutoriel : Indexer des objets blob JSON à partir de Stockage Azure avec REST
 
@@ -98,13 +98,13 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenir un point de terminaison et une clé d’accès HTTP" border="false":::
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
 ## <a name="2---set-up-postman"></a>2 - Configurer Postman
 
-Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de la Recherche cognitive Azure](search-get-started-rest.md).
+Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Créer un index de recherche à l’aide des API REST](search-get-started-rest.md).
 
 Les méthodes de requête utilisées pour chaque appel dans ce tutoriel sont **POST** et **GET**. Vous allez faire trois appels d’API à votre service de recherche pour créer une source de données, un index et un indexeur. La source de données inclut un pointeur vers votre compte de stockage et vos données JSON. Votre service de recherche établit la connexion lors du chargement des données.
 
@@ -158,7 +158,7 @@ L’[API Create Data Source](/rest/api/searchservice/create-data-source) crée u
     ```
 
 ## <a name="4---create-an-index"></a>4 - Créer un index
-    
+
 Le deuxième appel est celui de l’[API de création d’index](/rest/api/searchservice/create-index), qui permet de créer un index de recherche cognitive Azure pour stocker toutes les données pouvant faire l’objet de recherches. Un index spécifie tous les paramètres et leurs attributs.
 
 1. Définissez le point de terminaison de cet appel sur `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Remplacez `[service name]` par le nom de votre service de recherche.

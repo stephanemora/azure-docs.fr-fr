@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 532fcc7db849af192ceddb1c239e99f31a2a3088
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178464"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754161"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -54,7 +54,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Entrez un **nom** pour votre application. Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez **Inscription**. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
-> 1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Dans le volet gauche de l’application inscrite, sélectionnez **Authentification**.
+> 1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Sous **Gérer**, sélectionnez **Authentification**.
 > 1. Sous **Configurations de plateforme**, sélectionnez **Ajouter une plateforme**. Un panneau s’ouvre sur la gauche. Sélectionnez la région **Applications web**.
 > 1. Toujours sur la gauche, définissez la valeur de l’**URI de redirection** sur `http://localhost:3000/`. Ensuite, sélectionnez **Jeton d’accès** et **ID de jeton**.
 > 1. Sélectionnez **Configurer**.
@@ -266,14 +266,14 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Il existe des situations dans lesquelles vous devez forcer les utilisateurs à interagir avec le point de terminaison de la plateforme d’identités Microsoft. Par exemple :
+Dans certaines situations, vous devrez obliger les utilisateurs à interagir avec la plateforme d’identités Microsoft. Par exemple :
 * Les utilisateurs doivent réentrer leurs informations d’identification, car leur mot de passe a expiré.
 * Votre application demande l’accès à des étendues de ressources supplémentaires pour laquelle l’utilisateur doit donner son consentement.
 * Une authentification à 2 facteurs est demandée.
 
 Le modèle habituellement recommandé pour la plupart des applications est de d’abord appeler `acquireTokenSilent`, puis d’intercepter l’exception, puis d’appeler `acquireTokenPopup` (ou `acquireTokenRedirect`) pour démarrer une demande interactive.
 
-L’appel de `acquireTokenPopup` fait apparaître une fenêtre contextuelle pour la connexion. (Ou `acquireTokenRedirect` entraîne la redirection des utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft.) Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à deux facteurs.
+L’appel de `acquireTokenPopup` fait apparaître une fenêtre contextuelle pour la connexion. (Ou `acquireTokenRedirect` entraîne la redirection des utilisateurs vers la plateforme d’identités Microsoft.) Dans cette fenêtre, les utilisateurs doivent interagir en confirmant leurs informations d’identification, en donnant leur consentement pour la ressource demandée ou en effectuant l’authentification à deux facteurs.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.

@@ -12,18 +12,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709081"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806183"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center est un système de gestion de la sécurité de l’infrastructure unifié qui renforce la posture de sécurité de vos centres de données et fournit une protection avancée contre les menaces pour vos charges de travail hybrides dans le cloud (dans Azure ou non), ainsi qu’en local.
 
@@ -74,7 +72,7 @@ Security Center vous aide à **identifier les abonnements Shadow IT**. En examin
 
 ### <a name="continuous-assessments"></a>Évaluations continues
 
-Security Center détecte en continu les nouvelles ressources déployées dans vos charges de travail en permanence et évalue si elles sont configurées conformément aux meilleures pratiques de sécurité. Si ce n’est pas le cas, elles sont marquées d’un drapeau et vous obtenez une liste de recommandations classées par ordre de priorité sur les éléments à corriger pour protéger vos machines.
+Security Center détecte en continu les nouvelles ressources déployées dans vos charges de travail en permanence et évalue si elles sont configurées conformément aux meilleures pratiques de sécurité. Si ce n’est pas le cas, elles sont marquées d’un drapeau et vous obtenez une liste de recommandations classées par ordre de priorité sur les éléments à corriger pour protéger vos machines. La liste de recommandations est activée et prise en charge par le [Benchmark de sécurité Azure](../security/benchmarks/introduction.md), l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques en matière de sécurité et de conformité basées sur les frameworks de conformité courants. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/).
 
 Pour vous aider à comprendre l’importance de chaque recommandation pour votre posture de sécurité globale, Security Center regroupe les recommandations en contrôles de sécurité et ajoute une valeur de **degré de sécurisation** à chaque contrôle. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
 
@@ -107,9 +105,8 @@ La protection contre les menaces Security Center inclut l’analyse de la chaîn
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Intégration avec Microsoft Defender pour point de terminaison
 
-Security Center comprend une intégration automatique et native à Microsoft Defender pour point de terminaison. Cela signifie que, sans aucune configuration, vos machines Windows et Linux sont entièrement intégrés aux recommandations et évaluations de Security Center.
+Azure Defender pour les serveurs comprend une intégration automatique et native à Microsoft Defender for Endpoint. Apprenez-en davantage dans [Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint](security-center-wdatp.md).
 
-En outre, Security Center vous permet d’automatiser les stratégies de contrôle d’application sur des environnements de serveur. Les contrôles d’application adaptatifs dans Security Center permettent de lister les approbations d’applications de bout en bout entre vos serveurs Windows. Vous n’avez pas besoin de créer de règles et de vérifier les violations, tout est fait automatiquement pour vous.
 
 ### <a name="protect-paas"></a>Protéger PaaS
 

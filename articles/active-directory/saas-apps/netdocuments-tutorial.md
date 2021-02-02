@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: b9a85c7093d0f42ac97c4a548ba6f0feebae8b89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1c5fa1c704e51026d5cd4defdb7f5e85827ccb9b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350719"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624790"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à NetDocuments
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer NetDocuments à Azure Active
 * Contrôler dans Azure AD qui a accès à NetDocuments.
 * Permettre à vos utilisateurs de se connecter automatiquement à NetDocuments avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,14 +43,14 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de NetDocuments à Azure AD, vous devez ajouter NetDocuments à votre liste d’applications SaaS gérées, à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **NetDocuments** dans la zone de recherche.
 1. Sélectionnez **NetDocuments** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netdocuments"></a>Configurer et tester l’authentification unique Azure AD pour NetDocuments
+## <a name="configure-and-test-azure-ad-sso-for-netdocuments"></a>Configurer et tester l’authentification unique Azure AD pour NetDocuments
 
 Configurez et testez l’authentification unique Azure AD avec NetDocuments à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur NetDocuments associé.
 
@@ -69,7 +67,7 @@ Pour configurer et tester l’authentification unique Azure AD avec NetDocuments
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **NetDocuments**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page d’intégration de l’application **NetDocuments** du portail Azure, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
@@ -77,22 +75,46 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    a. Dans la zone de texte **URL d’authentification**, entrez l’un des modèles d’URL suivants :
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
-    
-    c. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `http://netdocuments.com/VAULT`
+    |URL d’authentification|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
+
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’une des URL suivantes :
+
+    |Identificateur|
+    |-----------|
+    |`http://netdocuments.com/VAULT`|
+    |`http://netdocuments.com/EU`|
+    |`http://netdocuments.com/AU`|
+    |`http://netdocuments.com/DE`|
+    |
+
+    c. Dans la zone de texte **URL de réponse**, entrez l’un des modèles d’URL suivants :
+
+    |URL de réponse|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. L’ID de dépôt est une valeur commençant par **CA-** suivi du code à huit caractères associé à votre dépôt NetDocuments. Pour plus d’informations, consultez le [document sur la prise en charge des identités fédérées NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). Vous pouvez aussi contacter l’[équipe de support technique NetDocuments](https://support.netdocuments.com/hc/) pour obtenir ces valeurs si vous avez des difficultés à effectuer la configuration à partir des informations fournies ci-dessus. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. L’ID de dépôt est une valeur commençant par **CA-** suivi du code à huit caractères associé à votre dépôt NetDocuments. Pour plus d’informations, consultez le [document sur la prise en charge des identités fédérées NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). Vous pouvez également contacter l’[équipe de support technique de NetDocuments](https://support.netdocuments.com/hc/) pour obtenir ces valeurs si vous rencontrez des difficultés lorsque vous effectuez la configuration en utilisant les informations ci-dessus. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. L’application NetDocuments attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application NetDocuments attend le mappage de **nameidentifier** avec **employeeid** ou toute autre revendication applicable à votre organisation en tant que **nameidentifier**. Vous devez donc modifier le mappage d’attributs en cliquant sur l’icône **Modifier** et en procédant aux changements.
+1. L’application NetDocuments attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application NetDocuments attend le mappage de **nameidentifier** avec **ObjectID** ou toute autre revendication applicable à votre organisation en tant que **nameidentifier**. Vous devez donc modifier le mappage d’attributs en cliquant sur l’icône **Modifier** et en procédant aux changements.
 
     ![image](common/edit-attribute.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **URL des métadonnées de fédération d’application** et copiez cette URL.
 
-    ![Lien Téléchargement de certificat](common/metadataxml.png)
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 1. Dans la section **Configurer NetDocuments**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
@@ -117,15 +139,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **NetDocuments**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-netdocuments-sso"></a>Configurer l’authentification unique NetDocuments
@@ -136,7 +152,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Sélectionnez **Centre de sécurité**.
    
-    ![Capture d’écran montrant l’élément Security Center sélectionné dans Legal Documents.](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Référentiel](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Sélectionnez **Authentification avancée**.
     
@@ -144,9 +160,9 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5.  Sous l’onglet **ID fédéré**, effectuez les étapes suivantes :   
    
-    ![Identité fédérée](./media/netdocuments-tutorial/federated-id.png "Identité fédérée")
+    [ ![Identité fédérée](./media/netdocuments-tutorial/federated-id.png "Identité fédérée")](./media/netdocuments-tutorial/federated-id.png#lightbox)
    
-    a. Pour **Federated identity server type**, sélectionnez **Active Directory Federation Services**.
+    a. Pour **Type de serveur d’identité fédérée**, sélectionnez **Windows Azure Active Directory**.
     
     b.  Sélectionnez **Choisir un fichier** pour importer le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
     
@@ -166,7 +182,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous d
 
 3. Sélectionnez **Utilisateurs et groupes**.
    
-    ![Capture d’écran montrant l’élément Users & Groups sélectionné dans Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Référentiel")
+    ![Utilisateurs et groupes](./media/netdocuments-tutorial/users-groups.png "Référentiel")
 
 4. Dans la zone de texte **Email Address**, tapez l’adresse e-mail d’un compte Azure Active Directory valide à approvisionner, puis cliquez sur **Add User**.
    
@@ -177,16 +193,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à NetDocuments, vous d
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Le fait de cliquer sur la vignette NetDocuments dans le panneau d’accès doit vous connecter automatiquement à l’application NetDocuments pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL d’authentification NetDocuments, où vous pouvez lancer le processus de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL d’authentification NetDocuments pour lancer le processus de connexion.
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette NetDocuments dans Mes applications doit vous connecter automatiquement à l’application NetDocuments pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Essayer NetDocuments avec Azure AD](https://aad.portal.azure.com/)
+Après avoir configuré NetDocuments, vous pouvez appliquer le contrôle de session qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

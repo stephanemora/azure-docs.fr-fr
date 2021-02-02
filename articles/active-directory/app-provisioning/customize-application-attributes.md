@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936979"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761298"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -75,7 +75,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
   - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Correspondance des utilisateurs dans les systèmes source et cible
-Le service de provisionnement Azure AD peut être déployé aussi bien dans les scénarios « greenfield » (« terrain vierge », où les utilisateurs ne quittent pas le système cible) que dans les scénarios « brownfield » (« friche industrielle », où les utilisateurs existent déjà dans le système cible). Pour prendre en charge ces deux scénarios, le service de provisionnement utilise le concept de correspondance d’attributs. Les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et faire correspondre l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
+Le service de provisionnement Azure AD peut être déployé aussi bien dans les scénarios « greenfield » (« terrain vierge »), où les utilisateurs ne quittent pas le système cible que dans les scénarios « brownfield » (« friche industrielle »), où les utilisateurs existent déjà dans le système cible. Pour prendre en charge ces deux scénarios, le service de provisionnement utilise le concept de correspondance d’attributs. Les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et faire correspondre l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
 
 - **Les attributs correspondants doivent être uniques :** Les clients utilisent souvent des attributs tels que userPrincipalName, le courrier électronique ou l’ID d’objet comme attribut correspondant.
 - **Plusieurs attributs peuvent être utilisés comme attributs correspondants :** Vous pouvez définir plusieurs attributs à évaluer lors de la correspondance des utilisateurs et de l’ordre dans lequel ils sont évalués (définis comme priorité correspondante dans l’interface utilisateur). Si, par exemple, vous définissez trois attributs comme attributs correspondants, et qu’un utilisateur est mis en correspondance de manière unique après l’évaluation des deux premiers attributs, le service n’évalue pas le troisième attribut. Le service évalue les attributs correspondants dans l’ordre spécifié et arrête l’évaluation lorsqu’une correspondance est trouvée.  
@@ -115,7 +115,7 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 
 
 > [!NOTE]
-> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes et ont connaissance de première main de la façon dont leurs attributs personnalisés ont été définis. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). 
+> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes et ont connaissance de première main de la façon dont leurs attributs personnalisés ont été définis. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](#editing-the-list-of-supported-attributes). 
 
 Lorsque vous modifiez la liste des attributs pris en charge, les propriétés suivantes sont fournies :
 
@@ -156,6 +156,7 @@ Les attributs personnalisés ne peuvent pas être des attributs référentiels, 
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",

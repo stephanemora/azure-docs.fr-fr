@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169440"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747288"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
@@ -40,7 +40,7 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Connecter une application à un compte de stockage](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et un compte de stockage, puis ajoute la chaîne de connexion de stockage aux paramètres d’application. |
 | [Connecter une application à un Cache Azure pour Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et un Cache Azure pour Redis, puis ajoute les détails de connexion redis aux paramètres d’application. |
 | [Connecter une application à Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une base de données Cosmos DB, puis ajoute les détails de connexion Cosmos DB aux paramètres d’application. |
-|**Sauvegarder et restaurer une app**||
+|**Sauvegarder et restaurer une application**||
 | [Sauvegarder une application](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une sauvegarde unique pour celle-ci. |
 | [Créer une sauvegarde planifiée pour une application](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une sauvegarde planifiée pour celle-ci. |
 | [Restaurer une application à partir d’une sauvegarde](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaure une application App Service à partir d’une sauvegarde. |

@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 2cc4d40fd8088a632e0c24e3c4b770ebdc9de2e8
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912731"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762856"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -93,28 +93,36 @@ N’oubliez pas les points suivants :
 - Si vous envisagez d’étendre des réseaux en local, ces réseaux doivent se connecter à un [commutateur vDS (vSphere Distributed Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) dans votre environnement VMware local.  
 - Si le ou les réseaux que vous souhaitez étendre se trouvent sur un [commutateur vSS (vSphere Standard Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), ils ne peuvent pas être étendus.
 
-## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Réseau virtuel Azure pour joindre Azure VMware Solution
+## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Attacher le réseau virtuel à Azure VMware Solution
 
-Pour accéder à votre cloud privé Azure VMware Solution, le circuit ExpressRoute, fourni avec Azure VMware Solution, doit être attaché à un réseau virtuel Azure.  Pendant le déploiement, vous pouvez définir un nouveau réseau virtuel ou en choisir un existant.
+Dans cette étape, vous allez identifier une passerelle de réseau virtuel ExpressRoute et prendre en charge le réseau virtuel Azure utilisé pour connecter le circuit ExpressRoute d’Azure VMware Solution.  Le circuit ExpressRoute facilite la connectivité vers et depuis le cloud privé Azure VMware Solution vers d’autres services Azure, ressources Azure et environnements locaux.
 
-Le circuit ExpressRoute d’Azure VMware Solution se connecte à une passerelle ExpressRoute dans le réseau virtuel Azure que vous définissez dans cette étape.  
-
->[!IMPORTANT]
->Vous pouvez utiliser une passerelle ExpressRoute existante pour vous connecter à Azure VMware Solution, à condition qu’elle ne dépasse pas la limite de quatre circuits ExpressRoute par réseau virtuel.  Toutefois, pour accéder à Azure VMware Solution à partir d’un site local par le biais d’ExpressRoute, vous devez disposer d’ExpressRoute Global Reach, car la passerelle ExpressRoute ne fournit pas de routage transitif entre ses circuits connectés.  
-
-Si vous souhaitez connecter le circuit ExpressRoute à partir d’Azure VMware Solution à une passerelle ExpressRoute existante, vous pouvez le faire après le déploiement.  
-
-Donc, en résumé, voulez-vous connecter Azure VMware Solution à une passerelle Express Route existante ?  
-
-* **Oui** = Identifiez le réseau virtuel qui n’est pas utilisé pendant le déploiement.
-* **No** = Identifiez un réseau virtuel existant ou créez-en un nouveau lors du déploiement.
-
-Dans les deux cas, documentez ce que vous souhaitez faire au cours de cette étape.
-
->[!NOTE]
->Ce réseau virtuel est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
+Vous pouvez utiliser une passerelle de réseau virtuel ExpressRoute *existante* OU *nouvelle*.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identité : réseau virtuel Azure pour joindre Azure VMware Solution" border="false":::
+
+### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>Utiliser une passerelle de réseau virtuel ExpressRoute existante
+
+Si vous utilisez une passerelle de réseau virtuel ExpressRoute *existante*, le circuit ExpressRoute d’Azure VMware Solution est établi après le déploiement du cloud privé. Dans ce cas, laissez vide le champ **Réseau virtuel**.  
+
+Prenez note de la passerelle de réseau virtuel ExpressRoute que vous allez utiliser et passez à l’étape suivante.
+
+### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Créer une nouvelle passerelle de réseau virtuel ExpressRoute
+
+Lorsque vous créez une *nouvelle* passerelle de réseau virtuel ExpressRoute, vous pouvez utiliser un réseau virtuel Azure existant ou en créer un.  
+
+- Pour un réseau virtuel Azure existant :
+   1. Vérifiez qu’il n’existe pas de passerelle de réseau virtuel ExpressRoute préexistante dans le réseau virtuel. 
+   1. Sélectionnez le réseau virtuel Azure existant dans la liste **Réseau virtuel**.
+
+- Pour un nouveau réseau virtuel Azure, vous pouvez le créer à l’avance ou au cours du déploiement. Sélectionnez le lien **Créer nouveau** sous la liste **Réseau virtuel**.
+
+L’image ci-dessous montre l’écran de déploiement **Créer un cloud privé** avec le champ **Réseau virtuel** mis en surbrillance.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Capture d’écran de la fenêtre de déploiement Azure VMware Solution avec le champ Réseau virtuel mis en surbrillance":::
+
+>[!NOTE]
+>Un réseau virtuel qui sera utilisé ou créé est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
 
 ## <a name="vmware-hcx-network-segments"></a>Segments réseau VMware HCX
 

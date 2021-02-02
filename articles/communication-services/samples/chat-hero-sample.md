@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888570"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760806"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Bien démarrer avec l’exemple de bannière de conversation de groupe
 
@@ -100,7 +100,7 @@ Vous pouvez tester l’exemple localement en ouvrant plusieurs sessions de navig
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -111,6 +111,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 - Apprenez-en davantage sur les [concepts relatifs aux conversations](../concepts/chat/concepts.md)
 - Familiarisez-vous avec notre [bibliothèque de client de conversation](../concepts/chat/sdk-features.md)
+- Consultez l’exemple [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app).
 
 ## <a name="additional-reading"></a>Documentation supplémentaire
 

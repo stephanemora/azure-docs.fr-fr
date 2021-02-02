@@ -3,12 +3,12 @@ title: Azure Batch exécute des travaux parallèles à grande échelle dans le c
 description: Découvrez l’utilisation d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 93dcf19b3b6af0f369fe19b7823bf43d597a9c21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106646"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743098"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -74,6 +74,9 @@ Le schéma suivant illustre les étapes d’un flux de travail Batch courant, da
 Gardez à l’esprit que le flux de travail décrit ci-dessus n’est qu’une des façons d’utiliser Batch et qu’il existe de nombreuses autres fonctionnalités et options. Par exemple, vous pouvez exécuter [plusieurs tâches en parallèle](batch-parallel-node-tasks.md) sur chaque nœud de calcul. Ou vous pouvez utiliser des [Tâches d’achèvement et de préparation des travaux](batch-job-prep-release.md) pour préparer les nœuds pour vos travaux, puis nettoyer par la suite.
 
 Pour une vue d’ensemble de fonctionnalités comme les pools, les nœuds, les travaux et les tâches, consultez [Workflow et les ressources du service Batch](batch-service-workflow-features.md) . Consultez également les dernières [mises à jour du service Batch](https://azure.microsoft.com/updates/?product=batch).
+
+## <a name="in-region-data-residency"></a>Résidence des données dans la région
+Azure Batch ne déplace pas et ne stocke pas les données client en dehors de la région dans laquelle il a été déployé. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

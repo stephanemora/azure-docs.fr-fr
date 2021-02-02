@@ -3,7 +3,7 @@ title: Tutoriel – Créer un package d’accès – Gestion des droits d’util
 description: Ce tutoriel pas à pas vous explique comment créer votre premier package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631281"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937903"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -119,7 +119,7 @@ Un *package d’accès* est un bundle de ressources dont une équipe ou un proje
     ![Nouveau package d’accès - Onglet Rôles des ressources](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!IMPORTANT]
-    >Les groupes avec attribution de rôle ajoutés à un package d’accès sont indiqués à l’aide du sous-type **Attribuables aux rôles**. Pour plus d’informations sur les groupes attribuables aux rôles Azure AD, reportez-vous à [Créer un groupe avec attribution de rôle](../roles/groups-create-eligible.md) dans Azure Active Directory. Si vous ne voyez aucun groupe avec attribution de rôle à ajouter ou si vous ne pouvez pas l’ajouter, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à un utilisateur doté des rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >Les groupes avec attribution de rôle ajoutés à un package d’accès sont indiqués à l’aide du sous-type **Attribuables aux rôles**. Pour plus d’informations sur les groupes attribuables aux rôles Azure AD, reportez-vous à [Créer un groupe avec attribution de rôle](../roles/groups-create-eligible.md) dans Azure Active Directory. N’oubliez pas qu’une fois qu’un groupe avec attribution de rôle est présent dans un catalogue de packages d’accès, les utilisateurs administratifs qui ont la capacité de gérer la gestion des droits d’utilisation, notamment les administrateurs généraux, les administrateurs d’utilisateurs et les propriétaires de catalogue du catalogue, peuvent contrôler les packages d’accès dans le catalogue, ce qui leur permet de choisir les personnes qui peuvent être ajoutées à ces groupes. Si vous ne voyez aucun groupe avec attribution de rôle à ajouter ou si vous ne pouvez pas l’ajouter, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à un utilisateur doté des rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > Quand vous utilisez des [groupes dynamiques](../enterprise-users/groups-create-rule.md), vous ne voyez pas d’autres rôles disponibles en plus du propriétaire. C'est la procédure normale.

@@ -1,6 +1,6 @@
 ---
-title: Visualiser les résultats du routage des messages IoT Hub (.NET) | Microsoft Docs
-description: Après avoir configuré toutes les ressources à l’aide de la 1re partie du tutoriel, ajoutez l’option permettant de router les messages vers Azure Stream Analytics et voir les résultats dans PowerBI.
+title: 'Tutoriel : Visualiser les résultats du routage des messages IoT Hub (.NET) | Microsoft Docs'
+description: 'Tutoriel : Après avoir configuré toutes les ressources à l’aide de la 1re partie du tutoriel, ajoutez l’option permettant de router les messages vers Azure Stream Analytics et voir les résultats dans Power BI.'
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149215"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734004"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutoriel : Partie 2 : Visualiser les messages routés
 
@@ -48,13 +48,13 @@ La file d’attente Service Bus doit être utilisée pour recevoir des messages 
 
    **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**.
 
-   **Log Analytics** : cette option doit être désactivée.
+   **Activer Log Analytics** : cette option doit être désactivée.
 
    ![Écran Créer une application logique](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
    Sélectionnez **Create** (Créer). Le déploiement de l’application peut prendre quelques minutes.
 
-2. Accédez maintenant à l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à sélectionner **Groupe de ressources**, à sélectionner votre groupe de ressources (ce tutoriel utilise**ContosoResources**), puis à sélectionner l’application logique dans la liste des ressources. 
+2. Accédez maintenant à l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à sélectionner **Groupe de ressources**, à sélectionner votre groupe de ressources (ce tutoriel utilise **ContosoResources**), puis à sélectionner l’application logique dans la liste des ressources. 
 
     La page Concepteur d’applications logiques apparaît (vous devrez peut-être faire défiler vers la droite pour voir la page entière). Dans la page Concepteur d’applications logiques, faites défiler jusqu’à voir la vignette indiquant **Application logique vide +** et sélectionnez-la. L’onglet par défaut est « Pour vous ». Si ce volet est vide, sélectionnez **Tous** pour voir tous les connecteurs et les déclencheurs disponibles.
 
@@ -151,6 +151,8 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
    **Nom du jeu de données** : nom du jeu de données à utiliser dans Power BI. Ce didacticiel utilise **contosodataset**. 
 
    **Nom de la table** : nom de la table à utiliser dans Power BI. Ce didacticiel utilise **contosotable**.
+
+  **Mode d'authentification** : sélectionnez le mode à utiliser.
 
    Acceptez les valeurs par défaut pour les autres champs.
 
@@ -280,7 +282,7 @@ Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/). Accé
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Utiliser Azure CLI pour nettoyer des ressources
 
-Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
+Pour supprimer le groupe de ressources, utilisez la commande [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` a été défini sur **ContosoResources** au début de ce tutoriel.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

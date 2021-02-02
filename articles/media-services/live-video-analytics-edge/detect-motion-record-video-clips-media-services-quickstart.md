@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 33deabf27fe9b74fd01dba5d6fbe3883b54dda63
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060416"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632722"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -19,6 +19,8 @@ Cet article s’appuie sur le [Guide de démarrage rapide Prise en main](get-sta
 ## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > Vous aurez besoin d’un abonnement Azure avec des autorisations pour créer des principaux de service (le **rôle propriétaire** permet d’effectuer cette opération). Si vous ne disposez pas des autorisations appropriées, contactez l’administrateur de votre compte pour qu’il vous les accorde. 
 * [Visual Studio Code](https://code.visualstudio.com/) sur votre ordinateur avec l’extension [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Si vous n’avez pas encore terminé le [Guide de démarrage rapide Prise en main](get-started-detect-motion-emit-events-quickstart.md), exécutez la procédure suivante :
     * [Configurer des ressources Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)

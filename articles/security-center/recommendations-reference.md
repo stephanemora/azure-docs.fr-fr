@@ -1,29 +1,28 @@
 ---
 title: Table de référence pour toutes les recommandations Azure Security Center
-description: Cet article liste les recommandations de sécurité d’Azure Security Center qui vous permettent de protéger vos ressources.
+description: Cet article liste les recommandations de sécurité d’Azure Security Center qui vous permettent de durcir la sécurité et de protéger vos ressources.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 11d4830908b4e86da12cd5e40cc26b1c1b1aecbd
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133039"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797177"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
 Cet article liste les recommandations que vous pouvez voir dans Azure Security Center. Les recommandations présentées dans votre environnement dépendent des ressources que vous protégez et de votre configuration personnalisée.
 
-Les suggestions de Security Center sont basées sur les meilleures pratiques. Certaines sont alignées sur le **Benchmark de sécurité Azure**, des directives propres à Azure et créées par Microsoft qui donnent les meilleures pratiques de sécurité et de conformité pour des frameworks de conformité courants.
-[En savoir plus sur le Benchmark de sécurité Azure](../security/benchmarks/introduction.md).
+Les recommandations de Security Center sont basées sur le [Benchmark de sécurité Azure](../security/benchmarks/introduction.md). Le Benchmark de sécurité Azure est l’ensemble des directives propres à Azure et créées par Microsoft contenant les bonnes pratiques de sécurité et de conformité basées sur les infrastructures de conformité courantes. Ce point de référence, largement respecté et centré sur le cloud, est basé sur les contrôles du [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) et du [National Institute of Standards and Technology (NIST)](https://www.nist.gov/).
 
 Pour en savoir plus sur la façon de répondre à ces recommandations, consultez [Appliquer les recommandations d’Azure Security Center](security-center-remediate-recommendations.md).
 
-Votre niveau de sécurité est basé sur le nombre de recommandations Security Center que vous avez appliquées pour atténuer les risques. Pour déterminer quelles recommandations doivent être suivies en premier, examinez la gravité de chacune d’entre elles et son impact potentiel sur votre degré de sécurisation.
+Votre degré de sécurisation est basé sur le nombre de recommandations Security Center que vous avez appliquées. Pour déterminer quelles recommandations doivent être suivies en premier, examinez la gravité de chacune d’entre elles et son impact potentiel sur votre degré de sécurisation.
 
 > [!TIP]
 > Si la description d’une recommandation indique « aucune stratégie associée », cela est généralement dû au fait que cette recommandation est dépendante d’une autre recommandation et de _sa_ stratégie. Par exemple, la recommandation « Les échecs d’intégrité d’Endpoint Protection doivent être corrigés... », s’appuie sur la recommandation qui vérifie si une solution Endpoint Protection est _installée_ en premier lieu (« La solution Endpoint Protection doit être installée... »). La recommandation sous-jacente _est associée_ à une stratégie.

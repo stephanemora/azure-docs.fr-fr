@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Protéger des nouvelles ressources avec des verrous'
 description: Dans ce tutoriel, vous utilisez les options de verrous de ressources Azure Blueprints « Lecture seule » et « Ne pas supprimer » pour protéger les ressources nouvellement déployées.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048568"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915405"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutoriel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
@@ -187,7 +187,7 @@ L’affectation crée le groupe de ressources _TestingBPLocks_ et le compte de s
 
 1. Sélectionnez l’affectation Refuser, puis sélectionnez la page **Autorisations refusées** située sur la gauche.
 
-   L’affectation Refuser empêche toutes les opérations ayant une configuration **\*** et **Action**, mais autorise l’accès en lecture, en excluant **\*/read** via **NotActions**.
+   L’affectation Refuser empêche toutes les opérations ayant une configuration **\* *_ et _* Action**, mais autorise l’accès en lecture, en excluant **\*/read** via **NotActions**.
 
 1. Dans la barre de navigation du portail Azure, sélectionnez **TestingBPLocks - Contrôle d’accès (IAM)** . Sélectionnez ensuite la page **Vue d’ensemble** à gauche, puis le bouton **Supprimer le groupe de ressources**. Entrez le nom **TestingBPLocks** pour confirmer la suppression, puis sélectionnez **Supprimer** au bas du volet.
 

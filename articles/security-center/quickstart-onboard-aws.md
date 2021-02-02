@@ -3,16 +3,16 @@ title: Connecter votre compte AWS à Azure Security Center
 description: Surveillance de vos ressources AWS à partir d’Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814310"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755160"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connecter vos comptes AWS à Azure Security Center
 
@@ -33,13 +33,13 @@ L’intégration de votre compte AWS dans Security Center intègre AWS Security 
 
 Dans la capture d’écran ci-dessous, vous pouvez voir les comptes AWS affichés dans le tableau de bord de vue d’ensemble de Security Center.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 projets GCP répertoriés dans le tableau de bord de vue d’ensemble de Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Trois projets GCP répertoriés dans le tableau de bord de la vue d’ensemble de Security Center" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilité
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|État de sortie :|Disponibilité générale (GA)|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
 |Rôles et autorisations obligatoires :|**Propriétaire** sur l’abonnement Azure approprié<br>Le **contributeur** peut également connecter un compte AWS si un propriétaire fournit les détails du principal de service|
 |Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
@@ -136,9 +136,9 @@ AWS Systems Manager est requis pour l’automatisation des tâches entre vos res
 1. Configurez les options dans l’onglet **Authentification AWS** :
     1. Entrez un **nom d’affichage** pour le connecteur.
     1. Confirmez que l’abonnement est correct. Il s’agit de l’abonnement qui inclura les recommandations relatives au connecteur et à AWS Security Hub.
-    1. Selon l’option d’authentification que vous avez choisie dans l’[étape 2. Configurez l’authentification pour Security Center dans AWS](#step-2-set-up-authentication-for-security-center-in-aws) :
+    1. Selon l’option d’authentification que vous avez choisie dans l’[Étape 2. Configurez l’authentification pour Security Center dans AWS](#step-2-set-up-authentication-for-security-center-in-aws) :
         - Sélectionnez **Prendre le rôle** et collez l’ARN obtenu à partir de [Créer un rôle IAM pour Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Collage du fichier ARN dans le champ approprié de l’Assistant de connexion AWS dans le portail Azure":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Collage du fichier ARN dans le champ approprié de l’Assistant de connexion AWS sur le portail Azure":::
 
             OR
 
@@ -190,7 +190,7 @@ Pour afficher toutes les recommandations actives pour vos ressources par type de
 Système d’exploitation pris en charge pour l’intégration automatique à Azure Arc pour les machines AWS
 
 - Ubuntu 16.04 : l’agent SSM est préinstallé par défaut
-- Ubuntu 18.04 : l’agent SSM est préinstallé par défaut
+- Ubuntu 18.04 : l’agent SSM est préinstallé par défaut
 - Windows Server : l’agent SSM est préinstallé par défaut
 - CentOS Linux 7 : SSM doit être installé manuellement ou intégré séparément
 - SUSE Linux Enterprise Server (SLES) 15 (x64) : SSM doit être installé manuellement ou intégré séparément

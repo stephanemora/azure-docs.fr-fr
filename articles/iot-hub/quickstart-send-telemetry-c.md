@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide (C) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
+title: Démarrage rapide - Démarrage rapide (C) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’application C pour envoyer des données de télémétrie simulée à un hub IoT, et pour lire les données de télémétrie provenant du hub IoT à traiter dans le cloud.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 175ec6766f7cad96c2cc386894f01e5e9fb393fc
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 89b872557275db8651f3b55502d340ff55b7e626
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121474"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624284"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (C)
 
@@ -114,7 +114,7 @@ Dans cette section, en revanche, vous allez préparer un environnement de dével
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
-Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans cette section, vous allez utiliser Azure Cloud Shell avec l'[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) pour inscrire un appareil simulé.
+Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans cette section, vous allez utiliser Azure Cloud Shell avec l'[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) pour inscrire un appareil simulé.
 
 1. Exécutez les commandes suivantes dans Azure Cloud Shell pour créer l’identité d’appareil.
 
@@ -183,7 +183,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lire les données de télémétrie envoyées par votre hub
 
-Dans cette section, vous allez utiliser Azure Cloud Shell avec l'[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) pour surveiller les messages envoyés par l'appareil simulé.
+Dans cette section, vous allez utiliser Azure Cloud Shell avec l'[extension IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) pour surveiller les messages envoyés par l'appareil simulé.
 
 1. À l’aide d’Azure Cloud Shell, exécutez la commande suivante pour vous connecter et lire les messages à partir de votre hub IoT :
 

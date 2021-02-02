@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Exemple de blueprint dans un nouvel environnement'
 description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer une définition de blueprint qui définit jusqu’à deux groupes de ressources et configure une attribution de rôle pour chacun.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048730"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915553"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutoriel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
@@ -33,7 +33,7 @@ Tout d’abord, implémentez l’exemple de blueprint. L’importation crée un 
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
+1. Dans la page **Démarrage** à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
 1. Recherchez l’exemple de blueprint **Groupes de ressources avec RBAC** sous _Autres exemples_, puis sélectionnez-le.
 
@@ -144,7 +144,7 @@ L’affectation du blueprint crée et suit les artefacts définis dans la défin
 
 1. Sélectionnez l’affectation de refus, puis la page **Autorisations refusées** à gauche.
 
-   L’affectation de refus empêche toutes les opérations avec la configuration **\*** et **Action**, mais autorise l’accès en lecture en excluant **\*/read** via **NotActions**.
+   L’affectation de refus empêche toutes les opérations avec la configuration **\* *_ et _* Action**, mais autorise l’accès en lecture en excluant **\*/read** via **NotActions**.
 
 1. Dans la barre de navigation du portail Azure, sélectionnez **PreProductionRG - Contrôle d’accès (IAM)** . Sélectionnez ensuite la page **Vue d’ensemble** à gauche, puis le bouton **Supprimer le groupe de ressources**. Entrez le nom _PreProductionRG_ pour confirmer la suppression et sélectionnez **Supprimer** dans le bas du volet.
 

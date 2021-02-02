@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4610d4d677d2d340340aab5edcddb658ac32e5e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178197"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754050"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -124,7 +124,7 @@ Quand la fenêtre de l’application s’affiche, vous pouvez sélectionner le b
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons de sécurité. Les jetons de sécurité sont utilisés par les développeurs pour accéder à une API protégée par la plateforme d’identités Microsoft. Vous pouvez installer MSAL en exécutant la commande suivante dans la *console du gestionnaire de package* de Visual Studio :
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons de sécurité. Les jetons de sécurité sont utilisés pour accéder à une API protégée par la plateforme d’identités Microsoft. Vous pouvez installer MSAL en exécutant la commande suivante dans la *console du gestionnaire de package* de Visual Studio :
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -155,7 +155,7 @@ MSAL utilise deux méthodes d’acquisition de jetons dans une application UWP 
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Certaines situations nécessitent d’obliger les utilisateurs à interagir avec un point de terminaison de la plateforme d’identités Microsoft par le biais d’une fenêtre contextuelle pour valider leurs informations d’identification ou donner leur consentement. Voici quelques exemples :
+Certaines situations nécessitent d’obliger les utilisateurs à interagir avec la plateforme d’identités Microsoft via une fenêtre contextuelle pour qu’ils valident leurs informations d’identification ou qu’ils donnent leur consentement. Voici quelques exemples :
 
 - Lorsque des utilisateurs se connectent pour la première fois à l’application
 - Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré

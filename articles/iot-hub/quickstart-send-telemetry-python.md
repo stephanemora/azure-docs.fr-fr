@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide (Python) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
+title: Démarrage rapide - Démarrage rapide (Python) pour envoyer des données de télémétrie à Azure IoT Hub | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez un exemple d’application Python pour envoyer des données de télémétrie simulée à un IoT Hub et utilisez un utilitaire pour lire les données de télémétrie provenant du IoT Hub.
 author: wesmc7777
 manager: philmea
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/16/2020
-ms.openlocfilehash: 71d91ceba48158d2abc688af572dabfc258a2e94
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c1ea343a2674346e1028f8bb1f3d8ee61cb7e20e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121431"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624873"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (Python)
 
