@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977046"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629587"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Résoudre le problème de Windows qui n’a pas pu terminer la configuration du système
 
@@ -39,5 +39,8 @@ Quand vous utilisez les [diagnostics de démarrage](./boot-diagnostics.md) pour 
 Cette erreur se produit quand le système d’exploitation ne parvient pas à effectuer le [processus Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Cette erreur se produit quand vous tentez d’effectuer le démarrage initial d’une machine virtuelle généralisée. Si vous rencontrez ce problème, recréez l’image généralisée, car l’image est dans un état « non déployable » et ne peut pas être récupérée.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Pour résoudre ce problème, suivez les [instructions Azure sur la préparation/capture d’une image](../windows/upload-generalized-managed.md) et préparez une nouvelle image généralisée.

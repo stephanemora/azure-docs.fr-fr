@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: b165cd4abd55026e10aa43eb20faa85b887de194
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065041"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755559"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
 
@@ -27,7 +27,7 @@ Ce document fournit le contexte et les descriptions de différentes fonctionnali
 
 ## <a name="my-applications-or-converged-applications"></a>Mes applications ou Applications convergentes
 
-Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison de plateforme des identités Microsoft (v2.0). Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison de plateforme des identités, consultez la [présentation de v2.0](./v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.
+Cette liste contient toutes les applications inscrites pour une utilisation avec la Plateforme d’identités Microsoft. Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur la Plateforme d’identités Microsoft, consultez la [Vue d’ensemble de v2.0](./v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Applications Azure AD uniquement
 
@@ -39,7 +39,7 @@ Cette liste contient toutes les applications inscrites pour une utilisation uniq
 
 ## <a name="application-secrets"></a>Secrets de l’application
 
-Les secrets de l’application sont des informations d’identification qui permettent à votre application d’effectuer une [authentification du client](https://tools.ietf.org/html/rfc6749#section-2.3) fiable avec la Plateforme d’identité Microsoft. Dans OAuth et OpenID Connect, un secret d’application est généralement désigné sous le nom de `client_secret`. Dans le protocole v2.0, toute application qui reçoit un jeton de sécurité à un emplacement adressable web (à l’aide d’un schéma `https` ) doit utiliser un secret d’application pour s’identifier auprès de la Plateforme d’identité Microsoft lors de l’échange de ce jeton de sécurité. De plus, il sera interdit à tout client natif qui reçoit des jetons sur un appareil d’utiliser un secret d’application pour effectuer l’authentification du client, afin de décourager le stockage de secrets dans des environnements non sécurisés
+Les secrets de l’application sont des informations d’identification qui permettent à votre application d’effectuer une [authentification du client](https://tools.ietf.org/html/rfc6749#section-2.3) fiable avec la Plateforme d’identité Microsoft. Dans OAuth et OpenID Connect, un secret d’application est généralement désigné sous le nom de `client_secret`. Dans le protocole v2.0, toute application qui reçoit un jeton de sécurité à un emplacement adressable sur le web (à l’aide d’un schéma `https`) doit utiliser un secret d’application pour s’identifier auprès de la Plateforme d’identités Microsoft lors de l’échange de ce jeton de sécurité. De plus, il sera interdit à tout client natif qui reçoit des jetons sur un appareil d’utiliser un secret d’application pour effectuer l’authentification du client, afin de décourager le stockage de secrets dans des environnements non sécurisés
 
 Chaque application peut contenir à tout moment deux secrets d’application valides. En gérant deux secrets, vous avez la possibilité d’effectuer régulièrement une substitution de clé dans l’ensemble de l’environnement de votre application. Une fois que vous avez migré l’intégralité de votre application vers un nouveau secret, vous pouvez supprimer l’ancien et en provisionner un nouveau.
 

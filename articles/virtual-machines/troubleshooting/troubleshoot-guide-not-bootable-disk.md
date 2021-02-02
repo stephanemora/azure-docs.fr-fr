@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da41815e177ece64c72ac27a7cb126e69fdc62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509033"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633186"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Erreur de démarrage – Disque non amorçable
 
@@ -41,10 +41,13 @@ Ce message d’erreur signifie que le processus de démarrage du système d’ex
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus
 
-1. Créer une machine virtuelle de réparation et y accéder.
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
+
+1. Créez une machine virtuelle de réparation et accédez-y.
 2. Définir l’état de la partition sur Actif.
 3. Réparer la partition de disque.
-4. **Recommandé** : Avant de régénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire.
+4. **Recommandé** : Avant de regénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire.
 5. Régénérez la machine virtuelle d’origine.
 
    > [!NOTE]
@@ -103,7 +106,7 @@ Les machines virtuelles de première génération doivent d’abord vérifier qu
 
    L’ajout de l’option de commande '/f' résout toutes les erreurs sur le disque. Veillez à remplacer <DRIVE LETTER> par la lettre correspondant au disque dur virtuel du système d’exploitation attaché.
 
-### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recommandé : Avant de régénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire
+### <a name="recommended-before-you-rebuild-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recommandé : Avant de regénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire
 
 Pour activer la collecte de l’image mémoire et la console série, exécutez le script suivant :
 
@@ -148,4 +151,4 @@ Pour activer la collecte de l’image mémoire et la console série, exécutez l
 
 ### <a name="rebuild-the-original-vm"></a>Régénérer la machine virtuelle d’origine
 
-Utilisez l’[étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour réassembler la machine virtuelle.
+Suivez l’[étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour réassembler la machine virtuelle.

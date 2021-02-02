@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969600"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629570"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Erreur du gestionnaire de démarrage Windows - État 0xC0000428 - Hachage d’image non valide
 
@@ -65,6 +65,9 @@ Vous n’êtes pas en mesure d’étendre la date d’expiration d’une image d
 - Dans Azure, toutes les images pour Windows qui sont des préversions incluent une note dans leur description indiquant qu’elles ne sont pas destinées à la production et qu’elles peuvent être utilisées seulement pour une période d’évaluation donnée ou comme « version préliminaire ».
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Si votre image est une image en préversion, il n’existe aucun moyen d’étendre la date d’expiration de l’image utilisée : vous devez [déployer une nouvelle machine virtuelle](../windows/quick-create-portal.md) en utilisant une image qui n’est pas en préversion. Les étapes ci-dessous vous aideront à identifier si vous avez utilisé une image en préversion ; elles fournissent aussi des ressources pour vous aider à transférer des données à partir depuis cette machine virtuelle vers une nouvelle machine virtuelle. Si vous avez identifié que l’image était bien une image en préversion, cette image n’est pas récupérable, car elle a maintenant expiré.
 

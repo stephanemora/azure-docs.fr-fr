@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734563"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632001"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
@@ -37,6 +37,8 @@ Cet article vous aide à résoudre le blocage de votre machine virtuelle au stad
 
 
 ## <a name="solution"></a>Solution
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 En fonction du nombre de mises à jour qui sont installées ou annulées, le processus de mise à jour peut prendre un certain temps. Laissez la machine virtuelle dans cet état pendant 8 heures. Si la machine virtuelle est toujours dans cet état après cette période, redémarrez-la à partir du portail Azure et voyez si elle peut démarrer normalement. Si cette étape ne permet pas de résoudre le problème, essayez la solution suivante.
 

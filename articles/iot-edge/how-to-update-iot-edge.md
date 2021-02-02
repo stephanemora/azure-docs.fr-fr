@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/22/2020
+ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 797b5f569f081065eb950f7c10bf6449002f733b
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9a739736182713b35c3a5e9e25742aa39c5d1122
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436978"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633135"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
@@ -30,7 +30,7 @@ Le démon de sécurité IoT Edge est un composant natif qui doit être mis à jo
 
 Vérifiez la version du démon de sécurité qui s’exécute sur votre appareil à l’aide de la commande `iotedge version`.
 
-### <a name="linux-devices"></a>Appareils Linux
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Sur des appareils Linux x64, utilisez apt-get ou votre gestionnaire de package approprié pour mettre à jour le démon de sécurité vers la dernière version.
 
@@ -98,26 +98,18 @@ curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-st
 curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 ```
 
-### <a name="windows-devices"></a>Appareils Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
-Sur les appareils Windows, utilisez le script PowerShell pour mettre à jour le démon de sécurité. Le script extrait automatiquement la dernière version du démon de sécurité.
+<!-- 1.0.10 -->
+::: moniker range="iotedge-2018-06"
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
-```
+Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge et gérée avec Microsoft Update pour maintenir les composants à jour. Aucune mise à jour n’est disponible actuellement.
 
-La commande Update-IoTEdge supprime et met à jour le démon de sécurité de l’appareil, ainsi que les deux images conteneur du runtime. Le fichier config.yaml est conservé sur l’appareil, de même que les données du moteur de conteneur Moby (dans le cas de conteneurs Windows). Le fait de conserver les informations de configuration évite d’avoir à indiquer de nouveau la chaîne de connexion ou le service Device Provisioning de votre appareil lors du processus de mise à jour.
+::: moniker-end
 
-Si vous souhaitez mettre à jour vers une version spécifique du démon de sécurité, recherchez la version que vous souhaitez cibler à partir de [Versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases). Dans cette version, téléchargez le fichier **Microsoft-Azure-IoTEdge.cab**. Utilisez ensuite le paramètre `-OfflineInstallationPath` pour pointer vers l’emplacement du fichier local. Par exemple :
+Avec IoT Edge pour Windows, IoT Edge s’exécute directement sur l’appareil Windows. Pour obtenir des instructions de mise à jour avec des scripts PowerShell, consultez [Installation et gestion d’Azure IoT Edge pour Windows](how-to-install-iot-edge-windows-on-windows.md).
 
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux> -OfflineInstallationPath <absolute path to directory>
-```
-
->[!NOTE]
->Le paramètre `-OfflineInstallationPath` recherche un fichier nommé **Microsoft-Azure-IoTEdge.cab** dans le répertoire fourni. À partir d’IoT Edge version 1.0.9-rc4, deux fichiers. cab peuvent être utilisés, un pour les appareils AMD64 et l’autre pour ARM32. Téléchargez le fichier approprié pour votre appareil, puis renommez-le pour supprimer le suffixe d’architecture.
-
-Pour plus d’informations sur les options de mise à jour, utilisez la commande `Get-Help Update-IoTEdge -full` ou consultez [Script PowerShell pour IoT Edge sous Windows](reference-windows-scripts.md).
+---
 
 ## <a name="update-the-runtime-containers"></a>Mettre à jour les conteneurs du runtime
 
@@ -172,35 +164,6 @@ Si vous utilisez des étiquettes spécifiques dans votre déploiement (par exemp
 
 1. Sélectionnez **Vérifier + Créer**, vérifiez le déploiement, puis sélectionnez **Créer**.
 
-## <a name="update-offline-or-to-a-specific-version"></a>Mettre à jour hors connexion ou vers une version spécifique
-
-Si vous souhaitez mettre à jour un appareil hors connexion ou effectuer une mise à jour vers une version spécifique d’IoT Edge plutôt que vers la version la plus récente, vous pouvez le faire avec le paramètre `-OfflineInstallationPath`.
-
-Deux composants sont utilisés pour mettre à jour un appareil IoT Edge :
-
-* Un script PowerShell, qui contient les instructions d’installation
-* Le fichier cab Microsoft Azure IoT Edge, contenant le démon de sécurité IoT Edge (iotedged), le moteur du conteneur Moby et Moby CLI
-
-1. Pour accéder aux derniers fichiers d’installation IoT Edge ainsi qu’aux versions précédentes, voir les [publications d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
-
-2. Recherchez la version que vous souhaitez installer, puis téléchargez les fichiers suivants de la section **Ressources** des notes de publication vers votre appareil IoT :
-
-   * IoTEdgeSecurityDaemon.ps1
-   * Microsoft-Azure-IoTEdge-amd64.cab à partir des versions 1.0.9 ou ultérieures, ou Microsoft-Azure-IoTEdge.cab à partir des versions 1.0.8 ou antérieures.
-
-   Microsoft-Azure-IotEdge-arm32.cabcab est également disponible à partir de 1.0.9 à des fins de test uniquement. IoT Edge n’est actuellement pas pris en charge sur les appareils Windows ARM32.
-
-   Il est important d’utiliser le script PowerShell de la même version que le fichier .cab que vous utilisez, car les fonctionnalités changent pour prendre en charge les fonctionnalités de chaque version.
-
-3. Si le fichier .cab que vous avez téléchargé est doté d’un suffixe d’architecture, renommez le fichier uniquement **Microsoft-Azure-IoTEdge.cab**.
-
-4. Pour mettre à jour avec des composants hors connexion, [effectuez un appel de source de type « dot source »](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) de la copie locale du script PowerShell. Ensuite, utilisez le paramètre `-OfflineInstallationPath` dans la commande `Update-IoTEdge` et spécifiez le chemin absolu du répertoire des fichiers. Par exemple,
-
-   ```powershell
-   . <path>\IoTEdgeSecurityDaemon.ps1
-   Update-IoTEdge -OfflineInstallationPath <path>
-   ```
-
 ## <a name="update-to-a-release-candidate-version"></a>Mettre à jour vers une version Release Candidate
 
 Azure IoT Edge publie régulièrement de nouvelles versions du service IoT Edge. Avant chaque version stable, il y a une ou plusieurs versions Release Candidate (RC). Les versions RC incluent toutes les fonctionnalités planifiées de la version, mais sont encore sujettes aux processus de tests et de validation. Si vous souhaitez tester très tôt une nouvelle fonctionnalité, vous pouvez installer un version RC et envoyer des commentaires via GitHub.
@@ -213,7 +176,7 @@ Tout comme les préversions, les versions Release Candidate ne sont pas incluses
 
 Reportez-vous aux sections de cet article pour savoir comment mettre à jour un appareil IoT Edge vers une version spécifique du démon de sécurité ou des modules d’exécution.
 
-Si vous installez IoT Edge, plutôt que de mettre à niveau une installation existante, suivez les étapes décrites dans [Mettre à jour hors connexion ou vers une version spécifique](how-to-install-iot-edge.md#offline-or-specific-version-installation).
+Si vous installez IoT Edge, plutôt que de mettre à niveau une installation existante, suivez les étapes décrites dans [Mettre à jour hors connexion ou vers une version spécifique](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

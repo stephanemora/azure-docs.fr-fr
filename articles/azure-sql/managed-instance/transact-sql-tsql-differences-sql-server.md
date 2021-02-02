@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737368"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -168,7 +168,7 @@ SQL Managed Instance ne pouvant pas accéder aux fichiers, vous ne pouvez pas cr
     - Exporter une base de données à partir de SQL Managed Instance et l’importer dans SQL Database au sein du même domaine Azure AD. 
     - Exporter une base de données à partir de SQL Database et l’importer dans SQL Managed Instance au sein du même domaine Azure AD.
     - Exporter une base de données à partir de SQL Managed Instance et l’importer dans SQL Server (version 2012 ou ultérieure).
-      - Dans cette configuration, tous les utilisateurs Azure AD sont créés en tant que principaux (utilisateurs) de base de données SQL Server sans connexions. Les utilisateurs sont répertoriés sous le type `SQL` et sont visibles sous le type `SQL_USER` dans sys.database_principals. Leurs autorisations et leurs rôles restent dans les métadonnées de la base de données SQL Server et peuvent être utilisés pour l’emprunt d’identité. Toutefois, ils ne peuvent pas être utilisés pour accéder et se connecter à SQL Server à l’aide de leurs informations d’identification.
+      - Dans cette configuration, tous les utilisateurs Azure AD sont créés en tant que principaux (utilisateurs) de base de données SQL Server sans connexions. Le type d’utilisateur est répertorié en tant que `SQL` et est visible en tant que `SQL_USER` dans sys.database_principals). Leurs autorisations et leurs rôles restent dans les métadonnées de la base de données SQL Server et peuvent être utilisés pour l’emprunt d’identité. Toutefois, ils ne peuvent pas être utilisés pour accéder et se connecter à SQL Server à l’aide de leurs informations d’identification.
 
 - Seule la connexion du principal au niveau du serveur, qui est créée par le processus de provisionnement de SQL Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour SQL Managed Instance.
 - Si la connexion est un principal SQL, seules les connexions faisant partie du rôle `sysadmin` peuvent utiliser la commande create pour créer les connexions d’un compte Azure AD.
@@ -277,6 +277,8 @@ Les options suivantes ne peuvent pas être modifiées :
 - `SINGLE_USER`
 - `WITNESS`
 
+Certaines instructions `ALTER DATABASE` (par exemple [SET CONTAINMENT](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) peuvent échouer temporairement, par exemple pendant la sauvegarde automatisée de la base de données ou immédiatement après la création d’une base de données. Dans ce cas, l’instruction `ALTER DATABASE` doit être retentée. Pour plus d’informations sur les messages d’erreur, consultez la section [Notes](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+
 Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
@@ -303,7 +305,7 @@ Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Les alertes ne sont pas encore prises en charge.
   - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
-- L’utilisateur doit être directement mappé au principal de serveur Azure AD (connexion) pour pouvoir créer, modifier ou exécuter des travaux SQL Agent. Les utilisateurs qui ne sont pas directement mappés, par exemple les utilisateurs membres d’un groupe Azure AD qui dispose des droits de création, de modification ou d’exécution des travaux SQL Agent, ne peuvent pas effectuer ces actions. Cela est dû à l’emprunt d’identité Managed Instance et aux [limitations d’EXECUTE AS](#logins-and-users).
+- L’utilisateur doit être directement mappé au principal de serveur Azure AD (connexion) pour pouvoir créer, modifier ou exécuter des travaux SQL Agent. Les utilisateurs qui ne sont pas directement mappés, par exemple les utilisateurs membres d’un groupe Azure AD qui dispose des droits de création, de modification ou d’exécution des travaux SQL Agent, ne peuvent pas effectuer efficacement ces actions. Cela est dû à l’emprunt d’identité Managed Instance et aux [limitations d’EXECUTE AS](#logins-and-users).
 
 Les fonctionnalités suivantes de l’agent SQL ne sont pas prises en charge actuellement :
 
@@ -398,12 +400,12 @@ La [recherche sémantique](/sql/relational-databases/search/semantic-search-sql-
 Les serveurs liés dans SQL Managed Instance prennent en charge un nombre limité de cibles :
 
 - Les cibles prises en charge sont SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) et les pools dédiés, ainsi que les instances SQL Server. 
-- Les serveurs liés ne prennent pas en charge les transactions accessibles en écriture distribuées (MS DTC).
+- Les transactions accessibles en écriture distribuées sont possibles uniquement parmi les Managed Instances. Pour plus d’informations, consultez [Transactions distribuées](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Toutefois, MS DTC n’est pas pris en charge.
 - Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR. Essayez d’utiliser l’importation CSV native à partir du Stockage Blob Azure à l’aide de `BULK INSERT` ou `OPENROWSET` comme alternative pour l’importation de fichiers, ou chargez des fichiers à l’aide d’un [pool SQL serverless dans Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Opérations : 
 
-- Les transactions d’écriture entre instances ne sont pas prises en charge.
+- Les transactions d’écriture [entre instances](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) sont prises en charge uniquement pour les Managed Instances.
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -411,7 +413,7 @@ Opérations :
 
 ### <a name="polybase"></a>PolyBase
 
-Les seuls types de sources externes disponibles sont SGBDR (en préversion publique) vers Azure SQL Database, Azure SQL Managed Instance et le pool Azure Synapse. Vous pouvez utiliser [une table externe qui fait référence à un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) comme solution de contournement pour les tables externes Polybase qui lisent directement à partir du stockage Azure. Dans Azure SQL Managed Instance, vous pouvez utiliser des serveurs liés à [un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server pour lire les données de stockage Azure.
+Le seul type de source externe disponible est SGBDR (en préversion publique) vers la base de données Azure SQL, Azure SQL Managed Instance et le pool Azure Synapse. Vous pouvez utiliser [une table externe qui référence un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) comme solution de contournement pour les tables externes PolyBase qui lisent directement à partir du stockage Azure. Dans Azure SQL Managed Instance, vous pouvez utiliser des serveurs liés à [un pool SQL serverless dans Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server pour lire les données de stockage Azure.
 Pour plus d’informations sur PolyBase, consultez [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
@@ -506,15 +508,14 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="subnet"></a>Subnet
 -  Vous ne pouvez pas placer d’autres ressources (par exemple des machines virtuelles) dans le sous-réseau sur lequel vous avez déployé votre instance gérée SQL. Déployez ces ressources à l’aide d’un sous-réseau différent.
-- Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](connectivity-architecture-overview.md#network-requirements) disponibles. Le nombre minimal est 16, mais la recommandation est de disposer d’au moins 32 adresses IP dans le sous-réseau.
-- [Les points de terminaison de service ne peuvent pas être associés au sous-réseau de l’instance gérée SQL](connectivity-architecture-overview.md#network-requirements). Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
+- Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](connectivity-architecture-overview.md#network-requirements) disponibles. Le nombre minimal est de 32 adresses IP dans le sous-réseau.
 - Le nombre de vCores et de types d’instances que vous pouvez déployer dans une région ont certaines [contraintes et limites](resource-limits.md#regional-resource-limitations).
-- Il existe certaines [règles de sécurité qui doivent être appliquées sur le sous-réseau](connectivity-architecture-overview.md#network-requirements).
+- Il existe une [configuration de la mise en réseau](connectivity-architecture-overview.md#network-requirements) qui doit être appliquée au sous-réseau.
 
 ### <a name="vnet"></a>Réseau virtuel
 - Le réseau virtuel peut être déployé à l’aide du modèle de ressource ; le modèle classique pour réseau virtuel n’est pas pris en charge.
 - Après la création d’une instance gérée SQL, le déplacement de l’instance gérée SQL ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
-- Certains services, tels que App Service Environment, Logic Apps et SQL Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances SQL Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
+- Pour les Azure SQL Managed Instances hébergées dans des clusters virtuels créés avant le 22/09/2020, le [peering mondial](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) n’est pas pris en charge. Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
 ### <a name="failover-groups"></a>Groupes de basculement
 Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Par conséquent, les scénarios qui dépendent des objets des bases de données système sont impossibles sur l’instance secondaire, à moins que les objets ne soient créés manuellement.

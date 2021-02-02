@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790268"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663983"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour décharger des charges de travail de requêtes en lecture seule
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -115,12 +115,12 @@ Dans de rares cas, si une transaction d'isolement de capture instantanée accèd
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Requêtes longues sur les réplicas en lecture seule
 
-Les requêtes exécutées sur les réplicas en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si un objet de métadonnées est modifié sur le réplica principal alors qu'une requête contient un verrou correspondant au même objet sur le réplica en lecture seule, la requête peut [bloquer](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications du réplica principal au réplica en lecture seule. Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal. 
+Les requêtes exécutées sur les réplicas en lecture seule doivent accéder aux métadonnées des objets référencés dans la requête (tables, index, statistiques, etc.) Dans de rares cas, si un objet de métadonnées est modifié sur le réplica principal alors qu'une requête contient un verrou correspondant au même objet sur le réplica en lecture seule, la requête peut [bloquer](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) le processus qui applique les modifications du réplica principal au réplica en lecture seule. Si une telle requête devait s'exécuter pendant une longue période, elle entraînerait une désynchronisation importante entre le réplica en lecture seule et le réplica principal.
 
-Si une requête longue exécutée sur un réplica en lecture seule provoque ce type de blocage, elle est automatiquement interrompue et la session reçoit l'erreur 1219, « Votre session a été déconnectée en raison d'une opération DDL de priorité supérieure ».
+Si une requête de longue durée sur un réplica en lecture seule provoque ce type de blocage, elle est automatiquement arrêtée. La session recevra l’erreur 1219 « Votre session a été déconnectée en raison d'une opération DDL de priorité supérieure », ou l’erreur 3947 « La transaction a été abandonnée parce que le calcul secondaire n’a pas réussi à rattraper la restauration. Réessayez d’exécuter la transaction. »
 
 > [!NOTE]
-> Si vous recevez l'erreur 3961 ou 1219 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête.
+> Si vous recevez l'erreur 3961, 1219 ou 3947 lors de l'exécution de requêtes sur un réplica en lecture seule, relancez la requête.
 
 > [!TIP]
 > Aux niveaux de service Premium et Critique pour l'entreprise, en cas de connexion à un réplica en lecture seule, les colonnes `redo_queue_size` et `redo_rate` de la vue de gestion dynamique [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) peuvent être utilisées pour surveiller le processus de synchronisation des données et servir d'indicateurs de latence des données sur le réplica en lecture seule.
@@ -137,7 +137,7 @@ Vous pouvez désactiver et réactiver l'échelle horizontale en lecture sur des 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer** .
+Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer**.
 
 ### <a name="powershell"></a>PowerShell
 

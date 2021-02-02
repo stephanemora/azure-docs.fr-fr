@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573137"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621310"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -94,35 +94,36 @@ Les navigateurs suivants sont pris en charge par les capteurs et les application
 
 Vérifiez que la stratégie de sécurité de votre organisation autorise l’accès aux éléments suivants :
 
-| **Objectif** | **Protocole** | **Transport** | **Entrant ou sortant** | **Port** | **Catégorie** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Accès à la console Web** | HTTPS | TCP | Entrant ou sortant | 443 | Console de gestion locale pour la plateforme Defender pour IoT |
-| **Accès à l’interface de ligne de commande** | SSH | TCP | Entrant ou sortant | 22 | Interface de ligne de commande |
-| **Connexion entre la plateforme Defender pour IoT et la console de gestion locale** | SSL | TCP | Entrant ou sortant | 443 | Capteur et console de gestion locale|
-| **Console de gestion locale utilisée comme NTP sur le capteur** | NTP | UDP| Entrant sur CM | 123 | Synchronisation de l’heure | 
-| **Capteur connecté au serveur NTP externe (le cas échéant)** | NTP | UDP | Entrant ou sortant| 123 | Synchronisation de l’heure |
-| **Connexion entre la plateforme Defender pour IoT, la plateforme de gestion et le serveur de messagerie (le cas échéant)** | SMTP | TCP | Sortant de la plateforme de gestion du capteur | 25 | Courrier |
-| **Journaux envoyés de la console de gestion locale au serveur Syslog (le cas échéant)** | syslog | UDP | Sortant de la plateforme de gestion du capteur| 514 | LEEF |
-| **Port du serveur DNS (le cas échéant)** | DNS | N/A | Entrant ou sortant| 53 | DNS |
-| **Connexion entre la plateforme Defender pour IoT et la console de gestion locale vers Active Directory (le cas échéant)** | LDAPS | TCP | Entrant ou sortant | 636 <br />389 | Active Directory |
-| **Collecteurs SNMP distants (le cas échéant)** | SNMP | UDP | Sortant de la plateforme de gestion du capteur| 161 | Surveillance |
-| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | UDP | Sortant de la plateforme de gestion du capteur| 135 | Surveillance |
-| **Surveillance des points de terminaison Windows (le cas échéant)** | WMI | TCP | Sortant de la plateforme de gestion du capteur| 1024 et plus | Surveillance |
-| **Tunneling (le cas échéant)** | Tunneling | TCP | Entrant sur CM | 9000<br />En plus du port 443<br />De l’utilisateur final à la console de gestion locale <br />Port 22 du capteur à la console de gestion locale | Surveillance |
-| **Sortant vers le hub Defender pour IoT** | HTTPS | TCP | Sortant de la plateforme de gestion du capteur| **URL**<br />*.azure-devices.net:443<br />ou si les caractères génériques ne sont pas pris en charge :<br />{nom de votre hub IoT}.azure-devices.net:443 |
+| Protocole | Transport | Entrée/Sortie | Port | Utilisé | Objectif | Source | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | ENTRÉE/SORTIE | 443 | Capteur et console de gestion locale/web | Accès à la console web | Client | Capteur et console de gestion locale |
+| SSH | TCP | ENTRÉE/SORTIE | 22 | Interface de ligne de commande | Accès à l’interface de ligne de commande | Client | Capteur et console de gestion locale |
+| SSL | TCP | ENTRÉE/SORTIE | 443 | Capteur et console de gestion locale | Connexion entre la plateforme CyberX et la plateforme de gestion centralisée | capteur | Console de gestion locale |
+| NTP | UDP | IN | 123 | Synchronisation date/heure | Console de gestion locale utilisée comme NTP sur le capteur | capteur | Console de gestion locale |
+| NTP | UDP | ENTRÉE/SORTIE | 123 | Synchronisation date/heure | Capteur connecté à un serveur NTP externe quand aucune console de gestion locale n’est installée | capteur | NTP |
+| SMTP | TCP | OUT | 25 | E-mail | Connexion entre la plateforme CyberX et la plateforme de gestion centralisée et le serveur de courrier | Capteur et console de gestion locale | Serveur de courrier |
+| syslog | UDP | OUT | 514 | LEEF | Journaux envoyés de la console de gestion locale au serveur Syslog | Capteur et console de gestion locale | Serveur syslog |
+| DNS |  | ENTRÉE/SORTIE | 53 | DNS | Port du serveur DNS | Capteur et console de gestion locale | Serveur DNS |
+| LDAP | TCP | ENTRÉE/SORTIE | 389 | Active Directory | Connexion entre la plateforme CyberX et la plateforme de gestion centralisée à Active Directory | Capteur et console de gestion locale | Serveur LDAP |
+| LDAPS | TCP | ENTRÉE/SORTIE | 636 | Active Directory | Connexion entre la plateforme CyberX et la plateforme de gestion centralisée à Active Directory | Capteur et console de gestion locale | Serveur LDAPS |
+| SNMP | UDP | OUT | 161 | Surveillance | Collecteurs SNMP distants | Capteur et console de gestion locale | Serveur SNMP |
+| WMI | UDP | OUT | 135 | monitoring | Surveillance des points de terminaison Windows | Capteur | Élément réseau concerné |
+| Tunneling | TCP | IN | 9000 <br /><br />– En plus du port 443 <br /><br />de l’utilisateur final à la console de gestion locale <br /><br />Port 22 du capteur à la console de gestion locale  | monitoring | Tunneling | Capteur | Console de gestion locale |
 
 ### <a name="planning-rack-installation"></a>Planifier l’installation de racks
 
 Pour planifier votre installation de racks :
 
 1. Préparez un moniteur et un clavier pour les paramètres réseau de votre appliance.
-2. Allouez l’espace de rack de l’appliance.
-3. Prévoyez une alimentation en courant alternatif pour l’appliance.
-4. Préparez le câble LAN pour connecter la console de gestion au commutateur réseau.
-5. Préparez les câbles LAN pour connecter les ports SPAN (miroir) du commutateur et/ou les TAP réseau à l’appliance Defender pour IoT. 
-6. Configurez, connectez et validez les ports SPAN dans les commutateurs mis en miroir comme décrit dans la session de révision de l’architecture.
-7. Connectez le port SPAN configuré à un ordinateur exécutant Wireshark et vérifiez que le port est correctement configuré.
-8. Ouvrez tous les ports de pare-feu appropriés.
+
+1. Allouez l’espace de rack de l’appliance.
+
+1. Prévoyez une alimentation en courant alternatif pour l’appliance.
+1. Préparez le câble LAN pour connecter la console de gestion au commutateur réseau.
+1. Préparez les câbles LAN pour connecter les ports SPAN (miroir) du commutateur et/ou les TAP réseau à l’appliance Defender pour IoT. 
+1. Configurez, connectez et validez les ports SPAN dans les commutateurs mis en miroir comme décrit dans la session de révision de l’architecture.
+1. Connectez le port SPAN configuré à un ordinateur exécutant Wireshark et vérifiez que le port est correctement configuré.
+1. Ouvrez tous les ports de pare-feu appropriés.
 
 ## <a name="about-passive-network-monitoring"></a>À propos de la surveillance passive du réseau
 
@@ -141,6 +142,7 @@ Les sections suivantes décrivent les niveaux Purdue.
 Le niveau 0 est constitué d’un large éventail de capteurs, d’actionneurs et de dispositifs impliqués dans le processus de fabrication de base. Ces dispositifs exécutent les fonctions de base du système industriel d’automatisation et de contrôle, telles que :
 
 - Entraînement d’un moteur.
+
 - Mesure de variables.
 - Définition d’une sortie.
 - Exécution de fonctions clés, telles que la peinture, le soudage et le pliage.
@@ -355,7 +357,7 @@ Le point d’accès terminal (TAP) est un périphérique matériel qui permet au
 
 Les TAP sont avantageux pour diverses raisons. Ils sont basés sur le matériel et ne peuvent pas être compromis. Ils transmettent tout le trafic, même les messages corrompus, que les commutateurs abandonnent souvent. Comme ils ne sont pas soumis au processeur, la synchronisation des paquets est exacte, alors que les commutateurs gèrent la fonction de mise en miroir comme une tâche de faible priorité qui peut influer sur la synchronisation des paquets mis en miroir. À des fins d’investigation, un TAP est le meilleur appareil.
 
-Des agrégateurs de TAP peuvent également être utilisées pour la surveillance des ports. Ces appareils sont basés sur un processeur et ne sont pas aussi intrinsèquement sûrs que les TAP matériels. Ils peuvent ne pas refléter la synchronisation exacte des paquets.
+Des agrégateurs de TAP peuvent également être utilisées pour la surveillance des ports. Ces appareils basés sur un processeur ne sont pas aussi intrinsèquement sûrs que les TAP matériels. Ils peuvent ne pas refléter la synchronisation exacte des paquets.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagramme des TAP actifs et passifs.":::
 
@@ -364,10 +366,10 @@ Des agrégateurs de TAP peuvent également être utilisées pour la surveillance
 La compatibilité de ces modèles a été testée. D’autres fournisseurs et modèles peuvent également être compatibles.
 
 | Image | Modèle |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Capture d’écran de Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Capture d’écran de IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Capture d’écran de US Robotics USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Capture d’écran de Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Capture d’écran de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Capture d’écran de US Robotics USR 4503."::: | US Robotics USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>Configuration spéciale de TAP
 
@@ -425,7 +427,7 @@ Informations pertinentes :
 
 - Si l’appliance Defender pour IoT doit être connectée à ce commutateur, un espace physique est-il disponible dans cette armoire pour les racks ?
 
-#### <a name="additional-considerations"></a>Considérations supplémentaires
+#### <a name="other-considerations"></a>Autres considérations
 
 L’objectif de l’appliance Defender pour IoT est de surveiller le trafic des couches 1 et 2.
 
@@ -547,7 +549,7 @@ Passez en revue cette liste avant le déploiement à l’échelle du site :
 | 14 | Installer le rack et les câbles des appliances. | ☐ |  |
 | 15 | Allouer les ressources du site pour prendre en charge le déploiement. | ☐ |  |
 | 16 | Créer des groupes Active Directory ou des utilisateurs locaux. | ☐ |  |
-| 17 | Configurer une formation (auto-apprentissage). | ☐ |  |
+| 17 | Configurer l’entraînement (auto-apprentissage). | ☐ |  |
 | 18 | Prêt ou non prêt. | ☐ |  |
 | 19 | Planifier la date de déploiement. | ☐ |  |
 
@@ -562,7 +564,7 @@ Passez en revue cette liste avant le déploiement à l’échelle du site :
 
 Une vue d’ensemble du diagramme du réseau industriel vous permet de définir l’emplacement approprié pour l’équipement Defender pour IoT.
 
-1.  Consultez un diagramme du réseau global de l’environnement OT industriel. Exemple :
+1.  Consultez un diagramme du réseau global de l’environnement OT industriel. Par exemple :
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagramme de l’environnement OT industriel pour le réseau global.":::
 
@@ -604,7 +606,7 @@ Une vue d’ensemble du diagramme du réseau industriel vous permet de définir 
 
     Quelle est sa stratégie ? __________________________________ 
 
-    Exemple :
+    Par exemple :
 
     - Siemens
 
@@ -671,7 +673,7 @@ Fournissez des informations sur l’adresse de la carte réseau du capteur qui s
 | Clé secrète | |
 | Chaîne de communauté SNMP v2 |
 
-### <a name="cm-ssl-certificate"></a>Certificat SSL CM
+### <a name="on-premises-management-console-ssl-certificate"></a>Certificat SSL de la console de gestion locale
 
 Envisagez-vous d’utiliser un certificat SSL ? Oui ou Non
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296112"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734645"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -107,7 +107,7 @@ Pour les nouvelles versions **mineures** de Kubernetes
 1. AKS publie une annonce préalable avec la date prévisionnelle d’une nouvelle version et la dépréciation de l’ancienne version correspondante dans les [Notes de publication AKS](https://aka.ms/aks/releasenotes) au moins 30 jours avant la suppression.
 2. AKS publie une [notification d’intégrité des services](../service-health/service-health-overview.md) accessible à tous les utilisateurs disposant d’un accès à AKS et au portail, et envoie un e-mail aux administrateurs des abonnements avec les dates prévisionnelles de suppression des versions.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Les utilisateurs ont **30 jours** à compter de la suppression d’une version pour effectuer une mise à niveau vers une version mineure prise en charge afin de continuer à bénéficier du support.
 
@@ -138,13 +138,14 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 |  Version de K8s | Sortie en amont  | Préversion d’AKS  | Version GA d’AKS  | Fin de vie |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | 19 septembre 2019  | janvier 2019   | Mars 2020  | Jan. 2021* | 
+| 1.16  | 19 septembre 2019  | janvier 2019   | Mars 2020  | Janvier 2021| 
 | 1.17  | 9 déc. 19  | janvier 2019   | Juil. 2020  | 1.20 GA | 
 | 1.18  | 23 mars 20  | Mai 2020   | Août 2020  | 1.21 GA | 
 | 1,19  | 4 août 20  | Septembre 2020   | Nov. 2020  | 1.22 GA | 
 | 1.20  | 8 décembre2020  | Janvier 2021   | Mars 2021  | 1.23 GA |
+| 1.21  | 8 avril 2021* | Mai 2021   | Juin 2021  | 1.24 GA |
 
-\* En raison des fêtes de fin d’année, AKS reporte la fin de vie de la version 1.16 de novembre 2020 à janvier 2021. [En savoir plus](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+\* La version Kubernetes 1.21 Upstream est sujette à modification, car le calendrier Upstream n’est pas encore finalisé.
 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
@@ -184,7 +185,7 @@ Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures
 
 Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 
-Vous pouvez ignorer plusieurs versions uniquement pour une mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
+L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

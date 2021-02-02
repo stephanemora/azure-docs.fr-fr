@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 89faa5b29e0a972f31ad51a7354635a53176541a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488644"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661355"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Erreur Windows Stop - Dysfonctionnement matériel
 
@@ -48,6 +48,9 @@ Cet écran s’affiche lorsque le système d’exploitation invité n’a pas é
 ## <a name="solution"></a>Solution
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus 
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 1. Configurer la clé de Registre d’interruption non masquable (NMI) 
 2. Créer une machine virtuelle de réparation et y accéder 

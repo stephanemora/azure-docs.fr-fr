@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196586"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630274"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -32,10 +32,9 @@ Dans Purview, les classifications sont similaires aux étiquettes d’objet. Ell
 
 Purview utilise les mêmes classifications, également appelées « types d’informations sensibles », que Microsoft 365.  Les étiquettes de confidentialité MIP sont créées dans le Centre de sécurité et conformité Microsoft 365. Vous pouvez ainsi étendre vos étiquettes de confidentialité existantes à vos différentes ressources Azure Purview.
 
-> [!NOTE]
-> Les classifications sont mises en correspondance directement, par exemple un numéro de sécurité sociale, qui a la classification **Numéro de sécurité sociale**. 
->
-> En revanche, les étiquettes de confidentialité sont appliquées quand une ou plusieurs classifications et conditions sont regroupées. Dans ce contexte, « [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) » faire référence à tous les paramètres que vous pouvez définir pour des données non structurées, par exemple, **Proximité d’une autre classification** et **Pourcentage de confiance**. 
+Les **classifications** sont mises en correspondance directement, par exemple un numéro de sécurité sociale, qui a la classification **Numéro de sécurité sociale**. 
+
+En revanche, les **étiquettes de confidentialité** sont appliquées quand une ou plusieurs classifications et conditions sont regroupées. Dans ce contexte, « [conditions](/microsoft-365/compliance/apply-sensitivity-label-automatically) » faire référence à tous les paramètres que vous pouvez définir pour des données non structurées, par exemple, *Proximité d’une autre classification* et *Pourcentage de confiance*. 
 
 Les étiquettes de confidentialité proposées dans Azure Purview peuvent être appliquées automatiquement aux fichiers et aux colonnes de base de données.
 
@@ -44,6 +43,7 @@ Pour plus d'informations, consultez les pages suivantes :
 - [En savoir plus sur les étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) dans la documentation de Microsoft 365
 - [Présentation des règles d’étiquetage automatique](#what-are-autolabeling-rules)
 - [Types de données pris en charge pour les étiquettes de confidentialité dans Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Étiquetage des colonnes de base de données SQL](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>Présentation des règles d’étiquetage automatique
 
@@ -54,7 +54,6 @@ Les règles d’étiquetage automatique sont des conditions indiquant quand une 
 Lorsque vous créez vos étiquettes, veillez à définir des règles d’étiquetage automatique pour les [fichiers](#define-autolabeling-rules-for-files) et pour les [colonnes de base de données](#define-autolabeling-rules-for-database-columns) pour appliquer automatiquement les étiquettes à chaque analyse des données. 
 
 Après avoir analysé vos données dans Purview, vous pouvez consulter les étiquettes appliquées automatiquement dans le catalogue Purview et les rapports Insight.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Types de données pris en charge pour les étiquettes de confidentialité dans Azure Purview
 
 Les étiquettes de confidentialité sont prises en charge dans Azure Purview pour les types de données suivants :
@@ -62,8 +61,16 @@ Les étiquettes de confidentialité sont prises en charge dans Azure Purview pou
 |Type de données  |Sources  |
 |---------|---------|
 |Étiquetage automatique des fichiers     |      - Stockage Blob Azure  </br>- Azure Data Lake Storage Gen1 et Gen2  |
-|Étiquetage automatique des colonnes de base de données     |  - SQL Server </br>- Azure SQL Database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br> - Azure Cosmos DB   |
+|Étiquetage automatique des colonnes de base de données     |  - SQL Server </br>- Azure SQL Database </br>- Azure SQL Database Managed Instance   <br> - Azure Synapse  <br> - Azure Cosmos DB <br><br>Pour plus d'informations, consultez [Étiquetage des colonnes de base de données SQL](#labeling-for-sql-database-columns) ci-dessous.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>Étiquetage des colonnes de base de données SQL
+
+Outre l’étiquetage Purview pour les colonnes de base de données, Microsoft prend également en charge l’étiquetage pour les colonnes de base de données SQL utilisant la classification des données SQL dans [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Alors que Purview utilise les [étiquettes de confidentialité MIP](/microsoft-365/compliance/sensitivity-labels) globales, SSMS utilise uniquement les étiquettes définies localement.
+
+L’étiquetage dans Purview et l’étiquetage dans SSMS sont des processus distincts qui n’interagissent pas l’un avec l’autre actuellement. Par conséquent, les étiquettes appliquées dans SSMS ne sont pas affichées dans Purview et inversement. Nous recommandons Azure Purview pour l’étiquetage des bases de données SQL, car Purview utilise des étiquettes MIP globales qui peuvent être appliquées sur de nombreuses plateformes.
+
+Pour plus d’informations, consultez la [documentation Découverte et classification des données SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Guide pratique pour créer des étiquettes de confidentialité dans Microsoft 365
 

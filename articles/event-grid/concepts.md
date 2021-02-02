@@ -2,13 +2,13 @@
 title: Concept d’Azure Event Grid
 description: Détaille Azure Event Grid et ses concepts. Définit plusieurs composants clés de Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075107"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685701"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -16,12 +16,9 @@ Cet article décrit les principaux concepts utilisés dans Azure Event Grid.
 
 ## <a name="events"></a>Événements
 
-Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système. Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique. Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un fichier en cours de création dans le Stockage Azure a des informations détaillées sur le fichier, notamment la valeur `lastTimeModified`. Ou bien, un événement Event Hubs contient l’URL du fichier Capture. 
+Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système. Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique. Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un fichier en cours de création dans le Stockage Azure a des informations détaillées sur le fichier, notamment la valeur `lastTimeModified`. Ou encore, un événement Event Hubs contient l’URL du fichier Capture. 
 
-Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
-
-
-Pour les propriétés qui sont envoyées dans un événement, consultez le [schéma d’événements Azure Event Grid](event-schema.md).
+La taille maximale autorisée pour un événement est de 1 Mo. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. Pour les propriétés qui sont envoyées dans un événement, consultez le [schéma d’événements Azure Event Grid](event-schema.md).
 
 ## <a name="publishers"></a>Serveurs de publication
 
@@ -41,7 +38,7 @@ Les **rubriques système** sont des rubriques intégrées fournies par des servi
 
 Les **rubriques personnalisées** sont des rubriques tierces et applicatives. Quand vous créez une rubrique personnalisée ou que l’accès à une rubrique personnalisée vous est accordé, celle-ci est visible dans votre abonnement. Pour plus d’informations, consultez [Rubriques personnalisées](custom-topics.md). Lorsque vous concevez votre application, vous pouvez choisir le nombre de rubriques à créer. Pour les solutions volumineuses, créez une rubrique personnalisée pour chaque catégorie d’événements associés. Par exemple, envisagez une application qui envoie des événements liés à la modification de comptes d’utilisateur et au traitement de commandes. Il est peu probable qu’un gestionnaire d’événements accepte les deux catégories d’événements. Créez deux rubriques personnalisées et laissez les gestionnaires d’événements s’abonner à celle qui les intéresse. Pour les solutions de petite taille, vous pouvez à la place envoyer tous les événements à une seule rubrique. Les abonnés à des événements peuvent filtrer les types d’événements qu’ils souhaitent.
 
-Il existe un autre type de rubrique : **la rubrique de partenaire**. La fonctionnalité [Événements de partenaire](partner-events-overview.md) permet à un fournisseur SaaS tiers de publier des événements depuis ses services, pour les mettre à la disposition des consommateurs qui peuvent s’abonner à ces événements. Le fournisseur SaaS expose un type de rubrique, une **rubrique de partenaire** , que les abonnés utilisent pour consommer des événements. Elle fournit également un nouveau modèle de publication-abonnement clair, en séparant les préoccupations et la propriété des ressources qui sont utilisées par les éditeurs d’événements et les abonnés.
+Il existe un autre type de rubrique : **la rubrique de partenaire**. La fonctionnalité [Événements de partenaire](partner-events-overview.md) permet à un fournisseur SaaS tiers de publier des événements depuis ses services, pour les mettre à la disposition des consommateurs qui peuvent s’abonner à ces événements. Le fournisseur SaaS expose un type de rubrique, une **rubrique de partenaire**, que les abonnés utilisent pour consommer des événements. Elle fournit également un nouveau modèle de publication-abonnement clair, en séparant les préoccupations et la propriété des ressources qui sont utilisées par les éditeurs d’événements et les abonnés.
 
 ## <a name="event-subscriptions"></a>Abonnements à des événements
 
@@ -76,10 +73,7 @@ Si Event Grid ne peut pas confirmer qu’un événement a été reçu par le poi
 
 ## <a name="batching"></a>Traitement par lot
 
-Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. La taille maximale de chaque événement est toujours de 64 Ko (version en disponibilité générale) ou de 1 Mo (en préversion).
-
-> [!NOTE]
-> Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
+Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. Les lots peuvent comporter jusqu’à 1 Mo. La taille maximale d’un événement est de 1 Mo. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

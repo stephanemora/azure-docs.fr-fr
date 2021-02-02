@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165788"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632578"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processeurs de télémétrie (préversion) – Azure Monitor Application Insights pour Java
 
@@ -241,7 +241,7 @@ Pour l’action `hash`, les éléments suivants sont obligatoires :
 ### `extract`
 
 > [!NOTE]
-> Cette fonctionnalité n’est disponible que dans la version 3.0.1 et les versions ultérieures.
+> Cette fonctionnalité n’est disponible que dans la version 3.0.2 et les versions ultérieures.
 
 Extrait des valeurs suivant une règle d’expression régulière de la clé d’entrée vers les clés cibles spécifiées dans la règle. S’il existe déjà une clé cible, elle sera remplacée. Ce comportement est similaire à celui du paramètre `toAttributes` du [Processeur d’étendue](#extract-attributes-from-span-name), avec comme source l’attribut existant.
 

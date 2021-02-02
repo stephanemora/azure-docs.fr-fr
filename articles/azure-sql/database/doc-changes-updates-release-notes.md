@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93391974"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703765"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -98,6 +98,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 |Problème  |Date de la détection  |Statut  |Date de la résolution  |
 |---------|---------|---------|---------|
+|[La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Janvier 2021|Solution de contournement||
 |[Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octobre 2020|Solution de contournement||
 |[Les transactions distribuées ne peuvent pas être exécutées après l'opération de mise à l'échelle de Managed Instance](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Octobre 2020|Solution de contournement||
 |L’instruction [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) dans Azure SQL, et l’instruction `BACKUP`/`RESTORE` dans Managed Instance ne peuvent pas utiliser Azure AD Manage Identity pour s’authentifier auprès du service Stockage Azure|Septembre 2020|Solution de contournement||
@@ -115,7 +116,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |[Il peut être nécessaire de reconfigurer Resource Governor sur le niveau de service Critique pour l’entreprise après le basculement](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Septembre 2019|Solution de contournement||
 |[Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|août 2019|Solution de contournement||
 |[L’emprunt d’identité des types de connexion Azure AD n’est pas pris en charge](#impersonation-of-azure-ad-login-types-is-not-supported)|Juillet 2019|Aucune solution de contournement||
-|[@queryLe paramètre n’est pas pris en charge dans sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Avril 2019|Aucune solution de contournement||
+|[@queryLe paramètre n’est pas pris en charge dans sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Avril 2019|Résolu|Janvier 2021|
 |[La réplication transactionnelle doit être reconfigurée après un basculement géographique](#transactional-replication-must-be-reconfigured-after-geo-failover)|mars 2019|Aucune solution de contournement||
 |[Une base de données temporaire est utilisée d’une opération de restauration](#temporary-database-is-used-during-restore-operation)||Solution de contournement||
 |[La structure et le contenu de TEMPDB sont recréés](#tempdb-structure-and-content-is-re-created)||Aucune solution de contournement||
@@ -128,6 +129,29 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |La restauration intégrée de base de données à un point dans le temps du niveau Critique pour l’entreprise vers le niveau Usage général échoue si la base de données source contient des objets OLTP en mémoire.||Résolu|Octobre 2019|
 |Fonctionnalité Database Mail avec des serveurs de messagerie externes (non Azure) utilisant une connexion sécurisée||Résolu|Octobre 2019|
 |Bases de données autonomes non prises en charge dans SQL Managed Instance||Résolu|août 2019|
+
+### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé
+
+La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre `@query` est utilisé. Lorsque ce problème se produit, chaque deuxième exécution de la procédure sp_send_dbmail échoue avec l’erreur `Msg 22050, Level 16, State 1` et le message `Failed to initialize sqlcmd library with error number -2147467259`. Pour voir correctement cette erreur, vous devez appeler la procédure avec la valeur par défaut 0 pour le paramètre `@exclude_query_output`. Autrement, l’erreur n’est pas propagée.
+Ce problème est dû à un bogue connu lié à la façon dont la procédure sp_send_dbmail utilise l’emprunt d’identité et le regroupement de connexions.
+Pour contourner ce problème, encapsulez le code pour l’envoi d’e-mail dans une logique de nouvelle tentative s’appuyant sur le paramètre de sortie `@mailitem_id`. Si l’exécution échoue, la valeur du paramètre est NULL, ce qui indique que la procédure sp_send_dbmail doit être appelée une fois de plus pour envoyer un e-mail avec succès. Voici un exemple de logique de nouvelle tentative.
+```sql
+CREATE PROCEDURE send_dbmail_with_retry AS
+BEGIN
+    DECLARE @miid INT
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @mailitem_id = @miid OUTPUT
+
+    -- If sp_send_dbmail returned NULL @mailidem_id then retry sending email.
+    --
+    IF (@miid is NULL)
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+END
+```
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs
 
@@ -216,7 +240,7 @@ SQL Server et SQL Managed Instance [ne permettent pas à l’utilisateur de dép
 
 Les instructions `RESTORE` en cours, le processus de migration Data Migration Service et la limite de restauration dans le temps intégrée bloquent la mise à jour du niveau de service ou le redimensionnement de l’instance existante et la création de nouvelles instances jusqu’à la fin du processus de restauration. 
 
-Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de modification du niveau de service n’échouent pas ou expirent. Elles se poursuivront une fois le processus de restauration terminé ou annulé.
+Le processus de restauration bloquera ces opérations sur les instances managées et les pools d’instances sur le sous-réseau où le processus de restauration est en cours d’exécution. Les instances dans les pools d’instances ne sont pas affectées. Les opérations de création ou de modification du niveau de service n’échouent pas et n’expirent pas. Elles se poursuivront une fois le processus de restauration terminé ou annulé.
 
 **Solution de contournement** : Attendez la fin du processus de restauration ou annulez-le si l’opération de création ou de mise à jour du niveau de service a une priorité plus élevée.
 

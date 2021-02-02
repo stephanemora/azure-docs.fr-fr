@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681905"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632544"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>La machine virtuelle ne répond pas pendant l’attente du service Gestionnaire de session locale
 
@@ -34,6 +34,9 @@ Quand vous utilisez les [diagnostics de démarrage](./boot-diagnostics.md) pour 
 Il peut y avoir plusieurs raisons pour lesquelles une machine virtuelle est bloquée en attente du Gestionnaire de session locale. Si ce problème persiste, vous devez collecter un fichier de vidage pour analyse.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Dans certains cas, il suffit d’attendre que le processus se termine pour résoudre le problème. Si votre machine virtuelle ne répond pas et reste bloquée sur l’écran d’attente pendant plus d’une heure, vous devez collecter une image mémoire, puis contacter le Support Microsoft.
 

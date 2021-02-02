@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835510"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621926"
 ---
 # <a name="basic-concepts"></a>Concepts de base 
 
@@ -22,7 +22,7 @@ Cet article décrit les principaux avantages d’Azure Defender pour IoT.
 
 Les capteurs Defender pour IoT se connectent à un port SPAN ou un TAP réseau et commencent immédiatement à collecter le trafic réseau ICS via une surveillance passive (sans agent). L’inspection profonde des paquets (DPI) est utilisée pour étudier en détail le trafic à partir de l’équipement réseau de contrôle Ethernet et série. Defender pour IoT n’a aucun impact sur les réseaux OT, car il n’est pas placé dans le chemin d’accès aux données et n’analyse pas activement les appareils. 
 
-Pour fournir des instantanés d’informations détaillés sur les ressources, le capteur de Defender pour IoT complète la surveillance passive avec un composant actif facultatif. Ce composant utilise des commandes fiables, approuvées par le fournisseur, pour interroger les périphériques Windows et les contrôleurs sur les ressources à la fréquence définie.
+Pour fournir des instantanés d’informations détaillées sur les appareils, le capteur Defender pour IoT complète la surveillance passive avec un composant actif facultatif. Ce composant utilise des commandes fiables, approuvées par le fournisseur, pour interroger les appareils Windows et les contrôleurs sur les ressources des appareils, à la fréquence que vous avez définie.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Connaissances incorporées des protocoles, des appareils et des applications ICS
 
@@ -34,7 +34,7 @@ Les moteurs identifient les problèmes de sécurité via la surveillance continu
 
 - **Détection de violation de protocole** : Identifie l’utilisation des structures de paquets et des valeurs de champ qui ne respectent pas les spécifications de protocole ICS.
 
-- **Détection de violation de stratégie** : Identifie les violations de stratégie, telles que l’utilisation non autorisée de codes de fonction, l’accès à des objets spécifiques ou la modification de la configuration des ressources.
+- **Détection de violation de stratégie** : Identifie les violations de stratégie, telles que l’utilisation non autorisée de codes de fonction, l’accès à des objets spécifiques ou la modification de la configuration de l’appareil.
 
 - **Détection de programmes malveillants industriels** : Identifie les comportements qui indiquent la présence de programmes malveillants connus, tels que Conficker, Black Energy, Havex, WannaCry et NotPetya.
 

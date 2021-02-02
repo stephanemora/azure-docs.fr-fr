@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005903"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664679"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Erreur d’arrêt Windows - État Pas de mémoire
 
@@ -44,6 +44,9 @@ Le disque du système d’exploitation est saturé, trop fragmenté ou le systè
 ## <a name="solution"></a>Solution
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus :
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 1. Créer une machine virtuelle de réparation et y accéder
 1. Libérer de l’espace sur le disque
@@ -223,4 +226,4 @@ Pour activer la collecte de l’image mémoire et la console série, exécutez l
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

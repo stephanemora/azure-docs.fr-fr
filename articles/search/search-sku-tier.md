@@ -9,24 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539601"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693449"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
-Lorsque vous [créez un service de recherche](search-create-service-portal.md), vous choisissez un niveau tarifaire (ou SKU) qui est fixé pour toute la durée de vie du service. Les coûts mensuels estimés sont affichés dans la page **Sélectionner le niveau tarifaire** du portail. Si vous créez un service par le biais de PowerShell ou d’Azure CLI, le niveau est spécifié à l’aide du paramètre **`-Sku`** .
+[Créer un service de recherche](search-create-service-portal.md) signifie entre autres que vous choisissez un niveau tarifaire (ou une référence SKU) qui est fixé pour toute la durée de vie du service. La tarification, ou le coût mensuel estimé pour l’exécution du service, s’affichent dans la page du portail **Sélectionnez le niveau tarifaire** quand vous créez le service. Si vous effectuez l’approvisionnement par le biais de PowerShell ou de Azure CLI à la place, le niveau est spécifié via le paramètre **`-Sku`** et nous vous conseillons de consulter la [tarification du service](https://azure.microsoft.com/pricing/details/search/) pour en savoir plus sur les coûts estimés.
 
 Le niveau que vous sélectionnez détermine ce qui suit :
 
-+ Nombre maximal d’index et d’autres objets que vous pouvez créer sur le service
++ Nombre maximal d’index et d’autres objets autorisés sur le service
 + Taille et la vitesse des partitions (stockage physique)
 + Taux facturable, comme un coût mensuel fixe, mais également un coût incrémentiel si vous ajoutez plus de capacité
 
 Dans quelques instances, le niveau que vous choisissez détermine la disponibilité des [fonctionnalités Premium](#premium-features).
+
+> [!NOTE]
+> Vous recherchez des informations sur « Références SKU » ? Commencez par consulter la [Tarification Azure](https://azure.microsoft.com/pricing/), puis faites défiler vers le bas pour afficher les liens vers les pages de tarification par service.
 
 ## <a name="tier-descriptions"></a>Descriptions des niveaux
 
@@ -67,7 +70,7 @@ Les niveaux déterminent le stockage maximal du service proprement dit, ainsi qu
 
 ## <a name="partition-size-and-speed"></a>Taille et vitesse de la partition
 
-La tarification du niveau comprend des détails sur le stockage par partition qui varie de 2 Go pour le niveau De base à 2 To pour les niveaux de stockage optimisés (L2). D’autres caractéristiques matérielles, telles que la vitesse des opérations, la latence et les taux de transfert, ne sont pas publiées, mais les niveaux conçus pour des architectures de solution spécifiques sont basés sur du matériel qui possède les caractéristiques nécessaires pour prendre en charge ces scénarios.
+La tarification du niveau comprend des détails sur le stockage par partition qui varie de 2 Go pour le niveau De base à 2 To pour les niveaux de stockage optimisés (L2). D’autres caractéristiques matérielles, telles que la vitesse des opérations, la latence et les taux de transfert, ne sont pas publiées, mais les niveaux conçus pour des architectures de solution spécifiques sont basés sur du matériel qui possède les caractéristiques nécessaires pour prendre en charge ces scénarios. Pour plus d’informations sur les partitions, consultez [Estimer et gérer la capacité](search-capacity-planning.md) et [Mettre à l’échelle pour les performances](search-performance-optimization.md).
 
 ## <a name="billing-rates"></a>Tarifs de facturation
 

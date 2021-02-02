@@ -3,12 +3,12 @@ title: Notes de publication pour Live Video Analytics sur IoT Edge – Azure
 description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121241"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629774"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Live Video Analytics sur IoT Edge
 
@@ -51,9 +51,12 @@ Cette version est la préversion publique d’actualisation de Live Video Analyt
 * Ajout de la prise en charge de la gestion de l’espace disque pour les nœuds récepteurs.
 * Ajout de la prise en charge par le nœud `MediaGraphGrpcExtension` de la propriété [extensionConfiguration](grpc-extension-protocol.md) permettant d’utiliser plusieurs modèles IA au sein d’un même serveur gRPC.
 * Ajout de la prise en charge de la collecte des métriques du module Live Video Analytics au [format Prometheus](https://prometheus.io/docs/practices/naming/). En savoir plus sur la [collecte des métriques et de l’affichage dans Azure Monitor](monitoring-logging.md#azure-monitor-collection-via-telegraf). 
+* Ajout de la possibilité de filtrer la sélection de sortie. Vous pouvez transmettre **l’audio uniquement**, la **vidéo uniquement** ou **l’audio et la vidéo** avec `outputSelectors` à n’importe quel nœud de graphe. 
 * Processeur de filtre de fréquence d’images **déconseillé**.  
     * Gestion de la fréquence d’images désormais disponible dans les nœuds du processeur d’extension de graphe.
 
+### <a name="visual-studio-code-extension"></a>Extension de Visual Studio Code
+* Publication de [Live Video Analytics sur IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge), une extension Visual Studio Code qui facilite la gestion des graphes multimédias LVA. Elle fonctionne avec le **module LVA 2.0** et permet de modifier et de gérer les graphiques multimédias avec une interface graphique très élégante et facile à utiliser.
 ## <a name="september-22-2020"></a>22 septembre 2020
 
 La balise de version correspondant à l’actualisation de septembre 2020 du module est la suivante :

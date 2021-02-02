@@ -3,12 +3,12 @@ title: Restauration de Disques managés Azure
 description: Découvrez comment restaurer des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556623"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737374"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restauration de Disques managés Azure (préversion)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98556623"
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
-Cet article explique comment restaurer des [Disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) à partir d’un point de restauration créé par la Sauvegarde Azure.
+Cet article explique comment restaurer des [Disques managés Azure](../virtual-machines/managed-disks-overview.md) à partir d’un point de restauration créé par la Sauvegarde Azure.
 
 Actuellement, l’option OLR (Original-Location Recovery) de restauration par remplacement du disque source existant à partir duquel les sauvegardes ont été effectuées n’est pas prise en charge. Il est possible d’effectuer une restauration à partir d’un point de récupération pour créer un disque dans le même groupe de ressources que celui du disque source à partir duquel les sauvegardes ont été effectuées ou dans un autre groupe de ressources. C’est ce que l’on appelle l’option ALR (Alternate-Location Recovery), qui permet de conserver à la fois le disque source et le (nouveau) disque restauré.
 
@@ -31,7 +31,7 @@ Dans cet article, vous allez apprendre à :
 
 Le coffre Sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Il est nécessaire, pour effectuer une restauration à partir d’une sauvegarde, que l’identité managée du coffre Sauvegarde dispose d’un ensemble d’autorisations sur le groupe de ressources dans lequel le disque doit être restauré.
 
-Le coffre Sauvegarde utilise une identité managée affectée par le système, limitée à une par ressource et liée au cycle de vie de celle-ci. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Pour plus d’informations, consultez [Identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Le coffre Sauvegarde utilise une identité managée affectée par le système, limitée à une par ressource et liée au cycle de vie de celle-ci. Pour accorder des autorisations à l’identité managée, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) Azure. L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Pour plus d’informations, consultez [Identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 Voici les prérequis d’une opération de restauration :
 
@@ -66,6 +66,8 @@ Voici les prérequis d’une opération de restauration :
     >
     >Lors des sauvegardes planifiées ou d’une opération de sauvegarde à la demande, la Sauvegarde Azure stocke les instantanés incrémentiels de disque dans le groupe de ressources d’instantanés fourni lors de la configuration de la sauvegarde du disque. Elle utilise ces instantanés incrémentiels au cours de l’opération de restauration. Si les instantanés sont déplacés ou supprimés du groupe de ressources d’instantanés ou que les attributions de rôles du coffre Sauvegarde sont révoquées sur le groupe de ressources d’instantanés, l’opération de restauration échoue.
 
+1. Si le disque à sauvegarder est chiffré avec des [clés managées par le client (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou un [chiffrement double reposant sur des clés managées par la plateforme et des clés managées par le client](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), attribuez l’autorisation de rôle **Lecteur** à l’identité managée du coffre Sauvegarde sur la ressource **Jeu de chiffrement de disque**.
+
 Une fois les prérequis respectés, procédez comme suit pour effectuer l’opération de restauration.
 
 1. Sur le [Portail Azure](https://portal.azure.com/), accédez à **Centre de sauvegarde**. Sélectionnez **Instances de sauvegarde** sous la section **Gérer**. Dans la liste des instances de sauvegarde, sélectionnez l’instance de sauvegarde de disque pour laquelle vous souhaitez effectuer l’opération de restauration.
@@ -87,7 +89,7 @@ Une fois les prérequis respectés, procédez comme suit pour effectuer l’opé
     ![Paramètres de restauration](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >Les disques sauvegardés par la Sauvegarde Azure à l’aide de la solution Sauvegarde de disque peuvent également être sauvegardés par la Sauvegarde Azure à l’aide de la solution de sauvegarde de machine virtuelle Azure avec le coffre Recovery Services. Si vous avez configuré la protection de la machine virtuelle Azure à laquelle ce disque est attaché, vous pouvez aussi utiliser l’opération de restauration de machines virtuelles Azure. Vous avez le choix entre restaurer la machine virtuelle et restaurer les disques et les fichiers ou dossiers à partir du point de récupération de l’instance de sauvegarde de machine virtuelle Azure correspondante. Pour plus d’informations, consultez [Sauvegarde de machine virtuelle Azure](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >Les disques sauvegardés par la Sauvegarde Azure à l’aide de la solution Sauvegarde de disque peuvent également être sauvegardés par la Sauvegarde Azure à l’aide de la solution de sauvegarde de machine virtuelle Azure avec le coffre Recovery Services. Si vous avez configuré la protection de la machine virtuelle Azure à laquelle ce disque est attaché, vous pouvez aussi utiliser l’opération de restauration de machines virtuelles Azure. Vous avez le choix entre restaurer la machine virtuelle et restaurer les disques et les fichiers ou dossiers à partir du point de récupération de l’instance de sauvegarde de machine virtuelle Azure correspondante. Pour plus d’informations, consultez [Sauvegarde de machine virtuelle Azure](./about-azure-vm-restore.md).
 
 1. Une fois la validation terminée, sélectionnez **Restaurer** pour commencer l’opération de restauration.
 
@@ -107,9 +109,9 @@ La restauration a pour effet de créer un disque à partir du point de récupér
 
     ![Échange de disques de système d’exploitation](./media/restore-managed-disks/swap-os-disks.png)
 
-- Dans le cas des machines virtuelles Windows, si le disque restauré est un disque de données, suivez les instructions pour [détacher le disque de données d’origine](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) de la machine virtuelle. Ensuite, [attachez le disque de données](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) à la machine virtuelle. Suivez les instructions pour [échanger le disque de système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) de la machine virtuelle avec le disque restauré.
+- Dans le cas des machines virtuelles Windows, si le disque restauré est un disque de données, suivez les instructions pour [détacher le disque de données d’origine](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) de la machine virtuelle. Ensuite, [attachez le disque de données](../virtual-machines/windows/attach-managed-disk-portal.md) à la machine virtuelle. Suivez les instructions pour [échanger le disque de système d’exploitation](../virtual-machines/windows/os-disk-swap.md) de la machine virtuelle avec le disque restauré.
 
-- Dans le cas des machines virtuelles Linux, si le disque restauré est un disque de données, suivez les instructions pour [détacher le disque de données d’origine](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) de la machine virtuelle. Ensuite, [attachez le disque de données](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) à la machine virtuelle. Suivez les instructions pour [échanger le disque de système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) de la machine virtuelle avec le disque restauré.
+- Dans le cas des machines virtuelles Linux, si le disque restauré est un disque de données, suivez les instructions pour [détacher le disque de données d’origine](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) de la machine virtuelle. Ensuite, [attachez le disque de données](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) à la machine virtuelle. Suivez les instructions pour [échanger le disque de système d’exploitation](../virtual-machines/linux/os-disk-swap.md) de la machine virtuelle avec le disque restauré.
 
 Il est recommandé de révoquer l’attribution de rôle **Opérateur de restauration de disque** de l’identité managée du coffre Sauvegarde sur le **Groupe de ressources cible** après la fin de l’opération de restauration.
 

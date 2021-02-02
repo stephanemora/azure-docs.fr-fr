@@ -5,18 +5,18 @@ description: Utilisez des licences SQL Server existantes pour recevoir des remis
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: features
-ms.custom: sqldbrb=4, devx-track-azurecli
+ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
-ms.openlocfilehash: 872b36eae9142473885885d5bf5ad3fa10ae5ccb
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841595"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737453"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -89,8 +89,8 @@ Les clients SQL Database bénéficie des droits suivants associés à Azure Hyb
 
 |Empreinte de licence|Que vous propose Azure Hybrid Benefit pour SQL Server ?|
 |---|---|
-|Clients avec cœurs SQL Server Enterprise Edition et SA|<li>Possibilité de payer un taux de base pour les références (SKU) Usage général ou Critique pour l’entreprise</li><br><li>1 cœur local = 4 cœurs dans la référence SKU Usage général</li><br><li>1 cœur local = 1 cœur dans la référence SKU Critique pour l’entreprise</li>|
-|Clients avec cœurs SQL Server Standard Edition et SA|<li>Possibilité de payer un taux de base pour la référence (SKU) Usage général uniquement</li><br><li>1 cœur local = 1 cœur dans la référence SKU Usage général</li>|
+|Clients avec cœurs SQL Server Enterprise Edition et SA|<li>Possibilité de payer un taux de base pour les références SKU Hyperscale, Usage général et Critique pour l’entreprise</li><br><li>1 cœur local = 4 cœurs dans la référence SKU Hyperscale</li><br><li>1 cœur local = 4 cœurs dans la référence SKU Usage général</li><br><li>1 cœur local = 1 cœur dans la référence SKU Critique pour l’entreprise</li>|
+|Clients avec cœurs SQL Server Standard Edition et SA|<li>Possibilité de payer un taux de base pour les références SKU Hyperscale et Usage général uniquement</li><br><li>1 cœur local = 1 cœur dans la référence SKU Hyperscale</li><br><li>1 cœur local = 1 cœur dans la référence SKU Usage général</li>|
 |||
 
 

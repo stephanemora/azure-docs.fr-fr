@@ -1,35 +1,31 @@
 ---
 title: FAQ sur les problèmes de disponibilité des applications et des services
-titleSuffix: Azure Cloud Services
 description: Cet article répertorie les questions fréquentes sur la disponibilité des applications et des services pour Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 2707c5a6cb110d30b85b765f6c8b144e8cca7abe
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c1a5b63a33f951857bd4837380c1465af5b7583e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074717"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742894"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de disponibilité des applications et des services pour Azure Cloud Services : Forum Aux Questions (FAQ)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problèmes de disponibilité des applications et des services pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Cet article comprend des questions fréquentes sur les problèmes de disponibilité des applications et des services pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Mon rôle a été recyclé. Mon service cloud a-t-il fait l’objet d’une mise à jour ?
-Environ une fois par mois, Microsoft publie une nouvelle version du système d’exploitation (SE) invité pour les machines virtuelles PaaS Microsoft Azure. Le SE invité n’est qu’une mise à jour parmi d’autres. Une publication peut être affectée par beaucoup d’autres facteurs. Par ailleurs, Azure s’exécute sur des centaines de milliers de machines. Il est donc impossible de prédire la date et l’heure exactes auxquelles vos rôles seront redémarrés. Nous mettrons à jour le Flux RSS de mise à jour du SE invité avec les dernières informations dont nous disposons, mais considérez l’heure indiquée comme une valeur approximative. Nous sommes conscients que cela peut être problématique pour les clients. Nous tachons d’ailleurs de limiter ou minuter avec précision ces redémarrages.
+Environ une fois par mois, Microsoft publie une nouvelle version du système d’exploitation (SE) invité pour les machines virtuelles PaaS Microsoft Azure.Le SE invité n’est qu’une mise à jour parmi d’autres. Une publication peut être affectée par beaucoup d’autres facteurs. Par ailleurs, Azure s’exécute sur des centaines de milliers de machines. Il est donc impossible de prédire la date et l’heure exactes auxquelles vos rôles seront redémarrés. Nous mettrons à jour le Flux RSS de mise à jour du SE invité avec les dernières informations dont nous disposons, mais considérez l’heure indiquée comme une valeur approximative. Nous sommes conscients que cela peut être problématique pour les clients. Nous tachons d’ailleurs de limiter ou minuter avec précision ces redémarrages.
 
 Pour plus d’informations sur les dernières mises à jour du SE invité, consultez [Versions du SE invité et matrice de compatibilité du kit SDK Azure](cloud-services-guestos-update-matrix.md).
 

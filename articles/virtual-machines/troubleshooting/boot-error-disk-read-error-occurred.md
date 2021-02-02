@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069151"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629723"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Résoudre une erreur de démarrage - Une erreur de lecture de disque s’est produite
 
@@ -38,6 +38,9 @@ Ce message d’erreur indique que la structure du disque est endommagée et illi
 ## <a name="solution"></a>Solution
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 1. Créez une machine virtuelle de réparation et accédez-y.
 1. Sélectionner une solution :
@@ -100,14 +103,14 @@ Les machines virtuelles de première génération doivent d’abord vérifier qu
 1. Ouvrez une session d’invite de commandes avec élévation de privilèges en tant qu’administrateur.
 1. Exécutez les commandes suivantes :
 
-   **Activer la console série** :
+   **Activer la console série** :
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
 
-1. vérifiez que l’espace disponible sur le disque du système d’exploitation est supérieur à la taille de la mémoire (RAM) sur la machine virtuelle.
+1. Vérifiez que l’espace disponible sur le disque du système d’exploitation est supérieur à la taille de la mémoire (RAM) sur la machine virtuelle.
 
    Si l’espace n’est pas suffisant, changez l’emplacement où le fichier d’image mémoire sera créé et référencez-le sur n’importe quel autre disque de données attaché à la machine virtuelle possédant suffisamment d’espace libre. Pour changer l’emplacement, remplacez **%SystemRoot%** par la lettre de lecteur du disque de données (par exemple, **F:** ) dans les commandes ci-dessous.
 
@@ -143,4 +146,4 @@ Les machines virtuelles de première génération doivent d’abord vérifier qu
    
 ### <a name="rebuild-the-vm"></a>Régénérez la machine virtuelle.
 
-Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.
+Utilisez [l’étape 5 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) pour régénérer la machine virtuelle.

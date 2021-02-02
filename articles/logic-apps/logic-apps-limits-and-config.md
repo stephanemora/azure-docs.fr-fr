@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 12/07/2020
-ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.date: 01/22/2021
+ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707467"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726513"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -37,8 +37,8 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | Nombre maximal de `parameters` | 50 | |
 | Nombre maximal de `outputs` | 10 | |
 | Taille maximale de `trackedProperties` | 16 000 caractères |
-| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères | Pour étendre cette limite à 100 000 caractères, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
-| Action de code inline – Durée maximale d’exécution de code | 5 secondes | Pour étendre cette limite à 15 secondes, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)** ](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Action de code inclus : nombre maximal de caractères de code | 1 024 caractères | Pour étendre cette limite à 100 000 caractères, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)**](create-stateful-stateless-workflows-visual-studio-code.md). |
+| Action de code inline – Durée maximale d’exécution de code | 5 secondes | Pour étendre cette limite à 15 secondes, créez vos applications logiques à l’aide du type de ressource **Application logique (préversion)** , [en utilisant le portail Azure](create-stateful-stateless-workflows-azure-portal.md) ou [en utilisant Visual Studio Code et l’extension **Azure Logic Apps (préversion)**](create-stateful-stateless-workflows-visual-studio-code.md). |
 ||||
 
 <a name="run-duration-retention-limits"></a>
@@ -114,9 +114,9 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
-| Accès concurrentiel Foreach | Avec la concurrence désactivée : 20 <p><p>Avec la concurrence activée : <p><p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer cette limite, consultez [Changer la limite de concurrence « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Itérations Until | - Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 | Nombre le plus élevé de cycles qu’une boucle « Until » peut avoir pendant l’exécution d’une application logique. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Count**. |
+| Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de table qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
+| Accès concurrentiel Foreach | Avec la concurrence désactivée : 20 <p><p>Avec la concurrence activée : <p><p>- Par défaut : 20 <br>- Min : 1 <br>- Max : 50 | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer cette limite, consultez [Changer la limite de concurrence « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Itérations Until | - Par défaut : 60 <br>- Min : 1 <br>- Max : 5 000 | Nombre maximal de cycles qu’une boucle « Until » peut avoir pendant l’exécution d’une application logique. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Count**. |
 | Délai d’expiration d’Until | - Par défaut : PT1H (1 heure) | La durée la plus longue d’exécution de la boucle « Until » avant qu’elle ne se termine, spécifiée au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Timeout**. |
 ||||
 
@@ -415,7 +415,6 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 > Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP entrants de connecteur géré pour chaque région.
 > Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
 
-
 <a name="multi-tenant-inbound"></a>
 
 #### <a name="multi-tenant-azure---inbound-ip-addresses"></a>Azure multilocataires - Adresses IP entrantes
@@ -442,13 +441,16 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 | Corée du Sud | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | Centre-Nord des États-Unis | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64 |
 | Europe Nord | 13.79.173.49, 52.169.218.253, 52.169.220.174, 40.112.90.39 |
+| Norvège Est | 51.120.88.93, 51.13.66.86, 51.120.89.182, 51.120.88.77 |
 | Afrique du Sud Nord | 102.133.228.4, 102.133.224.125, 102.133.226.199, 102.133.228.9 |
 | Afrique du Sud Ouest | 102.133.72.190, 102.133.72.145, 102.133.72.184, 102.133.72.173 |
 | États-Unis - partie centrale méridionale | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Inde Sud | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Asie Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Suisse Nord | 51.103.128.52, 51.103.132.236, 51.103.134.138, 51.103.136.209 |
+| Suisse Ouest | 51.107.225.180, 51.107.225.167, 51.107.225.163, 51.107.239.66 |
 | Émirats arabes unis Centre | 20.45.75.193, 20.45.64.29, 20.45.64.87, 20.45.71.213 |
+| Émirats arabes unis Nord | 20.46.42.220, 40.123.224.227, 40.123.224.143, 20.46.46.173 |
 | Sud du Royaume-Uni | 51.140.79.109, 51.140.78.71, 51.140.84.39, 51.140.155.81 |
 | Ouest du Royaume-Uni | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | Centre-USA Ouest | 52.161.26.172, 52.161.8.128, 52.161.19.82, 13.78.137.247 |
@@ -506,13 +508,16 @@ Cette section répertorie les adresses IP sortantes pour le service Azure Logic
 | Corée du Sud | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 | 52.231.201.173, 52.231.163.10, 52.231.147.0 - 52.231.147.15, 52.231.148.224 - 52.231.148.255 |
 | Centre-Nord des États-Unis | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 | 52.162.126.4, 52.162.242.161, 52.162.107.160 - 52.162.107.175, 52.162.111.192 - 52.162.111.223 |
 | Europe Nord | 40.113.12.95, 52.178.165.215, 52.178.166.21, 40.112.92.104, 40.112.95.216, 40.113.4.18, 40.113.3.202, 40.113.1.181 | 52.169.28.181, 52.178.150.68, 94.245.91.93, 13.69.227.208 - 13.69.227.223, 13.69.231.192 - 13.69.231.223 |
+| Norvège Est | 51.120.88.52, 51.120.88.51, 51.13.65.206, 51.13.66.248, 51.13.65.90, 51.13.65.63, 51.13.68.140, 51.120.91.248 | 51.120.100.192, 51.120.92.27, 51.120.98.224 - 51.120.98.239, 51.120.100.192 - 51.120.100.223 |
 | Afrique du Sud Nord | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 | 102.133.168.167, 40.127.2.94, 102.133.155.0 - 102.133.155.15, 102.133.253.0 - 102.133.253.31 |
 | Afrique du Sud Ouest | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 | 102.133.72.85, 102.133.75.194, 102.37.64.0 - 102.37.64.31, 102.133.27.0 - 102.133.27.15 |
 | États-Unis - partie centrale méridionale | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 | 52.171.130.92, 13.65.86.57, 13.73.244.224 - 13.73.244.255, 104.214.19.48 - 104.214.19.63 |
 | Inde Sud | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 | 13.71.127.26, 13.71.125.22, 20.192.184.32 - 20.192.184.63, 40.78.194.240 - 40.78.194.255 |
 | Asie Sud-Est | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 | 52.187.115.69, 52.187.68.19, 13.67.8.240 - 13.67.8.255, 13.67.15.32 - 13.67.15.63 |
 | Suisse Nord | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 | 51.103.142.22, 51.107.86.217, 51.107.59.16 - 51.107.59.31, 51.107.60.224 - 51.107.60.255 |
+| Suisse Ouest | 51.107.239.66, 51.107.231.86, 51.107.239.112, 51.107.239.123, 51.107.225.190, 51.107.225.179, 51.107.225.186, 51.107.225.151, 51.107.239.83 | 51.107.156.224, 51.107.231.190, 51.107.155.16 - 51.107.155.31, 51.107.156.224 - 51.107.156.255 |
 | Émirats arabes unis Centre | 20.45.75.200, 20.45.72.72, 20.45.75.236, 20.45.79.239, 20.45.67.170, 20.45.72.54, 20.45.67.134, 20.45.67.135 | 20.45.67.45, 20.45.67.28, 20.37.74.192 - 20.37.74.207, 40.120.8.0 - 40.120.8.31 |
+| Émirats arabes unis Nord | 40.123.230.45, 40.123.231.179, 40.123.231.186, 40.119.166.152, 40.123.228.182, 40.123.217.165, 40.123.216.73, 40.123.212.104 | 65.52.250.208, 40.123.224.120, 40.120.64.64 - 40.120.64.95, 65.52.250.208 - 65.52.250.223 |
 | Sud du Royaume-Uni | 51.140.74.14, 51.140.73.85, 51.140.78.44, 51.140.137.190, 51.140.153.135, 51.140.28.225, 51.140.142.28, 51.140.158.24 | 51.140.74.150, 51.140.80.51, 51.140.61.124, 51.105.77.96 - 51.105.77.127, 51.140.148.0 - 51.140.148.15 |
 | Ouest du Royaume-Uni | 51.141.54.185, 51.141.45.238, 51.141.47.136, 51.141.114.77, 51.141.112.112, 51.141.113.36, 51.141.118.119, 51.141.119.63 | 51.141.52.185, 51.141.47.105, 51.141.124.13, 51.140.211.0 - 51.140.211.15, 51.140.212.224 - 51.140.212.255 |
 | Centre-USA Ouest | 52.161.27.190, 52.161.18.218, 52.161.9.108, 13.78.151.161, 13.78.137.179, 13.78.148.140, 13.78.129.20, 13.78.141.75 | 52.161.101.204, 52.161.102.22, 13.78.132.82, 13.71.195.32 - 13.71.195.47, 13.71.199.192 - 13.71.199.223 |

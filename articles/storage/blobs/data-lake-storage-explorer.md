@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913400"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624773"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Utiliser l'Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d'accès dans Azure Data Lake Storage Gen2
 
@@ -80,7 +80,7 @@ Pour télécharger un fichier à l'aide de l'**Explorateur Stockage Azure**, sé
 
 Vous pouvez définir des autorisations à la racine de votre conteneur. Pour ce faire, vous devez être connecté à l’Explorateur de stockage Azure avec votre compte spécifique disposant des droits adaptés (par opposition à une chaîne de connexion). Cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Gérer les autorisations**, ce qui fait apparaître la boîte de dialogue **Gérer les autorisations**.
 
-![Explorateur de stockage Microsoft Azure - Gérer l’accès au répertoire](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Explorateur de stockage Microsoft Azure - Gérer l’accès au répertoire](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 La boîte de dialogue **Gérer les autorisations** vous permet de gérer les autorisations pour le propriétaire et le groupe de propriétaires. Elle vous permet également d’ajouter de nouveaux utilisateurs et groupes à la liste de contrôle d’accès pour lesquels vous pouvez ensuite gérer les autorisations.
 
@@ -105,6 +105,10 @@ Dans ces deux catégories, il existe trois autorisations, que vous pouvez ensuit
 > Les sélections faites ici ne définiront pas d’autorisations sur tous les éléments existants actuellement au sein du répertoire. Vous devez accéder à chaque élément et définir les autorisations manuellement, si le fichier existe déjà.
 
 Vous pouvez gérer les autorisations sur des répertoires individuels, ainsi que sur des fichiers individuels, permettant un contrôle d’accès précis. Le processus de gestion des autorisations pour les répertoires et les fichiers est identique à celui décrit ci-dessus. Faites un clic droit sur le fichier ou le répertoire dont vous souhaitez gérer les autorisations et suivez le même processus.
+
+## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Points de terminaison privés dans Azure Data Lake Storage Gen2
+
+L’Explorateur Stockage utilise à la fois les [points de terminaison](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) d’objet blob (blob) et de Data Lake Storage Gen2 (DFS) lors de l’utilisation d’Azure Data Lake Storage Gen2. Si l’accès à Azure Data Lake Storage Gen2 est configuré à l’aide de points de terminaison privés, assurez-vous que deux points de terminaison privés sont créés pour le compte de stockage : un avec la sous-ressource cible `blob` et l’autre avec la sous-ressource cible `dfs`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

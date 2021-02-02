@@ -4,14 +4,14 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661795"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -24,8 +24,9 @@ Azure Monitor vous avertit de façon proactive lorsque des conditions significat
 Si vous pensez qu'une alerte de métrique aurait dû se déclencher mais que cela n'a pas été le cas et qu'elle est introuvable sur le portail Azure, procédez comme suit :
 
 1. **Configuration** - Vérifiez la configuration de la règle d'alerte de métrique pour vous assurer qu'elle est correcte :
-    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** ainsi que **Valeur de seuil** ou **Sensibilité** sont configurées comme prévu.
-    - Pour une règle d'alerte qui utilise des seuils dynamiques, vérifiez si certains paramètres avancés sont configurés, car l'option **Nombre de violations** peut filtrer les alertes et l'option **Ignorer les données avant** peut impacter le calcul des seuils.
+    - Vérifiez que les valeurs spécifiées dans les champs **Type d'agrégation**, **Granularité d'agrégation (période)** sont configurées comme prévu. Le paramètre **Type d’agrégation** détermine la manière dont les valeurs de métriques sont agrégées (plus d’informations [ici](./metrics-aggregation-explained.md#aggregation-types)), et le paramètre **Granularité d’agrégation (période)** spécifie jusqu’où l’évaluation doit remonter pour agréger les valeurs de métriques à chaque exécution de la règle d’alerte.
+    -  Vérifiez que les paramètres **Valeur de seuil** et **Sensibilité** sont configurés comme prévu.
+    - Pour une règle d'alerte qui utilise des seuils dynamiques, vérifiez si certains paramètres avancés sont configurés, car l'option **Nombre de violations** peut filtrer les alertes et l'option **Ignorer les données avant** peut avoir une incidence sur le calcul des seuils.
 
        > [!NOTE] 
        > Les seuils dynamiques nécessitent au moins 3 jours et 30 échantillons de métriques avant de devenir actifs.

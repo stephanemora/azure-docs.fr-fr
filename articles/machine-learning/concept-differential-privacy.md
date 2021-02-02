@@ -1,25 +1,25 @@
 ---
-title: Implémenter la confidentialité différentielle avec le package SmartNoise (préversion)
+title: Confidentialité différentielle dans le Machine Learning (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez ce qu’est la confidentialité différentielle et comment le package SmartNoise peut vous aider à implémenter des systèmes privés différentiels qui préservent la confidentialité des données.
+description: Découvrez la confidentialité différentielle et comment implémenter de manière différentielle des systèmes privés qui préservent la confidentialité des données.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/21/2020
+ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: 22ba505a2e13b2f88f212f2fe1b85d07f79f77e5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39f4b1a7b9eb1ad7a87097240dd772e4f2dadf17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218958"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683535"
 ---
-# <a name="preserve-data-privacy-by-using-differential-privacy-and-the-smartnoise-package-preview"></a>Préserver la confidentialité des données en utilisant la confidentialité différentielle et le package SmartNoise (préversion)
+# <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Qu’est-ce que la confidentialité différentielle dans le Machine Learning (préversion)
 
-Découvrez ce qu’est la confidentialité différentielle et comment le package SmartNoise peut vous aider à implémenter des systèmes de confidentialité différentielle.
+Apprenez-en davantage sur la confidentialité différentielle dans le Machine Learning et son fonctionnement.
 
 Les préoccupations liées à la confidentialité et à la sécurité augmentent à mesure qu’augmente la quantité de données qu’une organisation collecte et utilise à des fins d’analyse. Les analyses requièrent des données. En règle générale, plus il y a de données utilisées pour effectuer l’apprentissage des modèles, plus ceux-ci sont précis. Lorsque des informations personnelles sont utilisées pour ces analyses, il est particulièrement important que les données restent confidentielles tout au long de leur utilisation.
 
@@ -28,9 +28,9 @@ Les préoccupations liées à la confidentialité et à la sécurité augmentent
 La confidentialité différentielle est un ensemble de systèmes et pratiques qui permettent de préserver la sécurité et la confidentialité des données des personnes.
 
 > [!div class="mx-imgBorder"]
-> ![Processus de confidentialité différentielle](./media/concept-differential-privacy/differential-privacy-process.jpg)
+> ![Processus de Machine Learning avec confidentialité différentielle](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
-Dans les scénarios traditionnels, les données brutes sont stockées dans des fichiers et des bases de données. Lorsque des utilisateurs analysent des données, ils utilisent généralement des données brutes. C’est problématique, car cela peut entraîner une violation de données à caractère personnel. La confidentialité différentielle tente de résoudre ce problème en ajoutant du « bruit » ou une composante aléatoire aux données afin que les utilisateurs ne puissent pas identifier des points de données individuels. Un tel système offre au moins une possibilité de « démenti raisonnable ».
+Dans les scénarios traditionnels, les données brutes sont stockées dans des fichiers et des bases de données. Lorsque des utilisateurs analysent des données, ils utilisent généralement des données brutes. C’est problématique, car cela peut entraîner une violation de données à caractère personnel. La confidentialité différentielle tente de résoudre ce problème en ajoutant du « bruit » ou une composante aléatoire aux données afin que les utilisateurs ne puissent pas identifier des points de données individuels. Un tel système offre au moins une possibilité de « démenti raisonnable ». Par conséquent, la confidentialité des individus est préservée avec un impact limité sur la précision des données.
 
 Dans les systèmes assortis d’une confidentialité différentielle, les données sont partagées via des demandes appelées **requêtes**. Quand un utilisateur soumet une requête de données, des opérations appelées **mécanismes de confidentialité** ajoutent du bruit aux données demandées. Ces mécanismes de confidentialité renvoient des *données approximatives* au lieu de données brutes. Le résultat de cette préservation de la confidentialité apparaît dans un **rapport**. Les rapports se composent de deux parties : les données réelles calculées et une description de la façon dont elles ont été créées.
 
@@ -42,22 +42,22 @@ Les valeurs epsilon ne sont pas négatives. Les valeurs inférieures à 1 offre
 
 Une autre valeur directement corrélée à la valeur epsilon est le valeur **delta**. La valeur delta indique la probabilité qu’un rapport ne soit pas entièrement confidentiel. La valeur delta est directement proportionnelle à la valeur epsilon. Ces valeurs étant corrélées, la valeur epsilon est utilisée plus fréquemment.
 
-## <a name="privacy-budget"></a>Budget de confidentialité
+## <a name="limit-queries-with-a-privacy-budget"></a>Limiter les requêtes avec un budget de confidentialité
 
-Pour garantir la confidentialité de systèmes où plusieurs requêtes sont autorisées, la confidentialité différentielle définit une limite de débit. Cette limite est appelée **budget de confidentialité**. Les budgets de confidentialité sont associés à un volume epsilon, généralement compris entre 1 et 3, pour limiter le risque de réidentification. Au fur et à mesure de la génération de rapports, les budgets de confidentialité assurent le suivi de la valeur epsilon des rapports individuels, ainsi que de l’agrégat de tous les rapports. Une fois le budget de confidentialité dépensé ou épuisé, les utilisateurs ne peuvent plus accéder aux données.  
+Pour garantir la confidentialité de systèmes où plusieurs requêtes sont autorisées, la confidentialité différentielle définit une limite de débit. Cette limite est appelée **budget de confidentialité**. Les budgets de confidentialité empêchent la recréation de données via plusieurs requêtes. Les budgets de confidentialité sont associés à un volume epsilon, généralement compris entre 1 et 3, pour limiter le risque de réidentification. Au fur et à mesure de la génération de rapports, les budgets de confidentialité assurent le suivi de la valeur epsilon des rapports individuels, ainsi que de l’agrégat de tous les rapports. Une fois le budget de confidentialité dépensé ou épuisé, les utilisateurs ne peuvent plus accéder aux données. 
 
 ## <a name="reliability-of-data"></a>Fiabilité des données
 
-Même si la préservation de la confidentialité doit être l’objectif, il existe un compromis sur le plan de l’exploitabilité et de la fiabilité des données. En analytique données, l’exactitude peut être considérée comme une mesure de l’incertitude introduite par des erreurs d’échantillonnage. Cette incertitude tend s’inscrire dans certaines limites. L’**exactitude** du point de vue de la confidentialité différentielle, mesure plutôt la fiabilité des données, qui est affectée par l’incertitude qu’introduisent les mécanismes de confidentialité. En deux mots, un niveau élevé de bruit ou de confidentialité se traduit par des données dont la valeur epsilon, l’exactitude et la fiabilité sont moindres. Bien que les données soient plus confidentielles, en raison de leur manque de fiabilité, leur utilisation est moins probable.
+Même si la préservation de la confidentialité doit être l’objectif, il existe un compromis sur le plan de l’exploitabilité et de la fiabilité des données. En analytique données, l’exactitude peut être considérée comme une mesure de l’incertitude introduite par des erreurs d’échantillonnage. Cette incertitude tend s’inscrire dans certaines limites. L’**exactitude** du point de vue de la confidentialité différentielle, mesure plutôt la fiabilité des données, qui est affectée par l’incertitude qu’introduisent les mécanismes de confidentialité. En deux mots, un niveau élevé de bruit ou de confidentialité se traduit par des données dont la valeur epsilon, l’exactitude et la fiabilité sont moindres. 
 
-## <a name="implementing-differentially-private-systems"></a>Implémentation de systèmes de confidentialité différentielle
+## <a name="open-source-differential-privacy-libraries"></a>Bibliothèques de confidentialité différentielle open source
 
-L’implémentation de systèmes de confidentialité différentielle est difficile. SmartNoise est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. SmartNoise est constitué des composants de niveau supérieur suivants :
+SmartNoise est un projet open source contenant différents composants pour la création de systèmes globaux assortis d’une confidentialité différentielle. SmartNoise est constitué des composants de niveau supérieur suivants :
 
-- Base
-- Kit SDK
+- Bibliothèque principale de SmartNoise
+- Bibliothèque du Kit de développement logiciel (SDK) SmartNoise
 
-### <a name="core"></a>Core
+### <a name="smartnoise-core"></a>Cœur de SmartNoise
 
 La bibliothèque principale comprend les mécanismes de confidentialité suivants pour l’implémentation d’un système assorti d’une confidentialité différentielle :
 
@@ -68,7 +68,7 @@ La bibliothèque principale comprend les mécanismes de confidentialité suivant
 |Runtime     | Moyen d’exécuter l’analyse. Le runtime de référence est écrit en Rust, mais vous pouvez écrire des runtimes à l’aide de n’importe quelle infrastructure de calcul telle que SQL ou Spark, en fonction de vos besoins en matière de données.        |
 |Liaisons     | Liaisons de langage et bibliothèques d’assistance pour générer des analyses. Actuellement, SmartNoise fournit des liaisons Python. |
 
-### <a name="sdk"></a>Kit SDK
+### <a name="smartnoise-sdk"></a>Kit de développement logiciel (SDK) SmartNoise
 
 La bibliothèque système fournit les outils et services suivants pour travailler avec des données tabulaires et relationnelles :
 
@@ -80,6 +80,6 @@ La bibliothèque système fournit les outils et services suivants pour travaille
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préserver la confidentialité des données](how-to-differential-privacy.md) dans Azure Machine Learning.
+[Comment créer un système privé de manière différentielle](how-to-differential-privacy.md) dans Azure Machine Learning.
 
-Pour en savoir plus sur les composants de SmartNoise, consultez les dépôts GitHub et recherchez le [package principal SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core), le [kit SDK SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk) et des [exemples SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).
+Pour en savoir plus sur les composants de SmartNoise, consultez les dépôts GitHub et pour le [Cœur de SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core), le [Kit de développement logiciel (SDK) SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-sdk) et les [Exemples SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-samples).

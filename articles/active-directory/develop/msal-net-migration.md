@@ -13,18 +13,18 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c6049bf55e379a2629e8cd4ef1427f91fc31d2cd
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063601"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754818"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
 Microsoft Authentication Library pour .NET (MSAL.NET) et Azure AD Authentication Library pour .NET (ADAL.NET) sont tous deux utilisés pour authentifier des entités Azure AD et demander des jetons auprès d’Azure AD. Jusqu’à présent, la plupart des développeurs utilisent la plateforme Azure AD pour développeurs (v1.0) afin d’authentifier les identités Azure AD (comptes professionnels et scolaires) en demandant des jetons avec la Bibliothèque d’authentification Active Directory (ADAL). Grâce à MSAL :
 
-- vous pouvez authentifier un ensemble plus large d'identités Microsoft (identités Azure AD et comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d'Azure AD B2C) via le point de terminaison de la plateforme d'identités Microsoft ;
+- Vous pouvez authentifier un ensemble plus large d’identités Microsoft (identités Azure AD et comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d’Azure AD B2C), car la Plateforme d’identités Microsoft est utilisée,
 - vos utilisateurs bénéficieront de la meilleure expérience d'authentification unique ;
 - votre application peut activer le consentement incrémentiel, et l’accès conditionnel est plus facile à prendre en charge ;
 - vous bénéficiez de l'innovation.
@@ -35,9 +35,9 @@ Cet article décrit les différences entre la Bibliothèque d'authentification M
 
 ## <a name="differences-between-adal-and-msal-apps"></a>Différences entre les applications ADAL et MSAL
 
-Dans la plupart des cas, vous avez besoin d’utiliser MSAL.NET et le point de terminaison de la plateforme d’identités Microsoft, à savoir la dernière génération de bibliothèques d’authentification de Microsoft. En utilisant MSAL.NET, vous acquérez des jetons pour la connexion des utilisateurs à votre application avec Azure AD (comptes professionnels et scolaires), des comptes (personnels) Microsoft (MSA) ou Azure AD B2C.
+Dans la plupart des cas, vous avez besoin d’utiliser MSAL.NET et la Plateforme d’identités Microsoft, à savoir la dernière génération de bibliothèques d’authentification de Microsoft. En utilisant MSAL.NET, vous acquérez des jetons pour la connexion des utilisateurs à votre application avec Azure AD (comptes professionnels et scolaires), des comptes (personnels) Microsoft (MSA) ou Azure AD B2C.
 
-Si vous connaissez déjà le point de terminaison Azure AD pour développeurs (v1.0) (et ADAL.NET), envisagez de lire l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md).
+Si vous êtes déjà familiarisé avec le point de terminaison Azure AD pour développeurs (v1.0) (et ADAL.NET), envisagez de lire l’article sur les [différences de la Plateforme d’identités Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 En revanche, vous devez quand même utiliser ADAL.NET si votre application a besoin de connecter les utilisateurs avec des versions antérieures des [services de fédération Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Pour plus d'informations, consultez le [support ADFS](https://aka.ms/msal-net-adfs-support).
 
@@ -266,4 +266,4 @@ Vous pouvez également utiliser cette méthode pour divers scénarios d’intég
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous trouverez plus d’informations sur les étendues dans [Étendues, autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft](v2-permissions-and-consent.md).
+Vous trouverez plus d’informations sur les étendues dans [Étendues, autorisations et consentement dans la Plateforme d’identités Microsoft](v2-permissions-and-consent.md)

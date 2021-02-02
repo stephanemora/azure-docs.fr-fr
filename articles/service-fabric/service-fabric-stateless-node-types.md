@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683198"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680601"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état (préversion)
 Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment donné, des services avec état peuvent être placés sur les nœuds. Les types de nœuds sans état assouplissent cette hypothèse pour un type de nœud, ce qui permet au type de nœud d’utiliser d’autres fonctionnalités, telles que l’accélération des opérations de scale-out, la prise en charge des mises à niveau automatiques du système d’exploitation sur la durabilité Bronze et le scale-out de plus de 100 nœuds dans un même groupe de machines virtuelles identiques.
@@ -253,6 +253,8 @@ Pour commencer, vous devez ajouter les nouvelles ressources à votre modèle Res
 
 Une fois le déploiement des ressources terminé, vous pouvez commencer à désactiver les nœuds dans le type de nœud que vous souhaitez supprimer du cluster d’origine.
 
+>[!NOTE]
+> Lors de l’utilisation de la mise à l’échelle automatique avec types de nœuds sans état avec un niveau de durabilité bronze, l’état du nœud n’est pas automatiquement nettoyé après l’opération de scale-down. Il est recommandé d’utiliser l’[assistance de mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper) pour le nettoyage du NodeState pendant la mise à l’échelle automatique.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 * [Services fiables (Reliable Services)](service-fabric-reliable-services-introduction.md)

@@ -4,16 +4,16 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/12/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b1bd437da50ae5989e46ac5c5f881b28b0e99703
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: b17f1f32a3e49e9161afe92d62b85a162affcd9f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539912"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630528"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
@@ -50,27 +50,46 @@ Azure IoT Edge s’exécute sur la plupart des systèmes d’exploitation capabl
 
 La famille du système d’exploitation hôte doit toujours correspondre à la famille du système d’exploitation invité utilisé dans le conteneur d’un module. En d’autres termes, vous ne pouvez utiliser que des conteneurs Linux sur Linux et des conteneurs Windows sur Windows. Lorsque vous utilisez Windows, seuls les conteneurs isolés du processus sont pris en charge, pas les conteneurs isolés Hyper-V.  
 
-<br>
-<center>
-
-![Le système d’exploitation hôte correspond au système d’exploitation invité](./media/support/edge-on-device.png)
-</center>
+IoT Edge pour Linux sur Windows utilise IoT Edge sur une machine virtuelle Linux qui s’exécute sur un hôte Windows. Il est ainsi possible d’exécuter des modules Linux sur un appareil Windows.
 
 ### <a name="tier-1"></a>Niveau 1
 
-Les systèmes répertoriés dans le tableau ci-dessous sont pris en charge par Microsoft, généralement disponibles ou en préversion préliminaire, et sont testés avec chaque nouvelle version. 
+Les systèmes qui figurent dans les tableaux ci-dessous sont pris en charge par Microsoft, soit en disponibilité générale soit en préversion publique, et sont testés avec chaque nouvelle version.
+
+Azure IoT Edge prend en charge les modules créés en tant que conteneurs Linux ou Windows. Les conteneurs Linux peuvent être déployés sur des appareils Linux ou bien sur des appareils Windows avec IoT Edge pour Linux sur Windows. Les conteneurs Windows ne peuvent être déployés que sur des appareils Windows.
+
+#### <a name="linux-containers"></a>Conteneurs Linux
+
+Les modules créés en tant que conteneurs Linux peuvent être déployés sur des appareils Linux ou Windows. Pour les appareils Linux, le runtime IoT Edge est installé directement sur l’appareil hôte. Pour les appareils Windows, une machine virtuelle Linux précréée avec le runtime IoT Edge s’exécute sur l’appareil hôte.
+
+Même si IoT Edge pour Linux sur Windows est actuellement en préversion publique, il s’agit de la méthode recommandée pour exécuter IoT Edge sur des appareils Windows.
 
 | Système d’exploitation | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Préversion publique  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Préversion publique |
-| [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows 10 IoT Core](/windows/iot-core/windows-iot-core), build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server 2019](/windows-server/get-started-19/rel-notes-19), build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server IoT 2019](/windows/iot-core/windows-server), build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Préversion publique  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Préversion publique |
+| Windows 10 Pro | Préversion publique |  |  |
+| Windows 10 Entreprise | Préversion publique |  |  |
+| Windows 10 IoT Entreprise | Préversion publique |  |  |
+| Windows Server 2019 | Préversion publique |  |  |
 
-Les systèmes d’exploitation Windows listés ci-dessus sont les conditions requises pour les appareils qui exécutent des conteneurs Windows sur Windows. Seule cette configuration est prise en charge pour la production. Les packages d’installation Azure IoT Edge pour Windows permettent l’utilisation de conteneurs Linux sur Windows. Toutefois, cette configuration est uniquement destinée aux phases de développement et de test. 
+Tous les systèmes d’exploitation Windows doivent être de la version 1809 (build 17763) ou d’une version ultérieure.
+
+#### <a name="windows-containers"></a>Conteneurs Windows
+
+Les modules générés en tant que conteneurs Windows ne peuvent être déployés que sur des appareils Windows.
+
+| Système d’exploitation | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Windows 10 IoT Entreprise | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 IoT Core<sup>1</sup><br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019<br> | ![check1](./media/tutorial-c-module/green-check.png) |  |  |
+
+<sup>1</sup> Windows 10 IoT Core ne sera pas pris en charge après la version 1.0.10.
+
+Tous les systèmes d’exploitation Windows doivent être de la version 1809 (build 17763). La build spécifique de Windows est requise pour IoT Edge sur Windows, car la version des conteneurs Windows doit correspondre exactement à celle de l’appareil Windows hôte. Les conteneurs Windows n’utilisent actuellement que la version 17763.
 
 ### <a name="tier-2"></a>Niveau 2
 

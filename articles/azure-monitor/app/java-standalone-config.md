@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 953a9cfeed558291fba1cb517039f26860444904
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233659"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631319"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -39,14 +39,14 @@ Vous trouverez plus de détails, ainsi que des options de configuration supplém
 
 ## <a name="configuration-file-path"></a>Chemin d'accès au fichier de configuration
 
-Par défaut, Application Insights Java 3.0 s’attend à ce que le fichier de configuration soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.0.1.jar`.
+Par défaut, Application Insights Java 3.0 s’attend à ce que le fichier de configuration soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.0.2.jar`.
 
 Vous pouvez spécifier votre propre chemin d’accès au fichier de configuration à l’aide d'un des éléments suivants :
 
 * variable d’environnement `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, ou
 * propriété système Java `applicationinsights.configuration.file`
 
-Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.0.1.jar`.
+Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.0.2.jar`.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 
@@ -170,7 +170,7 @@ Si vous souhaitez ajouter des dimensions personnalisées à toutes vos données 
 Vous pouvez utiliser `${...}` pour lire la valeur de la variable d’environnement spécifiée au démarrage.
 
 > [!NOTE]
-> À partir de la version 3.0.1, si vous ajoutez une dimension personnalisée appelée `service.version`, la valeur sera stockée dans la colonne `application_Version` de la table des journaux Application Insights plutôt que sous forme de dimension personnalisée.
+> À partir de la version 3.0.2, si vous ajoutez une dimension personnalisée nommée `service.version`, la valeur sera stockée dans la colonne `application_Version` de la table des journaux Application Insights plutôt que sous forme de dimension personnalisée.
 
 ## <a name="telemetry-processors-preview"></a>Processeurs de télémétrie (préversion)
 
@@ -241,7 +241,7 @@ Pour désactiver la collection automatique des métriques de Micrometer (y compr
 
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suppression d’une télémétrie collectée automatiquement spécifique
 
-Depuis la version 3.0.1, une télémétrie collectée automatiquement spécifique peuvent être supprimée à l’aide des options de configuration suivantes :
+Depuis la version 3.0.2, une télémétrie collectée automatiquement spécifique peuvent être supprimée à l’aide des options de configuration suivantes :
 
 ```json
 {
@@ -296,7 +296,9 @@ Si votre application se trouve derrière un pare-feu et n’est pas en mesure de
 }
 ```
 
-[//]: # "NOTEZ que vous ne devez pas annoncer la prise en charge d’OpenTelemetry tant que nous ne prenons pas en charge la version 0.10.0 qui présente des modifications importantes par rapport à la version 0.9.0"
+Application Insights Java 3.0 respecte également le `-Dhttps.proxyHost` et le `-Dhttps.proxyPort` globaux s’ils sont définis.
+
+[//]: # "NOTEZ que la prise en charge d’OpenTelemetry est en préversion privée jusqu’à ce que l’API OpenTelemetry atteigne soit la version 1.0"
 
 [//]: # "## Prise en charge des versions de l’API OpenTelemetry antérieures à la version 1.0"
 
@@ -338,11 +340,13 @@ Par défaut, Application Insights Java 3.0 se connecte au niveau `INFO` au fichi
 
 `level` peut être `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` ou `TRACE`.
 
-`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.0.1.jar`.
+`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.0.2.jar`.
 
 `maxSizeMb` est la taille maximale du fichier journal avant son remplacement.
 
 `maxHistory` est le nombre de fichiers journaux remplacés et conservés (en plus du fichier journal actuel).
+
+Depuis la version 3.0.2, vous pouvez également définir le `level` des autodiagnostics à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
 
 ## <a name="an-example"></a>Exemple
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/04/2020
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 764a60ada2484a58382cc1b9539686fa72ee1203
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858465"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674348"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97858465"
 
 ::: zone pivot="b2c-custom-policy"
 
-Cet article explique comment autoriser la connexion d’utilisateurs à l’aide du point de terminaison multi-locataire pour Azure Active Directory (Azure AD). Cela permet aux utilisateurs issus de différents locataires Azure AD de se connecter avec Azure AD B2C sans avoir à configurer un fournisseur d’identité pour chaque locataire. Toutefois, les membres invités dans ces locataires **ne pourront pas** se connecter. Pour ce faire, vous devez [configurer individuellement chaque locataire](identity-provider-azure-ad-single-tenant.md).
+Cet article explique comment autoriser la connexion d’utilisateurs à l’aide du point de terminaison multi-locataire pour Azure Active Directory (Azure AD). Autorisation d’utilisateurs de différents locataires Azure AD à se connecter avec Azure AD B2C sans avoir à configurer un fournisseur d’identité pour chaque locataire. Toutefois, les membres invités dans ces locataires **ne pourront pas** se connecter. Pour ce faire, vous devez [configurer individuellement chaque locataire](identity-provider-azure-ad-single-tenant.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +40,8 @@ Cet article explique comment autoriser la connexion d’utilisateurs à l’aide
 
 ## <a name="register-an-application"></a>Inscrire une application
 
-Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spécifique, vous devez inscrire une application au sein du locataire Azure AD de l’organisation.
+Pour autoriser la connexion des utilisateurs avec un compte Azure AD dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Inscrire une application auprès de la plateforme d’identités Microsoft](../active-directory/develop/quickstart-register-app.md).
+
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD de l’organisation (par exemple, contoso.com). Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
@@ -62,7 +63,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
-Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Si vous souhaitez obtenir les revendications `family_name` et `given_name` d’Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l’interface utilisateur du portail Azure ou dans le manifeste de l’application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
@@ -87,9 +88,9 @@ Vous devez stocker la clé d’application que vous avez créée dans votre loca
 1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 1. Sélectionnez **Create** (Créer).
 
-## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
+## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurer Azure AD en tant que fournisseur d’identité
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’Azure AD, vous devez définir Azure AD en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
+Pour permettre aux utilisateurs de se connecter à l’aide d’un compte Azure AD, vous devez définir Azure AD en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Azure AD à l’élément **ClaimsProvider** dans le fichier d’extension de votre stratégie.
 
@@ -102,7 +103,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
       <Domain>commonaad</Domain>
       <DisplayName>Common AAD</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Common-AAD">
+        <TechnicalProfile Id="AADCommon-OpenIdConnect">
           <DisplayName>Multi-Tenant AAD</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
@@ -152,10 +153,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
 
 ### <a name="restrict-access"></a>Restriction de l’accès
 
-> [!NOTE]
-> La valeur `https://login.microsoftonline.com/` pour **ValidTokenIssuerPrefixes** autorise tous les utilisateurs Azure AD à se connecter à votre application.
-
-Vous devez mettre à jour la liste des émetteurs de jetons valides et restreindre l’accès à une liste spécifique d’utilisateurs locataires Azure AD qui peuvent se connecter.
+La valeur `https://login.microsoftonline.com/` pour **ValidTokenIssuerPrefixes** autorise tous les utilisateurs Azure AD à se connecter à votre application. Mettez à jour la liste des émetteurs de jetons valides et restreignez l’accès à une liste spécifique d’utilisateurs locataires Azure AD qui peuvent se connecter.
 
 Pour obtenir les valeurs correspondantes, examinez les métadonnées de découverte OpenID Connect de chacun des locataires Azure AD à partir desquels les utilisateurs seront autorisés à se connecter. Le format de l’URL des métadonnées est semblable à `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, où `your-tenant` est votre nom de locataire Azure AD. Par exemple :
 
@@ -166,67 +164,29 @@ Effectuez ces étapes pour chaque locataire Azure AD qui doit être utilisé pou
 1. Ouvrez votre navigateur et accédez à l’URL des métadonnées OpenID Connect pour le locataire. Recherchez l’objet **issuer** et enregistrez sa valeur. Elle doit ressembler à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
 1. Copiez et collez la valeur dans la clé **ValidTokenIssuerPrefixes**. Séparez plusieurs émetteurs par une virgule. Un exemple avec deux émetteurs apparaît dans l’exemple XML `ClaimsProvider` précédent.
 
-### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec vos annuaires Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
-2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-3. Sélectionnez **Télécharger**.
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADCommonExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADCommonExchange" TechnicalProfileReferenceId="AADCommon-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour le rendre disponible, vous devez créer un doublon d’un modèle de parcours utilisateur existant et le modifier afin qu’il dispose également du fournisseur d’identité Azure AD.
+[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Ouvrez le fichier *TrustFrameworkBase.xml* à partir du pack de démarrage.
-2. Recherchez et copiez l’intégralité du contenu de l’élément **UserJourney** comprenant `Id="SignUpOrSignIn"`.
-3. Ouvrez le fichier *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
-4. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
-5. Renommez l’ID du parcours utilisateur. Par exemple : `SignUpSignInContoso`.
-
-### <a name="display-the-button"></a>Afficher le bouton
-
-L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** à Azure AD, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé dans *TrustFrameworkExtensions.xml*.
-1. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `AzureADExchange` :
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
-
-Maintenant que vous avez un bouton en place, vous devez le lier à une action. L’action est, dans ce cas, la communication d’Azure AD B2C avec Azure AD pour recevoir un jeton. Associez le bouton à une action en liant le profil technique de votre fournisseur de revendications Azure AD.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
-
-    ```xml
-    <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
-    ```
-
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `Common-AAD`.
-
-3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
-
-## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
-
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé :
-
-1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, attribuez-lui le nouveau nom *SignUpSignInADFS.xml*.
-1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInContoso`.
-1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Par exemple : `http://contoso.com/B2C_1A_signup_signin_contoso`.
-1. Mettez à jour la valeur de l’attribut **ReferenceId** dans **DefaultUserJourney** pour qu’elle corresponde à l’ID du parcours utilisateur que vous avez créé précédemment. Par exemple, *SignUpSignInContoso*.
-1. Enregistrez vos modifications et téléchargez le fichier.
-1. Dans la liste des stratégies chargées, sous **Stratégies personnalisées**, sélectionnez la stratégie que vous venez de créer.
-1. Dans la liste déroulante **Sélectionner une application**, sélectionnez l’application Azure AD B2C que vous avez créée précédemment. Par exemple, *testapp1*.
-1. Copiez le point de terminaison **Exécuter maintenant** et ouvrez-le dans une fenêtre de navigation privée, par exemple en mode navigation privée dans Google Chrome ou dans une fenêtre InPrivate dans Microsoft Edge. L’ouverture dans une fenêtre de navigation privée vous permet de tester le parcours utilisateur complet en n’utilisant pas les informations d’identification Azure AD actuellement mises en cache.
-1. Sélectionnez le bouton de connexion Azure AD, par exemple *Contoso Employee* (Employé Contoso), puis entrez les informations d’identification d’un utilisateur dans l’un de vos locataires d’organisation Azure AD. Vous êtes invité à autoriser l’application, puis à entrer des informations pour votre profil.
-
-Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
-
-Pour tester la fonctionnalité de connexion multilocataire, effectuez les deux dernières étapes à l’aide des informations d’identification d’un utilisateur qui existe dans un autre locataire Azure AD.
+Pour tester la fonctionnalité de connexion multilocataire, effectuez les deux dernières étapes à l’aide des informations d’identification d’un utilisateur qui existe dans un autre locataire Azure AD. Copiez le point de terminaison **Exécuter maintenant** et ouvrez-le dans une fenêtre de navigation privée, par exemple en mode navigation privée dans Google Chrome ou dans une fenêtre InPrivate dans Microsoft Edge. L’ouverture dans une fenêtre de navigation privée vous permet de tester le parcours utilisateur complet en n’utilisant pas les informations d’identification Azure AD actuellement mises en cache.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

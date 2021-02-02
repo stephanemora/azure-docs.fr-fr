@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663670"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatiser la gestion avec l’extension SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Cet article fournit une vue d’ensemble de l’extension. Pour installer l’ex
 
 ## <a name="overview"></a>Vue d’ensemble
 
-L’extension SQL Server IaaS Agent offre un certain nombre d’avantages pour SQL Server sur les machines virtuelles Azure : 
+L’extension de l’agent IaaS SQL Server permet une intégration avec le portail Azure et, selon le mode de gestion, offre un certain nombre d’avantages en matière de fonctionnalités pour SQL Server sur les machines virtuelles Azure : 
 
 - **Avantages en termes de fonctionnalités** : L’extension déverrouille un certain nombre d’avantages en termes de fonctionnalités d’automatisation, telles que l’administration du portail, la flexibilité des licences, la sauvegarde automatisée, la mise à jour corrective automatisée et bien plus encore. Pour plus d’informations, consultez [Avantages en termes de fonctionnalités](#feature-benefits) plus loin dans cet article. 
 
@@ -74,12 +74,13 @@ Le tableau suivant détaille ces avantages :
 
 | Fonctionnalité | Description |
 | --- | --- |
-| **Gestion du portail** | Déverrouille la [gestion dans le portail](manage-sql-vm-portal.md), ce qui vous permet de visualiser toutes vos machines virtuelles SQL Server dans un seul emplacement, et d’activer ou de désactiver les fonctionnalités spécifiques à SQL, directement à partir du portail. 
-| **Sauvegarde automatisée** |Automatise la planification des sauvegardes pour toutes les bases de données pour l’instance par défaut ou une instance nommée [correctement installée](frequently-asked-questions-faq.md#administration) de SQL Server sur la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](automated-backup-sql-2014.md). |
-| **Mise à jour corrective automatisée** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de sécurité SQL Server et Windows importantes de votre machine virtuelle peuvent avoir lieu ; vous évitez ainsi les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](automated-patching.md). |
-| **Intégration d’Azure Key Vault** |Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Gestion des licences flexible** | Économisez sur le coût en [passant en toute transparence](licensing-model-azure-hybrid-benefit-ahb-change.md) de votre propre licence (également appelée Azure Hybrid Benefit) au modèle de licence avec paiement à l’utilisation, et inversement. | 
-| **Version/édition flexible** | Si vous décidez de modifier la [version](change-sql-server-version.md) ou l’[édition](change-sql-server-edition.md) de SQL Server, vous pouvez mettre à jour les métadonnées dans le portail Azure sans avoir à redéployer toute la machine virtuelle SQL Server.  | 
+| **Gestion du portail** | Déverrouille la [gestion dans le portail](manage-sql-vm-portal.md), ce qui vous permet de visualiser toutes vos machines virtuelles SQL Server dans un seul emplacement, et d’activer ou de désactiver les fonctionnalités spécifiques à SQL, directement à partir du portail. <br/> Mode d’administration : Léger et complet|  
+| **Sauvegarde automatisée** |Automatise la planification des sauvegardes pour toutes les bases de données pour l’instance par défaut ou une instance nommée [correctement installée](frequently-asked-questions-faq.md#administration) de SQL Server sur la machine virtuelle. Pour plus d’informations, consultez [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](automated-backup-sql-2014.md). <br/> Mode d’administration : Complète|
+| **Mise à jour corrective automatisée** |Configure une fenêtre de maintenance pendant laquelle les mises à jour de sécurité SQL Server et Windows importantes de votre machine virtuelle peuvent avoir lieu ; vous évitez ainsi les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (Resource Manager)](automated-patching.md). <br/> Mode d’administration : Complète|
+| **Intégration d’Azure Key Vault** |Permet d’installer et de configurer automatiquement Azure Key Vault sur votre machine virtuelle SQL Server. Pour plus d’informations, consultez [Configurer l’intégration du coffre de clés Azure SQL Server sur des machines virtuelles (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Mode d’administration : Complète|
+| **Afficher l’utilisation du disque dans le portail** | Vous permet d’afficher une représentation graphique de l’utilisation du disque par vos fichiers de données SQL dans le portail Azure.  <br/> Mode d’administration : Complète | 
+| **Gestion des licences flexible** | Économisez sur le coût en [passant en toute transparence](licensing-model-azure-hybrid-benefit-ahb-change.md) de votre propre licence (également appelée Azure Hybrid Benefit) au modèle de licence avec paiement à l’utilisation, et inversement. <br/> Mode d’administration : Léger et complet| 
+| **Version/édition flexible** | Si vous décidez de modifier la [version](change-sql-server-version.md) ou l’[édition](change-sql-server-edition.md) de SQL Server, vous pouvez mettre à jour les métadonnées dans le portail Azure sans avoir à redéployer toute la machine virtuelle SQL Server.  <br/> Mode d’administration : Léger et complet| 
 
 
 ## <a name="management-modes"></a>Modes de gestion
@@ -115,7 +116,7 @@ Il existe trois possibilités d’inscription à l’extension :
 
 ### <a name="named-instance-support"></a>Prise en charge d’une instance nommée
 
-L’extension SQL Server IaaS Agent fonctionne avec une instance nommée de SQL Server s’il s’agit de la seule instance SQL Server disponible sur la machine virtuelle. L’installation de l’extension échoue sur les machines virtuelles comportant plusieurs instances de SQL Server. 
+L’extension d’agent IaaS SQL Server fonctionne avec une instance nommée de SQL Server s’il s’agit de la seule instance disponible sur la machine virtuelle. L’installation de l’extension échoue sur les machines virtuelles qui ont plusieurs instances nommées SQL Server s’il n’y a pas d’instance par défaut sur la machine virtuelle. 
 
 Pour utiliser une instance nommée de SQL Server, déployez une machine virtuelle Azure, installez-y une instance SQL Server nommée unique, puis inscrivez-la à l’[extension SQL IaaS](sql-agent-extension-manually-register-single-vm.md).
 
@@ -228,7 +229,7 @@ Non. Une machine virtuelle doit disposer d’au moins une instance SQL Server (m
 
 **Puis-je inscrire une machine virtuelle à l’extension SQL IaaS Agent s’il existe plusieurs instances SQL Server ?**
 
-Oui. L’extension SQL IaaS Agent n'inscrira qu'une seule instance de SQL Server (moteur de base de données). L’extension SQL IaaS Agent inscrira l’instance SQL Server par défaut en présence de plusieurs instances. En l’absence d’instance par défaut, l’inscription uniquement en mode léger est prise en charge. Pour effectuer une mise à niveau du mode de gestion léger à complet, l’instance SQL Server par défaut doit exister ou la machine virtuelle ne doit avoir qu’une seule instance SQL Server nommée.
+Oui, à condition qu’il existe une instance par défaut sur la machine virtuelle. L’extension SQL IaaS Agent n'inscrira qu'une seule instance de SQL Server (moteur de base de données). L’extension SQL IaaS Agent inscrira l’instance SQL Server par défaut en présence de plusieurs instances.
 
 **Puis-je inscrire une instance de cluster de basculement SQL Server à l’extension SQL IaaS Agent ?**
 

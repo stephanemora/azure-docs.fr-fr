@@ -1,20 +1,24 @@
 ---
-title: Mise à jour d’un service cloud | Microsoft Docs
+title: Comment mettre à jour un service cloud (classique) | Microsoft Docs
 description: Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075040"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741109"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Comment mettre à jour un service cloud Azure (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 La mise à jour d’un service cloud, et notamment de ses rôles et du système d’exploitation invité, est un processus qui se déroule en trois étapes. Tout d’abord, les fichiers binaires et de configuration du nouveau Service Cloud et de la version de système d’exploitation doivent être téléchargés. Dans un deuxième temps, Azure réserve des ressources de calcul et réseau au Service Cloud selon les spécifications de la nouvelle version de Service Cloud. Enfin, Azure effectue une mise à niveau propagée pour effectuer une mise à jour incrémentielle du client vers la nouvelle version ou le nouveau système d’exploitation invité tout en préservant votre disponibilité. Cet article discute des détails de cette dernière étape, la mise à jour propagée.
 
@@ -23,7 +27,7 @@ Azure organise vos instances de rôle en regroupements logiques appelés domaine
 
 Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)](./schema-csdef-file.md).
 
-Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
+Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d'informations, consultez la section [Fonctionnement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
 
 > [!NOTE]
 > Bien que les termes **mise à jour** et **mise à niveau** aient une signification légèrement différente dans le contexte Azure, ils peuvent être utilisés indifféremment pour les processus et les descriptions des fonctionnalités du présent document.
@@ -101,7 +105,7 @@ Lors de la mise à niveau d’un service d’instance unique vers plusieurs inst
 
 |Scénario|Lecteur C|Lecteur D|Lecteur E|
 |--------|-------|-------|-------|
-|Redémarrage de la machine virtuelle|Préservé|Préservé|Préservé|
+|Redémarrage de machine virtuelle|Préservé|Préservé|Préservé|
 |Redémarrage du portail|Préservé|Préservé|Détruit|
 |Réinitialisation du portail|Préservé|Détruit|Détruit|
 |Mise à niveau sur place|Préservé|Préservé|Détruit|
@@ -114,10 +118,10 @@ Pour réduire les temps d’arrêt en cas de mise à niveau d’un service à in
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Restauration d’une mise à jour
-Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu’une mise à jour (modification de configuration) ou une mise à niveau se trouve dans l’état **en cours** du déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, assurez-vous que la valeur de l’indicateur RollbackAllowed retournée par les opérations [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) est bien définie sur true.
+Azure offre une flexibilité dans la gestion des services pendant la mise à jour en vous permettant de lancer des opérations supplémentaires sur un service, une fois la demande de mise à jour initiale acceptée par le contrôleur d’architecture Azure. Une restauration ne peut être effectuée que lorsqu'une mise à jour (modification de configuration) ou une mise à niveau est dans l'état **en cours** sur le déploiement. Une mise à jour ou mise à niveau est considérée comme en cours tant qu’il existe au moins une instance du service qui n’a pas encore été mise à jour vers la nouvelle version. Pour vérifier si une restauration est autorisée, assurez-vous que la valeur de l’indicateur RollbackAllowed retournée par les opérations [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)) est bien définie sur true.
 
 > [!NOTE]
-> Il convient d’appeler la restauration uniquement sur une mise à jour ou une mise à niveau **sur place** , parce que les mises à niveau d’échange d’adresse virtuelle impliquent le remplacement d’une instance complète s’exécutant sur votre service avec une autre.
+> L'appel de la fonction de restauration sur une mise à jour ou mise à niveau **sur place** ne se justifie que parce que les échanges d'adresses virtuelles IP impliquent de remplacer une instance complète de votre service en cours d'exécution par une autre.
 >
 >
 
@@ -149,7 +153,7 @@ Lors du déploiement de la mise à niveau, vous appelez [Mettre à niveau un dé
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Lancement de plusieurs opérations de mutation sur un déploiement en cours
-Dans certains cas, vous pouvez souhaiter initier plusieurs opérations de mutation simultanées sur un déploiement en cours. Par exemple, vous pouvez effectuer une mise à jour du service et, pendant la propagation de la mise à jour sur votre service, vous pouvez apporter des modifications, par exemple, restaurer la mise à jour, en appliquer une autre, ou encore supprimer le déploiement. Cela peut s’avérer nécessaire si une mise à niveau de service contient un code bogué qui entraîne des échecs répétés d’une instance de rôle mise à niveau. Dans ce cas, le contrôleur de structure Azure ne sera pas en mesure de faire avancer l’application de cette mise à jour, parce qu’un nombre insuffisant d’instances du domaine mis à niveau sont dans un bon état. Cet état est appelé *Déploiement bloqué*. Vous pouvez débloquer le déploiement en restaurant la mise à jour ou en appliquant une nouvelle mise à jour par dessus celle qui a échoué.
+Dans certains cas, vous pouvez souhaiter initier plusieurs opérations de mutation simultanées sur un déploiement en cours. Par exemple, vous pouvez effectuer une mise à jour du service et, pendant la propagation de la mise à jour sur votre service, vous pouvez apporter des modifications, par exemple, restaurer la mise à jour, en appliquer une autre, ou encore supprimer le déploiement. Cela peut s’avérer nécessaire si une mise à niveau de service contient un code bogué qui entraîne des échecs répétés d’une instance de rôle mise à niveau. Dans ce cas, le contrôleur de structure Azure ne sera pas en mesure de faire avancer l’application de cette mise à jour, parce qu’un nombre insuffisant d’instances du domaine mis à niveau sont dans un bon état. Cet état est connu sous le nom de *déploiement bloqué*. Vous pouvez débloquer le déploiement en restaurant la mise à jour ou en appliquant une nouvelle mise à jour par dessus celle qui a échoué.
 
 Une fois que le contrôleur de structure Azure a reçu la demande initiale de mise à jour ou de mise à niveau, vous pouvez démarrer des opérations de mutation suivantes. Autrement dit, il est inutile d’attendre la fin de l’opération initiale avant de commencer une autre opération de mutation.
 

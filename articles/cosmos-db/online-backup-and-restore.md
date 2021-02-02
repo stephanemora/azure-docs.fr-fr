@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba66013e37c196c58291a6bcd979be7fb5fa0130
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097530"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684574"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -27,7 +27,7 @@ Avec Azure Cosmos DB, vos données et leurs sauvegardes sont rendues hautement r
 
 * Azure Cosmos DB stocke ces sauvegardes dans Stockage Blob Azure, tandis que les données réelles résident localement dans Azure Cosmos DB.
 
-* Pour garantir une latence faible, la capture instantanée de votre sauvegarde est stockée dans le Stockage Blob Azure, dans la région d’écriture actuelle (ou dans l’ **une** des régions d’écriture si vous avez une configuration d’écriture multirégion). Pour assurer la résilience contre les sinistres régionaux, chaque capture instantanée de vos données de sauvegarde dans le stockage blob Azure est à nouveau répliqué vers une autre région par le biais du stockage géoredondant (GRS). La région vers laquelle la sauvegarde est répliquée dépend de votre région source et de la paire régionale associée à la région source. Pour plus d’informations, consultez la [liste des paires de régions Azure géoredondantes](../best-practices-availability-paired-regions.md). Vous ne pouvez pas accéder directement à cette sauvegarde. L’équipe Azure Cosmos DB restaurera votre sauvegarde lorsque vous le demanderez par le biais d’une demande de support.
+* Pour garantir une latence faible, la capture instantanée de votre sauvegarde est stockée dans le Stockage Blob Azure, dans la région d’écriture actuelle (ou dans l’**une** des régions d’écriture si vous avez une configuration d’écriture multirégion). Pour assurer la résilience contre les sinistres régionaux, chaque capture instantanée de vos données de sauvegarde dans le stockage blob Azure est à nouveau répliqué vers une autre région par le biais du stockage géoredondant (GRS). La région vers laquelle la sauvegarde est répliquée dépend de votre région source et de la paire régionale associée à la région source. Pour plus d’informations, consultez la [liste des paires de régions Azure géoredondantes](../best-practices-availability-paired-regions.md). Vous ne pouvez pas accéder directement à cette sauvegarde. L’équipe Azure Cosmos DB restaurera votre sauvegarde lorsque vous le demanderez par le biais d’une demande de support.
 
    L’image suivante montre comment un conteneur Azure Cosmos avec les trois partitions physiques principales dans la région USA Ouest est sauvegardé dans un compte Stockage Blob Azure distant dans la région USA Ouest, puis répliqué dans la région USA Est :
 
@@ -46,11 +46,11 @@ Procédez comme suit pour modifier les options de sauvegarde par défaut pour un
 1. Connectez-vous au [portail Azure.](https://portal.azure.com/)
 1. Accédez à votre compte Azure Cosmos et ouvrez le volet **Sauvegarder et restaurer**. Mettez à jour l’intervalle de sauvegarde et la période de rétention de sauvegarde selon les besoins.
 
-   * **Intervalle de sauvegarde**  : intervalle auquel Azure Cosmos DB tente d’effectuer une sauvegarde de vos données. La sauvegarde prend un certain temps et, dans certains cas, elle peut échouer en raison de dépendances en aval. Azure Cosmos DB tente d’effectuer une sauvegarde à l’intervalle configuré. Il n’est cependant nullement garanti que la sauvegarde s’achève dans cet intervalle de temps. Vous pouvez configurer cette valeur en heures ou minutes. L’intervalle de sauvegarde ne peut pas être inférieur à 1 heure et supérieur à 24 heures. Lorsque vous modifiez cet intervalle, le nouvel intervalle prend effet à partir de l’heure à laquelle la dernière sauvegarde a été effectuée.
+   * **Intervalle de sauvegarde** : intervalle auquel Azure Cosmos DB tente d’effectuer une sauvegarde de vos données. La sauvegarde prend un certain temps et, dans certains cas, elle peut échouer en raison de dépendances en aval. Azure Cosmos DB tente d’effectuer une sauvegarde à l’intervalle configuré. Il n’est cependant nullement garanti que la sauvegarde s’achève dans cet intervalle de temps. Vous pouvez configurer cette valeur en heures ou minutes. L’intervalle de sauvegarde ne peut pas être inférieur à 1 heure et supérieur à 24 heures. Lorsque vous modifiez cet intervalle, le nouvel intervalle prend effet à partir de l’heure à laquelle la dernière sauvegarde a été effectuée.
 
-   * **Rétention des sauvegardes**  : période pendant laquelle chaque sauvegarde est conservée. Vous pouvez configurer cette valeur en heures ou en jours. La période de rétention minimale ne peut pas être inférieure à deux fois l’intervalle de sauvegarde (en heures), et ne peut pas être supérieure à 720 heures.
+   * **Rétention des sauvegardes** : période pendant laquelle chaque sauvegarde est conservée. Vous pouvez configurer cette valeur en heures ou en jours. La période de rétention minimale ne peut pas être inférieure à deux fois l’intervalle de sauvegarde (en heures), et ne peut pas être supérieure à 720 heures.
 
-   * **Copies des données conservées**  : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Des frais supplémentaires sont facturés si vous avez besoin de plus de deux copies. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   * **Copies des données conservées** : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Des frais supplémentaires sont facturés si vous avez besoin de plus de deux copies. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurer l’intervalle de sauvegarde et la rétention pour un compte Azure Cosmos existant" border="true":::
 
@@ -60,7 +60,7 @@ Si vous configurez les options de sauvegarde lors de la création du compte, vou
 
 ## <a name="request-data-restore-from-a-backup"></a>Demander une restauration des données à partir d’une sauvegarde
 
-En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible uniquement pour certains plans, tels que **Standard** , **Développeur** et des plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/).
+En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support Azure](https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support Azure est disponible uniquement pour certains plans, tels que **Standard**, **Développeur** et des plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/).
 
 Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
 Vous devez avoir les informations suivantes avant de demander une restauration :
@@ -115,6 +115,13 @@ Si vous avez accidentellement supprimé ou endommagé vos données, vous devez c
 
 Si vous approvisionnez le débit au niveau de la base de données, le processus de sauvegarde et de restauration se produit au niveau de la base de données entière, non au niveau de conteneurs individuels. Dans ce cas, vous ne pouvez pas sélectionner un sous-ensemble de conteneurs à restaurer.
 
+## <a name="required-permissions-to-change-retention-or-restore-from-the-portal"></a>Autorisations requises pour modifier la rétention ou la restauration à partir du portail
+Les principaux qui font partie du rôle [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), propriétaire ou contributeur sont autorisés à demander une restauration ou à modifier la période de rétention.
+
+## <a name="understanding-costs-of-extra-backups"></a>Comprendre les coûts des sauvegardes supplémentaires
+2 sauvegardes sont effectuées gratuitement et les sauvegardes supplémentaires sont facturées en fonction de la tarification basée sur la région pour le stockage de sauvegarde décrit dans [Tarification du stockage de sauvegarde](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Par exemple, si la rétention de la sauvegarde est configurée sur 240 heures, c’est-à-dire 10 jours et un intervalle de sauvegarde de 24 heures. Cela implique 10 copies des données de sauvegarde. En supposant 1 To de données pour la région USA Ouest 2, le coût s’élève à 1000 x 0,12, soit 120 USD pour le stockage de sauvegarde dans le mois donné. 
+
+
 ## <a name="options-to-manage-your-own-backups"></a>Options pour gérer vos propres sauvegardes
 
 Avec les comptes d’API SQL Azure Cosmos DB, vous pouvez également tenir à jour vos propres sauvegardes en adoptant l’une des approches suivantes :
@@ -147,4 +154,3 @@ Vous pouvez maintenant découvrir comment restaurer des données à partir d’u
 * Pour effectuer une demande de restauration, [émettez un ticket à partir du portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * [Utiliser le flux de modification Cosmos DB](change-feed.md) pour déplacer des données vers Azure Cosmos DB.
 * [Utiliser Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer des données vers Azure Cosmos DB.
-

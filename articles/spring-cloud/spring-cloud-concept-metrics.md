@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060637"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755470"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -97,8 +97,9 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >[!div class="mx-tdCol2BreakAll"]
 >| Nom | Nom de l’indicateur de performance Spring Actuator | Unité | Détails |
 >|----|----|----|------------|
->| system.cpu.usage | system.cpu.usage | Pourcentage | Utilisation récente de l’UC pour l’ensemble du système. Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique que toutes les UC étaient inactives pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont été actives 100 % du temps pendant la dernière période observée.|
->| process.cpu.usage | Pourcentage d’utilisation du processeur d’application | Pourcentage | Utilisation récente de l’UC pour le processus Machine virtuelle Java. Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
+>| system.cpu.usage | system.cpu.usage | Pourcentage | Utilisation récente du processeur pour l’ensemble du système (obsolète et non recommandé). Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique que toutes les UC étaient inactives pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont été actives 100 % du temps pendant la dernière période observée.|
+>| process.cpu.usage | Pourcentage d’utilisation du processeur d’application | Pourcentage | Utilisation récente du processeur pour le processus de la machine virtuelle Java (obsolète et non recommandé). Cette valeur est double dans l’intervalle [0.0,1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
+>| AppCpuUsage | Utilisation récente du processeur de l’application (préversion) | Pourcentage | Utilisation récente du processeur du processus JVM sur le processeur alloué à cette application, valeur de type double comprise entre [0.0, 1.0]. La valeur 0.0 indique qu’aucune des UC n’exécutait de threads du processus JVM pendant la dernière période observée, alors que la valeur 1.0 indique que toutes les UC ont exécuté des threads du processus JVM 100 % du temps pendant la dernière période observée. Les threads de JVM incluent les threads d’application, ainsi que les threads internes JVM.|
 >| jvm.memory.committed | jvm.memory.committed | Octets | Représente la quantité de mémoire dont la disponibilité est garantie pour une utilisation par la machine virtuelle Java. La machine virtuelle Java peut libérer de la mémoire sur le système et l’allocation peut être inférieure à la quantité initialement. validée sera toujours supérieure ou égale à la quantité utilisée. |
 >| jvm.memory.used | jvm.memory.used | Octets | Représente la quantité de mémoire actuellement utilisée, en octets. |
 >| jvm.memory.max | jvm.memory.max | Octets | Représente la quantité maximale de mémoire utilisable pour la gestion de la mémoire. La quantité de mémoire utilisée et validée sera toujours inférieure ou égale à Max si la quantité maximale est définie. Une allocation de mémoire peut échouer si elle tente d’augmenter la mémoire utilisée de telle sorte que used > committed même si used <= max serait toujours vrai (par exemple, lorsque la mémoire virtuelle du système est insuffisante). |

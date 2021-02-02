@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920251"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735739"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notification de maintenance planifiée dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -25,7 +25,7 @@ Une maintenance planifiée est une fenêtre de maintenance lorsque ces mises à 
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Maintenance planifiée : durée et impact sur le client
 
-Une maintenance planifiée pour une région Azure donnée est généralement prévue pour une exécution de 15 heures. La durée de cette fenêtre comprend également une marge pour exécuter un plan de restauration si nécessaire. Pendant la maintenance planifiée, il peut y avoir des redémarrages ou des basculements de serveur de base de données, ce qui peut entraîner une brève indisponibilité des serveurs de base de données pour les utilisateurs finaux. Les serveurs Azure Database pour PostgreSQL s’exécutent dans des conteneurs. Les redémarrages de serveurs de base de données sont donc généralement rapides, et s’exécutent normalement en 60-120 secondes. L’ensemble de l’événement de maintenance planifiée, y compris chaque redémarrage de serveur, est analysé avec soin par l’équipe d’ingénierie. Le temps de basculement du serveur dépend du temps de récupération de la base de données, ce qui peut entraîner un temps de mise en ligne de la base de données plus long si vous avez des activités transactionnelles importantes sur le serveur au moment du basculement. Pour éviter des temps de redémarrage plus longs, il est recommandé d’éviter toute transaction longue (chargement en masse) pendant les événements de maintenance planifiée.
+Une maintenance planifiée pour une région Azure donnée dure généralement 15 heures. Cette fenêtre de temps comprend également une marge de temps pour exécuter un plan de restauration si nécessaire. Les serveurs Azure Database pour PostgreSQL s’exécutent dans des conteneurs. Le redémarrage du serveur de la base de données dure donc généralement entre 60 et 120 secondes, mais il n’existe aucun moyen déterministe pour savoir à quel moment votre serveur sera affecté dans cette fenêtre de 15 heures. L’ensemble de l’événement de maintenance planifiée, y compris chaque redémarrage de serveur, est analysé avec soin par l’équipe d’ingénierie. Le temps de basculement du serveur dépend de la récupération de la base de données, ce qui peut entraîner un temps de mise en ligne de la base de données plus long si vous avez des activités transactionnelles importantes sur le serveur au moment du basculement. Pour éviter des temps de redémarrage plus longs, il est recommandé d’éviter toute transaction longue (chargement en masse) pendant les événements de maintenance planifiée.
 
 En résumé, bien que l’événement de maintenance planifiée s’exécute pendant 15 heures, l’impact sur un serveur individuel est généralement de 60 secondes en fonction de l’activité transactionnelle sur ce serveur. Une notification est envoyée 72 heures calendaires avant le démarrage de la maintenance planifiée, suivie d’une autre quand la maintenance en cours pour une région donnée.
 

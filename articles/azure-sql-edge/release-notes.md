@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704348"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696377"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notes de publication Azure SQL Edge 
 
 Cet article décrit les nouveautés et les changements apportés à chaque nouvelle build d’Azure SQL Edge.
+
+## <a name="azure-sql-edge-102"></a>Azure SQL Edge 1.0.2
+
+Moteur SQL build 15.0.2000.1554
+
+### <a name="fixes"></a>Correctifs
+
+- Diffusion en continu T-SQL  
+   - Correctif dans les propriétés et autorisations pour les objets de diffusion en continu
+   - Améliorations de la journalisation avec la rotation des journaux et l’attribution d’un préfixe aux journaux
+   - Azure Stream Analytics : Améliorations de la journalisation, code d’erreur/messages d’erreur améliorés dans les adaptateurs 
+
+- ONNX
+    - Correctifs de bogues pour scénario de requête parallèle et échecs de nettoyage du modèle
+    - Mise à niveau du runtime ONNX vers 1.5.1
 
 ## <a name="azure-sql-edge-101"></a>Azure SQL Edge 1.0.1
 

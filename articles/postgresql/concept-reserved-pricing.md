@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600100"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735470"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL - Serveur unique avec une capacité de réserve
 
@@ -35,7 +35,7 @@ Plus en savoir plus sur la facturation des achats de réservation pour les clien
 
 La taille de la réservation doit s’appuyer sur le nombre total de calculs utilisés par les serveurs existants ou sur le point d’être déployés dans une région spécifique et utilisant le même niveau de performance et la même génération de matériel.</br>
 
-Par exemple, supposons que vous exécutez une base de données Gen5 – 32 vCore PostgreSQ à usage général et deux base de données à mémoire optimisée Gen5 – 16 vCore PostgreSQL. Admettons également que vous envisagez de déployer au cours du mois prochain un autre serveur de base de données Gen5 32 vCore à usage général et un serveur de base de données Gen5 16 vCore à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins un an. Dans ce cas, vous devriez acheter une réservation de 64 (2x32) vCores pour une durée d’un an, pour un usage général de bases de données uniques - Gen5 et une réservation de 48 (2x16 + 16) vCores pour une durée d’un an pour une base de données unique à mémoire optimisée - Gen5
+Par exemple, supposons que vous exécutez une base de données Gen5 – 32 vCore PostgreSQ à usage général et deux base de données à mémoire optimisée Gen5 – 16 vCore PostgreSQL. Admettons également que vous envisagiez de déployer au cours du mois prochain un autre serveur de base de données Gen5 8 vCore à usage général et un serveur de base de données Gen5 32 vCore à mémoire optimisée. Imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins un an. Dans ce cas, vous devez acheter une réservation de 40 (32 + 8) vCore d’une durée d’un an pour une base de données unique Gen5 à usage général et une réservation de 64 (2 × 16 + 32) vCore d’une durée d’un an pour une base de données unique Gen5 à mémoire optimisée.
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acheter une capacité de réserve Azure Database pour PostgreSQL
@@ -53,7 +53,7 @@ Le tableau suivant décrit les champs requis.
 
 | Champ | Description |
 | :------------ | :------- |
-| Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour PostgreSQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour PostgreSQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du solde de Paiement anticipé Azure (précédemment appelé « engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
+| Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour PostgreSQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour PostgreSQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
 | Étendue | L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour PostgreSQL en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour PostgreSQL inclus dans cet abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux serveurs Azure Database pour PostgreSQL inclus dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
 | Région | La région Azure couverte par la réservation de capacité réservée Azure Database pour PostgreSQL.
 | Type de déploiement | Le type de ressource Azure Database pour PostgreSQL pour laquelle vous voulez acheter la réservation.
@@ -67,7 +67,8 @@ Vous pouvez annuler, échanger ou rembourser des réservations avec certaines li
 
 ## <a name="vcore-size-flexibility"></a>Flexibilité de la taille vCore
 
-La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au sein d’un niveau de performances et d’une région, sans perdre le bénéfice de la capacité réservée. 
+La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au sein d’un niveau de performances et d’une région, sans perdre le bénéfice de la capacité réservée. Si vous augmentez le nombre de vCore au-delà de la capacité réservée, l’excédent de vCore vous est facturé suivant la tarification à l’utilisation.
+
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

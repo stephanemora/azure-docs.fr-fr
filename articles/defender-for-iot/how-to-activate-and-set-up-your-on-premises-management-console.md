@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538578"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623752"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activer et configurer votre console de gestion locale 
 
@@ -147,13 +147,13 @@ Pour configurer le tunneling sur le capteur :
 
 ## <a name="set-up-a-site"></a>Configurer un site
 
-La carte d’entreprise par défaut fournit une vue globale de vos ressources selon plusieurs niveaux d’emplacements géographiques.
+La carte d’entreprise par défaut fournit une vue globale de vos appareils selon plusieurs niveaux d’emplacements géographiques.
 
-La visualisation de vos ressources peut être nécessaire lorsque la structure organisationnelle et les autorisations utilisateur sont complexes. Dans ces cas, la configuration du site peut être déterminée par une structure organisationnelle globale, en plus de la structure standard du site ou de la zone.
+La visualisation de vos appareils peut être nécessaire lorsque la structure organisationnelle et les autorisations utilisateur sont complexes. Dans ces cas, la configuration du site peut être déterminée par une structure organisationnelle globale, en plus de la structure standard du site ou de la zone.
 
 Pour prendre en charge cet environnement, vous devez créer une topologie d’entreprise globale basée sur les unités commerciales, les régions, les sites et les zones de votre organisation. Vous devez également définir des autorisations d’accès utilisateur autour de ces entités à l’aide de groupes d’accès.
 
-Les groupes d’accès permettent de mieux contrôler l’emplacement où les utilisateurs gèrent et analysent des ressources dans la plateforme Defender pour IoT.
+Les groupes d’accès permettent de mieux contrôler l’emplacement où les utilisateurs gèrent et analysent des appareils dans la plateforme Defender pour IoT.
 
 ### <a name="how-it-works"></a>Fonctionnement
 
@@ -215,7 +215,7 @@ Pour supprimer un site :
 
 ## <a name="create-enterprise-zones"></a>Créer des zones d’entreprise
 
-Les zones sont des entités logiques qui vous permettent de diviser les ressources d’un site en groupes selon différentes caractéristiques. Par exemple, vous pouvez créer des groupes pour les lignes de production, les sous-stations, les zones de site ou les types de ressources. Vous pouvez définir des zones en fonction des caractéristiques qui conviennent à votre organisation.
+Les zones sont des entités logiques qui vous permettent de diviser les appareils d’un site en groupes selon différentes caractéristiques. Par exemple, vous pouvez créer des groupes pour les lignes de production, les sous-stations, les zones de site ou les types d’appareils. Vous pouvez définir des zones en fonction des caractéristiques qui conviennent à votre organisation.
 
 Vous configurez des zones dans le cadre du processus de configuration du site.
 
@@ -231,7 +231,7 @@ Le tableau suivant décrit les paramètres de la fenêtre **Gestion des sites**.
 | Connectivité | État de connectivité du capteur. L’état peut être **Connecté** ou **Déconnecté**. |
 | Dernière mise à niveau | Date de la dernière mise à niveau. |
 | Progression de la mise à niveau | La barre de progression indique l’état du processus de mise à niveau, comme suit :<br />- Chargement du package<br />- Préparation de l’installation<br />- Arrêt des processus<br />- Sauvegarde de données<br />- Prise d’un instantané<br />- Mise à jour de la configuration<br />- Mise à jour des dépendances<br />- Mise à jour des bibliothèques<br />- Mise à jour corrective des bases de données<br />- Démarrage des processus<br />- Validation de la validité du système<br />- Validation réussie<br />- Réussite<br />- Échec<br />- Mise à niveau démarrée<br />- Démarrage de l’installationogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Pour plus d’informations sur la mise à niveau, adressez-vous à [Support Microsoft](https://support.microsoft.com/) pour obtenir de l’aide. |
-| Éléments multimédias | Nombre de ressources OT surveillées par le capteur. |
+| Appareils | Nombre de d’appareils OT que le capteur surveille. |
 | Alertes | Nombre d’alertes sur le capteur. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Permet d’attribuer un capteur à des zones. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Permet de supprimer un capteur déconnecté du site. |

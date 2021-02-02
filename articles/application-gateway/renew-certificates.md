@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 8/15/2018
+ms.date: 01/20/2021
 ms.author: victorh
-ms.openlocfilehash: 413ae2ee19f0b8e427de9167b52971e413cdf573
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397210"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622178"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renouveler des certificats Application Gateway
 
@@ -22,11 +22,11 @@ Vous pouvez renouveler un certificat associé à un écouteur à l’aide du Por
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Pour renouveler un certificat d’écouteur à partir du portail, accédez à vos écouteurs Application Gateway. Cliquez sur l’écouteur dont vous devez renouveler le certificat, puis cliquez sur **Renew or edit selected certificate** (Renouveler ou modifier le certificat sélectionné).
+Pour renouveler un certificat d’écouteur à partir du portail, accédez à vos écouteurs Application Gateway. Sélectionnez l’écouteur dont le certificat doit être renouvelé, puis **Renouveler ou modifier le certificat sélectionné**.
 
-![Renouvellement de certificat](media/renew-certificate/ssl-cert.png)
+:::image type="content" source="media/renew-certificate/ssl-cert.png" alt-text="Renouveler le certificat":::
 
-Chargez votre nouveau certificat PFX, attribuez-lui un nom, tapez le mot de passe, puis cliquez sur **Enregistrer**.
+Chargez votre nouveau certificat PFX, donnez-lui un nom, tapez le mot de passe, puis sélectionnez **Enregistrer**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

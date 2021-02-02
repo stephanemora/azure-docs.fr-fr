@@ -3,13 +3,13 @@ title: Résoudre les erreurs de déploiement courantes
 description: Décrit comment résoudre les erreurs courantes lors du déploiement de ressources sur Azure à l’aide d’Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
-ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/20/2021
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185825"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696394"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -34,10 +34,10 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | DeploymentNameLengthLimitExceeded | Les noms de déploiement sont limités à 64 caractères.  | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
 | DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. | [Résoudre l’erreur de nombre de déploiements supérieur à 800](deployment-quota-exceeded.md) |
-| DeploymentSizeExceeded | Simplifiez votre modèle pour réduire la taille. | [Résoudre des erreurs de taille de modèle](error-job-size-exceeded.md) |
+| DeploymentJobSizeExceeded | Simplifiez votre modèle pour réduire la taille. | [Résoudre des erreurs de taille de modèle](error-job-size-exceeded.md) |
 | DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Entrez un autre nom. | |
 | ImageNotFound | Vérifiez les paramètres d’image de machine virtuelle. |  |
-| InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Procurez-vous le jeton d’accès pour le client approprié. Vous pouvez uniquement obtenir le jeton auprès du client auquel appartient votre compte. | |
 | InvalidContentLink | Vous avez probablement tenté d’établir une liaison avec un modèle imbriqué qui n’est pas disponible. Vérifiez l’URI que vous avez indiqué pour le modèle imbriqué. Si le modèle existe dans un compte de stockage, assurez-vous que l’URI est accessible. Vous devrez peut-être valider un jeton SAS. Vous ne pouvez pas établir un lien vers un modèle qui se trouve dans un compte de stockage derrière un [pare-feu Stockage Azure](../../storage/common/storage-network-security.md). Envisagez de déplacer votre modèle vers un autre dépôt, par exemple GitHub. | [Modèles liés](linked-templates.md) |
 | InvalidDeploymentLocation | Lors du déploiement au niveau de l’abonnement, vous avez fourni un emplacement différent pour un nom de déploiement précédemment utilisé. | [Déploiements de niveau abonnement](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | PasswordTooLong | Vous avez peut-être choisi un mot de passe comportant trop de caractères ou converti la valeur de votre mot de passe en chaîne sécurisée avant de la transmettre en tant que paramètre. Si le modèle inclut un paramètre de **chaîne sécurisée**, vous n’avez pas besoin de convertir la valeur en chaîne sécurisée. Indiquez la valeur de mot de passe sous forme de texte. |  |
 | PrivateIPAddressInReservedRange | L’adresse IP spécifiée inclut une plage d’adresses requise par Azure. Modifiez l’adresse IP pour éviter d’utiliser la plage réservée. | [Adresses IP](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | L’adresse IP spécifiée se trouve en dehors de la plage de sous-réseau. Modifiez l’adresse IP pour qu’elle se trouve dans la plage de sous-réseau. | [Adresses IP](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Certaines propriétés ne peuvent pas être changées sur une ressource déployée. Durant la mise à jour d’une ressource, limitez vos modifications aux propriétés autorisées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Certaines propriétés ne peuvent pas être changées sur une ressource déployée. Durant la mise à jour d’une ressource, limitez vos modifications aux propriétés autorisées. | [Mettre à jour une ressource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | Votre abonnement inclut une stratégie de ressource qui empêche une action que vous tentez d’exécuter au cours du déploiement. Recherchez la stratégie qui bloque l’action. Si possible, modifiez votre déploiement pour respecter les limitations de la stratégie. | [Résoudre les erreurs de stratégie](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Spécifiez un nom de ressource qui n’inclut pas de nom réservé. | [Noms de ressource réservés](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendez que la suppression soit terminée. | |

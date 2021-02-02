@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134413"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610299"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caractérisation de données dans le Machine Learning automatisé
 
-
-
-En savoir plus sur les paramètres de caractérisation de données dans Azure Machine Learning et sur la façon de personnaliser ces fonctionnalités pour [les expériences d’expérimentation automatisées de ML](concept-automated-ml.md).
+En savoir plus sur les paramètres de caractérisation de données dans Azure Machine Learning et sur la façon de personnaliser ces fonctionnalités pour les [expériences Machine Learning automatisé](concept-automated-ml.md).
 
 ## <a name="feature-engineering-and-featurization"></a>Ingénierie des caractéristiques et caractérisation
 
-*L’ingénierie des caractéristiques* est le processus qui consiste à utiliser la connaissance du domaine des données pour créer des fonctionnalités qui aident les algorithmes de ML à améliorer leur apprentissage. Dans Azure Machine Learning, des techniques de mise à l’échelle et de normalisation des données sont appliquées pour faciliter l’ingénierie de caractéristiques. Généralement, ces techniques et l’ingénierie des caractéristiques sont appelées *caractérisation* dans les expériences de Machine Learning automatisé *(AutoML)* .
+Les données pour l’apprentissage se composent de lignes et de colonnes. Chaque ligne est une observation ou un enregistrement et les colonnes de chaque ligne sont les caractéristiques qui décrivent chaque enregistrement. En général, les caractéristiques qui caractérisent le mieux les modèles dans les données sont sélectionnées pour créer des modèles prédictifs.
+
+Bien que la plupart des champs de données brutes puissent être utilisés directement pour l’apprentissage d’un modèle, il est souvent nécessaire de créer des caractéristiques supplémentaires (traitées) qui fournissent des informations qui différencient mieux les modèles dans les données. Ce processus est appelé **ingénierie des caractéristiques**. Dans ce processus, l’utilisation de la connaissance du domaine des données est exploitée pour créer des fonctionnalités qui, à leur tour, aident les algorithmes de Machine Learning à améliorer leur apprentissage. 
+
+Dans Azure Machine Learning, des techniques de mise à l’échelle et de normalisation des données sont appliquées pour faciliter l’ingénierie de caractéristiques. Généralement, ces techniques et l’ingénierie de caractéristiques sont appelées **caractérisation** dans les expériences de Machine Learning automatisé.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article part du principe que vous savez déjà comment configurer une expérience AutoML. Pour plus d'informations sur la configuration, consultez les articles suivants :
+Cet article part du principe que vous savez déjà comment configurer une expérience de Machine Learning automatisé. Pour plus d'informations sur la configuration, consultez les articles suivants :
 
 - Pour une première expérience basée sur le code : [Configurer des expériences de ML automatisé à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning pour Python](how-to-configure-auto-train.md).
 - Pour une expérience avec peu ou pas de code  : [Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md).
@@ -59,7 +61,7 @@ Le tableau suivant présente les paramètres acceptés pour `featurization` dans
 Le tableau suivant récapitule les techniques appliquées automatiquement à vos données. Ces techniques sont appliquées pour les expériences configurées à l’aide du kit de développement logiciel (SDK) ou du studio. Pour désactiver ce comportement, définissez `"featurization": 'off'` dans votre objet `AutoMLConfig`.
 
 > [!NOTE]
-> Si vous envisagez d’exporter vos modèles créés par ML automatisé vers un [modèle ONNX](concept-onnx.md), seules les options de caractérisation marquées d’un astérisque (*) sont prises en charge dans le format ONNX. Apprenez-en davantage sur la [conversion de modèles au format ONNX](concept-automated-ml.md#use-with-onnx).
+> Si vous envisagez d’exporter vos modèles créés par ML automatisé vers un [modèle ONNX](concept-onnx.md), seules les options de caractérisation marquées d’un astérisque (*) sont prises en charge dans le format ONNX. Apprenez-en davantage sur la [conversion de modèles au format ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Étapes&nbsp;de caractérisation| Description |
 | ------------- | ------------- |

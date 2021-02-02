@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 297efa83fb1563e3a360f652a6ac1bc2b1679998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930640"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737301"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Créer un contrôleur de données Azure Arc dans le portail Azure
 
@@ -40,19 +40,23 @@ Pour créer un contrôleur de données Azure Arc à l’aide du portail Azure et
 6. Cliquez sur le bouton **Détails du contrôleur de données**.
 7. Choisissez un abonnement, un groupe de ressources et un emplacement Azure comme vous le feriez pour toute autre ressource que vous créeriez dans le portail Azure. Dans ce cas, l’emplacement Azure que vous sélectionnez correspond à l’emplacement où les métadonnées relatives à la ressource seront stockées.  La ressource elle-même sera créée sur l’infrastructure de votre choix. Elle n’a pas besoin d’être sur l’infrastructure Azure.
 8. Entrez un nom pour votre contrôleur de données.
-9. Seul le mode de connexion indirecte est pris en charge.
-10. Sélectionnez un profil de configuration de déploiement.
-11. Cliquez sur le bouton **Ouvrir dans Azure Studio**.
-12. L’écran suivant affiche un résumé de vos sélections et un bloc-notes généré.  Vous pouvez cliquer sur le bouton **Télécharger le bloc-notes d’approvisionnement** pour télécharger le bloc-notes.
-13. Ouvrez le bloc-notes dans Azure Data Studio, puis cliquez sur le bouton **Exécuter tout** en haut.
-14. Suivez les invites et les instructions du bloc-notes pour terminer la création du contrôleur de données.
+9. Sélectionnez le mode de connectivité pour le contrôleur de données. En savoir plus sur les [Modes et exigences de connectivité](./connectivity.md). 
+
+   > [!NOTE] 
+   > Si vous sélectionnez le mode de connectivité **directe**, assurez-vous que les informations d’identification du principal de service sont définies via des variables d’environnement, comme décrit dans [Créer un principal de service](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Sélectionnez un profil de configuration de déploiement.
+1. Cliquez sur le bouton **Ouvrir dans Azure Studio**.
+1. L’écran suivant affiche un résumé de vos sélections et un bloc-notes généré.  Vous pouvez cliquer sur le bouton **Télécharger le bloc-notes d’approvisionnement** pour télécharger le bloc-notes.
+1. Ouvrez le bloc-notes dans Azure Data Studio, puis cliquez sur le bouton **Exécuter tout** en haut.
+1. Suivez les invites et les instructions du bloc-notes pour terminer la création du contrôleur de données.
 
 ## <a name="monitoring-the-creation-status"></a>Surveillance de l’état de la création
 
-La création du contrôleur prend plusieurs minutes. Vous pouvez surveiller la progression dans une autre fenêtre du terminal à l’aide des commandes suivantes :
+La création du contrôleur prend plusieurs minutes. Vous pouvez superviser la progression dans une autre fenêtre de terminal avec les commandes suivantes :
 
 > [!NOTE]
->  Les exemples de commandes ci-dessous supposent que vous avez créé un contrôleur de données et un espace de noms Kubernetes avec le nom « arc ».  Si vous avez utilisé un nom de contrôleur de données ou d’espace de noms différent, vous pouvez remplacer « arc » par votre nom.
+>  Les exemples de commandes ci-dessous supposent que vous avez créé un contrôleur de données et un espace de noms Kubernetes avec le nom « arc ».  Si vous avez utilisé un autre nom pour le contrôleur de données/espace de noms, vous pouvez remplacer « arc » par ce nom.
 
 ```console
 kubectl get datacontroller/arc --namespace arc
@@ -62,7 +66,7 @@ kubectl get datacontroller/arc --namespace arc
 kubectl get pods --namespace arc
 ```
 
-Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement utile pour résoudre les problèmes.
+Vous pouvez également vérifier l’état de la création de n’importe quel pod en exécutant une commande comme celle qui figure ci-dessous.  C’est particulièrement pratique pour résoudre les éventuels problèmes.
 
 ```console
 kubectl describe po/<pod name> --namespace arc

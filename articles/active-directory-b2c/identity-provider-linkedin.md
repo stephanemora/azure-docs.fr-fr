@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bde7c1adefea88ed5b5d86e2c0e17f475be1bc71
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a378a95a28b1299502ef15cadca60f3807f99429
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654368"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674397"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654368"
 
 ## <a name="create-a-linkedin-application"></a>Création d’une application LinkedIn
 
-Pour utiliser un compte LinkedIn en tant que [fournisseur d’identité](authorization-code-flow.md) dans Azure Active Directory B2C (Azure AD B2C), vous devez créer dans votre locataire une application qui le représente. Si vous n’avez pas déjà de compte LinkedIn, vous pouvez vous inscrire à l’adresse [https://www.linkedin.com/](https://www.linkedin.com/).
+Pour autoriser la connexion des utilisateurs avec un compte LinkedIn dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application sur le [site web Développeurs LinkedIn](https://www.developer.linkedin.com/). Pour plus d’informations, consultez [Flux du code d’autorisation](/linkedin/shared/authentication/authorization-code-flow). Si vous n’avez pas déjà de compte LinkedIn, vous pouvez vous inscrire à l’adresse [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Connectez-vous au [site web Développeurs LinkedIn](https://www.developer.linkedin.com/) à l’aide des informations d’identification de votre compte LinkedIn.
 1. Sélectionnez **Mes applications**, puis cliquez sur **Créer une application**.
@@ -50,7 +50,7 @@ Pour utiliser un compte LinkedIn en tant que [fournisseur d’identité](authori
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configuration d’un compte LinkedIn en tant que fournisseur d’identité
+## <a name="configure-linkedin-as-an-identity-provider"></a>Configurer LinkedIn en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
@@ -60,6 +60,16 @@ Pour utiliser un compte LinkedIn en tant que [fournisseur d’identité](authori
 1. Dans **ID client**, entrez l’ID client de l’application LinkedIn que vous avez créée précédemment.
 1. Dans **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée.
 1. Sélectionnez **Enregistrer**.
+
+## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité LinkedIn à un flux d’utilisateur 
+
+1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
+1. Cliquez sur le flux d’utilisateur auquel vous souhaitez ajouter le fournisseur d’identité LinkedIn.
+1. Sous **Fournisseurs d’identité sociale**, sélectionnez **LinkedIn**.
+1. Sélectionnez **Enregistrer**.
+1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**.
 
 ::: zone-end
 
@@ -80,9 +90,9 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 10. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
+## <a name="configure-linkedin-as-an-identity-provider"></a>Configurer LinkedIn en tant que fournisseur d’identité
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte LinkedIn, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
+Si vous permettez aux utilisateurs de se connecter à l’aide d’un compte LinkedIn, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Définissez un compte LinkedIn en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
@@ -95,7 +105,7 @@ Définissez un compte LinkedIn en tant que fournisseur de revendications en l’
       <Domain>linkedin.com</Domain>
       <DisplayName>LinkedIn</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="LinkedIn-OAUTH">
+        <TechnicalProfile Id="LinkedIn-OAuth2">
           <DisplayName>LinkedIn</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -181,79 +191,27 @@ Ajoutez l’élément **BuildingBlocks** près du haut du fichier *TrustFramewor
 </BuildingBlocks>
 ```
 
-### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Vous disposez maintenant d’une stratégie configurée afin qu’Azure AD B2C sache comment communiquer avec votre compte LinkedIn. Essayez de charger le fichier d’extension de votre stratégie pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
-1. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-1. Cliquez sur **Télécharger**.
-
-## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
-
-À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour le rendre disponible, vous devez créer un doublon d’un modèle de parcours utilisateur existant, puis le modifier afin qu’il dispose également du fournisseur d’identité LinkedIn.
-
-1. Ouvrez le fichier *TrustFrameworkBase.xml* du pack de démarrage.
-1. Recherchez et copiez l’intégralité du contenu de l’élément **UserJourney** comprenant `Id="SignUpOrSignIn"`.
-1. Ouvrez le fichier *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
-1. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
-1. Renommez l’ID du parcours utilisateur. Par exemple : `SignUpSignInLinkedIn`.
-
-### <a name="display-the-button"></a>Afficher le bouton
-
-L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** pour un compte LinkedIn, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelections**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `LinkedInExchange` :
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Maintenant que vous avez un bouton en place, vous devez le lier à une action. Dans ce cas, l’action effectuée correspond à la communication entre Azure AD B2C et un compte LinkedIn pour recevoir un jeton.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-1. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’ID la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
-
-    ```xml
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `LinkedIn-OAUTH`.
-
-1. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
-
-::: zone-end
-
-:: zone pivot="b2c-user-flow"
-
-## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité LinkedIn à un flux d’utilisateur 
-
-1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
-1. Cliquez sur le flux d’utilisateur que vous souhaitez utiliser pour le fournisseur d’identité LinkedIn.
-1. Sous **Fournisseurs d’identité sociale**, sélectionnez **LinkedIn**.
-1. Sélectionnez **Enregistrer**.
-1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
-1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
-
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
-
-1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, renommez-le *SignUpSignInLinkedIn.xml*.
-1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInLinkedIn`.
-1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_linkedin`
-1. Définissez l’attribut **ReferenceId** dans **DefaultUserJourney** sur l’ID du parcours utilisateur que vous avez créé (SignUpSignLinkedIn).
-1. Enregistrez vos modifications, chargez le fichier, puis sélectionnez la nouvelle stratégie dans la liste.
-1. Vérifiez que l’application Azure AD B2C que vous avez créée est sélectionnée dans le champ **Sélectionner une application**, puis testez-la en cliquant sur **Exécuter maintenant**.
-
+[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
 ## <a name="migration-from-v10-to-v20"></a>Migration de v1.0 vers v2.0
 

@@ -1,22 +1,25 @@
 ---
-title: Déf. Azure Cloud Services Schéma LoadBalancerProbe | Microsoft Docs
+title: Définition d’Azure Cloud Services (classique) Schéma LoadBalancerProbe | Microsoft Docs
 description: Le schéma LoadBalancerProbe défini par le client est un probe d’intégrité des points de terminaison dans les instances de rôle. Il se combine avec des rôles de travail ou web dans un fichier de définition de service.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537344"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739784"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.
 
 L’extension par défaut du fichier de définition de service est .csdef.
@@ -48,7 +51,7 @@ L’élément `LoadBalancerProbes` du fichier de définition de service inclut l
 - [Élément LoadBalancerProbe](#LoadBalancerProbe)
 
 ##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Élément LoadBalancerProbes
-L’élément `LoadBalancerProbes` décrit la collection de sondes d’équilibreur de charge. Cet élément est l’élément parent de l’[élément LoadBalancerProbe](#LoadBalancerProbe). 
+L’élément `LoadBalancerProbes` décrit la collection de sondes d’équilibreur de charge. Cet élément est l'élément parent de l'élément [LoadBalancerProbe](#LoadBalancerProbe). 
 
 ##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Élément LoadBalancerProbe
 L’élément `LoadBalancerProbe` définit la sonde d’intégrité pour un modèle. Vous pouvez définir plusieurs sondes d’équilibreur de charge. 
@@ -59,7 +62,7 @@ Le tableau suivant décrit les attributs de l’élément `LoadBalancerProbe` :
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obligatoire. Le nom de la sonde d’équilibreur de charge. Le nom doit être unique.|
 | `protocol`          | `string` | Obligatoire. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|
-| `path`              | `string` | L’URI utilisée pour demander l’état d’intégrité de la machine virtuelle. `path` est nécessaire si `protocol` est défini sur `http`. Dans le cas contraire, il n’est pas autorisé.<br /><br /> Aucune valeur par défaut.|
+| `path`              | `string` | L’URI utilisée pour demander l’état d’intégrité de la machine virtuelle. `path` est nécessaire si `protocol` est défini sur `http`. Dans le cas contraire, il n’est pas autorisé.<br /><br /> Il n'y a pas de valeur par défaut.|
 | `port`              | `integer` | facultatif. Le port de communication de la sonde. Il est facultatif pour tous les points de terminaison, car le même port sera ensuite utilisé pour la sonde. Vous pouvez également configurer un port différent pour leur détection. Les valeurs possibles sont comprises entre 1 et 65535, ces deux valeurs étant incluses.<br /><br /> La valeur par défaut est définie par le point de terminaison.|
 | `intervalInSeconds` | `integer` | facultatif. L’intervalle, en secondes, de fréquence de détection de l’état d’intégrité du point de terminaison. En règle générale, l’intervalle est légèrement inférieur à la moitié du délai d’expiration alloué (en secondes), ce qui permet d’utiliser deux sondes complètes avant de mettre l’instance hors rotation.<br /><br /> La valeur par défaut est 15, la valeur minimum 5.|
 | `timeoutInSeconds`  | `integer` | facultatif. Le délai d’expiration, en secondes, appliqué à la sonde lorsqu’aucune réponse n’entraîne l’arrêt du trafic vers le point de terminaison. Cette valeur permet d’extraire des points de terminaison de la rotation plus rapidement ou plus lentement que le nombre de fois habituel dans Azure (valeurs par défaut).<br /><br /> La valeur par défaut est 31, la valeur minimum 11.|

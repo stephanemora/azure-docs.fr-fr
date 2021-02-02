@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963123"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632272"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La machine virtuelle ne répond pas lors de l’application de la stratégie des contrôleurs de domaine par défaut
 
@@ -37,6 +37,9 @@ Lorsque vous utilisez [Diagnostics de démarrage](./boot-diagnostics.md) pour af
 Ce problème peut être dû à des modifications récemment apportées à la stratégie des contrôleurs de domaine par défaut. Sinon, une analyse du fichier de vidage de la mémoire devra être effectuée pour déterminer la cause racine.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Si vous avez récemment apporté des modifications à la stratégie des contrôleurs de domaine par défaut, vous pouvez annuler ces modifications pour résoudre le problème. Si vous ignorez la cause du problème, collectez un fichier de vidage de la mémoire, puis soumettez un ticket de support.
 

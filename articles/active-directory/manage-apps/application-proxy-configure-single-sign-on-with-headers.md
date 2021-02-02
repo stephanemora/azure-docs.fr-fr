@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503171"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660700"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Authentification unique basée sur l’en-tête pour les applications locales avec le Proxy d’application Azure AD (préversion)
 
@@ -88,6 +88,10 @@ Une fois toutes ces étapes accomplies, votre application doit être opérationn
 1. Ouvrez une nouvelle fenêtre de navigateur ou une fenêtre de navigation privée pour que les en-têtes précédemment mis en cache soient bien effacés. Ensuite, accédez à  **l’URL externe** à partir des paramètres du Proxy d’application.
 2. Connectez-vous au compte de test que vous avez attribué à l’application. Si vous pouvez charger l’application et vous y connecter à l’aide de l’authentification unique, tout va bien. 
 
+## <a name="considerations"></a>Considérations
+
+- Le Proxy d’application est utilisé pour fournir un accès à distance aux applications locales ou sur le cloud privé. Il n’est pas recommandé pour gérer le trafic provenant de l’intérieur du réseau d’entreprise.
+- L’accès aux applications d’authentification par l’en-tête doit être limité au trafic issu du connecteur ou d’une autre solution autorisée d’authentification par l’en-tête. Pour cela, on limite généralement l’accès réseau à l’application à l’aide d’un pare-feu ou d’une restriction d’adresse IP sur le serveur d’applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
