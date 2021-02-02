@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: abb3fbf5a6caaae69f334eb1f380d43a8c542d04
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 4bfac9be5041fdf4ebfe7ea56f064b8b85806703
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570803"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859968"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributions et pilotes pris en charge
 
@@ -33,7 +33,7 @@ Les pilotes GRID redistribués par Azure ne fonctionnent pas sur les machines vi
 
 |Distribution|Pilote|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.6 à 7.8, 8.0, 8.1<br/><br/>CentOS 7.6, 7.7, 8.0, 8(1911)<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 11.3, branche pilote [R450](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 à 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.0, branche pilote [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Visitez [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) pour obtenir la liste complète de tous les liens précédents du pilote Nvidia GRID.
 

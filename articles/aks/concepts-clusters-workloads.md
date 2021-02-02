@@ -4,12 +4,12 @@ description: Découvrez les composants de charge de travail et de cluster de bas
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901298"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674924"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -78,7 +78,6 @@ Les ressources de nœud sont utilisées par AKS pour faire fonctionner le nœud 
 Pour rechercher les ressources allouables d’un nœud, exécutez :
 ```kubectl
 kubectl describe node [NODE_NAME]
-
 ```
 
 Pour conserver les fonctionnalités et les performances des nœuds, les ressources sont réservées sur chaque nœud par AKS. Dans la mesure où un nœud gagne en taille dans les ressources, la réservation de ressources augmente en raison d’une plus grande quantité de pods déployés par l’utilisateur nécessitant une gestion.
@@ -86,22 +85,24 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 >[!NOTE]
 > L’utilisation de modules complémentaires AKS tels que Container Insights (OMS) nécessite des ressources de nœud supplémentaires.
 
-- **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut le rendre moins allouable en raison de l’exécution de fonctionnalités supplémentaires.
+Deux types de ressources sont réservés :
 
-| Cœurs de processeur sur l’hôte | 1    | 2    | 4    | 8    | 16 | 32|64|
-|---|---|---|---|---|---|---|---|
-|Réservés par Kube (millicores)|60|100|140|180|260|420|740|
+- **UC** : L’UC réservé dépend du type de nœud et de la configuration du cluster, ce qui peut le rendre moins allouable en raison de l’exécution de fonctionnalités supplémentaires.
 
-- **Mémoire** – la mémoire utilisée par AKS comprend la somme de deux valeurs.
+   | Cœurs de processeur sur l’hôte | 1    | 2    | 4    | 8    | 16 | 32|64|
+   |---|---|---|---|---|---|---|---|
+   |Réservés par Kube (millicores)|60|100|140|180|260|420|740|
 
-1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Cette action se déclenche lorsque la mémoire disponible descend au-dessous du seuil de 750 Mi.
+- **Mémoire** : La mémoire utilisée par AKS comprend la somme de deux valeurs.
 
-2. La deuxième valeur est une vitesse régressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
-    - 25 % des 4 premiers Go de mémoire
-    - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
-    - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
-    - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
-    - 2 % de la mémoire au-dessus de 128 Go
+   1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Cette action se déclenche lorsque la mémoire disponible descend au-dessous du seuil de 750 Mi.
+
+   2. La deuxième valeur est une vitesse régressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
+      - 25 % des 4 premiers Go de mémoire
+      - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
+      - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
+      - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
+      - 2 % de la mémoire au-dessus de 128 Go
 
 Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Du fait de ces règles d’allocation, le nœud signale moins de mémoire et de processeurs allouables que s’il ne faisait pas partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 

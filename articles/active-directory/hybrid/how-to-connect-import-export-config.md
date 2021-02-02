@@ -11,14 +11,14 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da80af9fe598186fa25d59601c9fa4faccb4286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87447040"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681953"
 ---
-# <a name="import-and-export-azure-ad-connect-configuration-settings-public-preview"></a>Importer et exporter des paramètres de configuration Azure AD Connect (préversion publique)
+# <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importer et exporter des paramètres de configuration Azure AD Connect 
 
 Les déploiements Azure Active Directory (Azure AD) Connect varient d’une installation de forêt unique en mode Express à des déploiements complexes qui se synchronisent sur plusieurs forêts à l’aide de règles de synchronisation personnalisées. En raison du grand nombre d’options et de mécanismes de configuration, il apparaît essentiel de comprendre les paramètres actifs et de pouvoir déployer rapidement un serveur avec une configuration identique. Cette fonctionnalité introduit la possibilité de cataloguer la configuration d’un serveur de synchronisation donné et d’importer les paramètres dans un nouveau déploiement. Différents instantanés de paramètres de synchronisation peuvent être comparés afin de visualiser facilement les différences entre deux serveurs ou le même serveur au fil du temps.
 
@@ -77,10 +77,10 @@ Pour migrer les paramètres :
 
    ![Capture d’écran montrant les répertoires Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Exécutez le script comme indiqué ci-dessous et enregistrez l’intégralité du répertoire de configuration de serveur de niveau inférieur. Copiez ce répertoire sur le nouveau serveur de préproduction. Notez que vous devez copier l’intégralité du dossier **Exported-ServerConfiguration-** * sur le nouveau serveur.
+1. Exécutez le script comme indiqué ci-dessous et enregistrez l’intégralité du répertoire de configuration de serveur de niveau inférieur. Copiez ce répertoire sur le nouveau serveur de préproduction. Notez que vous devez copier l’intégralité du dossier **Exported-ServerConfiguration-** _ sur le nouveau serveur.
 
-   ![Capture d’écran illustrant le script dans Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Capture d’écran qui montre la copie du dossier Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
+   ![Capture d’écran montrant le script dans Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
+   ![Capture d’écran montrant la copie du dossier Exported-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Lancez **Azure AD Connect** en double-cliquant sur l’icône du bureau. Acceptez les termes du contrat de licence logiciel Microsoft, puis sur la page suivante, sélectionnez **Personnaliser**.
 1. Cliquez sur la case à cocher **Importer les paramètres de synchronisation**. Sélectionnez **Parcourir** pour parcourir le dossier Exported-ServerConfiguration-* copié. Sélectionnez le MigratedPolicy. json pour importer les paramètres migrés.
@@ -91,7 +91,7 @@ Pour migrer les paramètres :
 
 La comparaison du fichier de paramètres initialement importés avec le fichier de paramètres exportés du serveur nouvellement déployé est une étape essentielle pour comprendre les différences entre le déploiement prévu et le déploiement obtenu. L’utilisation de votre application de comparaison de texte favorite côte à côte offre une visualisation instantanée qui met rapidement en évidence les modifications souhaitées ou accidentelles.
 
-Si de nombreuses étapes de configuration manuelles sont désormais évitées, vous devez systématiquement suivre le processus de certification de votre organisation pour vous assurer qu’aucune configuration supplémentaire ne s’impose. Une telle configuration peut intervenir si vous utilisez des paramètres avancés non capturés dans la préversion publique de gestion des paramètres.
+Si de nombreuses étapes de configuration manuelles sont désormais évitées, vous devez systématiquement suivre le processus de certification de votre organisation pour vous assurer qu’aucune configuration supplémentaire ne s’impose. Une telle configuration peut intervenir si vous utilisez des paramètres avancés non capturés dans cette mise en production de la gestion des paramètres.
 
 Voici quelques limitations connues :
 - **Règles de synchronisation** : La priorité d’une règle personnalisée doit être comprise dans la plage réservée 0 pour éviter les conflits avec les règles standard de Microsoft. Le placement d’une règle personnalisée en dehors de la plage réservée peut se traduire par un décalage de votre règle personnalisée au fur et à mesure que des règles standard sont ajoutées à la configuration. Un problème similaire se produit si votre configuration contient des règles standard modifiées. La modification d’une règle standard est vivement déconseillée et l’emplacement de la règle est susceptible d’être incorrect.

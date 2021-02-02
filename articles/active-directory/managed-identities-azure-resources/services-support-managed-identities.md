@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861882"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880791"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -159,8 +159,6 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [Kit SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -168,13 +166,12 @@ Type d'identité managée |Toutes mises à la disposition générale<br>Régions
 | Attribuée par le système | PRÉVERSION | PRÉVERSION | Non disponible | PRÉVERSION |
 | Attribuée par l'utilisateur | Non disponible | Non disponible  | Non disponible  | Non disponible |
 
+### <a name="azure-firewall-policy"></a>Stratégie de Pare-feu Azure
 
-
-
-
-
-
-
+Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | PRÉVERSION | Non disponible  | Non disponible  | Non disponible |
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -326,9 +323,9 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des mach
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Attribuée par le système | Non disponible | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | [Disponible dans les régions prises en charge](../../virtual-machines/windows/image-builder-overview.md#regions) | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | [Disponible dans les régions prises en charge](../../virtual-machines/image-builder-overview.md#regions) | Non disponible | Non disponible | Non disponible |
 
-Pour savoir comment configurer l’identité managée pour Azure VM Image Builder (dans les régions où le service est disponible), consultez la [présentation d’Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Pour savoir comment configurer l’identité managée pour Azure VM Image Builder (dans les régions où le service est disponible), consultez la [présentation d’Image Builder](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Service Azure SignalR
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |

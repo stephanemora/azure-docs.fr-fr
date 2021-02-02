@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063074"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753619"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
@@ -28,7 +28,7 @@ Pour pouvoir appeler des API web protégées, votre application doit disposer d'
 
 Lorsque vous demandez un jeton, vous devez définir une étendue. L’étendue détermine les données auxquelles votre application peut accéder.
 
-Pour définir une étendue, l'approche la plus simple consiste à combiner l'`App ID URI` de l'API web souhaitée avec l'étendue `.default`. Cette définition indique à la plateforme d'identités Microsoft que votre application a besoin de toutes les étendues définies sur le portail.
+Pour définir une étendue, l'approche la plus simple consiste à combiner l'`App ID URI` de l'API web souhaitée avec l'étendue `.default`. Cette définition indique à la plateforme d’identités Microsoft que votre application a besoin de toutes les étendues définies sur le portail.
 
 ### <a name="android"></a>Android
 ```Java
@@ -243,7 +243,7 @@ La classe définit les constantes suivantes :
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Utilisez le modificateur `WithExtraScopeToConsent` dans un scénario avancé où vous souhaitez que l'utilisateur fournisse son consentement préalable à plusieurs ressources. Vous pouvez utiliser ce modificateur lorsque vous ne souhaitez pas avoir recours au consentement incrémentiel, qui est normalement utilisé avec MSAL.NET ou la Plateforme d'identités Microsoft 2.0. Pour plus d’informations, consultez [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Utilisez le modificateur `WithExtraScopeToConsent` dans un scénario avancé où vous souhaitez que l'utilisateur fournisse son consentement préalable à plusieurs ressources. Vous pouvez utiliser ce modificateur lorsque vous ne souhaitez pas avoir recours au consentement incrémentiel, qui est normalement utilisé avec MSAL.NET ou la plateforme d’identités Microsoft. Pour plus d’informations, consultez [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Exemple de code :
 

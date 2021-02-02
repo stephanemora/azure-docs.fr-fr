@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835552"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624589"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gérer les capteurs depuis la console de gestion
 
@@ -150,7 +150,7 @@ Les capteurs sont protégés par cinq moteurs Defender pour IoT. Vous pouvez act
 | Moteur de violation de stratégie | Une violation de stratégie se produit lorsqu’il y a un écart par rapport au comportement de la ligne de base défini dans la stratégie apprise ou configurée. | Alerte « Agent utilisateur HTTP non autorisé ». Cette alerte indique qu’une application qui n’a pas été apprise ou approuvée par la stratégie est utilisée comme client HTTP sur un appareil. Il peut s’agir d’un nouveau navigateur web ou d’une nouvelle application sur cet appareil. |
 | Moteur de programme malveillant | Le moteur de programme malveillant détecte l’activité de réseau malveillante. | Alerte « Suspicion d’activité malveillante (Stuxnet) ». Cette alerte indique que le capteur a détecté une activité réseau suspecte connue pour être liée au programme malveillant Stuxnet, qui est une menace persistante avancée visant les réseaux de contrôle industriel et SCADA. |
 | Moteur d’anomalies | Le moteur de programme malveillant détecte une anomalie dans le comportement du réseau. | Alerte « Comportement périodique dans le canal de communication ». Il s’agit d’un composant qui inspecte les connexions réseau et recherche le comportement périodique ou cyclique de la transmission des données, ce qui est courant dans les réseaux industriels. |
-| Moteur opérationnel | Ce moteur détecte les incidents opérationnels ou les entités défectueuses. | Alerte « Suspicion de déconnexion de la ressource (ne répond pas) ». Cette alerte est déclenchée lorsqu’un appareil ne répond à aucune requête pendant une période prédéfinie. Cela peut indiquer un arrêt, une déconnexion ou un dysfonctionnement de l’appareil.
+| Moteur opérationnel | Ce moteur détecte les incidents opérationnels ou les entités défectueuses. | Alerte `Device is Suspected to be Disconnected (Unresponsive)`. Cette alerte est déclenchée lorsqu’un appareil ne répond à aucune requête pendant une période prédéfinie. Cela peut indiquer un arrêt, une déconnexion ou un dysfonctionnement de l’appareil.
 |
 
 Pour activer ou désactiver des moteurs pour les capteurs connectés :

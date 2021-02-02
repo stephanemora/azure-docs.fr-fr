@@ -2,7 +2,7 @@
 title: Description des rôles et des autorisations d’Azure AD - Azure Active Directory | Microsoft Docs
 description: Le rôle de l’administrateur peut servir à ajouter des utilisateurs, attribuer des rôles d’administrateur, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 search.appverid: MET150
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555727"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879475"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -429,7 +429,7 @@ Les utilisateurs dotés de ce rôle peuvent gérer les alertes et disposent d’
 Dans | Peut
 --- | ---
 [Centre de sécurité Microsoft 365](https://protection.office.com) | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes sur les menaces de sécurité
-Identity Protection Center | Toutes les autorisations du rôle lecteur de sécurité<br>En outre, possibilité d’effectuer toutes les opérations du centre de protection de l'identité, à l’exception de la réinitialisation des mots de passe.
+Azure AD Identity Protection | Toutes les autorisations du rôle lecteur de sécurité<br>En outre, possibilité d’effectuer toutes les opérations du centre de protection de l’identité, à l’exception de la réinitialisation des mots de passe et de la configuration des e-mails d’alerte.
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Toutes les autorisations du rôle lecteur de sécurité
 [Centre de sécurité et conformité Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité
 Windows Defender ATP et EDR | Toutes les autorisations du rôle lecteur de sécurité<br>Voir, examiner et répondre aux alertes de sécurité
@@ -1971,6 +1971,7 @@ Développeur d’applications | Développeur d’applications | CF1C38E5-3621-40
 Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Auteur de charge utile d'attaque | Auteur de charge utile d'attaque | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Administrateur de simulation d'attaque | Administrateur de simulation d'attaque | c430b396-e693-46cc-96f3-db01bf8bb62a
+Administrateur local de l’appareil joint Azure AD | Administrateur local de l’appareil joint Azure AD | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Administrateur Azure DevOps | Administrateur Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Administrateur Azure Information Protection | Administrateur Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrateur de jeux de clés B2C IEF | Administrateur de jeux de clés B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1978,24 +1979,23 @@ Administrateur de stratégies B2C IEF | Administrateur de stratégies B2C IEF | 
 Administrateur de facturation | Administrateur de facturation | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrateur d'applications cloud | Administrateur d’application cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrateur d’appareil cloud | Administrateur d’appareil cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
-Administrateur d’entreprise | Administrateur général | 62e90394-69f5-4237-9190-012177145e10
 Administrateur de conformité | Administrateur de conformité | 17315797-102d-40b4-93e0-432062caca18
 Administrateur des données de conformité | Administrateur des données de conformité | e6d1a23a-da11-4be4-9570-befc86d067a7
 Administrateur de l’accès conditionnel | Administrateur de l’accès conditionnel | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Administrateur de services CRM | Administrateur Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Approbateur d’accès à Customer LockBox | Approbateur d’accès à Customer LockBox | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administrateur Desktop Analytics | Administrateur Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Administrateurs d’appareils | Administrateurs d’appareils | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Jonction d’appareils | Déprécié | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Gestionnaires d’appareils | Déprécié | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utilisateurs d’appareils | Déprécié | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | d29b2b05-8046-44ba-8758-1e26182fcf32
 Enregistreurs de répertoire | Enregistreurs de répertoire | 9360feb5-f418-4baa-8175-e2a00bac4301
-Administrateur de services Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrateur Dynamics 365 | Administrateur Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
+Administrateur Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrateur de flux d’utilisateurs ID externe | Administrateur de flux d’utilisateurs ID externe | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrateur d’attribut de flux d’utilisateurs ID externe | Administrateur d’attribut de flux d’utilisateurs ID externe | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrateur de fournisseurs d’identité externes | Administrateur de fournisseurs d’identité externes | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Administrateur général | Administrateur général | 62e90394-69f5-4237-9190-012177145e10
 Lecteur général | Lecteur général | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrateur de groupes | Administrateur de groupes | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Inviteur | Inviteur d’invités | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -2003,10 +2003,9 @@ Administrateur du support technique | Administrateur du support technique | 7298
 Administrateur d’identité hybride | Administrateur d’identité hybride | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Administrateur Insights | Administrateur Insights | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
 Leader d’entreprise Insights | Leader d’entreprise Insights | 31e939ad-9672-4796-9c2e-873181342d2d
-Administrateur de services Intune | Administrateur Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Administrateur Intune | Administrateur Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrateur Kaizala | Administrateur Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrateur de licence | Administrateur de licence | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Administrateur de services Lync | Administrateur Skype Entreprise | 75941009-915a-4869-abe7-691bff18279e
 Lecteur de confidentialité du Centre de messages | Lecteur de confidentialité du Centre de messages | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Lecteur du Centre de messages | Lecteur du Centre de messages | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Utilisateur de Commerce moderne | Utilisateur de Commerce moderne | d24aef57-1500-4070-84db-2666f29cf966
@@ -2015,7 +2014,7 @@ Administrateur d’applications Office | Administrateur d’applications Office 
 Prise en charge de niveau 1 de partenaire | Non affiché, car il ne doit pas être utilisé | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Prise en charge de niveau 2 de partenaire | Non affiché, car il ne doit pas être utilisé | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Administrateur de mots de passe | Administrateur de mots de passe | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Administrateur du service Power BI | Administrateur Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrateur Power BI | Administrateur Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrateur de plateforme Power | Administrateur de plateforme Power | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administrateur d’imprimantes | Administrateur d’imprimantes | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
 Technicien en charge des imprimantes | Technicien en charge des imprimantes | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
@@ -2028,15 +2027,16 @@ Security Administrator | Administrateur de sécurité | 194ae4cb-b126-40b2-bd5b-
 Opérateur de sécurité | Opérateur de sécurité | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Lecteur de sécurité | Lecteur de sécurité | 5d6b6bb7-de71-4623-b4af-96380a352509
 Administrateur de support de service | Administrateur de support de service | f023fd81-a637-4b56-95fd-791ac0226033
-Administrateur de services SharePoint | Administrateur SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Administrateur SharePoint | Administrateur SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Administrateur Skype Entreprise | Administrateur Skype Entreprise | 75941009-915a-4869-abe7-691bff18279e
 Administrateur des communications Teams | Administrateur des communications Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Ingénieur de support des communications Teams | Ingénieur de support des communications Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Spécialiste du support des communications Teams | Spécialiste du support des communications Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrateur d’appareils Teams | Administrateur d’appareils Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Administrateur du service Teams | Administrateur du service Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Administrateur Teams | Administrateur Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Lecteur de rapports de synthèse sur l'utilisation | Lecteur de rapports de synthèse sur l'utilisation | 75934031-6c7e-415a-99d7-48dbd49e875e
 Utilisateur | Non affiché, car il ne peut pas être utilisé | a0b1b346-4d3e-4e8b-98f8-753987be4970
-Administrateur de compte utilisateur | Administrateur d’utilisateurs | fe930be7-5e62-47db-91af-98c3a49a38b1
+Administrateur d'utilisateurs | Administrateur d’utilisateurs | fe930be7-5e62-47db-91af-98c3a49a38b1
 Jonction d’appareils d’espace de travail | Déprécié | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Rôles déconseillés
@@ -2057,15 +2057,11 @@ Les rôles retournés par PowerShell ou l’API MS Graph ne sont pas tous visibl
 
 Nom de l’API | Nom du portail Azure | Notes
 -------- | ------------------- | -------------
-Administrateur d’entreprise | Administrateur général | [Nom modifié pour une plus grande clarté](permissions-reference.md#role-template-ids)
-Administrateur de services CRM | Administrateur Dynamics 365 | [Reflète la personnalisation actuelle du produit](permissions-reference.md#role-template-ids)
 Jonction d’appareils | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
 Gestionnaires d’appareils | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
 Utilisateurs d’appareils | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | [Documentation sur les comptes de synchronisation d’annuaires](permissions-reference.md#directory-synchronization-accounts)
-Enregistreurs de répertoire | Non affiché, car il ne doit pas être utilisé | [Documentation sur les enregistreurs d’annuaires](permissions-reference.md#directory-writers)
 Utilisateur invité | Non affiché, car il ne peut pas être utilisé  | N/D
-Administrateur de services Lync | Administrateur Skype Entreprise | [Reflète la personnalisation actuelle du produit](permissions-reference.md#role-template-ids)
 Support de niveau 1 partenaire | Non affiché, car il ne doit pas être utilisé | [Documentation sur la prise en charge du niveau 1 de partenaire](permissions-reference.md#partner-tier1-support)
 Support de niveau 2 partenaire | Non affiché, car il ne doit pas être utilisé | [Documentation sur la prise en charge du niveau 2 de partenaire](permissions-reference.md#partner-tier2-support)
 Utilisateur invité restreint | Non affiché, car il ne peut pas être utilisé | N/D

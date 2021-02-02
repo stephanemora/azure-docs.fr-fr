@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247044"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762977"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -61,7 +61,10 @@ Les scénarios suivants sont pris en charge pour le lancement intermédiaire. Ce
 - utilisateurs configurés pour Azure AD à l’aide de Azure AD Connect. Elle ne s’applique pas aux utilisateurs cloud uniquement.
 
 - Trafic de connexion utilisateur sur les navigateurs et les clients *d’authentification modernes*. Les applications ou les services cloud utilisant l’authentification héritée sont redirigés vers des flux d’authentification fédérés. Par exemple, Exchange Online avec l’authentification moderne désactivée ou Outlook 2010, qui ne prend pas en charge l’authentification moderne.
+
 - La taille du groupe est actuellement limitée à 50 000 utilisateurs.  Si vos groupes dépassent 50 000 utilisateurs, nous vous recommandons de les fractionner en plusieurs groupes pour le lancement intermédiaire.
+
+- Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 sans ligne de mire sur le serveur de fédération pour Windows 10 version 1903 et versions ultérieures lorsque l’UPN de l’utilisateur est routable et que le suffixe de domaine est vérifié dans Azure AD.
 
 ## <a name="unsupported-scenarios"></a>Scénarios non pris en charge
 
@@ -87,6 +90,10 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
 
 - Lorsque les utilisateurs sont dans Lancement intermédiaire, quand EnforceCloudPasswordPolicyForPasswordSyncedUsers est activé, la stratégie d’expiration du mot de passe est définie sur 90 jours sans option pour la personnaliser. 
+
+- Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour les versions de Windows 10 antérieures à la version 1903. Ce scénario revient au point de terminaison WS-Trust du serveur de fédération, même si l’utilisateur qui se connecte figure dans l’étendue du déploiement par étapes.
+
+- Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour toutes les versions lorsque l’UPN local de l’utilisateur n’est pas routable. Ce scénario revient au point de terminaison WS-Trust en mode de déploiement par étapes, mais il cesse de fonctionner lorsque la migration par étapes est terminée et que l’authentification de l’utilisateur ne dépend plus du serveur de fédération.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire

@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063737"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754989"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guide de migration ADAL vers MSAL pour Java
 
@@ -29,7 +29,7 @@ Microsoft Authentication Library pour Java (MSAL4J) et la Bibliothèque d’auth
 
 MSAL offre les avantages suivants :
 
-- Étant donné qu’il utilise le nouveau point de terminaison de la plateforme d’identité Microsoft, vous pouvez authentifier un ensemble plus large d’identités Microsoft (identités Azure AD, comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d’Azure AD B2C) ;
+- étant donné qu’elle utilise la nouvelle plateforme d’identités Microsoft, vous pouvez authentifier un ensemble plus large d’identités Microsoft (identités Azure AD, comptes Microsoft, comptes de réseaux sociaux et locaux par le biais d’Azure AD B2C) ;
 - vos utilisateurs bénéficieront de la meilleure expérience d’authentification unique ;
 - votre application peut activer le consentement incrémentiel, et l’accès conditionnel est plus facile à prendre en charge.
 
@@ -37,13 +37,13 @@ MSAL pour Java est la bibliothèque d’authentification qu’il est recommandé
 
 ## <a name="differences"></a>Différences
 
-Si vous travaillez déjà avec le point de terminaison Azure AD pour développeurs (v1.0) (et ADAL4J), nous vous suggérons de lire l’article sur les [différences du point de terminaison (v2.0) de la plateforme d’identités Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
+Si vous travaillez déjà avec le point de terminaison Azure AD pour développeurs (v1.0) [et ADAL4J], nous vous suggérons de lire l’article sur les [différences de la plateforme d’identités Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
 ADAL4J acquiert des jetons pour les ressources, tandis que MSAL pour Java en acquiert pour les étendues. Certaines classes MSAL pour Java nécessitent un paramètre d’étendue. Ce paramètre est une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Découvrez des exemples d’étendues dans l’article [Étendues de Microsoft Graph](/graph/permissions-reference).
 
-Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour facilité la migration de vos applications du point de terminaison v1.0 (ADAL) vers le point de terminaison de la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour faciliter la migration de vos applications d’ADAL vers MSAL. Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](./v2-permissions-and-consent.md) et les articles [Étendues pour une API web acceptant des jetons v1.0](./msal-v1-app-scopes.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509101"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632831"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Erreur d’arrêt de Windows - #0x000000EF « Processus critique arrêté »
 
@@ -39,6 +39,9 @@ En règle générale, cela est dû à l’échec d’un processus système criti
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus :
 
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
+
 1. Créez une machine virtuelle de réparation et accédez-y.
 2. Corrigez les altérations éventuelles du système d’exploitation.
 3. **Recommandé** : Avant de regénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire.
@@ -49,7 +52,7 @@ En règle générale, cela est dû à l’échec d’un processus système criti
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
-1. Effectuez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
+1. Suivez les [étapes 1 à 3 des commandes de réparation de machine virtuelle](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) pour préparer une machine virtuelle de réparation.
 2. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 
 ### <a name="fix-any-os-corruption"></a>Corriger les altérations éventuelles du système d’exploitation
@@ -85,7 +88,7 @@ Si le problème persiste après l’exécution de la commande SFC, une analyse d
 
 Pour activer la collecte de l’image mémoire et la console série, exécutez le script suivant :
 
-1. Ouvrez une session Invite de commande avec élévation de privilèges (Exécuter en tant qu’administrateur).
+1. Ouvrez une session d’invite de commandes avec élévation de privilèges (Exécuter en tant qu’administrateur).
 2. Exécutez les commandes suivantes :
 
    Activer la console série

@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208846"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756093"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -201,7 +201,7 @@ Selon l’architecture ou l’utilisation de votre application, vous pouvez envi
 
 ### <a name="default-and-combined-consent"></a>Étendue /.default et consentement combiné
 
-L’application de niveau intermédiaire ajoute le client à la liste des applications clientes connues dans son manifeste et le client peut alors déclencher un flux de consentement combiné pour lui-même et l’application de niveau intermédiaire. Sur le point de terminaison de la plateforme d’identités Microsoft, [l’étendue `/.default`](v2-permissions-and-consent.md#the-default-scope) est utilisée. Lors du déclenchement d’un écran de consentement à l’aide des applications clientes connues et de `/.default`, l’écran de consentement affiche les autorisations **à la fois** pour le client et l’API de niveau intermédiaire, et demande également toutes les autorisations exigées par l’API de niveau intermédiaire. L’utilisateur fournit le consentement pour les deux applications et le flux OBO fonctionne ensuite.
+L’application de niveau intermédiaire ajoute le client à la liste des applications clientes connues dans son manifeste et le client peut alors déclencher un flux de consentement combiné pour lui-même et l’application de niveau intermédiaire. Sur la plateforme d’identités Microsoft, [l’étendue `/.default`](v2-permissions-and-consent.md#the-default-scope) est utilisée. Lors du déclenchement d’un écran de consentement à l’aide des applications clientes connues et de `/.default`, l’écran de consentement affiche les autorisations **à la fois** pour le client et l’API de niveau intermédiaire, et demande également toutes les autorisations exigées par l’API de niveau intermédiaire. L’utilisateur fournit le consentement pour les deux applications et le flux OBO fonctionne ensuite.
 
 ### <a name="pre-authorized-applications"></a>Applications préalablement autorisées
 

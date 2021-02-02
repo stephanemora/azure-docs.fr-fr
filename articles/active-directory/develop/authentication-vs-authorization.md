@@ -1,7 +1,7 @@
 ---
 title: Authentification ou autorisation | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez les concepts de base de l’authentification et de l’autorisation dans la Plateforme d’identités Microsoft (v2.0).
+description: Découvrez les concepts de base de l’authentification et de l’autorisation dans la plateforme d’identités Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d4abc9e1bba151f46adf71dd0185ddddad916a38
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216459"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755399"
 ---
 # <a name="authentication-vs-authorization"></a>Authentification ou autorisation
 
@@ -51,7 +51,7 @@ Cette vidéo décrit la Plateforme d’identité Microsoft et les concepts de ba
 Voici une comparaison des protocoles utilisés par la Plateforme d’identités Microsoft :
 
 * **OAuth et OpenID Connect** : la plateforme utilise OAuth pour l’autorisation et OpenID Connect (OIDC) pour l’authentification. Comme OpenID Connect s’appuie sur OAuth 2.0, la terminologie et le flux sont similaires entre ces deux protocoles. Il est même possible d’authentifier un utilisateur (par OpenID Connect) et d’obtenir l’autorisation d’accéder à l’une des ressources protégées qu’il possède (par OAuth 2.0) dans une même requête. Pour plus d’informations, consultez [Protocoles OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md) et [Protocole OpenID Connect](v2-protocols-oidc.md).
-* **OAuth et SAML** : la plateforme utilise OAuth 2.0 pour l’autorisation et SAML pour l’authentification. Pour savoir comment utiliser ces protocoles ensemble afin d’authentifier un utilisateur et d’obtenir l’autorisation d’accéder à une ressource protégée, consultez [Plateforme d’identités Microsoft et flux d’assertion du porteur SAML OAuth 2.0](v2-saml-bearer-assertion.md).
+* **OAuth et SAML** : la plateforme utilise OAuth 2.0 pour l’autorisation et SAML pour l’authentification. Pour savoir comment utiliser ces protocoles ensemble afin d’authentifier un utilisateur et d’obtenir l’autorisation d’accéder à une ressource protégée, consultez [Plateforme d’identités Microsoft et flux d’assertion du porteur SAML OAuth 2.0](./scenario-token-exchange-saml-oauth.md).
 * **OpenID Connect et SAML** : la plateforme utilise à la fois OpenID Connect et SAML pour authentifier un utilisateur et activer l’authentification unique. L’authentification SAML étant couramment utilisée avec les fournisseurs d’identité comme les services de fédération Active Directory (AD FS) fédérés à Azure AD, elle sert souvent dans les applications d’entreprise. OpenID Connect est fréquemment employé pour les applications qui se trouvent exclusivement dans le cloud, notamment les applications mobiles, les sites web et les API web.
 
 ## <a name="next-steps"></a>Étapes suivantes

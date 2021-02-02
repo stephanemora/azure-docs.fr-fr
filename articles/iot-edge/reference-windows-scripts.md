@@ -8,12 +8,12 @@ ms.date: 10/06/2020
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a082ccb62103ab5bd027bf49b9ee05bc48c63115
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2878d682d0f2025a50f26baf87476f66aa236e2c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979192"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630614"
 ---
 # <a name="powershell-scripts-for-iot-edge-on-windows"></a>Scripts PowerShell pour IoT Edge sur Windows
 
@@ -101,8 +101,6 @@ La commande Initialize-IoTEdge configure IoT Edge avec votre chaîne de connexio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser ces commandes dans les articles suivants :
+Découvrez comment utiliser ces commandes dans l’article suivant :
 
-* [Installer ou désinstaller le runtime Azure IoT Edge](how-to-install-iot-edge.md)
-* [Approvisionner un appareil Azure IoT Edge avec une authentification par clé symétrique](how-to-manual-provision-symmetric-key.md)
-* [Approvisionner un appareil Azure IoT Edge avec une authentification par certificat X.509](how-to-manual-provision-x509.md)
+* [Installer ou désinstaller Azure IoT Edge pour Windows](how-to-install-iot-edge-windows-on-windows.md)

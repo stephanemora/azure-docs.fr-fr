@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993023"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874482"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Forum aux questions concernant les nœuds d’informatique confidentielle sur Azure Kubernetes service (AKS)
 
@@ -24,6 +24,10 @@ Aucun SLA n’est fourni durant la période de préversion du produit, telle que
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>Qu’est-ce qu’une attestation et comment pouvons-nous délivrer une attestation d’applications s’exécutant dans des enclaves ? 
 
 Une attestation est un processus consistant à démontrer et à valider qu’un élément de logiciel a été correctement instancié sur la plateforme matérielle spécifique. Elle garantit également l’existence de preuves vérifiables garantissant qu’elle s’exécute dans une plateforme sécurisée et qu’elle n’a pas été falsifiée. [Apprenez-en davantage](attestation.md) sur la façon dont une attestation est délivrée pour des applications d’enclave.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>Puis-je activer les performances réseau accélérées avec des clusters AKS d’informatique confidentielle Azure ? 
+
+Non. Les performances réseau accélérées ne sont pas prises en charge sur les nœuds d’informatique confidentielle sur AKS. Assurez-vous que les performances réseau accélérées sont désactivées dans votre déploiement. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>Puis-je venir avec mes applications en conteneur existantes et les exécuter sur AKS avec l’informatique confidentielle Azure ? 
 

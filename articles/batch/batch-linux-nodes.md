@@ -2,14 +2,14 @@
 title: Exécuter Linux sur des nœuds de calcul de machine virtuelle
 description: Découvrez comment traiter des charges de travail de calcul parallèles sur des pools de machines virtuelles Linux dans Azure Batch.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0a9c801a13af05f077b87f296992da7f50742e4b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533495"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683698"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Configurer des nœuds de calcul Linux dans des pools Batch
 
@@ -17,9 +17,7 @@ Vous pouvez utiliser Azure Batch pour exécuter des charges de travail de calcul
 
 ## <a name="virtual-machine-configuration"></a>Configuration de la machine virtuelle
 
-Lorsque vous créez un pool de nœuds de calcul dans Batch, vous avez deux options pour sélectionner la taille du nœud et le système d’exploitation : Configuration des services cloud et Configuration de la machine virtuelle. La plupart des pools de nœuds de calcul Windows utilisent la [configuration des services cloud](nodes-and-pools.md#cloud-services-configuration), qui spécifie que le pool est composé de nœuds Azure Cloud Services. Ces pools fournissent uniquement des nœuds de calcul Windows.
-
-En revanche, la [configuration d’ordinateur virtuel](nodes-and-pools.md#virtual-machine-configuration) spécifie que le pool est composé de machines virtuelles Azure, qui peuvent être créées à partir d’images Linux ou Windows. Lorsque vous créez un pool avec une configuration d’ordinateur virtuel, vous devez spécifier une [taille de nœud de calcul disponible](../virtual-machines/sizes.md), la référence d’image de machine virtuelle et la référence SKU de l’agent de nœud Batch (un programme qui s’exécute sur chaque nœud et fournit une interface entre le nœud et le service batch) et la référence d’image de machine virtuelle qui sera installée sur les nœuds.
+Lorsque vous créez un pool de nœuds de calcul dans Batch, vous avez deux options pour sélectionner la taille du nœud et le système d’exploitation : Configuration des services cloud et Configuration de la machine virtuelle. Les pools de [configuration de machine virtuelle](nodes-and-pools.md#virtual-machine-configuration) sont composés de machines virtuelles Azure, qui peuvent être créées à partir d’images Linux ou Windows. Quand vous créez un pool avec une configuration de machine virtuelle, vous spécifiez une [taille de nœud de calcul disponible](../virtual-machines/sizes.md), la référence d’image de machine virtuelle à installer sur les nœuds et la référence SKU de l’agent de nœud Batch (un programme qui s’exécute sur chaque nœud et fournit une interface entre le nœud et le service batch).
 
 ### <a name="virtual-machine-image-reference"></a>Référence de l’image de la machine virtuelle
 
@@ -35,7 +33,11 @@ Lorsque vous créez une référence d’image de machine virtuelle, vous devez s
 | Version |latest |
 
 > [!TIP]
-> Pour plus d’informations sur ces propriétés et sur la manière de spécifier des images de la Place de marché dans [Rechercher des images de machine virtuelle Linux sur la Place de marché Microsoft Azure avec Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Notez que toutes les images Marketplace ne sont pas compatibles avec Batch pour le moment.
+> Pour plus d’informations sur ces propriétés et sur la manière de spécifier des images de la Place de marché dans [Rechercher des images de machine virtuelle Linux sur la Place de marché Microsoft Azure avec Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Notez que certaines images Marketplace ne sont pas compatibles avec Batch pour le moment.
+
+### <a name="list-of-virtual-machine-images"></a>liste des images de machine virtuelle
+
+Toutes les images de la Place de marché ne sont pas compatibles avec les agents de nœud Batch actuellement disponibles. Pour répertorier la liste de toutes les images de machine virtuelle de la Place de marché prises en charge pour le service Batch et les références SKU des agents de nœud correspondants, utilisez [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch.NET) ou l’API correspondante dans le Kit de développement logiciel (SDK) pour l’autre langue.
 
 ### <a name="node-agent-sku"></a>Référence de l’agent de nœud
 
@@ -44,10 +46,6 @@ Lorsque vous créez une référence d’image de machine virtuelle, vous devez s
 - batch.node.ubuntu 18.04
 - batch.node.centos 7
 - batch.node.windows amd64
-
-### <a name="list-of-virtual-machine-images"></a>liste des images de machine virtuelle
-
-Toutes les images de la Place de marché ne sont pas compatibles avec les agents de nœud Batch actuellement disponibles. Pour répertorier la liste de toutes les images de machine virtuelle de la Place de marché prises en charge pour le service Batch et les références SKU des agents de nœud correspondants, utilisez [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (Batch.NET) ou l’API correspondante dans le Kit de développement logiciel (SDK) pour l’autre langue.
 
 ## <a name="create-a-linux-pool-batch-python"></a>Création d’un pool Linux : Python Batch
 

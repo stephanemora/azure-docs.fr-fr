@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763425"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805201"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU au moyen de modèles
 
@@ -29,7 +29,7 @@ Pour déployer des machines virtuelles Azure Stack Edge Pro sur plusieurs appare
 
 Voici une synthèse globale du workflow de déploiement à l’aide de modèles :
 
-1. **Configuration des prérequis**. Il existe trois types de prérequis : l’appareil, le client et la machine virtuelle.
+1. **Configuration des prérequis**. Il existe trois types de prérequis : l’appareil, le client et la machine virtuelle.
 
     1. **Prérequis liés à l’appareil**
 
@@ -47,7 +47,7 @@ Voici une synthèse globale du workflow de déploiement à l’aide de modèles�
         1. Créez un groupe de ressources dans l’emplacement de l’appareil qui contiendra toutes les ressources de machine virtuelle.
         1. Créez un compte de stockage afin de charger le disque dur virtuel utilisé pour créer l’image de machine virtuelle.
         1. Ajoutez l’URI du compte de stockage local au nom DNS ou au fichier hosts sur le client qui accède à votre appareil.
-        1. Installez le certificat de Stockage Blob sur l’appareil ainsi que sur le client local qui accède à votre appareil. Installez le certificat de Stockage Blob sur l’Explorateur Stockage (facultatif).
+        1. Installez le certificat de Stockage Blob sur l’appareil et sur le client local qui accède à votre appareil. Installez le certificat de Stockage Blob sur l’Explorateur Stockage (facultatif).
         1. Créez un disque dur virtuel et chargez-le sur le compte de stockage créé précédemment.
 
 2. **Création d’une machine virtuelle à partir de modèles** :
@@ -71,7 +71,7 @@ Configurez ces prérequis sur le client qui sera utilisé pour accéder à l’a
 
 ## <a name="vm-prerequisites"></a>Prérequis liés à la machine virtuelle
 
-Configurez ces prérequis pour créer les ressources qui seront nécessaires à la création de machines virtuelles. 
+Configurez ces prérequis pour créer les ressources nécessaires à la création de machines virtuelles. 
 
     
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage en utilisant le groupe de ressources créé à l’étape précédente. Il s’agit d’un **compte de stockage local** qui sera utilisé pour charger l’image de disque virtuel de la machine virtuelle.
+Créez un compte de stockage en utilisant le groupe de ressources créé à l’étape précédente. Ce compte est un **compte de stockage local** qui sera utilisé pour charger l’image de disque virtuel de la machine virtuelle.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -195,7 +195,7 @@ Copiez les images de disque à utiliser dans des objets blob de pages du compte 
 
 7. Consultez la **Synthèse de connexion** et sélectionnez **Se connecter**.
 
-8. Le compte de stockage s’affiche dans le volet gauche. Sélectionnez et développez le compte de stockage. Sélectionnez **Conteneurs d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Donnez un nom à votre conteneur d’objets blob.
+8. Le compte de stockage s’affiche dans le volet gauche. Sélectionnez et développez le compte de stockage. Sélectionnez **Conteneurs de blobs**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur de blobs**. Donnez un nom à votre conteneur d’objets blob.
 
 9. Sélectionnez le conteneur que vous venez de créer, puis sélectionnez **Charger > Charger des fichiers** dans le volet droit. 
 
@@ -209,7 +209,7 @@ Copiez les images de disque à utiliser dans des objets blob de pages du compte 
 
     ![Chargement d’un fichier de disque dur virtuel 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copiez et enregistrez **l’URI**, car vous en aurez besoin par la suite.
+12. Copiez et enregistrez l’**URI** que vous utiliserez dans les étapes suivantes.
 
     ![Copie de l’URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -237,7 +237,7 @@ Le fichier `CreateImage.parameters.json` prend les paramètres suivants :
     }
 ```
 
-Modifiez le fichier `CreateImage.parameters.json` de façon à inclure les éléments suivants pour votre appareil Azure Stack Edge Pro :
+Modifiez le fichier `CreateImage.parameters.json` de façon à inclure les valeurs suivantes pour votre appareil Azure Stack Edge Pro :
 
 1. Indiquez le type de système d’exploitation correspondant au disque dur virtuel que vous allez charger : Windows ou Linux.
 
@@ -250,16 +250,17 @@ Modifiez le fichier `CreateImage.parameters.json` de façon à inclure les élé
 
 2. Remplacez l’URI par celui de l’image que vous avez chargée à l’étape précédente :
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Si vous utilisez *HTTP* avec l’Explorateur Stockage, remplacez-le par un URI *HTTP*.
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Si vous utilisez *HTTP* avec Explorateur Stockage, remplacez l’URI par un URI *HTTP*.
 
 3. Fournissez un nom d’image unique. Cette image est utilisée pour créer la machine virtuelle aux étapes suivantes. 
 
-    Voici l’exemple JSON utilisé dans cet article.
+   Voici l’exemple JSON utilisé dans cet article.
 
     ```json
     {
@@ -278,6 +279,7 @@ Modifiez le fichier `CreateImage.parameters.json` de façon à inclure les élé
       }
     }
     ```
+
 5. Enregistrez le fichier de paramètres.
 
 
@@ -588,4 +590,4 @@ Suivez ces étapes pour vous connecter à une machine virtuelle Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

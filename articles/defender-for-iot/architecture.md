@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201471"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621095"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Architecture de Azure Defender pour IoT
 
@@ -81,7 +81,7 @@ La gestion d’Azure Defender pour IoT dans des environnements hybrides s’effe
 - Le portail Azure
 
 ### <a name="sensor-console"></a>Console de capteur
-Les détections de capteur s’affichent dans la console de capteur, où elles peuvent être consultées, examinées et analysées dans un mappage réseau, un inventaire des ressources et un vaste éventail de rapports, tels que des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Vous pouvez également utiliser la console pour afficher et gérer les menaces détectées par des moteurs de capteur, transmettre des informations à des systèmes partenaires, gérer des utilisateurs, et bien plus encore.
+Les détections de capteur s’affichent dans la console de capteur, où elles peuvent être consultées, examinées et analysées dans un mappage réseau, un inventaire des appareils et un vaste éventail de rapports, tels que des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Vous pouvez également utiliser la console pour afficher et gérer les menaces détectées par des moteurs de capteur, transmettre des informations à des systèmes partenaires, gérer des utilisateurs, et bien plus encore.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Console de capteur Defender pour IoT":::
 
@@ -96,7 +96,7 @@ Il est possible de déployer la console de gestion pour une configuration de hau
 
 Étroitement intégrée à vos workflows SOC et à vos runbooks, elle permet de hiérarchiser facilement les activités d’atténuation et de corréler les menaces entre les différents sites.
 
-- Holistique : Réduisez la complexité grâce à une seule plateforme unifiée pour la gestion des ressources, la gestion des risques et des vulnérabilités, ainsi que l’analyse des menaces avec réponse aux incidents.
+- Holistique : réduisez la complexité grâce à une seule plateforme unifiée pour la gestion des périphériques, la gestion des risques et des vulnérabilités, ainsi que l’analyse des menaces avec réponse aux incidents.
 
 - Agrégation et corrélation : affichez, agrégez et analysez les données et les alertes collectées sur tous les sites.
 

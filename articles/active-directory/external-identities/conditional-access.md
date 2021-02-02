@@ -5,46 +5,85 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 01/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 42b3c3d4d474c61cbe472b4122ac2f80f218bf8d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92892449"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797247"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>Authentification MFA pour utilisateurs B2B
-Avec Azure AD B2B Collaboration, les organisations peuvent appliquer des stratégies d’authentification multifacteur (MFA) pour les utilisateurs B2B. Ces stratégies peuvent être appliquées au niveau locataire, application ou utilisateur individuel, de la même façon qu’elles peuvent être activées pour les employés à plein temps et les membres de l’organisation. Les stratégies MFA sont appliquées à l’organisation de ressources.
+Cet article explique comment les organisations peuvent étendre des stratégies d’accès conditionnel pour permettre à des utilisateurs invités B2B d’accéder à leurs ressources.
+>[!NOTE]
+>Ce flux d’authentification ou d’autorisation diffère légèrement pour les utilisateurs invités par rapport à celui des utilisateurs existants de ce fournisseur d’identité (IdP).
 
-Exemple :
-1. L’administrateur ou le professionnel de l’information de la société A invite des utilisateurs de la société B pour l’application *Foo* dans la société A.
-2. L'application *Foo* dans la société A est configurée de manière à exiger l’authentification MFA lors de l’accès.
-3. Lorsque des utilisateurs de la société B tentent d’accéder à l’application *Foo* à partir d’un locataire de la société A, ils sont invités à effectuer une authentification MFA.
-4. Les utilisateurs peuvent configurer leur authentification MFA avec la société A et choisir leur option d’authentification MFA.
-5. Ce scénario fonctionne pour n’importe quelle identité (Azure AD ou MSA, par exemple, si les utilisateurs dans la société B s’authentifient à l’aide de leur ID social)
-6. La société A doit avoir suffisamment de licences Azure AD Premium qui prennent en charge l’authentification multifacteur. L’utilisateur de la société B utilise cette licence à partir de la société A.
+## <a name="authentication-flow-for-b2b-guest-users-from-an-external-directory"></a>Flux d’authentification pour les utilisateurs invités B2B en provenance d’un annuaire externe
 
-La location d’invitation est toujours responsable de l’authentification MFA pour les utilisateurs de l’organisation partenaire, même si l’organisation partenaire a des fonctionnalités d’authentification MFA.
+Le diagramme suivant illustre le flux : ![image montrant le flux d’authentification pour les utilisateurs invités B2B provenant d’un annuaire externe](./media/conditional-access-b2b/authentication-flow-b2b-guests.png)
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configuration de MFA pour les utilisateurs de B2B Collaboration
-Pour découvrir combien il est facile de configurer l’authentification MFA pour les utilisateurs de B2B Collaboration, consultez la vidéo suivante :
+| Étape | Description |
+|--------------|-----------------------|
+| 1. | L’utilisateur invité B2B demande l’accès à une ressource. La ressource redirige l’utilisateur vers son locataire, un IdP approuvé.|
+| 2. | Le locataire de la ressource identifie l’utilisateur comme étant externe, puis le redirige vers l’idP de cet utilisateur invité B2B. L’utilisateur procède à l’authentification principale auprès de l’IdP.
+| 3. | L’IdP de l’utilisateur invité B2B émet un jeton pour l’utilisateur. L’utilisateur est redirigé vers le locataire de la ressource avec le jeton. Le locataire de la ressource valide le jeton, puis évalue l’utilisateur au regard de ses stratégies d’accès conditionnel. Par exemple, le locataire de la ressource peut demander à l’utilisateur d’effectuer une authentification multifacteur Azure Active Directory (AD).
+| 4. | Une fois que toutes les stratégies d’accès conditionnel du locataire de la ressource sont satisfaites, le locataire émet son propre jeton et redirige l’utilisateur vers sa ressource.
+
+## <a name="authentication-flow-for-b2b-guest-users-with-one-time-passcode"></a>Flux d’authentification pour les utilisateurs invités B2B dotés d’un code secret à usage unique
+
+Le diagramme suivant illustre le flux : ![image montrant le flux d’authentification pour les utilisateurs invités B2B dotés d’un code secret à usage unique](./media/conditional-access-b2b/authentication-flow-b2b-guests-otp.png)
+
+| Étape | Description |
+|--------------|-----------------------|
+| 1. |L’utilisateur demande l’accès à une ressource située dans un autre locataire. La ressource redirige l’utilisateur vers son locataire, un IdP approuvé.|
+| 2. | Le locataire de la ressource identifie l’utilisateur en tant qu’[utilisateur doté d’un mot de passe à usage unique par e-mail externe](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) et envoie un e-mail contenant le mot de passe à usage unique à l’utilisateur.|
+| 3. | L’utilisateur récupère le mot de passe à usage unique et soumet le code. Le locataire de la ressource évalue l’utilisateur par rapport à ses stratégies d’accès conditionnel.
+| 4. | Une fois que toutes les stratégies d’accès conditionnel sont satisfaites, le locataire émet un jeton et redirige l’utilisateur vers sa ressource. |
+
+>[!NOTE]
+>Si l’utilisateur vient d’un locataire d’une ressource externe, il n’est pas possible d’évaluer également les stratégies d’accès conditionnel de l’idP de l’utilisateur invité B2B. À l’heure actuelle, seules les stratégies d’accès conditionnel du locataire de la ressource s’appliquent à ses invités.
+
+## <a name="azure-ad-multi-factor-authentication-for-b2b-users"></a>Authentification multifacteur Azure AD pour les utilisateurs B2B
+
+Les organisations peuvent appliquer plusieurs stratégies d’authentification multifacteur Azure AD pour leurs utilisateurs invités B2B. Ces stratégies peuvent être appliquées au niveau du locataire, de l’application ou de l’utilisateur individuel, de la même façon qu’elles peuvent être activées pour les employés à plein temps et les membres de l’organisation.
+Le locataire de la ressource est toujours responsable de l’authentification multifacteur Azure AD pour les utilisateurs, même si l’organisation de l’utilisateur invité offre des fonctionnalités d’authentification multifacteur. Voici un exemple.
+
+1. Un administrateur ou un professionnel de l’information dans une société nommée Fabrikam invite l’utilisateur d’une autre société nommée Contoso à utiliser son application Woodgrove.
+
+2. L’application Woodgrove de Fabrikam est configurée pour exiger une authentification multifacteur Azure AD lors de l’accès.
+
+3. Quand l’utilisateur invité B2B de Contoso essaie d’accéder à Woodgrove dans le locataire Fabrikam, il est invité à procéder à l’authentification multifacteur Azure AD.
+
+4. L’utilisateur invité peut alors configurer son authentification multifacteur Azure AD auprès de Fabrikam et sélectionner les options.
+
+5. Ce scénario fonctionne pour toute identité : Azure AD ou compte Microsoft personnel (MSA). Par exemple, il fonctionne si l’utilisateur de Contoso s’authentifie avec un ID social.
+
+6. Fabrikam doit disposer de suffisamment de licences Azure AD Premium prenant en charge l’authentification multifacteur Azure AD. L’utilisateur de Contoso consomme alors cette licence de Fabrikam. Pour plus d’informations sur les licences B2B, consultez le [modèle de facturation pour les identités externes Azure AD](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing).
+
+>[!NOTE]
+>L’authentification multifacteur Azure AD est effectuée au niveau du locataire de la ressource pour garantir la prévisibilité.
+
+### <a name="set-up-azure-ad-multi-factor-authentication-for-b2b-users"></a>Configurer l’authentification multifacteur Azure AD pour les utilisateurs B2B
+
+Pour configurer l’authentification multifacteur Azure AD pour les utilisateurs B2B Collaboration, regardez cette vidéo :
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Expérience MFA d'utilisation de l'invitation par des utilisateurs B2B
-Regardez l’animation suivante pour découvrir comment utiliser l’invitation :
+### <a name="b2b-users-azure-ad-multi-factor-authentication-for-offer-redemption"></a>Authentification multifacteur Azure AD des utilisateurs B2B pour l’utilisation de l’offre
+
+Pour en savoir plus sur l’expérience d’utilisation de l’authentification multifacteur Azure AD, regardez cette vidéo :
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>Réinitialisation de l'authentification MFA pour les utilisateurs de B2B de Collaboration
-Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaboration s’authentifient à nouveau uniquement par le biais des applets de commande PowerShell suivantes :
+### <a name="azure-ad-multi-factor-authentication-reset-for-b2b-users"></a>Réinitialisation de l’authentification multifacteur Azure AD pour les utilisateurs B2B
+
+À présent, les applets de commande PowerShell suivantes sont disponibles pour valider des utilisateurs invités B2B :
 
 1. Se connecter à Azure AD
 
@@ -63,52 +102,57 @@ Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaborat
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Réinitialisez la méthode d’authentification multifacteur pour qu’un utilisateur spécifique oblige l’utilisateur B2B Collaboration à définir de nouveau des méthodes d’authentification. Exemple :
+3. Réinitialisez la méthode d’authentification multifacteur Azure AD pour qu’un utilisateur spécifique oblige l’utilisateur B2B Collaboration à définir de nouveau des méthodes de validation. 
+   Voici un exemple :
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Pourquoi effectuer l’authentification MFA au niveau de la location de la ressource ?
+## <a name="conditional-access-for-b2b-users"></a>Accès conditionnel pour les utilisateurs B2B
 
-Dans la version actuelle, l’authentification MFA s’effectue toujours dans la location de la ressource, pour des raisons de prévisibilité. Par exemple, un utilisateur de Contoso (Catherine) est invité à Fabrikam, et Fabrikam a activé l’authentification MFA pour les utilisateurs B2B.
+Divers facteurs influencent les stratégies d’accès conditionnel pour les utilisateurs invités B2B.
 
-Si Contoso utilise la stratégie d’authentification multifacteur sur App1 mais pas sur App2, et si nous examinons la revendication MFA Contoso dans le jeton, nous pourrions constater le problème suivant :
+### <a name="device-based-conditional-access"></a>Accès conditionnel basé sur les appareils
 
-* Jour 1 : Un utilisateur dispose de l’authentification multifacteur dans Contoso et accède à App1, mais aucune invite MFA supplémentaire ne s’affiche dans Fabrikam.
+En matière d’accès conditionnel, il existe une option pour exiger que [l’appareil d’un utilisateur soit conforme ou joint à Azure AD Hybride](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). Les utilisateurs invités B2B peuvent uniquement satisfaire à la conformité si le locataire de la ressource peut gérer leur appareil. Les appareils ne peuvent pas être gérés par plusieurs organisations à la fois. Les utilisateurs invités B2B ne peuvent pas effectuer la jonction Azure AD Hybride, car ils n’ont pas de compte AD local. L’utilisateur invité peut inscrire ou enregistrer son appareil dans le locataire de la ressource, puis le rendre conforme, seulement si cet appareil n’est pas géré. L’utilisateur peut alors satisfaire au contrôle d’octroi.
 
-* Jour 2 : L’utilisateur a accédé à App2 dans Contoso, et à présent, lorsqu’il accède à Fabrikam, il doit s’inscrire à l’authentification multifacteur.
+>[!Note]
+>Il n’est pas recommandé d’exiger un appareil géré pour les utilisateurs externes.
 
-Ce processus peut prêter à confusion et entraîner l’abandon de connexion.
+### <a name="mobile-application-management-policies"></a>Stratégies de gestion des applications mobiles
 
-En outre, même si Contoso dispose de la fonctionnalité MFA, il n’est pas toujours certain que Fabrikam approuve la stratégie MFA de Contoso.
+Les contrôles d’octroi d’accès conditionnel comme **Exiger des applications client approuvées** et **Exiger des stratégies de protection d’application** nécessitent que l’appareil soit inscrit dans le locataire. Ces contrôles peuvent uniquement être appliqués à des [appareils iOS et Android](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms). En revanche, aucun de ces contrôles ne peut être appliqué à des utilisateurs invités B2B si l’appareil de l’utilisateur est déjà géré par une autre organisation. Un appareil mobile ne peut pas être inscrit dans plusieurs locataires à la fois. Si l’appareil mobile est géré par une autre organisation, l’utilisateur est bloqué. Un utilisateur invité peut inscrire son appareil dans le locataire de la ressource, seulement si cet appareil n’est pas géré. L’utilisateur peut alors satisfaire au contrôle d’octroi.  
 
-Enfin, l’authentification MFA du locataire de la ressource fonctionne également pour les MSA et les ID sociaux ainsi que pour les organisations partenaires au sein desquelles l’authentification MFA n’est pas configurée.
+>[!NOTE]
+>Il n’est pas recommandé d’exiger une stratégie de protection d’application pour les utilisateurs externes.
 
-Par conséquent, la recommandation d’authentification MFA pour les utilisateurs B2B consiste à toujours demander l’authentification MFA dans le locataire à l’origine de l’invitation. Cette exigence peut entraîner une double authentification multifacteur dans certains cas, mais à chaque accès au locataire à l’origine de l’invitation, l’expérience des utilisateurs finaux est prévisible : Catherine doit s’inscrire à MFA avec le locataire à l’origine de l’invitation.
+### <a name="location-based-conditional-access"></a>Accès conditionnel en fonction des emplacements
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accès conditionnel en fonction des appareils, des emplacements et des risques pour les utilisateurs B2B
+La [stratégie en fonction des emplacements](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) basée sur des plages d’adresses IP peut être appliquée si l’organisation qui invite peut créer une plage d’adresses IP approuvées qui définit ses organisations partenaires.
 
-Lorsque Contoso active les stratégies d’accès conditionnel en fonction des appareils pour ses données d’entreprise, l’accès est protégé contre les appareils non gérés par Contoso et non conformes aux stratégies d’appareils de Contoso.
+Des stratégies peuvent également être appliquées en fonction des **localisations géographiques**.
 
-Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusions contenant des utilisateurs partenaires spécifiques afin de les exclure de la stratégie d’accès conditionnel en fonction des appareils.
+### <a name="risk-based-conditional-access"></a>Accès conditionnel en fonction du risque
 
-#### <a name="mobile-application-management-policies-for-b2b"></a>Stratégies de gestion des applications mobiles pour B2B
+La [stratégie de connexion à risque](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) est appliquée si l’utilisateur invité B2B satisfait au contrôle d’octroi. Par exemple, une organisation peut exiger une authentification multifacteur Azure AD pour une connexion à risque moyen ou élevé. En revanche, si un utilisateur ne s’est pas préalablement inscrit à l’authentification multifacteur Azure AD auprès du locataire de la ressource, il est bloqué. Cela permet d’empêcher les utilisateurs malveillants d’inscrire leurs propres informations d’identification pour une authentification multifacteur Azure AD s’ils parviennent à compromettre le mot de passe d’un utilisateur légitime.
 
-Les stratégies de protection des applications à accès conditionnel ne peuvent pas être appliquées aux utilisateurs B2B, car l’organisation qui lance l’invitation n’a aucune visibilité sur l’organisation de l’utilisateur B2B.
+La [stratégie d’utilisateur à risque](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) ne peut pas être résolue dans le locataire de la ressource. Par exemple, si vous exigez un changement de mot de passe pour les utilisateurs invités à haut risque, ceux-ci sont bloqués en raison de l’impossibilité de réinitialiser des mots de passe dans le répertoire des ressources.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Accès conditionnel en fonction des emplacements pour B2B
+### <a name="conditional-access-client-apps-condition"></a>Conditions des applications clientes d’accès conditionnel
 
-Les stratégies d’accès conditionnel en fonction des emplacements peuvent être appliquées pour les utilisateurs B2B si l’organisation à l’origine de l’invitation est en mesure de créer une plage d’adresses IP approuvée qui définit leurs organisations partenaires.
+Les [conditions des applications clientes](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) se comportent de la même façon pour les utilisateurs invités B2B que pour tout autre type d’utilisateur. Par exemple, vous pouvez empêcher des utilisateurs invités d’utiliser des protocoles d’authentification hérités.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Accès conditionnel en fonction des risques pour B2B
+### <a name="conditional-access-session-controls"></a>Contrôles de session d’accès conditionnel
 
-Actuellement, les stratégies de connexion en fonction des risques ne peuvent pas être appliquées aux utilisateurs B2B, car l’évaluation des risques s’effectue au niveau de l’organisation d’origine de l’utilisateur B2B.
+Les [contrôles de session](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) se comportent de la même façon pour les utilisateurs invités B2B que pour tout autre type d’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants sur Azure AD B2B Collaboration :
+Pour plus d’informations, consultez les articles suivants sur Azure AD B2B Collaboration :
 
-* [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-* [Prix des identités externes](external-identities-pricing.md)
-* [Questions fréquemment posées (FAQ) sur Azure Active Directory B2B Collaboration](faq.md)
+- [Qu'est-ce que la collaboration B2B d'Azure AD ?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
+- [Utilisateurs Identity Protection et B2B](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
+- [Prix des identités externes](https://azure.microsoft.com/pricing/details/active-directory/)
+- [Questions fréquentes (FAQ)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
+

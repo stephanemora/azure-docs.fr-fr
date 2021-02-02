@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922583"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621893"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -251,7 +251,7 @@ Créez deux appareils IoT dans IoT Hub et obtenez leur mot de passe. À l’aide
 
 ### <a name="authorize-publisher-and-subscriber-clients"></a>Autoriser des clients Serveur de publication et Abonné
 
-Pour autoriser le serveur de publication et l’abonné, modifiez le jumeau du hub IoT Edge à l’aide d’Azure CLI, de Visual Studio ou de Visual Studio Code pour inclure la stratégie d’autorisation suivante :
+Pour autoriser le serveur de publication et l’abonné, modifiez le jumeau du hub IoT Edge en créant un déploiement IoT Edge à l’aide d’Azure CLI, de Visual Studio ou de Visual Studio Code pour inclure la stratégie d’autorisation suivante :
 
 ```json
 {
@@ -332,7 +332,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publish
+#### <a name="publish"></a>Publier
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 

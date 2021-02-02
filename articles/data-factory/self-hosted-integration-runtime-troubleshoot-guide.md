@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503571"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757676"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -67,31 +67,6 @@ Une nouvelle activité peut générer une erreur Mémoire insuffisante si l’or
 #### <a name="resolution"></a>Résolution
 
 Vérifiez l’utilisation des ressources et l’exécution simultanée d’activités sur le nœud IR. Ajustez l’heure interne et l’heure de déclenchement des exécutions d’activité pour éviter un trop grand nombre d’exécutions sur un même nœud IR en même temps.
-
-
-### <a name="ssltls-certificate-issue"></a>Problème de certificat TLS/SSL
-
-#### <a name="symptoms"></a>Symptômes
-
-Lorsque vous essayez d’activer un certificat SSL (Secure Sockets Layer)/TLS (Transport Layer Security) (avancé) en choisissant le certificat (après avoir sélectionné **Self-hosted IR Configuration Manager (Gestionnaire de configuration de l’IR auto-hébergé)**  > **Accès à distance à partir de l’intranet**), vous recevez l’erreur suivante :
-
-« Les paramètres d’accès distant ne sont pas valides. Échec de la vérification d’identité pour le message sortant. L’identité DNS attendue sur le point de terminaison distant était « abc.microsoft.com », mais le DNS fourni pour le point de terminaison distant revendique « microsoft.com ». S’il s’agit d’un point de terminaison distant valable, vous pouvez résoudre le problème en spécifiant explicitement l’identité DNS « microsoft.com » pour la propriété d’identité de l’élément EndpointAddress lors de la création du proxy du canal. »
-
-Dans l’exemple précédent, « microsoft.com » est ajouté au certificat choisi.
-
-#### <a name="cause"></a>Cause
-
-Il s’agit d’un problème connu dans Windows Communication Foundation (WCF). La validation SSL/TLS WCF vérifie uniquement le dernier DNSName dans le champ de l’**autre nom de l’objet** (SAN). 
-
-#### <a name="resolution"></a>Résolution
-
-Un certificat générique est pris en charge dans l’IR auto-hébergé Azure Data Factory v2. Ce problème se produit généralement parce que le certificat SSL n’est pas correct. Le dernier nom DNS dans le SAN doit être valide. 
-
-Pour vérifier et corriger le nom DNS, procédez comme suit : 
-
-1. Ouvrez la console de gestion.
-1. Sous **Détails du certificat**, vérifiez la valeur dans les zones **Objet** et **Autre nom de l’objet**. Par exemple, « DNS Name = microsoft.com.com » n’est pas un nom valide.
-1. Contactez la société émettrice du certificat pour que les noms DNS incorrects soient supprimés.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problème lié à la limite de tâches simultanées
 

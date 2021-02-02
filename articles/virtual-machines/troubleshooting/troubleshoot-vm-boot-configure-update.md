@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079840"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633008"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
 
@@ -39,6 +39,9 @@ Une machine virtuelle Windows ne démarre pas. Quand vous utilisez les **Diagnos
 Ce problème se produit généralement lorsque le serveur effectue le redémarrage final après un changement de configuration. Le changement de configuration peut résulter de mises à jour de Windows ou de modifications des rôles ou fonctionnalité du serveur. Pour Windows Update, si l’ampleur des mises à jour est importante, le système d’exploitation a besoin de plus de temps pour reconfigurer les modifications.
 
 ## <a name="collect-an-os-memory-dump"></a>Collecter un vidage mémoire du système d’exploitation
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Si le problème n’est pas résolu après que vous avez attendu que les modifications soient traitées, vous devez recueillir un fichier d’image mémoire et contacter le support technique. Pour collecter le fichier d’image, effectuez les étapes suivantes :
 

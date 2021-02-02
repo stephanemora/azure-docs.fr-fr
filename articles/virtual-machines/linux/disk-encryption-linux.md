@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: efe24b3d1f6e22cc7f054691cb75a4ccede7aa4b
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912442"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878136"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -42,11 +42,11 @@ Vous pouvez activer et gérer Azure Disk Encryption par le biais d’[Azure CLI]
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI 2.0](/cli/azure) est un outil en ligne de commande pour la gestion des ressources Azure. L’interface CLI est conçue pour interroger les données de manière flexible, pour prendre en charge les opérations de longue durée en tant que processus non bloquants et pour simplifier l’écriture de scripts. Vous pouvez l’installer localement en effectuant les étapes décrites dans [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+[Azure CLI 2.0](/cli/azure) est un outil en ligne de commande pour la gestion des ressources Azure. L’interface CLI est conçue pour interroger les données de manière flexible, pour prendre en charge les opérations de longue durée en tant que processus non bloquants et pour simplifier l’écriture de scripts. Vous pouvez l’installer localement en effectuant les étapes décrites dans [Installer Azure CLI](/cli/azure/install-azure-cli).
 
  
 
-Pour [vous connecter à votre compte Azure avec Azure CLI](/cli/azure/authenticate-azure-cli), utilisez la commande [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Pour [vous connecter à votre compte Azure avec Azure CLI](/cli/azure/authenticate-azure-cli), utilisez la commande [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -72,13 +72,13 @@ Le [module az Azure PowerShell](/powershell/azure/new-azureps-module-az) fournit
 
 Si vous l’avez déjà installé localement, veillez à utiliser la dernière version du Kit de développement logiciel (SDK) Azure PowerShell pour configurer Azure Disk Encryption. Téléchargez la dernière version [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Pour [vous connecter à votre compte Azure avec Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), utilisez la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Pour [vous connecter à votre compte Azure avec Azure PowerShell](/powershell/azure/authenticate-azureps), utilisez la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Si vous avez plusieurs abonnements et que vous souhaitez en spécifier un, utilisez la cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) pour les lister, puis la cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) :
+Si vous avez plusieurs abonnements et que vous souhaitez en spécifier un, utilisez la cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) pour les lister, puis la cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext) :
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
@@ -86,7 +86,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 L’exécution de la cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) permet de vérifier que l’abonnement approprié a été sélectionné.
 
-Pour vérifier que les cmdlets Azure Disk Encryption sont installées, utilisez la cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) :
+Pour vérifier que les cmdlets Azure Disk Encryption sont installées, utilisez la cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command) :
      
 ```powershell
 Get-command *diskencryption*
@@ -104,9 +104,9 @@ Dans ce scénario, vous pouvez activer le chiffrement en utilisant le modèle Re
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Activer le chiffrement sur une machine virtuelle Linux existante ou en cours d’exécution avec Azure CLI 
 
-Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré en installant et en utilisant l’outil en ligne de commande [Azure CLI](/cli/azure/?view=azure-cli-latest). Vous pouvez l’ouvrir dans le navigateur avec [Azure Cloud Shell](../../cloud-shell/overview.md), ou vous pouvez l’installer sur votre ordinateur local et l’utiliser dans une session PowerShell. Pour activer le chiffrement sur des machines virtuelles Linux existantes ou en cours d’exécution dans Azure, utilisez les commandes CLI suivantes :
+Vous pouvez activer le chiffrement de disque sur votre disque dur virtuel chiffré en installant et en utilisant l’outil en ligne de commande [Azure CLI](/cli/azure/). Vous pouvez l’ouvrir dans le navigateur avec [Azure Cloud Shell](../../cloud-shell/overview.md), ou vous pouvez l’installer sur votre ordinateur local et l’utiliser dans une session PowerShell. Pour activer le chiffrement sur des machines virtuelles Linux existantes ou en cours d’exécution dans Azure, utilisez les commandes CLI suivantes :
 
-Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) pour activer le chiffrement sur une machine virtuelle en cours d’exécution dans Azure.
+Utilisez la commande [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) pour activer le chiffrement sur une machine virtuelle en cours d’exécution dans Azure.
 
 - **Chiffrer une machine virtuelle en cours d’exécution :**
 
@@ -283,7 +283,7 @@ Nous recommandons une installation LVM-on-crypt. Pour les exemples suivants, rem
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Exécutez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) d’Azure PowerShell avec -EncryptFormatAll pour chiffrer ces disques.
+1. Exécutez la cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) d’Azure PowerShell avec -EncryptFormatAll pour chiffrer ces disques.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"
@@ -412,6 +412,7 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 - Les disques NVMe des machines virtuelles de la série Lsv2 (cf. [Série Lsv2](../lsv2-series.md)).
 - Une machine virtuelle avec des « points de montage imbriqués », autrement dit, avec plusieurs points de montage dans un même chemin d’accès (par exemple, « /1stmountpoint/data/2stmountpoint »).
 - Machine virtuelle avec un lecteur de données monté sur un dossier du système d’exploitation.
+- Machine virtuelle sur laquelle un volume logique racine (disque de système d’exploitation) a été étendu à l’aide d’un disque de données.
 - Machines virtuelles de la série M avec des disques Accélérateur d’écriture.
 - Application d’ADE à une machine virtuelle qui possède des disques chiffrés avec un [chiffrement côté serveur avec des clés gérées par le client](../disk-encryption.md) (SSE + CMK). L’application de SSE + CMK à un disque de données sur une machine virtuelle chiffrée avec ADE est également un scénario non pris en charge.
 - Migration d’une machine virtuelle chiffrée par ADE ou n’a **jamais** été chiffrée avec ADE, pour un [chiffrement côté serveur avec clés gérées par le client](../disk-encryption.md).

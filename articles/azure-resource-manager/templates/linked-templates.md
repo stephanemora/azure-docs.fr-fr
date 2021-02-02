@@ -2,13 +2,13 @@
 title: Lier des modèles pour déploiement
 description: Décrit l’utilisation des modèles liés dans un modèle ARM (Azure Resource Manager) pour créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760620"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880427"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -112,6 +112,10 @@ La portée est définie par la propriété `expressionEvaluationOptions`. Par d�
   ...
 ```
 
+> [!NOTE]
+>
+> Lorsque la portée est définie sur `outer`, la fonction `reference` n’est pas utilisable dans la section outputs d’un modèle imbriqué pour une ressource déployée dans le modèle imbriqué. Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, utilisez l’étendue `inner` ou bien convertissez votre modèle imbriqué en modèle lié.
+
 Le modèle suivant montre la façon dont sont résolues les expressions de modèle en fonction de la portée. Il contient une variable nommée `exampleVar`, définie à la fois dans le modèle parent et dans le modèle imbriqué. Il retourne la valeur de la variable.
 
 ```json
@@ -162,7 +166,7 @@ Le modèle suivant montre la façon dont sont résolues les expressions de modè
 
 La valeur de `exampleVar` varie en fonction de la valeur de la propriété `scope` dans `expressionEvaluationOptions`. Le tableau suivant montre les résultats pour les deux portées.
 
-| Étendue `expressionEvaluationOptions` | Output |
+| Étendue de l’évaluation | Output |
 | ----- | ------ |
 | interne | from nested template |
 | externe (ou par défaut) | from parent template |
@@ -277,9 +281,128 @@ L’exemple suivant déploie un serveur SQL et récupère un secret de coffre de
 }
 ```
 
-> [!NOTE]
->
-> Lorsque la portée est définie sur `outer`, la fonction `reference` n’est pas utilisable dans la section outputs d’un modèle imbriqué pour une ressource déployée dans le modèle imbriqué. Pour retourner les valeurs d’une ressource déployée dans un modèle imbriqué, utilisez l’étendue `inner` ou bien convertissez votre modèle imbriqué en modèle lié.
+Soyez prudent lorsque vous utilisez des valeurs de paramètre sécurisées dans un modèle imbriqué. Si vous définissez l’étendue sur externe, les valeurs sécurisées sont stockées sous forme de texte brut dans l’historique de déploiement. Un utilisateur qui consulte le modèle dans l’historique de déploiement peut voir les valeurs sécurisées. Utilisez plutôt l’étendue interne ou ajoutez au modèle parent les ressources qui nécessitent des valeurs sécurisées.
+
+L’extrait suivant montre quelles valeurs sont sécurisées et lesquelles ne le sont pas.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPasswordOrKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+      }
+    }
+  },
+  ...
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2020-06-01",
+      "name": "mainTemplate",
+      "properties": {
+        ...
+        "osProfile": {
+          "computerName": "mainTemplate",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in parent template
+        }
+      }
+    },
+    {
+      "name": "outer",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "outer"
+        },
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "outer",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "outer",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // No, not secure because resource is in nested template with outer scope
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "inner",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "properties": {
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "mode": "Incremental",
+        "parameters": {
+          "adminPasswordOrKey": {
+              "value": "[parameters('adminPasswordOrKey')]"
+          },
+          "adminUsername": {
+              "value": "[parameters('adminUsername')]"
+          }
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminUsername": {
+              "type": "string",
+              "metadata": {
+                "description": "Username for the Virtual Machine."
+              }
+            },
+            "adminPasswordOrKey": {
+              "type": "securestring",
+              "metadata": {
+                "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+              }
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Compute/virtualMachines",
+              "apiVersion": "2020-06-01",
+              "name": "inner",
+              "properties": {
+                ...
+                "osProfile": {
+                  "computerName": "inner",
+                  "adminUsername": "[parameters('adminUsername')]",
+                  "adminPassword": "[parameters('adminPasswordOrKey')]" // Yes, secure because resource is in nested template and scope is inner
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## <a name="linked-template"></a>Modèle lié
 
@@ -372,6 +495,91 @@ Pour passer des valeurs de paramètre inline, utilisez la propriété `parameter
 ```
 
 Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un fichier de paramètres. Si `parametersLink` et `parameters` sont spécifiés tous les deux, le déploiement échoue.
+
+### <a name="use-relative-path-for-linked-templates"></a>Utiliser le chemin d’accès relatif pour les modèles liés
+
+La propriété `relativePath` de `Microsoft.Resources/deployments` facilite la création de modèles liés. Cette propriété peut être utilisée pour déployer un modèle lié distant à un emplacement relatif au parent. Cette fonctionnalité nécessite que tous les fichiers de modèle soient indexés et disponibles sur un URI distant, tel que GitHub ou un compte de stockage Azure. Lorsque le modèle principal est appelé à l’aide d’un URI d’Azure PowerShell ou Azure CLI, l’URI de déploiement enfant est une combinaison du parent et de relativePath.
+
+> [!NOTE]
+> Lors de la création d’un templateSpec, tous les modèles référencés par la propriété `relativePath` sont empaquetés dans la ressource templateSpec par Azure PowerShell ou Azure CLI. Il n’est pas nécessaire que les fichiers soient indexés. Pour plus d’informations, consultez [Créer une spec de modèle avec des modèles liés](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Supposons une structure de dossiers comme suit :
+
+![chemin d’accès relatif du modèle lié Resource Manager](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+Le modèle suivant montre comment *mainTemplate.json* déploie *nestedChild.json* illustré dans l’image précédente.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+Dans le déploiement suivant, l’URI du modèle lié dans le modèle précédent est **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Pour déployer des modèles liés avec un chemin d’accès relatif stocké dans un compte de stockage Azure, utilisez le paramètre `QueryString`/`query-string` pour spécifier le jeton SAP à utiliser avec le paramètre TemplateUri. Ce paramètre est uniquement pris en charge par la version 2.18 ou ultérieure Azure CLI et la version 5.4 ou ultérieure d’Azure PowerShell.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Assurez-vous que QueryString ne commence pas par le caractère « ? ». Le déploiement en ajoute un lors de l’assemblage de l’URI pour les déploiements.
 
 ## <a name="template-specs"></a>Spécifications de modèle
 

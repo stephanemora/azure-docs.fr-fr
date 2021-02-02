@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 81a52b26c5291f788ac81caeb2ca5416a2f58d36
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e009369f6223e171984d1142419101fdd82879b0
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448876"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804912"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Utiliser kubectl pour exécuter une application avec état Kubernetes à l’aide d’une StorageClass sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -24,7 +24,7 @@ Cette procédure est destinée aux personnes qui ont examiné le [stockage Kuber
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir déployer l’application avec état, assurez-vous d’avoir rempli les conditions préalables suivantes sur votre appareil et le client que vous utiliserez pour accéder à ce dernier :
+Avant de pouvoir déployer l’application avec état, vous devez remplir les conditions préalables suivantes sur votre appareil et sur le client que vous utiliserez pour accéder à l’appareil :
 
 ### <a name="for-device"></a>Pour l’appareil
 
@@ -35,7 +35,7 @@ Avant de pouvoir déployer l’application avec état, assurez-vous d’avoir re
 ### <a name="for-client-accessing-the-device"></a>Pour le client qui accède à l’appareil
 
 - Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge Pro.
-    - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Vous pouvez également utiliser un autre client avec un [système d’exploitation pris en charge](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). Cet article décrit la procédure à utiliser avec un client Windows. 
     
@@ -157,7 +157,7 @@ Toutes les commandes `kubectl` que vous utilisez pour créer et gérer des dépl
     persistentvolumeclaim/mysql-pv-claim-sc created
     C:\Users\user>
     ```
-   Notez le nom de la PVC créée, ici `mysql-pv-claim-sc`. Vous l’utiliserez dans une étape ultérieure. 
+   Notez le nom de la PVC créée : dans cet exemple, `mysql-pv-claim-sc`. Vous l’utiliserez dans une étape ultérieure.
 
 4. Déployez le contenu du fichier `mysql-deployment.yml`.
 

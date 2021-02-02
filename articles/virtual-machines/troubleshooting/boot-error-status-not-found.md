@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657122"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632222"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Résoudre les problèmes liés à l’erreur de Gestionnaire de démarrage Windows : 0xC0000225 « État introuvable »
  
@@ -79,6 +79,9 @@ Un endommagement de la ruche du Registre peut être due aux causes suivantes :
 ## <a name="solution"></a>Solution
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 1. Créer une machine virtuelle de réparation et y accéder.
 1. Sélectionner une solution :
@@ -255,7 +258,7 @@ L’erreur **Fichier du Registre** a une solution, mais vous devrez [créer un d
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Activer la console série et la collecte de l’image mémoire
 
-**Recommandé** : Avant de régénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire en exécutant le script suivant :
+**Recommandé** : Avant de régénérer la machine virtuelle, activez la console série et la collecte de l’image mémoire en exécutant le script suivant :
 
 1. Ouvrez une session d’invite de commandes avec élévation de privilèges en tant qu’administrateur.
 1. Exécutez les commandes suivantes :

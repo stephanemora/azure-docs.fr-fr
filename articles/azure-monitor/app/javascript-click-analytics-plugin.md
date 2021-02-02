@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e69d5cc76f8f4b14ab87e13546c98859bb801418
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234556"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660451"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Plug-in Click Analytics Auto-collection pour kit SDK JavaScript Application Insights
 
-Le plug-in Click Analytics Auto-collection pour kit SDK JavaScript Application Insights permet le suivi automatique des événements de clic sur les pages web basé sur les `data-*`balises méta. Ce plug-in utilise les attributs généraux `data-*` pour capturer les événements de clic et remplir les données de télémétrie.
+Ce plug-in suit automatiquement les événements de clic sur les pages web et utilise les attributs data-* sur les éléments HTML pour remplir la télémétrie des événements.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. Pour améliorer l’efficacité, le plug-in utilise cette balise en tant qu’indicateur. Quand il la rencontre, il cesse de traiter le DOM (Document Object Model) vers le haut.
     
     > [!CAUTION]
-    > Une fois `parentDataTag` utilisé, il a un effet permanent sur toute l’application et pas seulement sur l’élément HTML dans lequel vous l’avez utilisé.
+    > Une fois `parentDataTag` utilisé, le Kit de développement logiciel (SDK) commence à rechercher les balises parentes dans toute l’application, et pas seulement dans l’élément HTML où vous l’avez utilisé.
 4. `customDataPrefix` fourni par l’utilisateur doit toujours commencer par `data-`, par exemple `data-sample-`. En HTML, les attributs généraux `data-*` forment une classe d’attributs appelée attributs de données personnalisés, qui autorisent l’échange d’informations propriétaires entre le code HTML et sa représentation DOM par des scripts. Les navigateurs plus anciens (Internet Explorer, Safari) suppriment les attributs qu’ils ne comprennent pas, sauf s’ils commencent par `data-`.
 
     Le `*` dans `data-*` peut être remplacé par n’importe quel nom qui suit la [règle de production des noms XML](https://www.w3.org/TR/REC-xml/#NT-Name) avec les restrictions suivantes :
@@ -101,19 +101,19 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nom                      | Type    | Default   | Description                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | Lorsqu’un élément spécifique n’est pas étiqueté avec la valeur par défaut de customDataPrefix ou que customDataPrefix n’est pas fourni par l’utilisateur, cet indicateur est utilisé pour collecter l’attribut HTML standard de contentName. |
-| customDataPrefix          | string  | `data-`   | Capture automatique du contenu et de la valeur des éléments balisés avec le préfixe fourni.       |
-| aiBlobAttributeTag        | string  | `ai-blob` | Le plug-in prend en charge le balisage des métadonnées du contenu d’objet blob JSON plutôt que des attributs individuels `data-*`. |
-| metaDataPrefix            | string  | null      | Capture automatique du contenu et du nom de l’élément méta de l’en-tête HTML avec le préfixe fourni. |
-| captureAllMetaDataContent | string  | null      | Capture automatique de tous les noms et de tout le contenu de l’élément méta de l’en-tête HTML. La valeur par défaut est false. Si elle est activée, cette option remplace la valeur metaDataPrefix fournie. |
-| parentDataTag             | string  | null      | Cesse de parcourir le DOM pour capturer le nom et la valeur du contenu des éléments quand cette balise est rencontrée.|
-| dntDataTag                | string  | `ai-dnt`  | Les éléments HTML avec cet attribut seront ignorés par le plug-in pour la capture des données de télémétrie.|
+| Nom                      | Type    | Default   | Balise par défaut à utiliser en HTML |   Description                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | false     | N/A         |Collecte l’attribut HTML standard de contentName lorsqu’un élément spécifique n’est pas balisé avec la valeur par défaut de customDataPrefix ou que customDataPrefix n’est pas fourni par l’utilisateur. |
+| customDataPrefix          | string  | `data-`   | `data-*`| Capture automatique du contenu et de la valeur des éléments balisés avec le préfixe fourni. Par exemple, `data-*-id`, `data-<yourcustomattribute>` peut être utilisé dans les balises HTML.   |
+| aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| Le plug-in prend en charge un attribut blob JSON plutôt que des attributs `data-*` individuels. |
+| metaDataPrefix            | string  | null      | N/A  | Capture automatique du contenu et du nom de l’élément méta de l’en-tête HTML avec le préfixe fourni. Par exemple, `custom-` peut être utilisé dans la balise méta HTML. |
+| captureAllMetaDataContent | boolean | false     | N/A   | Capture automatique de tous les noms et de tout le contenu de l’élément méta de l’en-tête HTML. La valeur par défaut est false. Si elle est activée, cette option remplace la valeur metaDataPrefix fournie. |
+| parentDataTag             | string  | null      |  N/A  | Cesse de parcourir le DOM pour capturer le nom et la valeur du contenu des éléments quand cette balise est rencontrée. Par exemple, `data-<yourparentDataTag>` peut être utilisé dans les balises HTML.|
+| dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| Les éléments HTML avec cet attribut seront ignorés par le plug-in pour la capture des données de télémétrie.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
-Vous pouvez utiliser la fonction behaviorValidator pour garantir la cohérence des données grâce à des vérifications automatiques assurant que les comportements sont balisés selon un code conforme à une liste prédéfinie de taxonomie connue et acceptée au sein de votre entreprise. L’utilisation de cette fonction n’est ni obligatoire ni attendue pour les clients d’Azure Monitor mais elle est disponible pour des scénarios avancés. Trois fonctions de rappel behaviorValidator différentes sont exposées dans le cadre de cette extension. Toutefois, les utilisateurs peuvent utiliser leurs propres fonctions de rappel si les fonctions exposées ne correspondent pas à leurs exigences. L’objectif est d’apporter votre propre structure de données de comportements, le plug-in utilise cette fonction de validateur lors de l’extraction des comportements des balises de données.
+Les fonctions behaviorValidator vérifient automatiquement que les comportements balisés dans le code respectent une liste prédéfinie. Cela garantit la cohérence des comportements balisés avec la taxonomie établie par votre entreprise. L’utilisation de cette fonction n’est ni obligatoire ni attendue pour les clients d’Azure Monitor mais elle est disponible pour des scénarios avancés. Trois fonctions de rappel behaviorValidator différentes sont exposées dans le cadre de cette extension. Toutefois, les utilisateurs peuvent utiliser leurs propres fonctions de rappel si les fonctions exposées ne correspondent pas à leurs exigences. L’objectif est d’apporter votre propre structure de données de comportements, le plug-in utilise cette fonction de validateur lors de l’extraction des comportements des balises de données.
 
 | Nom                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -312,6 +312,7 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Consultez les [référentiel GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) et [package NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) pour le plug-in Click Analytics Auto-collection.
 - Utilisez [l’analyse des événements dans l’expérience d’utilisation](usage-segmentation.md) pour analyser les clics principaux et les segmenter en utilisant des dimensions disponibles.
-- Recherchez les données de clic dans le champ de contenu de l’attribut customDimensions de la table CustomEvents dans [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
+- Recherchez les données de clic dans le champ de contenu de l’attribut customDimensions de la table CustomEvents dans [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Pour obtenir une aide supplémentaire, consultez [Exemple d’application](https://go.microsoft.com/fwlink/?linkid=2152871).
 - Générez un [classeur](../platform/workbooks-overview.md) pour créer des visualisations personnalisées des données de clic.

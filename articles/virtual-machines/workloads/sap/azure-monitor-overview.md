@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: bcb912a24dfb2a5e78719cf9010fd23afe0df185
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484394"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693822"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>Azure Monitor pour solutions SAP (préversion)
 
@@ -24,7 +24,7 @@ Avec Azure Monitor pour les solutions SAP, les clients peuvent collecter des don
 
 Les solutions Azure Monitor pour SAP sont proposées via la place de marché Azure. Elles offrent une expérience d’installation simple et intuitive et il suffit de quelques clics pour déployer la ressource pour Azure Monitor pour les solutions SAP (appelée **Ressources d’analyse SAP**).
 
-Les clients peuvent surveiller différents composants d’un paysage SAP, tels que les machines virtuelles Azure, le cluster à haute disponibilité, la base de données SAP HANA, etc. en ajoutant le **fournisseur** de ce composant.
+Les clients peuvent surveiller différents composants d’un paysage SAP, tels que les machines virtuelles Azure, le cluster à haute disponibilité, la base de données SAP HANA, etc., en ajoutant le **fournisseur** de ce composant.
 
 Infrastructure prise en charge :
 
@@ -35,7 +35,7 @@ Bases de données prises en charge :
 - Base de données SAP HANA
 - Microsoft SQL Server
 
-Les solutions Azure Monitor pour solutions SAP tirent parti de la puissance des fonctionnalités [Azure Monitor](../../../azure-monitor/overview.md) existantes, telles que l’analytique des journaux d'activité et les [classeurs](../../../azure-monitor/platform/workbooks-overview.md) pour fournir des fonctionnalités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](../../../azure-monitor/platform/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](../../../azure-monitor/log-query/log-analytics-tutorial.md) et créer des [alertes personnalisées](../../../azure-monitor/learn/tutorial-response.md) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
+Azure Monitor pour SAP Solutions utilise la puissance des capacités actuelles d’[Azure Monitor](../../../azure-monitor/overview.md), telles qu’Analytique des journaux d’activité et [Classeurs](../../../azure-monitor/platform/workbooks-overview.md), pour fournir des capacités de surveillance supplémentaires. Les clients peuvent créer des [visualisations personnalisées](../../../azure-monitor/platform/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour solutions SAP, écrire des [requêtes personnalisées](../../../azure-monitor/log-query/log-analytics-tutorial.md) et créer des [alertes personnalisées](../../../azure-monitor/learn/tutorial-response.md) à l’aide de l’espace de travail Azure Log Analytics, tirer parti d’une [période de rétention flexible](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) et connecter les données de surveillance à leur système de création de tickets.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>Quelles sont les données collectées par Azure Monitor pour solutions SAP ?
 
@@ -60,8 +60,17 @@ Télémétrie du serveur Microsoft SQL :
 - Requêtes de lots, compilations et espérance de vie d’une page dans le temps
 - Les 10 instructions SQL les plus onéreuses dans le temps
 - Les 12 plus grandes tables dans le système SAP
-- Problèmes enregistrés dans les journaux d’erreurs SQL Server
+- Problèmes enregistrés dans le journal des erreurs SQL Server
 - Processus de blocage et statistiques d’attente SQL dans le temps
+
+Télémétrie du système d’exploitation (Linux) 
+- Utilisation de l’UC, nombre de fourches, processus en cours d’exécution et bloqués. 
+- Utilisation de la mémoire et distribution entre utilisée, mise en cache et mise en mémoire tampon. 
+- Utilisation de l’échange, pagination et taux d’échange. 
+- Utilisation des systèmes de fichiers, nombre d’octets lus et écrits par périphérique de traitement par blocs. 
+- Latence de lecture/écriture par périphérique de traitement par blocs. 
+- Nombre d’E/S en cours, octets de lecture/écriture PMEM. 
+- Paquets réseau en entrée/sortie, octets réseau en entrée/sortie. 
 
 ## <a name="data-sharing-with-microsoft"></a>Partage de données avec Microsoft
 

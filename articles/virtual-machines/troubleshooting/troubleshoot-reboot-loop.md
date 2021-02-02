@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500920"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629638"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Boucle de redémarrage Windows sur une machine virtuelle Azure
 Cet article décrit la boucle de redémarrage que vous pouvez rencontrer sur une machine virtuelle Windows dans Microsoft Azure.
@@ -49,6 +49,9 @@ Des changements ont été apportés au système d’exploitation. En général, 
 Le système de fichiers a peut-être été endommagé. Toutefois, il est difficile de diagnostiquer et d’identifier la cause de l’endommagement du système d’exploitation.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation](../windows/snapshot-copy-managed-disk.md) et [attachez-le à une machine virtuelle de secours](./troubleshoot-recovery-disks-portal-windows.md), puis suivez les étapes de la solution correspondant à votre problème ou essayez les solutions une par une.
 

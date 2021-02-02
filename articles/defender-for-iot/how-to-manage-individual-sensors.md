@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539567"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621212"
 ---
 # <a name="manage-individual-sensors"></a>Gérer des capteurs individuels
 
@@ -315,7 +315,7 @@ Pour convertir des certificats et des clés dans différents formats afin de les
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Connecter un capteur à la console de gestion
 
-Cette section décrit comment garantir la connexion entre le capteur et la console de gestion locale. Effectuez cette opération si vous travaillez sur un réseau déconnecté et souhaitez envoyer des informations sur les ressources et les alertes à la console de gestion à partir du capteur. Cette connexion permet également à la console de gestion d’envoyer les paramètres système au capteur et d’effectuer d’autres tâches de gestion sur le capteur.
+Cette section décrit comment garantir la connexion entre le capteur et la console de gestion locale. Vous devez effectuer cette opération si vous travaillez sur un réseau déconnecté et souhaitez envoyer des informations sur les appareils et les alertes à la console de gestion à partir du capteur. Cette connexion permet également à la console de gestion d’envoyer les paramètres système au capteur et d’effectuer d’autres tâches de gestion sur le capteur.
 
 Pour se connecter :
 

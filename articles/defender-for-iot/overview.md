@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 13f9e2271dd18121ba740c843e99fae86c76821d
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 5b4ab207462955be3876dc1a25fae491e48a9cd2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845405"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621708"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Bienvenue sur Azure Defender pour IoT
 
 Les réseaux de technologie opérationnelle (OT) alimentent un grand nombre des aspects les plus critiques de notre société. Toutefois, un grand nombre de ces technologies n’ont pas été conçues en tenant compte de la sécurité et ne peuvent pas être protégées par des contrôles de sécurité informatique traditionnels. Pendant ce temps, l’Internet des objets (IoT) donne lieu à une nouvelle vague d’innovations avec des milliards d’appareils connectés, ce qui a pour effet d’augmenter la surface et les risques d’attaque.  
 
-Azure Defender pour IoT est une solution de sécurité unifiée pour l’identification des ressources, des vulnérabilités et des menaces de l’IoT/OT. Elle vous permet de sécuriser l’ensemble de votre environnement IoT/OT, que vous ayez besoin de protéger des appareils IoT/OT existants ou de renforcer la sécurité de nouvelles innovations IoT.  
+Azure Defender pour IoT est une solution de sécurité unifiée pour l’identification des appareils, des vulnérabilités et des menaces de l’IoT/OT. Elle vous permet de sécuriser l’ensemble de votre environnement IoT/OT, que vous ayez besoin de protéger des appareils IoT/OT existants ou de renforcer la sécurité de nouvelles innovations IoT.  
 
 Azure Defender pour IoT propose deux ensembles de capacités pour répondre aux besoins de votre environnement.
 
@@ -47,7 +47,7 @@ Les capacités d’analyse sans agent d’Azure Defender pour IoT vous offrent u
 
 ### <a name="automatic-device-discovery"></a>Détection automatique des appareils  
 
-Utilisez l’analyse passive et sans agent du réseau pour obtenir un inventaire complet de l’ensemble de vos ressources IoT/OT, de leurs détails et de la façon dont elles communiquent, sans aucun impact sur le réseau IoT/OT.  
+Utilisez l’analyse passive et sans agent du réseau pour obtenir un inventaire complet de l’ensemble de vos appareils IoT/OT, de leurs détails et de la façon dont elles communiquent, sans aucun impact sur le réseau IoT/OT.  
 
 ### <a name="proactive-visibility-into-risk-and-vulnerabilities"></a>Visibilité proactive des risques et des vulnérabilités
  

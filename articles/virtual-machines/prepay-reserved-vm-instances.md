@@ -9,15 +9,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: ffc9c8f3143824dd099aaad3e743398eea4e0f43
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602524"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682584"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Économiser grâce aux instances de machines virtuelles Azure réservées
-
 
 
 Vous pouvez faire des économies en optant pour une instance de machine virtuelle réservée Azure. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -30,7 +29,7 @@ Avant d’acheter une réservation, vous devez déterminer la taille de la machi
 
 Vous pouvez utiliser les suggestions de réservation pour déterminer les réservations à acheter.
 
-- Les suggestions d’achat et une quantité recommandée s’affichent lorsque vous achetez une instance réservée de machine virtuelle sur le portail Azure.
+- Les suggestions d’achat et les quantités recommandées s’affichent lorsque vous achetez une instance réservée de machine virtuelle dans le portail Azure.
 - Azure Advisor fournit des suggestions d’achat pour les divers abonnements.  
 - Vous pouvez utiliser les API pour obtenir des suggestions d’achat tant pour l’étendue partagée que pour l’étendue d’un abonnement unique. Pour plus d’informations, voir [API de suggestion d’achat d’instance réservée pour les entreprises](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Pour les clients Accord Entreprise (EA) et Microsoft Customer Agreement (MCA), des suggestions d’achat pour des étendues d’abonnement simples et partagées sont disponibles dans le [pack de contenu Power BI Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).

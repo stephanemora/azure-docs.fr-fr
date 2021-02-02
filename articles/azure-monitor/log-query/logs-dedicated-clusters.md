@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562673"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98609942"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -512,27 +512,25 @@ Utilisez l’appel REST suivant pour supprimer un cluster :
 
 - Vous pouvez lier un espace de travail à votre cluster, puis le dissocier. Le nombre de liaisons d’espaces de travail sur un espace de travail particulier est limité à 2 sur une période de 30 jours.
 
-- Vous ne devez lier un espace de travail à un cluster qu’APRÈS avoir vérifié que l’approvisionnement du cluster Log Analytics est terminé. Les données envoyées à votre espace de travail avant la fin de l’approvisionnement seront définitivement supprimées.
-
 - Le déplacement d’un cluster vers un autre groupe de ressources ou abonnement n’est pas pris en charge.
-
-- La liaison d’un espace de travail à un cluster échoue s’il est lié à un autre cluster.
 
 - Actuellement, Lockbox n’est pas disponible en Chine. 
 
-- Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) est automatiquement configuré pour les clusters créés depuis octobre 2020 dans les régions prises en charge. Pour vérifier si votre cluster est configuré pour le double chiffrement, utilisez une requête GET sur le cluster et observez la valeur de la propriété `"isDoubleEncryptionEnabled"`. Une valeur `true` correspond aux clusters pour lesquels le chiffrement double est activé. 
-  - Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le double chiffrement pour les clusters. », vous pouvez toujours créer le cluster sans le double chiffrement. Ajoutez la propriété `"properties": {"isDoubleEncryptionEnabled": false}` au corps de la requête REST.
+- Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) est automatiquement configuré pour les clusters créés depuis octobre 2020 dans les régions prises en charge. Pour vérifier si votre cluster est configuré pour le chiffrement double, envoyez une requête GET sur le cluster et observez la valeur de `isDoubleEncryptionEnabled`. Une valeur `true` correspond aux clusters pour lesquels le chiffrement double est activé. 
+  - Si vous créez un cluster et recevez une erreur « <region-name> ne prend pas en charge le chiffrement double pour les clusters. », vous pouvez toujours créer le cluster sans le double chiffrement en ajoutant `"properties": {"isDoubleEncryptionEnabled": false}` dans le corps de la demande REST.
   - Le paramètre de double chiffrement ne peut pas être modifié une fois le cluster créé.
 
 ## <a name="troubleshooting"></a>Dépannage
 
 - Si vous recevez une erreur de conflit lors de la création d’un cluster, il est possible que vous ayez supprimé votre cluster au cours des 14 derniers jours et qu’il se trouve dans un état de suppression réversible. Le nom du cluster reste réservé pendant la période de suppression réversible et vous ne pouvez pas l’utiliser pour un autre cluster. Le nom est libéré après la période de suppression réversible, lorsque le cluster est définitivement supprimé.
 
-- Si vous mettez à jour votre cluster alors qu’une opération est en cours, l’opération échoue.
+- Si vous mettez à jour votre cluster alors que le cluster est en cours d’approvisionnement ou de mise à jour, la mise à jour échoue.
 
 - Certaines opérations sont longues et peuvent prendre du temps. Il s’agit des opérations de création du cluster, de mise à jour de la clé du cluster et de la suppression du cluster. Vous pouvez vérifier l’état de l’opération de deux manières :
   - Lorsque vous utilisez REST, copiez la valeur de l’URL Azure-AsyncOperation à partir de la réponse et suivez les instructions de [vérification de l’état des opérations asynchrones](#asynchronous-operations-and-status-check).
   - Envoyez une requête GET au cluster ou à l’espace de travail du cluster et observez la réponse. Par exemple, l’espace de travail dissocié n’a pas de *clusterResourceId* sous *features*.
+
+- La liaison d’un espace de travail à un cluster échoue s’il est lié à un autre cluster.
 
 - Messages d’erreur
   

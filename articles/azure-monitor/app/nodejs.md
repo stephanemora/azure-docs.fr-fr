@@ -4,12 +4,12 @@ description: Analysez les performances et diagnostiquez les problèmes dans les 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920588"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611013"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -334,6 +334,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### <a name="flush"></a>Purge
+
+Par défaut, la télémétrie est mise en mémoire tampon pendant 15 secondes avant d’être envoyée au serveur d’ingestion. Si votre application a une durée de vie courte (par exemple, un outil CLI), il peut être nécessaire de vider manuellement votre télémétrie mise en mémoire tampon lorsque l’application se termine, `appInsights.defaultClient.flush()`.
+
+Si le Kit de développement logiciel (SDK) détecte que votre application plante, il appelle la fonction de vidage pour vous, `appInsights.defaultClient.flush({ isAppCrashing: true })`. Avec l’option de vidage `isAppCrashing`, votre application est supposée être dans un état anormal, non adapté à l’envoi de la télémétrie. Au lieu de cela, le Kit de développement logiciel (SDK) enregistre toute la télémétrie mise en mémoire tampon dans un [stockage persistant](./data-retention-privacy.md#nodejs) et laisse votre application se terminer. Lorsque votre application redémarre, elle tente d’envoyer toute télémétrie qui a été sauvegardée sur le stockage persistant.
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>Prétraiter des données avec des processeurs de télémétrie
 

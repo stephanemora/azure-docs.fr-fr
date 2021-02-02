@@ -3,75 +3,72 @@ title: Résoudre les problèmes de récupération de fichiers d’une machine vi
 description: Résolvez les problèmes liés à la récupération de fichiers et de dossiers à partir d’une sauvegarde de machine virtuelle Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: bd369577e320cf6dca510183948f41e6cf91779b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605290"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735875"
 ---
-# <a name="troubleshooting-issues-in-file-recovery-of-azure-vm-backup"></a>Résolution des problèmes de récupération de fichiers d’une sauvegarde de machine virtuelle Azure
+# <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Résolution des problèmes de récupération de fichiers d’une sauvegarde de machine virtuelle Azure
 
-Cet article présente les étapes de dépannage qui peuvent vous aider à résoudre les erreurs de Sauvegarde Azure liées aux problèmes liés à la récupération de fichiers et de dossiers à partir d’une sauvegarde de machine virtuelle Azure.
+Cet article présente les étapes de dépannage qui peuvent vous aider à résoudre les erreurs de récupération de fichiers et de dossiers à partir d’une sauvegarde de machine virtuelle Azure.
 
 ## <a name="common-error-messages"></a>Messages d’erreur courants
 
-### <a name="exception-caught-while-connecting-to-target"></a>Exception interceptée lors de la connexion à la cible
+Cette section décrit les étapes à suivre pour résoudre les messages d’erreur pouvant s’afficher.
+
+### <a name="exception-caught-while-connecting-to-target"></a>« Exception interceptée pendant la connexion à la cible »
 
 **Cause possible** : Le script n’est pas en mesure d’accéder au point de récupération.
 
-**Action recommandée** : Vérifiez si la machine remplit toutes les [conditions d’accès](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+**Action recommandée** : Pour résoudre ce problème, suivez les étapes indiquées dans [Le script s’exécute, mais la connexion a échoué](#the-script-runs-but-the-connection-to-the-iscsi-target-failed).
 
-### <a name="the-target-has-already-been-logged-in-via-an-iscsi-session"></a>La cible a déjà été connectée via une session iSCSI
+### <a name="the-target-has-already-been-logged-in-via-an-iscsi-session"></a>« La cible a déjà été connectée via une session iSCSI »
 
-**Cause possible** : Le script a déjà été exécuté sur la même machine et les lecteurs ont été attachés.
+**Cause possible** : Le script a déjà été exécuté sur la même machine et les lecteurs ont été joints.
 
-**Action recommandée** : Les volumes du point de récupération ont déjà été connectés. Ils ne peuvent pas être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’Explorateur de fichiers.
+**Action recommandée** : Les volumes du point de récupération ont déjà été connectés. Ils ne peuvent pas être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez les volumes disponibles dans l’Explorateur de fichiers.
 
-### <a name="this-script-is-invalid-because-the-disks-have-been-dismounted-via-portalexceeded-the-12-hr-limit-download-a-new-script-from-the-portal"></a>Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Télécharger un nouveau script à partir du portail
+### <a name="this-script-is-invalid-because-the-disks-have-been-dismounted-via-portalexceeded-the-12-hr-limit-download-a-new-script-from-the-portal"></a>« Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Télécharger un nouveau script à partir du portail »
 
-**Cause possible** : Les disques ont été démontés à partir du portail ou la limite de 12 heures a été dépassée.
+**Cause possible** : Les disques ont été démontés à partir du portail ou la limite de temps de 12 heures a été dépassée.
 
-**Action recommandée** : Le script n’est plus valide au-delà de 12 heures après son téléchargement et ne peut pas être exécuté. Accédez au portail et téléchargez un nouveau script pour poursuivre la récupération des fichiers.
+**Action recommandée** : 12 heures après le téléchargement du script, celui-ci devient non valide et ne peut plus être exécuté. Accédez au portail et téléchargez un nouveau script pour poursuivre la récupération des fichiers.
 
-## <a name="troubleshooting-common-scenarios"></a>Scénarios courants de résolution des problèmes
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>Impossible de charger le module iscsi_tcp (ou) de trouver iscsi_tcp_module
 
-Cette section décrit les étapes à suivre pour résoudre les problèmes que vous pouvez rencontrer pendant le téléchargement et l’exécution du script pour la récupération de fichiers.
+**Action recommandée** : Pour résoudre ce problème, suivez les étapes décrites dans [Le script se télécharge correctement, mais il ne s’exécute pas](#the-script-downloads-successfully-but-fails-to-run).
 
-### <a name="cant-download-the-script"></a>Impossible de télécharger le script
+## <a name="common-problems"></a>Problèmes courants
 
-Action recommandée :
+Cette section décrit les étapes à suivre pour résoudre les problèmes courants que vous pouvez rencontrer pendant le téléchargement et l’exécution du script pour la récupération de fichiers.
 
-1. Vérifiez que vous disposez de toutes les [autorisations nécessaires pour télécharger le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
-1. Vérifiez qu’il y a une connectivité aux IP cibles Azure.
+### <a name="you-cant-download-the-script"></a>Impossible de télécharger le script
 
-Pour vérifier la connexion, exécutez l’une des commandes suivantes à partir d’une invite de commandes avec élévation de privilèges.
+1. Vérifiez que vous disposez des [autorisations nécessaires pour télécharger le script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
+1. Vérifiez la connexion aux adresses IP cibles Azure. Exécutez l’une des commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
-`nslookup download.microsoft.com`
+   `nslookup download.microsoft.com`
 
-or
+    or
 
-`ping download.microsoft.com`
+    `ping download.microsoft.com`
 
 ### <a name="the-script-downloads-successfully-but-fails-to-run"></a>Le script se télécharge correctement, mais il ne s’exécute pas
 
-#### <a name="for-sles-12-sp4-os-linux"></a>Pour le système d’exploitation SLES 12 SP4 (Linux)
+Pendant l’exécution du script Python pour la récupération au niveau de l’élément (ILR) sur le système d’exploitation SUSE Linux Enterprise Server 12 SP4, celui-ci échoue avec l’erreur « Impossible de charger le module iscsi_tcp » ou « Impossible de trouver iscsi_tcp_module ».
 
-**Erreur** : iscsi_tcp_module introuvable
+**Cause possible** : Le module ILR utilise **iscsi_tcp** pour établir une connexion TCP au service de sauvegarde. Dans le cadre de la version SLES 12 SP4, SUSE a supprimé **iscsi_tcp** du package open-iscsi, ce qui entraîne l’échec de l’opération ILR.
 
-**Cause possible** : Pendant l’exécution du script Python pour la récupération au niveau de l’élément (ILR) sur le système d’exploitation SUSE Linux version 12sp4, une erreur se produit avec l’erreur indiquant que le **_module iscsi_tcp ne peut pas être chargé_* _.
+**Action recommandée** :  L’exécution de scripts de récupération de fichiers n’est pas prise en charge sur les machines virtuelles SUSE 12 SP4. Essayez l’opération de restauration sur une version antérieure de SUSE 12 SP4.
 
-Le module ILR utilise _ *iscsi_tcp** pour établir une connexion TCP au service de sauvegarde. Dans le cadre de la version 12SP4, SUSE a supprimé **iscsi_tcp** du package open-iscsi, ce qui entraîne l’échec de l’opération ILR.
+### <a name="the-script-runs-but-the-connection-to-the-iscsi-target-failed"></a>Le script s’exécute, mais la connexion à la cible iSCSI échoue
 
-**Action recommandée** :  L’exécution de scripts de récupération de fichiers n’est pas prise en charge sur les machines virtuelles SUSE 12SP4. Essayez l’opération de restauration sur une version antérieure de SUSE 12SP4.
+Le message d’erreur « Exception interceptée pendant la connexion à la cible » peut s’afficher.
 
-### <a name="the-script-runs-but-connection-to-iscsi-target-failed"></a>Le script s’exécute, mais la connexion à la cible iSCSI échoue
-
-**Erreur** : Exception interceptée pendant la connexion à la cible
-
-1. Vérifiez que la machine sur laquelle le script est exécuté remplit toutes les [conditions d’accès](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
-1. Vérifiez qu’il y a une connectivité aux IP cibles Azure.
-Pour vérifier la connexion, exécutez l’une des commandes suivantes à partir d’une invite de commandes avec élévation de privilèges.
+1. Vérifiez que la machine sur laquelle le script est exécuté remplit les [conditions d’accès](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
+1. Vérifiez la connexion aux adresses IP cibles Azure. Exécutez l’une des commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
    `nslookup download.microsoft.com`
 
@@ -79,95 +76,98 @@ Pour vérifier la connexion, exécutez l’une des commandes suivantes à partir
 
    `ping download.microsoft.com`
 1. Vérifiez qu’il y a un accès au port de sortie iSCSI 3260.
-1. Vérifiez qu’aucun pare-feu ou groupe de sécurité réseau (NSG) ne bloque le trafic vers les IP cibles Azure ou les URL du service de récupération.
-1. Vérifiez si l’antivirus bloque l’exécution du script.
+1. Vérifiez si un pare-feu ou un groupe de sécurité réseau (NSG) bloque le trafic vers les adresses IP cibles Azure ou les URL du service de récupération.
+1. Assurez-vous que votre antivirus ne bloque pas l’exécution du script.
 
-### <a name="connected-to-recovery-point-but-disks-didnt-get-attached"></a>Connecté à un point de récupération, mais disques non attachés
+### <a name="youre-connected-to-the-recovery-point-but-the-disks-werent-attached"></a>Vous êtes connecté au point de récupération, mais les disques n’ont pas été joints
 
-Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script)
+Résolvez ce problème en effectuant les étapes ci-dessous pour votre système d’exploitation.
 
-#### <a name="on-a-windows-vm"></a>Sur une machine virtuelle Windows
+#### <a name="windows-file-recovery-fails-on-server-with-storage-pools"></a>Échec de la récupération des fichiers Windows sur le serveur avec les pools de stockage
 
-**Le pool de stockage sur la machine virtuelle est attaché en mode lecture seule** :  Pour Windows 2012 R2 et Windows 2016 (avec les pools de stockage), lors de la première exécution du script, il se peut que le pool de stockage attaché à la machine virtuelle passe à un état lecture seule.
+Lors de la première exécution du script sur Windows Server 2012 R2 et Windows Server 2016 (avec pools de stockage), le pool de stockage peut être joint à la machine virtuelle en lecture seule.
 
-Pour résoudre ce problème, il convient de définir manuellement l’accès en lecture-écriture au pool de stockage pour la première fois et d’attacher les disques virtuels. Effectuez les étapes ci-dessous :
+>[!Tip]
+> Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-1. Définissez l’accès en lecture-écriture.
+Pour résoudre ce problème, définissez manuellement l’accès en lecture-écriture au pool de stockage et joignez les disques virtuels :
 
-   Accédez à **Gestionnaire de serveur** > **Services de fichiers et de stockage** > **Volumes** > **Pools de stockage**.
+1. Accédez à **Gestionnaire de serveur** > **Services de fichiers et de stockage** > **Volumes** > **Pools de stockage**.
 
-   ![Stockage Windows](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
+   ![Capture d’écran montrant les options des pools de stockage.](./media/backup-azure-restore-files-from-vm/windows-storage-1.png)
 
-1. Dans la fenêtre **Pool de stockage**, cliquez avec le bouton droit sur le pool de stockage disponible, puis sélectionnez l’option **Définir l’accès en lecture-écriture**.
+1. Dans la fenêtre **Pool de stockage**, cliquez avec le bouton droit sur le pool de stockage disponible, puis sélectionnez **Définir l’accès en lecture-écriture**.
 
-   ![Lecture-écriture du stockage Windows](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
+   ![Capture d’écran montrant les options de clic droit pour un pool de stockage.](./media/backup-azure-restore-files-from-vm/windows-storage-read-write-2.png)
 
-1. Une fois le pool de stockage affecté avec un accès en lecture/écriture, attachez le disque virtuel.
+1. Une fois que l’accès en lecture-écriture a été attribué au pool de stockage, cliquez avec le bouton droit dans la section **Disques virtuels** et sélectionnez **Joindre le disque virtuel**.
 
-   Accédez à l’**interface utilisateur du Gestionnaire de serveur**. Sous la section **Disques virtuels**, cliquez avec le bouton droit sur l’option **Attacher le disque virtuel** pour la sélectionner.
+   ![Capture d’écran montrant les options de clic droit pour un disque virtuel.](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
 
-   ![Gestionnaire de serveur Disque virtuel](./media/backup-azure-restore-files-from-vm/server-manager-virtual-disk-3.png)
+#### <a name="linux-file-recovery-fails-to-auto-mount-because-the-disk-doesnt-contain-volumes"></a>La récupération de fichiers Linux échoue dans l’opération de montage automatique car le disque ne contient pas de volumes
 
-#### <a name="on-a-linux-vm"></a>Sur une machine virtuelle Linux
+Pendant la récupération de fichiers, le service de sauvegarde détecte les volumes et procède au montage automatique. Toutefois, si les disques sauvegardés ont des partitions brutes, ces disques ne sont pas montés automatiquement et vous ne pouvez pas voir le disque de données pour la récupération.
 
-##### <a name="file-recovery-fails-to-auto-mount-because-disk-doesnt-contain-volumes"></a>La récupération de fichiers échoue dans l’opération de montage automatique, car le disque ne contient pas de volumes
+Pour résoudre ce problème, consultez [Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-Pendant la récupération de fichiers, le service de sauvegarde détecte les volumes et procède au montage automatique. Or, si les disques sauvegardés ont des partitions brutes, ces disques ne sont pas montés automatiquement et vous ne pouvez pas voir le disque de données à récupérer.
+#### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>Échec de la récupération de fichiers Linux car le système d’exploitation n’a pas pu identifier le système de fichiers
 
-Pour résoudre ce problème, effectuez les étapes décrites dans cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
-
-##### <a name="the-os-couldnt-identify-the-filesystem-causing-linux-file-recovery-to-fail-while-mountings-disks"></a>Le système d’exploitation n’a pas pu identifier le système de fichiers, ce qui a fait échouer la récupération de fichiers Linux lors de la phase de montage des disques
-
-Pendant l’exécution du script de récupération de fichiers, l’attachement du disque de données a échoué avec l’erreur suivante :
-
-« Les partitions suivantes n’ont pas pu être montées, car le système d’exploitation n’a pas pu identifier le système de fichiers »
+Lors de l’exécution du script de récupération de fichiers, le disque de données ne peut être joint. L’erreur suivante s’affiche : « Les partitions suivantes n’ont pas pu être montées, car le système d’exploitation n’a pas pu identifier le système de fichiers ».
 
 Pour résoudre ce problème, vérifiez si le volume est chiffré avec une application tierce. Si c’est le cas, le disque ou la machine virtuelle n’apparaît pas comme étant chiffré sur le portail.
 
-1. Connectez-vous à la machine virtuelle sauvegardée et exécutez la commande suivante :
+1. Connectez-vous à la machine virtuelle sauvegardée et exécutez cette commande :
 
-   `*lsblk -f*`
+   `lsblk -f`
 
-   ![Disque sans volume](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
+   ![Capture d’écran montrant les résultats de la commande pour répertorier les appareils de bloc.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-2. Vérifiez le système de fichiers et le chiffrement.
-3. Si le volume est chiffré, la récupération de fichiers n’est pas prise en charge. [Plus d’informations](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore)
+1. Vérifiez le système de fichiers et le chiffrement. Si le volume est chiffré, la récupération de fichiers n’est pas prise en charge. Pour en savoir plus, consultez le [Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
 
-### <a name="disks-are-attached-but-unable-to-mount-volumes"></a>Les disques sont attachés, mais les volumes ne peuvent pas être montés
+### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Les disques sont joints mais les volumes ne sont pas montés
 
-- Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+Résolvez ce problème en effectuant les étapes ci-dessous pour votre système d’exploitation.
 
-#### <a name="on-windows-vms"></a>Sur des machines virtuelles Windows
+#### <a name="windows"></a>Windows
 
-Pendant l’exécution du script de récupération de fichiers pour Windows, un message indique que ***0 volumes sont attachés** _. Toutefois, les disques sont découverts dans la console Gestion des disques. Pendant l’attachement de volumes via iSCSI, certains volumes détectés passent à un état hors connexion. Quand le canal iSCSI communique entre la machine virtuelle et le service, il détecte ces volumes et les met en ligne, mais ils ne sont pas montés.
+Lorsque vous exécutez le script de récupération de fichiers pour Windows, vous voyez un message « 0 volume de récupération joint ». Toutefois, les disques sont découverts dans la console Gestion des disques.
 
-   ![Disque non attaché](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
+**Cause possible** : Quand vous avez joint les volumes via iSCSI, certains volumes détectés sont passés hors connexion. Quand le canal iSCSI communique entre la machine virtuelle et le service, il détecte ces volumes et les met en ligne, mais ils ne sont pas montés.
+
+   ![Capture d’écran montrant 0 volume de récupération joint.](./media/backup-azure-restore-files-from-vm/disk-not-attached-6.png)
 
 Pour identifier et résoudre ce problème, effectuez les étapes suivantes :
 
-1. Accédez à _ *Gestion des disques** en exécutant la commande **diskmgmt** dans la fenêtre cmd.
-1. Vérifiez si des disques supplémentaires sont affichés. C’est le cas dans l’exemple suivant avec Disk 2.
+>[!Tip]
+>Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-   ![Gestion des disques0](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
+1. Dans la fenêtre **cmd**, exécutez **diskmgmt** pour ouvrir **Gestion des disques**.
+1. Recherchez d’autres disques. Dans l’exemple suivant, **Disque 2** est un disque supplémentaire.
+
+   ![Capture d’écran de la fenêtre Gestion des disques avec disque supplémentaire.](./media/backup-azure-restore-files-from-vm/disk-management-7.png)
 
 1. Cliquez avec le bouton droit sur **Nouveau volume**, puis sélectionnez **Modifier la lettre de lecteur et les chemins d’accès**.
 
-   ![Gestion des disques1](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
+   ![Capture d’écran montrant les options de clic droit sur le disque supplémentaire.](./media/backup-azure-restore-files-from-vm/disk-management-8.png)
 
-1. Dans la fenêtre **Ajouter une lettre de lecteur ou un chemin d’accès**, sélectionnez **Attribuer la lettre de lecteur suivante**, attribuez un lecteur disponible, puis sélectionnez **OK**.
+1. Dans la fenêtre **Modifier la lettre de lecteur ou le chemin d’accès**, sélectionnez **Attribuer la lettre de lecteur suivante**, attribuez un lecteur disponible, puis sélectionnez **OK**.
 
-   ![Gestion des disques2](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
+   ![Capture d’écran de la fenêtre Modifier la lettre de lecteur ou le chemin d’accès.](./media/backup-azure-restore-files-from-vm/disk-management-9.png)
 
-1. Dans l’Explorateur de fichiers, affichez la lettre de lecteur que vous avez choisie et explorez les fichiers.
+1. Ouvrez l’Explorateur de fichiers pour afficher le lecteur choisi et explorer les fichiers.
 
-#### <a name="on-linux-vms"></a>Sur les machines virtuelles Linux
+#### <a name="linux"></a>Linux
 
-- Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
-- Si la machine virtuelle Linux protégée utilise des baies LVM ou RAID, suivez les étapes listées dans cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+>[!Tip]
+>Vérifiez que votre [machine permet d’exécuter le script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-### <a name="cant-copy-the-files-from-mounted-volumes"></a>Impossible de copier les fichiers à partir des volumes montés
+Si la machine virtuelle Linux protégée utilise des contrôleurs RAID ou LVM, suivez les étapes décrites dans [Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
 
-La copie peut échouer avec l’erreur **0x80070780 : Le système ne peut pas accéder au fichier.** Dans ce cas, vérifiez si la déduplication de disque est activée sur le serveur source. Vérifiez ensuite que la déduplication est également activée sur les lecteurs du serveur de restauration. Vous pouvez laisser le rôle de déduplication non configuré pour éviter de dédupliquer les lecteurs sur le serveur de restauration.
+### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Impossible de copier les fichiers à partir des volumes montés
+
+La copie peut échouer avec l’erreur « 0x80070780 : Le système ne peut pas accéder au fichier. » 
+
+Vérifiez si la déduplication de disque est activée sur le serveur source. Si c’est le cas, assurez-vous que la déduplication est également activée sur les lecteurs du serveur de restauration. Vous pouvez laisser la déduplication non configurée pour éviter de dédupliquer les lecteurs sur le serveur de restauration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

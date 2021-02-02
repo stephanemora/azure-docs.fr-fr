@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e53bf377a7ef8f2293debd288ba25ef8f04ff4fc
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134277"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610996"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Utilisation des commandes dans une solution Azure IoT Central
 
@@ -248,6 +248,9 @@ La sortie de l'extrait de code précédent montre la charge utile avec les valeu
 Body: {"StartTime":"2021-01-06T06:00:00.000Z","Bank":2}
 Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-name","value":"GenerateDiagnostics"}]}
 ```
+
+> [!NOTE]
+> La durée de vie par défaut des commandes hors connexion est de 24 heures, après quoi le message expire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602190"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762764"
 ---
-# <a name="errors-in-the-connector-status"></a>Erreurs dans l’état du connecteur
+# <a name="errors-in-the-connector-status-section"></a>Erreurs dans la section État du connecteur
 
-La liste État du connecteur contient des erreurs qui peuvent vous aider à résoudre des problèmes dans votre connecteur ITSM.
+La section sous forme de liste État du connecteur dans le tableau de bord contient des erreurs qui peuvent vous aider à résoudre des problèmes dans votre connecteur ITSM.
 
 ## <a name="status-common-errors"></a>Corriger des erreurs courantes
 
@@ -27,7 +27,7 @@ Cette section contient les erreurs courantes qui apparaissent dans la section de
   * Un script personnalisé déployé dans une instance ServiceNow a pour effet que des incidents sont ignorés.
   * Le code « OMS Integrator App » lui-même a été modifié côté ServiceNow, par exemple le script onBefore.
 
-    **Résolution** : Désactivez les scripts personnalisés ou les modifications de code du chemin d’accès d’importation de données.
+  **Résolution** : Désactivez les scripts personnalisés ou les modifications de code.
 
 * **Erreur**: "{"erreur":{"message":"Échec de l’opération","détail":"Échec de la mise à jour de l’exception ACL en raison des contraintes de sécurité "}"
 
@@ -58,7 +58,7 @@ Cette section contient les erreurs courantes qui apparaissent dans la section de
     **Cause** : Le connecteur ITSM a été supprimé.
 
     **Résolution** : La connecteur ITSM a été supprimé, mais des groupes d’actions ITSM définis y sont toujours associés. Vous avez 2 options pour résoudre ce problème :
-  * Rechercher, puis désactiver ou supprimer une telle action
+  * Rechercher, puis désactiver ou supprimer ces groupes d’actions
   * [Reconfigurez le groupe d’actions](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) pour utiliser un connecteur ITSM existant.
   * [Créez un connecteur ITSM](./itsmc-definition.md#create-an-itsm-connection) et [reconfigurez le groupe d’actions pour l’utiliser](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 

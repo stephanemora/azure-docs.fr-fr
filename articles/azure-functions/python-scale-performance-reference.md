@@ -4,12 +4,12 @@ description: Découvrez comment développer des applications Azure Functions en 
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935867"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786104"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Améliorer les performances de débit des applications Python dans Azure Functions
 
@@ -22,10 +22,10 @@ Par défaut, Azure Functions surveille automatiquement la charge sur votre appli
 
 Les configurations par défaut conviennent à la plupart des applications Azure Functions. Cependant, vous pouvez améliorer les performances de débit de vos applications en utilisant des configurations basées sur votre profil de charge de travail. La première étape consiste à identifier le type de charge de travail que vous exécutez.
 
-|| Charge de travail liée aux E/S | Charge de travail liée au processeur |
-|--| -- | -- |
-|Caractéristiques de l'application de fonction| <ul><li>L'application doit gérer un grand nombre d'appels simultanés.</li> <li> L'application traite un grand nombre d'événements d'E/S, tels que les appels réseau et les lectures/écritures sur le disque.</li> </ul>| <ul><li>L'application effectue des calculs de longue durée, tels que le redimensionnement d'images.</li> <li>L'application procède à une transformation des données.</li> </ul> |
-|Exemples| <ul><li>API Web</li><ul> | <ul><li>Traitement des données</li><li> Inférence par Machine Learning</li><ul>|
+| Type de charge de travail | Caractéristiques de l'application de fonction       | Exemples                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **Limite d’E/S**     | • L’application doit gérer un grand nombre d’appels simultanés.<br>• L’application traite un grand nombre d’événements d’E/S, tels que des appels réseau et des lectures/écritures sur le disque. | • API web.                                          |
+| **Limite de l’UC**     | • L’application effectue des calculs de longue durée, tels que le redimensionnement d’images.<br>• L’application procède à une transformation des données.                                                | • Traitement des données.<br>• Inférence par Machine Learning.<br> |
 
  
 Étant donné que les charges de travail des fonctions réelles sont généralement une combinaison d’E/S et d’UC, vous devez profiler l’application sous des charges de production réalistes.

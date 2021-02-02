@@ -1,20 +1,20 @@
 ---
-title: Surveiller les événements planifiés pour vos machines virtuelles Windows dans Azure
+title: Superviser des événements planifiés pour vos machines virtuelles dans Azure
 description: Découvrez comment surveiller vos machines virtuelles Azure pour les événements planifiés.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483298"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702268"
 ---
-# <a name="monitoring-scheduled-events"></a>Surveillance d’événements planifiés
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Superviser des événements planifiés pour vos machines virtuelles Azure
 
 Des mises à jour sont appliquées à différentes parties d’Azure tous les jours, pour assurer la sécurité des services et les mettre à jour. En plus des mises à jour planifiées, des événements non planifiés peuvent également se produire. Par exemple, en cas de dégradation ou de panne du matériel, les services Azure peuvent avoir besoin d’effectuer une maintenance non planifiée. Avec la migration dynamique, les mises à jour de préservation de la mémoire et en appliquant une limite stricte sur l’impact des mises à jour, ces événements sont dans la plupart des cas presque transparents pour les clients et ils n’ont pas d’impact ou causent au maximum un blocage de quelques secondes des machines virtuelles. Toutefois, pour certaines applications, même quelques secondes de blocage des machines virtuelles peuvent avoir un impact. Il est important de connaître à l’avance sur les opérations de maintenance Azure à venir pour garantir une expérience optimale pour ces applications. Le service [Scheduled Events](scheduled-events.md) fournit une interface de programmation qui vous informe des opérations de maintenance à venir et vous permet de gérer les maintenances de manière appropriée. 
 
@@ -39,7 +39,7 @@ Vous devrez également [créer un espace de travail Log Analytics](../../azure-m
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement
 
-Vous devez maintenant avoir 2 machines virtuelles initiales dans un groupe à haute disponibilité. Nous devons maintenant créer une troisième machine virtuelle appelée myCollectorVM dans le même groupe à haute disponibilité. 
+Vous devez maintenant avoir 2 machines virtuelles initiales dans un groupe à haute disponibilité. Maintenant, nous avons besoin de créer une troisième machine virtuelle, nommée `myCollectorVM`, dans le même groupe à haute disponibilité. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Sélectionnez **Enregistrer**, puis tapez le nom *logQuery*, laissez le type **Requête**, tapez la **catégorie** *VMLogs*, puis sélectionnez **Enregistrer**. 
+1. Sélectionnez **Enregistrer**, puis tapez le nom `ogQuery`, laissez le type **Requête**, tapez la **catégorie** `VMLogs`, puis sélectionnez **Enregistrer**. 
 
     ![Enregistrer la requête](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Une fois les événements envoyés à Log Analytics, vous pouvez exécuter la [r
 1. Sous **Valeur de seuil**, entrez *0*, puis sélectionnez **Terminé**.
 1. Sous **Actions**, sélectionnez **Créer un groupe d’actions**. La page **Ajouter un groupe d’actions** s’ouvre.
 1. Dans **Nom du groupe d’actions**, tapez *myActionGroup*.
-1. Dans **Nom court**, tapez **myActionGroup**.
+1. Dans **Nom court**, tapez *myActionGroup*.
 1. Dans **Groupe de ressources**, sélectionnez **myResourceGroupAvailability**.
 1. Sous actions, dans **NOM DE L’ACTION**, tapez **E-mail**, puis sélectionnez **E-mail/SMS/Push/Voix**. La page **E-mail/SMS/Push/Voix** s’ouvre.
 1. Sélectionnez **E-mail**, tapez votre adresse de courrier, puis cliquez sur **OK**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200921"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743081"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance (pas de prise en charge sur les contrôleurs de domaine Windows). Pour réinitialiser le mot de passe, utilisez le Portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell. Une fois connecté à la machine virtuelle, réinitialisez le mot de passe de cet administrateur local.  
@@ -90,10 +90,14 @@ Commencez par vérifier que le [dernier module PowerShell est installé et confi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si l’extension d’accès aux machines virtuelles Azure ne répond pas et que vous ne pouvez pas réinitialiser le mot de passe, vous pouvez [réinitialiser le mot de passe Windows local en mode hors connexion](reset-local-password-without-agent.md). Cette méthode est plus avancée et nécessite que vous connectiez le disque dur virtuel de la machine virtuelle problématique à une autre machine virtuelle. Suivez d’abord la procédure décrite dans cet article et n’utilisez la méthode de réinitialisation du mot de passe en mode hors connexion qu’en cas d’échec de cette procédure.
+
+- Si l’installation de l’extension d’accès à la machine virtuelle Azure échoue, vous pouvez [résoudre les problèmes d’extension de machine virtuelle](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Si vous ne parvenez pas à réinitialiser le mot de passe à l’aide de l’extension d’accès à la machine virtuelle, vous pouvez [réinitialiser le mot de passe Windows local en mode hors connexion](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Cette méthode est plus avancée et nécessite que vous connectiez le disque dur virtuel de la machine virtuelle problématique à une autre machine virtuelle. Suivez d’abord la procédure décrite dans cet article et n’utilisez la méthode de réinitialisation du mot de passe en mode hors connexion qu’en cas d’échec de cette procédure.
 
 - [En savoir plus sur les extensions et fonctionnalités des machines virtuelles Azure](../extensions/features-windows.md)
 
 - [Connecter une machine virtuelle Azure avec RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100))
 
-- [Résoudre les problèmes de connexion Bureau à distance à une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md)
+
+- [Résoudre les problèmes de connexion Bureau à distance à une machine virtuelle Azure exécutant Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

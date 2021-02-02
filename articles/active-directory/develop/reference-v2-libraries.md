@@ -1,6 +1,6 @@
 ---
 title: Bibliothèques d’authentification de plateforme d’identité Microsoft
-description: Bibliothèques clientes et bibliothèques de middleware de serveur compatibles, et liens vers la bibliothèque, la source et des exemples connexes pour le point de terminaison de plateforme d’identité Microsoft.
+description: Bibliothèques clientes et bibliothèques de middleware de serveur compatibles, et liens vers la bibliothèque, la source et des exemples connexes pour la plateforme d’identité Microsoft.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7792e989444c87ba80088f8a850cacb4aa0dc3c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 51b60d7b81d7402f69415b79cd575f51915dc38f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064539"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756656"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliothèques d’authentification de plateforme d’identité Microsoft
 
-Le [point de terminaison de plateforme d’identité Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect 1.0. La bibliothèque d’authentification Microsoft (MSAL) est conçue pour fonctionner avec le point de terminaison de plateforme d’identité Microsoft. Vous pouvez également utiliser des bibliothèques open source qui prennent en charge OAuth 2.0 et OpenID Connect 1.0.
+La [plateforme d’identité Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect 1.0. La bibliothèque d’authentification Microsoft (MSAL) est conçue pour fonctionner avec la plateforme d’identité Microsoft. Vous pouvez également utiliser des bibliothèques open source qui prennent en charge OAuth 2.0 et OpenID Connect 1.0.
 
 Nous vous recommandons d’utiliser des bibliothèques écrites par des experts du domaine du protocole qui respectent une méthodologie Security Development Lifecycle (SDL). Ces méthodologies incluent [la méthodologie suivie par Microsoft][Microsoft-SDL]. Si vous codez de façon manuelle pour les protocoles, vous devez suivre une méthodologie comme Microsoft SDL. Prêtez une attention toute particulière aux considérations de sécurité dans les spécifications de normes pour chaque protocole.
 
@@ -30,7 +30,7 @@ Nous vous recommandons d’utiliser des bibliothèques écrites par des experts 
 
 ## <a name="types-of-libraries"></a>Types de bibliothèques
 
-Le point de terminaison de plateforme d’identité Microsoft fonctionne avec deux types de bibliothèques :
+La plateforme d’identité Microsoft fonctionne avec deux types de bibliothèques :
 
 * **Bibliothèques clientes** : Les serveurs et clients natifs utilisent les bibliothèques clientes afin d’obtenir des jetons d’accès pour appeler une ressource, comme Microsoft Graph.
 * **Bibliothèques de middleware de serveur** : Les applications web utilisent des bibliothèques de middleware de serveur pour la connexion des utilisateurs. Les API web utilisent des bibliothèques de middleware de serveur pour valider les jetons qui sont envoyés par des clients natifs ou par d’autres serveurs.
@@ -40,9 +40,9 @@ Le point de terminaison de plateforme d’identité Microsoft fonctionne avec de
 Les bibliothèques sont classées en deux catégories de prise en charge :
 
 * **Pris en charge par Microsoft** : Microsoft fournit des correctifs de ces bibliothèques, auxquelles il a appliqué la méthodologie SDL standard.
-* **Compatible** : Microsoft a testé ces bibliothèques dans des scénarios de base et a confirmé que celles-ci fonctionnent avec le point de terminaison de plateforme d’identité Microsoft. Microsoft ne fournit pas de correctifs pour ces bibliothèques et n’a pas vérifié ces bibliothèques. Les problèmes et les demandes de fonctionnalités doivent être soumis au projet open source de la bibliothèque.
+* **Compatible** : Microsoft a testé ces bibliothèques dans des scénarios de base et a confirmé que celles-ci fonctionnent avec la plateforme d’identité Microsoft. Microsoft ne fournit pas de correctifs pour ces bibliothèques et n’a pas vérifié ces bibliothèques. Les problèmes et les demandes de fonctionnalités doivent être soumis au projet open source de la bibliothèque.
 
-Pour obtenir la liste des bibliothèques qui fonctionnent avec le point de terminaison de plateforme d’identité Microsoft, consultez les sections suivantes.
+Pour obtenir la liste des bibliothèques qui fonctionnent avec la plateforme d’identité Microsoft, consultez les sections suivantes.
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliothèques clientes prises en charge par Microsoft
 
@@ -98,16 +98,16 @@ Voir aussi [Scénarios avec les plateformes et langages pris en charge](authenti
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth : 1.3.1<br />omniauth-oauth2 : 1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS et Android  | [Authentification de l’application React Native](https://github.com/FormidableLabs/react-native-app-auth) | [Version 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Authentification de l’application React Native](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-Pour toute bibliothèque conforme aux normes, vous pouvez utiliser le point de terminaison de plateforme d’identité Microsoft. Il est important de savoir à qui vous adresser pour connaître la prise en charge :
+Pour toute bibliothèque conforme aux normes, vous pouvez utiliser la plateforme d’identité Microsoft. Il est important de savoir à qui vous adresser pour connaître la prise en charge :
 
 * Pour tout problème ou demande de nouvelle fonctionnalité au niveau du code de la bibliothèque, adressez-vous au propriétaire de la bibliothèque.
 * Pour tout problème ou demande de nouvelle fonctionnalité au niveau de l’implémentation du protocole côté service, adressez-vous à Microsoft.
 * [Envoyez une demande de nouvelle fonctionnalité](https://feedback.azure.com/forums/169401-azure-active-directory) pour les fonctionnalités supplémentaires que vous aimeriez voir dans le protocole.
-* [Créez une demande de support](../../azure-portal/supportability/how-to-create-azure-support-request.md) si vous détectez un problème pour lequel le point de terminaison de plateforme d’identité Microsoft n’est pas compatible avec OAuth 2.0 ni OpenID Connect 1.0.
+* [Créez une demande de support](../../azure-portal/supportability/how-to-create-azure-support-request.md) si vous détectez un problème pour lequel la plateforme d’identité Microsoft n’est pas compatible avec OAuth 2.0 ni OpenID Connect 1.0.
 
 ## <a name="related-content"></a>Contenu connexe
 
-Pour plus d’informations sur le point de terminaison de plateforme d’identité Microsoft, consultez la [vue d’ensemble de la plateforme d’identité Microsoft][AAD-App-Model-V2-Overview].
+Pour plus d’informations sur la plateforme d’identités Microsoft, consultez [Vue d’ensemble de la plateforme d’identités Microsoft][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

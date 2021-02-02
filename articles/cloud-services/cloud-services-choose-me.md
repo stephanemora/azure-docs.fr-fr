@@ -1,20 +1,25 @@
 ---
-title: Présentation d’Azure Cloud Services | Microsoft Docs
+title: Présentation d’Azure Cloud Services (classique) | Microsoft Docs
 description: Découvrez Azure Cloud Services, offre conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse.
-services: cloud-services
-author: tgore03
-ms.service: multiple
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cbb9aae57b952c05aa722f81309158a11aef826b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224286"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742809"
 ---
-# <a name="overview-of-azure-cloud-services"></a>Vue d’ensemble d’Azure Cloud Services
+# <a name="overview-of-azure-cloud-services-classic"></a>Vue d’ensemble d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Azure Cloud Service est un exemple d’implémentation de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [Azure App Service](../app-service/overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Comme App Service, Azure Cloud Services est hébergé sur des machines virtuelles. Toutefois, vous avez davantage de contrôle sur les machines virtuelles. Vous pouvez installer votre propre logiciel sur des machines virtuelles utilisant Azure Cloud Services, et y accéder à distance.
 
 ![Diagramme Azure Cloud Services](./media/cloud-services-choose-me/diagram.png)

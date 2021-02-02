@@ -3,12 +3,12 @@ title: Publier un événement dans une rubrique Azure Event Grid personnalisée
 description: Cet article explique comment publier un événement dans une rubrique personnalisée. Il montre le format des données de publication et d’événement.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108241"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681598"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publier dans une rubrique personnalisée pour Azure Event Grid
 
@@ -71,10 +71,7 @@ Pour les rubriques personnalisées, les données de premier niveau contiennent l
 ]
 ```
 
-Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md). Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. Chaque événement du tableau est limité à 64 Ko (disponibilité générale) ou 1 Mo (préversion).
-
-> [!NOTE]
-> Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
+Pour obtenir une description de ces propriétés, consultez [Schéma d’événement Azure Event Grid](event-schema.md). Lorsque les événements sont envoyés vers une rubrique Event Grid, le tableau peut avoir une taille totale de 1 Mo. La taille maximale autorisée pour un événement est également de 1 Mo. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
 
 Par exemple, un schéma de données d’événement valide est :
 

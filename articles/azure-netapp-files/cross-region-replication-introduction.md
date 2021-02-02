@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: 7c78d5fa89d6d4f3c73bdd1fe9b6d2fdae97c011
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937472"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696089"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -37,6 +37,7 @@ La réplication de volume Azure NetApp Files est actuellement disponible dans le
 * USA Centre Sud et USA Centre 
 * USA Centre Sud et USA Est
 * USA Centre Sud et USA Est 2 
+* USA Est et USA Est 2  
 * USA Est 2 et USA Centre 
 * Australie Est et Australie Sud-Est
 * Canada Centre et Canada Est

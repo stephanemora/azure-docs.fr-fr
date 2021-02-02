@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443787"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753505"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Une API web qui appelle des API web : Configuration de code
 
@@ -252,7 +252,7 @@ Vous pouvez également voir un exemple d’implémentation de flux OBO dans [Nod
 
 ## <a name="protocol"></a>Protocol
 
-Pour plus d’informations sur le protocole OBO, consultez la section [Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0](./v2-oauth2-on-behalf-of-flow.md).
+Pour plus d’informations sur le protocole OBO, consultez la section [Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0](./v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

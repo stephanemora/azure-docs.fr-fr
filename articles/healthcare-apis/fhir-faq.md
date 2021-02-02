@@ -2,18 +2,18 @@
 title: Questions fréquentes (FAQ) sur les services FHIR dans Azure - API Azure pour FHIR
 description: Obtenez des réponses aux Questions fréquentes (FAQ) sur l’API Azure pour FHIR, par exemple l’emplacement de stockage des données utilisé par les API FHIR et la prise en charge des versions.
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2020
-ms.author: matjazl
-ms.openlocfilehash: 31ae5b780bf451e29a97f04202f804db27fc387a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 1/21/2021
+ms.author: cavoeg
+ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452933"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746711"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Forum aux questions sur l’API Azure pour FHIR
 
@@ -105,6 +105,12 @@ Voici quelques exemples :
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Quel est le tri par défaut lors de la recherche de ressources dans l’API Azure pour FHIR ?
 
 Nous prenons en charge le tri sur la date de dernière mise à jour : _sort =_lastUpdated. Pour plus d’informations sur les autres paramètres de recherche pris en charge, consultez la [page des fonctionnalités prises en charge](./fhir-features-supported.md#search).
+
+### <a name="does-the-azure-api-for-fhir-support-everything"></a>L’API Azure pour FHIR prend-elle en charge $everything ? 
+
+Non. À l’heure actuelle, nous ne prenons pas en charge $everything. Toutefois, il est possible d’y parvenir à l’aide de deux appels d’API. Par exemple, pour obtenir Patient$everything, vous pouvez d’abord récupérer l’enregistrement du patient en utilisant /Patient/[ID], puis effectuer un deuxième appel pour récupérer toutes les données du patient en utilisant /Patient/[ID]/*.
+
+Pour plus d’informations, consultez cette [publication de la communauté](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type). 
 
 ### <a name="how-does-export-work"></a>Comment la commande $export fonctionne-t-elle ?
 

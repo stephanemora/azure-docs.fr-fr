@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183037"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763025"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
@@ -116,7 +116,7 @@ Pour plus d’informations sur les tarifs, consultez [Tarification Liaison priv�
 
 Lorsque vous utilisez Azure Functions dans le cadre d’un plan Elastic Premium avec un point de terminaison privé, pour exploiter ou exécuter la fonction dans le portail web d’Azure, vous devez disposer d’un accès direct au réseau. Sinon, vous recevrez une erreur HTTP 403. En d’autres termes, votre navigateur doit être en mesure d’atteindre le point de terminaison privé pour exécuter la fonction à partir du portail web d’Azure. 
 
-Vous pouvez connecter jusqu’à 100 points de terminaison privés à une application web particulière.
+Vous pouvez connecter jusqu’à 100 points de terminaison privés à une application web donnée.
 
 Les emplacements ne peuvent pas utiliser de point de terminaison privé.
 

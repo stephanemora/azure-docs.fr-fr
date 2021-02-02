@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b53501bf5aa4bafb0229158edfe0cb244116b909
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 89685d1b8c3a57fa142bbbfd1114f9aa0ff0c400
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600847"
+ms.locfileid: "98611115"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Questions fréquemment posées sur le service Azure DDoS Protection standard
 
@@ -79,4 +79,7 @@ Consultez [Test à l’aide de simulations](test-through-simulations.md).
 
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>Combien de temps faut-il pour charger les métriques sur le portail ?
 Les métriques doivent être visibles sur le portail dans un délai de 5 minutes. Si votre ressource subit une attaque, d’autres métriques s’affichent sur le portail dans les 5 à 7 minutes. 
+
+## <a name="does-the-service-store-customer-data"></a>Le service stocke-t-il des données client ?
+Non. La protection DDoS d’Azure ne stocke pas les données client.
     

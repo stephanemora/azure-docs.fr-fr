@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187831"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629401"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Connexion d’un appareil IoT Edge en aval à une passerelle Azure IoT Edge (préversion)
 
@@ -118,7 +118,7 @@ Pour activer la détection de passerelle, il est nécessaire que chacun des appa
 
 La condition pour permettre les connexions sécurisées est que chacun des appareils IoT Edge d’un scénario de passerelle soit configuré avec un unique certificat d’autorité de certification d’appareil et une copie du certificat d’autorité de certification racine partagé par tous les appareils de la hiérarchie de passerelle.
 
-IoT Edge doit être déjà installé sur l’appareil. Si ce n’est pas le cas, suivez la procédure [Installation du runtime Azure IoT Edge](how-to-install-iot-edge.md), puis provisionnez votre appareil avec [l’authentification par clé symétrique](how-to-manual-provision-symmetric-key.md) ou [l’authentification par certificat X.509](how-to-manual-provision-x509.md).
+IoT Edge doit être déjà installé sur l’appareil. Si ce n’est pas le cas, suivez les étapes pour [Inscrire un appareil IoT Edge dans IoT Hub](how-to-register-device.md), puis [Installer le runtime Azure IoT Edge](how-to-install-iot-edge.md).
 
 La procédure de cette section fait référence au **certificat d’autorité de certification racine** ainsi qu’au **certificat d’autorité de certification d’appareil et à la clé privée** qui ont été abordés plus haut dans cet article. Si vous avez créé ces certificats sur un autre appareil, rendez-les disponibles sur celui-ci. Vous pouvez transférer les fichiers physiquement (par exemple, avec un lecteur USB), avec un service comme [Azure Key Vault](../key-vault/general/overview.md) ou avec une fonction comme la [Copie de fichiers sécurisée](https://www.ssh.com/ssh/scp/).
 

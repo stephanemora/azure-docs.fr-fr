@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558565"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796053"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Résoudre les problèmes liés au Stockage Blob Azure Data Box
 
@@ -65,6 +65,7 @@ Ces erreurs ne sont pas spécifiques à une application.
 |Message d’erreur  |Action recommandée |
 |---------|---------|
 |The connection times out. (La connexion arrive à expiration.) |Connectez-vous à l’appareil Data Box et vérifiez qu’il est déverrouillé. Chaque fois que l’appareil redémarre, il reste verrouillé jusqu’à ce qu’un utilisateur se connecte.|
+|L’authentification de l’API REST échoue avec l’erreur : Le serveur n’a pas pu authentifier la demande. Vérifiez que la valeur de l’en-tête d’autorisation est formée correctement, avec la signature. ErrorCode:AuthenticationFailed. |Une des raisons pour lesquelles cela peut se produire est que l’heure de l’appareil n’est pas synchronisée avec celle d’Azure. Si le décalage temporel est important, l’authentification de l’API REST s’interrompt lorsque vous essayez de copier des données vers Data Box via l’API REST. Dans ce cas, vous pouvez ouvrir le port UDP 123 sortant pour autoriser l’accès à `time.windows.com`. Une fois que l’heure de l’appareil est synchronisée avec celle d’Azure, l’authentification devrait réussir. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

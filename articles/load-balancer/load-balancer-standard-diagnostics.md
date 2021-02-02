@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121411"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805998"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -26,7 +26,6 @@ Azure Load Balancer Standard expose les fonctionnalités de diagnostic suivantes
 * **Métriques multidimensionnelles et alertes** : des fonctionnalités de diagnostic multidimensionnel sont proposées par le biais d’[Azure Monitor](../azure-monitor/overview.md) pour les configurations d’équilibreur standard. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge standard.
 
 * **Intégrité des ressources** : l’état d’intégrité des ressources de votre équilibreur de charge est disponible dans la page Resource Health sous Superviser. Cette vérification automatique vous informe de la disponibilité actuelle de votre ressource Load Balancer.
-
 Cet article propose une présentation rapide de ces fonctionnalités et des méthodes pour les utiliser dans Load Balancer Standard. 
 
 ## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Métriques multidimensionnelles
@@ -73,7 +72,7 @@ Pour afficher les métriques de vos ressources de Load Balancer Standard :
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Récupérer les métriques multidimensionnelles par programme via des API
 
-Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Ces indicateurs de performance peuvent être écrits dans un compte de stockage à l’aide de l’option « Tous les indicateurs de performance » uniquement. 
+Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Ces métriques peuvent être écrites dans un compte de stockage en ajoutant un [paramètre de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) pour la catégorie « Toutes les métriques ». 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurer des alertes pour des métriques multidimensionnelles ###
 
@@ -85,9 +84,6 @@ Pour configurer des alertes :
     1.  Configurez une condition d’alerte.
     1.  (Facultatif) Ajoutez un groupe d’actions pour la réparation automatisée.
     1.  Affectez la gravité, le nom et la description de l’alerte qui active la réaction intuitive.
-
-  >[!NOTE]
-  >La fenêtre de configuration des conditions d’alerte affiche les séries chronologiques pour l’historique des signaux. Il existe une option permettant de filtrer cette série chronologique par dimensions, par exemple par adresse IP back-end. Cela permet de filtrer le graphique de série chronologique, mais **pas** l’alerte elle-même. Vous ne pouvez pas configurer d’alertes pour des adresses IP back-end spécifiques.
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scénarios de diagnostic courants et vues recommandées
 
@@ -147,7 +143,7 @@ Un volume de connexions ayant échoué supérieur à zéro indique un épuisemen
 
 Pour obtenir des statistiques de connexion SNAT :
 1. Sélectionnez le type de métrique **Connexions SNAT** et l’agrégation **Somme**. 
-2. Regroupez par **État de la connexion** pour le nombre de connexions SNAT ayant réussi et échoué représenté par les différentes lignes. 
+2. Regroupez par **État de la connexion** pour que le nombre de connexions SNAT ayant réussi et échoué soit représenté par les différentes lignes. 
 
 ![Connexion SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -186,7 +182,7 @@ Pour afficher l’utilisation et l’allocation des ports SNAT :
   <summary>Développez</summary>
 Une métrique de paquets SYN indique le volume de paquets TCP SYN qui ont été reçus ou qui ont été envoyés (pour les [flux sortants](./load-balancer-outbound-connections.md)) associés à un serveur frontal spécifique. Vous pouvez utiliser cette métrique pour comprendre les tentatives de connexions TCP vers votre service.
 
-Utilisez une agrégation **Totale** pour la plupart des scénarios.
+Utilisez une agrégation **Somme** pour la plupart des scénarios.
 
 ![Connexion SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -199,10 +195,10 @@ Utilisez une agrégation **Totale** pour la plupart des scénarios.
   <summary>Développez</summary>
 La métrique de compteurs d’octets et de paquets indique le volume d’octets et de paquets envoyés ou reçus par votre service par serveur frontal.
 
-Utilisez une agrégation **Totale** pour la plupart des scénarios.
+Utilisez une agrégation **Somme** pour la plupart des scénarios.
 
 Pour obtenir les statistiques de nombre d’octets ou de paquets :
-1. Sélectionnez le type de métrique **Bytes Count** (Nombre d’octets) et/ou **Nombre de paquets** avec l’agrégation **Moy**. 
+1. Sélectionnez le type de métrique **Nombre d’octets** et/ou **Nombre de paquets** avec l’agrégation **Somme**. 
 2. Effectuez l'une des opérations suivantes :
    * Appliquez un filtre sur une adresse IP frontale, un port frontal, une adresse IP de serveur principal ou un port de serveur principal spécifique.
    * Récupérez des statistiques globales pour votre ressource d’équilibreur de charge sans aucun filtrage.
@@ -267,6 +263,7 @@ La description de l’état d’intégrité de ressource générique est disponi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- En savoir plus sur l’utilisation d’[Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) pour voir ces métriques préconfigurées pour votre équilibreur de charge.
 - En savoir plus sur l’[équilibreur de charge standard](./load-balancer-overview.md).
 - En savoir plus sur la [connectivité sortante de votre équilibreur de charge](./load-balancer-outbound-connections.md).
 - Découvrez [Azure Monitor](../azure-monitor/overview.md).

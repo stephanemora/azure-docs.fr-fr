@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522666"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881229"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -46,9 +46,9 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Avantages
-- Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment Metrics Explorer, Log Analytics et Application Insights.
+- Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment [Metrics Explorer](platform/metrics-charts.md), [Log Analytics](log-query/log-analytics-overview.md) et [Application Insights](app/app-insights-overview.md).
 - Prend en charge les métriques et les journaux d’activité.
-- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](platform/metrics-charts.md), des [requêtes de journal](log-query/log-query-overview.md) ainsi que des [cartes](app/app-map.md) et des données de disponibilité dans Application Insights.
+- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](platform/metrics-charts.md), des [requêtes de journal](log-query/log-query-overview.md) ainsi que des [cartes](app/app-map.md) et des données de disponibilité dans [Application Insights](app/app-insights-overview.md).
 - Possibilité de définir des tableaux de bord personnels ou partagés. Intégration avec le [contrôle d’accès Azure en fonction du rôle (Azure RBAC)](../role-based-access-control/overview.md).
 - Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés toutes les heures, avec une option d’actualisation manuelle à la demande en cliquant sur l’icône d’actualisation d’une visualisation donnée ou en actualisant le tableau de bord complet.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.
@@ -57,7 +57,7 @@ Voici une procédure vidéo expliquant la création de tableaux de bord.
 
 
 ### <a name="limitations"></a>Limites
-- Contrôle limité des visualisations de journal sans prise en charge des tables de données. Le nombre total de séries de données est limité à 10, les nouvelles séries de données étant regroupées sous un _autre_ compartiment.
+- Contrôle limité des visualisations de journal sans prise en charge des tables de données. Le nombre total de séries de données est limité à 50, les nouvelles séries de données étant regroupées sous un _autre_ compartiment.
 - Aucune prise en charge de paramètre personnalisé pour les graphiques de journal.
 - Les graphiques de journal sont limités aux 30 derniers jours.
 - Les graphiques de journal peuvent uniquement être épinglés aux tableaux de bord partagés.
@@ -140,8 +140,9 @@ Les [affichages dans Azure Monitor](platform/view-designer.md) vous permettent d
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les [données collectées par Azure Monitor](platform/data-platform.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
-- Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
+- En savoir plus sur [Metrics Explorer](platform/metrics-getting-started.md).
 - Découvrez les [classeurs](./platform/workbooks-overview.md).
 - Découvrez [l’importation de données de journal dans Power BI](./platform/powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](./platform/grafana-plugin.md).
+- Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
 

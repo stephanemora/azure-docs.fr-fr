@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6a5e8b933f617d767f017f73fb6778a45b5a1ce3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012833"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725587"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Méthodes d’authentification dans Azure Active Directory - Options téléphoniques
 
-Pour une authentification directe à l’aide d’un message texte, vous pouvez [Configurer et activer des utilisateurs pour l’authentification par SMS (préversion)](howto-authentication-sms-signin.md). La connexion par SMS est idéale pour les travailleurs de première ligne. Avec la connexion par SMS, les utilisateurs n’ont pas besoin de connaître le nom d’utilisateur et le mot de passe pour accéder aux applications et aux services. L’utilisateur entre son numéro de téléphone mobile enregistré, reçoit un SMS contenant un code de vérification et l’entre dans l’interface de connexion.
+Pour une authentification directe à l’aide d’un message texte, vous pouvez [configurer et activer des utilisateurs pour l’authentification par SMS](howto-authentication-sms-signin.md). La connexion par SMS est idéale pour les travailleurs de première ligne. Avec la connexion par SMS, les utilisateurs n’ont pas besoin de connaître le nom d’utilisateur et le mot de passe pour accéder aux applications et aux services. L’utilisateur entre son numéro de téléphone mobile enregistré, reçoit un SMS contenant un code de vérification et l’entre dans l’interface de connexion.
 
 Les utilisateurs peuvent également s'authentifier en utilisant un téléphone mobile ou un téléphone de bureau comme forme secondaire d'authentification lors de l’authentification Azure AD MFA ou de la réinitialisation de mot de passe en libre-service (SSPR).
 

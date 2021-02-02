@@ -17,19 +17,19 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600752"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726299"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
 L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
 
 - **Activité** 
-    - **Connexions** – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
+    - **Connexions** : Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
     - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) – Fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
     - **Approvisionnement des journaux** : fournit une activité système sur les utilisateurs, les groupes et les rôles qui sont approvisionnés par le service d’approvisionnement Azure AD. 
 
@@ -37,14 +37,18 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
     - **Connexions risquées** : une [connexion risquée](../identity-protection/overview-identity-protection.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
     - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](../identity-protection/overview-identity-protection.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
-Cette rubrique présente une vue d’ensemble du rapport d’approvisionnement.
+Cette rubrique présente une vue d’ensemble des journaux de provisionnement. Ces derniers répondent à des questions comme les suivantes : 
+
+* Quels groupes ont été créés avec succès dans ServiceNow ?
+* Quels utilisateurs ont été correctement supprimés d’Adobe ?
+* Quels utilisateurs de Workday ont été correctement crées dans Active Directory ? 
 
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Propriétaires d’applications (peuvent afficher les journaux des applications qu’ils possèdent)
 * Utilisateurs des rôles Administrateur de la sécurité, Lecteur de sécurité, Lecteur de rapports, Administrateur d’application et Administrateur d’application cloud
-* Utilisateurs dans un rôle personnalisé avec l’[autorisation provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
+* Utilisateurs dans un rôle personnalisé avec l’[autorisation provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Les administrateurs généraux
 
 
@@ -52,14 +56,16 @@ Cette rubrique présente une vue d’ensemble du rapport d’approvisionnement.
 
 Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités d’approvisionnement. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory. 
 
-## <a name="provisioning-logs"></a>Journaux d’approvisionnement
 
-Les journaux d’approvisionnement fournissent des réponses aux questions suivantes :
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Manières d’interagir avec les journaux de provisionnement 
+Les clients disposent de quatre manières d’interagir avec les journaux de provisionnement :
 
-* Quels groupes ont été créés avec succès dans ServiceNow ?
-* Quels utilisateurs ont été correctement supprimés d’Adobe ?
-* Quels utilisateurs n’ont pas été créés avec succès dans DropBox ?
+1. Accès aux journaux à partir du portail Azure comme décrit ci-dessous.
+1. Streaming des journaux de provisionnement dans [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), ce qui permet de prolonger la conservation des données, de créer des tableaux de bord, des alertes et des requêtes personnalisés.
+1. Interrogation de l’[API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) pour obtenir les journaux de provisionnement.
+1. Téléchargement des journaux de provisionnement sous la forme d’un fichier CSV ou json.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Accéder aux journaux à partir du portail Azure
 Vous pouvez accéder aux journaux d’approvisionnement en sélectionnant **Provisionner des journaux** dans la section **Surveillance** du panneau **Azure Active Directory** dans le [Portail Azure](https://portal.azure.com). L’affichage de certains enregistrements d’approvisionnement dans le portail peut prendre jusqu’à deux heures.
 
 ![Journaux d’approvisionnement](./media/concept-provisioning-logs/access-provisioning-logs.png "Journaux d’approvisionnement")
@@ -205,10 +211,57 @@ L’onglet de **résolution des problèmes et recommandations** fournit le code 
 
 Les **propriétés modifiées** affichent l’ancienne valeur et la nouvelle valeur. Dans les cas où il n’y a pas d’ancienne valeur, la colonne de l’ancienne valeur est vide. 
 
-
 ### <a name="summary"></a>Résumé
 
 L’onglet **résumé** fournit une vue d’ensemble des événements et des identificateurs de l’objet dans les systèmes source et cible. 
+
+## <a name="download-logs-as-csv-or-json"></a>Télécharger les journaux au format CSV ou JSON
+
+Vous pouvez télécharger les journaux de provisionnement en vue d’une utilisation ultérieure en y accédant dans le portail Azure et en cliquant sur Télécharger. Le fichier est filtré en fonction des critères que vous avez sélectionnés. Vous pouvez définir les filtres le plus précisément possible afin de réduire le temps nécessaire au téléchargement et la taille des fichiers téléchargés. Le téléchargement CSV se divise en trois fichiers :
+
+* ProvisioningLogs : Télécharge tous les journaux, à l’exception des étapes de provisionnement et des propriétés modifiées.
+* ProvisioningLogs_ProvisioningSteps : Contient les étapes de provisionnement et l’ID de la modification. L’ID de la modification peut servir à joindre l’événement aux deux autres fichiers.
+* ProvisioningLogs_ModifiedProperties : Contient les attributs qui ont été modifiés et l’ID de la modification. L’ID de la modification peut servir à joindre l’événement aux deux autres fichiers.
+
+#### <a name="opening-the-json-file"></a>Ouverture du fichier JSON
+Pour ouvrir le fichier JSON, utilisez un éditeur de texte comme [Microsoft Visual Studio Code](https://aka.ms/vscode). Visual Studio Code facilite la lecture en mettant la syntaxe en surbrillance. Le fichier JSON peut également être ouvert à l’aide de navigateurs dans un format non modifiable, par exemple, [Microsoft Edge](https://aka.ms/msedge). 
+
+#### <a name="prettifying-the-json-file"></a>Agrémenter le fichier JSON
+Le fichier JSON est téléchargé dans un format minimisé afin de réduire la taille du téléchargement. Ce format peut, à son tour, rendre la charge utile difficile à lire. Prenez connaissance des deux options possibles pour agrémenter le fichier :
+
+1. Utiliser Visual Studio Code pour mettre en forme le fichier JSON
+
+Suivez les instructions définies [ici](https://code.visualstudio.com/docs/languages/json#_formatting) pour mettre en forme le fichier JSON à l’aide de Visual Studio Code.
+
+2. Utiliser PowerShell pour mettre en forme le fichier JSON
+
+Ce script génère le fichier JSON dans un format agrémenté de tabulations et d’espaces. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>Analyse du fichier JSON
+
+Voici quelques exemples de commandes à utiliser avec le fichier JSON à l’aide de PowerShell. Vous pouvez utiliser n’importe quel langage de programmation que vous connaissez.  
+
+Tout d’abord, [lisez le fichier JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) en exécutant :
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+Vous pouvez maintenant analyser les données conformément à votre scénario. Voici quelques exemples : 
+
+1. Générer tous les ID de travaux dans le fichier Json
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. Générer tous les ID de modification des événements où l’action était « create »
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
@@ -234,8 +287,8 @@ Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreu
 |InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD a pu s’authentifier auprès de l’application cible, mais n’a pas été autorisé à effectuer la mise à jour. Passez en revue toutes les instructions fournies par l’application cible, ainsi que le [didacticiel](../saas-apps/tutorial-list.md) de l’application correspondante.|
 |UnprocessableEntity|L’application cible a renvoyé une réponse inattendue. La configuration de l’application cible n’est peut-être pas correcte, ou il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner.|
 |WebExceptionProtocolError |Une erreur de protocole HTTP s’est produite lors de la connexion à l’application cible. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
-|InvalidAnchor|Un utilisateur qui a été précédemment créé ou mis en correspondance par le service d’approvisionnement n’existe plus. Vérifiez que l’utilisateur existe. Pour forcer une nouvelle correspondance de tous les utilisateurs, utilisez l’API MS Graph pour [redémarrer un travail](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Notez que le redémarrage de l’approvisionnement déclenche un cycle initial, ce qui peut prendre du temps. Il supprime également le cache utilisé par le service de provisionnement pour fonctionner, ce qui signifie que tous les utilisateurs et groupes du locataire devront être réévalués et que certains événements d’approvisionnement pourraient être supprimés.|
-|NotImplemented | L’application cible a retourné une réponse inattendue. La configuration de l’application n’est peut-être pas correcte, ou il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner. Passez en revue toutes les instructions fournies par l’application cible, ainsi que le [didacticiel](../saas-apps/tutorial-list.md) de l’application correspondante. |
+|InvalidAnchor|Un utilisateur qui a été précédemment créé ou mis en correspondance par le service d’approvisionnement n’existe plus. Vérifiez que l’utilisateur existe. Pour forcer une nouvelle correspondance de tous les utilisateurs, utilisez l’API MS Graph pour [redémarrer un travail](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Le redémarrage du provisionnement déclenche un cycle initial, ce qui peut prendre du temps. Il supprime également le cache utilisé par le service de provisionnement pour fonctionner, ce qui signifie que tous les utilisateurs et groupes du locataire devront être réévalués et que certains événements d’approvisionnement pourraient être supprimés.|
+|NotImplemented | L’application cible a retourné une réponse inattendue. La configuration de l’application n’est peut-être pas correcte, ou il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner. Passez en revue toutes les instructions fournies par l’application cible et le [tutoriel](../saas-apps/tutorial-list.md) de l’application correspondante. |
 |MandatoryFieldsMissing, MissingValues |L’utilisateur n’a pas pu être créé, car des valeurs requises sont manquantes. Corrigez les valeurs d’attribut manquantes dans l’enregistrement source ou vérifiez la configuration de l’attribut correspondant pour vous assurer que les champs obligatoires ne sont pas omis. [En savoir plus](../app-provisioning/customize-application-attributes.md) sur la configuration des attributs correspondants.|
 |SchemaAttributeNotFound |Impossible d’effectuer l’opération, car un attribut spécifié n’existe pas dans l’application cible. Consultez la [documentation](../app-provisioning/customize-application-attributes.md) sur la personnalisation des attributs et assurez-vous que votre configuration est correcte.|
 |InternalError |Une erreur de service interne s’est produite au sein du service de provisionnement Azure AD. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562121"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725669"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quelles sont les méthodes d’authentification et de vérification disponibles dans Microsoft Azure Active Directory ?
 
@@ -70,7 +70,7 @@ Le tableau suivant décrit quand une méthode d’authentification peut être ut
 | Clés de sécurité FIDO2 (préversion)   | Oui                    | MFA                       |
 | Jetons matériels OATH (version préliminaire) | Non                     | MFA                       |
 | Jetons logiciels OATH           | Non                     | MFA                       |
-| SMS                            | Oui (préversion)          | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
+| SMS                            | Oui                    | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Appel vocal                     | Non                     | Authentification multifacteur et réinitialisation de mot de passe en libre-service              |
 | Mot de passe                       | Oui                    |                           |
 
@@ -83,7 +83,7 @@ Pour en savoir plus sur le fonctionnement de chaque méthode d’authentificatio
 * [Clés de sécurité FIDO2 (préversion)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Jetons matériels OATH (version préliminaire)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Jetons logiciels OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* Connexion et [vérification](howto-authentication-sms-signin.md) par [SMS](concept-authentication-phone-options.md#mobile-phone-verification)
+* [Connexion SMS](howto-authentication-sms-signin.md) et [vérification](concept-authentication-phone-options.md#mobile-phone-verification)
 * [Vérification par appel téléphonique](concept-authentication-phone-options.md)
 * Mot de passe
 

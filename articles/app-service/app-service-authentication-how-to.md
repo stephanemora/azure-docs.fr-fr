@@ -4,12 +4,12 @@ description: Apprenez à personnaliser les paramètres d’authentification et d
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601779"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630325"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -279,6 +279,150 @@ Le fournisseur d’identité peut fournir un autorisation clé en main. Par exem
 ### <a name="application-level"></a>Niveau d’application
 
 Si l’un des autres niveaux ne fournit pas l’autorisation dont vous avez besoin, ou si votre plateforme ou fournisseur d’identité ne sont pas pris en charge, vous devez écrire du code personnalisé afin d’autoriser les utilisateurs en fonction de leurs [revendications](#access-user-claims).
+
+## <a name="updating-the-configuration-version-preview"></a>Mise à jour de la version de configuration (préversion)
+
+Il existe deux versions de l’API de gestion pour la fonctionnalité d’authentification/autorisation. La version v2 en préversion est requise pour l’expérience « Authentification (préversion) » dans le portail Azure. Une application qui utilise déjà l’API v1 peut effectuer une mise à niveau vers la version v2 une fois que quelques modifications ont été apportées. Plus précisément, la configuration du secret doit être déplacée vers les paramètres d’application à emplacement fixe. La configuration du fournisseur Compte Microsoft n’est pas prise en charge dans v2 pour l’instant.
+
+> [!WARNING]
+> La migration vers la préversion v2 désactivera la gestion de la fonctionnalité d’authentification/autorisation d’App Service de l’application par le biais de certains clients, comme son expérience actuelle dans le portail Azure, Azure CLI et Azure PowerShell. Cette opération ne peut pas être inversée. Pendant la préversion, la migration des charges de travail de production n’est pas encouragée ni prise en charge. Vous devez uniquement suivre les étapes de cette section pour les applications de test.
+
+### <a name="moving-secrets-to-application-settings"></a>Déplacement de secrets vers des paramètres d’application
+
+1. Récupérez votre configuration actuelle à l’aide de l’API v1 :
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   Dans la charge utile JSON résultante, prenez note de la valeur de secret utilisée pour chaque fournisseur que vous avez configuré :
+
+   * AAD : `clientSecret`
+   * Google : `googleClientSecret`
+   * Facebook : `facebookAppSecret`
+   * Twitter : `twitterConsumerSecret`
+   * Compte Microsoft : `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > Les valeurs de secret sont des informations d’identification de sécurité importantes et doivent être manipulées avec précaution. Ne partagez pas ces valeurs et ne les conservez pas sur un ordinateur local.
+
+1. Créez des paramètres d’application à emplacement fixe pour chaque valeur de secret. Vous pouvez choisir le nom de chaque paramètre d’application. Sa valeur doit correspondre à ce que vous avez obtenu à l’étape précédente ou [référencer un secret Key Vault](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) que vous avez créé avec cette valeur.
+
+   Pour créer le paramètre, vous pouvez utiliser le portail Azure ou exécuter une variation du code suivant pour chaque fournisseur :
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > Les paramètres d’application pour cette configuration doivent être marqués comme étant à emplacement fixe, ce qui signifie qu’ils ne seront pas déplacés d’un environnement à un autre lors d’une [opération d’échange d’emplacements](./deploy-staging-slots.md). Cela est dû au fait que votre configuration d’authentification est elle-même liée à l’environnement. 
+
+1. Créez un fichier JSON nommé `authsettings.json`. Prenez la sortie que vous avez reçue précédemment et supprimez chaque valeur de secret de celle-ci. Écrivez le reste de la sortie dans le fichier, en vous assurant qu’aucun secret n’y est inclus. Dans certains cas, la configuration peut comporter des tableaux contenant des chaînes vides. Assurez-vous que `microsoftAccountOAuthScopes` n’en contient pas, et si c’est le cas, remplacez cette valeur par `null`.
+
+1. Ajoutez une propriété à `authsettings.json` qui pointe vers le nom du paramètre d’application que vous avez créé précédemment pour chaque fournisseur :
+ 
+   * AAD : `clientSecretSettingName`
+   * Google : `googleClientSecretSettingName`
+   * Facebook : `facebookAppSecretSettingName`
+   * Twitter : `twitterConsumerSecretSettingName`
+   * Compte Microsoft : `microsoftAccountClientSecretSettingName`
+
+   Un exemple de fichier après cette opération peut ressembler à ce qui suit, ici configuré uniquement pour AAD :
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Envoyez ce fichier comme nouvelle configuration d’authentification/d’autorisation pour votre application :
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Vérifiez que votre application fonctionne toujours comme prévu après ce geste.
+
+1. Supprimez le fichier utilisé dans les étapes précédentes.
+
+Vous avez maintenant migré l’application pour stocker les secrets du fournisseur d’identité comme paramètres d’application.
+
+### <a name="support-for-microsoft-account-registrations"></a>Prise en charge des inscriptions de compte Microsoft
+
+L’API v2 ne prend actuellement pas en charge Compte Microsoft comme fournisseur distinct. Elle s’appuie plutôt sur la [plateforme d’identités Microsoft](../active-directory/develop/v2-overview.md) convergente pour permettre aux utilisateurs de se connecter avec des comptes Microsoft personnels. Lors du basculement vers l’API v2, la configuration v1 d’Azure Active Directory est utilisée pour configurer le fournisseur Plateforme d’identités Microsoft.
+
+Si votre configuration actuelle contient un fournisseur Compte Microsoft, mais pas de fournisseur Azure Active Directory, vous pouvez basculer la configuration vers le fournisseur Azure Active Directory, puis effectuer la migration. Pour ce faire :
+
+1. Accédez à [**Inscriptions d’applications**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans le portail Azure et recherchez l’inscription associée à votre fournisseur Compte Microsoft. Il peut se trouver sous le titre « Applications du compte personnel ».
+1. Accédez à la page « Authentification » pour l’inscription. Sous « URI de redirection », vous devez voir une entrée se terminant par `/.auth/login/microsoftaccount/callback`. Copiez cet URI.
+1. Ajoutez un nouvel URI qui correspond à celui que vous venez de copier, sauf qu’il se termine par `/.auth/login/aad/callback`. Cela permettra à l’inscription d’être utilisée par la configuration d’authentification/autorisation d’App Service.
+1. Accédez à la configuration d’authentification/autorisation d’App Service pour votre application.
+1. Collectez la configuration du fournisseur Compte Microsoft.
+1. Configurez le fournisseur Azure Active Directory à l’aide du mode d’administration « Avancé », en fournissant l’ID client et les valeurs de clé secrète client que vous avez collectés à l’étape précédente. Pour l’URL de l’émetteur, utilisez `<authentication-endpoint>/<tenant-id>/v2.0`, puis remplacez *\<authentication-endpoint>* par le [point de terminaison d’authentification de votre environnement cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (par exemple, « https://login.microsoftonline.com  » pour Azure international), puis *\<tenant-id>* par votre **ID de répertoire (locataire)** .
+1. Une fois que vous avez enregistré la configuration, testez le flux de connexion en accédant dans votre navigateur au point de terminaison `/.auth/login/aad` de votre site et en allant jusqu’au bout du flux de connexion.
+1. À ce stade, vous avez copié la configuration, mais la configuration actuelle du fournisseur Compte Microsoft est conservée. Avant de la supprimer, assurez-vous que toutes les parties de votre application référencent le fournisseur Azure Active Directory via des liens de connexion, etc. Vérifiez que toutes les parties de votre application fonctionnent comme prévu.
+1. Une fois que vous avez validé que les choses fonctionnent avec le fournisseur Azure Active Directory (AAD), vous pouvez supprimer la configuration du fournisseur Compte Microsoft.
+
+Certaines applications peuvent déjà avoir des inscriptions distinctes pour Azure Active Directory et Compte Microsoft. Ces applications ne peuvent pas être migrées pour l’instant. 
+
+> [!WARNING]
+> Il est possible de converger les deux inscriptions en modifiant les [types de comptes pris en charge](../active-directory/develop/supported-accounts-validation.md) pour l’inscription de l’application AAD. Toutefois, cela obligerait les utilisateurs Compte Microsoft à donner leur consentement à une nouvelle invite, et les revendications d’identité de ces utilisateurs pourraient être différentes dans leur structure, `sub` changeant notamment de valeurs, puisqu’un nouveau ID d’application est utilisé. Cette approche n’est pas recommandée, sauf si elle est parfaitement comprise. Vous devriez plutôt attendre la prise en charge des deux inscriptions dans la surface de l’API v2.
+
+### <a name="switching-to-v2"></a>Passage à v2
+
+Une fois les étapes ci-dessus effectuées, accédez à l’application dans le portail Azure. Sélectionnez la section « Authentification (préversion) ». 
+
+Vous pouvez également effectuer une requête PUT sur la ressource `config/authsettingsv2` sous la ressource de site. Le schéma de la charge utile est le même que celui capturé dans la section [Configurer à l’aide d’un fichier](#config-file).
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>Configuration à l’aide d’un fichier (préversion)
 

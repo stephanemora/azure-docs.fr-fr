@@ -2,13 +2,13 @@
 title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager (modèles ARM) pour le déploiement de ressources.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657309"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621837"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -125,6 +125,12 @@ Si vos niveaux vont avoir des cycles de vie distincts, vous pouvez déployer les
 ![modèle niveau](./media/overview/tier-templates.png)
 
 Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
+
+## <a name="share-templates"></a>Partager des modèles
+
+Après avoir créé votre modèle, vous souhaiterez peut-être le partager avec d’autres utilisateurs de votre organisation. Les [specs de modèle](template-specs.md) vous permettent de stocker un modèle en tant que type de ressource. Vous utilisez le contrôle d’accès en fonction du rôle pour gérer l’accès à la spec de modèle. Les utilisateurs disposant d’un accès en lecture à la spec de modèle peuvent la déployer, mais pas la modifier.
+
+Cette approche signifie que vous pouvez partager en toute sécurité des modèles qui répondent aux normes de votre organisation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

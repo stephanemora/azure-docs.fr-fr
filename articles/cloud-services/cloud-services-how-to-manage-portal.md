@@ -1,21 +1,25 @@
 ---
 title: Tâches courantes de gestion de service cloud | Microsoft Docs
 description: Découvrez comment gérer Azure Cloud Services dans le portail Azure. Ces exemples utilisent le portail Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076706"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743387"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gérer Azure Cloud Services (classique) dans le portail Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Dans la zone **Services cloud** du portail Azure, vous pouvez :
 
 * Mettre à jour d’un rôle de service ou un déploiement.
@@ -77,7 +81,7 @@ Il existe deux conditions préalables principales pour qu’un échange de dépl
 
 - Si vous souhaitez utiliser une adresse IP statique pour votre emplacement de production, vous devez en réserver une pour votre emplacement intermédiaire également. Sinon, l’échange échoue.
 
-- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau **Aperçu** du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) dans Windows PowerShell.
+- Toutes les instances de vos rôles doivent être en cours d’exécution pour que vous puissiez effectuer l’échange. Vous pouvez vérifier l’état de vos instances sur le panneau **Aperçu** du portail Azure. Vous pouvez également utiliser la commande [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) dans Windows PowerShell.
 
 Notez que les mises à jour du système d’exploitation invité et les opérations de réparation de service peuvent également entraîner l’échec du déploiement. Pour plus d’informations, consultez [Résoudre les problèmes de déploiement de service cloud](cloud-services-troubleshoot-deployment-problems.md).
 

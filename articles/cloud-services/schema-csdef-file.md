@@ -1,22 +1,25 @@
 ---
-title: Schéma de définition Microsoft Azure Cloud Services (fichier .csdef) | Microsoft Docs
+title: Schéma de définition d’Azure Cloud Services (classique) [fichier .cscfg] | Microsoft Docs
 description: Un fichier de définition de service (.csdef) définit un modèle de service pour une application, contenant les rôles disponibles, les points de terminaison et les valeurs de configuration du service.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 42
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 1896ee8385d1e41feffe7a9f542550ea7f34a8a3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: de81b6ffb5b4dc944f3d538a116383d06145661b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072558"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739796"
 ---
-# <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)
+# <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Schéma de définition d’Azure Cloud Services (classique) [fichier .csdef]
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Le fichier de définition de service définit le modèle de service d’une application. Le fichier contient les définitions des rôles disponibles pour un service cloud, spécifie les points de terminaison de service et établit les paramètres de configuration du service. Les valeurs des paramètres de configuration sont définies dans le fichier de configuration de service, comme indiqué dans le [schéma de configuration de services cloud (classique)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
 Par défaut, le fichier de schéma de configuration Diagnostics Azure est installé dans le répertoire `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas`. Remplacez `<version>` par la version installée du [Kit de développement logiciel (SDK) Azure](https://www.windowsazure.com/develop/downloads/).

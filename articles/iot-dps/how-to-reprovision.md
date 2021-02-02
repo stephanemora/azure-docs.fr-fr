@@ -3,30 +3,22 @@ title: Réapprovisionner des appareils dans le service Azure IoT Hub Device Prov
 description: Découvrez comment reprovisionner des appareils avec votre instance DPS (Device Provisioning Service) et pourquoi vous devrez peut-être effectuer cette opération.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010943"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791894"
 ---
 # <a name="how-to-reprovision-devices"></a>Comment reprovisionner des appareils
 
-Durant le cycle de vie d’une solution IoT, il est fréquent d’avoir à déplacer des appareils d’un hub IoT à un autre. Voici quelques scénarios nécessitant le déplacement d’un appareil :
+Durant le cycle de vie d’une solution IoT, il est fréquent d’avoir à déplacer des appareils d’un hub IoT à un autre. Cette rubrique est destinée à aider les opérateurs de solution à configurer les stratégies de réapprovisionnement.
 
-* **Géolocalisation** : quand un appareil change d’emplacement, il doit être migré vers un hub IoT plus proche de son emplacement pour améliorer la latence du réseau.
-
-* **Multilocation** : un appareil peut être utilisé dans la même solution IoT, mais réaffecté ou donné en location à un nouveau client ou au site d’un client. Le service fourni à ce nouveau client peut utiliser un autre hub IoT.
-
-* **Changement de solution** : un appareil est déplacé dans une nouvelle solution IoT ou une solution IoT mise à jour. Cette réaffectation peut nécessiter que l’appareil communique avec un nouveau hub IoT qui est connecté à d’autres composants backend. 
-
-* **Mise en quarantaine** : ce scénario est similaire à un changement de solution. Un appareil défectueux, compromis ou obsolète est réassigné à un hub IoT où il doit obligatoirement être mis à jour afin de redevenir conforme. Une fois que l’appareil fonctionne correctement, il est migré vers son hub principal d’origine.
-
-Pour plus d’informations sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md).
+Pour une présentation plus détaillée des scénarios de réapprovisionnement, consultez [Concepts du réapprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurer la stratégie d’allocation de l’inscription

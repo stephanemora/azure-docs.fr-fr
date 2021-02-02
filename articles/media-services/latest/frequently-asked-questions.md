@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426877"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693805"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -30,7 +30,7 @@ Cet article contient des réponses aux questions les plus fréquemment posées s
 
 Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les événements en direct v3, voir des actifs multimédias et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. <br/>Pour toutes les autres tâches de gestion (par exemple la gestion des transformations et travaux ou l’analyse de contenu v3), utilisez l’[API REST](/rest/api/media/accountfilters), l’[interface CLI](/cli/azure/ams) ou l’un des [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
-Si votre vidéo a été chargée dans le compte Media Services à l’aide de l’API Media Services v3, ou si du contenu a été généré à partir d’une sortie en direct, vous ne verrez pas les boutons **Encoder** , **Analyser** ou **Chiffrer** dans le portail Azure. Utilisez les API Media Services v3 pour effectuer ces tâches.  
+Si votre vidéo a été chargée dans le compte Media Services à l’aide de l’API Media Services v3, ou si du contenu a été généré à partir d’une sortie en direct, vous ne verrez pas les boutons **Encoder**, **Analyser** ou **Chiffrer** dans le portail Azure. Utilisez les API Media Services v3 pour effectuer ces tâches.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Quels sont les rôles Azure pouvant effectuer des actions sur les ressources Azure Media Services ? 
 
@@ -60,7 +60,7 @@ Lors de l’utilisation de la pagination, vous devez toujours utiliser le lien s
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quelles fonctionnalités ne sont pas encore disponibles dans Azure Media Services v3 ?
 
-Pour plus d’informations, consultez [Différences de fonctionnalités par rapport aux API v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Pour plus d’informations, consultez le [Guide de migration](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qu'est-ce que le déplacement d’un compte Media Services entre abonnements ?  
 
@@ -169,7 +169,7 @@ Pour toutes les autres tâches de gestion (par exemple, les [transformations et 
 
 Le concept `AssetFile` a été supprimé de l’API Media Services afin de séparer Media Services de la dépendance du Kit de développement logiciel (SDK) Stockage. C’est désormais Stockage Azure, non plus Media Services, qui conserve les informations appartenant au Kit de développement logiciel (SDK) Stockage. 
 
-Pour plus d’informations, consultez [Migrer vers Azure Media Services v3](media-services-v2-vs-v3.md).
+Pour plus d’informations, consultez [Migrer vers Azure Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Où le chiffrement du stockage côté client se fait-il ?
 
@@ -255,9 +255,9 @@ Les deux ensembles de niveaux de sécurité sont définis par Google Widevine. L
 
 | **Niveaux de sécurité définis dans l’architecture de Widevine** |**Niveaux de sécurité utilisés dans l’API Widevine**|
 |---|---| 
-| **Niveau de sécurité 1**  : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de sécurité peut être effectué dans différentes processeurs.|**security_level=5**  : Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE doté de matériel.<br/><br/>**security_level=4**  : Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE doté de matériel.|
-**Niveau de sécurité 2**  : Le chiffrement (mais pas le traitement vidéo) est effectué dans l’environnement TEE. Les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par un matériel ou un logiciel vidéo distinct. Toutefois, au niveau 2, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3**  : Les opérations clés de matériel et de chiffrement doivent être effectuées dans un environnement TEE doté de matériel. |
-| **Niveau de sécurité 3**  : Il n’y a pas d’environnement TEE sur l’appareil. Des mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une implémentation de niveau 3 peut également inclure un moteur de chiffrement matériel. Cependant, celui-ci n’améliore que les performances, pas la sécurité. | **security_level=2**  : le chiffrement logiciel et un décodeur masqué sont nécessaires.<br/><br/>**security_level=1**  : Le chiffrement whitebox basé sur le logiciel est requis.|
+| **Niveau de sécurité 1** : tous les traitements, chiffrements et contrôles du contenu sont effectués au sein de l’environnement TEE (Trusted Execution Environment). En ce qui concerne certains modèles de mise en œuvre, le traitement de sécurité peut être effectué dans différentes processeurs.|**security_level=5** : Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement TEE doté de matériel.<br/><br/>**security_level=4** : Le chiffrement et le décodage du contenu doivent être effectués dans un environnement TEE doté de matériel.|
+**Niveau de sécurité 2** : Le chiffrement (mais pas le traitement vidéo) est effectué dans l’environnement TEE. Les mémoires tampons déchiffrées sont retournées au domaine d’application et traitées par un matériel ou un logiciel vidéo distinct. Toutefois, au niveau 2, les informations de chiffrement sont toujours traitées uniquement dans l’environnement TEE.| **security_level=3** : Les opérations clés de matériel et de chiffrement doivent être effectuées dans un environnement TEE doté de matériel. |
+| **Niveau de sécurité 3** : Il n’y a pas d’environnement TEE sur l’appareil. Des mesures appropriées peuvent être prises pour protéger les informations de chiffrement et le contenu déchiffré sur le système d’exploitation hôte. Une implémentation de niveau 3 peut également inclure un moteur de chiffrement matériel. Cependant, celui-ci n’améliore que les performances, pas la sécurité. | **security_level=2** : le chiffrement logiciel et un décodeur masqué sont nécessaires.<br/><br/>**security_level=1** : Le chiffrement whitebox basé sur le logiciel est requis.|
 
 #### <a name="why-does-content-download-take-so-long"></a>Pourquoi le téléchargement de contenu prend-il tant de temps ?
 

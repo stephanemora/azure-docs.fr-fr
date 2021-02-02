@@ -1,21 +1,24 @@
 ---
-title: Surveillance d’Azure Cloud Service | Microsoft Docs
+title: Surveiller un service cloud Azure Cloud (classique) | Microsoft Docs
 description: Décrit ce que la surveillance d’Azure Cloud Service implique et certaines des options à votre disposition.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847248"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743370"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>Introduction à la surveillance de service cloud (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Vous pouvez surveiller les principales mesures de performances pour n’importe quel service cloud. Chaque rôle de service cloud collecte des données de base : utilisation du processeur, utilisation du réseau et utilisation du disque. Si le service cloud a l’extension `Microsoft.Azure.Diagnostics` appliquée à un rôle, ce rôle peut collecter des points de données supplémentaires. Cet article vous fournit une présentation de Diagnostics Azure pour Cloud Services.
 
@@ -40,7 +43,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnost
 
 * Compteurs de performances personnalisés
 * Journaux d’activité d’application
-* Journaux des événements Windows
+* Journaux d’événements Windows
 * Source d’événement .NET
 * Journaux d’activité IIS
 * ETW basé sur les manifestes
@@ -54,7 +57,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnost
 
 Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-account-create.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
 
-Ensuite, accédez à la ressource **Compte de stockage (classique)** . Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
+Ensuite, accédez à la ressource **Compte de stockage (classique)**. Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
 
 Pour activer les diagnostics avancés, vous devez modifier deux fichiers de configuration, **ServiceDefinition.csdef** et **ServiceConfiguration.cscfg**.
 

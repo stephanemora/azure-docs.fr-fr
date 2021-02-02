@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564104"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872330"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Forum aux questions (FAQ) sur le calcul confidentiel Azure
 
@@ -44,6 +44,14 @@ Selon l’infobulle en regard de la machine virtuelle, différentes actions sont
 **Les machines virtuelles DCsv2 ne s’affichent pas lorsque je les recherche dans le sélecteur de taille du portail**
 
 Vérifiez que vous avez sélectionné une [région disponible](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Veillez également à activer l’option « Effacer tous les filtres » dans le sélecteur de taille. 
+
+**Puis-je activer les performances réseau accélérées avec l’informatique confidentielle Azure ?**
+
+ Non. Les performances réseau accélérées ne sont pas prises en charge sur les machines virtuelles de série DC ou DCsv2. Les performances réseau accélérées ne peuvent pas être activées pour un déploiement de machine virtuelle avec informatique confidentielle ni pour un déploiement de cluster Azure Kubernetes Service s’exécutant sur l’informatique confidentielle.
+
+**Puis-je utiliser Azure Dedicated Host avec ces machines ?**
+
+Oui. Azure Dedicated Host prend en charge les machines virtuelles de la série DCsv2. Azure Dedicated Host fournit un serveur physique à locataire unique sur lequel exécuter vos machines virtuelles. Les utilisateurs utilisent généralement Azure Dedicated Host pour répondre aux exigences de conformité concernant la sécurité physique, l’intégrité des données et la surveillance. 
 
 **J’obtiens une erreur m’informant de l’échec du déploiement avec un modèle Azure Resource Manager : « Impossible d’effectuer l’opération, car elle entraîne un dépassement du quota approuvé de cœurs pour la famille DcsV2 standard »**
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232299"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785123"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -451,7 +451,7 @@ Dans MSAL.NET, vous devez utiliser :
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-Vous n’avez normalement besoin que d’un paramètre (`scopes`). En fonction de la façon dont votre administrateur Windows a configuré les stratégies, les applications sur votre machine Windows peuvent ne pas être autorisées à rechercher l’utilisateur connecté. Dans ce cas, utilisez une deuxième méthode, `.WithUsername()`, et passez le nom d’utilisateur de l’utilisateur connecté sous un format UPN, par exemple, `joe@contoso.com`. Sur .NET Core, seule la surcharge acceptant le nom d’utilisateur est disponible, car la plateforme .NET Core ne peut pas demander le nom d’utilisateur au système d’exploitation.
+Vous n’avez normalement besoin que d’un paramètre (`scopes`). En fonction de la façon dont votre administrateur Windows a configuré les stratégies, les applications sur votre machine Windows peuvent ne pas être autorisées à rechercher l’utilisateur connecté. Dans ce cas, utilisez une deuxième méthode, `.WithUsername()`, et passez le nom d’utilisateur de l’utilisateur connecté sous un format UPN, par exemple, `joe@contoso.com`.
 
 L’exemple suivant met en évidence le cas le plus courant, avec des explications sur le genre d’exceptions que vous pouvez obtenir et les solutions d’atténuation.
 
@@ -1181,7 +1181,7 @@ La personnalisation de la sérialisation du cache de jeton pour partager l’ét
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Sérialisation simple du cache de jetons (MSAL.NET uniquement)
 
-Voici un exemple d’implémentation native de la sérialisation personnalisée d’un cache de jeton pour des applications de bureau. Ici, le cache des jetons utilisateur se trouve dans un fichier du même dossier que l’application ou dans un dossier par utilisateur et par application dans le cas où l’application est une [application de bureau sous forme de package](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Pour obtenir le code complet, consultez l’exemple suivant : [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+Voici un exemple d’implémentation native de la sérialisation personnalisée d’un cache de jeton pour des applications de bureau. Ici, le cache des jetons utilisateur se trouve dans un fichier du même dossier que l’application ou dans un dossier par utilisateur et par application dans le cas où l’application est une [application de bureau sous forme de package](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Pour obtenir le code complet, consultez l’exemple suivant : [active-directory-dotnet-desktop-msgraph-v2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Après avoir généré l’application, vous activez la sérialisation en appelant ``TokenCacheHelper.EnableSerialization()`` et en passant l’application `UserTokenCache`.
 

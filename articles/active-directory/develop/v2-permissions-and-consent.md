@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246789"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756049"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
-Les applications qui s’intègrent à la plateforme d’identité Microsoft suivent un modèle d’autorisation permettant aux utilisateurs et aux administrateurs de contrôler l’accès aux données. L’implémentation de ce modèle d’autorisation a été mise à jour sur le point de terminaison de la plateforme d’identités Microsoft. Elle modifie la manière dont une application doit interagir avec la plateforme d’identités Microsoft. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
+Les applications qui s’intègrent à la plateforme d’identités Microsoft suivent un modèle d’autorisation permettant aux utilisateurs et aux administrateurs de contrôler l’accès aux données. L’implémentation de ce modèle d’autorisation a été mise à jour sur la plateforme d’identités Microsoft. Elle modifie la manière dont une application doit interagir avec la plateforme d’identités Microsoft. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
 
 ## <a name="scopes-and-permissions"></a>Étendues et autorisations
 
@@ -53,7 +53,7 @@ Généralement, une application peut demander ces autorisations en spécifiant l
 
 ## <a name="permission-types"></a>Types d'autorisations
 
-La plateforme d’identité Microsoft prend en charge deux types d’autorisations : les *autorisations déléguées* et les *autorisations d’application*.
+La plateforme d’identités Microsoft prend en charge deux types d’autorisations : les *permissions déléguées* et les *permissions d’application*.
 
 * Les **autorisations déléguées** sont utilisées par les applications pour lesquelles un utilisateur est connecté et présent. Pour ces applications, l’utilisateur ou un administrateur consent aux autorisations demandées par l’application. L’application se voit déléguer la permission d’agir en tant qu’utilisateur connecté lorsqu’elle effectue des appels vers la ressource cible. 
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Le paramètre `scope` correspond à une liste d’autorisations déléguées séparées par des espaces, demandées par l’application. Chaque autorisation est indiquée par l’ajout de la valeur correspondante à l’identificateur de la ressource (URI d’ID d’application). Dans l’exemple de requête, l’application nécessite l’autorisation de lecture du calendrier de l’utilisateur et d’envoi de messages au nom de l’utilisateur.
 
-Une fois que l’utilisateur a entré ses informations d’identification, le point de terminaison de la plateforme d’identités Microsoft recherche un enregistrement correspondant du *consentement d’utilisateur*. Si, par le passé, l’utilisateur n’a consenti à aucune des autorisations demandées et que l’administrateur n’a pas consenti à ces autorisations pour le compte de toute l’organisation, le point de terminaison de la plateforme d’identités Microsoft demande à l’utilisateur d’accorder les autorisations demandées.
+Une fois que l’utilisateur a entré ses informations d’identification, la plateforme d’identités Microsoft recherche un enregistrement correspondant du *consentement de l’utilisateur*. Si, par le passé, l’utilisateur n’a consenti à aucune des autorisations demandées et que l’administrateur n’a pas consenti à ces autorisations pour le compte de toute l’organisation, la plateforme d’identités Microsoft demande à l’utilisateur d’accorder les autorisations demandées.
 
 À ce stade, les autorisations `offline_access` (« Conserver l’accès aux données auxquelles vous lui avez donné l’accès ») et `user.read` (« Vous connecter et lire votre profil ») sont automatiquement incluses dans le consentement initial pour une application.  Ces autorisations sont généralement requises pour le bon fonctionnement de l’application. L’autorisation `offline_access` donne à l’application l’accès à des jetons d’actualisation qui sont essentiels pour les applications natives et les applications web. L’autorisation `user.read` donne accès à la revendication `sub`. Elle permet au client ou à l’application d’identifier correctement l’utilisateur au fil du temps et d’accéder à des informations rudimentaires sur l’utilisateur.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Cet exemple de code produit une page de consentement pour toutes les autorisations inscrites si les descriptions précédentes du consentement et `/.default` s’appliquent au scénario. Ensuite, le code retourne un `id_token`, plutôt qu’un jeton d’accès.  
 
-Ce comportement prend en charge certains clients hérités qui passent de Bibliothèque d’authentification Active Directory (ADAL) à Bibliothèque d’authentification Microsoft (MSAL). Cette configuration *ne doit pas* être utilisée par les nouveaux clients qui ciblent le point de terminaison de la plateforme d’identités Microsoft.
+Ce comportement prend en charge certains clients hérités qui passent de Bibliothèque d’authentification Azure AD (ADAL) à Bibliothèque d’authentification Microsoft (MSAL). Cette configuration *ne doit pas* être utilisée par les nouveaux clients qui ciblent la plateforme d’identités Microsoft.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flux d’octroi des informations d’identification du client et /.default  
 

@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554013"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880201"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transformer des données dans le concepteur Azure Machine Learning
 
@@ -52,11 +52,7 @@ Procédez comme suit pour importer l’exemple de jeu de données.
 
 1. Glisser-déposez le jeu de données de **Adult Census Income Binary classification** sur le canevas.
 
-1. Sélectionnez le module de jeu de données **Adult Census Income**.
-
-1. Dans le volet d’informations qui s’affiche à droite du canevas, sélectionnez **Sorties**.
-
-1. Sélectionner l’icône Visualiser ![icône Visualiser](media/how-to-designer-transform-data/visualize-icon.png).
+1. Cliquez avec le bouton droit sur le module du jeu de données **Adult Census Income**, puis sélectionnez **Visualiser** > **Sortie du jeu de données**.
 
 1. Utilisez la fenêtre d’aperçu des données pour explorer le jeu de données. Notez en particulier les valeurs de la colonne « native-country ».
 

@@ -2,13 +2,13 @@
 title: Forum Aux Questions (FAQ) sur Azure Service Bus | Microsoft Docs
 description: Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022135"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693396"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus - Forum Aux Questions (FAQ)
 
@@ -35,8 +35,11 @@ Le classement n’est pas garanti lors de l’utilisation d’entités partition
 
  Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Où Azure Service Bus stocke-t-il les données client ?
-Azure Service Bus stocke les données client. Service Bus stockant automatiquement ces données dans une seule région, ce service répond automatiquement aux exigences en matière de résidence des données de la région, y compris celles spécifiées dans le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>Où Azure Service Bus stocke-t-il les données ?
+Le niveau standard d’Azure Service Bus utilise Azure SQL Database pour sa couche de stockage principale. Pour toutes les régions, à l’exception de Brésil Sud et Asie Sud-Est, la sauvegarde de la base de données est hébergée dans une autre région (généralement la région associée à Azure). Pour les régions Brésil Sud et Asie Sud-Est, les sauvegardes de bases de données sont stockées dans la même région afin de répondre aux exigences de résidence des données pour ces régions.
+
+Le niveau Premium d’Azure Service Bus stocke les métadonnées et les données dans les régions que vous sélectionnez. Quand une géo-reprise d’activité après sinistre est configurée pour un espace de noms premium Azure Service Bus, les métadonnées sont copiées dans la région secondaire que vous sélectionnez.
+
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
 Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
@@ -57,7 +60,7 @@ Les kits de développement logiciel (SDK) officiels Azure utilisent généraleme
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-L’ancien package WindowsAzure. ServiceBus pour .NET Framework peut utiliser le protocole hérité « Service Bus Messaging Protocol » (SBMP), également appelé « NetMessaging ». Ce protocole utilise les ports TCP 9350-9354. Le mode par défaut de ce package consiste à déterminer automatiquement si ces ports sont disponibles à des fins de communication et à basculer vers WebSockets avec TLS sur le port 443 dans le cas contraire. Vous pouvez remplacer ce paramètre et forcer ce mode en définissant le paramètre `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) sur le paramètre [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet), qui s’applique globalement à l’application.
+L’ancien package WindowsAzure. ServiceBus pour .NET Framework peut utiliser le protocole hérité « Service Bus Messaging Protocol » (SBMP), également appelé « NetMessaging ». Ce protocole utilise les ports TCP 9350-9354. Le mode par défaut de ce package consiste à déterminer automatiquement si ces ports sont disponibles à des fins de communication et à basculer vers WebSockets avec TLS sur le port 443 dans le cas contraire. Vous pouvez remplacer ce paramètre et forcer ce mode en définissant le paramètre `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) sur le paramètre [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity), qui s’applique globalement à l’application.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quelles adresses IP dois-je ajouter à la liste verte ?
 Pour trouver les adresses IP à ajouter à la liste verte pour vos connexions, procédez comme suit :
@@ -168,6 +171,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## <a name="is-it-possible-to-disable-tls-10-or-11-on-service-bus-namespaces"></a>Est-il possible de désactiver TLS 1.0 ou 1.1 sur les espaces de noms Service Bus ?
+Non. Il n’est pas possible de désactiver TLS 1.0 ou 1.1 sur les espaces de noms Service Bus. Dans vos applications clientes se connectant à Service Bus, utilisez TLS 1.2 ou une version ultérieure. Pour plus d’informations, consultez [Mise en œuvre de TLS 1.2 avec Azure Service Bus-Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Service Bus, lisez les articles suivants :

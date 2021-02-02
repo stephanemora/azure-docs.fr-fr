@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: b382efc4d283d64ce0f833bde9104fa2e3bc973a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a95ddf882e5edba9daa8ff91c02d1df1f50bceb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088543"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632974"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows affiche une erreur dans un écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit les erreurs dans un écran bleu que vous pouvez rencontrer quand vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit les étapes pour vous aider à collecter des données pour un ticket de support. 
@@ -41,6 +41,9 @@ Plusieurs raisons peuvent expliquer l’affichage d’une erreur d’arrêt. Les
 - Une application accède à un secteur interdit de la mémoire
 
 ## <a name="collect-memory-dump-file"></a>Collecter le fichier d’image mémoire
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Pour résoudre ce problème, vous devez d’abord collecter le fichier d’image du plantage et contacter le support technique muni de ce fichier. Pour collecter le fichier d’image, effectuez les étapes suivantes :
 

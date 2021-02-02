@@ -3,12 +3,12 @@ title: Configurer la supervision de volumes persistants avec Azure Monitor pour 
 description: Cet article explique comment configurer la supervision de clusters Kubernetes constitués de volumes persistants à l’aide d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186845"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704471"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configurer la supervision de volumes persistants avec Azure Monitor pour conteneurs
 

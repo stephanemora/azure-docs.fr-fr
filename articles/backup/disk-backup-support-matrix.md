@@ -4,12 +4,12 @@ description: Fournit un résumé des paramètres de prise en charge et des limit
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556632"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757472"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice de prise en charge de la Sauvegarde de disque Azure (en préversion)
 
@@ -18,11 +18,11 @@ ms.locfileid: "98556632"
 >
 >[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
 
-Vous pouvez utiliser [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview) pour protéger les disques Azure. Cet article résume la disponibilité régionale, les scénarios pris en charge et les limitations.
+Vous pouvez utiliser [Sauvegarde Azure](./backup-overview.md) pour protéger les disques Azure. Cet article résume la disponibilité régionale, les scénarios pris en charge et les limitations.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La Sauvegarde de disque Azure est disponible en préversion dans les régions suivantes : USA Centre-Ouest. 
+La Sauvegarde de disque Azure est disponible en préversion dans les régions suivantes : USA Centre-Ouest, USA Est2, Corée Centre, Corée Sud, Japon Ouest, Émirats arabes unis Nord. 
 
 D’autres régions seront annoncées quand elles seront disponibles.
 
@@ -36,9 +36,9 @@ D’autres régions seront annoncées quand elles seront disponibles.
 
 - Actuellement, l’option Récupération à l’emplacement d’origine (OLR) pour restaurer en remplaçant les disques sources existants à partir desquels les sauvegardes ont été effectuées n’est pas prise en charge. Vous pouvez effectuer une restauration à partir d’un point de récupération pour créer un disque dans le même groupe de ressources que celui du disque source à partir duquel les sauvegardes ont été effectuées ou dans tout autre groupe de ressources. C’est ce qu’on appelle une Récupération à un autre emplacement (ALR).
 
-- Le service Sauvegarde Azure pour disques managés utilise des instantanés incrémentiels qui sont limités à 200 par disque. Pour vous permettre d'effectuer des sauvegardes à la demande en dehors des sauvegardes planifiées, la stratégie de sauvegarde limite le nombre total de sauvegardes à 180. Apprenez-en davantage sur les [instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) pour les disques managés.
+- Le service Sauvegarde Azure pour disques managés utilise des instantanés incrémentiels qui sont limités à 200 par disque. Pour vous permettre d'effectuer des sauvegardes à la demande en dehors des sauvegardes planifiées, la stratégie de sauvegarde limite le nombre total de sauvegardes à 180. Apprenez-en davantage sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés.
 
-- Les [limites d’abonnement et de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits) Azure s’appliquent au nombre total de captures instantanées de disque par région et par abonnement.
+- Les [limites d’abonnement et de service](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) Azure s’appliquent au nombre total de captures instantanées de disque par région et par abonnement.
 
 - Les instantanés ponctuels de plusieurs disques attachés à une machine virtuelle ne sont pas pris en charge.
 
@@ -56,13 +56,15 @@ D’autres régions seront annoncées quand elles seront disponibles.
 
 - Actuellement, l’expérience du portail Azure pour configurer la sauvegarde des disques est limitée à un maximum de 20 disques d’un même abonnement.
 
-- Lors de la configuration de la sauvegarde, le disque à sauvegarder sélectionné et le groupe de ressources d’instantanés dans lequel les captures instantanées doivent être stockées doivent faire partie du même abonnement. Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque. Apprenez-en davantage sur les [instantanés incrémentiels](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) pour les disques managés. Pour plus d’informations sur le choix d’un groupe de ressources d’instantanés, consultez [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
+- Actuellement (pendant la préversion), l’utilisation de PowerShell et Azure CLI pour configurer la sauvegarde et la restauration des disques n’est pas prise en charge.
+
+- Lors de la configuration de la sauvegarde, le disque à sauvegarder sélectionné et le groupe de ressources d’instantanés dans lequel les captures instantanées doivent être stockées doivent faire partie du même abonnement. Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque. Apprenez-en davantage sur les [instantanés incrémentiels](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) pour les disques managés. Pour plus d’informations sur le choix d’un groupe de ressources d’instantanés, consultez [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
 
 - Pour le succès des opérations de sauvegarde et de restauration, l’identité managée du coffre Sauvegarde requiert des attributions de rôles. Utilisez uniquement les définitions de rôles fournies dans la documentation. L’utilisation d’autres rôles tels que propriétaire, contributeur, etc., n’est pas prise en charge. Vous pouvez rencontrer des problèmes d’autorisation si vous commencez à configurer des opérations de sauvegarde ou de restauration peu de temps après avoir attribué des rôles. Cela est dû au fait que les attributions de rôles nécessitent quelques minutes pour prendre effet.
 
-- Les disques managés permettent de modifier le niveau de performances au moment du déploiement ou ultérieurement sans modifier la taille du disque. La solution Sauvegarde de disque Azure prend en charge l’apport de modifications de niveau de performances au disque source en cours de sauvegarde. Pendant la restauration, le niveau de performances du disque restauré est identique à celui du disque source au moment de la sauvegarde. Suivez la documentation [ici](https://docs.microsoft.com/azure/virtual-machines/disks-performance-tiers-portal) pour modifier le niveau de performances de votre disque après l’opération de restauration.
+- Les disques managés permettent de modifier le niveau de performances au moment du déploiement ou ultérieurement sans modifier la taille du disque. La solution Sauvegarde de disque Azure prend en charge l’apport de modifications de niveau de performances au disque source en cours de sauvegarde. Pendant la restauration, le niveau de performances du disque restauré est identique à celui du disque source au moment de la sauvegarde. Suivez la documentation [ici](../virtual-machines/disks-performance-tiers-portal.md) pour modifier le niveau de performances de votre disque après l’opération de restauration.
 
-- La prise en charge des [liaisons privées](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal) pour des disques managés vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Le Sauvegarde de disque Azure prend en charge la sauvegarde de disques sur lesquels des points de terminaison privés sont activés. Cela n’inclut pas que les données de sauvegarde ou les captures instantanées soient accessibles via le point de terminaison privé.
+- La prise en charge des [liaisons privées](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) pour des disques managés vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Le Sauvegarde de disque Azure prend en charge la sauvegarde de disques sur lesquels des points de terminaison privés sont activés. Cela n’inclut pas que les données de sauvegarde ou les captures instantanées soient accessibles via le point de terminaison privé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

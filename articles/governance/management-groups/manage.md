@@ -1,14 +1,14 @@
 ---
 title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
-ms.date: 10/14/2020
+ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 33c7da1d7484056eb1bb2fd4b00d892137ed2b64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058095"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787366"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -41,7 +41,7 @@ Vous pouvez modifier le nom du groupe d’administration en utilisant le portail
 
 1. Lorsque le menu s’ouvre, entrez le nouveau nom à afficher.
 
-   :::image type="content" source="./media/rename_context.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/rename_context.png" alt-text="Capture d’écran de la fenêtre Renommer le groupe et des options permettant de renommer un groupe d’administration." border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -82,14 +82,14 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
 1. Sélectionnez **Supprimer**.
 
-   :::image type="content" source="./media/delete.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Capture d’écran de la page du groupe d’administration avec le bouton « Supprimer » en surbrillance." border="false":::
 
    > [!TIP]
    > Si l’icône est désactivée, placez le curseur de la souris au-dessus d’elle pour en connaître la raison.
 
 1. Une fenêtre s’ouvre pour que vous confirmiez la suppression du groupe d’administration.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Capture d’écran de la boîte de dialogue de confirmation « Supprimer le groupe » pour la suppression d’un groupe d’administration." border="false":::
 
 1. Sélectionnez **Oui**.
 
@@ -123,7 +123,7 @@ Vous pouvez afficher tous les groupes d’administration pour lesquels vous avez
 
 1. Pour afficher les détails du groupe d’administration, sélectionnez le lien **(détails)** en regard du titre du groupe d’administration. Si ce lien n’est pas disponible, vous n’avez pas les autorisations pour afficher ce groupe d’administration.
 
-   :::image type="content" source="./media/main.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Capture d’écran de la page Groupes d’administration montrant les abonnements et les groupes d’administration enfants." border="false":::
 
 ### <a name="view-in-powershell"></a>Afficher dans PowerShell
 
@@ -229,7 +229,7 @@ Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe
 
 1. Sélectionnez l’abonnement dans la liste portant le bon ID.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Capture d’écran des options « Ajouter un abonnement » permettant de sélectionner un abonnement existant à ajouter à un groupe d’administration." border="false":::
 
 1. Sélectionnez « Enregistrer ».
 
@@ -243,13 +243,13 @@ Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe
 
 1. Dans la liste, sélectionnez les points de suspension situés en fin de la ligne de l’abonnement à déplacer.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Capture d’écran du menu alternatif d’un abonnement permettant de sélectionner l’option « Déplacer »." border="false":::
 
 1. Sélectionnez **Déplacer**.
 
 1. Dans le menu qui s’ouvre, sélectionnez le **groupe d’administration parent**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Capture d’écran de la fenêtre « Déplacer » et des options de déplacement d’un abonnement vers un autre groupe d’administration." border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -281,6 +281,42 @@ Pour supprimer l’abonnement du groupe d’administration, utilisez la commande
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
+### <a name="move-subscriptions-in-arm-template"></a>Déplacer des abonnements dans un modèle ARM
+
+Pour déplacer un abonnement dans un modèle Azure Resource Manager (modèle ARM), utilisez le modèle suivant.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "targetMgId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the management group that you want to move the subscription to."
+            }
+        },
+        "subscriptionId": {
+            "type": "string",
+            "metadata": {
+                "description": "Provide the ID of the existing subscription to move."
+            }
+        }
+    },
+    "resources": [
+        {
+            "scope": "/", 
+            "type": "Microsoft.Management/managementGroups/subscriptions",
+            "apiVersion": "2020-05-01",
+            "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
+            "properties": {
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="move-management-groups"></a>Déplacer des groupes d’administration 
 
 ### <a name="move-management-groups-in-the-portal"></a>Déplacer des groupes d’administration dans le portail
@@ -298,7 +334,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Si vous sélectionnez Nouveau, vous créez un groupe d’administration.
    - Si vous sélectionnez un groupe existant, une liste déroulante répertoriant tous les groupes d’administration s’affiche. Vous pouvez les déplacer vers ce groupe d’administration.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Capture d’écran des options « Ajouter un groupe d’administration » pour la création d’un nouveau groupe d’administration." border="false":::
 
 1. Sélectionnez **Enregistrer**.
 
@@ -323,7 +359,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md). Vous pouvez interroger tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure. Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Capture d’écran de la barre d’action et du bouton « Renommer le groupe » dans la page du groupe d’administration." border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Capture d’écran du journal d’activité et des opérations associées au groupe d’administration sélectionné." border="false":::
 
 Quand vous cherchez à interroger les groupes d’administration en dehors du portail Azure, l’étendue cible pour les groupes d’administration ressemble à **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 

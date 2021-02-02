@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936717"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726729"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -27,8 +27,7 @@ Chaque application de fonction a une seule adresse IP entrante. Pour la trouver�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à l’application de fonction.
-3. Sélectionnez **Fonctionnalités de la plateforme**.
-4. Sélectionnez **Propriétés** : l’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
+3. Sous **Paramètres**, sélectionnez **Propriétés**. L’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
 

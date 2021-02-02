@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653246"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755913"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
@@ -89,7 +89,7 @@ Cette liste affiche les revendications JWT présentes par défaut dans la plupar
 |`groups:src1`|Objet JSON | Pour les requêtes de jetons dont la longueur n’est pas limitée (voir `hasgroups` ci-dessus) mais qui sont toujours trop volumineuses pour le jeton, un lien vers la liste des groupes complets pour l’utilisateur sera inclus. Pour les jetons JWT en tant que revendication distribuée, pour SAML en tant que nouvelle revendication à la place de la revendication `groups`. <br><br>**Exemple de valeur JWT** : <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Pour plus d’informations, consultez [Revendication de dépassement des groupes](#groups-overage-claim).|
 
 > [!NOTE]
-> Les id_token v1.0 et v2.0 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Si les applications existantes utilisent probablement le point de terminaison Azure AD, les nouvelles applications doivent utiliser le point de terminaison de « Plateforme d’identité Microsoft » v2.0.
+> Les id_token v1.0 et v2.0 présentent des différences sur le plan de la quantité d’informations qu’ils contiennent, comme l’illustrent les exemples ci-dessus. La version est basée sur le point de terminaison à partir duquel le jeton a été demandé. Si les applications existantes utilisent probablement le point de terminaison Azure AD, les nouvelles applications doivent utiliser la « plateforme d’identité Microsoft ».
 >
 > - v1.0 : Points de terminaison Azure AD : `https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2.0 : Points de terminaison de Plateforme d’identité Microsoft : `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

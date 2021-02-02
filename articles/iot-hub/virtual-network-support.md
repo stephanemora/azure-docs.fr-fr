@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703804"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630291"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Prise en charge par IoT Hub des réseaux virtuels avec Private Link et Managed Identity
 
@@ -70,6 +70,9 @@ Le [point de terminaison intégré compatible avec Event Hubs](iot-hub-devguide-
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image présentant deux points de terminaison privés en fonction de chaque liaison privée IoT Hub":::
 
+Le filtre IP [d’IoT Hub](iot-hub-ip-filtering.md) peut contrôler l’accès public au point de terminaison intégré. 
+
+Pour bloquer complètement l’accès réseau public à votre IoT Hub, [désactivez l’accès au réseau public](iot-hub-public-network-access.md) ou utilisez le filtre IP pour bloquer toutes les adresses IP, puis sélectionnez l’option permettant d’appliquer des règles au point de terminaison intégré.
 
 ### <a name="pricing-for-private-link"></a>Tarifs de la liaison privée
 

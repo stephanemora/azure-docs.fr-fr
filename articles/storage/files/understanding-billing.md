@@ -4,22 +4,22 @@ description: Découvrez comment interpréter les modèles de facturation provisi
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831463"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632476"
 ---
 # <a name="understanding-azure-files-billing"></a>Présentation de la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
 
 La tarification actuelle d’Azure Files est disponible sur la [page de tarification Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Facturation provisionnée
+## <a name="provisioned-model"></a>Modèle provisionné
 Azure Files utilise un modèle provisionné pour les partages de fichiers Premium. Dans un modèle provisionné, vous spécifiez de manière proactive au service Azure Files vos besoins en matière de stockage au lieu de payer en fonction de votre utilisation. Cela est comparable à un achat de matériel en local. En effet, lorsque vous provisionnez un partage de fichiers Azure avec une certaine quantité de stockage, vous payez ce stockage indépendamment de l’utilisation que vous en faites, à l’instar du support physique, que vous payez directement et pas uniquement lorsque vous commencez à l’utiliser. En revanche, contrairement à un support physique local, les partages de fichiers provisionnés peuvent être rapidement mis à l’échelle en fonction de vos caractéristiques de stockage et de performances d’e/s.
 
 Lorsque vous provisionnez un partage de fichiers Premium, vous spécifiez le nombre de Gio requis par votre charge de travail. Chaque Gio que vous provisionnez vous donne droit à des IOPS et un débit supplémentaires à un taux fixe. En plus des IOPS de base qui vous sont garanties, chaque partage de fichiers Premium prend en charge le bursting sur la base du meilleur effort. Les formules pour les IOPS et le débit sont les suivantes :
@@ -63,7 +63,7 @@ Les crédits de partage présentent trois états :
 
 Au départ, les nouveaux partages de fichiers se voient attribuer un nombre total de crédits dans leur compartiment à rafales. Les crédits de rafale ne seront pas augmentés si les IOPS du partage chutent en dessous des IOPS de base, en raison de la limitation par le serveur.
 
-## <a name="pay-as-you-go-billing"></a>Facturation à l’utilisation
+## <a name="pay-as-you-go-model"></a>Modèle avec paiement à l’utilisation
 Azure Files utilise un modèle avec paiement à l’utilisation pour les partages de fichiers standard. Dans un modèle avec paiement à l’utilisation, le montant que vous payez est déterminé par la quantité que vous utilisez réellement, plutôt que par un montant provisionné. À un niveau élevé, vous payez un coût pour la quantité de données stockées sur le disque, puis un jeu de transactions supplémentaire en fonction de l’utilisation que vous faites de ces données. Un modèle de paiement à l’utilisation peut être intéressant financièrement, car vous n’avez pas besoin de surprovisionner pour prendre en compte de futures augmentations ou exigences en matière de performances, ni de déprovisionner si votre charge de travail ou empreinte de données change au fil du temps. En revanche, un modèle de paiement à l’utilisation peut être difficile à budgétiser, car il dépend de la consommation de l’utilisateur final.
 
 ### <a name="differences-in-standard-tiers"></a>Différences entre les niveaux standard

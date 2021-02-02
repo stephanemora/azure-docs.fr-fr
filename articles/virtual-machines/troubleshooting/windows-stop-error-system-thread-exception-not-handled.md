@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681888"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661389"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Erreur d’arrêt de Windows – 0x0000007E Exception de thread système non gérée
 
@@ -34,6 +34,10 @@ Lorsque vous utilisez les [diagnostics de démarrage](./boot-diagnostics.md) pou
 Il n’est pas possible de déterminer la cause tant qu’un fichier d’image mémoire n’a pas été analysé. Continuez pour collecter le fichier d’image mémoire.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
+
 
 Pour résoudre ce problème, vous devez d’abord recueillir le fichier de vidage de la mémoire de l’incident, puis l’envoyer au support Microsoft. Pour collecter le fichier de vidage, suivez les instructions indiquées dans les deux sections ci-dessous.
 

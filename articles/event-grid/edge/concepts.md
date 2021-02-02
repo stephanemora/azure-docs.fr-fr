@@ -7,12 +7,12 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: b3babfe93012fae15e79362ba34f3f48856bc833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8314447e7d5d282eb428ec9316c4eef6844a7423
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86171735"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682377"
 ---
 # <a name="event-grid-concepts"></a>Concepts d’Event Grid
 
@@ -48,7 +48,7 @@ Pour savoir comment gérer les abonnements dans Event Grid, voir [Documentation 
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
-Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Event Grid prend en charge plusieurs types de gestionnaires. Vous pouvez utiliser un service Azure pris en charge ou votre propre webhook comme gestionnaire. En fonction du type de gestionnaire, Event Grid suit différents mécanismes pour garantir la distribution de l’événement. Si le gestionnaire d’événements de destination est un webhook HTTP, l’événement est retenté lorsque le gestionnaire retourne le code de statut `200 – OK`. Dans le cas d’un hub Edge, un événement remis sans exception est considéré comme réussi.
+Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Event Grid prend en charge plusieurs types de gestionnaires. Vous pouvez utiliser un service Azure pris en charge ou votre propre webhook comme gestionnaire. En fonction du type de gestionnaire, Event Grid suit différents mécanismes pour garantir la distribution de l’événement. Si le gestionnaire d’événements de destination est un webhook HTTP, l’événement est retenté jusqu’à ce que le gestionnaire retourne le code de statut `200 – OK`. Dans le cas d’un hub Edge, un événement remis sans exception est considéré comme réussi.
 
 ## <a name="security"></a>Sécurité
 

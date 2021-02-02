@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762932"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755776"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
-Le point de terminaison de la plateforme d’identités Microsoft (v2.0) prend en charge l’authentification pour différents types d’architectures d’applications modernes. Toutes les architectures sont basées sur les protocoles standard [OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md). Les [bibliothèques d’authentification de la plateforme d’identités Microsoft](reference-v2-libraries.md) permettent aux applications d’authentifier les identités et d’acquérir des jetons afin d’accéder aux API protégées.
+La plateforme d’identités Microsoft prend en charge l’authentification pour différents types d’architectures d’applications modernes. Toutes les architectures sont basées sur les protocoles standard [OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md). Les [bibliothèques d’authentification de la plateforme d’identités Microsoft](reference-v2-libraries.md) permettent aux applications d’authentifier les identités et d’acquérir des jetons afin d’accéder aux API protégées.
 
 Cet article décrit les flux d’authentification et les scénarios d’application dans lesquels ils sont utilisés :
 
@@ -79,7 +79,7 @@ Pour plus d’informations, consultez l’article [Types de comptes pris en char
 
 ## <a name="application-scenarios"></a>Scénarios d’application
 
-Le point de terminaison de la plateforme d’identités Microsoft prend en charge l’authentification pour les architectures d’application suivantes :
+La plateforme d’identités Microsoft prend en charge l’authentification pour les architectures d’application suivantes :
 
 - Applications monopages
 - les applications web
@@ -95,7 +95,7 @@ Les applications utilisent les différents flux d’authentification pour connec
 
 De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Ces applications utilisent JavaScript ou un framework comme Angular, Vue ou React. Ces applications s’exécutent dans un navigateur web.
 
-Les applications monopages se différencient des applications web traditionnelles côté serveur au niveau des caractéristiques d’authentification. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web. La plateforme d’identité Microsoft propose deux types d'autorisation pour les applications JavaScript : 
+Les applications monopages se différencient des applications web traditionnelles côté serveur au niveau des caractéristiques d’authentification. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web. La plateforme d’identités Microsoft propose deux types d’autorisation pour les applications JavaScript : 
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez [Application mobile qui appelle des API we
 
 ### <a name="protected-web-api"></a>API web protégée
 
-Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
+Vous pouvez utiliser la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
 
 Si vous souhaitez protéger votre API web ASP.NET ou ASP.NET Core, vous devez valider le jeton d’accès. Pour cette validation, vous utilisez le middleware JWT ASP.NET. La validation est effectuée par la bibliothèque d’[extensions IdentityModel pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), non par MSAL.NET.
 

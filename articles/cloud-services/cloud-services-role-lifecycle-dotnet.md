@@ -1,22 +1,25 @@
 ---
-title: Gérer les événements de cycle de vie du service cloud | Microsoft Docs
+title: Gérer les événements de cycle de vie d’Azure Cloud Services (classique) | Microsoft Docs
 description: Apprenez à utiliser les méthodes de cycle de vie d’un rôle de service cloud dans .NET, notamment RoleEntryPoint, qui fournit des méthodes pour répondre aux événements du cycle de vie.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930058"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741330"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web. Vous devez donc l’utiliser pour répondre aux événements de cycle de vie.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Extension de la classe RoleEntryPoint

@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307452"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704538"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Suivi des expériences et déployer des modèles dans Azure Machine Learning
 
@@ -30,7 +30,7 @@ Le diagramme suivant montre qu’avec MLflow Tracking, vous suivez les métrique
 
 ## <a name="create-a-new-notebook"></a>Créer une nouvelle instance Notebook
 
-Azure Machine Learning et le Kit de développement logiciel (SDK) MLFlow sont préinstallés sur Data Science Virtual Machine et accessibles dans l’environnement Conda * *azureml_py36_\** _. Dans Jupyterlab, cliquez sur le lanceur, puis sélectionnez le noyau suivant :
+Azure Machine Learning et le Kit de développement logiciel (SDK) MLFlow sont préinstallés sur Data Science Virtual Machine et accessibles dans l’environnement Conda **azureml_py36_\** _. Dans JupyterLab, cliquez sur le lanceur, puis sélectionnez le noyau suivant :
 
 ![sélection du noyau](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -123,7 +123,7 @@ L’erreur quadratique moyenne (MSE) journalisée doit s’afficher :
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Si vous cliquez sur l’exécution, d’autres détails s’affichent dans les __sorties+journaux__ , tout comme le modèle pickle
+Si vous cliquez sur l’exécution, d’autres détails s’affichent dans les __sorties+journaux__, tout comme le modèle pickle
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Déployer un modèle dans Azure Machine Learning
 
@@ -131,11 +131,11 @@ Dans cette section, nous expliquons comment déployer les modèles entraînés s
 
 ### <a name="step-1-create-inference-compute"></a>Étape 1 : Créer une capacité de calcul d’inférence
 
-Dans le menu de gauche d’ [AzureML Studio](https://ml.azure.com), cliquez sur __Capacité de calcul__ , puis sur l’onglet __Clusters d’inférence__. Ensuite, cliquez sur __+ Nouveau__ comme indiqué ci-dessous :
+Dans le menu de gauche d’[AzureML Studio](https://ml.azure.com), cliquez sur __Capacité de calcul__, puis sur l’onglet __Clusters d’inférence__. Ensuite, cliquez sur __+ Nouveau__ comme indiqué ci-dessous :
 
 ![Créer une capacité de calcul d’inférence](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-Dans le volet __Nouveau cluster d’inférence__ , fournissez des détails pour :
+Dans le volet __Nouveau cluster d’inférence__, fournissez des détails pour :
 
 _ Nom de la capacité de calcul
 * Service Kubernetes – Sélectionnez Créer
@@ -159,7 +159,7 @@ Au moment d’inscrire le modèle dans notre code à l’aide de `register_model
 
 Le déploiement sans code signifie que vous pouvez effectuer un déploiement directement à partir de l’artefact du modèle sans avoir à spécifier un script de scoring spécifique.
 
-Pour déployer le modèle diabetes, accédez au menu de gauche d’ [Azure Machine Learning Studio](https://ml.azure.com), puis sélectionnez __Modèles__. Cliquez ensuite sur le modèle inscrit diabetes_model :
+Pour déployer le modèle diabetes, accédez au menu de gauche d’[Azure Machine Learning Studio](https://ml.azure.com), puis sélectionnez __Modèles__. Cliquez ensuite sur le modèle inscrit diabetes_model :
 
 ![Sélectionner le modèle](./media/how-to-track-experiments/mlflow-experiments-3.png)
 

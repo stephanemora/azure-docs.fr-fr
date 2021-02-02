@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 01/07/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131761"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881399"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -97,7 +97,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
-- Log Analytics : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
+- [Log Analytics](../../azure-monitor/platform/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
 - Créer des [paramètres de diagnostic](../..//azure-monitor/platform/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
@@ -173,6 +173,7 @@ Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivant
 - Les attributions de rôles doivent utiliser les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
 - S’il vous est possible d’intégrer des abonnements utilisant Azure Databricks, les utilisateurs du locataire gestionnaire ne peuvent pas lancer d’espaces de travail Azure Databricks sur un abonnement délégué pour le moment.
 - Bien que vous puissiez intégrer des abonnements et des groupes de ressources qui ont des verrous de ressources, ces verrous n’empêchent pas les actions d’être effectuées par les utilisateurs dans le locataire gestionnaire. Les [affectations de refus](../../role-based-access-control/deny-assignments.md), qui protègent les ressources managées par le système, telles que celles créées par les applications managées Azure ou Azure Blueprints (affectations de refus émises par le système), empêchent les utilisateurs du locataire gestionnaire d’agir sur ces ressources. Toutefois, à ce moment-là, les utilisateurs du locataire client ne peuvent pas créer leurs propres affectations de refus (affectations de refus émises par l’utilisateur).
+- La délégation d’abonnements sur un [cloud national](../../active-directory/develop/authentication-national-cloud.md) et le cloud public Azure, ou sur deux clouds nationaux distincts, n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8928f9d52fd8e721ac770dda8f0cbf0162a0f61
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982708"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797909"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 
@@ -73,7 +73,10 @@ Si vos packages SSIS accèdent à des ressources Azure qui prennent en charge de
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>Accès à des sources de données protégées par une règle de pare-feu IP
 
-Si vos packages SSIS accèdent à des magasins de données/ressources qui n’autorisent que certaines adresses IP publiques statiques et que vous souhaitez sécuriser l’accès à ces ressources à partir du runtime d’intégration Azure-SSIS IR, vous pouvez apporter vos propres [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md) pour Azure-SSIS IR tout en le joignant à un réseau virtuel, puis ajouter une règle de pare-feu IP aux ressources appropriées pour autoriser l’accès à partir de ces adresses IP.
+Si vos packages SSIS accèdent à des magasins de données/ressources qui n’autorisent que certaines adresses IP publiques statiques et que vous souhaitez sécuriser l’accès à ces ressources à partir du runtime d’intégration Azure-SSIS IR, vous pouvez associer des [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md) à Azure-SSIS IR tout en le joignant à un réseau virtuel, puis ajouter une règle de pare-feu IP aux ressources appropriées pour autoriser l’accès à partir de ces adresses IP. Il existe deux autres façons d’effectuer cette opération : 
+
+- Quand vous créez Azure-SSIS IR, vous pouvez apporter vos propres adresses IP publiques et les spécifier par le biais de l’[interface utilisateur Data Factory ou du SDK](#join-the-azure-ssis-ir-to-a-virtual-network). Seule la connectivité Internet sortante d’Azure-SSIS IR utilise vos adresses IP publiques fournies. Les autres appareils du sous-réseau ne les utilisent pas.
+- Vous pouvez également configurer une [NAT de réseau virtuel](../virtual-network/nat-overview.md) pour le sous-réseau qu’Azure-SSIS IR va rejoindre et toutes les connexions sortantes de ce sous-réseau vont utiliser vos adresses IP publiques spécifiées.
 
 Dans tous les cas, le réseau virtuel peut être déployé uniquement par le biais du modèle de déploiement Azure Resource Manager.
 

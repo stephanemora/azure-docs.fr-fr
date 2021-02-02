@@ -3,12 +3,12 @@ title: Résolution des échecs de Sauvegarde sur disque Azure
 description: Découvrez comment résoudre des échecs de Sauvegarde sur disque Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556841"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737725"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Résolution des échecs de Sauvegarde sur disque Azure (en préversion)
 
@@ -115,7 +115,7 @@ Action recommandée : Accordez à l’identité managée du coffre Sauvegarde le
 
 Message d’erreur : L’opération a échoué parce que la limite maximale du quota de disque a été atteinte sur l’abonnement.
 
-Action recommandée : Consultez la [documentation sur les limites et le quota du service et de l’abonnement Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits), ou contactez le Support Microsoft.
+Action recommandée : Consultez la [documentation sur les limites et le quota du service et de l’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md), ou contactez le Support Microsoft.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Code d’erreur : UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 
@@ -153,11 +153,29 @@ Message d’erreur : Les métadonnées de capture instantanée de disque pour ce
 
 Action recommandée : Songez à utiliser un autre point de restauration à restaurer. Pour plus d’informations, consultez la [documentation relative à la restauration](restore-managed-disks.md).
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>Code d’erreur : BackupAgentPluginHostValidateProtectionError
+
+Message d’erreur : La sauvegarde sur disque n’est pas encore disponible dans la région du coffre de sauvegarde sous lequel la configuration de la protection est essayée.
+
+Action recommandée : Le coffre de sauvegarde doit être dans une région prise en charge par la préversion. Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Code d’erreur : UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Message d’erreur : Le disque pour lequel vous essayez de configurer la sauvegarde est déjà protégé. Le disque est déjà associé à une instance de sauvegarde dans un coffre de sauvegarde.
+
+Action recommandée : Ce disque est déjà associé à une instance de sauvegarde dans un coffre de sauvegarde. Si vous souhaitez reprotéger ce disque, supprimez l’instance de sauvegarde du coffre de sauvegarde où le disque est actuellement protégé et reprotégez-le dans un autre coffre.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>Code d’erreur : UserErrorDppDatasourceAlreadyProtected
+
+Message d’erreur : Le disque pour lequel vous essayez de configurer la sauvegarde est déjà protégé. Le disque est déjà associé à une instance de sauvegarde dans un coffre de sauvegarde.
+
+Action recommandée : Ce disque est déjà associé à une instance de sauvegarde dans un coffre de sauvegarde. Si vous souhaitez reprotéger ce disque, supprimez l’instance de sauvegarde du coffre de sauvegarde où le disque est actuellement protégé et reprotégez-le dans un autre coffre.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>Code d’erreur : UserErrorMaxConcurrentOperationLimitReached
 
-Message d’erreur : Impossible de démarrer l’opération, car le nombre maximal d’opérations simultanées autorisées a été atteint pour ce type d’opération.
+Message d’erreur : Impossible de démarrer l’opération, car le nombre maximal de sauvegardes simultanées autorisées a été atteint.
 
-Action recommandée : Attendez que l’opération précédente se termine.
+Action recommandée : Attendez la fin de l’exécution de la sauvegarde précédente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

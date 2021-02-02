@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635703"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633152"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Résoudre les problèmes de démarrage du système d’exploitation – Capacité d’installation Windows Update
 
@@ -38,6 +38,9 @@ Dans cette situation, le système d’exploitation ne parvient pas à effectuer 
 ## <a name="solution"></a>Solution
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus :
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 1. Créez une machine virtuelle de réparation et accédez-y.
 1. Libérer de l’espace sur le disque.

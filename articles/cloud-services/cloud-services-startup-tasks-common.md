@@ -1,21 +1,25 @@
 ---
-title: Tâches de démarrage courantes pour les services cloud | Microsoft Docs
+title: Tâches de démarrage courantes pour Cloud Services (classique) | Microsoft Docs
 description: Fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre rôle de travail ou web de services cloud.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075176"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741194"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Tâches courantes de démarrage dans le service cloud
+# <a name="common-cloud-service-classic-startup-tasks"></a>Tâches de démarrage courantes pour Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Cet article fournit des exemples courants de tâches de démarrage que vous pouvez effectuer dans votre service cloud. Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée. 
 
 Consultez [cet article](cloud-services-startup-tasks.md) pour comprendre comment fonctionnent les tâches de démarrage et, en particulier, comment créer des entrées qui définissent une tâche de démarrage.
@@ -52,7 +56,7 @@ Les variables peuvent également utiliser une [valeur Azure XPath valide](cloud-
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configurer le démarrage d’IIS avec AppCmd.exe
-L’outil de ligne de commande [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) peut être utilisé pour gérer les paramètres IIS au démarrage sur Azure. *AppCmd.exe* fournit un accès en ligne de commande pratique aux paramètres de configuration à utiliser dans les tâches de démarrage sur Azure. *AppCmd.exe*permet d’ajouter, de modifier ou de supprimer des paramètres de site web pour les applications et les sites.
+L’outil de ligne de commande [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) peut être utilisé pour gérer les paramètres IIS au démarrage sur Azure. *AppCmd.exe* fournit un accès en ligne de commande pratique aux paramètres de configuration à utiliser dans les tâches de démarrage sur Azure. *AppCmd.exe* permet d’ajouter, de modifier ou de supprimer des paramètres de site web pour les applications et les sites.
 
 Toutefois, tenez compte des points suivants quand vous utilisez *AppCmd.exe* en tant que tâche de démarrage :
 
@@ -83,7 +87,7 @@ Les sections pertinentes du fichier [ServiceDefinition.csdef] indiquées ici, av
 Le fichier de commandes *Startup.cmd* utilise *AppCmd.exe* pour ajouter une section de compression et une entrée de compression pour JSON au fichier *Web.config*. Le code **errorlevel** attendu 183 est défini sur zéro à l’aide du programme en ligne de commande VERIFY.EXE. Les codes errorlevel inattendus sont enregistrés dans StartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ Le second pare-feu contrôle les connexions entre la machine virtuelle et les pr
 
 Azure crée des règles de pare-feu pour les processus démarrés au sein de vos rôles. Par exemple, quand vous démarrez un service ou un programme, Azure crée automatiquement les règles de pare-feu nécessaires pour permettre à ce service de communiquer avec Internet. Toutefois, si vous créez un service qui est démarré par un processus en dehors de votre rôle (par exemple, un service COM+ ou une tâche planifiée Windows), vous devez créer manuellement une règle de pare-feu pour autoriser l’accès à ce service. Ces règles de pare-feu peuvent être créées à l’aide d’une tâche de démarrage.
 
-Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][tâche] défini sur **elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
+Une tâche de démarrage qui crée une règle de pare-feu doit avoir [executionContext][Task] défini sur _*elevated**. Ajoutez la tâche de démarrage suivante au fichier [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">

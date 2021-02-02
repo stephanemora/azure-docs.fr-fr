@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104578"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753959"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Gérer la protection intelligente contre le tracking dans Safari et d’autres navigateurs où les cookies tiers sont bloqués
 
@@ -77,7 +77,7 @@ Un modèle courant dans les applications web consiste à utiliser un iframe pour
 
 L’émission de jetons d’actualisation à destination du navigateur est considérée comme un problème de sécurité. Des attaques par scripts de site à site ou des packages JS compromis peuvent voler un jeton d’actualisation et l’utiliser à distance jusqu’à ce qu’il expire ou soit révoqué. Afin de réduire le risque de vol de jetons d’actualisation, les jetons émis pour les applications monopages ont une durée de vie limitée à 24 heures. Après 24 heures, l’application doit acquérir un nouveau code d’autorisation en visitant la page de connexion via un cadre de niveau supérieur.
 
-Ce modèle de jeton d’actualisation à durée de vie limitée a été choisi en tant que un compromis entre la sécurité et une expérience utilisateur dégradée. À défaut de jetons d’actualisation ou de cookies tiers, le flux de code d’autorisation (tel que recommandé par le [projet des meilleures pratiques actuelles de sécurité OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) devient onéreux quand de nouveaux jetons ou des jetons supplémentaires sont requis. Une redirection de page complète ou une fenêtre contextuelle sont requises pour chaque jeton, chaque fois qu’un jeton expire (généralement toutes les heures pour les jetons de plateforme d’identité Microsoft).
+Ce modèle de jeton d’actualisation à durée de vie limitée a été choisi en tant que un compromis entre la sécurité et une expérience utilisateur dégradée. À défaut de jetons d’actualisation ou de cookies tiers, le flux de code d’autorisation (tel que recommandé par le [projet des meilleures pratiques actuelles de sécurité OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) devient onéreux quand de nouveaux jetons ou des jetons supplémentaires sont requis. Une redirection de page complète ou une fenêtre contextuelle est requise pour chaque jeton, chaque fois qu’un jeton expire (généralement toutes les heures pour les jetons de la plateforme d’identités Microsoft).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

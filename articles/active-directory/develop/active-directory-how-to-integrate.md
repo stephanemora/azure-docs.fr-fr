@@ -1,7 +1,7 @@
 ---
 title: Intégration à la plateforme d’identités Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez les avantages de l’intégration de votre application à Plateforme d’identités Microsoft et obtenez des ressources pour des fonctionnalités telles que la connexion simplifiée, la gestion d’identités, l’authentification multifacteur et le contrôle d’accès.
+description: Découvrez les avantages de l’intégration de votre application à la plateforme d’identités Microsoft et obtenez des ressources pour des fonctionnalités telles que la connexion simplifiée, la gestion d’identités, l’authentification multifacteur et le contrôle d’accès.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,28 +14,28 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: deb923a52e5d6cd5384dbf94d2249572b25b1a61
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063839"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755928"
 ---
-# <a name="integrating-with-microsoft-identity-platform"></a>Intégration à Plateforme d’identités Microsoft
+# <a name="integrating-with-the-microsoft-identity-platform"></a>Intégration à la plateforme d’identités Microsoft
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Dans cet article, vous découvrez les avantages de l’intégration de votre application à Plateforme d’identités Microsoft et obtenez des ressources pour l’intégration. Plateforme d’identités Microsoft et Azure Active Directory (AD) offrent aux organisations une gestion professionnelle des identités pour les applications cloud. L’intégration à Plateforme d’identités Microsoft offre à vos utilisateurs une expérience de connexion rationalisée et permet à votre application d’être conforme à la stratégie informatique.
+Dans cet article, vous découvrez les avantages de l’intégration de votre application à la plateforme d’identités Microsoft et obtenez des ressources pour l’intégration. La plateforme d’identités Microsoft et Azure Active Directory (AD) offrent aux organisations une gestion professionnelle des identités pour les applications cloud. L’intégration à la plateforme d’identités Microsoft offre à vos utilisateurs une expérience de connexion rationalisée et permet à votre application d’être conforme à la stratégie informatique.
 
 ## <a name="how-to-integrate"></a>Processus d’intégration
 
-Il existe plusieurs façons d’intégrer votre application à Plateforme d’identités Microsoft. Bénéficiez d’autant de ces scénarios nécessaires à votre application.
+Il existe plusieurs façons d’intégrer votre application à la plateforme d’identités Microsoft. Bénéficiez d’autant de ces scénarios nécessaires à votre application.
 
-### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Prendre en charge Plateforme d’identités Microsoft comme moyen de connexion à votre application
+### <a name="support-the-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Prendre en charge la plateforme d’identités Microsoft comme moyen de connexion à votre application
 
-**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Plateforme d’identités Microsoft pour se connecter à votre application, vos utilisateurs n’auront pas à mémoriser un nom et mot de passe de plus. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Plateforme d’identités Microsoft alimente les connexions pour certaines des applications cloud les plus populaires au monde, notamment Microsoft 365 et Microsoft Azure. Avec des centaines de millions d’utilisateurs dans des millions d’organisations, il est fort probable que votre utilisateur soit déjà connecté à Plateforme d’identités Microsoft. En savoir plus sur [l’ajout de la prise en charge de la connexion à Plateforme d’identités Microsoft](./authentication-vs-authorization.md).
+**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant la plateforme d’identités Microsoft pour se connecter à votre application, vos utilisateurs n’auront pas à mémoriser un nom et mot de passe de plus. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. La plateforme d’identités Microsoft alimente les connexions pour certaines des applications cloud les plus populaires au monde, notamment Microsoft 365 et Microsoft Azure. Avec des centaines de millions d’utilisateurs dans des millions d’organisations, il est fort probable que votre utilisateur soit déjà connecté à la plateforme d’identités Microsoft. En savoir plus sur [l’ajout de la prise en charge de la connexion à la plateforme d’identités Microsoft](./authentication-vs-authorization.md).
 
-**Simplifiez l’inscription à votre application.**  Lors de l’inscription de votre application, Plateforme d’identités Microsoft peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d’inscription ou de le supprimer complètement. Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles. Tout utilisateur peut s’inscrire et se connecter à une application qui est intégrée à Plateforme d’identités Microsoft sans avoir besoin de l’intervention des services informatiques. En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service/configure-authentication-provider-aad.md) .
+**Simplifiez l’inscription à votre application.**  Lors de l’inscription de votre application, la plateforme d’identités Microsoft peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d’inscription ou de le supprimer complètement. Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles. Tout utilisateur peut s’inscrire et se connecter à une application qui est intégrée à la plateforme d’identités Microsoft sans avoir besoin de l’intervention des services informatiques. En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Recherche des utilisateurs, gestion de l’attribution de privilèges d’accès des utilisateurs et contrôle de l’accès à votre application
 
@@ -43,13 +43,13 @@ Il existe plusieurs façons d’intégrer votre application à Plateforme d’id
 
 **Réutilisation des groupes Active Directory et des listes de distribution déjà gérées par votre client.**  Azure AD contient les groupes que votre client utilise déjà pour la distribution d’e-mail et la gestion des accès. À l’aide de l’API Microsoft Graph, réutilisez ces groupes au lieu de demander à votre client de créer et de gérer un ensemble de groupes distinct dans votre application. Les informations sur les groupes peuvent également être envoyées à votre application dans les jetons de connexion. Apprenez-en davantage sur l’[API Microsoft Graph](/graph/overview).
 
-**Utilisez Plateforme d’identités Microsoft pour contrôler qui a accès à votre application.**  Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l’aide de l’API Microsoft Graph, vous pouvez lire cette liste et l’utiliser pour contrôler le provisionnement et le déprovisionnement de ressources et l’accès au sein de votre application.
+**Utilisez la plateforme d’identités Microsoft pour contrôler qui a accès à votre application.**  Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l’aide de l’API Microsoft Graph, vous pouvez lire cette liste et l’utiliser pour contrôler le provisionnement et le déprovisionnement de ressources et l’accès au sein de votre application.
 
-**Utilisez Plateforme d’identités Microsoft pour le contrôle d’accès en fonction des rôles.**  Les administrateurs et les propriétaires d’applications peuvent affecter des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Plateforme d’identités Microsoft. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l’aide de l’API Microsoft Graph. En savoir plus sur [l’utilisation de Plateforme d’identités Microsoft pour l’autorisation](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Utilisez la plateforme d’identités Microsoft pour le contrôle d’accès en fonction des rôles.**  Les administrateurs et les propriétaires d’applications peuvent affecter des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Plateforme d’identités Microsoft. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l’aide de l’API Microsoft Graph. En savoir plus sur [l’utilisation de la plateforme d’identités Microsoft pour l’autorisation](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil des utilisateurs, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
 
-**Plateforme d’identités Microsoft est le serveur d’autorisation pour Microsoft 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge Plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations de l’utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. Apprenez-en davantage sur [les API Microsoft 365](/graph/overview).
+**La plateforme d’identités Microsoft est le serveur d’autorisation pour Microsoft 365 et d’autres services métiers de Microsoft.**  Si vous prenez en charge la plateforme d’identités Microsoft pour la connexion à votre application ou si vous prenez en charge la liaison de vos comptes d’utilisateur actuels aux comptes d’utilisateur Azure AD à l’aide d’OAuth 2.0, vous pouvez demander l’accès en lecture et en écriture au profil, au calendrier, aux e-mails, aux contacts, aux fichiers et autres informations d’un utilisateur. Vous pouvez écrire des événements en toute transparence dans le calendrier de l'utilisateur et lire ou écrire des fichiers dans leur OneDrive. Apprenez-en davantage sur [les API Microsoft 365](/graph/overview).
 
 ### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promotion de votre application dans les Places de marché Azure et Microsoft 365
 
@@ -59,11 +59,11 @@ Il existe plusieurs façons d’intégrer votre application à Plateforme d’id
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Sécurisation de la communication de périphérique à service et de service à service
 
-**L’utilisation de Plateforme d’identités Microsoft pour la gestion des identités des services et des périphériques réduit la quantité de code que vous devez écrire et permet au service informatique de gérer les accès.**  Les services et périphériques peuvent obtenir des jetons de Plateforme d’identités Microsoft à l’aide d’OAuth et utiliser ces jetons pour accéder aux API web. Grâce à Plateforme d’identités Microsoft, vous pouvez éviter d’écrire un code d’authentification complexe. Étant donné que les identités des services et des périphériques sont stockées dans Azure AD, le service informatique peut gérer les clés et la révocation dans un même endroit plutôt que de faire cela séparément dans votre application.
+**L’utilisation de la plateforme d’identités Microsoft pour la gestion des identités des services et des appareils réduit la quantité de code que vous devez écrire et permet au service informatique de gérer les accès.**  Les services et appareils peuvent obtenir des jetons de la plateforme d’identités Microsoft à l’aide d’OAuth et utiliser ces jetons pour accéder aux API web. Grâce à la plateforme d’identités Microsoft, vous pouvez éviter d’écrire un code d’authentification complexe. Étant donné que les identités des services et des périphériques sont stockées dans Azure AD, le service informatique peut gérer les clés et la révocation dans un même endroit plutôt que de faire cela séparément dans votre application.
 
 ## <a name="benefits-of-integration"></a>Avantages de l’intégration
 
-L’intégration à Plateforme d’identités Microsoft s’accompagne d’avantages qui ne nécessitent pas l’écriture de code supplémentaire.
+L’intégration à la plateforme d’identités Microsoft s’accompagne d’avantages qui ne nécessitent pas l’écriture de code supplémentaire.
 
 ### <a name="integration-with-enterprise-identity-management"></a>Intégration avec la gestion des identités d’entreprise
 
@@ -73,15 +73,15 @@ L’intégration à Plateforme d’identités Microsoft s’accompagne d’avant
 
 ### <a name="advanced-security-features"></a>Fonctionnalités de sécurité avancées
 
-**Authentification multifacteur**  Plateforme d’identités Microsoft fournit une authentification multifacteur native. Les administrateurs informatiques peuvent avoir besoin d'une authentification multifacteur pour accéder à votre application afin que vous n'ayez pas à écrire le code vous-même. En savoir plus sur l’ [authentification multifacteur](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Authentification multifacteur**  La plateforme d’identités Microsoft fournit une authentification multifacteur native. Les administrateurs informatiques peuvent avoir besoin d'une authentification multifacteur pour accéder à votre application afin que vous n'ayez pas à écrire le code vous-même. En savoir plus sur l’ [authentification multifacteur](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Détection de connexion anormale**  Plateforme d’identités Microsoft traite plus d’un milliard de connexions par jour, tout en utilisant des algorithmes d’apprentissage automatique pour détecter des activités suspectes et signaler tout problème éventuel aux administrateurs informatiques. En prenant en charge la connexion à Plateforme d’identités Microsoft, votre application bénéficie de cette protection. En savoir plus sur [l’affichage des rapports d'accès Azure Active Directory](../reports-monitoring/overview-reports.md).
+**Détection de connexion anormale**  La plateforme d’identités Microsoft traite plus d’un milliard de connexions par jour, tout en utilisant des algorithmes d’apprentissage automatique pour détecter des activités suspectes et signaler tout problème éventuel aux administrateurs informatiques. En prenant en charge la connexion à la plateforme d’identités Microsoft, votre application bénéficie de cette protection. En savoir plus sur [l’affichage des rapports d'accès Azure Active Directory](../reports-monitoring/overview-reports.md).
 
 **Accès conditionnel**.  Outre l'authentification multifacteur, les administrateurs peuvent exiger que les utilisateurs remplissent certaines conditions avant qu’ils puissent se connecter à votre application. Les conditions qui peuvent être définies incluent la plage d'adresses IP d’un périphérique client, l'appartenance à des groupes spécifiques et l'état du périphérique utilisé pour l'accès. En savoir plus sur [l’accès conditionnel d’Azure Active Directory](../conditional-access/overview.md).
 
 ### <a name="easy-development"></a>Développement facile
 
-**Protocoles standard de l’industrie.**  Microsoft s'engage à prendre en charge les normes industrielles. La plateforme d’identité Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect 1.0. Découvrez en plus sur les [protocoles d’authentification de plateforme d’identité Microsoft](active-directory-v2-protocols.md).
+**Protocoles standard de l’industrie.**  Microsoft s'engage à prendre en charge les normes industrielles. La plateforme d’identité Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect 1.0. En savoir plus sur les [protocoles d’authentification de la plateforme d’identités Microsoft](active-directory-v2-protocols.md).
 
 **Bibliothèques open source.**  Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur la [Bibliothèque d’authentification Microsoft (MSAL)](reference-v2-libraries.md).
 
@@ -93,4 +93,4 @@ L’intégration à Plateforme d’identités Microsoft s’accompagne d’avant
 
 [Commencer à écrire du code](v2-overview.md#getting-started).
 
-[Connecter les utilisateurs à l’aide de la plateforme d’identité Microsoft](./authentication-vs-authorization.md)
+[Connecter les utilisateurs à l’aide de la plateforme d’identités Microsoft](./authentication-vs-authorization.md)

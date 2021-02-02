@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 88af554faab9479a402dd393b0a7eed0835ce59e
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814344"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756679"
 ---
 # <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
@@ -33,7 +33,7 @@ Azure Security Center émet ses recommandations de sécurité en fonction des st
 
 Security Center offre les options suivantes pour l’utilisation des stratégies de sécurité :
 
-* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, une initiative intégrée nommée « ASC par défaut » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center. Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](./policy-reference.md).
+* **Afficher et modifier la stratégie par défaut intégrée** : lorsque vous activez Security Center, l’initiative nommée « Benchmark de sécurité Azure » est automatiquement attribuée à tous les abonnements inscrits auprès de Security Center. Pour personnaliser cette initiative, vous pouvez activer ou désactiver des stratégies individuelles au sein de celle-ci. Pour comprendre les options disponibles prêtes à l’emploi, consultez la liste des [stratégies de sécurité intégrées](./policy-reference.md).
 
 * **Ajouter vos propres stratégies personnalisées** : si vous souhaitez personnaliser les initiatives de sécurité appliquées à votre abonnement, vous pouvez le faire dans Security Center. Vous recevez ensuite des recommandations si vos machines ne suivent pas les stratégies que vous créez. Pour obtenir des instructions sur la création et l’attribution de stratégies personnalisées, voir [Utilisation de stratégies de sécurité personnalisées](custom-security-policies.md).
 

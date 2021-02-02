@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e65b47b2a1fd71c69ecb350f60df1fedff66b74
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 34692f5e563e4931a27ea59db84d9c88f27817da
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618907"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660896"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configuration de la synchronisation à étendue limitée entre Azure AD et Azure Active Directory Domain Services à l’aide du Portail Azure
 
@@ -43,15 +43,14 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 
 Par défaut, tous les utilisateurs et groupes d’un annuaire Azure AD sont synchronisés avec un domaine managé. Si seuls quelques utilisateurs ont besoin d’accéder au domaine managé, vous pouvez synchroniser uniquement ces comptes d’utilisateurs. Cette synchronisation délimitée est basée sur les groupes. Quand vous configurez la synchronisation délimitée basée sur les groupes, seuls les comptes d’utilisateurs qui appartiennent aux groupes que vous spécifiez sont synchronisés avec le domaine managé. Les groupes imbriqués ne sont pas synchronisés ; seuls les groupes explicitement sélectionnés le sont.
 
-Vous pouvez modifier l’étendue de synchronisation lors de la création du domaine managé ou une fois qu’il est déployé. À présent, il est également possible de modifier l’étendue de la synchronisation sur un domaine managé existant sans avoir à le recréer.
+Vous pouvez modifier l’étendue de synchronisation avant ou après la création du domaine managé. L’étendue de la synchronisation est définie par un principal de service avec l’identificateur d’application 2565bd9d-da50-47d4-8b85-4c97f669dc36. Pour éviter toute perte d’étendue, ne supprimez pas ni ne modifiez le principal du service. Si ce dernier est supprimé par inadvertance, l’étendue de synchronisation ne peut pas être récupérée. 
+
+Si vous modifiez l’étendue de synchronisation, gardez à l’esprit les mises en garde suivantes :
+
+- Une synchronisation complète se produit.
+- Les objets qui ne sont plus requis dans le domaine managé sont supprimés. De nouveaux objets sont créés dans le domaine managé.
 
 Pour en savoir plus sur le processus de synchronisation, consultez [Comprendre la synchronisation dans Azure AD Domain Services][concepts-sync].
-
-> [!WARNING]
-> La changement de l’étendue de la synchronisation conduit le domaine managé à resynchroniser toutes les données. Les considérations suivantes s'appliquent :
->
->  * Lorsque vous modifiez l’étendue de synchronisation d’un domaine managé, une resynchronisation complète est déclenchée.
->  * Les objets qui ne sont plus requis dans le domaine managé sont supprimés. De nouveaux objets sont créés dans le domaine managé.
 
 ## <a name="enable-scoped-synchronization"></a>Activation de la synchronisation à étendue limitée
 

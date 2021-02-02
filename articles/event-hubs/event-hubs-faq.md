@@ -2,13 +2,13 @@
 title: Forum Aux Questions (FAQ) - Azure Event Hubs | Microsoft Docs
 description: Cet article contient une liste des questions fréquemment posées (FAQ) sur Azure Event Hubs, ainsi que leurs réponses.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955414"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696106"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -55,8 +55,8 @@ Vous pouvez configurer la période de conservation pour les données capturées 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Comment puis-je surveiller mes Event Hubs ?
 Event Hubs émet des métriques exhaustives qui fournissent l’état de vos ressources à [Azure Monitor](../azure-monitor/overview.md). Elles vous permettent également d’évaluer l’intégrité globale du service Event Hubs non seulement au niveau de l’espace de noms mais également au niveau de l’entité. En savoir plus sur la supervision proposée pour les [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Où le service Azure Event Hubs stocke-t-il des données client ?
-Azure Event Hubs stocke les données client. Event Hubs stockant automatiquement ces données dans une seule région, ce service répond automatiquement aux exigences en matière de résidence des données de la région, y compris celles spécifiées dans le [Centre de gestion de la confidentialité](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Où le service Azure Event Hubs stocke-t-il des données ?
+Les niveaux Azure Event Hubs standard et dédié stockent les métadonnées et les données dans les régions que vous sélectionnez. Quand une géo-reprise d’activité après sinistre est configurée pour un espace de noms Azure Event Hubs, les métadonnées sont copiées dans la région secondaire que vous sélectionnez. Ainsi, ce service satisfait automatiquement aux exigences de résidence des données régionales, notamment à celles spécifiées dans le [centre de gestion de la confidentialité ](https://azuredatacentermap.azurewebsites.net/).
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 

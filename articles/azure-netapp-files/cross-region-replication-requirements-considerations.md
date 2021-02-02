@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243135"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632671"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Configuration requise et considérations pour la réplication inter-région 
 
@@ -31,6 +31,7 @@ Notez la configuration requise et les considérations suivantes relatives à l�
 * La réplication Azure NetApp Files n’est disponible que dans certaines paires de régions fixes. Voir [Paires de régions prises en charge](cross-region-replication-introduction.md#supported-region-pairs). 
 * Les volumes SMB et les volumes NFS sont pris en charge. La réplication des volumes SMB nécessite une connexion Active Directory dans les comptes NetApp source et de destination. La connexion Active Directory de destination doit avoir accès aux serveurs DNS ou aux contrôleurs de domaine ADDS qui sont accessibles à partir du sous-réseau délégué dans la région de destination. Pour plus d’informations, consultez [Configuration requise pour les connexions Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Le compte de destination doit se trouver dans une région différente du volume source. Vous pouvez également sélectionner un compte NetApp existant dans une autre région.  
+* Le volume de destination de réplication est en lecture seule jusqu’à ce que vous [basculiez vers la région de destination](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) pour activer le volume de destination en lecture et en écriture. 
 * La réplication Azure NetApp Files ne prend actuellement pas en charge plusieurs abonnements. Toutes les réplications doivent être effectuées sous un même abonnement.
 * Vous pouvez configurer un maximum de cinq volumes pour la réplication au sein d’un même abonnement par région. Vous pouvez ouvrir un ticket de support pour demander une augmentation du quota par défaut de cinq volumes de destination de réplication (par abonnement dans une région). 
 * Il peut y avoir un délai maximal de cinq minutes avant que l’interface reflète un nouvel instantané ajouté sur le volume source.  

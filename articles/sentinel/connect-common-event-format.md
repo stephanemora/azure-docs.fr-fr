@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655848"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747489"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -77,6 +77,12 @@ Assurez-vous que la machine Linux que vous utilisez en tant que redirecteur de j
   - RFC Syslog 5424
  
 Assurez-vous que votre machine répond également aux exigences suivantes : 
+
+- Capacité
+  - Votre machine doit avoir un minimum de **4 cœurs de processeur et 8 Go de RAM**.
+
+    > [!NOTE]
+    > - Un ordinateur redirecteur de journal qui utilise le démon **rsyslog** a une capacité prise en charge pouvant aller **jusqu’à 8 500 événements par seconde (EPS)** collectés.
 
 - Autorisations
   - Vous devez disposer d’autorisations élevées (sudo) sur votre machine. 

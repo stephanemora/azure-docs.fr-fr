@@ -1,28 +1,24 @@
 ---
 title: Questions fréquentes (FAQ) concernant les problèmes de déploiement pour Microsoft Azure Cloud Services | Microsoft Docs
 description: Cet article répertorie les questions fréquentes sur le déploiement pour Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980627"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742214"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour les services cloud Azure : Forum Aux Questions (FAQ)
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)
 
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 Cet article comprend des questions fréquentes sur les problèmes de déploiement pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -63,9 +59,9 @@ Vous ne pouvez pas modifier la taille de machine virtuelle d’un service cloud 
 
 Pour plus d’informations, consultez [Comment mettre à jour un service clou](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
 
-Étant donné que le service cloud est une ressource Classic qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
+Étant donné que le service cloud est une ressource Classic qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
 
 - Déploiement via l’API REST.
 
@@ -73,7 +69,7 @@ Pour plus d’informations, consultez [Comment mettre à jour un service clou](c
 
 - Déploiement via le [portail Azure](https://portal.azure.com).
 
-    Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et Classic. 
+    Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et Classic. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Pourquoi le portail Azure me demande-t-il de fournir un compte de stockage pour le déploiement ?
 

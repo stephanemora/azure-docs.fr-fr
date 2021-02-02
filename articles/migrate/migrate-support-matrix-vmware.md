@@ -1,17 +1,17 @@
 ---
 title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge pour l’évaluation de machines virtuelles VMware à l’aide d’Azure Migrate Server Assessment.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567424"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762997"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -37,7 +37,7 @@ Si vous souhaitez migrer des machines virtuelles VMware vers Azure, passez en re
 **VMware** | **Détails**
 --- | ---
 **vCenter Server** | Les machines que vous souhaitez découvrir et évaluer doivent être managées par vCenter Server version 5.5, 6.0, 6.5, 6.7 ou 7.0.<br/><br/> La découverte des machines virtuelles VMware en fournissant les détails de l’hôte ESXi dans l’appliance n’est pas prise en charge actuellement.
-**autorisations** | Server Assessment a besoin d’un compte vCenter Server en lecture seule pour la découverte et l’évaluation.<br/><br/> Si vous souhaitez procéder à la découverte d’application ou à la visualisation des dépendances, le compte doit disposer de privilèges pour **Machines virtuelles** > **Opérations d’invité**.
+**autorisations** | Server Assessment a besoin d’un compte vCenter Server en lecture seule pour la découverte et l’évaluation.<br/><br/> Si vous souhaitez procéder à la découverte d’applications ou à la visualisation des dépendances, le compte doit disposer de privilèges pour **Machines virtuelles** > **Opérations d’invité**.
 
 ## <a name="vm-requirements"></a>Configuration requise pour les machines virtuelles
 **VMware** | **Détails**

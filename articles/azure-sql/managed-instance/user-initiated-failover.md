@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 12/16/2020
-ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825915"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806087"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Basculement manuel initié par l’utilisateur sur SQL Managed Instance
 
@@ -125,7 +125,7 @@ L’état de l’opération peut être suivi en passant en revue les réponses d
 
 ## <a name="monitor-the-failover"></a>Surveiller le basculement
 
-Pour surveiller la progression du basculement manuel initié par l’utilisateur, exécutez la requête T-SQL suivante dans votre client favori (par exemple SSMS) sur SQL Managed Instance. Il lira les valeurs sys.dm_hadr_fabric_replica_states de la vue système et indiquera les réplicas disponibles sur l’instance. Actualisez la même requête après avoir lancé le basculement manuel.
+Pour superviser la progression du basculement lancé par l’utilisateur pour votre instance BC, exécutez la requête T-SQL suivante dans votre client favori (par exemple, SSMS) sur SQL Managed Instance. Il lira les valeurs sys.dm_hadr_fabric_replica_states de la vue système et indiquera les réplicas disponibles sur l’instance. Actualisez la même requête après avoir lancé le basculement manuel.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Avant de lancer le basculement, votre sortie indiquera le réplica principal actuel sur le niveau de service BC contenant un nœud principal et trois secondaires dans le groupe de disponibilité AlwaysOn. Lors de l’exécution d’un basculement, l’exécution de cette requête doit indiquer une modification du nœud principal.
 
-Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de GP que celle indiquée ci-dessus pour BC. Cela est dû au fait que le niveau de service GP est basé sur un seul nœud. Le résultat de la requête T-SQL pour le niveau de service GP affiche un seul nœud avant et après le basculement. La perte de connectivité de votre client pendant le basculement, qui dure généralement moins d’une minute, est l’indication de l’exécution du basculement.
+Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de GP que celle indiquée ci-dessus pour BC. Cela est dû au fait que le niveau de service GP est basé sur un seul nœud. Vous pouvez utiliser une autre requête T-SQL indiquant l’heure à laquelle le processus SQL a démarré sur le nœud pour l’instance du niveau de service GP :
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+La courte perte de connectivité de votre client pendant le basculement, qui dure généralement moins d’une minute, est l’indication de l’exécution du basculement, quel que soit le niveau de service.
 
 > [!NOTE]
 > L’achèvement du processus de basculement (et non la brève indisponibilité) peut prendre plusieurs minutes à la fois en cas de charges de travail à **haute intensité**. Cela est dû au fait que le moteur d’instance s’occupe de toutes les transactions en cours sur le serveur principal et rattrape son retard sur le nœud secondaire, avant d’être en mesure de basculer.
@@ -143,6 +149,7 @@ Vous ne serez pas en mesure de voir la même sortie avec le niveau de service de
 > - Un (1) basculement peut être initié sur la même instance gérée toutes les **15 minutes**.
 > - Pour les instances BC, il doit exister un quorum de réplicas pour que la requête de basculement soit acceptée.
 > - Pour les instances BC, il n’est pas possible de spécifier le réplica secondaire accessible en lecture sur lequel initier le basculement.
+> - Le basculement n’est pas autorisé tant que la première sauvegarde complète d’une nouvelle base de données n’est pas terminée par les systèmes de sauvegarde automatisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

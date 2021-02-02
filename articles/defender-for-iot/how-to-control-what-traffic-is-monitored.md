@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977068"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624682"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Contrôler quel trafic est surveillé
 
@@ -186,11 +186,11 @@ Pour définir une plage d’adresses DHCP :
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurer des serveurs DNS pour la résolution de recherche inversée
 
-Pour améliorer l’enrichissement par ressources, vous pouvez configurer plusieurs serveurs DNS pour exécuter des recherches inversées. Vous pouvez résoudre les noms d’hôte ou les noms de domaine complets associés aux adresses IP détectées dans les sous-réseaux du réseau. Par exemple, si un capteur découvre une adresse IP, il peut interroger plusieurs serveurs DNS pour résoudre le nom d’hôte.
+Pour améliorer l’enrichissement des appareils, vous pouvez configurer plusieurs serveurs DNS pour effectuer des recherches inversées. Vous pouvez résoudre les noms d’hôte ou les noms de domaine complets associés aux adresses IP détectées dans les sous-réseaux du réseau. Par exemple, si un capteur découvre une adresse IP, il peut interroger plusieurs serveurs DNS pour résoudre le nom d’hôte.
 
 Tous les formats CIDR sont pris en charge.
 
-Le nom d’hôte apparaît dans l’inventaire et la carte des ressources, ainsi que dans les rapports.
+Le nom d’hôte s’affiche dans l’inventaire des appareils, ainsi que dans la carte des appareils et dans les rapports.
 
 Vous pouvez planifier la résolution de recherche inversée à des intervalles spécifiques, toutes les 12 heures par exemple. Ou vous pouvez prévoir une heure spécifique.
 
@@ -212,7 +212,7 @@ Pour définir des serveurs DNS :
 
 5. Dans le champ **Port du serveur DNS**, entrez le port DNS.
 
-6. Résolvez les adresses IP du réseau pour les FQDN. Dans le champ **Nombre d’étiquettes**, ajoutez le nombre d’étiquettes de domaine à afficher. Jusqu’à 30 caractères s’affichent de gauche à droite.
+6. Résolvez les adresses IP du réseau en noms de domaine complet d’appareil. Dans le champ **Nombre d’étiquettes**, ajoutez le nombre d’étiquettes de domaine à afficher. Jusqu’à 30 caractères s’affichent de gauche à droite.
 
 7. Dans le champ **Sous-réseaux**, entrez les sous-réseaux que le serveur DNS doit interroger.
 
@@ -220,7 +220,7 @@ Pour définir des serveurs DNS :
 
 ### <a name="test-the-dns-configuration"></a>Vérifier la configuration DNS 
 
-À l’aide d’une ressource de test, vérifiez que les paramètres que vous avez définis fonctionnent correctement :
+À l’aide d’un appareil de test, vérifiez que les paramètres que vous avez définis fonctionnent correctement :
 
 1. Activez le commutateur **Recherche DNS**.
 

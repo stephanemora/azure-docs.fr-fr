@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512135"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632688"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Démarrage du système d’exploitation – L’ordinateur a redémarré de manière inattendue ou a rencontré une erreur inattendue
 
@@ -52,6 +52,9 @@ Ce problème se produit le plus souvent quand vous utilisez sysprep avec une mac
 ## <a name="solution"></a>Solution
 
 ### <a name="do-not-use-unattendxml"></a>Ne pas utiliser Unattend.xml
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Pour résoudre ce problème, suivez les [conseils d’Azure sur la préparation/capture d’image](../windows/upload-generalized-managed.md) et préparez une nouvelle image généralisée. Pendant l’exécution de sysprep, **n’utilisez pas l’indicateur `/unattend:<your file’s name>`** . À la place, utilisez uniquement les indicateurs ci-dessous :
 

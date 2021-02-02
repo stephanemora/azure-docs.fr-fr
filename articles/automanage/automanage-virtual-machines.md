@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695784"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695668"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -43,16 +43,16 @@ Il existe plusieurs conditions préalables à prendre en compte avant d’essaye
 
 - Les machines virtuelles concernées doivent être exclusivement Windows Server.
 - Les machines virtuelles doivent être en cours d’exécution.
-- Les machines virtuelles doivent se trouver dans une région prise en charge.
+- Les machines virtuelles doivent se trouver dans une région prise en charge (voir paragraphe ci-dessous).
 - L’utilisateur doit disposer des autorisations appropriées (voir paragraphe ci-dessous).
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade
 
-Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**. 
+Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
+
+Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
 
 > [!NOTE]
 > Si vous souhaitez utiliser Automanage sur une machine virtuelle qui est connectée à un espace de travail dans un autre abonnement, vous devez disposer des autorisations décrites ci-dessus pour chaque abonnement.
-
-Il est également important de noter que le service Automanage ne prend en charge que des machines virtuelles Windows situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
 
 ## <a name="participating-services"></a>Services participant
 
@@ -102,12 +102,20 @@ Vous pouvez ajuster les paramètres d’un profil de configuration par défaut p
 
 ## <a name="automanage-account"></a>Compte Automanage
 
-Le Compte Automanage est le contexte de sécurité ou l’identité sous laquelle les opérations automatisées se produisent. En règle générale, il est inutile de sélectionner l’option Compte Automanage, mais s’il existe un scénario de délégation dans lequel vous souhaitez diviser la gestion automatisée (peut-être entre deux administrateurs système), cette option vous permet de définir une identité Azure pour chacun de ces administrateurs.
+Le Compte Automanage est le contexte de sécurité ou l’identité sous laquelle les opérations automatisées se produisent. En règle générale, il est inutile de sélectionner l’option Compte Automanage, mais s’il existe un scénario de délégation dans lequel vous souhaitez diviser la gestion automatisée de vos ressources (peut-être entre deux administrateurs système), cette option vous permet de définir une identité Azure pour chacun de ces administrateurs.
 
 Dans l’interface du portail Azure, lorsque vous activez le service Automanage sur vos machines virtuelles, le panneau **Activer la meilleure pratique de machine virtuelle Azure** contient une liste déroulante Avancées, qui vous permet d’attribuer ou de créer manuellement le Compte Automanage.
 
+Le compte Automanage se verra attribuer à la fois les rôles **Contributeur** et **Contributeur de la stratégie de ressource** pour les abonnements contenant les ordinateurs que vous avez intégrés à Automanage. Vous pouvez utiliser le même compte Automanage sur les machines de plusieurs abonnements, ce qui accordera à ce compte Automanage des autorisations **Contributeur** et **Contributeur de la stratégie de ressources** sur tous les abonnements.
+
+Si votre machine virtuelle est connectée à un espace de travail Log Analytics dans un autre abonnement, le compte Automanage se verra également attribuer les rôles **Contributeur** et **Contributeur de la stratégie de ressources** dans cet autre abonnement.
+
+Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+
+Si vous activez Automanage avec un compte Automanage existant, vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles.
+
 > [!NOTE]
-> Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage sur ces dernières à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes sur votre abonnement : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
+> Lorsque vous désactivez les meilleures pratiques d’Automanage, les autorisations du compte Automanage sur les abonnements associés sont conservées. Supprimez manuellement les autorisations en accédant à la page IAM de l’abonnement ou en supprimant le compte Automanage. Le compte Automanage ne peut pas être supprimé s’il gère toujours des ordinateurs.
 
 
 ## <a name="status-of-vms"></a>État des machines virtuelles
@@ -122,6 +130,7 @@ La colonne **État** peut afficher les états suivants :
 - *En cours* : la machine virtuelle vient d’être activée et est en cours de configuration.
 - *Configurée* : la machine virtuelle est configurée et aucune dérive n’est détectée.
 - *Échec*  : la machine virtuelle a dérivé et nous n’avons pas pu la corriger.
+- *En attente* : la machine virtuelle n’est pas en cours d’exécution et Automanage tentera d’intégrer ou de corriger la machine virtuelle lors de sa prochaine exécution.
 
 Si vous voyez l’**État** *Échec*, vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
 
@@ -145,7 +154,6 @@ Lisez attentivement le message dans la fenêtre contextuelle qui s’affiche ava
 
 
 Tout d’abord, nous n’annulons l’intégration de la machine virtuelle à l’un des services auxquels nous l’avons intégrée et sur lesquels nous l’avons configurée. Par conséquent, les frais associés à ces services resteront facturables. Vous devez donc annuler l’intégration si nécessaire. Dans ce cas, tout comportement du service Automanage s’arrête immédiatement. Par exemple, nous cessons surveiller la dérive de la machine virtuelle.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

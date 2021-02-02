@@ -1,23 +1,24 @@
 ---
-title: Gestion d’Azure Cloud Services à l’aide d’Azure Automation | Microsoft Docs
+title: Gérer Azure Cloud Services (classique) avec Azure Automation | Microsoft Docs
 description: Découvrez comment le service Azure Automation peut être utilisé pour gérer les services de cloud computing Azure à grande échelle.
-services: cloud-services, automation
-author: jodoglevy
-manager: timlt
-editor: ''
-ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
-ms.service: cloud-services
 ms.topic: article
-ms.date: 06/20/2016
-ms.author: timlt
-ms.openlocfilehash: 67830f8c00d9f74f62883e0714ffe1c2bbbd6903
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 530efd09f3632637c6a12648495dcff0e7bf0e6d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075618"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743489"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Gestion d'Azure Cloud Services à l'aide d'Azure Automation
+# <a name="managing-azure-cloud-services-classic-using-azure-automation"></a>Gestion d’Azure Cloud Services (classique) avec Azure Automation
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos services de cloud computing Azure.
 
 ## <a name="what-is-azure-automation"></a>Qu'est-ce qu'Azure Automation ?

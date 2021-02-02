@@ -1,5 +1,5 @@
 ---
-title: Atténuer l’impartialité dans les modèles Machine Learning (préversion)
+title: Atténuer la partialité dans les modèles Machine Learning (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez l’impartialité dans les modèles d’apprentissage automatique et la façon dont le package Python Fairlearn peut vous aider à créer des modèles plus impartiaux.
 services: machine-learning
@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
+ms.date: 01/26/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6daa03728a5f323f6f8b749975d31fbca24d5602
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223089"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871500"
 ---
-# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Atténuer l’impartialité dans les modèles Machine Learning (préversion)
+# <a name="mitigate-unfairness-in-machine-learning-models-preview"></a>Atténuer la partialité dans les modèles Machine Learning (préversion)
 
-Découvrez l’impartialité dans l’apprentissage automatique et la façon dont le package Python open source [Fairlearn](https://fairlearn.github.io/) peut vous aider à atténuer les problèmes d’impartialité dans les modèles Machine Learning. Si vous ne faites pas l’effort de comprendre les problèmes de partialité et d’évaluer l’impartialité lors de la création de modèles de Machine Learning, vous pourriez créer des modèles qui produisent des résultats injustes.
+Découvrez l’impartialité dans l’apprentissage automatique et la façon dont le package Python open source [Fairlearn](https://fairlearn.github.io/) peut vous aider à atténuer les problèmes de partialité dans les modèles Machine Learning. Si vous ne faites pas l’effort de comprendre les problèmes de partialité et d’évaluer l’impartialité lors de la création de modèles de Machine Learning, vous pourriez créer des modèles qui produisent des résultats injustes.
 
 Le résumé suivant du [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/index.html) pour le package open source Fairlearn, décrit comment l’utiliser pour évaluer l’impartialité des systèmes IA que vous générez.  Le package open source Fairlearn peut également fournir des options permettant d’atténuer ou de réduire les problèmes de partialité que vous observez.  Pour activer l’évaluation de l’impartialité de systèmes IA pendant la formation sur Azure Machine Learning, consultez [cette page](how-to-machine-learning-fairness-aml.md) et les [notebooks échantillons](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness).
 
@@ -41,7 +41,7 @@ Pour minimiser les comportements partiaux des systèmes d’intelligence artific
 
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Évaluation et atténuation de la partialité avec Fairlearn
 
-Fairlearn est un package Python open source qui permet aux développeurs de systèmes d’apprentissage automatique d’évaluer l’impartialité de leurs systèmes et d’atténuer les problèmes de partialité observés.
+Fairlearn est un package Python open source qui permet aux développeurs de systèmes d’apprentissage automatique d’évaluer l’impartialité de leurs systèmes et d’en atténuer la partialité.
 
 Le package open source Fairlearn comporte deux composants :
 

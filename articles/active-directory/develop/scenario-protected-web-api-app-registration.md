@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443940"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756460"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -27,7 +27,7 @@ Pour connaître les étapes courantes visant à inscrire une application, consul
 
 ## <a name="accepted-token-version"></a>Version de jeton acceptée
 
-Le point de terminaison de la plateforme d’identités Microsoft peut émettre des jetons v1.0 et des jetons v2.0. Pour plus d’informations sur ces jetons, consultez [Jetons d’accès](access-tokens.md).
+La plateforme d’identités Microsoft peut émettre des jetons v1.0 et des jetons v2.0. Pour plus d’informations sur ces jetons, consultez [Jetons d’accès](access-tokens.md).
 
 La version de jeton que votre API peut accepter dépend de la sélection de **Types de compte pris en charge** lorsque vous créez l’inscription de votre application API Web dans le Portail Azure.
 
@@ -44,7 +44,7 @@ Après avoir créé l’application, vous pouvez déterminer ou changer la versi
 1. Si vous avez modifié la version de jeton, sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> L’API web spécifie la version de jeton qu’elle accepte. Quand un client demande un jeton pour votre API web auprès du point de terminaison de la plateforme d’identités Microsoft (v2.0), le client obtient un jeton qui indique quelle version de jeton est acceptée par l’API web.
+> L’API web spécifie la version de jeton qu’elle accepte. Quand un client demande un jeton pour votre API web auprès de la plateforme d’identités Microsoft, le client obtient un jeton qui indique quelle version de jeton est acceptée par l’API web.
 
 ## <a name="no-redirect-uri"></a>Aucun URI de redirection
 

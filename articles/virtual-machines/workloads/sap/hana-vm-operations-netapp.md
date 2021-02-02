@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570080"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746541"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 sur Azure NetApp Files pour SAP HANA
 
@@ -62,7 +62,13 @@ Il est important de comprendre la relation entre les performance et la taille, e
 
 Le tableau ci-dessous montre qu’il peut être judicieux de créer un grand volume « Standard » pour stocker les sauvegardes et qu’il n’est pas judicieux de créer un volume « Ultra » d’une taille supérieure à 12 To, car la capacité de bande passante physique d’une LIF unique serait dépassée. 
 
-Le débit maximal pour une LIF et une session Linux unique est compris entre 1,2 et 1,4 Go/s. 
+Le débit maximal pour une LIF et une session Linux unique est compris entre 1,2 et 1,4 Go/s. Si vous avez besoin d’un débit plus élevé pour /hana/data, vous pouvez utiliser le partitionnement de volume de données SAP HANA pour agréger par bandes l’activité d’E/S pendant le rechargement des données ou les points d’enregistrement HANA sur plusieurs fichiers de données HANA situés sur plusieurs partages NFS. Pour plus d’informations sur l’agrégation par bandes des volumes de données HANA, consultez ces articles :
+
+- [Guide de l’administrateur HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sur SAP HANA – Partitionnement des volumes de données](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Note SAP N° 2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Note SAP n° 2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Taille  | Débit Standard | Débit Premium | Débit Ultra |
 | --- | --- | --- | --- |

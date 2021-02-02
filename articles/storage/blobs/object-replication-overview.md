@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178974"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762872"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -88,7 +88,9 @@ Quand vous créez une règle de réplication, par défaut, seuls les nouveaux ob
 
 Vous pouvez aussi spécifier un ou plusieurs filtres dans le cadre d’une règle de réplication pour filtrer les objets blob de blocs par préfixe. Lorsque vous spécifiez un préfixe, seuls les objets blob correspondant à ce préfixe dans le conteneur source sont copiés dans le conteneur de destination.
 
-Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, le conteneur de destination bascule en lecture seule. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). En revanche, vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un objet blob dans le conteneur de destination pour le déplacer vers le niveau d’archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
+Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, les opérations d’écriture dans le conteneur de destination ne sont pas autorisées. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). Pour écrire dans un conteneur de destination pour lequel une règle de réplication est configurée, vous devez soit supprimer la règle configurée pour ce conteneur, soit supprimer la stratégie de réplication. Les opérations de lecture et de suppression sur le conteneur de destination sont autorisées lorsque la stratégie de réplication est active.
+
+Vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un blob dans le conteneur de destination pour le déplacer vers le niveau archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="replication-status"></a>État de la réplication
 

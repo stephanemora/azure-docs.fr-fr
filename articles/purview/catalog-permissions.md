@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550206"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610367"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Contrôle d’accès en fonction du rôle dans le plan de données d’Azure Purview
 
@@ -77,8 +77,8 @@ En ce qui concerne les utilisateurs qui ont accès au [Portail Azure](https://po
 |Je dois activer un principal de service ou une autre identité de programmation pour configurer et surveiller les analyses dans Azure Purview sans autoriser l’identité de programmation à accéder aux informations du catalogue |Rôle d’administrateur de source de données Purview|
 |Je dois placer les utilisateurs dans des rôles dans Azure Purview | Propriétaire ou Administrateur de l’accès utilisateur |
 
-Passez à l’article suivant pour apprendre à ajouter un principal de sécurité à un rôle.
+Pour plus d’informations sur l’ajout d’un principal de sécurité à un rôle, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md)
+* [Insights sur les données](concept-insights.md)

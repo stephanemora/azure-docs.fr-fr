@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2020
+ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296554"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695871"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata Vantage à l’aide d’Azure Data Factory
 
@@ -72,6 +72,7 @@ Autres propriétés de connexion que vous pouvez définir dans la chaîne de con
 
 | Propriété | Description | Valeur par défaut |
 |:--- |:--- |:--- |
+| TdmstPortNumber | Numéro du port utilisé pour accéder à la base de données Teradata.<br>Ne modifiez pas cette valeur à moins que le support technique vous demande de le faire. | 1025 |
 | UseDataEncryption | Spécifie s’il faut chiffrer toutes les communications avec la base de données Teradata. Les valeurs autorisées sont 0 ou 1.<br><br/>- **0 (désactivé, valeur par défaut)**  : Chiffre uniquement les informations d’authentification.<br/>- **1 (activé)**  : Chiffre toutes les données transmises entre le pilote et la base de données. | `0` |
 | CharacterSet | Jeu de caractères à utiliser pour la session. Par exemple, `CharacterSet=UTF16`.<br><br/>Cette valeur peut être un jeu de caractères défini par l’utilisateur ou l’un des jeux de caractères prédéfinis suivants : <br/>- ASCII<br/>- UTF8<br/>- UTF16<br/>- LATIN1252_0A<br/>- LATIN9_0A<br/>- LATIN1_0A<br/>- Shift-JIS (Windows, compatible DOS, KANJISJIS_0S)<br/>- EUC (compatible Unix, KANJIEC_0U)<br/>- Mainframe IBM (KANJIEBCDIC5035_0I)<br/>- KANJI932_1S0<br/>- BIG5 (TCHBIG5_1R0)<br/>- GB (SCHGB2312_1T0)<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- NetworkKorean (HANGULKSC5601_2R4)<br/>- HANGUL949_7R0<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HEBREW1255_5A0<br/>- LATIN1250_1A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- THAI874_4A0 | `ASCII` |
 | MaxRespSize |Taille maximale de la mémoire tampon de réponse pour les requêtes SQL en Ko (kilo-octets). Par exemple, `MaxRespSize=‭10485760‬`.<br/><br/>Pour la version de base de données Teradata 16.00 (ou ultérieure), la valeur maximale est 7361536. Pour les connexions qui utilisent des versions antérieures, la valeur maximale est 1048576. | `65536` |

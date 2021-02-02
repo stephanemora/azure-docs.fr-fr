@@ -1,26 +1,25 @@
 ---
-title: Déf. Azure Cloud Services Schéma NetworkTrafficRules | Microsoft Docs
+title: Définition d’Azure Cloud Services (classique) Schéma NetworkTrafficRules | Microsoft Docs
 description: En savoir plus sur NetworkTrafficRules, qui limite les rôles qui peuvent accéder aux points de terminaison internes d’un rôle. Il se combine avec les rôles dans un fichier de définition de service.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: 17
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534726"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739766"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition des services cloud Azure
+# <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Le nœud `NetworkTrafficRules` est un élément facultatif dans le fichier de définition de service, qui spécifie comment les rôles communiquent entre eux. Il limite les rôles qui peuvent accéder aux points de terminaison internes du rôle spécifique. Le `NetworkTrafficRules` n’est pas un élément autonome ; il est associé à deux ou plusieurs rôles dans un fichier de définition de service.
 
 L’extension par défaut du fichier de définition de service est .csdef.

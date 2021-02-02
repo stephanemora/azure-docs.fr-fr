@@ -1,5 +1,6 @@
 ---
-title: Écrire une application web qui connecte/déconnecte des utilisateurs – Plateforme Microsoft Identity | Azure
+title: Écrire une application web qui connecte/déconnecte des utilisateurs | Azure
+titleSuffix: Microsoft identity platform
 description: Apprenez à générer une application web qui connecte/déconnecte des utilisateurs (connexion)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443549"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752997"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
@@ -213,7 +214,7 @@ Une fois que l’utilisateur est connecté à votre application, vous voudrez le
 La déconnexion d’une application web ne consiste pas seulement à supprimer les informations sur le compte connecté de l’état de l’application web.
 L’application web doit également rediriger l’utilisateur vers le point de terminaison `logout` de la plateforme d’identités Microsoft pour suivre la procédure de déconnexion.
 
-Lorsque votre application web redirige l’utilisateur vers le point de terminaison `logout`, ce dernier efface la session de l’utilisateur dans le navigateur. Si votre application n’a pas atteint le point de terminaison `logout`, l’utilisateur se réauthentifie auprès de votre application sans entrer à nouveau ses informations d’identification. La raison en est qu’il disposera d’une session d’authentification unique valide avec le point de terminaison de la plateforme d’identité Microsoft.
+Lorsque votre application web redirige l’utilisateur vers le point de terminaison `logout`, ce dernier efface la session de l’utilisateur dans le navigateur. Si votre application n’a pas atteint le point de terminaison `logout`, l’utilisateur se réauthentifie auprès de votre application sans entrer à nouveau ses informations d’identification. La raison en est qu’il disposera d’une session d’authentification unique valide auprès de la plateforme d’identités Microsoft.
 
 Pour en savoir plus, consultez la section [Envoi d’une demande de déconnexion](v2-protocols-oidc.md#send-a-sign-out-request) dans la documentation conceptuelle de la [plateforme d’identités Microsoft et du protocole OpenID Connect](v2-protocols-oidc.md).
 

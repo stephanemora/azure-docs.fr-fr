@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936122"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760627"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -138,6 +138,8 @@ Azure Logic Apps (préversion) comprend de nombreuses capacités actuelles et su
 * Publiez ou déployez directement des applications logiques et leurs workflows de Visual Studio Code vers divers environnements d’hébergement tels qu’Azure et des [conteneurs Docker](/dotnet/core/docker/introduction).
 
 * Activez les capacités de journalisation et de suivi des diagnostics pour votre application logique en utilisant [Application Insights](../azure-monitor/app/app-insights-overview.md) lorsque la fonctionnalité est prise en charge par votre abonnement Azure et les paramètres de l’application logique.
+
+* Régénérez les clés d’accès pour les connexions gérées utilisées par les workflows individuels dans une ressource **Application logique (préversion)** . Pour cette tâche, [suivez les mêmes étapes que pour la ressource **Logic Apps**, mais au niveau du workflow individuel](logic-apps-securing-a-logic-app.md#regenerate-access-keys), et non au niveau de la ressource de l’application logique.
 
 > [!NOTE]
 > Pour plus d’informations sur les problèmes connus actuels, consultez la [page relative aux problèmes connus de la préversion publique de Logic Apps dans GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).

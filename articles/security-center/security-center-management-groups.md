@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922731"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757635"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organiser les groupes d’administration, les abonnements et la visibilité à l’échelle du locataire
 
@@ -107,6 +107,36 @@ Pour vous attribuer des autorisations au niveau du locataire :
 
 1. Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Security Center pour vérifier que vous voyez tous les abonnements sous votre locataire Azure AD. 
 
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Demander des autorisations à l’échelle du locataire quand les vôtres sont insuffisantes
+
+Si vous vous connectez à Security Center et que vous voyez une bannière indiquant que votre affichage est limité, vous pouvez cliquer dessus pour envoyer une demande à l’administrateur général de votre organisation. Dans la demande, vous pouvez inclure le rôle que vous souhaitez obtenir, et l’administrateur général prendra une décision sur le rôle à accorder. 
+
+Il appartient à l’administrateur général d’accepter ou de rejeter ces demandes. 
+
+> [!IMPORTANT]
+> Vous ne pouvez envoyer qu’une demande tous les sept jours.
+
+Pour demander des autorisations à privilège élevé à votre administrateur général :
+
+1. Dans le portail Azure, ouvrez Azure Security Center.
+
+1. Si la bannière « Vous voyez des informations limitées. » s’affiche, Sélectionnez-le.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Bannière informant l’utilisateur qu’il peut demander des autorisations à l’échelle du locataire.":::
+
+1. Dans le formulaire détaillé de la demande, sélectionnez le rôle souhaité et la raison pour laquelle vous avez besoin de ces autorisations.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Page de détails pour la demande d’autorisations à l’échelle du locataire auprès de votre administrateur général Azure":::
+
+1. Sélectionnez **Demander l’accès**.
+
+    Un e-mail est envoyé à l’administrateur général. L’e-mail contient un lien vers Security Center où il peut approuver ou rejeter la demande.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="E-mail envoyé à l’administrateur général pour de nouvelles autorisations":::
+
+    Une fois que l’administrateur général a sélectionné **Examiner la demande** et a terminé le processus, la décision est envoyée par e-mail à l’utilisateur qui effectue la demande. 
+
 ## <a name="assign-azure-roles-to-other-users"></a>Attribuer des rôles Azure à d’autres utilisateurs
 
 ### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Attribuer des rôles Azure aux utilisateurs via le portail Azure : 
@@ -149,6 +179,7 @@ Pour vous attribuer des autorisations au niveau du locataire :
     ```
 
 ## <a name="remove-elevated-access"></a>Supprimer l’accès élevé 
+
 Une fois que les rôles Azure ont été attribués aux utilisateurs, l’administrateur client doit se supprimer du rôle d’administrateur des accès utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com).

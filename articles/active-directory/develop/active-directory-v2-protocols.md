@@ -1,7 +1,7 @@
 ---
-title: Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identité Microsoft | Azure
+title: Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identités Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Un guide relatif aux protocoles OAuth 2.0 et OpenID Connect pris en charge par le point de terminaison de la plateforme d’identités Microsoft.
+description: Un guide relatif aux protocoles OAuth 2.0 et OpenID Connect pris en charge par la plateforme d’identités Microsoft.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765c363542b07deac44d47b94731e1109fcba045
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751445"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755743"
 ---
-# <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>Protocoles OAuth 2.0 et OpenID Connect sur la plateforme d’identité Microsoft
+# <a name="oauth-20-and-openid-connect-protocols-on-the-microsoft-identity-platform"></a>Protocoles OAuth 2.0 et OpenID Connect sur la plateforme Microsoft Identity
 
 Le point de terminaison de la plateforme d’identités Microsoft pour l’identité en tant que service implémente les fonctionnalités d’authentification et d’autorisation à l’aide des protocoles standard du secteur, OIDC (OpenID Connect) et OAuth 2.0, respectivement. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. Les informations fournies ici vous seront utiles si vous choisissez d’écrire votre code en envoyant et en traitant directement des requêtes HTTP ou si vous utilisez une bibliothèque open source tierce, plutôt qu’en utilisant l’une de nos [bibliothèques open source](reference-v2-libraries.md).
 
@@ -30,7 +30,7 @@ Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont con
 
 ![Diagramme montrant les rôles OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* Le **Serveur d’autorisation** est le point de terminaison de la plateforme d’identités Microsoft qui est chargé de garantir l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources ainsi que l’émission de jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties dans un flux.
+* Le **serveur d’autorisation** est la plateforme d’identités Microsoft. Il est chargé de garantir l’identité de l’utilisateur, d’accorder et de révoquer l’accès aux ressources et d’émettre des jetons. Le serveur d’autorisation est également connu sous le nom du fournisseur d’identité. Il traite de manière sécurisée les informations de l’utilisateur, leur accès et les relations de confiance entre les parties dans un flux.
 * Le **Propriétaire de la ressource** est généralement l’utilisateur final. Il s’agit de la partie qui détient les données et qui a le pouvoir d’autoriser les clients à accéder à ces données ou ressources.
 * Le **Client OAuth** est votre application, identifiée par son ID d’application. Le client OAuth, qui est en général la partie avec laquelle l’utilisateur final interagit, demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
 * Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès du porteur pour garantir l’octroi de l’accès à une ressource.
@@ -47,7 +47,7 @@ Pour plus d’informations, découvrez comment [inscrire une application](quicks
 
 ## <a name="endpoints"></a>Points de terminaison
 
-Une fois inscrite, l’application communique avec la plateforme d’identités Microsoft en transmettant les requêtes au point de terminaison :
+Une fois inscrite, l’application communique avec la plateforme d’identités Microsoft en transmettant les requêtes au point de terminaison :
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
@@ -66,11 +66,11 @@ Où le `{tenant}` peut prendre l’une de quatre valeurs différentes :
 Pour savoir comment interagir avec ces points de terminaison, choisissez un type particulier d’application dans la section [Protocoles](#protocols) et suivez les liens.
 
 > [!TIP]
-> N’importe quelle application inscrite dans Azure AD peut utiliser le point de terminaison de la plateforme d’identités Microsoft, même si elle n’utilise pas de compte personnel pour la connexion.  De cette façon, vous pouvez migrer des applications existantes vers la plateforme d’identités Microsoft et [MSAL](reference-v2-libraries.md) sans recréer votre application.
+> N’importe quelle application inscrite dans Azure AD peut utiliser la plateforme d’identités Microsoft, même si elle n’utilise pas de compte personnel pour la connexion.  De cette façon, vous pouvez migrer des applications existantes vers la plateforme d’identités Microsoft et [MSAL](reference-v2-libraries.md) sans recréer votre application.
 
 ## <a name="tokens"></a>Jetons
 
-OAuth 2.0 et OpenID Connect utilisent massivement les **jetons du porteur**, généralement représentés par des jetons [JWT (JSON Web Tokens)](https://tools.ietf.org/html/rfc7519). Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » correspond à toute personne qui obtient une copie du jeton. Bien qu’une partie doive d’abord s’authentifier auprès de la plateforme d’identités Microsoft pour recevoir le jeton porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+OAuth 2.0 et OpenID Connect utilisent massivement les **jetons du porteur**, généralement représentés par des jetons [JWT (JSON Web Tokens)](https://tools.ietf.org/html/rfc7519). Un jeton porteur est un jeton de sécurité léger qui octroie l’accès à une ressource protégée au « porteur ». En ce sens, le « porteur » correspond à toute personne qui obtient une copie du jeton. Bien qu’un tiers doive d’abord s’authentifier auprès de la plateforme d’identités Microsoft pour recevoir le jeton du porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par un tiers non autorisé. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons porteurs n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton porteur est transmis en clair, une partie malveillante peut utiliser une attaque d’intercepteur pour s’approprier le jeton et l’utiliser afin d’accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée. Pour en savoir plus sur les aspects de sécurité des jetons porteurs, consultez [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 Il existe principalement 3 types de jeton utilisés dans OAuth 2.0/OIDC :
 

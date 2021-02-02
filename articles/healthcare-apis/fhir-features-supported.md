@@ -2,18 +2,18 @@
 title: Fonctionnalités de FHIR prises en charge dans Azure - API Azure pour FHIR
 description: Cet article détaille les fonctionnalités de la spécification de FHIR qui sont implémentées dans l’API Azure pour FHIR
 services: healthcare-apis
-author: matjazl
+author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/07/2019
+ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452917"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747523"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -86,7 +86,7 @@ Tous les types de paramètre de recherche sont pris en charge.
 | `_id`                   | Oui       | Oui       | Oui       |         |
 | `_lastUpdated`          | Oui       | Oui       | Oui       |         |
 | `_tag`                  | Oui       | Oui       | Oui       |         |
-| `_profile`              | Oui       | Oui       | Oui       |         |
+| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge uniquement dans STU3, aucune prise en charge dans R4 |
 | `_security`             | Oui       | Oui       | Oui       |         |
 | `_text`                 | Non        | Non        | Non        |         |
 | `_content`              | Non        | Non        | Non        |         |
@@ -135,9 +135,9 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 
 ## <a name="service-limits"></a>Limites du service
 
-* [**Unités de requête (RU)** ](../cosmos-db/concepts-limits.md) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin au minimum de 400 unités de requête ou de 10 unités de requête/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
+* [**Unités de requête (RU)**](../cosmos-db/concepts-limits.md) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin au minimum de 400 unités de requête ou de 10 unités de requête/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
 
-* **Connexions simultanées** et **Instances** : vous avez, par défaut, cinq connexions simultanées sur deux instances du cluster (pour un total de 10 requêtes simultanées). Si vous pensez avoir besoin de plus de requêtes simultanées, ouvrez un ticket de support en détaillant vos besoins.
+* **Connexions simultanées** et **Instances** : vous avez, par défaut, cinq connexions simultanées sur deux instances du cluster (pour un total de 10 requêtes simultanées). Si vous pensez avoir besoin de plus de requêtes simultanées, ouvrez un ticket de support en détaillant vos besoins.
 
 * **Taille de bundle** : chaque bundle est limité à 500 éléments.
 
@@ -147,12 +147,14 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 
 Les performances du système dépendent du nombre d’unités de requête, des connexions simultanées et du type d’opérations que vous exécutez (Put, Post, etc.). Vous trouverez ci-dessous quelques plages générales de ce que vous pouvez attendre en fonction des unités de requête configurées. En règle générale, les performances évoluent de façon linéaire avec l’augmentation des unités de requête :
 
-| Nombre d’unités de requête | Ressources/s |
-|----------|---------------|
-| 400      | 5-10          |
-| 1 000    | 100-150       |
-| 10 000   | 225-400       |
-| 100 000  | 2 500-4 000   |
+| Nombre d’unités de requête | Ressources/s |    Stockage max. (Go)*    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1 000    | 100-150       |      100  |
+| 10 000   | 225-400       |      1 000  |
+| 100 000  | 2 500-4 000   |      10 000  |
+
+Remarque : Conformément à l’exigence de Cosmos DB, un débit minimal de 10 RU/s par Go de stockage est nécessaire. Pour plus d’informations, consultez [Quotas de service Cosmos DB](../cosmos-db/concepts-limits.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

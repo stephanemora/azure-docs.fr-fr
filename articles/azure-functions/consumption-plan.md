@@ -3,12 +3,12 @@ title: Hébergement du plan Consommation d’Azure Functions
 description: Découvrez comment l’hébergement du plan Consommation d’Azure Functions vous permet d’exécuter votre code dans un environnement qui évolue dynamiquement, mais de ne payer que les ressources utilisées pendant l’exécution.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d292a70a8dfaa4cebdb99f2bcb5420c8b8ab9cd8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937493"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760546"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Hébergement du plan Consommation d’Azure Functions
 
@@ -33,10 +33,10 @@ Lorsque vous créez une application de fonction dans le portail Azure, le plan C
 Utilisez les liens suivants pour apprendre à créer une application de fonction serverless dans un plan Consommation, soit par programmation, soit dans le portail Azure :
 
 + [Azure CLI](./scripts/functions-cli-create-serverless.md)
-+ [Azure portal](functions-create-first-azure-function.md)
++ [Azure portal](./functions-get-started.md)
 + [Modèle Azure Resource Manager](functions-create-first-function-resource-manager.md)
 
-Vous pouvez également créer des applications de fonction dans un plan Consommation lorsque vous publiez un projet Functions à partir de [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) ou [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+Vous pouvez également créer des applications de fonction dans un plan Consommation lorsque vous publiez un projet Functions à partir de [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) ou [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## <a name="multiple-apps-in-the-same-plan"></a>Plusieurs applications dans le même plan
 

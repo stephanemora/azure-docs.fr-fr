@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014533"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783799"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
 
@@ -115,6 +115,21 @@ Vous pouvez accéder aux fonctionnalités de Video Indexer de trois façons :
     Pour plus d’informations, consultez  [Incorporer des widgets Video Indexer dans vos applications](video-indexer-embed-widgets.md).
 
 Si vous utilisez le site web, les insights sont ajoutés en tant que métadonnées et sont visibles dans le portail. Si vous utilisez des API, les insights sont disponibles sous forme de fichier JSON.
+
+## <a name="supported-browsers"></a>Navigateurs pris en charge
+
+La liste suivante répertorie les navigateurs pris en charge que vous pouvez utiliser pour le site web de Video Indexer et pour vos applications qui incorporent les widgets. La liste affiche également la version minimale prise en charge du navigateur :
+
+- Edge, version : 16
+- Firefox, version : 54
+- Chrome, version : 58
+- Safari, version : 11
+- Opera, version : 44
+- Opera Mobile, version : 59
+- Navigateur Android, version : 81
+- Navigateur Samsung, version : 7
+- Chrome pour Android, version : 87
+- Firefox pour Android, version : 83
 
 ## <a name="next-steps"></a>Étapes suivantes
 

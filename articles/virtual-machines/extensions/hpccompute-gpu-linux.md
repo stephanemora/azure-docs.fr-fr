@@ -12,14 +12,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/11/2019
-ms.author: akjosh
-ms.openlocfilehash: c06d8e4ab368934182ed67b91dedb9ba9bcfc199
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 01/21/2021
+ms.author: amverma
+ms.openlocfilehash: a241086e6a590096cf40cbdb7a84838b14889f73
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965321"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678286"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -39,8 +39,8 @@ Cette extension prend en charge les distributions suivantes de système d’expl
 | Distribution | Version |
 |---|---|
 | Linux : Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux : Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7 |
-| Linux : CentOS | 7.3, 7.4, 7.5, 7.6, 7.7 |
+| Linux : Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
+| Linux : CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -86,7 +86,7 @@ Tous les paramètres sont facultatifs. Le comportement par défaut consiste à n
 | Nom | Description | Valeur par défaut | Valeurs valides | Type de données |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Mettre à jour le noyau, même si cela n’est pas requis pour l’installation du pilote | false | true, false | boolean |
-| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV : version du pilote GRID<br> NC/ND : version du kit de ressources CUDA. Les derniers pilotes pour le kit de ressources CUDA choisi sont installés automatiquement. | latest | [Afficher la liste](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) des versions du pilote prises en charge | string |
 | installCUDA | Installer le kit de ressources CUDA. S’applique uniquement aux machines virtuelles de la série NC/ND. | true | true, false | boolean |
 
 

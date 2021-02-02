@@ -3,12 +3,12 @@ title: Vue d’ensemble des coffres Recovery Services
 description: Une vue d’ensemble des coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ed37446e1ccf0780f924143c8f063964adf0004
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017319"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755124"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -22,7 +22,7 @@ Cet article décrit les fonctionnalités d’un coffre Recovery Services. Un cof
 
 - **Suppression réversible** :  Avec la suppression réversible, même si un intervenant malveillant supprime une sauvegarde (ou même si les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires à l’état « suppression réversible » n’engendre aucun frais pour vous. [Plus d’informations](backup-azure-security-feature-cloud.md)
 
-- **Restauration inter-région** :  La restauration inter-région (CRR) peut être utilisée pour restaurer des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure. Si Azure déclare un incident dans la région primaire, les données répliquées dans la région secondaire peuvent être restaurées dans la région secondaire afin d’atténuer le temps d’arrêt réel de leur environnement dans la région principale. [Plus d’informations](backup-azure-arm-restore-vms.md#cross-region-restore)
+- **Restauration inter-région** :  La restauration inter-région (CRR) peut être utilisée pour restaurer des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure. En activant cette fonctionnalité au [niveau du coffre](backup-create-rs-vault.md#set-cross-region-restore), vous pouvez restaurer les données répliquées dans la région secondaire à tout moment, quand vous le souhaitez. Cela vous permet de restaurer les données de la région secondaire pour la conformité à l’audit et, pendant les pannes, sans attendre qu’Azure déclare un incident (contrairement aux paramètres de stockage géoredondant du coffre). [Plus d’informations](backup-azure-arm-restore-vms.md#cross-region-restore)
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Paramètres de stockage dans le coffre Recovery Services
 

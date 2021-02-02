@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968872"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702217"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -185,6 +185,9 @@ Vous pouvez définir un mappage de ce type sur l’interface utilisateur de cré
 2. Sélectionnez le tableau à partir duquel vous souhaitez effectuer une itération et extraire des données. Il sera automatiquement renseigné en tant que **Référence de collection**. Notez qu’un seul un tableau est pris en charge pour une telle opération.
 
 3. Mappez les champs nécessaires au récepteur. Data Factory détermine automatiquement les chemins JSON correspondants pour le côté hiérarchique.
+
+> [!NOTE]
+> Pour les enregistrements où le tableau marqué comme référence de collection est vide alors que la case est cochée, l’enregistrement entier est ignoré.
 
 ![Mapper hiérarchiquement sous forme de tableau à l’aide de l’interface utilisateur](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b7980bfc58ed696a74d3da259e23fb7e428621a9
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028911"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791422"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -41,7 +41,7 @@ L’accès à la couche de gestion est contrôlé par le [contrôle d’accès e
 
 | Azure CLI | PowerShell | API REST | Gestionnaire de ressources | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Référence](/cli/azure/keyvault)<br>[Démarrage rapide](quick-create-cli.md)|[Référence](/powershell/module/az.keyvault)<br>[Démarrage rapide](quick-create-powershell.md)|[Référence](/rest/api/keyvault/)|[Référence](/azure/templates/microsoft.keyvault/vaults)|[Référence](/dotnet/api/microsoft.azure.management.keyvault)<br>[Démarrage rapide](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Référence](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Référence](/java/api/com.microsoft.azure.management.keyvault)|[Référence](/javascript/api/@azure/arm-keyvault)|
+|[Référence](/cli/azure/keyvault)<br>[Démarrage rapide](quick-create-cli.md)|[Référence](/powershell/module/az.keyvault)<br>[Démarrage rapide](quick-create-powershell.md)|[Référence](/rest/api/keyvault/)|[Référence](/azure/templates/microsoft.keyvault/vaults)<br>[Démarrage rapide](https://docs.microsoft.com/azure/key-vault/general/vault-create-template)|[Référence](/dotnet/api/microsoft.azure.management.keyvault)|[Référence](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Référence](/java/api/com.microsoft.azure.management.keyvault)|[Référence](/javascript/api/@azure/arm-keyvault)|
 
 Consultez les [bibliothèques clientes](client-libraries.md) pour obtenir les packages d’installation et le code source.
 
@@ -67,14 +67,14 @@ Les scénarios d’authentification ci-dessus sont pris en charge par la **bibli
 
 Pour plus d’informations sur la bibliothèque cliente d’identité Azure, consultez :
 
-### <a name="azure-identity-client-libraries"></a>Bibliothèques clientes d’identité Azure
+**Bibliothèques clientes d’identité Azure**
 
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[SDK de l’identité Azure .NET](/dotnet/api/overview/azure/identity-readme)|[SDK de l’identité Azure Python](/python/api/overview/azure/identity-readme)|[SDK de l’identité Azure Java](/java/api/overview/azure/identity-readme)|[SDK de l’identité Azure Javascript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Bibliothèque App Authentication](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) recommandée pour le Kit de développement logiciel (SDK) .NET Key Vault version 3, actuellement déconseillé. Veuillez suivre les instructions de la section [Guide de migration AppAuthentication vers Azure.Identity](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) pour migrer vers le Kit de développement logiciel (SDK) .NET Key Vault version 4.
+> [Bibliothèque App Authentication](/dotnet/api/overview/azure/service-to-service-authentication) recommandée pour le Kit de développement logiciel (SDK) .NET Key Vault version 3, actuellement déconseillé. Veuillez suivre les instructions de la section [Guide de migration AppAuthentication vers Azure.Identity](/dotnet/api/overview/azure/app-auth-migration) pour migrer vers le Kit de développement logiciel (SDK) .NET Key Vault version 4.
 
 Pour obtenir des didacticiels sur la façon de s’authentifier auprès de Key Vault dans les applications, consultez :
 - [S’authentifier auprès de Key Vault dans l’application hébergée dans la machine virtuelle .NET](./tutorial-net-virtual-machine.md)
@@ -85,22 +85,19 @@ Pour obtenir des didacticiels sur la façon de s’authentifier auprès de Key V
 
 L’accès aux clés, secrets et certificats est contrôlé par le plan de données. Le contrôle d’accès du plan de données peut être effectué à l’aide de stratégies d’accès au coffre local ou d’Azure RBAC (préversion).
 
-**API et SDK de clés**
-
+**API et kits SDK de clés**
 
 | Azure CLI | PowerShell | API REST | Gestionnaire de ressources | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Référence](/cli/azure/keyvault/key)<br>[Démarrage rapide](../keys/quick-create-cli.md)|[Référence](/powershell/module/az.keyvault/)<br>[Démarrage rapide](../keys/quick-create-powershell.md)|[Référence](/rest/api/keyvault/#key-operations)|[Référence](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Démarrage rapide](../keys/quick-create-template.md)|[Référence](/dotnet/api/azure.security.keyvault.keys)<br>[Démarrage rapide](../keys/quick-create-net.md)|[Référence](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Démarrage rapide](../keys/quick-create-python.md)|[Référence](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Démarrage rapide](../keys/quick-create-java.md)|[Référence](/javascript/api/@azure/keyvault-keys/)<br>[Démarrage rapide](../keys/quick-create-node.md)|
+|[Référence](/cli/azure/keyvault/key)<br>[Démarrage rapide](../keys/quick-create-cli.md)|[Référence](/powershell/module/az.keyvault/)<br>[Démarrage rapide](../keys/quick-create-powershell.md)|[Référence](/rest/api/keyvault/#key-operations)|[Référence](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Démarrage rapide](../keys/quick-create-template.md)|[Référence](/dotnet/api/azure.security.keyvault.keys)<br>[Démarrage rapide](../keys/quick-create-net.md)|[Référence](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Démarrage rapide](../keys/quick-create-python.md)|[Référence](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Démarrage rapide](../keys/quick-create-java.md)|[Référence](/javascript/api/@azure/keyvault-keys/)<br>[Démarrage rapide](../keys/quick-create-node.md)|
 
-**API et SDK de certificats**
-
+**API et kits SDK de certificats**
 
 | Azure CLI | PowerShell | API REST | Gestionnaire de ressources | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Référence](/cli/azure/keyvault/certificate)<br>[Démarrage rapide](../certificates/quick-create-cli.md)|[Référence](/powershell/module/az.keyvault)<br>[Démarrage rapide](../certificates/quick-create-powershell.md)|[Référence](/rest/api/keyvault/#certificate-operations)|N/A|[Référence](/dotnet/api/azure.security.keyvault.certificates)<br>[Démarrage rapide](../certificates/quick-create-net.md)|[Référence](/python/api/overview/azure/keyvault-certificates-readme)<br>[Démarrage rapide](../certificates/quick-create-python.md)|[Référence](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)<br>[Démarrage rapide](../certificates/quick-create-java.md)|[Référence](/javascript/api/@azure/keyvault-certificates/)<br>[Démarrage rapide](../certificates/quick-create-node.md)|
 
-**API et SDK de secrets**
-
+**API et kits SDK de secrets**
 
 | Azure CLI | PowerShell | API REST | Gestionnaire de ressources | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|

@@ -3,17 +3,17 @@ title: Pont IoT Plug-and-Play | Microsoft Docs
 description: Découvrez le pont IoT Plug-and-Play et comment l’utiliser pour connecter des appareils existants attachés à une passerelle Windows ou Linux en tant qu’appareils IoT Plug-and-Play.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 34af380d057ad47811e394da1e7a29198e102920
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672778"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746490"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Pont IoT Plug-and-Play
 
@@ -36,7 +36,7 @@ Le pont IoT Plug-and-Play prend en charge les types suivants de périphériques 
 |L'[adaptateur SerialPnP](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) connecte les appareils qui communiquent via une connexion série.               |Oui|Oui|
 |Les [périphériques USB Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) utilisent une liste de classes d’interfaces d’appareils prises en charge par les adaptateurs pour connecter des appareils qui ont un ID matériel spécifique.  |Oui|Non applicable|
 
-Pour savoir comment étendre le pont d’IoT Plug-and-Play afin de prendre en charge des protocoles d’appareils supplémentaires, consultez [Créer, déployer et étendre le pont d’IoT Plug-and-Play](howto-build-deploy-extend-pnp-bridge.md).
+Pour savoir comment étendre le pont IoT Plug-and-Play afin de prendre en charge des protocoles d’appareils supplémentaires, consultez [Étendre le pont IoT Plug-and-Play](howto-author-pnp-bridge-adapter.md). Pour savoir comment créer et déployer le pont IoT Plug-and-Play, consultez [Créer et déployer le pont IoT Plug-and-Play](howto-build-deploy-extend-pnp-bridge.md).
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>Architecture de pont IoT Plug-and-Play
 
@@ -148,6 +148,7 @@ Vous pouvez également télécharger et afficher le code source du [pont IoT Plu
 
 Maintenant que vous disposez d’une vue d’ensemble de l’architecture d’un pont IoT Plug-and-Play, les étapes suivantes permettent d’en savoir plus :
 
-- [Comment utiliser le pont IoT Plug-and-Play](./howto-use-iot-pnp-bridge.md)
-- [Créer, déployer et étendre un pont IoT Plug-and-Play](howto-build-deploy-extend-pnp-bridge.md)
+- [Exemple de connexion d’un pont IoT Plug-and-Play s’exécutant sur Linux ou Windows à IoT Hub](./howto-use-iot-pnp-bridge.md)
+- [Créer et déployer un pont IoT Plug-and-Play](howto-build-deploy-extend-pnp-bridge.md)
+- [Étendre un pont IoT Plug-and-Play](howto-build-deploy-extend-pnp-bridge.md)
 - [Pont IoT Plug-and-Play sur GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

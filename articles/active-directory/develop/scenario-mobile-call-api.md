@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064264"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756482"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Appeler une API web à partir d’une application mobile
 
@@ -119,7 +119,7 @@ task.resume()
 
 Si vous devez appeler la même API plusieurs fois, ou appeler plusieurs API, prenez en compte les points suivants quand vous créez votre application :
 
-- **Consentement incrémentiel** : la plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur au moment où les autorisations sont requises, et non toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues dont elle a besoin.
+- **Consentement incrémentiel** : la plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur au moment où des autorisations sont requises, plutôt que d’obtenir toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues dont elle a besoin.
 
 - **Accès conditionnel** : quand vous effectuez plusieurs requêtes vers l’API, dans certains scénarios, vous devrez remplir des exigences d’accès conditionnel supplémentaires. Les exigences peuvent être plus nombreuses si la première requête n’a aucune stratégie d’accès conditionnel et que votre application tente d’accéder en mode silencieux à une nouvelle API qui requiert un accès conditionnel. Pour gérer ce problème, veillez à intercepter les erreurs des requêtes en mode silencieux et à vous préparer à effectuer une requête interactive.  Pour plus d’informations, consultez les [conseils en matière d’accès conditionnel](../azuread-dev/conditional-access-dev-guide.md).
 

@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065386"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760900"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -35,6 +35,8 @@ Par exemple, vous pouvez :
 ## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser les fonctionnalités d'exportation de données, vous devez disposer d'une [application V3](howto-get-app-info.md) ainsi que d'une autorisation d'[exportation de données](howto-manage-users-roles.md).
+
+Si vous avez une application v2, consultez [Migrer votre application IoT Central v2 vers v3](howto-migrate.md).
 
 ## <a name="set-up-export-destination"></a>Définir la destination de l’exportation
 
@@ -94,9 +96,9 @@ En l’absence de compte de stockage Azure vers lequel exporter, suivez ces éta
 
     |Niveau de performances|Type de compte|
     |-|-|
-    |Standard|Usage général v2|
-    |Standard|Usage général v1|
-    |Standard|Stockage d'objets blob|
+    |standard|Usage général v2|
+    |standard|Usage général v1|
+    |standard|Stockage d'objets blob|
     |Premium|Stockage d’objets blob de blocs|
 
 1. Pour créer un conteneur sur votre compte de stockage, accédez à celui-ci. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.

@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240424"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881059"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Azure Private Link pour Azure Database pour PostgreSQL-Serveur unique
 
-Private Link vous permet de créer des points de terminaison privés pour Azure Database pour PostgreSQL et de placer les services Azure à l’intérieur de votre réseau virtuel privé (VNet). Le point de terminaison privé expose une adresse IP privée que vous pouvez utiliser pour vous connecter à votre serveur de base de données, comme n’importe quelle autre ressource du réseau virtuel.
+Private Link vous permet de créer des points de terminaison privés pour Azure Database pour PostgreSQL – Serveur unique pour le placer à l’intérieur de votre réseau virtuel (VNet). Le point de terminaison privé expose une adresse IP privée dans un sous-réseau que vous pouvez utiliser pour vous connecter à votre serveur de base de données, comme n’importe quelle autre ressource du VNet.
 
 Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Private Link, consultez la [documentation](../private-link/index.yml) de Private Link. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
 
@@ -113,9 +113,9 @@ Les situations et résultats suivants sont possibles lorsque vous utilisez Priva
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Refuser l’accès public pour le serveur unique Azure Database pour PostgreSQL
 
-Si vous souhaitez vous fier uniquement à des points de terminaison privés pour accéder à leur base de données Azure Database pour PostgreSQL, vous pouvez désactiver la définition de tous les points de terminaison publics ( [règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
+Si vous souhaitez vous fier uniquement à des points de terminaison privés pour accéder à leur base de données Azure Database pour PostgreSQL, vous pouvez désactiver la définition de tous les points de terminaison publics ([règles de pare-feu](concepts-firewall-rules.md) et [points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md)) en définissant la configuration **Refuser l’accès au réseau public** sur le serveur de base de données. 
 
-Lorsque ce paramètre est défini sur *OUI* , seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database pour PostgreSQL. Lorsque ce paramètre est défini sur *NON* , les clients peuvent se connecter à votre base de données Azure Database pour PostgreSQL en fonction du paramètre des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois la valeur d’accès au réseau privé définie, les clients ne peuvent ajouter et/ou mettre à jour ni des « règles de pare-feu » existantes, ni des « règles de points de terminaison du service de réseau virtuel ».
+Lorsque ce paramètre est défini sur *OUI*, seules les connexions via des points de terminaison privés sont autorisées vers votre base de données Azure Database pour PostgreSQL. Lorsque ce paramètre est défini sur *NON*, les clients peuvent se connecter à votre base de données Azure Database pour PostgreSQL en fonction du paramètre des points de terminaison de votre service de pare-feu ou de réseau virtuel. En outre, une fois la valeur d’accès au réseau privé définie, les clients ne peuvent ajouter et/ou mettre à jour ni des « règles de pare-feu » existantes, ni des « règles de points de terminaison du service de réseau virtuel ».
 
 > [!Note]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL - Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.

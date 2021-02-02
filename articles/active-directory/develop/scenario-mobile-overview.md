@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063210"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753649"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scénario : Application mobile appelant des API web
 
@@ -34,7 +34,7 @@ Si ce n’est déjà fait, créez votre première application en effectuant un d
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Une expérience utilisateur transparente et personnalisée est essentielle pour les applications mobiles.  La Plateforme d’identité Microsoft permet aux développeurs mobiles de créer cette expérience pour les utilisateurs iOS et Android. Votre application peut connecter des utilisateurs Azure Active Directory utilisateurs (Azure AD), des utilisateurs de compte Microsoft personnels et des utilisateurs Azure AD B2C. Elle peut également acquérir des jetons pour appeler une API web en leur nom. Pour implémenter ces flux, nous allons utiliser la bibliothèque d’authentification Microsoft (MSAL). MSAL implémente la norme [Flux du code d’autorisation OAuth2.0 ](v2-oauth2-auth-code-flow.md).
+Une expérience utilisateur transparente et personnalisée est essentielle pour les applications mobiles. La plateforme d’identités Microsoft permet aux développeurs d’applications mobiles de créer cette expérience pour les utilisateurs iOS et Android. Votre application peut connecter des utilisateurs Azure Active Directory utilisateurs (Azure AD), des utilisateurs de compte Microsoft personnels et des utilisateurs Azure AD B2C. Elle peut également acquérir des jetons pour appeler une API web en leur nom. Pour implémenter ces flux, nous allons utiliser la bibliothèque d’authentification Microsoft (MSAL). MSAL implémente la norme [Flux du code d’autorisation OAuth2.0 ](v2-oauth2-auth-code-flow.md).
 
 ![Applications démon](./media/scenarios/mobile-app.svg)
 

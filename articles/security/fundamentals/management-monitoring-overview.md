@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842751"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747171"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Présentation de la surveillance et de la gestion de la sécurité Azure
 Cet article présente les fonctionnalités et services de sécurité Azure qui facilitent la gestion et la surveillance des services cloud et des machines virtuelles Azure.
@@ -117,15 +117,18 @@ En savoir plus :
 
 ## <a name="security-center"></a>Security Center
 
-Azure Security Center vous aide à vous empêcher, détecter et répondre aux menaces. Il offre une visibilité et un contrôle complets sur la sécurité de vos ressources Azure. Il fournit des fonctions intégrées de surveillance de la sécurité et de gestion des stratégies sur vos abonnements Azure. Il permet de détecter les menaces qui pourraient passer inaperçues et fonctionne avec un vaste écosystème de solutions de sécurité.
+Azure Security Center vous aide à vous empêcher, détecter et répondre aux menaces. Il offre une visibilité et un contrôle complets sur la sécurité de vos ressources Azure, ainsi que celles situées dans votre environnement cloud hybride. 
+
+Security Center effectue en continu des évaluations de la sécurité de vos ressources connectées et compare leur configuration et leur déploiement au [Benchmark de sécurité Azure](../benchmarks/introduction.md) pour fournir des recommandations de sécurité détaillées adaptées à votre environnement.
 
 Security Center vous permet d’optimiser et de surveiller la sécurité de vos ressources Azure grâce aux opérations suivantes :
 
-* Vous pouvez définir des stratégies pour les ressources de votre abonnement Azure, en fonction :
-  * des besoins de sécurité de votre entreprise,
-  * du type des applications ou de la sensibilité des données dans chaque abonnement.
-* Il analyse l’état de vos machines virtuelles, de votre réseau et de vos applications Azure.
-* Il fournit une liste hiérarchisée des alertes de sécurité, notamment les alertes envoyées par les solutions partenaires intégrées. Ainsi que les informations dont vous avez besoin pour analyser rapidement une attaque, et des suggestions sur la façon d’y remédier.
+- Vous pouvez définir des stratégies pour les ressources de votre abonnement Azure, en fonction :
+    - Des besoins de sécurité de votre organisation.
+    - du type des applications ou de la sensibilité des données dans chaque abonnement.
+    - Des normes ou des benchmarks de conformité ou du secteur d’activité que vous appliquez à vos abonnements. 
+- Il analyse l’état de vos machines virtuelles, de votre réseau et de vos applications Azure.
+- Il fournit une liste hiérarchisée des alertes de sécurité, notamment les alertes envoyées par les solutions partenaires intégrées. Ainsi que les informations dont vous avez besoin pour analyser rapidement une attaque, et des suggestions sur la façon d’y remédier.
 
 En savoir plus :
 

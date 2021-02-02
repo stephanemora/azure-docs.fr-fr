@@ -1,6 +1,6 @@
 ---
-title: Échantillonner des données dans le stockage d’objets blob Azure - Processus TDSP (Team Data Science Process)
-description: Échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
+title: Échantillonner des données dans Stockage Blob Azure – Processus TDSP (Team Data Science Process)
+description: Échantillonnage des données stockées dans Stockage Blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites en Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321905"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788839"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Échantillonner des données dans le stockage d’objets blob Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Échantillonner des données dans Stockage Blob Azure
 
-Cet article traite de l’échantillonnage des données conservées dans le stockage d’objets blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites dans Python.
+Cet article traite de l’échantillonnage des données stockées dans Stockage Blob Azure par le biais du téléchargement de ces données par programmation, puis de leur échantillonnage à l’aide de procédures écrites en Python.
 
 **Pourquoi échantillonner vos données ?**
 Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension des données, l’exploration ainsi que l’ingénierie de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
@@ -28,7 +28,7 @@ Si vous prévoyez d’analyser un jeu de données volumineux, il est généralem
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Télécharger et sous-échantillonner les données
-1. Téléchargez les données du stockage d’objets blob Azure à l’aide du service BLOB en utilisant l’exemple de code Python suivant : 
+1. Téléchargez les données à partir de Stockage Blob Azure à l’aide du service BLOB en utilisant l’exemple de code Python suivant : 
 
     ```python
     from azure.storage.blob import BlobService

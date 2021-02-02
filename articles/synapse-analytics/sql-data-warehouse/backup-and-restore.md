@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120204"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736303"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Sauvegarde et restauration dans un pool SQL dédié Azure Synapse
 
@@ -71,8 +71,16 @@ Quand vous supprimez un pool SQL dédié, une capture instantanée finale est c
 
 Une géosauvegarde est créée une fois par jour dans un [centre de données associé](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Le RPO pour une géo-restauration est de 24 heures. Vous pouvez restaurer la géosauvegarde sur un serveur dans n’importe quelle autre région où le pool SQL dédié est pris en charge. Une géosauvegarde vous garantit de pouvoir restaurer un entrepôt de données dans le cas où vous ne pouvez pas accéder aux points de restauration de votre région primaire.
 
+Si vous n’avez pas besoin de géosauvegardes pour votre pool SQL dédié, vous pouvez les désactiver et économiser sur les coûts de stockage de la récupération d’urgence. Pour ce faire, reportez-vous à [Guide pratique : Désactiver les géosauvegardes pour un pool SQL dédié (anciennement SQL DW)](disable-geo-backup.md). Notez que si vous désactivez les géosauvegardes, vous ne pourrez pas récupérer votre pool SQL dédié dans votre région Azure associée si votre centre de données Azure principal n’est pas disponible. 
+
 > [!NOTE]
 > Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
+
+## <a name="data-residency"></a>Résidence des données 
+
+Si votre centre de données associé est situé en dehors de votre limite géographique, vous pouvez vous assurer que vos données restent dans la limite géographique en refusant le stockage géoredondant. Cette opération peut être effectuée lors de la configuration de votre pool SQL dédié (anciennement SQL DW) via l’option de stockage géoredondant au moment de la création ou de la restauration d’un pool SQL dédié. 
+
+Pour confirmer que votre centre de données associé se trouve dans un autre pays, reportez-vous à [Régions jumelées Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="backup-and-restore-costs"></a>Coûts de sauvegarde et de restauration
 
@@ -88,7 +96,7 @@ Pour plus d’informations sur la tarification Azure Synapse, consultez [Tarific
 
 Chaque capture instantanée crée un point de restauration qui représente son heure de début. Pour restaurer un entrepôt de données, choisissez un point de restauration et émettez une commande de restauration.  
 
-Vous pouvez conserver les entrepôts de données restauré et actuel ou les supprimer tous les deux. Si vous voulez remplacer l’entrepôt de données actuel par l’entrepôt de données restauré, vous pouvez le renommer à l’aide d’[ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) avec l’option MODIFY NAME.
+Vous pouvez conserver les entrepôts de données restauré et actuel ou les supprimer tous les deux. Si vous voulez remplacer l’entrepôt de données actuel par l’entrepôt de données restauré, vous pouvez le renommer à l’aide d’[ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) avec l’option MODIFY NAME.
 
 Pour restaurer un entrepôt de données, consultez [Restaurer un pool SQL dédié](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 

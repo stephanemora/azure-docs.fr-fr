@@ -1,5 +1,6 @@
 ---
-title: Configurer des applications de bureau appelant des API web - Plateforme d’identités Microsoft | Azure
+title: Configurer des applications de bureau appelant des API web | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrir comment configurer le code d’une application de bureau qui appelle des API web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27c9f2ab8b02c96d016fea66acd2b3840d79d09d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b74c817a974378a7fefc71e4eed67e6564765be
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444121"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756562"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Application de bureau qui appelle des API web : Configuration de code
 

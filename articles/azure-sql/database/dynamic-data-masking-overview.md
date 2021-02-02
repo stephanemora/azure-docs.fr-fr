@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532242"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787686"
 ---
 # <a name="dynamic-data-masking"></a>Masquage dynamique des données 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,15 +26,11 @@ Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics prenne
 
 Le masquage dynamique des données permet d’empêcher les accès non autorisés à des données sensibles. Pour cela, les clients peuvent indiquer la quantité de données sensibles à exposer avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
 
-Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur numéro de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au conseiller du service. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de carte de crédit dans l’ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les données personnelles, de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
+Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur adresse e-mail, mais ces éléments de données ne doivent pas être divulgués entièrement au représentant du service. Une règle de masquage peut être définie pour masquer l’intégralité de l’adresse e-mail dans le jeu de résultats de toute requête. Autre exemple, un masque de données approprié peut être défini pour protéger les données personnelles, de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
 
 ## <a name="dynamic-data-masking-basics"></a>Principes de base du masquage des données dynamiques
 
 Pour définir une stratégie de masquage de données dynamiques sur le portail Azure, sélectionnez le panneau **Dynamic Data Masking** sous **Sécurité** dans votre volet de configuration SQL Database. Cette fonctionnalité ne peut pas être définie à l'aide de SQL Managed Instance (utilisez PowerShell ou l'API REST). Pour plus d’informations, consultez [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
-
-### <a name="dynamic-data-masking-permissions"></a>Autorisations du masquage des données dynamiques
-
-Le masquage des données dynamiques peut être configuré par les rôles d’administrateur, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) Azure SQL Database.
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
 
@@ -83,3 +79,11 @@ Vous pouvez utiliser l’API REST pour gérer par programme les règles et strat
 
 - [Créer ou mettre à jour](/rest/api/sql/datamaskingrules/createorupdate) : Crée ou met à jour une règle de masquage des données de la base de données.
 - [Liste par base de données](/rest/api/sql/datamaskingrules/listbydatabase) : Fournit une liste des règles de masquage des données de la base de données.
+
+## <a name="permissions"></a>Autorisations
+
+Le masquage des données dynamiques peut être configuré par l’administrateur Azure SQL Database, l’administrateur du serveur ou le rôle [Gestionnaire de la sécurité SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) du contrôle d’accès en fonction du rôle (RBAC).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Dynamic Data Masking (masquage des données dynamiques)](/sql/relational-databases/security/dynamic-data-masking)

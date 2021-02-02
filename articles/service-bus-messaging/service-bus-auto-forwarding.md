@@ -2,18 +2,21 @@
 title: Transfert automatique d’entités de messagerie Azure Service Bus
 description: Cet article explique comment chaîner une file d’attente ou un abonnement Service Bus à une autre file d’attente ou rubrique.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f5f93f65871c0b9658a75264ab959dbae7fefe7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 80bef52d568130fa800a1da661f4867abb3df02c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819578"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678986"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 
 La fonctionnalité de *transfert automatique* de Service Bus vous permet de chaîner une file d’attente ou un abonnement à une autre file d’attente ou rubrique qui fait partie du même espace de noms. Quand le transfert automatique est activé, Service Bus supprime automatiquement les messages placés dans la première file d’attente ou le premier abonnement (source) pour les placer dans la deuxième file d’attente ou rubrique (destination). Il est toujours possible d’envoyer un message directement à l’entité de destination.
+
+> [!NOTE]
+> Le niveau de base de Service Bus ne prend pas en charge la fonctionnalité de transfert automatique. Les niveaux Standard et Premium prennent en charge la fonctionnalité. Pour connaître les différences entre ces niveaux, voir [Tarification de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="using-autoforwarding"></a>Utilisation du transfert automatique
 

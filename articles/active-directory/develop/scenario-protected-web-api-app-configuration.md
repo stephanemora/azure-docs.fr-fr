@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063193"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753579"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protégée : Configuration de code
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Une application cliente demande le jeton du porteur au point de terminaison de la plateforme d’identités Microsoft *pour l’API web*. L’API web est la seule application qui doive vérifier le jeton et afficher les revendications qu’il contient. Les applications clientes ne doivent jamais tenter d’inspecter les revendications contenues dans les jetons
+> Une application cliente demande le jeton du porteur à la plateforme d’identités Microsoft *pour l’API web*. L’API web est la seule application qui doive vérifier le jeton et afficher les revendications qu’il contient. Les applications clientes ne doivent jamais tenter d’inspecter les revendications contenues dans les jetons
 >
 > À l’avenir, l’API web pourrait exiger que le jeton soit chiffré. Cette exigence empêcherait l’accès des applications clientes capables d’afficher les jetons d’accès.
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Actuellement, les modèles ASP.NET Core créent des API web Azure Active Directory (Azure AD) qui connectent des utilisateurs de votre organisation ou d’une autre organisation. Elles ne connectent pas d’utilisateurs à l’aide de comptes personnels. Toutefois, vous pouvez modifier les modèles permettant d’utiliser le point de terminaison de la plateforme d’identités Microsoft en utilisant [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) pour remplacer le code dans *Startup.cs* :
+ Actuellement, les modèles ASP.NET Core créent des API web Azure Active Directory (Azure AD) qui connectent des utilisateurs de votre organisation ou d’une autre organisation. Elles ne connectent pas d’utilisateurs à l’aide de comptes personnels. Toutefois, vous pouvez modifier les modèles afin d’utiliser la plateforme d’identités Microsoft en utilisant [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) pour remplacer le code dans *Startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` dans tous les autres cas (pour les [jetons d’accès](access-tokens.md) v1.0).
 > Pour plus d’informations, consultez le [code source](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83) de Microsoft.Identity.Web.
 
-L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftIdentityWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](microsoft-identity-web.md). Cette méthode appelle [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true), qui indique à l’intergiciel comment valider le jeton.
+L’extrait de code précédent est extrait du [didacticiel incrémentiel de l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Les détails relatifs à **AddMicrosoftIdentityWebApiAuthentication** sont disponibles dans [Microsoft.Identity.Web](microsoft-identity-web.md). Cette méthode appelle [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), qui indique à l’intergiciel comment valider le jeton.
 
 ## <a name="token-validation"></a>Validation du jeton
 

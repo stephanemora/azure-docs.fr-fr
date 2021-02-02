@@ -1,23 +1,24 @@
 ---
-title: Prise en main des services cloud Azure et Python | Microsoft Docs
+title: Bien démarrer avec Python et Azure Cloud Services (classique) | Microsoft Docs
 description: Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079239"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743285"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Rôles Web et rôles de travail Python avec Python Tools pour Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][Python Tools for Visual Studio]. Apprenez à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
@@ -32,12 +33,12 @@ Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et d
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Présentation des rôles web et de travail Python
-Azure propose trois modèles de calcul pour l’exécution des applications : [Fonctionnalité Web Apps dans Azure App Service][execution model-web sites], [Machines virtuelles Azure][execution model-vms] et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Azure Cloud Services, qui inclut les rôles Web et de travail, fournit la fonctionnalité *PaaS (Platform as a Service)* . Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment de l’interaction ou de la saisie de l’utilisateur.
+Azure propose trois modèles de calcul pour l’exécution d’applications : [fonctionnalité Web Apps dans Azure App Service][execution model-web sites], [Machines Virtuelles Azure][execution model-vms] et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Azure Cloud Services, qui inclut les rôles Web et de travail, fournit la fonctionnalité *PaaS (Platform as a Service)*. Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment de l’interaction ou de la saisie de l’utilisateur.
 
 Pour en savoir plus, voir [Présentation d’un service Cloud].
 
 > [!NOTE]
-> *Vous voulez créer un simple site web ?*
+> *Vous voulez créer un simple site Web ?*
 > Si votre scénario ne comporte qu'un simple composant frontal web, envisagez d'utiliser la fonctionnalité Web Apps légère dans Azure App Service. Vous pouvez facilement passer à un service cloud en fonction de l'évolution de votre site et de vos besoins. Consultez le [Centre de développement Python](https://azure.microsoft.com/develop/python/) pour découvrir des articles consacrés au développement de la fonctionnalité Web Apps dans Azure App Service.
 > <br />
 > 
@@ -324,7 +325,7 @@ La progression s'affiche alors dans la fenêtre Sortie, puis vous verrez la fen�
 Le déploiement prend plusieurs minutes. Ensuite, vos rôles web et/ou de travail sont exécutés sur Azure !
 
 ### <a name="investigate-logs"></a>Examiner les journaux d’activité
-Une fois que la machine virtuelle du service cloud a démarré et installé Python, vous pouvez examiner les journaux d’activité pour y rechercher d’éventuels messages d’échec. Ces journaux d’activité sont stockés dans le dossier **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** contient au moins une erreur à partir du moment ou le script tente de détecter l’installation de Python. Il est possible que**PipInstaller.err.txt** signale l’existence d’une version obsolète de pip.
+Une fois que la machine virtuelle du service cloud a démarré et installé Python, vous pouvez examiner les journaux d’activité pour y rechercher d’éventuels messages d’échec. Ces journaux d’activité sont stockés dans le dossier **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** contient au moins une erreur à partir du moment ou le script tente de détecter l’installation de Python. Il est possible que **PipInstaller.err.txt** signale l’existence d’une version obsolète de pip.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur l'utilisation des rôles web et de travail dans les outils Python pour Visual Studio, consultez la documentation PTVS :

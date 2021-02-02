@@ -1,23 +1,24 @@
 ---
 title: Guide de mise en route Node.js
 description: Apprenez à créer une application web Node.js simple et à la déployer vers un service cloud Azure.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: nodejs
-ms.topic: conceptual
-ms.date: 08/17/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 86bc968c922bcfb90da9ae2babd456ce4db81cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327474"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741619"
 ---
-# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
+# <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Créer et déployer une application Node.js dans Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Ce didacticiel explique comment créer une application Node.js simple s’exécutant dans Azure Cloud Services. Les services Cloud Services sont des composantes des applications cloud extensibles dans Azure. Ils permettent de séparer, de gérer et d'étendre de façon indépendante le composant frontal et le composant principal de votre application.  Cloud Services héberge de façon fiable chaque rôle sur une machine virtuelle dédiée.
 
@@ -59,7 +60,7 @@ Effectuez les tâches suivantes pour créer un projet Azure Cloud Services, avec
    L’applet de commande crée les fichiers suivants :
 
    * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** et **ServiceDefinition.csdef** sont des fichiers propres à Azure, nécessaires à la publication de votre application. Pour plus d'informations, consultez la page [Présentation de la création d'un service hébergé pour Azure].
-   * **deploymentSettings.json**stocke les paramètres locaux utilisés par les cmdlets de déploiement Azure PowerShell.
+   * **deploymentSettings.json** stocke les paramètres locaux utilisés par les cmdlets de déploiement Azure PowerShell.
 
 4. Entrez la commande suivante pour ajouter un nouveau rôle Web :
 

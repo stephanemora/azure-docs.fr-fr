@@ -8,17 +8,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c6b25fd3615fa76bc76e6d360f4c76a21a9ad02
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97917949"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872658"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Découvrir, connecter et explorer des données dans Synapse en utilisant Azure Purview 
-
-> [!IMPORTANT]
-> L’intégration entre Azure Synapse Analytics et Azure Purview est actuellement en préversion. Si vous voulez essayer Azure Purview dans Synapse, contactez votre représentant commercial Microsoft. 
 
 Dans ce document, vous apprendrez le type d’interactions que vous pouvez effectuer lors de l’inscription d’un compte Azure Purview auprès de Synapse. 
 
@@ -35,6 +32,8 @@ Pour utiliser Azure Purview dans Synapse, vous devez avoir accès à ce compte P
 ### <a name="data-discovery-search-datasets"></a>Découverte de données : rechercher dans les jeux de données 
 
 Pour découvrir les données enregistrées et analysées par Azure Purview, vous pouvez utiliser la barre de recherche en haut au centre de l’espace de travail de Synapse. Veillez à sélectionner Azure Purview pour rechercher toutes les données de votre organisation. 
+
+[![Rechercher des ressources Azure Purview](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## <a name="azure-purview-actions"></a>Actions Azure Purview 
 

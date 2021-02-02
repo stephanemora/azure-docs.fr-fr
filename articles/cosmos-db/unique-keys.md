@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353100"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685718"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Les clés uniques renforcent l’intégrité des données dans un conteneur Azur
 
 Une fois qu’un conteneur a été généré avec une stratégie de clé unique, la création ou la mise à jour d’un élément engendrant un doublon au sein d’une partition logique sont impossibles, conformément à la contrainte de clé unique. La combinaison clé de partition-clé unique garantit l'unicité d'un élément à l’échelle d'un conteneur.
 
-Prenons l'exemple d'un conteneur Azure Cosmos dont la contrainte de clé unique porte sur l’adresse e-mail et la clé de partition correspond à `CompanyID`. Dès lors que l'adresse e-mail de l'utilisateur est configurée avec une clé unique, chaque élément possède une adresse e-mail unique dans un `CompanyID` donné. Il est impossible de créer deux éléments avec des adresses e-mail en double et avec la même valeur de clé de partition. Dans l’API SQL (Core) d’Azure Cosmos DB, les éléments sont stockés sous forme de valeurs JSON. Ces valeurs JSON respectent la casse. Lorsque vous choisissez une propriété comme clé unique, vous pouvez insérer des valeurs respectant la casse pour cette propriété. Par exemple, si vous avez une clé unique définie sur la propriété du nom, « Gaby » est différent de « gaby » et vous pouvez insérer les deux dans le conteneur.
+Prenons l’exemple d’un conteneur Azure Cosmos dont la contrainte de clé unique porte sur `Email address` et la clé de partition correspond à `CompanyID`. Dès lors que l'adresse e-mail de l'utilisateur est configurée avec une clé unique, chaque élément possède une adresse e-mail unique dans un `CompanyID` donné. Il est impossible de créer deux éléments avec des adresses e-mail en double et avec la même valeur de clé de partition. Dans l’API SQL (Core) d’Azure Cosmos DB, les éléments sont stockés sous forme de valeurs JSON. Ces valeurs JSON respectent la casse. Lorsque vous choisissez une propriété comme clé unique, vous pouvez insérer des valeurs respectant la casse pour cette propriété. Par exemple, si vous avez une clé unique définie sur la propriété du nom, « Gaby » est différent de « gaby » et vous pouvez insérer les deux dans le conteneur.
 
 Pour créer des éléments comportant la même adresse e-mail, mais un prénom, un nom et une adresse e-mail différents, ajoutez d’autres chemins d’accès à la stratégie de clé unique. Au lieu de créer une clé unique basée uniquement sur l’adresse e-mail, vous pouvez en créer une qui combine à la fois le prénom, le nom et l’adresse e-mail. Cette clé est appelée clé unique composite. Dans ce cas, chaque combinaison unique des trois valeurs est autorisée dans un `CompanyID` donné. 
 

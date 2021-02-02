@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734111"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787618"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -101,14 +101,17 @@ Vous pouvez sélectionner la base de données renommée et configurer la protect
 Une base de données que vous [ajoutez à une instance protégée automatiquement](backup-sql-server-database-azure-vms.md#enable-auto-protection) n’apparaît pas immédiatement sous les éléments protégés. C’est parce que la découverte s’exécute généralement toutes les 8 heures. Cela étant, pour détecter et protéger les nouvelles bases de données immédiatement, vous pouvez exécuter manuellement une détection en sélectionnant **Redécouvrir les bases de données**, comme l’illustre l’image suivante :
 
   ![Détecter manuellement une base de données qui vient d'être ajoutée](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## <a name="can-i-protect-databases-on-virtual-machines-that-have-azure-disk-encryption-ade-enabled"></a>Puis-je protéger des bases de données sur des machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé ?
+Oui, vous pouvez protéger les bases de données sur les machines virtuelles sur lesquelles Azure Disk Encryption (ADE) est activé.
+
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Puis-je protéger les bases de données pour lesquelles l’option TDE (Transparent Data Encryption) est activée, et les base de données resteront-elles chiffrées tout au long du processus de sauvegarde ?
 
 Oui. Le service Sauvegarde Azure prend en charge la sauvegarde de bases de données SQL Server ou de serveur avec le chiffrement TDE activé. La sauvegarde prend en charge le chiffrement [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) avec des clés gérées par Azure, ou avec des clés gérées par le client (BYOK).  Le processus de sauvegarde n’effectuant pas de chiffrement SQL, la base de données reste chiffrée lors de la sauvegarde.
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Le service Sauvegarde Azure effectue-t-il une opération de somme de contrôle sur le flux de données ?
 
-Nous effectuons une opération de somme de contrôle sur le flux de données. Toutefois, cette opération ne doit pas être confondue avec une [somme de contrôle SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Nous effectuons une opération de somme de contrôle sur le flux de données. Toutefois, cette opération ne doit pas être confondue avec une [somme de contrôle SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 La sauvegarde de la charge de travail Azure calcule la somme de contrôle sur le flux de données et la stocke explicitement au cours de l’opération de sauvegarde. Ce flux de somme de contrôle est ensuite pris comme référence et vérifié avec la somme de contrôle du flux de données pendant l’opération de restauration pour s’assurer que les données sont cohérentes.
 
 ## <a name="next-steps"></a>Étapes suivantes

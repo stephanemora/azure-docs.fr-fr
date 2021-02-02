@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249727"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702783"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimer et gérer la capacité d’un service Recherche cognitive Azure
 
 Avant de [provisionner un service de recherche](search-create-service-portal.md) et de choisir un niveau tarifaire particulier, prenez quelques minutes pour bien comprendre le fonctionnement de la capacité et comment vous pouvez ajuster la capacité des réplicas et des partitions pour s’adapter à la fluctuation des charges de travail.
 
-La capacité est une fonction du [niveau de service](search-sku-tier.md). Les niveaux se différencient par le stockage maximal, le stockage par partition et les limites maximales du nombre d’objets que vous pouvez créer. Le niveau De base est conçu pour les applications qui ont des exigences de stockage modestes (une partition uniquement), mais avec la possibilité de s’exécuter dans une configuration à haute disponibilité (trois réplicas). D’autres niveaux sont conçus pour des charges de travail ou des modèles spécifiques, tels que l’architecture mutualisée. En interne, les services créés sur ces niveaux bénéficient d’un matériel qui facilite ces scénarios.
+La capacité est une fonction du [niveau de service](search-sku-tier.md), qui permet d’établir un stockage maximal par service, par partition, ainsi que les limites maximales du nombre d’objets que vous pouvez créer. Le niveau De base est conçu pour les applications qui ont des exigences de stockage modestes (une partition uniquement), mais avec la possibilité de s’exécuter dans une configuration à haute disponibilité (trois réplicas). D’autres niveaux sont conçus pour des charges de travail ou des modèles spécifiques, tels que l’architecture mutualisée. En interne, les services créés sur ces niveaux bénéficient d’un matériel qui facilite ces scénarios.
 
 L’architecture de scalabilité dans Recherche cognitive Azure est basée sur des combinaisons flexibles de réplicas et de partitions afin que vous puissiez faire varier la capacité selon que vous avez besoin d’une plus grande puissance d’interrogation ou d’indexation. Lorsqu’un service est créé, vous pouvez augmenter ou diminuer le nombre de réplicas ou de partitions de manière indépendante. Les coûts augmenteront avec chaque ressource physique ajoutée, mais une fois les charges de travail importantes terminées, vous pouvez réduire la taille de votre infrastructure pour faire baisser votre facture. Selon le niveau et la taille de l’ajustement, le processus d’ajout ou de réduction de capacité peut prendre de 15 minutes à plusieurs heures.
 

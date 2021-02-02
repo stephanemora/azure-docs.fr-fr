@@ -1,20 +1,25 @@
 ---
 title: Resource Health pour Azure Cloud Services (classique)
 description: Cet article traite de la prise en charge de Resource Health Check (RHC) pour Microsoft Azure Cloud Services (classique).
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072711"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743506"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Prise en charge de Resource Health Check (RHC) pour Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Cet article traite de la prise en charge de Resource Health Check (RHC) pour [Microsoft Azure Cloud Services (classique)](https://azure.microsoft.com/services/cloud-services).
 
 [Azure Resource Health](../service-health/resource-health-overview.md) pour les services cloud vous aide à diagnostiquer et à obtenir de l’aide pour les problèmes de service qui ont un impact sur votre déploiement, vos rôles et vos instances de rôle Azure Cloud Services. La fonctionnalité rend compte de l’intégrité actuelle et passée de vos services cloud aux niveaux Déploiement, Rôle et Instance de rôle.

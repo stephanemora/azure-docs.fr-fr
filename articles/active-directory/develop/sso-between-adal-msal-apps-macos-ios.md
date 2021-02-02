@@ -1,6 +1,7 @@
 ---
-title: Authentification unique entre les applications ADAL et MSAL (iOS/macOS ) - Plateforme des identités Microsoft | Azure
-description: ''
+title: Authentification unique entre les applications ADAL et MSAL (iOS/macOS) | Azure
+titleSuffix: Microsoft identity platform
+description: Découvrez comment partager l’authentification unique entre les applications ADAL et MSAL.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 7a8a1667ba1ca2a99c053c6941e3ba778299fd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80880748"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756197"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Procédure : Authentification unique entre les applications ADAL et MSAL sur macOS et iOS
 

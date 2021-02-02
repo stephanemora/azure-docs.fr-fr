@@ -3,16 +3,16 @@ title: Syntaxe de filtre SQL pour les règles d’abonnement Azure Service Bus |
 description: Cet article fournit des détails sur la grammaire du filtre SQL. Un filtre SQL prend en charge un sous-ensemble de la norme SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 9bff18b2161e419d728c360c9ed950ac2867fea8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498674"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742979"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Syntaxe de filtre SQL pour les règles d’abonnement
 
-Un *filtre SQL* est l’un des types de filtres disponibles pour les abonnements aux rubriques Service Bus. Il s’agit d’une expression textuelle qui s’appuie sur un sous-ensemble de la norme SQL-92. Les expressions de filtre sont utilisées avec l’élément `sqlExpression` de la propriété « sqlFilter » d’un objet `Rule` Service Bus dans un [modèle Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), avec l’argument [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) de la commande Azure CLI `az servicebus topic subscription rule create` et avec plusieurs fonctions de Kit de développement logiciel (SDK) qui autorisent la gestion des règles d’abonnement.
+Un *filtre SQL* est l’un des types de filtres disponibles pour les abonnements aux rubriques Service Bus. Il s’agit d’une expression textuelle qui s’appuie sur un sous-ensemble de la norme SQL-92. Les expressions de filtre sont utilisées avec l’élément `sqlExpression` de la propriété « sqlFilter » d’un objet `Rule` Service Bus dans un [modèle Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), avec l’argument [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) de la commande Azure CLI `az servicebus topic subscription rule create` et avec plusieurs fonctions de Kit de développement logiciel (SDK) qui autorisent la gestion des règles d’abonnement.
 
 Service Bus Premium prend également en charge la [syntaxe du sélecteur de messages SQL JMS](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) via l’API JMS 2.0.
 
@@ -270,56 +270,7 @@ Tenez compte de la sémantique [SqlFilter](/dotnet/api/microsoft.servicebus.mess
 -   Les opérateurs arithmétiques, tels que `+`, `-`, `*`, `/`, et `%` suivent la même sémantique que la liaison d’opérateur C# dans les promotions de type de données et les conversions implicites.
 
 
-## <a name="examples"></a>Exemples
-
-### <a name="set-rule-action-for-a-sql-filter"></a>Définir l’action de la règle pour un filtre SQL
-
-```csharp
-// instantiate the ManagementClient
-this.mgmtClient = new ManagementClient(connectionString);
-
-// create the SQL filter
-var sqlFilter = new SqlFilter("source = @stringParam");
-
-// assign value for the parameter
-sqlFilter.Parameters.Add("@stringParam", "orders");
-
-// instantiate the Rule = Filter + Action
-var filterActionRule = new RuleDescription
-{
-    Name = "filterActionRule",
-    Filter = sqlFilter,
-    Action = new SqlRuleAction("SET source='routedOrders'")
-};
-
-// create the rule on Service Bus
-await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
-```
-
-### <a name="sql-filter-on-a-system-property"></a>Filtre SQL sur une propriété système
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### <a name="using-or"></a>Utilisation de la clause OR 
-
-```csharp
- sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### <a name="using-in-and-not-in"></a>Utilisation des clauses IN et NOT IN
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-Pour un exemple C#, consultez [Exemple de filtres de rubrique sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -327,5 +278,5 @@ Pour un exemple C#, consultez [Exemple de filtres de rubrique sur GitHub](https:
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [Classe SqlFilter (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
-- [az servicebus topic subscription rule](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

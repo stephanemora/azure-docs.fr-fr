@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126850"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876391"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -43,7 +43,8 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 | État de sortie :                  | Disponibilité générale (GA)                                                                                                                                                                                                                                                                                      |
 | Prix :                        | Nécessite [Azure Defender pour les serveurs](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Plateformes prises en charge :            | Machines Azure exécutant Windows<br>Machines Azure Arc exécutant Windows|
-| Versions de Windows prises en charge :  |  • Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • Supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC<br> • Aucune prise en charge de Windows Server 2019, Windows 10 1703 (et versions ultérieures) ou Linux|
+| Versions de Windows prises en charge :  |  • Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • Supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC|
+| Systèmes d’exploitation non pris en charge :  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
 | Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**|
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov<br>![Non](./media/icons/no-icon.png) Clients Cloud de la communauté du secteur public exécutant des charges de travail dans des clouds Azure mondiaux                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -61,7 +62,7 @@ Microsoft Defender for Endpoint fournit les éléments suivants :
 
 En intégrant Defender for Endpoint à Security Center, vous bénéficierez des capacités supplémentaires suivantes :
 
-- **Intégration automatisée**. Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center. Sauf pour ceux qui exécutent Windows Server 2019, et qui doivent être intégrés via un script local, un objet stratégie de groupe (GPO) ou [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (anciennement SCCM).
+- **Intégration automatisée**. Security Center active automatiquement le capteur Microsoft Defender for Endpoint pour tous les serveurs Windows supervisés par Security Center. Sauf pour ceux qui exécutent Windows Server 2019, et qui doivent être intégrés via un script local, un objet stratégie de groupe (GPO) ou [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (anciennement SCCM).
 
 - **Volet unique**. La console Security Center affiche des alertes Microsoft Defender for Endpoint. Pour approfondir vos recherches, utilisez les pages du portail de Microsoft Defender for Endpoint, où vous verrez des informations supplémentaires telles que l’arborescence du processus d’alerte et le graphique d’incident. Vous pouvez également voir une chronologie détaillée de la machine, qui indique tous les comportements pour un historique pouvant s’étendre sur six mois.
 
@@ -105,7 +106,7 @@ Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifi
 Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
 
 1. Créez un dossier « C:\test-MDATP-test ».
-1. Utilisez le Bureau à distance pour accéder à une machine virtuelle Windows Server 2012 R2 ou à une machine virtuelle Windows Server 2016.
+1. Utilisez Bureau à distance pour accéder à votre ordinateur.
 1. Ouvrez une fenêtre de ligne de commande.
 1. A l'invite, copiez et exécutez la commande suivante. La fenêtre d’invite de commandes se ferme automatiquement.
 
@@ -118,6 +119,8 @@ Pour générer une alerte de test Microsoft Defender for Endpoint inoffensive :
 1. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande PowerShell suspecte**.
 1. Dans la fenêtre d’enquête, sélectionnez le lien d’accès au portail Microsoft Defender for Endpoint.
 
+    > [!TIP]
+    > L’alerte est déclenchée avec la gravité **Informations**.
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>FAQ relative à la solution Microsoft Defender for Endpoint intégrée de Security Center
 

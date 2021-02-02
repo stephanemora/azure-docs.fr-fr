@@ -1,46 +1,49 @@
 ---
-title: Versions de cluster prises en charge dans Azure Service Fabric
+title: Mettre à niveau la version de votre cluster Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234339"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881548"
 ---
-# <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
+# <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Mettre à niveau la version de votre cluster Azure Service Fabric
 
 Assurez-vous que votre cluster exécute toujours une version prise en charge d’Azure Service Fabric. La prise en charge de la version précédente se termine sous 60 jours après que nous annonçons le lancement d’une nouvelle version d’Azure Service Fabric. Les nouvelles versions sont annoncées sur le [blog de l’équipe Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
 
-Pour une version donnée du runtime Service Fabric, vous pouvez utiliser les versions spécifiées ou anciennes des packages SDK/NuGet. Les versions plus récentes des packages ne sont pas prises en charge et peuvent avoir des difficultés à cibler les clusters plus anciens, car elles peuvent comporter des modifications de fonctionnalité ou de protocole non prises en charge par ces environnements.
+Pour chaque version du runtime de Service Fabric, vous pouvez utiliser les versions spécifiées ou antérieures des packages SDK/NuGet. Les versions plus récentes des packages peuvent ne pas être en mesure de cibler les clusters plus anciens. Les clusters plus anciens peuvent avoir des modifications de fonctionnalités ou de protocoles que les environnements de package plus récents ne prennent pas en charge.
 
-Consultez les documents suivants pour savoir plus en détail comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric :
+Consultez les articles suivants pour savoir plus en détail comment faire en sorte que votre cluster exécute toujours une version prise en charge de Service Fabric :
 
 - [Mettre à niveau un cluster Azure Service Fabric](service-fabric-cluster-upgrade.md)
 - [Mettre à niveau la version de Service Fabric qui s’exécute sur votre cluster Windows Server autonome](service-fabric-cluster-upgrade-windows-server.md)
 
-
 ## <a name="unsupported-versions"></a>Versions non prises en charge
 
-### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Alerte de mise à niveau pour les versions entre 5.7 et 6.3.63.*
-Pour améliorer la sécurité et la disponibilité, l’infrastructure Azure apporte une modification susceptible d’affecter les clients Service Fabric. **Tous les clusters Service Fabric qui se trouvent sur les versions non prises en charge de 5.7 à 6.3 sont concernés**. L’adressage de la modification nécessite une mise à jour du runtime Service Fabric, qui est déjà disponible pour toutes les versions de Service Fabric prises en charge dans l’ensemble des régions.
+### <a name="upgrade-alert-for-versions-between-57-and-6363"></a>Alerte de mise à niveau pour les versions entre 5.7 et 6.3.63.*
 
-Nous vous invitons à effectuer une mise à niveau vers les dernières versions prises en charge à la date du **19 janvier 2021** pour éviter les interruptions de service. Si vous disposez d’un plan de support et avez besoin d’une aide technique, veuillez nous contacter via les canaux de support Azure en formulant une demande de support pour Azure Service Fabric et en mentionnant ce contexte dans le ticket de support.
+Pour améliorer la sécurité et la disponibilité, l’infrastructure Azure a apporté une modification susceptible d’avoir un impact sur les clients de Service Fabric. Cette modification concerne tous les clusters Service Fabric exécutant les versions 5.7 à 6.3.
 
-#### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impact en cas de non mise à niveau vers les versions prises en charge
+Une mise à jour du runtime Service Fabric est disponible pour toutes les versions de Service Fabric prises en charge dans l’ensemble des régions. Effectuez une mise à niveau vers l’une des versions les plus récentes prises en charge d’ici le 19 janvier 2021 pour éviter les interruptions de service.
 
-**Les clusters Azure Service Fabric s’exécutant sur des versions non prises en charge (5.7 à 6.3.63) \* ne seront pas disponibles** si vous n’avez pas effectué de mise à niveau vers l’une des versions prises en charge à la date du 19 janvier 2021.
+Si vous disposez d’un plan de support et que vous avez besoin d’une aide technique, contactez-nous via les canaux du support Azure. Ouvrez une demande de support pour Azure Service Fabric et mentionnez ce contexte dans le ticket de support.
+
+#### <a name="if-you-dont-upgrade-to-a-supported-version"></a>Si vous n’effectuez pas la mise à niveau vers une version prise en charge
+
+Les clusters Azure Service Fabric qui s’exécutent sur les versions 5.7 à 6.3.63.* ne seront pas disponibles si vous n’avez pas effectué la mise à niveau avant le 19 janvier 2021.
 
 #### <a name="required-action"></a>Action requise
-Effectuez une mise à niveau vers les versions de Service Fabric prises en charge ci-dessous pour éviter les temps d’arrêt ou la perte de fonctionnalités liées à cette modification. Vérifiez que vos clusters exécutent au minimum ces versions pour éviter tout problème au sein de votre environnement.
 
-  ###### <a name="supported-service-fabric-runtime-versions"></a>Versions du runtime Service Fabric prises en charge
-   Si votre version ne figure PAS dans la liste des versions prises en charge ci-dessous, effectuez une mise à niveau vers l’une de ces versions contenant déjà les modifications nécessaires pour éviter les temps d’arrêt du cluster. **Remarque :** Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
+Effectuez une mise à niveau vers une version prise en charge de Service Fabric pour éviter les temps d’arrêt ou la perte de fonctionnalités liées à cette modification. Vérifiez que vos clusters exécutent au minimum les versions suivantes pour éviter tout problème au sein de votre environnement.
+
+> [!Note]
+> Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
   
-  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif  | 
-  | --- | --- |--- | 
+  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
+  | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
   | Windows | 7.2.* | 7.2.* |
@@ -49,25 +52,33 @@ Effectuez une mise à niveau vers les versions de Service Fabric prises en charg
   | Linux Ubuntu 18.04 | 7.1.* | 7.1.455.1804 |
   | Linux Ubuntu 16.04 | 7.2.* | 7.2.* |
   | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
- 
-### <a name="upgrade-alert-for-versions-greater-than-63"></a>Alerte de mise à niveau pour les versions ultérieures à la version 6.3 
-Pour améliorer la sécurité et la disponibilité, l’infrastructure Azure apporte une modification susceptible d’affecter les clients Service Fabric. **Tous les clusters Service Fabric utilisant la [fonctionnalité de mise en réseau ouvert pour les conteneurs](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) s’exécutent sur des versions non prises en charge ultérieures à la version 6.3 et antérieures à la version 7.0, et les versions prises en charge non compatibles à partir de la version 7.0 sont affectées**. L’adressage de la modification nécessite une mise à jour du runtime Service Fabric, qui est déjà disponible pour toutes les versions de Service Fabric prises en charge dans l’ensemble des régions.
 
- #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impact en cas de non mise à niveau vers les versions prises en charge
-  Les clusters Azure Service Fabric **utilisant la [fonctionnalité de mise en réseau ouvert pour les conteneurs](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) et s’exécutant sur des versions ultérieures à la version 6.3** n’incluant pas de modifications subiront une perte de fonctionnalités ou des interruptions de service si elles ne sont PAS mises à niveau vers l’une des versions suivantes prises en charge à la date du **19 janvier 2021**.
- 
-  - **Pour les clusters exécutant une version de Service Fabric ultérieure à la version 6.3 utilisant la fonctionnalité de mise en réseau ouvert**, le cluster restera opérationnel, mais la fonctionnalité de mise en réseau ouvert pour les clusters de conteneurs cessera de fonctionner, ce qui pourra entraîner des interruptions de service pour vos charges de travail.
+### <a name="upgrade-alert-for-versions-later-than-63"></a>Alerte de mise à niveau pour les versions ultérieures à la version 6.3
+
+Pour améliorer la sécurité et la disponibilité, l’infrastructure Azure a apporté une modification susceptible d’avoir un impact sur les clients de Service Fabric. Cette modification concerne tous les clusters Service Fabric qui utilisent le [mode de mise en réseau Ouvert pour les conteneurs](./service-fabric-networking-modes.md#set-up-open-networking-mode) et exécutent les versions 6.3 à 7.0 ou des versions non compatibles prises en charge ultérieures à la version 7.0. Une mise à jour du runtime Service Fabric est disponible pour toutes les versions de Service Fabric prises en charge dans l’ensemble des régions.
+
+#### <a name="if-you-dont-upgrade-to-a-supported-version"></a>Si vous n’effectuez pas la mise à niveau vers une version prise en charge
+
+Les clusters Azure Service Fabric qui s’exécutent sur des versions inchangées ultérieures à la version 6.3 subiront une perte de fonctionnalités ou des interruptions de service s’ils n’ont pas été mis à niveau vers une version prise en charge avant le 19 janvier 2021.
+  
+  - **Pour les clusters exécutant une version de Service Fabric ultérieure à la version 6.3 n’utilisant PAS la fonctionnalité de mise en réseau Ouvert**, le cluster reste actif.
 
  - **Pour les clusters exécutant une version de Service Fabric ultérieure à la version 6.3 et utilisant la [fonctionnalité de mise en réseau ouvert pour les conteneurs](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , le cluster peut devenir indisponible et cesser de fonctionner, ce qui peut entraîner des interruptions de service pour vos charges de travail.
-  
+ 
+ -   **Pour les clusters exécutant une [version de Windows entre les versions 7.0.457 et 7.0.466 (incluses)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) et le système d’exploitation Windows, la fonctionnalité de conteneurs Windows est activée. REMARQUE : Les versions 7.0.457, 7.0.464 et 7.0.465 de Linux ne sont PAS concernées**.
+    - **Impact** : Le cluster cesse de fonctionner, ce qui peut entraîner des interruptions de service pour vos charges de travail.
+    
 #### <a name="required-action"></a>Action requise
-Effectuez une mise à niveau vers les versions de Service Fabric prises en charge ci-dessous pour éviter les temps d’arrêt ou la perte de fonctionnalités liées à cette modification. Vérifiez que vos clusters exécutent au minimum ces versions pour éviter tout problème au sein de votre environnement. 
- 
- ###### <a name="supported-service-fabric-runtime-versions"></a>Versions du runtime Service Fabric prises en charge
- Si votre version ne figure PAS dans la liste des versions prises en charge ci-dessous, effectuez une mise à niveau vers l’une de ces versions contenant déjà les modifications nécessaires pour éviter une perte de fonctionnalités.  **Remarque :** Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
- 
-  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif  | 
-  | --- | --- |--- | 
+
+Pour éviter les temps d’arrêt ou la perte de fonctionnalité, assurez-vous que vos clusters exécutent l’une des versions suivantes.
+
+Les versions de Service Fabric dans le tableau contiennent les modifications nécessaires pour empêcher la perte de fonctionnalités. Assurez-vous que vous utilisez l’une de ces versions.  
+
+> [!Note]
+> Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
+
+  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
+  | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
   | Windows | 7.2.* | 7.2.* |
@@ -78,6 +89,7 @@ Effectuez une mise à niveau vers les versions de Service Fabric prises en charg
   | Linux Ubuntu 18.04 | 7.2.* | 7.2.* |
 
 ## <a name="supported-versions"></a>Versions prises en charge
+
 Le tableau suivant répertorie les versions de Service Fabric et leurs dates de fin de prise en charge.
 
 | Runtime Service Fabric dans le cluster | Version de cluster à partir de laquelle une mise à niveau directe est possible |Version du kit de développement logiciel (SDK)/du package NuGet compatible | Fin de la prise en charge |
@@ -132,28 +144,28 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 
 | Nom de version | Numéro de version de Windows | Numéro de version de Linux |
 | --- | --- | --- |
-| 5.3 RTO | 5.3.121.9494 | N/D |
-| 5.3 CU1 | 5.3.204.9494 | N/D |
-| 5.3 CU2 | 5.3.301.9590 | N/D |
-| 5.3 CU3 | 5.3.311.9590 | N/D |
-| 5.4 CU2 | 5.4.164.9494 | N/D |
-| 5.5 CU1 | 5.5.216.0    | N/D |
-| 5.5 CU2 | 5.5.219.0    | N/D |
-| 5.5 CU3 | 5.5.227.0    | N/D |
-| 5.5 CU4 | 5.5.232.0 | N/D |
-| 5.6 RTO | 5.6.204.9494 | N/D |
-| 5.6 CU2 | 5.6.210.9494 | N/D |
-| 5.6 CU3 | 5.6.220.9494 | N/D |
-| 5.7 RTO | 5.7.198.9494 | N/D |
-| 5.7 CU4 | 5.7.221.9494 | N/D |
+| 5.3 RTO | 5.3.121.9494 | Non applicable|
+| 5.3 CU1 | 5.3.204.9494 | Non applicable|
+| 5.3 CU2 | 5.3.301.9590 | Non applicable|
+| 5.3 CU3 | 5.3.311.9590 | Non applicable|
+| 5.4 CU2 | 5.4.164.9494 | Non applicable|
+| 5.5 CU1 | 5.5.216.0    | Non applicable|
+| 5.5 CU2 | 5.5.219.0 | Non applicable|
+| 5.5 CU3 | 5.5.227.0 | Non applicable|
+| 5.5 CU4 | 5.5.232.0 | Non applicable|
+| 5.6 RTO | 5.6.204.9494 | Non applicable|
+| 5.6 CU2 | 5.6.210.9494 | Non applicable|
+| 5.6 CU3 | 5.6.220.9494 | Non applicable|
+| 5.7 RTO | 5.7.198.9494 | Non applicable|
+| 5.7 CU4 | 5.7.221.9494 | Non applicable|
 | 6.0 RTO | 6.0.211.9494 | 6.0.120.1 |
 | 6.0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6.0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6.1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6.1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6.1 CU3 | 6.1.472.9494 | N/D |
+| 6.1 CU3 | 6.1.472.9494 | Non applicable|
 | 6.1 CU4 | 6.1.480.9494 | 6.1.187.1 |
-| 6.2 RTO | 6.2.269.9494 | 6.2.184.1 | 
+| 6.2 RTO | 6.2.269.9494 | 6.2.184.1 |
 | 6.2 CU1 | 6.2.274.9494 | 6.2.191.1 |
 | 6.2 CU2 | 6.2.283.9494 | 6.2.194.1 |
 | 6.2 CU3 | 6.2.301.9494 | 6.2.199.1 |
@@ -161,13 +173,13 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 6.3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6.3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | 6.4 RTO | 6.4.617.9590 | 6.4.625.1 |
-| 6.4 CU2 | 6.4.622.9590 | N/D |
+| 6.4 CU2 | 6.4.622.9590 | Non applicable|
 | 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6.4 CU6 | 6.4.658.9590 | N/D |
+| 6.4 CU6 | 6.4.658.9590 | Non applicable|
 | 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6.4 CU8 | 6.4.670.9590 | N/D |
+| 6.4 CU8 | 6.4.670.9590 | Non applicable|
 | 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6.5 CU2 | 6.5.658.9590 | 6.5.460.1 |
@@ -186,8 +198,7 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| 7.2 RTO | 7.2.413.9590 | NA |
+| 7.2 RTO | 7.2.413.9590 | Non applicable|
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7.2 CU3 | 7.2.433.9590 | NA |
+| 7.2 CU3 | 7.2.433.9590 | Non applicable|
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
-

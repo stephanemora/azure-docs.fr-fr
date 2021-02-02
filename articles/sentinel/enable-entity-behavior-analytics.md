@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425777"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784726"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Activer l'Analyse comportementale des utilisateurs et des entités dans Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans les régions et zones géographiques Azure Sentinel suivantes :
->    - Géographie des États-Unis
->    - Région Europe Ouest
->    - Géographie de l’Australie
->
-> - Dans toutes les autres zones géographiques et régions, ces fonctionnalités restent actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_* _ les régions et zones géographiques Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +33,7 @@ Pour activer ou désactiver cette fonctionnalité (ces conditions préalables ne
 
 - Votre utilisateur doit être membre de l’annuaire Azure Active Directory de votre organisation et non un utilisateur invité.
 
-- Les rôles **Administrateur général** ou **Administrateur de sécurité** doivent être attribués à votre utilisateur dans Azure AD.
+- Les rôles _ *Administrateur général** ou **Administrateur de sécurité** doivent être attribués à votre utilisateur dans Azure AD.
 
 - Vous devez attribuer au moins l’un des **rôles Azure** suivants à votre utilisateur ([en savoir plus sur Azure RBAC](roles.md)) :
     - **Contributeur Azure Sentinel** au niveau de l’espace de travail ou du groupe de ressources.

@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900890"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784793"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans les régions et zones géographiques Azure Sentinel suivantes :
->    - Géographie des États-Unis
->    - Région Europe Ouest
->    - Géographie de l’Australie
->
-> - Dans toutes les autres zones géographiques et régions, ces fonctionnalités restent actuellement en **PRÉVERSION**. Consultez l’[**Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_* _ les régions et zones géographiques Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Qu’est-ce que l’analyse du comportement des utilisateurs et des entités ?
 
@@ -50,7 +45,7 @@ Azure Sentinel collecte les journaux et les alertes de toutes les sources de don
 
 Inspiré par le paradigme de Gartner pour les solutions d’analyse du comportement des utilisateurs et des entités, Azure Sentinel propose une approche de l’extérieur vers l’intérieur, basée sur trois images de référence :
 
-- **Cas d’usage :** en hiérarchisant les vecteurs et scénarios d’attaque pertinents basés sur une recherche en matière de sécurité alignée sur l’infrastructure de tactiques, techniques et sous-techniques MITRE ATT&CK, ayant pour effet de classer les diverses entités en victimes, auteurs ou points pivots dans la chaîne de destruction, Azure Sentinel se concentre spécifiquement sur les journaux les plus précieux que chaque source de données peut fournir.
+- _ *Cas d’usage :* * en hiérarchisant les vecteurs et scénarios d’attaque pertinents basés sur une recherche en matière de sécurité alignée sur l’infrastructure de tactiques, techniques et sous-techniques MITRE ATT&CK, ayant pour effet de classer les diverses entités en victimes, auteurs ou points pivots dans la chaîne de destruction, Azure Sentinel se concentre spécifiquement sur les journaux les plus précieux que chaque source de données peut fournir.
 
 - **Sources de données :** tout en prenant en charge d’abord et avant tout les sources de données Azure, Azure Sentinel sélectionne soigneusement des sources de données tierces afin de fournir des données correspondant à nos scénarios de menaces.
 

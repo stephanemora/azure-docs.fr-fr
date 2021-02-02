@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075669"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742571"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Résolution des problèmes liés aux applications qui ne prennent pas en charge TLS 1.2
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Cet article décrit comment activer les anciens protocoles TLS (TLS 1.0 et 1.1) et appliquer les suites de chiffrement héritées pour prendre en charge les protocoles supplémentaires sur les rôles web et worker du service cloud Windows Server 2019. 
 
 Parallèlement à nos mesures visant à déprécier TLS 1.0 et TLS 1.1, nous comprenons que certains clients aient besoin de prendre en charge les anciens protocoles et suites de chiffrement dans le but de planifier correctement leur dépréciation.  Bien nous ne recommandions pas de réactiver ces valeurs héritées, les conseils suivants sont destinés aux clients qui peuvent en avoir besoin. Nous encourageons les clients à évaluer le risque de régression avant d’implémenter les changements décrits dans cet article. 
@@ -298,7 +302,7 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Étape 3 : Ajouter la tâche de démarrage à la définition du service de rôle (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Étape 3 : Ajouter la tâche de démarrage à la définition du service de rôle (csdef) 
 
 Ajoutez l’extrait de code suivant à votre fichier de définition de service existant. 
 
@@ -347,7 +351,7 @@ Voici un exemple qui montre les rôles worker et web.
 4) Dans l’Explorateur de fichiers, accédez à votre Bureau où vous avez stocké les fichiers **TLSsettings.ps1** et **RunTLSSettings.cmd** 
 5) Sélectionnez les deux fichiers pour les ajouter à votre projet Services cloud
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Étape 5 : Activer la copie dans le répertoire de sortie
+## <a name="step-5-enable-copy-to-output-directory"></a>Étape 5 : Activer la copie dans le répertoire de sortie
 
 Pour vous assurer que les scripts sont chargés avec chaque mise à jour envoyée à partir de Visual Studio, le paramètre *Copier dans le répertoire de sortie* doit être défini sur *Toujours copier*
 
@@ -356,7 +360,7 @@ Pour vous assurer que les scripts sont chargés avec chaque mise à jour envoyé
 3) Dans l’onglet Propriétés, changez *Copier dans le répertoire de sortie* sur *Toujours copier*
 4) Répétez les étapes pour **TLSsettings.ps1**
 
-## <a name="step-6-publish--validate"></a>Étape 6 : Publier et valider
+## <a name="step-6-publish--validate"></a>Étape 6 : Publier et valider
 
 Maintenant que les étapes ci-dessus ont été effectuées, publiez la mise à jour sur votre service cloud existant. 
 

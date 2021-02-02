@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2600ea3488c643bcf215b058425de42cd439dcff
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178940"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660265"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C
 
@@ -39,12 +39,12 @@ Avec l’inscription et la connexion par téléphone, l’utilisateur peut s’i
 >
 > *&lt;insérer : lien vers votre déclaration de confidentialité&gt;*<br/>*&lt;insérer : lien vers vos conditions d’utilisation du service&gt;*
 
-Pour ajouter vos propres informations relatives au consentement, personnalisez l’exemple suivant et incluez-le dans la propriété LocalizedResources du paramètre ContentDefinition utilisé par la page d’auto-déclaration avec le contrôle d’affichage (le fichier *Phone_Email_Base.xml* dans le [pack de démarrage d’inscription et de connexion par téléphone][starter-pack-phone]) :
+Pour ajouter vos propres informations relatives au consentement, personnalisez l’exemple suivant. Incluez-le dans la propriété `LocalizedResources` du paramètre ContentDefinition utilisé par la page d’auto-déclaration avec le contrôle d’affichage (le fichier *Phone_Email_Base.xml* dans le [pack de démarrage d’inscription et de connexion par téléphone][starter-pack-phone]) :
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        
     <LocalizedStrings>
-    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard message and data rates may apply.</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
     <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
@@ -64,7 +64,7 @@ Un code de vérification unique est envoyé au numéro de téléphone de l’uti
 
 ![L’utilisateur vérifie le code lors de l’inscription par téléphone](media/phone-authentication/phone-signup-verify-code.png)
 
- L’utilisateur entre toutes les autres informations requises sur la page d’inscription, par exemple, le **nom d’affichage**, le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer**.
+L’utilisateur entre toutes les autres informations demandées sur la page d’inscription. Par exemple, le **nom d’affichage**, le **prénom** et le **nom de famille** (le pays et le numéro de téléphone sont déjà renseignés). Si l’utilisateur souhaite utiliser un autre numéro de téléphone, il peut choisir **Changer de numéro** pour recommencer l’inscription. Lorsque il a terminé, l’utilisateur sélectionne **Continuer**.
 
 ![L’utilisateur fournit des informations supplémentaires](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -100,8 +100,6 @@ Vous devez disposer des ressources suivantes avant de configurer un mot de passe
 
 Commencez par mettre à jour les fichiers de stratégies personnalisées d’inscription et de connexion par téléphone afin de les utiliser avec votre locataire Azure AD B2C.
 
-Les étapes suivantes supposent que vous avez défini les [préférences](#prerequisites) et que vous avez déjà cloné le référentiel du [pack de démarrage de stratégies personnalisées][starter-pack] sur votre machine locale.
-
 1. Vous trouverez les [fichiers de stratégies personnalisés d’inscription et de connexion par téléphone][starter-pack-phone] dans le clone local du référentiel de votre pack de démarrage, ou vous pouvez directement les télécharger. Les fichiers de stratégie XML se trouvent dans le répertoire suivant :
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
@@ -136,9 +134,9 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
 ## <a name="get-user-account-by-phone-number"></a>Obtenir un compte d’utilisateur par numéro de téléphone
 
-Un utilisateur qui s'inscrit avec un numéro de téléphone, mais qui ne fournit pas d'adresse électronique de récupération est enregistré dans votre annuaire B2C Azure AD avec son numéro de téléphone comme nom de connexion. Si l'utilisateur souhaite ensuite modifier son numéro de téléphone, votre service d'assistance ou votre équipe de support doit d'abord identifier son compte, puis mettre à jour son numéro de téléphone.
+Un utilisateur qui s'inscrit avec un numéro de téléphone, mais sans adresse électronique de récupération, est enregistré dans votre annuaire B2C Azure AD avec son numéro de téléphone comme nom de connexion. Pour modifier le numéro de téléphone, votre service d'assistance ou votre équipe de support doit d'abord identifier son compte, puis mettre à jour son numéro de téléphone.
 
-Vous pouvez identifier un utilisateur par son numéro de téléphone (nom de connexion) en utilisant [Microsoft Graph](manage-user-accounts-graph-api.md) :
+Vous pouvez identifier un utilisateur par son numéro de téléphone (nom de connexion) en utilisant [Microsoft Graph](microsoft-graph-operations.md) :
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')

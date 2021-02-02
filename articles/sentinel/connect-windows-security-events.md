@@ -1,6 +1,6 @@
 ---
 title: Connecter les données d’événement de sécurité Windows à Azure Sentinel | Microsoft Docs
-description: Découvrez comment utiliser le connecteur Événements de sécurité pour transmettre en continu tous les événements de sécurité de vos systèmes Windows à votre espace de travail Azure Sentinel. 
+description: Découvrez comment utiliser le connecteur Événements de sécurité pour transmettre en continu tous les événements de sécurité de vos systèmes Windows à votre espace de travail Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883720"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632044"
 ---
 # <a name="connect-windows-security-events"></a>Connecter les événements de sécurité Windows 
 
@@ -54,7 +54,7 @@ Pour collecter vos événements de sécurité Windows dans Azure Sentinel :
 
 1. Dans le menu de navigation d’Azure Sentinel, sélectionnez **Connecteurs de données**. Dans la liste des connecteurs, cliquez sur **Événements de sécurité**, puis sur le bouton **Ouvrir la page du connecteur** dans le coin inférieur droit. Suivez ensuite les instructions à l’écran sous l’onglet **Instructions**, comme décrit dans le reste de cette section.
 
-1. Vérifiez que vous disposez des autorisations appropriées, comme décrit dans la section **Conditions préalables**.
+1. Vérifiez que vous disposez des autorisations appropriées, comme décrit dans la section **Prérequis** sur la page du connecteur.
 
 1. Téléchargez et installez l’[agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (également appelé Microsoft Monitoring Agent ou MMA) sur les machines pour lesquelles vous souhaitez diffuser des événements de sécurité dans Azure Sentinel.
 

@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563447"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695778"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sécurité dans Recherche cognitive Azure - Vue d’ensemble
 
-Cet article décrit les principales fonctionnalités de sécurité de Recherche cognitive Azure qui peuvent protéger le contenu et les opérations.
+Cet article décrit les fonctionnalités de sécurité de Recherche cognitive Azure qui protègent le contenu et les opérations.
 
-+ Au niveau de la couche de stockage, le chiffrement au repos est intégré pour l’ensemble du contenu géré par le service enregistré sur le disque, notamment les index, les cartes de synonymes et les définitions d’indexeurs, de sources de données et d’ensembles de compétences. Recherche cognitive Azure prend également en charge l’ajout de clés gérées par le client (CMK) pour le chiffrement supplémentaire du contenu indexé. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.
++ Au niveau de la couche de stockage, le chiffrement des données est intégré pour l’ensemble du contenu géré par le service enregistré sur le disque, notamment les index, les cartes de synonymes et les définitions d’indexeurs, de sources de données et d’ensembles de compétences. Si vous le souhaitez, vous pouvez ajouter des clés gérées par le client (CMK) pour un chiffrement supplémentaire du contenu indexé. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le « double chiffrement » complet du contenu indexé.
 
-+ La sécurité du trafic entrant protège le point de terminaison du service Recherche à des niveaux de sécurité plus élevés : depuis des clés API sur la demande à des règles de trafic entrant dans le pare-feu et à des points de terminaison privés qui protègent intégralement votre service de l’Internet public.
++ La sécurité du trafic entrant fait référence aux protections sur le point de terminaison du service de recherche à des niveaux de sécurité plus élevés : des clés API sur la requête à des règles de trafic entrant dans le pare-feu et à des points de terminaison privés qui protègent intégralement votre service de l’Internet public.
 
-+ La sécurité du trafic sortant s’applique aux indexeurs qui extraient du contenu de sources externes. Pour les demandes sortantes, configurez une identité managée pour effectuer une recherche dans un service approuvé lors de l’accès aux données dans Stockage Azure, Azure SQL, Cosmos DB ou d’autres sources de données Azure. Une identité managée est un substitut pour les informations d’identification ou les clés d’accès sur la connexion. La sécurité du trafic sortant n’est pas abordée dans cet article. Pour plus d’informations sur cette fonctionnalité, consultez [Se connecter à une source de données en utilisant une identité managée](search-howto-managed-identities-data-sources.md).
++ La sécurité du trafic sortant concerne les indexeurs qui extraient du contenu de sources externes. Pour les demandes sortantes, configurez une identité managée pour effectuer une recherche dans un service approuvé lors de l’accès aux données dans Stockage Azure, Azure SQL, Cosmos DB ou d’autres sources de données Azure. Une identité managée est un substitut pour les informations d’identification ou les clés d’accès sur la connexion. La sécurité du trafic sortant n’est pas abordée dans cet article. Pour plus d’informations sur cette fonctionnalité, consultez [Se connecter à une source de données en utilisant une identité managée](search-howto-managed-identities-data-sources.md).
 
 Regardez cette vidéo rapide pour obtenir une vue d’ensemble de l’architecture de la sécurité et de chaque catégorie de fonctionnalités.
 

@@ -3,12 +3,12 @@ title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251724"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624756"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -27,7 +27,7 @@ Cet article traite des composants de langage pris en charge par Resource Graph 
 Resource Graph fournit plusieurs tables contenant les données qu’il stocke sur les types de ressources Azure Resource Manager et leurs propriétés. Vous pouvez utiliser certaines tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
 
 |Table Resource Graph |Peut `join` d’autres tables ? |Description |
-|---|---|
+|---|---|---|
 |Ressources |Oui |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
 |ResourceContainers |Oui |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Oui (préversion) |Inclut les ressources _associées_ à `Microsoft.Advisor`. |
@@ -41,7 +41,7 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke su
 |SecurityResources |Partielle, joindre _à_ uniquement. (préversion) |Inclut les ressources _associées_ à `Microsoft.Security`. |
 |ServiceHealthResources |Non |Inclut les ressources _associées_ à `Microsoft.ResourceHealth`. |
 
-Pour obtenir une liste complète des types de ressources, consultez [Référence : Tables et types de ressources pris en charge](../reference/supported-tables-resources.md).
+Pour obtenir une liste complète, y compris les types de ressources, consultez [Référence : Tables et types de ressources pris en charge](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > La table _Resources_  est la table par défaut. Quand vous interrogez la table _Resources_ , il n’est pas nécessaire d’indiquer le nom de la table, sauf si vous utilisez `join` ou `union`. Toutefois, la pratique recommandée consiste à toujours inclure la table initiale dans la requête.
@@ -132,7 +132,7 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 |[join](/azure/kusto/query/joinoperator) |[Coffre de clés avec nom d’abonnement](../samples/advanced.md#join) |Variantes de jointure prises en charge : [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` dans une requête, dont une peut être une `join` entre tables. Si l’usage de `join` entre tables est partagé entre _Resource_ et _ResourceContainers_, 3 `join` entre tables sont autorisées. Les stratégies de jointure personnalisées comme la jointure de diffusion ne sont pas autorisées. Pour savoir quelles tables peuvent utiliser `join`, consultez [Tables Resource Graph](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `take`. Ne fonctionne pas avec [Ignorer](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Opérateur hérité, utilisez `mv-expand` à la place. Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. Limite de 3 `mv-expand` dans une requête unique.|
 |[order](/azure/kusto/query/orderoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) |Identique à `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Supprimer des colonnes des résultats](../samples/advanced.md#remove-column) | |
@@ -142,6 +142,10 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 |[top](/azure/kusto/query/topoperator) |[Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combiner les résultats de deux requêtes en un résultat unique](../samples/advanced.md#unionresults) |Table unique autorisée : _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limite de 3 sections `union` dans une requête unique. La résolution approximative des tables avec sections `union` n’est pas autorisée. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Afficher les ressources contenant storage](../samples/starter.md#show-storage) | |
+
+Il existe une limite par défaut de trois opérateurs `join` et de trois opérateurs `mv-expand` dans une seule requête du Kit de développement logiciel (SDK) Resource Graph. Vous pouvez demander une augmentation de ces limites pour votre locataire via **Aide + support**.
+
+Pour prendre en charge l’expérience de portail « Ouvrir une requête », l’explorateur d’Azure Resource Graph a une limite globale supérieure à celle du Kit de développement logiciel (SDK) Resource Graph.
 
 ## <a name="query-scope"></a>Étendue de requête
 

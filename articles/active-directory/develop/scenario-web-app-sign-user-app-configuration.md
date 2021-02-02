@@ -1,5 +1,6 @@
 ---
-title: Configurer une application web qui connecte des utilisateurs - Plateforme d’identités Microsoft | Azure
+title: Configurer une application web qui connecte des utilisateurs | Azure
+titleSuffix: Microsoft identity platform
 description: Apprendre à générer une application web qui connecte des utilisateurs (configuration de code)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443651"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753273"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Application web qui connecte les utilisateurs : Configuration de code
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Code d’initialisation
 
-Le code d’initialisation est différent selon la plateforme. Pour ASP.NET Core et ASP.NET, la connexion des utilisateurs est déléguée à l’intergiciel (middleware) OpenID Connect. Le modèle ASP.NET ou ASP.NET Core génère des applications web pour le point de terminaison Azure Active Directory (Azure AD) v1.0. Un peu de configuration est nécessaire pour les adapter au point de terminaison de la plateforme des identités Microsoft (v 2.0). Dans le cas de Java, elle est gérée par Spring avec la coopération de l’application.
+Le code d’initialisation est différent selon la plateforme. Pour ASP.NET Core et ASP.NET, la connexion des utilisateurs est déléguée à l’intergiciel (middleware) OpenID Connect. Le modèle ASP.NET ou ASP.NET Core génère des applications web pour le point de terminaison Azure Active Directory (Azure AD) v1.0. Un peu de configuration est nécessaire pour les adapter à la plateforme d’identités Microsoft. Dans le cas de Java, elle est gérée par Spring avec la coopération de l’application.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ Dans le code ci-dessus :
 - La méthode d’extension `AddMicrosoftIdentityWebAppAuthentication` est définie dans **Microsoft.Identity.web**. Elle effectue les actions suivantes :
   - Ajoute le service d’authentification.
   - Configure les options pour lire le fichier de configuration (ici à partir de la section « AzureAD »).
-  - Configure les options d’OpenID Connect afin que l’autorité soit le point de terminaison de la Plateforme d’identités Microsoft.
+  - Configure les options d’OpenID Connect afin que l’autorité soit la plateforme d’identités Microsoft.
   - Valide l’émetteur du jeton.
   - Garantit que les revendications correspondant au nom sont mappées à partir de la revendication `preferred_username` dans le jeton d’ID.
 
@@ -291,7 +292,7 @@ Le code lié à l’authentification dans l’application web ASP.NET et les API
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -316,7 +317,7 @@ Pour plus d’informations, consultez la méthode `doFilter()` dans [AuthFilter.
 > [!NOTE]
 > Le code de `doFilter()` est écrit dans un ordre légèrement différent, mais le flux est celui décrit.
 
-Pour plus d’informations sur le flux du code d’autorisation déclenché par cette méthode, consultez [Plateforme d’identités Microsoft et flux du code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Pour plus d’informations sur le flux du code d’autorisation déclenché par cette méthode, consultez [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 # <a name="python"></a>[Python](#tab/python)
 

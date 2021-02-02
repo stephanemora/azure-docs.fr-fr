@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977029"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661304"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erreur d’arrêt de Windows - 0x00000074 Informations de configuration système incorrectes
 
@@ -34,7 +34,7 @@ Lorsque vous utilisez les [Diagnostics de démarrage](./boot-diagnostics.md) pou
 *Si vous appelez le support technique, communiquez à votre interlocuteur les informations suivantes :* 
 *Code d’arrêt : BAD_SYSTEM_CONFIG_INFO*
 
-  ![Le code d’arrêt Windows 0x00000074, également indiqué par « BAD_SYSTEM_CONFIG_INFO ». Windows informe l’utilisateur que son ordinateur a rencontré un problème et doit redémarrer.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![Le code d’arrêt Windows 0x00000074, également indiqué par « BAD_SYSTEM_CONFIG_INFO ». Windows informe l’utilisateur que son ordinateur a rencontré un problème et doit redémarrer.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Cause :
 
@@ -48,13 +48,16 @@ Le code d’arrêt **BAD_SYSTEM_CONFIG_INFO** intervient en cas de corruption de
 
 ### <a name="process-overview"></a>Vue d’ensemble du processus :
 
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
+
 1. Créez une machine virtuelle de réparation et accédez-y.
 1. Recherchez une éventuelle corruption de la ruche.
 1. Activer la console série et la collecte de l’image mémoire.
 1. Regénérez la machine virtuelle.
 
-> [!NOTE]
-> Lorsque vous rencontrez cette erreur, cela signifie que le système d’exploitation (SE) invité n’est pas opérationnel. Vous devez résoudre ce problème en mode hors connexion.
+   > [!NOTE]
+   > Lorsque vous rencontrez cette erreur, cela signifie que le système d’exploitation (SE) invité n’est pas opérationnel. Vous devez résoudre ce problème en mode hors connexion.
 
 ### <a name="create-and-access-a-repair-vm"></a>Créer une machine virtuelle de réparation et y accéder
 
@@ -63,8 +66,8 @@ Le code d’arrêt **BAD_SYSTEM_CONFIG_INFO** intervient en cas de corruption de
 1. Connectez-vous à la machine virtuelle de réparation à l’aide de la connexion Bureau à distance.
 1. Copiez le dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` et enregistrez-le dans votre partition de disque saine ou dans un autre emplacement sécurisé. Sauvegardez ce dossier par précaution, car vous allez modifier les fichiers de Registre critiques. 
 
-> [!NOTE]
-> Effectuez une copie du dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` en guise de sauvegarde au cas où il vous faudrait restaurer les modifications que vous apportez au registre.
+   > [!NOTE]
+   > Effectuez une copie du dossier `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` en guise de sauvegarde au cas où il vous faudrait restaurer les modifications que vous apportez au registre.
 
 ### <a name="check-for-hive-corruption"></a>Rechercher une éventuelle corruption de la ruche
 
@@ -77,7 +80,7 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
    1. Si la ruche ne s’ouvre pas ou si elle est vide, cela signifie qu’elle est corrompue. Si la ruche est corrompue, [ouvrez un ticket de support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![Un message d’erreur indique que l’Éditeur du Registre ne peut pas charger la ruche.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Un message d’erreur indique que l’Éditeur du Registre ne peut pas charger la ruche.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Si la ruche s’ouvre normalement, cela signifie que la ruche n’a pas été fermée correctement. Passez à l’étape 5.
 
@@ -92,7 +95,7 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
    **Activer la console série** :
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -105,13 +108,13 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
    **Charger la ruche du Registre à partir du disque de système d’exploitation endommagé :**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Activer sur ControlSet001 :**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -119,7 +122,7 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
    **Activer sur ControlSet002 :**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -127,7 +130,7 @@ Les instructions ci-dessous vous aideront à déterminer si la cause est due à 
 
    **Décharger le disque de système d’exploitation corrompu :**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

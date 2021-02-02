@@ -3,12 +3,12 @@ title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
 ms.date: 01/04/2021
-ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b25fd1befded253c79267b1b016cef979005d01e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862365"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676453"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -48,6 +48,8 @@ Cet article emploie les termes suivants :
 
 -  *Espace de noms principal/secondaire* : espaces de noms qui correspondent à l’alias. L’espace de noms principal est « actif » et reçoit les messages (il peut s’agir d’un espace de noms existant ou nouveau). L’espace de noms secondaire est « passif » et ne reçoit pas de messages. Les métadonnées sont synchronisées entre ces deux espaces de noms, qui peuvent ainsi accepter facilement les messages sans aucune modification du code d’application ou de la chaîne de connexion. Pour vous assurer que seul l’espace de noms actif reçoit des messages, vous devez utiliser l’alias. 
 
+    > [!IMPORTANT]
+    > La fonctionnalité de géo-reprise d’activité après sinistre nécessite que l’abonnement et le groupe de ressources soient identiques pour les espaces de noms principal et secondaire.
 -  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués.
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.

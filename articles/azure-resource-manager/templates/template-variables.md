@@ -2,13 +2,13 @@
 title: Variables dans les modèles
 description: Explique comment définir des variables dans un modèle Azure Resource Manager (ARM).
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/26/2021
+ms.openlocfilehash: feecc4b5df77e6a3bf51294cb12aabf44899dde5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934660"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874432"
 ---
 # <a name="variables-in-arm-template"></a>Variables dans un modèle ARM
 
@@ -16,9 +16,11 @@ Cet article explique comment définir et utiliser des variables dans un modèle 
 
 Resource Manager résout les variables avant de démarrer les opérations de déploiement. Chaque fois que la variable est utilisée dans le modèle, Resource Manager la remplace par la valeur résolue.
 
-Le format de chaque variable doit correspondre à l’un des [types de données](template-syntax.md#data-types).
-
 ## <a name="define-variable"></a>Définir une variable
+
+Lorsque vous définissez une variable, fournissez une valeur ou une expression de modèle qui se résout en un [type de données](template-syntax.md#data-types). Vous pouvez utiliser la valeur d’un paramètre ou d’une autre variable lors de la construction de la variable.
+
+Vous pouvez utiliser des [fonctions de modèle](template-functions.md) dans la déclaration de variable, mais vous ne pouvez pas utiliser la fonction [reference](template-functions-resource.md#reference) ni aucune des fonctions [list](template-functions-resource.md#list). Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des variables sont résolues.
 
 L’exemple suivant montre une définition de variable. Il crée une valeur de chaîne pour le nom d’un compte de stockage. Il utilise plusieurs fonctions de modèle pour obtenir une valeur de paramètre, et la concatène en une chaîne unique.
 
@@ -27,8 +29,6 @@ L’exemple suivant montre une définition de variable. Il crée une valeur de c
   "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
-
-Vous ne pouvez pas utiliser la fonction [reference](template-functions-resource.md#reference) ni aucune des fonctions [list](template-functions-resource.md#list) dans la section `variables`. Ces fonctions obtiennent l’état d’exécution d’une ressource et ne peuvent pas être exécutées avant le déploiement quand des variables sont résolues.
 
 ## <a name="use-variable"></a>Utiliser une variable
 
@@ -44,56 +44,20 @@ Dans le modèle, vous référencez la valeur du paramètre à l’aide de la fon
 ]
 ```
 
+## <a name="example-template"></a>Exemple de modèle
+
+Le modèle suivant ne déploie aucune ressource. Il montre simplement quelques façons de déclarer des variables.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
+
 ## <a name="configuration-variables"></a>Variables de configuration
 
-Vous pouvez définir des variables qui contiennent des valeurs associées pour la configuration d’un environnement. Vous définissez la variable en tant qu’objet avec les valeurs. L’exemple suivant illustre un objet qui contient des valeurs pour deux environnements : **test** et **prod**.
+Vous pouvez définir des variables qui contiennent des valeurs associées pour la configuration d’un environnement. Vous définissez la variable en tant qu’objet avec les valeurs. L’exemple suivant illustre un objet qui contient des valeurs pour deux environnements : **test** et **prod**. Vous transmettez l’une de ces valeurs au cours du déploiement.
 
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-Dans `parameters`, vous créez une valeur qui indique les valeurs de configuration à utiliser.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-Pour récupérer les paramètres de l’environnement spécifié, utilisez la variable et le paramètre ensemble.
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-## <a name="example-templates"></a>Exemples de modèles
-
-Les exemples suivants illustrent des scénarios d’utilisation de variables.
-
-|Modèle  |Description  |
-|---------|---------|
-| [définitions de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Montre les différents types de variables. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de variables. |
-| [variable de configuration](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Illustre l’utilisation d’une variable qui définit des valeurs de configuration. Le modèle ne déploie aucune ressource. Il crée et retourne des valeurs de variables. |
-| [règles de sécurité réseau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) et [fichier de paramètres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Crée un tableau au bon format pour attribuer des règles de sécurité à un groupe de sécurité réseau. |
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les propriétés disponibles pour les variables, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
 * Pour obtenir des recommandations sur la création de variables, consultez [Bonnes pratiques - Variables](template-best-practices.md#variables).
+* Pour obtenir un exemple de modèle qui attribue des règles de sécurité à un groupe de sécurité réseau, consultez le code pour les [règles de sécurité réseau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) et le [fichier de paramètres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json).

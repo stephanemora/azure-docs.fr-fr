@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: c56298d68bddd326ed2b32215f30a9057fa51e85
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6910fda855402d2f99994da1e835560be84ca2dd
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653111"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703375"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Groupes IP dans Pare-feu Azure
 
@@ -26,6 +26,9 @@ Les groupes IP vous permettent de regrouper et de gérer des adresses IP pour 
 Un groupe IP peut avoir une seule adresse IP, plusieurs adresses IP ou une ou plusieurs plages d’adresses IP.
 
 Les groupes IP peuvent être réutilisés dans les règles DNAT, de réseau et d’application de Pare-feu Azure pour plusieurs pare-feu dans différentes régions et différents abonnements dans Azure. Les noms de groupes doivent être uniques. Vous pouvez configurer un groupe IP dans le Portail Azure, Azure CLI ou l’API REST. Un exemple de modèle est fourni pour vous aider à démarrer.
+
+> [!NOTE]
+> Les groupes IP ne sont actuellement pas disponibles dans les environnements cloud nationaux Azure.
 
 ## <a name="sample-format"></a>Format d’échantillonnage
 

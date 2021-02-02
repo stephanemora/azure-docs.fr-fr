@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804899"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Utiliser kubectl pour exécuter une application avec état Kubernetes à l’aide d’une ressource PersistentVolume sur votre appareil Azure Stack Edge Pro
 
@@ -26,18 +26,18 @@ Azure Stack Edge Pro prend également en charge l’exécution de conteneurs Azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de pouvoir déployer l’application avec état, assurez-vous d’avoir rempli les conditions préalables suivantes sur votre appareil et le client que vous utiliserez pour accéder à ce dernier :
+Avant de pouvoir déployer l’application avec état, vous devez remplir les conditions préalables suivantes sur votre appareil et sur le client que vous utiliserez pour accéder à l’appareil :
 
 ### <a name="for-device"></a>Pour l’appareil
 
 - Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
     - L’appareil est activé. Voir [Activer l’appareil](azure-stack-edge-gpu-deploy-activate.md).
-    - Le rôle de calcul est configuré sur l’appareil via Portail Azure et l’appareil dispose d’un cluster Kubernetes. Voir [Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md).
+    - Le rôle de calcul est configuré sur l’appareil via le portail Azure et l’appareil dispose d’un cluster Kubernetes. Voir [Configurer le calcul](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>Pour le client qui accède à l’appareil
 
 - Vous disposez d’un système client Windows qui sera utilisé pour accéder à l’appareil Azure Stack Edge Pro.
-    - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Le client exécute Windows PowerShell 5.0 ou une version ultérieure. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - Vous pouvez également utiliser un autre client avec un [système d’exploitation pris en charge](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device). Cet article décrit la procédure à utiliser avec un client Windows. 
     
@@ -50,7 +50,7 @@ Avant de pouvoir déployer l’application avec état, assurez-vous d’avoir re
     - Assurez-vous que la version du client `kubectl` n’est pas décalée de plus d’une version par rapport à la version principale de Kubernetes exécutée sur votre appareil Azure Stack Edge Pro. 
         - Utilisez `kubectl version` pour vérifier la version de kubectl en cours d’exécution sur le client. Prenez note de la version complète.
         - Dans l’interface utilisateur locale de votre appareil Azure Stack Edge Pro, accédez à **Vue d’ensemble** et notez le numéro de version du logiciel Kubernetes. 
-        - Vérifiez la compatibilité de ces deux versions à partir du mappage fourni dans la version Kubernetes prise en charge <!-- insert link-->. 
+        - Vérifiez la compatibilité de ces deux versions à partir du mappage fourni dans la version Kubernetes prise en charge.<!-- insert link--> 
 
 
 Vous êtes prêt à déployer une application avec état sur votre appareil Azure Stack Edge Pro. 
@@ -341,7 +341,7 @@ Voici un exemple de sortie du moment où vous supprimez la PVC.
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
 Le PV n’est plus lié à la PVC, car celle-ci a été supprimée. Comme le PV a été approvisionné lors de la création du partage, vous devrez supprimer le partage. Procédez comme suit :
 

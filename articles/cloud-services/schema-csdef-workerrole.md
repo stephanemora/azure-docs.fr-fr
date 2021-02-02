@@ -1,26 +1,25 @@
 ---
-title: Déf. Azure Cloud Services d’Azure Cloud Services | Microsoft Docs
+title: Définition d’Azure Cloud Services (classique) d’Azure Cloud Services | Microsoft Docs
 description: Le rôle de travail Azure utilisé pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web. En savoir plus sur le schéma du rôle de travail Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005161"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743132"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Le rôle de travail Azure est un rôle utile pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web.
 
 L’extension par défaut du fichier de définition de service est .csdef.
@@ -116,7 +115,7 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [Certificate](#Certificate)
 
-[Imports](#Imports)
+[Importations](#Imports)
 
 [Importer](#Import)
 
@@ -158,7 +157,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `WorkerRole`.
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings
 L’élément `ConfigurationSettings` décrit la collection de paramètres de configuration pour un rôle de travail. Cet élément est le parent de l’élément `Setting`.
 
-##  <a name="setting"></a><a name="Setting"></a> Setting
+##  <a name="setting"></a>Paramètre <a name="Setting"></a>
 L’élément `Setting` décrit une paire nom-valeur qui spécifie un paramètre de configuration pour une instance d’un rôle.
 
 Le tableau suivant décrit les attributs d’un de l’élément `Setting`.
@@ -210,7 +209,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `InputEndpoint`
 |port|int|Obligatoire. Port du point de terminaison externe. Vous pouvez spécifier le numéro de port de votre choix, mais les numéros de port précisés pour chaque rôle dans le service doivent être uniques.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|
 |certificat|string|Obligatoire pour un point de terminaison HTTPS. Nom d’un certificat défini par un élément `Certificate`.|
 |localPort|int|facultatif. Spécifie le port utilisé pour les connexions internes sur le point de terminaison. L’attribut `localPort` mappe le port externe sur le point de terminaison à un port interne sur un rôle. Cela est utile dans les scénarios où un rôle doit communiquer avec un composant interne sur un port différent de celui qui est exposé en externe.<br /><br /> Si elle n’est pas spécifiée, la valeur de `localPort` est la même que celle de l’attribut `port`. Définissez la valeur de `localPort` sur « * » pour attribuer automatiquement un port non alloué, détectable à l’aide de l’API d’exécution.<br /><br /> Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).<br /><br /> L’attribut `localPort` n’est disponible que par le biais du kit SDK Azure version 1.3 ou supérieure.|
-|ignoreRoleInstanceStatus|boolean|facultatif. Lorsque la valeur de cet attribut est définie sur `true`, l’état d’un service est ignoré et le point de terminaison n’est pas supprimé par l’équilibreur de charge. Définir cette valeur sur `true` est utile pour déboguer les instances occupées d’un service. La valeur par défaut est `false`. **Remarque :** un point de terminaison peut toujours recevoir du trafic, même si le rôle n'est pas à l'état Prêt.|
+|ignoreRoleInstanceStatus|boolean|facultatif. Lorsque la valeur de cet attribut est définie sur `true`, l’état d’un service est ignoré et le point de terminaison n’est pas supprimé par l’équilibreur de charge. Définir cette valeur sur `true` est utile pour déboguer les instances occupées d’un service. La valeur par défaut est `false`. **Remarque :** un point de terminaison peut toujours recevoir le trafic, même quand le rôle n’est pas à l’état Prêt.|
 |loadBalancerProbe|string|facultatif. Nom de la sonde de l’équilibreur de charge associée au point de terminaison d’entrée. Pour plus d’informations, consultez [Schéma LoadBalancerProbe](schema-csdef-loadbalancerprobe.md).|
 
 ##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a> InternalEndpoint
@@ -268,7 +267,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `FixedPortRange
 |min|int|Obligatoire. Port minimal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|
 |max|string|Obligatoire. Port maximal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|
 
-##  <a name="certificates"></a><a name="Certificates"></a> Certificates
+##  <a name="certificates"></a><a name="Certificates"></a> Certificats
 L’élément `Certificates` décrit la collection de certificats pour un rôle de travail. Cet élément est le parent de l’élément `Certificate`. Un rôle peut avoir n’importe quel nombre de certificats associés. Pour plus d’informations sur l’utilisation de l’élément certificates, consultez [Modifier le fichier de définition de service avec un certificat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
 ##  <a name="certificate"></a><a name="Certificate"></a> Certificate
@@ -362,7 +361,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `ProgramEntryPo
 
 | Attribut | Type | Description |
 | --------- | ---- | ----------- |
-|commandLine|string|Obligatoire. Chemin d’accès, nom de fichier et arguments de ligne de commande du programme à exécuter. Le chemin d’accès est lié au dossier **%ROLEROOT%\Approot** (ne spécifiez pas **%ROLEROOT%\Approot** dans la ligne de commande, car cela est implicite). **%ROLEROOT%** est une variable d’environnement gérée par Azure, qui représente l’emplacement du dossier racine de votre rôle. Le dossier **%ROLEROOT%\Approot** désigne le dossier d’application de votre rôle.<br /><br /> Si le programme se termine, le rôle est recyclé. Par conséquent, en règle générale, définissez le programme pour qu’il continue à s’exécuter au lieu qu’il démarre et exécute simplement une tâche déterminée.|
+|commandLine|string|Obligatoire. Chemin d’accès, nom de fichier et arguments de ligne de commande du programme à exécuter. Le chemin d'accès est relatif au dossier **%ROLEROOT%\Approot** (ne spécifiez pas **%ROLEROOT%\Approot** dans commandLine, car il est déduit). **%ROLEROOT%** est une variable d’environnement gérée par Azure, qui représente l’emplacement du dossier racine de votre rôle. Le dossier **%ROLEROOT%\Approot** représente le dossier d'application de votre rôle.<br /><br /> Si le programme se termine, le rôle est recyclé. Par conséquent, en règle générale, définissez le programme pour qu’il continue à s’exécuter au lieu qu’il démarre et exécute simplement une tâche déterminée.|
 |setReadyOnProcessStart|boolean|Obligatoire. Spécifie si l’instance de rôle doit attendre que le programme de ligne de commande signale son démarrage. Cette valeur doit être définie sur `true` à ce stade. La valeur `false` est réservée à un usage ultérieur.|
 
 ##  <a name="startup"></a><a name="Startup"></a> Startup
@@ -392,7 +391,7 @@ L’élément `Contents` décrit la collection du contenu d’un rôle de travai
 
 L’élément `Contents` n’est disponible que par le biais du kit SDK Azure version 1.5 ou supérieure.
 
-##  <a name="content"></a><a name="Content"></a> Content
+##  <a name="content"></a><a name="Content"></a> Contenu
 L’élément `Content` définit l’emplacement source du contenu à copier sur la machine virtuelle Azure, et le chemin de destination dans lequel il est copié.
 
 L’élément `Content` n’est disponible que par le biais du kit SDK Azure version 1.5 ou supérieure.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9713a2ad10d1edc9a79d475ed58a99b3b24b6483
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021144"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696038"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Effectuer un encodage avancé en personnalisant les présélections MES
 
@@ -33,7 +33,7 @@ Cette rubrique montre comment personnaliser des présélections Media Encoder St
 Si vous utilisez une présélection XML, veillez à conserver l’ordre des éléments, comme indiqué dans les exemples XML ci-dessous (par exemple, KeyFrameInterval doit précéder SceneChangeDetection).
 
 > [!NOTE] 
-> La plupart des fonctionnalités Media Services v2 avancées de Media Encoder Standard ne sont actuellement pas disponibles dans v3. Pour plus d’informations, consultez les [différences de fonctionnalités](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> La plupart des fonctionnalités Media Services v2 avancées de Media Encoder Standard ne sont actuellement pas disponibles dans v3. Pour plus d’informations, consultez le [Guide de migration](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## <a name="support-for-relative-sizes"></a>Prise en charge des tailles relatives
 

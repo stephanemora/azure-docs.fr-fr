@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b263d3e62ae97914fc8e06580486bddd0cb9b3b7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968447"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703867"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -166,7 +166,7 @@ Architecture du système d’exploitation invité | 64 bits.
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. 
 Nombre de disques du système d’exploitation | 1 
 Nombre de disques de données | 64 ou moins. 
-Taille de disque de données | Jusqu’à 8 095 Go.
+Taille de disque de données | Jusqu’à 32 To
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau.
 Disque dur virtuel partagé | Non pris en charge. 
 Disque FC | Non pris en charge. 

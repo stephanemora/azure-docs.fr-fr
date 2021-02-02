@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629797"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761007"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -335,7 +335,7 @@ Si le message d’erreur suivant s’affiche lorsque vous établissez une connex
 Vérifiez que vous disposez de [stratégies Azure RBAC configurées](../../virtual-machines/linux/login-using-aad.md) pour la machine virtuelle qui accorde à l’utilisateur le rôle Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles :
 
 > [!NOTE]
-> Si vous rencontrez des problèmes avec des attributions de rôles Azure, consultez [Résoudre les problèmes liés à Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> Si vous rencontrez des problèmes avec des attributions de rôles Azure, consultez [Résoudre les problèmes liés à Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Client non autorisé
 
@@ -350,7 +350,9 @@ Vérifiez que le PC Windows 10 que vous utilisez pour établir la connexion Bur
 > [!NOTE]
 > La build 20H1 de Windows 10 a ajouté la prise en charge d’un PC inscrit dans Azure AD pour initier une connexion RDP à votre machine virtuelle. Lorsque vous utilisez un PC inscrit dans Azure AD (pas joint à Azure AD ou joint à Azure AD par une jointure hybride) comme client RDP pour initier des connexions à votre machine virtuelle, vous devez entrer des informations d’identification au format AzureAD\UPn (par exemple, AzureAD\john@contoso.com).
 
-Vérifiez également que l’extension AADLoginForWindows n’a pas été désinstallée une fois la jointure Azure AD terminée.
+Vérifiez que l’extension AADLoginForWindows n’a pas été désinstallée une fois la jointure Azure AD terminée.
+
+En outre, assurez-vous que la stratégie de sécurité « Sécurité réseau : Autoriser les demandes d’authentification PKU2U pour cet ordinateur pour utiliser les identités en ligne » est activée sur le serveur *et* le client.
  
 #### <a name="mfa-sign-in-method-required"></a>Méthode de connexion MFA requise
 

@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/07/2020
+ms.date: 01/21/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb517f8c50ad2c32f23542e60069a0e0a496a2d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89244719"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660662"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procédure : Gérer les comptes d’utilisateur inactifs dans Azure AD
 
@@ -85,7 +85,7 @@ Chaque connexion interactive réussie aboutit à une mise à jour du magasin de 
 
 Pour générer un horodatage lastSignInDateTime, vous avez besoin d’une connexion réussie. Étant donné que la propriété lastSignInDateTime est une nouvelle fonctionnalité, la valeur de la propriété lastSignInDateTime peut être vide dans les cas suivants :
 
-- La dernière connexion réussie d’un utilisateur a été effectuée avant la publication de cette fonctionnalité (1er décembre 2019).
+- La dernière connexion réussie d’un utilisateur a eu lieu avant avril 2020.
 - Le compte d’utilisateur affecté n’a jamais été utilisé pour une connexion réussie.
 
 ## <a name="next-steps"></a>Étapes suivantes

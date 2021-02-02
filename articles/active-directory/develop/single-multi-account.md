@@ -12,12 +12,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 89a383aabf3487a0938604bc28ddb06c0541d13e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bea1753c87c11094e78f95a1bbadb02fb0b95e2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80881330"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752981"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Applications clientes publiques monocomptes et multicomptes
 
@@ -118,7 +118,7 @@ Utilisez un ou plusieurs comptes dans votre application en appelant `acquireToke
 - Appelez `getAccount` pour obtenir un compte spécifique.
 - Appelez `getAccounts` pour obtenir la liste des comptes actuellement connus de l’application.
 
-Votre application ne sera pas en mesure d’énumérer tous les comptes de plateforme d’identités Microsoft présents sur l’appareil et connus de l’application de répartiteur. Elle peut uniquement énumérer les comptes qui ont été utilisés par votre application.  Les comptes qui ont été supprimés de l’appareil ne sont pas retournés par ces fonctions.
+Votre application ne sera pas en mesure d’énumérer tous les comptes de la plateforme d’identités Microsoft présents sur l’appareil et connus de l’application de répartiteur. Elle peut uniquement énumérer les comptes qui ont été utilisés par votre application.  Les comptes qui ont été supprimés de l’appareil ne sont pas retournés par ces fonctions.
 
 ### <a name="remove-an-account"></a>Supprimer un compte
 

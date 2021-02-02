@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 8861e641f5ee6a10576425a7702ba02da297a0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0127c8d796126d1e99b1fa38a9506df477c7eb49
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631271"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755733"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Utiliser des attributs d’extension de schéma d’annuaire dans les revendications
 
@@ -41,7 +41,7 @@ Les attributs d’extension de schéma d’annuaire peuvent être inscrits et re
 Les attributs de schéma d’extension d’annuaire créés et synchronisés à l’aide d’AD Connect sont toujours associés à l’ID d’application utilisé par AD Connect. Ils peuvent être utilisés comme source pour les revendications s’ils sont configurés comme des revendications dans la configuration **Applications d'entreprise** dans l’interface utilisateur du portail pour les applications SAML inscrites à l’aide de l’expérience de configuration de l’application galerie ou non-galerie sous **Applications d'entreprise** et via une stratégie de mappage des revendications pour les applications inscrites via l’expérience d’inscription d’application.  Une fois qu’un attribut d’extension d’annuaire créé via AD Connect figure dans l’annuaire, il affiche l’IU de la configuration des revendications SAML SSO.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Émission de revendications avec les données des attributs d’extension de schéma d’annuaire créés pour une application qui utilise Graph ou PowerShell
-Si un attribut d’extension de schéma d’annuaire est inscrit pour une application qui utilise Microsoft Graph ou PowerShell (par exemple, via une configuration initiale pour applications ou une étape d’approvisionnement), la même application peut être configurée dans Azure Active Directory pour recevoir des données dans cet attribut d’un objet utilisateur dans une revendication lorsque l’utilisateur se connecte.  Cette application peut être configurée pour recevoir des données dans des extensions de schéma d’annuaire qui ont été inscrites sur la même application à l’aide de [revendications facultatives](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Celles-ci peuvent être configurées dans le manifeste de l'application.  Cela permet à une application multi-locataire d’inscrire les attributs d’extension de schéma d’annuaire pour son propre usage. Lorsque l’application est configurée dans un locataire, les extensions de schéma d’annuaire associées sont disponibles pour configuration sur les utilisateurs de ce locataire et pour consommation.  Une fois la configuration dans le locataire terminée et l’autorisation accordée, l’application peut être utilisée pour le stockage et la récupération de données via Graph, mais également pour le mappage des revendications contenues dans les jetons émis par la plateforme d’identité Microsoft vers les applications.
+Si un attribut d’extension de schéma d’annuaire est inscrit pour une application qui utilise Microsoft Graph ou PowerShell (par exemple, via une configuration initiale pour applications ou une étape d’approvisionnement), la même application peut être configurée dans Azure Active Directory pour recevoir des données dans cet attribut d’un objet utilisateur dans une revendication lorsque l’utilisateur se connecte.  Cette application peut être configurée pour recevoir des données dans des extensions de schéma d’annuaire qui ont été inscrites sur la même application à l’aide de [revendications facultatives](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Celles-ci peuvent être configurées dans le manifeste de l'application.  Cela permet à une application multi-locataire d’inscrire les attributs d’extension de schéma d’annuaire pour son propre usage. Lorsque l’application est configurée dans un locataire, les extensions de schéma d’annuaire associées sont disponibles pour configuration sur les utilisateurs de ce locataire et pour consommation.  Une fois la configuration dans le locataire terminée et le consentement accordé, l’application peut être utilisée pour le stockage et la récupération de données via Graph, mais également pour le mappage des revendications contenues dans les jetons émis par la plateforme d’identités Microsoft vers les applications.
 
 Les attributs d’extension de schéma d’annuaire peuvent être inscrits et renseignés pour n’importe quelle application.
 

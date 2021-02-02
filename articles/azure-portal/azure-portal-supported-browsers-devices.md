@@ -3,18 +3,18 @@ title: Navigateurs et appareils pris en charge pour le portail Azure
 description: Vous pouvez utiliser le portail Azure sur tous les appareils modernes et avec les versions les plus récentes de navigateurs. Consultez cet article pour vous assurer que votre navigateur est pris en charge.
 ms.assetid: 35fa18ec-21d8-41bf-af2b-e5e92703401d
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 01/22/2021
 ms.custom: accessibility
-ms.openlocfilehash: 81c4ccef688622ec20d111383359053b82045996
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2637dd6112d1cf1f9a3131cb9043a8b6aac2884f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938084"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735824"
 ---
 # <a name="supported-devices"></a>Appareils pris en charge
 
-Le [portail Azure](https://portal.azure.com) est une console web qui s'exécute dans le navigateur de tous les ordinateurs de bureau et tablettes modernes. Pour utiliser le portail, JavaScript doit être activé sur votre navigateur.
+Le [portail Azure](https://portal.azure.com) est une console web qui s'exécute dans le navigateur de tous les ordinateurs de bureau et tablettes modernes. Pour utiliser le portail, JavaScript doit être activé sur votre navigateur. Nous vous recommandons de ne pas utiliser de bloqueurs de publicité dans votre navigateur, car ils peuvent causer des problèmes avec certaines fonctionnalités du portail.
 
 Si vous devez gérer des ressources Azure à partir d'un appareil mobile, essayez [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/). Cette application est disponible sous iOS et Android.
 

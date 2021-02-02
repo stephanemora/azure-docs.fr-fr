@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685576"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 
@@ -230,6 +230,7 @@ Le notebook trouve automatiquement tous les noyaux Jupyter installés sur l’in
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. Une fois que vous avez installé le noyau, actualisez la page et ouvrez un notebook. Le nouveau noyau s’affiche à présent dans la liste des noyaux.
 
 > [!NOTE]
 > Pour la gestion des packages au sein d’un notebook, utilisez les fonctions magic **%pip** ou **%conda** pour installer automatiquement des packages dans le **noyau en cours d’exécution**, au lieu de **!pip** ou **!conda** qui se réfèrent à tous les packages (y compris les packages en dehors du noyau en cours d’exécution).
@@ -342,7 +343,14 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 Pour plus de détails sur vos instances de calcul, consultez la page **Calcul** dans de [Studio](https://ml.azure.com).
 
+## <a name="troubleshooting"></a>Dépannage
+
+* Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
+
+* Lorsque l’instance de calcul est déployée dans un espace de travail privé, elle n’est accessible qu’à partir d’un réseau virtuel. Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.<region>.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli).
+    
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Exécuter votre première expérience](tutorial-1st-experiment-sdk-train.md)
 * [Sauvegarder votre stockage de fichiers avec des captures instantanées](../storage/files/storage-snapshots-files.md)
+* [Utilisation des environnements sécurisés](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)

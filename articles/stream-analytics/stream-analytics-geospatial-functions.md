@@ -6,16 +6,16 @@ ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dc590593b9bff8f646ee6155d32a2ce3f9790f6e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625246"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Présentation des fonctions géospatiales Stream Analytics
 
-Les fonctions géospatiales d’Azure Stream Analytics permettent d’effectuer une analytique en temps réel des données géospatiales de streaming. Avec seulement quelques lignes de code, vous pouvez développer une solution de production adaptée aux scénarios complexes. 
+Les fonctions géospatiales d’Azure Stream Analytics permettent d’effectuer une analytique en temps réel des données géospatiales de streaming. Avec seulement quelques lignes de code, vous pouvez développer une solution de production adaptée aux scénarios complexes. Ces fonctions prennent en charge tous les types WKT et les géométries GeoJSON Point, Polygon et LineString.
 
 Voici quelques exemples de scénarios qui peuvent bénéficier des fonctions géospatiales :
 
@@ -110,7 +110,7 @@ Pour plus d’informations, consultez la référence [CreatePolygon](/stream-ana
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-La fonction `ST_DISTANCE` retourne la distance (en mètres) qui existe entre deux points. 
+La fonction `ST_DISTANCE` retourne la distance en mètres entre deux géométries. 
 
 La requête suivante utilise `ST_DISTANCE` pour générer un événement lorsqu’une station-service se trouve à moins de 10 kilomètres de votre voiture.
 
@@ -123,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Pour plus d’informations, consultez la référence [ST_DISTANCE](/stream-analytics-query/st-distance).
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-La fonction `ST_OVERLAPS` compare deux polygones. Si les polygones se chevauchent, la fonction retourne 1. Si les polygones ne se chevauchent pas, la fonction retourne 0. 
+La fonction `ST_OVERLAPS` compare deux géométries. Si les géométries se chevauchent, la fonction retourne la valeur 1. Si les géométries ne se chevauchent pas, la fonction retourne la valeur 0. 
 
 La requête suivante utilise `ST_OVERLAPS` pour générer un événement lorsqu’un bâtiment se trouve dans une zone inondable.
 
@@ -144,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Pour plus d’informations, consultez la référence [ST_OVERLAPS](/stream-analytics-query/st-overlaps).
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-La fonction `ST_INTERSECTS` compare deux LineString. Si les LineString se croisent, la fonction retourne 1. Si les LineString ne se croisent pas, la fonction retourne 0.
+La fonction `ST_INTERSECTS` compare deux géométries. Si les géométries se croisent, la fonction retourne la valeur 1. Si les géométries ne se croisent pas, la fonction retourne la valeur 0.
 
 L’exemple de requête suivant utilise `ST_INTERSECTS` pour déterminer si une route pavée croise un chemin de terre.
 
@@ -170,7 +170,7 @@ FROM input
 Pour plus d’informations, consultez la référence [ST_INTERSECTS](/stream-analytics-query/st-intersects).
 
 ## <a name="st_within"></a>ST_WITHIN
-La fonction `ST_WITHIN` détermine si un point ou un polygone se trouvent dans un polygone. Si le polygone contient un point ou un polygone, la fonction retourne 1. La fonction retourne 0 si le point ou le polygone ne se trouvent pas dans le polygone déclaré.
+La fonction `ST_WITHIN` détermine si une géométrie se trouve dans une autre géométrie. Si la première est contenue dans la dernière, la fonction retourne la valeur 1. Si la première géométrie n’est pas située dans la dernière, la fonction retourne la valeur 0.
 
 L’exemple de requête suivant utilise `ST_WITHIN` pour déterminer si le point de la destination de livraison se trouve dans le polygone d’entrepôt donné.
 

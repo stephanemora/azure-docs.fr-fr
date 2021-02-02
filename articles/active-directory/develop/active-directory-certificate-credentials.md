@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602204"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795622"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
-La plateforme d’identités Microsoft permet à une application d’utiliser ses propres informations d’identification pour l’authentification partout où une clé secrète client pourrait être utilisée, par exemple, dans le [flux d’octroi d’informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 et le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) (OBO).
+La plateforme d’identités Microsoft permet à une application d’utiliser ses propres informations d’identification pour l’authentification partout où une clé secrète client pourrait être utilisée, par exemple, dans le [flux d’octroi d’informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) OAuth 2.0 et le [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Parmi les types d’informations d’identification qu’une application peut utiliser pour l’authentification figure l’assertion [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) signée avec un certificat dont est propriétaire l’application.
+Parmi les types d’informations d’identification qu’une application peut utiliser pour l’authentification figure l’assertion [JSON Web Token](./security-tokens.md#json-web-tokens-and-claims) (JWT) signée avec un certificat dont est propriétaire l’application.
 
 ## <a name="assertion-format"></a>Format d’assertion
 
@@ -89,7 +89,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Inscrire votre certificat auprès de la Plateforme d’identités Microsoft
 
-Vous pouvez associer les informations d’identification du certificat à l’application cliente dans la Plateforme d’identités Microsoft via le portail Azure en utilisant l’une des méthodes suivantes :
+Vous pouvez associer les informations d’identification du certificat à l’application cliente dans la plateforme d’identités Microsoft via le portail Azure en utilisant l’une des méthodes suivantes :
 
 ### <a name="uploading-the-certificate-file"></a>Chargement du fichier de certificat
 

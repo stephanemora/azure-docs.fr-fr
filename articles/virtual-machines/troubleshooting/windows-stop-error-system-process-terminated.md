@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976995"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661236"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Erreur d’arrêt de Windows – 0xC000021A Processus du système d’état terminé
 
@@ -47,6 +47,10 @@ Cette erreur se produit quand un processus critique, tel que WinLogon (Winlogon.
 ## <a name="solution"></a>Solution
 
 ### <a name="collect-the-memory-dump-file"></a>Collecter le fichier de l’image mémoire
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
+
 
 Pour résoudre ce problème, vous devez analyser le vidage sur incident. Collectez le fichier de vidage de la mémoire pour l’incident et contactez le support technique. Pour collecter le fichier d’image, effectuez les étapes suivantes :
 

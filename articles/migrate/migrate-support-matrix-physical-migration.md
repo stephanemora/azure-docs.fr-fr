@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 4ebc363f29ed8956d10e91f41be1d257cbcc492f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562638"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703884"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Tableau de prise en charge pour la migration de serveurs physiques
 
@@ -81,7 +81,7 @@ Architecture du système d’exploitation invité | 64 bits. | La vérification
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.
-Taille de disque de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge.
+Taille de disque de données | Jusqu’à 32 To | La vérification est mise en échec en cas de défaut de prise en charge.
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
 Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.

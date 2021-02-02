@@ -11,19 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 695261ceae9d64be9395e6de082f97be04292078
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503487"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745983"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
 L’extension de serveur NPS (Network Policy Server) étend vos fonctionnalités Azure AD Multi-Factor Authentication basées sur le cloud à votre infrastructure locale. Cet article suppose que l’extension est déjà installée et que vous souhaitez maintenant savoir comment personnaliser l’extension en fonction de vos propres besoins.
-
-> [!NOTE]
-> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="alternate-login-id"></a>ID de connexion de substitution
 
@@ -54,7 +51,7 @@ Pour configurer une liste autorisée d’adresses IP, accédez à `HKLM\SOFTWAR
 > [!NOTE]
 > Cette clé de Registre n’est pas créée par défaut par le programme d’installation et une erreur s’affiche dans le journal AuthZOptCh lorsque le service est redémarré. Cette erreur dans le journal peut être ignorée, mais si cette clé de Registre est créée et laissée vide lorsqu’elle n’est pas nécessaire, le message d’erreur ne retourne pas.
 
-Lorsqu’une requête provient d’une adresse IP de la `IP_WHITELIST`, la vérification en deux étapes est ignorée. La liste d’adresses IP est comparée à l’adresse IP fournie dans l’attribut *ratNASIPAddress* de la requête RADIUS. Si une requête RADIUS est fournie sans l’attribut ratNASIPAddress, l’avertissement suivant est enregistré : « P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute. » (P_WHITE_LIST_WARNING::IP Whitelist est ignoré, car l’adresse IP source est manquante dans la requête RADIUS de l’attribut NasIpAddress.)
+Lorsqu’une requête provient d’une adresse IP de la `IP_WHITELIST`, la vérification en deux étapes est ignorée. La liste d’adresses IP est comparée à l’adresse IP fournie dans l’attribut *ratNASIPAddress* de la requête RADIUS. Si une requête RADIUS est fournie sans l’attribut ratNASIPAddress, un avertissement est enregistré : « IP_WHITE_LIST_WARNING::IP Whitelist is being ignored as the source IP is missing in the RADIUS request NasIpAddress attribute. » (IP_WHITE_LIST_WARNING::IP Whitelist est ignoré, car l’adresse IP source est manquante dans la requête RADIUS de l’attribut NasIpAddress.)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

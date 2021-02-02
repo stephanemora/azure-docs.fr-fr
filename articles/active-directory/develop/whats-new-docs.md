@@ -11,16 +11,27 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 4813a71a0bdd14e747aa4cfe51ab5a4191df62a4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563039"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755950"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Authentification ou autorisation](authentication-vs-authorization.md)
+- [Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs dans un locataire Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
+- [Autorisations et consentement dans le point de terminaison de la plateforme d’identité Microsoft](v2-permissions-and-consent.md)
+- [Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)](active-directory-configurable-token-lifetimes.md)
+- [Configurer des stratégies de durée de vie des jetons (préversion)](configure-token-lifetimes.md)
+- [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -36,6 +47,7 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 
 ### <a name="updated-articles"></a>Articles mis à jour
 
+- [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java](quickstart-v2-java-webapp.md)
 - [Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft](tutorial-v2-aspnet-daemon-web-app.md)
 - [Application web qui connecte les utilisateurs : Inscription d'application](scenario-web-app-sign-user-app-registration.md)
 - [Plateforme d’identités Microsoft et flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md)
@@ -56,49 +68,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Procédure : Fournir des revendications facultatives à votre application](active-directory-optional-claims.md)
 - [Publier votre application dans la galerie d’applications Azure AD](v2-howto-app-gallery-listing.md)
 - [Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md)
-
-## <a name="october-2020"></a>Octobre 2020
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application web Node à l’aide du flux de code d’authentification](quickstart-v2-nodejs-webapp-msal.md)
-- [Procédure : Activer l’authentification unique entre applications sur Android à l’aide de MSAL](msal-android-single-sign-on.md)
-- [Prise en charge des stratégies de protection des applications et de l’authentification unique dans les applications mobiles que vous développez](mobile-sso-support-overview.md)
-- Documentation relative à la plateforme d’identités Microsoft : Nouveautés (dans cet article)
-- [Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly](tutorial-blazor-webassembly.md)
-- [Bibliothèque d’authentification Microsoft Identity Web](microsoft-identity-web.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)](active-directory-configurable-token-lifetimes.md)
-- [Procédure : connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire](howto-convert-app-to-be-multi-tenant.md)
-- [Démarrage rapide : Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
-- [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md)
-- [Guide de migration ADAL vers MSAL pour Android](migrate-android-adal-msal.md)
-- [Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-- [Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft](active-directory-certificate-credentials.md)
-- [Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS](tutorial-v2-ios.md)
-- [Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript](tutorial-v2-javascript-spa.md)
-- [Tutoriel : Utiliser le mode d’appareil partagé dans votre application Android](tutorial-v2-shared-device-mode.md)
-
-## <a name="september-2020"></a>Septembre 2020
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Démarrage rapide : Protéger une API web ASP.NET Core avec la plateforme d’identités Microsoft](quickstart-v2-aspnet-core-web-api.md)
-- [Tutoriel : Créer une application Blazor Server qui utilise la plateforme d’identité Microsoft pour l’authentification](tutorial-blazor-server.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android](tutorial-v2-android.md)
-- [Application web appelant des API web : Configuration de code](scenario-web-app-call-api-app-configuration.md)
-- [Application web qui appelle des API web : Appeler une API web](scenario-web-app-call-api-call-api.md)
-- [Une API web qui appelle des API web : Configuration de code](scenario-web-api-call-api-app-configuration.md)
-- [Une API web qui appelle des API web : Appeler une API](scenario-web-api-call-api-call-api.md)
-- [Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS](tutorial-v2-ios.md)
-- [Démarrage rapide : Appeler une API web ASP.NET qui est protégée par la plateforme d’identités Microsoft](quickstart-v2-dotnet-native-aspnet.md)
-- [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
-- [Considérations relatives à l’utilisation de Xamarin iOS avec MSAL.NET](msal-net-xamarin-ios-considerations.md)
-- [Démarrage rapide : Configurer une application cliente pour accéder à une API web](quickstart-configure-app-access-web-apis.md)
-- [Démarrage rapide : Configurer une application pour exposer une API web](quickstart-configure-app-expose-web-apis.md)
-- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)

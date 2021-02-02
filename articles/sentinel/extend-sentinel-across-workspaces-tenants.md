@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95483911"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757117"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -94,18 +94,18 @@ Une fonction peut également simplifier un union couramment utilisé. Par exempl
 
 Vous pouvez ensuite écrire une requête sur les deux espaces de travail en commençant par `unionSecurityEvent | where ...`.
 
-#### <a name="scheduled-alerts"></a>Alertes planifiées
+#### <a name="cross-workspace-analytics-rules"></a>Règles d’analytique applicables à plusieurs espaces de travail<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+Des requêtes sur plusieurs espaces de travail peuvent désormais être incluses dans des règles d’analytique planifiée, sous réserve des limitations suivantes :
 
-Les requêtes portant sur plusieurs espaces de travail peuvent désormais être incluses dans les alertes planifiées des règles d’analytique, sous réserve des limitations suivantes :
-
-- Jusqu’à 10 espaces de travail peuvent être inclus dans une seule requête.
+- Jusqu’à 15 espaces de travail peuvent être inclus dans une seule requête.
 - Azure Sentinel doit être déployé sur chaque espace de travail référencé dans la requête.
 
 > [!NOTE] 
 > Interroger plusieurs espaces de travail dans la même requête peut nuire au niveau de performance ; par conséquent, cette méthode est recommandée uniquement lorsque la logique requiert cette fonctionnalité.
 
-### <a name="using-cross-workspace-workbooks"></a>Utilisation de classeurs entre espaces de travail
-
+#### <a name="cross-workspace-workbooks"></a>Classeurs pour plusieurs espaces de travail<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 Les [classeurs](./overview.md#workbooks) fournissent des tableaux de bord et des applications à Azure Sentinel. Lorsque vous travaillez avec plusieurs espaces de travail, ceux-ci fournissent des analyses et permettent d’effectuer des actions parmi les espaces de travail.
 
 Les classeurs peuvent fournir des requêtes inter-espaces de travail de l’une des trois méthodes suivantes, chacune d’entre elles étant basée sur différents niveaux d’expertise de l’utilisateur final :
@@ -117,7 +117,7 @@ Les classeurs peuvent fournir des requêtes inter-espaces de travail de l’une 
 | Modifier le classeur de manière interactive | Un utilisateur expérimenté qui modifie un classeur existant peut modifier les requêtes qu’il contient, en sélectionnant les espaces de travail cibles à l’aide du sélecteur d’espace de travail dans l’éditeur. | Cette option permet à un utilisateur avancé de modifier facilement des classeurs existants pour travailler avec plusieurs espaces de travail. |
 |
 
-### <a name="cross-workspace-hunting"></a>Chasse dans plusieurs espaces de travail
+#### <a name="cross-workspace-hunting"></a>Chasse dans plusieurs espaces de travail
 
 Azure Sentinel fournit des exemples de requêtes préchargés conçus pour vous aider à prendre en main les tables et le langage de requête et à vous familiariser avec eux. Ces requêtes de chasse intégrées sont élaborées en continu par les chercheurs en sécurité de Microsoft, qui ajoutent de nouvelles requêtes et affinent celles existantes, de manière à vous offrir un point d’entrée pour la recherche de nouvelles détections et identifier les signes d’intrusion qui pourraient ne pas avoir été détectés par vos outils de sécurité.  
 

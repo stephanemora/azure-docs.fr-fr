@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: d944512e5f6126920ab4fba99fb70513b93177ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936819"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610265"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -153,6 +153,8 @@ Pendant la création ou la mise à l’échelle de votre plan, vous pouvez chois
 L’exécution sur une machine avec davantage de mémoire ne signifie pas toujours que votre application de fonction utilise toute la mémoire disponible.
 
 Par exemple, une application de fonction JavaScript est contrainte par la limite de mémoire par défaut dans Node.js. Pour augmenter cette limite de mémoire fixe, ajoutez le paramètre d’application `languageWorkers:node:arguments` avec la valeur `--max-old-space-size=<max memory in MB>`.
+
+Et pour les plans avec plus de 4 Go de mémoire, vérifiez que le paramètre de nombre de bits de la plateforme est défini sur `64 Bit` sous [Paramètres généraux](/azure/app-service/configure-common#configure-general-settings).
 
 ## <a name="region-max-scale-out"></a>Scale-out maximal par région
 

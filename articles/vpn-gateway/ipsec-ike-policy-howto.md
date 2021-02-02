@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
-ms.openlocfilehash: eda920640667abc6620c5c90ee7d04a44789353e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992659"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878542"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Portail Azure
 
@@ -28,10 +28,8 @@ Cet article fournit des instructions sur la création et la configuration d’un
 ### <a name="considerations"></a>Considérations
 
 * La stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
-  * ***VpnGw1~5 et VpnGw1AZ~5AZ***
-  * ***Standard*** et ***HighPerformance***
-* Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
-* Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
+  * ***VpnGw1 à 5 et VpnGw1AZ à 5AZ** _ _ ***Standard** _ et _*_HighPerformance_*_ _ Vous pouvez uniquement spécifier ***une** _ combinaison de stratégies pour une connexion donnée.
+  _ Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 * Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Flux de travail
@@ -116,27 +114,27 @@ Reportez-vous à [RFC3526](https://tools.ietf.org/html/rfc3526) et [RFC5114](htt
 
 Cette section vous guide au fil des étapes de création d’une connexion VPN site à site avec une stratégie IPsec/IKE. Les étapes suivantes créent la connexion, comme illustré dans le diagramme suivant :
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Diagramme de stratégie IPsec/IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/site-to-site-diagram.png" alt-text="Stratégie site à site" border="false":::
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a><a name="createvnet1"></a>Étape 1 : création du réseau virtuel, de la passerelle VPN et de la passerelle de réseau local
 
-Créez les ressources suivantes, comme dans les captures d’écran ci-dessous. Pour connaître les étapes à suivre, consultez [Créer une connexion VPN de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Créez les ressources suivantes, comme dans les captures d’écran ci-dessous. Pour connaître les étapes à suivre, consultez [Créer une connexion VPN de site à site](./tutorial-site-to-site-portal.md).
 
 * **Réseau virtuel :**  TestVNet1
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/testvnet-1.png" alt-text="Réseau virtuel":::
 
 * **Passerelle VPN :** VNet1GW
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-1-gateway.png" alt-text="Passerelle":::
 
 * **Passerelle de réseau local :** Site6
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/lng-site-6.png" alt-text="Site":::
 
 * **Connection :** VNet1 à Site6
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/connection-site-6.png" alt-text="Connection":::
 
 ### <a name="step-2---configure-ipsecike-policy-on-the-s2s-vpn-connection"></a><a name="s2sconnection"></a>Étape 2 : configuration de stratégie IPsec/IKE sur la connexion VPN S2S
 
@@ -147,15 +145,15 @@ Dans cette section, vous allez configurer une stratégie IPsec/IKE avec les algo
 
 1. Accédez à la ressource de connexion, **VNet1toSite6**, dans le portail Azure. Sélectionnez la page **Configuration** et sélectionnez une stratégie IPsec/IKE **Personnalisée** pour afficher toutes les options de configuration. La capture d’écran ci-dessous montre la configuration en fonction de la liste :
 
-    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+    :::image type="content" source="./media/ipsec-ike-policy-howto/policy-site-6.png" alt-text="Site 6":::
 
 1. Si vous utilisez des algorithmes GCMAES pour IPsec, vous devez utiliser les mêmes algorithme GCMAES et longueur de clé pour le chiffrement IPsec et l’intégrité IPsec. Par exemple, la capture d’écran ci-dessous spécifie GCMAES128 pour le chiffrement IPsec et l’intégrité IPsec :
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/gcmaes.png" alt-text="GCMAES pour IPsec":::
 
 1. Vous pouvez éventuellement sélectionner **Activer** pour l’option **Utiliser des sélecteurs de trafic basés sur une stratégie** afin de permettre à la passerelle VPN Azure de se connecter à des VPN basés sur une stratégie localement, comme décrit ci-dessus.
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/policy-based-selector.png" alt-text="Sélecteur de trafic basé sur une stratégie":::
 
 1. Une fois toutes les options sélectionnées, sélectionnez **Enregistrer** pour valider les modifications apportées à la ressource de connexion. La stratégie sera appliquée en environ une minute.
 
@@ -170,13 +168,13 @@ Dans cette section, vous allez configurer une stratégie IPsec/IKE avec les algo
 
 Les étapes de création d’une connexion de réseau virtuel à réseau virtuel avec une stratégie IPsec/IKE sont similaires à celles d’une connexion VPN S2S.
 
-:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagramme de stratégie IPsec/IKE" border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/vnet-policy.png" alt-text="Diagramme de connexion de réseau virtuel à réseau virtuel" border="false":::
 
 1. Pour créer votre connexion de réseau virtuel à réseau virtuel, procédez de la manière décrite dans [Créer une connexion de réseau virtuel à réseau virtuel](vpn-gateway-vnet-vnet-rm-ps.md).
 
 2. Une fois les étapes accomplies, vous verrez deux connexions de réseau virtuel à réseau virtuel, comme dans la capture d’écran ci-dessous de la ressource VNet2GW :
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-connections.png" alt-text="Connexions de réseau virtuel à réseau virtuel":::
 
 3. Accédez à la ressource de connexion, puis à la page **Configuration** sur le portail. Sélectionnez **Personnalisée** dans **Stratégie IPsec/IKE** pour afficher les options de stratégie personnalisée. Sélectionnez les algorithmes de chiffrement avec les longueurs de clé correspondantes.
 
@@ -184,7 +182,7 @@ Les étapes de création d’une connexion de réseau virtuel à réseau virtuel
    * IKE : AES128, SHA1, DHGroup14, délai d’expiration DPD de 45 secondes
    * IPsec : GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/vnet-vnet-policy.png" alt-text="Stratégie de connexion":::
 
 4. Sélectionnez **Enregistrer** pour appliquer les modifications apportées à la stratégie à la ressource de connexion.
 
@@ -203,7 +201,7 @@ Les étapes de création d’une connexion de réseau virtuel à réseau virtuel
 
 2. Sélectionnez **Par défaut** sous l’option **Stratégie IPsec/IKE**. Cette opération supprime toutes les stratégies personnalisées précédemment spécifiées sur la connexion, et restaure les paramètres IPsec/IKE par défaut sur cette connexion :
 
-   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Diagramme de stratégie IPsec/IKE":::
+   :::image type="content" source="./media/ipsec-ike-policy-howto/delete-policy.png" alt-text="Supprimer stratégie":::
 
 3. Sélectionnez **Enregistrer** pour supprimer la stratégie personnalisée et restaurer les paramètres IPsec/IKE par défaut sur la connexion.
 

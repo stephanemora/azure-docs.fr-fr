@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526536"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632561"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Impossible de démarrer une machine virtuelle Windows à cause du Gestionnaire de démarrage Windows
 
@@ -40,6 +40,9 @@ Figure 1
 L’erreur est due à un indicateur BCD *displaybootmenu* dans le Gestionnaire de démarrage Windows. Lorsque l’indicateur est activé, le Gestionnaire de démarrage Windows invite l’utilisateur, pendant le processus de démarrage, à sélectionner le chargeur qu’il souhaite exécuter, ce qui provoque un retard de démarrage. Dans Azure, cette fonctionnalité peut allonger temps nécessaire au démarrage d’une machine virtuelle.
 
 ## <a name="solution"></a>Solution
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Vue d’ensemble du processus :
 
@@ -89,7 +92,7 @@ Si vous avez accès à une console série, vous disposez de deux méthodes pour 
 
    `bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes`
 
-   Utilisez cette commande pour **les machines virtuelles de 2e génération** :
+   Utilisez cette commande pour les **machines virtuelles de 2e génération** :
 
    `bcdedit /store <VOLUME LETTER OF EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /set {bootmgr} displaybootmenu yes`
 
@@ -111,7 +114,7 @@ Si vous avez accès à une console série, vous disposez de deux méthodes pour 
 
 Pour activer la collecte de l’image mémoire et la console série, exécutez le script suivant :
 
-1. Ouvrez une session Invite de commande avec élévation de privilèges (Exécuter en tant qu’administrateur).
+1. Ouvrez une session d’invite de commandes avec élévation de privilèges (Exécuter en tant qu’administrateur).
 2. Exécutez les commandes suivantes :
 
    Activer la console série

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447381"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804853"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -25,7 +25,7 @@ Avant de pouvoir créer un cluster Kubernetes et d’utiliser l’outil de ligne
 
 - Vous avez les informations d’identification de connexion à un appareil Azure Stack Edge Pro à 1 nœud.
 
-- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5.0 ou version ultérieure est installé sur un système client Windows pour accéder à l’appareil Azure Stack Edge Pro. Vous pouvez également utiliser un autre client avec un système d’exploitation pris en charge. Cet article décrit la procédure à utiliser avec un client Windows. Pour télécharger la dernière version de Windows PowerShell, accédez à [Installation de Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
 
 - Le calcul est activé sur l’appareil Azure Stack Edge Pro. Pour activer le calcul, accédez à la page **Calcul** de l’interface utilisateur locale de l’appareil. Puis sélectionnez une interface réseau que vous souhaitez activer pour le calcul. Sélectionnez **Activer**. L’activation du calcul entraîne la création d’un commutateur virtuel sur votre appareil sur cette interface réseau. Pour plus d’informations, consultez [Activer le réseau de calcul sur Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
@@ -63,7 +63,7 @@ Pour vérifier la version, utilisez `kubectl` :
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   Dans ce cas, la version cliente de kubectl est v 1.15.2 et est compatible pour la suite.
+   Dans ce cas, la version cliente de kubectl est v1.15.2 et est compatible pour la suite.
 
 2. Obtenez la liste des pods en cours d’exécution sur votre cluster Kubernetes. Un pod est un conteneur d’application, ou processus, s’exécutant sur votre cluster Kubernetes.
 
@@ -103,7 +103,7 @@ Pour vérifier la version, utilisez `kubectl` :
 
 ### <a name="create-a-stateless-application-using-a-deployment"></a>Créer une application sans état à l’aide d’un déploiement
 
-Maintenant que vous avez vérifié que la version de la ligne de commande kubectl était correcte et que vous disposez des fichiers de configuration requis, vous pouvez créer un déploiement d’application sans état.
+Maintenant que vous avez vérifié que la version de la ligne de commande kubectl était correcte et que vous disposez des fichiers config requis, vous pouvez créer un déploiement d’application sans état.
 
 Un Pod est l’unité d’exécution de base d’une application Kubernetes, l’unité la plus petite et la plus simple dans le modèle objet Kubernetes que vous créez ou déployez. Un pod encapsule également les ressources de stockage, une adresse IP réseau unique et des options qui régissent la façon dont le ou les conteneurs doivent s’exécuter.
 
@@ -123,7 +123,7 @@ Pour créer un déploiement nginx, procédez comme suit :
 
    Dans cet exemple, le chemin d’accès au fichier YAML de l’application est une source externe.
 
-   Voici un exemple d’utilisation de la commande et de la sortie :
+   Voici un exemple d’utilisation de la commande et de sa sortie :
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -131,7 +131,7 @@ Pour créer un déploiement nginx, procédez comme suit :
    deployment.apps/nginx-deployment created
    ```
 
-   Vous pouvez également enregistrer le markdown suivant sur votre ordinateur local et remplacer le chemin d’accès et le nom de fichier dans le paramètre *-f*. Par exemple, « C:\Kubernetes\deployment.yaml ». Voici la configuration pour le déploiement de l’application :
+   Vous pouvez également enregistrer le markdown suivant sur votre ordinateur local et remplacer le chemin d’accès et le nom de fichier dans le paramètre *-f*. Par exemple, « C:\Kubernetes\deployment.yaml ». La configuration du déploiement de l’application est la suivante :
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -163,7 +163,7 @@ Pour créer un déploiement nginx, procédez comme suit :
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Voici un exemple d’utilisation de la commande et de la sortie :
+   Vous trouverez ci-dessous un exemple d’utilisation de la commande avec la sortie :
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -203,13 +203,13 @@ Pour créer un déploiement nginx, procédez comme suit :
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   Si vous examinez attentivement le paramètre *replicas*, vous verrez que :
+   Pour le paramètre *replicas*, vous verrez que :
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   Le paramètre *replicas* indique que votre spécification de déploiement requiert deux pods, que ces pods ont été créés et mis à jour, et qu’ils sont prêts à être utilisés.
+   Le paramètre *replicas* indique que votre spécification de déploiement requiert deux pods, que ces pods ont été créés et mis à jour et qu’ils sont prêts à être utilisés.
 
    > [!NOTE]
    > Un jeu de réplicas remplace les pods qui sont supprimés ou arrêtés pour une raison quelconque, comme dans le cas d’une défaillance de nœud d’appareil ou d’une mise à niveau d’appareil perturbatrice. Pour cette raison, nous vous recommandons d’utiliser un jeu de réplicas même si votre application ne requiert qu’un seul pod.
@@ -220,7 +220,7 @@ Pour créer un déploiement nginx, procédez comme suit :
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Voici un exemple d’utilisation de la commande et de la sortie :
+   Vous trouverez ci-dessous un exemple d’utilisation de la commande avec la sortie :
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -238,7 +238,7 @@ Pour créer un déploiement nginx, procédez comme suit :
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Voici un exemple d’utilisation de la commande et de la sortie :
+  Vous trouverez ci-dessous un exemple d’utilisation de la commande avec la sortie :
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -295,14 +295,14 @@ Pour créer un déploiement nginx, procédez comme suit :
 
 ### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>Mettre à l’échelle le déploiement de l’application en augmentant le nombre de réplicas
 
-Chaque pod est conçu pour exécuter une seule instance d’une application donnée. Si vous souhaitez mettre à l’échelle votre application horizontalement pour exécuter plusieurs instances, vous pouvez augmenter le nombre de pods, une pour chaque instance. Dans Kubernetes, on parle de réplication.
+Chaque pod est conçu pour exécuter une seule instance d’une application donnée. Si vous souhaitez mettre à l’échelle votre application horizontalement pour exécuter plusieurs instances, vous pouvez augmenter le nombre de pods à un pour chaque instance. Dans Kubernetes, on parle de réplication.
 Vous pouvez augmenter le nombre de pods dans le déploiement de votre application en appliquant un nouveau fichier YAML. Le fichier YAML change le paramètre de réplicas sur 4, ce qui augmente le nombre de pods dans votre déploiement sur quatre pods. Pour augmenter le nombre de pods de 2 à 4 :
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-Vous pouvez également enregistrer le markdown suivant sur votre ordinateur local et remplacer le chemin d’accès et le nom de fichier pour le paramètre *-f* pour `kubectl apply`. Par exemple, « C:\Kubernetes\deployment-scale.yaml ». Voici la configuration pour la mise à l'échelle du déploiement de l’application :
+Vous pouvez également enregistrer le markdown suivant sur votre ordinateur local et remplacer le chemin d’accès et le nom de fichier pour le paramètre *-f* pour `kubectl apply`. Par exemple, « C:\Kubernetes\deployment-scale.yaml ». La configuration de la mise à l’échelle du déploiement de l’application est la suivante :
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -332,7 +332,7 @@ Pour vérifier que le déploiement comporte quatre pods :
 kubectl get pods -l app=nginx
 ```
 
-Voici un exemple de sortie pour la remise à l’échelle d’un déploiement de deux à quatre pods :
+Voici un exemple de sortie pour la remise à l’échelle d’un déploiement de deux à quatre pods :
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl get pods -l app=nginx
@@ -354,7 +354,7 @@ Pour supprimer le déploiement, y compris tous les pods, vous devez exécuter `k
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-Voici un exemple d’utilisation et de sortie de la commande :
+Voici un exemple d’utilisation de la commande avec la sortie :
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"

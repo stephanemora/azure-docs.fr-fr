@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484275"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746745"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -63,10 +63,22 @@ Voici une liste de certains principes de directeur quant au choix de la configur
 - Choisissez le type de stockage en vous référant aux articles [Types de stockage Azure pour une charge de travail SAP](./planning-guide-storage.md) et [Sélectionner un type de disque](../../disks-types.md)
 - Gardez à l’esprit le débit d’E/S global et les limites d’IOPS de la machine virtuelle lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](../../sizes-memory.md)
 - Lorsque vous choisissez la configuration du stockage, essayez de rester en dessous du débit global de la machine virtuelle avec votre configuration de volume **/hana/data**. L’écriture de points d’enregistrement, SAP HANA peut générer des opérations d’E/S agressives. Vous pouvez facilement atteindre les limites de débit de votre volume **/hana/data** lors de l’écriture d’un point d’enregistrement. Si votre ou vos disques générant le volume **/hana/data** affichent un débit supérieur à celui autorisé par votre machine virtuelle, vous pouvez rencontrer des situations où le débit utilisé par l’écriture du point d’enregistrement interfère avec les demandes de débit des écritures de journal de rétablissement. Cette situation peut avoir un impact sur le débit de l’application
-- Si vous utilisez le stockage Premium Azure, la configuration la moins coûteuse consiste à utiliser des gestionnaires de volumes logiques pour créer des jeux de bandes afin de générer les volumes **/hana/data** et **/hana/log**
+
 
 > [!IMPORTANT]
 > Les suggestions relatives aux configurations de stockage doivent être utilisées comme point de départ. Lors de l’exécution de la charge de travail et de l’analyse des modèles d’utilisation du stockage, vous pouvez constater que vous n’utilisez pas la bande passante de stockage ou les IOPS fournies. Dans ce cas, vous pouvez réduire le stockage. En revanche, votre charge de travail peut nécessiter plus de débit de stockage que ce que ces configurations vous recommandent. Par conséquent, vous devrez peut-être augmenter la capacité, les IOPS ou le débit. Sur la question concernant la tension entre la capacité de stockage requise, la latence de stockage nécessaire, le débit de stockage et les IOPS requis et la configuration la moins onéreuse, Azure propose suffisamment de types de stockage différents avec des fonctionnalités différentes et divers tarifs pour trouver le bon compromis pour vous et votre charge de travail HANA.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Jeux d’agrégats par bandes et partitionnement de volume de données SAP HANA
+Le stockage Premium Azure vous permet d’obtenir le meilleur rapport prix/performances lorsque vous utilisez des agrégats par bandes pour répartir le volume **/hana/data** et/ou **/hana/log** sur plusieurs disques Azure. au lieu de déployer des volumes de disque plus volumineux qui génèrent davantage d’opérations IOPS ou de débit que nécessaire. Jusqu’ici, ce processus était effectué à l’aide des gestionnaires de volume LVM et MDADM qui font partie de Linux. La méthode d’agrégation de disques par bandes est connue depuis plusieurs décennies. Aussi bénéfique que soit l’accès aux fonctionnalités IOPS ou de débit dont vous pourriez avoir besoin, la gestion de ces volumes en bandes devient d’autant plus complexe. En particulier dans les cas où les volumes doivent offrir une capacité étendue. Pour **/hana/data** au moins, SAP a introduit une méthode alternative qui atteint le même objectif que l’agrégation par bandes sur plusieurs disques Azure. Depuis SAP HANA 2.0 SPS03, le serveur d’index HANA est capable de répartir son activité E/S entre plusieurs fichiers de données HANA se trouvant sur différents disques Azure. L’avantage est que vous n’avez pas à vous occuper de la création et de la gestion d’un volume agrégé par bandes sur différents disques Azure. Les fonctionnalités SAP HANA du partitionnement du volume de données sont décrites en détail ici :
+
+- [Guide de l’administrateur HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sur SAP HANA – Partitionnement des volumes de données](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Note SAP N° 2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Note SAP N° 2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+En lisant ces informations, il apparaît évident que l'utilisation de cette fonctionnalité permet d’éliminer les complexités des jeux d’agrégats par bandes basés sur le gestionnaire de volume. Vous constatez également que le partitionnement du volume de données HANA ne fonctionne pas seulement pour le stockage de blocs Azure, par exemple le stockage Premium Azure. Vous pouvez aussi utiliser cette fonctionnalité pour répartir les données sur plusieurs partages NFS au cas où ces partages présentent des limites d’IOPS ou de débit.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Mode Planificateur d’E-S Linux
 Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linux et SAP recommandent couramment de remplacer le mode planificateur d’E/S **mq-deadline** ou **kyber** par **noop** (absence de plusieurs files d’attente) ou **none** (plusieurs files d’attente) pour les volumes de disque. Pour plus de détails à ce sujet, consultez la [Note SAP 1984787](https://launchpad.support.sap.com/#/notes/1984787). 

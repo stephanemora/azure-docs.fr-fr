@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399364"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752866"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -148,7 +148,7 @@ Pour en savoir plus sur l’authentification, consultez [Qu’est-ce que l’aut
 
 Pour OpenID Connect, l’application doit être mutualisée et l’[infrastructure de consentement Azure AD](consent-framework.md) doit être correctement implémentée pour l’application. L’utilisateur peut envoyer la demande de connexion à un point de terminaison commun de façon à ce que tout client puisse donner son consentement à l’application. Vous pouvez contrôler l’accès utilisateur en fonction de l’ID de locataire et de l’UPN de l’utilisateur, reçus dans le jeton.
 
-Pour consulter des exemples spécifiques, consultez [exemples de code de plateforme d’identité Microsoft](sample-v2-code.md). 
+Pour consulter des exemples spécifiques, consultez les [exemples de code de plateforme d’identité Microsoft](sample-v2-code.md). 
 
 Pour consulter des exemples spécifiques aux appareils mobiles, consultez : 
 * [Android](quickstart-v2-android.md)
@@ -175,7 +175,7 @@ La prise en charge de l’approvisionnement [SCIM](https://aka.ms/scimoverview) 
 Pour en savoir plus sur les normes SCIM et les avantages pour vos clients, consultez [Approvisionnement avec SCIM - prise en main](https://aka.ms/scimoverview).
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Comprendre l'implémentation de SCIM Azure AD
-Pour en savoir plus sur l’implémentation d’Azure AD SCIM, consultez [Créer un point de terminaison SCIM et configurer l'attribution des utilisateurs à l'aide d'Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Pour en savoir plus sur l’implémentation d’Azure AD SCIM, consultez [Créer un point de terminaison SCIM et configurer l'attribution des utilisateurs à l'aide d'Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implémenter SCIM
 Azure AD fournit un [code de référence](https://aka.ms/scimoverview) pour vous aider à créer un point de terminaison SCIM. De nombreuses bibliothèques/références tierces sont également disponibles sur GitHub.  
@@ -186,7 +186,7 @@ Vous aurez besoin d’un locataire Azure AD pour tester votre application. Pour 
 
 En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnement Microsoft 365. Pour configurer un environnement de développement Microsoft 365 gratuit, consultez [Rejoindre le programme pour développeurs Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Une fois que vous avez un locataire, vous devez tester l’authentification unique et l’[approvisionnement](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Une fois que vous avez un locataire, vous devez tester l’authentification unique et l’[approvisionnement](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Pour les applications OIDC ou Oath**, [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
 
@@ -274,7 +274,7 @@ Si vous souhaitez ajouter votre application à la liste dans la galerie à l’a
 
 ![Listing d’une application avec authentification unique par mot de passe dans la galerie](./media/howto-app-gallery-listing/passwordsso.png)
 
-Si vous implémentez un point de terminaison [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 pour l’Attribution d’utilisateurs, sélectionnez l’option comme indiqué. Lorsque vous fournissez le schéma dans la demande d’intégration, suivez les instructions spécifiées [ici](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) pour télécharger votre schéma. Nous utiliserons le schéma que vous avez configuré lors du test de l’application ne figurant pas dans la galerie pour créer l’application de la galerie. 
+Si vous implémentez un point de terminaison [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2.0 pour l’Attribution d’utilisateurs, sélectionnez l’option comme indiqué. Lorsque vous fournissez le schéma dans la demande d’intégration, suivez les instructions spécifiées [ici](../app-provisioning/export-import-provisioning-configuration.md) pour télécharger votre schéma. Nous utiliserons le schéma que vous avez configuré lors du test de l’application ne figurant pas dans la galerie pour créer l’application de la galerie. 
 
    ![Demande de provisionnement d’utilisateurs](./media/howto-app-gallery-listing/user-provisioning.png)
 

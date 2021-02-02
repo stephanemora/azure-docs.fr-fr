@@ -4,20 +4,20 @@ ms.service: storage
 ms.topic: include
 ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: 8dcb58499113b0b7ae0814419f0a76965a0ed945
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 86bf4911026e46c997469b956f9e7c75c4f17164
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94680961"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697900"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites du niveau de partage de fichiers premium supplémentaires
 
 |Domaine  |Cible  |
 |---------|---------|
 |Augmenter/diminuer la taille minimale    |1 Gio      |
-|IOPS de base    |1 IOPS par Gio (jusqu’à 100 000)|
-|IOPS en mode rafale    |3 IOPS par Gio (jusqu’à 100 000)|
+|IOPS de base    |400 + 1 IOPS par Gio, jusqu’à 100 000|
+|IOPS en mode rafale    |Max (4 000,3 x IOPS par Gio), jusqu’à 100 000|
 |Débit de sortie         |60 Mio/s + 0,06 * Gio configurés        |
 |Débit d’entrée| 40 Mio/s + 0,04 * Gio configurés |
 

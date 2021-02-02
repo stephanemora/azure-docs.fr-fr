@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223684"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797309"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -134,3 +134,13 @@ Si vous utilisez une intégration Git avec votre espace de travail Synapse, et d
 -   **Préparez les pools avant la migration des artefacts**. Si vous disposez d’un script SQL ou d’un notebook attaché à des pools dans l’espace de travail de développement, le même nom de pools dans différents environnements est attendu. 
 -   **Infrastructure en tant que code (IaC)** . La gestion de l'infrastructure (réseaux, machines virtuelles, équilibreurs de charge et topologie de connexion) dans un modèle descriptif utilise le même contrôle de version que celui utilisé par l'équipe DevOps pour le code source. 
 -   **Autres**. Consultez les [meilleures pratiques pour les artefacts ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## <a name="troubleshooting-artifacts-deployment"></a>Résolution des problèmes de déploiement d’artefacts 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Utiliser la tâche de déploiement de l’espace de travail Synapse
+
+Dans Synapse, les artefacts ne sont pas tous des ressources ARM, ce qui est différent d’ADF. Vous ne pouvez pas utiliser la tâche de déploiement d’un modèle ARM pour déployer des artefacts Synapse.
+ 
+### <a name="unexpected-token-error-in-release"></a>Erreur de jeton inattendu dans la mise en production
+
+Lorsque votre fichier de paramètres contient des valeurs de paramètre qui ne sont pas placées dans une séquence d’échappement, le pipeline de mise en production ne parvient pas à analyser le fichier avec l’erreur de jeton inattendu. Nous vous suggérons de remplacer les paramètres ou KeyVault pour accéder aux paramètres. Vous pouvez également doubler la séquence d’échappement comme solution de contournement.

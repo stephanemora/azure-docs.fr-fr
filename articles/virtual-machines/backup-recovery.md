@@ -1,19 +1,19 @@
 ---
-title: Vue d’ensemble des options de sauvegarde pour les machines virtuelles Linux
-description: Vue d’ensemble des options de sauvegarde pour les machines virtuelles Azure Linux.
+title: Vue d’ensemble des options de sauvegarde pour les machines virtuelles
+description: Vue d’ensemble des options de sauvegarde pour les machines virtuelles Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
-ms.openlocfilehash: c56adc852b504d3a0663a9607b3472cb3348e7a5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5a093de0a27c8379cb6eff9c2bc3867dfdc20db5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972354"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787805"
 ---
-# <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Options de sauvegarde et de restauration pour les machines virtuelles Linux dans Azure
+# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Options de sauvegarde et de restauration pour les machines virtuelles dans Azure
 
 Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Il existe plusieurs options de sauvegarde disponibles pour les machines virtuelles, en fonction de votre cas d’utilisation.
 
@@ -21,7 +21,7 @@ Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles 
 
 Pour sauvegarder des machines virtuelles Azure exécutant des charges de travail de production, utilisez la sauvegarde Azure. La sauvegarde Azure prend en charge des sauvegardes cohérentes avec les applications pour les machines virtuelles Linux et Windows. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Lorsque vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou seulement des fichiers spécifiques. 
 
-Pour une introduction simple et pratique à la sauvegarde Azure pour les machines virtuelles Azure, consultez le « didacticiel sur la sauvegarde des machines virtuelles Azure » pour [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).
+Pour une introduction simple et pratique de Sauvegarde Azure pour les machines virtuelles Azure, consultez le [démarrage rapide de Sauvegarde Azure](../backup/quick-backup-vm-portal.md).
 
 Pour plus d’informations sur le fonctionnement de la sauvegarde Azure, consultez [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](../backup/backup-azure-vms-introduction.md).
 
@@ -46,4 +46,4 @@ Pour plus d’informations sur la création de captures instantanées, consultez
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez essayer la sauvegarde Azure en suivant le « didacticiel sur la sauvegarde des machines virtuelles Windows » pour [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).
+Vous pouvez tester Sauvegarde Azure en suivant le [démarrage rapide de Sauvegarde Azure](../backup/quick-backup-vm-portal.md).

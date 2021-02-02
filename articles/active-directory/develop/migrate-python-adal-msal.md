@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107853"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755050"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guide de migration ADAL vers MSAL pour Python
 
@@ -38,13 +38,13 @@ Prend en charge :
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-Consultez l’article sur les [différences du point de terminaison de la plateforme d’identités Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) pour plus d’informations.
+Pour plus d’informations, consultez l’article sur les [Différences du point de terminaison de la Plateforme d’identités Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ### <a name="scopes-not-resources"></a>Étendues au lieu de ressources
 
 ADAL Python acquiert des jetons pour les ressources, alors que MSAL Python en acquiert pour les étendues. La surface d’API n’a plus de paramètre de ressource dans MSAL Python. Vous devez fournir des étendues sous la forme d’une liste de chaînes qui déclarent les autorisations souhaitées et les ressources demandées. Pour découvrir des exemples d’étendues, consultez [Étendues de Microsoft Graph](/graph/permissions-reference).
 
-Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour faciliter la migration de vos applications du point de terminaison v1.0 (ADAL) vers le point de terminaison de la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
+Vous pouvez ajouter le suffixe d’étendue `/.default` à la ressource pour faciliter la migration de vos applications du point de terminaison v1.0 (ADAL) vers la Plateforme d’identités Microsoft (MSAL). Par exemple, pour la valeur de ressource `https://graph.microsoft.com`, la valeur d’étendue équivalente est `https://graph.microsoft.com/.default`.  Si la ressource ne se trouve pas dans la forme d’URL, mais dans un ID de ressource de la forme `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, vous pouvez toujours utiliser la valeur d’étendue `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 Pour plus d’informations sur les différents types d’étendues, consultez [Autorisations et consentement dans le point de terminaison de la Plateforme d’identités Microsoft](./v2-permissions-and-consent.md) et les articles [Étendues pour une API web acceptant des jetons v1.0](./msal-v1-app-scopes.md).
 
@@ -92,7 +92,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.

@@ -12,17 +12,17 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bd2bd67774eb55051e55e4433984c0fd1fda5240
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672143"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755571"
 ---
-# <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Substitution de clé de signature dans la plateforme d’identités Microsoft
+# <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Substitution de clé de signature dans la plateforme d’identités Microsoft
 Cet article explique ce que vous devez savoir sur les clés publiques utilisées par la plateforme d’identités Microsoft pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent la plateforme d’identités Microsoft doivent être en mesure de gérer par programme le processus de substitution de clé. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.
 
-## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Vue d’ensemble des clés de signature dans la plateforme d’identités Microsoft
+## <a name="overview-of-signing-keys-in-the-microsoft-identity-platform"></a>Vue d’ensemble des clés de signature dans la plateforme d’identités Microsoft
 La plateforme d’identités Microsoft utilise une technique de chiffrement de clés publiques conforme aux normes du secteur pour établir une relation de confiance avec les applications qui l’utilisent. En pratique, cela fonctionne de la façon suivante : La plateforme d’identités Microsoft utilise une clé de signature se composant d’une paire clé publique-clé privée. Quand un utilisateur se connecte à une application qui utilise la plateforme d’identités Microsoft pour l’authentification, la plateforme crée un jeton de sécurité qui contient des informations sur l’utilisateur. Ce jeton est signé par la plateforme d’identités Microsoft à l’aide de sa clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et provient bien de la plateforme d’identités Microsoft, l’application doit valider la signature du jeton à l’aide de la clé publique exposée par la plateforme d’identités Microsoft contenue dans le [document de métadonnées de fédération](../azuread-dev/azure-ad-federation-metadata.md) SAML/WS-Fed ou le [document de découverte OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) du locataire.
 
 Pour des raisons de sécurité, les clés de signature de la plateforme d’identités Microsoft sont substituées régulièrement, voire immédiatement en cas d’urgence. Aucun intervalle de temps n’est défini ou garanti entre ces substitutions de clé. Toute application s’intégrant avec la plateforme d’identités Microsoft doit être préparée à gérer un événement de substitution de clé, quelle que soit la fréquence à laquelle il se produit. Si ce n’est pas le cas et que votre application tente d’utiliser une clé ayant expiré pour vérifier la signature d’un jeton, la demande de connexion échouera.  La vérification de l’existence de mises à jour toutes les 24 heures constitue une meilleure pratique, assortie d’une limitation (au plus une fois toutes les cinq minutes) des actualisations immédiates du document de clés en présence d’un jeton dont l’identificateur de clé est inconnu. 

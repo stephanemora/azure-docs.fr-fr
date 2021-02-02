@@ -1,28 +1,25 @@
 ---
 title: Utiliser l’API Gestion des services (Python) - Guide des fonctionnalités
 description: Découvrez comment effectuer des tâches courantes de gestion des services par programme à partir de Python.
-services: cloud-services
-documentationcenter: python
-author: tanmaygore
-manager: vashan
-editor: ''
-ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
-ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: python
 ms.topic: article
-ms.date: 05/30/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073986"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741398"
 ---
 # <a name="use-service-management-from-python"></a>Utiliser la gestion des services de Python
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programmation à une grande partie des fonctionnalités liées au management des services disponibles dans le [portail Azure][management-portal]. Vous pouvez utiliser cette fonctionnalité pour créer, mettre à jour et supprimer des services cloud, des déploiements, des services de gestion de données et des machines virtuelles. Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## <a name="what-is-service-management"></a><a name="WhatIs"> </a>Qu’est-ce que la gestion des services ?

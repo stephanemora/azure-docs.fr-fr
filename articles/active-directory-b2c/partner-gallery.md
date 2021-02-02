@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070862"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703205"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -51,6 +51,7 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 |:-------------------------|:--------------|
 | ![Capture d’écran d’un logo Hypr](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) est un fournisseur d’authentification sans mot de passe qui remplace les mots de passe par des chiffrements à clé publique, éliminant les fraudes, le hameçonnage et la réutilisation des informations d’identification. |
 | ![Capture d’écran d’un logo Itsme](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) est une solution d’identification numérique conforme aux normes eiDAS (Electronic Identification, Authentication and Trust Services) qui permet aux utilisateurs de se connecter en toute sécurité sans avoir à utiliser de lecteurs de cartes, de mots de passe, de méthode d’authentification à deux facteurs ni de codes PIN multiples. |
+|![Capture d’écran d’un logo Keyless.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) est un fournisseur d’authentification sans mot de passe qui propose une authentification sous la forme d’une analyse biométrique faciale et élimine ainsi la fraude, le hameçonnage et la réutilisation des informations d’identification.
 | ![Capture d’écran d’un logo Nevis](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) permet une authentification sans mot de passe et offre une expérience utilisateur final axée sur l’interface mobile, entièrement personnalisée avec l’application Nevis Access pour une authentification forte du client et pour garantir le respect des obligations relatives aux transactions de la directive 2 sur les services de paiement (PSD2). |
 | ![Capture d’écran d’un logo Trusona](./media/partner-gallery/trusona-logo.png) | L’intégration avec [Trusona](./partner-trusona.md) vous aide à sécuriser vos connexions, et permet l’authentification sans mot de passe, l’authentification multifacteur et l’analyse de licence numérique. |
 | ![Capture d’écran d’un logo Twilio](./media/partner-gallery/twilio-logo.png) | [Twilio Verify App](./partner-twilio.md) fournit plusieurs solutions qui permettent l’authentification multifacteur (MFA) par l’envoi par SMS d’un mot de passe à usage unique (OTP), d’un mot de passe à usage unique et durée définie (TOTP) ou de notifications Push, et aident à se conformer aux exigences en matière d’authentification sécurisée des clients de la directive 2 sur les services de paiement (PSD2). |
@@ -78,9 +79,9 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

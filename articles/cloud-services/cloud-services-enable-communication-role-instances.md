@@ -1,22 +1,25 @@
 ---
-title: Communication pour les rôles dans les services cloud | Microsoft Docs
+title: Communication pour les rôles dans Azure Cloud Services (classique) | Microsoft Docs
 description: Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386338"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743030"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Activer la communication pour les instances de rôle dans Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
 
 ## <a name="input-endpoint"></a>Point de terminaison d’entrée
@@ -106,7 +109,7 @@ La propriété **Instances** renvoie une collection d’objets **RoleInstance**.
 > 
 > 
 
-Pour déterminer le numéro de port d’un point de terminaison interne sur une instance de rôle, vous pouvez utiliser la propriété [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) pour renvoyer un objet Dictionnaire qui contient les noms des points de terminaison et les adresses IP et ports correspondants. La propriété [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) renvoie l’adresse IP et le port pour un point de terminaison spécifié. La propriété **PublicIPEndpoint** renvoie le port pour un point de terminaison à charge équilibrée. La partie de la propriété **PublicIPEndpoint** relative à l’adresse IP n’est pas utilisée.
+Pour déterminer le numéro de port pour un point de terminaison interne d’une instance de rôle, vous pouvez utiliser la propriété [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) pour retourner un objet Dictionary qui contient des noms de point de terminaison et leurs adresses IP et ports correspondants. La propriété [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) retourne l’adresse IP et le port pour un point de terminaison spécifié. La propriété `PublicIPEndpoint` renvoie le port pour un point de terminaison à charge équilibrée. La partie de la propriété `PublicIPEndpoint` relative à l’adresse IP n’est pas utilisée.
 
 Voici un exemple d’itération d’instances de rôle.
 
@@ -124,7 +127,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Voici un exemple de rôle de travail avec lequel le point de terminaison est exposé via la définition de service et commence à écouter les connexions.
 
 > [!WARNING]
-> Ce code ne fonctionne que pour un service déployé. Lorsqu’ils sont exécutés dans l’émulateur de calcul Azure, les éléments de configuration de service qui créent des points de terminaison de port directs (éléments**InstanceInputEndpoint** ) sont ignorés.
+> Ce code ne fonctionne que pour un service déployé. Lorsqu’ils sont exécutés dans l’émulateur de calcul Azure, les éléments de configuration de service qui créent des points de terminaison de port directs (éléments **InstanceInputEndpoint** ) sont ignorés.
 > 
 > 
 

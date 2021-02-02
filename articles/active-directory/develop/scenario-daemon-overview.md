@@ -1,5 +1,6 @@
 ---
-title: Générer une application démon appelant des API web - Plateforme d’identités Microsoft | Azure
+title: Générer une application démon appelant des API web | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez comment générer une application démon appelant des API web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443260"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753834"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scénario : Application démon appelant des API web
 
@@ -45,7 +46,7 @@ Applications qui acquièrent un jeton pour leurs propres identités :
 
 > [!IMPORTANT]
 >
-> - Les utilisateurs ne peuvent pas interagir avec une application démon. Une application démon nécessite sa propre identité. Ce type d’application demande un jeton d’accès en utilisant son identité d’application et en présentant à Azure AD son ID d’application, ses informations d’identification (mot de passe ou certificat) et un URI d’ID d’application. Une fois l’authentification réussie, le démon reçoit un jeton d’accès (et un jeton d’actualisation) du point de terminaison de la plateforme d’identités Microsoft. Ce jeton est ensuite utilisé pour appeler l’API web (et est actualisé si nécessaire).
+> - Les utilisateurs ne peuvent pas interagir avec une application démon. Une application démon nécessite sa propre identité. Ce type d’application demande un jeton d’accès en utilisant son identité d’application et en présentant à Azure AD son ID d’application, ses informations d’identification (mot de passe ou certificat) et un URI d’ID d’application. Une fois l’authentification réussie, le démon reçoit un jeton d’accès (et un jeton d’actualisation) de la plateforme d’identités Microsoft. Ce jeton est ensuite utilisé pour appeler l’API web (et est actualisé si nécessaire).
 > - Étant donné que les utilisateurs ne peuvent pas interagir avec les applications démon, le consentement incrémentiel n’est pas possible. Toutes les autorisations d’API nécessaires doivent être configurées lors de l’inscription de l’application. Le code de l’application ne demande que des autorisations définies de manière statique. Cela signifie également que les applications démon ne prennent en charge le consentement incrémentiel.
 
 Pour les développeurs, l’expérience de bout en bout pour ce scénario présente les aspects suivants :

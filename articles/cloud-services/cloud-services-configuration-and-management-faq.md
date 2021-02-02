@@ -1,28 +1,24 @@
 ---
 title: FAQ sur les problèmes de configuration et de gestion
-titleSuffix: Azure Cloud Services
 description: Cet article répertorie les questions fréquentes sur la configuration et la gestion pour Microsoft Azure Cloud Services.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011017"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742588"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Cet article comprend des questions fréquentes sur les problèmes de configuration et de gestion pour [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Vous pouvez également consulter la page [Taille de services cloud](cloud-services-sizes-specs.md) pour obtenir des informations sur la taille.
 
@@ -62,7 +58,7 @@ Cet article comprend des questions fréquentes sur les problèmes de configurati
 
 **Générique**
 
-- [Comment ajouter des directives « nosniff » à mon site web ?](#how-do-i-add-nosniff-to-my-website)
+- [Comment ajouter `nosniff` à mon site web ?](#how-do-i-add-nosniff-to-my-website)
 - [Comment personnaliser IIS pour un rôle web ?](#how-do-i-customize-iis-for-a-web-role)
 - [Quelle est la limite de quota de mon service cloud ?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Pourquoi le lecteur de la machine virtuelle de mon service cloud dispose-t-il d’aussi peu d’espace disque ?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-La possibilité de choisir l’option « blob » ou « local » pour votre emplacement de chargement csdef et cscfg est prévue prochainement. À l’aide de [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0), vous pouvez définir chaque valeur d’emplacement.
+La possibilité de choisir l’option « blob » ou « local » pour votre emplacement de chargement csdef et cscfg est prévue prochainement. À l’aide de [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true), vous pouvez définir chaque valeur d’emplacement.
 
 La possibilité de surveiller les métriques au niveau de l’instance. Des fonctionnalités de surveillance supplémentaires sont disponibles dans [Surveillance de Services cloud](cloud-services-how-to-monitor.md).
 
@@ -148,7 +144,7 @@ Vous pouvez activer la journalisation Diagnostics Azure pour Windows (WAD) par l
 2. [Activer par le biais du code .NET](./cloud-services-dotnet-diagnostics.md)
 3. [Activer par le biais de PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la cmd ps [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».
+Pour obtenir les paramètres actuels des diagnostics Microsoft Azure de votre service cloud, vous pouvez utiliser la commande PowerShell [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ou les voir dans le portail en accédant au panneau « Services cloud --> Extensions ».
 
 
 ## <a name="network-configuration"></a>Configuration réseau
@@ -254,7 +250,7 @@ Pour plus d’informations sur la façon d’activer la journalisation Diagnosti
 
 ## <a name="generic"></a>Générique
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Comment ajouter des directives « nosniff » à mon site web ?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Comment ajouter `nosniff` à mon site web ?
 Pour empêcher les clients de détecter les types MIME, ajoutez un paramètre au fichier *web.config*.
 
 ```xml
@@ -284,11 +280,11 @@ Consultez [Limites spécifiques des services](../azure-resource-manager/manageme
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Pourquoi le lecteur de la machine virtuelle de mon service cloud dispose-t-il d’aussi peu d’espace disque ?
 Il s’agit d’un comportement normal qui ne devrait pas causer de problèmes à votre application. La journalisation est activée pour le lecteur %approot% des machines virtuelles Azure PaaS, ce qui dans l’absolu a pour effet de consommer normalement le double d’espace que les fichiers. Cependant, cela ne pose pas de problème, et ce pour plusieurs raisons.
 
-La taille du lecteur %AppRoot% est calculée comme suit \<size of .cspkg + max journal size + a margin of free space>, ou est égale à 1,5 Go, la valeur la plus grande étant retenue. La taille de votre machine virtuelle n’a pas d’incidence sur ce calcul. (La taille de machine virtuelle affecte uniquement la taille du lecteur C: temporaire.) 
+La taille du lecteur %approot% est calculée selon la formule <taille du fichier .cspkg + taille maximale du journal > + marge d’espace libre> ou est égale à 1,5 Go, la valeur la plus grande étant retenue. La taille de votre machine virtuelle n’a pas d’incidence sur ce calcul. (La taille de machine virtuelle affecte uniquement la taille du lecteur C: temporaire.) 
 
 L’écriture sur le lecteur %approot% n’est pas prise en charge. Si vous écrivez sur la machine virtuelle Azure, vous devez le faire dans une ressource LocalStorage temporaire (ou une autre option, telle que le Stockage Blob, Azure Files, etc..). Autrement dit, la quantité d’espace libre dans le dossier %approot % n’est pas significative. Pour savoir avec certitude si votre application écrit ou non sur le lecteur %approot%, vous pouvez toujours laisser votre service s’exécuter pendant quelques jours et comparer sa taille avant et après. 
 
-Azure n’écrit rien sur le lecteur %approot%. Une fois le disque dur virtuel créé à partir de votre fichier .cspkg et monté dans la machine virtuelle Azure, votre application est la seule à pouvoir écrire sur ce lecteur. 
+Azure n’écrit rien sur le lecteur %approot%. Une fois le disque dur virtuel créé à partir de votre fichier `.cspkg` et monté dans la machine virtuelle Azure, votre application est la seule à pouvoir écrire sur ce lecteur. 
 
 Les paramètres de journal n’étant pas configurables, vous ne pouvez pas les désactiver.
 
@@ -297,7 +293,7 @@ Les paramètres de journal n’étant pas configurables, vous ne pouvez pas les 
 Vous pouvez activer une extension Antimalware à l’aide du script PowerShell dans la tâche de démarrage. Suivez les étapes décrites dans les articles suivants pour l’implémenter : 
  
 - [Créer une tâche de démarrage PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Pour plus d’informations sur les scénarios de déploiement Antimalware et la façon de l’activer à partir du portail, consultez [Scénarios de déploiement Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 

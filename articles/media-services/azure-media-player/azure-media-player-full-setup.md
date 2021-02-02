@@ -7,21 +7,20 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296244"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797447"
 ---
 # <a name="azure-media-player-full-setup"></a>Installation complète du Lecteur multimédia Azure #
 
 Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants sont nécessaires pour lire du contenu multimédia directement depuis votre compte Media Services. Des [exemples](https://github.com/Azure-Samples/azure-media-player-samples) sont également fournis dans le répertoire d'exemples de la version.
 
-
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Étape 1 : Inclure les fichiers JavaScript et CSS dans l'en-tête de votre page ##
 
-Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la version hébergée du CDN. Il est généralement recommandé de placer JavaScript avant la balise body de fin `<body>` plutôt que `<head>`, mais le Lecteur multimédia Azure inclut un « HTML5 Shiv », qui doit se trouver dans l'en-tête des anciennes versions IE pour respecter la balise vidéo en tant qu’élément valide.
+Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la version hébergée du CDN. Il est généralement recommandé de placer JavaScript avant la balise body de fin `<body>` plutôt que `<head>`, mais le Lecteur multimédia Azure inclut un « HTML5 Shiv », qui doit se trouver dans l’en-tête des anciennes versions d’IE pour respecter la balise vidéo comme un élément valide.
 
 > [!NOTE]
 > Si vous utilisez déjà un HTML5 Shiv tel que [Modernizr](https://modernizr.com/), vous pouvez inclure le Lecteur multimédia Azure JavaScript partout. Cela étant, assurez-vous que votre version de Modernizr inclut le Shiv pour la vidéo.

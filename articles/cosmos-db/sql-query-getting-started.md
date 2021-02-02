@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353661"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791018"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -187,7 +187,7 @@ Les exemples précédents illustrent plusieurs aspects du langage de requête Co
 
 * Azure Cosmos DB prend uniquement en charge les éléments JSON stricts. Le système de type et les expressions peuvent uniquement traiter des types JSON. Pour en savoir plus, consultez la [spécification JSON](https://www.json.org/).  
 
-* Un conteneur Cosmos est une collection sans schéma d’éléments JSON. Les relations dans et entre les éléments d’un conteneur sont capturées de façon implicite par l’autonomie, et non par les relations de clé primaire et de clé étrangère. Cette fonctionnalité est importante pour les jointures intra-éléments décrites plus loin dans cet article.
+* Un conteneur Cosmos est une collection sans schéma d’éléments JSON. Les relations dans et entre les éléments d’un conteneur sont capturées de façon implicite par l’autonomie, et non par les relations de clé primaire et de clé étrangère. Cette fonctionnalité est importante pour les jointures intra-élément qui sont décrites dans [Jointures dans Azure Cosmos DB](sql-query-join.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

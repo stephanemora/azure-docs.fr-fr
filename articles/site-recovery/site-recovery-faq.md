@@ -4,12 +4,12 @@ description: Cet article traite des questions générales fréquemment posées s
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109553"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746473"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questions générales sur Azure Site Recovery
 
@@ -344,6 +344,14 @@ Oui, vous pouvez utiliser la récupération à un autre emplacement pour la rest
 
 * [Pour les machines virtuelles VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Pour les machines virtuelles Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>Quelle est la différence entre la migration complète, la validation et la désactivation de la réplication ?
+
+Une fois qu’une machine a basculé de l’emplacement source vers l’emplacement cible, vous avez le choix entre trois options. Ces trois options ont des objectifs différents :
+
+1.  La **migration complète** signifie que vous n’allez plus revenir du tout à l’emplacement source. Vous avez effectué la migration vers la région cible et maintenant, c’est terminé. Cliquer sur Migration complète déclenche la validation, puis la désactivation de la réplication en interne. 
+2.  La **validation** signifie que ce n’est pas la fin de votre processus de réplication. L’élément de réplication ainsi que toute la configuration sont conservés. Vous pouvez alors choisir **Reprotéger** ultérieurement pour réactiver la réplication de vos machines dans la région source. 
+3.  La **désactivation de la réplication** permet de désactiver la réplication et de supprimer toute la configuration associée. Elle n’affecte pas la machine déjà existante dans la région cible.
 
 ## <a name="automation"></a>Automatisation
 

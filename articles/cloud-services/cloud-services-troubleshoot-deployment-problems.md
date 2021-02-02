@@ -1,27 +1,25 @@
 ---
-title: Résoudre les problèmes de déploiement de service cloud | Microsoft Docs
+title: Résoudre les problèmes de déploiement de service cloud (classique) | Microsoft Docs
 description: Vous pouvez rencontrer quelques problèmes courants lors du déploiement d’un service cloud sur Azure. Cet article fournit des solutions pour certains d’entre eux.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 7b3d7a9a674aab3976da9399f71ff4d8df08eb62
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075074"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741075"
 ---
-# <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
+# <a name="troubleshoot-azure-cloud-services-classic-deployment-problems"></a>Résoudre les problèmes de déploiement d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.
 
 Vous trouverez le volet **Propriétés** comme suit :
@@ -60,7 +58,7 @@ Un échange d’adresses IP virtuelles n’est pas autorisé si une mise à jou
 Pour savoir si une mise à jour automatique vous empêche d’effectuer un échange d’adresses IP virtuelles :
 
 1. Dans le portail Azure, cliquez sur le déploiement de votre service cloud.
-2. Dans le volet **Propriétés** du portail Azure, examinez la valeur de l’**État**. Si elle affiche **Prêt**, vérifiez la **Dernière opération** pour voir si une opération récente empêche l’échange d’adresses IP virtuelles.
+2. Dans le volet **Propriétés** du portail Azure, examinez la valeur de l’**État**. Si elle est définie sur **Prêt**, vérifiez **Dernière opération** pour savoir si une opération récente a pu empêcher la permutation d'adresse IP virtuelle.
 3. Répétez les étapes 1 et 2 pour le déploiement en production.
 4. Si une mise à jour automatique est en cours, attendez qu’elle se termine avant d’essayer d’effectuer l’échange d’adresses IP virtuelles.
 
@@ -72,7 +70,7 @@ Pour plus d’informations sur la résolution de ce problème, consultez les bil
 ## <a name="problem-my-application-stopped-working"></a>Problème : Mon application a cessé de fonctionner
 1. Dans le portail Azure, cliquez sur l’instance de rôle.
 2. Dans le volet **Propriétés** du portail Azure, tenez compte des conditions suivantes pour résoudre votre problème :
-   * Si l’instance de rôle a été récemment arrêtée (vous pouvez vérifier la valeur **Nombre d’abandons**), il est possible que le déploiement soit en cours de mise à jour. Attendez de voir si l’instance de rôle recommence à fonctionner par elle-même.
+   * Si l'instance de rôle s'est arrêtée récemment (vous pouvez vérifier la valeur de **Nombre d'abandons**), il est possible que le déploiement soit en cours de mise à jour. Attendez de voir si l’instance de rôle recommence à fonctionner par elle-même.
    * Si l’instance de rôle est **Occupée**, vérifiez votre code d’application pour voir si l’événement [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) est géré. Vous devrez peut-être ajouter ou corriger le code qui gère cet événement.
    * Passez en revue les données de diagnostic et les scénarios de résolution des problèmes dans le billet de blog [Données de diagnostic de calcul PaaS Azure](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 8c3e76f1a7edffefc8773dfa548773ec0932fae6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a937528e3bfd8bea16912d614133988763748bab
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86129857"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632957"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit des étapes de dépannage pour vous aider à résoudre les problèmes. 
@@ -38,6 +38,9 @@ Les erreurs d’arrêt peuvent avoir plusieurs causes. Les causes les plus coura
 - Une application accède à un secteur interdit de la mémoire
 
 ## <a name="solution"></a>Solution 
+
+> [!TIP]
+> Si vous disposez d’une sauvegarde récente de la machine virtuelle, vous pouvez essayer de [restaurer la machine virtuelle à partir de la sauvegarde](../../backup/backup-azure-arm-restore-vms.md) pour résoudre le problème de démarrage.
 
 Pour résoudre ce problème, [contactez le support technique et envoyez un fichier de vidage sur incident](./troubleshoot-common-blue-screen-error.md#collect-memory-dump-file), ce qui nous aidera à diagnostiquer le problème plus rapidement, ou essayez de vous aider vous-même comme suit.
 
@@ -108,7 +111,7 @@ Pour activer les journaux d’activité de vidage et la console série, exécute
 
 8.  Redémarrez la machine virtuelle. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux d’activité de vidage en mode Vidage sur incident
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : analyser les journaux d’activité de vidage en mode Dump Crash
 
 Pour analyser vous-même les journaux d’activité de vidage, procédez comme suit :
 
@@ -142,7 +145,7 @@ Pour analyser vous-même les journaux d’activité de vidage, procédez comme s
 9. [Détachez le disque du système d’exploitation et rattachez-le à la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md).
 10. Démarrez la machine virtuelle pour voir si elle affiche l’analyse de vidage. Recherchez le fichier qui ne peut pas être chargé. Vous devez remplacer ce fichier par un fichier de la machine virtuelle qui fonctionne. 
 
-    Voici un exemple d’analyse de vidage. Vous pouvez constater que l'échec (**FAILURE**) figure dans le fichier filecrypt.sys : « FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys ».
+    Voici un exemple d’analyse de vidage. Vous pouvez voir que **FAILURE** se trouve sur filecrypt.sys : « FAILURE_BUCKET_ID : 0x5A_c0000428_IMAGE_filecrypt.sys ».
 
     ```
     kd> !analyze -v 

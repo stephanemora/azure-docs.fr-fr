@@ -13,20 +13,20 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013785"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756068"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
-Actuellement, Plateforme d’identités Microsoft prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire de Plateforme d’identités Microsoft en utilisant le protocole SAML 2.0, Plateforme d’identités Microsoft envoie un jeton à l’application (via une requête HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées *revendications*.
+Actuellement, la plateforme d’identités Microsoft prend en charge l’authentification unique avec la plupart des applications d’entreprise, y compris les applications pré-intégrées dans la galerie d’applications Azure AD et les applications personnalisées. Quand un utilisateur s’authentifie auprès d’une application par l’intermédiaire de la plateforme d’identités Microsoft en utilisant le protocole SAML 2.0, la plateforme d’identités Microsoft envoie un jeton à l’application (via une requête HTTP POST). Après quoi, l’application valide et utilise ce jeton pour connecter l’utilisateur au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML contiennent des informations sur l’utilisateur appelées *revendications*.
 
 Une *revendication* concerne ce qu’un fournisseur d’identité déclare sur un utilisateur dans le jeton qu’il émet sur cet utilisateur. Dans un [jeton SAML](https://en.wikipedia.org/wiki/SAML_2.0), ces données sont généralement contenues dans l’instruction d’attribut SAML. L’ID unique de l’utilisateur est généralement présent dans le SAML Subject, également appelé « identificateur de nom ».
 
-Par défaut, Plateforme d’identités Microsoft émet un jeton SAML à destination de votre application qui contient une revendication `NameIdentifier`, dont la valeur est le nom de l’utilisateur (ou nom d’utilisateur principal) dans Azure AD et qui peut identifier l’utilisateur de façon unique. Le jeton SAML contient également des revendications supplémentaires contenant l’adresse de messagerie de l’utilisateur, son prénom et son nom.
+Par défaut, la plateforme d’identités Microsoft émet un jeton SAML à destination de votre application qui contient une revendication `NameIdentifier`, dont la valeur est le nom d’utilisateur de l’utilisateur (ou nom d’utilisateur principal) dans Azure AD et qui peut identifier l’utilisateur de façon unique. Le jeton SAML contient également des revendications supplémentaires contenant l’adresse de messagerie de l’utilisateur, son prénom et son nom.
 
 Pour afficher ou modifier les revendications émises dans le jeton SAML à destination de l’application, ouvrez l’application dans le portail Azure. Ensuite, ouvrez la section **Attributs et revendications de l’utilisateur**.
 
@@ -48,9 +48,9 @@ Pour modifier le NameID (valeur d’identificateur du nom) :
 
 ### <a name="nameid-format"></a>Format NameID
 
-Si la requête SAML contient l’élément NameIDPolicy dans un format spécifique, Plateforme d’identités Microsoft respecte le format de la requête.
+Si la requête SAML contient l’élément NameIDPolicy dans un format spécifique, la plateforme d’identités Microsoft respecte le format de la requête.
 
-Si la requête SAML ne contient aucun élément pour NameIDPolicy, alors Plateforme d’identités Microsoft émet la revendication NameID au format que vous spécifiez. Si aucun format n’est spécifié, Plateforme d’identités Microsoft utilise le format source par défaut associé à la source de la revendication sélectionnée.
+Si la requête SAML ne contient aucun élément pour NameIDPolicy, alors la plateforme d’identités Microsoft émet la revendication NameID au format que vous spécifiez. Si aucun format n’est spécifié, la plateforme d’identités Microsoft utilise le format source par défaut associé à la source de la revendication sélectionnée.
 
 Dans le menu déroulant **Choisir le format du nom de l’identificateur**, vous pouvez sélectionner l’une des options suivantes.
 
@@ -168,9 +168,9 @@ Pour ajouter une condition de revendication :
 
 L’ordre dans lequel vous ajoutez les conditions est important. Azure AD évalue les conditions de haut en bas pour décider quelle valeur émettre dans la revendication. La dernière valeur qui correspond à l’expression sera émise dans la revendication.
 
-Par exemple, Britta Simon est figure parmi les utilisateurs invités dans le locataire Contoso. Elle appartient à une autre organisation qui utilise également Azure AD. Étant donné la configuration ci-dessous pour l’application Fabrikam, quand Britta tente de se connecter à Fabrikam, Plateforme d’identités Microsoft évalue les conditions comme suit.
+Par exemple, Britta Simon est figure parmi les utilisateurs invités dans le locataire Contoso. Elle appartient à une autre organisation qui utilise également Azure AD. Compte tenu de la configuration ci-dessous pour l’application Fabrikam, quand Britta tente de se connecter à Fabrikam, la plateforme d’identités Microsoft évalue les conditions comme suit.
 
-Tout d’abord, Plateforme d’identités Microsoft vérifie si le type d’utilisateur de Britta est `All guests`. Dans la mesure où la valeur est True, Plateforme d’identités Microsoft attribue la source de la revendication à `user.extensionattribute1`. Ensuite, Plateforme d’identités Microsoft vérifie si le type d’utilisateur de Britta est `AAD guests`. Puisque la valeur est également True, alors Plateforme d’identités Microsoft attribue la source de la revendication à `user.mail`. Enfin, la revendication est émise avec la valeur `user.mail` pour Britta.
+Tout d’abord, la plateforme d’identités Microsoft vérifie si le type d’utilisateur de Britta est `All guests`. Dans la mesure où la valeur est True, la plateforme d’identités Microsoft attribue la source de la revendication à `user.extensionattribute1`. Ensuite, la plateforme d’identités Microsoft vérifie si le type d’utilisateur de Britta est `AAD guests`. Puisque la valeur est également True, la plateforme d’identités Microsoft attribue la source de la revendication à `user.mail`. Enfin, la revendication est émise avec la valeur `user.mail` pour Britta.
 
 ![Configuration conditionnelle des revendications](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

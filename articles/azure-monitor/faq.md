@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919971"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878933"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -271,7 +271,7 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 
 ### <a name="do-new-azure-regions-require-the-use-of-connection-strings"></a>Les nouvelles régions Azure exigent-elles l’utilisation de chaînes de connexion ?
 
-Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./app/sdk-connection-string.md) identifie la ressource à laquelle sont associées les données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
+Les nouvelles régions Azure **exigent** l’utilisation de chaînes de connexion au lieu de clés d’instrumentation. Une [chaîne de connexion](./app/sdk-connection-string.md) identifie la ressource à laquelle vous souhaitez associer vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 ### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Puis-je utiliser `providers('Microsoft.Insights', 'components').apiVersions[0]` dans mes déploiements d’Azure Resource Manager ?
 
@@ -345,7 +345,9 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 **Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La clé d’instrumentation est visible dans la source de ma page web. 
+Par défaut, le [Kit de développement logiciel (SDK) JavaScript Application Insights](app/javascript.md) n’inclut pas de données personnelles dans sa saisie semi-automatique. Toutefois, certaines données personnelles utilisées dans votre application peuvent être récupérées par le SDK (par exemple, les noms complets dans `window.title` ou les ID de compte dans les paramètres de requête URL XHR). Pour un masquage personnalisé des données personnelles, ajoutez un [initialiseur de télémétrie](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La clé d’instrumentation est visible dans la source de ma page web.
 
 * Il s’agit d’une pratique courante dans les solutions de surveillance.
 * Il ne peut pas être utilisé pour dérober vos données.
@@ -378,6 +380,12 @@ Utilisez une ressource unique pour tous les composants ou rôles dans un systèm
 * S’il n’existe aucun script côté client, vous pouvez [définir des cookies sur le serveur](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Si un utilisateur réel utilise votre site dans différents navigateurs, ou s’il utilise une navigation privée ou encore des ordinateurs différents, il sera comptabilisé plusieurs fois.
 * Pour identifier un utilisateur connecté sur différents ordinateurs et navigateurs, ajoutez un appel à [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Comment Application Insights génère-t-il des informations sur les appareils (navigateur, système d’exploitation, langue, modèle) ?
+
+Le navigateur transmet la chaîne User Agent dans l’en-tête HTTP de la demande, et le service d’ingestion Application Insights utilise [UA Parser](https://github.com/ua-parser/uap-core) pour générer les champs que vous voyez dans les tables de données et les expériences. Par conséquent, les utilisateurs d’Application Insights ne peuvent pas modifier ces champs.
+
+Parfois, ces données peuvent être manquantes ou inexactes si l’utilisateur ou l’entreprise désactive l’envoi d’User Agent dans les paramètres du navigateur. En outre, les [expressions régulières d’UA Parser](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) peuvent ne pas inclure toutes les informations de l’appareil ou Application Insights n’a peut-être pas adopté les dernières mises à jour.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Comment savoir si j'ai activé tout ce qu'il faut pour utiliser Application Insights ?
 | Ce qui suit doit s'afficher | Comment y accéder | Utilité |

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938713"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737674"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -35,7 +35,7 @@ Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-rég
 * [Tirer parti de la solution d'équilibrage de charge existante](#build-cross-region-solution-on-existing-azure-load-balancer) sans aucun besoin d'apprentissage
 
 > [!IMPORTANT]
-> L’équilibreur de charge interrégional est en préversion et masqué dans le portail en préversion. Connectez-vous à **https://preview.portal.azure.com** pour voir et déployer la fonctionnalité. </br> </br>
+> L’équilibrage de charge inter-région est actuellement en préversion et peut être déployé dans le portail. Connectez-vous à **https://preview.portal.azure.com** pour voir et déployer la fonctionnalité. </br> </br>
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'équilibrage de charge inter-région offre les mêmes avantages que l'équilibreur de charge standard régional en termes de hautes performances et de faible latence. 

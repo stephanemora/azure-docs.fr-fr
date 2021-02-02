@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: aac8e6e04b8bac7a1d27fefc780fb9fadb3122dc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534175"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630497"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
 
@@ -43,7 +43,7 @@ Les autres paramètres que vous pouvez ajuster incluent :
 | `DCL` | Requêtes telles que « GRANT PERMISSION » |
 | `ADMIN` | Requêtes telles que « SHOW STATUS » |
 | `GENERAL` | Tout dans DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN |
-| `TABLE_ACCESS` | - Uniquement disponible pour MySQL 5.7 <br> - Instructions de lecture de table, telles que SELECT ou INSERT INTO... SELECT <br> - Instructions de suppression de table, telles que DELETE ou TRUNCATE TABLE <br> - Instructions d’insertion de table, telles que INSERT ou REPLACE <br> - Instructions de mise à jour de table, telles que UPDATE |
+| `TABLE_ACCESS` | - Disponible pour MySQL 5.7 et MySQL 8.0 <br> - Instructions de lecture de table, telles que SELECT ou INSERT INTO... SELECT <br> - Instructions de suppression de table, telles que DELETE ou TRUNCATE TABLE <br> - Instructions d’insertion de table, telles que INSERT ou REPLACE <br> - Instructions de mise à jour de table, telles que UPDATE |
 
 ## <a name="access-audit-logs"></a>Accéder aux journaux d’audit
 

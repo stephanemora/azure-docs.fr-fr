@@ -1,5 +1,5 @@
 ---
-title: Expérience utilisateur de la connexion par SMS pour le numéro de téléphone (préversion) - Azure AD
+title: Expérience utilisateur de la connexion par SMS pour le numéro de téléphone – Azure AD
 description: Découvrir plus d’informations sur l’expérience utilisateur de la connexion par SMS pour des numéros de téléphone nouveaux ou existants
 services: active-directory
 author: curtand
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 04/14/2020
+ms.date: 01/21/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a50f2032a978a552205d1bba602249f34f0478a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536883"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661588"
 ---
-# <a name="use-your-phone-number-as-a-user-name-preview"></a>Utiliser votre numéro de téléphone comme nom d’utilisateur (préversion)
+# <a name="use-your-phone-number-as-a-user-name"></a>Utiliser votre numéro de téléphone comme nom d’utilisateur
 
 L’inscription d’un appareil donne à votre téléphone l’accès aux services de votre organisation, mais ne permet pas à votre organisation d’accéder à votre téléphone. Si vous êtes administrateur, vous trouverez plus d’informations dans [Configurer et activer des utilisateurs pour l’authentification par SMS](../authentication/howto-authentication-sms-signin.md).
 
@@ -36,7 +36,7 @@ Si vous recevez un nouveau téléphone ou un nouveau numéro et que vous l’ins
 1. Vous verrez une invite indiquant « Vérifié par SMS. Votre téléphone a été inscrit. »
 
 > [!Important]
-> En raison d’un problème connu dans la préversion, pendant une brève période, l’ajout du numéro de téléphone n’inscrit pas le numéro pour la connexion par SMS. Vous devrez vous connecter avec le numéro ajouté, puis suivre les invites pour inscrire le numéro pour la connexion par SMS.
+> En raison d’un problème connu, pendant une brève période, l’ajout du numéro de téléphone n’inscrit pas le numéro pour la connexion par SMS. Vous devrez vous connecter avec le numéro ajouté, puis suivre les invites pour inscrire le numéro pour la connexion par SMS.
 
 ### <a name="when-the-phone-number-is-in-use"></a>Quand le numéro de téléphone est déjà utilisé
 

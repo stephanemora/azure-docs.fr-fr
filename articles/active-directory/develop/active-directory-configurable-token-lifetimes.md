@@ -13,16 +13,16 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: ec925ce165c1de98fe920381e1b51e3388c1e4ad
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232401"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755300"
 ---
-# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
+# <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
-Vous pouvez spécifier la durée de vie d’un jeton d’accès, d’ID ou SAML émis par la Plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
+Vous pouvez spécifier la durée de vie d’un jeton d’accès, d’ID ou SAML émis par la plateforme d’identité Microsoft. Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation. Cependant, nous ne prenons pas en charge actuellement la configuration des durées de vie des jetons pour les [principaux de service d’identité managée](../managed-identities-azure-resources/overview.md).
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -50,7 +50,7 @@ Les clients utilisent des jetons d’accès pour accéder à une ressource prot�
 
 ### <a name="saml-tokens"></a>Jetons SAML
 
-Les jetons SAML sont utilisés par de nombreuses applications SAAS basées sur le Web, et sont obtenus à l’aide du point de terminaison du protocole SAML2 d’Azure Active Directory. Ils sont également consommés par les applications utilisant WS-Federation. La durée de vie par défaut du jeton est d’une heure. Du point de vue d’une application, la période de validité du jeton est spécifiée par la valeur NotOnOrAfter de l’élément `<conditions …>` dans le jeton. Au terme de la période de validité du jeton, le client doit initier une nouvelle requête d’authentification, qui est souvent satisfaite sans connexion interactive en raison du jeton de session d’authentification unique (SSO).
+Les jetons SAML sont utilisés par de nombreuses applications SaaS basées sur le Web, et sont obtenus à l’aide du point de terminaison du protocole SAML2 d’Azure Active Directory. Ils sont également consommés par les applications utilisant WS-Federation. La durée de vie par défaut du jeton est d’une heure. Du point de vue d’une application, la période de validité du jeton est spécifiée par la valeur NotOnOrAfter de l’élément `<conditions …>` dans le jeton. Au terme de la période de validité du jeton, le client doit initier une nouvelle requête d’authentification, qui est souvent satisfaite sans connexion interactive en raison du jeton de session d’authentification unique (SSO).
 
 La valeur de NotOnOrAfter peut être modifiée à l’aide du paramètre `AccessTokenLifetime` dans un élément `TokenLifetimePolicy`. Elle sera définie sur la durée de vie configurée dans la stratégie si elle existe, à laquelle sera ajouté un facteur de décalage de l’horloge de cinq minutes.
 
@@ -58,7 +58,7 @@ La valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’éléme
 
 ### <a name="id-tokens"></a>Jetons d’ID
 
-Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès de la Plateforme d’identité Microsoft (en mode silencieux ou interactif).
+Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès de la plateforme d’identité Microsoft (en mode silencieux ou interactif).
 
 ### <a name="token-lifetime-policy-properties"></a>Propriétés des stratégies de durée de vie des jetons
 
@@ -82,9 +82,11 @@ Vous pouvez définir les stratégies de durée de vie des jetons d’actualisati
 > [!IMPORTANT]
 > À partir de mai 2020, les nouveaux locataires ne peuvent pas configurer les durées de vie des jetons d’actualisation et de session.  Les locataires avec une configuration existante peuvent modifier les stratégies des jetons d’actualisation et de session jusqu’au 30 janvier 2021.   Azure Active Directory cessera d’honorer la configuration actuelle des jetons d’actualisation et de session dans les stratégies après le 30 janvier 2021. Vous pourrez toujours configurer la durée de vie des jetons d’accès, SAML et d’ID après la mise hors service.
 >
-> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, lisez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, lisez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > Si vous ne souhaitez pas utiliser l’accès conditionnel après la date de mise hors service, vos jetons d’actualisation et de session seront définis sur la [configuration par défaut](#configurable-token-lifetime-properties-after-the-retirement) à cette date, et vous ne pourrez plus modifier leur durée de vie.
+>
+> La durée de vie du jeton existant ne changera pas. Lorsqu’un jeton expire, un nouveau jeton est émis en fonction de la valeur par défaut.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informations sur la mise hors service":::
 
@@ -104,9 +106,9 @@ Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe c
 La propriété Âge maximal représente la durée pendant laquelle un seul jeton peut être utilisé. 
 
 ### <a name="single-sign-on-session-tokens"></a>Jetons de session d’authentification unique
-Quand utilisateur s’authentifie auprès de la Plateforme d’identité Microsoft, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et la Plateforme d’identité Microsoft. Le jeton SSO représente cette session sous la forme d’un cookie. Le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
+Quand utilisateur s’authentifie auprès de la plateforme d’identité Microsoft, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et la plateforme d’identité Microsoft. Le jeton SSO représente cette session sous la forme d’un cookie. Le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
-La Plateforme d’identité Microsoft utilise deux types de jetons de session d’authentification unique : persistant et non persistant. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur. Les jetons de session non persistants sont stockés en tant que cookies de session. (Les cookies de session sont détruits lors de la fermeture du navigateur.) En règle générale, un jeton de session non persistant est stocké. Cependant, quand l’utilisateur sélectionne la case à cocher **Maintenir la connexion** lors de l’authentification, un jeton de session persistant est stocké.
+La plateforme d’identité Microsoft utilise deux types de jetons de session d’authentification unique : persistant et non persistant. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur. Les jetons de session non persistants sont stockés en tant que cookies de session. (Les cookies de session sont détruits lors de la fermeture du navigateur.) En règle générale, un jeton de session non persistant est stocké. Cependant, quand l’utilisateur sélectionne la case à cocher **Maintenir la connexion** lors de l’authentification, un jeton de session persistant est stocké.
 
 Les jetons de session non persistants ont une durée de vie de 24 heures. Les jetons persistants ont une durée de vie de 90 jours. À chaque fois qu’un jeton de session SSO est utilisé au cours de sa période de validité, celle-ci est prolongée à nouveau de 24 heures ou de 90 jours, en fonction du type de jeton. Si un jeton de session SSO n’est pas utilisé au cours de sa période de validité, il est considéré comme arrivé à expiration et n’est plus accepté.
 
@@ -230,13 +232,13 @@ Facteurs :
 * L’application web A est une application web d’utilisation régulière, qui n’est liée à aucune stratégie.
 * L’application web B est utilisée pour les processus très sensibles. Son principal de service est lié à la stratégie 2 de durée de vie des jetons pourvue d’une propriété Âge maximal de jeton de session de 30 minutes.
 
-À 12 h 00, l’utilisateur démarre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft et invité à se connecter. Cette action crée un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application web A avec un jeton d’ID qui lui permet d’accéder à l’application.
+À 12 h 00, l’utilisateur démarre une nouvelle session de navigateur et tente d’accéder à l’application web A. Il est redirigé vers la plateforme d’identité Microsoft et invité à se connecter. Cette action crée un cookie avec un jeton de session dans le navigateur. L’utilisateur est redirigé vers l’application web A avec un jeton d’ID qui lui permet d’accéder à l’application.
 
-À 12 h 15, l’utilisateur tente d’accéder à l’application web B. Le navigateur le redirige vers la Plateforme d’identité Microsoft qui détecte le cookie de session. Le principal de service de l’application web B est lié à la stratégie 2 de durée de vie des jetons, mais fait également partie de l’organisation parente avec la stratégie 1 de durée de vie des jetons par défaut. La stratégie 2 de durée de vie des jetons est appliquée puisque les stratégies liées aux principaux de service ont une priorité supérieure à celle des stratégies par défaut de l’organisation. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
+À 12 h 15, l’utilisateur tente d’accéder à l’application web B. Le navigateur le redirige vers la plateforme d’identité Microsoft qui détecte le cookie de session. Le principal de service de l’application web B est lié à la stratégie 2 de durée de vie des jetons, mais fait également partie de l’organisation parente avec la stratégie 1 de durée de vie des jetons par défaut. La stratégie 2 de durée de vie des jetons est appliquée puisque les stratégies liées aux principaux de service ont une priorité supérieure à celle des stratégies par défaut de l’organisation. Comme le jeton de session a été initialement émis au cours des 30 dernières minutes, il est considéré comme valide. L’utilisateur est redirigé vers l’application web B avec un jeton d’ID qui lui octroie un accès.
 
-À 13 h 00, l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers la Plateforme d’identité Microsoft. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans une organisation avec la stratégie 1 de durée de vie des jetons par défaut, cette stratégie est appliquée. Le cookie de session qui a initialement été émis au cours des huit dernières heures est détecté. L’utilisateur est redirigé en mode silencieux vers l’application web A avec un nouveau jeton d’ID. Aucune authentification de l’utilisateur n’est nécessaire.
+À 13 h 00, l’utilisateur tente d’accéder à l’application web A. Il est redirigé vers la plateforme d’identité Microsoft. L’application web A n’est liée à aucune stratégie, mais comme elle réside dans une organisation avec la stratégie 1 de durée de vie des jetons par défaut, cette stratégie est appliquée. Le cookie de session qui a initialement été émis au cours des huit dernières heures est détecté. L’utilisateur est redirigé en mode silencieux vers l’application web A avec un nouveau jeton d’ID. Aucune authentification de l’utilisateur n’est nécessaire.
 
-Immédiatement après, l’utilisateur tente d’accéder à l’application web B. Il est redirigé vers la Plateforme d’identité Microsoft. Comme avant, la stratégie 2 de durée de vie des jetons est appliquée. Étant donné que le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification. Un nouveau jeton de session et un jeton d’ID sont émis. L’utilisateur peut alors accéder à l’application web B.
+Immédiatement après, l’utilisateur tente d’accéder à l’application web B. Il est redirigé vers la plateforme d’identité Microsoft. Comme avant, la stratégie 2 de durée de vie des jetons est appliquée. Étant donné que le jeton a été émis il y a plus de 30 minutes, l’utilisateur est invité à entrer de nouveau ses informations d’identification. Un nouveau jeton de session et un jeton d’ID sont émis. L’utilisateur peut alors accéder à l’application web B.
 
 ## <a name="cmdlet-reference"></a>Référence des applets de commande
 

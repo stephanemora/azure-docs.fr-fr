@@ -1,21 +1,24 @@
 ---
-title: Collecter les compteurs de performances dans Azure Cloud Services | Microsoft Docs
+title: Collecter les compteurs de performances dans Azure Cloud Services (classique) | Microsoft Docs
 description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Diagnostics Azure et Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078593"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739834"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Collecter les compteurs de performances pour votre Azure Cloud Service
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Collecter les compteurs de performances pour votre instance d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
 
 Les compteurs de performances vous permettent de suivre les performances de votre application et de l’hôte. Windows Server fournit de nombreux compteurs de performances différents liés au matériel, aux applications, au système d’exploitation, et bien plus encore. En collectant et en envoyant des compteurs de performances à Azure, vous pouvez analyser ces informations pour contribuer à la prise de meilleures décisions. 
 

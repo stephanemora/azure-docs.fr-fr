@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: b19f5c3ae0666a0b0e9b0255f848f5924d9d3910
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678549"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874737"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -86,102 +86,74 @@ Si une offre de service n’est pas disponible dans une région spécifique, vou
 Comme mentionné précédemment, Azure classe les services en trois catégories : de base, standard et spécialisés. Les catégories de service sont attribuées lors de la mise en disponibilité générale. Souvent, les services démarrent leur cycle de vie en tant que services spécialisés, et les augmentations de la demande et de l’utilisation peuvent leur valoir une promotion au niveau général ou de base. Le tableau suivant répertorie les catégories attribuées aux services de base, standard et spécialisés. Notez les points suivants concernant le tableau :
 
 - Certains services ne sont pas régionaux. Pour plus d’informations et pour obtenir la liste des services non régionaux, consultez les [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
-- Les machines virtuelles de génération plus ancienne ne sont pas répertoriées. Pour plus d’informations, voir la documentation [Tailles de machines virtuelles des générations précédentes](../virtual-machines/sizes-previous-gen.md).
+- Les machines virtuelles de génération plus ancienne ne sont pas répertoriées. Pour plus d’informations, consultez la documentation sur [Tailles de machines virtuelles des générations précédentes](../virtual-machines/sizes-previous-gen.md).
+- Aucune catégorie n’est attribuée aux services avant la disponibilité générale (GA). Pour plus d’informations et pour obtenir la liste des services disponibles en préversion, consultez [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]
-> | De base | Standard | Spécialisée |
-> | --- | --- | --- |
-> | Stockage du compte | Gestion des API | API Azure pour FHIR |
-> | Application Gateway | Configuration d’application | Azure Analysis Services |
-> | Sauvegarde Azure | App Service | Service Azure Blockchain |
-> | Azure Cosmos DB | Automatisation | Azure Blueprints |
-> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
-> | Azure ExpressRoute | Azure Bastion | Module de sécurité matériel (HSM) dédié Azure |
-> | Azure SQL Database | Cache Azure pour Redis | Azure Dev Spaces |
-> | Cloud Services | Recherche cognitive Azure | Azure Digital Twins |
-> | Services cloud : Série Av2 | Explorateur de données Azure | Azure Lab Services |
-> | Services cloud : Série Dv2 | Azure Data Share | Azure NetApp Files |
-> | Services cloud : Série Dv3 | Azure Database pour MySQL | Azure Quantum |
-> | Services cloud : Série Ev3 | Azure Database pour PostgreSQL | Service Azure Spring Cloud |
-> | Services cloud : IP de niveau d'instance | Azure Database Migration Service | Azure Time Series Insights |
-> | Services cloud : Adresse IP réservée | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Stockage sur disque | Protection DDoS dans Azure | Services cloud : Série G |
-> | Event Hubs | Azure DevTest Labs | Services cloud : Série H |
-> | Key Vault | Pare-feu Azure | Cognitive Services : Vision personnalisée |
-> | Équilibrage de charge | Azure Firewall Manager | Cognitive Services : Reconnaissance de l’orateur |
-> | Service Bus | Azure Functions | Data Box Heavy |
-> | Service Fabric | Azure HPC Cache | Data Catalog |
-> | Virtual Machine Scale Sets | Azure IoT Hub | Fabrique de données : Data Factory V1 |
-> | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Machines virtuelles : Série Av2 | Azure Machine Learning | Azure Machine Learning Studio (classique)|
-> | Machines virtuelles : Série Bs | Azure Private Link | Microsoft Genomics |
-> | Machines virtuelles : Série DSv2 | Azure Red Hat OpenShift | Rendu à distance |
-> | Machines virtuelles : Série DSv3 | Service Azure SignalR | Spatial Anchors |
-> | Machines virtuelles : Série Dv2 | Azure Site Recovery | StorSimple |
-> | Machines virtuelles : Série Dv3 | Azure Stack Hub | Video Indexer |
-> | Machines virtuelles : Série ESv3 | Azure Stream Analytics | Machines virtuelles : Série DASv4 |
-> | Machines virtuelles : Série Ev3 | Azure Synapse Analytics | Machines virtuelles : Série Dav4 |
-> | Machines virtuelles : Série F | Batch | Machines virtuelles : série DCsv2 |
-> | Machines virtuelles : Série FS | Services cloud : Série M | Machines virtuelles : Série EASv4 |
-> | Machines virtuelles : IP de niveau d'instance | Cognitive Services | Machines virtuelles : Série Eav4 |
-> | Machines virtuelles : Adresse IP réservée | Cognitive Services : Vision par ordinateur | Machines virtuelles : Série G |
-> | Réseau virtuel | Cognitive Services : Content Moderator | Machines virtuelles : Série GS |
-> | Passerelle VPN | Cognitive Services : Face | Machines virtuelles : Série HBv1 |
-> |  | Cognitive Services : Form Recognizer | Machines virtuelles : Série HBv2 |
-> |  | Cognitive Services : Language Understanding | Machines virtuelles : Série HCv1 |
-> |  | Cognitive Services : QnA Maker | Machines virtuelles : Série H |
-> |  | Cognitive Services : Services Speech | Machines virtuelles : Série LS |
-> |  | Container Instances | Machines virtuelles : Série LSv2 |
-> |  | Container Registry | Machines virtuelles : Série Mv2 |
-> |  | Data Factory | Machines virtuelles : Série NC |
-> |  | Event Grid | Machines virtuelles : Série NCv2 |
-> |  | HDInsight | Machines virtuelles : Série NCv3 |
-> |  | Logic Apps | Machines virtuelles : Série NDs |
-> |  | Media Services | Machines virtuelles : Série NDv2 |
-> |  | Network Watcher | Machines virtuelles : Série NV |
-> |  | Notification Hubs | Machines virtuelles : Série NVv3 |
-> |  | Power BI Embedded | Machines virtuelles : Série NVv4 |
-> |  | Stockage Blob Premium | Machines virtuelles : SAP HANA sur Azure (grandes instances) |
-> |  | Stockage de fichiers Premium | Visual Studio App Center |
-> |  | Stockage : Stockage archive |  |
-> |  | Disque Ultra |  |
-> |  | Machines virtuelles : Série Ddsv4 |  |
-> |  | Machines virtuelles : Série Ddv4 |  |
-> |  | Machines virtuelles : Série Dsv4 |  |
-> |  | Machines virtuelles : Série Dv4 |  |
-> |  | Machines virtuelles : Série Edsv4 |  |
-> |  | Machines virtuelles : Série Edv4 |  |
-> |  | Machines virtuelles : Série Esv4 |  |
-> |  | Machines virtuelles : Série Ev4 |  |
-> |  | Machines virtuelles : Série Fsv2 |  |
-> |  | Machines virtuelles : Série M |  |
-> |  | WAN virtuel |  |
+> | De base                          | Standard                                        | Spécialisée                                          |
+> |---------------------------------------|---------------------------------------------------|------------------------------------------------------|
+> | Comptes de stockage                      | Gestion des API                                    | API Azure pour FHIR                                   |
+> | Application Gateway                   | Configuration d’application                                 | Azure Analysis Services                              |
+> | Sauvegarde Azure                          | App Service                                       | Azure Cognitive Services : Le détecteur d’anomalies           |
+> | Azure Cosmos DB                       | Automatisation                                        | Azure Cognitive Services : Vision personnalisée              |
+> | Azure Data Lake Storage Gen2          | Azure Active Directory Domain Services            | Azure Cognitive Services : Form Recognizer            |
+> | Azure ExpressRoute                    | Azure Bastion                                     | Azure Cognitive Services : Personalizer               |
+> | Adresse IP publique                       | Cache Azure pour Redis                             | Azure Cognitive Services : QnA Maker                  |
+> | Azure SQL Database                    | Recherche cognitive Azure                            | Azure Database for MariaDB                           |
+> | Azure SQL : Instance gérée          | Azure Cognitive Services                          | Azure Database Migration Service                     |
+> | Services cloud                        | Azure Cognitive Services : Vision par ordinateur         | Module de sécurité matériel (HSM) dédié Azure                                  |
+> | Services cloud : Série Av2            | Azure Cognitive Services : Content Moderator       | Azure Digital Twins                                  |
+> | Services cloud : Série Dv2            | Azure Cognitive Services : Face                    | Azure Health Bot                                     |
+> | Services cloud : Série Dv3            | Azure Cognitive Services : Lecteur immersif        | Azure HPC Cache                                      |
+> | Services cloud : Série Ev3            | Azure Cognitive Services : Language Understanding  | Azure Lab Services                                   |
+> | Services cloud : IP de niveau d'instance    | Azure Cognitive Services : Services Speech         | Azure NetApp Files                                   |
+> | Services cloud : Adresse IP réservée           | Azure Cognitive Services : Analyse de texte          | Service Azure SignalR                                |
+> | Stockage sur disque                          | Azure Cognitive Services : Convertisseur              | Service Azure Spring Cloud                           |
+> | Event Hubs                            | Explorateur de données Azure                               | Azure Time Series Insights                           |
+> | Key Vault                             | Azure Data Share                                  | Azure VMware Solution                                |
+> | Équilibrage de charge                         | Azure Database pour MySQL                          | Azure VMware Solution by CloudSimple                 |
+> | Service Bus                           | Azure Database pour PostgreSQL                     | Services cloud : Série H                             |
+> | Service Fabric                        | Azure Databricks                                  | Data Catalog                                         |
+> | Stockage : Niveaux de stockage BLOB chaud/froid  | Azure DDoS Protection                             | Data Lake Analytics                                  |
+> | Stockage : Disques managés                | Azure DevTest Labs                                | Azure Machine Learning Studio (classique)              |
+> | Virtual Machine Scale Sets            | Pare-feu Azure                                    | Spatial Anchors                                      |
+> | Virtual Machines                      | Azure Firewall Manager                            | Stockage : Stockage archive                             |
+> | Machines virtuelles : Série Av2          | Azure Functions                                   | StorSimple                                           |
+> | Machines virtuelles : Série Bs           | Azure IoT Hub                                     | Disque Ultra                                   |
+> | Machines virtuelles : Série DSv2         | Azure Kubernetes Service (AKS)                    | Video Indexer                                        |
+> | Machines virtuelles : Série DSv3         | Azure Machine Learning                            | Machines virtuelles : Série DASv4                       |
+> | Machines virtuelles : Série Dv2          | Azure Monitor : Application Insights               | Machines virtuelles : Série Dav4                        |
+> | Machines virtuelles : Série Dv3          | Azure Monitor : Log Analytics                      | Machines virtuelles : série DCsv2                       |
+> | Machines virtuelles : Série ESv3         | Azure Private Link                                | Machines virtuelles : Série EASv4                       |
+> | Machines virtuelles : Série Ev3          | Azure Red Hat OpenShift                           | Machines virtuelles : Série Eav4                        |
+> | Machines virtuelles : IP de niveau d'instance  | Azure Site Recovery                               | Machines virtuelles : Série HBv1                        |
+> | Machines virtuelles : Adresse IP réservée         | Azure Stream Analytics                            | Machines virtuelles : Série HBv2                        |
+> | Réseau virtuel                       | Azure Synapse Analytics                           | Machines virtuelles : Série HCv1                        |
+> | Passerelle VPN                           | Batch                                             | Machines virtuelles : Série H                           |
+> |                                       | Services cloud : Série M                          | Machines virtuelles : Série LSv2                        |
+> |                                       | Container Instances                               | Machines virtuelles : Série Mv2                         |
+> |                                       | Container Registry                                | Machines virtuelles : Série NCv3                        |
+> |                                       | Data Factory                                      | Machines virtuelles : Série NDv2                        |
+> |                                       | Event Grid                                        | Machines virtuelles : Série NVv3                        |
+> |                                       | HDInsight                                         | Machines virtuelles : Série NVv4                        |> 
+> |                                       | Logic Apps                                        | Machines virtuelles : SAP HANA sur Azure (grandes instances)  |
+> |                                       | Media Services                                    |                                                      |
+> |                                       | Network Watcher                                   |                                                      |
+> |                                       | Notification Hubs                                 |                                                      |
+> |                                       | Stockage Blob Premium                              |                                                      |
+> |                                       | Stockage de fichiers Premium                             |                                                      |
+> |                                       | Machines virtuelles : Série Ddsv4                    |                                                      |
+> |                                       | Machines virtuelles : Série Ddv4                     |                                                      |
+> |                                       | Machines virtuelles : Série Dsv4                     |                                                      |
+> |                                       | Machines virtuelles : Série Dv4                      |                                                      |
+> |                                       | Machines virtuelles : Série Edsv4                    |                                                      |
+> |                                       | Machines virtuelles : Série Edv4                     |                                                      |
+> |                                       | Machines virtuelles : Série Esv4                     |                                                      |
+> |                                       | Machines virtuelles : Série Ev4                      |                                                      |
+> |                                       | Machines virtuelles : Série Fsv2                     |                                                      |
+> |                                       | Machines virtuelles : Série M                        |                                                      |
+> |                                       | WAN virtuel                                       |                                                      |
 
-###  <a name="services-resiliency"></a>Résilience des services
-
-Tous les services de gestion Azure sont conçus pour résister aux défaillances survenant au niveau de la région. En termes de portée, une ou plusieurs défaillances de zone de disponibilité survenant dans une région présentent un rayon de défaillance plus réduit qu’une région dans son ensemble. Azure peut récupérer suite à la défaillance de services de gestion au niveau de la zone au sein de la région, ou d’une autre région Azure. Azure procède à des opérations de maintenance critique dans une seule zone à la fois au sein d’une région, afin d’empêcher les défaillances d’affecter les ressources client déployées sur les différentes zones de disponibilité d’une région.
-
-### <a name="pricing-for-vms-in-availability-zones"></a>Tarification des machines virtuelles dans les zones de disponibilité
-
-Il n’existe aucun coût supplémentaire pour les machines virtuelles déployées dans une Zone de disponibilité. Un contrat de niveau de service des machines virtuelles de 99,99 % est offert lorsque deux machines virtuelles ou plus sont déployées sur deux Zones de disponibilité ou plus au sein d’une région Azure. Il y aura des frais supplémentaires de transfert des données de machine virtuelle à machine virtuelle entre les Zones de disponibilité. Pour plus d'informations, consultez la page [Tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
-
-### <a name="get-started-with-availability-zones"></a>Prise en main des Zones de disponibilité
-
-- [Créer une machine virtuelle](../virtual-machines/windows/create-portal-availability-zone.md)
-- [Ajouter un disque géré à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Créer un groupe de machines virtuelles identiques redondant interzone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant interzone](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Stockage redondant interzone](../storage/common/storage-redundancy.md)
-- [Niveau Usage général de SQL Database](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
-- [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
-- [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
-- [Créer une passerelle de réseau virtuel redondante interzone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Ajouter une région redondante interzone pour Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Prise en main des zones de disponibilité du Cache Azure pour Redis](https://aka.ms/redis/az/getstarted)
-- [Créer une instance Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
-- [Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité](../aks/availability-zones.md)
-- [Activer la redondance de zone dans Azure Container Registry](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

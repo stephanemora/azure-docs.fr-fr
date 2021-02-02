@@ -1,24 +1,25 @@
 ---
-title: Installer .NET sur des rôles d’Azure Cloud Services | Microsoft Docs
+title: Installer .NET sur des rôles d’Azure Cloud Services (classique) | Microsoft Docs
 description: Cet article explique comment installer manuellement .NET Framework sur vos rôles web et rôles de travail de Cloud Services.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932234"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742775"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances d’Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Azure Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
 
 Par exemple, vous pouvez installer .NET Framework 4.6.2 sur la famille de SE invités 4, qui n’est fournie avec une version de .NET Framework 4.6. (La famille de SE invités 5 est fournie avec .NET Framework 4.6.) Pour obtenir les dernières informations sur les versions de SE invité Azure, consultez les [Actualités concernant les versions de SE invité Azure](cloud-services-guestos-update-matrix.md). 
@@ -198,7 +199,7 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
    EXIT /B 0
    ```
 
-3. Ajoutez le fichier install.cmd à chaque rôle en sélectionnant**Ajouter** > **Élément existant** dans l’**Explorateur de solutions**, tel que décrit précédemment dans cette rubrique. 
+3. Ajoutez le fichier install.cmd à chaque rôle en sélectionnant **Ajouter** > **Élément existant** dans l’**Explorateur de solutions**, tel que décrit précédemment dans cette rubrique. 
 
     Une fois cette étape réalisée, tous les rôles doivent avoir le fichier du programme d'installation de .NET et le fichier install.cmd.
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538560"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623587"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activer et configurer votre capteur
 
@@ -134,9 +134,9 @@ Après votre connexion, la console Azure Defender pour IoT s’ouvre.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Configuration initiale et apprentissage (pour les administrateurs)
 
-Après votre première connexion, le capteur Azure Defender pour IoT commence à surveiller automatiquement votre réseau. Les ressources réseau s’affichent dans les sections Carte des ressources et Inventaire des ressources. Azure Defender pour IoT commencera à détecter tous les incidents de sécurité et d’exploitation qui se produisent dans votre réseau et à vous en avertir. Vous pouvez ensuite créer des rapports et des requêtes basés sur les informations détectées.
+Après votre première connexion, le capteur Azure Defender pour IoT commence à surveiller automatiquement votre réseau. Les appareils réseau apparaîtront dans les sections de carte et d’inventaire des appareils. Azure Defender pour IoT commencera à détecter tous les incidents de sécurité et d’exploitation qui se produisent dans votre réseau et à vous en avertir. Vous pouvez ensuite créer des rapports et des requêtes basés sur les informations détectées.
 
-Initialement, cette activité est effectuée en mode d’apprentissage, qui demande à votre capteur d’apprendre l’activité habituelle de votre réseau. Par exemple, le capteur apprend les ressources découvertes dans votre réseau, les protocoles détectés dans le réseau et les transferts de fichiers qui se produisent entre des ressources spécifiques. Cette activité devient l’activité de ligne de base de votre réseau.
+Initialement, cette activité est effectuée en mode d’apprentissage, qui demande à votre capteur d’apprendre l’activité habituelle de votre réseau. Par exemple, le capteur apprend les appareils découverts dans votre réseau, les protocoles détectés dans le réseau et les transferts de fichiers qui se produisent entre des appareils spécifiques. Cette activité devient l’activité de ligne de base de votre réseau.
 
 ### <a name="review-and-update-basic-system-settings"></a>Examiner et mettre à jour les paramètres de base du système
 

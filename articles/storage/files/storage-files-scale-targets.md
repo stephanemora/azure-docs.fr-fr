@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e10f45af89e19f6fe62ff729f96d870e008c96ec
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995438"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611098"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -87,16 +87,16 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 | Nombre d’objets | 25 millions d’objets |
 | Taille du jeu de données| ~4,7 Tio |
 | Taille de fichier moyenne | ~200 Kio (plus gros fichier : 100 Gio) |
-| Énumération initiale des modifications cloud | 7 objets par seconde  |
+| Énumération initiale des modifications cloud | 20 objets par seconde  |
 | Débit de chargement | 20 objets par seconde par groupe de synchronisation |
 | Débit de téléchargement d’espace de noms | 400 objets par seconde |
 
 ### <a name="initial-one-time-provisioning"></a>Provisionnement initial unique
 
 **Énumération initiale des modifications cloud** : Lors de la création d’un groupe de synchronisation, l’énumération initiale des modifications cloud est la première étape qui s’exécutera. Dans ce processus, le système énumère tous les éléments du partage de fichiers Azure. Pendant ce processus, il n’y aura aucune activité de synchronisation, c’est-à-dire qu’aucun élément ne sera téléchargé du point de terminaison cloud vers le point de terminaison de serveur et qu’aucun élément ne sera chargé du point de terminaison de serveur vers le point de terminaison cloud. L’activité de synchronisation reprendra une fois l’énumération initiale des modifications cloud terminée.
-Le taux de performances est de sept objets par seconde. Les clients peuvent estimer le temps nécessaire pour effectuer l’énumération initiale des modifications cloud en déterminant le nombre d’éléments dans le partage cloud et en utilisant les formules suivantes pour obtenir la durée en jours. 
+Le taux de performances est de 20 objets par seconde. Les clients peuvent estimer le temps nécessaire pour effectuer l’énumération initiale des modifications cloud en déterminant le nombre d’éléments dans le partage cloud et en utilisant les formules suivantes pour obtenir la durée en jours. 
 
-   **Durée (en jours) de l’énumération initiale des modifications cloud = (Nombre d’objets dans le point de terminaison cloud)/(7 * 60 * 60 * 24)**
+   **Durée (en jours) de l’énumération initiale des modifications cloud = (Nombre d’objets dans le point de terminaison cloud)/(20 * 60 * 60 * 24)**
 
 **Débit de téléchargement d’espace de noms** : Lorsqu’un nouveau point de terminaison de serveur est ajouté à un groupe de synchronisation existant, l’agent Azure File Sync ne télécharge aucun contenu de fichier à partir du point de terminaison cloud. Il synchronise d’abord l’espace de noms complet, puis déclenche un rappel en arrière-plan pour télécharger les fichiers dans leur intégralité ou, si la hiérarchisation cloud est activée, sur la stratégie de hiérarchisation de cloud définie sur le point de terminaison.
 

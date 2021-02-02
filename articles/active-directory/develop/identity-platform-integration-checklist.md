@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques pour la plateforme d’identité Microsoft | Azure
+title: Meilleures pratiques pour la plateforme d’identités Microsoft | Azure
 description: Découvrez les bonnes pratiques, recommandations et les oublis courants lors de l’intégration à la plateforme d’identités Microsoft.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063788"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755250"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Meilleures pratiques et recommandations relatives à la plateforme d’identité Microsoft
 
@@ -104,7 +104,7 @@ Utilisez la check-list suivante pour vous assurer que votre application est int�
 
 Informations approfondies sur v2.0 :
 
-* [Plateforme d’identités Microsoft (vue d’ensemble de v2.0)](v2-overview.md)
+* [Plateforme d’identités Microsoft (présentation)](v2-overview.md)
 * [Informations de référence sur les protocoles de la plateforme d’identités Microsoft](active-directory-v2-protocols.md)
 * [Référence sur les jetons d’accès](access-tokens.md)
 * [Référence sur les jetons d’ID](id-tokens.md)

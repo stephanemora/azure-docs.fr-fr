@@ -8,19 +8,16 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608603"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746507"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
 Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue par le biais de règles définies à partir des ensembles de règles de base OWASP 3.1, 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
-
-> [!NOTE]
-> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="core-rule-sets"></a>Ensembles de règles de base
 
@@ -262,7 +259,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941150|Filtre XSS - Catégorie 5 = attributs HTML non autorisés|
 |941160|NoScript XSS InjectionChecker : Injection de code HTML|
 |941170|NoScript XSS InjectionChecker : Injection d’attribut|
-|941180|Mots clés de la liste rouge du validateur de nœuds|
+|941180|Mots clés de la liste de refus du validateur de nœuds|
 |941190|XSS utilisant des feuilles de style|
 |941200|XSS utilisant des frames VML|
 |941210|XSS utilisant du JavaScript obfusqué|
@@ -490,7 +487,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941130|Filtre XSS - Catégorie 3 = vecteur d’attribut|
 |941140|Filtre XSS - Catégorie 4 = vecteur URI Javascript|
 |941150|Filtre XSS - Catégorie 5 = attributs HTML non autorisés|
-|941180|Mots clés de la liste rouge du validateur de nœuds|
+|941180|Mots clés de la liste de refus du validateur de nœuds|
 |941190|XSS utilisant des feuilles de style|
 |941200|XSS utilisant des frames VML|
 |941210|XSS utilisant du JavaScript obfusqué|

@@ -9,16 +9,45 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127615"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788873"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) d’Azure Machine Learning.
+
+ ## <a name="2021-01-25"></a>25-01-2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.21.0
++ **Résolutions de bogue et améliorations**
+  + **azure-cli-ml**
+    + Correction du texte d’aide CLI lors de l’utilisation d’AmlCompute avec l’identité UserAssigned
+  + **azureml-contrib-automl-dnn-vision**
+    + Les boutons de déploiement et de téléchargement sont visibles pour les exécutions de visions AutoML, et des modèles peuvent être déployés ou téléchargés de la même façon que d’autres exécutions AutoML. Il existe deux nouveaux fichiers (scoring_file_v_1_0_0.py et conda_env_v_1_0_0.yml) contenant un script permettant d’exécuter l’inférence et un fichier yml pour recréer l’environnement conda. Le fichier « model.pth » a également été renommé pour utiliser l’extension « .pt ».
+  + **azureml-core**
+    + Prise en charge MSI pour azure-cli-ml
+    + Prise en charge d’une identité managée affectée par l’utilisateur.
+    + Avec cette modification, les clients doivent être en mesure de fournir à l’utilisateur une identité qui peut être utilisée pour extraire la clé du coffre de clés du client en vue du chiffrement au repos.
+    +  correction de row_count=0 pour le profil de fichiers très volumineux - correction de l’erreur de double conversion pour les valeurs délimitées avec remplissage par des espaces blancs
+    + Supprimer l’indicateur expérimental pour Output dataset GA
+    + Mettre à jour la documentation sur l’extraction d’une version spécifique d’un modèle
+    + Autoriser la mise à jour de l’espace de travail pour l’accès en mode mixte en cas de lien privé
+    + Correctif pour supprimer l’inscription supplémentaire sur le magasin de banques pour la fonctionnalité Reprendre l’exécution
+    + Ajout de la prise en charge de CLI/SDK pour la mise à jour de l’identité affectée par l’utilisateur principal d’un espace de travail
+  + **azureml-interpret**
+    + mise à jour d’azureml-interpret en interpret-community 0.16.0
+    + optimisations de la mémoire pour le client d’explication dans azureml-interpret
+  + **azureml-train-automl-runtime**
+    + activation de la diffusion en continu pour les exécutions ADB
+  + **azureml-train-core**
+    + Correctif pour supprimer l’inscription supplémentaire sur le magasin de banques pour la fonctionnalité Reprendre l’exécution
+  + **azureml-widgets**
+    + Les clients ne doivent pas voir les modifications apportées à la visualisation des données d’exécution existante à l’aide du widget, et ils bénéficient désormais d’un support s’ils utilisent des hyperparamètres conditionnels.
+    + Le widget d’exécution de l’utilisateur comprend désormais une explication détaillée de la raison pour laquelle une exécution se trouve à l’état Mis en file d’attente.
 
 
  ## <a name="2021-01-11"></a>2021-01-11
@@ -36,6 +65,7 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
     + Résolution du problème de service.reload() pour récupérer les modifications effectuées sur score.py dans un déploiement local.
     + Ajout à `run.get_details()` d’un champ supplémentaire nommé « submittedBy » qui affiche le nom de l’auteur de cette série.
     + Modification de la documentation de la méthode Model.register de façon à mentionner comment inscrire directement le modèle à partir de l’exécution.
+    + Résolution du problème de gestion des modifications de l’état de la connexion au serveur IOT.
    
 
 ## <a name="2020-12-31"></a>2020-12-31
@@ -117,7 +147,7 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de novembre)
 + **Nouvelles fonctionnalités**
-   + Terminal natif. Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le [terminal intégré](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Terminal natif. Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le [terminal intégré](./how-to-run-jupyter-notebooks.md#terminal)
   + Dossier dupliqué 
   + Baisse des coûts de calcul 
   + Calcul Pylance hors connexion 
@@ -492,8 +522,8 @@ En savoir plus sur [l’étiquetage de segmentation d’une instance d’image](
     + Les utilisateurs peuvent désormais spécifier une fréquence de série chronologique pour les tâches de prévision à l’aide du paramètre `freq`.
   + **azureml-train-automl-runtime**
     + Amélioration de la sortie de la console lorsque les meilleures explications du modèle échouent.
-    + Changement de nom du paramètre d’entrée « backlist_models » en « blocked_models ».
-      + Changement de nom du paramètre d’entrée « whitelist_models » en « allowed_models ».
+    + Le paramètre d’entrée a été renommé en « blocked_models » pour supprimer un terme sensible.
+      + Le paramètre d’entrée a été renommé en « allowed_models » pour supprimer un terme sensible.
     + Les utilisateurs peuvent désormais spécifier une fréquence de série chronologique pour les tâches de prévision à l’aide du paramètre `freq`.
 
   
@@ -1421,7 +1451,7 @@ Accédez aux outils de création web suivants à partir de Studio :
 
 ### <a name="r-sdk"></a>SDK R 
  
-Les scientifiques des données et les développeurs d’IA utilisent le [SDK Azure Machine Learning pour R](tutorial-1st-r-experiment.md) afin de générer et d’exécuter des workflows de machine learning avec Azure Machine Learning.
+Les scientifiques des données et les développeurs d’IA utilisent le [SDK Azure Machine Learning pour R](https://github.com/Azure/azureml-sdk-for-r) afin de générer et d’exécuter des workflows de machine learning avec Azure Machine Learning.
 
 Le SDK Azure Machine Learning pour R utilise le package `reticulate` pour effectuer une liaison au SDK Python. En se liant directement à Python, le SDK pour R vous permet d’accéder aux objets et méthodes principaux implémentés dans le SDK Python à partir de tout environnement R que vous choisissez.
 
@@ -1597,13 +1627,13 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
   + **azureml-train-automl**
     + La création d’un objet [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) permet d’obtenir ou de créer l’expérience dans l’espace de travail Azure Machine Learning pour le suivi de l’historique des exécutions. L’ID d’expérience et l’heure archivée sont renseignés dans l’objet Experiment lors de la création. Exemple :
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
         [archive()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) et [reactivate()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) sont des fonctions qui peuvent être appelées dans une expérience pour masquer et restaurer l’expérience à partir de l’expérience utilisateur ou retournées par défaut dans un appel pour répertorier les expériences. Si une nouvelle expérience est créée avec le même nom qu’une expérience archivée, vous pouvez renommer l’expérience archivée lors de la réactivation en transmettant un nouveau nom. Il ne peut y avoir qu’une seule expérience active avec un nom donné. Exemple :
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
@@ -1612,7 +1642,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
         ```
         La méthode statique [list()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) dans Experiment peut accepter un filtre de nom et un filtre ViewType. Les valeurs ViewType sont « ACTIVE_ONLY », « ARCHIVED_ONLY » et « ALL ». Exemple :
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1798,7 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
     + Ajout de la prise en charge de dockerfile dans le paramètre `environment_definition` dans les estimateurs.
     + Simplification des paramètres d’entraînement distribué dans les estimateurs.
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1850,14 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
   + **azureml-core**
     + Ajoute Dataset.get_all(workspace), qui retourne un dictionnaire d'objets `TabularDataset` et `FileDataset` indexés par nom d’inscription.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + Ajout de `parition_format` comme argument pour `Dataset.Tabular.from_delimited_files` et `Dataset.Tabular.from_parquet.files`. Les informations de partition de chaque chemin de données sont extraites dans des colonnes en fonction du format spécifié. « {column_name} » crée une colonne de chaîne, et « {column_name:yyyy/MM/dd/HH/mm/ss} » crée une colonne DateTime, où « yyyy », « MM », « dd », « HH », « mm » et « ss » sont utilisés pour extraire l’année, le mois, le jour, l’heure, la minute et la seconde pour le type DateTime. partition_format doit commencer à partir de la position de la première clé de partition et se poursuivre jusqu’à la fin du chemin d’accès au fichier. Par exemple, si l’on prend le chemin d’accès '../USA/2019/01/01/data.csv' où la partition se fait par pays et par heure, partition_format='/{Country}/{PartitionDate:yyyy/MM/dd}/data.csv' crée la colonne chaîne « Country » avec la valeur « USA » et la colonne DateTime « PartitionDate » avec la valeur « 2019-01-01 ».
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']

@@ -1,22 +1,25 @@
 ---
-title: Schéma de définition d’Azure Cloud Services (fichier .cscfg) | Microsoft Docs
+title: Schéma de définition Azure Cloud Services (classique) (fichier .cscfg) | Microsoft Docs
 description: Un fichier de configuration de service (.cscfg) spécifie le nombre d’instances de rôle à déployer pour chaque rôle, les valeurs de configuration et les empreintes numériques de certificats pour un rôle.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534743"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743472"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schéma de définition d’Azure Cloud Services (fichier .cscfg)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Schéma de définition Azure Cloud Services (classique) (fichier .cscfg)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. Du fait de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Le fichier de configuration de service spécifie le nombre d’instances de rôle à déployer pour chaque rôle dans le service, les valeurs des paramètres de configuration et les empreintes des certificats associés à un rôle. Si le service fait partie d’un réseau virtuel, les informations de configuration pour le réseau doivent être fournies dans le fichier de configuration de service, ainsi que dans le fichier de configuration de réseau virtuel. L’extension par défaut du fichier de configuration de service est .cscfg.
 
 Le modèle de service est décrit par le [Schéma de définition de services cloud (classique)](schema-csdef-file.md).

@@ -1,26 +1,25 @@
 ---
-title: Déf. Azure Cloud Services Schéma WebRole | Microsoft Docs
+title: Définition d’Azure Cloud Services (classique) Schéma WebRole | Microsoft Docs
 description: Le rôle web Azure est personnalisé pour la programmation d’applications web prenant en charge ASP.NET, PHP, WCF et FastCGI. En savoir plus sur les éléments de définition de service d’un rôle web.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011317"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743149"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services
+# <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Le rôle web Azure est un rôle personnalisé pour la programmation d’applications web, tel que pris en charge par IIS 7, ASP.NET, PHP, Windows Communication Foundation et FastCGI.
 
 L’extension par défaut du fichier de définition de service est .csdef.
@@ -122,7 +121,7 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [Certificate](#Certificate)
 
-[Imports](#Imports)
+[Importations](#Imports)
 
 [Importer](#Import)
 
@@ -144,7 +143,7 @@ Le fichier de définition de service inclut ces éléments, ils sont détaillés
 
 [VirtualApplication](#VirtualApplication)
 
-[Bindings](#Bindings)
+[Liaisons](#Bindings)
 
 [Binding](#Binding)
 
@@ -172,7 +171,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `WebRole`.
 ##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a> ConfigurationSettings  
 L’élément `ConfigurationSettings` décrit la collection de paramètres de configuration pour un rôle web. Cet élément est le parent de l’élément `Setting`.
 
-##  <a name="setting"></a><a name="Setting"></a> Setting  
+##  <a name="setting"></a>Paramètre <a name="Setting"></a>  
 L’élément `Setting` décrit une paire nom-valeur qui spécifie un paramètre de configuration pour une instance d’un rôle.
 
 Le tableau suivant décrit les attributs d’un de l’élément `Setting`.
@@ -282,7 +281,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `FixedPortRange
 |min|int|Obligatoire. Port minimal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 |max|string|Obligatoire. Port maximal dans la plage. Les valeurs possibles sont comprises entre 1 et 65535 inclus (Kit SDK Azure version 1.7 ou supérieure).|  
 
-##  <a name="certificates"></a><a name="Certificates"></a> Certificates  
+##  <a name="certificates"></a><a name="Certificates"></a> Certificats  
 L’élément `Certificates` décrit la collection de certificats pour un rôle web. Cet élément est le parent de l’élément `Certificate`. Un rôle peut avoir n’importe quel nombre de certificats associés. Pour plus d’informations sur l’utilisation de l’élément certificates, consultez [Modifier le fichier de définition de service avec un certificat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
 ##  <a name="certificate"></a><a name="Certificate"></a> Certificate  
@@ -450,7 +449,7 @@ L’élément `Contents` décrit la collection de contenus pour un rôle web. Ce
 
 L’élément `Contents` n’est disponible que par le biais du kit SDK Azure version 1.5 ou supérieure.
 
-##  <a name="content"></a><a name="Content"></a> Content  
+##  <a name="content"></a><a name="Content"></a> Contenu  
 L’élément `Content` définit l’emplacement source du contenu à copier sur la machine virtuelle Azure, et le chemin de destination dans lequel il est copié.
 
 L’élément `Content` n’est disponible que par le biais du kit SDK Azure version 1.5 ou supérieure.

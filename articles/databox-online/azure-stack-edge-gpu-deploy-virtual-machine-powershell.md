@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 32685207f8d6e81d03c90d01b186337ce79f843a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763667"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802986"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU via Azure PowerShell
 
-Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell. Cet article s’applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
+Cet article explique comment créer et gérer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide d’Azure PowerShell. Cet article s'applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R.
 
 ## <a name="vm-deployment-workflow"></a>Workflow du déploiement de machine virtuelle
 
@@ -32,7 +32,7 @@ Le workflow du déploiement est illustré dans le diagramme suivant.
 
 ## <a name="query-for-built-in-subscription-on-the-device"></a>Interroger l’abonnement intégré sur l’appareil
 
-Pour Azure Resource Manager, un seul abonnement fixe visible par l’utilisateur est pris en charge. Cet abonnement est unique par appareil et ce nom ou ID d’abonnement ne peut pas être modifié.
+Pour Azure Resource Manager, un seul abonnement fixe visible par l’utilisateur est pris en charge. Cet abonnement est unique par appareil et le nom ou ID d’abonnement ne peut pas être modifié.
 
 Cet abonnement contient toutes les ressources créées nécessaires à la création de la machine virtuelle. 
 
@@ -118,7 +118,7 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage en utilisant le groupe de ressources créé à l’étape précédente. Il s’agit d’un **compte de stockage local** qui sera utilisé pour charger l’image de disque virtuel de la machine virtuelle.
+Créez un compte de stockage en utilisant le groupe de ressources créé à l’étape précédente. Ce compte est un **compte de stockage local** qui sera utilisé pour charger l’image de disque virtuel de la machine virtuelle.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -177,7 +177,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-blob-uri-to-hosts-file"></a>Ajouter l’URI d’objet blob au fichier hosts
 
-Vous avez déjà ajouté l’URI d’objet blob dans le fichier hosts pour le client que vous utilisez pour vous connecter au Stockage Blob dans la section [Modifier le fichier hosts pour la résolution de noms de point de terminaison](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Il s’agissait de l’entrée pour l’URI d’objet blob :
+Vous avez déjà ajouté l’URI d’objet blob dans le fichier hosts du client que vous utilisez pour vous connecter au stockage Blob dans la section [Modifier le fichier hosts pour la résolution de noms de point de terminaison](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Cette entrée a été utilisée pour ajouter l’URI de l’objet blob :
 
 \<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Voici un exemple de sortie obtenue. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Voici un exemple de sortie obtenue. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Voici un exemple de sortie obtenue. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Voici un exemple de sortie obtenue. Pour plus d’informations sur cette applet de commande, accédez à [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -319,8 +319,8 @@ Vous devez créer un seul réseau virtuel et associer une interface réseau virt
 > [!IMPORTANT]
 > Quand vous créez un réseau virtuel et une interface réseau virtuelle, les règles suivantes s’appliquent :
 > - Un seul réseau virtuel peut être créé (même dans plusieurs groupes de ressources) et il doit correspondre exactement au réseau logique en termes d’espace d’adressage.
-> -   Un seul sous-réseau est autorisé dans le réseau virtuel. Ce sous-réseau doit être exactement le même espace d’adressage que le réseau virtuel.
-> -   Seule la méthode d’allocation statique est autorisée lors de la création de la carte réseau virtuelle et l’utilisateur doit fournir une adresse IP privée.
+> - Un seul sous-réseau est autorisé dans le réseau virtuel. Ce sous-réseau doit être exactement le même espace d’adressage que le réseau virtuel.
+> - Seule la méthode d’allocation statique est autorisée lors de la création de la carte réseau virtuelle et l’utilisateur doit fournir une adresse IP privée.
 
  
 **Interroger le réseau virtuel créé automatiquement**
@@ -498,7 +498,7 @@ Exécutez l’applet de commande suivante pour activer une machine virtuelle en 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Pour plus d’informations sur cette applet de commande, accédez à [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Pour plus d’informations sur cette applet de commande, accédez à [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Interrompre ou arrêter la machine virtuelle
 
@@ -510,7 +510,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Pour plus d’informations sur cette applet de commande, accédez à [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Pour plus d’informations sur cette applet de commande, accédez à [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Ajouter un disque de données
 
@@ -530,10 +530,10 @@ Exécutez l’applet de commande suivante pour supprimer une machine virtuelle d
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Pour plus d’informations sur cette applet de commande, accédez à [Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Pour plus d’informations sur cette applet de commande, accédez à [Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

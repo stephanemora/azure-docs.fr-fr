@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835537"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625462"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Examiner toutes les détections de capteur d’entreprise dans l’inventaire des appareils
 
@@ -67,7 +67,7 @@ Vous pouvez utiliser ces informations pour en savoir plus. Par exemple :
 
 - Utilisateurs connectés aux appareils
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Table de données sur l’écran d’inventaire des ressources.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Table de données sur l’écran d’inventaire des appareils.":::
 
 Vous pouvez intégrer les données de l’une des deux façons suivantes :
 
@@ -131,13 +131,13 @@ Utilisez les commandes de l’API Defender pour IoT pour récupérer et intégre
 
 Vous pouvez filtrer l’inventaire des appareils pour afficher les colonnes qui vous intéressent. Par exemple, vous pouvez afficher les informations sur les appareils PLC.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Capture d’écran de l’inventaire des ressources.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Capture d’écran de l’inventaire des appareils.":::
 
 Le filtre est effacé lorsque vous quittez la fenêtre.
 
 Pour utiliser le même filtre plusieurs fois, vous pouvez enregistrer un filtre ou une combinaison de filtres dont vous avez besoin. Vous pouvez ouvrir un volet gauche et visualiser les filtres que vous avez enregistrés :
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Écran de l’inventaire des ressources.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Écran de l’inventaire des appareils.":::
 
 Pour filtrer l’inventaire des appareils :
 
@@ -187,7 +187,7 @@ Les outils suivants sont disponibles pour visualiser les appareils et les inform
 
 - **Afficher les propriétés de l’appareil** : Par exemple, capteur qui analyse l’appareil et ses propriétés de base. Cliquez avec le bouton droit sur l’appareil pour en afficher les propriétés.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Capture d’écran de la vue Propriétés de la ressource.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Capture d’écran de l’affichage Propriétés de l’appareil.":::
 
 - **Alerte associée à un appareil :** Cliquez avec le bouton droit sur l’appareil pour afficher les alertes associées.
 

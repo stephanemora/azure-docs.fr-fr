@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955550"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804858"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Déployer des extensions de script personnalisé sur des machines virtuelles s’exécutant sur votre appareil Azure Stack Edge Pro
 
@@ -62,13 +62,13 @@ If your script is on a local server, then you may still need additional firewall
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. [Téléchargez les modèles de machine virtuelle et les fichiers de paramètres](https://aka.ms/ase-vm-templates) sur votre ordinateur client. Décompressez-les dans le répertoire qui vous servira de répertoire de travail.
+1. [Téléchargez les modèles de machine virtuelle et les fichiers de paramètres](https://aka.ms/ase-vm-templates) sur votre ordinateur client. Décompressez les fichiers téléchargés dans le répertoire qui vous servira de répertoire de travail.
 
 1. Vous devez disposer d’une machine virtuelle créée et déployée sur votre appareil. Pour créer des machines virtuelles, suivez toutes les étapes de l’article [Déployer une machine virtuelle sur votre appareil Azure Stack Edge Pro à l’aide de modèles](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
-    Si vous devez télécharger un script en externe, par exemple à partir de GitHub ou Stockage Azure, lors de la configuration du réseau de calcul, activez le port connecté à Internet pour le calcul. Cela vous permet de télécharger le script.
+    Si vous devez télécharger en externe un script provenant par exemple de GitHub ou Stockage Azure, lors de la configuration du réseau de calcul, activez le port connecté à Internet pour le calcul. Cela vous permet de télécharger le script.
 
-    Dans l’exemple suivant, le port 2 était connecté à Internet et a été utilisé pour activer le réseau de calcul. Si vous avez constaté que Kubernetes n’est pas nécessaire à l’étape précédente, vous pouvez ignorer l’adresse IP du nœud Kubernetes et l’attribution de l’adresse IP du service externe.    
+    Dans l’exemple suivant, le port 2 était connecté à Internet et a été utilisé pour activer le réseau de calcul. Si vous avez constaté que Kubernetes n’est pas nécessaire à l’étape précédente, vous pouvez ignorer l’adresse IP du nœud Kubernetes et l’attribution de l’adresse IP du service externe.
 
     ![Activer les paramètres de calcul sur le port connecté à Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ Le fichier `addCSExtWindowsVM.parameters.json` prend les paramètres suivants :
 ```
 Indiquez le nom de votre machine virtuelle, le nom de l’extension et la commande que vous souhaitez exécuter.
 
-Voici un exemple de fichier de paramètres utilisé dans cet article. 
+Voici l’exemple de fichier de paramètres utilisé dans cet article.
 
 ```powershell
 {
@@ -158,7 +158,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > Le déploiement de l’extension est une opération durable qui prend environ 10 minutes.
 
-Voici un exemple de sortie :
+Voici un exemple de sortie :
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensiontoVM.json"
@@ -196,7 +196,7 @@ Pour voir l’état du déploiement des extensions pour une machine virtuelle do
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
-Voici un exemple de sortie :
+Voici un exemple de sortie :
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -293,7 +293,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > Le déploiement de l’extension est une opération durable qui prend environ 10 minutes.
 
-Voici un exemple de sortie :
+Voici un exemple de sortie :
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensionToVM.json"
@@ -342,7 +342,7 @@ Le déploiement de modèle est une opération durable. Pour suivre l’état du 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
-Voici un exemple de sortie : 
+Voici un exemple de sortie : 
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -381,7 +381,7 @@ Pour supprimer l’extension de script personnalisé, utilisez la commande suiva
 
 `Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
 
-Voici un exemple de sortie :
+Voici un exemple de sortie :
 
 ```powershell
 PS C:\WINDOWS\system32> Remove-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM6 -Name LinuxCustomScriptExtension
@@ -396,4 +396,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Applets de commande Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

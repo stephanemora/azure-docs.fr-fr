@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979983"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761379"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -147,8 +147,20 @@ Pour les applications démon, vous n’avez pas besoin de spécifier un URI de r
 Cette option spécifie la clé secrète client pour l’application cliente confidentielle. Ce secret (mot de passe) est fourni par le portail de l’inscription d’application ou, pour Azure AD, fourni lors de l’inscription de l’application avec PowerShell AzureAD, PowerShell AzureRM ou Azure CLI.
 
 ## <a name="logging"></a>Journalisation
+Pour faciliter le débogage et les scénarios de résolution des problèmes d’authentification, la bibliothèque d’authentification Microsoft offre une prise en charge intégrée de la journalisation. La journalisation pour chaque bibliothèque est couverte dans les articles suivants :
 
-Les autres options de configuration activent la journalisation et la résolution des problèmes. Pour plus d’informations sur la façon de les utiliser, voir l’article [Journalisation](msal-logging.md).
+:::row:::
+    :::column:::
+        - [Journalisation dans MSAL.NET](msal-logging-dotnet.md)
+        - [Journalisation dans MSAL pour Android](msal-logging-android.md)
+        - [Journalisation dans MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Journalisation dans MSAL pour iOS/macOS](msal-logging-ios.md)
+        - [Journalisation dans MSAL pour Java](msal-logging-java.md)
+        - [Journalisation dans MSAL pour Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
