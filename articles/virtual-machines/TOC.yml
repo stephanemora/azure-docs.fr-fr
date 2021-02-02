@@ -1,6 +1,6 @@
 - name: Documentation Machines virtuelles
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des machines virtuelles Linux
       href: ./linux/overview.md
@@ -119,7 +119,7 @@
           href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 'HPC (High-Performance Computing, calcul haute performance)'
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Containers
+    - name: Conteneurs
       items:
         - name: Utiliser Machine Docker
           href: ./linux/docker-machine.md
@@ -143,7 +143,7 @@
           href: generation-2.md
         - name: Usage général
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sizes-general.md
             - name: "Série\_Av2"
               href: av2-series.md
@@ -163,7 +163,7 @@
               href: dv4-dsv4-series.md
         - name: Optimisé pour le calcul
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: sizes-compute.md
             - name: Série Fsv2
               href: fsv2-series.md
@@ -1233,7 +1233,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: maintenance-notifications.md
             - name: Interface de ligne de commande
               href: maintenance-notifications-cli.md
@@ -1472,30 +1472,11 @@
     - name: Données personnalisées
       href: custom-data.md
     - name: Ansible
-      items:
-        - name: Installation et configuration
-          href: /azure/developer/ansible/install-on-linux-vm
-        - name: Créer une machine virtuelle Linux
-          href: /azure/developer/ansible/vm-configure
-        - name: Gérer une machine virtuelle Linux
-          href: /azure/developer/ansible/vm-manage
+      href: 'https://docs.microsoft.com/azure/developer/ansible/'
     - name: Terraform
-      items:
-        - name: Installation et configuration
-          href: /azure/developer/terraform/install-configure
-        - name: Créer une machine virtuelle complète
-          href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
+      href: 'https://docs.microsoft.com/azure/developer/terraform/'
     - name: Jenkins
-      href: /azure/developer/jenkins/overview
-      items:
-        - name: Créer un serveur Jenkins
-          href: /azure/developer/jenkins/configure-on-linux-vm
-        - name: Mettre à l’échelle avec les agents de machines virtuelles
-          href: /azure/developer/jenkins/scale-deployments-using-vm-agents
-        - name: Publier des artefacts vers le stockage
-          href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
-        - name: Jenkins sécurisé
-          href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+      href: 'https://docs.microsoft.com/en-us/azure/developer/jenkins/'
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Dépanner

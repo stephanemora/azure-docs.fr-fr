@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 48dbd0892c9ec02f203edba55d1104f1ab0118a8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737606"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920255"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -39,13 +39,14 @@ En outre, la vérification de l’état d’exportation à l’aide de l’URL r
 
 ## <a name="settings-and-parameters"></a>Paramètres et configurations
 
-### <a name="headers"></a>headers
+### <a name="headers"></a>En-têtes
 Deux paramètres d’en-tête doivent être définis pour des travaux $export. Les valeurs sont définies par la [spécification $export](https://hl7.org/Fhir/uv/bulkdata/export/index.html#headers) actuelle.
 * **Accept** : application/fhir+json
 * **Prefer** : respond-async
 
 ### <a name="query-parameters"></a>Paramètres de la requête
 L’API Azure pour FHIR prend en charge les paramètres de requête suivants. Tous ces paramètres sont facultatifs :
+
 |Paramètre de requête.        | Défini par la spécification FHIR ?    |  Description|
 |------------------------|---|------------|
 | \_outputFormat | Oui | Prend actuellement en charge trois valeurs à aligner sur la spécification FHIR : application/fhir+ndjson, application/ndjson ou simplement ndjson. Tous les travaux d’exportation retournent `ndjson` et la valeur transmise n’a aucun effet sur le comportement du code. |
