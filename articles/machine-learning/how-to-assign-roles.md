@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 11/09/2020
+ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 636f63b3f7e43bd8f27d1df58ab82d24bd19a616
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033746"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624538"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -160,6 +160,10 @@ Vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre 
 
 > [!NOTE]
 > Les mises à jour de rôle peuvent prendre entre 15 minutes et 1 heure pour s’appliquer à toutes les attributions de rôles de cette étendue.
+
+## <a name="use-azure-resource-manager-templates-for-repeatability"></a>Utiliser des modèles Azure Resource Manager pour la répétabilité
+
+Si vous pensez que vous allez devoir recréer des attributions de rôles complexes, un modèle de Azure Resource Manager peut vous être d’une aide précieuse. Le modèle [201-machine-learning-dependencies-role-assignment](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) montre comment spécifier des attributions de rôles dans le code source en vue de leur réutilisation. 
 
 ## <a name="common-scenarios"></a>Scénarios courants
 

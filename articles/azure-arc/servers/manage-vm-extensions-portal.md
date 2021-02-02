@@ -1,14 +1,14 @@
 ---
 title: Activer l’extension de machine virtuelle à partir du portail Azure
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs Azure Arc exécutés dans des environnements cloud hybrides à partir du portail Azure.
-ms.date: 11/06/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359083"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728945"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Activer les extensions de machine virtuelle Azure à partir du portail Azure
 
@@ -39,6 +39,18 @@ Les extensions de machine virtuelle peuvent être appliquées pour une machine m
 
 >[!NOTE]
 >Même si plusieurs extensions peuvent être regroupées et traitées ensemble, elles sont installées en série. Une fois l’installation de la première extension terminée, l’installation de la suivante est entreprise.
+
+## <a name="list-extensions-installed"></a>Lister les extensions installées
+
+Vous pouvez obtenir la liste des extensions de machine virtuelle sur votre serveur avec Arc à partir du portail Azure. Pour les voir, procédez comme suit.
+
+1. À partir de votre navigateur, accédez au [portail Azure](https://portal.azure.com).
+
+2. Sur le portail, accédez à **Serveurs – Azure Arc**, puis sélectionnez votre machine hybride dans la liste.
+
+3. Choisissez **Extensions** pour obtenir la liste des extensions installées.
+
+    ![Répertorier l’extension de machine virtuelle déployée sur la machine sélectionnée](./media/manage-vm-extensions/list-vm-extensions.png)
 
 ## <a name="uninstall-extension"></a>Désinstaller une extension
 

@@ -1,7 +1,7 @@
 ---
-title: Comment préserver la confidentialité des données à l’aide des packages SmartNoise (préversion)
+title: Confidentialité différentielle – SmartNoise (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment appliquer les bonnes pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages SmartNoise.
+description: Découvrez comment appliquer les meilleures pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des bibliothèques open source de SmartNoise.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 12/21/2020
-ms.openlocfilehash: ebc14d6c9d0ebaa6e0258578f94771c9f286bdb4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 01/21/2020
+ms.openlocfilehash: 62a002569696da4ef18e7bd967f027eb8247ef65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221933"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681402"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Utiliser la confidentialité différentielle dans Azure Machine Learning (préversion)
 
-Découvrez comment appliquer les bonnes pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des packages Python SmartNoise.
+Découvrez comment appliquer les meilleures pratiques en matière de confidentialité différentielle aux modèles Azure Machine Learning à l’aide des bibliothèques open source Python de SmartNoise.
 
-La confidentialité différentielle est la définition de référence de la confidentialité. Les systèmes qui adhèrent à cette définition de la confidentialité fournissent de solides garanties contre un large éventail d’attaques de reconstruction et de réidentification des données, notamment les attaques par des adversaires qui possèdent des informations auxiliaires. En savoir plus sur le [fonctionnement de la confidentialité différentielle](./concept-differential-privacy.md).
+La confidentialité différentielle est la définition de référence de la confidentialité. Les systèmes qui adhèrent à cette définition de la confidentialité fournissent de solides garanties contre un large éventail d’attaques de reconstruction et de réidentification des données, notamment les attaques par des adversaires qui possèdent des informations auxiliaires. Apprenez-en davantage sur le [fonctionnement de la confidentialité différentielle](./concept-differential-privacy.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -30,7 +30,7 @@ La confidentialité différentielle est la définition de référence de la conf
 - Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 - [Python 3](https://www.python.org/downloads/)
 
-## <a name="install-smartnoise-packages"></a>Installer les packages SmartNoise
+## <a name="install-smartnoise-python-libraries"></a>Installer les bibliothèques Python de SmartNoise
 
 ### <a name="standalone-installation"></a>Installation autonome
 
@@ -51,7 +51,7 @@ import opendp.smartnoise.sql
 
 Si les importations ont été effectuées correctement, les bibliothèques sont installées et prêtes à l’emploi.
 
-### <a name="docker-image"></a>Image Docker
+### <a name="docker-image-installation"></a>Installation d’image Docker
 
 Vous pouvez également utiliser des packages SmartNoise avec Docker.
 

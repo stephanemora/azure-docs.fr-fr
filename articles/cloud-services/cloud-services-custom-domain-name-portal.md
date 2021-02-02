@@ -1,21 +1,25 @@
 ---
-title: Configuration d’un nom de domaine personnalisé dans Services cloud | Microsoft Docs
+title: Configurer un nom de domaine personnalisé Azure Cloud Services (classique) | Microsoft Docs
 description: Découvrez comment exposer votre application ou vos données Azure sur Internet, sur un domaine personnalisé, en configurant les paramètres DNS.  Ces exemples utilisent le portail Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069923"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742367"
 ---
-# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure
+# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configuration d’un nom de domaine personnalisé pour un service cloud Azure (classique)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (support étendu)](../cloud-services-extended-support/overview.md) est un nouveau modèle de déploiement basé sur Azure Resource Manager pour le produit Azure Cloud Services. En raison de ce changement, les instances Azure Cloud Services qui s’exécutent sur le modèle de déploiement basé sur Azure Service Manager ont été renommées Cloud Services (classique). Tous les nouveaux déploiements doivent passer par [Cloud Services (support étendu)](../cloud-services-extended-support/overview.md).
+
 Lorsque vous créez un service cloud, Azure l'attribue à un sous-domaine de **cloudapp.net**. Par exemple, si votre service cloud s’intitule « contoso », vos utilisateurs peuvent accéder à votre application par le biais d’une URL telle que `http://contoso.cloudapp.net`. Azure attribue également une adresse IP virtuelle.
 
 Toutefois, vous pouvez également exposer votre application sur votre propre nom de domaine, par exemple, **contoso.com**. Cet article explique comment réserver ou configurer un domaine personnalisé avec des rôles Web de service cloud.
@@ -44,7 +48,7 @@ Un enregistrement CNAME associe un domaine *spécifique*, tel que **contoso.com*
 > Certains bureaux d’enregistrement de domaines autorisent le mappage de sous-domaines uniquement lorsqu’un enregistrement CNAME est utilisé (par exemple, www\.contoso.com) et non un nom racine (tel que contoso.com). Pour plus d'informations sur les enregistrements CNAME, consultez la documentation fournie par votre bureau d'enregistrement, la [page Wikipédia sur l'enregistrement CNAME](https://en.wikipedia.org/wiki/CNAME_record) ou le document [Noms de domaine IETF - Implémentation et spécification](https://tools.ietf.org/html/rfc1035).
 
 ### <a name="a-record"></a>Enregistrement A
-Un enregistrement *A* mappe un domaine, tel que **contoso.com** ou **www\.contoso.com**, *ou un nom de domaine générique* comme **\*.contoso.com**, sur une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d’un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d’une entrée utilisant un caractère générique (par exemple, \* **.contoso.com**), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www\.contso.com**.
+Un enregistrement *A* mappe un domaine, tel que **contoso.com** ou **www\.contoso.com**, *ou un nom de domaine générique* comme **\*.contoso.com**, sur une adresse IP. Dans le cas d’un service cloud Azure, il s’agit de l’adresse IP virtuelle du service. Le principal avantage d’un enregistrement A par rapport à un enregistrement CNAME est que vous pouvez disposer d’une entrée utilisant un caractère générique (par exemple, \**_.contoso.com_*), ce qui permet de gérer les demandes pour plusieurs sous-domaines, tels que **mail.contoso.com**, **login.contoso.com** ou **www\.contso.com**.
 
 > [!NOTE]
 > L’enregistrement A étant associé à une adresse IP statique, les changements d’adresse IP de votre service cloud ne sont donc pas pris en compte automatiquement. L’adresse IP utilisée par votre service cloud est allouée la première fois que vous effectuez un déploiement vers un emplacement vide (de production ou intermédiaire). Si vous supprimez le déploiement de l’emplacement, l’adresse IP est publiée par Azure et tout déploiement futur dans l’emplacement peut recevoir une nouvelle adresse IP.

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608586"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745731"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuration de MPIO sur un hôte StorSimple exécutant CentOS
 Cet article explique les étapes requises pour configurer la MPIO (gestion multivoie d’E/S) sur votre serveur hôte CentOS 6.6. Le serveur hôte est connecté à votre appareil Microsoft Azure StorSimple pour la haute disponibilité via les initiateurs iSCSI. Il décrit en détail la détection automatique des appareils multivoies et l’installation spécifique uniquement pour les volumes StorSimple.
@@ -21,10 +21,6 @@ Cette procédure s’applique à tous les modèles d’appareils StorSimple sér
 
 > [!NOTE]
 > Cette procédure ne peut pas être utilisée pour un StorSimple Cloud Appliance. Pour plus d’informations, consultez Configuration des serveurs hôtes de votre appliance cloud.
-
-> [!NOTE]
-> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
-
 
 ## <a name="about-multipathing"></a>À propos de la gestion multivoie
 La fonctionnalité de gestion multivoie vous permet de configurer plusieurs chemins d’accès d’E/S entre un serveur hôte et un appareil de stockage. Ces chemins d’accès d’E/S sont des connexions SAN physiques pouvant inclure des câbles distincts, des commutateurs, des interfaces réseau et des contrôleurs. La gestion multivoie agrège les chemins d’accès d’E/S pour configurer un nouvel appareil qui est associé à tous les chemins d’accès agrégés.
@@ -54,7 +50,7 @@ Le fichier multipath.conf comporte cinq sections :
 
 - **Valeurs par défaut au niveau du système** *(valeurs par défaut)*  : Vous pouvez remplacer les valeurs par défaut au niveau du système.
 - **Appareils sur liste rouge** *(blacklist)*  : vous pouvez spécifier la liste des appareils qui ne doivent pas être contrôlés par le mappeur d’appareils.
-- **Exceptions de la liste rouge** *(blacklist_exceptions)*  : vous pouvez identifier les appareils à traiter en tant qu’appareils multichemins (multipath), même s’ils figurent dans la liste rouge.
+- **Exceptions de la liste rouge** *(blacklist_exceptions)*  : Vous pouvez identifier des appareils spécifiques à traiter en tant qu’appareils multivoies (multipath), même s’ils sont répertoriés dans la liste rouge.
 - **Paramètres concernant le contrôleur de stockage** *(devices)*  : vous pouvez spécifier les paramètres de configuration qui seront appliqués aux appareils contenant des informations de produit et de fournisseur.
 - **Paramètres propres aux appareils** *(multipaths)*  : vous pouvez utiliser cette section pour optimiser les paramètres de configuration des numéros d’unité logique.
 
@@ -215,13 +211,12 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer le multipathing pour les volumes StorSimple
-Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste rouge pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
+Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront ignorés. Vous devrez créer des exceptions à la liste rouge pour autoriser la gestion multivoie des volumes d’appareils StorSimple.
 
 1. Modifiez le fichier `/etc/mulitpath.conf` . Tapez :
    
     `vi /etc/multipath.conf`
-1. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste rouge
-dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
+1. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception à la liste rouge dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
    
     ```config
     blacklist_exceptions {
