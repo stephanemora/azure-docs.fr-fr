@@ -611,6 +611,8 @@
           items:
             - name: Surveiller et régler
               href: concepts-hyperscale-monitoring.md
+            - name: Journaux d’audit
+              href: concepts-hyperscale-audit.md
         - name: Options de configuration
           href: concepts-hyperscale-configuration-options.md
         - name: Prépayer pour une capacité de réserve
