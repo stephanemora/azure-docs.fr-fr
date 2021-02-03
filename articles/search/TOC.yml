@@ -246,6 +246,8 @@
               href: search-howto-index-json-blobs.md
             - name: Indexer des objets blob chiffrés
               href: search-howto-index-encrypted-blobs.md
+            - name: Propriétés de métadonnées pour le contenu d’objets blob
+              href: search-blob-metadata-properties.md
         - name: Tables Azure
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e75cf8d6660bf6f2630b83e0c2c812fa7cf59057
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252115"
+ms.locfileid: "99430240"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -118,6 +118,8 @@ Toutes les opérations prises en charge qui étendent l’API RESTful.
 | $export (système entier) | Oui       | Oui       | Oui       |         |
 | Patient/$export        | Oui       | Oui       | Oui       |         |
 | Group/$export          | Oui       | Oui       | Oui       |         |
+| $convert-data          | Oui       | Oui       | Oui       |         |
+
 
 ## <a name="persistence"></a>Persistance
 
@@ -151,7 +153,7 @@ Les performances du système dépendent du nombre d’unités de requête, des c
 |----------|---------------|--------|                 
 | 400      | 5-10          |     40   |
 | 1 000    | 100-150       |      100  |
-| 10 000   | 225-400       |      1 000  |
+| 10 000   | 225-400       |      1 000  |
 | 100 000  | 2 500-4 000   |      10 000  |
 
 Remarque : Conformément à l’exigence de Cosmos DB, un débit minimal de 10 RU/s par Go de stockage est nécessaire. Pour plus d’informations, consultez [Quotas de service Cosmos DB](../cosmos-db/concepts-limits.md).

@@ -58,6 +58,8 @@
               href: class-type-matlab.md
             - name: Conception assistée par ordinateur (CAO) SolidWorks
               href: class-type-solidworks.md
+            - name: Réseau avec GNS3
+              href: class-type-networking-gns3.md
             - name: Project Lead the Way
               href: class-type-pltw.md
         - name: Utiliser Azure Lab Services dans Teams

@@ -1,7 +1,9 @@
 - name: Documentation sur Azure Sentinel
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
+- name: Nouveautés d’Azure Sentinel
+  href: whats-new.md
 - name: Démarrages rapides
   expanded: true
   items:
