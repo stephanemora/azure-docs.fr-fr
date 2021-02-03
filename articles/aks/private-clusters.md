@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734662"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254510"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -130,7 +130,6 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
 * Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 
-* Les données actives Azure Monitor pour conteneurs ne sont actuellement pas prises en charge.
 * Une fois que les clients ont mis à jour l’enregistrement A sur leurs propres serveurs DNS, ces pods continuent de résoudre le nom de domaine complet apiserver avec l’ancienne adresse IP après la migration jusqu’à ce qu’ils soient redémarrés. Les clients doivent redémarrer les pods hostNetwork et -DNSPolicy par défaut après la migration du plan de contrôle.
 * Dans le cas d’une maintenance sur le plan de contrôle, votre adresse [IP AKS](./limit-egress-traffic.md) peut changer. Dans ce cas, vous devez mettre à jour l’enregistrement A pointant vers l’adresse IP privée du serveur d’API sur votre serveur DNS personnalisé et redémarrer les modules ou les déploiements personnalisés à l’aide de hostNetwork.
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790812"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225341"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Réplication transactionnelle avec Azure SQL Managed Instance (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,7 +39,7 @@ Vous pouvez utiliser la réplication transactionnelle pour transmettre les modif
 
 ### <a name="components"></a>Components
 
-Les principaux composants de la réplication transactionnelle sont la **base de données du serveur de publication** , la **base de données du serveur de distribution** et l’ **abonné** , comme indiqué dans l’image suivante :  
+Les principaux composants de la réplication transactionnelle sont la **base de données du serveur de publication**, la **base de données du serveur de distribution** et l’**abonné**, comme indiqué dans l’image suivante :  
 
 ![réplication avec SQL Database](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -55,7 +55,7 @@ La **base de données du serveur de publication** publie les changements apport�
 
 La **base de données du serveur de distribution** collecte les changements apportés aux articles à partir d’une base de données du serveur de publication et les distribue aux Abonnés. La base de données du serveur de distribution peut être une instance managée Azure SQL ou une instance de SQL Server (n’importe quelle version, tant qu’elle est supérieure ou égale à la version de la base de données du serveur de publication).
 
-L’ **abonné** reçoit les modifications apportées sur la base de données du serveur de publication. Une instance de SQL Server et Azure SQL Managed Instance peuvent être des abonnés d’envoi (push) et d’extraction (pull), bien qu’un abonnement par extraction ne soit pas pris en charge quand la base de données du serveur de distribution est une instance managée Azure SQL et que l’abonné n’en est pas une. Une base de données dans Azure SQL Database peut uniquement être un abonné par envoi.
+L’**abonné** reçoit les modifications apportées sur la base de données du serveur de publication. Une instance de SQL Server et Azure SQL Managed Instance peuvent être des abonnés d’envoi (push) et d’extraction (pull), bien qu’un abonnement par extraction ne soit pas pris en charge quand la base de données du serveur de distribution est une instance managée Azure SQL et que l’abonné n’en est pas une. Une base de données dans Azure SQL Database peut uniquement être un abonné par envoi.
 
 Azure SQL Managed Instance peut prendre en charge le fait d’être un abonné des versions suivantes de SQL Server :
 
@@ -109,7 +109,7 @@ La réplication transactionnelle est utile dans les scénarios suivants :
 | Category | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
 | Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
-| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
+| Inconvénients | - Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’Azure SQL Database <br/>- Coût de maintenance élevé |
 
 ## <a name="common-configurations"></a>Configurations courantes
 
@@ -143,7 +143,7 @@ Dans cette configuration, une base de données dans Azure SQL Database ou Azure 
 - Utiliser l’authentification SQL pour la connectivité entre les participants de la réplication
 - Utiliser un partage de compte Stockage Azure pour le répertoire de travail utilisé par la réplication
 - Ouvrir le port TCP 445 sortant dans les règles de sécurité de sous-réseau pour accéder au partage de fichiers Azure
-- Ouvrir le port TCP 1433 sortant quand la base de données du serveur de publication/distribution est une instance managée SQL et que l’abonné n’en est pas une. Il vous faudra peut-être aussi modifier la règle de sécurité de trafic sortant du groupe de sécurité réseau de l’instance managée SQL pour `allow_linkedserver_outbound` pour l’ **Étiquette Service de destination** du port 1433 (en remplaçant `virtualnetwork` par `internet`)
+- Ouvrir le port TCP 1433 sortant quand la base de données du serveur de publication/distribution est une instance managée SQL et que l’abonné n’en est pas une. Il vous faudra peut-être aussi modifier la règle de sécurité de trafic sortant du groupe de sécurité réseau de l’instance managée SQL pour `allow_linkedserver_outbound` pour l’**Étiquette Service de destination** du port 1433 (en remplaçant `virtualnetwork` par `internet`)
 - Placer les bases de données du serveur de publication et de distribution dans le cloud, ou toutes les deux localement
 - Configurer le peering VPN entre les réseaux virtuels des participants de réplication si les réseaux virtuels sont différents
 
@@ -184,7 +184,7 @@ Si la géoréplication est activée sur une instance managée SQL assumant le r�
    EXEC sp_dropdistributor 1,1
    ```
 
-Si la géoréplication est activée sur une instance de l’ **abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
+Si la géoréplication est activée sur une instance de l’**abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit :
 
 - Pour un basculement sans perte de données, la réplication continue de fonctionner après le basculement.
 - Pour un basculement avec perte de données, la réplication fonctionne également. Elle répliquera à nouveau les modifications perdues.

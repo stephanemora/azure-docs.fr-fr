@@ -4,12 +4,12 @@ description: Vous pouvez changer les paramètres par défaut du portail Azure po
 keywords: paramètres, délai d’expiration, langue, région
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745636"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094108"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gérer les paramètres et les préférences du portail Azure
 
@@ -91,7 +91,7 @@ Si votre administrateur a activé une stratégie de délai d’expiration d’in
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>Modifier le paramètre de délai d’attente du répertoire (admin)
 
-Les administrateurs dans le [rôle administrateur général](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) peuvent appliquer la durée d’inactivité maximale avant qu’une session soit déconnectée. Le paramètre de délai d’inactivité s’applique au niveau du répertoire. Le paramètre prend effet lors des nouvelles sessions. Il ne s’applique pas immédiatement à tous les utilisateurs qui sont déjà connectés. Pour plus d’informations sur les répertoires, voir [Présentation des services de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Les administrateurs dans le [rôle administrateur général](../active-directory/roles/permissions-reference.md#global-administrator) peuvent appliquer la durée d’inactivité maximale avant qu’une session soit déconnectée. Le paramètre de délai d’inactivité s’applique au niveau du répertoire. Le paramètre prend effet lors des nouvelles sessions. Il ne s’applique pas immédiatement à tous les utilisateurs qui sont déjà connectés. Pour plus d’informations sur les répertoires, voir [Présentation des services de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 Si vous êtes administrateur général et que vous voulez appliquer un paramètre de délai d’inactivité pour tous les utilisateurs du portail Azure, effectuez ces étapes :
 

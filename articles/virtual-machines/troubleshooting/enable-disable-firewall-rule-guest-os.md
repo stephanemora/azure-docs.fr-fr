@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058768"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092366"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
 
@@ -95,7 +95,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 #### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre distant
 
-Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez utiliser [Registre à distance](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) sur l’autre machine virtuelle.
+Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez utiliser [Registre à distance](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) sur l’autre machine virtuelle.
 
 1.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe), puis sélectionnez **Fichier** > **Connexion au Registre réseau**.
 
@@ -142,7 +142,7 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
 7.  Recherchez et ouvrez le fichier \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Vous êtes invité à saisir un nom. Entrez **BROKENSYSTEM**, puis développez **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée**BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que **BROKENSYSTEM**.
+    > Vous êtes invité à saisir un nom. Entrez **BROKENSYSTEM**, puis développez **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée **BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que **BROKENSYSTEM**.
 
 8.  Sur la branche BROKENSYSTEM, apportez les modifications suivantes :
 

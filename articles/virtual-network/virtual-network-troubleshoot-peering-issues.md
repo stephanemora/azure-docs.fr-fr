@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222885"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096387"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Résoudre les problèmes d’appairage de réseaux virtuels
 
@@ -87,7 +87,7 @@ Suivez les étapes décrites dans : [Configurer le transit par passerelle VPN po
 Pour plus d’informations, voir [Chaînage de services](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> Si vous avez besoin d’aide pour configurer un appliance virtuelle réseau, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Si vous avez besoin d’aide pour configurer un appliance virtuelle réseau, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 Pour plus d’informations sur la résolution des problèmes de configuration et de routage d’appliance virtuelle réseau, voir [Problèmes d’appliance virtuelle réseau dans Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -190,7 +190,7 @@ Pour les connexions point à site :
 
 Un réseau hub doit inclure une appliance virtuelle réseau. Configurez des UDR dans les spokes qui ont une appliance virtuelle réseau définie en tant que tronçon suivant, puis activez **Autoriser le trafic transféré** dans le réseau virtuel hub.
 
-Pour plus d’informations, voir [Chaînage de services](./virtual-network-peering-overview.md#service-chaining) et discutez de ces exigences avec le [fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) de votre choix.
+Pour plus d’informations, voir [Chaînage de services](./virtual-network-peering-overview.md#service-chaining) et discutez de ces exigences avec le [fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655) de votre choix.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Résoudre un problème de connectivité réseau hub-and-spoke entre des réseaux virtuels spoke de régions distinctes
 

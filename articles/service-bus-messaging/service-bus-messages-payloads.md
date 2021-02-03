@@ -2,13 +2,13 @@
 title: Messages, charges utiles et sérialisation Azure Service Bus | Microsoft Docs
 description: Cet article fournit une vue d’ensemble des messages, des charges utiles, du routage des messages et de la sérialisation Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: d426489776dff652cbf72d640f3e74b1bc8e30d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/29/2021
+ms.openlocfilehash: db1989004e60c305341e54e62e42f31e40e47487
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341687"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219177"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messages, charges utiles et sérialisation
 
@@ -70,8 +70,6 @@ Contrairement aux variantes Java ou .NET Standard, la version .NET Framework de 
 En cas d’utilisation du protocole SBMP hérité, ces objets sont sérialisés avec le sérialiseur binaire par défaut ou avec un sérialiseur fourni en externe. Si le protocole AMQP est utilisé, l’objet est sérialisé dans un objet AMQP. Le récepteur peut récupérer ces objets avec la méthode [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1), en fournissant le type attendu. Avec AMQP, les objets sont sérialisés dans un graphique AMQP d’objets **ArrayList** et **IDictionary<string, object>** , et n’importe quel client AMQP peut les décoder. 
 
 Bien que cette sérialisation cachée se révèle commode, les applications doivent contrôler explicitement la sérialisation des objets et convertir leurs graphiques d’objets en flux avant de les inclure dans un message, ainsi qu’effectuer l’opération inverse côté destinataire. Ceci entraîne des résultats interopérables. Il convient également de noter que bien qu’AMQP dispose d’un modèle d’encodage binaire très puissant, il est lié à l’écosystème de messagerie AMQP, et les clients HTTP auront donc des difficultés à décoder les charges utiles de ce type. 
-
-Nous recommandons généralement d’utiliser JSON et Apache Avro comme formats de charge utile pour les données structurées.
 
 Les variantes d’API .NET Standard et Java acceptent uniquement les tableaux d’octets, ce qui signifie que l’application doit gérer le contrôle de sérialisation des objets. 
 

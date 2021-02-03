@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220310"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092349"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 
@@ -27,7 +27,7 @@ Pour utiliser PowerShell avec Data Lake Analytics, collectez les informations su
 * **ID d’abonnement** : ID de l’abonnement Azure qui contient votre compte Data Lake Analytics.
 * **Groupe de ressources** : nom du groupe de ressources Azure qui contient votre compte Data Lake Analytics.
 * **Nom du compte Data Lake Analytics** : nom de votre compte Data Lake Analytics.
-* **Nom du compte Data Lake Store par défaut**  : chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
+* **Nom du compte Data Lake Store par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
 * **Emplacement** : emplacement de votre compte Data Lake Analytics, comme « USA Est 2 » ou autres emplacements pris en charge.
 
 Dans ce didacticiel, les extraits de code PowerShell utilisent ces variables pour stocker ces informations.
@@ -298,7 +298,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Analyse de l’historique des travaux
 
-Utiliser Azure PowerShell pour analyser l’historique des travaux qui ont été exécutés dans Data Lake analytics est une technique puissante. Vous pouvez l’utiliser pour obtenir des informations sur l’utilisation et le coût. Pour en savoir plus, consultez [l’exemple de dépôt de l’analyse de l’historique des travaux](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis).  
+Utiliser Azure PowerShell pour analyser l’historique des travaux qui ont été exécutés dans Data Lake analytics est une technique puissante. Vous pouvez l’utiliser pour obtenir des informations sur l’utilisation et le coût. Pour en savoir plus, consultez [l’exemple de dépôt de l’analyse de l’historique des travaux](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis).  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Répertorier les pipelines et les récurrences des tâches
 

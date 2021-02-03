@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009762"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093193"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 
@@ -47,7 +47,7 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
 >   ```
 > * Si le pare-feu est défini via une stratégie Active Directory, vous pouvez exécuter le script suivant pour un accès temporaire. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,7 +88,7 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
 
 #### <a name="mitigation-4-remote-registry"></a>Atténuation 4 : Registre distant 
 
-Procédez comme suit pour utiliser le [Registre à distance](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
+Procédez comme suit pour utiliser le [Registre à distance](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837).
 
 1.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre et accédez à **Fichier** > **Connexion au Registre réseau**.
 
@@ -126,7 +126,7 @@ Si vous rencontrez une situation dans laquelle vous ne pouvez pas atteindre la m
 
 4.  Avant d’effectuer des changements, créez une copie du dossier \windows\system32\config au cas où vous souhaiteriez annuler les changements.
 
-5.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe). 
+5.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe). 
 
 6.  Pour cette procédure de résolution des problèmes, nous montons les hives en tant que BROKENSYSTEM et BROKENSOFTWARE.
 

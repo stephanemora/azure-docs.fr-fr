@@ -3,7 +3,7 @@ title: Informations de référence sur l’écriture d’expressions pour les ma
 description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory. Contient une liste de références de fonctions.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e87211789280c3439d71d8fa63da09416eaaf18e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 8f5a4d3695722aae14b73bf6bba5f2e38593e08d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805137"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255795"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure AD
 

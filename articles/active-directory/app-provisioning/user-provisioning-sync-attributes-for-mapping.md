@@ -3,19 +3,19 @@ title: Synchroniser les attributs avec Azure AD pour le mappage
 description: Découvrez comment synchroniser les attributs de votre répertoire local Active Directory avec Azure AD. Lors de la configuration des utilisateurs pour les applications SaaS, servez-vous de la fonctionnalité d’extension de répertoire pour ajouter des attributs sources qui ne sont pas synchronisés par défaut.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040977"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256083"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisez un attribut à partir d’un répertoire Active Directory local vers Azure AD pour la configuration vers une application donnée
 
@@ -33,7 +33,7 @@ Si les données dont vous avez besoin pour la configuration se trouvent dans Act
  
 2. Connectez-vous en tant qu’Administrateur général Azure AD. 
 
-3. Sur la page **Fonctionnalités facultatives** , sélectionnez **Synchronisation des attributs des extensions d’annuaire**.
+3. Sur la page **Fonctionnalités facultatives**, sélectionnez **Synchronisation des attributs des extensions d’annuaire**.
  
    ![Page Fonctionnalités facultatives de l’Assistant Azure Active Directory Connect](./media/user-provisioning-sync-attributes-for-mapping/active-directory-connect-directory-extension-attribute-sync.png)
 

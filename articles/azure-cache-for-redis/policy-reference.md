@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Cache pour Redis
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Cache pour Redis. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c082a2bb44507ecca6420ca3f1864ac796d7c156
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 74ef92e47a8270533a8e47d4a8e5f39063837dfc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807933"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218908"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cache-for-redis"></a>Définitions intégrées d’Azure Policy pour Azure Cache pour Redis
 

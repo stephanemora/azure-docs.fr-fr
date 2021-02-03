@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836068"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092664"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -162,8 +162,8 @@ Les utilisateurs synchronisés peuvent être créés ou contrôlés localement. 
 **Q : Pourquoi l’attribut userPrincipalName (UPN) dans Azure AD ne correspond-t-il à l’UPN local ?**  
 Pour plus d’informations, consultez les articles suivants :
 
-* [Les noms d’utilisateur dans Microsoft 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire.](https://support.microsoft.com/kb/2523192)
-* [Les modifications ne sont pas synchronisées par l’outil de synchronisation Azure Active Directory une fois que vous avez modifié l’UPN d’un compte utilisateur afin d’utiliser un autre domaine fédéré](https://support.microsoft.com/kb/2669550)
+* [Les noms d’utilisateur dans Microsoft 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire.](https://mskb.pkisolutions.com/kb/2523192)
+* [Les modifications ne sont pas synchronisées par l’outil de synchronisation Azure Active Directory une fois que vous avez modifié l’UPN d’un compte utilisateur afin d’utiliser un autre domaine fédéré](https://mskb.pkisolutions.com/kb/2669550)
 
 Vous pouvez également configurer Azure AD pour permettre au moteur de synchronisation de mettre à jour l’UPN comme décrit dans [Fonctionnalités du service de synchronisation Azure AD Connect](how-to-connect-syncservice-features.md).
 
