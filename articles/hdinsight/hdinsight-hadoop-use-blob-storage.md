@@ -1,19 +1,16 @@
 ---
 title: Interroger des données depuis un stockage Azure compatible avec HDFS - Azure HDInsight
 description: Découvrez comment interroger des données à partir du stockage Azure et d’Azure Data Lake Storage pour stocker les résultats de votre analyse.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547433"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945431"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -44,23 +41,23 @@ Le partage d’un conteneur blob en tant que système de fichiers par défaut su
 
 ## <a name="access-files-from-within-cluster"></a>Accès aux fichiers à partir de l’intérieur d’un cluster
 
-Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight. Le modèle d’URI offre à la fois un accès non chiffré (avec le préfixe *wasb:* ) et un accès chiffré TLS (avec *wasbs* ). Dans la mesure du possible, nous vous recommandons d’utiliser *wasbs* , même lorsqu’il s’agit d’accéder à des données qui résident dans la même région Azure.
+Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight. Le modèle d’URI offre à la fois un accès non chiffré (avec le préfixe *wasb:* ) et un accès chiffré TLS (avec *wasbs*). Dans la mesure du possible, nous vous recommandons d’utiliser *wasbs* , même lorsqu’il s’agit d’accéder à des données qui résident dans la même région Azure.
 
-* **Utilisation du nom complet** . Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
+* **Utilisation du nom complet**. Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Utilisation du format de chemin d’accès raccourci** . Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Utilisation du chemin d’accès relatif** . Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
+* **Utilisation du chemin d’accès relatif**. Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
 
     ```
     /<file.path>/
@@ -141,11 +138,11 @@ Microsoft fournit les outils suivants pour utiliser Stockage Azure :
 
 * Pour identifier le chemin d'accès complet à la mémoire par défaut configurée, naviguez jusqu'à :
 
-    **HDFS** > **Configs** , puis entrez `fs.defaultFS` dans la zone de saisie du filtre.
+    **HDFS** > **Configs**, puis entrez `fs.defaultFS` dans la zone de saisie du filtre.
 
 * Pour vérifier si le magasin wasb est configuré comme stockage secondaire, naviguez jusqu'à :
 
-    **HDFS** > **Configs** , puis entrez `blob.core.windows.net` dans la zone de saisie du filtre.
+    **HDFS** > **Configs**, puis entrez `blob.core.windows.net` dans la zone de saisie du filtre.
 
 Pour obtenir le chemin d’accès à l’aide de l’API REST Ambari, voir [Obtenir le stockage par défaut](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 

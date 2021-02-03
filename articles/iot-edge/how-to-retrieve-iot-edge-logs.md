@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780737"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475537"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
 
@@ -51,8 +51,8 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -70,8 +70,8 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
 | id | string | Expression régulière qui fournit le nom du module. Il peut correspondre à plusieurs modules sur un périphérique. Le format [Expressions régulières .NET](/dotnet/standard/base-types/regular-expressions) est attendu. |
 | filter | Section JSON | Filtres de journal à appliquer aux modules correspondant à l’expression régulière `id` dans le tuple. |
 | tail | entier | Nombre de lignes de journal dans le passé à récupérer à partir de la dernière. FACULTATIF. |
-| since | entier | Retourne uniquement les journaux depuis cette heure, sous la forme d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes), d’un timestamp rfc3339 ou d’un timestamp UNIX.  Si `tail` et `since` sont spécifiés, les journaux sont d’abord récupérés à l’aide de la valeur `since`. Ensuite, la valeur `tail` est appliquée au résultat, et le résultat final est retourné. FACULTATIF. |
-| until | entier | Retourne uniquement les journaux avant l’heure spécifiée, sous la forme d’un timestamp rfc3339, d’un timestamp UNIX ou d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes). FACULTATIF. |
+| since | string | Retourne uniquement les journaux depuis cette heure, sous la forme d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes), d’un timestamp rfc3339 ou d’un timestamp UNIX.  Si `tail` et `since` sont spécifiés, les journaux sont d’abord récupérés à l’aide de la valeur `since`. Ensuite, la valeur `tail` est appliquée au résultat, et le résultat final est retourné. FACULTATIF. |
+| until | string | Retourne uniquement les journaux avant l’heure spécifiée, sous la forme d’un timestamp rfc3339, d’un timestamp UNIX ou d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes). FACULTATIF. |
 | log level | entier | Filtre les lignes de journal inférieures ou égales au niveau de journal spécifié. Les lignes de journal doivent suivre le format de journalisation recommandé et utiliser la norme [Niveau de gravité Syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level). FACULTATIF. |
 | regex | string | Filtre les lignes de journal dont le contenu correspond à l’expression régulière spécifiée à l’aide du format [Expressions régulières .NET](/dotnet/standard/base-types/regular-expressions). FACULTATIF. |
 | encodage | string | `gzip` ou `none`. La valeur par défaut est `none`. |
@@ -160,8 +160,8 @@ Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, ave
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -293,8 +293,8 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
-| since | entier | Retourne uniquement les journaux depuis cette heure, sous la forme d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes), d’un timestamp rfc3339 ou d’un timestamp UNIX. FACULTATIF. |
-| until | entier | Retourne uniquement les journaux avant l’heure spécifiée, sous la forme d’un timestamp rfc3339, d’un timestamp UNIX ou d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes). FACULTATIF. |
+| since | string | Retourne uniquement les journaux depuis cette heure, sous la forme d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes), d’un timestamp rfc3339 ou d’un timestamp UNIX. FACULTATIF. |
+| until | string | Retourne uniquement les journaux avant l’heure spécifiée, sous la forme d’un timestamp rfc3339, d’un timestamp UNIX ou d’une durée (1 j, 90 min, 2 jours 3 heures 2 minutes). FACULTATIF. |
 | edgeRuntimeOnly | boolean | Si la valeur est true, retourne uniquement les journaux de l’agent Edge, du hub Edge et du démon de sécurité Edge. Valeur par défaut : false.  FACULTATIF. |
 
 > [!IMPORTANT]

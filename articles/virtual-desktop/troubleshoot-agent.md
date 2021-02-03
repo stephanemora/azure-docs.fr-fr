@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 5f9d772a4cc5722201891450707a68fe487acc3a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540352"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475250"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Windows Virtual Desktop
 
@@ -207,7 +207,7 @@ Pour résoudre ce problème, libérez de l’espace sur votre disque en procéda
 Ouvrez une fenêtre PowerShell en tant qu’administrateur, puis exécutez la cmdlet suivante :
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
 ```
 
 Si l’état indiqué pour l’hôte ou les hôtes de session dans votre pool d’hôtes indique toujours **Indisponible** ou **Mise à niveau**, il se peut que l’installation de l’agent ou de la pile ait échoué.
