@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638174"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428468"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis et vers Microsoft Dynamics 365 et Microsoft Dynamics CRM. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md) qui offre une présentation générale de l’activité d’une copie.
@@ -56,10 +57,10 @@ Plus spécifiquement pour Dynamics 365, les types d’applications suivants sont
 
 Ce connecteur ne prend pas en charge d’autres types d’applications comme Finance, Operations et Talent.
 
-Ce connecteur Dynamics se base sur les [outils Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
-
 >[!TIP]
 >Pour copier des données issues de Dynamics 365 for Finance and Operations, vous pouvez utiliser le [connecteur Dynamics AX](connector-dynamics-ax.md).
+
+Ce connecteur Dynamics se base sur les [outils Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -88,7 +89,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | servicePrincipalCredential | Informations d’identification du principal du service. <br/><br/>Quand vous utilisez « ServicePrincipalKey » comme type d’informations d’identification, `servicePrincipalCredential` peut être une chaîne chiffrée par Azure Data Factory lors du déploiement du service lié. Il peut aussi s’agir d’une référence à un secret dans Azure Key Vault. <br/><br/>Quand vous utilisez « ServicePrincipalCert » comme informations d’identification, `servicePrincipalCredential` doit être une référence à un certificat dans Azure Key Vault. | Oui lorsque l’authentification est « AADServicePrincipal » |
 | username | Nom d'utilisateur pour la connexion à Dynamics. | Oui, lorsque l’authentification est « Office365 ». |
 | mot de passe | Mot de passe du compte d’utilisateur défini pour le nom d'utilisateur. Marquez ce champ avec « SecureString » afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, lorsque l’authentification est « Office365 ». |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Si aucune valeur n’est spécifiée, la propriété utilise le runtime d'intégration Azure par défaut. | Non pour la source et oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Si aucune valeur n’est spécifiée, la propriété utilise le runtime d'intégration Azure par défaut. | Non |
 
 >[!NOTE]
 >Le connecteur Dynamics a précédemment utilisé la propriété facultative **organizationName** pour identifier votre instance Dynamics CRM ou Dynamics 365 en ligne. Pendant qu’il continue de fonctionner, vous êtes invité à spécifier à la place la nouvelle propriété **serviceUri** pour obtenir de meilleures performances pour l’instance de détection.
@@ -172,7 +173,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 et Dynamics CRM locaux avec IFD
 
-Les propriétés supplémentaires comparables à celles de Dynamics en ligne sont **hostName** et **port** .
+Les propriétés supplémentaires comparables à celles de Dynamics en ligne sont **hostName** et **port**.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -184,7 +185,7 @@ Les propriétés supplémentaires comparables à celles de Dynamics en ligne son
 | authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez « Ifd » pour Dynamics local avec IFD. | Oui. |
 | username | Nom d'utilisateur pour la connexion à Dynamics. | Oui. |
 | mot de passe | Le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Vous pouvez marquer ce champ avec « SecureString » pour le stocker en toute sécurité dans Data Factory. Vous pouvez également stocker le mot de passe dans Key Vault et laisser l’activité de copie l’y récupérer quand vous effectuez une copie de données. Pour plus d’informations, consultez [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui. |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Si aucune valeur n’est spécifiée, la propriété utilise le runtime d'intégration Azure par défaut. | Non pour Source et oui pour Récepteur. |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Si aucune valeur n’est spécifiée, la propriété utilise le runtime d'intégration Azure par défaut. | Non |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemple : Dynamics local avec IFD utilisant l’authentification IFD
 
@@ -326,7 +327,7 @@ Pour copier des données dans Dynamics, les propriétés suivantes sont prises e
 | writeBehavior | Comportement d’écriture de l’opération. La valeur doit être « Upsert ». | Oui |
 | alternateKeyName | Nom de clé de remplacement défini sur votre entité pour exécuter une opération upsert. | Non. |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non. La valeur par défaut est 10. |
-| ignoreNullValues | Indique s’il faut ignorer les valeurs null des données d’entrée autres que les champs clés lors d’une opération d’écriture.<br/><br/>Les valeurs valides sont **TRUE** et **FALSE**  :<ul><li>**TRUE**  : Conserver les données dans l’objet de destination quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.</li><li>**FALSE**  : Mettre à jour les données dans l’objet de destination avec la valeur null quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur null lorsque vous effectuez une opération insert.</li></ul> | Non. La valeur par défaut est **FALSE** . |
+| ignoreNullValues | Indique s’il faut ignorer les valeurs null des données d’entrée autres que les champs clés lors d’une opération d’écriture.<br/><br/>Les valeurs valides sont **TRUE** et **FALSE** :<ul><li>**TRUE** : Conserver les données dans l’objet de destination quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.</li><li>**FALSE** : Mettre à jour les données dans l’objet de destination avec la valeur null quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur null lorsque vous effectuez une opération insert.</li></ul> | Non. La valeur par défaut est **FALSE**. |
 
 >[!NOTE]
 >La valeur par défaut du récepteur **writeBatchSize** et de l’activité de copie **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** pour le récepteur Dynamics est de 10. Par conséquent, 100 enregistrements sont soumis simultanément à Dynamics par défaut.
@@ -397,7 +398,7 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Les types de données **AttributeType.CalendarRules** , **AttributeType.MultiSelectPicklist** et **AttributeType.PartyList de Dynamics** ne sont pas pris en charge.
+> Les types de données **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist** et **AttributeType.PartyList de Dynamics** ne sont pas pris en charge.
 
 ## <a name="writing-data-to-a-lookup-field"></a>Écriture de données dans un champ de recherche
 
@@ -413,15 +414,15 @@ Pour écrire des données dans un champ de recherche avec plusieurs cibles comme
 
 Supposons, par exemple, que la source comporte les deux colonnes suivantes :
 
-- La colonne **CustomerField** de type **GUID** , qui est la valeur de clé primaire de l’entité cible dans Dynamics.
-- La colonne **Target** de type **String** , qui est le nom logique de l’entité cible.
+- La colonne **CustomerField** de type **GUID**, qui est la valeur de clé primaire de l’entité cible dans Dynamics.
+- La colonne **Target** de type **String**, qui est le nom logique de l’entité cible.
 
-Supposons également que vous souhaitez copier ces données dans le champ de l’entité Dynamics du récepteur **CustomerField** de type **Customer** .
+Supposons également que vous souhaitez copier ces données dans le champ de l’entité Dynamics du récepteur **CustomerField** de type **Customer**.
 
 Dans le mappage de colonne de copie-activité, mappez les deux colonnes comme suit :
 
-- **CustomerField** pour **CustomerField** . Ce mappage est le mappage de champs normal.
-- **Target** pour **CustomerField\@EntityReference** . La colonne du récepteur est une colonne virtuelle représentant la référence d’entité. Saisissez les noms de champs dans un mappage, car ils ne s’affichent pas en important des schémas.
+- **CustomerField** pour **CustomerField**. Ce mappage est le mappage de champs normal.
+- **Target** pour **CustomerField\@EntityReference**. La colonne du récepteur est une colonne virtuelle représentant la référence d’entité. Saisissez les noms de champs dans un mappage, car ils ne s’affichent pas en important des schémas.
 
 ![Mappage de colonnes de recherche Dynamics](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

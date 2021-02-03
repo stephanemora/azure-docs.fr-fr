@@ -3,19 +3,19 @@ title: Comprendre l’authentification unique par mot de passe pour les applicat
 description: Comprendre l’authentification unique par mot de passe pour les applications dans Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: bac04bd70469d7b9c4d9485b6a87fd7133967154
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219876"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255303"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Comprendre l’authentification unique par mot de passe
 
@@ -54,7 +54,7 @@ L’utilisation d’Azure AD comme fournisseur d’identité (IdP) et la config
 Dans la [série d’articles de démarrage rapide](view-applications-portal.md), vous avez appris à ajouter une application à votre locataire, ce qui permet à Azure AD de savoir qu’il est utilisé comme fournisseur d’identité (IdP) pour l’application. Certaines applications sont déjà préconfigurées et s’affichent dans la galerie d’Azure AD. Les autres applications ne sont pas dans la galerie : vous devez créer une application générique et la configurer manuellement. Selon l’application, l’option d’authentification unique par mot de passe peut ne pas être disponible. Si vous ne voyez pas l’option par mot de passe répertoriée sur la page d’authentification unique de l’application, cela signifie qu’elle n’est pas disponible.
 
 > [!IMPORTANT]
-> L’extension de navigateur Mes applications est requise pour l’authentification unique par mot de passe. Pour plus d’informations, consultez [Planifier un déploiement Mes applications](access-panel-deployment-plan.md).
+> L’extension de navigateur Mes applications est requise pour l’authentification unique par mot de passe. Pour plus d’informations, consultez [Planifier un déploiement Mes applications](my-apps-deployment-plan.md).
 
 La page de configuration de l’authentification unique par mot de passe est simple. Elle comprend uniquement l’URL de la page d’authentification utilisée par l’application. Il doit s’agir de la page qui contient le champ d’entrée du nom d’utilisateur.
 

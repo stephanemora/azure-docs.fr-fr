@@ -3,7 +3,7 @@ title: Exemple PowerShell - Répertorier toutes les applications de proxy d’ap
 description: Exemple PowerShell qui répertorie toutes les applications de proxy d’application Azure Active Directory (Azure AD) dans votre répertoire qui ont une stratégie de jeton de durée de vie.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a3583f19eada83b45b2289a938ac5e15b1efb4a4
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 94783a03d313155e31e22c08dbbef048aa029600
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861614"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254017"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obtenir toutes les applications de proxy d’application avec une stratégie de durée de vie de jeton
 

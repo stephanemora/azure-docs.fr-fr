@@ -3,7 +3,7 @@ title: Création de rapports sur l’approvisionnement automatique de comptes d�
 description: Découvrez comment vérifier l’état des tâches d’approvisionnement automatique de comptes d’utilisateur et comment résoudre les problèmes d’approvisionnement d’utilisateurs individuels.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069804"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256675"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 
@@ -40,7 +40,7 @@ Cet article utilise les termes suivants, définis ci-dessous :
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtention de rapports d’approvisionnement du portail Azure
 
-Pour obtenir des informations de rapport d’approvisionnement pour une application donnée, commencez par lancer le [Portail Azure](https://portal.azure.com) et**Azure Active Directory**&gt;**Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez également accéder à l’application d’entreprise pour laquelle le provisionnement est configuré. Par exemple, si vous approvisionnez des utilisateurs pour LinkedIn Elevate, le chemin de navigation pour accéder aux détails de l’application est le suivant :
+Pour obtenir des informations de rapport d’approvisionnement pour une application donnée, commencez par lancer le [Portail Azure](https://portal.azure.com) et **Azure Active Directory**&gt;**Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez également accéder à l’application d’entreprise pour laquelle le provisionnement est configuré. Par exemple, si vous approvisionnez des utilisateurs pour LinkedIn Elevate, le chemin de navigation pour accéder aux détails de l’application est le suivant :
 
 **Azure Active Directory &gt; Applications d’entreprise &gt; Toutes les applications &gt; LinkedIn Elevate**
 
@@ -57,7 +57,7 @@ La [barre de progression](application-provisioning-when-will-provisioning-finish
 
 L’**État actuel** doit être le premier emplacement que les administrateurs consultent pour vérifier l’intégrité opérationnelle du travail de provisionnement.
 
- ![Rapport de synthèse](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![Rapport de synthèse](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>Journaux de provisionnement (préversion)
 

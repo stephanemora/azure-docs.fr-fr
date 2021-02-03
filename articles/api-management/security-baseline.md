@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1825767d8140421d4f0e22f9ebfde42f8262da5e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201074"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258555"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -90,15 +90,11 @@ Le fait d’associer la Gestion des API provisionnée dans un réseau virtuel in
 
 Remarque : Cette fonctionnalité est disponible dans les niveaux Premium et Développeur de Gestion des API.
 
-Activez Azure DDoS Protection Standard dans le réseau virtuel associé au déploiement de la Gestion des API afin de vous protéger contre les attaques par déni de service distribué (DDoS).
-
 Utilisez la fonctionnalité de renseignement sur les menaces intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
 * [Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Présentation d’Azure Application Gateway](../application-gateway/index.yml)
-
-* [Configurer Azure DDoS Protection Standard](../ddos-protection/manage-ddos-protection.md)
 
 * [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
@@ -184,8 +180,7 @@ Attention : Lorsque vous configurez un groupe de sécurité réseau sur le sous-
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
-**Aide** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau relatifs à vos déploiements de gestion des API Azure. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.ApiManagement » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos déploiements de gestion des API Azure et des ressources associées. Vous pouvez également utiliser des définitions de stratégies intégrées pour Azure Virtual Networks, par exemple :
-- DDoS Protection Standard doit être activé
+**Aide** : Définissez et implémentez des configurations de sécurité standard pour les paramètres réseau relatifs à vos déploiements de gestion des API Azure. Utilisez des alias Azure Policy dans les espaces de noms « Microsoft.ApiManagement » et « Microsoft.Network » afin de créer des stratégies personnalisées pour auditer ou appliquer la configuration réseau de vos déploiements de gestion des API Azure et des ressources associées. 
 
 Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d’environnement clés, tels que les modèles Resource Manager, le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et les stratégies au sein d’une seule définition de blueprint. Vous pouvez facilement appliquer le blueprint aux nouveaux abonnements et environnements, et ajuster le contrôle et la gestion par le biais du contrôle de version.
 

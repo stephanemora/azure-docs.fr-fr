@@ -3,7 +3,7 @@ title: Planifier le déploiement de l’authentification unique Azure Active Dir
 description: Guide concernant la planification, le déploiement et la gestion de l’authentification unique au sein d’une organisation.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658721"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258097"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -62,7 +62,7 @@ Il existe deux principales façons de permettre à vos utilisateurs d’utiliser
 
 L’utilisation d’Azure AD pour l’authentification basée sur les mots de passe nécessite le déploiement d’une extension de navigateur qui permettra de récupérer les informations d’identification de façon sécurisée et de renseigner les formulaires de connexion. Configurez un mécanisme permettant de déployer l’extension à grande échelle avec des [navigateurs pris en charge](../user-help/my-apps-portal-end-user-access.md). Options disponibles :
 
-- [Stratégie de groupe pour Internet Explorer](./access-panel-deployment-plan.md)
+- [Stratégie de groupe pour Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager pour Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](../user-help/my-apps-portal-end-user-access.md)
 

@@ -3,7 +3,7 @@ title: Gérer l’attribution d’utilisateurs pour une application dans Azure A
 description: Découvrez comment attribuer et désattribuer des utilisateurs et des groupes pour une application en utilisant Azure Active Directory pour la gestion des identités.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861675"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259732"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 
@@ -148,7 +148,7 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
 ## <a name="related-articles"></a>Articles connexes
 
 - [En savoir plus sur l’accès des utilisateurs finaux aux applications](end-user-experiences.md)
-- [Planifier un déploiement de Mes applications Azure AD](access-panel-deployment-plan.md)
+- [Planifier un déploiement de Mes applications Azure AD](my-apps-deployment-plan.md)
 - [Gestion de l’accès aux applications](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Étapes suivantes

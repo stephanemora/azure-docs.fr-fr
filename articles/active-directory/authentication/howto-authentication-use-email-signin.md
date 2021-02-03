@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e39d7f15e3ca3c6e241c767a5f881d7170c6379
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559838"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255965"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure Active Directory en utilisant un e-mail en guise d’ID de connexion alternatif (préversion)
 
@@ -113,7 +113,7 @@ Actuellement, pendant la période de préversion, vous pouvez activer la fonctio
 1. Vérifiez si la stratégie *HomeRealmDiscoveryPolicy* existe déjà dans votre locataire en utilisant la cmdlet [Get-AzureADPolicy][Get-AzureADPolicy] comme suit :
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 1. Si aucune stratégie n’est actuellement configurée, la commande ne retourne rien. Si une stratégie est retournée, ignorez cette étape et passez à l’étape suivante pour mettre à jour une stratégie existante.
@@ -121,10 +121,22 @@ Actuellement, pendant la période de préversion, vous pouvez activer la fonctio
     Pour ajouter la stratégie *HomeRealmDiscoveryPolicy* au locataire, utilisez la cmdlet [New-AzureADPolicy][New-AzureADPolicy] et définissez l’attribut *AlternateIdLogin* sur *"Enabled": true* comme dans l’exemple suivant :
 
     ```powershell
-    New-AzureADPolicy -Definition @('{"HomeRealmDiscoveryPolicy" :{"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    New-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Une fois la stratégie créée, la commande retourne l’ID de stratégie, comme illustré dans l’exemple de sortie suivant :
@@ -156,17 +168,31 @@ Actuellement, pendant la période de préversion, vous pouvez activer la fonctio
     L’exemple suivant ajoute l’attribut  *AlternateIdLogin* et conserve l’attribut  *AllowCloudPasswordValidation* qui peut avoir déjà été défini :
 
     ```powershell
-    Set-AzureADPolicy -id b581c39c-8fe3-4bb5-b53d-ea3de05abb4b `
-        -Definition @('{"HomeRealmDiscoveryPolicy" :{"AllowCloudPasswordValidation":true,"AlternateIdLogin":{"Enabled": true}}}') `
-        -DisplayName "BasicAutoAccelerationPolicy" `
-        -IsOrganizationDefault $true `
-        -Type "HomeRealmDiscoveryPolicy"
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    $AzureADPolicyParameters = @{
+      ID                    = "b581c39c-8fe3-4bb5-b53d-ea3de05abb4b"
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      IsOrganizationDefault = $true
+      Type                  = "HomeRealmDiscoveryPolicy"
+    }
+    
+    Set-AzureADPolicy @AzureADPolicyParameters
     ```
 
     Vérifiez que la stratégie mise à jour affiche vos modifications et que l’attribut *AlternateIdLogin* est désormais activé :
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 Une fois la stratégie appliquée, il peut falloir jusqu’à une heure pour qu’elle se propage et que les utilisateurs puissent se connecter avec leur ID de connexion de substitution.
@@ -207,7 +233,12 @@ Pour les suivre étapes suivantes, vous devez disposer d’autorisations d’*ad
 4. S’il n’existe aucune stratégie de lancement intermédiaire pour cette fonctionnalité, créez une stratégie de lancement intermédiaire et prenez note de l’ID de stratégie :
 
    ```powershell
-   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   $AzureADMSFeatureRolloutPolicy = @{
+      Feature    = "EmailAsAlternateId"
+      DisplayName = "EmailAsAlternateId Rollout Policy"
+      IsEnabled   = $true
+   }
+   New-AzureADMSFeatureRolloutPolicy @AzureADMSFeatureRolloutPolicy
    ```
 
 5. Recherchez l’ID directoryObject du groupe à ajouter à la stratégie de lancement intermédiaire. Notez la valeur retournée pour le paramètre *ID*, car elle sera utilisée à l’étape suivante.
@@ -250,7 +281,7 @@ Si des utilisateurs éprouvent des difficultés à se connecter avec leur adress
 1. Vérifiez que l’attribut *AlternateIdLogin* de la stratégie *HomeRealmDiscoveryPolicy* d’Azure AD est défini sur *"Enabled": true* :
 
     ```powershell
-    Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
+    Get-AzureADPolicy | Where-Object Type -eq "HomeRealmDiscoveryPolicy" | Format-List *
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

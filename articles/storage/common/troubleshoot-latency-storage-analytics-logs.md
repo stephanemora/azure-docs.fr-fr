@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e6033f9a8f4cecd2429eca67a3d58e54d7ae1f6
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785593"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221106"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Résoudre les problèmes de latence avec les journaux Storage Analytics
 
@@ -27,7 +27,7 @@ Les étapes suivantes montrent comment identifier et résoudre les problèmes de
 
 ## <a name="recommended-steps"></a>Étapes recommandées
 
-1. Téléchargez les [journaux Storage Analytics](./storage-analytics-logging.md#download-storage-logging-log-data).
+1. Téléchargez les [journaux Storage Analytics](./manage-storage-analytics-logs.md#download-storage-logging-log-data).
 
 2. Utilisez le script PowerShell suivant pour convertir les journaux du format brut au format tabulaire :
 
@@ -114,7 +114,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération GetBlob** avec **RequestStatus = Success** , si le **Temps maximal** est consacré à la **Latence du client** , c’est le signe que le Stockage Azure passe beaucoup de temps à écrire des données sur le client. Ce délai indique un problème côté client.
+Dans une **opération GetBlob** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le Stockage Azure passe beaucoup de temps à écrire des données sur le client. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
@@ -129,7 +129,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError** , si le **Temps maximal** est consacré à la **Latence du client** , le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
+Dans une **opération GetBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 
@@ -144,7 +144,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération Put** avec **RequestStatus = Success** , si le **Temps maximal** est consacré à la **Latence du client** , c’est le signe que le client prend plus de temps à envoyer des données au Stockage Azure. Ce délai indique un problème côté client.
+Dans une **opération Put** avec **RequestStatus = Success**, si le **Temps maximal** est consacré à la **Latence du client**, c’est le signe que le client prend plus de temps à envoyer des données au Stockage Azure. Ce délai indique un problème côté client.
 
 **Recommandation :**
 
@@ -159,7 +159,7 @@ Vérifiez les valeurs suivantes, comme indiqué à l’étape 5 de la section «
 * Latence du serveur
 * Latence du client
 
-Dans une **opération PutBlob** avec **RequestStatus = (SAS)NetworkError** , si le **Temps maximal** est consacré à la **Latence du client** , le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
+Dans une **opération PutBlob** avec **RequestStatus = (SAS)NetworkError**, si le **Temps maximal** est consacré à la **Latence du client**, le problème le plus courant est que le client se déconnecte avant l’expiration du délai dans le service de stockage.
 
 **Recommandation :**
 

@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791356"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093755"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Résoudre les erreurs de connexion temporaires dans SQL Database et SQL Managed Instance
 
@@ -31,7 +31,7 @@ Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les e
 
 Une erreur temporaire s’explique par une cause sous-jacente qui se résout d’elle-même en peu de temps. Les erreurs temporaires surviennent de temps en temps lorsque le système Azure réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. La plupart de ces événements de reconfiguration se terminent en moins de 60 secondes. Durant cette reconfiguration, vous pouvez rencontrer des problèmes de connexion à votre base de données dans SQL Database. Les applications qui se connectent à votre base de données doivent être conçues de sorte à s’attendre à de telles erreurs temporaires. Pour les gérer, implémentez une logique de nouvelle tentative dans leur code au lieu de les exposer aux utilisateurs comme des erreurs d’application.
 
-Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException** .
+Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par la levée d’une exception **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -126,17 +126,17 @@ Pour mettre ce test en pratique, votre programme reconnaît un paramètre d’ex
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 
-Si votre programme client se connecte à votre base de données dans SQL Database à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection** , utilisez .NET 4.6.1 ou une version ultérieure (ou .NET Core) afin de pouvoir utiliser la fonctionnalité de nouvelle tentative de connexion. Pour plus d’informations sur la fonctionnalité, consultez [Propriété SqlConnection.ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
+Si votre programme client se connecte à votre base de données dans SQL Database à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, utilisez .NET 4.6.1 ou une version ultérieure (ou .NET Core) afin de pouvoir utiliser la fonctionnalité de nouvelle tentative de connexion. Pour plus d’informations sur la fonctionnalité, consultez [Propriété SqlConnection.ConnectionString](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Lorsque vous générez la [chaîne de connexion](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) pour votre objet **SqlConnection** , coordonnez les valeurs entre les paramètres suivants :
+Lorsque vous générez la [chaîne de connexion](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) pour votre objet **SqlConnection**, coordonnez les valeurs entre les paramètres suivants :
 
-- **ConnectRetryCount**  :&nbsp;&nbsp;La valeur par défaut est 1. La plage s’étend de 0 à 255.
+- **ConnectRetryCount** :&nbsp;&nbsp;La valeur par défaut est 1. La plage s’étend de 0 à 255.
 - **ConnectRetryInterval** :&nbsp;&nbsp;La valeur par défaut est de 10 secondes. La plage s’étend de 1 à 60.
-- **ConnectionTimeout**  :&nbsp;&nbsp;La valeur par défaut est 15 secondes. La plage s’étend de 0 à 2 147 483 647.
+- **ConnectionTimeout** :&nbsp;&nbsp;La valeur par défaut est 15 secondes. La plage s’étend de 0 à 2 147 483 647.
 
 Plus précisément, les valeurs que vous choisissez doivent vérifier la formule suivante : Délai d’expiration de connexion = ConnectRetryCount × ConnectionRetryInterval
 
@@ -151,11 +151,11 @@ Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à 
 - Appel de la méthode SqlConnection.Open
 - Appel de la méthode SqlConnection.Execute
 
-Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécution de votre *requête* , votre objet **SqlConnection** ne retente pas l’opération de connexion. Il ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
+Il existe une subtilité. Si une erreur temporaire se produit pendant l’exécution de votre *requête*, votre objet **SqlConnection** ne retente pas l’opération de connexion. Il ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application
 
-Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion quatre fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount**  = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 * 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
+Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion quatre fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount** = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 * 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -189,7 +189,7 @@ En règle générale, vous devez simplement vous assurer que le port 1433 est o
 Par exemple, lorsque votre programme client est hébergé sur un ordinateur Windows, vous pouvez utiliser le pare-feu Windows sur l’hôte pour ouvrir le port 1433.
 
 1. Ouvrez le Panneau de configuration.
-2. Sélectionnez **Tous les éléments du Panneau de configuration** > **Pare-feu Windows** > **Paramètres avancés** > **Règles de trafic sortant**  > **Actions** > **Nouvelle règle** .
+2. Sélectionnez **Tous les éléments du Panneau de configuration** > **Pare-feu Windows** > **Paramètres avancés** > **Règles de trafic sortant**  > **Actions** > **Nouvelle règle**.
 
 Si votre programme client est hébergé sur une machine virtuelle Azure, lisez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](adonet-v12-develop-direct-route-ports.md).
 
@@ -331,15 +331,15 @@ Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous
 La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine où EntLib60 peut être utile. Pour plus d’informations, voir [4 - Perseverance, Secret of All Triumphs: Use the Transient Fault Handling Application Block](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> Le code source pour EntLib60 est publiquement disponible par téléchargement depuis le [Centre de téléchargement](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.
+> Le code source pour EntLib60 est publiquement disponible par téléchargement depuis le [Centre de téléchargement](https://github.com/MicrosoftArchive/enterprise-library). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Classes EntLib60 pour les erreurs temporaires et les nouvelles tentatives
 
-Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes ces classes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** .
+Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de nouvelle tentative. Toutes ces classes se trouvent dans ou sous l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
 
-Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**  :
+Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
 
 - **RetryPolicy**
   - **ExecuteAction**
@@ -348,7 +348,7 @@ Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHa
 - **ReliableSqlConnection**
   - **ExecuteCommand**
 
-Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
+Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
 - **AlwaysTransientErrorDetectionStrategy**
 - **NeverTransientErrorDetectionStrategy**
@@ -375,7 +375,7 @@ Pour en savoir plus, voir [5 - Un jeu d’enfants : utilisation du bloc d’appl
 
 ### <a name="entlib60-istransient-method-source-code"></a>Code source de la méthode EntLib60 IsTransient
 
-Ensuite, à partir de la classe **SqlDatabaseTransientErrorDetectionStrategy** , le code source C# pour la méthode **IsTransient** . Le code source clarifie les erreurs considérées comme temporaires qui peuvent faire l’objet de nouvelles tentatives depuis avril 2013.
+Ensuite, à partir de la classe **SqlDatabaseTransientErrorDetectionStrategy**, le code source C# pour la méthode **IsTransient**. Le code source clarifie les erreurs considérées comme temporaires qui peuvent faire l’objet de nouvelles tentatives depuis avril 2013.
 
 ```csharp
 public bool IsTransient(Exception ex)

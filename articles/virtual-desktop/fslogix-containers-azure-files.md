@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ef7f19d835f4fef1a911da01015321b2dda67682
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861890"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225913"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
@@ -55,7 +55,7 @@ Le tableau suivant présente les avantages et les limitations des technologies d
 
 #### <a name="performance"></a>Performances
 
-UPD nécessite des [espaces de stockage direct (S2D, Storage Spaces Direct)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) pour répondre aux exigences de performances. UPD utilise le protocole SMB (Server Message Block) Il copie le profil sur la machine virtuelle à laquelle l’utilisateur se connecte. UPD avec S2D est la solution que nous recommandons pour Windows Virtual Desktop.
+UPD nécessite des [espaces de stockage direct (S2D, Storage Spaces Direct)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) pour répondre aux exigences de performances. UPD utilise le protocole SMB (Server Message Block) Il copie le profil sur la machine virtuelle à laquelle l’utilisateur se connecte.
 
 #### <a name="cost"></a>Coût
 

@@ -3,7 +3,7 @@ title: Problèmes de connexion aux applications configurées pour l’authentifi
 description: Instructions sur la manière de résoudre les problèmes rencontrés lors de la connexion à une application configurée pour l’authentification unique SAML fédérée avec Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586344"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430409"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problèmes de connexion aux applications configurées pour l’authentification unique basée sur SAML
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons d’effectuer les opérations suivantes afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
 
-- Installez l’[extension de navigateur sécurisée Mes applications](./access-panel-deployment-plan.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
+- Installez l’[extension de navigateur sécurisée Mes applications](my-apps-deployment-plan.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
 - Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](./debug-saml-sso-issues.md)
 
 Si vous utilisez l’[expérience de test](./debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement pour ouvrir la page de configuration de l’authentification unique basée sur SAML.
@@ -54,7 +54,7 @@ Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur 
 Dans la page Configuration de l’authentification unique SAML, dans la section **Configuration SAML de base**, vérifiez que la valeur située dans la zone de texte de l’identificateur correspond à celle de l’identificateur mentionnée dans l’erreur.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas aux adresses de réponse configurées pour l’application
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Cause possible**
 

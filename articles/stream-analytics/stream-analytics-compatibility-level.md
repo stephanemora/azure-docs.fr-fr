@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015978"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094079"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -43,7 +43,7 @@ Pour mettre à jour le niveau de compatibilité du travail dans le Portail Azure
 4. Choisissez la valeur de niveau de compatibilité souhaitée.
 5. Sélectionnez **Enregistrer** au bas de la page.
 
-![Niveau de compatibilité Stream Analytics dans le portail Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Niveau de compatibilité Stream Analytics dans le portail Azure](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 Quand vous mettez à jour le niveau de compatibilité, le compilateur T valide le travail avec la syntaxe correspondant au niveau de compatibilité sélectionné.
 

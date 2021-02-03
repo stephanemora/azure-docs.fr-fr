@@ -2,7 +2,7 @@
 title: Résoudre les problèmes d’authentification unique par mot de passe dans Azure Active Directory
 description: Résolvez les problèmes liés à une application Azure AD configurée pour l’authentification unique par mot de passe.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618074"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257576"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Résoudre les problèmes d’authentification unique par mot de passe dans Azure AD
 
 Pour utiliser l’authentification unique (SSO) par mot de passe dans Mes applications, l’extension de navigateur doit être installée. L’extension est téléchargée automatiquement lorsque vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe. Pour en savoir plus sur l’utilisation de Mes applications du point de vue de l’utilisateur final, consultez l’[aide du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="my-apps-browser-extension-not-installed"></a>Extension de navigateur Mes applications non installée
-Veillez à ce que l’extension de navigateur soit installée. Pour en savoir plus, consultez [Planifier le déploiement de Mes applications Azure Active Directory](access-panel-deployment-plan.md). 
+Veillez à ce que l’extension de navigateur soit installée. Pour en savoir plus, consultez [Planifier le déploiement de Mes applications Azure Active Directory](my-apps-deployment-plan.md). 
 
 ## <a name="single-sign-on-not-configured"></a>Authentification unique non configurée
 Veillez à ce que l’authentification unique par mot de passe soit configurée. Pour en savoir plus, consultez [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md).
@@ -247,4 +247,4 @@ Les informations suivantes expliquent ce que signifie chaque élément de notifi
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md)
-* [Planifier un déploiement de Mes applications](access-panel-deployment-plan.md)
+* [Planifier un déploiement de Mes applications](my-apps-deployment-plan.md)

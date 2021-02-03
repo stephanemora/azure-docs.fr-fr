@@ -4,7 +4,7 @@ description: Apprenez les bonnes pratiques et les recommandations associées à 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 23c688d9b2e118ef29303d435bb83ef02ad36105
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736967"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259132"
 ---
 # <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
 
@@ -34,7 +34,7 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 | Utiliser l’authentification unique SAML fédérée  | Lorsqu’elle est prise en charge par l’application, utilisez l’authentification unique SAML fédérée avec Azure AD plutôt que l’authentification unique basée sur les mots de passe et ADFS.  | 
 | Utiliser SHA-256 pour la signature de certificat  | Azure AD utilise l’algorithme SHA-256 par défaut pour signer la réponse SAML. Utilisez SHA-256, sauf si l’application exige SHA-1 (voir [Options de signature de certificat](certificate-signing-options.md) et [Problème de connexion à l’application](application-sign-in-problem-application-error.md).)  | 
 | Exiger l’affectation des utilisateurs  | Par défaut, les utilisateurs peuvent accéder aux applications de votre entreprise sans affectation. Toutefois, si l’application expose des rôles, ou si vous souhaitez qu’elle s’affiche sur le panneau Mes applications d’un utilisateur, demandez l’affectation d’utilisateurs.  | 
-| Déployer Mes applications pour vos utilisateurs | [Mes applications](end-user-experiences.md) sur `https://myapps.microsoft.com` est un portail web qui fournit aux utilisateurs un point unique d’entrée pour leurs applications cloud affectées. À mesure que des fonctionnalités supplémentaires, telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service, sont ajoutées, les utilisateurs peuvent les trouver dans Mes applications. Consultez [Planifier le déploiement de Mes applications](access-panel-deployment-plan.md).
+| Déployer Mes applications pour vos utilisateurs | [Mes applications](end-user-experiences.md) sur `https://myapps.microsoft.com` est un portail web qui fournit aux utilisateurs un point unique d’entrée pour leurs applications cloud affectées. À mesure que des fonctionnalités supplémentaires, telles que la gestion des groupes et la réinitialisation du mot de passe en libre-service, sont ajoutées, les utilisateurs peuvent les trouver dans Mes applications. Consultez [Planifier le déploiement de Mes applications](my-apps-deployment-plan.md).
 | Utiliser l’affectation de groupe  | Si cette possibilité est incluse dans votre abonnement, affectez des groupes à une application afin de pouvoir déléguer la gestion des accès en cours au propriétaire du groupe.  | 
 | Établir un processus de gestion des certificats | La durée de vie maximale d’un certificat de signature est de trois ans. Pour éviter ou réduire au minimum l’interruption due à l’expiration d’un certificat, utilisez des rôles et des listes de distribution d’e-mails pour vous assurer que les notifications de modifications liées aux certificats sont étroitement supervisées. |
 

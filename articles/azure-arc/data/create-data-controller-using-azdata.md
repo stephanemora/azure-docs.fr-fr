@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 50ab5a0d47292e36216a565a5bd39fbe7e850131
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734997"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494009"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Créer un contrôleur de données Azure Arc à l'aide de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -269,6 +269,8 @@ Une fois que vous avez exécuté la commande, passez à [Contrôle de l’état 
 Azure Red Hat OpenShift nécessite une contrainte de contexte de sécurité.
 
 #### <a name="apply-the-security-context"></a>Appliquer le contexte de sécurité
+
+Avant de créer le contrôleur de données sur Azure Red Hat OpenShift, vous devez appliquer des contraintes de contexte de sécurité (SCC) spécifiques. Pour la préversion, ces dernières assouplissent les contraintes de sécurité. Les versions à venir fourniront des contraintes de contexte de sécurité mises à jour.
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219230"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095639"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
 
@@ -30,7 +30,7 @@ Vous pouvez rencontrer des problèmes de connectivité de machines virtuelles (M
 Un support technique pour appliances virtuelles réseau tierces et leur intégration avec la plateforme Azure est fourni par le fournisseur de l’appliance virtuelle réseau.
 
 > [!NOTE]
-> Si vous rencontrez un problème de connectivité ou de routage qui implique une appliance virtuelle réseau, vous devez [contactez directement le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Si vous rencontrez un problème de connectivité ou de routage qui implique une appliance virtuelle réseau, vous devez [contactez directement le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ Un support technique pour appliances virtuelles réseau tierces et leur intégra
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Vérifiez la configuration minimale requise pour les appliances virtuelles réseau sur Azure
 
-Chaque appliance virtuelle réseau a des exigences de configuration de base pour fonctionner correctement sur Azure. La section suivante décrit les étapes de vérification de ces configurations de base. Pour plus d’informations, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Chaque appliance virtuelle réseau a des exigences de configuration de base pour fonctionner correctement sur Azure. La section suivante décrit les étapes de vérification de ces configurations de base. Pour plus d’informations, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).
 
 **Vérifier si le transfert IP est activé sur l’appliance virtuelle réseau**
 
@@ -112,17 +112,17 @@ Utiliser PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Si vous ne voyez pas le port TCP utilisé par le logiciel de l’appliance virtuelle réseau répertorié dans les résultats, vous devez configurer l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau au besoin](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Si vous ne voyez pas le port TCP utilisé par le logiciel de l’appliance virtuelle réseau répertorié dans les résultats, vous devez configurer l’application sur l’appliance virtuelle réseau et la machine virtuelle pour écouter le trafic qui atteint ces ports et y répondre. [Contactez le fournisseur de l’appliance virtuelle réseau au besoin](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Vérifier les performances de l’appliance virtuelle réseau
 
 ### <a name="validate-vm-cpu"></a>Valider le processeur de machine virtuelle
 
-Si l’utilisation du processeur approche 100 pour cent, vous risquez de rencontrer des problèmes affectant les rejets de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) en fonction des besoins.
+Si l’utilisation du processeur approche 100 pour cent, vous risquez de rencontrer des problèmes affectant les rejets de paquet réseau. Votre machine virtuelle indique l’utilisation moyenne du processeur pendant intervalle de temps spécifique dans le portail Azure. Lors d’un pic d’utilisation du processeur, examinez sur la machine virtuelle invitée le processus à l’origine de l’utilisation élevée du processeur, et atténuez celle-ci autant que possible. Il se peut que vous deviez également redimensionner la machine virtuelle en définissant une taille de référence (SKU) supérieure ou, pour un groupe de machines virtuelles identiques, augmenter le nombre d’instances ou définir une mise à l’échelle automatique en fonction de l’utilisation du processeur. Pour chacun de ces problèmes, [contactez le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655) en fonction des besoins.
 
 ### <a name="validate-vm-network-statistics"></a>Valider les statistiques du réseau de machines virtuelles
 
-Si l’utilisation du réseau de machines virtuelles présente des pics ou des périodes d’utilisation intense, il se peut également que vous deviez augmenter la taille de la référence (SKU) de la machine virtuelle pour obtenir des capacités de débit supérieures. Vous pouvez également redéployer la machine virtuelle en activant la fonctionnalité Mise en réseau accélérée. Pour vérifier si l’appliance virtuelle réseau prend en charge la fonctionnalité Mise en réseau accélérée, [contactez le fournisseur de l’appliance virtuelle réseau pour obtenir de l’assistance](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) si nécessaire.
+Si l’utilisation du réseau de machines virtuelles présente des pics ou des périodes d’utilisation intense, il se peut également que vous deviez augmenter la taille de la référence (SKU) de la machine virtuelle pour obtenir des capacités de débit supérieures. Vous pouvez également redéployer la machine virtuelle en activant la fonctionnalité Mise en réseau accélérée. Pour vérifier si l’appliance virtuelle réseau prend en charge la fonctionnalité Mise en réseau accélérée, [contactez le fournisseur de l’appliance virtuelle réseau pour obtenir de l’assistance](https://mskb.pkisolutions.com/kb/2984655) si nécessaire.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Dépannage d’administrateur réseau avancé
 
@@ -146,4 +146,4 @@ Capturez une trace réseau simultanée sur la machine virtuelle source, l’appl
 
 Si vous ne voyez pas les paquets entrants dans la trace de machine virtuelle principale, il est probable qu’un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur interfère, ou que les tables de routage de l’appliance virtuelle réseau soient incorrectes.
 
-Si vous voyez les paquets entrants, mais pas de réponse, vous devrez peut-être résoudre un problème lié au pare-feu ou à l’application de la machine virtuelle. Pour chacun de ces problèmes, [contactez au besoin le fournisseur de l’appliance virtuelle réseau](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Si vous voyez les paquets entrants, mais pas de réponse, vous devrez peut-être résoudre un problème lié au pare-feu ou à l’application de la machine virtuelle. Pour chacun de ces problèmes, [contactez au besoin le fournisseur de l’appliance virtuelle réseau](https://mskb.pkisolutions.com/kb/2984655).

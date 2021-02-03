@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964641"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258063"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Comment créer une appliance virtuelle réseau dans un hub Azure Virtual WAN (préversion)
 
@@ -21,8 +21,7 @@ Cet article vous montre comment utiliser Azure Virtual WAN pour vous connecter �
 
 Les étapes décrites dans cet article vous aident à créer une appliance virtuelle réseau **Barracuda CloudGen WAN** dans le hub Virtual WAN. Pour effectuer cet exercice, vous devez disposer d’un appareil Barracuda Cloud Premise Device (CPE) et d’une licence pour l’appliance Barracuda CloudGen WAN que vous déployez dans le hub avant de commencer.
 
-Pour obtenir de la documentation sur le déploiement de **Cisco SD-WAN** au sein d’Azure Virtual WAN, consultez [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). Pour inscrire votre compte et recevoir les licences Cisco SD-WAN nécessaires, envoyez un e-mail à Cisco à l’adresse e-mail suivante : vwan_public_preview@external.cisco.com.
-
+Pour obtenir de la documentation sur le déploiement de **Cisco SD-WAN** au sein d’Azure Virtual WAN, consultez [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -3,7 +3,7 @@ title: Approvisionner un utilisateur à la demande en utilisant Azure Active Dir
 description: Forcer la synchronisation
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629010"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255659"
 ---
 # <a name="on-demand-provisioning"></a>Approvisionnement à la demande
 L’approvisionnement à la demande vous permet d’approvisionner un utilisateur dans une application en quelques secondes. Entre autres choses, vous pouvez utiliser cette fonctionnalité pour :
@@ -124,7 +124,7 @@ Enfin, le service d’approvisionnement effectue une action telle que créer, me
 
 Voici un exemple de ce que vous pouvez voir une fois l’approvisionnement à la demande d’un utilisateur effectué avec succès :
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Capture d’écran montrant l’interface utilisateur du portail Azure pour approvisionner un utilisateur à la demande.":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Capture d’écran montrant la réussite de l’approvisionnement à la demande d’un utilisateur.":::
 
 #### <a name="view-details"></a>Afficher les détails
 

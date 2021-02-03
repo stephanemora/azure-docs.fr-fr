@@ -4,7 +4,7 @@ description: Couvre les bases sur les connecteurs de proxy d’application Azure
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642059"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254426"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
@@ -75,7 +75,7 @@ Pour configurer la page d’accueil d’une application à l’aide de PowerShel
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installer le module Azure AD PowerShell
 
-Avant de définir une URL de page d’accueil personnalisée à l’aide de PowerShell, installez le module Azure AD PowerShell. Vous pouvez télécharger le package à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), qui utilise le point de terminaison de l’API Graph.
+Avant de définir une URL de page d’accueil personnalisée à l’aide de PowerShell, installez le module Azure AD PowerShell.  Vous pouvez télécharger le package à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16), qui utilise le point de terminaison de l’API Graph.
 
 Pour installer le package, procédez comme suit :
 
@@ -115,8 +115,8 @@ Pour obtenir l’ObjectID de l’application, recherchez l’application par son
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    Vous pouvez également extraire la liste de toutes les applications, rechercher dans celle-ci l’application avec un nom d’affichage ou une page d’accueil spécifiques, et copier l’ObjectID de l’application une fois celle-ci trouvée.
@@ -169,8 +169,8 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. Redémarrez l’application pour vérifier que la page d’accueil s’affiche en tant que premier écran, comme prévu.

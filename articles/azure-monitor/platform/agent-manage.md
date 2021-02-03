@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 15d01a8ac21264bf57ee7e65147e3989cd631b15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011878"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095554"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
@@ -243,7 +243,7 @@ Le fichier téléchargé de l’agent est un package d’installation autonome c
 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 
-2. Pour extraire les fichiers d’installation de l’agent, à partir d’une invite de commandes avec élévation de privilèges, exécutez `extract MMASetup-<platform>.exe` et indiquez l’emplacement où extraire les fichiers. L’autre possibilité consiste à spécifier le chemin d’accès à l’aide des arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Pour plus d’informations sur les commutateurs de ligne de commande pris en charge par IExpress, consultez [Commutateurs de ligne de commande pour IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) puis mettez à jour l’exemple en fonction de vos besoins.
+2. Pour extraire les fichiers d’installation de l’agent, à partir d’une invite de commandes avec élévation de privilèges, exécutez `extract MMASetup-<platform>.exe` et indiquez l’emplacement où extraire les fichiers. L’autre possibilité consiste à spécifier le chemin d’accès à l’aide des arguments `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Pour plus d’informations sur les commutateurs de ligne de commande pris en charge par IExpress, consultez [Commutateurs de ligne de commande pour IExpress](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/197147) puis mettez à jour l’exemple en fonction de vos besoins.
 
 3. À l’invite, tapez `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 

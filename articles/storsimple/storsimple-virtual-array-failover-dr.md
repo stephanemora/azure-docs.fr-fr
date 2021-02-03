@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005858"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096421"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
@@ -156,7 +156,7 @@ Procédez comme suit pour restaurer votre appareil vers un appareil virtuel Stor
     1. Sélectionnez l’appareil StorSimple qui a été utilisé en tant qu’appareil cible pour le processus de basculement et cliquez dessus.
     2. Accédez à **Paramètres > Administration > Partages** (ou **Volumes** dans le cas d’un serveur iSCSI). Dans le panneau **Partages**, vous pouvez afficher tous les partages (volumes) de l’ancien appareil.
         ![Capture d’écran du panneau Appareils. L’appareil cible est listé avec un état En ligne.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Vous devez [créer un alias DNS](https://support.microsoft.com/kb/168322) afin que toutes les applications qui essaient de se connecter puissent être redirigées vers le nouvel appareil.
+14. Vous devez [créer un alias DNS](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) afin que toutes les applications qui essaient de se connecter puissent être redirigées vers le nouvel appareil.
 
 ## <a name="errors-during-dr"></a>Erreurs lors de la récupération d'urgence
 

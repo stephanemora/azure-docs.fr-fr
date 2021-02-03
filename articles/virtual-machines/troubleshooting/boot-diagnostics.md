@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fa133e7c62b7970a1c48c7fd86c877bcf699e034
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9030adb9904095ac9b909e650ec6f11dcdf85ed3
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201601"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475520"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Comment utiliser les diagnostics de démarrage pour résoudre les problèmes des machines virtuelles dans Azure
 
@@ -52,7 +52,7 @@ Sous l’onglet **Gestion**, dans la section **Supervision**, vérifiez que l’
 ![Créer une machine virtuelle](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> La fonctionnalité Diagnostics de démarrage ne prend en charge ni les comptes de type Stockage Premium ni les comptes de type Stockage redondant interzone. Si vous utilisez le compte de stockage Premium pour la fonctionnalité Diagnostics de démarrage, vous pouvez recevoir l’erreur StorageAccountTypeNotSupported lorsque vous démarrez la machine virtuelle.
+> La fonctionnalité Diagnostics de démarrage ne prend en charge ni les comptes de type Stockage Premium ni les comptes de type Stockage redondant interzone. Si vous utilisez le compte de stockage Premium pour la fonctionnalité Diagnostics de démarrage, vous pouvez recevoir l’erreur StorageAccountTypeNotSupported lorsque vous démarrez la machine virtuelle. 
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Déploiement à l’aide d’un modèle Azure Resource Manager

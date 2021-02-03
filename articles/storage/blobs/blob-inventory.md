@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602680"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257809"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Gestion des données d’objets blob avec l’inventaire des objets blob du Stockage Azure (préversion)
 
@@ -32,6 +32,8 @@ La préversion de l’inventaire des objets blob est disponible dans les comptes
 - France Centre
 - Centre du Canada
 - Est du Canada
+- USA Est
+- USA Est 2
 
 ### <a name="pricing-and-billing"></a>Tarification et facturation
 

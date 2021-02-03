@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507470"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221140"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copier des données vers et à partir d’Azure Databricks Delta Lake avec Azure Data Factory
 
@@ -41,8 +41,8 @@ En général, Azure Data Factory prend en charge Delta Lake avec les fonctionnal
 
 Pour utiliser ce connecteur Azure Databricks Delta Lake, vous devez configurer un cluster dans Azure Databricks.
 
-- Pour copier des données vers Delta Lake, l’activité de copie appelle le cluster Azure Databricks pour lire des données à partir d’un Stockage Azure, qui est votre source originale ou une zone de transit dans laquelle Data Factory écrit d’abord les données source via la copie intermédiaire intégrée. En savoir plus sur [Delta Lake en tant que source](#delta-lake-as-source).
-- De même, pour copier des données depuis Delta Lake, l’activité de copie appelle le cluster Azure Databricks pour écrire des données à partir d’un Stockage Azure, qui est soit votre récepteur original soit une zone de transit de laquelle Data Factory continue d’écrire des données vers le récepteur final via la copie intermédiaire intégrée. En savoir plus sur [Delta Lake en tant que récepteur](#delta-lake-as-sink).
+- Pour copier des données vers Delta Lake, l’activité de copie appelle le cluster Azure Databricks pour lire des données à partir d’un Stockage Azure, qui est votre source originale ou une zone de transit dans laquelle Data Factory écrit d’abord les données source via la copie intermédiaire intégrée. En savoir plus sur [Delta Lake en tant que récepteur](#delta-lake-as-sink).
+- De même, pour copier des données depuis Delta Lake, l’activité de copie appelle le cluster Azure Databricks pour écrire des données à partir d’un Stockage Azure, qui est soit votre récepteur original soit une zone de transit de laquelle Data Factory continue d’écrire des données vers le récepteur final via la copie intermédiaire intégrée. En savoir plus sur [Delta Lake en tant que source](#delta-lake-as-source).
 
 Le cluster Databricks doit avoir accès à un compte Stockage Blob Azure ou Azure Data Lake Storage Gen2, à la fois au conteneur de stockage/système de fichiers utilisé pour la source/le récepteur/le transit, et au conteneur/système de fichiers dans lequel vous voulez écrire les tables Delta Lake.
 

@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ef6ef85ea9d256303852e4b281071da455ebb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250417"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097671"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envoi de notifications Push avec Azure Notification Hubs et Node.js
 
@@ -109,7 +109,7 @@ L’objet `GcmService` fournit une méthode `send` que vous pouvez utiliser pour
 - **Payload** : charge utile JSON ou de chaîne brute du message.
 - **Callback** : fonction de rappel.
 
-Pour plus d’informations sur le format de charge utile, voir la [documentation relative à la charge utile](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+Pour plus d’informations sur le format de charge utile, voir la [documentation relative à la charge utile](https://payload.readthedocs.io/en/latest/).
 
 Le code suivant utilise l’instance `GcmService` exposée par `NotificationHubService` pour envoyer une notification Push à tous les clients inscrits.
 

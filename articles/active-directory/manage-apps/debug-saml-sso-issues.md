@@ -4,19 +4,19 @@ description: Déboguez l’authentification unique SAML aux applications dans Az
 services: active-directory
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: f8eb00a2a88c6e26dd5361097f17990469caa8f3
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4a5fbef3380db8c9b357c83b4cb8240a41a0012c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92325927"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259285"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -37,10 +37,10 @@ Pour télécharger et installer l’extension de connexion sécurisée à Mes ap
 Pour tester l’authentification unique SAML entre Azure AD et une application cible :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’administrateur général (ou autre type d’administrateur autorisé à gérer les applications).
-1. Sélectionnez **Azure Active Directory** sous l’onglet gauche, puis **Applications d’entreprise** . 
-1. Dans la liste des applications d’entreprise, cliquez sur celle sur laquelle vous souhaitez tester l’authentification unique. Ensuite, dans les options sur la gauche, cliquez sur **Authentification unique** .
-1. Pour ouvrir l’expérience de test d’authentification unique reposant sur SAML, accédez à **Tester l’authentification unique sur** (étape 5). Si le bouton **Tester** est grisé, commencez par remplir et enregistrer les attributs requis dans la section **Configuration SAML de base** .
-1. Dans le panneau **Tester l’authentification unique** , utilisez vos informations d’identification d’entreprise pour vous connecter à l’application cible. Vous pouvez vous connecter sous l’identité de l’utilisateur actuel ou sous celle d’un autre utilisateur. Dans le deuxième cas, une invite vous demande de vous authentifier.
+1. Sélectionnez **Azure Active Directory** sous l’onglet gauche, puis **Applications d’entreprise**. 
+1. Dans la liste des applications d’entreprise, cliquez sur celle sur laquelle vous souhaitez tester l’authentification unique. Ensuite, dans les options sur la gauche, cliquez sur **Authentification unique**.
+1. Pour ouvrir l’expérience de test d’authentification unique reposant sur SAML, accédez à **Tester l’authentification unique sur** (étape 5). Si le bouton **Tester** est grisé, commencez par remplir et enregistrer les attributs requis dans la section **Configuration SAML de base**.
+1. Dans le panneau **Tester l’authentification unique**, utilisez vos informations d’identification d’entreprise pour vous connecter à l’application cible. Vous pouvez vous connecter sous l’identité de l’utilisateur actuel ou sous celle d’un autre utilisateur. Dans le deuxième cas, une invite vous demande de vous authentifier.
 
     ![Capture d’écran montrant la page Tester l’authentification unique SAML](./media/debug-saml-sso-issues/test-single-sign-on.png)
 
@@ -59,7 +59,7 @@ Pour déboguer cette erreur, vous aurez besoin du message d’erreur et de la de
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Pour résoudre l’erreur de connexion si l’extension de connexion sécurisée à Mes applications est installée
 
 1. Lorsqu’une erreur se produit, l’extension vous redirige vers le panneau **Tester l’authentification unique** Azure AD.
-1. Sur le panneau **Tester l’authentification unique** , sélectionnez **Télécharger la demande SAML** .
+1. Sur le panneau **Tester l’authentification unique**, sélectionnez **Télécharger la demande SAML**.
 1. Lisez l’aide à la résolution qui s’affiche. Elle dépend de l’erreur et des valeurs de la
 1. Un bouton **Corriger** permettant de mettre à jour automatiquement la configuration dans Azure AD pour résoudre le problème s’affiche. Si vous ne voyez pas ce bouton, le problème de connexion n’est pas dû à une configuration incorrecte sur Azure AD.
 
@@ -70,8 +70,8 @@ Si aucune résolution n’est proposée pour l’erreur de connexion, nous vous 
 1. Copiez le message d’erreur dans le coin inférieur droit de la page. Il comporte :
     - Un ID de corrélation et un timestamp. Ces valeurs sont importantes lors de la création d’une demande de support auprès de Microsoft, car elles permettent aux ingénieurs d’identifier le problème et de le résoudre avec précision.
     - Une instruction identifiant la cause du problème.
-1. Revenez à Azure AD et localisez le panneau **Tester l’authentification unique** .
-1. Dans la zone de texte au-dessus de **Obtenir une aide à la résolution** , collez le message d’erreur.
+1. Revenez à Azure AD et localisez le panneau **Tester l’authentification unique**.
+1. Dans la zone de texte au-dessus de **Obtenir une aide à la résolution**, collez le message d’erreur.
 1. Cliquez sur **Obtenir une aide à la résolution** pour afficher les étapes de résolution du problème. Elles sont susceptibles de demander des informations sur la demande ou la réponse SAML. Si vous n’utilisez pas l’extension de connexion sécurisée à Mes applications, il vous faudra peut-être un outil comme [Fiddler](https://www.telerik.com/fiddler) pour récupérer la demande et la réponse SAML.
 1. Vérifiez que la destination de la demande SAML correspond à l’URL du service d’authentification unique SAML obtenue auprès d’Azure AD.
 1. Vérifiez que l’émetteur dans la demande SAML est identique à l’identificateur configuré pour l’application dans Azure AD. Azure AD utilise l’émetteur pour rechercher une application dans l’annuaire.
@@ -86,7 +86,7 @@ Pour résoudre l’erreur, suivez ces étapes ou regardez cette [brève vidéo s
 
 1. Si l’application se trouve dans la galerie Azure AD, vérifiez que vous avez suivi toutes les étapes d’intégration de l’application avec Azure AD. Pour trouver les instructions d’intégration relatives à votre application, voir la [liste des tutoriels d’intégration d’applications SaaS](../saas-apps/tutorial-list.md).
 1. Récupérez la réponse SAML.
-    - Si l’extension de connexion sécurisée à Mes applications est installée, cliquez sur **Télécharger la réponse SAML** dans le panneau **Tester l’authentification unique** .
+    - Si l’extension de connexion sécurisée à Mes applications est installée, cliquez sur **Télécharger la réponse SAML** dans le panneau **Tester l’authentification unique**.
     - Si l’extension n’est pas installée, utilisez un outil comme [Fiddler](https://www.telerik.com/fiddler) pour récupérer la réponse SAML.
 1. Notez ces éléments dans le jeton de la réponse SAML :
    - Identificateur unique de la valeur NameID et du format
