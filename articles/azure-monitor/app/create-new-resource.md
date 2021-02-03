@@ -3,12 +3,12 @@ title: Créer une ressource Azure Application Insights | Microsoft Docs
 description: Configurez manuellement la surveillance d’Application Insights pour une nouvelle application en direct.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fd05e6bd68be89b964fe1ad32029bf44f3352ea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906367"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062911"
 ---
 # <a name="create-an-application-insights-resource"></a>Création d’une ressource Application Insights dans Azure
 
@@ -36,7 +36,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
 
 Entrez les valeurs appropriées dans les champs obligatoires, puis sélectionnez **Vérifier + créer**.
 
-![Entrez des valeurs dans les champs obligatoires, puis sélectionnez « Vérifier + créer ».](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Entrez des valeurs dans les champs obligatoires, puis sélectionnez « Vérifier + créer ».](./media/create-new-resource/review-create.png)
 
 Une fois votre application créée, un nouveau volet s’ouvre. Dans ce volet, vous trouverez des données relatives à l’utilisation et aux performances de votre application analysée. 
 
@@ -94,7 +95,7 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Pour obtenir la documentation PowerShell complète de cette applet de commande et apprendre à récupérer la clé d’instrumentation, consultez la [documentation Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Pour obtenir la documentation PowerShell complète de cette applet de commande et apprendre à récupérer la clé d’instrumentation, consultez la [documentation Azure PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### <a name="azure-cli-preview"></a>Azure CLI (préversion)
 
@@ -151,7 +152,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-Pour obtenir la documentation complète Azure CLI de cette commande et savoir comment récupérer la clé d’instrumentation, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Pour obtenir la documentation complète Azure CLI de cette commande et savoir comment récupérer la clé d’instrumentation, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Recherche de diagnostic](./diagnostic-search.md)

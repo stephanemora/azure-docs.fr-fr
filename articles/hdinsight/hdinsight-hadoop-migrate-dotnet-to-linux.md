@@ -1,19 +1,16 @@
 ---
 title: Utiliser .NET avec Hadoop MapReduce dans HDInsight basé sur Linux - Azure
 description: Découvrez comment utiliser des applications .NET pour la diffusion MapReduce sur HDInsight sous Linux.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: a6e9bea5d600771a7754142a4df4c0af503ccf5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075482"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945603"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migration de solutions .NET pour HDInsight sous Windows vers HDInsight sous Linux
 
@@ -34,7 +31,7 @@ L’[Analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?
 
 1. Installez l’[Analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Pendant l’installation, sélectionnez la version de Visual Studio à utiliser.
 
-2. Dans Visual Studio 2015, sélectionnez __Analyser__ > __Paramètres d’analyseur de portabilité__et vérifiez que l’option __4.5__ est cochée dans la section __Mono__.
+2. Dans Visual Studio 2015, sélectionnez __Analyser__ > __Paramètres d’analyseur de portabilité__ et vérifiez que l’option __4.5__ est cochée dans la section __Mono__.
 
     ![Option 4.5 cochée dans la section Mono des paramètres de l’analyseur](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 

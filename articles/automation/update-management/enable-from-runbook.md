@@ -2,15 +2,16 @@
 title: Activer Azure Automation Update Management à partir d’un runbook
 description: Cet article explique comment activer Update Management à partir d’un runbook.
 services: automation
+ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908356"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054887"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Activer Update Management à partir d’un runbook
 

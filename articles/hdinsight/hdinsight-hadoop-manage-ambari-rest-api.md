@@ -1,19 +1,16 @@
 ---
 title: Surveiller et gérer Hadoop avec l’API REST Ambari - Azure HDInsight
 description: Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546073"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945584"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari
 
@@ -37,11 +34,11 @@ Apache Ambari simplifie la gestion et la supervision des clusters Hadoop en four
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Uniform Resource Identifier (URI) de base pour l’API REST Ambari
 
- L’URI (Uniform Resource Identifier) de base pour l’API REST Ambari sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse** .  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
+ L’URI (Uniform Resource Identifier) de base pour l’API REST Ambari sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **sensibles à la casse**.  Le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (`CLUSTERNAME.azurehdinsight.net`) n’est pas sensible à la casse, au contraire des autres occurrences dans l’URI.
 
 ## <a name="authentication"></a>Authentification
 
-Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin** ) et le mot de passe fournis lors de la création du cluster.
+Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin**) et le mot de passe fournis lors de la création du cluster.
 
 Pour les clusters de pack Sécurité Entreprise, utilisez un nom d'utilisateur complet comme `username@domain.onmicrosoft.com` au lieu de `admin`.
 
@@ -269,7 +266,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-Cet exemple renvoie un document JSON qui contient la configuration actuelle pour les composants installés. Consultez la valeur de *balise* . L’exemple suivant est un extrait des données renvoyées à partir d’un type de cluster Spark.
+Cet exemple renvoie un document JSON qui contient la configuration actuelle pour les composants installés. Consultez la valeur de *balise*. L’exemple suivant est un extrait des données renvoyées à partir d’un type de cluster Spark.
 
 ```json
 "jupyter-site" : {
@@ -335,7 +332,7 @@ Cet exemple renvoie un document JSON qui contient la configuration actuelle pour
 
    * Il crée un document racine pour la nouvelle configuration.
 
-   * Il récupère le contenu du tableau `.items[]` et l’ajoute à l’élément **desired_config** .
+   * Il récupère le contenu du tableau `.items[]` et l’ajoute à l’élément **desired_config**.
 
    * Il supprime les éléments `href`, `version` et `Config`, car ils ne sont pas nécessaires à l’envoi d’une nouvelle configuration.
 

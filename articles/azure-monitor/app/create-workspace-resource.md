@@ -3,12 +3,12 @@ title: Créer une ressource Azure Monitor Application Insights basée sur un esp
 description: En savoir plus sur les étapes requises pour activer les nouvelles ressources Azure Monitor Application Insights basées sur un espace de travail.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536912"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063364"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -33,7 +33,8 @@ Les Application Insights basées sur l’espace de travail vous permettent de ti
 
 Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressource Application Insights :
 
-![Ressource Application Insights basée sur un espace de travail](./media/create-workspace-resource/create-workspace-based.png)
+> [!div class="mx-imgBorder"]
+> ![Ressource Application Insights basée sur un espace de travail](./media/create-workspace-resource/create-workspace-based.png)
 
 Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../learn/quick-create-workspace.md).
 
@@ -112,7 +113,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Pour obtenir la documentation Azure CLI complète pour cette commande, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Pour obtenir la documentation Azure CLI complète pour cette commande, consultez la [documentation Azure CLI](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

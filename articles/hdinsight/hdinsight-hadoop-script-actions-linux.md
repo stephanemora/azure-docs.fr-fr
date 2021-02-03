@@ -1,18 +1,15 @@
 ---
 title: Développer des actions de script pour personnaliser des clusters Azure HDInsight
 description: Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight. Les actions de script vous permettent d’exécuter des scripts pendant ou après la création du cluster pour modifier ses paramètres de configuration ou pour installer des logiciels supplémentaires.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629440"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945486"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -332,13 +329,13 @@ Microsoft fournit des exemples de scripts pour installer des composants sur un c
 
 Voici des erreurs susceptibles de se produire quand vous utilisez les scripts que vous avez développés :
 
-**Erreur**  : `$'\r': command not found`. Parfois suivi par `syntax error: unexpected end of file`.
+**Erreur** : `$'\r': command not found`. Parfois suivi par `syntax error: unexpected end of file`.
 
-*Cause*  : Cette erreur se produit lorsque les lignes d’un script se terminent par CRLF. Les systèmes UNIX attendent seulement LF comme fin de ligne.
+*Cause* : Cette erreur se produit lorsque les lignes d’un script se terminent par CRLF. Les systèmes UNIX attendent seulement LF comme fin de ligne.
 
 Ce problème se produit souvent lorsque le script est créé dans un environnement Windows, car CRLF est une fin de ligne commune à de nombreux éditeurs de texte sous Windows.
 
-*Résolution*  : Si c’est une option dans votre éditeur de texte, sélectionnez le format Unix ou LF comme fin de ligne. Vous pouvez également utiliser les commandes suivantes sur un système Unix pour changer la séquence CRLF en LF :
+*Résolution* : Si c’est une option dans votre éditeur de texte, sélectionnez le format Unix ou LF comme fin de ligne. Vous pouvez également utiliser les commandes suivantes sur un système Unix pour changer la séquence CRLF en LF :
 
 > [!NOTE]  
 > Les commandes suivantes sont à peu près équivalentes dans la mesure où elles doivent changer les fins de ligne CRLF en LF. Sélectionnez-en une basée sur les utilitaires disponibles sur votre système.
@@ -350,11 +347,11 @@ Ce problème se produit souvent lorsque le script est créé dans un environneme
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifie directement le fichier |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contient une version avec des terminaisons LF uniquement. |
 
-**Erreur**  : `line 1: #!/usr/bin/env: No such file or directory`.
+**Erreur** : `line 1: #!/usr/bin/env: No such file or directory`.
 
-*Cause*  : Cette erreur se produit lorsque le script a été enregistré au format UTF-8 avec une marque d’ordre d’octet (BOM).
+*Cause* : Cette erreur se produit lorsque le script a été enregistré au format UTF-8 avec une marque d’ordre d’octet (BOM).
 
-*Résolution*  : Enregistrez le fichier au format ASCII ou UTF-8 sans marque d’ordre d’octet. Vous pouvez également utiliser la commande suivante sur un système Linux ou Unix pour créer un fichier sans marque d’ordre d’octet :
+*Résolution* : Enregistrez le fichier au format ASCII ou UTF-8 sans marque d’ordre d’octet. Vous pouvez également utiliser la commande suivante sur un système Linux ou Unix pour créer un fichier sans marque d’ordre d’octet :
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE

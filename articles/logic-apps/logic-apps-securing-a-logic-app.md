@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633076"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055176"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -866,7 +866,7 @@ Voici d’autres façons de sécuriser les points de terminaison qui gèrent les
 
 * Restreignez l’accès des adresses IP d’application logique.
 
-  Tous les appels de points de terminaison émis par des applications logiques proviennent d’adresses IP désignées en fonction des régions de vos applications logiques. Vous pouvez ajouter le filtrage afin d’accepter les requêtes provenant uniquement de ces adresses IP. Pour obtenir ces adresses IP, consultez [Limites et configuration d’Azure Logic Apps](logic-apps-limits-and-config.md#configuration).
+  Tous les appels de points de terminaison émis par des applications logiques proviennent d’adresses IP désignées en fonction des régions de vos applications logiques. Vous pouvez ajouter le filtrage afin d’accepter les requêtes provenant uniquement de ces adresses IP. Pour obtenir ces adresses IP, consultez [Limites et configuration d’Azure Logic Apps](logic-apps-limits-and-config.md#firewall-ip-configuration).
 
 * Améliorez la sécurité des connexions aux systèmes locaux.
 

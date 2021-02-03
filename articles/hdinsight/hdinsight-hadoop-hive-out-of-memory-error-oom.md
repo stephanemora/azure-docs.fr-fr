@@ -2,19 +2,16 @@
 title: Corriger une erreur de mémoire insuffisante Hive dans Azure HDInsight
 description: Corrigez une erreur de mémoire insuffisante Hive dans Azure HDInsight. Le scénario client implique une requête sur de nombreuses tables de grande taille.
 keywords: erreur de mémoire insuffisante, OOM, paramètres Hive
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: d91da1aa6f7079069541ac955fce8331591a3bc6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546175"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945715"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corriger une erreur de mémoire insuffisante Apache Hive dans Azure HDInsight
 
@@ -91,7 +88,7 @@ Nos équipes d’ingénierie et de support technique ont trouvé qu’un des pro
 
 « Quand hive.auto.convert.join.noconditionaltask = true, nous vérifions noconditionaltask.size ; si la somme des tailles des tables dans la jointure de mappage est inférieure à noconditionaltask.size, le plan génère une jointure de mappage. Le problème ici est que le calcul ne prend pas en compte la surcharge introduite par l’implémentation de HashTable différente comme résultats ; si la somme des tailles d’entrée est légèrement inférieure à la taille noconditionaltask, les requêtes rencontrent un problème de mémoire insuffisante. »
 
-**hive.auto.convert.join.noconditionaltask** dans le fichier hive-site.xml avait la valeur **true**  :
+**hive.auto.convert.join.noconditionaltask** dans le fichier hive-site.xml avait la valeur **true** :
 
 ```xml
 <property>
@@ -109,10 +106,10 @@ La jointure de mappage est sans doute la cause de l’erreur de mémoire insuffi
 
 ![Diagramme de la mémoire du conteneur Tez : erreur de mémoire insuffisante dans Hive](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
-Comme le suggère le billet de blog, les deux paramètres de mémoire suivants définissent la mémoire de conteneur du tas : **hive.tez.container.size** et **hive.tez.java.opts** . D’après notre expérience, l’exception relative à une mémoire insuffisante ne signifie pas que la taille du conteneur est trop petite. Elle signifie que la taille du tas Java (hive.tez.java.opts) est trop petite. Par conséquent, lorsque vous voyez une erreur de mémoire insuffisante, vous pouvez essayer d’augmenter la valeur de **hive.tez.java.opts** . Si nécessaire, vous pouvez augmenter **hive.tez.container.size** . Le paramètre **java.opts** doit correspondre à environ 80 % de la taille de conteneur ( **container.size** ).
+Comme le suggère le billet de blog, les deux paramètres de mémoire suivants définissent la mémoire de conteneur du tas : **hive.tez.container.size** et **hive.tez.java.opts**. D’après notre expérience, l’exception relative à une mémoire insuffisante ne signifie pas que la taille du conteneur est trop petite. Elle signifie que la taille du tas Java (hive.tez.java.opts) est trop petite. Par conséquent, lorsque vous voyez une erreur de mémoire insuffisante, vous pouvez essayer d’augmenter la valeur de **hive.tez.java.opts**. Si nécessaire, vous pouvez augmenter **hive.tez.container.size**. Le paramètre **java.opts** doit correspondre à environ 80 % de la taille de conteneur (**container.size**).
 
 > [!NOTE]  
-> Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size** .
+> Le paramètre **hive.tez.java.opts** doit toujours être inférieur à **hive.tez.container.size**.
 
 Comme une machine D12 a une mémoire de 28 Go, nous avons décidé d’utiliser une taille de conteneur de 10 Go (10 240 Mo) et d’affecter la valeur 80 % à java.opts :
 

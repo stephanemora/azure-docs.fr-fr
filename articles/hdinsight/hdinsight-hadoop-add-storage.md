@@ -1,19 +1,16 @@
 ---
 title: Ajouter des comptes Stockage Azure supplémentaires à HDInsight
 description: Découvrez comment ajouter des comptes Stockage Azure supplémentaires à un cluster HDInsight existant.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541993"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945933"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -61,7 +58,7 @@ Utilisez une [action de script](hdinsight-hadoop-customize-cluster-linux.md#scri
 
 ## <a name="verification"></a>Vérification
 
-Lorsque vous affichez le cluster HDInsight sur le Portail Azure, les comptes de stockage ajoutés par cette action de script ne s’affichent pas quand vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__ . Azure PowerShell et Azure CLI n’affichent pas non plus les comptes de stockage supplémentaires. Les informations de stockage n’apparaissent pas, car le script modifie uniquement la configuration `core-site.xml` du cluster. Ces informations ne sont pas utilisées pour récupérer les informations du cluster avec les API de gestion Azure.
+Lorsque vous affichez le cluster HDInsight sur le Portail Azure, les comptes de stockage ajoutés par cette action de script ne s’affichent pas quand vous sélectionnez l’entrée __Comptes de stockage__ sous __Propriétés__. Azure PowerShell et Azure CLI n’affichent pas non plus les comptes de stockage supplémentaires. Les informations de stockage n’apparaissent pas, car le script modifie uniquement la configuration `core-site.xml` du cluster. Ces informations ne sont pas utilisées pour récupérer les informations du cluster avec les API de gestion Azure.
 
 Pour vérifier le stockage supplémentaire, appliquez l’une des méthodes indiquées ci-dessous :
 
@@ -97,7 +94,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
 
 1. Observez les clés qui commencent par `fs.azure.account.key`. Le nom du compte fera partie de la clé, comme illustré dans cet exemple :
 
@@ -107,7 +104,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
-1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée** .
+1. Accédez à **HDFS** > **Configurations** > **Avancé** > **Configuration core-site personnalisée**.
 
 1. Supprimez les clés suivantes :
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +116,7 @@ Après avoir supprimé ces clés et enregistré la configuration, vous devez red
 
 ### <a name="storage-firewall"></a>Pare-feu de stockage
 
-Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés** , veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage`.`
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Impossible d’accéder au stockage après avoir modifié la clé
 

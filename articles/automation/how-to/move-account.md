@@ -2,19 +2,15 @@
 title: Déplacer votre compte Azure Automation vers un autre abonnement
 description: Cet article explique comment déplacer votre compte Automation vers un autre abonnement.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185549"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051022"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Déplacer votre compte Azure Automation vers un autre abonnement
 
@@ -41,7 +37,7 @@ Pour dissocier votre espace de travail de votre compte Automation, vous devez su
 
     ![Capture d’écran de la suppression de ressources de fonctionnalités du portail Azure](../media/move-account/delete-solutions.png)
 
-Si vous préférez, vous pouvez supprimer les solutions à l’aide de la cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Si vous préférez, vous pouvez supprimer les solutions à l’aide de la cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -80,7 +76,7 @@ Pour la solution Start/Stop VMs during off-hours, vous devez également supprime
 
     ![Capture d’écran de la page Groupe d’actions](../media/move-account/delete-action-group.png)
 
-Si vous préférez, vous pouvez supprimer votre groupe d’actions à l’aide de la cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0) :
+Si vous préférez, vous pouvez supprimer votre groupe d’actions à l’aide de la cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup) :
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification
@@ -108,7 +104,7 @@ Vous pouvez maintenant déplacer votre compte Automation et ses runbooks.
 
 ## <a name="re-create-run-as-accounts"></a>Recréer les comptes d’identification
 
-Les [comptes d’identification](../manage-runas-account.md) permettent de créer un principal de service dans Azure Active Directory pour l’authentification auprès des ressources Azure. Quand vous changez d’abonnement, le compte Automation n’utilise plus le compte d’identification existant. Pour recréer les comptes d’identification :
+Les [comptes d’identification](../automation-security-overview.md#run-as-accounts) permettent de créer un principal de service dans Azure Active Directory pour l’authentification auprès des ressources Azure. Quand vous changez d’abonnement, le compte Automation n’utilise plus le compte d’identification existant. Pour recréer les comptes d’identification :
 
 1. Accédez à votre compte Automation dans le nouvel abonnement, puis sélectionnez **Comptes d’identification** sous **Paramètres de compte**. Comme vous pouvez le constater, les comptes d’identification apparaissent comme étant incomplets.
 
@@ -117,7 +113,7 @@ Les [comptes d’identification](../manage-runas-account.md) permettent de crée
 2. Supprimez les comptes d’identification un par un en sélectionnant **Supprimer** sur la page **Propriétés**. 
 
     > [!NOTE]
-    > Si vous n’avez pas les autorisations nécessaires pour créer ou voir les comptes d’identification, le message suivant s’affiche : `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Pour plus d’informations, consultez [Autorisations nécessaires à la configuration des comptes d’identification](../manage-runas-account.md#permissions).
+    > Si vous n’avez pas les autorisations nécessaires pour créer ou voir les comptes d’identification, le message suivant s’affiche : `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Pour plus d’informations, consultez [Autorisations nécessaires à la configuration des comptes d’identification](../automation-security-overview.md#permissions).
 
 3. Une fois que vous avez supprimé les comptes d’identification, sélectionnez **Créer** sous **Compte d’identification Azure**. 
 

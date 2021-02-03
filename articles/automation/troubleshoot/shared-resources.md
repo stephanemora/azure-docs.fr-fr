@@ -2,18 +2,15 @@
 title: Résoudre les problèmes de ressources partagées Azure Automation
 description: Cet article explique comment résoudre des problèmes liés aux ressources partagées Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.subservice: ''
+ms.date: 01/27/2021
+ms.topic: troubleshooting
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187164"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053617"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Résoudre les problèmes liés aux ressources partagées
 
@@ -33,7 +30,7 @@ Comme l’importation de modules PowerShell est un processus complexe en plusieu
 
 #### <a name="resolution"></a>Résolution
 
-Pour résoudre ce problème, vous devez supprimer le module bloqué en utilisant l’applet de commande [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). Vous pouvez ensuite réessayer d’importer le module.
+Pour résoudre ce problème, vous devez supprimer le module bloqué en utilisant l’applet de commande [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule). Vous pouvez ensuite réessayer d’importer le module.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Voici quelques raisons courantes pour lesquelles l’importation d’un module d
 * La structure ne correspond pas à celle dont Automation a besoin.
 * Le module dépend d’un autre module qui n’a pas été déployé sur votre compte Automation.
 * Le module n’a pas de dépendances dans le dossier.
-* L’applet de commande [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
+* L’applet de commande [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
 #### <a name="resolution"></a>Résolution
 
@@ -134,7 +131,7 @@ Vous ne disposez pas des autorisations nécessaires pour créer ou mettre à jou
 
 #### <a name="resolution"></a>Résolution
 
-Pour créer ou mettre à jour d’un compte d’identification, vous devez disposer des [autorisations](../manage-runas-account.md#permissions) appropriées pour les diverses ressources utilisées par le compte d’identification. 
+Pour créer ou mettre à jour d’un compte d’identification, vous devez disposer des [autorisations](../automation-security-overview.md#permissions) appropriées pour les diverses ressources utilisées par le compte d’identification.
 
 Si le problème est dû à un verrou, vérifiez que le verrou peut être supprimé. Accédez ensuite à la ressource verrouillée dans le portail Azure, cliquez avec le bouton droit sur le verrou, puis sélectionnez **Supprimer**.
 
@@ -150,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Cause
 
-Cette erreur est probablement due à un [Compte d’identification](../manage-runas-account.md) mal configuré.
+Cette erreur est probablement due à un [Compte d’identification](../automation-security-overview.md) mal configuré.
 
 #### <a name="resolution"></a>Résolution
 
@@ -169,4 +166,3 @@ Si cet article ne vous permet pas de résoudre votre problème, utilisez l’un 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
 * Contactez [@AzureSupport](https://twitter.com/azuresupport). Il s’agit du compte Microsoft Azure officiel qui permet à la communauté Azure d’accéder aux ressources dont elle a besoin : réponses, support et experts.
 * Signaler un incident au support Azure Accédez au [site du support Azure](https://azure.microsoft.com/support/options/), puis sélectionnez **Obtenir de l’aide**.
-

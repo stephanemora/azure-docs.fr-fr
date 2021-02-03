@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934592"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070659"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Surveillance et alertes Azure Key Vault
 
@@ -203,12 +203,13 @@ Veuillez consulter les paramètres de configuration suivants.
 
 7. Créez l’alerte 
 
+### <a name="example-email-alert"></a>Exemple d'alerte par e-mail 
+
+> [!div class="mx-imgBorder"]
+> ![Capture d'écran mettant en évidence les informations nécessaires à la configuration d'une alerte par e-mail.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés ! Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés. 
 
-### <a name="example-email-alert"></a>Exemple d'alerte par e-mail 
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence les informations nécessaires à la configuration d'une alerte par e-mail.](../media/alert-20.png)

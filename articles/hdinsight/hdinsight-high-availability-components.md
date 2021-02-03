@@ -1,25 +1,22 @@
 ---
 title: Composants haute disponibilité dans Azure HDInsight
 description: Vue d’ensemble des différents composants haute disponibilité utilisés par les clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 1ff7932f0afb128f6e7568ecdae602c6471db0bd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539715"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945306"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Services de haute disponibilité pris en charge par Azure HDInsight
 
 Afin de vous fournir des niveaux optimaux de disponibilité pour vos composants analytiques, HDInsight a été développé avec une architecture unique pour assurer une haute disponibilité (HA) des services critiques. Certains composants de cette architecture ont été développés par Microsoft pour fournir un basculement automatique. Les autres composants sont des composants Apache standard déployés pour prendre en charge des services spécifiques. Cet article décrit en détail l’architecture du modèle de service de haute disponibilité dans HDInsight, la façon dont HDInsight prend en charge le basculement pour les services haute disponibilité et les meilleures pratiques pour effectuer une reprise à partir d’autres interruptions de service.
 
 > [!NOTE]
-> Cet article contient des références au terme *esclave* , un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ## <a name="high-availability-infrastructure"></a>Infrastructure de haute disponibilité
 

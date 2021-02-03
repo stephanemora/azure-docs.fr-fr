@@ -2,13 +2,13 @@
 title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
 ms.topic: article
-ms.date: 11/10/2020
-ms.openlocfilehash: 406a1f231af57407e9475a8888b68aad9d88dcb3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 01/27/2021
+ms.openlocfilehash: 11750965ac563d1d5b7ad5ac7b52cf996e791e56
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445113"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954036"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 

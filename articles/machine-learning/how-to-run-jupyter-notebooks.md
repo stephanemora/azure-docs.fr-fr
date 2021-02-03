@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685576"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061832"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Comment exécuter des blocs-notes Jupyter dans votre espace de travail
 
@@ -255,89 +255,6 @@ Un indicateur en regard de la liste déroulante **Noyau** affiche son état.
 |---------|---------|
 |  Vert |Noyau connecté, inactif, occupé|
 |  Gris |Tunnel non connecté. |
-
-## <a name="shortcut-keys"></a>Touches de raccourci
-À l’instar des notebooks Jupyter, les notebooks Azure Machine Learning Studio disposent d’une interface utilisateur modale. Le clavier effectue des actions différentes selon le mode dans lequel se trouve la cellule du bloc-notes. Les notebooks Azure Machine Learning Studio prennent en charge les deux modes suivants pour une cellule de code donnée : le mode de commande et le mode d’édition.
-
-### <a name="command-mode-shortcuts"></a>Raccourcis du mode de commande
-
-Une cellule est en mode de commande quand elle n’affiche aucun curseur texte vous invitant à saisir. Quand une cellule est en mode de commande, vous pouvez modifier le bloc-notes entier, mais pas taper dans des cellules individuelles. Entrez en mode de commande en appuyant sur `ESC` ou en utilisant la souris pour sélectionner en dehors de la zone de l’éditeur d’une cellule.  La bordure gauche de la cellule active est bleue et unie, et son bouton **Exécuter** est bleu.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Cellule de notebook en mode de commande ":::
-
-| Raccourci                      | Description                          |
-| ----------------------------- | ------------------------------------|
-| Entrez                         | Passer au mode Édition             |        
-| Maj+Entrée                 | Exécuter la cellule, sélectionner en dessous         |     
-| Contrôle/Commande + Entrée       | Exécuter la cellule                            |
-| Alt + Entrée                   | Exécuter la cellule, insérer la cellule de code en dessous    |
-| Contrôle/Commande + Alt + Entrée | Exécuter la cellule, insérer la cellule Markdown en dessous|
-| Alt + R                       | Exécuter tout      |                       
-| O                             | Convertir la cellule en code    |                         
-| M                             | Convertir la cellule en Markdown  |                       
-| Haut/K                          | Sélectionner la cellule au-dessus    |               
-| Bas/J                        | Sélectionner la cellule en dessous    |               
-| Un                             | Insérer une cellule de code au-dessus  |            
-| B                             | Insérer une cellule de code au-dessous   |           
-| Contrôle/Commande + Maj + A   | Insérer une cellule Markdown au-dessus    |      
-| Contrôle/Commande + Maj + B   | Insérer une cellule Markdown au-dessous   |       
-| X                             | Couper la cellule sélectionnée    |               
-| C                             | Copier la cellule sélectionnée   |               
-| Maj + V                     | Coller la cellule sélectionnée au-dessus           |
-| V                             | Coller la cellule sélectionnée au-dessous    |       
-| D D                           | Supprimer la cellule sélectionnée|                
-| O                             | Activer/désactiver la sortie         |              
-| Maj + O                     | Activer/désactiver le défilement de sortie   |          
-| I I                           | Interrompre le noyau |                   
-| 0 0                           | Redémarrer le noyau |                     
-| Maj + espace                 | Faire défiler vers le haut  |                         
-| Espace                         | Faire défiler vers le bas|
-| Onglet                           | Définir le focus sur le prochain élément pouvant être actif (quant le recouvrement par tabulation est désactivé)|
-| Contrôle/Commande + S           | Enregistrer le notebook |                      
-| 1                             | Remplacer par h1|                       
-| 2                             | Remplacer par h2|                        
-| 3                             | Remplacer par h3|                        
-| 4                             | Remplacer par h4 |                       
-| 5                             | Remplacer par h5 |                       
-| 6                             | Remplacer par h6 |                       
-
-### <a name="edit-mode-shortcuts"></a>Raccourcis du mode d’édition
-
-Le mode d’édition est indiqué par un curseur texte qui vous invite à taper dans la zone de l’éditeur. Quand une cellule est en mode d’édition, vous pouvez saisir dans la cellule. Entrez en mode édition en appuyant sur `Enter` ou en utilisant la souris pour sélectionner la zone de l’éditeur d’une cellule. La bordure gauche de la cellule active est verte et en pointillés, et son bouton **Exécuter** est vert. Vous voyez également l’invite de curseur dans la cellule en mode d’édition.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Cellule de notebook en mode d’édition":::
-
-Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du code plus facilement dans des notebooks Azure Machine Learning en mode d’édition.
-
-| Raccourci                      | Description|                                     
-| ----------------------------- | ----------------------------------------------- |
-| Caractère d'échappement                        | Entrer en mode de commande|  
-| Contrôle/Commande + espace       | Activer IntelliSense |
-| Maj+Entrée                 | Exécuter la cellule, sélectionner en dessous |                         
-| Contrôle/Commande + Entrée       | Exécuter la cellule  |                                      
-| Alt + Entrée                   | Exécuter la cellule, insérer la cellule de code en dessous  |              
-| Contrôle/Commande + Alt + Entrée | Exécuter la cellule, insérer la cellule Markdown en dessous  |          
-| Alt + R                       | Exécuter toutes les cellules     |                              
-| Haut                            | Déplacer le curseur vers le haut ou vers la cellule précédente    |             
-| Descendre                          | Déplacer le curseur vers le bas ou la cellule suivante |                  
-| Contrôle/Commande + S           | Enregistrer le notebook   |                                
-| Contrôle/Commande + haut          | Atteindre le début de la cellule   |                             
-| Contrôle/Commande + bas        | Atteindre la fin de la cellule |                                 
-| Onglet                           | Saisie semi-automatique de code ou mise en retrait (si le recouvrement par tabulation est activé) |
-| Contrôle/Commande + M           | Activer/désactiver le recouvrement par tabulation  |                       
-| Contrôle/Commande + ]           | Retrait |                                         
-| Contrôle/Commande + [           | Retrait négatif  |                                        
-| Contrôle/Commande + A           | Sélectionner tout|                                      
-| Contrôle/Commande + Z           | Annuler |                                           
-| Contrôle/Commande + Maj + Z   | Rétablir |                                           
-| Contrôle/Commande + Y           | Rétablir |                                           
-| Contrôle/Commande + début        | Atteindre le début de la cellule|                                
-| Contrôle/Commande + fin         | Atteindre la fin de la cellule   |                               
-| Contrôle/Commande + gauche        | Atteindre le mot à gauche |                               
-| Contrôle/Commande + droite       | Atteindre le mot à droite |                              
-| Contrôle/Commande + retour arrière   | Supprimer le mot précédent |                             
-| Contrôle/Commande + Suppr      | Supprimer le mot suivant |                              
-| Contrôle/Commande + /           | Afficher/masquer le commentaire sur cu
 
 ## <a name="find-compute-details"></a>Rechercher les détails d’un calcul
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b14dcb9ce2f2426d8d1496541022602a114cb6e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 61b45d6f6414b1e8e1f48f6d46957b21b9b8c58b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209041"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052496"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-azure-vm"></a>Activer Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -22,7 +22,7 @@ Cet article explique comment utiliser une machine virtuelle Azure pour activer l
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](../index.yml) pour gérer les machines.
+* [Compte Automation](../automation-security-overview.md) pour gérer les machines.
 * Une [machine virtuelle](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
@@ -31,11 +31,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
-1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles** , ou recherchez et sélectionnez **Machines virtuelles** sur la page d’accueil.
+1. Dans le [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez **Machines virtuelles** sur la page d’accueil.
 
 2. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Change Tracking et Inventory. Les machines virtuelles peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation.
 
-3. Dans la page de la machine virtuelle, sélectionnez **Inventory** ou **Change Tracking** sous **Gestion de la configuration** .
+3. Dans la page de la machine virtuelle, sélectionnez **Inventory** ou **Change Tracking** sous **Gestion de la configuration**.
 
 4. Vous devez disposer de l’autorisation `Microsoft.OperationalInsights/workspaces/read` pour déterminer si la machine virtuelle est activée pour un espace de travail. Pour en savoir plus sur les autorisations supplémentaires nécessaires, consultez [Autorisations de configuration de fonctionnalité](../automation-role-based-access-control.md#feature-setup-permissions). Pour savoir comment activer plusieurs machines en même temps, consultez [Activer Change Tracking et Inventory à partir d’un compte Automation](enable-from-automation-account.md).
 

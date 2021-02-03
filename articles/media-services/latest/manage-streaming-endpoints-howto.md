@@ -1,5 +1,5 @@
 ---
-title: Gérer les points de terminaison de streaming avec Azure Media Services v3
+title: Gérer les points de terminaison de streaming
 description: Cet article montre comment gérer les points de terminaison de streaming avec Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 8d3835d78ec55f120f6b9439aea9c29434e6bd47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d656ce23cf68a1eec23421b769d5847f9b661bb4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289475"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955900"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Gérer les points de terminaison de streaming avec Media Services v3
 

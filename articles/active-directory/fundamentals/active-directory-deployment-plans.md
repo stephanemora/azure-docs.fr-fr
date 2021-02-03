@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4185ffd644d54c419f42c78326ca10bf100443c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672379"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051428"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement Azure AD abordent les notions de base (valeur commerciale, planification et procédures opérationnelles) nécessaires pour réussir à déployer les fonctionnalités Azure AD les plus courantes.
@@ -39,7 +39,7 @@ Vous souhaitez des conseils de bout en bout sur le déploiement des fonctionnali
 | Fonctionnalité | Description|
 | -| - |
 | [Authentification unique](../manage-apps/plan-sso-deployment.md)| Avec l’authentification unique, vos utilisateurs peuvent accéder à toutes les applications et ressources dont ils ont besoin pour travailler en se connectant une seule fois. Une fois qu’ils se sont connectés, ils peuvent passer de Microsoft Office à SalesForce, à Box ou à des applications internes sans devoir entrer encore une fois les informations d’identification. |
-| [Volet d’accès](../manage-apps/access-panel-deployment-plan.md)| Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs. |
+| [Mes applications](../manage-apps/my-apps-deployment-plan.md)| Offrez aux utilisateurs un hub simple leur permettant de découvrir toutes leurs applications et d’y accéder. Donnez-leur la possibilité d’accroître leur productivité grâce à des fonctionnalités en libre-service, pour demander l’accès à de nouveaux groupes et applications ou gérer l’accès à ces ressources pour le compte d’autres utilisateurs. |
 | [Appareils](../devices/plan-device-deployment.md) | Cet article vous aide à évaluer les méthodes d’intégration de votre périphérique avec Azure AD, à choisir le plan d’implémentation et fournit des liens clés vers les outils de gestion des périphériques pris en charge. |
 
 

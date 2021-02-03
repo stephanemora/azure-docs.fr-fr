@@ -3,12 +3,12 @@ title: Installer le serveur de sauvegarde Azure sur Azure Stack
 description: Dans cet article, vous allez découvrir comment utiliser un serveur de sauvegarde Azure pour protéger ou sauvegarder les charges de travail dans Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970232"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987003"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -335,13 +335,19 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
 
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès à Azure, ajoutez les adresses de domaine suivantes à la liste verte du profil de pare-feu/proxy :
+Si votre machine a un accès limité à Internet, vérifiez que les paramètres de pare-feu sur la machine ou le proxy autorisent les URL et adresses IP suivantes :
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresses IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Une fois la connexion à Azure restaurée sur le serveur de sauvegarde Azure, l’état de l’abonnement Azure détermine les opérations qu’il est possible d’effectuer. Une fois que le serveur est **connecté**, utilisez le tableau présenté dans la section [Connectivité réseau](backup-mabs-install-azure-stack.md#network-connectivity) pour voir les opérations disponibles.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448701"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063306"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestion du stockage Kubernetes sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -79,11 +79,11 @@ Les étapes suivantes se produisent :
 
 Sur l’appareil Azure Stack Edge Pro, les `PersistentVolumes` provisionnés de manière statique sont créés à l’aide des fonctionnalités de stockage de l’appareil. Lorsque vous provisionnez un partage et que l’option **Utiliser le partage avec Edge Computing** est activée, cette action crée automatiquement une ressource PV dans le cluster Kubernetes.
 
-![Création d’un partage local dans le portail Azure pour le provisionnement statique](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Création d’un partage local dans le portail Azure pour le provisionnement statique](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Pour utiliser la hiérarchisation cloud, vous pouvez créer un partage cloud Edge avec l’option Utiliser le partage avec Edge Computing activée. Un PV est de nouveau créé automatiquement pour ce partage. Toutes les données d’application que vous écrivez dans le partage Edge sont hiérarchisées dans le cloud. 
 
-![Création d’un partage cloud dans le portail Azure pour le provisionnement statique](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Création d’un partage cloud dans le portail Azure pour le provisionnement statique](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Vous pouvez créer des partages SMB et NFS pour provisionner de manière statique des PV sur un appareil Azure Stack Edge Pro. Une fois le PV provisionné, vous devez soumettre un PVC pour revendiquer ce stockage. Voici un exemple de déploiement PVC `yaml` qui réclame le stockage et utilise les partages que vous avez provisionnés.
 

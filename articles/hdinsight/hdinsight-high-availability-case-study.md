@@ -1,19 +1,16 @@
 ---
 title: Étude de cas d’architecture de solution hautement disponible Azure HDInsight
 description: Cet article est une étude de cas fictive d’une architecture de solution à haute disponibilité Azure HDInsight possible.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855036"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945356"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Étude de cas d’architecture de solution hautement disponible Azure HDInsight
 
@@ -68,11 +65,11 @@ Il est important de déterminer les fonctionnalités métier minimales dont vous
 
 L’illustration suivante montre l’architecture de récupération d’urgence haute disponibilité de Contoso Retail.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Architecture Contoso Retail":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Solution Contoso":::
 
 **Kafka** utilise la réplication [Active – Passive](hdinsight-business-continuity-architecture.md#apache-kafka) pour mettre en miroir les rubriques Kafka de la région primaire vers la région secondaire. Une alternative à la réplication Kafka pourrait consister à produire sur Kafka dans les deux régions.
 
-**Hive et Spark** utilisent des modèles de réplication [Primaire active - Secondaire à la demande ](hdinsight-business-continuity-architecture.md#apache-spark) en temps normal. Le processus de réplication Hive s’exécute régulièrement et accompagne la réplication du metastore Hive Azure SQL et du compte de stockage Hive. Le compte de stockage Spark est périodiquement répliqué à l’aide d’ADF DistCP. La nature temporaire de ces clusters permet d’optimiser les coûts. Les réplications sont planifiées toutes les 4 heures pour atteindre un RPO qui est largement dans les cinq heures.
+**Hive et Spark** utilisent des modèles de réplication [Primaire active - Secondaire à la demande](hdinsight-business-continuity-architecture.md#apache-spark) en temps normal. Le processus de réplication Hive s’exécute régulièrement et accompagne la réplication du metastore Hive Azure SQL et du compte de stockage Hive. Le compte de stockage Spark est périodiquement répliqué à l’aide d’ADF DistCP. La nature temporaire de ces clusters permet d’optimiser les coûts. Les réplications sont planifiées toutes les 4 heures pour atteindre un RPO qui est largement dans les cinq heures.
 
 La réplication **HBase** utilise le modèle [Leader - Suiveur](hdinsight-business-continuity-architecture.md#apache-hbase) en temps normal pour s’assurer que les données sont toujours servies indépendamment de la région et que le RPO est égal à zéro.
 

@@ -3,12 +3,12 @@ title: Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 description: Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d37d51ee781dfbc5bcd56fa3158a622202a979c6
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2c7caad1d377070d4d4ac8436c1d8c08e786dc44
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754179"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986834"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 
@@ -65,11 +65,17 @@ Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publ
 
 Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresses IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 

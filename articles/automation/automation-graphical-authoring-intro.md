@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987320"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051579"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Créer des runbooks graphiques dans Azure Automation
 
@@ -95,7 +95,7 @@ Lorsque vous activez les nouvelles tentatives pour une activité, vous pouvez d�
 
 La condition de nouvelle tentative est une expression PowerShell qui est évaluée après chaque exécution de l’activité. Si l’expression correspond à True, l’activité s’exécute à nouveau. Si l’expression correspond à False, l’activité n’est pas réexécutée et le runbook passe à l’activité suivante.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Capture d’écran des paramètres de la fonctionnalité Activer les nouvelles tentatives.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Capture d’écran montrant le champ Réessayer jusqu’à ce que cette condition soit vraie et des exemples d’expressions PowerShell qui peuvent être utilisées dans la condition de nouvelle tentative.":::
 
 La condition de nouvelle tentative peut utiliser une variable nommée `RetryData` qui donne accès aux informations sur les nouvelles tentatives d’activité. Cette variable possède les propriétés indiquées dans le tableau suivant :
 
@@ -373,7 +373,7 @@ L'exemple suivant utilise la sortie d'une activité nommée `Get Twitter Connect
 
 ## <a name="authenticate-to-azure-resources"></a>Authentifier auprès de ressources Azure
 
-Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure. La fonctionnalité [Compte d’identification](./manage-runas-account.md), également appelée principal de service, est le mécanisme utilisé par défaut par un runbook Automation pour accéder aux ressources Azure Resource Manager dans votre abonnement. Vous pouvez ajouter cette fonctionnalité à un runbook graphique en ajoutant la ressource de connexion `AzureRunAsConnection`, qui utilise la cmdlet PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets), au canevas. Vous pouvez aussi utilisez l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Ce scénario est illustré dans l’exemple suivant.
+Dans Azure Automation, les Runbooks qui gèrent des ressources Azure doivent s’authentifier auprès d’Azure. La fonctionnalité [Compte d’identification](./automation-security-overview.md), également appelée principal de service, est le mécanisme utilisé par défaut par un runbook Automation pour accéder aux ressources Azure Resource Manager dans votre abonnement. Vous pouvez ajouter cette fonctionnalité à un runbook graphique en ajoutant la ressource de connexion `AzureRunAsConnection`, qui utilise la cmdlet PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets), au canevas. Vous pouvez aussi utilisez l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Ce scénario est illustré dans l’exemple suivant.
 
 ![Activités d’authentification de l’identification](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

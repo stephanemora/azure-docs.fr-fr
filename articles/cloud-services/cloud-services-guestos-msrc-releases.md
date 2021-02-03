@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877507"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089205"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -1578,7 +1578,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A | [4014511] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63 |9 mai 2017 |
 | N/A | [4014514] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |2.63 |9 mai 2017 |
 | N/A | [4019216] |Correctif cumulatif non relatif à la sécurité de mai |3.50 |9 mai 2017 |
-| N/A | [4014503] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |9 mai 2017 |
+| N/A | 4014503 |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |9 mai 2017 |
 | N/A | [4014506] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |9 mai 2017 |
 | N/A | [4014509] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |9 mai 2017 |
 | N/A | [4014513] |Correctif cumulatif non relatif à la sécurité de mai pour .NET |3.50 |9 mai 2017 |
@@ -2327,7 +2327,6 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2679,7 +2678,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2689,7 +2688,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

@@ -2,15 +2,16 @@
 title: Activer Azure Automation Update Management à partir du portail Azure
 description: Cet article explique comment activer Update Management à partir du portail Azure.
 services: automation
-ms.date: 04/11/2019
-ms.topic: article
+ms.subservice: update-management
+ms.date: 01/07/2021
+ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 089c5fea6ac4a6fc4fb25af2d631335ef51cf4cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182765"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054904"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Activer Update Management à partir du portail Azure
 
@@ -24,7 +25,7 @@ Le nombre de groupes de ressources que vous pouvez utiliser pour la gestion de v
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](../index.yml) pour gérer les machines.
+* [Compte Automation](../automation-security-overview.md) pour gérer les machines.
 * Une [machine virtuelle](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

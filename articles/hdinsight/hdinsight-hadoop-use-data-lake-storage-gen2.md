@@ -1,19 +1,16 @@
 ---
 title: Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 description: Découvrez comment utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2bbfbd2d953ea663453f0092ff366e95f6dd5ea7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744582"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945383"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -28,7 +25,7 @@ Pour une comparaison complète des options de création de cluster à l'aide de 
 Data Lake Storage Gen2 est disponible comme option de stockage pour presque tous les types de clusters Azure HDInsight en tant que compte par défaut et compte de stockage supplémentaire. HBase, en revanche, ne peut avoir qu’un seul compte avec Data Lake Storage Gen2.
 
 > [!Note]  
-> Après avoir sélectionné Data Lake Storage Gen2 comme **type de stockage principal** , il n’est pas possible de sélectionner Data Lake Storage Gen1 comme stockage supplémentaire.
+> Après avoir sélectionné Data Lake Storage Gen2 comme **type de stockage principal**, il n’est pas possible de sélectionner Data Lake Storage Gen1 comme stockage supplémentaire.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Création de clusters HDInsight avec Data Lake Storage Gen2
 
@@ -66,19 +63,19 @@ Pour définir des autorisations pour que les utilisateurs puissent interroger de
 
 Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage Gen2 à partir d’un cluster HDInsight.
 
-* **Utilisation du nom complet** . Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
+* **Utilisation du nom complet**. Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Utilisation du format de chemin d’accès raccourci** . Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Utilisation du chemin d’accès relatif** . Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
+* **Utilisation du chemin d’accès relatif**. Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
 
     ```
     /<file.path>/

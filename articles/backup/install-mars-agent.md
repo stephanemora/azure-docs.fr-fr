@@ -3,12 +3,12 @@ title: Installer l’agent Microsoft Azure Recovery Services (MARS)
 description: Découvrez comment installer l’agent Microsoft Azure Recovery Services (MARS) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986868"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installer l’agent MARS de sauvegarde Azure
 
@@ -88,6 +88,9 @@ Pour utiliser le peering public, commencez par vérifier l’accès aux domaines
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Adresses IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Pour utiliser le peering Microsoft, sélectionnez les services, les régions et les valeurs de communauté pertinentes suivants :
 

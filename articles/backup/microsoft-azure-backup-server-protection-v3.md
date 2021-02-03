@@ -3,12 +3,12 @@ title: Ce que le serveur de sauvegarde Azure v3 RTM peut sauvegarder
 description: Cet article fournit une matrice de protection répertoriant toutes les charges de travail, tous les types de données et toutes les installations que protège le serveur de sauvegarde Azure v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752377"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986885"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure v3 RTM
 
@@ -86,11 +86,16 @@ Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publ
 
 Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresses IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Avec le peering Microsoft, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :
 

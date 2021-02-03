@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d2e9e306e979f569819568650b25d49278997ede
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878525"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954291"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Présentation des utilitaires Microsoft Spark
 
@@ -39,10 +39,6 @@ Vous pouvez accéder aux données sur ADLS Gen2 à l’aide de Synapse Spark via
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-<!-- ### Configure access to Azure Blob Storage  -->
-
-:::zone pivot = "programming-language-python"
-
 ### <a name="configure-access-to-azure-blob-storage"></a>Configurer l’accès à Stockage Blob Azure  
 
 Synapse exploite la **signature d’accès partagé (SAP)** pour accéder à Stockage Blob Azure. Pour éviter d’exposer des clés SAP dans le code, nous vous recommandons de créer un nouveau service lié dans l’espace de travail Synapse sur le compte Stockage Blob Azure auquel vous souhaitez accéder.
@@ -62,6 +58,8 @@ Vous pouvez accéder aux données sur Stockage Blob Azure à l’aide de Synapse
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Voici un exemple de code :
+
+:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -86,26 +84,6 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="configure-access-to-azure-blob-storage"></a>Configurer l’accès à Stockage Blob Azure  
-
-Synapse exploite la **signature d’accès partagé (SAP)** pour accéder à Stockage Blob Azure. Pour éviter d’exposer des clés SAP dans le code, nous vous recommandons de créer un nouveau service lié dans l’espace de travail Synapse sur le compte Stockage Blob Azure auquel vous souhaitez accéder.
-
-Procédez comme suit pour ajouter un nouveau service lié pour un compte Stockage Blob Azure :
-
-1. Ouvrez [Azure Synapse Studio](https://web.azuresynapse.net/).
-2. Sélectionnez **Gérer** dans le volet gauche, puis **Services liés** sous **Connexions externes**.
-3. Recherchez **Stockage Blob Azure** dans le panneau **Nouveau service lié** à droite.
-4. Sélectionnez **Continuer**.
-5. Sélectionnez le compte Stockage Blob Azure pour y accéder et configurer le nom du service lié. Suggérer l’utilisation d’une **clé de compte** pour la **méthode d’authentification**.
-6. Sélectionnez **Tester la connexion** pour vérifier que les paramètres sont corrects.
-7. Sélectionnez **Créer**, puis sur **Publier tout** pour enregistrer vos modifications. 
-
-Vous pouvez accéder aux données sur Stockage Blob Azure à l’aide de Synapse Spark via l’URL suivante :
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-Voici un exemple de code :
-
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -122,13 +100,24 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-<!-- :::zone pivot = "programming-language-csharp"
+:::zone pivot = "programming-language-csharp"
 
 ```csharp
+var blob_account_name = "";  // replace with your blob name
+var blob_container_name = "";     // replace with your container name
+var blob_relative_path = "";  // replace with your relative folder path
+var linked_service_name = "";    // replace with your linked service name
+var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
+
+spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+
+var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
+
+Console.WriteLine(wasbs_path);
 
 ```
 
-::: zone-end -->
+::: zone-end 
  
 ###  <a name="configure-access-to-azure-key-vault"></a>Configurer l’accès à Azure Key Vault
 

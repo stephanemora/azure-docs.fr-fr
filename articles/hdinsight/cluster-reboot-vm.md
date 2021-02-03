@@ -1,19 +1,16 @@
 ---
 title: Redémarrer des machines virtuelles pour des clusters Azure HDInsight
 description: Découvrez comment redémarrer des machines virtuelles qui ne répondent pas pour des clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a61735dba60860459d007eb54d4655f41d5ae51a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546464"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946870"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Redémarrer des machines virtuelles pour des clusters HDInsight
 
@@ -32,7 +29,7 @@ Pendant le redémarrage d’un nœud, le cluster peut devenir non sain et les tr
 - Le tableau de processus sur la machine virtuelle a de nombreuses entrées pour lesquelles le processus est terminé, mais qui sont répertoriées sous « État arrêté ».
 
 > [!NOTE]
-> Le redémarrage des machines virtuelles n’est pas pris en charge pour les clusters **HBase** et **Kafka** , car il peut entraîner la perte de données.
+> Le redémarrage des machines virtuelles n’est pas pris en charge pour les clusters **HBase** et **Kafka**, car il peut entraîner la perte de données.
 
 ## <a name="use-powershell-to-reboot-vms"></a>Utiliser PowerShell pour redémarrer des machines virtuelles
 
@@ -60,7 +57,7 @@ Vous pouvez utiliser la fonctionnalité **Try it** dans la documentation de l’
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Redémarrez les ordinateurs hôtes. Après avoir obtenu le nom des nœuds que vous souhaitez redémarrer, utilisez l’API REST pour redémarrer les nœuds. Le nom du nœud suit le modèle *NodeType (wn/hn/zk/gw)*  + *x* + *les six premiers caractères du nom du cluster* . Pour plus d’informations, consultez [Opération de l’API REST Redémarrer des hôtes HDInsight](/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Redémarrez les ordinateurs hôtes. Après avoir obtenu le nom des nœuds que vous souhaitez redémarrer, utilisez l’API REST pour redémarrer les nœuds. Le nom du nœud suit le modèle *NodeType (wn/hn/zk/gw)*  + *x* + *les six premiers caractères du nom du cluster*. Pour plus d’informations, consultez [Opération de l’API REST Redémarrer des hôtes HDInsight](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview

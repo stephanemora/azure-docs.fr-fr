@@ -3,16 +3,16 @@ title: Engagement en tant que partenaire de co-vente – Marketplace commercial 
 description: Le programme de co-vente pour les partenaires d’Espace partenaires Microsoft peut vous aider à atteindre une vaste clientèle et à générer de nouvelles ventes.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880285"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063077"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -22,7 +22,7 @@ Le programme de co-vente est disponible pour les **logiciels créés avec votre 
 
 - Les offres **Prêtes pour la co-vente** sont présentées aux vendeurs de terrain Microsoft. Lorsque vous travaillez avec des vendeurs Microsoft, le programme de co-vente vous donne accès à une importante communauté de clients managés par Microsoft et vous permet de collaborer sur des opportunités de vente qui stimulent la croissance de votre entreprise.
 
-    ![Diagramme montrant comment la co-vente se produit lorsque les prospects sont partagés, acceptés et gagnés auprès des clients managés par Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagramme montrant comment la co-vente se produit lorsque les prospects sont partagés, acceptés et gagnés auprès des clients managés par Microsoft.":::
 
 - Les offres IP de type **Co-vente avec incentives** peuvent générer des primes pour les vendeurs de terrain Microsoft lorsqu’elles sont vendues en collaboration avec les équipes de vente Microsoft, en plus des avantages du marketplace répertoriés ci-dessous.</li></ul>
 
@@ -63,7 +63,7 @@ Vous pouvez vous lancer dans la co-vente directement à partir de l’Espace par
 
 1. Dans le menu de gauche, sélectionnez **Covendre avec Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.":::
+    [![Cette image montre l’emplacement de l’onglet Covendre avec Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Fournissez des détails sur la liste de base pour aider les vendeurs Microsoft à trier et découvrir rapidement votre offre dans la section **Liste**. (*Obligatoire : tous les champs.* )
 
@@ -71,29 +71,20 @@ Vous pouvez vous lancer dans la co-vente directement à partir de l’Espace par
 
 1. Fournissez des détails sur votre offre et chargez les éléments associés dans la section **Documents**. Les vendeurs Microsoft utiliseront ces informations pour recommander et vendre votre offre. *(Obligatoire : une page de la solution/l’offre et jeu de diapositives de la solution/l’offre. Requis pour atteindre l’état de Co-vente avec incentives Azure IP : diagramme de l’architecture de référence.)*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Cette image montre la section Documents sous l’onglet Covente.":::
+    [![Cette image montre la section Documents sous l’onglet Covente.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Chargez les coordonnées du service commerciale dans la section **Contacts**. Les vendeurs Microsoft sont susceptibles de contacter ces personnes afin d’obtenir des informations supplémentaires sur votre offre. (*Obligatoire : contact pour chaque zone géographique dans laquelle votre offre est disponible.* )
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Cette image montre la section Contacts de l’onglet Covente.":::
+    [![Cette image montre la section Contacts de l’onglet Covente.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Enregistrez le brouillon avant de continuer.
 1. Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez l’envoyer pour révision et publication. Dans l’angle supérieur droit, sélectionnez **Vérifier et publier**. Passez en revue les détails de l’offre, puis sélectionnez **Publier**.
-1. Après avoir vérifié que vous respectez les [critères pour le statut de co-vente que vous souhaitez](#co-sell-publishing-steps-and-requirements), suivez les instructions ci-dessous pour proposer votre offre pour la co-vente :
-    1. **Si vous avez un responsable partenaire Microsoft (par exemple, PDM) :** contactez-le pour obtenir de l’aide. Il vous guidera dans le processus de proposition pour l’état Prêt pour la co-vente, ainsi que la co-vente Azure IP ou la Co-vente d’applications métier avec incentives (le cas échéant).
-
-    1. **Si vous n’avez pas de responsable partenaire Microsoft (par exemple, PDM) :** [proposez vous-même via le Cloud Enablement Desk (CED)](https://aka.ms/cednominate). Sélectionnez « Becoming co-sell ready » (Devenir Prêt pour la co-vente) dans la liste déroulante « Desired CED Services » (Services CED souhaités) :
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Cette image présente la liste déroulante CED pour demander une révision de co-vente.":::
-
-    Le CED vous contactera pour terminer le processus.
 
 ## <a name="see-your-offers-co-sell-status"></a>Voir l’état Co-vente de votre offre
 
 Pour les offres avec [l’option de co-vente sur le marketplace commercial](commercial-marketplace-co-sell.md), vous pouvez voir l’état Co-vente actuel de votre offre sur la page Vue d’ensemble de l’offre :
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Cette image montre l’état Co-vente actuel des offres.":::
-
+[![Cette image montre l’état Co-vente actuel des offres.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570114"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953799"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutoriel : Configurer l’approvisionnement d’utilisateurs SAP SuccessFactors vers Active Directory 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. 
@@ -186,7 +186,7 @@ Cette section présente les étapes à suivre pour configurer le provisionnement
 
 Pour tout provisionnement vers une instance locale d’Active Directory, l’agent de provisionnement doit être installé sur un serveur joint au domaine ayant un accès réseau aux domaines Active Directory souhaités.
 
-Transférez le programme d’installation de l’agent téléchargé sur l’hôte du serveur et suivez les étapes indiquées [dans la section Installer l’agent](../cloud-provisioning/how-to-install.md) pour terminer la configuration de l’agent.
+Transférez le programme d’installation de l’agent téléchargé sur l’hôte du serveur et suivez les étapes indiquées [dans la section Installer l’agent](../cloud-sync/how-to-install.md) pour terminer la configuration de l’agent.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Troisième partie : Dans l’application de provisionnement, configurer la connectivité à SuccessFactors et Active Directory
 Lors de cette étape, nous allons établir la connectivité avec SuccessFactors et Active Directory dans le portail Azure. 
@@ -209,12 +209,12 @@ Lors de cette étape, nous allons établir la connectivité avec SuccessFactors 
         > Ce paramètre concerne seulement les créations de comptes d’utilisateur si l’attribut *parentDistinguishedName* attribut n’est pas configuré dans les mappages d’attributs. Ce paramètre n’est pas utilisé pour la recherche d’utilisateurs ni pour les opérations de mise à jour. Toute la sous-arborescence du domaine se trouve dans l’étendue de l’opération de recherche.
 
    * **E-mail de notification :** entrez votre adresse e-mail et activez la case à cocher « Envoyer un e-mail en cas de défaillance ».
-    > [!NOTE]
-    > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).
+     > [!NOTE]
+     > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](../app-provisioning/application-provisioning-quarantine-status.md).
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification de SuccessFactors et celles d’Active Directory configurées dans le programme d’installation de l’agent sont valides.
-    >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les employés SuccessFactors avec l’instance locale d’Active Directory**.
 
@@ -250,9 +250,8 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
 
 1. Dans la section **Mappages d’attributs**, vous pouvez définir la manière dont les différents attributs SuccessFactors sont mappés aux attributs Active Directory.
 
-  >[!NOTE]
-  >Pour obtenir la liste complète des attributs SuccessFactors pris en charge par l’application, consultez la [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
-
+     >[!NOTE]
+     >Pour obtenir la liste complète des attributs SuccessFactors pris en charge par l’application, consultez la [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
 
 1. Cliquez sur un mappage d’attributs existants à mettre à jour ou cliquez sur **Ajouter un nouveau mappage** en bas de l’écran pour ajouter de nouveaux mappages. Un mappage d’attribut individuel prend en charge les propriétés suivantes :
 

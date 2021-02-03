@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220250"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944909"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -60,7 +60,7 @@ Message d’erreur :
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Cause** : Vous avez atteint la limite de capacité du runtime d’intégration. Vous exécutez peut-être une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2).
+**Cause** : Vous avez atteint la limite de capacité du runtime d’intégration. Vous exécutez peut-être une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2).
 
 **Résolution** :
  
@@ -76,13 +76,13 @@ Azure Data Factory évalue le résultat de toutes les activités au niveau feuil
 **Résolution :**
 
 1. Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+1. Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
 
 ## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Surveiller les échecs de pipeline à intervalles réguliers
 
 Vous devrez peut-être surveiller les pipelines Data Factory à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
 
-Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à notre système de tickets.
+Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à notre système de tickets.
 
 Pour plus d’informations, consultez [Envoi de notifications à partir de Data Factory, partie 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 

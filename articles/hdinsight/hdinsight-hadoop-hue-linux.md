@@ -1,19 +1,16 @@
 ---
 title: Hue avec Hadoop sur les clusters HDInsight basés sur Linux - Azure
 description: Apprenez comment installer Hue sur les clusters HDInsight et utiliser le tunnel pour acheminer les demandes de Hue. Utilisez Hue pour parcourir le stockage et exécuter Hive ou Pig.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: e80df5d1c3d2b2195e76622964406cc65c933a63
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546192"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945678"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
@@ -87,11 +84,11 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
 ### <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. À partir du portail Hue, sélectionnez **Éditeurs de requête** , puis sélectionnez **Hive** pour ouvrir l’éditeur Hive.
+1. À partir du portail Hue, sélectionnez **Éditeurs de requête**, puis sélectionnez **Hive** pour ouvrir l’éditeur Hive.
 
     ![Portail Hue sur HDInsight - Utiliser l’éditeur Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Utiliser Hive")
 
-2. Sous l’onglet **Aide** , sous **Base de données** , vous devez voir **hivesampletable** . Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
+2. Sous l’onglet **Aide**, sous **Base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
 
     ![Portail Hue sur HDInsight - Requête Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Exécuter une requête Hive")
 
@@ -125,7 +122,7 @@ Vous ne pouvez avoir qu’un seul compte d’utilisateur Hue sur des clusters st
 
    Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur le nœud principal primaire.
 
-1. Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasbs://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’ **Explorateur de fichiers** ), il doit être compris comme WASB.
+1. Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasbs://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’ **Explorateur de fichiers**), il doit être compris comme WASB.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,19 +1,16 @@
 ---
 title: Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 description: Configurez Hadoop, Kafka, Spark, HBase, R Server ou les clusters Storm pour HDInsight à partir d’un navigateur, d’Azure Classic CLI, d’Azure PowerShell, de REST ou du SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 6ce5de354583da04905f9f889cfabe36e6da6667
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546124"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945552"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -92,7 +89,7 @@ Choisissez la version de HDInsight pour ce cluster. Pour plus d’informations, 
 
 Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateur lors de la création :
 
-* Nom d’utilisateur de connexion au cluster : Le nom d’utilisateur par défaut est *admin* . Il utilise la configuration de base sur le portail Azure. Parfois, le nom par défaut est « Utilisateur du cluster » ou « Utilisateur HTTP ».
+* Nom d’utilisateur de connexion au cluster : Le nom d’utilisateur par défaut est *admin*. Il utilise la configuration de base sur le portail Azure. Parfois, le nom par défaut est « Utilisateur du cluster » ou « Utilisateur HTTP ».
 * Nom d’utilisateur SSH (Secure Shell) : sert à se connecter au cluster à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Le nom d’utilisateur HTTP présente les restrictions suivantes :
@@ -120,7 +117,7 @@ Les clusters HDInsight peuvent utiliser les options de stockage suivantes :
 * Azure Data Lake Storage Gen1
 * Stockage Azure Usage général v2
 * Stockage Azure Usage général v1
-* Objet blob de blocs Stockage Azure ( **pris en charge uniquement comme stockage secondaire** )
+* Objet blob de blocs Stockage Azure (**pris en charge uniquement comme stockage secondaire**)
 
 Pour plus d’informations sur les options de stockage avec HDInsight, voir [Comparer les options de stockage à utiliser avec les clusters Azure HDInsight](hdinsight-hadoop-compare-storage-options.md).
 
@@ -172,7 +169,7 @@ Ambari permet de superviser les clusters HDInsight, d’apporter des modificatio
 
 ### <a name="enterprise-security-package"></a>Package de sécurité d’entreprise
 
-Pour les types de cluster Hadoop, Spark, HBase, Kafka et Interactive Query, vous pouvez choisir d’activer le **Pack Sécurité Entreprise** . Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+Pour les types de cluster Hadoop, Spark, HBase, Kafka et Interactive Query, vous pouvez choisir d’activer le **Pack Sécurité Entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 Le package de sécurité d’entreprise vous permet d’intégrer HDInsight à Active Directory et Apache Ranger. Plusieurs utilisateurs peuvent être créés à l’aide du package de sécurité d’entreprise.
 
@@ -237,7 +234,7 @@ Si vous essayez simplement HDInsight, nous vous recommandons d’utiliser un nœ
 > [!NOTE]  
 > La limite de taille du cluster varie selon les abonnements Azure. Contactez le [support de facturation Azure](../azure-portal/supportability/how-to-create-azure-support-request.md) pour augmenter la limite.
 
-Quand vous utilisez le portail Azure pour configurer le cluster, la taille de nœud est indiquée sous l’onglet **Configuration + prix** . Dans le portail, vous pouvez également voir le coût associé aux différentes tailles de nœuds.
+Quand vous utilisez le portail Azure pour configurer le cluster, la taille de nœud est indiquée sous l’onglet **Configuration + prix**. Dans le portail, vous pouvez également voir le coût associé aux différentes tailles de nœuds.
 
 ### <a name="virtual-machine-sizes"></a>Tailles de machines virtuelles
 
@@ -261,7 +258,7 @@ La plupart des applications HDInsight sont installées sur un nœud de périmèt
 
 ### <a name="script-actions"></a>Actions de script
 
-Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **action de script** , une option de configuration qui peut être utilisée à partir du portail Azure, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
+Vous pouvez installer des composants supplémentaires ou personnaliser la configuration de cluster à l’aide de scripts lors de la création. Ces scripts sont appelés à l’aide de l’option **action de script**, une option de configuration qui peut être utilisée à partir du portail Azure, de cmdlets HDInsight Windows PowerShell ou du Kit de développement logiciel (SDK) HDInsight .NET. Pour plus d’informations, consultez la page [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Certains composants Java natifs, comme Apache Mahout et Cascading, peuvent être exécutés sur le cluster en tant que fichiers Java Archive (JAR). Ces fichiers JAR peuvent être distribués au stockage Azure et envoyés aux clusters HDInsight à l’aide des mécanismes de soumission des travaux Hadoop. Pour plus d’informations, consultez [Envoi de tâches Apache Hadoop par programmation](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

@@ -2,19 +2,15 @@
 title: Résoudre les problèmes de Runbook Worker hybride d’Azure Automation
 description: Cet article explique comment détecter et résoudre des problèmes liés aux Runbook Workers hybride d’Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428404"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055329"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -58,7 +54,7 @@ Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un
 
 #### <a name="issue"></a>Problème
 
-Le Runbook Worker hybride reçoit l’événement 15011, indiquant qu’un résultat de requête n’est pas valide. L’erreur suivante s’affiche lorsque le Worker tente d’ouvrir une connexion avec le [serveur Signalr](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Le Runbook Worker hybride reçoit l’événement 15011, indiquant qu’un résultat de requête n’est pas valide. L’erreur suivante s’affiche lorsque le Worker tente d’ouvrir une connexion avec le [serveur Signalr](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -110,7 +106,7 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Cause
 
-Cette erreur se produit lorsque vous essayez d’utiliser un [compte d’identification](../manage-runas-account.md) dans un runbook qui s’exécute sur un Runbook Worker hybride où le certificat de compte d’identification n’est pas présent. Les Runbook Worker hybrides n’ont pas la ressource de certificat locale par défaut. Le compte d’identification exige que cette ressource fonctionne correctement.
+Cette erreur se produit lorsque vous essayez d’utiliser un [compte d’identification](../automation-security-overview.md#run-as-accounts) dans un runbook qui s’exécute sur un Runbook Worker hybride où le certificat de compte d’identification n’est pas présent. Les Runbook Worker hybrides n’ont pas la ressource de certificat locale par défaut. Le compte d’identification exige que cette ressource fonctionne correctement.
 
 #### <a name="resolution"></a>Résolution
 
@@ -186,15 +182,15 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 La liste suivante présente les processus démarrés pour un Runbook Worker hybride Linux. Ils se trouvent tous dans le répertoire /var/opt/Microsoft/omsagent/State/automationworker/.
 
-* **oms.conf**  : processus du gestionnaire de Workers. Vous pouvez le démarrer directement à partir de DSC.
-* **worker.conf**  : processus Worker hybride automatiquement inscrit. Il est démarré par le gestionnaire de Worker. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si Update Management n’est pas activé sur la machine.
-* **diy/worker.conf**  : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si Azure Automation est désactivé et si le Worker hybride Linux personnalisé n’est pas inscrit.
+* **oms.conf** : processus du gestionnaire de Workers. Vous pouvez le démarrer directement à partir de DSC.
+* **worker.conf** : processus Worker hybride automatiquement inscrit. Il est démarré par le gestionnaire de Worker. Ce processus est utilisé par Update Management et il est transparent pour l’utilisateur. Ce processus n’est pas présent si Update Management n’est pas activé sur la machine.
+* **diy/worker.conf** : processus Worker hybride personnalisé. Le processus Worker hybride personnalisé est utilisé pour exécuter des runbooks utilisateur sur le Runbook Worker hybride. Il diffère uniquement du processus Worker hybride automatiquement inscrit par le fait qu’il utilise une configuration différente. Ce processus n’est pas présent si Azure Automation est désactivé et si le Worker hybride Linux personnalisé n’est pas inscrit.
 
 Si l’agent n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas.
 
-Si vous voyez le message d’erreur `The specified class does not exist..` dans **/var/opt/Microsoft/omsconfig/omsconfig.log** , l’agent Log Analytics pour Linux doit être mis à jour. Exécutez la commande suivante pour réinstaller l’agent.
+Si vous voyez le message d’erreur `The specified class does not exist..` dans **/var/opt/Microsoft/omsconfig/omsconfig.log**, l’agent Log Analytics pour Linux doit être mis à jour. Exécutez la commande suivante pour réinstaller l’agent.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -222,7 +218,7 @@ Vérifiez que l’agent est en cours d’exécution en entrant la commande suiva
 
 #### <a name="issue"></a>Problème
 
-Dans le journal des événements **Journaux des applications et des services\Operations Manager** , vous voyez l’événement 4502 et un message d’événement contenant `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` avec la description suivante :<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
+Dans le journal des événements **Journaux des applications et des services\Operations Manager**, vous voyez l’événement 4502 et un message d’événement contenant `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` avec la description suivante :<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Cause
 
@@ -238,7 +234,7 @@ Les Workers hybrides envoient une [sortie et des messages de runbook](../automat
 
 #### <a name="issue"></a>Problème
 
-Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Microsoft 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) pour la connexion. 
+Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Microsoft 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice) pour la connexion. 
 
 Le bac à sable ne se connecte toujours pas correctement si vous modifiez le fichier **Orchestrator.Sandbox.exe.config** de manière à définir le proxy et la liste de contournement. Un fichier **Powershell_ise.exe.config** comportant les mêmes paramètres de proxy et de liste de contournement semble fonctionner comme prévu. Les journaux SMA (Service Management Automation) et PowerShell ne fournissent aucune information concernant le proxy.
 
@@ -250,7 +246,7 @@ La connexion aux services de fédération Active Directory (AD FS) sur le serveu
 
 Vous pouvez résoudre le problème du bac à sable Orchestrator en migrant votre script afin d'utiliser les modules Azure Active Directory au lieu du module MSOnline pour les cmdlets PowerShell. Pour plus d’informations, consultez [Migration d'Orchestrator vers Azure Automation (bêta)](../automation-orchestrator-migration.md).
 
-Si vous souhaitez continuer à utiliser les cmdlets du module MSOnline, modifiez votre script pour utiliser [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Spécifiez les valeurs des paramètres `ComputerName` et `Credential`. 
+Si vous souhaitez continuer à utiliser les cmdlets du module MSOnline, modifiez votre script pour utiliser [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Spécifiez les valeurs des paramètres `ComputerName` et `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

@@ -3,12 +3,12 @@ title: Préparer le serveur DPM pour sauvegarder des charges de travail
 description: Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002855"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985629"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -48,7 +48,7 @@ Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegard
 Types de fichiers non pris en charge | <li>Serveurs sur des systèmes de fichiers qui respectent la casse<li> Liens physiques (ignorés)<li> Points d’analyse (ignorés)<li> Chiffré et compressé (ignoré)<li> Chiffré et partiellement alloué (ignoré)<li> Flux compressé<li> Flux d’analyse
 Stockage local | Chaque machine que vous voulez sauvegarder doit disposer d’un espace de stockage libre d’au moins 5 % de la taille des données sauvegardées. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
 Stockage dans le coffre | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54,400 Go.
-Azure ExpressRoute | Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.<br/><br/> **Avec le peering public** : Garantissez l’accès aux domaines/adresses suivants :<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> Avec le **peering Microsoft**, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Région Microsoft Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>- Stockage Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Remarque** : Le peering public est déprécié pour les nouveaux circuits.
+Azure ExpressRoute | Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur un peering privé n’est pas prise en charge.<br/><br/> **Avec le peering public** : Garantissez l’accès aux domaines/adresses suivants :<br/><br/> URL :<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Adresses IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>Avec le **peering Microsoft**, sélectionnez les services/régions et les valeurs de communauté pertinentes suivants :<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Région Microsoft Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>- Stockage Azure (en fonction de l’endroit de votre coffre Recovery Services)<br/><br/>Pour plus d’informations, consultez [Exigences du routage ExpressRoute](../expressroute/expressroute-routing.md).<br/><br/>**Remarque** : Le peering public est déprécié pour les nouveaux circuits.
 Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu.
 
 Avant de commencer, vous devez disposer d’un compte Azure avec la fonctionnalité Sauvegarde Azure activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).

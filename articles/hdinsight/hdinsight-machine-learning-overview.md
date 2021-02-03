@@ -1,19 +1,16 @@
 ---
 title: Vue d’ensemble du Machine Learning - Azure HDInsight
 description: Vue d’ensemble des options de Machine Learning Big Data des clusters dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302687"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945255"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 

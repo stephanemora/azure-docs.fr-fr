@@ -3,12 +3,12 @@ title: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
 description: Voici comment mettre à niveau un cluster Service Fabric existant pour utiliser des disques managés Azure avec peu ou pas de temps d’arrêt de votre cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316156"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090652"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure
 
@@ -30,11 +30,11 @@ Cet article vous guide tout au long des étapes de mise à niveau du type de nœ
 > [!CAUTION]
 > Vous rencontrerez une panne avec cette procédure uniquement si vous avez des dépendances sur le DNS du cluster (par exemple, lors de l’accès à [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). La [meilleure pratique architecturale pour les services frontaux](/azure/architecture/microservices/design/gateway) consiste à avoir un certain type d’[équilibreur de charge](/azure/architecture/guide/technology-choices/load-balancing-overview) devant vos types de nœud pour rendre possible l’échange de nœuds sans provoquer de panne.
 
-Voici les [modèles et cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) pour Azure Resource Manager que nous allons utiliser pour terminer le scénario de mise à niveau. Les modifications du modèle seront expliquées dans la partie [Déployer un groupe identique mis à niveau pour le type de nœud principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) ci-dessous.
+Voici les [modèles et cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) pour Azure Resource Manager que nous allons utiliser pour terminer le scénario de mise à niveau. Les modifications du modèle seront expliquées dans la partie [Déployer un groupe identique mis à niveau pour le type de nœud principal](#deploy-an-upgraded-scale-set-for-the-primary-node-type) ci-dessous.
 
 ## <a name="set-up-the-test-cluster"></a>Configurer le cluster de test
 
-Configurons le cluster de test Service Fabric initial. Tout d’abord, [téléchargez](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) les exemples de modèles Azure Resource Manager que nous allons utiliser pour terminer ce scénario.
+Configurons le cluster de test Service Fabric initial. Tout d’abord, [téléchargez](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) les exemples de modèles Azure Resource Manager que nous allons utiliser pour terminer ce scénario.
 
 Ensuite, connectez-vous à votre compte Azure.
 
@@ -373,6 +373,6 @@ Découvrez comment :
 
 Voir aussi :
 
-* [Exemple : Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Exemple : Mettre à niveau des nœuds de cluster pour utiliser des disques managés Azure](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Considérations relatives à la mise à l’échelle verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

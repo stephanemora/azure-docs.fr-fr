@@ -2,19 +2,16 @@
 title: Apprendre à utiliser un bac à sable Apache Hadoop – Émulateur – Azure HDInsight
 description: 'Pour en savoir plus sur l’utilisation de l’écosystème Apache Hadoop, vous pouvez configurer un bac à sable (sandbox) Hadoop à partir de Hortonworks sur une machine virtuelle Azure. '
 keywords: émulateur Hadoop, bac à sable (sandbox) hadoop
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547960"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946618"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur une machine virtuelle
 
@@ -39,8 +36,8 @@ Pour télécharger une version antérieure du bac à sable HDP, consultez les li
 ## <a name="start-the-virtual-machine"></a>Démarrage de la machine virtuelle
 
 1. Ouvrez Oracle VirtualBox pour machine virtuelle.
-1. À partir du menu **Fichier** , cliquez sur **Importer l’appliance** , puis spécifiez l’image de sandbox Hortonworks.
-1. Sélectionnez Hortonworks Sandbox, cliquez sur **Démarrer** , puis sur **Démarrage normal** . Une fois le processus de démarrage de la machine virtuelle terminé, celle-ci affiche les instructions de connexion.
+1. À partir du menu **Fichier**, cliquez sur **Importer l’appliance**, puis spécifiez l’image de sandbox Hortonworks.
+1. Sélectionnez Hortonworks Sandbox, cliquez sur **Démarrer**, puis sur **Démarrage normal**. Une fois le processus de démarrage de la machine virtuelle terminé, celle-ci affiche les instructions de connexion.
 
     ![démarrage normal de VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 

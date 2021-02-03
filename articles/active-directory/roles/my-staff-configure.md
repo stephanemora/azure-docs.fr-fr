@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740140"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090941"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestion des utilisateurs avec Mon personnel (préversion)
 
@@ -89,7 +89,7 @@ Les rôles suivants sont autorisés à réinitialiser le mot de passe d’un uti
 
 - [Administrateur d’authentification](permissions-reference.md#authentication-administrator)
 - [Administrateur d’authentification privilégié](permissions-reference.md#privileged-authentication-administrator)
-- [Administrateur général](permissions-reference.md#global-administrator--company-administrator)
+- [Administrateur général](permissions-reference.md#global-administrator)
 - [Administrateur du support technique](permissions-reference.md#helpdesk-administrator)
 - [Administrateur d’utilisateurs](permissions-reference.md#user-administrator)
 - [Administrateur de mots de passe](permissions-reference.md#password-administrator)
@@ -117,7 +117,7 @@ Pour gérer le numéro de téléphone d’un utilisateur, vous devez disposer de
 
 - [Administrateur d’authentification](permissions-reference.md#authentication-administrator)
 - [Administrateur d’authentification privilégié](permissions-reference.md#privileged-authentication-administrator)
-- [Administrateur général](permissions-reference.md#global-administrator--company-administrator)
+- [Administrateur général](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>Recherche
 

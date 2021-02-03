@@ -1,19 +1,16 @@
 ---
 title: Utiliser Data Lake Storage Gen1 avec Hadoop dans Azure HDInsight
 description: Découvrez comment interroger des données à partir d’Azure Data Lake Storage Gen1 et stocker les résultats de votre analyse.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539834"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945414"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -62,7 +59,7 @@ Quand HDInsight est déployé avec Data Lake Storage Gen1 en tant que stockage p
 * Cluster1 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster1storage`
 * Cluster2 peut utiliser le chemin d’accès `adl://mydatalakestore/cluster2storage`
 
-Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore** . Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le Portail Azure vous invite à utiliser un nom de dossier du type **/clusters/\<clustername>** comme chemin racine.
+Notez que les deux clusters utilisent le même compte Data Lake Storage Gen1 **mydatalakestore**. Chaque cluster a accès à son propre système de fichiers racine dans Data Lake Storage. L’expérience de déploiement avec le Portail Azure vous invite à utiliser un nom de dossier du type **/clusters/\<clustername>** comme chemin racine.
 
 Pour utiliser Data Lake Storage Gen1 comme stockage par défaut, vous devez accorder au principal de service l’accès aux chemins suivants :
 
@@ -137,19 +134,19 @@ Pour plus d’informations sur le modèle de contrôle d’accès, consultez [Co
 
 Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight.
 
-* **Utilisation du nom complet** . Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
+* **Utilisation du nom complet**. Avec cette approche, vous fournissez le chemin d’accès complet au fichier auquel vous souhaitez accéder.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Utilisation du format de chemin d’accès raccourci** . Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     adl:///<file path>
     ```
 
-* **Utilisation du chemin d’accès relatif** . Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
+* **Utilisation du chemin d’accès relatif**. Avec cette approche, vous fournissez uniquement le chemin d’accès relatif au fichier auquel vous souhaitez accéder.
 
     ```
     /<file.path>/

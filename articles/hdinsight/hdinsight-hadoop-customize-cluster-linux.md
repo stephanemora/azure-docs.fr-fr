@@ -1,19 +1,16 @@
 ---
 title: Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 description: Ajoutez des composants personnalisés aux clusters HDInsight à l’aide d’actions de script. Les actions de script sont des scripts Bash qui peuvent être utilisés pour personnaliser la configuration du cluster. Ou ajoutez des services et des utilitaires supplémentaires tels que Hue, Solr ou R
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 70918d1dc829ff0114a8c1019524feb934c9f915
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630936"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945805"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 

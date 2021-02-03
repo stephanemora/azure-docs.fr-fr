@@ -1,19 +1,16 @@
 ---
 title: Utiliser C# avec MapReduce sur Hadoop dans HDInsight - Azure
 description: Découvrez comment utiliser C# pour créer des solutions MapReduce avec Apache Hadoop dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 4153b612b4b15883f28517d806acf6b340a94e49
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543047"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946632"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utiliser C# avec streaming MapReduce sur Apache Hadoop dans HDInsight
 
@@ -31,9 +28,9 @@ Pour plus d’informations sur la compatibilité Mono avec les versions de .NET 
 
 Le processus de base utilisé pour la diffusion en continu dans ce document est la suivante :
 
-1. Hadoop transmet des données vers le mappeur ( *mapper.exe* dans cet exemple) sur STDIN.
+1. Hadoop transmet des données vers le mappeur (*mapper.exe* dans cet exemple) sur STDIN.
 2. Le mappeur traite les données et émet des paires clé/valeur séparées par des tabulations sur STDOUT.
-3. La sortie est lue par Hadoop, puis transmise au raccord de réduction ( *reducer.exe* dans cet exemple) sur STDIN.
+3. La sortie est lue par Hadoop, puis transmise au raccord de réduction (*reducer.exe* dans cet exemple) sur STDIN.
 4. Le raccord de réduction lit les paires clé/valeur séparées par des tabulations, traite les données, puis émet le résultat sous forme de paires clé/valeur séparées par des tabulations sur STDOUT.
 5. La sortie est lue par Hadoop et écrite dans le répertoire de sortie.
 
@@ -55,7 +52,7 @@ Pour plus d’informations sur la diffusion en continu, consultez l’article [D
 
 ## <a name="create-the-mapper"></a>Créer le mappeur
 
-Dans Visual Studio, créez une nouvelle application console .NET Framework nommée *mapper* . Utilisez le code suivant pour l’application :
+Dans Visual Studio, créez une nouvelle application console .NET Framework nommée *mapper*. Utilisez le code suivant pour l’application :
 
 ```csharp
 using System;
@@ -92,7 +89,7 @@ Après avoir créé l’application, générez-la pour produire le fichier */bin
 
 ## <a name="create-the-reducer"></a>Créer le raccord de réduction
 
-Dans Visual Studio, créez une nouvelle application console .NET Framework nommée *reducer* . Utilisez le code suivant pour l’application :
+Dans Visual Studio, créez une nouvelle application console .NET Framework nommée *reducer*. Utilisez le code suivant pour l’application :
 
 ```csharp
 using System;
@@ -147,9 +144,9 @@ Après avoir créé l’application, générez-la pour produire le fichier */bin
 
 Ensuite, vous devez charger les applications *mapper* et *reducer* sur le stockage HDInsight.
 
-1. Dans Visual Studio, sélectionnez **Affichage** > **Explorateur de serveurs** .
+1. Dans Visual Studio, sélectionnez **Affichage** > **Explorateur de serveurs**.
 
-1. Cliquez avec le bouton droit sur **Azure** , sélectionnez **Se connecter à un abonnement Microsoft Azure...** , puis terminez le processus de connexion.
+1. Cliquez avec le bouton droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...** , puis terminez le processus de connexion.
 
 1. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte **(compte de stockage par défaut)** est répertoriée.
 
@@ -161,15 +158,15 @@ Ensuite, vous devez charger les applications *mapper* et *reducer* sur le stocka
 
 1. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
 
-    * Si vous utilisez un **compte de stockage Azure** , sélectionnez l’icône **Télécharger un objet Blob** .
+    * Si vous utilisez un **compte de stockage Azure**, sélectionnez l’icône **Télécharger un objet Blob**.
 
         ![Icône de chargement de HDInsight pour le mappeur, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        Dans la boîte de dialogue **Télécharger un nouveau fichier** , sous **Nom de fichier** , sélectionnez **Parcourir** . Dans la boîte de dialogue **Télécharger un objet Blob** , accédez au dossier *bin\debug* pour le projet *mapper* , puis sélectionnez le fichier *mapper.exe* . Enfin, sélectionnez **Ouvrir** , puis **OK** pour terminer le téléchargement.
+        Dans la boîte de dialogue **Télécharger un nouveau fichier**, sous **Nom de fichier**, sélectionnez **Parcourir**. Dans la boîte de dialogue **Télécharger un objet Blob**, accédez au dossier *bin\debug* pour le projet *mapper*, puis sélectionnez le fichier *mapper.exe*. Enfin, sélectionnez **Ouvrir**, puis **OK** pour terminer le téléchargement.
 
-    * Pour **Azure Data Lake Storage** , cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez **Charger** . Enfin, sélectionnez le fichier *mapper.exe* et cliquez sur **Ouvrir** .
+    * Pour **Azure Data Lake Storage**, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez **Charger**. Enfin, sélectionnez le fichier *mapper.exe* et cliquez sur **Ouvrir**.
 
-    Une fois que le chargement de *mapper.exe* est terminé, répétez le processus de chargement pour le fichier *reducer.exe* .
+    Une fois que le chargement de *mapper.exe* est terminé, répétez le processus de chargement pour le fichier *reducer.exe*.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Exécuter un travail : Utilisation d’une session SSH
 
@@ -253,7 +250,7 @@ Utilisez le script PowerShell suivant pour exécuter une tâche MapReduce et té
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Ce script vous invite à entrer le nom et le mot de passe du compte de connexion du cluster, ainsi que le nom du cluster HDInsight. Une fois que le travail est terminé, la sortie est téléchargée sous la forme d’un fichier nommé *output.txt* . Le texte suivant constitue un exemple des données contenues dans le fichier `output.txt` :
+Ce script vous invite à entrer le nom et le mot de passe du compte de connexion du cluster, ainsi que le nom du cluster HDInsight. Une fois que le travail est terminé, la sortie est téléchargée sous la forme d’un fichier nommé *output.txt*. Le texte suivant constitue un exemple des données contenues dans le fichier `output.txt` :
 
 ```output
 you     1128

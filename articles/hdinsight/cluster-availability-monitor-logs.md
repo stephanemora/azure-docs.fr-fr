@@ -1,18 +1,15 @@
 ---
 title: Comment surveiller la disponibilité des clusters avec les journaux Azure Monitor et Ambari
 description: Découvrez comment utiliser les journaux Azure Monitor pour surveiller la disponibilité et l’intégrité des clusters.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: f86b2166ea9bd2a547a29a777d6b709877036161
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542537"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946946"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Comment surveiller la disponibilité des clusters avec les journaux Azure Monitor et Ambari
 
@@ -26,7 +23,7 @@ Vous aurez besoin d’un espace de travail Log Analytics pour stocker les donné
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Activer l’intégration des journaux Azure Monitor HDInsight
 
-Dans la page des ressources du cluster HDInsight du portail, sélectionnez **Azure Monitor** . Ensuite, sélectionnez **Activer** , puis votre espace de travail Log Analytics dans la liste déroulante.
+Dans la page des ressources du cluster HDInsight du portail, sélectionnez **Azure Monitor**. Ensuite, sélectionnez **Activer**, puis votre espace de travail Log Analytics dans la liste déroulante.
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
@@ -34,7 +31,7 @@ Par défaut, cela installe l’agent OMS sur tous les nœuds de cluster hormis p
 
 ## <a name="query-metrics-and-logs-tables"></a>Interroger les tables de métriques et de journaux
 
-Une fois que l’intégration des journaux Azure Monitor est activée (cela peut prendre plusieurs minutes), accédez à votre ressource **Espace de travail Log Analytics** et sélectionnez **Journaux** .
+Une fois que l’intégration des journaux Azure Monitor est activée (cela peut prendre plusieurs minutes), accédez à votre ressource **Espace de travail Log Analytics** et sélectionnez **Journaux**.
 
 ![Journaux de l’espace de travail Log Analytics](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
 
@@ -61,7 +58,7 @@ Vous pouvez épingler ce tableau à un tableau de bord partagé en cliquant sur 
 
 Vous pouvez également configurer des alertes Azure Monitor qui se déclencheront lorsque la valeur d’une métrique ou les résultats d’une requête respectent certaines conditions. Par exemple, nous allons créer une alerte pour envoyer un e-mail quand un ou plusieurs nœuds n’ont envoyé aucune pulsation depuis cinq heures (ils sont alors considérés comme indisponibles).
 
-Dans **Journaux** , exécutez l’exemple de requête **Unavailable computers** (Ordinateurs non disponibles) en sélectionnant **Exécuter** pour cette requête, comme illustré ci-dessous.
+Dans **Journaux**, exécutez l’exemple de requête **Unavailable computers** (Ordinateurs non disponibles) en sélectionnant **Exécuter** pour cette requête, comme illustré ci-dessous.
 
 ![Exemple de requête « ordinateurs non disponibles » dans les journaux de l’espace de travail Log Analytics](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
 
@@ -70,7 +67,7 @@ Si tous les nœuds sont disponibles, cette requête ne doit retourner aucun rés
 ![Nouvelle règle d’alerte de l’espace de travail Log Analytics](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
 
 Trois composants constituent une alerte : la *ressource* pour laquelle créer la règle (ici, l’espace de travail Log Analytics), la *condition* pour déclencher l’alerte et les *groupes d’actions* qui déterminent le comportement prévu au moment du déclenchement de l’alerte.
-Cliquez sur le **titre de la condition** , comme illustré ci-dessous, pour terminer la configuration de la logique de signal.
+Cliquez sur le **titre de la condition**, comme illustré ci-dessous, pour terminer la configuration de la logique de signal.
 
 ![Créer une règle d'alerte dans le portail - Condition](media/cluster-availability-monitor-logs/portal-condition-title.png)
 
@@ -82,28 +79,28 @@ Définissez la section **Logique d’alerte** comme suit :
 
 Étant donné que cette requête renvoie uniquement les nœuds non disponibles comme résultats, si le nombre de résultats est toujours supérieur à 0, l’alerte doit se déclencher.
 
-Dans la section **Évaluées sur la base de** , définissez la **période** et la **fréquence** selon la fréquence à laquelle vous souhaitez rechercher les nœuds non disponibles.
+Dans la section **Évaluées sur la base de**, définissez la **période** et la **fréquence** selon la fréquence à laquelle vous souhaitez rechercher les nœuds non disponibles.
 
-Pour les besoins de cette alerte, vous devez vérifier que **la période est identique à la fréquence** . Vous pouvez trouver plus d’informations sur la période, la fréquence et d’autres paramètres d’alerte [ici](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
+Pour les besoins de cette alerte, vous devez vérifier que **la période est identique à la fréquence**. Vous pouvez trouver plus d’informations sur la période, la fréquence et d’autres paramètres d’alerte [ici](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition).
 
 Sélectionnez **Terminé** lorsque vous avez terminé de configurer la logique du signal.
 
 ![Création d’une règle d’alerte - Configurer la logique du signal](media/cluster-availability-monitor-logs/portal-configure-signal-logic.png)
 
-Si vous n’avez pas de groupe d’actions existant, cliquez sur **Créer nouveau** sous la section **Groupes d’actions** .
+Si vous n’avez pas de groupe d’actions existant, cliquez sur **Créer nouveau** sous la section **Groupes d’actions**.
 
 ![Création d’une règle d’alerte - Nouveau groupe d’actions](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-Cette opération ouvre **Ajouter un groupe d’actions** . Choisissez un **nom de groupe d’actions** , un **nom court** , un **abonnement** et un **groupe de ressources** . Dans la section **Actions** , choisissez un **nom d’action** et sélectionnez **E-mail/SMS/Push/Voix** pour **Type d’action** .
+Cette opération ouvre **Ajouter un groupe d’actions**. Choisissez un **nom de groupe d’actions**, un **nom court**, un **abonnement** et un **groupe de ressources**. Dans la section **Actions**, choisissez un **nom d’action** et sélectionnez **E-mail/SMS/Push/Voix** pour **Type d’action**.
 
 > [!NOTE]
 > Plusieurs autres actions peuvent être déclenchées par une alerte, par exemple Fonction Azure, LogicApp, Webhook, ITSM et Runbook Automation. [En savoir plus](../azure-monitor/platform/action-groups.md#action-specific-information).
 
-La page **E-mail/SMS/Push/Voix** s’ouvre. Choisissez un **nom** de destinataire, **cochez** la case **E-mail** , puis tapez une adresse de messagerie à laquelle vous souhaitez envoyer l’alerte. Sélectionnez **OK** dans **Email/SMS/Push/Voice** , puis dans **Ajouter un groupe d’actions** pour terminer la configuration de votre groupe d’actions.
+La page **E-mail/SMS/Push/Voix** s’ouvre. Choisissez un **nom** de destinataire, **cochez** la case **E-mail**, puis tapez une adresse de messagerie à laquelle vous souhaitez envoyer l’alerte. Sélectionnez **OK** dans **Email/SMS/Push/Voice**, puis dans **Ajouter un groupe d’actions** pour terminer la configuration de votre groupe d’actions.
 
 ![Création d’une règle d’alerte - Ajouter un groupe d'actions](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 
-Une fois ces panneaux fermés, vous devez voir votre groupe d’actions répertorié sous la section **Groupes d’actions** . Pour finir, complétez la section **Détails de l’alerte** en tapant un **nom de règle d’alerte** et une **description** et en choisissant une **gravité** . Cliquez sur **Créer une règle d’alerte** pour terminer.
+Une fois ces panneaux fermés, vous devez voir votre groupe d’actions répertorié sous la section **Groupes d’actions**. Pour finir, complétez la section **Détails de l’alerte** en tapant un **nom de règle d’alerte** et une **description** et en choisissant une **gravité**. Cliquez sur **Créer une règle d’alerte** pour terminer.
 
 ![Création d’une règle d’alerte - Terminer dans le portail](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
 
@@ -114,11 +111,11 @@ Lorsque la condition de cette alerte est remplie, l’alerte se déclenche et vo
 
 ![Exemple d'e-mail d’alerte Azure Monitor](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
 
-Vous pouvez également voir toutes les alertes qui ont été déclenchées, regroupées par gravité, en accédant à **Alertes** dans votre **espace de travail Log Analytics** .
+Vous pouvez également voir toutes les alertes qui ont été déclenchées, regroupées par gravité, en accédant à **Alertes** dans votre **espace de travail Log Analytics**.
 
 ![Alertes d’espace de travail Log Analytics](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
 
-Vous pouvez sélectionner un regroupement de gravité (par exemple, **Gravité 1** , comme illustré ci-dessus) pour voir les enregistrements de toutes les alertes de cette gravité qui ont été déclenchées, comme ci-dessous :
+Vous pouvez sélectionner un regroupement de gravité (par exemple, **Gravité 1**, comme illustré ci-dessus) pour voir les enregistrements de toutes les alertes de cette gravité qui ont été déclenchées, comme ci-dessous :
 
 ![Espace de travail Log Analytics - Alerte de gravité 1](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
 

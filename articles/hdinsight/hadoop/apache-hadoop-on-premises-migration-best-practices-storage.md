@@ -1,19 +1,17 @@
 ---
 title: 'Stockage : Effectuer la migration d’Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant le stockage pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544866"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944848"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight
 
@@ -98,15 +96,15 @@ Une fonctionnalité fondamentale de Data Lake Storage Gen 2 est l’ajout d’un
 
 Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre les performances, la gestion et la sécurité. Les principales fonctionnalités d’Azure Data Lake Storage Gen2 sont les suivantes :
 
-- **Accès compatible Hadoop**  : Azure Data Lake Storage Gen2 vous permet de gérer les données et d'y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Le nouveau [pilote ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) est disponible dans tous les environnements Apache Hadoop inclus dans [Azure HDInsight](../index.yml). Ce pilote vous permet d’accéder aux données stockées dans Data Lake Storage Gen2.
+- **Accès compatible Hadoop** : Azure Data Lake Storage Gen2 vous permet de gérer les données et d'y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Le nouveau [pilote ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) est disponible dans tous les environnements Apache Hadoop inclus dans [Azure HDInsight](../index.yml). Ce pilote vous permet d’accéder aux données stockées dans Data Lake Storage Gen2.
 
-- **Surensemble d’autorisations POSIX**  : Le modèle de sécurité pour Data Lake Gen2 prend entièrement en charge les autorisations ACL et POSIX ainsi que certaines granularités supplémentaires spécifiques de Data Lake Storage Gen2. Les paramètres peuvent être configurés via les outils d’administration ou des infrastructures telles que Hive et Spark.
+- **Surensemble d’autorisations POSIX** : Le modèle de sécurité pour Data Lake Gen2 prend entièrement en charge les autorisations ACL et POSIX ainsi que certaines granularités supplémentaires spécifiques de Data Lake Storage Gen2. Les paramètres peuvent être configurés via les outils d’administration ou des infrastructures telles que Hive et Spark.
 
-- **Rentabilité**  : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les frais facturés changent de façon à minimiser les coûts via des fonctionnalités intégrées, comme le [cycle de vie du Stockage Blob Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Rentabilité** : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les frais facturés changent de façon à minimiser les coûts via des fonctionnalités intégrées, comme le [cycle de vie du Stockage Blob Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Fonctionne avec les outils, les frameworks et les applications de stockage Blob**  : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent aujourd’hui pour Stockage Blob.
+- **Fonctionne avec les outils, les frameworks et les applications de stockage Blob** : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent aujourd’hui pour Stockage Blob.
 
-- **Pilote optimisé**  : Le pilote ABFS (Azure Blob Filesystem) est [optimisé spécifiquement](../../storage/blobs/data-lake-storage-abfs-driver.md) pour l’analytique du Big Data. Les API REST correspondantes sont exposées via le point de terminaison dfs, dfs.core.windows.net.
+- **Pilote optimisé** : Le pilote ABFS (Azure Blob Filesystem) est [optimisé spécifiquement](../../storage/blobs/data-lake-storage-abfs-driver.md) pour l’analytique du Big Data. Les API REST correspondantes sont exposées via le point de terminaison dfs, dfs.core.windows.net.
 
 Vous pouvez utiliser un des formats suivants pour accéder aux données stockées dans Azure Data Lake Storage Gen2 :
 - `abfs:///`: Accédez au stockage Data Lake par défaut pour le cluster.
@@ -173,9 +171,9 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
 6. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
-    **Clé**  : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valeur**  : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
+    **Clé** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valeur** : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
 
-7. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer** .
+7. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer**.
 
 8. Dans l’interface utilisateur web Ambari, sélectionnez HDFS dans la liste sur la gauche, puis sélectionnez **Restart All Affected** (Redémarrer tous les éléments affectés) dans la liste déroulante Actions de service située à droite. Lorsque vous y êtes invité, sélectionnez **Confirm Restart All** (Confirmer le redémarrage).
 

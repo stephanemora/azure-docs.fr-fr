@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442182"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071898"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
 
@@ -42,14 +42,14 @@ Il s’agit du scénario le plus courant, dans lequel votre organisation souhait
 Pour ajouter une liste d’exclusion :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur** .
-3. Sous **Utilisateurs externes** , sélectionnez **Gérer les paramètres de collaboration externe** .
-4. Sous **Restrictions de la collaboration** , sélectionnez **Refuser les invitations aux domaines spécifiés** .
-5. Sous **DOMAINES CIBLES** , entrez le nom de l’un des domaines que vous souhaitez bloquer. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Par exemple :
+2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur**.
+3. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
+4. Sous **Restrictions de la collaboration**, sélectionnez **Refuser les invitations aux domaines spécifiés**.
+5. Sous **DOMAINES CIBLES**, entrez le nom de l’un des domaines que vous souhaitez bloquer. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Par exemple :
 
    ![Affiche l’option d’exclusion avec les domaines ajoutés](./media/allow-deny-list/DenyListSettings.png)
  
-6. Quand vous avez terminé, cliquez sur **Enregistrer** .
+6. Quand vous avez terminé, cliquez sur **Enregistrer**.
 
 Après avoir défini la stratégie, si vous essayez d’inviter un utilisateur à partir d’un domaine bloqué, vous recevez un message indiquant que le domaine de l’utilisateur est actuellement bloqué par votre stratégie d’invitation.
  
@@ -63,14 +63,14 @@ Si vous souhaitez utiliser une liste verte, veillez à consacrer du temps à év
 Pour ajouter un élément à une liste verte :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur** .
-3. Sous **Utilisateurs externes** , sélectionnez **Gérer les paramètres de collaboration externe** .
-4. Sous **Restrictions de la collaboration** , sélectionnez **Allow invitations only to the specified domains (most restrictive)** (Autoriser les invitations uniquement vers les domaines spécifiés (le plus restrictif)).
-5. Sous **DOMAINES CIBLES** , entrez le nom de l’un des domaines que vous souhaitez autoriser. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Par exemple :
+2. Sélectionnez **Azure Active Directory** > **Utilisateurs** > **Paramètres d’utilisateur**.
+3. Sous **Utilisateurs externes**, sélectionnez **Gérer les paramètres de collaboration externe**.
+4. Sous **Restrictions de la collaboration**, sélectionnez **Allow invitations only to the specified domains (most restrictive)** (Autoriser les invitations uniquement vers les domaines spécifiés (le plus restrictif)).
+5. Sous **DOMAINES CIBLES**, entrez le nom de l’un des domaines que vous souhaitez autoriser. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Par exemple :
 
    ![Affiche l’option d’autorisation avec les domaines ajoutés](./media/allow-deny-list/AllowListSettings.png)
  
-6. Quand vous avez terminé, cliquez sur **Enregistrer** .
+6. Quand vous avez terminé, cliquez sur **Enregistrer**.
 
 Après avoir défini la stratégie, si vous essayez d’inviter un utilisateur à partir d’un domaine ne figurant pas sur la liste verte, vous recevez un message indiquant que le domaine de l’utilisateur est actuellement bloqué par votre stratégie d’invitation.
 
@@ -126,7 +126,7 @@ Si le module n’est pas installé ou si vous n’avez pas de version requise, e
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Utiliser les cmdlets AzureADPolicy pour configurer la stratégie
 
-Pour créer une liste verte ou d’exclusion, utilisez la cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). L’exemple suivant montre comment définir une liste d’exclusion qui bloque le domaine « live.com ».
+Pour créer une liste verte ou d’exclusion, utilisez la cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). L’exemple suivant montre comment définir une liste d’exclusion qui bloque le domaine « live.com ».
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ L’exemple suivant est identique, mais avec la définition de la stratégie inc
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Pour définir la stratégie des listes vertes ou d’exclusion, utilisez la cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Par exemple :
+Pour définir la stratégie des listes vertes ou d’exclusion, utilisez la cmdlet [Set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Par exemple :
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Pour obtenir la stratégie, utilisez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Par exemple :
+Pour obtenir la stratégie, utilisez la cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Par exemple :
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Pour supprimer la stratégie, utilisez la cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Par exemple :
+Pour supprimer la stratégie, utilisez la cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Par exemple :
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

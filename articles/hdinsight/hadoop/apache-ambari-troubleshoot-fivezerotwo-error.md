@@ -3,16 +3,13 @@ title: Erreur 502 de l’interface utilisateur Apache Ambari dans Azure HDInsig
 description: Erreur 502 de l’interface utilisateur d’Apache Ambari quand vous essayez d’accéder à votre cluster Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a512afa719c29976a9126afb67de4a0e6c80763d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 750232b19bd5ef0674a9df79fdf3972a679eda7d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998292"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946792"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scénario : Erreur 502 de l’interface utilisateur Apache Ambari dans Azure HDInsight
 

@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056699"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987020"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -303,13 +303,18 @@ Une fois que vous connaissez l’état de la connectivité d’Azure et de l’a
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Récupération après la perte de connectivité
 
-Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêchent l’accès à Azure, vous devez autoriser les adresses de domaine suivantes dans le profil de pare-feu/proxy :
+Si votre machine a un accès limité à Internet, vérifiez que les paramètres de pare-feu sur la machine ou le proxy autorisent les URL et adresses IP suivantes :
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Adresses IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Si vous utilisez le Peering Microsoft ExpressRoute, sélectionnez les services/régions suivants :
 

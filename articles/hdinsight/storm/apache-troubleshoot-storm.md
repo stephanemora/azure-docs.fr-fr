@@ -2,19 +2,16 @@
 title: Résolution de problèmes Storm à l’aide d’Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Storm avec Azure HDInsight.
 keywords: Azure HDInsight, Storm, FAQ, guide de dépannage, problèmes courants
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982260"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946307"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Storm à l’aide d’Azure HDInsight
 
