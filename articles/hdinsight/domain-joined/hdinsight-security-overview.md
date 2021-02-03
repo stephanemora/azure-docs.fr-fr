@@ -1,19 +1,16 @@
 ---
 title: Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 description: Découvrez les différentes méthodes pour garantir la sécurité de l’entreprise dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f4fa1e64e00f2ae027d80960072da7d73d3a89cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537267"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946838"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -21,7 +18,7 @@ Azure HDInsight propose un certain nombre de méthodes pour répondre aux besoin
 
 Cet article aborde les solutions de sécurité du point de vue des quatre piliers de sécurité classiques : la sécurité du périmètre, l’authentification, l’autorisation et le chiffrement.
 
-Il présente également le **Pack Sécurité Entreprise (ESP) Azure HDInsight** , qui fournit l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle pour les clusters HDInsight.
+Il présente également le **Pack Sécurité Entreprise (ESP) Azure HDInsight**, qui fournit l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle pour les clusters HDInsight.
 
 ## <a name="enterprise-security-pillars"></a>Piliers de la sécurité d’entreprise
 

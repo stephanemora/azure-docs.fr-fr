@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 07/20/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e29a692e3fdad1bea7132b3bed50444c7398ba46
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f7f6f5d82c5fda7101e80ddcb8b17dc6bdef6532
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936309"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070258"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Démarrage rapide : Créer un coffre de clés à l’aide de l’interface de ligne de commande Azure
 
@@ -28,44 +28,15 @@ Azure Key Vault est un service cloud qui fournit un magasin sécurisé pour les 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. L’exemple ci-après crée un groupe de ressources nommé *ContosoResourceGroup* à l’emplacement *eastus*.
-
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Créez un coffre de clés dans le groupe de ressources créé à l’étape précédente. Vous devrez fournir certaines informations :
-
-- Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
-
-  > [!Important]
-  > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
-
-- Groupe de ressources nommé : **myResourceGroup**.
-- Localisation : **EastUS**.
-
-```azurecli
-az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "EastUS"
-```
-
-La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous venez de créer. Notez les deux propriétés ci-dessous :
-
-- **Nom du coffre** : Nom que vous avez fourni au paramètre--name ci-dessus.
-- **URI du coffre** : Dans l’exemple, il s’agit de https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
-
-À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
-
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande Azure CLI [az group delete](/cli/azure/group) pour supprimer le groupe de ressources ainsi que toutes les ressources associées :
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71fa79cb8847d16ac0890f9aba647cb8f5e2e444
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87282481"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089340"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galerie de plug-ins du Lecteur multimédia Azure #
 
@@ -21,7 +21,7 @@ ms.locfileid: "87282481"
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Fonctionnalités supplémentaires                 | | | |
 | **Nouveau !** AMP360Video                | [Démonstration](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Le plug-in vous permet de visualiser 360 video dans Amp, sur votre ordinateur ou sur des appareils compatibles avec la réalité virtuelle. La documentation complète est disponible [ici](https://doc.babylonjs.com/extensions/amp360video) : |
-|  Info-bulle Sprite                         | [Démonstration](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plug-in du Lecteur multimédia Azure (AMP) pour le rendu chronologique d’un sprite d’images miniatures de vidéo, généré depuis Media Encoder Standard (MES) d’Azure Media Services (AMS). |
+|  Info-bulle Sprite                         | [Démonstration](https://www.smwcentral.net/?p=section&a=details&id=10301)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plug-in du Lecteur multimédia Azure (AMP) pour le rendu chronologique d’un sprite d’images miniatures de vidéo, généré depuis Media Encoder Standard (MES) d’Azure Media Services (AMS). |
 | Superposition de diagnostics                 | [Démonstration](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Ce plug-in affiche les éléments suivants : tous les paramètres clés, les statistiques de la vidéo, tous les événements du cycle de vie de la lecture vidéo et les informations de protection DRM, telles que l’ID de clé, les URL d’acquisition de licence, s’ils sont protégés.                                                                                                                                                                      |
 | Calculatrice de fréquence d’images et de code horaire | Aucune démonstration disponible | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Ce plug-in calcule la fréquence d’images d’une vidéo en fonction des zones MP4 `tfhd`/`trun` du premier fragment vidéo MPEG-DASH, il analyse la valeur de l’échelle de temps à partir du manifeste du client MPEG-DASH et fournit également un moyen de générer le code horaire d’un temps absolu donné à partir du Lecteur (ainsi que le temps absolu du Lecteur en fonction du code horaire). |
 | <strike>Vitesse de lecture</strike>                      | [Démonstration](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Ce plug-in permet aux viewers de contrôler la vitesse de la vidéo. *Notez que cette fonctionnalité est automatiquement disponible dans la version AMP v 2.0.0+, mais qu’elle est désactivée par défaut.* Pour savoir comment l’activer, consultez nos exemples [ici](https://github.com/Azure-Samples/azure-media-player-samples) |

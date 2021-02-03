@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e25b2aeee46617bd62a72d204e1a4bdbc31d08ea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030822"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050564"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -347,7 +347,7 @@ Pour ajouter un abonnement :
 
 Cela peut prendre jusqu’à 24 heures pour que les nouveaux abonnements soient visibles dans la liste des abonnements. Une fois que vous avez créé un abonnement, vous pouvez :
 
-- [Modifier les détails de l’abonnement](https://account.azure.com/Subscriptions)
+- [Modifier les détails de l’abonnement](https://portal.azure.com)
 - [Gérer les services de l’abonnement](https://portal.azure.com/#home)
 
 ## <a name="delete-subscription"></a>Supprimer l’abonnement

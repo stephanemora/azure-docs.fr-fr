@@ -1,17 +1,17 @@
 ---
-title: Utiliser le portail pour charger, encoder et diffuser en streaming du contenu - Azure
+title: Utiliser le portail pour charger, encoder et diffuser du contenu
 description: Ce guide de démarrage rapide vous montre comment utiliser le portail pour charger, encoder et diffuser en streaming du contenu avec Azure Media Services.
 ms.topic: quickstart
 ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3831892b6cd241643b3e5753689f768d59e27704
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683010"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955968"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Démarrage rapide : Charger, encoder et diffuser en streaming du contenu via le portail
 

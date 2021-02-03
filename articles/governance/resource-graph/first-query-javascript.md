@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Votre première requête JavaScript'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes permettant d’activer la bibliothèque Resource Graph pour JavaScript et vous exécutez votre première requête.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 97cbd9ddf65a4135f55304f6dd67c704c6fcac5d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057414"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917519"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de JavaScript
 

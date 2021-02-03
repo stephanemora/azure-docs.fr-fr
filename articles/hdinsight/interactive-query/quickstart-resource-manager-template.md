@@ -1,19 +1,16 @@
 ---
 title: 'Démarrage rapide : Créer un cluster Interactive Query à l’aide d’un modèle - Azure HDInsight'
 description: Ce guide de démarrage rapide montre comment utiliser un modèle Resource Manager pour créer un cluster Interactive Query dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 969aadbe342dbfd345930082d56e0af93eea37d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4872dd29442a1503e04672a7c42fd7b49a0c506c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91854373"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945236"
 ---
 # <a name="quickstart-create-interactive-query-cluster-in-azure-hdinsight-using-arm-template"></a>Démarrage rapide : Créer un cluster Interactive Query dans Azure HDInsight à l’aide d’un modèle Resource Manager
 

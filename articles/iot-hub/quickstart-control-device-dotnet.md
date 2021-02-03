@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: 88b818a25a0888cc74783a210cc7a1c0acb455ac
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 28d80a20c50f846146aed069028303e86426df27
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623262"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072083"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (.NET)
 
@@ -99,7 +99,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 Vous avez également besoin de la _chaîne de connexion de service_ de votre hub IoT pour activer l’application de service afin de vous connecter au hub et récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
 
 ```azurecli-interactive
-az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Notez la chaîne de connexion de service, qui ressemble à ce qui suit :

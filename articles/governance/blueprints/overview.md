@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 0dbf5ab54b694399c9d15cce84e8eca34a5d924e
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f4ba77f5fcb376bf600d94997b0d6ba569f04f82
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892725"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919340"
 ---
 # <a name="what-is-azure-blueprints"></a>Qu’est-ce qu’Azure Blueprint ?
 

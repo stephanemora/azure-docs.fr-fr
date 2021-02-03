@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740344"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089222"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Présentation des rôles dans Azure Active Directory
 
@@ -61,7 +61,7 @@ Le tableau suivant a pour but d’aider à la compréhension de ces catégories 
 Category | Role
 ---- | ----
 Rôles propres à Azure AD | Administrateur d’application<br>Développeur d’applications<br>Administrateur d’authentification<br>Administrateur de jeux de clés B2C IEF<br>Administrateur de stratégies B2C IEF<br>Administrateur d'applications cloud<br>Administrateur d’appareil cloud<br>Administrateur de l’accès conditionnel<br>Administrateurs d’appareils<br>Lecteurs de répertoires<br>Comptes de synchronisation d’annuaires<br>Enregistreurs de répertoire<br>Administrateur de flux d’utilisateurs ID externe<br>Administrateur d’attribut de flux d’utilisateurs ID externe<br>Administrateur de fournisseurs d’identité externes<br>Administrateur de groupes<br>Inviteur<br>Administrateur du support technique<br>Administrateur d’identité hybride<br>Administrateur de licence<br>Prise en charge de niveau 1 de partenaire<br>Prise en charge de niveau 2 de partenaire<br>Administrateur de mots de passe<br>Administrateur d’authentification privilégié<br>Administrateur de rôle privilégié<br>Lecteur de rapports<br>Administrateur de compte utilisateur
-Rôles inter-services | Administrateur d’entreprise<br>Administrateur de conformité<br>Administrateur des données de conformité<br>Lecteur général<br>Administrateur de sécurité<br>Opérateur de sécurité<br>Lecteur Sécurité<br>Administrateur de support de service
+Rôles inter-services | Administrateur général<br>Administrateur de conformité<br>Administrateur des données de conformité<br>Lecteur général<br>Administrateur de sécurité<br>Opérateur de sécurité<br>Lecteur Sécurité<br>Administrateur de support de service
 Rôles propres à un service | Administrateur Azure DevOps<br>Administrateur Azure Information Protection<br>Administrateur de facturation<br>Administrateur de services CRM<br>Approbateur d’accès à Customer LockBox<br>Administrateur Desktop Analytics<br>Administrateur de services Exchange<br>Administrateur Insights<br>Leader d’entreprise Insights<br>Administrateur de services Intune<br>Administrateur Kaizala<br>Administrateur de services Lync<br>Lecteur de confidentialité du Centre de messages<br>Lecteur du Centre de messages<br>Utilisateur de Commerce moderne<br>Administrateur réseau<br>Administrateur d’applications Office<br>Administrateur du service Power BI<br>Administrateur de plateforme Power<br>Administrateur d’imprimantes<br>Technicien en charge des imprimantes<br>Administrateur de recherche<br>Éditeur de recherche<br>Administrateur de services SharePoint<br>Administrateur des communications Teams<br>Ingénieur de support des communications Teams<br>Spécialiste du support des communications Teams<br>Administrateur d’appareils Teams<br>Administrateur du service Teams
 
 ## <a name="next-steps"></a>Étapes suivantes

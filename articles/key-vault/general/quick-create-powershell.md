@@ -3,19 +3,18 @@ title: 'Démarrage rapide : Créer un coffre de clés Azure Key Vault avec Azure
 description: Démarrage rapide montrant comment créer un coffre de clés Azure Key Vault avec Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 12/08/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 73d247464f167040c6f7129bdf7014b877317fc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e77493bc73bc2d6f590d9bdcf891171fbd71f74e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936258"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070190"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>Démarrage rapide : Créer un coffre de clés à l’aide de PowerShell
 
@@ -33,44 +32,15 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources Azure avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name 'myResourceGroup" -Location "EastUS"
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
-Créez un coffre de clés dans le groupe de ressources créé à l’étape précédente. Vous devrez fournir certaines informations :
-
-- Nom du coffre de clés : chaîne de 3 à 24 caractères qui ne peut contenir que des chiffres (0-9), des lettres (a-z, A-Z) et des traits d’union (-).
-
-  > [!Important]
-  > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
-
-- Groupe de ressources nommé : **myResourceGroup**.
-- Localisation : **EastUS**.
-
-```azurepowershell-interactive
-New-AzKeyVault -Name "<your-unique-key-vault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
-```
-
-La sortie de cette cmdlet affiche les propriétés du coffre de clés que vous venez de créer. Notez les deux propriétés ci-dessous :
-
-- **Nom du coffre** : Nom que vous avez fourni au paramètre--name ci-dessus.
-- **URI du coffre** : Dans l’exemple, il s’agit de https://<nom_unique_de_votre_coffre_de_clés>.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
-
-À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
-
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande Azure PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources associées.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name "myResourceGroup"
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

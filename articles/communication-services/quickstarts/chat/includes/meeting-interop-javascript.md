@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932320"
 ---
 ## <a name="join-the-meeting-chat"></a>Rejoindre la conversation d’une réunion 
 
@@ -21,7 +21,7 @@ Une fois l’interopérabilité de Teams activée, un utilisateur Communication 
 Tout d’abord, instanciez `ChatThreadClient` pour le fil de conversation de la réunion. Analysez le lien de réunion ou utilisez les API Graph avec l’ID de réunion pour récupérer l’ID de fil de conversation. 
 
 - Un lien de réunion Teams ressemble à ceci : `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. L’ID de fil de conversation correspond à l’emplacement de `meeting_chat_thread_id` dans ce lien. 
-- Si vous disposez de l’ID de réunion, vous pouvez utiliser l’[API Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) pour obtenir l’ID de fil de conversation. La réponse [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) présentera un objet `chatInfo` contenant `threadID`. 
+- Si vous disposez de l’ID de réunion, vous pouvez utiliser l’[API Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) pour obtenir l’ID de fil de conversation. La réponse [GET API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) présentera un objet `chatInfo` contenant `threadID`. 
 
 Une fois que vous disposez de l’ID de fil de conversation, vous pouvez récupérer le client de fil de conversation à l’aide de la bibliothèque de client de conversation JavaScript : 
 
@@ -44,4 +44,3 @@ Pour plus d’informations sur les types de messages, rendez-vous [ici](../../..
 
 **Remarque** Actuellement, seuls l’envoi et la réception de messages sont pris en charge pour les scénarios d’interopérabilité avec Teams. D’autres fonctionnalités, telles que les indicateurs de saisie et les utilisateurs Communication Services qui ajoutent ou suppriment d’autres utilisateurs dans la réunion Teams, ne sont pas prises en charge pour l’instant.  
 
- 

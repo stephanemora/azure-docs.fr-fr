@@ -2,13 +2,13 @@
 title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576680"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055130"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -20,7 +20,7 @@ Azure Event Grid est déployé pour optimiser la disponibilité via une réparti
 
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Modèle Event Grid de sources et de gestionnaires" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modèle Event Grid de sources et de gestionnaires" lightbox="./media/overview/functional-model-big.png":::
 
 Cette image montre comment Event Grid connecte les sources et les gestionnaires, mais il ne s'agit pas d'une liste exhaustive des intégrations prises en charge.
 
@@ -42,6 +42,7 @@ Les services Azure suivants prennent en charge l’envoi d’événements vers E
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Abonnements Azure](event-schema-subscriptions.md)
+- [Cache Azure pour Redis](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 

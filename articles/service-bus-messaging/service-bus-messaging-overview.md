@@ -2,13 +2,13 @@
 title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
 description: Cet article offre une vue d’ensemble d’Azure Service Bus, le répartiteur de messages Intégration Entreprise complètement managé.
 ms.topic: overview
-ms.date: 11/20/2020
-ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/28/2021
+ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881599"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219160"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages et des rubriques de publication/abonnement. Service Bus est utilisé pour découpler les applications et les services les uns des autres pour offrir les avantages suivants :
@@ -152,12 +152,12 @@ Les bibliothèques de client Service Bus entièrement prises en charge sont disp
 
 Service Bus s’intègre entièrement à de nombreux services Microsoft et Azure, par exemple :
 
-* [Event Grid](https://azure.microsoft.com/services/event-grid/)
-* [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Power Platform](https://powerplatform.microsoft.com/)
-* [Dynamics 365](https://dynamics.microsoft.com)
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Event Grid](service-bus-to-event-grid-integration-example.md)
+* [Logic Apps](../connectors/connectors-create-api-servicebus.md)
+* [Azure Functions](../azure-functions/functions-bindings-service-bus.md)
+* [Power Platform](../connectors/connectors-create-api-servicebus.md)
+* [Dynamics 365](/dynamics365/fin-ops-core/dev-itpro/business-events/how-to/how-to-servicebus)
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

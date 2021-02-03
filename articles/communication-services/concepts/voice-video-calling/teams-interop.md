@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 914581e6610e027d9440495f56f4facfb1fb9a9a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 29eafcae9442215e23e80b946fc35314e23100d3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349433"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937242"
 ---
 # <a name="teams-interoperability"></a>Interopérabilité de Teams
 
@@ -40,7 +40,7 @@ Quand un utilisateur Communication Services rejoint la réunion Teams, le nom co
 Les utilisateurs Communication Services peuvent rejoindre les réunions Teams planifiées tant que les participations anonymes sont autorisées dans les [paramètres de la réunion](/microsoftteams/meeting-settings-in-teams).
 
 ## <a name="teams-in-government-clouds-gcc"></a>Teams dans les clouds gouvernementaux (GCC)
-L’interopérabilité d’Azure Communication Services n’est pas autorisée avec les déploiement Teams utilisant des [clouds gouvernementaux (GCC) Microsoft 365](https://docs.microsoft.com/MicrosoftTeams/plan-for-government-gcc) pour le moment. 
+L’interopérabilité d’Azure Communication Services n’est pas autorisée avec les déploiement Teams utilisant des [clouds gouvernementaux (GCC) Microsoft 365](/MicrosoftTeams/plan-for-government-gcc) pour le moment. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
