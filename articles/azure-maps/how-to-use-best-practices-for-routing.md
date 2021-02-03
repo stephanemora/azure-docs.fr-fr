@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895543"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051649"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Meilleures pratiques d’utilisation du service Route Azure Maps
 
@@ -59,10 +59,10 @@ Voici une comparaison pour illustrer certaines fonctionnalités des API Route Di
 
 | API Azure Maps | Nombre maximal de requêtes dans la demande | Zones à éviter | Acheminement des camions et véhicules électriques | Étapes et optimisation « Voyageur de commerce » | Points de prise en charge |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Get Route Directions (Obtenir des directions) | 1 | | X | X | |
-| Post Route Directions (Publier des directions) | 1 | X | X | X | X |
-| Post Route Directions Batch (Publier des itinéraires par lots) | 700 | | X | X | |
-| Post Route Matrix (Publier une matrice d’itinéraire) | 700 | | X | | |
+| Get Route Directions (Obtenir des directions) | 1 | | ✔ | ✔ | |
+| Post Route Directions (Publier des directions) | 1 | ✔ | ✔ | ✔ | ✔ |
+| Post Route Directions Batch (Publier des itinéraires par lots) | 700 | | ✔ | ✔ | |
+| Post Route Matrix (Publier une matrice d’itinéraire) | 700 | | ✔ | | |
 
 Pour en savoir plus sur les capacités d’acheminement des véhicules électriques, consultez notre tutoriel sur la façon de [router des véhicules électriques à l’aide d’Azure Notebooks avec Python](tutorial-ev-routing.md).
 
@@ -90,7 +90,7 @@ Dans le premier exemple ci-dessous, l’heure de départ est définie sur le fut
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
-La réponse contient un élément Summary, comme celui ci-dessous. Étant donné que l’heure de départ est définie sur le futur, la valeur **trafficDelayInSeconds** est égale à zéro. La valeur **travelTimeInSeconds** est calculée à l’aide des données de trafic historiques en fonction d’un horaire donné. Ainsi, dans ce cas, la valeur **travelTimeInSeconds** est égale à la valeur **historicTrafficTravelTimeInSeconds** .
+La réponse contient un élément Summary, comme celui ci-dessous. Étant donné que l’heure de départ est définie sur le futur, la valeur **trafficDelayInSeconds** est égale à zéro. La valeur **travelTimeInSeconds** est calculée à l’aide des données de trafic historiques en fonction d’un horaire donné. Ainsi, dans ce cas, la valeur **travelTimeInSeconds** est égale à la valeur **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -113,7 +113,7 @@ Dans le deuxième exemple ci-dessous, nous disposons d’une demande d’itinér
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-La réponse contient un résumé comme indiqué ci-dessous. En raison des embouteillages, la valeur **trafficDelaysInSeconds** est supérieure à zéro. Elle est également supérieure à **historicTrafficTravelTimeInSeconds** .
+La réponse contient un résumé comme indiqué ci-dessous. En raison des embouteillages, la valeur **trafficDelaysInSeconds** est supérieure à zéro. Elle est également supérieure à **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Développez l’élément `point` pour afficher la liste des coordonnées du tra
 
 ![Élément Points développé](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Les API Route Directions prennent en charge différents formats d’instructions qui peuvent être utilisés en spécifiant le paramètre **instructionsType** . Pour mettre en forme les instructions et en faciliter le traitement informatique, utilisez **instructionsType=coded** . Utilisez **instructionsType =tagged** pour afficher des instructions sous forme de texte pour l’utilisateur. En outre, les instructions peuvent être mises en forme en tant que texte où certains éléments des instructions sont marqués, et l’instruction est présentée avec une mise en forme spéciale. Pour plus d’informations, consultez la [liste des types d’instructions pris en charge](/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Les API Route Directions prennent en charge différents formats d’instructions qui peuvent être utilisés en spécifiant le paramètre **instructionsType**. Pour mettre en forme les instructions et en faciliter le traitement informatique, utilisez **instructionsType=coded**. Utilisez **instructionsType =tagged** pour afficher des instructions sous forme de texte pour l’utilisateur. En outre, les instructions peuvent être mises en forme en tant que texte où certains éléments des instructions sont marqués, et l’instruction est présentée avec une mise en forme spéciale. Pour plus d’informations, consultez la [liste des types d’instructions pris en charge](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Lorsque des instructions sont demandées, la réponse retourne un nouvel élément nommé `guidance`. L’élément `guidance` contient deux éléments d’information : les directions virage par virage et les instructions résumées.
 
@@ -214,7 +214,7 @@ Azure Maps fournit actuellement deux formes d’optimisations d’itinéraire :
 
 Pour un itinéraire incluant plusieurs arrêts, jusqu’à 150 étapes peuvent être spécifiées dans une même demande d’itinéraire. Les coordonnées de début et de fin peuvent être les mêmes, dans le cas par exemple d’un aller-retour. Toutefois, vous devez fournir au moins une étape supplémentaire pour effectuer le calcul de l’itinéraire. Les étapes peuvent être ajoutées à la requête entre les coordonnées d’origine et de destination.
 
-Si vous souhaitez optimiser le meilleur ordre pour visiter les étapes données, vous devez spécifier **computeBestOrder=true** . Ce scénario est également appelé « problème d’optimisation du voyageur de commerce ».
+Si vous souhaitez optimiser le meilleur ordre pour visiter les étapes données, vous devez spécifier **computeBestOrder=true**. Ce scénario est également appelé « problème d’optimisation du voyageur de commerce ».
 
 ### <a name="sample-query"></a>Exemple de requête
 

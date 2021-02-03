@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: b8d5c763b68a9f69add14ab8430c117e5705a515
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3f2efd4051b427a4d7cef0e609f733095c6b020f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955087"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259183"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -57,8 +57,8 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Téléchargez et installez l’exemple de base de données [MySQL **Employés**](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Créez une instance d’[Azure Database pour MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md).
 * Créez un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité site à site à vos serveurs sources locaux via [ExpressRoute](../expressroute/expressroute-introduction.md) ou un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](../virtual-network/index.yml), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
-* Configurez votre [pare-feu Windows](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (ou votre pare-feu Linux) pour permettre l’accès au moteur de base de données. Pour MySQL Server, autorisez le port 3306 pour la connectivité.
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications sortantes vers Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurez votre [pare-feu Windows](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) (ou votre pare-feu Linux) pour permettre l’accès au moteur de base de données. Pour MySQL Server, autorisez le port 3306 pour la connectivité.
 
 > [!NOTE]
 > Azure Database pour MySQL ne prend en charge que les tables InnoDB. Pour savoir comment convertir des tables MyISAM en InnoDB, voir l’article [Convertir des tables MyISAM en InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html).

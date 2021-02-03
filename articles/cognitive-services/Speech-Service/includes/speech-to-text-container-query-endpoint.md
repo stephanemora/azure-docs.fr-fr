@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1552dda28291112a2412bdf956bc49a0b541d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 167e33ff4a3af463e2537e2714e9e9bf5e125b61
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95996410"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948407"
 ---
 Le conteneur fournit des API de point de terminaison de requête s’appuyant sur WebSocket, qui sont accessibles par le biais du [Kit de développement logiciel (SDK) Speech](../index.yml). Par défaut, le Kit de développement logiciel (SDK) Speech utilise des services vocaux en ligne. Pour utiliser le conteneur, vous devez changer la méthode d’initialisation.
 
@@ -29,7 +29,7 @@ Passer de l’utilisation de cet appel d’initialisation du cloud Azure :
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-Pour utiliser cet appel avec l’[hôte](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?preserve-view=true&view=azure-dotnet) du conteneur :
+Pour utiliser cet appel avec l’[hôte](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost) du conteneur :
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -45,7 +45,7 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-Pour utiliser cet appel avec le [point de terminaison](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python) de conteneur :
+Pour utiliser cet appel avec le [point de terminaison](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) de conteneur :
 
 ```python
 speech_config = speechsdk.SpeechConfig(

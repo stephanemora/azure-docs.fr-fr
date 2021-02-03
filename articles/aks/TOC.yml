@@ -1,6 +1,6 @@
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de AKS
       href: intro-kubernetes.md
@@ -338,6 +338,8 @@
         - name: Créer une application avec MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
+        - name: Déployer une application Open Liberty ou WebSphere Liberty
+          href: howto-deploy-java-liberty-app.md
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md
           maintainContext: true

@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Déclencheur de minuteur
               href: functions-create-scheduled-function.md
-        - name: Ajouter des liaisons
+        - name: Se connecter à des services
           items:
-            - name: Guide pratique pour ajouter une liaison
+            - name: Guide pratique pour se connecter à des services
+              displayName: 'bindings,integrate'
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portail
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integrate
       items:
-        - name: Ajouter des liaisons
+        - name: Se connecter à des services
           items:
             - name: Azure Cosmos DB - portail
               href: functions-integrate-store-unstructured-data-cosmosdb.md

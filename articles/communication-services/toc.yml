@@ -43,6 +43,8 @@
   items:
     - name: Créer un service d’authentification approuvé à l’aide d’Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Préparer une application web pour Communication Services (Node.js)
+      href: tutorials/building-app-start.md
 - name: Concepts
   expanded: false
   items:

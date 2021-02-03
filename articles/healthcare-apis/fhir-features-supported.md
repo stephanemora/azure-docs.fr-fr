@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747523"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252115"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -41,8 +41,8 @@ Versions antérieures également prises en charge : `3.0.2`
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       | Problème [no 1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | recherche                         | Partiel   | Partiel   | Partiel   | Voir ci-dessous                                           |
-| recherche chaînée                 | Non        | Oui       | Non        |                                           |
-| recherche chaînée inversée         | Non        | Non        | Non        |                                            |
+| recherche chaînée                 | Non        | Oui       | Non        |                                                     |
+| recherche chaînée inversée         | Non        | Oui       | Non        |                                                     |
 | capabilities                   | Oui       | Oui       | Oui       |                                                     |
 | lot                          | Oui       | Oui       | Oui       |                                                     |
 | transaction                    | Non        | Oui       | Non        |                                                     |
@@ -72,39 +72,39 @@ Tous les types de paramètre de recherche sont pris en charge.
 |`:exact`               | Oui       | Oui       | Oui       |         |
 |`:contains`            | Oui       | Oui       | Oui       |         |
 |`:text`                | Oui       | Oui       | Oui       |         |
+|`:[type]` (référence)  | Oui       | Oui       | Oui       |         |
+|`:not`                 | Oui       | Oui       | Oui       |         |
+|`:below` (URI)         | Oui       | Oui       | Oui       |         |
+|`:above` (URI)         | Non        | Non        | Non        | Problème [n° 158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` (jeton)          | Non        | Non        | Non        |         |
 |`:below` (jeton)       | Non        | Non        | Non        |         |
 |`:above` (jeton)       | Non        | Non        | Non        |         |
 |`:not-in` (jeton)      | Non        | Non        | Non        |         |
-|`:[type]` (référence)  | Non        | Non        | Non        |         |
-|`:below` (URI)         | Oui       | Oui       | Oui       |         |
-|`:not`                 | Non        | Non        | Non        |         |
-|`:above` (URI)         | Non        | Non        | Non        | Problème [n° 158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Paramètre de recherche courant | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Oui       | Oui       | Oui       |         |
 | `_lastUpdated`          | Oui       | Oui       | Oui       |         |
 | `_tag`                  | Oui       | Oui       | Oui       |         |
-| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge uniquement dans STU3, aucune prise en charge dans R4 |
+| `_list`                 | Oui       | Oui       | Oui       |         |
+| `_type`                 | Oui       | Oui       | Oui       | Problème [1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Oui       | Oui       | Oui       |         |
+| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge uniquement dans STU3, aucune prise en charge dans R4 |
 | `_text`                 | Non        | Non        | Non        |         |
 | `_content`              | Non        | Non        | Non        |         |
-| `_list`                 | Oui       | Oui       | Oui       |         |
 | `_has`                  | Non        | Non        | Non        |         |
-| `_type`                 | Oui       | Oui       | Oui       |         |
 | `_query`                | Non        | Non        | Non        |         |
 | `_filter`               | Non        | Non        | Non        |         |
 
 | Paramètres des résultats de la recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Partiel        | Partiel   | Partiel        |   `_sort=_lastUpdated` est pris en charge       |
+| `_elements`             | Oui       | Oui       | Oui       | Problème [1256](https://github.com/microsoft/fhir-server/issues/1256)        |
 | `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 100 caractères. Si la valeur est supérieure à 100, seuls 100 résultats sont retournés et un avertissement est renvoyé dans le lot. |
 | `_include`              | Oui       | Oui       | Oui       |Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
-| `_revinclude`           | Oui       | Oui       | Oui       | Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
+| `_revinclude`           | Oui       | Oui       | Oui       | Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB [n’inclut pas la prise en charge du modificateur :iterate](https://github.com/microsoft/fhir-server/issues/1313). Problème [n° 1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |
-| `_total`                | Partiel   | Partiel   | Partiel   | _total=non et _total=accurate      |
-| `_elements`             | Oui       | Oui       | Oui       |         |
+| `_total`                | Partiel   | Partiel   | Partiel   | `_total=none` et `_total=accurate`      |
+| `_sort`                 | Partiel   | Partiel   | Partiel   |   `_sort=_lastUpdated` est pris en charge       |
 | `_contained`            | Non        | Non        | Non        |         |
 | `containedType`         | Non        | Non        | Non        |         |
 | `_score`                | Non        | Non        | Non        |         |
@@ -151,7 +151,7 @@ Les performances du système dépendent du nombre d’unités de requête, des c
 |----------|---------------|--------|                 
 | 400      | 5-10          |     40   |
 | 1 000    | 100-150       |      100  |
-| 10 000   | 225-400       |      1 000  |
+| 10 000   | 225-400       |      1 000  |
 | 100 000  | 2 500-4 000   |      10 000  |
 
 Remarque : Conformément à l’exigence de Cosmos DB, un débit minimal de 10 RU/s par Go de stockage est nécessaire. Pour plus d’informations, consultez [Quotas de service Cosmos DB](../cosmos-db/concepts-limits.md).
