@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353168"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222863"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planifier votre application QnA Maker
 
@@ -94,13 +94,13 @@ Vous pouvez à présent avoir des bases de connaissances dans différentes langu
 
 ### <a name="ingest-data-sources"></a>Ingestion de sources de données
 
-Pour créer une base de connaissances, vous pouvez utiliser l’une des [sources de données](../index.yml) ingérées suivantes :
+Pour créer une base de connaissances, vous pouvez utiliser l’une des [sources de données](../Concepts/data-sources-and-content.md) ingérées suivantes :
 
 * Une URL publique
 * Une URL SharePoint privée
 * Fichier
 
-Le processus d’ingestion convertit les [types de contenu pris en charge](../index.yml) en Markdown. Toutes les modifications apportées à la *réponse* sont effectuées avec Markdown. Après avoir créé votre base de connaissances, vous pouvez modifier les [paires question/réponse](question-answer-set.md) dans le portail QnA Maker à l’aide de la [création de texte enrichi](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Le processus d’ingestion convertit les [types de contenu pris en charge](../reference-document-format-guidelines.md) en Markdown. Toutes les modifications apportées à la *réponse* sont effectuées avec Markdown. Après avoir créé votre base de connaissances, vous pouvez modifier les [paires question/réponse](question-answer-set.md) dans le portail QnA Maker à l’aide de la [création de texte enrichi](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considérations relatives aux formats des données
 
@@ -124,7 +124,7 @@ Vous devez concevoir votre flux de conversation en utilisant une boucle pour qu�
 
 Les collaborateurs peuvent être des développeurs qui partagent la totalité de la pile de développement de l’application de base de connaissances, ou ils peuvent uniquement être affectés à la création de la base de connaissances.
 
-Lorsque vous créez une base de connaissances, vous pouvez appliquer différentes [autorisations d’accès en fonction du rôle](../index.yml) dans le portail Azure afin de limiter les possibilités d’un collaborateur.
+Lorsque vous créez une base de connaissances, vous pouvez appliquer différentes [autorisations d’accès en fonction du rôle](../reference-role-based-access-control.md) dans le portail Azure afin de limiter les possibilités d’un collaborateur.
 
 ## <a name="integration-with-client-applications"></a>Intégration aux applications clientes
 

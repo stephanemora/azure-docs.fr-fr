@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: e06e660a43aaa0ff5eb79bc00bd8a5d2c61c6580
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045311"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98860124"
 ---
 | Nom du filtre | Description | Schéma du texte du filtre | Valeurs prises en charge | 
 | --- | --- | --- | --- |
@@ -22,10 +22,6 @@ ms.locfileid: "98045311"
 | Type de contenu | Type de contenu de la valeur de données | `datacontenttype = '<contentType>'` | Le type de contenu est `application/json` |
 | Version de spécification | Version du schéma d’événement que vous utilisez | `specversion = '<version>'` | La version doit être `1.0`. Cela indique le schéma CloudEvents version 1.0. |
 | Corps de la notification | Référencer n’importe quelle propriété dans le champ `data` d’une notification | `$body.<property>` | Consultez [*Guide pratique pour comprendre les données d’événements*](../articles/digital-twins/how-to-interpret-event-data.md) afin d’obtenir des exemples de notifications. Toute propriété du champ `data` peut être référencée à l’aide de `$body`
-
-Notez que vous pouvez ajouter plusieurs filtres à une demande comme ceci : 
-
-:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 Les types de données suivants sont pris en charge en tant que valeurs retournées par les références aux données ci-dessus :
 

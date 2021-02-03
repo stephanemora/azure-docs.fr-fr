@@ -3,19 +3,19 @@ title: Prise en charge linguistique – Translator
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator prend en charge les langues suivantes pour la traduction de texte par traduction automatique neuronale.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
-ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.author: lajanuar
+ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789277"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919916"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -68,6 +68,7 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Hongrois | `hu` |
 | Islandais | `is` |
 | Indonésien | `id` |
+| Inuktitut | `iu` |
 | Irlandais | `ga` |
 | Italien | `it` |
 | Japonais | `ja` |

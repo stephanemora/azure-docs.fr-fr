@@ -2,19 +2,19 @@
 title: Que sont un entraînement et un modèle ? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 'Un modèle est le système qui fournit une traduction pour une paire de langues spécifique. Le résultat d’un entraînement réussi est un modèle. Lors de l’entraînement d’un modèle, trois jeux de données qui s’excluent mutuellement sont nécessaires : le jeu de données d’entraînement, le jeu de données de paramétrage et le jeu de données de test.'
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.author: swmachan
-ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 62a444b66d50579c601077751b0700aa954b34c0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369016"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897932"
 ---
 # <a name="what-are-trainings-and-models"></a>Que sont les entraînements et les modèles ?
 

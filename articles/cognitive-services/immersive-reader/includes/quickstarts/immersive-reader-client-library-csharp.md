@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371802"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948403"
 ---
 Le [Lecteur immersif](https://www.onenote.com/learningtools) est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage, comme la dyslexie. Vous pouvez utiliser le Lecteur immersif dans vos applications pour isoler du texte afin d’améliorer le focus, afficher des images pour les mots couramment utilisés, mettre en évidence des parties d’un discours, lire le texte sélectionné à voix haute, traduire des mots et des expressions en temps réel, etc.
 
@@ -42,7 +42,7 @@ Créez un projet dans Visual Studio à l’aide du modèle d’application web A
 
 ### <a name="configure-authentication-values"></a>Configurer les valeurs d’authentification
 
-Cliquez avec le bouton droit sur le projet dans _l’Explorateur de solutions_ et choisissez **Gérer les données secrètes de l’utilisateur**. Cela ouvrira un fichier appelé _secrets.json_. Ce fichier n’est pas archivé dans le contrôle de code source. En savoir plus [ici](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1). Remplacez le contenu du fichier _secrets.json_ par le code suivant, en indiquant les valeurs fournies au moment de la création de votre ressource Lecteur immersif.
+Cliquez avec le bouton droit sur le projet dans _l’Explorateur de solutions_ et choisissez **Gérer les données secrètes de l’utilisateur**. Cela ouvrira un fichier appelé _secrets.json_. Ce fichier n’est pas archivé dans le contrôle de code source. En savoir plus [ici](/aspnet/core/security/app-secrets?tabs=windows). Remplacez le contenu du fichier _secrets.json_ par le code suivant, en indiquant les valeurs fournies au moment de la création de votre ressource Lecteur immersif.
 
 ```json
 {
@@ -65,13 +65,13 @@ Ouvrez la console du Gestionnaire de package NuGet dans **Outils -> Gestionnaire
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>Mettre à jour le contrôleur pour obtenir le jeton 
 
-Ouvrez _Controllers\HomeController.cs_ , puis ajoutez le code suivant après les instructions _using_ en haut du fichier.
+Ouvrez _Controllers\HomeController.cs_, puis ajoutez le code suivant après les instructions _using_ en haut du fichier.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-Maintenant, nous allons configurer le contrôleur pour obtenir les valeurs Azure AD du fichier _secrets.json_. En haut de la classe _HomeController_ , après ```public class HomeController : Controller {```, ajoutez le code suivant.
+Maintenant, nous allons configurer le contrôleur pour obtenir les valeurs Azure AD du fichier _secrets.json_. En haut de la classe _HomeController_, après ```public class HomeController : Controller {```, ajoutez le code suivant.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -220,7 +220,7 @@ Notez que tout le texte a un attribut **lang** qui décrit les langues du texte.
 
 La bibliothèque du Lecteur immersif fournit des fonctionnalités telles que le lancement du Lecteur immersif et l’affichage des boutons du Lecteur immersif. En savoir plus [ici](../../reference.md).
 
-En bas du fichier _Views\Home\Index.cshtml_ , ajoutez le code suivant :
+En bas du fichier _Views\Home\Index.cshtml_, ajoutez le code suivant :
 
 ```html
 @section Scripts
@@ -292,7 +292,7 @@ En bas du fichier _Views\Home\Index.cshtml_ , ajoutez le code suivant :
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Dans la barre de menus, sélectionnez **Déboguer > Démarrer le débogage** , ou appuyez sur **F5** pour démarrer l’application.
+Dans la barre de menus, sélectionnez **Déboguer > Démarrer le débogage**, ou appuyez sur **F5** pour démarrer l’application.
 
 Dans votre navigateur, vous devriez voir :
 

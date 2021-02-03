@@ -2,19 +2,19 @@
 title: Forum aux questions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Cet article contient les réponses aux questions fréquentes sur Azure Cognitive Services Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 0f3d8131635fae55fd8dc2fd2649ae5dda1e62ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 001314817b0c18a8023258d01bcfb02eaaffe79b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895830"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Questions fréquentes sur Custom Translator
 

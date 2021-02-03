@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561305"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932536"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flux de travail d’intégration continue et de livraison continue pour LUIS DevOps
 
@@ -41,7 +41,7 @@ Utiliser les outils de génération de flux de travail automatisés suivants pou
 
 * [Interface CLI LUIS des outils de l’infrastructure du chatbot](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) pour fonctionner avec les applications et versions LUIS (apprentissage, test) et les publier dans le service LUIS.
 
-* [Interface de ligne de commande Azure](/cli/azure/?view=azure-cli-latest) pour interroger des abonnements Azure, récupérer des clés de prédiction et de création de LUIS, et pour créer un [principal de service Azure](/cli/azure/ad/sp?view=azure-cli-latest) utilisé pour l’authentification du flux de travail d’automatisation.
+* [Interface de ligne de commande Azure](/cli/azure/) pour interroger des abonnements Azure, récupérer des clés de prédiction et de création de LUIS, et pour créer un [principal de service Azure](/cli/azure/ad/sp) utilisé pour l’authentification du flux de travail d’automatisation.
 
 * Outil [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) pour [tester une application LUIS](luis-concept-devops-testing.md) et analyser les résultats des tests.
 

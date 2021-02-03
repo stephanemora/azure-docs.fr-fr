@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072171"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226554"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -83,7 +83,7 @@ Les modèles de base et les modèles personnalisés sont mis hors service après
 
 **Q : Mes requêtes sont-elles journalisées ?**
 
-**R** : Par défaut, les demandes ne sont pas journalisées (ni audio, ni transcription). Si nécessaire, vous pouvez sélectionner *Journaliser le contenu à partir de ce point de terminaison* lorsque vous [créez un point de terminaison personnalisé](./how-to-custom-speech-train-model.md). Il est également possible d’activer la journalisation audio dans le [kit de développement logiciel (SDK) Speech](speech-sdk.md) demande par demande sans créer de point de terminaison personnalisé. Dans les deux cas, les données audio et les résultats de la reconnaissance des demandes sont stockés dans un stockage sécurisé. Dans le cas des abonnements qui utilisent le stockage appartenant à Microsoft, ils sont disponibles pendant 30 jours.
+**R** : Par défaut, les demandes ne sont pas journalisées (ni audio, ni transcription). Si nécessaire, vous pouvez sélectionner *Journaliser le contenu à partir de ce point de terminaison* lorsque vous [créez un point de terminaison personnalisé](how-to-custom-speech-train-model.md#deploy-a-custom-model). Il est également possible d’activer la journalisation audio dans le [kit de développement logiciel (SDK) Speech](how-to-use-logging.md) demande par demande sans créer de point de terminaison personnalisé. Dans les deux cas, les données audio et les résultats de la reconnaissance des demandes sont stockés dans un stockage sécurisé. Dans le cas des abonnements qui utilisent le stockage appartenant à Microsoft, ils sont disponibles pendant 30 jours.
 
 Vous pouvez exporter les fichiers journalisés sur la page de déploiement dans Speech Studio si vous utilisez un point de terminaison personnalisé pour lequel l’option *Journaliser le contenu à partir de ce point de terminaison* est activée. Si la journalisation audio est activée par l’intermédiaire du kit SDK, appelez [l’API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) pour accéder aux fichiers.
 

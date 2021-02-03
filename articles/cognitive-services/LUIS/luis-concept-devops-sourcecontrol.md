@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790882"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932519"
 ---
 # <a name="devops-practices-for-luis"></a>Pratiques DevOps pour LUIS
 
@@ -18,7 +18,7 @@ Les ingénieurs logiciels qui développent une application LUIS (Language Unders
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Stratégies de contrôle de code source et de branche pour LUIS
 
-L’un des principaux facteurs dont dépend le succès de DevOps est le [contrôle de code source](/azure/devops/user-guide/source-control?view=azure-devops). Un système de contrôle de code source permet aux développeurs de collaborer sur le code et de suivre les modifications. L’utilisation de branches permet aux développeurs de basculer entre les différentes versions de la base de code et de travailler indépendamment des autres membres de l’équipe. Quand les développeurs soumettent une [demande de tirage (pull request)](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) pour proposer des mises à jour depuis une branche vers une autre ou que des modifications sont fusionnées, cela peut être le déclencheur de [builds automatisées](luis-concept-devops-automation.md) pour générer et tester en continu le code.
+L’un des principaux facteurs dont dépend le succès de DevOps est le [contrôle de code source](/azure/devops/user-guide/source-control). Un système de contrôle de code source permet aux développeurs de collaborer sur le code et de suivre les modifications. L’utilisation de branches permet aux développeurs de basculer entre les différentes versions de la base de code et de travailler indépendamment des autres membres de l’équipe. Quand les développeurs soumettent une [demande de tirage (pull request)](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) pour proposer des mises à jour depuis une branche vers une autre ou que des modifications sont fusionnées, cela peut être le déclencheur de [builds automatisées](luis-concept-devops-automation.md) pour générer et tester en continu le code.
 
 En utilisant les concepts et les conseils décrits dans ce document, vous pouvez développer une application LUIS tout en effectuant le suivi des modifications dans un système de contrôle de code source et suivre ces bonnes pratiques en matière de génie logiciel :
 
@@ -42,7 +42,7 @@ En utilisant les concepts et les conseils décrits dans ce document, vous pouvez
 
 ## <a name="source-control"></a>Contrôle de code source
 
-Pour conserver la [définition de schéma d’application](./app-schema-definition.md) d’une application LUIS dans un système de gestion du code source, utilisez la représentation au [format LUDown (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) de l’application. Le format `.lu` est préférable au format `.json`, car il est lisible par l’homme, ce qui facilite la création et la revue des modifications dans les demande de tirage.
+Pour conserver la [définition de schéma d’application](./app-schema-definition.md) d’une application LUIS dans un système de gestion du code source, utilisez la représentation au [format LUDown (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format) de l’application. Le format `.lu` est préférable au format `.json`, car il est lisible par l’homme, ce qui facilite la création et la revue des modifications dans les demande de tirage.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Enregistrer une application LUIS en utilisant le format LUDown
 
@@ -81,7 +81,7 @@ N’incluez pas de clés d’abonnement ou de valeurs confidentielles similaires
 - Clés de création et de prédiction LUIS
 - Points de terminaison de création et de prédiction LUIS
 - Clés d’abonnement Azure
-- Jetons d’accès, tels que le jeton pour un [principal de service](/cli/azure/ad/sp?view=azure-cli-latest) Azure utilisé à des fins d’authentification de l’automatisation
+- Jetons d’accès, tels que le jeton pour un [principal de service](/cli/azure/ad/sp) Azure utilisé à des fins d’authentification de l’automatisation
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Stratégies pour la gestion sécurisée des secrets
 
@@ -183,7 +183,7 @@ Une application LUIS au format LUDown étant lisible par l’homme, la communica
 
 ## <a name="versioning"></a>Contrôle de version
 
-Une application est constituée de plusieurs composants qui peuvent inclure des éléments tels qu’un bot s’exécutant dans [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), le [service Azure Speech](../speech-service/overview.md) et bien plus encore. Pour que les applications soient faiblement couplées, utilisez la [gestion de version](/azure/devops/learn/git/what-is-version-control) afin que la version de chaque composant d’une application soit gérée de manière indépendante, ce qui permet aux développeurs de détecter les changements cassants ou les mises à jour en examinant simplement le numéro de version. Il est plus facile de gérer la version de votre application LUIS indépendamment des autres composants si vous conservez celle-ci dans son propre dépôt.
+Une application est constituée de plusieurs composants qui peuvent inclure des éléments tels qu’un bot s’exécutant dans [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), le [service Azure Speech](../speech-service/overview.md) et bien plus encore. Pour que les applications soient faiblement couplées, utilisez la [gestion de version](/azure/devops/learn/git/what-is-version-control) afin que la version de chaque composant d’une application soit gérée de manière indépendante, ce qui permet aux développeurs de détecter les changements cassants ou les mises à jour en examinant simplement le numéro de version. Il est plus facile de gérer la version de votre application LUIS indépendamment des autres composants si vous conservez celle-ci dans son propre dépôt.
 
 Un schéma de gestion de versions doit être appliqué à l’application LUIS pour la branche primaire. Quand vous fusionnez des mises à jour du fichier `.lu` pour une application LUIS dans la branche primaire, vous importez cette source mise à jour dans une nouvelle version de l’application LUIS pour la branche primaire.
 

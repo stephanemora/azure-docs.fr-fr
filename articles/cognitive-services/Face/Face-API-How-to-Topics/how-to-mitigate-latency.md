@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: b4035e2039afb6fe66d2658ebfcd3206d46e1de5
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e7f4293955772697ddeea5fce9daac4b04755274
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682460"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937292"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Guide pratique : limiter la latence lors de l’utilisation du service Visage
 
@@ -34,7 +34,7 @@ Cette rubrique traite des causes possibles de la latence propre à l’utilisati
 
 ### <a name="slow-connection-between-the-cognitive-service-and-a-remote-url"></a>Connexion lente entre le service Cognitive Services et une URL distante
 
-Certains services Azure Cognitive Services offrent des méthodes qui obtiennent des données à partir d’une URL distante que vous fournissez. Par exemple, quand vous appelez la [méthode DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) du service Visage, vous pouvez spécifier l’URL d’une image dans laquelle le service tente de détecter les visages.
+Certains services Azure Cognitive Services offrent des méthodes qui obtiennent des données à partir d’une URL distante que vous fournissez. Par exemple, quand vous appelez la [méthode DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) du service Visage, vous pouvez spécifier l’URL d’une image dans laquelle le service tente de détecter les visages.
 
 ```csharp
 var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
@@ -50,7 +50,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows
 
 ### <a name="large-upload-size"></a>Grande taille de chargement
 
-Certains services Azure Cognitive Services offrent des méthodes qui obtiennent des données à partir d’un fichier que vous chargez. Par exemple, quand vous appelez la [méthode DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) du service Visage, vous pouvez charger une image dans laquelle le service tente de détecter les visages.
+Certains services Azure Cognitive Services offrent des méthodes qui obtiennent des données à partir d’un fichier que vous chargez. Par exemple, quand vous appelez la [méthode DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) du service Visage, vous pouvez charger une image dans laquelle le service tente de détecter les visages.
 
 ```csharp
 using FileStream fs = File.OpenRead(@"C:\images\face.jpg");
@@ -97,4 +97,4 @@ Dans ce guide, vous avez appris à limiter la latence lors de l’utilisation du
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Documentation de référence (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Documentation de référence (kit SDK .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
+- [Documentation de référence (kit SDK .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)

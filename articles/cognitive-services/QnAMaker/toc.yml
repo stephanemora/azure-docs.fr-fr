@@ -1,6 +1,6 @@
 - name: Documentation relative à QnA Maker
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que QnA Maker\_?"
       href: Overview/overview.md
@@ -103,6 +103,8 @@
       href: How-To/change-default-answer.md
     - name: Configuration de service
       href: reference-app-service.md
+    - name: Instructions relatives au format de contenu
+      href: reference-document-format-guidelines.md
     - name: Formats de contenu et de données
       items:
         - name: Instructions relatives au format de contenu

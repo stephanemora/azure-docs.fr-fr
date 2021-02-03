@@ -3,19 +3,19 @@ title: Déploiements de langues non prises en charge – Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Cet article explique comment déployer des paires de langues non prises en charge dans Azure Cognitive Services Custom Translator.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369033"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898068"
 ---
 # <a name="unsupported-language-deployments"></a>Déploiements de langages non pris en charge
 
@@ -37,11 +37,11 @@ Après avoir migré à partir du hub les modèles candidats au déploiement, vou
 
 ![Capture d’écran mettant en évidence la section Formations non prises en charge par Translator Hub.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-Dans la page de sélection **Unsupported Translator Hub Trainings** , l’onglet **Unrequested trainings** contient des modèles éligibles pour un déploiement.  Sélectionnez les modèles que vous souhaitez déployer et envoyez une demande.   Avant l’échéance de déploiement du 30 avril, vous pouvez sélectionner autant de modèles que vous le souhaitez pour le déploiement.
+Dans la page de sélection **Unsupported Translator Hub Trainings**, l’onglet **Unrequested trainings** contient des modèles éligibles pour un déploiement.  Sélectionnez les modèles que vous souhaitez déployer et envoyez une demande.   Avant l’échéance de déploiement du 30 avril, vous pouvez sélectionner autant de modèles que vous le souhaitez pour le déploiement.
  
 ![Capture d’écran montrant l’onglet Formations non demandées.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
-Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequested trainings** , mais apparaît sous l’onglet **Requested trainings**.  Vous pouvez afficher vos formations demandées à tout moment.
+Une fois envoyé, le modèle n’est plus disponible sous l’onglet **Unrequested trainings**, mais apparaît sous l’onglet **Requested trainings**.  Vous pouvez afficher vos formations demandées à tout moment.
 
 ![Migrer à partir du hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 

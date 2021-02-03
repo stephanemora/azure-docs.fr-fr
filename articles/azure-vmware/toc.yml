@@ -1,6 +1,6 @@
 - name: Azure VMware Solution
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure VMware Solution
       href: introduction.md
@@ -14,7 +14,7 @@
       href: azure-vmware-solution-on-premises.md
     - name: 3 - Déployer et configurer VMware HCX
       href: tutorial-deploy-vmware-hcx.md
-- name: Tutoriels
+- name: Didacticiels
   items:
     - name: 1 - Check-list pour la planification réseau
       href: tutorial-network-checklist.md

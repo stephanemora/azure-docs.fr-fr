@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0503e0bf2fe152296ca6890e14503d05bd3bbeef
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024770"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939852"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implémentation des assistants vocaux sur Windows
 
@@ -30,7 +30,7 @@ Une fois [votre environnement configuré](how-to-windows-voice-assistants-get-st
 
 #### <a name="ensure-that-the-microphone-is-available-and-accessible-then-monitor-its-state"></a>Assurez-vous que le microphone est disponible et accessible, puis analyser son état
 
-MVA a besoin qu’un microphone présent et accessible pour pouvoir détecter une activation vocale. Utilisez les classes [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability?view=winrt-18362), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher?view=winrt-18362) et [MediaCapture](/uwp/api/windows.media.capture.mediacapture?view=winrt-18362) pour vérifier l’accès à la confidentialité du microphone, la présence d’appareils et l’état des appareils (par exemple, volume et muet), respectivement.
+MVA a besoin qu’un microphone présent et accessible pour pouvoir détecter une activation vocale. Utilisez les classes [AppCapability](/uwp/api/windows.security.authorization.appcapabilityaccess.appcapability), [DeviceWatcher](/uwp/api/windows.devices.enumeration.devicewatcher) et [MediaCapture](/uwp/api/windows.media.capture.mediacapture) pour vérifier l’accès à la confidentialité du microphone, la présence d’appareils et l’état des appareils (par exemple, volume et muet), respectivement.
 
 ### <a name="register-the-application-with-the-background-service"></a>Enregistrer l'application auprès du service d'arrière-plan
 
@@ -38,7 +38,7 @@ Pour que MVA lance l’application en arrière-plan, l’application doit être 
 
 ### <a name="unlock-the-limited-access-feature"></a>Déverrouiller la fonctionnalité d’accès limité
 
-Utilisez votre clé de fonctionnalité d’accès limité fournie par Microsoft pour déverrouiller la fonctionnalité de l’assistant vocal. Pour ce faire, utilisez la classe [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures?view=winrt-18362) du SDK Windows.
+Utilisez votre clé de fonctionnalité d’accès limité fournie par Microsoft pour déverrouiller la fonctionnalité de l’assistant vocal. Pour ce faire, utilisez la classe [LimitedAccessFeature](/uwp/api/windows.applicationmodel.limitedaccessfeatures) du SDK Windows.
 
 ### <a name="register-the-keyword-for-the-application"></a>Enregistrer le mot clé pour l’application
 
@@ -86,7 +86,7 @@ Une fois qu’une application d’agent vocal est activée par la voix, l’éta
 
 ### <a name="retrieve-activation-audio"></a>Récupérer l’audio d’activation
 
-Créez un [AudioGraph](/uwp/api/windows.media.audio.audiograph) et transmettez-le à la `CreateAudioDeviceInputNodeAsync` du `ConversationalAgentSession`. Cela chargera la mémoire tampon audio du graphique avec l’audio *démarrant approximativement 3 secondes avant que le mot clé ne soit détecté*. Cet autre audio de début est inclus pour tenir compte d’un large éventail de longueurs de mots clés et de vitesses de débit de parole de l’orateur. Gérez ensuite l’événement [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) à partir du graphique audio pour récupérer les données audio.
+Créez un [AudioGraph](/uwp/api/windows.media.audio.audiograph) et transmettez-le à la `CreateAudioDeviceInputNodeAsync` du `ConversationalAgentSession`. Cela chargera la mémoire tampon audio du graphique avec l’audio *démarrant approximativement 3 secondes avant que le mot clé ne soit détecté*. Cet autre audio de début est inclus pour tenir compte d’un large éventail de longueurs de mots clés et de vitesses de débit de parole de l’orateur. Gérez ensuite l’événement [QuantumStarted](/uwp/api/windows.media.audio.audiograph.quantumstarted) à partir du graphique audio pour récupérer les données audio.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);

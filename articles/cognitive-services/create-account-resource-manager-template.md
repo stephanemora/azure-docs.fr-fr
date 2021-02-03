@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842105"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928657"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Démarrage rapide : Créer une ressource Cognitive Services avec un modèle ARM
 
@@ -75,7 +75,7 @@ Une seule ressource Azure est définie dans le modèle :
 > [!NOTE]
 > `az deployment group` create requiert Azure CLI version 2.6 ou ultérieure. Pour afficher la version, tapez `az --version`. Pour plus d’informations, consultez la [documentation](/cli/azure/deployment/group).
 
-Exécutez le script suivant à l’aide de l’interface de ligne de commande Azure CLI [sur votre machine locale](/cli/azure/install-azure-cli?view=azure-cli-latest), ou du bouton **Essayer** dans un navigateur. Entrez un nom et une localisation (par exemple, `centralus`) pour un nouveau groupe de ressources où le modèle ARM déploiera une ressource Cognitive Services. Notez le nom que vous choisissez, car vous en aurez besoin plus tard pour valider le déploiement.
+Exécutez le script suivant à l’aide de l’interface de ligne de commande Azure CLI [sur votre machine locale](/cli/azure/install-azure-cli), ou du bouton **Essayer** dans un navigateur. Entrez un nom et une localisation (par exemple, `centralus`) pour un nouveau groupe de ressources où le modèle ARM déploiera une ressource Cognitive Services. Notez le nom que vous choisissez, car vous en aurez besoin plus tard pour valider le déploiement.
 
 
 ```azurecli-interactive

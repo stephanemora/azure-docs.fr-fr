@@ -1,6 +1,6 @@
 - name: Documentation Azure Cosmos DB
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Bienvenue dans Azure Cosmos DB
       href: introduction.md
@@ -142,7 +142,7 @@
               href: create-sql-api-python.md
             - name: Application Xamarin
               href: create-sql-api-xamarin-dotnet.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: "1\_- Créer et gérer des données"
           items:
@@ -966,8 +966,6 @@
               href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Migrer - Apache Cassandra vers l’API Cassandra avec Databricks
               href: cassandra-migrate-cosmos-db-databricks.md
-            - name: Migrer - Apache Cassandra vers l’API Cassandra avec Databricks
-              href: cassandra-migrate-cosmos-db-databricks.md
             - name: Migrer - PostgreSQL vers l’API Cassandra avec Apache Kafka
               href: postgres-migrate-cosmos-db-kafka.md
         - name: Modifier le flux
@@ -1045,7 +1043,7 @@
           href: create-mongodb-go.md
         - name: Rust
           href: create-mongodb-rust.md
-    - name: Didacticiels
+    - name: Tutoriels
       items:
         - name: "1\_- Créer et gérer des données"
           items:

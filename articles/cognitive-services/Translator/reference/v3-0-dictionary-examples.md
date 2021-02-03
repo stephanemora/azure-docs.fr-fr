@@ -3,19 +3,19 @@ title: Méthode des exemples de dictionnaire du service Translator
 titleSuffix: Azure Cognitive Services
 description: La méthode des exemples de dictionnaire de Translator fournit des exemples qui montrent comment les termes inclus dans le dictionnaire sont utilisés en contexte.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
-ms.openlocfilehash: 1fe5a5669173733e3d0cf1b56b9997d15a3ff138
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021301"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895507"
 ---
 # <a name="translator-30-dictionary-examples"></a>Translator 3.0 : Exemples de dictionnaire
 

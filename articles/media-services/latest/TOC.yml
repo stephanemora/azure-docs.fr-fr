@@ -111,6 +111,8 @@
         - name: Identités managées et services multimédias
           displayName: content protection
           href: concept-managed-identities.md
+        - name: Stockage approuvé
+          href: concept-trusted-storage.md
         - name: Clés gérées par le client
           href: concept-use-customer-managed-keys-byok.md
     - name: Éléments multimédias

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f7a740b1015bda80000f65180eda2c5e618670da
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911237"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943599"
 ---
 # <a name="get-face-detection-data"></a>Obtenir des données de détection des visages
 
@@ -30,21 +30,21 @@ Ce guide vous montre comment :
 
 ## <a name="setup"></a>Programme d’installation
 
-Ce guide suppose que vous avez déjà construit un objet [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet), nommé `faceClient`, avec une URL de point de terminaison et une clé d’abonnement Visage. À ce stade, vous pouvez utiliser la fonctionnalité de détection des visages en appelant [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), qui est utilisé dans ce guide, ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Pour obtenir des instructions sur la configuration de cette fonctionnalité, suivez un des guides de démarrage rapide.
+Ce guide suppose que vous avez déjà construit un objet [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient), nommé `faceClient`, avec une URL de point de terminaison et une clé d’abonnement Visage. À ce stade, vous pouvez utiliser la fonctionnalité de détection des visages en appelant [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync), qui est utilisé dans ce guide, ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync). Pour obtenir des instructions sur la configuration de cette fonctionnalité, suivez un des guides de démarrage rapide.
 
 Ce guide se concentre sur les spécificités de l’appel de détection, telles que les arguments que vous pouvez transmettre et ce que vous pouvez faire avec les données retournées. Nous vous recommandons d’interroger uniquement les fonctionnalités dont vous avez besoin. Chaque opération nécessite du temps supplémentaire.
 
 ## <a name="get-basic-face-data"></a>Obtenir des données de visage de base
 
-Pour rechercher des visages et savoir où ils se trouvent sur une image, appelez la méthode [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet) avec le paramètre _returnFaceId_ défini sur **true**. Il s’agit du paramètre par défaut.
+Pour rechercher des visages et savoir où ils se trouvent sur une image, appelez la méthode [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) avec le paramètre _returnFaceId_ défini sur **true**. Il s’agit du paramètre par défaut.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-Vous pouvez interroger les objets [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) retournés pour obtenir leurs ID uniques et un rectangle qui fournit les coordonnées en pixels du visage.
+Vous pouvez interroger les objets [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) retournés pour obtenir leurs ID uniques et un rectangle qui fournit les coordonnées en pixels du visage.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 
-Pour plus d’informations sur la façon d’analyser l’emplacement et les dimensions du visage, consultez [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet). En règle générale, ce rectangle contient les yeux, les sourcils, le nez et la bouche. Le sommet du crâne, les oreilles et le menton ne sont pas nécessairement inclus. Pour utiliser le rectangle du visage pour rogner une tête complète ou obtenir un portrait en plan moyen, peut-être pour une image de type photo d’identité, vous pouvez développer le rectangle dans chaque direction.
+Pour plus d’informations sur la façon d’analyser l’emplacement et les dimensions du visage, consultez [FaceRectangle](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle). En règle générale, ce rectangle contient les yeux, les sourcils, le nez et la bouche. Le sommet du crâne, les oreilles et le menton ne sont pas nécessairement inclus. Pour utiliser le rectangle du visage pour rogner une tête complète ou obtenir un portrait en plan moyen, peut-être pour une image de type photo d’identité, vous pouvez développer le rectangle dans chaque direction.
 
 ## <a name="get-face-landmarks"></a>Obtenir les points de repère du visage
 
@@ -66,7 +66,7 @@ Lorsque vous connaissez l’orientation du visage, vous pouvez faire pivoter le 
 
 Outre les points de repère et les rectangles des visages, l’API de détection des visages peut analyser plusieurs attributs conceptuels d’un visage. Pour obtenir la liste complète, consultez la section conceptuelle [Attributs du visage](../concepts/face-detection.md#attributes).
 
-Pour analyser les attributs d’un visage, définissez le paramètre _detectionModel_ sur **DetectionModel.Detection01** et le paramètre _returnFaceAttributes_ sur une liste de valeurs [enum FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet).
+Pour analyser les attributs d’un visage, définissez le paramètre _detectionModel_ sur **DetectionModel.Detection01** et le paramètre _returnFaceAttributes_ sur une liste de valeurs [enum FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype).
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
 
@@ -85,4 +85,4 @@ Dans ce guide, vous avez appris à utiliser les différentes fonctionnalités de
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Documentation de référence (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Documentation de référence (kit SDK .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
+- [Documentation de référence (kit SDK .NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
