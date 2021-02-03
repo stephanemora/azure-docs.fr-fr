@@ -1,19 +1,17 @@
 ---
 title: Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 description: Synchronisez des utilisateurs authentifiés d’Azure Active Directory vers un cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535176"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931622"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
@@ -29,7 +27,7 @@ Pour afficher vos hôtes, ouvrez l’interface utilisateur web d’Ambari. Chaqu
 
 1. À partir du [Portail Azure](https://portal.azure.com), accédez au répertoire Azure AD associé à votre cluster ESP.
 
-2. Sélectionnez **Tous les utilisateurs** dans le menu de gauche, puis sélectionnez **Nouvel utilisateur** .
+2. Sélectionnez **Tous les utilisateurs** dans le menu de gauche, puis sélectionnez **Nouvel utilisateur**.
 
     ![Portail Azure - Utilisateurs et groupes, Tous les utilisateurs](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
@@ -120,7 +118,7 @@ La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’inform
     }
     ```
 
-1. Ce résultat montre que l’état est **COMPLETE** , qu’un nouvel utilisateur a été créé et qu’une appartenance lui a été attribuée. Dans cet exemple, l’utilisateur est affecté au groupe LDAP synchronisé « HiveUsers », car il a été ajouté à ce même groupe dans Azure AD.
+1. Ce résultat montre que l’état est **COMPLETE**, qu’un nouvel utilisateur a été créé et qu’une appartenance lui a été attribuée. Dans cet exemple, l’utilisateur est affecté au groupe LDAP synchronisé « HiveUsers », car il a été ajouté à ce même groupe dans Azure AD.
 
     > [!NOTE]  
     > La méthode précédente synchronise uniquement les groupes Azure AD spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine durant la création du cluster. Pour plus d’informations, consultez [Créer un cluster HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
@@ -129,7 +127,7 @@ La méthode suivante utilise POST avec l’API REST Ambari. Pour plus d’inform
 
 Ouvrez [l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md) pour vérifier que le nouvel utilisateur Azure AD a été ajouté. Accédez à l’interface utilisateur web d’Ambari en naviguant jusqu’à **`https://CLUSTERNAME.azurehdinsight.net`** . Entrez le nom d’utilisateur et le mot de passe de l’administrateur de cluster.
 
-1. Dans le tableau de bord Ambari, sélectionnez **Manage Ambari** (Gérer Ambari) sous le menu **admin** .
+1. Dans le tableau de bord Ambari, sélectionnez **Manage Ambari** (Gérer Ambari) sous le menu **admin**.
 
     ![Tableau de bord Apache Ambari - Gérer Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 

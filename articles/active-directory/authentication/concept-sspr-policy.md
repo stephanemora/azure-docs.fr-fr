@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027062"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918041"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Stratégies de mot de passe et restrictions de compte dans Azure Active Directory
 
@@ -75,6 +75,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Prise en charge de niveau 1 de partenaire
   * Prise en charge de niveau 2 de partenaire
   * Administrateur Exchange
+  * Administrateur de boîte aux lettres
   * Administrateur Skype Entreprise
   * Administrateur d’utilisateurs
   * Enregistreurs de répertoire
@@ -85,10 +86,12 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Administrateur de sécurité
   * Administrateur de rôle privilégié
   * Administrateur Intune
+  * Administrateur local de l’appareil joint Azure AD
   * Administrateur de services de proxy d’application
   * Administrateur Dynamics 365
   * Administrateur de services Power BI
   * Administrateur d’authentification
+  * Administrateur de mots de passe
   * Administrateur d’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou

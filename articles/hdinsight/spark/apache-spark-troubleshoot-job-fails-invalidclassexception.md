@@ -3,16 +3,13 @@ title: Erreur InvalidClassException d’Apache Spark – Azure HDInsight
 description: La tâche Apache Spark échoue avec InvalidClassException, incompatibilité de version de classe, dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/29/2019
-ms.openlocfilehash: 6220c328d05e7cd68460b7bfd0708a9d393a290f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0b0889ac1e71ce33406e89ead62370a0c0168763
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287892"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929259"
 ---
 # <a name="apache-spark-job-fails-with-invalidclassexception-class-version-mismatch-in-azure-hdinsight"></a>La tâche Apache Spark échoue avec InvalidClassException, incompatibilité de version de classe, dans Azure HDInsight
 

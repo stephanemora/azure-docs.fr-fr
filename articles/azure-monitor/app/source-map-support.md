@@ -6,12 +6,12 @@ author: DavidCBerry13
 ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9326531d9071305ad804e9c60f8ac90bcb5eaee6
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 79462dcb503e5835254b89f7ebaa7a9ee34946d3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809630"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933940"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Prise en charge du mappage de source pour les applications JavaScript
 
@@ -83,7 +83,7 @@ Tout utilisateur sur le portail utilisant cette fonctionnalité doit au moins di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tâche Copie de fichiers Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Tâche Copie de fichiers Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy)
 
 
 <!-- Remote URLs -->

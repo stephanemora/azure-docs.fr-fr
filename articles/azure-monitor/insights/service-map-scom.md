@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441504"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927890"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
 
@@ -139,7 +139,7 @@ La conception actuelle présente les problèmes et les limitations suivants :
 Pour obtenir une documentation Azure officielle sur la création d’un principal de service, consultez :
 
 * [Création d’un principal de service à l’aide de PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Création d’un principal de service à l’aide d’Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Création d’un principal de service à l’aide d’Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Création d’un principal de service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>Suggestions

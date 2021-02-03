@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bdbb4307f46566d1cac259cbdc4c81d1dfba5c7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006625"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927777"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -66,7 +66,7 @@ Voici le format de l’en-tête d’autorisation :
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* est l’identificateur unique de l’espace de travail Log Analytics. *Signature* est une clé [HMAC](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) construite à partir de la demande, puis calculée à l’aide de l’[algorithme SHA256](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Ensuite, vous l’encodez à l’aide d’un encodage Base64.
+*WorkspaceID* est l’identificateur unique de l’espace de travail Log Analytics. *Signature* est une clé [HMAC](/dotnet/api/system.security.cryptography.hmacsha256) construite à partir de la demande, puis calculée à l’aide de l’[algorithme SHA256](/dotnet/api/system.security.cryptography.sha256). Ensuite, vous l’encodez à l’aide d’un encodage Base64.
 
 Utilisez ce format pour encoder la chaîne de signature **SharedKey** :
 

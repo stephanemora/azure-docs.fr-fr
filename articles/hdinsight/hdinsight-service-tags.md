@@ -1,18 +1,16 @@
 ---
 title: Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight
 description: Utilisez des étiquettes de service HDInsight pour autoriser le trafic entrant vers votre cluster à partir des nœuds des services de contrôle d'intégrité et de gestion, sans ajouter d'adresses IP à vos groupes de sécurité réseau.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022749"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931759"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 

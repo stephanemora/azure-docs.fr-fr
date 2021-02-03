@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f7425e1cf34348b7742b739ef5440a5cb0355077
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661795"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942099"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -107,7 +107,7 @@ Lors de la suppression d’une ressource Azure, les règles d’alerte de métri
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Générer des alertes de métrique chaque fois que ma condition est remplie
 
-Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d'alerte de métrique spécifique sans état et être alerté chaque fois qu'une évaluation établit que la condition d'alerte est remplie, créez la règle d'alerte par programmation (par exemple via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) et définissez la propriété *autoMitigate* sur « False ».
+Par défaut, un état est attribué aux alertes de métrique. Par conséquent, aucune alerte supplémentaire n'est déclenchée si une alerte est déjà déclenchée sur une série chronologique donnée. Si vous souhaitez créer une règle d'alerte de métrique spécifique sans état et être alerté chaque fois qu'une évaluation établit que la condition d'alerte est remplie, créez la règle d'alerte par programmation (par exemple via [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)) et définissez la propriété *autoMitigate* sur « False ».
 
 > [!NOTE] 
 > La création d'une règle d'alerte de métrique sans état empêche la résolution des alertes déclenchées. Par conséquent, même si la condition n'est plus remplie, les alertes restent déclenchées jusqu'à la fin de la période de rétention de 30 jours.
@@ -175,9 +175,9 @@ Pour vérifier l'utilisation actuelle des règles d'alerte de métrique, procéd
 
 ### <a name="from-api"></a>À partir de l’API
 
-- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - API REST - [Répertorier par abonnement](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Gérer les règles d'alerte à l'aide de modèles Resource Manager, de l'API REST, de PowerShell ou d'Azure CLI
 
@@ -196,14 +196,14 @@ Consultez le [guide de l’API REST](/rest/api/monitor/metricalerts/) pour véri
 
 Veillez à utiliser les cmdlets PowerShell appropriées pour les alertes de métrique :
 
-- Les applets de commande PowerShell pour les alertes de métrique sont disponibles dans le [module Az.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1).
-- Veillez à utiliser les cmdlets qui se terminent par « V2 » pour les nouvelles alertes de métrique (non classiques). Par exemple : [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1).
+- Les applets de commande PowerShell pour les alertes de métrique sont disponibles dans le [module Az.Monitor](/powershell/module/az.monitor/).
+- Veillez à utiliser les cmdlets qui se terminent par « V2 » pour les nouvelles alertes de métrique (non classiques). Par exemple : [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2).
 
 ### <a name="azure-cli"></a>Azure CLI
 
 Veillez à utiliser les commandes CLI appropriées pour les alertes de métrique :
 
-- Les commandes CLI des alertes de métrique commencent par `az monitor metrics alert`. Consultez la [référence Azure CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest) pour en savoir plus sur la syntaxe.
+- Les commandes CLI des alertes de métrique commencent par `az monitor metrics alert`. Consultez la [référence Azure CLI](/cli/azure/monitor/metrics/alert) pour en savoir plus sur la syntaxe.
 - Vous pouvez voir un [exemple illustrant l’utilisation de l’interface CLI pour les alertes de métrique](./alerts-metric.md#with-azure-cli).
 - Pour déclencher une alerte sur une métrique personnalisée, veillez à faire précéder le nom de la métrique par l’espace de noms de métrique approprié : NAMESPACE.METRIC
 

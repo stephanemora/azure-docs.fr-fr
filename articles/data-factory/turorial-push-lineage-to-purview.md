@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602954"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935459"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Envoyer les données de traçabilité Data Factory à Azure Purview (préversion)
 
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez utiliser l’interface utilisateur Data Factory pou
 ## <a name="prerequisites"></a>Prérequis
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Azure Data Factory**. Si vous n’avez pas de fabrique de données Azure, consultez [Créer une fabrique de données Azure](./quickstart-create-data-factory-portal.md).
-* **Compte Azure Purview**. Le compte Purview capture toutes les données de traçabilité générées par la fabrique de données. Si vous ne possédez pas de compte Azure Purview, consultez [Créer un compte Azure Purview](https://docs.microsoft.com/azure/purview/create-catalog-portal).
+* **Compte Azure Purview**. Le compte Purview capture toutes les données de traçabilité générées par la fabrique de données. Si vous ne possédez pas de compte Azure Purview, consultez [Créer un compte Azure Purview](../purview/create-catalog-portal.md).
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Exécuter des activités Data Factory et envoyer (push) des données de traçabilité à Azure Purview
@@ -76,6 +76,6 @@ Vous pouvez également voir les données de traçabilité pour l’activité Ex�
 > En ce qui concerne la traçabilité de l’activité Exécuter le package SSIS, nous ne prenons en charge que la source et la destination. La traçabilité de la transformation n’est pas encore prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Guide de l’utilisateur sur la traçabilité du catalogue](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Guide de l’utilisateur sur la traçabilité du catalogue](../purview/catalog-lineage-user-guide.md)
 
 [Connecter Data Factory à Azure Purview](connect-data-factory-to-azure-purview.md)

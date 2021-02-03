@@ -3,12 +3,12 @@ title: Affichage des tendances de coût de laboratoire mensuelles estimées dans
 description: Cet article fournit des informations sur le suivi du coût de votre laboratoire (graphique de tendance des coûts mensuels estimés) dans Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283824"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892335"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Suivre les coûts associés à un laboratoire dans Azure DevTest Labs
 Cet article fournit des informations sur la façon de suivre le coût de votre laboratoire. Il explique la procédure d’affichaeg de la tendance des coûts estimés du labo pour le mois en cours. L’article vous montre également comment afficher le coût du mois en cours par ressource du laboratoire.
@@ -38,7 +38,7 @@ Pour afficher le graphique Tendance des coûts mensuels estimés, procédez comm
 
      Les coûts suivants ne sont *pas* inclus dans le calcul des coûts :
 
-   * Les abonnements CSP et Dreamspark ne sont pas pris en charge. En effet, Azure DevTest Labs utilise les [API de facturation Azure](../cost-management-billing/manage/usage-rate-card-overview.md) pour calculer les coûts de laboratoire, et celles-ci ne prennent pas en charge les abonnements CSP et Dreamspark.
+   * Les abonnements CSP et Dreamspark ne sont pas pris en charge. En effet, Azure DevTest Labs utilise les API de facturation Azure pour calculer les coûts de laboratoire, et celles-ci ne prennent pas en charge les abonnements CSP et Dreamspark.
    * Les tarifs de votre offre. Actuellement, vous ne pouvez pas utiliser les tarifs de l’offre (affichés sous votre abonnement) que vous avez négociés avec Microsoft ou les partenaires Microsoft. Seuls les tarifs du paiement à l'utilisation sont disponibles.
    * Vos taxes
    * Vos remises

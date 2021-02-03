@@ -3,12 +3,12 @@ title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les c
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890460"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936412"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
@@ -21,7 +21,7 @@ Les configurations suivantes sont officiellement prises en charge avec Azure Mon
 - Environnements :
 
     - Kubernetes en local
-    - Moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true)
+    - Moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 et ultérieure, localement ou dans d’autres environnements cloud.
 
 - Les versions de Kubernetes et de la stratégie de support sont les mêmes que celles [prises en charge par AKS](../../aks/supported-kubernetes-versions.md).
@@ -89,10 +89,10 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
 Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la configuration permettant d’activer la surveillance, tandis que l’autre modèle contient des valeurs de paramètre que vous configurez pour spécifier les éléments suivants :
 
-- **workspaceResourceId**  : ID de ressource complet de votre espace de travail Log Analytics.
-- **workspaceRegion**  : région dans laquelle l’espace de travail est créé, également appelé **Emplacement** dans les propriétés de l’espace de travail lors de l’affichage à partir du portail Azure.
+- **workspaceResourceId** : ID de ressource complet de votre espace de travail Log Analytics.
+- **workspaceRegion** : région dans laquelle l’espace de travail est créé, également appelé **Emplacement** dans les propriétés de l’espace de travail lors de l’affichage à partir du portail Azure.
 
-Pour identifier l’ID de ressource complet de votre espace de travail Log Analytics requis pour la valeur du paramètre `workspaceResourceId` dans le fichier de **containerSolutionParams.json** , procédez comme suit, puis exécutez l’applet de commande PowerShell ou la commande Azure CLI pour ajouter la solution.
+Pour identifier l’ID de ressource complet de votre espace de travail Log Analytics requis pour la valeur du paramètre `workspaceResourceId` dans le fichier de **containerSolutionParams.json**, procédez comme suit, puis exécutez l’applet de commande PowerShell ou la commande Azure CLI pour ajouter la solution.
 
 1. Affichez la liste de tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
 
@@ -202,7 +202,7 @@ Pour identifier l’ID de ressource complet de votre espace de travail Log Analy
     }
     ```
 
-7. Modifiez les valeurs de **workspaceResourceId** à l’aide de la valeur que vous avez copiée à l’étape 3, et pour **workspaceRegion** copiez la valeur **Région** obtenue après avoir exécuté la commande Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true).
+7. Modifiez les valeurs de **workspaceResourceId** à l’aide de la valeur que vous avez copiée à l’étape 3, et pour **workspaceRegion** copiez la valeur **Région** obtenue après avoir exécuté la commande Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true).
 
 8. Enregistrez ce fichier sous le nom containerSolutionParams.json dans un dossier local.
 
@@ -258,13 +258,13 @@ Dans cette section, vous allez installer l’agent en conteneur pour Azure Monit
 
     `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
 
-    Dans la sortie, recherchez le nom de l’espace de travail sous le champ **nom** , puis copiez l’ID de cet espace de travail Log Analytics sous le champ **customerID**.
+    Dans la sortie, recherchez le nom de l’espace de travail sous le champ **nom**, puis copiez l’ID de cet espace de travail Log Analytics sous le champ **customerID**.
 
 2. Exécutez la commande suivante pour identifier la clé primaire de l’espace de travail :
 
     `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
 
-    Dans la sortie, recherchez la clé primaire sous le champ **primarySharedKey** , puis copiez la valeur.
+    Dans la sortie, recherchez la clé primaire sous le champ **primarySharedKey**, puis copiez la valeur.
 
 >[!NOTE]
 >Les commandes suivantes s’appliquent uniquement à Helm version 2. L’utilisation du paramètre `--name` n’est pas applicable avec Helm version 3. 
@@ -303,7 +303,7 @@ Dans cette section, vous allez installer l’agent en conteneur pour Azure Monit
 
 Vous pouvez spécifier un module complémentaire dans le fichier JSON de spécification de cluster du moteur AKS, également appelé modèle d’API. Dans ce module complémentaire, fournissez la version encodée en base64 de `WorkspaceGUID` et `WorkspaceKey` de l’espace de travail Log Analytics dans lequel sont stockées les données d’analyse collectées. Vous pouvez trouver le `WorkspaceGUID` et `WorkspaceKey` à l’aide des étapes 1 et 2 de la section précédente.
 
-Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont fournies dans cet exemple : [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Recherchez en particulier la propriété **addons** dans **kubernetesConfig**  :
+Les définitions d’API prises en charge pour le cluster Azure Stack Hub sont fournies dans cet exemple : [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Recherchez en particulier la propriété **addons** dans **kubernetesConfig** :
 
 ```json
 "orchestratorType": "Kubernetes",
@@ -349,7 +349,7 @@ La valeur de configuration de proxy a la syntaxe suivante : `[protocol://][user:
 
 Par exemple : `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
-Si vous spécifiez le protocole **http** , les requêtes HTTP sont créées en utilisant une connexion sécurisée SSL/TLS. Le serveur proxy doit prendre en charge les protocoles SSL/TLS.
+Si vous spécifiez le protocole **http**, les requêtes HTTP sont créées en utilisant une connexion sécurisée SSL/TLS. Le serveur proxy doit prendre en charge les protocoles SSL/TLS.
 
 ## <a name="troubleshooting"></a>Dépannage
 

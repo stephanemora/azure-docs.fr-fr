@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c5166785ad8c82c114fb7193cd49716536b408
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187266"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896594"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Démarrer un Runbook dans Azure Automation
 
@@ -145,13 +145,13 @@ jsmith
 
 ## <a name="start-a-runbook-with-powershell"></a>Démarrer un Runbook avec PowerShell
 
-Vous pouvez utiliser l’applet de commande [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) pour démarrer un runbook avec Windows PowerShell. L'exemple de code suivant démarre un Runbook appelé **Test-Runbook**.
+Vous pouvez utiliser l’applet de commande [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) pour démarrer un runbook avec Windows PowerShell. L'exemple de code suivant démarre un Runbook appelé **Test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook` retourne un objet de traitement que vous pouvez utiliser pour suivre l’état une fois que le runbook a démarré. Vous pouvez ensuite utiliser cet objet de travail avec [Get-AzureAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) pour déterminer l'état du travail et [Get-AzureAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) pour récupérer son résultat. L'exemple suivant démarre un runbook appelé **Test-Runbook**, attend qu'il ait terminé, puis affiche son résultat.
+`Start-AzAutomationRunbook` retourne un objet de traitement que vous pouvez utiliser pour suivre l’état une fois que le runbook a démarré. Vous pouvez ensuite utiliser cet objet de travail avec [Get-AzureAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) pour déterminer l'état du travail et [Get-AzureAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) pour récupérer son résultat. L'exemple suivant démarre un runbook appelé **Test-Runbook**, attend qu'il ait terminé, puis affiche son résultat.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

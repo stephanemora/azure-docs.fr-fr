@@ -3,17 +3,14 @@ title: Résolution de problèmes Hive à l’aide d’Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Hive et d’Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, guide de dépannage, questions courantes
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288960"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931447"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Hive à l’aide d’Azure HDInsight
 
@@ -120,17 +117,17 @@ Le code présenté dans les étapes de résolution suppose que les chemins de do
    Vous devez fournir un exemple de programme comme premier argument.
 
    Noms de programme valides :
-    - **ContainerReuseAnalyzer** : Imprimer les détails de réutilisation du conteneur dans un DAG
-    - **CriticalPath** : Trouver le chemin critique d’un DAG
-    - **LocalityAnalyzer** : Imprimer les détails de localité dans un DAG
-    - **ShuffleTimeAnalyzer** : Analyser les détails de délai de lecture aléatoire dans un DAG
-    - **SkewAnalyzer** : Analyser les détails d’asymétrie dans un DAG
-    - **SlowNodeAnalyzer** : Imprimer les détails des nœuds dans un DAG
-    - **SlowTaskIdentifier** : Imprimer les détails des tâches lentes dans un DAG
-    - **SlowestVertexAnalyzer** : Imprimer les détails des données vertex les plus lentes dans un DAG
-    - **SpillAnalyzer** : Imprimer les détails de dépassement dans un DAG
-    - **TaskConcurrencyAnalyzer** : Imprimer les détails de simultanéité des tâches dans un DAG
-    - **VertexLevelCriticalPathAnalyzer** : Trouver le chemin critique au niveau des données vertex dans un DAG
+    - **ContainerReuseAnalyzer**: Imprimer les détails de réutilisation du conteneur dans un DAG
+    - **CriticalPath**: Trouver le chemin critique d’un DAG
+    - **LocalityAnalyzer**: Imprimer les détails de localité dans un DAG
+    - **ShuffleTimeAnalyzer**: Analyser les détails de délai de lecture aléatoire dans un DAG
+    - **SkewAnalyzer**: Analyser les détails d’asymétrie dans un DAG
+    - **SlowNodeAnalyzer**: Imprimer les détails des nœuds dans un DAG
+    - **SlowTaskIdentifier**: Imprimer les détails des tâches lentes dans un DAG
+    - **SlowestVertexAnalyzer**: Imprimer les détails des données vertex les plus lentes dans un DAG
+    - **SpillAnalyzer**: Imprimer les détails de dépassement dans un DAG
+    - **TaskConcurrencyAnalyzer**: Imprimer les détails de simultanéité des tâches dans un DAG
+    - **VertexLevelCriticalPathAnalyzer**: Trouver le chemin critique au niveau des données vertex dans un DAG
 
 ### <a name="additional-reading"></a>Documentation supplémentaire
 

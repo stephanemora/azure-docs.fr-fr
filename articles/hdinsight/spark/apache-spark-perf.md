@@ -1,19 +1,16 @@
 ---
 title: Optimiser les performances des travaux Spark - Azure HDInsight
 description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Apache Spark dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d808339dd842e88e74efce5d56d12bc5250eb238
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 567fc2637538408d9727d07d3185a5b0e3cf20c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029292"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929933"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 

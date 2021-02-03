@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565597"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052858"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>S’inscrire aux éditions Azure Active Directory Premium
 Vous pouvez acheter des éditions Azure Active Directory (Azure AD) Premium et les associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.
-
-> [!NOTE]
->Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Avant de vous inscrire à Active Directory Premium 1 ou Premium 2, vous devez tout d’abord déterminer quel abonnement ou plan existant vous souhaitez utiliser :
 

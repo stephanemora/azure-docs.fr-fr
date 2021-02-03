@@ -3,17 +3,16 @@ title: Stratégies Apache Hive dans Apache Ranger – Azure HDInsight
 description: Découvrez comment configurer des stratégies Apache Ranger pour Hive dans un service Azure HDInsight avec le Pack Sécurité Entreprise (ESP, Enterprise Security Package).
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544934"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932236"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -49,8 +48,8 @@ Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesam
 **Pour créer des stratégies Ranger**
 
 1. Ouvrez l’interface utilisateur Ranger. Consultez Connexion à l’interface utilisateur Apache Ranger.
-2. Cliquez sur **CLUSTERNAME_Hive** , sous **Hive** . Deux stratégies préconfigurées doivent s’afficher.
-3. Sélectionnez **Ajouter une nouvelle stratégie** , puis entrez les valeurs suivantes :
+2. Cliquez sur **CLUSTERNAME_Hive**, sous **Hive**. Deux stratégies préconfigurées doivent s’afficher.
+3. Sélectionnez **Ajouter une nouvelle stratégie**, puis entrez les valeurs suivantes :
 
     |Propriété |Valeur |
     |---|---|
@@ -87,10 +86,10 @@ Vous trouverez les instructions dans [Création d’une source de données ODBC 
  | --- | --- |
  | Nom de la source de données | Donnez un nom à votre source de données |
  | Host | Entrez CLUSTERNAME.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net |
- | Port | Utilisez **443** . (ce port est passé de 563 à 443). |
- | Base de données | Utilisez **Default** . |
- | Hive Server Type | Sélectionnez **Hive Server 2** . |
- | Mechanism | Sélectionnez **Azure HDInsight Service** . |
+ | Port | Utilisez **443**. (ce port est passé de 563 à 443). |
+ | Base de données | Utilisez **Default**. |
+ | Hive Server Type | Sélectionnez **Hive Server 2**. |
+ | Mechanism | Sélectionnez **Azure HDInsight Service**. |
  | HTTP Path | Laissez cette valeur vide. |
  | User Name | Entrez hiveuser1@contoso158.onmicrosoft.com. Mettez à jour le nom de domaine s’il est différent. |
  | Mot de passe | Entrez le mot de passe pour hiveuser1. |
@@ -103,23 +102,23 @@ Dans la dernière section, vous avez configuré deux stratégies.  hiveuser1 a l
 
 1. Ouvrez un nouveau classeur ou un classeur existant dans Excel.
 
-1. À partir de l’onglet **Données** , accédez à **Obtenir des données** > **Depuis d’autres sources** > **Depuis ODBC** afin de lancer la fenêtre **Depuis ODBC** .
+1. À partir de l’onglet **Données**, accédez à **Obtenir des données** > **Depuis d’autres sources** > **Depuis ODBC** afin de lancer la fenêtre **Depuis ODBC**.
 
     ![Assistant Ouvrir la connexion de données](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. Dans la liste déroulante, sélectionnez le nom de la source de données que vous avez créée dans la dernière section, puis sélectionnez **OK** .
+1. Dans la liste déroulante, sélectionnez le nom de la source de données que vous avez créée dans la dernière section, puis sélectionnez **OK**.
 
-1. Lors de la première utilisation, une boîte de dialogue **Pilote ODBC** s’ouvre. Dans le menu gauche, sélectionnez **Windows** . Sélectionnez ensuite **Se connecter** pour ouvrir la fenêtre **Navigateur** .
+1. Lors de la première utilisation, une boîte de dialogue **Pilote ODBC** s’ouvre. Dans le menu gauche, sélectionnez **Windows**. Sélectionnez ensuite **Se connecter** pour ouvrir la fenêtre **Navigateur**.
 
 1. Attendez l'ouverture de la boîte de dialogue **Sélection d'une base de données et d'une table** . Cette opération peut prendre quelques secondes.
 
-1. Sélectionnez **hivesampletable** , puis sélectionnez **Suivant** .
+1. Sélectionnez **hivesampletable**, puis sélectionnez **Suivant**.
 
-1. Sélectionnez **Terminer** .
+1. Sélectionnez **Terminer**.
 
-1. Dans la boîte de dialogue **Importation de données** , vous pouvez modifier ou spécifier la requête. Pour ce faire, sélectionnez **Propriétés** . Cette opération peut prendre quelques secondes.
+1. Dans la boîte de dialogue **Importation de données** , vous pouvez modifier ou spécifier la requête. Pour ce faire, sélectionnez **Propriétés**. Cette opération peut prendre quelques secondes.
 
-1. Sélectionnez l’onglet **Définition** . Le texte de commande est le suivant :
+1. Sélectionnez l’onglet **Définition**. Le texte de commande est le suivant :
 
     ```sql
     SELECT * FROM "HIVE"."default"."hivesampletable"`
@@ -129,9 +128,9 @@ Dans la dernière section, vous avez configuré deux stratégies.  hiveuser1 a l
 
 1. Sélectionnez **OK** pour fermer la boîte de dialogue Propriétés de connexion.
 
-1. Sélectionnez **OK** pour fermer la boîte de dialogue **Importation de données** .  
+1. Sélectionnez **OK** pour fermer la boîte de dialogue **Importation de données**.  
 
-1. Entrez à nouveau le mot de passe pour hiveuser1 et cliquez sur **OK** . Patientez quelques secondes pour que les données soient importées dans Excel. Une fois le processus terminé, vous devez voir 11 colonnes de données.
+1. Entrez à nouveau le mot de passe pour hiveuser1 et cliquez sur **OK**. Patientez quelques secondes pour que les données soient importées dans Excel. Une fois le processus terminé, vous devez voir 11 colonnes de données.
 
 Pour tester la deuxième stratégie (read-hivesampletable-devicemake) que vous avez créée dans la dernière section
 

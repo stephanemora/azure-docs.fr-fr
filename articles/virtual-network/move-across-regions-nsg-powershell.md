@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: 0f569c623deb8e6249323cf1925d2c754eac7d42
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ad73ef03aa9623fb724f1397697fac18f659a90c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218822"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934996"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Déplacer un groupe de sécurité réseau Azure vers une autre région à l’aide d’Azure PowerShell
 
@@ -43,19 +43,19 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>Exporter le modèle et le déployer à partir d’un script
 
-1. Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) et suivez les instructions qui s'affichent à l’écran :
+1. Connectez-vous à votre abonnement Azure avec la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) et suivez les instructions qui s'affichent à l’écran :
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtenez l’ID de ressource du groupe de sécurité réseau que vous souhaitez déplacer vers la région cible, puis placez-le dans une variable à l’aide de [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0) :
+2. Obtenez l’ID de ressource du groupe de sécurité réseau que vous souhaitez déplacer vers la région cible, puis placez-le dans une variable à l’aide de [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) :
 
     ```azurepowershell-interactive
     $sourceNSGID = (Get-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Exportez le groupe de sécurité réseau source vers un fichier .json dans le répertoire où vous exécutez la commande [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) :
+3. Exportez le groupe de sécurité réseau source vers un fichier .json dans le répertoire où vous exécutez la commande [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup) :
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceNSGID -IncludeParameterDefaultValue
@@ -99,7 +99,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
             }
     ```
   
-7. Pour obtenir les codes d’emplacement des régions, vous pouvez utiliser l’applet de commande Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) en exécutant la commande suivante :
+7. Pour obtenir les codes d’emplacement des régions, vous pouvez utiliser l’applet de commande Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation) en exécutant la commande suivante :
 
     ```azurepowershell-interactive
 
@@ -173,13 +173,13 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 9. Enregistrez le fichier **\<resource-group-name>.json**.
 
-10. Créez un groupe de ressources dans la région cible pour le groupe de sécurité réseau cible à déployer à l’aide de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0) :
+10. Créez un groupe de ressources dans la région cible pour le groupe de sécurité réseau cible à déployer à l’aide de [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-11. Déployez le fichier **\<resource-group-name>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
+11. Déployez le fichier **\<resource-group-name>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) :
 
     ```azurepowershell-interactive
 
@@ -187,7 +187,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
     
     ```
 
-12. Pour vérifier que les ressources ont été créées dans la région cible, utilisez [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) et [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup?view=azps-2.6.0) :
+12. Pour vérifier que les ressources ont été créées dans la région cible, utilisez [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) et [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) :
     
     ```azurepowershell-interactive
 
@@ -203,7 +203,7 @@ Les étapes suivantes montrent comment préparer le groupe de sécurité réseau
 
 ## <a name="discard"></a>Abandonner 
 
-Après le déploiement, si vous souhaitez recommencer ou ignorer le groupe de sécurité réseau dans la cible, supprimez le groupe de ressources qui a été créé dans la cible et le groupe de sécurité réseau déplacé sera supprimé.  Pour supprimer le groupe de ressources, utilisez [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) :
+Après le déploiement, si vous souhaitez recommencer ou ignorer le groupe de sécurité réseau dans la cible, supprimez le groupe de ressources qui a été créé dans la cible et le groupe de sécurité réseau déplacé sera supprimé.  Pour supprimer le groupe de ressources, utilisez [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 
 ```azurepowershell-interactive
 
@@ -213,7 +213,7 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Nettoyer
 
-Pour valider les modifications et terminer le déplacement du groupe de sécurité réseau, supprimez le groupe de ressources ou le groupe de sécurité réseau source avec [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) ou [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup?view=azps-2.6.0) :
+Pour valider les modifications et terminer le déplacement du groupe de sécurité réseau, supprimez le groupe de ressources ou le groupe de sécurité réseau source avec [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) ou [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) :
 
 ```azurepowershell-interactive
 

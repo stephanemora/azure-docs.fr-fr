@@ -1,18 +1,15 @@
 ---
 title: Synchronisation LDAP dans Ranger et Apache Ambari dans Azure HDInsight
 description: Cet article aborde la synchronisation LDAP dans Ranger et Ambari, et fournit des indications générales.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 0779ac261fbb4ee91bf63021bb0cc685a371c2b2
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: fb9035b4d816c1af84b15e6865335aa1bdf86f5b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234067"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933421"
 ---
 # <a name="ldap-sync-in-ranger-and-apache-ambari-in-azure-hdinsight"></a>Synchronisation LDAP dans Ranger et Apache Ambari dans Azure HDInsight
 

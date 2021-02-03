@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927411"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920288"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modèles d’expressions de liaison Azure Functions
 
@@ -161,9 +161,10 @@ Par exemple, un déclencheur Stockage File d’attente Azure prend en charge les
 * NextVisibleTime
 * PopReceipt
 
-Ces valeurs de métadonnées sont accessibles dans les propriétés de fichier *function.json*. Par exemple, supposons que vous utilisez un déclencheur de file d’attente et que le message de la file d’attente contient le nom d’un objet blob que vous souhaitez lire. Dans le fichier *function.json* , vous pouvez utiliser la propriété de métadonnées `queueTrigger` dans la propriété de l’objet blob `path`, comme indiqué dans l’exemple suivant :
+Ces valeurs de métadonnées sont accessibles dans les propriétés de fichier *function.json*. Par exemple, supposons que vous utilisez un déclencheur de file d’attente et que le message de la file d’attente contient le nom d’un objet blob que vous souhaitez lire. Dans le fichier *function.json*, vous pouvez utiliser la propriété de métadonnées `queueTrigger` dans la propriété de l’objet blob `path`, comme indiqué dans l’exemple suivant :
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,6 +180,7 @@ Ces valeurs de métadonnées sont accessibles dans les propriétés de fichier *
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Les détails des propriétés de métadonnées pour chaque déclencheur sont décrits dans l’article de référence correspondante. Pour obtenir un exemple, consultez [Métadonnées de déclencheur de file d’attente](functions-bindings-storage-queue-trigger.md#message-metadata). La documentation est également disponible dans l’onglet **Intégrer** du portail, dans la section **Documentation** située sous la zone de configuration de liaison.  
@@ -317,7 +319,7 @@ L’expression de liaison `DateTime` se résout en `DateTime.UtcNow`. Le chemin 
 ```
 ## <a name="binding-at-runtime"></a>Liaison au runtime
 
-Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison impératif, par opposition aux liaisons déclaratives dans *function.json* , et des attributs. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Pour plus d’informations, consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md#binding-at-runtime) ou les [informations de référence pour les développeurs de scripts C#](functions-reference-csharp.md#binding-at-runtime).
+Avec C# et d’autres langages .NET, vous pouvez utiliser un schéma de liaison impératif, par opposition aux liaisons déclaratives dans *function.json*, et des attributs. La liaison impérative est utile lorsque les paramètres de liaison doivent être calculés au moment du runtime plutôt que lors de la conception. Pour plus d’informations, consultez les [informations de référence pour les développeurs C#](functions-dotnet-class-library.md#binding-at-runtime) ou les [informations de référence pour les développeurs de scripts C#](functions-reference-csharp.md#binding-at-runtime).
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

@@ -1,19 +1,16 @@
 ---
 title: 'Infrastructure : Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques sur l’infrastructure pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542299"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932154"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques sur l’infrastructure
 
@@ -80,7 +77,7 @@ Pour plus d’informations, consultez l’article [Composants Apache Hadoop disp
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personnaliser des clusters HDInsight à l’aide d’actions de script
 
-HDInsight fournit une méthode de configuration des clusters appelée **action de script** . Une action de script est un script bash qui s’exécute sur les nœuds dans un cluster HDInsight et peut être utilisé pour installer des composants supplémentaires et modifier des paramètres de configuration.
+HDInsight fournit une méthode de configuration des clusters appelée **action de script**. Une action de script est un script bash qui s’exécute sur les nœuds dans un cluster HDInsight et peut être utilisé pour installer des composants supplémentaires et modifier des paramètres de configuration.
 
 Les actions de script doivent être stockées sur un URI accessible à partir du cluster HDInsight. Elles peuvent être utilisées pendant ou après la création du cluster et peuvent aussi être limitées de manière à s’exécuter sur certains types de nœuds uniquement.
 

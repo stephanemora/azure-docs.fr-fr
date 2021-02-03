@@ -3,17 +3,16 @@ title: Utiliser des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux
 description: Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534938"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931290"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -31,11 +30,11 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster Hadoop sur HDInsight** . Consultez [Bien démarrer avec HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Un client SSH** . Consultez [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md) (Se connecter à HDInsight (Apache Hadoop) avec SSH).
+* **Un client SSH**. Consultez [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md) (Se connecter à HDInsight (Apache Hadoop) avec SSH).
 
-* **Une base de données Azure SQL** .  Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Microsoft Azure](../azure-sql/database/single-database-create-quickstart.md).  Cet article utilise une base de données nommée **oozietest** .
+* **Une base de données Azure SQL**.  Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Microsoft Azure](../azure-sql/database/single-database-create-quickstart.md).  Cet article utilise une base de données nommée **oozietest**.
 
 * Le schéma d'URI de votre principal espace de stockage de clusters. `wasb://` pour Stockage Azure, `abfs://` pour Azure Data Lake Storage Gen2 ou `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera `wasbs://`. Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
@@ -130,7 +129,7 @@ Suivez les étapes ci-après pour créer un script de langage de requête Hive (
 
      Le fichier de définition du workflow (workflow.xml dans cet article) transmet ces valeurs à ce script HiveQL au moment de l’exécution.
 
-1. Pour enregistrer le fichier, sélectionnez **Ctrl+X** , entrez **Y** , puis sélectionnez **Entrée** .  
+1. Pour enregistrer le fichier, sélectionnez **Ctrl+X**, entrez **Y**, puis sélectionnez **Entrée**.  
 
 1. Exécutez la commande suivante pour copier `useooziewf.hql` vers `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
@@ -215,7 +214,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
 
      Notez également l’entrée `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` dans la section Sqoop. Celle-ci indique à Oozie de rendre cette archive disponible pour Sqoop lors de l’exécution de cette action.
 
-3. Pour enregistrer le fichier, sélectionnez **Ctrl+X** , entrez **Y** , puis sélectionnez **Entrée** .  
+3. Pour enregistrer le fichier, sélectionnez **Ctrl+X**, entrez **Y**, puis sélectionnez **Entrée**.  
 
 4. Utilisez la commande suivante pour copier le fichier `workflow.xml` vers `/tutorials/useoozie/workflow.xml` :
 
@@ -382,7 +381,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
 4. Une fois que l’éditeur nano est ouvert, collez le code XML modifié en tant que contenu du fichier.
 
-5. Pour enregistrer le fichier, sélectionnez **Ctrl+X** , entrez **Y** , puis sélectionnez **Entrée** .
+5. Pour enregistrer le fichier, sélectionnez **Ctrl+X**, entrez **Y**, puis sélectionnez **Entrée**.
 
 ## <a name="submit-and-manage-the-job"></a>Soumission et gestion du travail
 
@@ -489,9 +488,9 @@ Pour plus d’informations sur la commande Oozie, consultez [Outil en ligne de c
 
 L’API REST Oozie vous permet de créer vos propres outils fonctionnant avec Oozie. Les informations suivantes sont des informations spécifiques de HDInsight sur l’utilisation de l’API REST Oozie :
 
-* **URI**  : vous pouvez accéder à l’API REST depuis l’extérieur du cluster à l’adresse `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI** : vous pouvez accéder à l’API REST depuis l’extérieur du cluster à l’adresse `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Authentification**  : pour l’authentification, utilisez l’API, le compte HTTP (admin) et le mot de passe du cluster. Par exemple :
+* **Authentification** : pour l’authentification, utilisez l’API, le compte HTTP (admin) et le mot de passe du cluster. Par exemple :
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -517,11 +516,11 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
 2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web à l’aide de l’URI `http://headnodehost:8080`.
 
-3. Sur le côté gauche de la page, sélectionnez **Oozie** > **Liens rapides** > **Interface utilisateur web Oozie** .
+3. Sur le côté gauche de la page, sélectionnez **Oozie** > **Liens rapides** > **Interface utilisateur web Oozie**.
 
     ![Étapes dans l’interface utilisateur web d’Apache Ambari Oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
-4. L’interface utilisateur web Oozie affiche par défaut les travaux du workflow en cours d’exécution. Pour voir tous les travaux du workflow, sélectionnez **Tous les travaux** .
+4. L’interface utilisateur web Oozie affiche par défaut les travaux du workflow en cours d’exécution. Pour voir tous les travaux du workflow, sélectionnez **Tous les travaux**.
 
     ![Travaux du workflow de la console web Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
@@ -529,17 +528,17 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
     ![Informations sur un travail HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. Sous l’onglet **Infos travail** , vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail** , la **configuration du travail** , accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
+6. Sous l’onglet **Infos travail**, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail**, la **configuration du travail**, accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
 
-   * **Journal de la tâche**  : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
+   * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
 
        ![Journal des travaux HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **DAG de la tâche**  : le graphique orienté acyclique est une représentation graphique des chemins de données utilisés à travers le workflow.
+   * **DAG de la tâche** : le graphique orienté acyclique est une représentation graphique des chemins de données utilisés à travers le workflow.
 
        ![`DAG des travaux HDInsight Apache Oozie`](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
-7. Si vous sélectionnez l’une des actions sous l’onglet **Infos travail** , des informations sur l’action s’affichent. Par exemple, sélectionnez l’action **RunSqoopExport** .
+7. Si vous sélectionnez l’une des actions sous l’onglet **Infos travail**, des informations sur l’action s’affichent. Par exemple, sélectionnez l’action **RunSqoopExport**.
 
     ![Informations sur les actions de travaux HDInsight Oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
@@ -573,10 +572,10 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
     > * `${coordFrequency}`: délai entre les instances de la tâche en cours d’exécution.
     > * `${coordStart}`: heure de début de la tâche.
     > * `${coordEnd}`: heure de fin de la tâche.
-    > * `${coordTimezone}`: les tâches du coordinateur se trouvent dans un fuseau horaire fixe sans passage à l’heure d’été, généralement représenté par UTC. Ce fuseau horaire est appelé le *fuseau horaire du traitement d’Oozie* .
+    > * `${coordTimezone}`: les tâches du coordinateur se trouvent dans un fuseau horaire fixe sans passage à l’heure d’été, généralement représenté par UTC. Ce fuseau horaire est appelé le *fuseau horaire du traitement d’Oozie*.
     > * `${wfPath}`: chemin du fichier workflow.xml.
 
-2. Pour enregistrer le fichier, sélectionnez **Ctrl+X** , entrez **Y** , puis sélectionnez **Entrée** .
+2. Pour enregistrer le fichier, sélectionnez **Ctrl+X**, entrez **Y**, puis sélectionnez **Entrée**.
 
 3. Pour copier le fichier dans le répertoire de travail pour ce travail, utilisez la commande suivante :
 
@@ -631,7 +630,7 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
 
        Ces valeurs définissent le début sur 12 h 00 le 10 mai 2018 et la fin sur le 12 mai 2018. L’intervalle d’exécution de ce travail est défini sur quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini sur UTC.
 
-5. Pour enregistrer le fichier, sélectionnez **Ctrl+X** , entrez **Y** , puis sélectionnez **Entrée** .
+5. Pour enregistrer le fichier, sélectionnez **Ctrl+X**, entrez **Y**, puis sélectionnez **Entrée**.
 
 6. Pour envoyer et démarrer le travail, utilisez la commande suivante :
 
@@ -639,7 +638,7 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
     oozie job -config job.xml -run
     ```
 
-7. Si vous accédez à l’interface utilisateur web Oozie et sélectionnez l’onglet **Travaux du coordinateur** , vous obtenez des informations semblables à l’image suivante :
+7. Si vous accédez à l’interface utilisateur web Oozie et sélectionnez l’onglet **Travaux du coordinateur**, vous obtenez des informations semblables à l’image suivante :
 
     ![Onglet Travaux du coordinateur dans la console web Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
@@ -650,7 +649,7 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
     ![Informations sur les travaux du coordinateur Apache Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
-    > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour afficher les actions individuelles, sélectionnez l’une des entrées **Action** .
+    > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour afficher les actions individuelles, sélectionnez l’une des entrées **Action**.
 
     ![Onglet Infos travail dans la console web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 

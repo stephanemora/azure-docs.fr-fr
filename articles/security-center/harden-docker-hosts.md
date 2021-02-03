@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712270"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916232"
 ---
 # <a name="harden-your-docker-hosts"></a>Durcir vos hôtes Docker
 
@@ -50,11 +50,11 @@ Lorsque des vulnérabilités sont détectées, elles sont regroupées dans une r
     > [!TIP]
     > Si vous avez atteint cette recommandation en partant de la page d’inventaire des ressources, vous pouvez utiliser le bouton **Entreprendre une action** sur la page de la recommandation.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Recommandations pour corriger les vulnérabilités dans les configurations de sécurité de conteneur":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Bouton Entreprendre une action pour lancer Log Analytics":::
 
     Log Analytics s’ouvre sur une opération personnalisée prête à être exécutée. La requête personnalisée par défaut comprend une liste de toutes les règles ayant échoué qui ont été évaluées, ainsi que des instructions pour vous aider à résoudre les problèmes.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Recommandations pour corriger les vulnérabilités dans les configurations de sécurité de conteneur":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Page Log Analytics avec la requête indiquant tous les contrôles CIS ayant échoué":::
 
 1. Ajustez les paramètres de requête si nécessaire.
 

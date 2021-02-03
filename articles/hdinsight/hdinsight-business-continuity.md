@@ -1,19 +1,16 @@
 ---
 title: Continuité de l’activité Azure HDInsight
 description: Cet article offre une vue d’ensemble des meilleures pratiques, de la disponibilité dans une seule région et des options d’optimisation pour la planification de la continuité de l’activité Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546940"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933314"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuité de l’activité Azure HDInsight
 
@@ -53,7 +50,7 @@ Un système HDInsight de base dispose des composants suivants. Tous les composan
 
 Il existe d’autres services facultatifs qui peuvent être utilisés, comme Azure Key Vault et Azure Data Factory.
 
-:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Couches de transformation des données et de service des données":::
+:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="Composants HDInsight":::
 
 ### <a name="azure-hdinsight-cluster-compute"></a>Cluster Azure HDInsight (calcul)
 

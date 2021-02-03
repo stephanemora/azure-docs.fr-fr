@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070709"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895626"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -43,7 +43,7 @@ Après avoir examiné les limitations, la compréhension des étapes impliquées
 **Tâche** | **Détails** |**Sans agent** | **Basé sur un agent**
 --- | --- | --- | ---
 **Déployez l’appliance Azure Migrate** | Une appliance légère qui s’exécute sur une machine virtuelle VMware.<br/><br/> L’appliance est utilisée pour détecter et évaluer les machines, et pour migrer des machines à l’aide d’une migration sans agent. | Obligatoire.<br/><br/> Si vous avez déjà configuré l’appliance pour l’évaluation, vous pouvez utiliser la même appliance pour la migration sans agent. | Non requis.<br/><br/> Si vous avez configuré une appliance à des fins d’évaluation, vous pouvez la conserver ou la supprimer si vous avez terminé l’évaluation.
-**Utiliser l’outil d’évaluation de serveur** | Évaluez des machines virtuelles VMware avec l’outil Azure Migrate : Server Assessment. | Vous pouvez évaluer les machines avant de les migrer, mais ce n’est pas une obligation. | L’évaluation est facultative.
+**Utiliser l’outil d’évaluation de serveur** | Évaluez des machines virtuelles VMware avec l’outil Azure Migrate : Server Assessment. | L’évaluation est facultative. | L’évaluation est facultative.
 **Utiliser l’outil Server Migration** | Ajoutez l’outil de migration de serveur Azure Migrate dans le projet Azure Migrate. | Obligatoire | Obligatoire
 **Préparer VMware pour la migration** | Configurez les paramètres sur les serveurs VMware et les machines virtuelles. | Obligatoire | Obligatoire
 **Installez le service Mobilité sur des machines virtuelles** | Le service Mobilité s’exécute sur chaque machine virtuelle que vous souhaitez répliquer | Non requis | Obligatoire

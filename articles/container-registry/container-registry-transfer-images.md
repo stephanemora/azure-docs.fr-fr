@@ -4,12 +4,12 @@ description: Transférez des collections d’images ou d’autres artefacts d’
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932598"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935347"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transférer des artefacts vers un autre registre
 
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Transférer un objet blob (facultatif) 
 
-Utilisez l’outil AzCopy ou une autre méthode pour [transférer des données d’objet blob](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) du compte de stockage source vers le compte de stockage cible.
+Utilisez l’outil AzCopy ou une autre méthode pour [transférer des données d’objet blob](../storage/common/storage-use-azcopy-v10.md#transfer-data) du compte de stockage source vers le compte de stockage cible.
 
 Par exemple, la commande [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) suivante copie myblob du conteneur *transfert* du compte source vers le conteneur *transfert* du compte cible. Si l’objet blob existe dans le compte cible, il est remplacé. L’authentification utilise des jetons SAS avec les autorisations appropriées pour les conteneurs source et cible. (Les étapes de création des jetons ne sont pas affichées.)
 

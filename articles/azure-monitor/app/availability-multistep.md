@@ -3,12 +3,12 @@ title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Applic
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024771"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934864"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -37,7 +37,7 @@ Pour localiser les outils requis. Lancez **Visual Studio Installer** > **Composa
 > [!WARNING]
 > Nous ne recommandons plus l’utilisation de l’enregistreur multiétape. L’enregistreur a été développé pour les pages HTML statiques avec des interactions de base et ne fournit pas d’expérience fonctionnelle pour les pages web modernes.
 
-Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [documentation officielle de Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Pour obtenir de l’aide sur la création de tests web Visual Studio, voir la [documentation officielle de Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test).
 
 ## <a name="upload-the-web-test"></a>Charger le test web
 

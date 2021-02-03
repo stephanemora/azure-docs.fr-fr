@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120952"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898492"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
 
@@ -303,6 +303,8 @@ Non pris en charge.
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Vous pouvez utiliser la commande magic ```%run <notebook path>``` pour référencer un autre notebook dans le contexte du notebook actuel. Toutes les variables définies dans le notebook de référence sont disponibles dans le notebook actuel. La commande magic ```%run``` prend en charge les appels imbriqués, mais pas les appels récursifs. Vous recevrez une exception si la profondeur de l’instruction est supérieure à cinq. Actuellement, la commande ```%run``` permet seulement de transmettre un chemin d’accès de notebook comme paramètre. 
+
+Exemple : ``` %run /path/notebookA ```.
 
 ---
 

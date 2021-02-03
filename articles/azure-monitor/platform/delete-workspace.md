@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706879"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927697"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Supprimer et récupérer un espace de travail Azure Log Analytics
 
@@ -41,7 +41,7 @@ L'opération de suppression de l'espace de travail supprime la ressource Resourc
 > [!NOTE] 
 > Les solutions installées et les services liés comme votre compte Azure Automation sont définitivement supprimés de l’espace de travail au moment de la suppression et leur récupération est impossible. Ceux-ci doivent être reconfigurés après l’opération de récupération pour rétablir l’état précédemment configuré de l’espace de travail.
 
-Vous pouvez supprimer un espace de travail à l'aide de [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), de [l’API REST](/rest/api/loganalytics/workspaces/delete) ou à partir du [portail Azure](https://portal.azure.com).
+Vous pouvez supprimer un espace de travail à l'aide de [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), de [l’API REST](/rest/api/loganalytics/workspaces/delete) ou à partir du [portail Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portail Azure
 

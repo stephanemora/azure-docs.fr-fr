@@ -4,15 +4,15 @@ description: Base de référence de sécurité Azure pour Automation.
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737250"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052751"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -336,11 +336,11 @@ En revanche, si vous vous servez de la fonctionnalité Runbook Worker hybride, A
 
 **Aide** : Utilisez les rôles d’administrateur intégrés Azure Active Directory qui peuvent être attribués explicitement et sont interrogeables. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration. Chaque fois que vous utilisez des comptes d’identification de compte Automation pour vos runbooks, veillez à ce que ces principaux de service soient également suivis dans votre inventaire, car ils possèdent souvent des autorisations élevées. Supprimez tous les comptes d’identification inutilisés pour réduire votre surface d’attaque exposée.
 
-* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./delete-run-as-account.md)
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
@@ -364,7 +364,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [En savoir plus sur Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./delete-run-as-account.md)
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
@@ -454,7 +454,7 @@ Vous pouvez également activer JIT (Juste-à-temps)/JEA (Just-Enough-Access) à 
 
 * [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./delete-run-as-account.md)
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
@@ -696,7 +696,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -724,7 +724,7 @@ Si vous utilisez des Runbook Workers hybrides qui s’appuient sur des machines 
 
 * [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Suppression d’un compte d’identification ou d’un compte d’identification classique](./delete-run-as-account.md)
 
 * [Gestion d’un compte d’identification Azure Automation](./manage-runas-account.md)
 
@@ -836,7 +836,7 @@ Le contrôle d’application adaptatif est une solution de bout en bout intellig
 
 **Aide** : Si vous vous servez de la fonctionnalité Runbook Worker hybride, vous pouvez, selon le type de script, utiliser des configurations de système d’exploitation spécifiques ou des ressources tierces pour limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul Azure. Vous avez également la possibilité d’exploiter les contrôles d’application adaptatifs Azure Security Center pour faire en sorte que seuls les logiciels autorisés s’exécutent et que l’exécution de tous les logiciels non autorisés soit bloquée sur les machines virtuelles Azure.
 
-* [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
@@ -878,7 +878,7 @@ Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle a
 
 Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme base de référence de configuration sécurisée pour vos ressources Azure.
 
-* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 
@@ -942,7 +942,7 @@ Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base com
 
 * [Informations sur la création de modèles ARM](../virtual-machines/windows/ps-template.md)
 
-* [Guide pratique pour charger un disque dur virtuel de machine virtuelle personnalisé dans Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Guide pratique pour charger un disque dur virtuel de machine virtuelle personnalisé dans Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -952,7 +952,7 @@ Dans la plupart des cas, les modèles de machine virtuelle Microsoft de base com
 
 **Aide** : Utilisez Azure DevOps pour stocker et gérer de manière sécurisée votre code, comme les stratégies Azure personnalisées, les modèles Azure Resource Manager et les scripts Desired State Configuration. Pour accéder aux ressources que vous gérez dans Azure DevOps, vous pouvez accorder ou refuser des autorisations à des utilisateurs spécifiques, à des groupes de sécurité intégrés ou à des groupes définis dans Azure Active Directory en cas d’intégration à Azure DevOps, ou dans Active Directory en cas d’intégration à TFS. Utilisez la fonctionnalité d’intégration du contrôle de code source pour maintenir les runbooks de votre compte Automation à jour par rapport aux scripts de votre référentiel de contrôle de code source.
 
-* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1134,7 +1134,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Présentation d’Azure Automation](./automation-intro.md)
 
-* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Utilisation de clés gérées par le client pour un compte Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1160,7 +1160,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Présentation d’Azure Automation](./automation-intro.md)
 
-* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Utilisation de clés gérées par le client pour un compte Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1176,7 +1176,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 * [Déploiement de ressources avec des modèles ARM et le Portail Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Utilisation de clés gérées par le client pour un compte Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1190,7 +1190,7 @@ Utilisez la fonctionnalité d’intégration du contrôle de code source pour ma
 
 Utilisez la fonctionnalité d’intégration du contrôle de code source pour maintenir les runbooks de votre compte Automation à jour par rapport aux scripts de votre référentiel de contrôle de code source.
 
-* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

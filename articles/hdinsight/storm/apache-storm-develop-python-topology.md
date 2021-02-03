@@ -1,19 +1,16 @@
 ---
 title: Apache Storm avec composants Python - Azure HDInsight
 description: Découvrez comment créer une topologie Apache Storm qui utilise des composants Python dans Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e28d21ed71cf5f485165c639a8bd519b3a2736e1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545461"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928987"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Développer des topologies Storm Apache à l’aide de Python sur HDInsight
 
@@ -24,7 +21,7 @@ Découvrez comment créer une topologie [Apache Storm](https://storm.apache.org/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster** .
+* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
 
 * Un environnement de développement Storm local (facultatif). Un environnement Storm local n’est nécessaire que si vous souhaitez exécuter la topologie localement. Pour plus d’informations, consultez la page [Configurer un environnement de développement](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
@@ -114,7 +111,7 @@ Comme mentionné précédemment, il existe un fichier `storm.py` qui implémente
     storm kill wordcount
     ```
 
-    Vous pouvez également utiliser l’interface utilisateur Storm. Sous **Actions de topologie** pour la topologie, sélectionnez **Supprimer** .
+    Vous pouvez également utiliser l’interface utilisateur Storm. Sous **Actions de topologie** pour la topologie, sélectionnez **Supprimer**.
 
 ## <a name="run-the-topology-locally"></a>Exécuter la topologie localement
 
@@ -141,7 +138,7 @@ Une fois démarrée, la topologie émet des informations de ce type sur la conso
 24303 [Thread-17-log-executor[3 3]] INFO  o.a.s.f.w.b.LogInfoBolt - {word=four, count=160}
 ```
 
-Pour arrêter la topologie, appuyez sur __Ctrl+C__ .
+Pour arrêter la topologie, appuyez sur __Ctrl+C__.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

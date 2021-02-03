@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007994"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927581"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
@@ -50,7 +50,7 @@ Les tableaux suivants listent les données qui peuvent être collectées par l�
 | Compteurs de performance | Valeurs numériques mesurant les performances de différents aspects du système d’exploitation et des charges de travail. |
 | Journaux d’activité IIS             | Informations sur l’utilisation des sites web IIS s’exécutant sur le système d’exploitation invité. |
 | Journaux d’activité d’application     | Messages de trace écrits par votre application. |
-| Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) |
+| Journaux d’activité .NET EventSource |Événements d’écriture de code à l'aide de la classe .NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) |
 | [Journaux d’activité ETW basés sur les manifestes](/windows/desktop/etw/about-event-tracing) |Événements de suivi d’événements pour Windows générés par n’importe quel processus. |
 | Vidages sur incident (journaux d’activité)   | Informations sur l’état du processus si une application plante. |
 | Journaux basés sur des fichiers    | Journaux d’activité créés par votre application ou votre service. |

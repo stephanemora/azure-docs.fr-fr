@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757540"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917830"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -30,9 +30,6 @@ La clé gérée par le client est fournie sur des [clusters dédiés](../log-que
 Les données ingérées au cours des 14 derniers jours sont également conservées dans le cache à chaud (SSD) afin d’optimiser l’utilisation du moteur de requête. Ces données restent chiffrées avec des clés Microsoft, quelle que soit la configuration de clé gérée par le client, mais votre contrôle sur les données SSD est sujet à une [révocation de clé](#key-revocation). Nous travaillons au chiffrement des données SSD avec une clé gérée par le client pour le premier semestre 2021.
 
 Les clusters dédiés Log Analytics utilisent un [modèle de tarification](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de réservation de capacité d’au moins 1000 Go/jour.
-
-> [!IMPORTANT]
-> En raison de contraintes temporaires en matière de capacité, nous vous demandons de vous préinscrire avant de créer un cluster. Utilisez vos contacts chez Microsoft ou ouvrez une demande de support pour inscrire vos ID d’abonnements.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Fonctionnement de la clé gérée par le client dans Azure Monitor
 
@@ -68,7 +65,6 @@ Les règles suivantes s’appliquent :
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Étapes de configuration de clé gérée par le client
 
-1. Inscription de votre abonnement pour autoriser la création du cluster
 1. Création du coffre de clés Azure et stockage de la clé
 1. Création du cluster
 1. Octroi d’autorisations d’accès à votre coffre de clés
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Autorisation de l’abonnement
-
-Utilisez vos contacts chez Microsoft ou ouvrez une demande de support dans Log Analytics pour fournir vos ID d’abonnements.
 
 ## <a name="storing-encryption-key-kek"></a>Stockage de la clé de chiffrement (KEK)
 

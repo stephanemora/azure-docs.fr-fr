@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341751"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916182"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptatif dans Azure Security Center
 Découvrez comment configurer le renforcement du réseau adaptatif dans Security Center.
@@ -60,7 +60,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
       * **Les données disponibles sont insuffisantes** : Pour générer des suggestions de renforcement du trafic précises, Security Center requiert au moins 30 jours de données de trafic.
       * **La machine virtuelle n’est pas protégée par Azure Defender** : Seules les machines virtuelles protégées avec [Azure Defender pour les serveurs](defender-for-servers-introduction.md) peuvent bénéficier de cette fonctionnalité.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Accès aux outils de renforcement du réseau adaptatif":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Page de détails de la recommandation « Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet »":::
 
 1. Dans l’onglet **Ressources non saines**, sélectionnez une machine virtuelle pour afficher ses alertes et les règles de renforcement recommandées à appliquer.
 
@@ -78,7 +78,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
     > [!TIP]
     > Si la valeur « Aucune » est indiquée pour les plages d’adresses IP sources autorisées, cela signifie que la règle recommandée est une règle de *refus* ; sinon, il s’agit d’une règle d’*autorisation*.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Accès aux outils de renforcement du réseau adaptatif":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gestion des règles de renforcement du réseau adaptatif":::
 
       > [!NOTE]
       > Les règles appliquées sont ajoutées aux groupes de sécurité réseau qui protègent la machine virtuelle. (Une machine virtuelle peut être protégée par un groupe de sécurité réseau qui est associé à sa carte réseau, ou le sous-réseau dans lequel réside la machine virtuelle, ou les deux)

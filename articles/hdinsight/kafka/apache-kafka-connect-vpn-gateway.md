@@ -1,19 +1,16 @@
 ---
 title: Se connecter à Kafka à l’aide de réseaux virtuels - Azure HDInsight
 description: Découvrez comment vous connecter directement à Kafka sur HDInsight via un réseau virtuel Azure. Découvrez comment se connecter à Kafka à partir de clients de développement à l’aide d’une passerelle VPN, ou à partir de clients de votre réseau local à l’aide d’un périphérique de passerelle VPN.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: ca5bff7f8a14efc0916210296048e3731aec5a59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad802b2bdf08a8e43179beece5f52d869513aff3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873464"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933046"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Apache Kafka sur HDInsight via un réseau virtuel Azure
 

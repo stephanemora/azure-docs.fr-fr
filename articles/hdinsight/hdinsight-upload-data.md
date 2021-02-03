@@ -1,19 +1,16 @@
 ---
 title: Charger des données pour des travaux Apache Hadoop dans HDInsight
 description: Découvrez comment télécharger des données et y accéder pour des tâches Apache Hadoop dans HDInsight. Utilisez l’interface de ligne de commande Azure classique, l’Explorateur Stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534819"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931346"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 

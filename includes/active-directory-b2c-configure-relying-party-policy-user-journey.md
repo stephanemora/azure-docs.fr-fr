@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/18/2021
+ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: f94076f06fb13bae2a26e8ab6003d7574a2dacfd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 73216b1b089444c1dc92bbe73ed07895de3711b2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98674227"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98951520"
 ---
 ## <a name="configure-the-relying-party-policy"></a>Configurer la stratégie de partie de confiance
 
@@ -33,11 +33,5 @@ Dans l’exemple suivant, pour le parcours utilisateur `CustomSignUpOrSignIn`, l
 1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés, dans l’ordre suivant : la stratégie d’extension, par exemple `TrustFrameworkExtensions.xml`, puis la stratégie de la partie de confiance, par exemple `SignUpSignIn.xml`.
 
-## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 
-1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`
-1. Pour **Application**, sélectionnez une application web que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Sélectionnez le bouton **Exécuter maintenant**.
-
-Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 

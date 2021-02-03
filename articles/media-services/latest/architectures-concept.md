@@ -1,6 +1,5 @@
 ---
 title: Architectures Media Services
-titleSuffix: Azure Media Services
 description: Cet article décrit les architectures pour Media Services.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: ff8704feb2997cd89bbd2bf8cb8801818112732f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ad464eb1c0b6dec694c7c40868a0f95fcfeaf6e8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879205"
+ms.locfileid: "98891486"
 ---
 # <a name="media-services-architectures"></a>Architectures Media Services
 

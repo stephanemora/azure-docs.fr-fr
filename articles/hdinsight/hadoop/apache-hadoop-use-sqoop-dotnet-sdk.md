@@ -1,19 +1,16 @@
 ---
 title: Exécuter des tâches Apache Sqoop avec .NET et HDInsight - Azure
 description: Découvrez comment utiliser le kit de développement logiciel HDInsight .NET pour exécuter l’exportation et l’importation d’Apache Sqoop entre un cluster Apache Hadoop et une base de données Azure SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
-ms.openlocfilehash: bc4b3019cb8308ea19d86eea7bf886063ea28563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008282"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928339"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec le SDK .NET pour Apache Hadoop dans HDInsight
 

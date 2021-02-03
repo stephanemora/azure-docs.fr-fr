@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 856aeb4dabc64edc2ade2869fddc3d14cb21a81b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403413"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942175"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Résolution des problèmes relatifs aux alertes Azure Monitor
 
@@ -90,7 +90,7 @@ Si vous pouvez voir une alerte déclenchée dans le portail Azure, mais que vous
 
 Si vous pouvez voir une alerte déclenchée dans le portail, mais que vous n’avez pas reçu le SMS, l’appel vocal ou la notification Push, effectuez les vérifications suivantes : 
 
-1. **L’action a-t-elle été supprimée par une [règle d’action ](alerts-action-rules.md)?**
+1. **L’action a-t-elle été supprimée par une [règle d’action](alerts-action-rules.md)?**
 
     Vérifiez en cliquant sur l’alerte déclenchée dans le portail, puis examinez l’onglet Historique à la recherche des [groupes d’actions](action-groups.md) supprimés : 
 
@@ -245,7 +245,7 @@ Si vous avez reçu une erreur lors de la tentative de création, de mise à jour
 
 1. **Avez-vous vérifié les paramètres de la règle d’action ?**  
 
-    Consultez la [documentation de la règle d’action](alerts-action-rules.md) ou la commande [PowerShell Set-AzActionRule de la règle d’action](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0). 
+    Consultez la [documentation de la règle d’action](alerts-action-rules.md) ou la commande [PowerShell Set-AzActionRule de la règle d’action](/powershell/module/az.alertsmanagement/set-azactionrule). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

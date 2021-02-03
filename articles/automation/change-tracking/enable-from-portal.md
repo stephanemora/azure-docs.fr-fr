@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ca5b1df05c04937598278378e001f41f08ef23c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 63041e0b1b6e12c765299b12f28aa3637b6a6ccb
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183632"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052785"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Activer le Suivi des modifications et inventaire à partir du portail Azure
 
@@ -24,7 +24,7 @@ Le nombre de groupes de ressources que vous pouvez utiliser pour la gestion de v
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Compte Automation](../index.yml) pour gérer les machines.
+* [Compte Automation](../automation-security-overview.md) pour gérer les machines.
 * Une [machine virtuelle](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

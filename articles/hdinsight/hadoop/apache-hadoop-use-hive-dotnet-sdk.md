@@ -1,19 +1,16 @@
 ---
 title: Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight - Azure
 description: Découvrez comment envoyer des travaux Apache Hadoop à Azure HDInsight Apache Hadoop à l’aide du Kit de développement logiciel (SDK) .NET HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487668"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927242"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 
@@ -33,7 +30,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
     > [!IMPORTANT]  
     > À compter du 15 septembre 2017, le kit HDInsight .NET SDK prend uniquement en charge le retour des résultats de requête Hive provenant des comptes de stockage Azure. Si vous utilisez cet exemple avec un cluster HDInsight qui utilise Azure Data Lake Storage en tant que stockage principal, vous ne pouvez pas récupérer les résultats de recherche avec le kit .NET SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 et versions ultérieures. Vous devez installer au moins la charge de travail **développement de Bureau .NET** .
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 et versions ultérieures. Vous devez installer au moins la charge de travail **développement de Bureau .NET**.
 
 ## <a name="run-a-hive-query"></a>Exécuter une requête Hive
 

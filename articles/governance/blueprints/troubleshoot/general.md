@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: a1689141f95aaac9183391af79edb0cabf5343b6
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 65cf8ef9a5dcba0165aad8522f91ff1eb2c963a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058282"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918842"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
