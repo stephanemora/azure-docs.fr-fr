@@ -1,18 +1,15 @@
 ---
 title: Instructions Apache Spark sur Azure HDInsight
 description: Découvrez les instructions pour utiliser Apache Spark sur Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938802"
 ---
 # <a name="apache-spark-guidelines"></a>Instructions Apache Spark
 
@@ -56,7 +53,7 @@ Cet article présente différentes instructions pour l’utilisation d’Apache 
 | Apache Hive sur HDInsight | [Intégrer Apache Spark et Apache Hive au le connecteur d’entrepôt Hive](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase sur HDInsight | [Utiliser Apache Spark pour lire et écrire des données Apache HBase](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka sur HDInsight | [Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Synapse Link pour Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
+| Azure Cosmos DB | [Synapse Link pour Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Quelles sont mes options de stockage ?
 

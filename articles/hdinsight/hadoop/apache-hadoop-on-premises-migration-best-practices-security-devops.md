@@ -1,19 +1,17 @@
 ---
 title: 'Sécurité : Effectuer la migration d’Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant la sécurité et DevOps pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545257"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939744"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
 
@@ -116,9 +114,9 @@ Pour plus d’informations, consultez l’article : [Mise à jour corrective du
 
 ## <a name="post-migration"></a>Après la migration
 
-1. **Corriger les applications**  : apportez de façon itérative les modifications nécessaires aux travaux, processus et scripts.
-2. **Effectuer des tests**  : exécutez de façon itérative des tests fonctionnels et de performance.
-3. **Optimiser**  : résolvez tous les problèmes de performances basés sur les résultats des tests ci-dessus, puis relancez les tests pour confirmer les améliorations des performances.
+1. **Corriger les applications** : apportez de façon itérative les modifications nécessaires aux travaux, processus et scripts.
+2. **Effectuer des tests** : exécutez de façon itérative des tests fonctionnels et de performance.
+3. **Optimiser** : résolvez tous les problèmes de performances basés sur les résultats des tests ci-dessus, puis relancez les tests pour confirmer les améliorations des performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

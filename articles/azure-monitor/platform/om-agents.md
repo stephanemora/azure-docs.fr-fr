@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 571dcd41da9be578e69d9a8ad40ed05784ae26a8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975568"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941987"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Pour préserver vos investissements existants dans [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offrent les journaux d’activité d’Azure Monitor tout en continuant à utiliser Operations Manager pour :
+Pour préserver vos investissements existants dans [System Center Operations Manager](/system-center/scom/key-concepts) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offrent les journaux d’activité d’Azure Monitor tout en continuant à utiliser Operations Manager pour :
 
 * Surveiller l’intégrité de vos services informatiques avec Operations Manager
 * Conserver l’intégration avec vos solutions ITSM pour la gestion des incidents et des problèmes

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: d5cfdca24193b899926bd30995063ed55b3dd3eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532055"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943455"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Surveiller Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Les données des journaux Azure Monitor sont stockées dans des tables, chacune 
 
 Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Pour obtenir la liste des types de journaux de ressources collectés pour Azure Cosmos DB, consultez l’article [Analyse de la référence des données Azure Cosmos DB](monitor-cosmos-db-reference.md#resource-logs).
 
-Le [journal d’activité](/azure/azure-monitor/platform/activity-log) est un journal de plateforme dans Azure qui fournit des insights sur les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.  
+Le [journal d’activité](../azure-monitor/platform/activity-log.md) est un journal de plateforme dans Azure qui fournit des insights sur les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.  
 
 Azure Cosmos DB stocke les données dans les tables suivantes.
 

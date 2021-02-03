@@ -1,19 +1,16 @@
 ---
 title: Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer des applications – Azure HDInsight
 description: Utilisez les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark – Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079290"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941045"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark
 

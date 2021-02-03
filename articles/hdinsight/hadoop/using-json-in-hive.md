@@ -1,19 +1,16 @@
 ---
 title: Analyser et traiter des documents JSON avec Apache Hive – Azure HDInsight
 description: Découvrez comment utiliser et analyser des documents JSON avec Apache Hive dans Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547603"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943065"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Traiter et analyser des documents JSON avec Apache Hive dans Azure HDInsight
 
@@ -94,7 +91,7 @@ L’instruction **INSERT** remplit la table **StudentOneLine** avec les données
 
 L’instruction **SELECT** retourne une seule ligne.
 
-Voici la sortie de l’instruction **SELECT**  :
+Voici la sortie de l’instruction **SELECT** :
 
 ![Aplatissage HDInsight du document JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
@@ -129,7 +126,7 @@ La fonction UDF get_json_object présente des limitations :
 * Étant donné que chaque champ de la requête implique une nouvelle analyse de la requête, cela affecte les performances.
 * **GET\_JSON_OBJECT()** retourne une représentation sous forme de chaîne d’un tableau. Pour convertir cette dernière en tableau Hive, vous devez utiliser des expressions régulières pour remplacer les crochets « [ » et « ] », puis appeler split pour obtenir le tableau.
 
-Cette conversion est la raison pour laquelle le wiki Hive recommande d’utiliser **json_tuple** .  
+Cette conversion est la raison pour laquelle le wiki Hive recommande d’utiliser **json_tuple**.  
 
 ### <a name="use-the-json_tuple-udf"></a>Utiliser la fonction UDF json_tuple
 
@@ -146,7 +143,7 @@ Sortie de ce script dans la console Hive :
 
 ![Apache Hive json query results](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-La fonction UDF `json_tuple` utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json\_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON complexes deviennent trop lourds en raison de l’utilisation répétée de **LATERAL VIEW** . De plus, **JSON_TUPLE** ne gère pas les documents JSON imbriqués.
+La fonction UDF `json_tuple` utilise la syntaxe [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) dans Hive, ce qui permet à json\_tuple de créer une table virtuelle en appliquant la fonction UDT à chaque ligne de la table d’origine. Les documents JSON complexes deviennent trop lourds en raison de l’utilisation répétée de **LATERAL VIEW**. De plus, **JSON_TUPLE** ne gère pas les documents JSON imbriqués.
 
 ### <a name="use-a-custom-serde"></a>Utiliser un SerDe personnalisé
 
@@ -154,7 +151,7 @@ SerDe constitue le meilleur moyen d’analyser des documents JSON imbriqués. Il
 
 ## <a name="summary"></a>Résumé
 
-Le type d’opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Avec un document JSON simple et un champ à rechercher, choisissez la fonction UDF Hive **get_json_object** . Si la recherche porte sur plusieurs clés, vous pouvez utiliser **json_tuple** . Pour les documents imbriqués, utilisez **JSON SerDe** .
+Le type d’opérateur JSON que vous choisissez dans Hive dépend de votre scénario. Avec un document JSON simple et un champ à rechercher, choisissez la fonction UDF Hive **get_json_object**. Si la recherche porte sur plusieurs clés, vous pouvez utiliser **json_tuple**. Pour les documents imbriqués, utilisez **JSON SerDe**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

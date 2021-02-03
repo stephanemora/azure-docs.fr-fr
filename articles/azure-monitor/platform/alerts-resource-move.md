@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cf5882913426062e281194b61a8c760141512a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505480"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944156"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Guide pratique pour mettre à jour des règles d’alerte ou des règles d’action quand la ressource cible est déplacée vers une autre région Azure
 
@@ -106,7 +106,7 @@ Si **seules certaines ressources** de l’étendue ont été déplacées, vous d
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modifier l’étendue d’une règle à l’aide d’Azure CLI
 
-1.  Récupérez la règle existante ([alertes de métrique](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+1.  Récupérez la règle existante ([alertes de métrique](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.  Mettez directement à jour l’étendue de la règle ([alertes de métrique](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alertes de journal d’activité](/cli/azure/monitor/activity-log/alert/scope)).
 3.  Si nécessaire, fractionnez en deux règles (pertinent pour certains cas d’alertes de métrique, comme indiqué ci-dessus).
 

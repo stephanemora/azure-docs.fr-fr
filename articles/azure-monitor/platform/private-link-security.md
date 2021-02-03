@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734964"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941889"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -217,13 +217,13 @@ Cette restriction d’accès ne s’applique qu’aux données de la ressource A
 
 Vous pouvez automatiser le processus décrit précédemment à l’aide de modèles de Azure Resource Manager, d’interfaces REST et de ligne de commande.
 
-Pour créer et gérer des étendues de liens privés, utilisez l’[API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [Azure CLI (AZ Monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Pour créer et gérer des étendues de liens privés, utilisez l’[API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [Azure CLI (AZ Monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou les [composants Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Pour gérer l’accès au réseau, utilisez les indicateurs `[--ingestion-access {Disabled, Enabled}]` et `[--query-access {Disabled, Enabled}]` sur les [espaces de travail Log Analytics ](/cli/azure/monitor/log-analytics/workspace) ou les [composants Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Collecter des journaux personnalisés sur une liaison privée
 
-Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Des comptes de stockage sont utilisés dans le processus d’ingestion de journaux personnalisés. Par défaut, des comptes de stockage gérés par le service sont utilisés. Toutefois, pour ingérer des journaux personnalisés via des liaisons privées, vous devez utiliser vos propres comptes de stockage et les associer aux espaces de travail Log Analytics. Pour plus d’informations sur la configuration de ces comptes, utilisez la [ligne de commande](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Pour plus d’informations sur l’intégration de votre propre compte de stockage, consultez [Comptes de stockage appartenant au client pour l’ingestion des journaux](private-storage.md).
 
@@ -252,7 +252,7 @@ Pour utiliser les expérience du portail Azure Monitor, comme Application Insigh
 
 ### <a name="programmatic-access"></a>Accès par programme
 
-Pour utiliser l’API REST, [CLI](/cli/azure/monitor?view=azure-cli-latest) ou PowerShell avec Azure Monitor sur des réseaux privés, ajoutez les [balises de service](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** et **AzureResourceManager** à votre pare-feu.
+Pour utiliser l’API REST, [CLI](/cli/azure/monitor) ou PowerShell avec Azure Monitor sur des réseaux privés, ajoutez les [balises de service](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** et **AzureResourceManager** à votre pare-feu.
 
 L’ajout de ces balises vous permet d’effectuer des actions telles que l’interrogation des données du journal ainsi que la création et la gestion d’espaces de travail Log Analytics et de composants Application Insights.
 

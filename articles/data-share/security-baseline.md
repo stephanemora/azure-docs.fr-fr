@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 22654d49d02809460adc4013c2c92ac857805cf7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199799"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937168"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Base de référence de sécurité Azure pour Azure Data Share
 
@@ -108,7 +108,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Azure Data Share prend en charge l’authentification unique auprès d’Azure Active Directory. Réduisez le nombre d’identités et d’informations d’identification devant être gérées par les utilisateurs en activant l’authentification unique pour le service avec les identités existantes de votre organisation.
 
-- [Présentation de l’authentification SSO avec Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

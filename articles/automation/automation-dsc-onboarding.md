@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: ae268534a18a921cca012881fa172261c7ba1063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0dc68bd7dacf0cd7f4be9732d45831e2dbb712c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897001"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Activer Azure Automation State Configuration
 
@@ -73,7 +73,7 @@ Vous pouvez activer des serveurs Windows exécutés localement ou dans d’autre
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. Si vous ne pouvez pas appliquer les métaconfigurations DSC PowerShell à distance, copiez le dossier **metaconfigurations** vers les machines à activer. Ajoutez ensuite du code pour appeler [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) localement sur les machines.
+1. Si vous ne pouvez pas appliquer les métaconfigurations DSC PowerShell à distance, copiez le dossier **metaconfigurations** vers les machines à activer. Ajoutez ensuite du code pour appeler [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) localement sur les machines.
 1. À l’aide du portail Azure ou de cmdlets, vérifiez que les machines apparaissent bien comme des nœuds State Configuration inscrits dans votre compte Azure Automation.
 
 ## <a name="enable-physicalvirtual-linux-machines"></a>Activer des machines physiques/virtuelles Linux
@@ -123,7 +123,7 @@ Pour activer une machine pour State Configuration, vous pouvez générer une [m�
 > [!NOTE]
 > Les métaconfigurations DSC contiennent les clés secrètes nécessaires à l’activation d’une machine dans un compte Automation à des fins de gestion. Veillez à protéger convenablement les métaconfigurations DSC que vous créez ou supprimez-les après utilisation.
 
-La prise en charge de proxy pour les métaconfigurations est contrôlée par le [Gestionnaire de configuration local](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), qui est le moteur DSC Windows PowerShell. Le gestionnaire de configuration local s’exécute sur tous les nœuds cibles et il est chargé d’appeler les ressources de configuration contenues dans un script de métaconfiguration DSC. Vous pouvez inclure la prise en charge du proxy dans une métaconfiguration en incluant les définitions des propriétés `ProxyURL` et `ProxyCredential` nécessaires dans les blocs `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` et `ReportServerWeb`. `ProxyURL = "http://172.16.3.6:3128";` est un exemple de paramètre d’URL. La propriété `ProxyCredential` est définie sur un objet `PSCredential`, comme décrit dans [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md). 
+La prise en charge de proxy pour les métaconfigurations est contrôlée par le [Gestionnaire de configuration local](/powershell/scripting/dsc/managing-nodes/metaconfig), qui est le moteur DSC Windows PowerShell. Le gestionnaire de configuration local s’exécute sur tous les nœuds cibles et il est chargé d’appeler les ressources de configuration contenues dans un script de métaconfiguration DSC. Vous pouvez inclure la prise en charge du proxy dans une métaconfiguration en incluant les définitions des propriétés `ProxyURL` et `ProxyCredential` nécessaires dans les blocs `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` et `ReportServerWeb`. `ProxyURL = "http://172.16.3.6:3128";` est un exemple de paramètre d’URL. La propriété `ProxyCredential` est définie sur un objet `PSCredential`, comme décrit dans [Gérer les informations d’identification dans Azure Automation](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Générer des métaconfigurations DSC à l’aide d’une configuration DSC
 
@@ -260,7 +260,7 @@ La prise en charge de proxy pour les métaconfigurations est contrôlée par le 
 Si les valeurs par défaut du gestionnaire de configuration local PowerShell DSC correspondent à votre cas d’utilisation et que vous souhaitez activer des machines pour qu’elles échangent avec Azure Automation State Configuration, vous pouvez générer les métaconfigurations DSC nécessaires plus simplement en utilisant les cmdlets Azure Automation.
 
 1. Ouvrez la console PowerShell ou VSCode en tant qu’administrateur sur une machine de votre environnement local.
-2. Connectez-vous à Azure Resource Manager en utilisant [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
+2. Connectez-vous à Azure Resource Manager en utilisant [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount).
 3. Téléchargez les métaconfigurations DSC PowerShell pour les machines à activer à partir du compte Automation dans lequel vous configurez des nœuds.
 
    ```powershell
@@ -325,7 +325,7 @@ Pour afficher l’état de l’extension Azure VM Desired State Configuration :
 
 - Pour commencer, consultez [Bien démarrer avec Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Pour découvrir comment compiler des configurations DSC pour pouvoir les affecter à des nœuds cibles, consultez [Compiler des configurations DSC dans Azure Automation State Configuration](automation-dsc-compile.md).
-- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation).
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Pour obtenir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
 - Pour plus d’informations sur la résolution des problèmes, consultez [Résoudre des problèmes liés à Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).

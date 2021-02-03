@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741675"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938434"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Activation de l’inscription combinée des informations de sécurité dans Azure Active Directory
 
 Avant l'inscription combinée, les utilisateurs s'inscrivaient séparément aux méthodes d'authentification Azure AD Multi-Factor Authentication (Azure AD MFA) et Réinitialisation de mot de passe en libre-service (SSPR). Certains se demandaient pourquoi ils devaient s'inscrire aux deux fonctionnalités alors que des méthodes similaires étaient utilisées pour l'authentification Azure AD MFA et la réinitialisation SSPR. Désormais, grâce à l'inscription combinée, les utilisateurs n'ont plus besoin de s'inscrire deux fois pour bénéficier des avantages de l'authentification Azure AD MFA et de la réinitialisation SSPR.
 
 > [!NOTE]
-> À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD. À partir du 14 décembre 2020, l’inscription combinée sera automatiquement activée pour tous les locataires Azure AD ayant un utilisateur.
+> À partir du 15 août 2020, l’inscription combinée sera automatiquement activée pour tous les nouveaux locataires Azure AD. 
 
 Pour vous assurer de bien comprendre la fonctionnalité et ses effets avant d’activer la nouvelle expérience, consultez l’article [Concepts de l’inscription combinée des informations de sécurité](concept-registration-mfa-sspr-combined.md).
 

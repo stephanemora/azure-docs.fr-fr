@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: cd3ff3fce80e66d7cd61636b4416cb2fc28f5e77
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 61af1f1a97e0ffad0332a34034f5dd1d007d1a5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956557"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900917"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -19,13 +19,13 @@ ms.locfileid: "97956557"
 | Machine virtuelle par série, telle que Dv2, et F, cœurs par [abonnement](https://azure.microsoft.com/pricing/) |20<sup>1</sup> par région. Contactez le support pour augmenter la limite. |
 | [Groupes à haute disponibilité](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 500 par région. |
 | Machines virtuelles par groupe à haute disponibilité | 200 |
-| [Groupes de placement de proximité](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) par [groupe de ressources](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
+| [Groupes de placement de proximité](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) par [groupe de ressources](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
 | Certificats par groupe à haute disponibilité | 199<sup>2</sup> |
 | Certificats par abonnement |Illimité<sup>3</sup> |
 
 <sup>1</sup> Les limites par défaut varient en fonction du type de catégorie d’offre, comme l’essai gratuit et le paiement à l’utilisation, et en fonction de la série, telle que dv2, F et G. Par exemple, la valeur par défaut pour les abonnements Accord Entreprise est 350.
 
-<sup>2</sup> Les propriétés telles que les clés publiques SSH sont également envoyées en tant que certificats, et sont prises en compte pour cette limite. Pour contourner cette limite, utilisez l’[extension Azure Key Vault pour Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) ou l’[extension Azure Key Vault pour Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) pour installer des certificats.
+<sup>2</sup> Les propriétés telles que les clés publiques SSH sont également envoyées en tant que certificats, et sont prises en compte pour cette limite. Pour contourner cette limite, utilisez l’[extension Azure Key Vault pour Windows](../articles/virtual-machines/extensions/key-vault-windows.md) ou l’[extension Azure Key Vault pour Linux](../articles/virtual-machines/extensions/key-vault-linux.md) pour installer des certificats.
 
 <sup>3</sup> Avec Azure Resource Manager, les certificats sont stockés dans Azure Key Vault. Le nombre de certificats est illimité pour un abonnement. Un déploiement est limité à 1 Mo de certificat, dont une machine virtuelle ou un groupe à haute disponibilité.
 

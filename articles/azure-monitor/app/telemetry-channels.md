@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937354"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canaux de télémétrie dans Application Insights
 
@@ -18,7 +18,7 @@ Les canaux de télémétrie font partie intégrante des [SDK Azure Application I
 
 ## <a name="what-are-telemetry-channels"></a>Que sont les canaux de télémétrie ?
 
-Les canaux de télémétrie gèrent la mise en mémoire tampon des éléments de télémétrie et la transmission de ces éléments au service Application Insights, où ils sont stockés pour être interrogés et analysés. Un canal de télémétrie est une classe qui implémente l’interface [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet).
+Les canaux de télémétrie gèrent la mise en mémoire tampon des éléments de télémétrie et la transmission de ces éléments au service Application Insights, où ils sont stockés pour être interrogés et analysés. Un canal de télémétrie est une classe qui implémente l’interface [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel).
 
 La méthode `Send(ITelemetry item)` d’un canal de télémétrie est appelée une fois que tous les initialiseurs et processeurs de télémétrie ont été appelés. Par conséquent, tous les éléments supprimés par un processeur de télémétrie n’atteignent pas le canal. En règle générale, `Send()` n’envoie pas instantanément les éléments au back-end. Il les place généralement en mémoire tampon et les envoie par lots pour optimiser leur transmission.
 

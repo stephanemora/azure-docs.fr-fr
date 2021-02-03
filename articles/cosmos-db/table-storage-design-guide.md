@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943885"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -124,7 +124,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </table>
 
 
-Jusqu’à présent, cette conception ressemble à une table dans une base de données relationnelle. Les principales différences sont les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age** , est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Toutefois, contrairement à une base de données relationnelle, la nature sans schéma du stockage Table signifie qu’une propriété n’a pas nécessairement besoin d’avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations, consultez [Présentation du modèle de données du stockage Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Jusqu’à présent, cette conception ressemble à une table dans une base de données relationnelle. Les principales différences sont les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age**, est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Toutefois, contrairement à une base de données relationnelle, la nature sans schéma du stockage Table signifie qu’une propriété n’a pas nécessairement besoin d’avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations, consultez [Présentation du modèle de données du stockage Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Le choix de la valeur de `PartitionKey` et `RowKey` est fondamental pour une bonne conception de table. Toutes les entités stockées dans une table doivent avoir une combinaison unique de `PartitionKey` et `RowKey`. Comme avec les clés dans une table de base de données relationnelle, les valeurs de `PartitionKey` et `RowKey` sont indexées pour créer un index cluster qui permet d’effectuer des recherches rapides. Toutefois, le stockage Table ne crée pas d’index secondaires. Il s’agit donc des deux seules propriétés indexées (certains des modèles décrits plus loin montrent comment contourner cette limitation apparente).  
 
@@ -211,7 +211,7 @@ Voici quelques recommandations générales pour la conception de requêtes de st
 * Une *analyse de table* n’inclut pas la valeur de `PartitionKey`, et s’avère inefficace car elle lance une recherche sur toutes les partitions qui composent la table pour toutes les entités correspondantes. Elle effectue une analyse de table, que votre filtre utilise la valeur de `RowKey` ou non. Par exemple : `$filter=LastName eq 'Jones'`.  
 * Les requêtes de stockage Table Azure qui retournent plusieurs entités les trient par ordre de `PartitionKey` et `RowKey`. Pour éviter un nouveau tri des entités dans le client, sélectionnez une valeur de `RowKey` qui définit l’ordre de tri le plus répandu. Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](table-api-faq.md#table-api-vs-table-storage).
 
-L’utilisation d’un connecteur «  **or**  » pour spécifier un filtre selon les valeurs de `RowKey` déclenche une analyse de partition, et n’est pas traitée en tant que requête de plage de données. Par conséquent, évitez les requêtes qui utilisent des filtres tels que : `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
+L’utilisation d’un connecteur « **or** » pour spécifier un filtre selon les valeurs de `RowKey` déclenche une analyse de partition, et n’est pas traitée en tant que requête de plage de données. Par conséquent, évitez les requêtes qui utilisent des filtres tels que : `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
 Pour obtenir des exemples de code côté client qui utilisent la bibliothèque de client de stockage pour exécuter des requêtes efficaces, consultez :  
 
@@ -253,7 +253,7 @@ Le stockage Table retourne les résultats de requête triés par ordre croissant
 > [!NOTE]
 > Les résultats de la requête renvoyés par l’API Table Azure dans Azure Cosmos DB ne sont pas triés par clé de partition ou clé de ligne. Pour obtenir la liste détaillée des différences de fonctionnalités, consultez [Différences entre l'API Table dans Azure Cosmos DB et Stockage Table Azure](table-api-faq.md#table-api-vs-table-storage).
 
-Les clés dans le stockage Table sont des valeurs de chaîne. Pour être sûr que les valeurs numériques sont triées correctement, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme `RowKey` est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123** , en **00000123**. 
+Les clés dans le stockage Table sont des valeurs de chaîne. Pour être sûr que les valeurs numériques sont triées correctement, vous devez les convertir en une longueur fixe et les remplir avec des zéros. Par exemple, si la valeur d’ID d’un employé que vous utilisez comme `RowKey` est une valeur de nombre entier, vous devez convertir l’ID de cet employé, **123**, en **00000123**. 
 
 De nombreuses applications ont des conditions d'utilisation pour l'utilisation des données triées dans différents ordres : par exemple, le tri des employés par nom ou par date d'arrivée. Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) permettent de comprendre comment alterner les ordres de tri pour vos entités :  
 
@@ -495,7 +495,7 @@ Les deux critères de filtre suivants (l’un recherchant d’après l’ID d’
 
 Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifier une plage triée par ID d’employé ou une plage triée par adresse e-mail. Recherchez les entités avec le préfixe approprié dans la `RowKey`.  
 
-* Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre **000100** et **000199** , utilisez : $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
+* Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre **000100** et **000199**, utilisez : $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * Pour rechercher tous les employés du service des ventes ayant une adresse e-mail qui commence par « a », triés par ordre d’adresse e-mail, utilisez : $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
 Notez que la syntaxe de filtre utilisée dans les exemples précédents provient de l’API REST de stockage Table. Pour plus d’informations, consultez [Entités de requêtes](/rest/api/storageservices/Query-Entities).  
@@ -551,7 +551,7 @@ Toutefois, vous ne pouvez pas utiliser une EGT pour effectuer ces deux opératio
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Diagramme de solution pour la cohérence finale":::
 
-Un client lance l’opération d’archivage en plaçant un message dans une file d’attente Azure (dans cet exemple, pour archiver l’employé n°456). Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current** , insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.  
+Un client lance l’opération d’archivage en plaçant un message dans une file d’attente Azure (dans cet exemple, pour archiver l’employé n°456). Un rôle de travail interroge la file d'attente à la recherche de nouveaux messages ; lorsqu'il en trouve un, il le lit et laisse une copie masquée dans la file d'attente. Le rôle de travail extrait ensuite une copie de l’entité à partir de la table **Current**, insère une copie dans la table **Archive** et supprime l’original de la table **Current**. Enfin, si aucune erreur n'est survenue lors des étapes précédentes, le rôle de travail supprime le message masqué de la file d'attente.  
 
 Dans cet exemple, l’étape 4 du diagramme permet d’insérer l’employé dans la table **Archive** . L’employé peut être ajouté à un objet blob dans le stockage Blob ou à un fichier dans un système de fichiers.  
 
@@ -1109,7 +1109,7 @@ Les exceptions levées quand la bibliothèque de client de stockage exécute une
 Nous vous conseillons de réfléchir également à la façon dont votre conception affecte la méthode de votre application cliente pour gérer les opérations d'accès concurrentiel et de mises à jour.  
 
 #### <a name="managing-concurrency"></a>Gérer l'accès concurrentiel
-Par défaut, le stockage Table implémente des contrôles d’accès concurrentiel optimiste au niveau des entités individuelles pour les opérations d’insertion, de fusion et de suppression, bien qu’il soit possible pour un client de forcer le stockage Table à ignorer ces contrôles. Pour plus d’informations, consultez [Gestion de l’accès concurrentiel dans Microsoft Azure Storage](../storage/common/storage-concurrency.md).  
+Par défaut, le stockage Table implémente des contrôles d’accès concurrentiel optimiste au niveau des entités individuelles pour les opérations d’insertion, de fusion et de suppression, bien qu’il soit possible pour un client de forcer le stockage Table à ignorer ces contrôles. Pour plus d’informations, consultez [Gestion de l’accès concurrentiel dans Microsoft Azure Storage](../storage/blobs/concurrency-manage.md).  
 
 #### <a name="merge-or-replace"></a>Fusion ou remplacement
 La méthode `Replace` de la classe `TableOperation` remplace toujours l’entité complète dans le stockage Table. Si vous n’incluez pas une propriété dans la requête quand cette propriété existe dans l’entité stockée, la requête supprime cette propriété de l’entité stockée. Si vous ne souhaitez pas supprimer une propriété explicitement à partir d'une entité stockée, vous devez inclure chaque propriété dans la demande.  

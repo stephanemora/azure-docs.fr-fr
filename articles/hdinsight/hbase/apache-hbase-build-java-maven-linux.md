@@ -1,19 +1,16 @@
 ---
 title: Utiliser Apache Maven pour construire un client Java HBase pour Azure HDInsight
 description: Découvrez comment utiliser Apache Maven pour créer une application Apache HBase basées sur Java, puis la déployer vers HBase sur Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
-ms.openlocfilehash: 61b8aaf9ea61ebe85eac6708d7390c386dea2696
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547909"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942958"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
 
@@ -48,7 +45,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Création d’un projet Maven
 
-1. Entrez la commande suivante pour créer un projet Maven nommé **hbaseapp**  :
+1. Entrez la commande suivante pour créer un projet Maven nommé **hbaseapp** :
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -95,7 +92,7 @@ Dans `pom.xml`, ajoutez le texte suivant dans la section `<dependencies>` :
 </dependency>
 ```  
 
-Cette section indique que le projet a besoin des composants **hbase-client** et **phoenix-core** . Au moment de la compilation, ces dépendances sont téléchargées à partir du référentiel Maven par défaut. Vous pouvez utiliser la [Recherche du référentiel central Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) pour en savoir plus sur cette dépendance.
+Cette section indique que le projet a besoin des composants **hbase-client** et **phoenix-core**. Au moment de la compilation, ces dépendances sont téléchargées à partir du référentiel Maven par défaut. Vous pouvez utiliser la [Recherche du référentiel central Maven](https://search.maven.org/artifact/org.apache.hbase/hbase-client/1.1.2/jar) pour en savoir plus sur cette dépendance.
 
 > [!IMPORTANT]  
 > Le numéro de version du client hbase doit correspondre à la version d’Apache HBase fournie avec votre cluster HDInsight. Utilisez le tableau suivant pour trouver le numéro de version correct.
@@ -695,7 +692,7 @@ Les étapes suivantes utilisent le [module AZ](/powershell/azure/new-azureps-mod
     Gabriela Ingram - gabriela@contoso.com - ID: 6
     ```
 
-    L’utilisation de **fabrikam.com** pour la valeur `-emailRegex` renvoie les utilisateurs dont le champ email contient **fabrikam.com** . Vous pouvez également utiliser des expressions régulières comme termes de recherche. Par exemple, **^r** renvoie les adresses e-mail qui commencent par la lettre « r ».
+    L’utilisation de **fabrikam.com** pour la valeur `-emailRegex` renvoie les utilisateurs dont le champ email contient **fabrikam.com**. Vous pouvez également utiliser des expressions régulières comme termes de recherche. Par exemple, **^r** renvoie les adresses e-mail qui commencent par la lettre « r ».
 
 7. Utilisez la commande suivante pour supprimer le tableau :
 

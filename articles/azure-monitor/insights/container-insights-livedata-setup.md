@@ -4,12 +4,12 @@ description: Cet article décrit la configuration de la vue en temps réel des �
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050780"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943856"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Guide pratique pour configurer la fonctionnalité Live Data (préversion)
 
@@ -19,7 +19,7 @@ Cette fonctionnalité prend en charge les méthodes suivantes de contrôle d’a
 
 - AKS sans autorisation Kubernetes RBAC activée
 - AKS activé avec autorisation Kubernetes RBAC
-    - AKS configuré avec la liaison de rôle de cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - AKS configuré avec la liaison de rôle de cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)**
 - AKS activé avec authentification unique SAML Azure Active Directory (AD)
 
 Ces instructions demandent un accès administrateur à votre cluster Kubernetes et, si vous configurez en vue d’utiliser Azure Active Directory (AD) pour l’authentification utilisateur, l’accès administrateur à Azure AD.

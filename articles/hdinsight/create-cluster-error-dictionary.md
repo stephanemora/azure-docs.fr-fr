@@ -3,28 +3,27 @@ title: Azure HDInsight Créer un cluster - dictionnaire d’erreurs
 description: Découvrez comment résoudre les erreurs qui se produisent lors de la création de clusters Azure HDInsight.
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543098"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943337"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
 
 Cet article décrit les solutions aux erreurs que vous pouvez rencontrer lors de la création de clusters.
 
 > [!NOTE]
-> Les trois premières erreurs décrites dans cet article sont des erreurs de validation. Ils peuvent se produire lorsqu’un produit Azure HDInsight utilise la classe  **CsmDocument_2_0** .
+> Les trois premières erreurs décrites dans cet article sont des erreurs de validation. Ils peuvent se produire lorsqu’un produit Azure HDInsight utilise la classe **CsmDocument_2_0**.
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Code d’erreur : La validation a échoué pour le document CsmDocument_2_0
 
-**Erreur**  : « Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT ACTION URL\> »
+**Erreur** : « Impossible d’accéder à l’emplacement de l’action de script URI : \<SCRIPT ACTION URL\> »
 
 ### <a name="error-message-1"></a>Message d’erreur 1
 
@@ -82,11 +81,11 @@ La valeur **VirtualNetworkId** que vous avez spécifiée lors de la création du
 
 ### <a name="resolution"></a>Résolution
 
-Assurez-vous que les **VirtualNetworkId** et les valeurs de sous-réseau sont dans le format approprié. Pour récupérer la valeur de la **VirtualNetworkId**  :
+Assurez-vous que les **VirtualNetworkId** et les valeurs de sous-réseau sont dans le format approprié. Pour récupérer la valeur de la **VirtualNetworkId** :
 
 1. Accédez au portail Azure.
 1. Sélectionnez votre réseau virtuel.
-1. Sélectionnez l’élément de menu **Propriétés** . La propriété **ResourceID** correspond à la valeur **VirtualNetworkId** .
+1. Sélectionnez l’élément de menu **Propriétés**. La propriété **ResourceID** correspond à la valeur **VirtualNetworkId**.
 
 Voici un exemple d’identifiant de réseau virtuel :
 
@@ -161,7 +160,7 @@ Vous n’avez pas fourni les autorisations nécessaires pour gérer l’identit�
 
 1. Ouvrez le portail Azure.
 1. Accédez à votre compte de stockage.
-1. Cherchez sous **Contrôle d’accès** .
+1. Cherchez sous **Contrôle d’accès**.
 1. Vérifiez que le rôle Contributeur aux données Blob du stockage ou le rôle Propriétaire des données Blob du stockage est affecté à l’utilisateur.
 
 Pour plus d’informations, consultez [Définir les autorisations de l’identité managée sur le compte Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).

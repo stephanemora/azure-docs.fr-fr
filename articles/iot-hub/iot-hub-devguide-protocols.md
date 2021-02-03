@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015996"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919023"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Référence - Choisir un protocole de communication
 
@@ -42,7 +42,7 @@ Le tableau suivant fournit des recommandations de haut niveau pour votre choix d
 
 Prenez en compte les points suivants lorsque vous choisissez votre protocole pour les communications côté appareil :
 
-* **Modèle Cloud vers appareil**. HTTPS ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Ainsi, quand vous utilisez HTTPS, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cette approche est inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP,S chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud-à-appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages IoT Hub-à-appareil. Si la latence de remise pose problème, MQTT ou AMQP sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTPS fonctionne aussi bien.
+* **Modèle Cloud vers appareil**. HTTPS ne dispose pas d’un moyen efficace de mettre en œuvre la transmission des messages par le serveur. Ainsi, quand vous utilisez HTTPS, les appareils interrogent IoT Hub pour rechercher les messages cloud-à-appareil. Cette approche est inefficace pour l’appareil et pour IoT Hub. Conformément aux recommandations actuelles concernant HTTP,S chaque appareil doit interroger la présence de messages toutes les 25 minutes ou plus. L’émission d’un nombre plus élevé de réceptions HTTPS conduit IoT Hub à limiter les demandes. AMQP et MQTT prennent en charge les notifications Push sur le serveur lors de la réception de messages cloud-à-appareil. Ils permettent d’obtenir des notifications Push immédiates pour les messages IoT Hub-à-appareil. Si la latence de remise pose problème, MQTT ou AMQP sont les meilleurs protocoles à utiliser. Pour les appareils rarement connectés, HTTPS fonctionne aussi bien.
 
 * **Passerelles de champ**. MQTT et HTTPS prennent uniquement en charge une identité d’appareil unique (ID d’appareil et informations d’identification) par connexion TLS. Pour cette raison, ces protocoles ne sont pas pris en charge pour les [scénarios de passerelle de champ](iot-hub-devguide-endpoints.md#field-gateways) qui nécessitent le multiplexage de messages à l’aide de plusieurs identités d’appareil sur une seule connexion ou un pool de connexions en amont d’IoT Hub. Ces passerelles peuvent utiliser un protocole qui prend en charge plusieurs identités d’appareil par connexion, comme AMQP, pour leur trafic en amont.
 

@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 320668f9596376cf7aa12ed97872671404a07658
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003699"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895915"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gérer la sécurité et les autorisations des rôles
 
@@ -319,7 +319,7 @@ Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gèr
 
 Vous pouvez également configurer l’accès en fonction du rôle pour un compte Automation à l’aide des [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) suivantes :
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) répertorie tous les rôles Azure qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition) répertorie tous les rôles Azure qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre `Name` pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -338,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) répertorie les attributions de rôle Azure dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) répertorie les attributions de rôle Azure dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre `ExpandPrincipalGroups` pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
 
 **Exemple :** Utilisez la cmdlet suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
 
@@ -360,7 +360,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
+Utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
 
 **Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
 
@@ -382,7 +382,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Utilisez [Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment?view=azps-3.7.0) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
+Utilisez [Remove-AzRoleAssignment](/powershell/module/Az.Resources/Remove-AzRoleAssignment) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
 
 **Exemple :** Utilisez la commande suivante pour supprimer l’utilisateur du rôle Opérateur d’Automation dans l’étendue du compte Automation.
 

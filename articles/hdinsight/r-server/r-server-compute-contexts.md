@@ -1,19 +1,16 @@
 ---
 title: Options de contexte de calcul pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de contexte de calcul auxquelles les utilisateurs ont accès avec ML Services sur HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536332"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943951"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Options de contexte de calcul pour ML Services sur HDInsight
 
@@ -29,8 +26,8 @@ Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour
 
 En général, un script R qui s’exécute dans un cluster ML Services sur le nœud de périphérie s’exécute au sein de l’interpréteur R de ce nœud. L’exception concerne ces étapes qui appellent une fonction RevoScaleR. Les appels RevoScaleR s’exécutent dans un environnement de calcul déterminé par la façon dont est défini le contexte de calcul RevoScaleR.  Lorsque le script R est exécuté à partir d’un nœud périphérique, les valeurs possibles du contexte de calcul sont les suivantes :
 
-- local séquentiel ( *local* )
-- local parallèle ( *localpar* )
+- local séquentiel (*local*)
+- local parallèle (*localpar*)
 - Map Reduce
 - Spark
 
@@ -59,12 +56,12 @@ Compte tenu de ces principes, la section suivante propose quelques règles gén�
 
 ### <a name="local"></a>Local
 
-- Si les données à analyser sont peu volumineuses et ne nécessitent pas d’analyses répétées, transmettez-les directement à la routine d’analyse avec *local* ou *localpar* .
-- Si les données à analyser sont peu ou moyennement volumineuses et nécessitent des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les avec *local* ou *localpar* .
+- Si les données à analyser sont peu volumineuses et ne nécessitent pas d’analyses répétées, transmettez-les directement à la routine d’analyse avec *local* ou *localpar*.
+- Si les données à analyser sont peu ou moyennement volumineuses et nécessitent des analyses répétées, copiez-les dans le système de fichiers local, importez-les au format XDF et analysez-les avec *local* ou *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- Si les données à analyser sont volumineuses, importez-les dans un DataFrame Spark à l’aide de **RxHiveData** ou de **RxParquetData** , ou au format XDF dans HDFS (sauf si le stockage est problématique), puis analysez-les selon le contexte de calcul Spark.
+- Si les données à analyser sont volumineuses, importez-les dans un DataFrame Spark à l’aide de **RxHiveData** ou de **RxParquetData**, ou au format XDF dans HDFS (sauf si le stockage est problématique), puis analysez-les selon le contexte de calcul Spark.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop MapReduce
 

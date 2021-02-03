@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous activez les événements E
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694392"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919661"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Créer un registre de conteneurs
+## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
 Ensuite, déployez un registre de conteneurs dans le groupe de ressources avec les commandes suivantes. Avant d’exécuter la commande [az acr create][az-acr-create], définissez `ACR_NAME` avec un nom pour votre registre. Le nom du registre doit être unique dans Azure, il doit comporter entre 5 et 50 caractères alphanumériques.
 
@@ -144,7 +144,7 @@ Maintenant que l’exemple d’application est opérationnel et en cours d’ex�
 Exécutez la commande Azure CLI suivante pour générer une image de conteneur à partir du contenu d’un dépôt GitHub. Par défaut, ACR Tasks envoie (push) automatiquement une image générée avec succès à votre registre, ce qui génère l’événement `ImagePushed`.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 Vous devez voir une sortie similaire à ce qui suit quand ACR Tasks génère, puis envoie (push) votre image. L’exemple de sortie suivant a été tronqué par souci de concision.
@@ -200,7 +200,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 ![Navigateur web montrant l’exemple d’application avec des événements ImagePushed et ImageDeleted][sample-app-03]
 
-Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
+Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

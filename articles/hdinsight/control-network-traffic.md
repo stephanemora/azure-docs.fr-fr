@@ -1,18 +1,15 @@
 ---
 title: Contrôler le trafic réseau dans Azure HDInsight
 description: Découvrez les techniques permettant de contrôler le trafic entrant et sortant vers des clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543166"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943375"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Contrôler le trafic réseau dans Azure HDInsight
 
@@ -40,7 +37,7 @@ Si vous prévoyez d’utiliser des **groupes de sécurité réseau** pour contr�
 
 3. Créez ou modifiez les groupes de sécurité réseau pour le sous-réseau dans lequel vous prévoyez d’installer HDInsight.
 
-    * __Groupes de sécurité réseau__  : autorisez le trafic __entrant__ sur le port __443__ à partir des adresses IP. Cela garantit que les services de gestion HDInsight peuvent atteindre le cluster depuis un point en dehors du réseau virtuel. Pour les clusters compatibles avec le __proxy REST Kafka__ , autorisez également le trafic __entrant__ sur le port __9400__ . Cela garantit que le serveur proxy REST Kafka est accessible.
+    * __Groupes de sécurité réseau__ : autorisez le trafic __entrant__ sur le port __443__ à partir des adresses IP. Cela garantit que les services de gestion HDInsight peuvent atteindre le cluster depuis un point en dehors du réseau virtuel. Pour les clusters compatibles avec le __proxy REST Kafka__, autorisez également le trafic __entrant__ sur le port __9400__. Cela garantit que le serveur proxy REST Kafka est accessible.
 
 Pour plus d’informations sur les groupes de sécurité réseau, consultez [Présentation des groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md).
 

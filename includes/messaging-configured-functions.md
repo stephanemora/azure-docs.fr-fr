@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935192"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900911"
 ---
 Azure Functions permet de créer des tâches de réplication destinées uniquement à la configuration qui s’appuient sur un point d’entrée prédéfini. Les [exemples de réplication basée sur la configuration pour Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrent comment tirer parti de l’[assistance prégénérée](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) dans votre propre code ou comment éviter de manipuler du code et utiliser simplement la configuration.
 
@@ -218,13 +218,12 @@ Le tableau suivant fournit les valeurs correctes pour les combinaisons de source
 
 ### <a name="retry-policy"></a>Stratégie de nouvelles tentatives
 
-Reportez-vous à la [documentation d’Azure Functions sur les nouvelles tentatives](/azure/azure-functions/functions-bindings-error-pages) pour configurer la stratégie de nouvelles tentatives. Les paramètres de stratégie choisis dans tous les projets de ce référentiel configurent une stratégie de backoff exponentiel avec des intervalles avant nouvelle tentative de 5 secondes à 5 minutes, et un nombre infini de nouvelles tentatives pour éviter de perdre des données.
+Reportez-vous à la [documentation d’Azure Functions sur les nouvelles tentatives](../articles/azure-functions/functions-bindings-error-pages.md) pour configurer la stratégie de nouvelles tentatives. Les paramètres de stratégie choisis dans tous les projets de ce référentiel configurent une stratégie de backoff exponentiel avec des intervalles avant nouvelle tentative de 5 secondes à 5 minutes, et un nombre infini de nouvelles tentatives pour éviter de perdre des données.
 
-Pour Service Bus, consultez la section [Utilisation de la prise en charge des nouvelles tentatives en plus de la résilience de déclencheur](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) pour comprendre l’interaction des déclencheurs et connaître le nombre maximal de remises défini pour la file d’attente.
+Pour Service Bus, consultez la section [Utilisation de la prise en charge des nouvelles tentatives en plus de la résilience de déclencheur](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) pour comprendre l’interaction des déclencheurs et connaître le nombre maximal de remises défini pour la file d’attente.
 
 ### <a name="build-deploy-and-configure"></a>Générer, déployer et configurer
 
 Bien que vous vous concentriez sur la configuration, les tâches nécessitent toujours la création d’une application déployable et la configuration des hôtes Azure Functions de telle sorte qu’ils disposent de toutes les informations requises pour se connecter aux points de terminaison donnés. 
 
 Ceci est illustré, ainsi que les scripts réutilisables, dans les [exemples de réplication basée sur la configuration pour Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
-

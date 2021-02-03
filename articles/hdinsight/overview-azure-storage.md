@@ -1,19 +1,16 @@
 ---
 title: Vue d’ensemble de Stockage Azure dans HDInsight
 description: Vue d’ensemble de Stockage Azure dans HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539460"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938939"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Vue d’ensemble de Stockage Azure dans HDInsight
 
@@ -21,7 +18,7 @@ Stockage Azure est une solution de stockage à la fois robuste et polyvalente qu
 
 Nous vous recommandons d’utiliser des conteneurs de stockage distincts pour votre stockage de clusters par défaut et vos données d’entreprise. La séparation consiste à isoler les journaux HDInsight et les fichiers temporaires de vos propres données d’entreprise. Nous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
-Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** paramétrées sur **Réseaux sélectionnés** , veillez à activer l’exception **Autoriser les services approuvés de Microsoft…** L’exception vise à permettre à HDInsight d’accéder à votre compte de stockage.
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** paramétrées sur **Réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft…** L’exception vise à permettre à HDInsight d’accéder à votre compte de stockage.
 
 ## <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 

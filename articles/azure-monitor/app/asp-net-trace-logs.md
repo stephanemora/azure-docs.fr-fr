@@ -4,12 +4,12 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 90777da4d0b67587afebaa7111e3503af2afcb9a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 083ddbd06561550f89e414d6c679cdc6433fa338
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920335"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937564"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -85,7 +85,7 @@ Si vous préférez log4net ou NLog, utilisez :
 ```
 
 ## <a name="use-eventsource-events"></a>Utiliser les événements EventSource
-Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
+Vous pouvez configurer les événements [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EventSourceListener`. Ensuite, modifiez la section `TelemetryModules` du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -203,7 +203,7 @@ Si vous utilisez le Kit de développement logiciel (SDK) Java, utilisez les [ada
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Aucune option d’adaptateur de journalisation dans l’outil de configuration
 * Installez d’abord l’infrastructure de journalisation.
-* Si vous utilisez System.Diagnostics.Trace, assurez-vous qu’il est [configuré dans *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
+* Si vous utilisez System.Diagnostics.Trace, assurez-vous qu’il est [configuré dans *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener).
 * Vérifiez que vous disposez de la dernière version d’Application Insights. Dans Visual Studio, sélectionnez **Outils** > **Extensions et mises à jour**, puis ouvrez l’onglet **Mises à jour**. Si **Developer Analytics Tools** est présent, sélectionnez-le pour le mettre à jour.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>J’obtiens le message d’erreur « Instrumentation key cannot be empty » (La clé d’instrumentation ne peut pas être vide).

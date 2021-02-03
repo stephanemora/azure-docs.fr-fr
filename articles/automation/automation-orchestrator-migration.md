@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a47f720344a16d0f77559d6aabfb2b0245e62976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee4a09df0f95cb809db0e5c0e63d195ee5cfdff
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426331"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896933"
 ---
 # <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrer d’Orchestrator vers Azure Automation (bêta)
 
@@ -24,7 +24,7 @@ La première étape de migration consiste à télécharger le [kit de migration 
 
 ## <a name="import-the-standard-activities-module"></a>Importer le module d’activités Standard
 
-Importez le [module d’activités Standard](/system-center/orchestrator/standard-activities?view=sc-orch-2019) dans Azure Automation. Cela inclut les versions converties des activités Orchestrator standard que les runbooks graphiques convertis peuvent utiliser.
+Importez le [module d’activités Standard](/system-center/orchestrator/standard-activities) dans Azure Automation. Cela inclut les versions converties des activités Orchestrator standard que les runbooks graphiques convertis peuvent utiliser.
 
 ## <a name="import-orchestrator-integration-modules"></a>Importer les modules d’intégration Orchestrator
 
@@ -32,7 +32,7 @@ Microsoft fournit des [packs d'intégration](/previous-versions/system-center/pa
 
 ## <a name="convert-integration-packs"></a>Convertir des packs d’intégration
 
-Utilisez le [convertisseur de packs d’intégration](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) pour convertir les packs d’intégration créés avec [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) en modules d’intégration basés sur PowerShell et pouvant être importés dans Azure Automation ou dans Service Management Automation. Lorsque vous exécutez le convertisseur de packs d’intégration, un Assistant vous permettant de sélectionner un fichier de pack d’intégration (.oip) s’affiche. Cet Assistant liste ensuite les activités incluses dans ce pack d’intégration et vous permet de sélectionner celles qui doivent faire l’objet d’une migration. Une fois l'Assistant terminé, il crée un module qui inclut une applet de commande correspondant pour chacune des activités du pack d'intégration d'origine.
+Utilisez le [convertisseur de packs d’intégration](/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard) pour convertir les packs d’intégration créés avec [Orchestrator Integration Toolkit (OIT)](/previous-versions/system-center/developer/hh855853(v=msdn.10)) en modules d’intégration basés sur PowerShell et pouvant être importés dans Azure Automation ou dans Service Management Automation. Lorsque vous exécutez le convertisseur de packs d’intégration, un Assistant vous permettant de sélectionner un fichier de pack d’intégration (.oip) s’affiche. Cet Assistant liste ensuite les activités incluses dans ce pack d’intégration et vous permet de sélectionner celles qui doivent faire l’objet d’une migration. Une fois l'Assistant terminé, il crée un module qui inclut une applet de commande correspondant pour chacune des activités du pack d'intégration d'origine.
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser le convertisseur de packs d’intégration pour convertir les packs d’intégration qui n’ont pas été créés avec OIT. Il existe également des packs d’intégration fournis par Microsoft qui ne peuvent pas être convertis avec cet outil. Les versions converties de ces packs d’intégration sont fournies pour le téléchargement afin de pouvoir être installées dans Azure Automation ou Service Management Automation.
@@ -118,7 +118,7 @@ Cette stratégie est utilisée parce qu'elle reflète le mieux la fonctionnalit�
 
 ### <a name="invoke-runbook-activity"></a>Appeler l'activité Runbook
 
-Les runbooks d'Orchestrator démarrent d'autres runbooks avec l'activité `Invoke Runbook`. Si le runbook en cours de conversion inclut cette activité et que l'option `Wait for completion` est définie, une activité de runbook est créée pour lui dans le runbook converti.  Si l’option `Wait for completion` n'est pas définie, une activité de script de flux de travail utilisant [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) pour démarrer le runbook est créée. Après avoir importé le Runbook converti dans Azure Automation, vous devez modifier cette activité avec les informations spécifiées dans l'activité.
+Les runbooks d'Orchestrator démarrent d'autres runbooks avec l'activité `Invoke Runbook`. Si le runbook en cours de conversion inclut cette activité et que l'option `Wait for completion` est définie, une activité de runbook est créée pour lui dans le runbook converti.  Si l’option `Wait for completion` n'est pas définie, une activité de script de flux de travail utilisant [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) pour démarrer le runbook est créée. Après avoir importé le Runbook converti dans Azure Automation, vous devez modifier cette activité avec les informations spécifiées dans l'activité.
 
 ## <a name="create-orchestrator-assets"></a>Créer des ressources Orchestrator
 

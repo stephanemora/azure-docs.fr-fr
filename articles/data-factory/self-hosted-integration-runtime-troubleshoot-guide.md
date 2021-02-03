@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757676"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942051"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -198,7 +198,7 @@ Dans l’erreur suivante, vous pouvez voir clairement que l’assembly *System.V
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"L’initialiseur de type pour 'Npgsql.PoolManager' a généré une exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Impossible de charger le fichier ou l’assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' ou une de ses dépendances. Le système ne trouve pas le fichier spécifié.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-Pour plus d’informations sur le GAC, consultez [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Pour plus d’informations sur le GAC, consultez [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="self-hosted-integration-runtime-authentication-key-is-missing"></a>La clé d’authentification du runtime d’intégration auto-hébergé est manquante

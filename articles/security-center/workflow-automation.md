@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900834"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919525"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatiser les réponses aux déclencheurs Security Center
 
@@ -49,7 +49,7 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
     1. Les déclencheurs qui lanceront l’exécution de ce workflow automatique. Par exemple, vous pouvez définir que votre application logique s’exécute quand une alerte de sécurité contenant « SQL » est générée.
 
         > [!NOTE]
-        > Si votre déclencheur est une recommandation qui contient des « sous-recommandations », par exemple **Les résultats de l’évaluation des vulnérabilités sur vos bases de données SQL doivent être corrigés** , l’application logique ne se déclenchera pas pour chaque nouvelle recherche de sécurité, mais uniquement lorsque l’état de la recommandation mère change.
+        > Si votre déclencheur est une recommandation qui contient des « sous-recommandations », par exemple **Les résultats de l’évaluation des vulnérabilités sur vos bases de données SQL doivent être corrigés**, l’application logique ne se déclenchera pas pour chaque nouvelle recherche de sécurité, mais uniquement lorsque l’état de la recommandation mère change.
 
     1. L’application logique à exécuter lorsque les conditions du déclencheur définies seront remplies. 
 
@@ -70,9 +70,9 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
     Le concepteur d’applications logiques prend en charge les déclencheurs Security Center suivants :
 
-    * **Quand une recommandation Azure Security Center est créée ou déclenchée**  : si votre application logique repose sur une recommandation qui est dépréciée ou remplacée, votre automatisation cesse de fonctionner et vous devez mettre à jour le déclencheur. Pour suivre les changements apportés aux recommandations, consultez les [notes de publication Azure Security Center](release-notes.md).
+    * **Quand une recommandation Azure Security Center est créée ou déclenchée** : si votre application logique repose sur une recommandation qui est dépréciée ou remplacée, votre automatisation cesse de fonctionner et vous devez mettre à jour le déclencheur. Pour suivre les changements apportés aux recommandations, consultez les [notes de publication Azure Security Center](release-notes.md).
 
-    * **Quand une alerte Azure Security Center est créée ou déclenchée**  : vous pouvez personnaliser le déclencheur pour qu’il ne concerne que les alertes dont les niveaux de gravité vous intéressent.
+    * **Quand une alerte Azure Security Center est créée ou déclenchée** : vous pouvez personnaliser le déclencheur pour qu’il ne concerne que les alertes dont les niveaux de gravité vous intéressent.
     
     > [!NOTE]
     > Si vous utilisez le déclencheur hérité « Quand une réponse à une alerte Azure Security Center est déclenchée », votre application logique n’est pas lancée par la fonctionnalité Automatisation des workflows. À la place, utilisez l’un des déclencheurs mentionnés ci-dessus. 
@@ -90,7 +90,7 @@ Cet article décrit la fonctionnalité Automatisation des workflows d’Azure Se
 
 Vous pouvez également exécuter des applications logiques manuellement quand une alerte ou recommandation de sécurité quelconques s’affichent.
 
-Pour exécuter manuellement une application logique, ouvrez une alerte ou une recommandation, puis cliquez sur **Déclencher l’application logique**  :
+Pour exécuter manuellement une application logique, ouvrez une alerte ou une recommandation, puis cliquez sur **Déclencher l’application logique** :
 
 [![Déclencher manuellement une application logique](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
@@ -123,8 +123,8 @@ Pour implémenter ces stratégies :
     :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Attribution de la stratégie Azure":::
 
 1. Ouvrez chaque onglet et définissez les paramètres comme vous le souhaitez :
-    1. Sous l’onglet **Général** , définissez l’étendue de la stratégie. Pour utiliser la gestion centralisée, attribuez la stratégie au groupe d’administration contenant les abonnements qui utiliseront la configuration de l’automatisation des workflows. 
-    1. Dans l’onglet **Paramètres** , définissez les détails du groupe de ressources et du type de données. 
+    1. Sous l’onglet **Général**, définissez l’étendue de la stratégie. Pour utiliser la gestion centralisée, attribuez la stratégie au groupe d’administration contenant les abonnements qui utiliseront la configuration de l’automatisation des workflows. 
+    1. Dans l’onglet **Paramètres**, définissez les détails du groupe de ressources et du type de données. 
         > [!TIP]
         > Chaque paramètre est accompagné d’une info-bulle qui explique les options disponibles.
         >

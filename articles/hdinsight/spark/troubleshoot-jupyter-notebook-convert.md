@@ -1,18 +1,15 @@
 ---
 title: Impossible de créer un notebook Jupyter dans Azure HDInsight
 description: Découvrez les étapes de détection de problèmes et des résolutions possibles pour des problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 41eefd18419969c6e8c54ba68ce6c0d1eeb7832b
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: d5f6612e22522452efb5eecd14c6c825bf29e6d5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519193"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938671"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Impossible de créer un notebook Jupyter dans Azure HDInsight
 

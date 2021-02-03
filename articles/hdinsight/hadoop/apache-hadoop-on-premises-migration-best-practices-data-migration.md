@@ -1,19 +1,17 @@
 ---
 title: 'Migration des données : Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les meilleures pratiques concernant la migration de données afin de migrer des clusters Hadoop locaux vers Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: d2a2c734b256ad934b7a17d7cefd1783b406e766
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cdb028bcd608aa7a19a7c83e5e2c1129386928a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939800"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – meilleures pratiques concernant la migration de données
 
