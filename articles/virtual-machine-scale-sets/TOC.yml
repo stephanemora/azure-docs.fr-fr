@@ -63,6 +63,8 @@
       items:
         - name: Créer un groupe de machines virtuelles identiques
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Créer et gérer un groupe de machines virtuelles identiques
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: Créer un groupe identique à partir d’une image de machine virtuelle personnalisée
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: Installer des applications sur un groupe identique

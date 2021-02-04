@@ -1,6 +1,6 @@
 - name: Documentation Machines virtuelles
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des machines virtuelles Linux
       href: ./linux/overview.md
@@ -103,6 +103,8 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: Filtre de paquets de FreeBSD
       href: ./linux/freebsd-pf-nat.md
+    - name: Réhergement d’ordinateurs mainframe
+      href: ./workloads/mainframe-rehosting/overview.md
     - name: Bases de données
       items:
         - name: MySQL sur SUSE
@@ -1448,6 +1450,8 @@
               href: ./linux/move-vm.md
             - name: PowerShell
               href: ./windows/move-vm.md
+            - name: Changer d’abonnement pour les machines virtuelles de la Place de marché
+              href: azure-cli-change-subscription-marketplace.md
         - name: Déplacer des machines virtuelles vers une autre région
           href: ../site-recovery/azure-to-azure-tutorial-migrate.md
         - name: Déplacer dans une zone de disponibilité
@@ -1480,7 +1484,7 @@
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: Dépanner
-  href: ./troubleshooting/index.yml
+  href: 'https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines'
 - name: Ressources
   items:
     - name: Framework d’adoption du cloud

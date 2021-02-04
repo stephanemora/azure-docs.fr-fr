@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Quotas et limites
       href: speech-services-quotas-and-limits.md
-    - name: Nouveautés dans la documentation
-      href: whats-new.md
 - name: Reconnaissance vocale
   items:
     - name: Documentation sur la reconnaissance vocale
@@ -113,22 +111,10 @@
           href: long-audio-api.md
     - name: Personnalisation
       items:
-        - name: Déploiement responsable
-          items:
-            - name: Restriction d’accès à Custom Voice
-              href: concepts-gating-overview.md
-            - name: Déploiement de la technologie de synthèse
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Divulgation d'un talent vocal
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Guide de conception de la divulgation
-              href: concepts-disclosure-guidelines.md
-            - name: Modèles de conception de divulgation
-              href: concepts-disclosure-patterns.md
-            - name: Code de conduite
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Portail Custom Voice
           items:
+            - name: "Qu’est-ce qu’une voix neuronale personnalisée\_?"
+              href: custom-neural-voice.md
             - name: Bien démarrer avec Custom Voice
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,7 +128,33 @@
           items:
             - name: Création de contenu audio
               href: how-to-audio-content-creation.md
-    - name: Référence
+    - name: Utilisation responsable de l’IA
+      items:
+        - name: Voix neuronale personnalisée
+          items:
+            - name: Note de transparence
+              items:
+                - name: Cas d’usage pour la voix neuronale personnalisée
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Caractéristiques et limitations
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Intégration et utilisation responsable
+              items:
+                - name: Accès limité
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Déploiement responsable de la reconnaissance vocale synthétique
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Divulgation d'un talent vocal
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Guide de conception de la divulgation
+                  href: concepts-disclosure-guidelines.md
+                - name: Modèles de conception de divulgation
+                  href: concepts-disclosure-patterns.md
+                - name: Code de conduite
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: 'Données, confidentialité et sécurité'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+    - name: Informations de référence
       items:
         - name: C++
           displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'

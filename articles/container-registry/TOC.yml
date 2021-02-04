@@ -101,6 +101,8 @@
               href: container-registry-access-selected-networks.md
             - name: Restreindre l’accès avec un point de terminaison de service (préversion)
               href: container-registry-vnet.md
+            - name: Autoriser l’accès par les services approuvés
+              href: allow-access-trusted-services.md
             - name: Chiffrer avec des clés gérées par le client
               href: container-registry-customer-managed-keys.md
             - name: Accéder derrière un pare-feu
@@ -163,7 +165,7 @@
 - name: Tâches
   expanded: true
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       expanded: false
       items:
         - name: À propos d’ACR Tasks
