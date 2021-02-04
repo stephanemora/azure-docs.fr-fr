@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131693"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221242"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Démarrage rapide : Créer un classifieur avec le site web Custom Vision
 
@@ -71,7 +71,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
 Dans cette section, vous chargez et vous étiquetez manuellement des images pour faciliter l’entraînement du classifieur. 
 
-1. Pour ajouter des images, cliquez sur le bouton __Add images__ (Ajouter des images), puis sélectionnez __Browse local files__ (Parcourir les fichiers locaux). Sélectionnez __Open__ (Ouvrir) pour passer à l’étiquetage. Votre sélection d’étiquettes s’applique à l’ensemble du groupe d’images que vous avez choisi de charger : il est donc plus facile de charger des images dans des groupes distincts selon les étiquettes souhaitées. Vous pouvez également changer les étiquettes pour des images individuelles après leur chargement.
+1. Pour ajouter des images, sélectionnez __Ajouter des images__, puis __Parcourir les fichiers locaux__. Sélectionnez __Open__ (Ouvrir) pour passer à l’étiquetage. Votre sélection d’étiquettes s’applique à l’ensemble du groupe d’images que vous avez choisi de charger. Il est donc plus facile de charger des images de groupes distincts en fonction des étiquettes appliquées. Vous pouvez aussi changer les étiquettes pour des images individuelles après qu’elles ont été chargées.
 
     ![Le contrôle d’ajout d’images est affiché dans le coin supérieur gauche, et sous la forme d’un bouton dans le bas de la page, au centre.](./media/getting-started-build-a-classifier/add-images01.png)
 

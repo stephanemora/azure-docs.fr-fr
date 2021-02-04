@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845540"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221089"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -202,7 +202,7 @@ Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléme
    1. Cliquez sur **+** pour créer une étiquette.
    1. Entrez le nom de l’étiquette.
    1. Appuyez sur Entrée pour enregistrer l’étiquette.
-1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance. Dans _v2.1 preview.2_, vous pouvez aussi cliquer pour sélectionner des _marques de sélection_ comme les cases d’option et les cases à cocher en tant que paires clé-valeur. Form Recognizer détermine si la marque de sélection est « sélectionnée » ou « non sélectionnée » en tant que valeur.
+1. Dans l’éditeur principal, cliquez pour sélectionner des mots parmi les éléments de texte en surbrillance. Dans l’API _v2.1 preview.2_, vous pouvez aussi cliquer pour sélectionner des _marques de sélection_ comme des cases d’option et des cases à cocher en tant que paires clé-valeur. Form Recognizer détermine si la marque de sélection est « sélectionnée » ou « non sélectionnée » en tant que valeur.
 1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
     > [!Tip]
     > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires.

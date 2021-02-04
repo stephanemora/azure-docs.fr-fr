@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, modération du contenu
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905211"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221174"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
@@ -88,6 +88,6 @@ Vous pouvez également passer aux étapes suivantes pour apprendre à utiliser l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment utiliser les API de modération dans votre application.
-- Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou suivez le [guide de démarrage rapide de la bibliothèque de client ou de l’API REST](client-libraries.md) pour analyser rapidement des images et détecter tout contenu potentiellement pour adultes à l’aide d’étiquettes, d’indices de confiance et d’autres informations extraites.
-- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou suivez le [guide de démarrage rapide de la bibliothèque de client ou de l’API REST](client-libraries.md) pour analyser du contenu textuel afin de voir s’il contient des termes vulgaires, une classification de texte indésirable assistée par ordinateur (préversion) et des données à caractère personnel.
+- Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou suivez un [démarrage rapide ](client-libraries.md) pour chercher dans des images la présence éventuelle de contenus pour adultes ou à caractère choquant à partir d’étiquettes, de scores de confiance et d’autres informations extraites.
+- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou suivez un [démarrage rapide](client-libraries.md) pour chercher la présence de mots vulgaires, de données personnelles ou d’autre texte indésirable dans le contenu texte.
 - Implémentez la modération de vidéo. Suivez le [guide de modération vidéo pour C# ](video-moderation-api.md) afin d'analyser des vidéos et détecter tout contenu potentiellement pour adultes et choquant. 

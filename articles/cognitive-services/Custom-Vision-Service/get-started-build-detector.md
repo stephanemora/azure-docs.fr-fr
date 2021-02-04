@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance d’image, application de reconnaissance d’image, vision personnalisée
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132577"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221293"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Démarrage rapide : Créer un détecteur d’objets avec le site web Custom Vision
 
@@ -70,7 +70,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
 Dans cette section, vous allez charger et étiqueter manuellement des images pour faciliter l’entraînement du détecteur. 
 
-1. Pour ajouter des images, cliquez sur le bouton __Add images__ (Ajouter des images), puis sélectionnez __Browse local files__ (Parcourir les fichiers locaux). Sélectionnez __Open__ (Ouvrir) pour charger les images.
+1. Pour ajouter des images, sélectionnez __Ajouter des images__, puis __Parcourir les fichiers locaux__. Sélectionnez __Open__ (Ouvrir) pour charger les images.
 
     ![Le contrôle d’ajout d’images est affiché dans le coin supérieur gauche, et sous la forme d’un bouton dans le bas de la page, au centre.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ Dans cette section, vous allez charger et étiqueter manuellement des images pou
 
     ![Images chargées, dans la section Untagged](./media/get-started-build-detector/images-untagged.png)
 
-1. Cliquez et faites glisser un rectangle autour de l’objet dans votre image. Ensuite, entrez un nouveau nom d’étiquette avec le bouton **+** , ou sélectionnez une étiquette existante dans la liste déroulante. Il est très important d’étiqueter chaque instance des objets que vous souhaitez détecter, car le détecteur utilise la zone d’arrière-plan sans étiquette comme exemple négatif d’entraînement. Quand vous avez terminé l’étiquetage, cliquez sur la flèche à droite pour enregistrer vos étiquettes et passer à l’image suivante.
+1. Cliquez et faites glisser un rectangle autour de l’objet dans votre image. Ensuite, entrez un nouveau nom d’étiquette avec le bouton **+** , ou sélectionnez une étiquette existante dans la liste déroulante. Il est important d’étiqueter chaque instance des objets que vous souhaitez détecter, car le détecteur utilise la zone d’arrière-plan sans étiquette comme exemple négatif dans l’entraînement. Quand vous avez terminé l’étiquetage, cliquez sur la flèche à droite pour enregistrer vos étiquettes et passer à l’image suivante.
 
     ![Étiquetage d’un objet avec une sélection rectangulaire](./media/get-started-build-detector/image-tagging.png)
 
@@ -114,7 +114,7 @@ Le curseur **Seuil de chevauchement** détermine si une prédiction d’objet es
 
 ## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
 
-Chaque fois que vous entraînez votre détecteur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Dans le volet gauche, vous trouvez également le bouton **Delete** (Supprimer), que vous pouvez utiliser pour supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
+Chaque fois que vous entraînez votre détecteur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Dans le volet gauche, vous pouvez aussi trouver le bouton **Supprimer**, qui permet de supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
 
 Consultez [Utiliser votre modèle avec l’API de prédiction](./use-prediction-api.md) pour apprendre à accéder à vos modèles entraînés par programmation.
 

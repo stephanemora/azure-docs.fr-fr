@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: e930e5d125a8f1ee90448e293e2e0ca2c5c28465
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913668"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220988"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
@@ -44,7 +44,7 @@ Ce diagramme illustre chaque composant du scénario :
 
 ## <a name="create-a-review-team"></a>Créer une équipe de révision
 
-Reportez-vous au guide de démarrage rapide [Essayer Content Moderator sur le web](quick-start.md) pour obtenir des instructions sur la façon de vous inscrire à l’[Outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et de créer une équipe de révision. Prenez note de la valeur de l’ **ID de l’équipe** dans la page **Informations d’identification** .
+Reportez-vous au guide de démarrage rapide [Essayer Content Moderator sur le web](quick-start.md) pour obtenir des instructions sur la façon de vous inscrire à l’[Outil de révision Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et de créer une équipe de révision. Prenez note de la valeur de l’**ID de l’équipe** dans la page **Informations d’identification**.
 
 ## <a name="configure-image-moderation-workflow"></a>Configurer un flux de travail de modération des images
 
@@ -56,7 +56,7 @@ Consultez à nouveau le guide [Définir, tester et utiliser des flux de travail]
 
 ![Configurer un flux de travail de texte](images/text-workflow-configure.PNG)
 
-Testez votre flux de travail à l’aide du bouton **Exécuter le flux de travail** .
+Testez votre flux de travail à l’aide du bouton **Exécuter le flux de travail**.
 
 ![Tester un flux de travail de texte](images/text-workflow-test.PNG)
 
@@ -66,7 +66,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
 
 1. Créez une application de fonction Azure, comme indiqué dans la page [Fonctions Azure](../../azure-functions/functions-create-function-app-portal.md).
 1. Accédez l’application Function App nouvellement créée.
-1. Dans l’application, accédez à l’onglet **Fonctionnalités de la plateforme** et sélectionnez **Configuration** . Dans la section **Paramètres d’application** de la page suivante, sélectionnez **Nouveau paramètre d’application** pour ajouter les paires clé/valeur suivantes :
+1. Dans l’application, accédez à l’onglet **Fonctionnalités de la plateforme** et sélectionnez **Configuration**. Dans la section **Paramètres d’application** de la page suivante, sélectionnez **Nouveau paramètre d’application** pour ajouter les paires clé/valeur suivantes :
     
     | Nom du paramètre d’application | value   | 
     | -------------------- |-------------|
@@ -81,18 +81,18 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
 
     Cliquez sur le bouton **Enregistrer** en haut de la page.
 
-1. Revenez sur l’onglet **Fonctionnalités de la plateforme** . Utilisez le bouton **+** du volet gauche pour afficher le volet **Nouvelle fonction** . La fonction que vous allez créer recevra des événements de Facebook.
+1. Revenez sur l’onglet **Fonctionnalités de la plateforme**. Utilisez le bouton **+** du volet gauche pour afficher le volet **Nouvelle fonction**. La fonction que vous allez créer recevra des événements de Facebook.
 
     ![Bouton Ajouter une fonction mis en surbrillance dans le volet Azure Functions.](images/new-function.png)
 
-    1. Cliquez sur la vignette indiquant **Déclencheur HTTP** .
-    1. Entrez le nom **FBListener** . Le champ **Niveau d’autorisation** doit être défini sur **Fonction** .
-    1. Cliquez sur **Créer** .
+    1. Cliquez sur la vignette indiquant **Déclencheur HTTP**.
+    1. Entrez le nom **FBListener**. Le champ **Niveau d’autorisation** doit être défini sur **Fonction**.
+    1. Cliquez sur **Créer**.
     1. Remplacez le contenu du fichier **run.csx** par le contenu de **FbListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
-1. Créez une fonction **Http trigger** nommée **CMListener** . Cette fonction reçoit des événements de Content Moderator. Remplacez le contenu du fichier **run.csx** par le contenu de **CMListener/run.csx**
+1. Créez une fonction **Http trigger** nommée **CMListener**. Cette fonction reçoit des événements de Content Moderator. Remplacez le contenu du fichier **run.csx** par le contenu de **CMListener/run.csx**
 
     [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
@@ -105,35 +105,35 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
     ![page facebook for developers](images/facebook-developer-app.png)
 
     1. Accédez au [site de développement Facebook](https://developers.facebook.com/).
-    1. Cliquer sur **Mes applications** .
+    1. Accédez à **Mes applications**.
     1. Ajoutez une nouvelle application.
-    1. donnez-lui un nom
+    1. Spécifiez un nom
     1. Sélectionnez **Webhooks -> Configurer**
     1. Sélectionnez **Page** dans le menu déroulant, puis sélectionnez **S’abonner à cet objet**
-    1. Fournissez l’ **URL FBListener** comme URL de rappel et le **jeton de vérification** que vous avez configuré sous les **Paramètres de l’application de fonction** .
-    1. Une fois abonné, faites défiler l’écran jusqu’au flux, puis sélectionnez **S’abonner** .
-    1. Cliquez sur le bouton **Tester** de la ligne **flux** pour envoyer un message de test à votre fonction Azure FBListener, puis appuyez sur le bouton **Envoyer à mon serveur** . FBListener devrait recevoir la demande.
+    1. Fournissez l’**URL FBListener** comme URL de rappel et le **jeton de vérification** que vous avez configuré sous les **Paramètres de l’application de fonction**.
+    1. Une fois abonné, faites défiler l’écran jusqu’au flux, puis sélectionnez **S’abonner**.
+    1. Sélectionnez le bouton **Tester** de la ligne **flux** pour envoyer un message de test à votre fonction Azure FBListener, puis appuyez sur le bouton **Envoyer à mon serveur**. FBListener devrait recevoir la demande.
 
 1. Créez une page Facebook.
 
     > [!IMPORTANT]
     > En 2018, Facebook mis en place un contrôle plus strict des applications Facebook. Vous ne pourrez suivre les sections 2, 3 et 4 que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
-    1. Accédez à [Facebook](https://www.facebook.com/bookmarks/pages), puis créez une **page Facebook** .
+    1. Accédez à [Facebook](https://www.facebook.com/bookmarks/pages), puis créez une **page Facebook**.
     1. Autorisez l’application Facebook à accéder à cette page en suivant les étapes suivantes :
         1. Accédez à l’[Explorateur API Graph](https://developers.facebook.com/tools/explorer/).
-        1. Sélectionnez **Application** .
-        1. Sélectionnez **Jeton d’accès à la page** , puis envoyez une requête **GET** .
-        1. Cliquez sur l’ **ID de la page** dans la réponse.
+        1. Sélectionnez **Application**.
+        1. Sélectionnez **Jeton d’accès à la page**, puis envoyez une requête **GET**.
+        1. Sélectionnez l’**ID de la page** dans la réponse.
         1. Ajoutez maintenant **/subscribed_apps** à l’URL, puis envoyez une requête **GET** (réponse vide).
-        1. Soumettez une requête **POST** . Vous obtenez la réponse sous la forme **success: true** .
+        1. Soumettez une requête **POST**. Vous obtenez la réponse sous la forme **success: true**.
 
 3. Créez un jeton d’accès API Graph sans date d’expiration.
 
     1. Accédez à l’[Explorateur API Graph](https://developers.facebook.com/tools/explorer/).
-    2. Sélectionnez l’option **Application** .
-    3. Sélectionnez l’option **Obtenir un jeton d’accès utilisateur** .
-    4. Sous **Sélectionner des autorisations** , sélectionnez les options **manage_pages** et **publish_pages** .
+    2. Sélectionnez l’option **Application**.
+    3. Sélectionnez l’option **Obtenir un jeton d’accès utilisateur**.
+    4. Sous **Sélectionner des autorisations**, sélectionnez les options **manage_pages** et **publish_pages**.
     5. Nous allons utiliser le **jeton d’accès** (jeton de courte durée) à la prochaine étape.
 
 4. Nous utilisons Postman pour les prochaines étapes.
@@ -150,16 +150,16 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
         | appSecret | Insérez votre secret d’application Facebook ici | 
         | short_lived_token | Insérez le jeton d’accès utilisateur de courte durée que vous avez créé à l’étape précédente |
     4. Exécutez maintenant les 3 API répertoriées dans la collection : 
-        1. Sélectionnez **Générer un jeton d’accès de longue durée** , puis cliquez sur **Envoyer** .
-        2. Sélectionnez **Obtenir l’ID utilisateur** , puis cliquez sur **Envoyer** .
-        3. Sélectionnez **Obtenir un jeton d’accès à la page permanent** , puis cliquez sur **Envoyer** .
-    5. Copiez la valeur **access_token** à partir de la réponse, puis affectez-la au paramètre d’application, **fb:PageAccessToken** .
+        1. Sélectionnez **Générer un jeton d’accès de longue durée**, puis cliquez sur **Envoyer**.
+        2. Sélectionnez **Obtenir l’ID utilisateur**, puis cliquez sur **Envoyer**.
+        3. Sélectionnez **Obtenir un jeton d’accès à la page permanent**, puis cliquez sur **Envoyer**.
+    5. Copiez la valeur **access_token** à partir de la réponse, puis affectez-la au paramètre d’application, **fb:PageAccessToken**.
 
 La solution envoie toutes les images et le texte publiés sur votre page Facebook à Content Moderator. Les flux de travail précédemment configurés sont appelés. Le contenu qui ne répond pas à vos critères définis dans le flux de travail sont passés aux revues dans l’outil de révision du code. Le reste du contenu est publié automatiquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré un programme pour analyser des images de produits afin de les étiqueter par type de produit et de permettre à une équipe de révision de prendre les décisions appropriées du point de vue de la modération du contenu. À présent, découvrez les détails de la modération des images.
+Dans ce tutoriel, vous avez configuré un programme pour analyser des images de produits, les étiqueter par type de produit et permettre à une équipe de révision de prendre des décisions informées dans le cadre d’une modération du contenu. À présent, découvrez les détails de la modération des images.
 
 > [!div class="nextstepaction"]
 > [Modération d’image](./image-moderation-api.md)

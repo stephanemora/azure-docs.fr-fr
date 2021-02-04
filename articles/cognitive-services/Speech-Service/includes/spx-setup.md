@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540467"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427197"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -19,18 +19,16 @@ ms.locfileid: "98540467"
 Procédez ainsi pour installer l’interface CLI Speech sur Windows :
 
 1. Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. La première installation peut demander i, redémarrage.
-2. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
-3. Accédez au répertoire où vous avez extrait `spx-zips`. Ce dossier contient les fichiers programme de l’interface CLI de Speech sur diverses plateformes. 
-4. Extrayez les fichiers de votre plateforme (`spx-net471` pour .NET Framework 4.7 ou `spx-netcore-win-x64` pour .NET Core 3.0 sur un processeur x64). Gardez à l’esprit que vous allez exécuter `spx` à partir de ce répertoire.
+1. Installez [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Installez l’interface CLI Speech à l’aide de NuGet en entrant cette commande :
 
-### <a name="run-the-speech-cli"></a>Exécuter l’interface CLI Speech
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
-1. Ouvrez l’invite de commandes ou PowerShell, puis accédez au répertoire dans lequel vous avez extrait l’interface CLI de Speech.  
-2. Tapez `spx` pour voir les commandes d’aide de l’interface CLI de Speech.
+Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 > [!NOTE]
-> PowerShell ne vérifie pas le répertoire local lors de la recherche d’une commande. Dans PowerShell, changez de répertoire en accédant à l’emplacement de `spx` et appelez l’outil en entrant `.\spx`.
-> Si vous ajoutez ce répertoire à votre chemin, PowerShell et l’invite de commandes Windows recherchent `spx` à partir de n’importe quel répertoire sans inclure le préfixe `.\`.
+> En guise d’alternative à NuGet, vous pouvez télécharger et extraire l’[archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, rechercher et extraire votre plateforme à partir du répertoire `spx-zips` et ajouter le chemin `spx` à la variable **PATH** de votre système.
+
 
 ### <a name="font-limitations"></a>Limitations des polices
 
@@ -43,15 +41,16 @@ Si la sortie est effectuée dans un fichier, un éditeur de texte tel que le Blo
 
 Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un processeur x64 :
 
-1. Installez [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Téléchargez [l’archive zip](https://aka.ms/speech/spx-zips.zip) de l’interface CLI Speech, puis extrayez-la.
-3. Accédez au répertoire racine `spx-zips` que vous avez extrait du téléchargement, puis extrayez `spx-netcore-30-linux-x64` dans un nouveau répertoire `~/spx`.
-4. Dans un terminal, tapez les commandes suivantes :
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Installez [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Installez l’interface CLI Speech à l’aide de NuGet en entrant cette commande :
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
+
+> [!NOTE]
+> En guise d’alternative à NuGet, vous pouvez télécharger les fichiers binaires de l’[archive zip](https://aka.ms/speech/spx-zips.zip), les extraire `spx-netcore-30-linux-x64` dans un nouveau répertoire `~/spx`, taper `sudo chmod +r+x spx` sur le fichier binaire, puis ajouter le chemin `~/spx` à votre variable système PATH.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installation de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 

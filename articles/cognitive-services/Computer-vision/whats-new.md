@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738099"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490875"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -30,6 +30,12 @@ Une nouvelle version du [conteneur d’analyse spatiale](spatial-analysis-contai
 * Des [opérations d’analyse spatiale](spatial-analysis-operations.md) peuvent maintenant être configurées pour détecter si une personne porte un appareil de protection respiratoire comme un masque. 
     * Un classifieur de masque peut être activé pour les opérations `personcount`, `personcrossingline` et `personcrossingpolygon` en configurant le paramètre `ENABLE_FACE_MASK_CLASSIFIER`.
     * Les attributs `face_mask` et `face_noMask` sont retournés en tant que métadonnées avec un score de confiance pour chaque personne détectée dans le flux vidéo.
+* L’opération *personcrossingpolygon* a été étendue pour permettre le calcul du temps de séjour d’une personne dans une zone. Vous pouvez définir le paramètre `type` dans la configuration de zone de l’opération sur `zonedwelltime`. Un nouvel événement de type *personZoneDwellTimeEvent* inclut alors le champ `durationMs` complété avec le nombre de millisecondes que la personne a passé dans la zone.
+* **Changement cassant** : l’événement *personZoneEvent* a été renommé *personZoneEnterExitEvent*. Cet événement est déclenché par l’opération *personcrossingpolygon* quand une personne entre dans la zone ou la quitte et fournit des informations directionnelles avec le côté numéroté de la zone qui a été franchie.
+* L’URL de la vidéo peut être fournie en tant que « Paramètre privé/obscurci » dans toutes les opérations. L’obscurcissement est actuellement facultatif et ne fonctionne que si `KEY` et `IV` sont fournis en tant que variables d’environnement.
+* L’étalonnage est activé par défaut pour toutes les opérations. Définissez `do_calibration: false` pour le désactiver.
+* Ajout de la prise en charge du réétalonnage automatique (désactivé par défaut) via le paramètre `enable_recalibration`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)
+* Paramètres d’étalonnage de caméra sur `DETECTOR_NODE_CONFIG`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations).
 
 
 ## <a name="october-2020"></a>Octobre 2020

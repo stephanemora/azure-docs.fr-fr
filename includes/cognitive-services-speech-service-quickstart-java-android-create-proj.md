@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: travisw
-ms.openlocfilehash: 2efe17bdf597b7e3ba7d0277f06d4b24e9b51db3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b987f98281c298da2d634c686d740faf3dda3502
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187667"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214605"
 ---
 1. Lancez Android Studio, puis sélectionnez **Démarrer un nouveau projet Android Studio** dans la fenêtre d’**accueil**.
 
@@ -27,7 +27,7 @@ Quelques minutes sont nécessaires à Android Studio pour préparer votre nouvea
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du SDK Speech Cognitive Services est 1.13.0.
+La version actuelle du SDK Speech Cognitive Services est 1.15.0.
 
 Le SDK Speech pour Android est empaqueté au format [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires et les autorisations Android requises.
 Il est hébergé dans un dépôt Maven sur https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,7 +42,7 @@ Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre **St
 
    ![Capture d’écran de la dépendance de bibliothèque](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Dans la fenêtre qui s’affiche, entrez le nom et la version du SDK Speech pour Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.13.0*. Sélectionnez ensuite **OK**.
+1. Dans la fenêtre qui s’affiche, entrez le nom et la version du SDK Speech pour Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.15.0*. Sélectionnez ensuite **OK**.
    Le kit SDK Speech devrait à présent apparaître dans la liste des dépendances, comme indiqué ci-dessous :
 
    ![Capture d’écran du kit SDK Speech dans la liste des dépendances](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
