@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/07/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: c884ad6850b8f94baa7c658d685651c3241be33f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: eb71db05a61a0e32f3f092f37a4da72bc04e581d
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935647"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525753"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU
 
@@ -43,40 +43,7 @@ Avant de configurer un rôle de calcul sur votre appareil Azure Stack Edge Pro, 
 
 ## <a name="configure-compute"></a>Configurer le calcul
 
-Pour configurer le calcul sur votre appareil Azure Stack Edge Pro, vous allez créer une ressource IoT Hub via le portail Azure.
-
-1. Dans le portail Azure de votre ressource Azure Stack Edge, accédez à **Vue d’ensemble**, puis sélectionnez **IoT Edge**.
-
-   ![Bien démarrer avec le calcul](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-1.png)
-
-2. Dans **Activer le service IoT Edge**, sélectionnez **Ajouter**.
-
-   ![Configurer le calcul](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-2.png)
-
-3. Dans le panneau **Configurer le computing en périphérie**, entrez les informations suivantes :
-   
-   |Champ  |Valeur  |
-   |---------|---------|
-   |IoT Hub     | Choisissez **Nouveau** ou **Existant**. <br> Par défaut, un niveau Standard (S1) est utilisé pour créer une ressource IoT. Pour utiliser une ressource IoT de niveau gratuit, créez-en une, puis sélectionnez-la. <br> Dans chaque cas, la ressource IoT Hub utilise les mêmes abonnement et groupe de ressources que la ressource Azure Stack Edge.     |
-   |Nom     |Entrez un nom pour votre ressource IoT Hub.         |
-
-   ![Bien démarrer avec le calcul 2](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-3.png)
-
-4. Lorsque vous avez terminé de configurer les paramètres, sélectionnez **Vérifier + créer**. Vérifiez les paramètres de votre ressource IoT Hub, puis sélectionnez **Créer**.
-
-   La création d’une ressource IoT Hub prend plusieurs minutes. Une fois la ressource créée, la **Vue d’ensemble**  indique que le service IoT Edge est en cours d’exécution.
-
-   ![Bien démarrer avec le calcul 3](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-4.png)
-
-5. Pour vérifier que le rôle de calcul Edge a été configuré, sélectionnez **Propriétés**.
-
-   ![Bien démarrer avec le calcul 4](./media/azure-stack-edge-gpu-deploy-configure-compute/configure-compute-5.png)
-
-   Quand le rôle de calcul Edge est configuré sur l’appareil Edge, il crée deux appareils : un appareil IoT et un appareil IoT Edge. Ces deux appareils peuvent être visualisés dans la ressource IoT Hub. Un runtime IoT Edge est également exécuté sur cet appareil IoT Edge. À ce stade, seule la plateforme Linux est disponible pour votre appareil IoT Edge.
-
-La configuration du calcul en arrière-plan peut prendre entre 20 et 30 minutes, le temps que des machines virtuelles et un cluster Kubernetes soient créés.
-
-Une fois le calcul correctement configuré sur le portail Azure, un cluster Kubernetes et un utilisateur par défaut associé à l’espace de noms IoT (espace de noms système contrôlé par Azure Stack Edge Pro) sont disponibles.
+[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
 
 ## <a name="get-kubernetes-endpoints"></a>Obtenir les points de terminaison Kubernetes
 

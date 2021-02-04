@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour le Stockage Azure
 description: Liste les contrôles de conformité réglementaire d’Azure Policy pour le stockage Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e75afab48bd4ae18e536b013d9b75f252de641f6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 600f948bd0864231b24cfd07e457bdea64d9fd88
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795415"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094131"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Contrôles de conformité réglementaire d’Azure Policy pour le Stockage Azure
 

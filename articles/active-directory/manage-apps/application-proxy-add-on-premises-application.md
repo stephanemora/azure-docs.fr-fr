@@ -3,7 +3,7 @@ title: 'Tutoriel : Ajouter une application locale - Proxy d’application dans 
 description: Le service Proxy d'application d'Azure Active Directory (Azure AD) permet aux utilisateurs d'accéder aux applications locales en se connectant avec leur compte Azure AD. Ce tutoriel vous montre comment préparer votre environnement à l’utilisation du service Proxy d’application. Il ajoute ensuite une application locale à votre locataire Azure AD à partir du portail Azure.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 6f8fdb23222944eab4742d1e972280e1e27e30a3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 04b3dd51aab9686d102b6b94324f89396a268e7d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728512"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260077"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -56,7 +56,8 @@ Pour bénéficier d'une haute disponibilité dans votre environnement de product
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
+> "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
 > La clé peut être définie par le biais de PowerShell à l’aide de la commande suivante.

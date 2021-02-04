@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: d24192cb2f648a20a8f776b92f765bc6055ecf71
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 5d8890198308379d837f3b486b4d0efc987249e3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807239"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220406"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[L’extension Azure Policy pour Azure Kubernetes Service (AKS) doit être installée et activée sur vos clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |L’extension Azure Policy pour Azure Kubernetes Service (AKS) étend Gatekeeper v3, webhook de contrôleur d’admission pour Open Policy Agent (OPA), afin d’appliquer des mesures et des protections à grande échelle sur vos clusters de manière centralisée et cohérente. |Audit, Désactivé |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
+|[L’extension Azure Policy pour Azure Kubernetes Service (AKS) doit être installée et activée sur vos clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |L’extension Azure Policy pour Azure Kubernetes Service (AKS) étend Gatekeeper v3, webhook de contrôleur d’admission pour Open Policy Agent (OPA), afin d’appliquer des mesures et des protections à grande échelle sur vos clusters de manière centralisée et cohérente. |Audit, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
 |[Les disques de système d’exploitation et de données dans les clusters Azure Kubernetes Service doivent être chiffrés par des clés gérées par le client](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d7be79c-23ba-4033-84dd-45e2a5ccdd67) |Le chiffrement des disques de système d’exploitation et de données à l’aide de clés gérées par le client offre davantage de contrôle et de flexibilité dans la gestion des clés. Il s’agit d’une exigence courante dans de nombreuses normes de conformité réglementaires et sectorielles. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_CMK_Deny.json) |
 |[Déployer l’extension Azure Policy sur les clusters Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8eff44f-8c92-45c3-a3fb-9880802d67a7) |Utilisez l’extension Azure Policy pour gérer et signaler l’état de conformité de vos clusters Azure Kubernetes Service (AKS). Pour plus d’informations, consultez [https://aka.ms/akspolicydoc](https://aka.ms/akspolicydoc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_AzurePolicyAddOn_Deploy.json) |
 |[Déployer GitOps sur un cluster Kubernetes](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d61c4d2-aef2-432b-87fc-7f96b019b7e1) |Cette stratégie déploie « sourceControlConfiguration » sur des clusters Kubernetes pour vérifier que les clusters reçoivent leur source de confiance du dépôt Git défini. Pour obtenir des instructions sur l’utilisation de cette stratégie, consultez [https://aka.ms/K8sGitOpsPolicy](https://aka.ms/K8sGitOpsPolicy). |DeployIfNotExists |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/Deploy-GitOps-to-Kubernetes-cluster_DINE.json) |

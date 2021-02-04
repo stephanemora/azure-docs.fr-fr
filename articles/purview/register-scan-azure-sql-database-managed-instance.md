@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879930"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491721"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Inscrire et analyser une instance Azure SQL Database Managed Instance
 
@@ -105,20 +105,6 @@ Il est nécessaire d’obtenir l’ID d’application et le secret du principal 
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez de nouvelles informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
 
-### <a name="firewall-settings"></a>Paramètres du pare-feu
-
-Votre serveur de base de données doit autoriser l’activation des connexions Azure. Cela permettra à Azure Purview d’atteindre et de connecter le serveur. Vous pouvez suivre le guide pratique pour des [connexions à partir d’Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
-
-1. Accédez à votre compte de base de données.
-1. Dans la page **Vue d’ensemble**, sélectionnez le nom du serveur.
-1. Sélectionnez **Sécurité > Pare-feux et réseaux virtuels**.
-1. Sélectionnez **Oui** pour **Autoriser les services et les ressources Azure à accéder à ce serveur**.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="Options d’inscription de sources" border="true":::
-    
-> [!Note]
-> Actuellement, Azure Purview ne prend pas en charge la configuration de réseau virtuel. Par conséquent, vous ne pouvez pas utiliser de paramètres de pare-feu basés sur IP.
-
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Inscrire une source de données Azure SQL Database Managed Instance
 
 1. Accédez à votre compte Purview.
@@ -146,5 +132,5 @@ Votre serveur de base de données doit autoriser l’activation des connexions A
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Parcourir le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Effectuer une recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

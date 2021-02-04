@@ -1,15 +1,15 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour Serveurs avec Azure Arc (préversion)
 description: Liste les contrôles de conformité réglementaire d’Azure Policy disponibles pour Serveurs avec Azure Arc (préversion). Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 25bfe883a764e469876ae9d70b5cd474f2d21e81
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 664c82bce815ce80d9ad72fc780154a55e8269a7
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795437"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092888"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Contrôles de conformité réglementaire d'Azure Policy pour Serveurs avec Azure Arc
 

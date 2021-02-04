@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c3221063469315b2324c5039a46db622109826aa
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 0b337225c5909563ef4aeb49cf0754e11075a6fb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673607"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Didacticiel : Intégration d’Azure Active Directory avec Bridge
 
@@ -106,7 +106,7 @@ Pour configurer l’authentification unique Azure AD avec Bridge, effectuez les
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<company name>.bridgeapp.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Bridge](https://community.bridgeapp.com/community/help). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Bridge](https://community.bridgeapp.com/hc/en-us/community/topics). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, à la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Raw)** en fonction des options définies, puis enregistrez-le sur votre ordinateur.
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec Bridge, effectuez les
 
 ### <a name="configure-bridge-single-sign-on"></a>Configurer l’authentification unique Bridge
 
-Pour configurer l’authentification unique côté **Bridge**, vous devez envoyer le **Certificat (brut)** téléchargé ainsi que les URL copiées sur le portail Azure à l’[équipe du support technique Bridge](https://community.bridgeapp.com/community/help). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Bridge**, vous devez envoyer le **Certificat (brut)** téléchargé ainsi que les URL copiées sur le portail Azure à l’[équipe du support technique Bridge](https://community.bridgeapp.com/hc/en-us/community/topics). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-bridge-test-user"></a>Créer un utilisateur de test Bridge
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bridge. Collaborez avec l’[équipe du support technique Fuse](https://community.bridgeapp.com/community/help) pour ajouter des utilisateurs à la plateforme Bridge. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Bridge. Collaborez avec l’[équipe du support technique Fuse](https://community.bridgeapp.com/hc/en-us/community/topics) pour ajouter des utilisateurs à la plateforme Bridge. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

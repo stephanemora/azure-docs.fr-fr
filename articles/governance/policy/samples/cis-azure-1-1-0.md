@@ -1,15 +1,15 @@
 ---
 title: Détails de la Conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark
 description: Détails de l’initiative intégrée Conformité réglementaire de CIS Microsoft Azure Foundations Benchmark. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 85467c086225c4d9e7699debb9871dbd197ebfd2
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e1b30ae4f0708fd48e1832c4b9272d8e0c4744f2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807071"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091509"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée Conformité réglementaire de CIS Microsoft Azure Foundations Benchmark
 
@@ -135,7 +135,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Une solution d’évaluation des vulnérabilités doit être activée sur vos machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audite les machines virtuelles pour détecter si elles exécutent une solution d’évaluation des vulnérabilités prise en charge. L’identification et l’analyse des vulnérabilités constituent un composant fondamental de chaque programme de sécurité et d’évaluation des cyber-risques. Le niveau tarifaire Standard d’Azure Security Center comprend l’analyse des vulnérabilités de vos machines virtuelles sans coût supplémentaire. De plus, Security Center peut déployer cet outil automatiquement pour vous. |AuditIfNotExists, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Une solution d’évaluation des vulnérabilités doit être activée sur vos machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audite les machines virtuelles pour détecter si elles exécutent une solution d’évaluation des vulnérabilités prise en charge. L’identification et l’analyse des vulnérabilités constituent un composant fondamental de chaque programme de sécurité et d’évaluation des cyber-risques. Le niveau tarifaire Standard d’Azure Security Center comprend l’analyse des vulnérabilités de vos machines virtuelles sans coût supplémentaire. De plus, Security Center peut déployer cet outil automatiquement pour vous. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller l’accès réseau JIT » n’est pas défini sur « Disabled »
 
