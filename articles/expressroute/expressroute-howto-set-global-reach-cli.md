@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 55f1e4c030dc0e7c8d0011dcff0cc1c9f8fec06e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028061"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260229"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurer ExpressRoute Global Reach à l’aide d’Azure CLI
 
@@ -56,7 +56,7 @@ Quand vous exécutez la commande pour activer la connectivité, tenez compte des
 
 * *peer-circuit* doit correspondre à l'ID de ressource complet. Par exemple :
 
-  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 
 * *address-prefix* doit correspondre à un sous-réseau IPv4 « /29 » (par exemple, « 10.0.0.0/29 »). Nous utilisons les adresses IP de ce sous-réseau pour établir la connexion entre les deux circuits ExpressRoute. Vous ne pouvez pas les utiliser dans vos réseaux virtuels Azure ou vos réseaux locaux.
 
