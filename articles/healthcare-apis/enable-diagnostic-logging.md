@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905172"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575435"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Activer la journalisation des diagnostics dans l’API Azure pour FHIR
 
@@ -35,9 +35,9 @@ Dans cet article, vous allez apprendre à activer la journalisation des diagnost
     2. **Envoyez les journaux à Event Hub** pour ingestion par un service tiers ou une solution d’analytique personnalisée. Vous devez créer un espace de noms et une stratégie Event Hub pour pouvoir configurer cette étape.
     3. **Envoyez les journaux vers l’espace de travail Log Analytics** dans Azure Monitor. Vous devrez créer votre espace de travail Logs Analytics avant de pouvoir sélectionner cette option.
 
-6. Sélectionnez **AuditLogs** et les métriques que vous souhaitez relever. Si vous utilisez le connecteur Azure IoT pour FHIR, veillez à sélectionner **Erreurs, Trafic et Latence** pour les mesures. 
+6. Sélectionnez **AuditLogs** et/ou **AllMetrics**. Les métriques incluent le nom du service, la disponibilité, la taille des données, la latence totale, les demandes totales, le nombre total d’erreurs et l’horodatage.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connecteur2 IoT" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Paramètres des diagnostics Azure FHIR. Sélectionnez AuditLogs et/ou AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Sélectionnez **Enregistrer**.
 

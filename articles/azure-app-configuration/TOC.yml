@@ -1,6 +1,6 @@
 - name: Documentation Azure App Configuration
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure App Configuration
       href: overview.md
@@ -122,7 +122,7 @@
       href: howto-import-export-data.md
     - name: Utiliser le type de contenu JSON pour les valeurs de clé
       href: howto-leverage-json-content-type.md
-    - name: Acheminer des événements vers un point de terminaison personnalisé
+    - name: Utiliser Event Grid pour les notifications de changement de données
       href: howto-app-configuration-event.md
     - name: Sauvegarder automatiquement le magasin de configuration
       href: howto-backup-config-store.md

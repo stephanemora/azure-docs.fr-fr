@@ -116,6 +116,8 @@
               href: use-dynamic-groups.md
             - name: Comprendre l’utilisateur B2B
               href: user-properties.md
+            - name: Réinitialiser l’état d’acceptation
+              href: reset-redemption-status.md
             - name: B2B pour les applications intégrées Azure AD
               href: configure-saas-apps.md
         - name: Gérer l’accès des invités dans une organisation hybride
@@ -154,5 +156,5 @@
           href: 'https://azure.microsoft.com/updates/?product=active-directory'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Videos
+        - name: Vidéos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
