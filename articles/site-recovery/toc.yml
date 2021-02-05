@@ -478,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: Ajouter des runbooks Automation à des plans de récupération
       href: site-recovery-runbook-automation.md
+    - name: "Modèles\_ARM"
+      href: asr-arm-templates.md
 - name: Surveillance
   items:
     - name: Questions courantes sur la supervision

@@ -42,6 +42,8 @@
       href: authentication.md
     - name: Base de référence de la sécurité
       href: security-baseline.md
+    - name: Contrôles de sécurité par Azure Policy
+      href: ./security-controls-policy.md
 - name: Support pour les conteneurs
   items:
     - name: Support pour les conteneurs
