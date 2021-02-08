@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Compréhension de la tarification
       items:
+        - name: Vue d’ensemble de la capacité réservée de flux de données
+          href: data-flow-reserved-capacity-overview.md
+        - name: Comprendre les frais de réservation de flux de données
+          href: data-flow-understand-reservation-charges.md
         - name: Prévoir et gérer les coûts
           href: plan-manage-costs.md
         - name: Exemples de tarification
