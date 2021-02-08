@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605265"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427371"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Créer un hub dans le portail Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Créer un hub dans le portail Azure.":::
 
 1. Sélectionnez **Suivant : Réseau** pour poursuivre la création de votre hub.
 
    Choisissez les points de terminaison qui peuvent se connecter à votre IoT Hub. Vous pouvez sélectionner le paramètre par défaut **Point de terminaison public (tous les réseaux)** ou choisir **Point de terminaison public (plages d’adresses IP sélectionnées)** ou **Point de terminaison privé**. Pour cet exemple, acceptez le paramètre par défaut.
 
-   ![Choisir les points de terminaison qui peuvent se connecter](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Choisir les points de terminaison qui peuvent se connecter.":::
 
 1. Sélectionnez **Suivant : Gestion** pour poursuivre la création de votre hub.
 
-    ![Définir la taille et la mise à l’échelle d’un nouveau hub avec le portail Azure](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Définir la taille et la mise à l’échelle d’un nouveau hub à l’aide du portail Azure.":::
 
     Vous pouvez accepter les paramètres par défaut ici. Si vous le souhaitez, vous pouvez modifier les champs suivants :
 
@@ -60,14 +60,14 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
     - **Paramètres avancés** > **Partitions appareil-à-cloud** : cette propriété associe les messages appareil-à-cloud au nombre de lecteurs simultanés des messages. La plupart des hubs n’ont besoin que de 4 partitions.
 
-1.  Sélectionnez **Suivant : Étiquettes** pour continuer à l’écran suivant.
+1. Sélectionnez **Suivant : Étiquettes** pour continuer à l’écran suivant.
 
     Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Affecter des étiquettes pour le hub à l’aide du portail Azure](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Affecter des étiquettes pour le hub à l’aide du portail Azure.":::
 
-1.  Sélectionnez **Suivant : Vérifier + créer** pour passer en revue vos choix. Un écran semblable au suivant s’affiche, mais avec les valeurs que vous avez sélectionnées lors de la création du hub. 
+1. Sélectionnez **Suivant : Vérifier + créer** pour passer en revue vos choix. Un écran semblable au suivant s’affiche, mais avec les valeurs que vous avez sélectionnées lors de la création du hub.
 
-    ![Vérifier les informations pour la création du hub](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Vérifier les informations relatives à la création du hub.":::
 
-1.  Sélectionnez **Créer** pour créer votre hub. La création du hub prend quelques minutes.
+1. Sélectionnez **Créer** pour créer votre hub. La création du hub prend quelques minutes.

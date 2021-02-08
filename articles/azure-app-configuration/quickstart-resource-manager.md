@@ -8,12 +8,12 @@ ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 56505c95e65911cafbaaa403cd09332695439d97
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: c35b6d27a5e6d7ffd2a9f76ea201af4a138a77df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825673"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219109"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Démarrage rapide : Créer un magasin Azure App Configuration avec un modèle Resource Manager
 
@@ -108,7 +108,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment créer d’autres applications avec Azure App Configuration, passez à l’article suivant :
+Pour en savoir plus sur l’ajout d’un indicateur de fonctionnalité et d’une référence Key Vault à un magasin App Configuration, consultez les exemples de modèles ARM ci-dessous.
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration](quickstart-aspnet-core-app.md)
+- [101-app-configuration-store-ff](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-ff)
+- [101-app-configuration-store-keyvaultref](https://github.com/Azure/azure-quickstart-templates/tree/master/101-app-configuration-store-keyvaultref)

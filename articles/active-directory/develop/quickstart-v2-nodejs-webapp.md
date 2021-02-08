@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178277"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225628"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web Node.js
 
@@ -37,15 +37,15 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 1. Entrez un **nom** pour votre application (par exemple, `MyWebApp`). Les utilisateurs de votre application peuvent voir ce nom, et vous pouvez le changer ultérieurement.
 1. Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
 
-    S'il existe plusieurs URI de redirection, vous devrez les ajouter à partir de l'onglet **Authentification** une fois l'application créée.
+    S’il existe plusieurs URI de redirection, vous devez les ajouter à partir de l’onglet **Authentification**, une fois l’application correctement créée.
 
 1. Sélectionnez **Inscrire** pour créer l'application.
 1. Sur la page **Vue d'ensemble** de l'application, recherchez la valeur de l'**ID d'application (client)** et notez-la. Vous aurez besoin de cette valeur pour configurer l'application plus tard dans ce projet.
 1. Sous **Gérer**, sélectionnez **Authentification**.
 1. Sélectionnez **Ajouter une plateforme** > **Web**. 
 1. Dans la section **URI de redirection**, entrez `http://localhost:3000/auth/openid/return`.
-1. Entrez une **URL de déconnexion** `https://localhost:3000`.
-1. Dans la section Octroi implicite, cochez **Jetons d’ID** dans la mesure où cet exemple exige l’activation du [flux d’octroi implicite](./v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l’utilisateur.
+1. Entrez une **Front-channel logout URL** (URL de déconnexion de canal frontal) ayant la valeur `https://localhost:3000`.
+1. Dans la section **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride), sélectionnez **Jetons d’ID**, car cet exemple nécessite l’activation du [flux d’octroi implicite](./v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l’utilisateur.
 1. Sélectionnez **Configurer**.
 1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.
 1. Entrez une description pour la clé (par exemple, secret de l'application).

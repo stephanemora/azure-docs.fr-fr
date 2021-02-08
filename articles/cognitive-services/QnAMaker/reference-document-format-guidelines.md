@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 76b33d0c09df87196b8fc1f3cbbb0fd06bd30ce1
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352233"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430643"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Instructions relatives au format pour les documents et les URL importés
 
@@ -32,6 +32,9 @@ QnA Maker identifie les sections, sous-sections et relations dans le fichier en 
 * le style de police
 * la numérotation
 * les couleurs
+
+> [!NOTE]
+> Actuellement, nous ne prenons pas en charge l’extraction d’images à partir de documents chargés.
 
 ## <a name="product-manuals"></a>Manuels de produit
 

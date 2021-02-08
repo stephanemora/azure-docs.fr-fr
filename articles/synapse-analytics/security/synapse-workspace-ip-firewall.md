@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12966503bfa17030fc4ebcb4d790a2f4655142a2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116532"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226503"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Règles de pare-feu IP Azure Synapse Analytics
 
@@ -43,7 +43,10 @@ Vérifiez que le pare-feu sur votre réseau et ordinateur local autorise les com
 
 Vous devez aussi autoriser les communications sortantes sur le port UDP 53 pour Synapse Studio. Pour vous connecter à l’aide d’outils tels que SSMS et Power BI, vous devez autoriser la communication sortante sur le port TCP 1433.
 
-Si vous utilisez le paramètre de stratégie Rediriger la connexion par défaut, vous devrez peut-être aussi autoriser la communication sortante sur d’autres ports. Vous pouvez en savoir plus sur les stratégies de connexion [ici](../../azure-sql/database/connectivity-architecture.md#connection-policy).
+La stratégie de connexion SQL définie pour l’espace de travail est celle *par défaut*. Pour en savoir plus sur les adresses IP et les ports vers lesquels les clients doivent autoriser les communications sortantes, consultez [cette page](../../azure-sql/database/connectivity-architecture.md#connection-policy).
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

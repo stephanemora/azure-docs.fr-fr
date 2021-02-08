@@ -1,5 +1,5 @@
 ---
-title: Recommandations en matière de migration basées sur un scénario d’empaquetage et de livraison | Microsoft Docs
+title: Recommandations en matière de migration basées sur un empaquetage et une livraison
 description: Cet article fournit des recommandations basées sur un scénario pour l’empaquetage et la livraison, qui vous aideront à opérer une migration de la version v2 vers la version v3 d’Azure Media Services.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 74437a4adee9e2853f7b932316d57e406b7d00be
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689432"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928196"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’empaquetage et de livraison
 

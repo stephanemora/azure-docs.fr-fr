@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2517f132578b5de6b062b38ce94581f118327a13
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008172"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493586"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publication du projet sur Azure
 
@@ -21,7 +21,7 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
 1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez le bouton **Déployer sur une application de fonction**.
 
-    ![Publier votre projet sur Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Publier votre projet sur Azure](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
@@ -35,16 +35,18 @@ Dans cette section, vous créez une application de fonction et les ressources as
     
     - **Sélectionnez un emplacement pour les nouvelles ressources** :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous. 
     
+    L’extension montre l’état des ressources individuelles au fur et à mesure de leur création dans Azure, au sein de la zone de notification.
+
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification de création de ressources Azure":::
+    
 1.  Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction :
     
-    - Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
-    - Un compte de stockage Azure standard, qui conserve l’état et d’autres informations spécifiques à vos projets.
-    - Un plan de consommation, qui définit l’hôte sous-jacent pour votre application de fonction serverless. 
-    - Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources au sein du même plan d’hébergement.
-    - Une instance Application Insights connectée à l’application de fonction, qui effectue le suivi de l’utilisation de votre fonction serverless.
+    [!INCLUDE [functions-vs-code-created-resources](functions-vs-code-created-resources.md)]
 
     Une notification s’affiche après que votre application de fonction a été créée et que le package de déploiement a été appliqué. 
-    
-1. Sélectionnez **Afficher la sortie de** dans cette notification pour afficher les résultats de la création et du déploiement, y compris les ressources Azure que vous avez créées. Si vous manquez la notification, sélectionnez l’icône de cloche dans le coin inférieur droit pour la voir de nouveau.
+
+    [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
+
+4. Sélectionnez **Afficher la sortie de** dans cette notification pour afficher les résultats de la création et du déploiement, y compris les ressources Azure que vous avez créées. Si vous manquez la notification, sélectionnez l’icône de cloche dans le coin inférieur droit pour la voir de nouveau.
 
     ![Créer une notification de fin](media/functions-publish-project-vscode/function-create-notifications.png)

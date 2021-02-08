@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un blueprint avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec Azure CLI.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875192"
+ms.locfileid: "98920238"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec Azure CLI
 
@@ -167,6 +167,9 @@ La première étape de la définition d’un modèle standard à des fins de con
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Si vous utilisez `az blueprint` sur un Mac, remplacez `\` par `/` pour les valeurs de paramètre qui incluent le chemin. Dans ce cas, la valeur de **parameters** devient `artifacts/policyTags.json`.
+
 1. Ajoutez une autre affectation de stratégie pour l’étiquette Storage (réutilisation du paramètre _storageAccountType_) au niveau de l’abonnement. Cet artefact d’affectation de stratégie supplémentaire montre qu’un paramètre défini sur le blueprint peut être utilisé par plusieurs artefacts. Dans l’exemple, l’élément **storageAccountType** sert à définir une étiquette sur le groupe de ressources. Cette valeur fournit des informations sur le compte de stockage créé à l’étape suivante. Cet exemple utilise la stratégie intégrée _Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources_ avec le GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Fichier JSON – artifacts\policyStorageTags.json
@@ -193,6 +196,9 @@ La première étape de la définition d’un modèle standard à des fins de con
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Si vous utilisez `az blueprint` sur un Mac, remplacez `\` par `/` pour les valeurs de paramètre qui incluent le chemin. Dans ce cas, la valeur de **parameters** devient `artifacts/policyStorageTags.json`.
 
 1. Ajoutez le modèle sous le groupe de ressources. Le paramètre **template** d’un modèle Resource Manager inclut le composant JSON normal du modèle. Le modèle réutilise également les paramètres de blueprint **storageAccountType**, **tagName** et **tagValue** en transmettant chacun au modèle. Les paramètres de blueprint sont accessibles au modèle en utilisant le paramètre **parameters** et dans le fichier JSON, cette paire clé/valeur est utilisée pour injecter la valeur. Les noms de paramètres de blueprint et de modèle peuvent être les mêmes.
 
@@ -276,6 +282,9 @@ La première étape de la définition d’un modèle standard à des fins de con
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Si vous utilisez `az blueprint` sur un Mac, remplacez `\` par `/` pour les valeurs de paramètre qui incluent le chemin. Dans ce cas, la valeur de **template** devient `artifacts/templateStorage.json` et celle de **parameters** devient `artifacts/templateStorageParams.json`.
 
 1. Ajoutez une attribution de rôle sous le groupe de ressources. Comme pour l’entrée d’attribution de rôle précédente, l’exemple ci-dessous utilise l’identificateur de définition pour le rôle **Propriétaire** et lui fournit un paramètre différent à partir du blueprint. Cet exemple utilise le rôle intégré _Propriétaire_ avec le GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 

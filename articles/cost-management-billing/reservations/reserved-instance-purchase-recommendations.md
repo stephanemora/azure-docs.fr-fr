@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.date: 01/27/2021
+ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398424"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928523"
 ---
 # <a name="reservation-recommendations"></a>Reservation recommendations
 
@@ -25,11 +25,11 @@ Les étapes suivantes définissent comment les recommandations sont calculées 
 2. En fonction des données d’utilisation, le moteur simule vos coûts avec et sans réservations.
 3. Les coûts sont simulés pour différentes quantités, et la quantité qui optimise les économies est recommandée.
 4. Si vos ressources sont arrêtées régulièrement, la simulation ne trouve aucune économie et aucune recommandation d’achat n’est fournie.
-5. Les recommandations tiennent compte des remises spéciales qui peuvent s’appliquer à vos taux d’utilisation à la demande.
+5. Les calculs de recommandation tiennent compte des remises spéciales qui peuvent s’appliquer à vos tarifs d’utilisation à la demande.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recommandations dans le portail Azure
 
-Les recommandations d’achat de réservation sont également indiquées dans le portail Azure dans l’expérience d’achat. Les recommandations sont indiquées avec la **quantité recommandée**. Une fois achetée, la quantité recommandée par Azure vous permettra d’économiser au maximum. Bien que vous puissiez acheter la quantité de votre choix, si vous achetez une quantité différente, vos économies ne sont pas optimales.
+Les recommandations d’achat de réservation sont également indiquées dans le portail Azure dans l’expérience d’achat. Les recommandations sont indiquées avec la **quantité recommandée**. Une fois achetée, la quantité recommandée par Azure vous permettra d’économiser au maximum. Bien que vous puissiez acheter la quantité de votre choix, si vous achetez une quantité différente, vos économies ne seront pas optimales.
 
 Prenons quelques exemples qui expliquent pourquoi.
 
@@ -37,13 +37,13 @@ Dans l’exemple d’image suivant pour la recommandation sélectionnée, Azure 
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Exemple présentant une recommandation d’achat de réservation" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
-Des informations supplémentaires sur la recommandation s’affichent lorsque vous sélectionnez le lien **Voir les détails**. L’image suivante montre des détails sur la recommandation. La quantité recommandée est calculée pour l’utilisation la plus élevée possible, en fonction de votre historique d’utilisation. Votre recommandation peut ne pas cibler une utilisation de 100 % si vous avez une utilisation incohérente. Dans l’exemple, notez que l’utilisation a fluctué dans le temps. Le coût de la réservation, les économies possibles et le pourcentage d’utilisation sont affichés.
+Des informations supplémentaires sur la recommandation s’affichent quand vous sélectionnez **Afficher les détails**. L’image suivante montre des détails sur la recommandation. La quantité recommandée est calculée pour l’utilisation la plus élevée possible et est basée sur votre historique d’utilisation. Votre recommandation peut ne pas cibler une utilisation de 100 % si vous avez une utilisation incohérente. Dans l’exemple, remarquez que l’utilisation a fluctué dans le temps. Le coût de la réservation, les économies possibles et le pourcentage d’utilisation sont affichés.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Exemple présentant les détails d’une recommandation d’achat de réservation" :::
 
-Quand vous augmentez ou réduisez la quantité de réservation au-delà de la recommandation, le graphique et les valeurs estimées changent. En augmentant la quantité de réservation, vos économies sont réduites, car vous vous retrouvez avec une utilisation réduite de la réservation. En d’autres termes, vous payez pour des réservations qui ne sont pas entièrement utilisées.
+Le graphique et les valeurs estimées changent quand vous augmentez la quantité recommandée. En augmentant la quantité de réservation, vos économies seront réduites, car vous vous retrouverez avec une utilisation réduite de la réservation. En d’autres termes, vous payez pour des réservations qui ne sont pas entièrement utilisées.
 
-Si vous réduisez la quantité de réservation, vos économies sont également réduites. Bien que vous ayez une utilisation accrue, il y aura probablement des périodes où vos réservations ne couvriront pas pleinement votre utilisation. Une utilisation au-delà de la quantité de réservation sera employée par des ressources de paiement à l’utilisation plus coûteuses. L’exemple d’image suivant illustre le point. Nous avons réduit manuellement la quantité de réservation à 4. L’utilisation de la réservation est augmentée, mais les économies globales sont réduites, car les coûts de paiement à l’utilisation sont présents.
+Si vous réduisez la quantité de réservation, vos économies seront également réduites. Bien que vous ayez une utilisation accrue, il y aura probablement des périodes où vos réservations ne couvriront pas pleinement votre utilisation. Une utilisation au-delà de la quantité de réservation sera employée par des ressources de paiement à l’utilisation plus coûteuses. L’exemple d’image suivant illustre le point. Nous avons réduit manuellement la quantité de réservation à 4. L’utilisation de la réservation est augmentée, mais les économies globales sont réduites, car il y a des coûts de paiement à l’utilisation.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Exemple présentant les détails d’une recommandation d’achat de réservation modifiée" :::
 
@@ -53,11 +53,12 @@ Pour optimiser les économies avec les réservations, essayez d’acheter des r�
 
 Les recommandations d’achat de réservation sont disponibles dans Azure Advisor. Gardez à l’esprit les points suivants :
 
-- Advisor produit des recommandations dont l’étendue est limitée à un seul abonnement. Si vous voulez voir les recommandations pour l’ensemble de l’étendue de facturation (compte de facturation ou profil de facturation), accédez au Portail Azure > Réservations > Ajoutez et sélectionnez le type pour lequel vous voulez voir les recommandations.
-- Les recommandations disponibles dans Advisor considèrent la tendance d’utilisation sur 30 jours.
-- La quantité et les économies relatives aux recommandations concernent une réservation de 3 ans, le cas échéant. Si la réservation de 3 ans n’est pas vendue pour le service, la recommandation est calculée à l’aide d’un prix de réservation de 1 an.
-- Les recommandations tiennent compte des remises spéciales qui peuvent s’appliquer à vos taux d’utilisation à la demande.
-- Si vous achetez une réservation d’étendue partagée, les recommandations d’achat de réservations d’Advisor peuvent mettre jusqu’à cinq jours avant de disparaître.
+- Advisor produit des recommandations dont l’étendue est limitée à un seul abonnement. Si vous voulez afficher les recommandations pour l’étendue de facturation dans son ensemble (compte de facturation ou profil de facturation), procédez comme suit :
+  -  Sur le portail Azure, accédez à **Réservations** > **Ajouter**, puis sélectionnez le type pour lequel vous souhaitez afficher les recommandations.
+- Les recommandations disponibles dans Advisor prennent en considération la tendance de votre utilisation sur les 30 derniers jours.
+- La quantité et les économies des recommandations s’appliquent à une réservation de trois ans, le cas échéant. S’il n’y a pas réservation de trois ans en vente pour le service, la recommandation est calculée en utilisant le prix de réservation d’un an.
+- Les calculs de recommandation tiennent compte des remises spéciales qui peuvent s’appliquer à vos tarifs d’utilisation à la demande.
+- Si vous achetez une réservation à étendue partagée, les recommandations d’achat de réservation d’Advisor peuvent prendre jusqu’à cinq jours pour disparaître.
 
 ## <a name="other-expected-api-behavior"></a>Autre comportement attendu de l’API
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973709"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895286"
 ---
 # <a name="blocking-legacy-authentication"></a>Blocage de l’authentification héritée
  
@@ -37,6 +37,7 @@ Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vou
 1. Filtrez par **Application cliente** > cochez toutes les options **Clients d’authentification hérités** présentées.
 1. Filtrez par **État** > **Réussite**. 
 1. Si nécessaire, étendez votre plage de dates en utilisant le filtre **Date**.
+1. Si vous avez activé les [rapports d’activité de nouvelle connexion (préversion)](../reports-monitoring/concept-all-sign-ins.md), répétez les étapes ci-dessus dans l’onglet **Connexions utilisateur (non interactives)** .
 
 Grâce au filtrage, vous afficherez uniquement les tentatives réussies de connexion effectuées via des protocoles d’authentification héritée sélectionnés. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Une fois que vous aurez sélectionné une ligne de données individuelle, la colonne Application client ou le champ Application client sous l’onglet Informations de base indiquera quel protocole d’authentification existant a été utilisé. Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Pour les utilisateurs qui ne figurent pas dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée, implémentez une stratégie d’accès conditionnel, ou activez la Stratégie de base de référence : Bloquer l’authentification héritée uniquement pour ces utilisateurs.
 

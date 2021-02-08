@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757709"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475588"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -38,7 +38,7 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Les recommandations en matière de protection des charges de travail Kubernetes seront bientôt en disponibilité générale
 
-**Date estimée de la modification :** Janvier 2021
+**Date estimée de la modification :** Février 2021
 
 Les recommandations en matière de protection des charges de travail Kubernetes décrites dans [Protéger vos charges de travail Kubernetes](kubernetes-workload-protections.md) sont actuellement en préversion. Tant qu’une recommandation est en préversion, elle ne rend pas une ressource non saine et n’est pas incluse dans les calculs de votre niveau de sécurité.
 
@@ -83,7 +83,7 @@ Pour plus d’informations sur ces recommandations, consultez la [page de réfé
 
 **Date estimée de la modification :** T2 2021
 
-La version actuelle de la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** du contrôle de sécurité **Appliquer la classification des données** va être dépréciée et remplacée par une nouvelle version mieux alignée sur la stratégie de classification des données de Microsoft. Par conséquent :
+La version actuelle de la recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** du contrôle de sécurité **Appliquer la classification des données** va être remplacée par une nouvelle version mieux alignée sur la stratégie de classification des données de Microsoft. Par conséquent :
 
 - La recommandation n’affectera plus votre degré de sécurisation
 - Le contrôle de sécurité (« Appliquer la classification des données ») n’affectera plus votre degré de sécurisation

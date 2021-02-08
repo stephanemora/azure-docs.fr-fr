@@ -1,14 +1,14 @@
 ---
 title: Nouvelle affectation de stratégie à l’aide du portail
 description: Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: 51ca2f9e5d3f3df9304804ba3da2c5c5ceb0c19b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e5cbf31e897b5be404327efa254eb90ead990f5f
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875306"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220885"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Création d’une affectation de stratégie pour identifier les ressources non conformes.
 
@@ -31,11 +31,11 @@ Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et
 
 1. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Capture d’écran de la sélection de la page Affectations dans la page Vue d’ensemble de la stratégie." border="false":::
 
-1. Sélectionnez **Assigner une stratégie** en haut de la page**Stratégie - Affectations**.
+1. Sélectionnez **Assigner une stratégie** en haut de la page **Stratégie - Affectations**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Capture d’écran de la sélection de l’option « Assigner une stratégie » dans la page Affectations." border="false":::
 
 1. Dans la page **Assigner une stratégie**, définissez l’**Étendue** en sélectionnant les points de suspension, puis en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Ensuite, appuyez sur le bouton **Sélectionner** en bas de la page **Étendue**.
 
@@ -53,22 +53,34 @@ Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et
 
 1. Recherchez la définition _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ dans la liste des définitions de stratégie. Sélectionnez cette stratégie, puis appuyez sur le bouton **Sélectionner** .
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Capture d’écran du filtrage des définitions disponibles." border="false":::
 
 1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, conservez _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
    Le champ **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
+1. Laissez l’application des stratégies définie sur _Activée_. Pour plus d’informations, consultez [Attribution de stratégie - Mode de mise en conformité](./concepts/assignment-structure.md#enforcement-mode).
+
+1. Sélectionnez **Suivant** en bas de la page ou l’onglet **Paramètres** en haut de la page pour passer au segment suivant de l’Assistant Affectation.
+
+1. Si la définition de stratégie sélectionnée sous l’onglet **De base** inclut des paramètres, ceux-ci sont configurés sous cet onglet. Comme la définition _Faire l’audit des machines virtuelles n’utilisant aucun disque managé_ ne contient pas de paramètre, sélectionnez **Suivant** en bas de la page ou l’onglet **Correction** en haut de la page pour passer au segment suivant de l’Assistant Affectation.
+
 1. Laissez la case **Créer une identité managée** non cochée. Cette case _doit_ être cochée quand la stratégie ou l’initiative inclut une stratégie avec l’effet [deployIfNotExists](./concepts/effects.md#deployifnotexists) ou [modify](./concepts/effects.md#modify). La stratégie utilisée dans ce guide de démarrage rapide n'étant pas concernée, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](./how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Sélectionnez **Attribuer**.
+1. Sélectionnez **Suivant** en bas de la page ou l’onglet **Messages de non-conformité** en haut de la page pour passer au segment suivant de l’Assistant Affectation.
+
+1. Définissez **Message de non-conformité** sur _Les machines virtuelles doivent utiliser un disque managé_. Ce message personnalisé s’affiche quand une ressource est refusée ou en présence de ressources identifiées comme non conformes durant une évaluation régulière.
+
+1. Sélectionnez **Suivant** en bas de la page ou l’onglet **Vérifier + créer** en haut de la page pour passer au segment suivant de l’Assistant Affectation.
+
+1. Passez en revue les options sélectionnées, puis sélectionnez **Créer** au bas de la page.
 
 Vous êtes maintenant prêt à identifier les ressources non conformes pour comprendre l’état de conformité de votre environnement.
 
-## <a name="identify-non-compliant-resources"></a>Identifier les ressources non conformes
+## <a name="identify-non-compliant-resources"></a>Identifier des ressources non conformes
 
 Sélectionnez **Conformité** dans la partie gauche de la page. Recherchez ensuite l’affectation de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ que vous avez créée.
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
+:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Capture d’écran des détails de conformité dans la page Conformité à la stratégie." border="false":::
 
 Si des ressources existantes ne sont pas conformes à cette nouvelle affectation, elles apparaissent sous **Ressources non conformes**.
 
@@ -92,7 +104,7 @@ Pour supprimer l’affectation créée, procédez comme suit :
 
 1. Cliquez avec le bouton droit sur l’affectation de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ et sélectionnez **Supprimer l’attribution**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Capture d’écran de la recherche de stratégie dans Tous les services." border="false":::
+   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Capture d’écran de l’utilisation du menu contextuel pour supprimer une affectation à partir de la page Conformité." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

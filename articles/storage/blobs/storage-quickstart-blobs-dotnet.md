@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de stockage d’objets Blob Azure v12 - .NET'
+title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - .NET'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour .NET afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8cb8c193e09e841a8401cbb0a6ac78ce87afa01c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f8f27743d8680f5e73e1f7bb7a3f7bd6ff2e0464
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021705"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054718"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour .NET
 
-Bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 pour .NET. Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
+Bien démarrer avec la bibliothèque cliente Stockage Blob Azure v12 pour .NET. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
 
-Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin de :
+Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin d’effectuer les tâches suivantes :
 
 * Créez un conteneur.
 * Charger un blob dans le stockage Azure
@@ -109,7 +109,7 @@ namespace BlobQuickstartV12
 
 ## <a name="object-model"></a>Modèle objet
 
-Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
+Stockage Blob Azure est optimisé pour stocker des quantités massives de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
@@ -128,7 +128,7 @@ Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces exemples d’extraits de code vous montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour .NET :
+Ces exemples d’extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour .NET :
 
 * [Obtenir la chaîne de connexion](#get-the-connection-string)
 * [Créer un conteneur](#create-a-container)
@@ -144,7 +144,7 @@ Le code ci-dessous récupère la chaîne de connexion pour le compte de stockage
 Ajoutez ce code dans la méthode `Main` :
 
 ```csharp
-Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -287,7 +287,7 @@ dotnet run
 La sortie de l’application ressemble à l’exemple suivant :
 
 ```output
-Azure Blob storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
          https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
@@ -315,7 +315,7 @@ Dans ce démarrage rapide, vous avez appris à charger, télécharger et répert
 Pour afficher des exemples d’applications de stockage blob, passez à :
 
 > [!div class="nextstepaction"]
-> [Exemples .NET du kit de développement logiciel (SDK) du stockage d’objets Blob Azure v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Exemples .NET du SDK Stockage Blob Azure v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * Pour obtenir des didacticiels, des exemples, des démarrages rapides et d’autres documents, visitez [Azure pour les développeurs .NET et .NET Core](/dotnet/azure/).
 * Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://www.microsoft.com/net/learn/get-started/).

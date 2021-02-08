@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572814"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429277"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -30,9 +31,9 @@ Voici quelques concepts de base relatifs à Microsoft Azure Attestation.
 
 Le fournisseur d’attestations appartient au fournisseur de ressources Azure nommé Microsoft.Attestation. Le fournisseur de ressources est un point de terminaison de service qui fournit un contrat REST Azure Attestation et qui est déployé à l’aide d’[Azure Resource Manager](../azure-resource-manager/management/overview.md). Chaque fournisseur d’attestations honore une stratégie spécifique et détectable. Les fournisseurs d’attestations sont créés avec une stratégie par défaut pour chaque type d’attestation (notez que l’enclave VBS n’a pas de stratégie par défaut). Pour plus d’informations sur la stratégie par défaut pour SGX, consultez [Exemples de stratégie d’attestation](policy-examples.md).
 
-### <a name="regional-default-provider"></a>Fournisseur par défaut régional
+### <a name="regional-shared-provider"></a>Fournisseur partagé régional
 
-Azure Attestation fournit un fournisseur par défaut dans chaque région. Les clients peuvent choisir d’utiliser le fournisseur par défaut pour l’attestation ou créer leurs propres fournisseurs avec des stratégies personnalisées. Les fournisseurs par défaut sont accessibles à tout utilisateur Azure AD et la stratégie associée à un fournisseur par défaut ne peut pas être modifiée.
+Azure Attestation propose un fournisseur partagé régional dans chaque région disponible. Les clients ont le choix entre utiliser le fournisseur partagé régional pour l’attestation ou créer leurs propres fournisseurs avec des stratégies personnalisées. Les fournisseurs partagés sont accessibles à tous les utilisateurs Azure AD. La stratégie associée ne peut pas être modifiée.
 
 | Région | URI d’attestation | 
 |--|--|

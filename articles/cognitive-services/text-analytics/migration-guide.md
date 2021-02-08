@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656952"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096319"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrer vers la version 3.x de l’API Analyse de texte
 
@@ -46,9 +46,6 @@ Consultez la documentation de référence pour obtenir des exemples de réponse 
 
 ### <a name="feature-changes"></a>Évolution des fonctionnalités
 
-> [!NOTE] 
-> Actuellement, les [catégories d’entité v3](named-entity-types.md) sont retournées uniquement sur le texte en anglais et espagnol. L’API retourne les résultats de la version 2.1 pour les demandes dans d’autres langues, à condition qu’elles soient prises en charge dans la version 2.1.
-
 Dans la version 2.1, l’API Analyse de texte utilise un seul point de terminaison pour la reconnaissance d’entité nommée (NER) et la liaison d’entités. La version 3 fournit une détection étendue des entités nommées et utilise des points de terminaison séparés pour les demandes NER et de liaison d’entités. À partir de v3.1-preview.1, NER peut également détecter les informations personnelles `pii` et médicales `phi`. 
 
 ### <a name="steps-to-migrate"></a>Étapes de migration
@@ -73,6 +70,35 @@ Consultez la documentation de référence pour obtenir des exemples de réponse 
 #### <a name="client-libraries"></a>Bibliothèques clientes
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>Catégories d’entité version 2.1
+
+Le tableau suivant répertorie les catégories d’entités retournées pour NER v2.1.
+
+| Category   | Description                          |
+|------------|--------------------------------------|
+| Personne   |   Noms des personnes.  |
+|Emplacement    | Points de repère, structures et caractéristiques géographiques et entités géopolitiques naturels et créés par l’homme |
+|Organisation | Sociétés, partis politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. |
+| PhoneNumber | Numéros de téléphone (Numéros de téléphone américains et européens uniquement). |
+| E-mail | Adresses e-mail. |
+| URL | URL vers des sites web. |
+| IP | Adresses IP du réseau. |
+| DateTime | Dates et heures du jour.| 
+| Date | Dates du calendrier. |
+| Temps | Heures de la journée |
+| DateRange | Plages de dates. |
+| TimeRange | Intervalles de temps. |
+| Duration | Durées. |
+| Définissez | Définie, répétée tant de fois. |
+| Quantité | Nombres et quantités numériques. |
+| Number | Nombres. |
+| Pourcentage | Pourcentages.|
+| Ordinal | Nombres ordinaux. |
+| Age | Ages. |
+| Devise | Devises. |
+| Dimension | Dimensions et mesures. |
+| Température | Températures. |
 
 ## <a name="language-detection"></a>[Détection de la langue](#tab/language-detection)
 

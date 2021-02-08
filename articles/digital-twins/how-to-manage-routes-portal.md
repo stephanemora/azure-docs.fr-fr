@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533784"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070836"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -33,11 +33,11 @@ Vous pouvez également gérer les points de terminaison et les routes à l’aid
 
 Vous trouverez ces informations dans le [portail Azure](https://portal.azure.com) après avoir configuré votre instance. Connectez-vous au portail et recherchez le nom de votre instance dans la barre de recherche du portail.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Capture d’écran de la barre de recherche du portail Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Capture d’écran de la barre de recherche du portail Azure." lightbox="media/how-to-manage-routes-portal/search-field-portal.png":::
 
-Sélectionnez votre instance parmi les résultats pour afficher la page de détails la concernant :
+Sélectionnez votre instance parmi les résultats pour afficher ces détails dans la page Vue d’ensemble de votre instance :
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran des détails de l’instance ADT." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Capture d’écran montrant la page Vue d’ensemble d’une instance Azure Digital Twins. Le nom et le groupe de ressources sont mis en surbrillance.":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Créer un point de terminaison pour Azure Digital Twins
 
@@ -48,83 +48,59 @@ Voici les types de points de terminaison pris en charge que vous pouvez créer p
 
 Pour plus d’informations sur les différents points de terminaison, consultez [*Choisir entre les différents services de messagerie Azure*](../event-grid/compare-messaging-services.md).
 
-Pour lier un point de terminaison à Azure Digital Twins, l’Event Hub, une rubrique Event Grid ou le Service Bus que vous utilisez pour le point de terminaison doivent pré-exister. 
+Cette section explique comment créer l’un de ces points de terminaison dans le [portail Azure](https://portal.azure.com).
 
-### <a name="create-an-event-grid-endpoint"></a>Créer un point de terminaison Event Grid
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-**Condition préalable** : Créez une rubrique Event Grid en suivant les étapes décrites dans [la section *Créer une rubrique personnalisée*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) du démarrage rapide *Événements personnalisés* Event Grid.
+### <a name="create-the-endpoint"></a>Créer le point de terminaison 
 
-Une fois que vous avez créé la rubrique, vous pouvez la lier à Azure Digital Twins à partir de la page de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez trouver l’instance en entrant son nom dans la barre de recherche du portail).
+Une fois que vous avez créé les ressources du point de terminaison, vous pouvez les utiliser pour un point de terminaison Azure Digital Twins. Pour créer un point de terminaison, accédez à la page de votre instance dans le [portail Azure](https://portal.azure.com) (vous pouvez rechercher l’instance en entrant son nom dans la barre de recherche du portail).
 
-Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
+1. Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. Cette opération ouvre la page *Créer un point de terminaison*, dans laquelle vous allez remplir les champs dans les étapes suivantes.
 
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Grid_ en sélectionnant la case d’option correspondante. Renseignez les autres détails : entrez un nom pour votre point de terminaison dans le champ _Nom_, choisissez votre _abonnement_ dans la liste déroulante, puis choisissez votre _rubrique Event Grid_ précréée dans la troisième liste déroulante.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
 
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
+1. Entrez le **nom** de votre point de terminaison, puis choisissez le **type de point de terminaison**.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Grid.":::
+1. Spécifiez les autres informations requises pour votre type de point de terminaison, y compris votre abonnement et les ressources du point de terminaison décrites [ci-dessus](#prerequisite-create-endpoint-resources).
+    1. Pour les points de terminaison Event Hub et Service Bus uniquement, vous devez sélectionner un **type d’authentification**. Vous pouvez utiliser l’authentification basée sur une clé avec une règle d’autorisation pré-créée ou une authentification basée sur l’identité si vous utilisez le point de terminaison avec une [identité managée](concepts-security.md#managed-identity-for-accessing-other-resources-preview) pour votre instance Azure Digital Twins. 
 
-Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la notification pour vérifier la création du point de terminaison." border="false":::
+1. Terminez la création de votre point de terminaison en sélectionnant _Enregistrer_.
+
+>[!IMPORTANT]
+> Pour pouvoir utiliser correctement l’authentification basée sur l’identité pour votre point de terminaison, vous devez créer une identité managée pour votre instance en suivant les étapes décrites dans le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)* ](how-to-enable-managed-identities.md).
+
+Après avoir créé votre point de terminaison, vous pouvez le vérifier en sélectionnant l’icône de notification dans la barre supérieure du portail Azure : 
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Capture d’écran de la notification pour vérifier la création du point de terminaison. L’icône en forme de cloche dans la barre supérieure du portail est sélectionnée, et une notification confirme la création du point de terminaison (« Endpoint ADT-eh-endpoint successfully created »).":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+
+Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
 
 Vous pouvez également afficher le point de terminaison qui a été créé dans la page *Points de terminaison* de votre instance Azure Digital Twins.
 
-Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
-
-La rubrique Event Grid est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
-
-### <a name="create-an-event-hubs-endpoint"></a>Créer un point de terminaison Event Hubs
-
-**Prérequis** : 
-* Vous avez besoin d’un _espace de noms Event Hubs_ et d’un _Event Hub_. Pour créer ces deux éléments, suivez les étapes du démarrage rapide [*Créer un Event Hub*](../event-hubs/event-hubs-create.md) d’Event Hubs.
-* Vous aurez besoin d’une _règle d’autorisation_. Pour ce faire, reportez-vous à l’article [*Autorisation de l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé*](../event-hubs/authorize-access-shared-access-signature.md) d’Event Hubs.
-
-Accédez à la page de détails de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez la trouver en entrant son nom dans la barre de recherche du portail).
-
-Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
-
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Event Hub_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_, ainsi que l’_espace de noms Event Hub_, l’_Event Hub_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
-
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Event Hubs.":::
-
-Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
-
-Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
-
-L’Event Hub est alors disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
-
-### <a name="create-a-service-bus-endpoint"></a>Créer un point de terminaison Service Bus
-
-**Prérequis** : 
-* Vous avez besoin d’un _espace de noms Service Bus_ et d’une _rubrique Service Bus_. Pour créer ces deux éléments, suivez les étapes décrites dans le démarrage rapide [*Créer des rubriques et des abonnements*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) de Service Bus. Vous n’avez pas besoin de terminer la section [*Créer des abonnements à la rubrique*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic).
-* Vous aurez besoin d’une _règle d’autorisation_. Pour ce faire, reportez-vous à l’article [*Authentification et autorisation*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) de Service Bus.
-
-Accédez à la page de détails de votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com) (vous pouvez la trouver en entrant son nom dans la barre de recherche du portail).
-
-Dans le menu de l’instance, sélectionnez _Points de terminaison_. Ensuite, à partir de la page *Points de terminaison* qui suit, sélectionnez *+ Créer un point de terminaison*. 
-
-Dans la page *Créer un point de terminaison* qui s’ouvre, vous pouvez créer un point de terminaison de type _Service Bus_ en sélectionnant la case d’option correspondante. Entrez un nom pour votre point de terminaison dans le champ _Nom_. Sélectionnez ensuite votre _abonnement_, ainsi que l’_espace de noms Service Bus_, la _rubrique Service Bus_ et la _règle d’autorisation_ précréés dans les listes déroulantes respectives.
-
-Ensuite, créez votre point de terminaison en appuyant sur _Enregistrer_.
-
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Capture d’écran de la création d’un point de terminaison de type Service Bus.":::
-
-Vous pouvez vérifier que le point de terminaison est correctement créé en sélectionnant l’icône de notification dans la barre supérieure du portail Azure. 
-
-Si la création du point de terminaison échoue, observez le message d’erreur et réessayez après quelques minutes.
-
-La rubrique Service Bus est ensuite disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom spécifié dans le champ _Nom_. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
+La rubrique Event Grid, Event Hub ou Service Bus est maintenant disponible en tant que point de terminaison dans Azure Digital Twins, sous le nom que vous avez choisi pour le point de terminaison. Vous utiliserez généralement ce nom en tant que cible d’un **itinéraire d’événement** que vous allez créer [plus loin dans cet article](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Créer un point de terminaison avec mise en file d’attente de lettres mortes
 
 Lorsqu’un point de terminaison ne peut pas remettre un événement dans un laps de temps donné ou après avoir essayé de remettre l’événement un certain nombre de fois, il peut envoyer l’événement non remis à un compte de stockage. Ce processus est appelé **mise en file d’attente de lettres mortes**.
 
-Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
+Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, il est préférable d’utiliser les [commandes CLI](how-to-use-cli.md) ou les [API de plan de contrôle](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) pour créer votre point de terminaison, plutôt que le portail Azure.
 
-Pour obtenir des instructions sur la façon de procéder avec les API, consultez la version basée sur [*l’interface CLI et les API*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de cet article.
+Pour obtenir des instructions sur la façon de procéder avec ces outils, consultez la version basée sur [*l’interface CLI et les API*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) de cet article.
 
 ## <a name="create-an-event-route"></a>Création d’un itinéraire d’événements
 

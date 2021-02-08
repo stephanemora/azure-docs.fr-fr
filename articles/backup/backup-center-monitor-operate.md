@@ -3,20 +3,20 @@ title: Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde
 description: Cet article explique comment surveiller et utiliser les sauvegardes à grande échelle à l’aide du Centre de sauvegarde
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893776"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde (préversion)
 
 En tant qu’administrateur de sauvegarde, vous pouvez utiliser le Centre de sauvegarde comme volet unique pour surveiller vos travaux et l’inventaire des sauvegardes quotidiennement. Vous pouvez également utiliser le Centre de sauvegarde pour effectuer vos opérations courantes, telles que la réponse à des demandes de sauvegarde à la demande, la restauration des sauvegardes, la création de stratégies de sauvegarde, etc.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure et la sauvegarde des serveurs Azure Database pour PostgreSQL.
+* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde de machines virtuelles SQL dans Azure, la sauvegarde de machines virtuelles SAP HANA dans Azure, et la sauvegarde des serveurs Azure Database pour PostgreSQL.
 * Reportez-vous à la [matrice de prise en charge ](backup-center-support-matrix.md) pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge.
 
 ## <a name="backup-instances"></a>Instances de sauvegarde

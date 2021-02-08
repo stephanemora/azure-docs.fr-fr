@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d529c5900d851368d60099091bb5745660036dea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029887"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526294"
 ---
 ::: zone target="docs"
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour l’enlèvement en Australie.
 
-1. Utilisez l’étiquette d’expédition de retour et assurez-vous que le code TAU (numéro de référence) est écrit dessus. Si l’étiquette d’expédition fournie est manquante ou si vous rencontrez tout autre problème, envoyez un e-mail à [Data Box Asia Operations](mailto:adbo@microsoft.com). Indiquez le nom de la commande dans l’en-tête d’objet et les détails du problème auquel vous êtes confronté.
+1. Utilisez l’étiquette d’expédition de retour et assurez-vous que le code TAU (numéro de référence) est écrit dessus. Si l’étiquette d’expédition fournie est manquante ou si vous rencontrez tout autre problème, envoyez un e-mail à [Data Box Asia Operations](mailto:adbo@microsoft.com). Indiquez le nom de la commande dans l’en-tête d’objet et les détails du problème.
 2. Collez l’étiquette sur le colis.
 3. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
@@ -119,12 +119,12 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 1. Veillez à inclure le bordereau de réexpédition.
 2. Pour demander un enlèvement lorsque le bordereau de réexpédition est présent :
     1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service pour organiser l’enlèvement.  
-    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à `microsoft@rocketparcel.com`, avec l’objet *Enlèvement Microsoft Azure* et le numéro de demande de service comme référence.
+    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à l’adresse [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com), avec l’objet *Enlèvement Microsoft Azure* et le numéro de la demande de service pour référence.
     3. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de *Quantium Solutions International* pour trouver une autre solution.
     4. Vous recevez un e-mail de confirmation pour la planification de l’enlèvement.
 3. Effectuez cette étape uniquement si le bordereau de réexpédition n’est pas présent. Pour demander un enlèvement :
-    1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service pour organiser l’enlèvement. Spécifiez que vous avez besoin d’un nouveau bordereau de réexpédition pour organiser un enlèvement. Fournissez à l’expéditeur (client) les informations du destinataire (centre de données Azure) et le numéro de référence (numéro de la demande de service). 
-    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à `microsoft@rocketparcel.com`, avec l’objet *Enlèvement Microsoft Azure* et le numéro de demande de service comme référence.
+    1. Appelez l’assistance téléphonique de *Quantium Solutions International* au 070-8231-1418 pendant les heures de bureau (du lundi au vendredi de 10 h à 17 h). Indiquez *Enlèvement Microsoft Azure* et le numéro de la demande de service pour organiser l’enlèvement. Spécifiez que vous avez besoin d’un nouveau bordereau de réexpédition pour organiser un enlèvement. Fournissez à l’expéditeur (client) les informations du destinataire (centre de données Azure) et le numéro de référence (numéro de la demande de service).
+    2. Si l’assistance téléphonique est occupée, envoyez un e-mail à [microsoft@rocketparcel.com](mailto:microsoft@rocketparcel.com), avec l’objet *Enlèvement Microsoft Azure* et le numéro de la demande de service comme référence.
     3. Si le transporteur ne procède pas à l’enlèvement, appelez l’assistance téléphonique de *Quantium Solutions International* pour trouver une autre solution.
     4. Si la demande est effectuée par téléphone, vous recevez une confirmation verbale.
 
@@ -152,7 +152,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
    > * Avant 15 h, la collecte sera effectuée le jour ouvré suivant entre 9 h et 13 h.
    > * Après 15 h, la collecte sera effectuée le jour ouvré suivant entre 14 h et 18 h.
 
-   Si vous rencontrez des problèmes, contactez l’équipe Data Box Operations Asia à l’adresse suivante : adbo@microsoft.com. Indiquez le nom de la tâche dans l’objet du message, ainsi que le problème rencontré.
+   Si vous rencontrez des problèmes, contactez Data Box Operations Asia à l’adresse [adbo@microsoft.com](mailto:adbo@microsoft.com). Indiquez le nom de la tâche dans l’objet du message, ainsi que le problème rencontré.
 
 3. Remettez le colis au transporteur.
 
@@ -185,7 +185,7 @@ Si vous retournez l’appareil en Afrique du Sud, procédez comme suit.
 
     * Vous pouvez également déposer le colis au point de service DHL le plus proche.
 
-5. Si vous rencontrez des problèmes, envoyez e-mail à l’adresse [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), en détaillant les problèmes que vous avez rencontrés et en insérant le numéro de lettre de transport dans la ligne Objet. Vous pouvez également appeler le +27(0)119213902.
+5. Si vous rencontrez des problèmes, envoyez un e-mail à l’adresse [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com), en détaillant le ou les problèmes et en indiquant le numéro de lettre de transport dans la ligne Objet. Vous pouvez également appeler le +27(0)119213902.
 
 ### <a name="china"></a>[Chine](#tab/in-china)
 
@@ -205,7 +205,7 @@ Si vous retournez l’appareil en Chine, procédez comme suit.
 
 3. Recevez une confirmation par e-mail de FedEx une fois l’enlèvement réservé.  
 
-4. Si vous rencontrez des problèmes, envoyez un e-mail à l’adresse [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com), avec des détails sur le problème rencontré et le nom de la commande en objet.
+4. Si vous rencontrez des problèmes, envoyez un e-mail à l’adresse [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) en détaillant le ou les problèmes et en indiquant le numéro de commande dans la ligne d’objet.
 
 #### <a name="premier-customer-care-contact-information"></a>Informations de contact du service Premier Customer Care
 
@@ -229,20 +229,20 @@ Si vous retournez l’appareil en Chine, procédez comme suit.
 
 ### <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
-Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée, en Europe de l'Ouest, en Afrique du Sud, en Inde ou dans le cadre d'une offre US Government et que vous avez sélectionné l'option d'expédition autogérée pendant la création de la commande, suivez ces instructions.
+Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée, au Royaume-Uni, en Europe de l’Ouest, en Australie, en Afrique du Sud, en Inde ou dans le cadre d’une offre US Government et que vous avez sélectionné l’option d'expédition autogérée pendant la création de la commande, suivez ces instructions.
 
 1. Accédez au panneau **Vue d’ensemble** de votre commande dans le portail Azure. Parcourez les instructions qui s’affichent lorsque vous sélectionnez **Planifier l’enlèvement**. Un code d’autorisation doit apparaître. Il est utilisé au moment de la remise de la commande.
 
-2. Envoyez un e-mail à l’équipe des opérations Azure Data Box à l’aide du modèle suivant lorsque vous êtes prêt à renvoyer l’appareil.
+2. Quand vous êtes prêt à renvoyer l’appareil, adressez un e-mail à l’équipe Azure Data Box Operations en utilisant le modèle suivant.
 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body:
      a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
     ```
-3. L’équipe des opérations Azure Data Box vous accompagne pour organiser la remise au centre de données Azure.
+3. L’équipe Azure Data Box Operations vous accompagnera pour organiser la remise au centre de données Azure.
 
 ---
 
@@ -256,7 +256,7 @@ Ce didacticiel vous a apporté des connaissances sur les disques Azure Data Box,
 >
 > * Expédier le disque Data Box à Microsoft
 
-Passez à la procédure suivante pour savoir comment vérifier le chargement de données à partir d’un disque Data Box vers un compte de stockage Azure.
+Passez à la procédure suivante pour savoir comment vérifier le chargement de données d’un disque Data Box vers le compte de stockage Azure.
 
 > [!div class="nextstepaction"]
 > [Vérifier le chargement de données à partir d’un disque Azure Data Box](./data-box-disk-deploy-upload-verify.md)

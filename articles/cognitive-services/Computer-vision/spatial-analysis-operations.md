@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734537"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226048"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -61,7 +61,7 @@ Il s’agit des paramètres requis par chacune de ces opérations d’analyse sp
 |---------|---------|
 | ID de l'opération | Identificateur d’opération de la table ci-dessus.|
 | enabled | Booléen : true ou false|
-| VIDEO_URL| URL RTSP de la caméra (exemple : `rtsp://username:password@url`). L’analyse spatiale prend en charge les flux encodés en H.264 via RTSP, http ou mp4. Video_URL peut être fourni en tant que valeur de chaîne base64 masquée à l’aide du chiffrement AES, et si l’URL de la vidéo est masquée, `KEY_ENV` et `IV_ENV` doivent être fournis en tant que variables d’environnement. L’exemple d’utilitaire permettant de générer des clés et un chiffrement est disponible [ici](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| URL RTSP de la caméra (exemple : `rtsp://username:password@url`). L’analyse spatiale prend en charge les flux encodés en H.264 via RTSP, http ou mp4. Video_URL peut être fourni en tant que valeur de chaîne base64 masquée à l’aide du chiffrement AES, et si l’URL de la vidéo est masquée, `KEY_ENV` et `IV_ENV` doivent être fournis en tant que variables d’environnement. L’exemple d’utilitaire permettant de générer des clés et un chiffrement est disponible [ici](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Nom convivial de la caméra ou du flux vidéo. Retourné avec la sortie JSON de l’événement.|
 | VIDEO_IS_LIVE| True pour les caméras ; false pour les vidéos enregistrées.|
 | VIDEO_DECODE_GPU_INDEX| Le GPU pour décoder la trame vidéo. 0 par défaut. Doit être identique à `gpu_index` dans les autres configurations de nœud, comme `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
@@ -130,7 +130,7 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 | `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-personcount**, cela doit être `count`.|
 | `trigger` | string| Type de déclencheur pour l’envoi d’un événement. Les valeurs prises en charge sont `event` pour l’envoi d’événements lorsque le nombre change ou `interval` pour envoyer des événements régulièrement, que le nombre ait changé ou non.
-| `interval` | string| Durée en secondes pendant laquelle le nombre de personnes est agrégé avant le déclenchement d’un événement. L’opération continue à analyser la scène à une fréquence constante et retourne le nombre le plus courant sur cet intervalle. L’intervalle d’agrégation s’applique à la fois à `event` et à `interval`.|
+| `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. La valeur `output_frequency` s’applique à la fois à `event` et à `interval`. |
 | `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configuration de ligne pour cognitiveservices.vision.spatialanalysis-personcrossingline
@@ -255,8 +255,7 @@ Voici un exemple d’entrée JSON pour le paramètre SPACEANALYTICS_CONFIG qui c
 | `threshold` | float| Les événements sont émis lorsque la confiance des modèles d’IA est supérieure ou égale à cette valeur. |
 | `type` | string| Pour **cognitiveservices.vision.spatialanalysis-persondistance**, cela doit être `people_distance`.|
 | `trigger` | string| Type de déclencheur pour l’envoi d’un événement. Les valeurs prises en charge sont `event` pour l’envoi d’événements lorsque le nombre change ou `interval` pour envoyer des événements régulièrement, que le nombre ait changé ou non.
-| `interval` | string | Durée en secondes pendant laquelle le nombre d’infractions est agrégé avant le déclenchement d’un événement. L’intervalle d’agrégation s’applique à la fois à `event` et à `interval`.|
-| `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. Le paramètre output_frequency s’applique à la fois à `event` et `interval`.|
+| `output_frequency` | int | Vitesse à laquelle les événements sont émis. Lorsque `output_frequency` = X, un envoi est effectué tous les X événements, par ex. `output_frequency` = 2 signifie qu’un événement sur deux fait l’objet d’une sortie. La valeur `output_frequency` s’applique à la fois à `event` et à `interval`.|
 | `minimum_distance_threshold` | float| Distance en pieds qui déclenchera un événement « TooClose » lorsque les personnes sont moins éloignées que cette distance.|
 | `maximum_distance_threshold` | float| Distance en pieds qui déclenchera un événement « TooFar » lorsque les personnes sont plus éloignées que cette distance.|
 | `focus` | string| Position du point dans le cadre englobant de la personne utilisé pour calculer les événements. La valeur de focus peut être `footprint` (l’encombrement de la personne), `bottom_center` (la partie centrale inférieure du cadre englobant de la personne) ou `center` (le centre du cadre englobant de la personne).|

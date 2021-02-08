@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352998"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052987"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
 
@@ -61,7 +61,7 @@ Les remises liées à l’instance réservée de machine virtuelle et à la capa
 
 ## <a name="get-rates-for-azure-meters"></a>Obtenir les tarifs des compteurs Azure
 
-Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCard. Pour en savoir plus sur la façon de se procurer les tarifs d’un compteur Azure, consultez [Obtenir des informations sur les prix et les métadonnées des ressources utilisées dans un abonnement Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
+Vous pouvez connaître le coût de chaque compteur grâce à l’API Azure Retail Prices (Prix de vente au détail Azure). Pour savoir comment obtenir les tarifs pour un compteur Azure, consultez [Vue d’ensemble d’Azure Retail Prices (Prix de vente au détail Azure)](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les réservations pour Azure, consultez les articles suivants :

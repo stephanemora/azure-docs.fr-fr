@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754430"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225797"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application monopage Angular
 
@@ -49,11 +49,11 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 > 1. Si votre compte a accès à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
 > 1. Suivez les instructions pour [inscrire une application monopage](./scenario-spa-app-registration.md) dans le portail Azure.
 > 1. Ajoutez une nouvelle plateforme dans le volet **Authentification** de l’inscription de votre application, puis enregistrez l’URI de redirection : `http://localhost:4200/`.
-> 1. Ce guide de démarrage rapide utilise le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Sélectionnez les paramètres **Octroi implicite** pour les **jetons d’ID** et les **jetons d’accès**. Des jetons d’ID et des jetons d’accès sont nécessaires, car cette application connectent des utilisateurs et appellent une API.
+> 1. Ce guide de démarrage rapide utilise le [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Dans la section **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride), sélectionnez **Jetons d’ID** et **Jetons d’accès**. Des jetons d’ID et des jetons d’accès sont nécessaires, car cette application connectent des utilisateurs et appellent une API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Étape 1 : Configurer l’application dans le portail Azure
-> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection comme **http://localhost:4200/** et activer **Octroi implicite**.
+> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter l’URI de redirection **http://localhost:4200/** et activer l’****Octroi implicite**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
 >

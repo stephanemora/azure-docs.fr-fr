@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344145"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934541"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -89,6 +89,39 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [*Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)*](troubleshoot-error-403.md).
 
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identité managée pour accéder à d’autres ressources (préversion)
+
+La configuration d’une [identité managée](../active-directory/fundamentals/active-directory-whatis.md) **Azure Active Directory (Azure AD)** pour une instance Azure Digital Twins permet à l’instance d’accéder facilement à d’autres ressources protégées par Azure AD, par exemple [Azure Key Vault](../key-vault/general/overview.md). Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez  [*Identités managées pour les ressources Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Azure prend en charge deux types d’identités managées : celles affectées par le système et celles affectées par l’utilisateur. À l’heure actuelle, Azure Digital Twins prend uniquement en charge les **identités affectées par le système**. 
+
+Vous pouvez utiliser une identité managée affectée par le système pour votre instance Azure Digital pour l’authentification auprès d’[un point de terminaison personnalisé](concepts-route-events.md#create-an-endpoint). Azure Digital Twins prend en charge l’authentification basée sur l’identité affectée par le système aux points de terminaison pour les destinations [Event Hub](../event-hubs/event-hubs-about.md) et  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , et à un point de terminaison [Conteneur Stockage Azure](../storage/blobs/storage-blobs-introduction.md)  pour les [événements de lettres mortes](concepts-route-events.md#dead-letter-events). Les points de terminaison [Event Grid](../event-grid/overview.md)  ne sont actuellement pas pris en charge pour les identités managées.
+
+Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)* ](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Accès réseau privé avec Azure Private Link (préversion)
+
+[Azure Private Link](../private-link/private-link-overview.md) est un service qui vous permet d’accéder aux ressources Azure (par exemple [Azure Event Hubs](../event-hubs/event-hubs-about.md), [Stockage Azure](../storage/common/storage-introduction.md) et [Azure Cosmos DB](../cosmos-db/introduction.md)) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un point de terminaison privé dans votre [réseau virtuel (VNet) Azure](../virtual-network/virtual-networks-overview.md). 
+
+De même, vous pouvez utiliser des points de terminaison privés pour votre instance Azure Digital Twin afin de permettre aux clients situés dans votre réseau virtuel d’accéder de façon sécurisée à l’instance via une liaison privée. 
+
+Le point de terminaison privé utilise une adresse IP de l’espace d’adressage de votre réseau virtuel Azure. Le trafic entre un client de votre réseau privé et l’instance Azure Digital Twins traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine son exposition à l’Internet public. Voici une représentation visuelle de ce système :
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagramme montrant un réseau pour une société PowerGrid, constitué d’un réseau virtuel protégé sans accès à Internet/à un cloud public, se connectant via une liaison privée vers une instance Azure Digital Twins appelée CityOfTwins.":::
+
+La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre réseau virtuel.
+
+Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)* ](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Remarques relatives à la conception 
+
+Lorsque vous utilisez une liaison privée pour Azure Digital Twins, voici quelques facteurs à prendre en compte :
+* **Prix** : Pour plus d’informations sur les tarifs, consultez  [Tarification Azure Private Link](https://azure.microsoft.com/pricing/details/private-link). 
+* **Disponibilité régionale** : Pour Azure Digital Twins, cette fonctionnalité est disponible dans toutes les régions Azure où Azure Digital Twins est disponible. 
+* **Nombre maximal de points de terminaison privés par instance Azure Digital Twins** : 10
+
+Pour plus d’informations sur les limites d’une liaison privée, consultez la  [documentation Azure Private Link : Limitations](../private-link/private-link-service-overview.md#limitations).
+
 ## <a name="service-tags"></a>Balises de service
 
 Une **étiquette de service** représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Pour plus d’informations sur les étiquettes de service, consultez  [*Étiquettes de réseau virtuel*](../virtual-network/service-tags-overview.md). 
@@ -123,7 +156,7 @@ Azure Digital Twins assure le chiffrement des données au repos et en transit à
 
 Azure Digital Twins ne prend pas actuellement en charge **le partage des ressources cross-origin (CORS)** . Par conséquent, si vous appelez une API REST à partir d’une application de navigateur, d’une interface de [Gestion des API (APIM)](../api-management/api-management-key-concepts.md) ou d’un connecteur [Power Apps](/powerapps/powerapps-overview), un message d’erreur de stratégie peut s’afficher.
 
-Pour résoudre cette erreur, vous pouvez effectuer l’une des opérations suivantes :
+Pour résoudre cette erreur, vous pouvez effectuer l’une des actions suivantes :
 * Supprimez l’en-tête CORS `Access-Control-Allow-Origin` du message. Cet en-tête indique si la réponse peut être partagée. 
 * Vous pouvez également créer un proxy CORS et envoyer la requête de l’API REST Azure Digital Twins à travers celui-ci. 
 

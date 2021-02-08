@@ -3,17 +3,17 @@ title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876595"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258793"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -25,6 +25,61 @@ Windows Virtual Desktop est mis à jour régulièrement. Vous trouverez dans cet
 - Résolution des bogues
 
 Cet article est mis à jour tous les mois. Pensez à consulter cette page régulièrement pour être tenu informé des nouvelles mises à jour.
+
+## <a name="client-updates"></a>Mises à jour de client
+
+Consultez ces articles pour en savoir plus sur les mises à jour de nos clients pour Windows Virtual Desktop et Windows Virtual Desktop :
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="fslogix-updates"></a>Mises à jour FSLogix
+
+Vous êtes curieux de découvrir les dernières mises à jour de FSLogix ? Consultez [Nouveautés de FSLogix](/fslogix/whats-new).
+
+## <a name="january-2021"></a>Janvier 2021
+
+Voici ce qui a changé en janvier 2021 :
+
+### <a name="new-windows-virtual-desktop-offer"></a>Nouvelle offre Windows Virtual Desktop
+
+Les nouveaux clients réalisent une économie de 30 % sur les coûts de calcul Windows Virtual Desktop pour les machines virtuelles des séries D et Bs sur une durée maximale de 90 jours dans le cadre d’une utilisation de la solution Microsoft native. Vous pouvez faire valoir cette offre sur le portail Azure avant le 31 mars 2021. Pour en savoir plus, consultez la [page de l’offre Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/offer/).
+
+### <a name="networksecuritygrouprules-value-change"></a>Modification de la valeur de networkSecurityGroupRules 
+
+Dans le modèle imbriqué Azure Resource Manager, nous avons modifié la valeur par défaut de networkSecurityGroupRules, passant d’un objet à un tableau. Si vous utilisez managedDisks-customimagevm.json sans spécifier de valeur pour networkSecurityGroupRules, cela vous évitera des erreurs. Cette modification n’est pas un changement cassant et assure une compatibilité descendante.
+
+### <a name="fslogix-hotfix-update"></a>Mise à jour corrective FSLogix
+
+Nous avons lancé FSLogix version 2009 HF_01 (2.9.7654.46150) pour résoudre les problèmes de la version précédente (2.9.7621.30127). Nous vous recommandons de cesser d’utiliser la version précédente et de mettre à jour FSLogix dès que possible.
+
+Pour plus d’informations, consultez les notes de publication dans [Nouveautés de FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+
+### <a name="azure-portal-experience-improvements"></a>Améliorations de l’expérience du portail Azure
+
+Voici les améliorations que nous avons apportées à l’expérience du portail Azure :
+
+- Vous pouvez maintenant ajouter directement des informations d’identification d’administrateur de machines virtuelles locales au lieu d’ajouter un compte local créé avec des informations d’identification de compte de jonction de domaine Active Directory.
+- Les utilisateurs peuvent désormais lister les affectations individuelles et de groupe dans des onglets distincts pour les utilisateurs individuels et les groupes.
+- Le numéro de version de l’agent Windows Virtual Desktop est désormais visible dans la vue d’ensemble Machine virtuelle des pools d’hôtes.
+- Ajout de la suppression en bloc pour les pools d’hôtes et les groupes d’applications.
+- Vous pouvez maintenant activer ou désactiver le mode maintenance pour plusieurs hôtes de session appartenant à un pool d’hôtes.
+- Suppression du champ d’adresse IP publique de la page d’information sur la machine virtuelle.
+
+### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Résolution des problèmes de l’agent Windows Virtual Desktop
+
+Nous avons récemment créé le [guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md) pour aider les clients qui ont rencontré des problèmes courants.
+
+### <a name="microsoft-defender-for-endpoint-integration"></a>Intégration de Microsoft Defender for Endpoint
+
+L’intégration de Microsoft Defender pour point de terminaison est désormais en disponibilité générale. Cette fonctionnalité dote les machines virtuelles Windows Virtual Desktop de la même expérience d’investigation qu’un ordinateur Windows 10 local. Si vous utilisez Windows 10 Entreprise multisession, Microsoft Defender pour point de terminaison prend en charge jusqu’à 50 connexions utilisateur simultanées, ce qui vous fait bénéficier des économies de Windows 10 Entreprise multisession et de la confiance de Microsoft Defender pour point de terminaison. Pour plus d’informations, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+
+### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Ligne de base de sécurité Azure pour Windows Virtual Desktop
+
+Nous avons récemment publié un [article sur la ligne de base de sécurité Azure](security-baseline.md) pour Windows Virtual Desktop sur lequel nous voudrions attirer votre attention. Parmi ces recommandations figurent des informations sur l’application du benchmark de sécurité Azure version 2.0 à Windows Virtual Desktop. Le benchmark de sécurité Azure décrit les paramètres et les pratiques que nous vous recommandons d’utiliser pour sécuriser vos solutions cloud sur Azure.
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -257,16 +312,6 @@ Nous avons ajouté un nouveau cluster de passerelle en Afrique du Sud pour rédu
 Nous avons apporté des améliorations à Microsoft Teams pour Windows Virtual Desktop. Plus important encore, Windows Virtual Desktop prend désormais en charge la redirection audio et vidéo pour les appels. La redirection améliore la latence en créant des chemins directs entre les utilisateurs quand ils effectuent des appels audio ou vidéo. Une distance moins élevée signifie moins de tronçons, ce qui améliore la fluidité sonore et visuelle des appels.
 
 Pour plus d’informations, consultez [notre billet de blog](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## <a name="client-updates"></a>Mises à jour de client
-
-Consultez ces articles pour en savoir plus sur les mises à jour de nos clients pour Windows Virtual Desktop et Windows Virtual Desktop :
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

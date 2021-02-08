@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025483"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500078"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Créer des ressources Azure de prise en charge pour votre fonction
 
 Avant de déployer le code de votre fonction dans Azure, vous devez créer trois ressources :
 
-- Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
-- Un compte de stockage, qui conserve l’état et d’autres informations spécifiques à vos projets.
+- Un [groupe de ressources](../articles/azure-resource-manager/management/overview.md), qui est un conteneur logique pour les ressources associées.
+- Un [compte de stockage](../articles/storage/common/storage-account-create.md), qui sert à conserver l’état et d’autres informations sur vos fonctions.
 - Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
 Utilisez les commandes suivantes pour créer ces éléments. Azure CLI et PowerShell sont pris en charge.

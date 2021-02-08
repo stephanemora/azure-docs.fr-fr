@@ -10,19 +10,31 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a409d66065a7ccd2b34365bd565202f207ac0e8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560744"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258080"
 ---
 # <a name="whats-new-in-face-service"></a>Nouveautés du service Visage
 
 Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des améliorations de fonctionnalités, des correctifs et des mises à jour de la documentation.
 
+## <a name="january-2021"></a>Janvier 2021
+* Limiter la latence lors de l’utilisation de l’API Visage : L’équipe Visage a publié un nouvel article détaillant les causes potentielles de la latence lors de l’utilisation du service, et les stratégies d’atténuation possibles. Voir [Limiter la latence lors de l’utilisation du service Visage](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+
+## <a name="december-2020"></a>Décembre 2020
+* Configuration du client pour le stockage d’ID de visage : Bien que le service Visage ne stocke pas les images des clients, les caractéristiques de visage extraites seront stockées sur le serveur. L’ID de visage est un identificateur de la caractéristique de visage et sera utilisé dans les options [Visage - Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Visage - Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) et [Visage - Rechercher semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Les caractéristiques de visage stockées expirent et seront supprimées 24 heures après l’appel de détection d’origine. Les clients peuvent maintenant déterminer la durée de mise en cache de ces ID de visage. La valeur maximale est toujours de 24 heures, mais une valeur minimale de 60 secondes peut maintenant être définie. Les nouvelles plages de temps pour les ID de visage mis en cache sont comprises entre 60 secondes et 24 heures. Pour plus d’informations, consultez les informations de référence sur l’API [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (paramètre *faceIdTimeToLive*).
+
 ## <a name="november-2020"></a>Novembre 2020
-* Publication d’un exemple d’application d’inscription à Visage pour montrer les meilleures pratiques pour l’établissement d’un consentement explicite et créer des systèmes de reconnaissance faciale de haute précision via des inscriptions de haute qualité. L’exemple open source se trouve dans le guide [Créer une application d’inscription](build-enrollment-app.md) et sur [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), prêt à être déployé ou personnalisé par des développeurs.  
+* Publication d’un exemple d’application d’inscription à Visage pour montrer les meilleures pratiques pour l’établissement d’un consentement explicite et créer des systèmes de reconnaissance faciale de haute précision via des inscriptions de haute qualité. L’exemple open source se trouve dans le guide [Créer une application d’inscription](build-enrollment-app.md) et sur [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), prêt à être déployé ou personnalisé par des développeurs. 
+
+## <a name="august-2020"></a>Août 2020
+* Chiffrement des données au repos géré par le client : Le service Visage chiffre automatiquement vos données lors de leur conservation dans le cloud. Le chiffrement du service Visage protège vos données et vous aide à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Par défaut, votre abonnement utilise des clés de chiffrement gérées par Microsoft. Il existe aussi une nouvelle possibilité de gérer votre abonnement avec vos propres clés appelées clés gérées par le client (CMK). Pour plus d’informations, consultez [Clés gérées par le client](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+
+## <a name="april-2020"></a>Avril 2020
+* Nouveau modèle de reconnaissance de l’API Visage : Le nouveau modèle recognition 03 est le modèle le plus précis actuellement disponible. Si vous êtes un nouveau client, nous vous recommandons d’utiliser ce modèle. Recognition 03 offrira une meilleure précision pour les comparaisons de similarité et les comparaisons de correspondance de personne. Pour plus d’informations, consultez [Spécifier un modèle de reconnaissance faciale](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
 
 ## <a name="june-2019"></a>Juin 2019
 

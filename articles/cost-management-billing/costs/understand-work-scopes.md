@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132293"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054802"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -114,7 +114,7 @@ Les abonnements Azure créés à partir d’offres individuelles, comme le paiem
 
     Type de ressource : Non applicable
 
-Les administrateurs de comptes d’abonnement Azure individuels peuvent afficher et gérer les données de facturation, telles que les factures et les paiements, à partir du [Centre des comptes Azure](https://account.azure.com/subscriptions). Toutefois, ils ne peuvent pas afficher les données de coûts ou gérer les ressources dans le Portail Azure. Pour accorder l’accès à l’administrateur de compte, utilisez les rôles Cost Management mentionnés précédemment.
+Les administrateurs de comptes d’abonnement Azure individuels peuvent afficher et gérer les données de facturation, telles que les factures et les paiements, à partir du [Portail Azure](https://portal.azure.com) > **Abonnements** > sélectionnez un abonnement.
 
 Contrairement au Contrat Entreprise, les administrateurs de comptes d’abonnement Azure individuels peuvent voir leurs factures dans le Portail Azure. N’oubliez pas que les rôles Lecteur Cost Management et Contributeur Cost Management ne donnent pas accès aux factures. Pour plus d’informations, consultez l’article expliquant [comment accorder l’accès aux factures](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

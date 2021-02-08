@@ -3,17 +3,17 @@ title: Démarrage rapide – Créer un service Azure IoT Hub Device Provisioning
 description: Démarrage rapide – Découvrez comment créer un service Azure IoT Hub Device Provisioning avec un modèle Azure Resource Manager (ARM).
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/03/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746202"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928929"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec un modèle ARM
 
@@ -35,6 +35,9 @@ Si votre environnement satisfait les prérequis et si vous êtes déjà habitué
 ## <a name="review-the-template"></a>Vérifier le modèle
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+
+> [!NOTE]
+> Actuellement, le modèle ARM n’est pas pris en charge pour la création d’inscriptions avec de nouvelles ressources DPS. Il s’agit d’une demande fréquente et comprise que nous envisageons d’implémenter dans le futur.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 

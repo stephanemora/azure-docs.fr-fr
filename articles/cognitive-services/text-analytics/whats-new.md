@@ -8,19 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652840"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220698"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
 L’API Analyse de texte est mise à jour de manière continue. Pour vous informer des développements récents, cet article vous fournit des informations sur les nouvelles versions et fonctionnalités.
+
+## <a name="january-2021"></a>Janvier 2021
+
+* La version du modèle `2021-01-15` pour [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) v3.x, qui fournit 
+  * Prise en charge linguistique étendue pour [plusieurs catégories d’entités générales](named-entity-types.md). 
+  * Amélioration de la qualité de l’IA des catégories d’entités générales pour toutes les langues v3 prises en charge. 
+
+* La version du modèle `2021-01-05` pour la [détection de la langue](how-tos/text-analytics-how-to-language-detection.md), qui fournit une [prise en charge linguistique](language-support.md?tabs=language-detection) supplémentaire.
+
+Ces versions de modèle ne sont pas disponibles actuellement dans la région USA Est. 
+
+> [!div class="nextstepaction"]
+> [En savoir plus sur le nouveau modèle NER](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -66,7 +79,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
 ### <a name="text-analytics-for-health-container-updates"></a>Mises à jour du conteneur Analyse de texte pour la santé
 
 Les mises à jour suivantes sont spécifiques à la version du mois de septembre du conteneur Analyse de texte pour la santé uniquement.
-* Une nouvelle image conteneur avec la balise `1.1.013530001-amd64-preview` avec la nouvelle version `2020-09-03` du modèle a été publiée dans le référentiel containerpreview. 
+* Une nouvelle image conteneur avec la balise `1.1.013530001-amd64-preview` avec la nouvelle version `2020-09-03` du modèle a été publiée dans le référentiel du conteneur en préversion. 
 * Cette version de modèle apporte des améliorations en matière de reconnaissance d’entités, de détection d’abréviation et de latence.
 
 > [!div class="nextstepaction"]

@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498980"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509399"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en utilisant le SDK JavaScript
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ Une fois cela en place, nous sommes prêts à créer un index.
 
 ## <a name="1---create-index"></a>1 - Créer un index 
 
-Créez un fichier **hotels_quickstart_index.json**.  Ce fichier définit le fonctionnement de la Recherche cognitive Azure avec les documents que vous allez charger à l’étape suivante. Chaque champ est identifié par un `name` et a un `type` spécifié. Chaque champ contient également une série d’attributs d’index qui spécifient si la Recherche cognitive Azure peut effectuer des opérations de recherche, de tri, de filtrage et de définition de facettes sur le champ. La plupart des champs sont des types de données simples, mais certains, comme `AddressType`, sont des types complexes qui vous permettent de créer des structures de données riches dans votre index.  Vous pouvez en savoir plus sur les [types de données pris en charge](/rest/api/searchservice/supported-data-types) et les [attributs d’index](./search-what-is-an-index.md#index-attributes). 
+Créez un fichier **hotels_quickstart_index.json**.  Ce fichier définit le fonctionnement de la Recherche cognitive Azure avec les documents que vous allez charger à l’étape suivante. Chaque champ est identifié par un `name` et a un `type` spécifié. Chaque champ contient également une série d’attributs d’index qui spécifient si la Recherche cognitive Azure peut effectuer des opérations de recherche, de tri, de filtrage et de définition de facettes sur le champ. La plupart des champs sont des types de données simples, mais certains, comme `AddressType`, sont des types complexes qui vous permettent de créer des structures de données riches dans votre index.  Vous pouvez en savoir plus sur les [types de données pris en charge](/rest/api/searchservice/supported-data-types) et les attributs d’index décrits dans [Créer un index (REST)](/rest/api/searchservice/create-index). 
 
 Ajoutez l’élément suivant à **hotels_quickstart_index.json** ou [téléchargez le fichier](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json). 
 

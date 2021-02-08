@@ -3,14 +3,14 @@ title: Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
 description: Apprenez à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173804"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893844"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde (préversion)
 
 Le Centre de sauvegarde vous aide à gérer votre environnement Azure pour vous assurer que toutes vos ressources sont conformes du point de vue de la sauvegarde. Voici quelques-unes des fonctionnalités de gouvernance du Centre de sauvegarde :
 
@@ -43,6 +43,11 @@ Le fait de cliquer sur l’élément de menu Conformité de la sauvegarde vous p
 La sélection de l’élément de menu **Sources de données protégeables** vous permet d’afficher toutes les sources de source qui n’ont pas été configurées pour la sauvegarde. Vous pouvez filtrer la liste par abonnement, groupe de ressources, emplacement, type et balises de source de données. Une fois que vous avez identifié une source de données nécessitant une sauvegarde, vous pouvez cliquer avec le bouton droit sur l’élément de grille correspondant et sélectionner **Sauvegarder** pour configurer la sauvegarde pour la ressource.
 
 ![Menu des sources de données protégeables](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> Si vous sélectionnez **SQL dans une machine virtuelle Azure** comme type de source de données, la vue **Sources de données protégeables** affiche la liste de toutes les machines virtuelles de la galerie qui n’ont pas de bases de données SQL configurées pour la sauvegarde.
+> Si vous sélectionnez **Stockage Azure (Azure Files)** comme type de source de données, la vue **Sources de données protégeables** affiche la liste de tous les comptes de stockage (prenant en charge les partages de fichiers) qui n’ont pas de partages de fichiers configurés pour la sauvegarde.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

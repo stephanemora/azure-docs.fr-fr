@@ -3,14 +3,14 @@ title: Vue d’ensemble du Centre de sauvegarde
 description: Cet article fournit une vue d’ensemble du Centre de sauvegarde pour Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893607"
 ---
-# <a name="overview-of-backup-center"></a>Vue d’ensemble du Centre de sauvegarde
+# <a name="overview-of-backup-center-preview"></a>Vue d’ensemble du Centre de sauvegarde (préversion)
 
 Le Centre de sauvegarde fournit une **expérience de gestion unifiée unique** dans Azure pour permettre aux entreprises de gouverner, de surveiller, d’opérer et d’analyser les sauvegardes à grande échelle. De ce fait, il est cohérent avec les expériences de gestion natives d’Azure.
 
@@ -22,7 +22,7 @@ Voici quelques-uns des principaux avantages du Centre de sauvegarde :
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde de machines virtuelles Azure et de serveur Azure Database pour PostgreSQL.
+* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde de machines virtuelles SQL dans Azure, la sauvegarde de machines virtuelles SAP HANA dans Azure, et la sauvegarde des serveurs Azure Database pour PostgreSQL.
 * Pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge, consultez la [Matrice de prise en charge](backup-center-support-matrix.md).
 
 ## <a name="get-started"></a>Bien démarrer

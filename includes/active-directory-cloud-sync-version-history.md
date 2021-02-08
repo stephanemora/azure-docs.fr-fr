@@ -1,14 +1,42 @@
 ---
-ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97700589"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900899"
 ---
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. L’agent de provisionnement est mis à jour automatiquement quand une nouvelle version est publiée. 
 
 Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
+
+## <a name="113540"></a>1.1.354.0
+
+20 janvier 2021 : publiée pour téléchargement
+
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+- Amélioration de l’expérience GMSA, y compris la prise en charge du compte GMSA personnalisé préalablement créé
+- Prise en charge des [applets de commande PowerShell](../articles/active-directory/cloud-sync/how-to-gmsa-cmdlets.md) pour la configuration de GMSA
+- [Prise en charge de l’interface CLI](../articles/active-directory/cloud-sync/how-to-install-pshell.md) pour l’installation de l’agent (installation sans assistance)
+- Diagnostics supplémentaires pour les problèmes de mise en quarantaine de la source de l’agent
+- Correctifs de bogues qui incluent la réduction de l’utilisation de la mémoire des filtres d’étendue d’unité d'organisation (UO), l’exécution de PHS uniquement pour les utilisateurs concernés, la gestion des objets imbriqués dans l’unité d’organisation en cas d’utilisation de l’étendue d’UO, etc. 
+
+
+### <a name="fixed-issues"></a>Problèmes résolus
+-    Empêcher la mise en quarantaine lorsque le groupe d’étendue est hors de portée
+-   Lorsque les filtres d’étendue sont configurés, la tâche PHS ne fonctionne désormais que pour les utilisateurs concernés
+-   L’agent est parfois bloqué pendant la mise à niveau
+-   Synchronisation initiale des objets dans les unités d’organisation imbriquées lors de l’utilisation de l’étendue d’UO
+-   Renforcement de Repair-AADCloudSyncToolsAccount
+-   Réduire l’utilisation importante de la mémoire des filtres d’étendue d’UO
+-   La vérification du rôle d’administrateur échoue si les membres d’un rôle contiennent un groupe de sécurité
+-   Résolution du problème d’autorisation du dossier GMSA qui empêche le renouvellement du certificat de l’agent
+
+
+
+
+
+
 
 ## <a name="112810"></a>1.1.281.0
 
@@ -18,18 +46,18 @@ Microsoft offre une prise en charge directe de la version la plus récente de l�
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
-* Prise en charge de [gMSA](../articles/active-directory/cloud-provisioning/how-to-prerequisites.md#group-managed-service-accounts)
+* Prise en charge de [gMSA](../articles/active-directory/cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
 * Prise en charge des groupes dont la taille est inférieure à 1500 membres pendant le cycle de synchronisation incrémentielle ou différentielle. Cela s’applique en cas d’utilisation du filtre de délimitation du groupe
 * Prise en charge des grands groupes ayant une taille allant jusqu’à 15 000 membres
 * Améliorations de la synchronisation initiale
 * Journalisation détaillée avancée
-* Présentation du [module PowerShell AADCloudSyncTools](../articles/active-directory/cloud-provisioning/reference-powershell.md)
+* Présentation du [module PowerShell AADCloudSyncTools](../articles/active-directory/cloud-sync/reference-powershell.md)
 * Correction des limitations pour autoriser l’installation de l’agent sur un serveur non anglais
 * Prise en charge du filtrage par PHS uniquement pour les objets de l’étendue (à l’origine, nous synchronisons les hachages de mot de passe pour tous les objets)
 * Correction du problème de fuite de mémoire dans l’agent
 * Amélioration des journaux d’approvisionnement
-* Support de la configuration du [délai de connexion LDAP](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
-* Support de la configuration du [repérage de références](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 
+* Support de la configuration du [délai de connexion LDAP](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 
+* Support de la configuration du [repérage de références](../articles/active-directory/cloud-sync/how-to-manage-registry-options.md#configure-referral-chasing) 
 
 
 ## <a name="11960"></a>1.1.96.0
@@ -40,7 +68,7 @@ Microsoft offre une prise en charge directe de la version la plus récente de l�
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
-* Prend en charge le [provisionnement cloud Azure AD Connect](../articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md) pour synchroniser les données sur les utilisateurs, contacts et groupes de l’instance Active Directory locale avec Azure AD
+* Prend en charge la [synchronisation cloud Azure AD Connect](../articles/active-directory/cloud-sync/what-is-cloud-sync.md) pour synchroniser les données sur les utilisateurs, contacts et groupes de l’instance Active Directory locale avec Azure AD
 
 
 ## <a name="11670"></a>1.1.67.0
@@ -71,5 +99,3 @@ Microsoft offre une prise en charge directe de la version la plus récente de l�
 * Optimisation de l’architecture du connecteur et de l’agent de provisionnement à des fins de performances, de stabilité et de fiabilité 
 * Simplification de la configuration de l’agent de provisionnement avec l’Assistant Installation géré par l’interface utilisateur 
 * Ajout de la prise en charge des mises à jour automatiques de l’agent
-
-

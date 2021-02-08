@@ -1,33 +1,33 @@
 ---
-title: 'Démarrage rapide : Créer un index de recherche dans Java à l’aide des API REST'
+title: 'Démarrage rapide : Créer un index de recherche en Java'
 titleSuffix: Azure Cognitive Search
-description: Dans ce guide de démarrage rapide Java, découvrez comment créer un index, charger des données et exécuter des requêtes avec les API REST de Recherche cognitive Azure.
+description: Dans ce guide de démarrage rapide Java, découvrez comment créer un index, charger des données et exécuter des requêtes avec la bibliothèque cliente Recherche cognitive Azure pour Java.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 2ab87dfdeb18f97265c3bb2f34616c942a345c1e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9e05e41ca0c293e31a29dc25a7b4ec7b87734246
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698945"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509416"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Java à l’aide des API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Java
 > [!div class="op_single_selector"]
+> * [Java](search-get-started-java.md)
 > * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
 > * [Portail](search-get-started-portal.md)
-> * [PowerShell](./search-get-started-powershell.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Générez une application console Java qui crée, charge et interroge un index de recherche à l’aide de [IntelliJ](https://www.jetbrains.com/idea/), du [SDK Java 11](/java/azure/jdk/) et de l’[API REST Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Générez une application console Java qui crée, charge et interroge un index de recherche à l’aide de [IntelliJ](https://www.jetbrains.com/idea/), du [SDK Java 11](/java/azure/jdk/) et de l’[API REST Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](https://developers.google.com/sheets/api/quickstart/java).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -49,11 +49,9 @@ Les appels au service nécessitent un point de terminaison d’URL et une clé d
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-   Créez également une clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
-
-:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtenir le nom du service, les clés d’administration et les clés de requête" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obtenir le nom du service, les clés d’administration et les clés de requête" border="false":::
 
 Chaque demande envoyée à votre service nécessite une clé API. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -88,21 +86,72 @@ Commencez par ouvrir IntelliJ IDEA et configurer un nouveau projet.
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <modelVersion>4.0.0</modelVersion>
-    
         <groupId>AzureSearchQuickstart</groupId>
         <artifactId>AzureSearchQuickstart</artifactId>
+        <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
+        <properties>
+            <jackson.version>2.12.1</jackson.version>
+            <auto-value.version>1.6.2</auto-value.version>
+            <junit.version>5.4.2</junit.version>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
+        <name>azuresearch-console</name>
+        <url>http://maven.apache.org</url>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jdk8</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.value</groupId>
+                <artifactId>auto-value-annotations</artifactId>
+                <version>${auto-value.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.auto.value</groupId>
+                <artifactId>auto-value</artifactId>
+                <version>${auto-value.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-search-documents</artifactId>
+                <version>11.1.3</version>
+            </dependency>
+        </dependencies>
+    
         <build>
-            <sourceDirectory>src</sourceDirectory>
             <plugins>
+                <!--put generated source files to generated-sources-->
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
+                    <version>3.8.0</version>
                     <configuration>
                         <source>11</source>
                         <target>11</target>
                     </configuration>
                 </plugin>
+                <!-- For JUnit -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <!-- Add exec plugin to run demo program -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
@@ -115,27 +164,21 @@ Commencez par ouvrir IntelliJ IDEA et configurer un nouveau projet.
                         </execution>
                     </executions>
                     <configuration>
-                        <mainClass>main.java.app.App</mainClass>
+                        <mainClass>com.microsoft.azure.search.samples.demo.App</mainClass>
                         <cleanupDaemonThreads>false</cleanupDaemonThreads>
                     </configuration>
                 </plugin>
             </plugins>
         </build>
-        <dependencies>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.2</version>
-            </dependency>
-        </dependencies>   
     </project>
     ```
 
+<!-- STOPPED HERE -- SENT EMAIL TO TONG XU ASKING FOR INFO -->
 ### <a name="set-up-the-project-structure"></a>Configurer la structure de projet
 
 1. Sélectionnez **Fichier** > **Structure du projet**.
 1. Sélectionnez **Modules**, puis développez l’arborescence source pour accéder au contenu du dossier `src` >  `main`.
-1. Dans le dossier `src` >  `main` > `java`, ajoutez les dossiers `app` et `service`. Pour ce faire, sélectionnez le dossier `java`, appuyez sur Alt+Insertion, puis entrez le nom du dossier.
+1. Dans le dossier `src` >  `main` > `java`, ajoutez des dossiers pour `com`, `microsoft`, `azure`, `search`, `samples`, `demo`. Pour ce faire, sélectionnez le dossier `java`, appuyez sur Alt+Insertion, puis entrez le nom du dossier.
 1. Dans le dossier `src` >  `main` >`resources`, ajoutez les dossiers `app` et `service`.
 
     Quand vous avez terminé, l’arborescence de projet doit ressembler à l’image suivante.
@@ -511,7 +554,7 @@ La définition de l’index des hôtels contient des champs simples et un champ 
     }
     ```
 
-    Le nom de l’index sera « hotels-quickstart ». Les attributs des champs d’index déterminent la manière dont les données indexées peuvent faire l’objet d’une recherche dans une application. Par exemple, l’attribut `IsSearchable` doit être affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. Pour en savoir plus sur les attributs, consultez [Collection et attributs de champs](search-what-is-an-index.md#fields-collection).
+    Le nom de l’index sera « hotels-quickstart ». Les attributs des champs d’index déterminent la manière dont les données indexées peuvent faire l’objet d’une recherche dans une application. Par exemple, l’attribut `IsSearchable` doit être affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. Pour en savoir plus sur les attributs, consultez [Créer un index (REST)](/rest/api/searchservice/create-index).
     
     Le champ `Description` de cet index utilise la propriété `analyzer` facultative pour remplacer l’analyseur de langage Lucene par défaut. Le champ `Description_fr` utilise l’analyseur Lucene en français (`fr.lucene`), car il stocke le texte en français. Le champ `Description` utilise l’analyseur de langage Microsoft facultatif en.lucene. Pour en savoir plus sur les analyseurs, consultez [Analyseurs pour le traitement de texte dans la Recherche cognitive Azure](search-analyzers.md).
 

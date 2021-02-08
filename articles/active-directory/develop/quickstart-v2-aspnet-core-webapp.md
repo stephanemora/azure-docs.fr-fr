@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754513"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225831"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -56,13 +56,13 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Sélectionnez **Inscription**.
 > 1. Sous **Gérer**, sélectionnez **Authentification**.
 > 1. Sous **URI de redirection**, sélectionnez **Ajouter un URI**, puis entrez `https://localhost:44321/signin-oidc`.
-> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`.
-> 1. Sous **Octroi implicite**, sélectionnez **Jetons d’ID**.
+> 1. Entrez une **Front-channel logout URL** (URL de déconnexion de canal frontal) ayant la valeur `https://localhost:44321/signout-oidc`.
+> 1. Sous **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride), sélectionnez **Jetons d’ID**.
 > 1. Sélectionnez **Enregistrer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter les URL de réponse `https://localhost:44321/` et `https://localhost:44321/signin-oidc`, ajouter l’URL de déconnexion `https://localhost:44321/signout-oidc` et demander l’émission des jetons d’ID par le point de terminaison d’autorisation.
+> Cet exemple de code du guide de démarrage rapide nécessite l’**URI de redirection** `https://localhost:44321/` et `https://localhost:44321/signin-oidc` ainsi que l’**URL de déconnexion de canal frontal** `https://localhost:44321/signout-oidc`. Les jetons d’ID de requête sont émis par le point de terminaison d’autorisation.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
 >

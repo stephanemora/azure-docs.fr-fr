@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a4a2034d44d98de9696b435c68c97a8a54a1c351
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028362"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214838"
 ---
 Azure fournit les rôles intégrés Azure suivants pour autoriser l’accès au blob et aux données de file d’attente avec Azure AD et OAuth :
 
@@ -31,4 +31,4 @@ Seuls les rôles explicitement définis pour l’accès aux données permettent 
 Pour des informations détaillées sur les rôles intégrés Azure pour le Stockage Azure pour les services de données et de gestion, consultez la section **Stockage** dans [Rôles intégrés Azure pour Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Pour plus d’informations sur les différents types de rôles qui fournissent des autorisations dans Azure, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> Les attributions de rôles Azure peuvent prendre jusqu’à cinq minutes pour se propager.
+> Les attributions de rôles Azure peuvent prendre jusqu’à 30 minutes pour se propager.

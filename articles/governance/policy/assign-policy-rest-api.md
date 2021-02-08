@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Nouvelle attribution de stratégie avec une API REST'
 description: Dans ce démarrage rapide, vous allez utiliser une API REST pour créer une attribution Azure Policy afin d’identifier des ressources non conformes.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074003"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219975"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier des ressources non conformes avec une API REST
 
@@ -47,6 +47,11 @@ Exécutez la commande suivante pour créer une attribution de stratégie :
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -64,7 +69,8 @@ URI DE L’API REST :
 Corps de la demande :
 - **DisplayName** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
 - **Description**  : explication plus détaillée de ce que fait la stratégie ou de la raison pour laquelle elle est attribuée à cette étendue.
-- **policyDefinitionId** : ID de définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_ .
+- **policyDefinitionId** : ID de définition de stratégie, sur lequel vous vous basez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_.
+- **nonComplianceMessages** : définition du message qui s’affiche quand une ressource est refusée en raison de sa non-conformité ou est évaluée comme non conforme. Pour plus d’informations, consultez la section sur les [messages de non-conformité des affectations](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identifier des ressources non conformes
 

@@ -3,14 +3,14 @@ title: Effectuer des actions à l’aide du Centre de sauvegarde
 description: Cet article explique comment effectuer des actions à l’aide du Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854424"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894573"
 ---
-# <a name="perform-actions-using-backup-center"></a>Effectuer des actions à l’aide du Centre de sauvegarde
+# <a name="perform-actions-using-backup-center-preview"></a>Effectuer des actions à l’aide du Centre de sauvegarde (préversion)
 
 Le Centre de sauvegarde vous permet d’effectuer des actions de sauvegarde de clés à partir d’une interface centrale sans devoir accéder à un coffre individuel. Voici quelques actions que vous pouvez effectuer à partir du Centre de sauvegarde :
 
@@ -23,26 +23,28 @@ Le Centre de sauvegarde vous permet d’effectuer des actions de sauvegarde de c
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure et la sauvegarde des serveurs Azure Database pour PostgreSQL.
+* Le Centre de sauvegarde est actuellement pris en charge pour la sauvegarde des machines virtuelles Azure, la sauvegarde de machines virtuelles SQL dans Azure, la sauvegarde de machines virtuelles SAP HANA dans Azure, et la sauvegarde des serveurs Azure Database pour PostgreSQL.
 * Reportez-vous à la [matrice de prise en charge ](backup-center-support-matrix.md) pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge.
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 
+Si vous sauvegardez des machines virtuelles Azure, des machines virtuelles SQL dans Azure, des machines virtuelles SAP HANA dans Azure ou Azure Files, vous devez utiliser un coffre Recovery Services. Si vous sauvegardez des bases de données Azure pour serveur PostgreSQL, vous devez utiliser un coffre de sauvegarde. 
+
 Selon le type de source de données que vous souhaitez sauvegarder, suivez les instructions appropriées comme indiqué ci-dessous.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Configurer la sauvegarde des machines virtuelles Azure
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Configurer la sauvegarde dans un coffre Recovery Services
 
 1. Accédez au Centre de sauvegarde et sélectionnez **+ Sauvegarde** en haut de l’onglet **Vue d’ensemble**.
 
     ![Vue d’ensemble du Centre de sauvegarde](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Sélectionnez le type de source de données que vous souhaitez sauvegarder (machine virtuelle Azure dans le cas présent).
+2. Sélectionnez le type de source de source que vous souhaitez sauvegarder.
 
     ![Sélectionner une source de données pour configurer la sauvegarde de machine virtuelle](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Choisissez un coffre Recovery Services, puis sélectionnez **Continuer**. Vous accédez alors à l’expérience de configuration de la sauvegarde qui est identique à celle accessible à partir d’un coffre Recovery Services. [En savoir plus sur la configuration de la sauvegarde pour les machines virtuelles Azure avec un coffre Recovery Services](tutorial-backup-vm-at-scale.md).
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Configurer la sauvegarde pour le serveur Azure Database pour PostgreSQL
+### <a name="configure-backup-to-a-backup-vault"></a>Configurer la sauvegarde dans un coffre de sauvegarde
 
 1. Accédez au Centre de sauvegarde et sélectionnez **+ Sauvegarde** en haut de l’onglet **Vue d’ensemble**.
 2. Sélectionnez le type de source de données que vous souhaitez sauvegarder (serveur Azure Database pour PostgreSQL dans le cas présent).
@@ -55,19 +57,19 @@ Selon le type de source de données que vous souhaitez sauvegarder, suivez les i
 
 Selon le type de source de données que vous souhaitez restaurer, suivez les instructions appropriées comme indiqué ci-dessous.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Si vous restaurez une machine virtuelle Azure
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Si vous effectuez une restauration à partir d’un coffre Recovery Services
 
 1. Accédez au Centre de sauvegarde et sélectionnez **Restaurer** en haut de l’onglet **Vue d’ensemble**.
 
     ![Vue d’ensemble du Centre de sauvegarde pour restaurer une machine virtuelle](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Sélectionnez le type de source de données que vous souhaitez restaurer (machine virtuelle Azure dans le cas présent).
+2. Sélectionnez le type de source de source que vous souhaitez restaurer.
 
     ![Sélectionner la source de données pour la restauration de la machine virtuelle](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Choisissez une instance de sauvegarde et sélectionnez **Continuer**. Vous accédez alors à l’expérience de paramètres de restauration qui est identique à celle accessible à partir d’un coffre Recovery Services. [En savoir plus sur la restauration d’une machine virtuelle Azure avec un coffre Recovery Services](backup-azure-arm-restore-vms.md#before-you-start).
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Si vous restaurez un serveur Azure Database pour PostgreSQL
+### <a name="if-youre-restoring-from-a-backup-vault"></a>Si vous effectuez une restauration à partir d’un coffre de sauvegarde
 
 1. Accédez au Centre de sauvegarde et sélectionnez **Restaurer** en haut de l’onglet **Vue d’ensemble**.
 2. Sélectionnez le type de source de données que vous souhaitez restaurer (serveur Azure Database pour PostgreSQL dans le cas présent).
@@ -89,19 +91,19 @@ Vous pouvez créer un coffre en accédant au Centre de sauvegarde et en sélecti
 
 Selon le type de source de données que vous souhaitez sauvegarder, suivez les instructions appropriées comme indiqué ci-dessous.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Si vous sauvegardez une machine virtuelle Azure
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Si vous effectuez une sauvegarde vers un coffre Recovery Services
 
 1. Accédez au Centre de sauvegarde et sélectionnez **+ Stratégie** en haut de l’onglet **Vue d’ensemble**.
 
     ![Vue d’ensemble du Centre de sauvegarde pour la stratégie de sauvegarde](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Sélectionnez le type de source de données que vous souhaitez sauvegarder (machine virtuelle Azure dans le cas présent).
+2. Sélectionnez le type de source de source que vous souhaitez sauvegarder.
 
     ![Sélectionner la source de données pour la sauvegarde de la machine virtuelle](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Choisissez un coffre Recovery Services, puis sélectionnez **Continuer**. Vous accédez alors à l’expérience de configuration de la stratégie qui est identique à celle accessible à partir d’un coffre Recovery Services. [En savoir plus sur la création d’une stratégie de sauvegarde pour une machine virtuelle Azure avec un coffre Recovery Services](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Si vous sauvegardez un serveur Azure Database pour PostgreSQL
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>Si vous effectuez une sauvegarde vers un coffre de sauvegarde
 
 1. Accédez au Centre de sauvegarde et sélectionnez **+ Stratégie** en haut de l’onglet **Vue d’ensemble**.
 2. Sélectionnez le type de source de données que vous souhaitez sauvegarder (serveur Azure Database pour PostgreSQL dans le cas présent).

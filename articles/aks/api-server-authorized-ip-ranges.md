@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682500"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890632"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -130,6 +130,23 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>Rechercher les plages d’adresses IP autorisées existantes
+
+Pour rechercher les plages d’adresses IP qui ont été autorisées, utilisez [az aks show][az-aks-show] en indiquant le nom et le groupe de ressources du cluster. Par exemple :
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Mettre à jour, désactiver et rechercher les plages d’adresses IP autorisées à l’aide du portail Azure
+
+Les opérations ci-dessus relatives à l’ajout, à la mise à jour, à la recherche et à la désactivation des plages d’adresses IP autorisées peuvent également être effectuées dans le portail Azure. Pour cela, accédez à **Mise en réseau** sous **Paramètres** dans le panneau de menu de votre ressource de cluster.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="Dans un navigateur, affiche la page des paramètres de mise en réseau de la ressource de cluster dans le portail Azure. Les options « Définir la plage d’adresses IP spécifiée » et « Plages d’adresses IP spécifiées » sont mises en surbrillance.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Comment trouver mon adresse IP à inclure dans `--api-server-authorized-ip-ranges` ?
 
 Vous devez ajouter vos ordinateurs de développement, vos outils ou vos adresses IP Automation à la liste de clusters AKS des plages d’adresses IP approuvées pour accéder au serveur d’API à partir de ces emplacements. 
@@ -170,6 +187,7 @@ Pour plus d’informations, consultez [Concepts de sécurité pour les applicati
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

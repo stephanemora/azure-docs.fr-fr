@@ -1,14 +1,14 @@
 ---
 title: 'Tutoriel : Générer des stratégies pour appliquer la conformité'
 description: Dans ce tutoriel, vous utilisez des stratégies pour appliquer des normes, maîtriser les coûts, garantir la sécurité et imposer des principes de conception à l’échelle de l’entreprise.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005433"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221191"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutoriel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -71,6 +71,10 @@ La première étape de l’application de la conformité avec une stratégie Azu
 1. Laissez la case **Créer une tâche de correction** décochée. Cette case vous permet de créer une tâche pour modifier les ressources existantes en plus des ressources nouvelles ou mises à jour. Pour plus d’informations, consultez [Corriger les ressources](../how-to/remediate-resources.md).
 
 1. La case **Créer une identité managée** est automatiquement cochée car cette définition de stratégie utilise l’effet [modifier](../concepts/effects.md#modify). L’option **Autorisations** a automatiquement la valeur _Contributeur_ en fonction de la définition de stratégie. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Sélectionnez l’onglet **Messages de non-conformité** en haut de l’Assistant.
+
+1. Affectez au **message de non-conformité** la valeur _Cette ressource n’a pas l’étiquette nécessaire_. Ce message personnalisé s’affiche quand une ressource est refusée ou pour les ressources non conformes durant une évaluation régulière.
 
 1. Sélectionnez l’onglet **Vérifier + créer** en haut de l’Assistant.
 

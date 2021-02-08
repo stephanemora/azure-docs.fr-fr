@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753096"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226302"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -383,7 +383,7 @@ Pour inscrire votre application et ajouter manuellement les informations d’ins
 1. Ajoutez l’URL SSL que vous avez copiée à partir de Visual Studio à l’étape 1 (par exemple, `https://localhost:44368/`) dans **URI de redirection**.
 1. Sélectionnez **Inscription**.
 1. Sous **Gérer**, sélectionnez **Authentification**.
-1. Dans la section **Octroi implicite**, sélectionnez **Jetons d’ID**, puis sélectionnez **Enregistrer**.
+1. Dans la section **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride), sélectionnez **Jetons d’ID**, puis **Enregistrer**.
 1. Ajoutez le code suivant dans le fichier web.config situé dans le dossier racine, dans la section `configuration\appSettings` :
 
     ```xml

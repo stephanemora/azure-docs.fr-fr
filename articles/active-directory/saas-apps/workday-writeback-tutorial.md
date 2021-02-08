@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359729"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954002"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutoriel : Configurer la réécriture des attributs d’Azure AD à Workday
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour réécrire des attributs d’Azure AD à Workday. L’application de provisionnement Workday Writeback prend en charge l’affectation de valeurs sur les attributs Workday suivants :
@@ -56,9 +56,9 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 2. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 
-3. Cliquez sur **Applications d’entreprise** , puis sur **Toutes les applications**.
+3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
 
-4. Sélectionnez **Ajouter une application** , puis sélectionnez la catégorie **Tous**.
+4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
 
 5. Recherchez **Écriture différée Workday** et ajoutez cette application à partir de la galerie.
 
@@ -66,7 +66,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 7. Définissez le **mode** de **provisionnement** sur **Automatique**
 
-8. Fermez la section **Informations d’identification de l’administrateur** , comme suit :
+8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
    * **Nom d’utilisateur de l’administrateur** : entrez le nom d’utilisateur du compte de système d’intégration Workday, avec le nom du domaine client ajouté. Le résultat doit ressembler à : *nom d’utilisateur\@contoso4*
 
@@ -82,11 +82,11 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 Dans cette section, vous allez configurer le transfert des attributs de réécriture d'Azure AD vers Workday. 
 
-1. Sous l’onglet Provisionnement, sous **Mappages** , cliquez sur le nom du mappage.
+1. Sous l’onglet Provisionnement, sous **Mappages**, cliquez sur le nom du mappage.
 
-2. Dans le champ **Portée de l'objet source** , vous avez la possibilité de filtrer les ensembles d’utilisateurs d’Azure Active Directory qui doivent faire partie de la réécriture. La portée par défaut est « tous les utilisateurs dans Azure AD ».
+2. Dans le champ **Portée de l'objet source**, vous avez la possibilité de filtrer les ensembles d’utilisateurs d’Azure Active Directory qui doivent faire partie de la réécriture. La portée par défaut est « tous les utilisateurs dans Azure AD ».
 
-3. Dans la section **Mappages d’attributs** , mettez à jour l’ID correspondant pour indiquer l’attribut dans Azure Active Directory dans lequel est stocké l’ID d’employé Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
+3. Dans la section **Mappages d’attributs**, mettez à jour l’ID correspondant pour indiquer l’attribut dans Azure Active Directory dans lequel est stocké l’ID d’employé Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
 
 4. Généralement, vous mappez l’attribut Azure AD *userPrincipalName* vers l’attribut *UserID* de Workday et mappez l’attribut *mail* d’Azure AD vers l’attribut *EmailAddress* de Workday. 
 
@@ -142,9 +142,9 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 > [!TIP]
 > Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d'erreur de mappage ou de problème lié aux données Workday, le travail d'approvisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l'objet source** et de tester vos mappages d'attributs sur quelques utilisateurs test avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
-1. Dans l’onglet **Approvisionnement** , définissez **État d’approvisionnement** sur **Activé**.
+1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
-1. Dans la liste déroulante **Étendue** , sélectionnez **Synchroniser tous les utilisateurs et groupes**. Grâce à cette option, l’application Writeback écrira en différé les attributs mappés de tous les utilisateurs d’Azure AD dans Workday, selon les règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**. 
+1. Dans la liste déroulante **Étendue**, sélectionnez **Synchroniser tous les utilisateurs et groupes**. Grâce à cette option, l’application Writeback écrira en différé les attributs mappés de tous les utilisateurs d’Azure AD dans Workday, selon les règles d’étendue définies sous **Mappages** -> **Portée de l’objet source**. 
 
    > [!div class="mx-imgBorder"]
    > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
@@ -159,7 +159,7 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 
 4. À tout moment, consultez l’onglet **Journaux d’approvisionnement** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit listent tous les événements de synchronisation individuels effectués par le service de provisionnement, par exemple quels utilisateurs sont importés à partir de la source et lesquels sont exportés vers l’application cible.  
 
-5. Au terme de la synchronisation initiale, un rapport de synthèse est créé dans l’onglet **Provisionnement** , comme illustré ci-dessous.
+5. Au terme de la synchronisation initiale, un rapport de synthèse est créé dans l’onglet **Provisionnement**, comme illustré ci-dessous.
 
      > [!div class="mx-imgBorder"]
      > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
@@ -172,6 +172,7 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [En savoir plus sur les scénarios d’intégration d’Azure AD et de Workday ainsi que sur les appels de service web](../app-provisioning/workday-integration-reference.md)
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 * [Découvrir comment configurer l’authentification unique entre Workday et Azure Active Directory](workday-tutorial.md)
 * [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)

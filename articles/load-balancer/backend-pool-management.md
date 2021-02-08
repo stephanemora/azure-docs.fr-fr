@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575297"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429600"
 ---
 # <a name="backend-pool-management"></a>Gestion du pool back-end
 Le pool back-end est un composant essentiel de l’équilibreur de charge. Il définit le groupe de ressources qui va servir le trafic pour une règle d’équilibrage de charge donnée.
@@ -25,6 +25,8 @@ Il existe deux façons de configurer un pool back-end :
 Configurez votre pool de back-ends par carte réseau quand vous utilisez des machines virtuelles et des groupes de machines virtuelles identiques existants. Cette méthode génère le lien le plus direct entre votre ressource et le pool back-end. 
 
 Lors de la préallocation de votre pool de back-ends avec une plage d’adresses IP avec laquelle vous envisagez de créer ultérieurement des machines virtuelles et des groupes de machines virtuelles identiques, configurez votre pool de back-ends par une combinaison d’adresses IP et d’ID de réseau virtuel.
+
+Vous pouvez configurer des pools back-end en fonction des adresses IP et des cartes d’interface réseau pour un même équilibreur de charge. Toutefois, vous ne pouvez pas créer un seul pool back-end qui mélange des adresses back-end ciblées en fonction des cartes d’interface réseau et des adresses IP au sein du même pool.
 
 Les sections de configuration de cet article se concentrent sur :
 

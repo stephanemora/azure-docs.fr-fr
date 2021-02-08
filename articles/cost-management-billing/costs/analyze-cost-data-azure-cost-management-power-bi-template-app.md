@@ -3,25 +3,25 @@ title: Analyser les coûts d’Azure avec l’application Power BI
 description: Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2020
+ms.date: 1/29/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413239"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070155"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
 Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management. L’application vous aide à analyser et à gérer vos coûts Azure dans Power BI. Vous pouvez utiliser l’application pour surveiller les coûts et les tendances d’utilisation, et pour identifier les options d’optimisation des coûts afin de réduire vos dépenses.
 
-Vous pouvez utiliser l’application telle quelle, ou bien vous pouvez la modifier pour étendre les filtres, les vues et les visualisations par défaut afin de les personnaliser en fonction de vos besoins. Utilisez-la ensuite pour joindre des données supplémentaires pour créer des rapports personnalisés afin d’obtenir des vues holistiques de vos coûts globaux.
+L’application Power BI Azure Cost Management prend actuellement en charge seulement les clients titulaires d’un [Accord Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-L’application Power BI Azure Cost Management prend actuellement en charge seulement les clients avec un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+L’application limite les possibilités de personnalisation. Si vous souhaitez modifier et étendre les filtres, les vues et les visualisations par défaut et les personnaliser selon vos besoins, utilisez plutôt le [connecteur Azure Cost Management dans Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). Avec le connecteur Azure Cost Management, vous pouvez joindre des données supplémentaires issues d’autres sources pour créer des rapports personnalisés afin d’obtenir des vues holistiques de vos coûts d’exploitation globaux. Le connecteur prend également en charge les contrats clients Microsoft.
 
 > [!NOTE]
 > Les applications basées sur un modèle Power BI ne prennent pas en charge le téléchargement du fichier PBIX.

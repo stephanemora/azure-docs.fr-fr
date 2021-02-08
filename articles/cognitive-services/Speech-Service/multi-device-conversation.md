@@ -1,7 +1,7 @@
 ---
 title: Conversation multi-appareil (préversion) - Service Speech
 titleSuffix: Azure Cognitive Services
-description: ''
+description: La conversation multi-appareil permet de lancer facilement une conversation vocale ou textuelle entre plusieurs clients et de coordonner les messages envoyés.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025172"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932414"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Qu'est-ce que la conversation multi-appareil (préversion) ?
 
@@ -37,7 +37,7 @@ Contrairement à la [**transcription de conversation**](conversation-transcripti
 ## <a name="key-features"></a>Fonctionnalités clés
 
 - **Transcription en temps réel** : chaque participant reçoit une transcription de la conversation, ce qui lui permet de suivre le texte en temps réel ou de le conserver pour l'utiliser ultérieurement.
-- **Traduction en temps réel** : grâce à la [prise en charge de plus de 60 langues](language-support.md#text-languages) pour la traduction de texte, les utilisateurs peuvent traduire la conversation dans la ou les langues de leur choix.
+- **Traduction en temps réel** : grâce à la [prise en charge de plus de 70 langues](language-support.md#text-languages) pour la traduction de texte, les utilisateurs peuvent traduire la conversation dans la ou les langues de leur choix.
 - **Transcriptions lisibles** : grâce à la ponctuation et aux coupures de phrases, la transcription et la traduction sont faciles à suivre.
 - **Entrée vocale ou entrée de texte** : chaque utilisateur peut parler ou taper sur son appareil, selon les fonctionnalités de prise en charge linguistique activées pour la langue choisie par le participant. Consultez [Langues prises en charge](language-support.md#speech-to-text).
 - **Relais des messages** : le service de conversation multi-appareil distribue les messages envoyés par un client à tous les autres, dans la ou les langues de leur choix.
@@ -58,9 +58,6 @@ La transcription et la traduction en temps réel peuvent rendre les conversation
 ### <a name="presentations"></a>Présentations
 
 Vous pouvez également afficher des sous-titres lors des présentations et des conférences, à la fois à l'écran et sur les appareils des membres du public. Une fois que les membres du public ont rejoint la présentation à l'aide du code de conversation, la transcription peut apparaître sur leur appareil, dans la langue de leur choix.
-
-> [!NOTE]
-> Pour consulter un exemple, reportez-vous à [Traducteur de présentations](https://www.microsoft.com/translator/apps/presentation-translator/), un complément PowerPoint qui utilise le service de conversation multi-appareil. Vous pouvez le télécharger [ici](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 

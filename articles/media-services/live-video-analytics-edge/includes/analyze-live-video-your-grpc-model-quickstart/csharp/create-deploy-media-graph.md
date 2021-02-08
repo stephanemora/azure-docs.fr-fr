@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ebefd5ccec321e8c3d580109c3b3c9dc8ba310c3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 39c9cbdbe8be5c068f9426b53f312563e01a77bc
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531958"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956274"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -87,6 +87,13 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     Dans le cas contraire, en regard du volet **AZURE IOT HUB** dans l’angle en bas à gauche, sélectionnez l’icône **Autres actions**, puis sélectionnez **Définir la chaîne de connexion IoT Hub**. Vous pouvez copier la chaîne à partir du fichier *appsettings.json*. Ou, pour garantir que vous avez configuré le hub IoT approprié dans Visual Studio Code, utilisez la [commande Sélectionner IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
 
     ![Chaîne de connexion IoT Hub](../../../media/quickstarts/iot-hub-connection-string-grpc.png)
+
+> [!NOTE]
+> Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Cliquez avec le bouton droit sur *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json* et sélectionnez **Créer un déploiement pour un seul appareil**.
 
     ![Créer un déploiement pour un seul appareil](../../../media/quickstarts/create-deployment-single-device-grpc.png)
@@ -97,7 +104,7 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     * Le module **rtspsim**, qui simule un serveur RTSP et fait office de source d’un flux vidéo en direct.
 
         > [!NOTE]
-        > Si vous utilisez votre propre périphérique au lieu de celui approvisionné par notre script de configuration, accédez à votre périphérique et exécutez les commandes suivantes avec des **droits d'administrateur** pour extraire et stocker l'exemple de fichier vidéo utilisé avec ce guide de démarrage rapide :  
+        > Les étapes ci-dessus supposent que vous utilisez la machine virtuelle créée par le script d’installation. Si vous utilisez votre propre appareil de périphérie, accédez à cet appareil, puis exécutez les commandes suivantes avec des **droits d'administrateur** pour extraire et stocker l'exemple de fichier vidéo utilisé dans ce guide de démarrage rapide :  
 
         ```
         mkdir /home/lvaadmin/samples

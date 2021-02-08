@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 77b75b1134bbc8366478b1f9f4d14e86e9684f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 883c5a20612f4dab44c0d06776ee287b27174ab9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709310"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097262"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Catégories d’entité prises en charge dans l’API Analyse de texte v3
 
-Utilisez cet article pour rechercher les catégories d’entité qui peuvent être retournées par la [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) (NER). Une préversion de NER v3.1 est également disponible, elle permet de détecter les informations personnelles (`PII`) et médicales (`PHI`). Cliquez également sur l’onglet **Intégrité** pour voir la liste des catégories prises en charge dans l’Analyse de texte pour l’intégrité.
+Utilisez cet article pour rechercher les catégories d’entité qui peuvent être retournées par la [Reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md) (NER). NER exécute un modèle prédictif pour identifier et classer les entités nommées à partir d’un document d’entrée.
+
+Une préversion de NER v3.1 est également disponible, elle permet de détecter les informations personnelles (`PII`) et médicales (`PHI`). Cliquez également sur l’onglet **Intégrité** pour voir la liste des catégories prises en charge dans l’Analyse de texte pour l’intégrité. 
+
+Vous trouverez la liste des types retournés par la version 2.1 dans le [guide de migration](migration-guide.md?tabs=named-entity-recognition)
 
 ## <a name="entity-categories"></a>Catégories d’entité
 
@@ -35,8 +39,8 @@ Utilisez cet article pour rechercher les catégories d’entité qui peuvent êt
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-Étapes suivantes
+**_
 
-## <a name="next-steps"></a>[Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](how-tos/text-analytics-how-to-entity-linking.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-_ <bpt id="p1">[</bpt>How to use Named Entity Recognition in Text Analytics<ept id="p1">](how-tos/text-analytics-how-to-entity-linking.md)</ept>
+_ [Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte](how-tos/text-analytics-how-to-entity-linking.md)

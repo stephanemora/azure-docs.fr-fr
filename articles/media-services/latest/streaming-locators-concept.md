@@ -1,5 +1,5 @@
 ---
-title: Localisateurs de diffusion en continu dans Azure Media Services | Microsoft Docs
+title: Localisateurs de diffusion en continu dans Azure Media Services
 description: Cet article explique ce que sont les localisateurs de diffusion en continu et comment Azure Media Services les utilise.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898136"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 

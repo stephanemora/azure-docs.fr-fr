@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97f1f5d0f1f351164e05d18b9f80c7f26450f31b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 951c52cdba191aa291061259e1c15b9190513770
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661589"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092713"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -120,7 +120,7 @@ Pour créer le second Event Hub, vous pouvez utiliser les instructions Azure CLI
 3. Créez une [règle d’autorisation](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) avec les autorisations d’envoi et de réception. Spécifiez un nom pour la règle.
 
     ```azurecli-interactive
-        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
 ## <a name="configure-your-function"></a>Configurer votre fonction
@@ -149,7 +149,7 @@ Ensuite, vous devez définir des variables d’environnement dans votre applicat
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. Dans votre application de fonction, créez un paramètre d’application contenant votre chaîne de connexion :
+2. Utilisez la valeur *primaryConnectionString* du résultat pour créer un paramètre d’application dans votre application de fonction qui contient votre chaîne de connexion :
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -163,7 +163,9 @@ Ensuite, vous allez configurer une instance Time Series Insights pour recevoir l
     1. Sélectionnez le niveau tarifaire **Gen2(L1)** .
     2. Vous devez choisir un **ID de série chronologique** pour cet environnement. Votre ID de série chronologique peut comporter jusqu’à trois valeurs que vous allez utiliser pour rechercher vos données dans Time Series Insights. Pour ce tutoriel, vous pouvez sélectionner **$dtId**. Pour plus d’informations sur la sélection d’une valeur d’ID, consultez [*Meilleures pratiques pour choisir un ID de série chronologique*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="L’expérience utilisateur du portail de création pour un environnement de Time Series Insights. Le niveau tarifaire Gen2(L1) est sélectionné et le nom de la propriété de l’ID de la série chronologique est $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png" alt-text="L’expérience utilisateur du portail de création pour un environnement de Time Series Insights. Sélectionnez vos abonnement, groupe de ressources et emplacement dans les listes déroulantes respectives, puis nommez votre environnement." lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-1.png":::
+        
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png" alt-text="L’expérience utilisateur du portail de création pour un environnement de Time Series Insights. Le niveau tarifaire Gen2(L1) est sélectionné et le nom de la propriété de l’ID de la série chronologique est $dtId" lightbox="media/how-to-integrate-time-series-insights/create-time-series-insights-environment-2.png":::
 
 2. Sélectionnez **Suivant : Source de l’événement** et sélectionnez les informations du hub d’événements TSI mentionné précédemment. Vous devrez également créer un groupe de consommateurs Event Hubs.
     

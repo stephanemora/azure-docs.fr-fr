@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358590"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954087"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutoriel : Configurer l'attribution d'utilisateurs Workday vers Azure AD
 Ce tutoriel a pour objectif d’expliquer les étapes à suivre pour approvisionner des données d’employés de Workday vers Azure Active Directory. 
@@ -27,13 +27,13 @@ Ce tutoriel a pour objectif d’expliquer les étapes à suivre pour approvision
 
 Le [service d’approvisionnement utilisateur Azure Active Directory](../app-provisioning/user-provisioning.md) s’intègre aux [API de ressources humaines Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) afin d’approvisionner des comptes d’utilisateur. Les flux de travail d’approvisionnement de l’utilisateur Workday pris en charge par le service d’approvisionnement de l’utilisateur Azure AD autorisent l’automatisation des scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
-* **Nouvelles embauches**  : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Azure Active Directory et, éventuellement, Microsoft 365 et [d’autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md), avec la réécriture de l’adresse e-mail pour Workday.
+* **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Azure Active Directory et, éventuellement, Microsoft 365 et [d’autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md), avec la réécriture de l’adresse e-mail pour Workday.
 
-* **Mises à jour du profil et des attributs de l’employé**  : lorsque le dossier d’un employé est mis à jour dans Workday (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’ [autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Mises à jour du profil et des attributs de l’employé** : lorsque le dossier d’un employé est mis à jour dans Workday (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Résiliations de contrats d’employés**  : lorsque le contrat d’un employé est résilié dans Workday, son compte d’utilisateur est désactivé automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’ [autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Résiliations de contrats d’employés** : lorsque le contrat d’un employé est résilié dans Workday, son compte d’utilisateur est désactivé automatiquement dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employés réembauchés**  : lorsqu’un employé est réembauché dans Workday, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Azure Active Directory et éventuellement dans Microsoft 365 et d’ [autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
+* **Employés réembauchés** : lorsqu’un employé est réembauché dans Workday, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Azure Active Directory et éventuellement dans Microsoft 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
 
@@ -95,9 +95,9 @@ Les sections suivantes décrivent les étapes à suivre afin de configurer l'app
 
 2. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 
-3. Cliquez sur **Applications d’entreprise** , puis sur **Toutes les applications**.
+3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
 
-4. Sélectionnez **Ajouter une application** , puis sélectionnez la catégorie **Tous**.
+4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
 
 5. Recherchez **Attribution d'utilisateurs de Workday vers Azure AD** et ajoutez cette application à partir de la galerie.
 
@@ -105,9 +105,9 @@ Les sections suivantes décrivent les étapes à suivre afin de configurer l'app
 
 7. Définissez le **mode** de **provisionnement** sur **Automatique**
 
-8. Fermez la section **Informations d’identification de l’administrateur** , comme suit :
+8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
-   * **Nom d'utilisateur Workday**  : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit être le suivant : username@contoso4
+   * **Nom d'utilisateur Workday** : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit être le suivant : username@contoso4
 
    * **Mot de passe Workday :** entrez le mot de passe du compte du système d'intégration Workday.
 
@@ -134,9 +134,9 @@ Les sections suivantes décrivent les étapes à suivre afin de configurer l'app
 
 Dans cette section, vous allez configurer le flux des données de Workday vers Azure Active Directory pour l’utilisateur « cloud only ».
 
-1. Dans l’onglet Approvisionnement sous **Mappages** , cliquez sur **Synchroniser les employés sur Azure AD**.
+1. Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les employés sur Azure AD**.
 
-2. Dans le champ **Portée de l'objet source** , vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers Azure AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de Workday ». Exemples de filtres :
+2. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers Azure AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de Workday ». Exemples de filtres :
 
    * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000
 
@@ -152,17 +152,17 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 
       * Opérateur : IS NOT NULL
 
-3. Dans le champ **Actions de l'objet cible** , vous pouvez filtrer globalement les actions exécutées sur Azure AD. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
+3. Dans le champ **Actions de l'objet cible**, vous pouvez filtrer globalement les actions exécutées sur Azure AD. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
 
-4. Dans la section **Mappages d’attributs** , vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory.
+4. Dans la section **Mappages d’attributs**, vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory.
 
 5. Cliquez sur un mappage d’attributs existants à mettre à jour ou cliquez sur **Ajouter un nouveau mappage** en bas de l’écran pour ajouter de nouveaux mappages. Un mappage d’attribut individuel prend en charge les propriétés suivantes :
 
    * **Type de mappage**
 
-      * **Direct**  : inscrit la valeur de l'attribut Workday dans l'attribut AD, sans aucune modification
+      * **Direct** : inscrit la valeur de l'attribut Workday dans l'attribut AD, sans aucune modification
 
-      * **Constante**  : inscrivez une valeur de chaîne constante et statique dans l'attribut AD
+      * **Constante** : inscrivez une valeur de chaîne constante et statique dans l'attribut AD
 
       * **Expression** : vous permet d’écrire une valeur personnalisée dans l’attribut AD, basée sur un ou plusieurs attributs Workday. [Pour plus d’informations, consultez l’article sur les expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
@@ -173,15 +173,15 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 
    * **Attribut cible** : l’attribut utilisateur dans Azure AD.
 
-   * **Faire correspondre des objets à l'aide de cet attribut**  : indique si cet attribut doit être utilisé pour identifier les utilisateurs de manière unique entre Workday et Azure AD. Cette valeur est communément définie dans le champ ID collaborateur de Workday, qui est généralement mappé avec l'attribut ID employé (nouveau) ou un attribut d'extension dans Azure AD.
+   * **Faire correspondre des objets à l'aide de cet attribut** : indique si cet attribut doit être utilisé pour identifier les utilisateurs de manière unique entre Workday et Azure AD. Cette valeur est communément définie dans le champ ID collaborateur de Workday, qui est généralement mappé avec l'attribut ID employé (nouveau) ou un attribut d'extension dans Azure AD.
 
    * **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 
    * **Appliquer ce mappage**
 
-     * **Toujours**  : applique ce mappage à la création de l’utilisateur et des actions de mise à jour.
+     * **Toujours** : applique ce mappage à la création de l’utilisateur et des actions de mise à jour.
 
-     * **Lors de la création uniquement**  : applique ce mappage uniquement aux actions de création d’utilisateur.
+     * **Lors de la création uniquement** : applique ce mappage uniquement aux actions de création d’utilisateur.
 
 6. Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
 
@@ -193,7 +193,7 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 > [!TIP]
 > Par défaut, lorsque vous activez le service d'approvisionnement, il lance les opérations d'approvisionnement pour tous les utilisateurs concernés. En cas d'erreur de mappage ou de problème lié aux données Workday, le travail d'approvisionnement peut échouer et être mis en quarantaine. Pour éviter ce genre de problème, nous vous recommandons de configurer le filtre **Portée de l'objet source** et de tester vos mappages d'attributs sur quelques utilisateurs test avant de lancer la synchronisation complète de tous les utilisateurs. Après avoir vérifié que les mappages fonctionnent et qu'ils vous donnent les résultats souhaités, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
-1. Dans l’onglet **Approvisionnement** , définissez **État d’approvisionnement** sur **Activé**.
+1. Dans l’onglet **Approvisionnement**, définissez **État d’approvisionnement** sur **Activé**.
 
 2. Cliquez sur **Enregistrer**.
 
@@ -201,18 +201,18 @@ Une fois les configurations d'application d'approvisionnement Workday effectuée
 
 4. À tout moment, consultez l’onglet **Journaux d’audit** dans le portail Azure pour connaître les actions effectuées par le service d’approvisionnement. Les journaux d’audit répertorient tous les événements de synchronisation individuels effectués par le service d’approvisionnement, tels que les utilisateurs lus dans Workday et par la suite ajoutés ou mis à jour dans Azure Active Directory. 
 
-5. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement** , comme illustré ci-dessous.
+5. Au terme de la synchronisation initiale, un rapport de synthèse d'audit est créé dans l'onglet **Approvisionnement**, comme illustré ci-dessous.
 
    > [!div class="mx-imgBorder"]
    > ![Barre de progression de provisionnement](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [En savoir plus sur les scénarios d’intégration d’Azure AD et de Workday ainsi que sur les appels de service web](../app-provisioning/workday-integration-reference.md)
 * [En savoir plus sur les attributs Workday pris en charge pour l'approvisionnement entrant](../app-provisioning/workday-attribute-reference.md)
 * [Découvrez comment configurer Workday Writeback](workday-writeback-tutorial.md)
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 * [Découvrir comment configurer l’authentification unique entre Workday et Azure Active Directory](workday-tutorial.md)
-* [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
 * [Découvrez comment exporter et importer vos configurations de provisionnement](../app-provisioning/export-import-provisioning-configuration.md)
 
 

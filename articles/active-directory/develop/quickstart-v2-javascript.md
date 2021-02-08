@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754161"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225712"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
@@ -55,13 +55,14 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
 > 1. Sélectionnez **Inscription**. Dans la page **Vue d’ensemble**, notez la valeur de **ID d’application (client)** pour une utilisation ultérieure.
 > 1. Ce démarrage rapide requiert l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md). Sous **Gérer**, sélectionnez **Authentification**.
-> 1. Sous **Configurations de plateforme**, sélectionnez **Ajouter une plateforme**. Un panneau s’ouvre sur la gauche. Sélectionnez la région **Applications web**.
-> 1. Toujours sur la gauche, définissez la valeur de l’**URI de redirection** sur `http://localhost:3000/`. Ensuite, sélectionnez **Jeton d’accès** et **ID de jeton**.
+> 1. Sous **Configurations de plateforme** > **Ajouter une plateforme**. Sélectionnez **Web**.
+> 1. Choisissez `http://localhost:3000/` comme valeur pour **URI de redirection**. 
+> 1. Sélectionnez **Jetons d’accès** et **Jetons d’ID** sous **Implicit grant and hybrid flows** (Flux d’octroi implicite et flux hybride).
 > 1. Sélectionnez **Configurer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter `http://localhost:3000/` comme `redirectUri` et activer **Octroi implicite**.
+> Cet exemple de code du guide de démarrage rapide nécessite l’**URI de redirection** `http://localhost:3000/` ainsi que l’activation de l’**Octroi implicite**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
 >

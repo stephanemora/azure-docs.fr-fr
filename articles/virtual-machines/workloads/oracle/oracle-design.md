@@ -5,29 +5,30 @@ author: dbakevlar
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 12/17/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: 542ad18b18e3fc024e3a26792abfedb1e17727c9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.reviewer: tigorman
+ms.openlocfilehash: 0b6f4e652ca8fef7bee4165bcd0673be2fa11eac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882329"
+ms.locfileid: "98890762"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
 ## <a name="assumptions"></a>Hypothèses
 
 - Vous prévoyez de migrer une base de données Oracle locale vers Azure.
-- Vous avez le [Pack Diagnostics](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) pour la base de données Oracle que vous cherchez à migrer
-- Vous comprenez les différentes métriques contenues dans les rapports Oracle AWR.
+- Vous avez le [Pack Diagnostics](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) ou l’[Automatic Workload Repository (AWR)](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) pour la base de données Oracle que vous cherchez à migrer
+- Vous comprenez les différentes métriques contenues dans Oracle.
 - Vous avez une connaissance élémentaire des performances d’application et de l’utilisation de la plateforme.
 
 ## <a name="goals"></a>Objectifs
 
 - Comprendre comment optimiser votre déploiement Oracle sur Azure
 - Explorer les options de réglage des performances d’une base de données Oracle dans un environnement Azure
+- Définir des attentes claires précis entre les limites du réglage physique via une architecture et les avantages ou le réglage logique du code de la base de données, (SQL) et la conception globale de la base de données.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>Différences entre une implémentation locale et une implémentation Azure 
 
@@ -52,8 +53,9 @@ Le tableau suivant liste certaines des différences qui existent entre une impl�
 
 ### <a name="requirements"></a>Spécifications
 
-- Déterminez le taux de croissance et la taille de la base de données.
-- Déterminez les E/S par seconde requises, que vous pouvez estimer en vous basant sur les rapports AWR Oracle ou d’autres outils de surveillance réseau.
+- Déterminez l’utilisation réelle du processeur, car Oracle est concédé sous licence par cœur, et le dimensionnement des besoins en processeurs virtuels peut être une étape essentielle pour réaliser es économies. 
+- Déterminez la taille, le stockage de sauvegarde et le taux de croissance de la base de données.
+- Déterminez les E/S par seconde requises, que vous pouvez estimer en vous basant sur les rapports Oracle Statspack et AWR ou d’autres outils de surveillance du stockage au niveau du système d’exploitation.
 
 ## <a name="configuration-options"></a>Options de configuration
 
@@ -66,33 +68,44 @@ Quatre zones potentielles que vous pouvez paramétrer pour améliorer les perfor
 
 ### <a name="generate-an-awr-report"></a>Générer un rapport AWR
 
-Si vous disposez d’une base de données Oracle que vous envisagez de migrer vers Azure, vous avez plusieurs options. Si vous avez le [Pack Diagnostics](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) pour vos instances Oracle, vous pouvez exécuter le rapport AWR Oracle pour obtenir les métriques (E/S par seconde, Mbits/s, Gibits/s, etc.). Ensuite, choisissez la machine virtuelle en fonction des métriques que vous avez collectées. Vous pouvez également contacter votre équipe d’infrastructure pour obtenir des informations similaires.
+Si vous disposez d’une base de données Oracle Enterprise Edition que vous envisagez de migrer vers Azure, vous avez plusieurs options. Si vous avez le [Pack Diagnostics](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) pour vos instances Oracle, vous pouvez exécuter le rapport AWR Oracle pour obtenir les métriques (E/S par seconde, Mbits/s, Gibits/s, etc.). Pour ces bases de données sans licence Pack Diagnostics ou pour une base de données Standard Edition, les mêmes métriques importantes peuvent être collectées avec un rapport Statspack après la collecte des instantanés manuels.  La principale différence entre ces deux méthodes de création de rapports réside dans le fait que les rapports AWR sont automatiquement collectés et fournissent plus d’informations sur la base de données que les anciens rapports Statspack.
 
-Pour comparer, vous pouvez exécuter votre rapport AWR lors de charges de travail normales et maximales. En fonction de ces rapports, vous pouvez dimensionner les machines virtuelles selon la charge de travail moyenne ou maximale.
+Pour comparer, vous pouvez exécuter votre rapport AWR lors de charges de travail normales et maximales. Pour collecter la charge de travail la plus précise, prévoyez un rapport sur une fenêtre étendue d’une semaine au lieu de 24 heures, et tenez compte du fait qu’un rapport AWR fournit des moyennes dans le cadre de ses calculs.  Pour une migration de centre de données, nous vous recommandons de rassembler des rapports pour le dimensionnement des systèmes de production et d’estimer les copies de base de données restantes utilisées pour les tests utilisateur, les tests, le développement, etc., par pourcentages (UAT équivalent à la production, aux tests et au développement à 50 % du dimensionnement de production, etc.)
 
-Voici un exemple montrant comment générer un rapport AWR (générez vos rapports AWR à l’aide d’Oracle Enterprise Manager, si votre installation actuelle en dispose) :
+Par défaut, le référentiel AWR conserve 8 jours de données et prend des instantanés toutes les heures.  Pour exécuter un rapport AWR à partir de la ligne de commande, vous pouvez effectuer les opérations suivantes dans un terminal :
 
 ```bash
 $ sqlplus / as sysdba
-SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
-SQL> @?/rdbms/admin/awrrpt.sql
+SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 ```
 
 ### <a name="key-metrics"></a>Mesures clés
 
+Le rapport demandera les informations suivantes :
+- Type de rapport : HTML ou texte, (HTML en version 12.1, avec plus d’informations qu’en format texte.)
+- Nombre de jours d’instantanés à afficher (un instantané était créé chaque heure, un rapport d’une semaine comporte 168 ID d’instantanés différents)
+- Valeur SnapshotID de début de la fenêtre de rapport.
+- Valeur SnapshotID de fin de la fenêtre de rapport.
+- Nom du rapport à créer par le script AWR.
+
+Si vous exécutez le script AWR sur un cluster d’application réel (RAC), le rapport de ligne de commande est awrgrpt.sql au lieu de awrrpt.sql.  Le rapport « g » créera un rapport pour tous les nœuds de la base de données RAC dans un rapport unique au lieu de créer un rapport sur chaque nœud RAC.
+
 Voici les métriques que vous pouvez obtenir avec le rapport AWR :
 
-- Nombre total de cœurs
-- Vitesse d’horloge du processeur
+- Nom de la base de données, nom de l’instance et nom d’hôte
+- Version de la base de données, (prise en charge par Oracle)
+- Processeur/cœurs
+- SGA/PGA, (et conseillers qui vous préviennent en cas de sous-dimensionnement)
 - Quantité totale de mémoire en Go
-- Utilisation du processeur
-- Taux maximal de transfert de données
-- Taux de modification d’E/S (lecture/écriture)
-- Taux d’enregistrement de la restauration par progression (Mbits/s)
+- % occupation processeur
+- Processeurs de base de données
+- E/S par seconde (lecture/écriture)
+- Mbits/s (lecture/écriture)
 - Débit du réseau
 - Taux de latence réseau (élevée/basse)
-- Taille de la base de données en Go
-- Octets reçus par le biais de SQL*Net en provenance/à destination du client
+- Premiers événements d'attente 
+- Paramètres de la base de données
+- Base de données de type RAC, Exadata, avec des fonctionnalités ou des configurations avancées ?
 
 ### <a name="virtual-machine-size"></a>Taille de la machine virtuelle
 
@@ -146,25 +159,19 @@ Selon vos besoins en bande passante réseau, vous pouvez choisir différents typ
 
 - *Disques de système d'exploitation par défaut* : ces types de disques permettent la persistance et la mise en cache des données. Ils sont optimisés pour un accès au système d’exploitation au moment du démarrage, mais ils ne sont pas conçus pour les charges de travail transactionnelles ou d’entrepôt de données (analytiques).
 
-- *Disques non managés* : ces types de disques permettent de gérer les comptes de stockage qui stockent les fichiers de disque dur virtuel (VHD) correspondant à vos disques de machine virtuelle. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage Azure.
-
-- *Disques managés* : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (Premium ou Standard) et la taille de disque dont vous avez besoin. Azure crée et gère le disque pour vous.
-
-- *Disques de stockage Premium* : ces types de disques conviennent essentiellement aux charges de travail de production. Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique, telles que les machines de séries DS, DSv2, GS, et F. Le disque Premium est fourni dans différentes tailles, allant de 32 Go à 4 096 Go. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle.
-
-Lorsque vous créez un disque managé dans le portail, vous pouvez choisir le **Type de compte** associé au type de disque que vous souhaitez utiliser. N’oubliez pas que les disques disponibles ne s’affichent pas tous dans le menu déroulant. Une fois que vous avez choisi une taille de machine virtuelle, le menu affiche uniquement les références SKU de stockage Premium disponibles qui sont associées à cette taille de machine virtuelle.
+- *Disques managés* : Azure gère les comptes de stockage que vous utilisez pour vos disques de machine virtuelle. Vous spécifiez le type de disque (le plus souvent SSD Premium pour les charges de travail Oracle) et la taille du disque requise. Azure crée et gère le disque pour vous.  Un disque SSD Premium géré est disponible uniquement pour les séries de machines virtuelles optimisées en mémoire et spécialement conçues. Une fois que vous avez choisi une taille de machine virtuelle, le menu affiche uniquement les références SKU de stockage Premium disponibles qui sont associées à cette taille de machine virtuelle.
 
 ![Capture d’écran de la page de disque managé](./media/oracle-design/premium_disk01.png)
 
 Une fois que vous avez configuré votre stockage sur une machine virtuelle, vous pouvez tester la charge des disques avant de créer une base de données. Le fait de connaître la latence et le débit du taux d’E/S peut vous aider à déterminer si les machines virtuelles prennent en charge le débit attendu avec les cibles de latence.
 
-Divers outils sont dédiés au test de charge d’application, comme Oracle Orion, Sysbench et Fio.
+Divers outils sont dédiés au test de charge d’application, comme Oracle Orion, Sysbench, SLOB et Fio.
 
-Réexécutez le test de charge après avoir déployé une base de données Oracle. Démarrez vos charges de travail normales et maximales pour voir la base de référence de votre environnement.
+Réexécutez le test de charge après avoir déployé une base de données Oracle. Démarrez vos charges de travail normales et maximales pour voir la base de référence de votre environnement.  Soyez réaliste lors du test de la charge de travail : il n’est pas judicieux d’exécuter une charge de travail très différente de celle que vous allez réellement exécuter sur la machine virtuelle.
 
-Il peut être plus important de dimensionner le stockage en fonction du taux d’E/S par seconde que le stockage lui-même. Par exemple, si le taux d’E/S par seconde nécessaire est de 5 000, alors que vous n’avez besoin que de 200 Go, vous pouvez quand même obtenir le disque Premium de classe P30, même s’il est fourni avec plus de 200 Go de stockage.
+Oracle étant une base de données qui consomment beaucoup d’E/S, il est important de dimensionner le stockage en fonction du taux d’E/S plutôt que de la taille de stockage. Par exemple, si le taux d’E/S par seconde nécessaire est de 5 000, alors que vous n’avez besoin que de 200 Go, vous pouvez quand même obtenir le disque Premium de classe P30, même s’il est fourni avec plus de 200 Go de stockage.
 
-Le taux d’E/S par seconde se trouve dans le rapport AWR. Il est déterminé par le journal Redo, les lectures physiques et le taux d’écritures.
+Le taux d’E/S par seconde se trouve dans le rapport AWR. Il est déterminé par le journal Redo, les lectures physiques et le taux d’écritures.  Vérifiez toujours que la série de machines virtuelles choisie peut également gérer la demande d’E/S de la charge de travail.  Si la machine virtuelle affiche une limite d’E/S inférieure à celle du stockage, la limite maximale est définie par la machine virtuelle.
 
 ![Capture d’écran de la page Rapport AWR](./media/oracle-design/awr_report.png)
 
@@ -176,34 +183,28 @@ Une fois que vous avez une vision claire de vos besoins en E/S, vous pouvez choi
 **Recommandations**
 
 - Pour l’espace disque logique de données, répartissez la charge de travail d’E/S sur plusieurs disques à l’aide du stockage managé ou d’Oracle ASM.
-- Lorsque la taille du bloc d’E/S augmente pour les opérations de lecture et d’écriture intensives, ajoutez des disques de données.
-- Augmentez la taille du bloc pour les processus séquentiels volumineux.
-- Utilisez la compression de données pour réduire les E/S (données et index).
-- Placez les flux de transport Redo, System, Temp et Undo sur des disques de données distincts.
+- Utilisez la compression avancée Oracle pour réduire les E/S (données et index).
+- Placez les journaux d’activité de restauration par progression ainsi que les espaces disques logiques Temp et Undo sur des disques de données distincts.
 - Ne placez pas de fichiers d’application sur les disques du système d’exploitation par défaut (/dev/sda). Ces disques sont optimisés pour les démarrages rapides de machine virtuelle et risquent de ne pas fournir de performances optimales pour votre application.
 - Lorsque vous utilisez des machines virtuelles de série M sur le stockage Premium, activez [l’Accélérateur d'écriture](../../how-to-enable-write-accelerator.md) sur le disque des journaux d’activité de rétablissement.
+- Déplacez les journaux d’activité de rétablissement avec une latence élevée vers un disque UItra.
 
 ### <a name="disk-cache-settings"></a>Paramètres de cache des disques
 
-Il existe trois solutions pour la mise en cache de l’hôte :
+Il existe trois options pour la mise en cache de l’hôte, mais pour une base de données Oracle, seule la mise en cache ReadOnly est recommandée pour une charge de travail de base de données.  Le mode ReadWrite peut introduire des vulnérabilités significatives dans un fichier de données, car l’objectif d’une écriture de base de données est d’enregistrer les informations dans le fichier de données, et non de les mettre en cache.
 
-- *ReadOnly* : toutes les demandes sont mises en cache pour les lectures ultérieures. Toutes les écritures sont conservées directement dans le Stockage Blob Azure.
-
-- *ReadWrite* : il s'agit d'un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Il fournit également la latence de disque la plus faible pour les charges de travail légères. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
-
-- *Aucun* (désactivé) : cette option vous permet de contourner le cache. Toutes les données sont transférées sur le disque et conservées dans Stockage Azure. Cette méthode vous donne le taux d’E/S le plus élevé pour les charges de travail intensives d’E/S. Vous devez également tenir compte du coût de transaction.
+Contrairement à un système de fichiers ou une application, pour une base de données, la recommandation pour la mise en cache de l’hôte est *ReadOnly* : toutes les demandes sont mises en cache pour les lectures ultérieures. toutes les écritures continuent d’être écrites sur le disque.
 
 **Recommandations**
 
-Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la mise en cache de l’hôte. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule** ou **Aucun**. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
+Pour optimiser le débit, il est recommandé de commencer par **ReadOnly** (lecture seule) pour la mise en cache de l’hôte, lorsque cela est possible. Pour le stockage Premium, vous devez désactiver les barrières lorsque vous montez le système de fichiers conformément aux options **Lecture seule**. Mettez à jour le fichier/etc/fstab avec l’UUID sur les disques.
 
 ![Capture d’écran de la page disque managé qui affiche les options ReadOnly et None.](./media/oracle-design/premium_disk02.png)
 
-- Pour les disques du système d’exploitation, utilisez la mise en cache par défaut **Lecture/Écriture**.
-- Pour SYSTEM, TEMP et UNDO, utilisez **Aucun** pour la mise en cache.
-- Pour DATA, utilisez **Aucun** pour la mise en cache. Toutefois, si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache **Lecture seule**.
+- Pour les disques de système d’exploitation, choisissez la mise en cache **Read/Write**, et utilisez des disques SSD Premium pour les machines virtuelles de charges de travail Oracle.  Assurez-vous également que le volume utilisé pour l’échange figure également sur un disque SSD Premium.
+- Pour TOUS les fichiers de fichiers, utilisez **ReadOnly** pour la mise en cache. La mise en cache ReadOnly est disponible uniquement pour les disques Premium gérés, P30 et versions ultérieures.  La limite de volume utilisable avec la mise en cache ReadOnly est de 4 095 Gio.  Toute allocation supérieure désactive la mise en cache de l’hôte par défaut.
 
-Une fois que votre configuration de disque de données est enregistrée, vous ne pouvez pas modifier le paramètre de mise en cache de l’hôte, sauf si vous démontez le disque au niveau du système d’exploitation, puis le remontez après modification.
+Si les charges de travail varient considérablement durant la journée et que la charge de travail d’E/S peut prendre en charge ces variations, un disque SSD Premium P1-P20 en mode rafale peut fournir les performances requises pendant les chargements par lots de nuit ou les demandes d’E/S limitées.  
 
 ## <a name="security"></a>Sécurité
 

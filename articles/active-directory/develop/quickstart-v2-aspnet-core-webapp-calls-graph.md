@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754494"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938231"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Démarrage rapide : Application web ASP.NET Core qui connecte des utilisateurs et appelle Microsoft Graph en leur nom
 
@@ -55,7 +55,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > 1. Entrez l’**URI de redirection** `https://localhost:44321/signin-oidc`.
 > 1. Sélectionnez **Inscription**.
 > 1. Sous **Gérer**, sélectionnez **Authentification**.
-> 1. Entrez l’**URL de déconnexion** `https://localhost:44321/signout-oidc`.
+> 1. Entrez une **Front-channel logout URL** (URL de déconnexion de canal frontal) ayant la valeur `https://localhost:44321/signout-oidc`.
 > 1. Sélectionnez **Enregistrer**.
 > 1. Sous **Gérer**, sélectionnez **Certificats et secrets** > **Nouveau secret client**.
 > 1. Entrez une **description**, telle que `clientsecret1`.
@@ -64,7 +64,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter des URL de réponse telles que `https://localhost:44321/signin-oidc` et ajouter l’URL de déconnexion `https://localhost:44321/signout-oidc`.
+> Cet exemple de code du guide de démarrage rapide nécessite l’**URI de redirection** `https://localhost:44321/signin-oidc` et l’**URL de déconnexion de canal frontal** `https://localhost:44321/signout-oidc` dans l’inscription d’application.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
 >

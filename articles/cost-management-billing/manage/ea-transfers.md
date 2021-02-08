@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030091"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943693"
 ---
 # <a name="azure-enterprise-transfers"></a>Transferts Azure Enterprise
 
@@ -55,22 +55,22 @@ Un transfert d’inscription est envisagé dans les cas suivants :
 - Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
 - Vous avez plusieurs inscriptions et vous voulez combiner tous les comptes et la facturation sous une seule inscription.
 
-Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer une inscription d’entreprise vers une nouvelle, une demande de support est nécessaire.
+Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Une demande de support est nécessaire pour transférer une inscription d’entreprise vers une nouvelle, sauf si l’inscription peut prétendre à un [transfert d’inscription automatique](#auto-enrollment-transfer).
 
 Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
 
 - L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, effectuent un transfert vers une nouvelle inscription cible.
 - L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
-- Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche une utilisation supplémentaire en relation avec l’inscription.
+- Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche toute utilisation supplémentaire en relation avec l’inscription.
 - Tout solde restant de Paiement anticipé Azure dans le contrat est perdu, y compris les termes futurs.
--    Si l’inscription à partir de laquelle vous effectuez le transfert inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
--    Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
+-    Si l’inscription à partir de laquelle vous effectuez le transfert inclut des achats RI, les frais d’achat RI restent dans l’inscription source. En revanche, tous les avantages RI sont transférés pour être utilisés dans la nouvelle inscription.
+-    Les frais d’achat définitif de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne sont pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
 
 ### <a name="effective-transfer-date"></a>Date de transfert effectif
 
 Le jour du transfert effectif peut correspondre à la date de début de l’inscription cible ou à une date ultérieure.
 
-L’utilisation de l’inscription source est facturée dans le cadre du Paiement anticipé Azure ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
+L’utilisation de l’inscription source est facturée dans le cadre du Paiement anticipé Azure ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée dans la nouvelle inscription et facturée.
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -85,6 +85,17 @@ Autres points à garder à l’esprit avant un transfert d’inscription :
 - L’approbation des administrateurs EA pour les inscriptions source et cible est obligatoire.
 - Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
 - L’état de l’inscription source est mis à jour sur Transféré et sera disponible uniquement à des fins de création de rapports d’utilisation historiques.
+
+### <a name="auto-enrollment-transfer"></a>Transfert d’inscription automatique
+
+Une inscription peut avoir l’état **Transféré**, même si vous n’avez pas envoyé de ticket de support pour demander le transfert d’une inscription. L’état **Transféré** est le résultat du processus de transfert d’inscription automatique. Pour que le processus de transfert d’inscription automatique se produise pendant la phase de renouvellement, il convient d’inclure quelques éléments dans le nouvel accord :
+
+- Numéro de l’inscription antérieure (il doit figurer sur le portail EA)
+- La date d’expiration du numéro de l’inscription antérieure correspond à la veille de la date de début effective du nouvel accord
+- Le nouvel accord comporte un ordre d’acompte Azure facturé à la date du jour ou à une date antérieure
+- La nouvelle inscription est créée sur le portail EA
+
+S’il ne manque pas de données d’utilisation sur le portail EA entre l’inscription antérieure et la nouvelle inscription, vous n’êtes pas tenu de créer de ticket de support de transfert.
 
 ### <a name="azure-prepayment"></a>Paiement anticipé Azure
 

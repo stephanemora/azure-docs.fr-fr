@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882441"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953748"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -40,7 +40,7 @@ Recherchez *Azure Digital Twins* dans la zone de recherche, puis choisissez le s
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Sélection de l’option « Créer » dans la page du service Azure Digital Twins":::
 
-Sur la page *Créer une ressource*, renseignez les valeurs ci-dessous :
+Sur la page **Créer une ressource**, renseignez les valeurs ci-dessous :
 * **Abonnement**: Abonnement Azure que vous utilisez.
   - **Groupe de ressources** : Groupe de ressources dans lequel déployer l’instance. Si vous n’avez pas de groupe de ressources existant à l’esprit, vous pouvez en créer un ici en sélectionnant le lien *Créer* et en entrant un nom pour le nouveau groupe de ressources.
 * **Emplacement** : Région prenant en charge Azure Digital Twins pour le déploiement. Pour plus d’informations sur la prise en charge régionale, visitez [*Produits Azure disponibles par région (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ Sur la page *Créer une ressource*, renseignez les valeurs ci-dessous :
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Remplissage des valeurs décrites pour créer une ressource Azure Digital Twins":::
 
-Quand vous avez terminé, sélectionnez _Vérifier + créer_. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés et appuyer sur _Créer_. 
+Lorsque vous avez terminé, vous pouvez sélectionner **Vérifier + créer** si vous ne souhaitez pas configurer d’autres paramètres pour votre instance. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés, avant d’appuyer sur **Créer**. 
+
+Si vous ne souhaitez pas configurer d’autres détails pour votre instance, la section suivante décrit les autres onglets d’installation.
+
+### <a name="additional-setup-options"></a>Options d’installation supplémentaires
+
+Voici les options supplémentaires que vous pouvez configurer lors de l’installation en utilisant les autres onglets du processus **Créer une ressource**.
+
+* **Réseau** : Dans cet onglet, vous pouvez activer des points de terminaison privés avec [Azure Private Link](../private-link/private-link-overview.md) afin d’éliminer l’exposition au réseau public pour votre instance. Pour obtenir des instructions, consultez [*Procédure : Activer l’accès privé avec Private Link (préversion)* ](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avancé** : Dans cet onglet, vous pouvez activer une [identité managée par le système](../active-directory/managed-identities-azure-resources/overview.md) pour votre instance, qui peut être utilisée lors du transfert d’événements vers des [points de terminaison](concepts-route-events.md). Pour obtenir des instructions, consultez [*Procédure : Activer des identités managées pour les événements de routage (préversion)* ](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Étiquettes** : Dans cet onglet, vous pouvez ajouter des balises à votre instance pour vous aider à les organiser parmi vos ressources Azure. Pour plus d’informations sur les balises de ressources Azure, consultez [*Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Vérifier la réussite de l’exécution et collecter les valeurs importantes
 
-Après avoir appuyé sur *Créer*, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indique quand le déploiement a réussi, et vous pourrez sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
+Après avoir terminé la configuration de votre instance et appuyé sur **Créer**, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indique quand le déploiement a réussi, et vous pourrez sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vue des notifications Azure montrant un déploiement réussi et mettant en surbrillance le bouton « Accéder à la ressource »":::
 

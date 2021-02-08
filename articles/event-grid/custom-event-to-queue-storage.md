@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Envoyer des événements personnalisés à une file d’attente de stockage - Event Grid, Azure CLI'
 description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI pour publier une rubrique et pour vous abonner à cet événement. Une file d’attente de stockage est utilisée pour le point de terminaison.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566314"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493258"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
@@ -116,6 +116,11 @@ done
 Accédez au Stockage File d’attente dans le portail et notez que Event Grid a envoyé ces trois événements vers file d’attente.
 
 ![Afficher les messages](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Si vous utilisez un [déclencheur Stockage File d’attente Azure pour Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) pour une file d’attente qui reçoit des messages d’Event Grid, vous pouvez voir le message d’erreur suivant s’afficher à l’exécution de la fonction : `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> En effet, quand vous utilisez un [déclencheur Stockage File d’attente Azure pour Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md), Azure Functions attend une **chaîne encodée en base64**, mais Event Grid envoie les messages à une file d’attente de stockage dans un format de texte brut. Actuellement, il n’est pas possible de configurer le déclencheur de file d’attente de sorte qu’Azure Functions accepte le texte brut. 
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

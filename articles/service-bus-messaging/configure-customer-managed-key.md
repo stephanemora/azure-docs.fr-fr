@@ -2,26 +2,20 @@
 title: Configurer votre propre clé pour chiffrer les données Azure Service Bus au repos
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631764"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928087"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
-Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l’aide de clés gérées par Microsoft. 
+Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l’aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l’aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft sera chiffrée à l’aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire pivoter, de désactiver et de révoquer l’accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
 
-## <a name="overview"></a>Vue d’ensemble
-Azure Service Bus prend désormais en charge le chiffrement des données au repos à l’aide de clés gérées par Microsoft ou de clés gérées par le client (Bring Your Own Key ; BYOK). Cette fonctionnalité vous permet de créer, de faire pivoter, de désactiver et de révoquer l’accès aux clés gérées par le client qui sont utilisées pour chiffrer les données Azure Service Bus au repos.
-
-L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
-
-> [!NOTE]
-> Il existe quelques inconvénients à la clé gérée par le client pour le chiffrement côté service. 
->   * Cette fonctionnalité est prise en charge par le niveau de service [Azure Service Bus Premium](service-bus-premium-messaging.md). Elle ne peut pas être activée pour les espaces de noms Service Bus de niveau standard.
->   * Le chiffrement ne peut être activé que pour les espaces de noms nouveaux ou vides. Si l’espace de noms contient des files d’attente ou des rubriques, l’opération de chiffrement échoue.
+Il existe quelques inconvénients à la clé gérée par le client pour le chiffrement côté service. 
+- Cette fonctionnalité est prise en charge par le niveau de service [Azure Service Bus Premium](service-bus-premium-messaging.md). Elle ne peut pas être activée pour les espaces de noms Service Bus de niveau standard.
+- Le chiffrement ne peut être activé que pour les espaces de noms nouveaux ou vides. Si l’espace de noms contient des files d’attente ou des rubriques, l’opération de chiffrement échoue.
 
 Vous pouvez utiliser Azure Key Vault pour gérer vos clés et effectuer un audit sur leur utilisation. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Après avoir activé une clé gérée par le client, vous devez l’associer à 
         > [!NOTE]
         > À des fins de redondance, vous pouvez ajouter jusqu’à 3 clés. Dans le cas où l’une des clés a expiré ou n’est pas accessible, les autres clés seront utilisées pour le chiffrement.
         
-    1. Renseignez les détails de la clé, puis cliquez sur **Sélectionner**. Cela permettra de chiffrer les données au repos à l'aide d'une clé gérée par le client sur l'espace de noms. 
+    1. Renseignez les détails de la clé, puis cliquez sur **Sélectionner**. Cela permet le chiffrement de la clé gérée par Microsoft avec votre clé (clé gérée par le client). 
 
 
     > [!IMPORTANT]
-    > Si vous envisagez d’utiliser une clé gérée par le client avec la géorécupération d’urgence, veuillez consulter ce qui suit : 
+    > Si vous envisagez d’utiliser une clé gérée par le client avec la géorécupération d’urgence, veuillez consulter cette section. 
     >
-    > Pour activer le chiffrement au repos avec la clé gérée par le client, une [stratégie d’accès](../key-vault/general/secure-your-key-vault.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
+    > Pour activer le chiffrement d’une clé gérée par Microsoft à l’aide d’une clé gérée par le client, une [stratégie d’accès](../key-vault/general/secure-your-key-vault.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
     >
     > Pour cette raison :
     > 

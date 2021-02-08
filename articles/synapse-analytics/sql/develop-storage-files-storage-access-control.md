@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b493ee7d77fc45018dbf8d2bac748b03e3d74b8a
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120408"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430207"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -94,6 +94,9 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 
 Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utiliser une **identité utilisateur** ou une **identité managée**.
 
+> [!NOTE]
+> La fonctionnalité de pare-feu de Stockage est en préversion publique et est disponible dans toutes les régions de cloud public. 
+
 #### <a name="user-identity"></a>Identité de l’utilisateur
 
 Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez utiliser le module PowerShell Az.Storage.
@@ -102,12 +105,13 @@ Pour accéder au stockage protégé par le pare-feu via une identité utilisateu
 Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et ajouter une exception pour l’espace de travail synapse.
 
 1. Ouvrez PowerShell ou [installez PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Installez le module Az. Storage mis à jour : 
+2. Installez le module Az.Storage 3.0.1 et Az.Synapse 0.7.0 : 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Veillez à utiliser la version 3.0.1 ou ultérieure. Vous pouvez vérifier votre version Az.Storage en exécutant cette commande :  
+    > Veillez à utiliser la **version 3.0.1**. Vous pouvez vérifier votre version Az.Storage en exécutant cette commande :  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -121,16 +125,23 @@ Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et aj
     - Nom du groupe de ressources - vous pouvez le trouver dans le portail Azure dans la vue d’ensemble de l’espace de travail Synapse.
     - Nom du compte - nom du compte de stockage protégé par les règles de pare-feu.
     - ID de locataire - vous pouvez le trouver dans le portail Azure dans Azure Active Directory dans les informations du locataire.
-    - ID de ressource - vous pouvez le trouver dans le portail Azure dans la vue d’ensemble de l’espace de travail Synapse.
+    - Nom de l’espace de travail – Nom de l’espace de travail Synapse.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Assurez-vous que l’ID de ressource correspond à ce modèle.
+    > Vérifiez que l’ID de ressource correspond à ce modèle dans l’impression de la variable resourceId.
     >
     > Il est important d’écrire **resourcegroups** en minuscules.
     > Exemple d’un ID de ressource : 
@@ -145,7 +156,14 @@ Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et aj
 6. Vérifiez que la règle a été appliquée dans votre compte de stockage : 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+            $rule.ResourceAccessRules
+        } else {
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+            $rule.ResourceAccessRules
+        }
     ```
 
 #### <a name="managed-identity"></a>Identité managée

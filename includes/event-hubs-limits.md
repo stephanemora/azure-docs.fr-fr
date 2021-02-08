@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152581"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427444"
 ---
 Le tableau suivant répertorie les quotas et les limites propres à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Pour plus d’informations sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -30,7 +30,8 @@ Les limites suivantes sont communes à tous les niveaux.
 | Nombre de récepteurs non epoch par groupe de consommateurs |- |5 |
 | Nombre de règles d’autorisation par espace de noms | Les demandes suivantes pour la création de règle d’autorisation sont rejetées.|12 |
 | Nombre d’appels à la méthode GetRuntimeInformation |  - | 50 par seconde | 
-| Nombre de règles de réseau virtuel (VNet) et de configuration IP | - | 128 | 
+| Nombre de réseaux virtuels (VNet) | - | 128 | 
+| Nombre de règles de configuration IP | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>Niveaux de base ou standard

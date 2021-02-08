@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un blueprint avec PowerShell'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec PowerShell.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 339cd4628cda5f469a783db02c10f86259c93941
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051489"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918277"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
@@ -16,9 +16,9 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
-
-Si le module n’est pas encore installé, suivez les instructions fournies dans [Ajouter le module Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) pour installer et valider le module **AZ.Blueprint** à partir de PowerShell Gallery.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+- Si le module n’est pas encore installé, suivez les instructions fournies dans [Ajouter le module Az.Blueprint](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) pour installer et valider le module **AZ.Blueprint** à partir de PowerShell Gallery.
+- Si vous n’avez encore jamais utilisé Azure Blueprints, inscrivez le fournisseur de ressources par le biais d’Azure PowerShell avec `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

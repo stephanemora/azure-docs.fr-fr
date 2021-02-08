@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798665"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500021"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN est-il en disponibilité générale ?
 
@@ -140,6 +140,10 @@ Chaque hub virtuel prend en charge jusqu’à 1000 connexions. Chaque connexion 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Qu’est-ce qu’une connexion de branche à Azure Virtual WAN ?
 
 Une connexion à partir d’un appareil de branche ou VPN dans Azure Virtual WAN n’est rien de plus qu’une connexion VPN qui connecte virtuellement le site VPN et la passerelle Azure VPN dans un hub virtuel.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>Que se passe-t-il si le périphérique VPN local n’a qu’un seul tunnel vers une passerelle VPN Azure Virtual WAN ?
+
+Une connexion Azure Virtual WAN comprend 2 tunnels. Une passerelle VPN Virtual WAN est déployée sur le hub virtuel en mode actif-actif, ce qui signifie qu’il existe des tunnels distincts qui partent des appareils locaux et qui se terminent sur des instances distinctes. Cette recommandation s’adresse à tous les utilisateurs. Toutefois, si l’utilisateur choisit de n’avoir qu’un seul tunnel vers l’une des instances de passerelle VPN Virtual WAN, si pour une raison quelconque (maintenance, application de correctifs, etc.), l’instance de passerelle doit être mise hors connexion, le tunnel est déplacé vers la deuxième instance active et l’utilisateur peut être amené à se reconnecter. Gardez également à l’esprit que la session BGP ne se déplace pas entre les instances.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>L’appareil VPN local peut-il se connecter à plusieurs hubs ?
 

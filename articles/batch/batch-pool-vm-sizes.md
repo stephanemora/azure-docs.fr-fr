@@ -4,12 +4,12 @@ description: Quelle taille de machine virtuelle et quelle version de système d�
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895228"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897491"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -35,40 +35,38 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | DC | Non pris en charge |
 | Dv2, DSv2 | Toutes les tailles |
 | Dv3, Dsv3 | Toutes les tailles |
-| Dav4<sup>1</sup> | Toutes les tailles |
-| Dasv4<sup>1</sup> | Toutes les tailles |
+| Dav4 | Toutes les tailles |
+| Dasv4 | Toutes les tailles |
 | Ddv4, Ddsv4 |  Toutes les tailles |
 | Dv4, Dsv4 | Non pris en charge |
 | Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
-| Eav4<sup>1</sup> | Toutes les tailles |
-| Easv4<sup>1</sup> | Toutes les tailles |
+| Eav4 | Toutes les tailles |
+| Easv4 | Toutes les tailles |
 | Edv4, Edsv4 |  Toutes les tailles |
 | Ev4, Esv4 | Non pris en charge |
 | F, Fs | Toutes les tailles |
 | Fsv2 | Toutes les tailles |
 | G, Gs | Toutes les tailles |
 | H | Toutes les tailles |
-| HB<sup>1</sup> | Toutes les tailles |
-| HBv2<sup>1</sup> | Toutes les tailles |
-| HC<sup>1</sup> | Toutes les tailles |
+| HB | Toutes les tailles |
+| HBv2 | Toutes les tailles |
+| HC | Toutes les tailles |
 | Ls | Toutes les tailles |
-| Lsv2<sup>1</sup> | Toutes les tailles |
-| M<sup>1</sup> | Toutes les tailles |
-| Mv2<sup>1, 2</sup> | Toutes les tailles |
+| Lsv2 | Toutes les tailles |
+| M | Toutes les tailles |
+| Mv2<sup>1</sup> | Toutes les tailles |
 | NC | Toutes les tailles |
-| NCv2<sup>1</sup> | Toutes les tailles |
-| NCv3<sup>1</sup> | Toutes les tailles |
+| NCv2 | Toutes les tailles |
+| NCv3 | Toutes les tailles |
 | NCasT4_v3 | Aucune – pas encore disponible |
-| ND<sup>1</sup> | Toutes les tailles |
-| NDv2<sup>1</sup> | Aucune – pas encore disponible |
+| ND | Toutes les tailles |
+| NDv2 | Aucune – pas encore disponible |
 | NV | Toutes les tailles |
-| NVv3<sup>1</sup> | Toutes les tailles |
-| NVv4<sup>1</sup> | Toutes les tailles |
+| NVv3 | Toutes les tailles |
+| NVv4 | Toutes les tailles |
 | SAP HANA | Non pris en charge |
 
-<sup>1</sup> Ces séries de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez créer un compte Batch et demander une [augmentation de quota](batch-quota-limit.md#increase-a-quota) spécifique. Cette limitation sera supprimée une fois que le quota de processeurs virtuels par série de machines virtuelles sera entièrement pris en charge pour les comptes Batch.
-
-<sup>2</sup> Ces séries de machines virtuelles peuvent uniquement être utilisées avec les images de machine virtuelle de 2e génération.
+<sup>1</sup> Ces séries de machines virtuelles peuvent uniquement être utilisées avec les images de machine virtuelle de 2e génération.
 
 ### <a name="using-generation-2-vm-images"></a>Utilisation d’images de machine virtuelle de 2e génération
 

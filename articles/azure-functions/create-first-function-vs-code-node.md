@@ -3,12 +3,12 @@ title: Créer une fonction JavaScript à l’aide de Visual Studio Code – Azur
 description: Apprenez à créer une fonction JavaScript, puis à publier le projet Node.js local sur un hébergement serverless dans Azure Functions, à l’aide de l’extension Azure Functions dans Visual Studio code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 11195531cafadcc8b73c0913bc99b4119aa2d4fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424727"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493615"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction JavaScript dans Azure à l’aide de Visual Studio Code
 
@@ -75,7 +75,7 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
 1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez le bouton **Déployer sur une application de fonction**.
 
-    ![Publier votre projet sur Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publier votre projet sur Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Quand vous y êtes invité, indiquez les informations suivantes :
 
@@ -91,15 +91,17 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
     + **Sélectionnez un emplacement pour les nouvelles ressources** :  Pour de meilleures performances, choisissez une [région](https://azure.microsoft.com/regions/) proche de vous. 
 
+    L’extension montre l’état des ressources individuelles au fur et à mesure de leur création dans Azure, au sein de la zone de notification.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification de création de ressources Azure":::
+
 1. Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction :
 
-    + Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
-    + Un compte de stockage Azure standard, qui conserve l’état et d’autres informations spécifiques à vos projets.
-    + Un plan de consommation, qui définit l’hôte sous-jacent pour votre application de fonction serverless. 
-    + Une application de fonction, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources au sein du même plan d’hébergement.
-    + Une instance Application Insights connectée à l’application de fonction, qui effectue le suivi de l’utilisation de votre fonction serverless.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Une notification s’affiche après que votre application de fonction a été créée et que le package de déploiement a été appliqué. 
+
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
 1. Sélectionnez **Afficher la sortie de** dans cette notification pour afficher les résultats de la création et du déploiement, y compris les ressources Azure que vous avez créées. Si vous manquez la notification, sélectionnez l’icône de cloche dans le coin inférieur droit pour la voir de nouveau.
 
@@ -111,7 +113,7 @@ Dans cette section, vous créez une application de fonction et les ressources as
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez utilisé Visual Studio Code pour créer une application de fonction à l’aide d’une fonction HTTP simple déclenchée via HTTP. Dans le prochain article, vous développez cette fonction en ajoutant une liaison de sortie. Cette liaison écrit la chaîne de la requête HTTP dans un message dans une file d’attente de Stockage File d’attente Azure. 
+Vous avez utilisé [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) pour créer une application de fonction à l’aide d’une simple fonction déclenchée par HTTP. Dans le prochain article, vous allez développer cette fonction en vous connectant au service Stockage Azure. Pour en savoir plus sur la connexion à d’autres services Azure, consultez [Ajouter des liaisons à une fonction existante dans Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
 > [!div class="nextstepaction"]
 > [Se connecter à une file d’attente Stockage Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)

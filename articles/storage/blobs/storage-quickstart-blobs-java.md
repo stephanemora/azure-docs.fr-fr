@@ -1,6 +1,6 @@
 ---
-title: Bibliothèque de stockage d’objets Blob Azure v12 – Java
-description: Ce guide de démarrage rapide explique comment utiliser la bibliothèque de client d’Azure Storage Blob version 12 pour Java afin de créer un conteneur et un blob dans un stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
+title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 – Java'
+description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour Java afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501122"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054701"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Démarrage rapide : Gérer les objets blob avec le SDK Java v12
 
@@ -37,7 +37,7 @@ Ressources supplémentaires :
 
 ## <a name="setting-up"></a>Configuration
 
-Cette section vous guide tout au long de la préparation d’un projet à utiliser avec la bibliothèque de client Azure Storage Blob v12 pour Java.
+Cette section vous guide tout au long de la préparation d’un projet à utiliser avec la bibliothèque cliente Storage Blob Azure v12 pour Java.
 
 ### <a name="create-the-project"></a>Créer le projet
 
@@ -163,7 +163,7 @@ public class App
 
 ## <a name="object-model"></a>Modèle objet
 
-Le Stockage Blob Azure est optimisé pour stocker de grandes quantités de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
+Stockage Blob Azure est optimisé pour stocker des quantités massives de données non structurées. Les données non structurées sont des données qui n’obéissent pas à un modèle ou une définition de données en particulier, comme des données texte ou binaires. Le stockage Blob offre trois types de ressources :
 
 * Le compte de stockage
 * Un conteneur dans le compte de stockage.
@@ -183,7 +183,7 @@ Utilisez les classes Java suivantes pour interagir avec ces ressources :
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces exemples d’extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque de client Azure Storage Blob pour Java :
+Ces exemples d’extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour Java :
 
 * [Obtenir la chaîne de connexion](#get-the-connection-string)
 * [Créer un conteneur](#create-a-container)
@@ -199,7 +199,7 @@ Le code ci-dessous récupère la chaîne de connexion pour le compte de stockage
 Ajoutez ce code dans la méthode `Main` :
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 La sortie de l’application ressemble à l’exemple suivant :
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ Dans ce démarrage rapide, vous avez appris à charger, télécharger et répert
 Pour afficher des exemples d’applications de stockage blob, passez à :
 
 > [!div class="nextstepaction"]
-> [Exemples de stockage d’objets blob du Kit de développement logiciel (SDK) Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Exemples Java du SDK Stockage Blob Azure v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documents, visitez [Azure pour les développeurs cloud Java](/azure/developer/java/).
