@@ -1,5 +1,5 @@
 ---
-title: Utiliser l’IA pour comprendre les données de stockage blob
+title: Utiliser l’intelligence artificielle pour enrichir le contenu d’un objet blob
 titleSuffix: Azure Cognitive Search
 description: Découvrez les fonctionnalités d’analyse du langage naturel et des images dans Recherche cognitive Azure, ainsi que la façon dont ces processus s’appliquent au contenu stocké dans des blobs Azure.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362795"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222046"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Utiliser l’IA pour comprendre les données de stockage blob
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>Utiliser l’intelligence artificielle pour traiter et analyser le contenu d’un objet blob dans Recherche cognitive Azure
 
-Dans Stockage Blob Azure, les données sont souvent constituées de divers contenus non structurés comme des images, du texte long, des fichiers PDF et des documents Office. En utilisant les fonctionnalités d’IA dans Recherche cognitive Azure, vous pouvez arriver à comprendre et à extraire des informations précieuses des objets blob, et ce de différentes manières. Voici des exemples d’application de l’IA au contenu d’objets blob :
+Le contenu d’un Stockage Blob Azure composé d’images ou d’un long texte indifférencié peut faire l’objet d’une analyse de Deep Learning pour révéler et extraire des informations précieuses utiles pour des applications en aval. Un [enrichissement par IA](cognitive-search-concept-intro.md) permet d’effectuer les opérations suivantes :
 
 + Extraction de texte d’images à l’aide de la reconnaissance optique de caractères (OCR)
 + Création d’une description de scène ou d’étiquettes à partir d’une photo
@@ -26,23 +26,23 @@ Dans Stockage Blob Azure, les données sont souvent constituées de divers conte
 
 Même si vous n’êtes intéressé que par une seule de ces fonctionnalités d’IA, il est courant d’en combiner plusieurs dans le même pipeline (par exemple, extraction de texte d’une image numérisée et recherche des dates et des emplacements référencés). Il est également courant d’inclure un traitement personnalisé d’IA ou d’apprentissage automatique sous la forme de packages externes de pointe ou de modèles internes adaptés à vos données et à vos besoins.
 
-L’enrichissement par IA crée de nouvelles informations, capturées sous forme de texte, stockées dans des champs. Après l’enrichissement, vous pouvez accéder à ces informations à partir d’un index de recherche en effectuant une recherche en texte intégral ou renvoyer les documents enrichis à Stockage Azure pour permettre de nouvelles expériences applicatives comme notamment l’exploration de données pour des scénarios de découverte ou d’analytique. 
+Bien que vous puissiez appliquer un enrichissement par IA à n’importe quelle source de données prise en charge par un indexeur de recherche, les blobs sont les structures les plus fréquemment utilisées dans un pipeline d’enrichissement. Les résultats sont extraits dans un index de recherche pour la recherche en texte intégral, ou redirigés vers le service Stockage Azure afin d’alimenter de nouvelles expériences d’application qui incluent l’exploration de données dans le cadre de scénarios de découverte ou d’analyse. 
 
 Dans cet article, nous examinons l’enrichissement par IA à travers un objectif grand-angle pour vous permettre de saisir rapidement l’ensemble du processus, depuis la transformation des données brutes d’objets blob jusqu’aux informations requêtables dans un index de recherche ou une base de connaissances.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Que signifie « enrichir » des données blob avec l’IA ?
 
-L’*enrichissement par IA * fait partie de l’architecture d’indexation de Recherche cognitive Azure qui intègre l’IA (intelligence artificielle) de Microsoft ou une IA personnalisée que vous fournissez. Il permet de mettre en œuvre des scénarios de bout en bout quand il s’agit de traiter des objets blob (existants ou nouvellement obtenus ou mis à jour), d’ouvrir tous les formats de fichiers pour en extraire des images et du texte, d’extraire les informations souhaitées avec différentes fonctionnalités d’IA, puis de les indexer dans un index de recherche pour accélérer la recherche, l’extraction et l’exploration. 
+L’*enrichissement par IA* fait partie de l’architecture d’indexation de Recherche cognitive Azure, qui intègre des modèles Machine Learning de Microsoft ou des modèles d’apprentissage personnalisés que vous fournissez. Il permet de mettre en œuvre des scénarios de bout en bout quand il s’agit de traiter des objets blob (existants ou nouvellement obtenus ou mis à jour), d’ouvrir tous les formats de fichiers pour en extraire des images et du texte, d’extraire les informations souhaitées avec différentes fonctionnalités d’IA, puis de les indexer dans un index de recherche pour accélérer la recherche, l’extraction et l’exploration. 
 
 Les entrées sont vos objets blob, dans un même conteneur, dans Stockage Blob Azure. Les objets blob peuvent correspondre à pratiquement tout type de données texte ou image. 
 
 La sortie est toujours un index de recherche, utilisé pour la recherche, l’extraction et l’exploration rapides de texte dans les applications clientes. Par ailleurs, la sortie peut aussi être une [*base de connaissances*](knowledge-store-concept-intro.md) qui projette des documents enrichis dans des blobs Azure ou des tables Azure pour effectuer une analyse en aval dans des outils comme Power BI ou des charges de travail de science des données.
 
-Au milieu se trouve l’architecture du pipeline proprement dite. Le pipeline est basé sur la fonctionnalité d’*indexeur*, à laquelle vous pouvez affecter un *ensemble de compétences*, qui se compose d’une ou plusieurs *compétences* fournissant l’IA. L’objectif du pipeline est de produire des *documents enrichis* : le contenu brut de départ se dote d’une structure, d’un contexte et d’informations supplémentaires à mesure qu’il avance dans le pipeline. Les documents enrichis sont consommés pendant l’indexation pour créer des index inversés et d’autres structures utilisées dans la recherche en texte intégral ou l’exploration et l’analytique.
+Au milieu se trouve l’architecture du pipeline proprement dite. Le pipeline est basé sur les [*indexeurs*](search-indexer-overview.md), auxquels vous pouvez attribuer un [*ensemble de compétences*](cognitive-search-working-with-skillsets.md), qui se compose d’une ou plusieurs *compétences* fournissant l’IA. L’objectif du pipeline est de produire des *documents enrichis* qui entrent dans le pipeline en tant que contenu brut, mais acquièrent une structure, un contexte et des informations supplémentaires à mesure qu’ils se déplacent dans le pipeline. Les documents enrichis sont consommés pendant l’indexation pour créer des index inversés et d’autres structures utilisées dans la recherche en texte intégral ou l’exploration et l’analytique.
 
 ## <a name="required-resources"></a>Ressources nécessaires
 
-Vous avez besoin des services Stockage Blob Azure et Recherche cognitive Azure, ainsi que d’un troisième service ou mécanisme fournissant l’intelligence artificielle :
+En plus des services Stockage Blob Azure et Recherche cognitive Azure, vous avez besoin d’un troisième service ou mécanisme fournissant l’intelligence artificielle :
 
 + Pour l’intelligence artificielle intégrée, le service Recherche cognitive s’intègre avec la vision d’Azure Cognitive Services et les API de traitement en langage naturel. Vous pouvez [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour ajouter la reconnaissance optique de caractères, l’analyse d’images ou le traitement en langage naturel (détection de la langue, traduction de texte, reconnaissance d’entité et extraction de phrases clés). 
 

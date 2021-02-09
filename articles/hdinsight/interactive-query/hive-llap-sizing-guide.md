@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680510"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931106"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guide de dimensionnement pour le cluster Azure HDInsight Interactive Query (Hive LLAP)
 
@@ -216,7 +216,7 @@ Exemple : Capacité totale du cluster = 100 Go de mémoire, divisée entre le 
  - Capacité de la file d’attente de gestion des charges de travail = 20 Go
  - Capacité de file d’attente par défaut = 10 Go
 
-Avec 20 Go de capacité pour la file d’attente de gestion des charges de travail, un plan de ressources peut spécifier `QUERY_PARALLELISM` une valeur 5, ce qui signifie que la gestion des charges de travail peut lancer cinq AM Tez avec une taille de conteneur de 4 Go chacune. Si `QUERY_PARALLELISM` est supérieure à la capacité, il se peut que certaines AM Tez soient bloquées en `ACCEPTED`. Hiveserver2 Interactive ne peut pas envoyer de fragments de requête aux AM Tez qui ne sont pas `RUNNING`.
+Avec 20 Go de capacité pour la file d’attente de gestion des charges de travail, un plan de ressources peut spécifier `QUERY_PARALLELISM` une valeur 5, ce qui signifie que la gestion des charges de travail peut lancer cinq AM Tez avec une taille de conteneur de 4 Go chacune. Si `QUERY_PARALLELISM` est supérieure à la capacité, il est possible que certaines AM Tez ne répondent plus dans l’état `ACCEPTED`. Hiveserver2 Interactive ne peut pas envoyer de fragments de requête aux AM Tez qui ne sont pas `RUNNING`.
 
 
 #### <a name="next-steps"></a>**Next Steps**

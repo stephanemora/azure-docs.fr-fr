@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247895"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928044"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Sauvegarde à la demande dans Azure Service Fabric
 
@@ -21,11 +21,16 @@ Azure Service Fabric comprend des fonctionnalités pour la [sauvegarde périodiq
 Les fonctionnalités de sauvegarde à la demande sont utiles pour capturer l’état des services avant que vous ne déclenchiez manuellement un service ou une opération de l’environnement du service. Par exemple, si vous apportez une modification dans les fichiers binaires du service lors du passage à une version antérieure ou ultérieure du service. Dans ce cas, la sauvegarde à la demande peut protéger les données d’une éventuelle altération due aux bogues du code de l’application.
 ## <a name="prerequisites"></a>Prérequis
 
-- Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
+- Installez le module Microsoft.ServiceFabric.Powershell.Http (préversion) pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Si votre version PowerShellGet est inférieure à 1.6.0, vous devez effectuer une mise à jour pour ajouter la prise en charge de l’indicateur *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Assurez-vous que le cluster est connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute requête de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
 
@@ -170,7 +175,7 @@ Les demandes de sauvegarde à la demande peuvent avoir les états suivants :
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout** (Expiration du délai) : l’état de sauvegarde_Timeout_ indique que la sauvegarde d’état de partition n’a pas pu être créée dans un laps de temps donné. Le délai d’expiration par défaut est de 10 minutes. Dans ce scénario, effectuez une nouvelle demande de sauvegarde à la demande avec une valeur de [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) supérieure.
+  - **Timeout** (Expiration du délai) : l’état de sauvegarde _Timeout_ indique que la sauvegarde d’état de partition n’a pas pu être créée dans un laps de temps donné. Le délai d’expiration par défaut est de 10 minutes. Dans ce scénario, effectuez une nouvelle demande de sauvegarde à la demande avec une valeur de [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) supérieure.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z

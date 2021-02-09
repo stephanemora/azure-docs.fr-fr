@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609942"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954747"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -25,9 +25,6 @@ Les fonctionnalités qui nécessitent des clusters dédiés sont les suivantes 
 - **[Espaces de travail multiples](../log-query/cross-workspace-query.md)**  : si un client utilise plusieurs espaces de travail pour la production, il peut être judicieux d’utiliser un cluster dédié. Les requêtes entre espaces de travail s’exécuteront plus rapidement si tous les espaces de travail se trouvent sur le même cluster. Il peut être plus rentable d’utiliser un cluster dédié, car les niveaux de réservation de capacité affectés prennent en compte toutes les ingestions de cluster et s’appliquent à tous ses espaces de travail, même si certains d’entre eux sont petits et ne peuvent bénéficier de la remise de réservation de capacité.
 
 Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 1 To d’ingestion des données par jour. La migration vers un cluster dédié est simple. Il n’y a pas de perte de données ni d’interruption de service. 
-
-> [!IMPORTANT]
-> Les clusters dédiés sont approuvés et entièrement pris en charge pour les déploiements de production. Toutefois, en raison de contraintes temporaires de capacité, nous vous demandons de vous inscrire à l’avance pour pouvoir utiliser cette fonction. Utilisez vos contacts au sein de Microsoft pour fournir vos ID d’abonnement.
 
 ## <a name="management"></a>Gestion 
 
@@ -84,10 +81,12 @@ Les propriétés suivantes doivent être spécifiées :
 
 Après avoir créé votre ressource de *cluster*, vous pouvez modifier des propriétés supplémentaires telles que *SKU*, *keyVaultProperties ou *billingType*. Pour plus d’informations, voir ci-dessous.
 
+Vous pouvez disposer de 2 clusters actifs par abonnement et par région. Si un cluster est supprimé, il reste réservé pendant 14 jours. Vous pouvez disposer de 4 clusters réservés (actifs ou récemment supprimés) par abonnement et par région.
+
 > [!WARNING]
 > La création du cluster déclenche l’allocation et l’approvisionnement de la ressource. Cette opération peut prendre une heure. Il est recommandé de l’exécuter de manière asynchrone.
 
-Le compte d’utilisateur qui crée les clusters doit disposer de l’autorisation standard de création de ressources Azure `Microsoft.Resources/deployments/*` et de l’autorisation d’écriture sur le cluster `(Microsoft.OperationalInsights/clusters/write)`.
+Le compte d'utilisateur qui crée les clusters doit disposer de l'autorisation standard de création de ressources Azure `Microsoft.Resources/deployments/*` et de l'autorisation d'écriture de cluster `Microsoft.OperationalInsights/clusters/write` en ayant dans ses attributions de rôle une action spécifique, `Microsoft.OperationalInsights/*` ou `*/write`.
 
 ### <a name="create"></a>Créer 
 
@@ -506,7 +505,9 @@ Utilisez l’appel REST suivant pour supprimer un cluster :
 
 ## <a name="limits-and-constraints"></a>Limites et contraintes
 
-- Le nombre maximal de clusters par région et abonnement est de 2
+- Le nombre maximal de clusters actifs par région et par abonnement est de 2
+
+- Le nombre maximal de clusters réservés (actifs ou récemment supprimés) par région et par abonnement est de 4 
 
 - Le nombre maximal d’espaces de travail liés à un cluster est de 1000.
 

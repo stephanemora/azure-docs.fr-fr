@@ -1,27 +1,27 @@
 ---
-title: Gérer les projets de migration à grande échelle à l’aide d’Azure Migrate
+title: Gérer des projets Azure Migrate à grande échelle avec Azure Migrate
 description: Apprenez à utiliser efficacement Azure Migrate sur les ressources client déléguées.
-ms.date: 12/4/2020
+ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788941"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093606"
 ---
-# <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gérer les projets de migration à grande échelle à l’aide d’Azure Migrate
+# <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Gérer des projets Azure Migrate à grande échelle avec Azure Migrate
 
-En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../overview.md). Azure Lighthouse permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires Azure Active Directory (Azure AD) à la fois, améliorant ainsi l’efficacité des tâches de gestion.
+Cette rubrique donne une vue d’ensemble de la façon dont [Azure Lighthouse](../overview.md) peut vous aider à utiliser [Azure Migrate](../../migrate/migrate-services-overview.md) de manière évolutive sur plusieurs locataires Azure Active Directory (Azure AD).
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) fournit un hub centralisé pour évaluer et migrer les serveurs, l’infrastructure, les applications et les données locales vers Azure. En règle générale, les partenaires qui effectuent des évaluations et une migration à grande échelle pour plusieurs clients doivent accéder individuellement à chaque abonnement client à l’aide du [modèle d’abonnement Fournisseur de solutions Cloud (CSP)](/partner-center/customers-revoke-admin-privileges) ou en [créant un utilisateur invité dans le locataire client](../../active-directory/external-identities/what-is-b2b.md).
+Azure Lighthouse permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l’efficacité des tâches de gestion.
+
+Azure Migrate fournit un hub centralisé pour évaluer et migrer les serveurs, l’infrastructure, les applications et les données locales vers Azure. En règle générale, les partenaires qui effectuent des évaluations et une migration à grande échelle pour plusieurs clients doivent accéder individuellement à chaque abonnement client à l’aide du [modèle d’abonnement Fournisseur de solutions Cloud (CSP)](/partner-center/customers-revoke-admin-privileges) ou en [créant un utilisateur invité dans le locataire client](../../active-directory/external-identities/what-is-b2b.md).
 
 L’intégration d’Azure Lighthouse à Azure Migrate permet aux fournisseurs de services de découvrir, d’évaluer et de migrer des charges de travail pour différents clients à grande échelle, tout en permettant aux clients d’avoir une visibilité et un contrôle complets de leurs environnements. Grâce à la gestion déléguée des ressources Azure, les fournisseurs de services ont une vue unique de tous les projets Azure Migrate qu’ils gèrent sur plusieurs locataires client.
 
 > [!NOTE]
 > Par le biais d’Azure Lighthouse, les partenaires peuvent effectuer la détection, l’évaluation et la migration de machines virtuelles VMware locales, de machines virtuelles Hyper-V, de serveurs physiques et d’instances AWS/GCP. Il existe deux options pour une [migration de machine virtuelle VMware](../../migrate/server-migrate-overview.md). À l’heure actuelle, seule la méthode de migration basée sur l’agent peut être utilisée lors de l’utilisation d’un projet de migration dans un abonnement client délégué. La migration à l’aide de la réplication sans agent n’est actuellement pas prise en charge via l’accès délégué à l’étendue du client.
-
-Cette rubrique fournit une vue d’ensemble de l’utilisation d’[Azure Migrate](../../migrate/migrate-services-overview.md) de manière évolutive.
 
 > [!TIP]
 > Bien que nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
@@ -72,11 +72,11 @@ REMARQUE : Vous devez modifier le fichier de paramètres pour qu’il correspon
 
 ## <a name="partner-recognition-for-customer-migrations"></a>Reconnaissance de partenaires pour les migrations client
 
-En tant que membre du programme [Microsoft Partner Network](https://partner.microsoft.com), vous pouvez lier votre ID de partenaire à des informations d’identification utilisées pour gérer des ressources client déléguées. Par l’intermédiaire de Partner Admin Link (PAL), Microsoft peut attribuer à votre organisation une influence et des revenus consommés par Azure en fonction des tâches que vous effectuez pour les clients, y compris les projets de migration.
+En tant que membre du programme [Microsoft Partner Network](https://partner.microsoft.com), vous pouvez lier votre ID de partenaire à des informations d’identification utilisées pour gérer des ressources client déléguées. Cela permet à Microsoft d’attribuer à votre organisation une influence et un revenu consommé Azure en fonction des tâches que vous effectuez pour des clients, y compris des projets de migration.
 
 Pour plus d’informations, consultez [Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées](partner-earned-credit.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [Azure Migrate](../../migrate/migrate-services-overview.md).
-- Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
+- Apprenez-en davantage sur [Azure Migrate](../../migrate/migrate-services-overview.md).
+- Apprenez-en davantage sur d’autres [expériences de gestion multilocataires](../concepts/cross-tenant-management-experience.md) prises en charge par le Azure Lighthouse.

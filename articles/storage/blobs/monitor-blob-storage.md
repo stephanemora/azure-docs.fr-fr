@@ -1,6 +1,6 @@
 ---
-title: Supervision du Stockage Blob Azure | Microsoft Docs
-description: Découvrez comment superviser les performances et la disponibilité du Stockage Blob Azure. Supervisez les données du Stockage Blob Azure, apprenez-en davantage sur la configuration, et analysez les données de métriques et de journal.
+title: Supervision du service Stockage Blob Azure | Microsoft Docs
+description: Apprenez à superviser les performances et la disponibilité du service Stockage Blob Azure. Supervisez les données du service Stockage Blob Azure, apprenez-en davantage sur la configuration, et analysez les données de métriques et de journal.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9224d02e36dbca96d3e54946330d3135ff811829
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590764"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071662"
 ---
-# <a name="monitoring-azure-blob-storage"></a>Supervision du Stockage Blob Azure
+# <a name="monitoring-azure-blob-storage"></a>Supervision du service Stockage Blob Azure
 
-Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par le Stockage Blob Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser les alertes sur ces données.
+Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par le service Stockage Blob Azure et comment vous pouvez utiliser les fonctionnalités d'Azure Monitor pour analyser les alertes sur ces données.
 
 > [!NOTE]
 > Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
@@ -28,7 +28,7 @@ Lorsque vous avez des applications critiques et des processus métier basés sur
 La page **Vue d’ensemble** du portail Azure pour chaque ressource du Stockage Blob comprend un bref aperçu de l’utilisation de la ressource, comme les demandes et la facturation horaire. Ces informations sont utiles, mais elles ne constituent qu’une petite quantité des données de supervision disponibles. Certaines de ces données sont collectées automatiquement et peuvent être analysées dès que vous créez la ressource. Vous pouvez activer d’autres types de collecte de données avec une certaine configuration.
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
-Le Stockage Blob Azure crée des données de supervision à l’aide d’[Azure Monitor](../../azure-monitor/overview.md), qui est un service de supervision de pile complète dans Azure. Azure Monitor fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure, ainsi que les ressources locales et celles présentes dans d’autres clouds. 
+Le service Stockage Blob Azure crée des données de supervision à l'aide d'[Azure Monitor](../../azure-monitor/overview.md), qui est un service de supervision de pile complète dans Azure. Azure Monitor fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure, ainsi que les ressources locales et celles présentes dans d’autres clouds. 
 
 Commencez avec l’article [Supervision de ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) qui décrit les éléments suivants :
 
@@ -42,7 +42,7 @@ Les sections suivantes s’appuient sur cet article en décrivant les données s
 
 ## <a name="monitoring-data"></a>Données de surveillance
 
-Le Stockage Blob Azure collecte les mêmes types de données de supervision que d’autres ressources Azure, lesquelles sont décrites dans [Supervision des données de ressources Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+Le service Stockage Blob Azure collecte les mêmes types de données de supervision que d'autres ressources Azure, lesquelles sont décrites dans [Supervision des données issues des ressources Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
 
 Pour obtenir des informations détaillées sur les métriques et les métriques de journaux créées par le service Stockage Blob Azure, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 
@@ -284,7 +284,7 @@ Les métriques du service Stockage Blob Azure se trouvent dans les espaces de no
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
-Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Monitor, ce qui inclut le Stockage Blob Azure, consultez [Métriques de prise en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Pour obtenir la liste de toutes les métriques de prise en charge d'Azure Monitor, ce qui inclut le service Stockage Blob Azure, consultez [Métriques de prise en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 
 ### <a name="accessing-metrics"></a>Accès aux métriques
@@ -483,7 +483,7 @@ N/A.
 
 Vous pouvez accéder aux journaux des ressources en tant qu’objet blob dans un compte de stockage, en tant que données d’événement ou par le biais de requêtes Log Analytics.
 
-Pour obtenir des informations de référence détaillées sur les champs qui apparaissent dans ces journaux, consultez [Informations de référence sur les données de supervision du Stockage Blob Azure](monitor-blob-storage-reference.md).
+Pour obtenir des informations de référence détaillées sur les champs qui apparaissent dans ces journaux, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 
 > [!NOTE]
 > Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
@@ -601,6 +601,6 @@ Non. Azure Compute prend en charge les métriques sur les disques. Pour obtenir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations de référence sur les journaux et les métriques créés par le Stockage Blob Azure, consultez [Informations de référence sur les données de supervision du Stockage Blob Azure](monitor-blob-storage-reference.md).
+- Pour obtenir des informations de référence sur les journaux et les métriques créés par le service Stockage Blob Azure, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 - Pour plus d’informations sur la supervision des ressources Azure, consultez [Superviser des ressources Azure avec Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
 - Pour plus d’informations sur la migration des métriques, consultez [Migration des métriques de Stockage Azure](../common/storage-metrics-migration.md).

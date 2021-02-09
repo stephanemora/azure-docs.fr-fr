@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754128"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986817"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -45,7 +45,7 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 
 **Prérequis** | **VMware** 
 --- | ---
-**autorisations** | Pour accéder à l’application web de l’appliance localement ou à distance, vous devez être un administrateur de domaine ou un administrateur local sur l’ordinateur de l’appliance.
+**autorisations** | Pour accéder à l'application web de l'appliance localement ou à distance, vous devez disposer d'un compte d'utilisateur local ou de domaine doté de privilèges administratifs sur le serveur de l'appliance.
 **Composants de l’appliance** | L’appliance a les composants suivants :<br/><br/> - **Application de gestion** : Il s’agit d’une application web pour l’entrée des utilisateurs pendant le déploiement de l’appareil. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/> - **Agent de découverte** : L’agent collecte les données de configuration de la machine. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Agent collecteur** : l’agent collecte les données de performances. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Service de mise à jour automatique** : Met à jour les composants de l’appliance (s’exécute toutes les 24 heures).<br/>- **Agent DRA** : Orchestre la réplication des machines virtuelles et coordonne la communication entre les machines répliquées et Azure. Utilisé seulement lors de la réplication de machines virtuelles VMware sur Azure avec la migration sans agent.<br/>- **Passerelle** : envoie des données répliquées vers Azure. Utilisé seulement lors de la réplication de machines virtuelles VMware sur Azure avec la migration sans agent.
 **Déploiement pris en charge** | Déployez en tant que machine virtuelle VMware à en utilisant un modèle OVA.<br/><br/> Déployez en tant que machine virtuelle VMware ou que machine physique avec un script d’installation PowerShell.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
@@ -65,7 +65,7 @@ Le tableau suivant récapitule les exigences de l’appliance Azure Migrate pour
 
 **Prérequis** | **Hyper-V** 
 --- | ---
-**autorisations** | Pour accéder à l’application web de l’appliance localement ou à distance, vous devez être un administrateur de domaine ou un administrateur local sur l’ordinateur de l’appliance.
+**autorisations** | Pour accéder à l'application web de l'appliance localement ou à distance, vous devez disposer d'un compte d'utilisateur local ou de domaine doté de privilèges administratifs sur le serveur de l'appliance.
 **Composants de l’appliance** | L’appliance a les composants suivants :<br/><br/>- **Application de gestion** : Il s’agit d’une application web pour l’entrée des utilisateurs pendant le déploiement de l’appareil. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/> - **Agent de découverte** : L’agent collecte les données de configuration de la machine. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Agent collecteur** : l’agent collecte les données de performances. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Service de mise à jour automatique** : Met à jour les composants de l’appliance (s’exécute toutes les 24 heures).
 **Déploiement pris en charge** | Déployez en tant que machine virtuelle Hyper-V en utilisant un modèle de disque dur virtuel.<br/><br/> Déployez en tant que machine virtuelle Hyper-V ou que machine physique avec un script d’installation PowerShell.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
@@ -82,7 +82,7 @@ _ *Configuration requise pour Hyper-V** | Si vous déployez l’appliance avec l
 
 **Prérequis** | **Physique** 
 --- | ---
-**autorisations** | Pour accéder à l’application web de l’appliance localement ou à distance, vous devez être un administrateur de domaine ou un administrateur local sur l’ordinateur de l’appliance.
+**autorisations** | Pour accéder à l'application web de l'appliance localement ou à distance, vous devez disposer d'un compte d'utilisateur local ou de domaine doté de privilèges administratifs sur le serveur de l'appliance.
 **Composants de l’appliance** | L’appliance a les composants suivants : <br/><br/> - **Application de gestion** : Il s’agit d’une application web pour l’entrée des utilisateurs pendant le déploiement de l’appareil. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/> - **Agent de découverte** : L’agent collecte les données de configuration de la machine. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Agent collecteur** : l’agent collecte les données de performances. Utilisé lors de l’évaluation des machines pour la migration vers Azure.<br/>- **Service de mise à jour automatique** : Met à jour les composants de l’appliance (s’exécute toutes les 24 heures).
 **Déploiement pris en charge** | Déployez en tant que machine dédiée ou en tant que machine virtuelle avec un script d’installation PowerShell. Le script est disponible en téléchargement à partir du portail.
 **Prise en charge de projet** |  Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633555"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896661"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
@@ -24,7 +24,7 @@ Le data wrangling dans Azure Data Factory vous permet d’effectuer un rassemble
 
 Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos compositions (« mash-up ») , le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Voici une liste des fonctions Power Query M prises en charge.
 
@@ -96,7 +96,7 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 | Table.Distinct | La suppression des lignes en double n’est pas prise en charge. |
 | Table.RemoveLastN | La suppression des lignes du bas n’est pas prise en charge. |
 | Table.RowCount | Non pris en charge, mais peut être obtenu en ajoutant une colonne personnalisée contenant la valeur 1, puis en agrégeant cette colonne avec List.Sum. Table.Group est pris en charge. | 
-| Gestion des erreurs au niveau des lignes | La gestion des erreurs au niveau des lignes n’est pas prise en charge actuellement. Par exemple, pour exclure les valeurs non numériques d’une colonne, une méthode consiste à transformer la colonne de texte en nombre. Les cellules qui ne peuvent pas être transformées sont dans un état d’erreur et doivent être filtrées. Ce scénario n’est pas possible dans les flux de wrangling data. |
+| Gestion des erreurs au niveau des lignes | La gestion des erreurs au niveau des lignes n’est pas prise en charge actuellement. Par exemple, pour exclure les valeurs non numériques d’une colonne, une méthode consiste à transformer la colonne de texte en nombre. Les cellules qui ne peuvent pas être transformées sont dans un état d’erreur et doivent être filtrées. Ce scénario n’est pas possible dans M mis à l’échelle. |
 | Table.Transpose | Non pris en charge |
 | Table.Pivot | Non pris en charge |
 

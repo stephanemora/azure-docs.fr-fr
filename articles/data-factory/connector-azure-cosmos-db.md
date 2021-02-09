@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013681"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222914"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -160,6 +160,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 | query |Spécifiez la requête Azure Cosmos DB pour lire les données.<br/><br/>Exemple :<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non <br/><br/>À défaut de spécification, cette instruction SQL est exécutée : `select <columns defined in structure> from mycollection` |
 | preferredRegions | Liste des régions préférées auxquelles se connecter lors de la récupération des données de Cosmos DB. | Non |
 | pageSize | nombre de documents par page du résultat de la requête. La valeur par défaut est « -1 », qui utilise la page dynamique côté service jusqu’à 1000. | Non |
+| detectDatetime | Indique s'il faut détecter la date/heure à partir des valeurs de chaîne dans les documents. Valeurs autorisées : **true** (par défaut) et **false**. | Non |
 
 Si vous utilisez une source de type « DocumentDbCollectionSource », elle est toujours prise en charge telle quelle pour une compatibilité descendante. Nous vous suggérons d'utiliser le nouveau modèle à l'avenir, qui offre des fonctionnalités plus riches pour copier les données à partir de Cosmos DB.
 
@@ -217,7 +218,7 @@ Les propriétés suivantes sont prises en charge dans la section **sink** de l�
 >Pour importer des documents JSON en l'état, consultez la section [Importer ou exporter des documents JSON](#import-and-export-json-documents). Pour copier à partir de données au format tabulaire, consultez [Migrer de la base de données relationnelle vers Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
 
 >[!TIP]
->Cosmos DB limite la taille des demandes uniques à 2 Mo. La formule est la suivante : taille de la demande = taille de document unique * taille d’écriture Batch. Si vous rencontrez le message d’erreur **« La taille de la demande est trop grande »** , **réduisez la valeur de `writeBatchSize`** dans la configuration du récepteur de copie.
+>Cosmos DB limite la taille des demandes uniques à 2 Mo. La formule est la suivante : taille de la demande = taille de document unique * taille d’écriture Batch. Si vous rencontrez le message d’erreur **« La taille de la demande est trop grande »**, **réduisez la valeur de `writeBatchSize`** dans la configuration du récepteur de copie.
 
 Si vous utilisez une source de type « DocumentDbCollectionSink », elle est toujours prise en charge telle quelle pour une compatibilité descendante. Nous vous suggérons d'utiliser le nouveau modèle à l'avenir, qui offre des fonctionnalités plus riches pour copier les données à partir de Cosmos DB.
 
@@ -259,7 +260,7 @@ Pour copier des données d'Azure Cosmos DB vers un récepteur tabulaire ou inver
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des collections de Cosmos DB. Pour plus d'informations, consultez les sections consacrées à la [transformation de la source](data-flow-source.md) et à la [transformation du récepteur](data-flow-sink.md) dans les flux de données de mappage.
+Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des collections de Cosmos DB. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage.
 
 ### <a name="source-transformation"></a>Transformation de la source
 
@@ -289,19 +290,22 @@ Les paramètres spécifiques à Azure Cosmos DB sont disponibles dans l'onglet *
 
 Les paramètres spécifiques à Azure Cosmos DB sont disponibles dans l'onglet **Paramètres** de la transformation du récepteur.
 
-**Mettre à jour la méthode :** détermine les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées. Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une transformation alter-row est requise afin de baliser les lignes relatives à ces actions. Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies afin de déterminer la ligne à modifier.
+**Méthode de mise à jour** : détermine les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées. Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une transformation alter-row est requise afin de baliser les lignes relatives à ces actions. Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies pour déterminer la ligne à modifier.
 
 **Action relative à la collection :** détermine si la collection de destination doit être recréée avant l'écriture.
 * Aucune : aucune action ne sera effectuée sur la collection.
 * Recréer : la collection sera supprimée et recréée.
 
-**Taille du lot** : contrôle le nombre de lignes écrites dans chaque compartiment. Les plus grandes tailles de lot améliorent la compression et l'optimisation de la mémoire, mais risquent de lever des exceptions de type mémoire insuffisante lors de la mise en cache des données.
+**Taille du lot** : Entier représentant le nombre d'objets en cours d'écriture dans la collection Cosmos DB au sein de chaque lot. En général, la taille de lot par défaut est suffisante pour commencer. Pour affiner cette valeur, notez que :
+
+- Cosmos DB limite la taille des demandes uniques à 2 Mo. La formule est la suivante : Taille de la demande = Taille d'un seul document x Taille du lot. Si vous rencontrez le message d'erreur « La taille de la demande est trop importante », réduisez la valeur de la taille du lot.
+- Plus la taille du lot est importante, meilleur est le débit qu'ADF peut atteindre. Vous devez aussi vous assurer d'allouer suffisamment d'unités de requête pour optimiser votre charge de travail.
 
 **Clé de partition :** Entrez une chaîne qui représente la clé de partition de votre collection. Exemple : ```/movies/title```
 
 **Débit :** définissez une valeur facultative du nombre de RU que vous souhaitez appliquer à votre collection CosmosDB pour chaque exécution de ce flux de données. La valeur minimale est 400.
 
-**Budget du débit d'écriture :** entier représentant le nombre de RU que vous souhaitez allouer au travail Spark d'ingestion en bloc. Ce nombre se trouve en dehors du débit total alloué à la collection.
+**Budget du débit d'écriture :** Entier représentant les unités de requête que vous souhaitez allouer pour cette opération d'écriture de flux de données, par rapport au débit total alloué à la collection.
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

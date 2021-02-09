@@ -3,20 +3,20 @@ title: Problèmes lors de l’installation du connecteur d’agent de proxy d’
 description: Comment résoudre les problèmes que vous pouvez rencontrer lors de l’installation du connecteur de l’agent Proxy d’application pour Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0f76f03883746b6f4b87bb817f8adde850ed28b3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657327"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253662"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -24,7 +24,7 @@ Le connecteur Proxy d’application de Microsoft Azure Active Directory est un c
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Problèmes généraux avec l’installation du connecteur
 
-En cas d’échec de l’installation d’un connecteur, la cause est généralement liée à l’un des aspects suivants :
+Lorsque l'installation d'un connecteur échoue, la cause racine est généralement liée à l'un des aspects suivants. **Avant de tenter de résoudre le problème, redémarrez le connecteur.**
 
 1.  **Connectivité** : pour une installation réussie, le nouveau connecteur doit s’inscrire et établir les propriétés d’approbation ultérieures. Pour cela, connectez-vous au service cloud Proxy d’application d’Azure Active Directory.
 

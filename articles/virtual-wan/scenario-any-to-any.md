@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440482"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955273"
 ---
 # <a name="scenario-any-to-any"></a>Scénario : Any-to-any
 
-Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. Vous pouvez créer cette configuration à l’aide de différentes méthodes, telles que le portail Azure ou un [Modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Conception
 
@@ -44,13 +44,13 @@ Pour plus d’informations sur le routage de hub virtuel, consultez [À propos d
 
 ## <a name="architecture"></a><a name="architecture"></a>Architecture
 
-Dans la **Figure 1** , tous les réseaux virtuels et les branches (VPN, ExpressRoute, P2S) peuvent se connecter les uns aux autres. Dans un hub virtuel, les connexions fonctionnent comme suit :
+Dans la **Figure 1**, tous les réseaux virtuels et les branches (VPN, ExpressRoute, P2S) peuvent se connecter les uns aux autres. Dans un hub virtuel, les connexions fonctionnent comme suit :
 
 * Une connexion VPN connecte un site VPN à une passerelle VPN.
 * Une connexion de réseau virtuel connecte un réseau virtuel à un hub virtuel. Le routeur du hub virtuel fournit la fonctionnalité de transit entre les réseaux virtuels.
 * Une connexion ExpressRoute connecte un circuit ExpressRoute à une passerelle ExpressRoute.
 
-Ces connexions (par défaut au moment de la création) sont associées à la table de routage par défaut, sauf si vous configurez la configuration de routage de la connexion soit sur **Aucun** , soit sur une table de routage personnalisée. Ces connexions propagent également les itinéraires par défaut vers la table de routage par défaut. C’est ce qui permet un scénario any-to-any où tout spoke (VNet, VPN, ER, P2S) peut atteindre un autre spoke.
+Ces connexions (par défaut au moment de la création) sont associées à la table de routage par défaut, sauf si vous configurez la configuration de routage de la connexion soit sur **Aucun**, soit sur une table de routage personnalisée. Ces connexions propagent également les itinéraires par défaut vers la table de routage par défaut. C’est ce qui permet un scénario any-to-any où tout spoke (VNet, VPN, ER, P2S) peut atteindre un autre spoke.
 
 **Figure 1**
 
@@ -58,7 +58,7 @@ Ces connexions (par défaut au moment de la création) sont associées à la tab
 
 ## <a name="workflow"></a><a name="workflow"></a>Flux de travail
 
-Ce scénario est activé par défaut pour le Virtual WAN standard. Si le paramètre branche à branche est désactivé dans la configuration WAN, cela empêchera la connectivité entre les spokes de branche. VPN/ExpressRoute/utilisateur VPN sont considérés comme des spokes de branche dans Virtual WAN
+Ce scénario est activé par défaut pour le Virtual WAN standard. Si les paramètres branche à branche sont désactivés dans la configuration WAN, la connectivité est interdite entre les spokes de branche. VPN/ExpressRoute/utilisateur VPN sont considérés comme des spokes de branche dans Virtual WAN
 
 ## <a name="next-steps"></a>Étapes suivantes
 

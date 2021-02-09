@@ -1,23 +1,45 @@
 ---
-title: Présentation de la facturation d’Azure Files | Microsoft Docs
+title: Comprendre la facturation d’Azure Files | Microsoft Docs
 description: Découvrez comment interpréter les modèles de facturation provisionné et avec paiement à l’utilisation pour les partages de fichiers Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632476"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226639"
 ---
-# <a name="understanding-azure-files-billing"></a>Présentation de la facturation d’Azure Files
+# <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
 
-La tarification actuelle d’Azure Files est disponible sur la [page de tarification Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+Pour plus d’informations sur la tarification d’Azure Files, consultez la [page de tarification d’Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Unités de stockage    
+Azure Files utilise des unités de mesure binaires pour représenter la capacité de stockage : Kio, Mio, Gio et Tio. Votre système d’exploitation peut utiliser ou non la même unité de mesure ou le même système de comptage.
+
+### <a name="windows"></a>Windows
+
+Le système d’exploitation Windows et Azure Files mesurent la capacité de stockage à l’aide du système de comptage binaire, mais il existe une différence lors de l’étiquetage des unités. Azure Files étiquète sa capacité de stockage avec des unités de mesure binaires, tandis que Windows étiquète sa capacité de stockage en unités de mesure décimales. Quand Windows rapporte la capacité de stockage, il ne la convertit pas du système binaire au système décimal.
+
+|Acronyme  |Définition  |Unité  |Windows affiche comme  |
+|---------|---------|---------|---------|
+|Kio     |1 024 octets         |kibioctet         |Ko (kilo-octet)         |
+|MiB     |1 024 Kio (1 048 576 octets)         |mébioctet         |Mo (méga-octet)         |
+|Gio     |1 024 Mio (1 073 741 824 octets)         |gibioctet         |Go (giga-octet)         |
+|Tio     |1 024 Gio (1 099 511 627 776 octets)         |tébioctet         |To (téra-octet)         |
+
+### <a name="macos"></a>macOS
+
+Découvrez [comment iOS et macOS rapportent la capacité de stockage](https://support.apple.com/HT201402) sur le site web d’Apple pour déterminer le système de comptage utilisé.
+
+### <a name="linux"></a>Linux
+
+Un autre système de comptage peut être utilisé par chaque système d’exploitation ou chaque composant logiciel. Consultez leur documentation pour déterminer comment ils rapportent la capacité de stockage.
 
 ## <a name="provisioned-model"></a>Modèle provisionné
 Azure Files utilise un modèle provisionné pour les partages de fichiers Premium. Dans un modèle provisionné, vous spécifiez de manière proactive au service Azure Files vos besoins en matière de stockage au lieu de payer en fonction de votre utilisation. Cela est comparable à un achat de matériel en local. En effet, lorsque vous provisionnez un partage de fichiers Azure avec une certaine quantité de stockage, vous payez ce stockage indépendamment de l’utilisation que vous en faites, à l’instar du support physique, que vous payez directement et pas uniquement lorsque vous commencez à l’utiliser. En revanche, contrairement à un support physique local, les partages de fichiers provisionnés peuvent être rapidement mis à l’échelle en fonction de vos caractéristiques de stockage et de performances d’e/s.

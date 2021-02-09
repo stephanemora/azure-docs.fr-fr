@@ -4,15 +4,15 @@ description: Découvrez comment utiliser l’injection de dépendances pour l’
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706930"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955086"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 Pour plus d’informations sur l’utilisation des options, voir [Modèle Options dans ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
+
+## <a name="using-aspnet-core-user-secrets"></a>Utiliser les secrets utilisateur ASP.NET Core
+
+Pour le développement en local, ASP.NET Core fournit un [outil de gestion des secrets](/aspnet/core/security/app-secrets#secret-manager) qui vous permet de stocker des informations secrètes ailleurs qu'à la racine du projet. Le risque que les secrets soient accidentellement confiés au contrôle de code source est ainsi moins grand. Azure Functions Core Tools (version 3.0.3233 ou ultérieure) lit automatiquement les secrets créés par l'outil de gestion des secrets d'ASP.NET Core.
+
+Pour configurer un projet .NET Azure Functions afin qu'il utilise des secrets utilisateur, exécutez la commande suivante à la racine du projet.
+
+```bash
+dotnet user-secrets init
+```
+
+Utilisez ensuite la commande `dotnet user-secrets set` pour créer ou mettre à jour des secrets.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Pour accéder aux valeurs des secrets utilisateur dans le code de votre application de fonction, utilisez `IConfiguration` ou `IOptions`.
 
 ## <a name="customizing-configuration-sources"></a>Personnalisation des sources de configuration
 

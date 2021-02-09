@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 473b2e4ac3443d204b39331d9cefaa6c71122439
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 225cb8d7bc35491ceefe444664afe175c7f7ea01
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881667"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954933"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Dépannage avec un déploiement de modèle local
 
@@ -25,12 +25,14 @@ Essayez un déploiement de modèle local comme première étape de dépannage d�
 ## <a name="prerequisites"></a>Prérequis
 
 * Un **abonnement Azure**. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
-* Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
-* [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Pour effectuer un débogage local, vous pouvez déployer le modèle sur une [instance de calcul Azure Machine Learning](./how-to-deploy-local-container-notebook-vm.md) ou disposer d’une installation Docker opérationnelle sur votre système local.
-
-    Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
+* Option A (**recommandée**) : déboguer localement sur une instance de calcul Azure Machine Learning
+   * Un espace de travail Azure Machine Learning avec une [instance de calcul](how-to-deploy-local-container-notebook-vm.md) en cours d’exécution
+* Option B : déboguer localement sur votre calcul
+   * Le [Kit de développement logiciel (SDK) Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+   * [Interface de ligne de commande Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+   * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
+   * Installation de Docker opérationnelle sur votre système local. 
+   * Pour vérifier votre installation de Docker, utilisez la commande `docker run hello-world` à partir d’un terminal ou d’une invite de commandes. Pour obtenir des informations sur l’installation de Docker ou sur la résolution des erreurs Docker, consultez la [documentation Docker](https://docs.docker.com/).
 
 ## <a name="debug-locally"></a>Déboguer en local
 

@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787686"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918075"
 ---
 # <a name="dynamic-data-masking"></a>Masquage dynamique des données 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ Azure SQL Database, Azure SQL Managed Instance et Azure Synapse Analytics prenne
 
 Le masquage dynamique des données permet d’empêcher les accès non autorisés à des données sensibles. Pour cela, les clients peuvent indiquer la quantité de données sensibles à exposer avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
 
-Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur adresse e-mail, mais ces éléments de données ne doivent pas être divulgués entièrement au représentant du service. Une règle de masquage peut être définie pour masquer l’intégralité de l’adresse e-mail dans le jeu de résultats de toute requête. Autre exemple, un masque de données approprié peut être défini pour protéger les données personnelles, de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
+Par exemple, un représentant du service d’un centre d’appels peut identifier un appelant en confirmant plusieurs caractères de son adresse e-mail, mais l’adresse e-mail complète ne doit pas être dévoilée au représentant du service. Une règle de masquage peut être définie pour masquer l’intégralité de l’adresse e-mail dans le jeu de résultats de toute requête. Autre exemple, un masque de données approprié peut être défini pour protéger les données personnelles, de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
 
 ## <a name="dynamic-data-masking-basics"></a>Principes de base du masquage des données dynamiques
 

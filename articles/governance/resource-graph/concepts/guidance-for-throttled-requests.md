@@ -1,15 +1,15 @@
 ---
 title: Instructions pour les requêtes limitées
 description: Apprenez à regrouper, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: ddd3cf4d411733e831c94039c3bc9aeaf0e95271
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056172"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917705"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -132,7 +132,7 @@ En raison de la manière dont la limitation est appliquée, nous vous recommando
   |---------------------|-----|------|-------|-------|
   | Intervalle de temps (sec) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Voici un exemple montrant comment respecter les en-têtes de limitation lors de l’interrogation d’Azure Resource Graph :
+Voici un exemple montrant comment respecter les en-têtes de limitation lors d’une requête à Azure Resource Graph :
 
 ```csharp
 while (/* Need to query more? */)

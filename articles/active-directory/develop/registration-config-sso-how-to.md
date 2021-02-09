@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4665e4240d7563a585b7c224365172d69d7efddf
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ba1e4305785d0ff4db85f805a780719ce179ab94
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753879"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050294"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Comment configurer l’authentification unique pour une application
 
@@ -43,4 +43,4 @@ Pour iOS, consultez la page [Activation d’une authentification unique entre ap
 
 [Autorisations et consentement dans la plateforme d’identités Microsoft](./v2-permissions-and-consent.md)<br>
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Microsoft Q&A - Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

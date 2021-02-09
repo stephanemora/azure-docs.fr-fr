@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119456"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955647"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Mise à niveau de Live Video Analytics sur IoT Edge de 1.0 à 2.0
 
@@ -37,7 +37,7 @@ Dans votre modèle de déploiement, recherchez votre module Live Video Analytics
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-Si vous n’avez pas modifié le nom du module Live Video Analytics sur IoT Edge, recherchez `lvaEdge` sous le nœud du module.
+> Si vous n’avez pas modifié le nom du module Live Video Analytics sur IoT Edge, recherchez `lvaEdge` sous le nœud du module.
 
 ### <a name="topology-file-changes"></a>Modifications des fichiers de topologie
 Dans vos fichiers de topologie, assurez-vous que **`apiVersion`** est défini sur 2.0.
@@ -58,9 +58,9 @@ Dans vos fichiers de topologie, assurez-vous que **`apiVersion`** est défini su
 >**`outputSelectors`** est une propriété facultative. Si elle n’est pas utilisée, le graphe de multimédia transmet l’audio (s’il est activé) et la vidéo de la caméra RTSP en aval. 
 
 * Dans les processeurs `MediaGraphHttpExtension` et `MediaGraphGrpcExtension`, notez les modifications suivantes :  
-    * **Propriétés de l’image**
-        * `MediaGraphImageFormatEncoded` n’est plus pris en charge. 
-        * Utilisez plutôt **`MediaGraphImageFormatBmp`** , **`MediaGraphImageFormatJpeg`** ou **`MediaGraphImageFormatPng`** . Par exemple,
+    #### <a name="image-properties"></a>Propriétés de l’image
+    * `MediaGraphImageFormatEncoded` n’est plus pris en charge. 
+      * Utilisez plutôt **`MediaGraphImageFormatBmp`** , **`MediaGraphImageFormatJpeg`** ou **`MediaGraphImageFormatPng`** . Par exemple,
         ```
         "image": {
                 "scale": 
@@ -94,14 +94,14 @@ Dans vos fichiers de topologie, assurez-vous que **`apiVersion`** est défini su
         >[!NOTE]
         > Les valeurs possibles de pixelFormat sont les suivantes : `yuv420p`,`rgb565be`, `rgb565le`, `rgb555be`, `rgb555le`, `rgb24`, `bgr24`, `argb`, `rgba`, `abgr`, `bgra`  
 
-    * **extensionConfiguration pour le processeur d’extension gRPC**  
-        * Dans le processeur `MediaGraphGrpcExtension`, une nouvelle propriété nommée **`extensionConfiguration`** est disponible, qui est une chaîne facultative utilisable dans le contrat gRPC. Ce champ peut être utilisé pour passer des données au serveur d’inférence, et vous pouvez définir la façon dont celui-ci utilise ces données.  
-        Un cas d’utilisation de cette propriété est lorsque vous avez plusieurs modèles d’intelligence artificielle empaquetés dans un seul serveur d’inférence. Avec cette propriété, vous n’avez pas besoin d’exposer un nœud pour chaque modèle d’intelligence artificielle. Au lieu de cela, pour une instance de graphe, en tant que fournisseur d’extensions, vous pouvez définir la manière de sélectionner les différents modèles d’intelligence artificielle à l’aide de la propriété **`extensionConfiguration`** , et pendant l’exécution, le service Live Video Analytics transmet cette chaîne au serveur d’inférence qui peut l’utiliser pour appeler le modèle d’intelligence artificielle souhaité.  
+    #### <a name="extensionconfiguration-for-grpc-extension-processor"></a>extensionConfiguration pour le processeur d’extension gRPC  
+    * Dans le processeur `MediaGraphGrpcExtension`, une nouvelle propriété nommée **`extensionConfiguration`** est disponible, qui est une chaîne facultative utilisable dans le contrat gRPC. Ce champ peut être utilisé pour passer des données au serveur d’inférence, et vous pouvez définir la façon dont celui-ci utilise ces données.  
+    Un cas d’utilisation de cette propriété est lorsque vous avez plusieurs modèles d’intelligence artificielle empaquetés dans un seul serveur d’inférence. Avec cette propriété, vous n’avez pas besoin d’exposer un nœud pour chaque modèle d’intelligence artificielle. Au lieu de cela, pour une instance de graphe, en tant que fournisseur d’extensions, vous pouvez définir la manière de sélectionner les différents modèles d’intelligence artificielle à l’aide de la propriété **`extensionConfiguration`** , et pendant l’exécution, le service Live Video Analytics transmet cette chaîne au serveur d’inférence qui peut l’utiliser pour appeler le modèle d’intelligence artificielle souhaité.  
 
-    * **Composition d’intelligence artificielle**
-        * Le service Live Video Analytics 2.0 prend désormais en charge l’utilisation de plusieurs processeurs d’extension de graphe multimédia au sein d’une topologie. Vous pouvez transmettre les image de média de la caméra RTSP à différents modèles d’intelligence artificielle de manière séquentielle, en parallèle ou dans une combinaison des deux. Consultez un exemple de topologie présentant deux modèles d’intelligence artificielle utilisés de manière séquentielle.
+    #### <a name="ai-composition"></a>Composition d’intelligence artificielle
+    * Le service Live Video Analytics 2.0 prend désormais en charge l’utilisation de plusieurs processeurs d’extension de graphe multimédia au sein d’une topologie. Vous pouvez transmettre les image de média de la caméra RTSP à différents modèles d’intelligence artificielle de manière séquentielle, en parallèle ou dans une combinaison des deux. Consultez un exemple de topologie présentant deux modèles d’intelligence artificielle utilisés de manière séquentielle.
 
-
+### <a name="disk-space-management-with-sink-nodes"></a>Gestion de l’espace disque avec des nœuds récepteurs
 * Dans votre nœud **Récepteur de fichiers**, vous pouvez maintenant spécifier la quantité d’espace disque que le module Live Video Analytics sur IoT Edge peut utiliser pour stocker les images traitées. Pour ce faire, ajoutez le champ **`maximumSizeMiB`** au nœud Récepteur de fichiers. Voici un exemple de nœud Récepteur de fichiers :
     ```
     "sinks": [
@@ -154,6 +154,7 @@ Dans vos fichiers de topologie, assurez-vous que **`apiVersion`** est défini su
     >[!NOTE]
     >  Le chemin d’accès du **Récepteur de fichiers** est fractionné en chemin d’accès du répertoire de base et en modèle de nom de fichier, tandis que le chemin d’accès du **Récepteur de ressources** contient le chemin du répertoire de base.  
 
+### <a name="frame-rate-management"></a>Gestion de la fréquence d’images
 * **`MediaGraphFrameRateFilterProcessor`** est déconseillé dans le module **Live Video Analytics sur IoT Edge 2.0**.
     * Pour échantillonner la vidéo entrante à des fins de traitement, ajoutez la propriété **`samplingOptions`** aux processeurs d’extension MediaGraph (`MediaGraphHttpExtension` ou `MediaGraphGrpcExtension`).  
      ```
@@ -169,7 +170,7 @@ Avec cette mise en production, Telegraf peut être utilisé pour envoyer des mé
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomie des événements":::
 
-Vous pouvez produire une image Telegraf avec une configuration personnalisée facilement à l’aide de Docker. Pour en savoir plus à ce sujet, consultez la page [Surveillance et journalisation](monitoring-logging.md#azure-monitor-collection-via-telegraf).
+Vous pouvez produire une image Telegraf avec une configuration personnalisée facilement à l’aide de Docker. Pour en savoir plus, consultez la page [Surveillance et journalisation](monitoring-logging.md#azure-monitor-collection-via-telegraf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

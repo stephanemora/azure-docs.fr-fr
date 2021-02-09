@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256872"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222164"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Obtenir une certification AppSource pour Azure Active Directory
 
@@ -104,9 +104,9 @@ Pour plus d’informations sur l’expérience d’essai gratuit AppSource, rega
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Pour l’intégration Azure AD, nous utilisons [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) avec la communauté pour proposer de l’aide.
+Pour l'intégration d'Azure AD, nous utilisons [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) avec la communauté pour proposer de l'aide.
 
-Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Assurez-vous que vos questions ou commentaires portent les mentions [`[azure-active-directory]` et `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Nous vous recommandons vivement de poser d'abord vos questions sur [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) et de parcourir les problèmes existants pour voir si quelqu'un d’autre a déjà posé la même question. Vérifiez que vos questions ou commentaires sont associés aux mots-clés [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 

@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786688"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252608"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -528,6 +528,18 @@ Pour configurer un modèle requête-réponse asynchrone pour votre application l
 Pour obtenir les messages d’erreur complets, consultez les journaux étendus de votre adaptateur SAP. Vous pouvez également [activer un fichier journal étendu pour le connecteur SAP](#extended-sap-logging-in-on-premises-data-gateway).
 
 Pour les versions de la passerelle de données locale à partir de juin 2020, vous pouvez [activer les journaux de la passerelle dans les paramètres de l’application](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
+
+* Le niveau de journalisation par défaut est **Avertissement**.
+
+* Si vous activez **Journalisation supplémentaire** dans les paramètres de **Diagnostic** de l'application passerelle de données locale, le niveau de journalisation passe à **Informationnel**.
+
+* Pour passer au niveau de journalisation **Détaillé**, mettez à jour le paramètre suivant dans votre fichier de configuration. En règle générale, le fichier de configuration se trouve sous `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
 
 Pour les versions de la passerelle de données locale d’avril 2020 et versions antérieures, les journaux sont désactivés par défaut.
 

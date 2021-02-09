@@ -3,12 +3,12 @@ title: Vue d’ensemble de la sauvegarde des disques Azure
 description: Découvrez la solution de sauvegarde des disques Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733028"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915506"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Vue d’ensemble de la sauvegarde des disques Azure (en préversion)
 
@@ -53,7 +53,7 @@ Envisagez la sauvegarde des disques Azure dans les scénarios suivants :
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Fonctionnement du processus de sauvegarde et de restauration
 
-- La première étape de la configuration de la sauvegarde des partages de fichiers Azure consiste à créer un [coffre de sauvegarde](backup-vault-overview.md). Ce coffre vous offre une vue consolidée des sauvegardes configurées sur différentes charges de travail.
+- La première étape de la configuration de la sauvegarde des disques managés Azure consiste à créer un [coffre de sauvegarde](backup-vault-overview.md). Ce coffre vous offre une vue consolidée des sauvegardes configurées sur différentes charges de travail.
 
 - Ensuite, créez une stratégie de sauvegarde vous permettant de configurer la fréquence de sauvegarde et la durée de rétention.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201050"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986037"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -169,7 +169,7 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 
 ## <a name="step-4-discover-peering-connections"></a><a name="setupmonitor"></a>Étape 4 : Découvrir les connexions de peering
 
-1. Accédez à la vignette de la vue d’ensemble Network Performance Monitor en vous rendant sur la page **All Resources** (Toutes les ressources), puis en cliquant sur l’espace de travail NPM mis sur liste verte.
+1. Accédez à la vignette d’aperçu Network Performance Monitor en vous rendant sur la page **Toutes les ressources**, puis cliquez sur l’espace de travail NPM en liste verte.
 
    ![espace de travail npm](./media/how-to-npm/npm.png)
 2. Cliquez sur la vignette de vue d’ensemble **Network Performance Monitor** pour afficher le tableau de bord. Le tableau de bord contient une page ExpressRoute, qui montre que ExpressRoute est dans un état « non configuré ». Cliquez sur **Installation de la fonctionnalité** pour ouvrir la page de configuration de Network Performance Monitor.

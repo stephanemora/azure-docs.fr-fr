@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498572"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053769"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -56,6 +56,12 @@ Les autorisations pour les référentiels Azure et GitHub sont indépendantes de
 
 > [!IMPORTANT]
 > Le déploiement du modèle Resource Manager avec le rôle **Contributeur de Data Factory** ne permet pas d’accroître vos autorisations. Par exemple, si vous déployez un modèle qui crée une machine virtuelle Azure et si vous n’êtes pas autorisé à créer des machines virtuelles, le déploiement échoue et renvoie une erreur d’autorisation.
+
+> [!IMPORTANT]
+> L'autorisation **Microsoft.DataFactory/factories/write** est requise pour les deux modes dans le contexte de publication.
+
+- Cette autorisation n'est requise en mode Réel que lorsque le client modifie les paramètres globaux.
+- Cette autorisation est toujours requise en mode Git après une publication du client car l'objet de fabrique contenant l'ID de la dernière validation est mis à jour.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scénarios et rôles personnalisés
 

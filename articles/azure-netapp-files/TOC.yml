@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: "Qu’est-ce que l’outil Azure Application Consistent Snapshot Tool\_?"
       href: azacsnap-introduction.md
+    - name: Qu’est-ce que remplacer par un quota inconditionnel de volume signifie
+      href: volume-hard-quota-guidelines.md
 - name: Guides pratiques
   items:
     - name: S’inscrire à Azure NetApp Files

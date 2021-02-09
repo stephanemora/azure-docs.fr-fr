@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882159"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935141"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Sortie de stockage d’objets blob et Azure Data Lake Gen2 à partir d’Azure Stream Analytics
 
@@ -44,7 +44,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier est créé dans l’objet blob dans les cas suivants :
 
 * si le fichier actuel dépasse le nombre maximal de blocs autorisés (50 000 actuellement) Vous pouvez atteindre cette limite sans atteindre la taille maximale d’objet blob autorisée. Par exemple, si le taux de sortie est élevé, vous voyez apparaître davantage d’octets par bloc, et la taille de fichier est supérieure. S’il est faible, chaque bloc comporte moins de données et cette taille est inférieure.) ;
-* si le schéma est modifié dans la sortie, et que le format de cette dernière requiert un schéma fixe (CSV et Avro) ;
+* si le schéma est modifié dans la sortie et que le format de cette dernière requiert un schéma fixe (CSV, Avro, Parquet).
 * si un travail est relancé, de façon externe par un utilisateur ou en interne à des fins de maintenance système ou de récupération sur erreur ;
 * si la requête est entièrement partitionnée et qu’un fichier est créé pour chaque partition de sortie ;
 * si un fichier ou un conteneur du compte de stockage est supprimé par l’utilisateur ;

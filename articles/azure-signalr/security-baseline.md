@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734594"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093961"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Base de référence de sécurité Azure pour Azure SignalR Service
 
@@ -220,7 +220,7 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 
 **Conseils** : Les rôles intégrés les plus critiques dans Azure AD (Azure Active Directory) sont Administrateur général et Administrateur de rôle privilégié, car les utilisateurs auxquels ces deux rôles sont attribués peuvent déléguer des rôles Administrateur :
 
-- Administrateur général ou Administrateur d’entreprise : Les utilisateurs disposant de ce rôle ont accès à toutes les fonctionnalités d’administration d’Azure AD, ainsi qu’aux services qui utilisent des identités Azure AD.
+- Administrateur général : Les utilisateurs disposant de ce rôle ont accès à toutes les fonctionnalités d’administration d’Azure AD, ainsi qu’aux services qui utilisent des identités Azure AD.
 
 - Administrateur de rôle privilégié : Les utilisateurs ayant ce rôle peuvent gérer les attributions de rôles dans Azure AD (Azure Active Directory) et Azure AD PIM (Privileged Identity Management). De plus, ce rôle permet de gérer tous les aspects de PIM et des unités administratives.
 

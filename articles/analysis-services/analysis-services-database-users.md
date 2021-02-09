@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013591"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054091"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -29,6 +29,8 @@ Les autorisations des rôles incluent :
 Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans les projets Visual Studio avec Analysis Services. Lors du déploiement sur un serveur, utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
 
 Lors de l'ajout d'**un groupe de sécurité**, utilisez `obj:groupid@tenantid`.
+
+Lors de l’ajout d'un **principal de service**, utilisez `app:appid@tenantid`.
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Pour ajouter ou gérer des rôles et des utilisateurs dans Visual Studio  
   

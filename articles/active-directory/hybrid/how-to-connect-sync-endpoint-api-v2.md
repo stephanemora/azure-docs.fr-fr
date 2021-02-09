@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567626"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937606"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de point de terminaison V2 pour la synchronisation d’Azure AD Connect 
 Microsoft a déployé un nouveau point de terminaison (API) pour Azure AD Connect qui améliore les performances des opérations des services de synchronisation pour Azure Active Directory. En utilisant le nouveau point de terminaison v2, vous constaterez des gains de performances perceptibles lors de l’exportation et de l’importation vers Azure AD. Ce nouveau point de terminaison prend en charge les éléments suivants :
@@ -176,7 +176,7 @@ Si vous avez activé le point de terminaison v2 et que vous devez effectuer une 
 ## <a name="frequently-asked-questions"></a>Forum aux questions  
  
 **Quand le nouveau point de terminaison deviendra-t-il le point par défaut pour les mises à niveau et les nouvelles installations ?**   
-</br>Nous envisageons de publier une nouvelle version d’AADConnect qui sera disponible au téléchargement en janvier 2021. Cette version utilisera le point de terminaison v2 par défaut et permettra la synchronisation des groupes de plus de 50 000 membres, sans nécessiter de configuration supplémentaire. Cette version sera publiée par la suite dans le cadre de la mise à niveau automatique vers les serveurs éligibles.
+</br>Nous prévoyons de publier une nouvelle version d’AADConnect qui sera disponible au téléchargement en février 2021. Cette version utilisera le point de terminaison v2 par défaut et permettra la synchronisation des groupes de plus de 50 000 membres, sans nécessiter de configuration supplémentaire. Cette version sera publiée par la suite dans le cadre de la mise à niveau automatique vers les serveurs éligibles.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

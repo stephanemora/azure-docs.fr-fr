@@ -3,12 +3,12 @@ title: Sauvegarde/restauration périodiques dans Azure Service Fabric autonome
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques d’une instance Service Fabric autonome pour activer la sauvegarde périodique des données de votre application.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538583"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927958"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Sauvegarde et restauration périodiques dans un Service Fabric autonome
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-windows-cluster-x509-security.md) pour savoir comment acquérir ou créer un certificat X.509 auto-signé.
 
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .NET Core 2.0, l'application doit être générée à l'aide du SDK Service Fabric 3.1 ou version ultérieure.
-* Installez le module Microsoft.ServiceFabric.PowerShell.Http [en préversion] pour effectuer des appels de configuration.
+* Installez le module Microsoft.ServiceFabric.PowerShell.Http (préversion) pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Si votre version PowerShellGet est inférieure à 1.6.0, vous devez effectuer une mise à jour pour ajouter la prise en charge de l’indicateur *-AllowPrerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Assurez-vous que le cluster est connecté à l'aide de la commande `Connect-SFCluster` avant toute requête de configuration via le module Microsoft.ServiceFabric.PowerShell.Http.
 

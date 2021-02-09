@@ -1,19 +1,16 @@
 ---
 title: Notes de publication pour Azure HDInsight
 description: Dernières notes de publication pour Azure HDInsight. Obtenez des conseils et détails concernant le développement pour Hadoop, Spark, R Server, Hive et bien plus.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786349"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092232"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notes de publication Azure HDInsight
 
@@ -52,6 +49,9 @@ HDInsight a ajouté la vérification des groupes de sécurité réseau (NSG) et 
 
 ## <a name="upcoming-changes"></a>Changements à venir
 Les changements suivants se produiront dans les prochaines versions.
+
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Changement cassant pour .NET pour Apache Spark 1.0.0
+HDInsight introduira la première mise en production officielle majeure de .NET pour Apache Spark dans la prochaine version. Elle apporte l’exhaustivité de l’API DataFrame pour Spark 2.4.x et Spark 3.0.x, ainsi que d’autres fonctionnalités. Cette version majeure introduira des changements cassants. Consultez [ce GUID de migration](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) pour comprendre les étapes nécessaires à la mise à jour de votre code et de vos pipelines. En savoir plus [ici](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight).
 
 ### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>La taille par défaut des machines virtuelles de cluster sera remplacée par la famille Ev3
 À partir de la prochaine version (vers la fin janvier), les tailles par défaut des machines virtuelles de cluster, c’est-à-dire la famille D, seront remplacées par la famille Ev3. Cette modification s’applique aux nœuds principaux et aux nœuds Worker. Pour éviter cette modification, spécifiez les tailles de machine virtuelle que vous souhaitez utiliser dans le modèle ARM.

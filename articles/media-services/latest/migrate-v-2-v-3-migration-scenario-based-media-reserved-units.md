@@ -1,5 +1,5 @@
 ---
-title: Recommandations en matière de migration basées sur un scénario d’unités réservées Multimédia | Microsoft Docs
+title: Aide sur la migration avec unités réservées Multimédia
 description: Cet article fournit des recommandations basées sur un scénario d’unités réservées Multimédia, qui vous aideront à opérer une migration de la version V2 à la version V3 d’Azure Media Services.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1a6bcf5d75d5331875e38e473f115f32737e42a4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ca01bcea348b866c0f40f82ebe90dc31d032739
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689427"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927072"
 ---
 # <a name="media-reserved-units-mrus-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’unités réservées Multimédia
 

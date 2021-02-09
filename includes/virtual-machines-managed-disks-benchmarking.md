@@ -5,102 +5,70 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25404837d5bc66ff415be8d8670eb6650475c30f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027970"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094626"
 ---
-*Préchauffage du cache*  
-Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
+## <a name="warm-up-the-cache"></a>Préchauffer le cache
+
+Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S par seconde supplémentaires à partir du seul disque ayant une mise en cache.
 
 > [!IMPORTANT]
 > Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
 
-## <a name="iometer"></a>Iometer
+## <a name="diskspd"></a>DISKSPD
 
-[Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) sur la machine virtuelle.
+[Téléchargez l’outil DISKSP](https://github.com/Microsoft/diskspd) sur la machine virtuelle. DISKSPD est un outil que vous pouvez personnaliser pour créer vos propres charges de travail synthétiques. Nous utiliserons la même configuration que celle décrite ci-dessus pour exécuter des tests d’évaluation. Vous pouvez modifier les spécifications pour tester différentes charges de travail.
 
-### <a name="test-file"></a>Fichier de test
+Dans cet exemple, nous utilisons les paramètres de base suivants :
 
-Iometer utilise un fichier de test stocké sur le volume où est exécuté le test de benchmark. Les lectures et écritures sont activées sur ce fichier de test afin de mesurer le taux d’E/S par seconde et le débit du disque. Iometer crée ce fichier de test si vous n’en avez pas fourni. Créez un fichier de test de 200 Go nommé iobw.tst sur les volumes CacheReads et NoCacheWrites.
+- -c200G : crée (ou recrée) l’exemple de fichier utilisé dans le test. Celle-ci peut être définie en octets, en Kio, en Mio, en Gio ou en blocs. Dans ce cas, un fichier cible volumineux de 200 Gio est utilisé pour réduire au minimum la mise en cache de la mémoire.
+- -w100 : spécifie le pourcentage d'opérations correspondant à des demandes d'écriture (-w0 équivaut à 100 % de lectures).
+- -b4K : indique la taille de bloc en octets, Kio, Mio ou Gio. Dans cet exemple, la taille de bloc 4K est utilisée pour simuler un test d’E/S aléatoire.
+- -F4 : définit un total de quatre threads.
+- -r : indique le test d’E/S aléatoire (remplace le paramètre -s).
+- -o128 : indique le nombre de demandes d’E/S en attente par cible et par thread. Il s’agit également de la profondeur de file d’attente. Dans ce cas, 128 est utilisé pour contraindre l’UC.
+- -W7200 : spécifie la durée du délai de préchauffage avant le début des mesures.
+- -d30 : spécifie la durée du test, sans compter le temps de préchauffage.
+- -Sh : désactive la mise en cache en écriture des logiciels et du matériel (équivalent de -Suw).
 
-### <a name="access-specifications"></a>Spécifications d’accès
+Pour obtenir la liste complète des paramètres, reportez-vous au [dépôt GitHub](https://github.com/Microsoft/diskspd/wiki/Command-line-and-parameters).
 
-Les spécifications (taille d’E/S de la demande, % de lecture-écriture, % aléatoire/séquentiel) sont configurées à l’aide de l’onglet « Access Specifications » d’Iometer. Créez une spécification d’accès pour chacun des scénarios ci-dessous. Créez les spécifications d’accès et enregistrez-les avec un nom approprié, comme RandomWrites\_8K, RandomReads\_8K. Sélectionnez la spécification correspondante lorsque vous exécutez le scénario de test.
+### <a name="maximum-write-iops"></a>Taux d’E/S maximal en écriture
+Nous utilisons une profondeur de file d’attente élevée de 128, une petite taille de bloc de 8 Ko et 4 threads de travail pour la conduite des opérations d’écriture. Les Workers d’écriture orientent le trafic sur le volume « NoCacheWrites », qui comporte 3 disques avec une mise en cache définie sur « Aucun ».
 
-Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scénario d’E/S en écriture maximales.  
-    ![Exemple de spécifications d’accès pour un taux d’E/S maximal en écriture](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+Exécutez la commande suivante pendant 30 secondes de préchauffage et 30 secondes de mesure :
 
-### <a name="maximum-iops-test-specifications"></a>Spécifications de test du taux d’E/S maximal
+`diskspd -c200G -w100 -b8K -F4 -r -o128 -W30 -d30 -Sh testfile.dat`
 
-Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
+Les résultats indiquent que la machine virtuelle Standard_D8ds_v4 fournit sa limite d’E/S par seconde d’écriture maximale de 12 800.
 
-| Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 Ko |100 |0 |
-| RandomReads\_8K |8 Ko |100 |100 |
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-write-io-per-second.png" alt-text="Pour 3208642560 octets au total, nombre total d’E/S de 391680, avec un total de 101,97 Mio/s et un total de 13052,65 E/S par seconde.":::
 
-### <a name="maximum-throughput-test-specifications"></a>Spécifications de test du débit maximal
+### <a name="maximum-read-iops"></a>Taux d’E/S maximal en lecture
 
-Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de demande de 64 Ko et créez des spécifications pour des lectures et des écritures aléatoires.
+Nous utilisons une profondeur de file d’attente élevée de 128, une petite taille de bloc de 4 Ko et 4 threads de travail pour la conduite des opérations de lecture. Les Workers de lecture orientent le trafic sur le volume « CacheReads », qui comporte un disque avec une mise en cache définie sur « Lecture seule ».
 
-| Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 K |100 |0 |
-| RandomReads\_64K |64 K |100 |100 |
+Exécutez la commande suivante pendant 2 heures de préchauffage et 30 secondes de mesure :
 
-### <a name="run-the-iometer-test"></a>Exécuter le test Iometer
+`diskspd -c200G -b4K -F4 -r -o128 -W7200 -d30 -Sh testfile.dat`
 
-Procédez comme suit pour préparer le cache
+Les résultats indiquent que la machine virtuelle Standard_D8ds_v4 fournit sa limite d’E/S par seconde de lecture maximale de 77 000.
 
-1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-read-io-per-second.png" alt-text="Pour 9652785152 octets au total, il existait 2356637 E/S au total, à 306,72 Mio/s au total et un total de 78521,23 E/S par seconde.":::
 
-   | Name | Taille de la demande | % aléatoire | % écriture |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 Mo |100 |0 |
-   | RandomReads\_1MB |1 Mo |100 |100 |
-1. Exécutez le test Iometer pour initialiser le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».
+### <a name="maximum-throughput"></a>Débit maximal
 
-   | Scénario | Volume cible | Name | Duration |
-   | --- | --- | --- | --- |
-   | Initialisation du disque de cache |CacheReads |RandomWrites\_1MB |2 heures |
-1. Exécutez le test Iometer pour préchauffer le disque de cache avec les paramètres suivants. Utilisez trois threads de travail pour le volume cible et une profondeur de file d’attente de 128. Définissez la durée « Temps d’exécution » du test sur 2 heures sous l’onglet « Tester la configuration ».
-
-   | Scénario | Volume cible | Name | Duration |
-   | --- | --- | --- | --- |
-   | Préchauffage du disque de cache |CacheReads |RandomReads\_1MB |2 heures |
-
-Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test décrits ci-dessous. Pour exécuter le test Iometer, utilisez au moins trois threads de travail pour **chaque** volume cible. Pour chaque thread de travail, sélectionnez le volume cible, définissez une profondeur de file d’attente et sélectionnez l’une des spécifications de test enregistrées, comme illustré dans le tableau ci-dessous, pour exécuter le scénario de test correspondant. Le tableau indique également les résultats attendus pour les E/S par seconde et le débit lors de l’exécution de ces tests. Dans tous les scénarios, une petite taille d’E/S (8 Ko) et une profondeur de file d’attente élevée (128) sont utilisées.
-
-| Scénario de test | Volume cible | Name | Résultats |
-| --- | --- | --- | --- |
-| Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde |
-| Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
-| Bande passante Taux d’E/S par seconde combiné |CacheReads |RandomWrites\_8K |100 000 E/S par seconde |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Bande passante Mo/s en lecture |CacheReads |RandomWrites\_64K |524 Mo/s |
-| Bande passante Mo/s en écriture |NoCacheWrites |RandomReads\_64K |524 Mo/s |
-| Mo/s combiné |CacheReads |RandomWrites\_64K |1 000 Mo/s |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Voici les captures d’écran des résultats du test Iometer pour les scénarios de taux d’E/S par seconde et de débit combinés.
-
-### <a name="combined-reads-and-writes-maximum-iops"></a>Taux d’E/S maximal combiné en lecture et en écriture
-
-![Taux d’E/S maximal combiné en lecture et en écriture](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
-
-### <a name="combined-reads-and-writes-maximum-throughput"></a>Débit maximal combiné en lecture et en écriture
-
-![Débit maximal combiné en lecture et en écriture](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
-
+Pour obtenir le débit maximal de lecture et d’écriture, vous pouvez passer à une taille de bloc supérieure de 64 Ko.
 ## <a name="fio"></a>FIO
 
-FIO est un outil communément utilisé pour tester le stockage sur des machines virtuelles Linux. Cet outil offre la possibilité de sélectionner différentes tailles d’E/S, avec des lectures et des écritures séquentielles ou aléatoires. Il génère des threads de travail ou des processus pour exécuter les opérations d’E/S spécifiées. Vous pouvez spécifier le type d’opérations d’E/S que chaque thread de travail doit exécuter à l’aide de fichiers de travail. Nous avons créé un fichier de travail par scénario, comme illustré dans les exemples ci-dessous. Vous pouvez modifier les spécifications de ces fichiers de travail pour tester différentes charges de travail exécutées sur Premium Storage. Dans ces exemples, nous utilisons une machine virtuelle DS 14 standard exécutée sous **Ubuntu**. Utilisez la configuration décrite au début de la section Benchmarking et préchauffez le cache avant d’exécuter les tests de benchmarking.
+FIO est un outil communément utilisé pour tester le stockage sur des machines virtuelles Linux. Cet outil offre la possibilité de sélectionner différentes tailles d’E/S, avec des lectures et des écritures séquentielles ou aléatoires. Il génère des threads de travail ou des processus pour exécuter les opérations d’E/S spécifiées. Vous pouvez spécifier le type d’opérations d’E/S que chaque thread de travail doit exécuter à l’aide de fichiers de travail. Nous avons créé un fichier de travail par scénario, comme illustré dans les exemples ci-dessous. Vous pouvez modifier les spécifications de ces fichiers de travail pour tester différentes charges de travail exécutées sur Premium Storage. Dans ces exemples, nous utilisons une machine virtuelle Standard_D8ds_v4 exécutée sous **Ubuntu**. Utilisez la configuration décrite au début de la section Benchmarking et préchauffez le cache avant d’exécuter les tests de benchmarking.
 
 Avant de commencer, [téléchargez FIO](https://github.com/axboe/fio) et installez-le sur votre machine virtuelle.
 
@@ -110,7 +78,7 @@ Exécutez la commande ci-dessous pour Ubuntu.
 apt-get install fio
 ```
 
-Nous allons utiliser quatre threads de travail pour générer les opérations d’écriture et quatre threads de travail pour générer les opérations de lecture sur les disques. Les Workers d’écriture orientent le trafic sur le volume « nocache », qui comporte 10 disques avec une mise en cache définie sur « Aucun ». Les Workers de lecture orientent le trafic sur le volume « readcache », qui comporte un disque avec une mise en cache définie sur « Lecture seule ».
+Nous allons utiliser quatre threads de travail pour générer les opérations d’écriture et quatre threads de travail pour générer les opérations de lecture sur les disques. Les Workers d’écriture orientent le trafic sur le volume « nocache », qui comporte 3 disques avec une mise en cache définie sur « Aucun ». Les Workers de lecture orientent le trafic sur le volume « readcache », qui comporte 1 disque avec une mise en cache définie sur « Lecture seule ».
 
 ### <a name="maximum-write-iops"></a>Taux d’E/S maximal en écriture
 
@@ -122,7 +90,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [writer1]
@@ -133,7 +101,7 @@ directory=/mnt/nocache
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.  
 
 * Une profondeur de file d’attente élevée de 256.  
-* Une petite taille de bloc de 8 Ko.  
+* Une petite taille de bloc de 4 Ko.  
 * Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.  
@@ -142,8 +110,8 @@ Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-Pendant l’exécution du test, le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 produit un taux d’E/S par seconde maximal en écriture limité à 50 000 E/S par seconde.  
-    ![Nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+Pendant l’exécution du test, le nombre d’E/S par seconde en écriture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle Standard_D8ds_v4 produit un taux d’E/S par seconde maximal en écriture limité à 12 800 IOPS.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-uncached-writes-1.jpg" alt-text="Le nombre d’E/S par seconde d’écriture que la machine virtuelle et les disques SSD Premium fournissent indique que les écritures sont de 13 000 E/S par seconde.":::
 
 ### <a name="maximum-read-iops"></a>Taux d’E/S maximal en lecture
 
@@ -155,7 +123,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [reader1]
@@ -166,7 +134,7 @@ directory=/mnt/readcache
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
 
 * Une profondeur de file d’attente élevée de 256.  
-* Une petite taille de bloc de 8 Ko.  
+* Une petite taille de bloc de 4 Ko.  
 * Plusieurs threads effectuant des écritures aléatoires.
 
 Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
@@ -175,8 +143,8 @@ Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 sudo fio --runtime 30 fioread.ini
 ```
 
-Pendant l’exécution du test, le nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 64 000 E/S par seconde en lecture. Cette valeur représente les performances combinées du disque et du cache.  
-    ![Capture d’écran du nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+Pendant l’exécution du test, le nombre d’E/S par seconde en lecture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle Standard_D8ds_v4 génère plus de 77 000 E/S par seconde en lecture. Cette valeur représente les performances combinées du disque et du cache.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-cached-reads-1.jpg" alt-text="Capture d’écran Le nombre d’E/S par seconde d’écriture que la machine virtuelle et les disques SSD Premium fournissent indique que les écritures sont de 78 600 E/S par seconde en lecture.":::
 
 ### <a name="maximum-read-and-write-iops"></a>Taux d’E/S maximal en lecture et en écriture
 
@@ -198,7 +166,7 @@ directory=/mnt/readcache
 [writer1]
 rw=randwrite
 directory=/mnt/nocache
-rate_iops=12500
+rate_iops=3200
 ```
 
 Tenez compte des remarques suivantes qui sont en phase avec les instructions de conception présentées dans les sections précédentes. Ces spécifications sont essentielles pour générer le taux d’E/S par seconde maximal.
@@ -213,8 +181,8 @@ Exécutez la commande suivante pour lancer le test FIO pendant 30 secondes.
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-Pendant l’exécution du test, le nombre d’E/S par seconde combinées en lecture et en écriture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle DS14 génère plus de 100 000 E/S par seconde en lecture et en écriture. Cette valeur représente les performances combinées du disque et du cache.  
-    ![Taux d’E/S combiné en lecture et en écriture](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+Pendant l’exécution du test, le nombre d’E/S par seconde combinées en lecture et en écriture générées par la machine virtuelle et les disques Premium s’affiche. Comme indiqué dans l’exemple ci-dessous, la machine virtuelle Standard_D8ds_v4 génère plus de 90 000 E/S par seconde combinées en lecture et en écriture. Cette valeur représente les performances combinées du disque et du cache.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-both-1.jpg" alt-text="Les E/S par seconde en lecture et en écriture combinées montrent que les lectures sont de 78 300 E/S par seconde et que les écritures sont de 12 600 E/S par seconde.":::
 
 ### <a name="maximum-combined-throughput"></a>Débit maximal combiné
 

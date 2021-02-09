@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858571"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222931"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -161,7 +161,7 @@ Azure SQL Database offre une option de partitionnement unique appelée partition
 
 #### <a name="isolation-level"></a>Niveau d'isolation
 
-Le niveau d’isolation de la lecture sur un système source SQL Azure a un impact sur les performances. L’option « Lecture non validée » permet d’obtenir des performances optimales et d’éviter tout verrouillage de la base de données. Pour en savoir plus sur les niveaux d’isolation SQL, consultez [Présentation des niveaux d’isolation](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+Le niveau d’isolation de la lecture sur un système source SQL Azure a un impact sur les performances. L’option « Lecture non validée » permet d’obtenir des performances optimales et d’éviter tout verrouillage de la base de données. Pour en savoir plus sur les niveaux d’isolation SQL, consultez [Présentation des niveaux d’isolation](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Lire à l’aide d’une requête
 
@@ -208,7 +208,7 @@ Ces opérations peuvent être effectuées en mode natif à l’aide de scripts P
 ![Désactiver les index](media/data-flow/disable-indexes-sql.png "Désactiver les index")
 
 > [!WARNING]
-> Lors de la désactivation des index, le flux de données prend le contrôle d’une base de données et les requêtes sont peu susceptibles d’aboutir à ce moment. Par conséquent, de nombreux travaux ETL sont déclenchés de nuit pour éviter ce conflit. Pour plus d’informations, découvrez les [contraintes de la désactivation d’index](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints).
+> Lors de la désactivation des index, le flux de données prend le contrôle d’une base de données et les requêtes sont peu susceptibles d’aboutir à ce moment. Par conséquent, de nombreux travaux ETL sont déclenchés de nuit pour éviter ce conflit. Pour plus d’informations, découvrez les [contraintes de la désactivation d’index](/sql/relational-databases/indexes/disable-indexes-and-constraints).
 
 #### <a name="scaling-up-your-database"></a>Augmentation de l’échelle de votre base de données
 
@@ -216,7 +216,7 @@ Planifiez un redimensionnement de vos bases de données Azure SQL DB et Azure S
 
 ### <a name="azure-synapse-analytics-sinks"></a>Récepteurs Azure Synapse Analytics
 
-Lors de l’écriture dans Azure Synapse Analytics, assurez-vous que l’option **Activer le mode de préproduction** est définie sur true. Cela permet à ADF d’écrire à l’aide de la [commande SQL COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) qui charge les données en bloc. Vous devrez référencer un compte Azure Data Lake Storage Gen2 ou Stockage Blob Azure pour la mise en lots des données lors de l’utilisation de Mise en lots.
+Lors de l’écriture dans Azure Synapse Analytics, assurez-vous que l’option **Activer le mode de préproduction** est définie sur true. Cela permet à ADF d’écrire à l’aide de la [commande SQL COPY](/sql/t-sql/statements/copy-into-transact-sql) qui charge les données en bloc. Vous devrez référencer un compte Azure Data Lake Storage Gen2 ou Stockage Blob Azure pour la mise en lots des données lors de l’utilisation de Mise en lots.
 
 Outre Mise en lots, les mêmes meilleures pratiques s’appliquent à Azure Synapse Analytics qu’à Azure SQL Database.
 
@@ -244,11 +244,11 @@ La **sortie vers un fichier unique** combine toutes les données dans une seule 
 
 Lors de l’écriture dans CosmosDB, la modification du débit et de la taille de lot lors de l’exécution du flux de données peut améliorer les performances. Ces modifications ne prennent effet que lors de l’exécution de l’activité de flux de données et les paramètres de collecte d’origine sont rétablis une fois l’exécution terminée. 
 
-**Taille du lot :** calculez la taille de ligne approximative de vos données et vérifiez que le produit de la taille ligne multipliée par la taille de lot est inférieur à deux millions. Le cas échéant, augmentez la taille du lot pour obtenir un meilleur débit.
+**Taille du lot :** En général, la taille de lot par défaut est suffisante pour commencer. Pour affiner cette valeur, calculez la taille approximative de l'objet de vos données et assurez-vous que la taille de l'objet x la taille du lot est inférieure à 2 Mo. Si tel est le cas, vous pouvez augmenter la taille du lot pour obtenir un meilleur débit.
 
 **Débit :** Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
 
-**Budget du débit d’écriture :** Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
+**Budget du débit d'écriture :** Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
 
 ## <a name="optimizing-transformations"></a>Optimisation des transformations
 

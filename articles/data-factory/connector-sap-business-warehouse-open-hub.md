@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533408"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430728"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique comment utiliser l'activité de copie d'Azure Data Factory pour copier des données à partir d'un SAP Business Warehouse (BW) via Open Hub. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -38,7 +39,7 @@ Vous pouvez copier des données de SAP Business Warehouse vers une banque de don
 
 Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charge ce qui suit :
 
-- SAP Business Warehouse **version 7.01 ou ultérieure (dans une pile SAP Support Package Stack postérieure à 2015)** . SAP BW4/HANA n'est pas pris en charge par ce connecteur.
+- SAP Business Warehouse **version 7.01 ou ultérieure (dans une pile SAP Support Package Stack postérieure à 2015)** . SAP BW/4HANA n'est pas pris en charge par ce connecteur.
 - Copie de données via la table OHD locale qui peut être DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copie de données en utilisant une authentification de base.
 - Connexion à un serveur d’applications SAP ou un serveur de messagerie SAP.
@@ -59,7 +60,7 @@ Le connecteur ADF SAP BW Open Hub offre deux propriétés facultatives, `exclude
 - **excludeLastRequestId** : Indique s'il faut exclure les enregistrements de la dernière requête. La valeur par défaut est true. 
 - **baseRequestId** : ID de requête pour le chargement delta. Une fois l’ID défini, seules les données dont l’ID de requête est supérieur à la valeur de cette propriété sont récupérées. 
 
-En général, l’extraction de fournisseurs d’informations SAP vers Azure Data Factory (ADF) comprend 2 étapes : 
+En général, l'extraction de fournisseurs d'informations SAP vers Azure Data Factory (ADF) se décompose en deux étapes : 
 
 1. **Traitement de transfert de données SAP BW** Cette étape copie les données d’un fournisseur d’informations SAP BW vers une table SAP BW Open Hub. 
 
@@ -69,11 +70,11 @@ En général, l’extraction de fournisseurs d’informations SAP vers Azure Dat
 
 Dans la première étape, un traitement de transfert de données est exécuté. Chaque exécution crée un ID de demande SAP. L’ID de demande est stocké dans la table Open Hub, puis utilisé par le connecteur ADF pour identifier le delta. Les deux étapes s’exécutent de façon asynchrone : le traitement de transfert de données est déclenché par SAP, et la copie des données ADF via ADF. 
 
-Par défaut, ADF ne lit pas le dernier delta à partir de la table Open Hub (l’option « exclude last request » et définie sur true). Ainsi, les données dans ADF ne sont pas synchronisées à 100 % avec les données de la table Open Hub (le dernier delta est manquant). Par contre, cette procédure garantit qu’aucune ligne n’est perdue en raison de l’extraction asynchrone. Cela fonctionne bien, même si ADF lit la table Open Hub alors que le traitement de transfert de données est toujours en train d’écrire dans la même table. 
+Par défaut, ADF ne lit pas le dernier delta à partir de la table Open Hub (l’option « exclude last request » et définie sur true). Ainsi, les données contenues dans ADF ne sont pas synchronisées à 100 % avec les données de la table Open Hub (le dernier delta est manquant). Par contre, cette procédure garantit qu’aucune ligne n’est perdue en raison de l’extraction asynchrone. Cela fonctionne bien, même si ADF lit la table Open Hub alors que le traitement de transfert de données est toujours en train d’écrire dans la même table. 
 
 Vous stockez généralement l’ID de requête max copié lors de la dernière exécution par ADF dans une banque de données intermédiaires (telle que le Stockage Blob Azure dans le diagramme ci-dessus). Par conséquent, la même demande n’est pas lue une deuxième fois par ADF lors de l’exécution suivante. Entre-temps, notez que les données ne sont pas automatiquement supprimées de la table Open Hub.
 
-Pour un traitement de delta approprié, il ne peut pas y avoir d’ID de demande provenant de traitements de transfert de données différents dans la même table Open Hub. Vous ne devez donc pas créer plus d’un traitement de transfert de données pour chaque destination Open Hub. Si vous avec besoin d’extractions complète et de delta du même fournisseur d’informations, vous devez créer deux destinations Open Hub pour le même fournisseur d’informations. 
+Pour un traitement de delta approprié, il ne peut pas y avoir d'ID de demande provenant de traitements de transfert de données différents dans la même table Open Hub. Vous ne devez donc pas créer plus d’un traitement de transfert de données pour chaque destination Open Hub. Si vous avec besoin d’extractions complète et de delta du même fournisseur d’informations, vous devez créer deux destinations Open Hub pour le même fournisseur d’informations. 
 
 ## <a name="prerequisites"></a>Prérequis
 

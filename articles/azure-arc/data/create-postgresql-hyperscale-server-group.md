@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609052"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985884"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Créer un groupe de serveurs PostgreSQL Hyperscale compatible avec Azure Arc
 
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - La classe de stockage utilisée pour les sauvegardes ( _--storage-class-backups -scb_) correspond par défaut la classe de stockage des données du contrôleur de données si elle n’est pas fournie.
+> - Pour restaurer un groupe de serveurs dans un groupe de serveurs distinct (par exemple, pour effectuer une restauration dans le temps), vous devez configurer votre groupe de serveurs de façon à ce qu’il utilise des PVC avec le mode d’accès ReadWriteMany. Cela est requis lors de la création du groupe de serveurs. Et cela ne peut pas être modifié après la création. Pour plus d’informations, consultez :
+>    - [Cette section sur la sauvegarde et la restauration](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Cette section sur les limitations de PostgreSQL Hyperscale avec Azure Arc](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **D’autres paramètres de ligne de commande sont disponibles.  Consultez la liste complète des options en exécutant `azdata arc postgres server create --help`.**
-> - La classe de stockage utilisée pour les sauvegardes ( _--storage-class-backups -scb_) correspond par défaut la classe de stockage des données du contrôleur de données si elle n’est pas fournie.
+
 > - L’unité acceptée par les paramètres --volume-size-* est une quantité de ressource Kubernetes (un entier suivi d’un de ces suffixes SI (T, G, M, K, m) ou de leurs équivalents de puissance de deux (TI, GI, mi, Ki)).
 > - La longueur des noms doit être inférieure ou égale à 12 caractères et conforme aux conventions d’affectation des noms DNS.
 > - Vous êtes invité à entrer le mot de passe de l’utilisateur administrateur standard _postgres_.  Vous pouvez ignorer l’invite interactive en définissant la variable d’environnement de session `AZDATA_PASSWORD` avant d’exécuter la commande create.
@@ -112,7 +119,7 @@ Pour afficher les points de terminaison d’une instance PostgreSQL, exécutez l
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Exemple :
+Par exemple :
 ```console
 [
   {

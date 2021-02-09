@@ -3,14 +3,14 @@ title: Création d’un compte Azure Automation autonome
 description: Cet article explique comment créer un compte Azure Automation autonome et un compte d’identification Classic.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0855395a305624bb2df96d183dc2bcac45f8e6b3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714647"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051462"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -74,7 +74,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
    > [!NOTE]
    > Si vous choisissez de ne pas créer le compte d'identification en sélectionnant **Non** pour l'option **Créer un compte d'identification Azure**, un message s'affiche dans le volet Ajouter un compte Automation. Bien que le compte soit créé dans le portail Azure, il ne possède pas d’identité d’authentification correspondante au sein de votre abonnement du modèle de déploiement classique ou dans le service d’annuaire de l’abonnement Azure Resource Manager. Par conséquent, le compte Automation n’a pas accès aux ressources de votre abonnement. Cela empêche tous les Runbooks faisant référence à ce compte de pouvoir s’authentifier et d’effectuer des tâches sur les ressources de ces modèles de déploiement.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Capture d’écran de l’invite « Vous ne disposez pas des autorisations pour créer un compte d'identification dans Azure Active Directory ».":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Capture d’écran de l’invite avec le message « Vous avez choisi de ne pas créer un compte d'identification ».":::
    >
    > Le rôle Contributeur n’est pas attribué en cas de non-création du principal du service.
    >
@@ -93,7 +93,7 @@ Une fois le compte Automation créé, plusieurs ressources vous sont automatique
 
 ## <a name="create-a-classic-run-as-account"></a>Créer un compte d'identification Classic
 
-Les comptes d'identification Classic ne sont plus créés par défaut lorsque vous créez un compte Azure Automation. Si vous avez toujours besoin d'un compte d'identification Classic :
+Les comptes d’identification Classic ne sont pas créés par défaut lorsque vous créez un compte Azure Automation. Si vous avez besoin d’un compte d’identification Classic pour manager les ressources Azure Classic, procédez comme suit :
 
 1. Depuis votre compte Automation, sélectionnez **Comptes d'identification** sous **Paramètres du compte**.
 2. Sélectionnez **Compte d’identification Azure Classic**.
@@ -104,5 +104,5 @@ Les comptes d'identification Classic ne sont plus créés par défaut lorsque vo
 * Pour en savoir plus sur la création graphique, consultez [Créer des runbooks graphiques dans Azure Automation](automation-graphical-authoring-intro.md).
 * Pour commencer à utiliser des runbooks PowerShell, consultez [Tutoriel : Créer un runbook PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Pour commencer à utiliser les runbooks de Flux de travail PowerShell, consultez [Tutoriel : Créer un runbook de Flux de travail PowerShell](learn/automation-tutorial-runbook-textual.md).
-* Pour commencer à utiliser des runbooks Python 2, consultez le [Tutoriel : Créer un runbook Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Pour commencer à utiliser des runbooks Python 3, consultez le [Tutoriel : Créer un runbook Python 3](learn/automation-tutorial-runbook-textual-python-3.md).
+* Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation&preserve-view=true#automation).

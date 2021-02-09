@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682993"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055074"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
 
@@ -92,17 +92,19 @@ Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une op
 
 ## <a name="connect-using-other-accounts"></a>Se connecter avec d’autres comptes
 
-Si vous essayez de vous connecter à Outlook à l’aide d’un compte différent de celui qui est actuellement connecté à Azure, vous risquez d’obtenir des erreurs [d’authentification unique (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md). Ce problème se produit lorsque vous vous connectez au portail Azure avec un compte, mais que vous utilisez un autre compte pour créer la connexion. Le concepteur d’application logique s’attend à utiliser le compte connecté à Azure. Pour résoudre ce problème, vous disposez des options suivantes :
+Si vous essayez de vous connecter à Outlook à l’aide d’un compte différent de celui qui est actuellement connecté à Azure, vous risquez d’obtenir des erreurs [d’authentification unique (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md). Ce problème se produit lorsque vous vous connectez au portail Azure avec un compte, mais que vous utilisez un autre compte pour créer la connexion. Le concepteur s'attend à ce que vous utilisiez le compte connecté au portail Azure. Pour résoudre ce problème, vous disposez des options suivantes :
 
-* Configurez l’autre compte en tant que **contributeur** au groupe de ressources de votre application logique.
+* Configurez l'autre compte avec le rôle de **Contributeur** dans le groupe de ressources de votre application logique.
 
-  1. Dans le menu du groupe de ressources de votre application logique, sélectionnez **Contrôle d’accès (IAM)** . Configurez l’autre compte avec le rôle **Contributeur**. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
+  1. Dans le menu du groupe de ressources de votre application logique, sélectionnez **Contrôle d’accès (IAM)** . Configurez l’autre compte avec le rôle **Contributeur**. 
+  
+     Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-  1. Si vous êtes connecté au portail Azure avec votre compte professionnel ou scolaire, déconnectez-vous, puis reconnectez-vous avec votre autre compte. Vous pouvez maintenant créer une connexion vers Outlook à l’aide de l’autre compte.
+  1. Après avoir configuré ce rôle, connectez-vous au portail Azure avec le compte qui dispose désormais des autorisations de contributeur. Vous pouvez maintenant utiliser ce compte pour créer la connexion à Outlook.
 
 * Configurez l’autre compte pour que votre compte professionnel ou scolaire dispose des autorisations « Envoyer en tant que ».
 
-   Si vous disposez d’autorisations d’administrateur, dans la boîte aux lettres du compte de service, configurez votre compte professionnel ou scolaire avec les autorisations **Envoyer en tant que** ou **Envoyer de la part de**. Pour plus d’informations, consultez [Accorder des autorisations de boîte aux lettres à un autre utilisateur - Aide de l’administrateur](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Vous pouvez ensuite créer la connexion à l’aide de votre compte professionnel ou scolaire. Désormais, dans les déclencheurs ou les actions où vous pouvez spécifier l’expéditeur, vous pouvez utiliser l’adresse e-mail du compte de service.
+   Si vous disposez d'autorisations d'administrateur, dans la boîte aux lettres du compte de service, configurez votre compte professionnel ou scolaire avec les autorisations **Envoyer en tant que** ou **Envoyer de la part de**. Pour plus d’informations, consultez [Accorder des autorisations de boîte aux lettres à un autre utilisateur - Aide de l’administrateur](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Vous pouvez ensuite créer la connexion à l’aide de votre compte professionnel ou scolaire. Désormais, dans les déclencheurs ou les actions où vous pouvez spécifier l’expéditeur, vous pouvez utiliser l’adresse e-mail du compte de service.
 
    Par exemple, l’action **Envoyer un e-mail** comporte un paramètre facultatif, **De (Envoyer en tant que)** , que vous pouvez ajouter à l’action, et l’adresse e-mail de votre compte de service servira d’expéditeur. Pour ajouter ce paramètre, procédez comme suit :
 

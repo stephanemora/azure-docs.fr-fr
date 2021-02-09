@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219944"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938377"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -121,7 +121,9 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une [stra
 
 Pour tirer parti de ce contrôle d’octroi, l’accès conditionnel exige que l’appareil soit inscrit dans Azure Active Directory, qui lui-même nécessite l’utilisation d’une application de répartiteur. L’application de répartiteur peut être Microsoft Authenticator pour iOS ou le portail d’entreprise Microsoft pour les appareils Android. Si aucune application de répartiteur n’est installée sur l’appareil lorsque l’utilisateur tente de s’authentifier, l’utilisateur est redirigé vers l’App Store pour installer cette application.
 
-Ce paramètre s’applique aux applications clientes suivantes :
+Les applications doivent disposer du kit **SDK Intune** avec une **assurance de stratégie** implémentée et répondre à certaines exigences supplémentaires pour prendre en charge ce paramètre. Les développeurs qui implémentent des applications avec le kit SDK Intune peuvent trouver plus d’informations sur ces exigences dans la documentation du kit SDK.
+
+La prise en charge de ce paramètre est confirmée pour les applications clientes suivantes :
 
 - Microsoft Cortana
 - Microsoft Edge

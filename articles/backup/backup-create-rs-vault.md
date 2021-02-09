@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915724"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -46,9 +46,9 @@ L’option de restauration **Restauration inter-région (CRR)** vous permet de r
 
 Elle prend en charge les sources de données suivantes :
 
-- Machines virtuelles Azure
-- Bases de données SQL hébergées sur des machines virtuelles Azure
-- Bases de données SAP HANA hébergées sur des machines virtuelles Azure
+- Machines virtuelles Azure (disponibilité générale)
+- Bases de données SQL hébergées sur des machines virtuelles Azure (préversion)
+- Bases de données SAP HANA hébergées sur des machines virtuelles Azure (préversion)
 
 L’utilisation de la restauration inter-région vous permet d’effectuer les opérations suivantes :
 
@@ -65,11 +65,12 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 >Avant de commencer :
 >
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
->- La fonctionnalité de restauration inter-régions (CRR) est désormais disponible en préversion dans toutes les régions publiques Azure.
+>- La fonctionnalité de restauration inter-région (CRR) pour les machines virtuelles Azure est désormais disponible dans toutes les régions Azure publiques.
+>- La restauration inter-région pour les bases de données SQL Server et SAP HANA sur des machines virtuelles Azure est disponible en préversion dans toutes les régions Azure publiques.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, CRR pour les machines virtuelles Azure est pris en charge uniquement pour les machines virtuelles Azure Resource Manager. Les machines virtuelles Azure classiques ne sont pas prises en charge.  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
->- Actuellement, la Restauration inter-régions ne peut pas être rétablie sur le GRS ou le LRS une fois la protection initiée pour la première fois.
+>- La restauration inter-région **ne peut actuellement pas être rétablie** pour revenir au geo-redundant storage (GRS) ou au stockage localement redondant (LRS) une fois que la protection a été lancée pour la première fois.
 
 ### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
 

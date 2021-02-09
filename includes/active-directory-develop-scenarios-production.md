@@ -14,19 +14,37 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75650d7ff0ac647aeb6dace76c270680b1b89347
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76758940"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98954955"
 ---
-Pour créer une application géniale :
+## <a name="enable-logging"></a>Activation de la journalisation
 
-- Activez la [journalisation](../articles/active-directory/develop/msal-logging.md).
-- Activez la télémétrie.
-- Activez les [proxys et personnalisez les clients HTTP](../articles/active-directory/develop/msal-net-provide-httpclient.md).
+Pour faciliter le débogage et les scénarios de résolution des problèmes d’authentification, la bibliothèque d’authentification Microsoft offre une prise en charge intégrée de la journalisation. La journalisation pour chaque bibliothèque est couverte dans les articles suivants :
 
-Pour tester votre intégration :
+:::row:::
+    :::column:::
+        - [Journalisation dans MSAL.NET](../articles/active-directory/develop/msal-logging-dotnet.md)
+        - [Journalisation dans MSAL pour Android](../articles/active-directory/develop/msal-logging-android.md)
+        - [Journalisation dans MSAL.js](../articles/active-directory/develop/msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Journalisation dans MSAL pour iOS/macOS](../articles/active-directory/develop/msal-logging-ios.md)
+        - [Journalisation dans MSAL pour Java](../articles/active-directory/develop/msal-logging-java.md)
+        - [Journalisation dans MSAL pour Python](../articles/active-directory/develop/msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
-- Suivez la [check-list d’intégration pour la plateforme d’identités Microsoft](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+Voici quelques suggestions pour la collecte de données :
+
+- Les utilisateurs peuvent demander de l’aide lorsqu’ils rencontrent des problèmes. Une meilleure pratique consiste à capturer et à stocker temporairement les journaux. Indiquez un emplacement où les utilisateurs peuvent charger les journaux. MSAL fournit des extensions de journalisation permettant de capturer des informations détaillées sur l’authentification.
+
+- Si une télémétrie est disponible, activez-la via MSAL pour recueillir des données sur la façon dont les utilisateurs se connectent à votre application.
+
+
+## <a name="validate-your-integration"></a>Valider votre intégration
+
+Testez votre intégration en suivant la [check-list de l’intégration à la plateforme d’identités Microsoft](../articles/active-directory/develop/identity-platform-integration-checklist.md).

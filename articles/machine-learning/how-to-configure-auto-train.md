@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6971d67204beb39ff0afa6c68dbecf278d86b299
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600064"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954713"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -203,15 +203,53 @@ classification ; | régression ; | Prévision de séries chronologiques
 ### <a name="primary-metric"></a>Métrique principale
 Le paramètre `primary metric` détermine la métrique à utiliser pendant l’entraînement du modèle dans un but d’optimisation. Les métriques disponibles que vous pouvez sélectionner sont déterminées par le type de tâche choisi. Le tableau ci-dessous présente les métriques principales valides pour chaque type de tâche.
 
+Le choix d’une métrique principale pour l’optimisation du Machine Learning automatisé dépend de nombreux facteurs. Nous vous recommandons avant tout de choisir une métrique correspondant au mieux à vos besoins métier. Examinez ensuite si la métrique convient pour votre profil de jeu de données (taille des données, plage, distribution de classe, etc.).
+
 Pour découvrir les définitions spécifiques de ces métriques, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
 |classification ; | régression ; | Prévision de séries chronologiques
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>Principales métriques pour les scénarios de classification 
+
+Il se peut que la publication de métriques seuils telles que `accuracy`, `average_precision_score_weighted`, `norm_macro_recall` et `precision_score_weighted` ne permette pas d’obtenir une bonne optimisation pour des jeux de données de très petite taille ou présentant une asymétrie (déséquilibre) de classe conséquente, ou lorsque la valeur de métrique attendue est très proche de 0,0 ou 1,0. Dans ces cas, `AUC_weighted` peut être un meilleur choix pour la métrique principale. Une fois l’opération de Machine Learning automatisé terminée, vous pouvez choisir le modèle gagnant en fonction de la métrique la plus adaptée à vos besoins métier.
+
+| Métrique | Exemple(s) de cas d’usage |
+| ------ | ------- |
+| `accuracy` | Classification d’images, analyse des sentiments, prédiction d’attrition |
+| `AUC_weighted` | Détection des fraudes, classification d’images, détection d’anomalies, détection de courrier indésirable |
+| `average_precision_score_weighted` | analyse de sentiments |
+| `norm_macro_recall` | Prédiction d’attrition |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>Métriques principales pour les scénarios de régression
+
+Il se peut que des métriques telles que `r2_score` et `spearman_correlation` représentent mieux la qualité du modèle lorsque l’échelle de valeur à prédire couvre de nombreux ordres de grandeur. Par exemple, une estimation de salaire, où de nombreuses personnes perçoivent un salaire compris entre 20 000 et 100 000 dollars, mais où l’échelle va très haut avec certains salaires s’inscrivant dans la plage des 100 millions de dollars. 
+
+Dans ce cas, `normalized_mean_absolute_error` et `normalized_root_mean_squared_error` traitent une erreur de prédiction de 20 000 dollars de la même façon pour un salarié percevant un salaire de 30 000 dollars que pour un salarié percevant 20 millions de dollars. Or, en réalité, prévoir seulement 20 000 dollars de réduction sur un salaire de 20 millions de dollars est insignifiant (petite différence relative de 0,1 %), tandis que 20 000 dollars de réduction sur un salaire de 30 000 dollars est tout à fait conséquent (grande différence relative de 67 %). `normalized_mean_absolute_error` et `normalized_root_mean_squared_error` sont utiles quand les valeurs à prédire sont d’échelle similaire.
+
+| Métrique | Exemple(s) de cas d’usage |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Prédiction de prix (maison/produit/pourboire), examen de prédiction de score |
+| `r2_score` | Retard de compagnie aérienne, estimation du salaire, temps de résolution des bogues |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>Principales métriques pour les scénarios de prévision de séries chronologiques
+
+Consultez les remarques sur les régressions ci-dessus.
+
+| Métrique | Exemple(s) de cas d’usage |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | Prédiction (prévision) de prix, optimisation de stocks, prévision de la demande |
+| `r2_score` | Prédiction (prévision) de prix, optimisation de stocks, prévision de la demande |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>Caractérisation de données
 

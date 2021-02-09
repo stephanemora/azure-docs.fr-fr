@@ -1,5 +1,5 @@
 ---
-title: Schéma de métadonnées de sortie Azure Media Services | Microsoft Docs
+title: Schéma de métadonnées de sortie d’Azure Media Services
 description: Cet article fournit une vue d’ensemble du schéma de métadonnées de sortie d’Azure Media Services v3.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336409"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895201"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
 

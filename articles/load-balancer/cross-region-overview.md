@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737674"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946254"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
@@ -142,6 +142,8 @@ L'équilibreur de charge inter-région achemine le trafic vers l'équilibreur de
 * Les configurations IP frontales IPv6 inter-région ne sont pas prises en charge. 
 
 * Il est actuellement impossible de configurer une sonde d'intégrité. Une sonde d'intégrité par défaut collecte automatiquement les informations de disponibilité relatives à l'équilibreur de charge régional toutes les 20 secondes. 
+
+* Actuellement, Azure Kubernetes Service (AKS) ne peut pas être intégré avec un équilibreur de charge inter-régions. Une perte de connectivité devrait se produire lors de la configuration d’un équilibreur de charge inter-régions devant un équilibreur de charge public déployé avec AKS.
 
 ## <a name="pricing-and-sla"></a>Tarifs et contrat SLA
 Équilibreur de charge inter-région, partage le [contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) de l'équilibreur de charge standard.

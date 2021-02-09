@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756679"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986593"
 ---
 # <a name="manage-security-policies"></a>Gérer les stratégies de sécurité
 
@@ -54,7 +54,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
 
 1. La page relative à la stratégie de sécurité de cet abonnement ou ce groupe d’administration s’affiche. Elle présente les stratégies disponibles et attribuées.
 
-   ![page stratégie](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Page des stratégies de sécurité de Security Center" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Si l’étiquette « Groupe d’administration hérité » figure en regard de votre stratégie par défaut, cela signifie que la stratégie a été attribuée à un groupe d’administration et que l’abonnement que vous consultez en a hérité.
@@ -102,7 +102,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 1. Dans la section **Stratégie et conformité** de Security Center, sélectionnez **Stratégie de sécurité**.
 
-   ![gestion des stratégies](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Lancement du processus de gestion des stratégies dans Azure Security Center":::
 
 2. Sélectionnez le groupe d'abonnements ou d'administration pour lequel vous souhaitez désactiver la recommandation.
 
@@ -111,7 +111,7 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
 
 1. Sélectionnez **Afficher la stratégie actuelle**.
 
-   ![afficher la stratégie](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Ouvrir la stratégie effective attribuée à votre abonnement":::
 
 1. Sélectionnez la stratégie attribuée.
 
@@ -126,10 +126,8 @@ Pour plus d’informations sur les recommandations, consultez [Gestion des recom
    > [!NOTE]
    > La désactivation d’une stratégie peut prendre jusqu’à 12 heures pour entrer en vigueur.
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article a décrit les stratégies de sécurité. Pour accéder à des informations connexes, voir les articles suivants :
+Cette page a décrit les stratégies de sécurité. Pour accéder à des informations connexes, consultez les rubriques suivantes :
 
 - [Découvrez comment définir des stratégies avec PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Découvrez comment modifier une stratégie de sécurité dans Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 

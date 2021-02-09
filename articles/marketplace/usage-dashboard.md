@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462927"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934390"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -135,7 +135,7 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | Nom de l’offre | Nom de l’offre | Nom de l’offre de la place de marché commerciale. |
 | DeploymentMethod | Déprécié | Déconseillé (même définition que Type d’offre)
  |
-| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Peut être différent de la ville indiquée dans l’abonnement Azure du client. |
+| Nom de la société du client | Nom de la société du client | Nom de société fourni par le client. Le nom peut être différent du nom indiqué dans l’abonnement Azure du client. |
 | Date d'utilisation | Date d'utilisation | Date de génération d’événements d’utilisation pour les ressources à l’utilisation. |
 | IsMultisolution | Est de type multisolution | Indique si l’offre est de type multisolution. |
 | Nouveau client | Déprécié | Déprécié |

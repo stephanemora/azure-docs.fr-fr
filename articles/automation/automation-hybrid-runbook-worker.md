@@ -3,14 +3,14 @@ title: Vue d’ensemble du Runbook Worker hybride d’Azure Automation
 description: Cet article fournit une vue d’ensemble du Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des machines de votre centre de données local ou de votre fournisseur de cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/11/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072137"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896950"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Vue d’ensemble des Runbook Worker hybrides
 
@@ -54,16 +54,7 @@ La méthode d’installation recommandée pour un ordinateur Windows consiste à
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Planification réseau
 
-Pour qu’un Runbook Worker hybride système et utilisateur se connecte à Azure Automation et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrites dans cette section. Le Worker doit également avoir accès aux [ports et URL requis pour l’agent Log Analytics](../azure-monitor/platform/agent-windows.md) pour pouvoir se connecter à l’espace de travail Azure Monitor Log Analytics.
-
-Le port et les URL suivants sont requis pour le Runbook Worker hybride :
-
-* Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant
-* URL globale : `*.azure-automation.net`
-* URL globale de US Gov Virginie : `*.azure-automation.us`
-* Service Agent : `https://<workspaceId>.agentsvc.azure-automation.net`
-
-Si vous avez un compte Automation défini pour une région spécifique, vous pouvez restreindre la communication du Runbook Worker hybride à ce centre de données régional. Examinez les [enregistrements DNS utilisés par Azure Automation](how-to/automation-region-dns-records.md) pour identifier les enregistrements DNS obligatoires.
+Pour plus d’informations sur les ports, les URL et la mise en réseau qui sont requis pour le Runbook Worker hybride, consultez [Configuration réseau d’Azure Automation](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker).
 
 ### <a name="proxy-server-use"></a>Utilisation du serveur proxy
 
@@ -94,7 +85,7 @@ Le Runbook Worker hybride d’Azure Automation peut être utilisé dans Azure Go
 * Les [hôtes dédiés Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), qui fournissent des serveurs physiques capables d’héberger une ou plusieurs machines virtuelles et dédiés à un abonnement Azure.
 
 >[!NOTE]
->L’isolation de calcul via le rôle Runbook Worker hybride est disponible pour les clouds commerciaux Azure et le cloud US Government. 
+>L’isolation de calcul via le rôle Runbook Worker hybride est disponible pour les clouds commerciaux Azure et le cloud US Government.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Adresses Update Management pour Runbook Worker hybride
 

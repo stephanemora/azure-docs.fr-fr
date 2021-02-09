@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752997"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937841"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
@@ -222,19 +222,19 @@ Pour en savoir plus, consultez la section [Envoi d’une demande de déconnexion
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Lors de l’inscription de l’application, vous inscrivez une URI Post-déconnexion. Dans notre didacticiel, vous avez inscrit `https://localhost:44321/signout-oidc` dans le champ **URL de déconnexion** de la section **Paramètres avancés** sur la page **Authentification**. Pour plus d’informations, voir [Inscrire l’application web](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Lors de l’inscription d’application, vous inscrivez une URL de déconnexion du canal frontal. Dans notre tutoriel, vous avez inscrit `https://localhost:44321/signout-oidc` dans le champ **URL de déconnexion du canal frontal** de la page **Authentification**. Pour plus d’informations, voir [Inscrire l’application web](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Lors de l’inscription de l’application, vous inscrivez une URI Post-déconnexion. Dans notre didacticiel, vous avez inscrit `https://localhost:44308/Account/EndSession` dans le champ **URL de déconnexion** de la section **Paramètres avancés** sur la page **Authentification**. Pour plus d’informations, voir [Inscrire l’application web](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Au cours de l’inscription d’application, vous n’avez pas besoin d’inscrire d’URL de déconnexion du canal frontal supplémentaire. L’application est rappelée sur son URL principale. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Lors de l’inscription de l’application, vous inscrivez une URI Post-déconnexion. Dans notre didacticiel, vous avez inscrit `http://localhost:8080/msal4jsample/sign_out` dans le champ **URL de déconnexion** de la section **Paramètres avancés** sur la page **Authentification**.
+Aucune URL de déconnexion du canal frontal n’est requise dans l’inscription d’application.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Au cours de l’inscription de l’application, vous n’avez pas besoin d’inscrire d’URL de déconnexion supplémentaire. L’application est rappelée sur son URL principale.
+Au cours de l’inscription d’application, vous n’avez pas besoin d’inscrire d’URL de déconnexion du canal frontal supplémentaire. L’application est rappelée sur son URL principale.
 
 ---
 
@@ -336,7 +336,7 @@ Dans les versions précédentes des modèles ASP.NET Core, le contrôleur `Accou
 - Appeler `Signout()`, ce qui permet à l’intergiciel OpenID Connect de contacter le point de terminaison `logout` de la plateforme d’identités Microsoft. Ensuite, le point de terminaison :
 
   - efface le cookie de session du navigateur.
-  - Rappelle l’URL de déconnexion. Par défaut, l’URL de déconnexion affiche la page de vue déconnectée [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Cette page est également fournie dans le cadre de Microsoft.Identity.Web.
+  - Rappelle l’URI de redirection après déconnexion. Par défaut, l’URI de redirection après déconnexion affiche la page de la vue déconnectée [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Cette page est également fournie dans le cadre de Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044779"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895269"
 ---
 # <a name="drawing-package-requirements"></a>Exigences du package de dessin
 
@@ -106,7 +106,7 @@ Quel que soit le nombre de dessins d’entité dans le calque Extérieur, le [je
 * Les calques extérieurs doivent être dessinés en tant que Polygone, Polyligne (fermée), Cercle ou Ellipse (fermée).
 * Les calques extérieurs peuvent se chevaucher, mais sont fusionnés dans une seule géométrie.
 * La caractéristique Niveau obtenue doit être d’au moins 4 mètres carrés.
-* La caractéristique Niveau obtenue ne doit pas être supérieure à 400 mètres carrés.
+* La caractéristique Niveau obtenue ne doit pas être supérieure à 400 000 mètres carrés.
 
 Si le calque contient plusieurs polylignes qui se chevauchent, celles-ci sont fusionnées en une seule caractéristique Niveau. Par ailleurs, si le calque contient plusieurs polylignes ne se chevauchant pas, la caractéristique Niveau obtenue a une représentation multi-polygonale.
 

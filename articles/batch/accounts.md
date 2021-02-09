@@ -2,13 +2,13 @@
 title: Comptes de Stockage Azure et Batch
 description: Découvrez plus d’informations sur les comptes Azure Batch et leur utilisation du point de vue du développement.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83790906"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896746"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Comptes de Stockage Azure et Batch
 
@@ -20,9 +20,10 @@ L’ensemble du traitement et toutes les ressources sont associés à un compte 
 
 Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch unique. Vous pouvez également répartir vos charges de travail entre plusieurs comptes Batch associés au même abonnement, mais situés dans des régions Azure différentes.
 
+Vous pouvez créer un compte Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Lorsque vous créez le compte, vous pouvez associer un compte de stockage Azure pour le stockage des données d’entrée et de sortie ou des applications liées au travail.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-Vous pouvez créer un compte Batch à l’aide du [Portail Azure](batch-account-create-portal.md) ou par programme, par exemple avec la [bibliothèque .NET de gestion Batch](batch-management-dotnet.md). Lorsque vous créez le compte, vous pouvez associer un compte de stockage Azure pour le stockage des données d’entrée et de sortie ou des applications liées au travail.
 
 ## <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
@@ -41,4 +42,5 @@ Vous pouvez associer un compte de stockage à votre compte Batch lorsque vous cr
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [nœuds et les pools](nodes-and-pools.md).
-- Découvrez comment créer un compte Batch à l’aide du [Portail Azure](batch-account-create-portal.md).
+- Découvrez comment créer et manager des comptes Batch à l’aide du [portail Azure](batch-account-create-portal.md) ou de [Batch Management .NET](batch-management-dotnet.md).
+- En savoir plus sur l’utilisation des [points de terminaison privés](private-connectivity.md) avec des comptes Azure Batch.

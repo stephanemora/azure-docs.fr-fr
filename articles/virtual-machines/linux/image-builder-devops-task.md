@@ -3,16 +3,16 @@ title: Tâche DevOps du service Azure Image Builder
 description: Tâche Azure DevOps pour injecter des artefacts de build dans une image de machine virtuelle afin de pouvoir installer et configurer votre application et votre système d’exploitation.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684540"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934281"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tâche DevOps du service Azure Image Builder
 
@@ -154,6 +154,12 @@ L’exemple suivant explique son fonctionnement :
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   Vous pouvez référencer plusieurs scripts ou ajouter d’autres commandes, par exemple :
+
+       ```PowerShell
+       & 'c:\buildArtifacts\webapp\webconfig.ps1'
+       & 'c:\buildArtifacts\webapp\installAgent.ps1'
+       ```
 * Linux : sur les systèmes Linux, les artefacts de build sont placés dans le répertoire `/tmp`. Toutefois, sur un grand nombre de systèmes d’exploitation Linux, le contenu du répertoire /tmp est supprimé en cas de redémarrage. Si vous souhaitez que les artefacts existent dans l’image, vous devez créer un autre répertoire et les y copier.  Par exemple :
 
     ```bash
@@ -335,4 +341,4 @@ L’artefact de ressource du modèle d’image se trouve dans le groupe de resso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](../image-builder-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure VM Image Builder](../image-builder-overview.md).

@@ -2,16 +2,16 @@
 title: Résoudre des problèmes de runbook Azure Automation
 description: Cet article explique comment dépanner et résoudre des problèmes liés aux runbooks Azure Automation.
 services: automation
+ms.subservice: ''
 ms.date: 11/03/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368081"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053667"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Résoudre les problèmes de runbook
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Cause
 
-Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Pour plus d’informations, consultez [Gérer les comptes d’identification Azure Automation](../manage-runas-account.md).
+Cette erreur peut se produire lorsque vous n’utilisez pas un compte d’identification ou quand le compte d’identification a expiré. Pour plus d’informations, consultez [Vue d’ensemble des comptes d’identification Azure Automation](../automation-security-overview.md#run-as-accounts).
 
 Cette erreur a deux causes principales :
 
@@ -147,7 +147,7 @@ Si vous recevez cette erreur après avoir mis à jour un module AzureRM ou Az, 
 
 Si vous essayez d’accéder à des ressources dans un autre abonnement, suivez ces étapes pour configurer les autorisations :
 
-1. Accédez au compte d’identification Automation, puis copiez l’ **ID d’application** et l’ **Empreinte**.
+1. Accédez au compte d’identification Automation, puis copiez l’**ID d’application** et l’**Empreinte**.
 
     ![Copier l’ID d’application et l’empreinte](../media/troubleshoot-runbooks/collect-app-id.png)
 
@@ -155,7 +155,7 @@ Si vous essayez d’accéder à des ressources dans un autre abonnement, suivez 
 
     ![Contrôle d’accès](../media/troubleshoot-runbooks/access-control.png)
 
-1. Ajoutez l’ **ID d’application** collecté précédemment. Sélectionnez des autorisations **Contributeur**.
+1. Ajoutez l’**ID d’application** collecté précédemment. Sélectionnez des autorisations **Contributeur**.
 
     ![Ajouter une attribution de rôle](../media/troubleshoot-runbooks/add-role-assignment.png)
 
@@ -291,7 +291,7 @@ Cette erreur peut être due à l’utilisation de modules Azure obsolètes.
 
 Vous pouvez corriger cette erreur en mettant à jour vos modules Azure avec la toute dernière version :
 
-1. Dans votre compte Automation, sélectionnez **Modules** , puis **Mettre à jour les modules Azure**.
+1. Dans votre compte Automation, sélectionnez **Modules**, puis **Mettre à jour les modules Azure**.
 1. La mise à jour prend environ 15 minutes. Une fois l’opération terminée, réexécutez le runbook qui a échoué.
 
 Pour en savoir plus sur la mise à jour de vos modules, consultez [Mettre à jour des modules Azure dans Azure Automation](../automation-update-azure-modules.md).
@@ -505,7 +505,7 @@ Si vous voulez utiliser plus de 500 minutes de traitement par mois, passez d’
 
 1. Connectez-vous à votre abonnement Azure.
 1. Sélectionnez le compte Automation à mettre à niveau.
-1. Sélectionnez **Paramètres** , puis **Tarifs**.
+1. Sélectionnez **Paramètres**, puis **Tarifs**.
 1. Sélectionnez **Activer** au bas de la page pour mettre à niveau votre compte vers le niveau De base.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Scénario : Flux de sortie du runbook supérieur à 1 Mo

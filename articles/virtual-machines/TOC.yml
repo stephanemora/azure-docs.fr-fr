@@ -107,26 +107,15 @@
       href: ./workloads/mainframe-rehosting/overview.md
     - name: Bases de données
       items:
-        - name: MySQL sur SUSE
-          href: ./linux/mysql-on-opensuse.md
         - name: MongoDB
           items:
-            - name: Linux
-              href: ./linux/install-mongodb.md
             - name: Windows
               href: ./windows/install-mongodb.md
-        - name: PostgreSQL
-          href: ./linux/postgresql-install.md
         - name: MS SQL sur Linux
           href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 'HPC (High-Performance Computing, calcul haute performance)'
       href: /azure/architecture/topics/high-performance-computing/
     - name: Conteneurs
-      items:
-        - name: Utiliser Machine Docker
-          href: ./linux/docker-machine.md
-        - name: Utiliser Docker Compose
-          href: ./linux/docker-compose-quickstart.md
     - name: Visual Studio
       href: ./windows/using-visual-studio-vm.md
 - name: Instances
@@ -979,10 +968,18 @@
       href: disks-scalability-targets.md
     - name: Sauvegarde et protection des données
       items:
-        - name: Sauvegarde et récupération d’urgence pour les disques
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Activer les instantanés incrémentiels
           href: disks-incremental-snapshots.md
+        - name: Sauvegarde des disques Azure
+          items:
+            - name: Vue d’ensemble
+              href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+            - name: Configurer Sauvegarde des disques Azure
+              href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+            - name: Restaurer les disques avec Sauvegarde des disques Azure
+              href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+        - name: Sauvegarde et récupération d’urgence pour les disques
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Effectuer la capture instantanée d’un disque - CLI
           href: ./linux/snapshot-copy-managed-disk.md
         - name: Effectuer la capture instantanée d’un disque - PowerShell
@@ -1281,8 +1278,6 @@
       href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
     - name: Supervision des machines virtuelles
       items:
-        - name: Linux
-          href: ./linux/tutorial-monitor.md
         - name: Windows
           href: ./windows/tutorial-monitor.md
     - name: Agents

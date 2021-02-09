@@ -1,21 +1,21 @@
 ---
 title: Meilleures pratiques relatives au niveau de performance – Azure Database pour MySQL
-description: Cet article décrit les meilleures pratiques de monitoring et de réglage du niveau de performance d’une base de données Azure Database pour MySQL.
-author: mksuni
-ms.author: sumuth
+description: Cet article fournit quelques recommandations sur la supervision et l'ajustement du niveau de performance d'une base de données Azure Database pour MySQL.
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/28/2021
+ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880404"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217752"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Meilleures pratiques pour un niveau de performance optimal d’Azure Database pour MySQL – Serveur unique
 
-Découvrez les meilleures pratiques à respecter pour obtenir un niveau de performance optimal avec Azure Database pour MySQL – Serveur unique. Au fur et à mesure que nous ajouterons de nouvelles fonctionnalités à la plateforme, nous continuerons d’affiner les meilleures pratiques décrites dans cette section.
+Apprenez à optimiser les performances d'Azure Database pour MySQL - Serveur unique. À mesure que nous ajouterons de nouvelles fonctionnalités à la plateforme, nous continuerons d'affiner les recommandations fournies dans cette section.
 
 ## <a name="physical-proximity"></a>Proximité physique
 
@@ -23,7 +23,7 @@ Découvrez les meilleures pratiques à respecter pour obtenir un niveau de perfo
 
 ## <a name="accelerated-networking"></a>Mise en réseau accélérée
 
-Utilisez les performances réseau accélérées pour le serveur d’applications si vous utilisez une machine virtuelle Azure, Azure Kubernetes ou App Services. Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge.
+Utilisez les performances réseau accélérées pour le serveur d'applications si vous utilisez une machine virtuelle Azure, Azure Kubernetes ou App Services. Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, ce qui améliore considérablement les performances de mise en réseau. Cette voie hautement performante court-circuite l’hôte à partir du chemin d’accès aux données, réduisant ainsi la latence, l’instabilité et l’utilisation du processeur pour servir les charges de travail réseau les plus exigeantes sur les types de machines virtuelles pris en charge.
 
 ## <a name="connection-efficiency"></a>Efficacité de la connexion
 
@@ -47,8 +47,25 @@ L’établissement d’une nouvelle connexion est toujours une tâche coûteuse 
 Concernant le niveau de performance d’Azure Database pour MySQL, l’une des meilleures pratiques consiste à allouer suffisamment de RAM pour que la plage de travail se trouve presque entièrement en mémoire. 
 
 - Vérifiez si le pourcentage de mémoire utilisé atteint les [limites](./concepts-pricing-tiers.md) à l’aide des [métriques du serveur MySQL](./concepts-monitoring.md). 
-- Configurez des alertes sur ces nombres afin de pouvoir prendre des mesures pour résoudre le problème quand les serveurs atteignent les limites. En fonction des limites définies, regardez si un scale-up de la référence SKU de base de données (taille de calcul supérieure ou meilleur niveau tarifaire) entraînerait une augmentation considérable du niveau de performance. 
+- Configurez des alertes sur ces nombres afin de pouvoir prendre des mesures pour résoudre le problème quand les serveurs atteignent les limites. En fonction des limites définies, déterminez si un scale-up de la référence SKU de la base de données (taille de calcul supérieure ou meilleur niveau tarifaire) entraînerait une augmentation considérable du niveau de performance. 
 - Effectuez un scale-up jusqu’à ce que votre niveau de performance ne chute plus après une opération de mise à l’échelle. Pour plus d’informations sur le suivi des métriques d’une instance de base de données, consultez [Métriques de base de données MySQL](./concepts-monitoring.md#metrics).
+ 
+## <a name="use-innodb-buffer-pool-warmup"></a>Utiliser le warmup du pool de tampons InnoDB
+
+Après le redémarrage d'un serveur Azure Database pour MySQL, les pages de données résidant sur le stockage sont chargées à mesure que les tables sont interrogées, ce qui augmente la latence et diminue les performances lors de la première exécution des requêtes. Cela peut ne pas être acceptable pour les charges de travail sensibles à la latence. 
+
+L'utilisation du warmup du pool de tampons InnoDB raccourcit la période de warmup en rechargeant les pages de disque qui se trouvaient dans le pool de tampons avant le redémarrage, plutôt que d'attendre les opérations DML ou SELECT pour accéder aux lignes correspondantes.
+
+Vous pouvez réduire la période de warmup après le redémarrage de votre serveur Azure Database pour MySQL, ce qui représente un avantage en termes de performances, en configurant les [paramètres du serveur du pool des tampons InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB enregistre un pourcentage des pages les plus récemment utilisées pour chaque pool de tampons lors de l'arrêt du serveur, et restaure ces pages lors du démarrage du serveur.
+
+Il est également important de noter que l'amélioration des performances se fait au détriment d'un temps de démarrage plus long pour le serveur. Lorsque ce paramètre est activé, le temps de démarrage et de redémarrage du serveur augmente en fonction des IOPS approvisionnées sur le serveur. 
+
+Nous vous recommandons de tester et de superviser le temps de redémarrage pour vous assurer que les performances de démarrage/redémarrage sont acceptables, car le serveur n'est pas disponible pendant ce temps. Il n'est pas recommandé d'utiliser ce paramètre lorsque les IOPS approvisionnées sont inférieures à 1000 (en d'autres termes, lorsque le stockage approvisionné est inférieur à 335 Go).
+
+Pour enregistrer l'état du pool de tampons au moment de l'arrêt du serveur, définissez le paramètre de serveur `innodb_buffer_pool_dump_at_shutdown` sur `ON`. De même, définissez le paramètre de serveur `innodb_buffer_pool_load_at_startup` sur `ON` pour restaurer l'état du pool de tampons au moment du démarrage du serveur. Vous pouvez contrôler l'impact sur le temps de démarrage/redémarrage en réduisant et en ajustant la valeur du paramètre de serveur `innodb_buffer_pool_dump_pct`. Par défaut, ce paramètre a la valeur `25`.
+
+> [!Note]
+> Les paramètres de warmup du pool de tampons InnoDB sont uniquement pris en charge sur les serveurs de stockage à usage général avec un stockage maximum de 16 To. Découvrez-en plus sur [les options de stockage Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

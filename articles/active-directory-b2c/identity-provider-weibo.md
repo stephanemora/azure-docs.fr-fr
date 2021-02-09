@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 26c4e154deec02b0642e6c131ced50acb02f9899
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653603"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98951521"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97653603"
 
 ## <a name="create-a-weibo-application"></a>Créer une application Weibo
 
-Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure Active Directory B2C (Azure AD B2C), vous devez créer dans votre locataire une application qui le représente. Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+Pour autoriser la connexion des utilisateurs avec un compte Weibo dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le [portail des développeurs Weibo](https://open.weibo.com/). Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
 
 1. Connectez-vous au [portail des développeurs Weibo](https://open.weibo.com/) avec les informations d’identification de votre compte Weibo.
 1. Une fois que vous êtes connecté, sélectionnez votre nom d’affichage dans le coin supérieur droit.
@@ -57,7 +57,7 @@ Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure A
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Configuration d’un compte Weibo en tant que fournisseur d’identité
+## <a name="configure-weibo-as-an-identity-provider"></a>Configurer Weibo en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
@@ -67,6 +67,16 @@ Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure A
 1. Dans **ID client**, entrez la clé d’application de l’application Weibo que vous avez créée précédemment.
 1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez consignée.
 1. Sélectionnez **Enregistrer**.
+
+## <a name="add-weibo-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Weibo à un flux d’utilisateur 
+
+1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
+1. Cliquez sur le flux d’utilisateur que vous souhaitez ajouter au fournisseur d’identité Weibo.
+1. Sous **Fournisseurs d’identité sociale**, sélectionnez **Weibo**.
+1. Sélectionnez **Enregistrer**.
+1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**.
 
 ::: zone-end
 
@@ -87,9 +97,9 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 10. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
+## <a name="configure-weibo-as-an-identity-provider"></a>Configurer Weibo en tant que fournisseur d’identité
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Weibo, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
+Pour permettre aux utilisateurs de se connecter avec un compte Weibo, vous devez définir le compte comme fournisseur de revendications avec lequel Azure AD B2C peut communiquer à travers un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir un compte Weibo en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
@@ -99,49 +109,10 @@ Vous pouvez définir un compte Weibo en tant que fournisseur de revendications e
 
     ```xml
     <ClaimsProvider>
-      <Domain>Weibo.com</Domain>
-      <DisplayName>Weibo</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="Weibo-OAUTH">
-          <DisplayName>Weibo</DisplayName>
-          <Protocol Name="OAuth2" />
-          <Metadata>
-            <Item Key="ProviderName">Weibo</Item>
-            <Item Key="authorization_endpoint">https://accounts.Weibo.com/o/oauth2/auth</Item>
-            <Item Key="AccessTokenEndpoint">https://accounts.Weibo.com/o/oauth2/token</Item>
-            <Item Key="ClaimsEndpoint">https://www.Weiboapis.com/oauth2/v1/userinfo</Item>
-            <Item Key="scope">email profile</Item>
-            <Item Key="HttpBinding">POST</Item>
-            <Item Key="UsePolicyInRedirectUri">false</Item>
-            <Item Key="client_id">Your Weibo application ID</Item>
-          </Metadata>
-          <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="B2C_1A_WeiboSecret" />
-          </CryptographicKeys>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="Weibo.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-          </OutputClaims>
-          <OutputClaimsTransformations>
-            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-          </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-    <ClaimsProvider>
       <Domain>weibo.com</Domain>
       <DisplayName>Weibo (Preview)</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Weibo-OAUTH">
+        <TechnicalProfile Id="Weibo-OAuth2">
           <DisplayName>Weibo</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -212,79 +183,28 @@ Le profil technique GitHub nécessite l’ajout des transformations de revendica
 </BuildingBlocks>
 ```
 
-### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre compte Weibo. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
-2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-3. Cliquez sur **Télécharger**.
-
-## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
-
-À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous pouvez créer un doublon d’un modèle de parcours utilisateur et le modifier afin qu’il dispose également du fournisseur d’identité Weibo.
-
-1. Ouvrez le fichier *TrustFrameworkBase.xml* à partir du pack de démarrage.
-2. Recherchez et copiez l’intégralité du contenu de l’élément **UserJourney** comprenant `Id="SignUpOrSignIn"`.
-3. Ouvrez le fichier *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
-4. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
-5. Renommez l’ID du parcours utilisateur. Par exemple : `SignUpSignInWeibo`.
-
-### <a name="display-the-button"></a>Afficher le bouton
-
-L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** pour un compte Weibo, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `WeiboExchange` :
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="WeiboExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="WeiboExchange" TechnicalProfileReferenceId="Weibo-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Maintenant que vous avez un bouton en place, vous devez le lier à une action. Dans ce cas, l’action est la communication d’Azure AD B2C avec un compte Weibo pour recevoir un jeton.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser la même valeur d’ID que celle utilisée pour **TargetClaimsExchangeId** :
-
-    ```xml
-    <ClaimsExchange Id="WeiboExchange" TechnicalProfileReferenceId="Weibo-OAuth" />
-    ```
-
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `Weibo-OAuth`.
-
-3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-weibo-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Weibo à un flux d’utilisateur 
-
-1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
-1. Cliquez sur le flux d’utilisateur que vous souhaitez utiliser pour le fournisseur d’identité Weibo.
-1. Sous **Fournisseurs d’identité sociale**, sélectionnez **Weibo**.
-1. Sélectionnez **Enregistrer**.
-1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
-1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
-
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
-
-1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, renommez-le *SignUpSignInWeibo.xml*.
-1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInWeibo`.
-1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_Weibo`
-1. Définissez l’attribut **ReferenceId** dans **DefaultUserJourney** sur l’ID du parcours utilisateur que vous avez créé (SignUpSignWeibo).
-1. Enregistrez vos modifications et chargez le fichier.
-1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_signup_signin**.
-1. Pour **Sélectionner une application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Sélectionnez **Exécuter maintenant** et sélectionnez Weibo pour vous connecter avec Weibo et tester la stratégie personnalisée.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

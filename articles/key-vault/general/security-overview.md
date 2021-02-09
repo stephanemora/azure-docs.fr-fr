@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937489"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071562"
 ---
-# <a name="azure-key-vault-security-overview"></a>Présentation de la sécurité Azure Key Vault
+# <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
 Vous utilisez Azure Key Vault pour protéger les secrets et les clés de chiffrement, comme les certificats, les chaînes de connexion et les mots de passe dans le cloud. Lors du stockage de données sensibles et vitales pour l’entreprise, vous devez prendre des mesures afin d’optimiser la sécurité de vos coffres et des données qui y sont stockées.
 
-Cet article fournit une vue d’ensemble des fonctionnalités de sécurité et des meilleures pratiques pour Azure Key Vault. Pour obtenir la liste complète des recommandations basées sur le [benchmark de sécurité Azure](../../security/benchmarks/introduction.md), consultez la [Ligne de base de sécurité Azure pour Key Vault](security-baseline.md).
+Cet article fournit une vue d’ensemble des fonctionnalités de sécurité et des meilleures pratiques pour Azure Key Vault. 
 
-## <a name="general-guidance"></a>Règle générale
-
-Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
+> [!NOTE]
+> Pour obtenir la liste complète des recommandations en matière de sécurité d'Azure Key Vault, consultez [Base de référence de sécurité pour Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Sécurité du réseau
 
@@ -109,20 +108,9 @@ La suppression réversible et la protection contre la suppression définitive d�
 
 Vous devez également effectuer des sauvegardes régulières de votre coffre, notamment lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.  
 
-Commandes de sauvegarde Azure PowerShell :
-
-* [Certificat de sauvegarde](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Clé de sauvegarde](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Secret de sauvegarde](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Commandes de sauvegarde Azure CLI :
-
-* [Certificat de sauvegarde](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Clé de sauvegarde](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Secret de sauvegarde](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Base de référence de sécurité pour Azure Key Vault](security-baseline.md)
+- [Bonnes pratiques relatives à Azure Key Vault](security-baseline.md)
 - [Points de terminaison de service de réseau virtuel pour Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC Azure : Rôles intégrés](../../role-based-access-control/built-in-roles.md)

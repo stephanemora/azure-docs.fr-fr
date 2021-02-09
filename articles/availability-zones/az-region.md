@@ -1,18 +1,19 @@
 ---
 title: Services Azure prenant en charge les zones de disponibilité
 description: Pour créer des applications hautement disponibles et résilientes dans Azure, les zones de disponibilité fournissent des emplacements physiquement distincts que vous pouvez utiliser pour exécuter vos ressources.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874606"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226622"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Services Azure prenant en charge les zones de disponibilité
 
@@ -46,19 +47,19 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 ## <a name="azure-regions-with-availability-zones"></a>Régions Azure avec Zones de disponibilité
 
 
-| Amérique           | Europe         | Allemagne              | Afrique              | Asie-Pacifique   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Centre du Canada     | France Centre | Allemagne Centre-Ouest | Afrique du Sud Nord* | Japon Est     |
-| USA Centre         | Europe Nord   |                      |                     | Asie Sud-Est |
-| USA Est            | Sud du Royaume-Uni       |                      |                     | Australie Est |
-| USA Est 2          | Europe Ouest    |                      |                     |                |
-| USA Centre Sud |                |                      |                     |                |
-| US Gov Virginie* |                |                      |                     |                |
-| USA Ouest 2        |                |                      |                     |                |
+| Amérique           | Europe               | Afrique              | Asie-Pacifique   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Centre du Canada     | France Centre       | Afrique du Sud Nord* | Japon Est     |
+| USA Centre         | Allemagne Centre-Ouest |                     | Asie Sud-Est |
+| USA Est            | Europe Nord         |                     | Australie Est |
+| USA Est 2          | Sud du Royaume-Uni             |                     |                |
+| USA Centre Sud | Europe Ouest          |                     |                |
+| US Gov Virginie* |                      |                     |                |
+| USA Ouest 2        |                      |                     |                |
 
 
-Pour en savoir plus sur Zones de disponibilité et sur la prise en charge des services disponibles dans ces régions, contactez votre représentant commercial ou client Microsoft. Pour les régions à venir qui prendront en charge Zones de disponibilité, consultez [Zones géographiques Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Pour en savoir plus sur Zones de disponibilité et sur la prise en charge des services disponibles dans ces régions, contactez votre représentant commercial ou client Microsoft. Pour les régions à venir qui prendront en charge Zones de disponibilité, consultez [Zones géographiques Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Services Azure prenant en charge les Zones de disponibilité

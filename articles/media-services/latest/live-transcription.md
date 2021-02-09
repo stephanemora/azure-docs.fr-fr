@@ -1,26 +1,9 @@
 ---
-title: Transcription en direct
-titleSuffix: Azure Media Services
-description: En savoir plus sur la transcription en direct Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291413"
+titre : Transcription en direct : Description d’Azure Media Services : En savoir plus sur la transcription en direct Azure Media Services.  
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: ne ms.topic: how-to ms.date: 08/31/2020 ms.author: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>Transcription en direct (préversion)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

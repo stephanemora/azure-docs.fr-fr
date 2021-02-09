@@ -4,14 +4,14 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657174"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054363"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -165,19 +165,21 @@ Une cible de stockage NFS a des paramètres différents d’une cible de stockag
 
 Lorsque vous créez une cible de stockage qui pointe vers un système de stockage NFS, vous devez choisir le modèle d’utilisation de cette cible. Ce modèle détermine la façon dont vos données sont mises en cache.
 
+Les modèles d’utilisation intégrés vous permettent de choisir la manière d’équilibrer la vitesse de réponse avec le risque d’obtenir des données obsolètes. Si vous souhaitez optimiser la vitesse de lecture des fichiers, vous pourriez ne pas vous préoccuper du fait que les fichiers dans le cache sont vérifiés par rapport aux fichiers sur le serveur principal. En revanche, si vous souhaitez vous assurer que vos fichiers sont toujours à jour avec le stockage étendu, choisissez un modèle qui effectue des vérifications fréquemment.
+
 Vous disposez de trois options :
 
 * **Lire les écritures lourdes et peu fréquentes** : utilisez cette option si vous souhaitez accélérer l’accès en lecture aux fichiers qui sont statiques ou rarement modifiés.
 
-  Cette option met en cache les fichiers que les clients lisent, mais transmet immédiatement les écritures au stockage backend. Les fichiers stockés dans le cache ne sont jamais comparés aux fichiers sur le volume de stockage NFS.
+  Cette option met en cache les fichiers que les clients lisent, mais transmet immédiatement les écritures au stockage backend. Les fichiers stockés dans le cache ne sont pas comparés automatiquement aux fichiers sur le volume de stockage NFS. (Pour en savoir plus, consultez la remarque ci-dessous concernant la vérification du serveur principal.)
 
-  N’utilisez pas cette option s’il existe un risque de modification directe d’un fichier sur le système de stockage sans l’avoir d’abord écrit dans le cache. Si cela se produit, la version mise en cache du fichier n’est jamais mise à jour avec les modifications du backend, et le jeu de données peut devenir incohérent.
+  N’utilisez pas cette option s’il existe un risque de modification directe d’un fichier sur le système de stockage sans l’avoir d’abord écrit dans le cache. Si cela se produit, la version mise en cache du fichier n’est pas synchronisée avec le fichier sur le serveur principal.
 
 * **Opérations d’écriture supérieures à 15 %**  : cette option accélère les performances de lecture et d’écriture. Quand vous utilisez cette option, tous les clients doivent accéder aux fichiers par le biais d’Azure HPC Cache au lieu de monter le stockage backend directement. Les fichiers mis en cache comportent des modifications récentes qui ne sont pas stockées sur le backend.
 
-  Dans ce modèle d’utilisation, les fichiers du cache ne sont pas comparés aux fichiers sur le stockage backend. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est écrit dans le système de stockage back-end après qu’il est resté dans le cache pendant une heure sans aucune modification supplémentaire.
+  Dans ce modèle d’utilisation, les fichiers figurant dans le cache ne sont vérifiés par rapport aux fichiers se trouvant dans le stockage principal que toutes les huit heures. La version mise en cache du fichier est supposée être plus récente. Un fichier modifié dans le cache est écrit dans le système de stockage back-end après qu’il est resté dans le cache pendant une heure sans aucune modification supplémentaire.
 
-* **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache. Les fichiers demandés par les clients sont mis en cache, mais toute modification apportée à ces fichiers à partir du client est immédiatement retransmise au système de stockage backend.
+* **Les clients écrivent dans la cible NFS en ignorant le cache** : choisissez cette option si des clients dans votre workflow écrivent des données directement dans le système de stockage sans écrire au préalable dans le cache, ou si vous voulez optimiser la cohérence des données. Les fichiers demandés par les clients sont mis en cache, mais toute modification apportée à ces fichiers à partir du client est immédiatement retransmise au système de stockage backend.
 
   Avec ce modèle d’utilisation, les fichiers du cache sont fréquemment comparés aux versions backend pour y rechercher des mises à jour. Cette vérification permet de modifier les fichiers en dehors du cache tout en conservant la cohérence des données.
 
@@ -186,8 +188,11 @@ Ce tableau récapitule les différences entre les modèles d’utilisation :
 | Modèle d’utilisation                   | Mode de mise en cache | Vérification backend | Délai maximal d’écriture différée |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Lire les écritures lourdes et peu fréquentes | Lire         | Jamais                 | None                     |
-| Opérations d’écriture supérieures à 15 %       | Lecture/écriture   | Jamais                 | 1 heure                   |
+| Opérations d’écriture supérieures à 15 %       | Lecture/écriture   | 8 heures               | 1 heure                   |
 | Les clients ignorent le cache      | Lire         | 30 secondes            | None                     |
+
+> [!NOTE]
+> La valeur **Vérification du serveur principal** s’affiche lorsque le cache compare automatiquement ses fichiers aux fichiers sources dans le stockage étendu. Toutefois, vous pouvez forcer Azure HPC Cache à comparer les fichiers en effectuant une opération d’annuaire incluant une demande readdirplus. Readdirplus est une API NFS standard (également appelée lecture étendue) qui retourne des métadonnées d’annuaire, ce qui amène le cache à comparer et à mettre à jour les fichiers.
 
 ### <a name="create-an-nfs-storage-target"></a>Créer une cible de stockage NFS
 

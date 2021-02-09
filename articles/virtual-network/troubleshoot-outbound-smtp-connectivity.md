@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883110"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054852"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
 
@@ -27,7 +27,7 @@ Ce changement de comportement s’applique uniquement aux abonnements et aux dé
 
 ## <a name="recommended-method-of-sending-email"></a>Méthode recommandée de l’envoi d’e-mails
 
-Nous vous recommandons d’utiliser des services de relais SMTP authentifiés pour envoyer des e-mails à partir de machines virtuelles Azure ou d’Azure App Service. (Ces services de relais se connectent généralement via le port TCP 587 ou 443, mais ils prennent en charge d’autres ports.) Ces services sont utilisés pour maintenir la réputation de l’IP ou du domaine afin de minimiser le risque que des fournisseurs de messagerie tiers ne rejettent les messages. [SendGrid](https://sendgrid.com/partners/azure/) est un service de relais SMTP, mais il en existe d’autres. Vous pouvez également utiliser un service de relais SMTP sécurisé qui s’exécute localement.
+Nous vous recommandons d’utiliser des services de relais SMTP authentifiés pour envoyer des e-mails à partir de machines virtuelles Azure ou d’Azure App Service. (Ces services de relais se connectent généralement via le port TCP 587, mais ils prennent en charge d'autres ports.) Ces services sont utilisés pour maintenir la réputation de l’IP ou du domaine afin de minimiser le risque que des fournisseurs de messagerie tiers ne rejettent les messages. [SendGrid](https://sendgrid.com/partners/azure/) est un service de relais SMTP, mais il en existe d’autres. Vous pouvez également utiliser un service de relais SMTP sécurisé qui s’exécute localement.
 
 L’utilisation de ces services de remise d’e-mails n’est pas limitée dans Azure, quel que soit le type d’abonnement.
 

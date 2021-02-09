@@ -1,33 +1,33 @@
 ---
-title: Personnaliser l’interface utilisateur
+title: Personnaliser l’interface utilisateur avec des modèles HTML
 titleSuffix: Azure AD B2C
-description: Découvrez comment personnaliser l’interface utilisateur de vos applications qui utilisent Azure Active Directory B2C.
+description: Découvrez comment personnaliser l’interface utilisateur avec des modèles HTML pour vos applications qui utilisent Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058665"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050541"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 La personnalisation de l’interface utilisateur qu’Azure Active Directory B2C (Azure AD B2C) présente à vos clients permet d’offrir une expérience utilisateur fluide au sein de votre application. Ces expériences incluent la modification du profil, l’inscription, la connexion et la réinitialisation du mot de passe. Cet article présente les méthodes de personnalisation de l’interface utilisateur. 
 
 > [!TIP]
-> Si vous souhaitez modifier uniquement le logo de la bannière, l’image et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Personnalisation de la société](company-branding.md).
+> Si vous souhaitez modifier uniquement le logo de la bannière, l’image et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Personnalisation de la société](customize-ui.md).
 
 ## <a name="custom-html-and-css-overview"></a>Vue d’ensemble des fichiers HTML et CSS personnalisés
 
@@ -387,7 +387,15 @@ Pour utiliser l’exemple :
 1. Modifiez à présent la stratégie, en la faisant pointer vers votre fichier HTML, comme indiqué précédemment.
 1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.
 
+## <a name="use-company-branding-assets-in-custom-html"></a>Utiliser des ressources de marque de société dans du code HTML personnalisé
+
+Pour utiliser des ressources de [Marque de société](customize-ui.md#configure-company-branding) dans du code HTML personnalisé, ajoutez les balises suivantes en dehors de la balise `<div id="api">`. La source de l’image est remplacée par celle de l’image d’arrière-plan et du logo de bannière.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment activer le [code JavaScript côté client](javascript-and-page-layout.md).
-

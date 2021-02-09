@@ -4,14 +4,13 @@ description: Cet article explique comment utiliser Update Management pour gérer
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221650"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915980"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles
 
@@ -35,11 +34,13 @@ Update Management utilise une configuration d’étendue au sein de l’espace d
 
 Avant de déployer des mises à jour de logiciel sur vos machines, examinez les résultats de l’évaluation de la conformité des mises à jour pour les machines concernées. Pour chaque mise à jour de logiciel, son état de conformité est enregistré, puis, une fois l’évaluation terminée, celui-ci est collecté et transféré en bloc dans les journaux d’activité Azure Monitor.
 
-Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut. En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes qui suivent le redémarrage de l’agent Log Analytics pour Windows, avant et après l’installation de la mise à jour. Il est également important de consulter nos recommandations sur la façon de [configurer le client Windows Update](configure-wuagent.md) avec Update Management afin d’éviter tout problème qui empêcherait de le gérer correctement.
+Sur Windows, l’analyse de conformité est exécutée toutes les 12 heures par défaut et est lancée dans les 15 minutes suivant le redémarrage de l’agent Log Analytics pour Windows. Les données d’évaluation sont ensuite transmises à l’espace de travail et la table **Mises à jour** est actualisée. Avant et après l’installation de la mise à jour, une analyse de conformité des mises à jour est effectuée pour identifier les mises à jour manquantes, mais les résultats ne sont pas utilisés pour mettre à jour les données d’évaluation dans la table.
+
+Il est important de consulter nos recommandations sur la façon de [configurer le client Windows Update](configure-wuagent.md) avec Update Management pour éviter tout problème empêchant de manager le client correctement.
 
 Sur une machine Linux, l’analyse de conformité est effectuée toutes les heures par défaut. Si l’agent Log Analytics pour Linux est redémarré, une analyse de conformité est lancée dans les 15 minutes.
 
-Les résultats de conformité sont présentés dans Update Management pour chaque machine évaluée. Pour une nouvelle machine dont la gestion est activée, le tableau de bord peut prendre jusqu’à 30 minutes pour afficher les données mises à jour.
+Les résultats de conformité sont présentés dans Update Management pour chaque machine évaluée. L’affichage sur le tableau de bord des données mises à jour d’une nouvelle machine dont le management est activé peut prendre jusqu’à 30 minutes.
 
 Pour savoir comment afficher les résultats de compatibilité, consultez [Surveiller les mises à jour de logiciel](view-update-assessments.md).
 
