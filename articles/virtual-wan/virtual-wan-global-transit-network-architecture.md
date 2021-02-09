@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563730"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428181"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -133,9 +133,6 @@ Les hubs Azure Virtual WAN interconnectent tous les points de terminaison résea
 
 **Figure 5 : Hub virtuel sécurisé avec le Pare-feu Azure**
 
-> [!NOTE]
-> L’inter-hub avec pare-feu n’est actuellement pas pris en charge. Le trafic entre les hubs passera directement en ignorant le pare-feu Azure dans chaque hub.
-
 Le Pare-feu Azure dans le hub WAN virtuel prend en charge les chemins de connectivité suivants pour le transit de sécurisé global. Les lettres entre parenthèses renvoient à la Figure 5.
 
 * Transit sécurisé de réseau virtuel à réseau virtuel (e)
@@ -152,6 +149,23 @@ Le scénario Réseau virtuel à Internet permet de se connecter à Internet par 
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branche à Internet ou un service de sécurité tiers (j)
 Le scénario Branche à Internet permet aux branches de se connecter à Internet via le Pare-feu Azure dans le hub Virtual WAN. Le trafic vers Internet via les services de sécurité tiers pris en charge n’est pas transmis via le Pare-feu Azure. Vous pouvez configurer le chemin d’accès Branche à Internet par le biais d’un service de sécurité tiers pris en charge avec Azure Firewall Manager. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Transition sécurisée de branche à branche entre régions (f)
+
+Les branches peuvent être connectées à un hub virtuel sécurisé avec Pare-feu Azure à l’aide de circuits ExpressRoute et/ou de connexions VPN site à site. Vous pouvez connecter les branches au hub WAN virtuel qui se trouve dans la région la plus proche de la branche.
+
+Cette option permet aux entreprises de tirer parti de la dorsale principale d’Azure pour connecter des branches. Toutefois, même si cette fonctionnalité est disponible, vous devez comparer les avantages de la connexion des branches via Azure Virtual WAN à l’utilisation d’un réseau WAN privé.  
+
+> [!NOTE]
+> Le traitement inter-hub du trafic via un pare-feu n’est pas pris en charge actuellement. Le trafic entre les hubs est acheminé vers la branche appropriée au sein du hub virtuel sécurisé, mais le trafic contourne Pare-feu Azure dans chaque hub.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Transit sécurisé de branche à réseau virtuel (g)
+
+Le transit sécurisé de branche à réseau virtuel permet aux branches de communiquer avec des réseaux virtuels dans la même région que le hub WAN virtuel, ainsi qu’avec un autre réseau virtuel connecté à un autre hub WAN virtuel dans une autre région.
+
+> [!NOTE]
+> L’inter-hub avec pare-feu n’est actuellement pas pris en charge. Le trafic entre les hubs passera directement en ignorant le pare-feu Azure dans chaque hub.  Le trafic via une connexion destinée à un réseau virtuel dans la même région sera traité par Pare-feu Azure dans le hub sécurisé.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Comment faire activer l’itinéraire par défaut (0.0.0.0/0) dans un hub virtuel sécurisé
 

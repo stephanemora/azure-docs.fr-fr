@@ -4,16 +4,16 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905109"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475724"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Reportez-vous aux sections suivantes pour comprendre les optimisations de requê
 - [Incluez les chemins nécessaires dans la stratégie d’indexation.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Comprenez quelles fonctions système utilisent l’index.](#understand-which-system-functions-use-the-index)
+
+- [Améliorez l’exécution des fonctions système de chaîne.](#improve-string-system-function-execution)
 
 - [Identifiez les requêtes d’agrégation qui utilisent l’index.](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,10 +200,11 @@ Vous pouvez ajouter des propriétés à la stratégie d’indexation à tout mom
 
 La plupart des fonctions système utilisent des index. Voici une liste de certaines fonctions de chaîne courantes qui utilisent des index :
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, mais seulement si la première num_expr est 0
+- StartsWith
+- Contient
+- RegexMatch
+- Gauche
+- Substring, mais uniquement si la première num_expr est 0
 
 Voici quelques fonctions système courantes qui n’utilisent pas l’index et doivent charger chaque document :
 
@@ -210,11 +213,21 @@ Voici quelques fonctions système courantes qui n’utilisent pas l’index et d
 | UPPER/LOWER                             | Au lieu d’utiliser la fonction système pour normaliser les données pour les comparaisons, normalisez la casse lors de l’insertion. Une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | Fonctions mathématiques (non-agrégations) | Si vous devez calculer fréquemment une valeur dans votre requête, stockez cette valeur en tant que propriété dans votre document JSON. |
 
-------
+### <a name="improve-string-system-function-execution"></a>Améliorer l’exécution des fonctions système de chaîne
 
-Si une fonction système utilise des index et qu’elle a toujours des frais en RU (unités de requête) élevés, vous pouvez essayer d’ajouter `ORDER BY` à la requête. Dans certains cas, l’ajout de `ORDER BY` peut améliorer l’utilisation d’index de fonction système, en particulier si la requête est à exécution longue ou s’étend sur plusieurs pages.
+Pour certaines fonctions système qui utilisent des index, vous pouvez améliorer l’exécution de la requête en ajoutant à cette dernière une clause `ORDER BY`. 
 
-Prenons l’exemple de la requête ci-dessous avec `CONTAINS`. `CONTAINS` doit utiliser un index, mais supposons qu’après avoir ajouté l’index approprié, vous observez toujours des frais en RU (unités de requête) très élevés lors de l’exécution de la requête ci-dessous :
+Plus spécifiquement, toute fonction système dont les frais de RU augmente à mesure que la cardinalité de la propriété augmente peut tirer parti de la clause `ORDER BY` dans la requête. Comme ces requêtes effectuent une analyse d’index, le tri des résultats de la requête peut rendre celle-ci plus efficace.
+
+Cette optimisation peut améliorer l’exécution pour les fonctions système suivantes :
+
+- StartsWith (où non-respect de la casse = true)
+- StringEquals (où non-respect de la casse = true)
+- Contient
+- RegexMatch
+- EndsWith
+
+Prenons l’exemple de la requête ci-dessous avec `CONTAINS`. `CONTAINS` utilisera les index, mais, parfois, même après l’ajout de l’index approprié, vous pouvez encore observer des frais de RU très élevés lors de l’exécution de la requête ci-dessous.
 
 Requête d’origine :
 
@@ -224,13 +237,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Requête mise à jour avec `ORDER BY` :
+Vous pouvez améliorer l’exécution de la requête en ajoutant `ORDER BY` :
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+La même optimisation peut être utile dans les requêtes avec des filtres supplémentaires. Dans ce cas, il est préférable d’ajouter également des propriétés avec des filtres d’égalité à la clause `ORDER BY`.
+
+Requête d’origine :
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+Vous pouvez améliorer l’exécution de la requête en ajoutant `ORDER BY` et [un index composite](index-policy.md#composite-indexes) pour (c.name, c.town) :
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>Identifier les requêtes d’agrégation qui utilisent l’index

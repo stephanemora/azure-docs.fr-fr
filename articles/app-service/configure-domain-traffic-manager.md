@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012939"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223338"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurer un nom de domaine personnalisé dans Azure App Service avec l’intégration de Traffic Manager
 
@@ -75,9 +75,9 @@ Quand vous avez terminé l’ajout ou la modification des enregistrements DNS au
 
 ### <a name="what-about-root-domains"></a>Qu’en est-il des domaines racine ?
 
-Étant donné que Traffic Manager prend seulement en charge le mappage de domaine personnalisé avec des enregistrements CNAME, et que les normes DNS ne prennent pas en charge les enregistrements CNAME pour le mappage des domaines racine (par exemple, **contoso.com**), Traffic Manager ne gère pas le mappage aux domaines racine. Pour contourner ce problème, utilisez une redirection d’URL au niveau de l’application. Dans ASP.NET Core, par exemple, vous pouvez utiliser la [Réécriture d’URL](/aspnet/core/fundamentals/url-rewriting). Ensuite, utilisez Traffic Manager pour équilibrer la charge du sous-domaine (**www.contoso.com**).
+Étant donné que Traffic Manager prend seulement en charge le mappage de domaine personnalisé avec des enregistrements CNAME, et que les normes DNS ne prennent pas en charge les enregistrements CNAME pour le mappage des domaines racine (par exemple, **contoso.com**), Traffic Manager ne gère pas le mappage aux domaines racine. Pour contourner ce problème, utilisez une redirection d’URL au niveau de l’application. Dans ASP.NET Core, par exemple, vous pouvez utiliser la [Réécriture d’URL](/aspnet/core/fundamentals/url-rewriting). Ensuite, utilisez Traffic Manager pour équilibrer la charge du sous-domaine (**www.contoso.com**). Une autre approche consiste à [créer un enregistrement d’alias pour l’apex de votre nom de domaine pour référencer un profil Azure Traffic Manager](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). contoso.com en est un exemple. Au lieu d’utiliser un service de redirection, vous pouvez configurer Azure DNS pour référencer un profil Traffic Manager directement à partir de votre zone. 
 
-Pour les scénarios de haute disponibilité, vous pouvez implémenter une configuration DNS tolérante aux pannes, sans Traffic Manager, en créant plusieurs *enregistrements A* qui pointent du domaine racine vers l’adresse IP de chaque copie de l’application. Ensuite, [mappez le même domaine racine à toutes les copies de l’application](app-service-web-tutorial-custom-domain.md#map-an-a-record). Comme le même nom de domaine ne peut pas être mappé vers deux applications différentes dans la même région, cette configuration fonctionne seulement si les copies de votre application se trouvent dans des régions différentes.
+Pour les scénarios de haute disponibilité, vous pouvez implémenter une configuration DNS d’équilibrage de charge sans Traffic Manager en créant plusieurs *enregistrements A* qui pointent du domaine racine vers l’adresse IP de chaque copie de l’application. Ensuite, [mappez le même domaine racine à toutes les copies de l’application](app-service-web-tutorial-custom-domain.md#map-an-a-record). Comme le même nom de domaine ne peut pas être mappé vers deux applications différentes dans la même région, cette configuration fonctionne seulement si les copies de votre application se trouvent dans des régions différentes.
 
 ## <a name="enable-custom-domain"></a>Activer un domaine personnalisé
 Une fois les enregistrements de votre nom de domaine propagés, utilisez le navigateur pour vérifier que votre nom de domaine personnalisé correspond à votre application App Service.

@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092497"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095356"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour serveurs dans Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données et pools élastiques dans [Azure SQL Database](sql-database-paas-overview.md) ou de vos bases de données dans [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels. Cet article explique pourquoi les règles de réseau virtuel sont parfois la meilleure solution qui s’offre à vous pour autoriser en toute sécurité les communications à destination de votre base de données dans SQL Database et Azure Synapse Analytics.
+Les *règles de réseau virtuel* constituent une fonctionnalité de sécurité du pare-feu. Elles permettent de déterminer si le serveur de vos bases de données et pools élastiques dans [Azure SQL Database](sql-database-paas-overview.md) ou de vos bases de données de pools SQL dédiés (anciennement SQL DW) dans [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) doit accepter les communications provenant de sous-réseaux spécifiques de réseaux virtuels. Cet article explique pourquoi les règles de réseau virtuel sont parfois la meilleure solution qui s’offre à vous pour autoriser en toute sécurité les communications à destination de votre base de données dans SQL Database et Azure Synapse Analytics.
 
 > [!NOTE]
 > Cet article s’applique à la fois à SQL Database et à Azure Synapse Analytics. Pour simplifier, le terme *base de données* fait référence aux bases de données dans SQL Database et Azure Synapse Analytics. De même, toutes les références au terme *serveur* désignent le [serveur logique SQL](logical-servers.md) qui héberge SQL Database et Azure Synapse Analytics.

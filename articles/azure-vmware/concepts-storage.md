@@ -3,12 +3,12 @@ title: Concepts – Stockage
 description: Découvrez les principales capacités de stockage dans les clouds privés d’Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289256"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062793"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Concepts de stockage pour Azure VMware Solution
 
@@ -32,7 +32,7 @@ Par défaut, les magasins de données vSAN utilisent le chiffrement des données
 
 ## <a name="scaling"></a>Mise à l'échelle
 
-La capacité de stockage du cluster natif est mise à l’échelle en ajoutant des hôtes à un cluster. Pour les clusters qui utilisent des hôtes haut de gamme, la capacité brute à l’échelle du cluster est augmentée de 15,4 To par hôte supplémentaire. La capacité brute des clusters créés avec des hôtes à usage général est augmentée de 7,7 To par hôte supplémentaire. Dans les deux types de clusters, l’ajout d’hôtes à un cluster prend environ 10 minutes. Pour obtenir des instructions sur la mise à l’échelle des clusters, consultez le [didacticiel sur la mise à l’échelle de cloud privé][tutorial-scale-private-cloud].
+La capacité de stockage du cluster natif est mise à l’échelle en ajoutant des hôtes à un cluster. Pour les clusters qui utilisent des hôtes haut de gamme, la capacité brute à l’échelle du cluster est augmentée de 15,4 To par hôte supplémentaire. La capacité brute des clusters créés avec des hôtes à usage général est augmentée de 7,7 To par hôte supplémentaire. Dans les deux types de clusters, l’ajout d’hôtes à un cluster prend environ 10 minutes. Pour obtenir des instructions sur la mise à l’échelle des clusters, consultez le [tutoriel relatif à la mise à l’échelle d’un cloud privé][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Intégration du Stockage Azure
 

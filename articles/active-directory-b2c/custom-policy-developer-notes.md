@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516100"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218772"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notes développeur pour les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -37,14 +37,14 @@ Si la plupart des options de stratégie personnalisée disponibles sont désorma
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilités des développeurs de l’ensemble de fonctionnalités de stratégie personnalisée
 
-La configuration manuelle de stratégie accorde le niveau d’accès minimal à la plateforme sous-jacente d’Azure AD B2C et se traduit par la création d’un framework de confiance unique. Les nombreuses permutations possibles de fournisseurs d’identité personnalisés, les relations de confiance, les intégrations avec des services externes et les workflows étape par étape exigent une approche de conception et de configuration méthodique.
+La configuration manuelle de stratégie accorde le niveau d’accès minimal à la plateforme sous-jacente d’Azure AD B2C et se traduit par la création d’un framework de confiance unique. Les nombreuses permutations possibles de fournisseurs d’identité personnalisés, les relations de confiance, les intégrations avec des services externes et les workflows étape par étape nécessitent une approche méthodique de la conception et de la configuration.
 
 Les développeurs qui utilisent les fonctionnalités de stratégie personnalisée doivent respecter les recommandations suivantes :
 
 - Se familiariser avec le langage de configuration des stratégies personnalisées et la gestion des clés/secrets. Pour plus d’informations, consultez [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - S’approprier les scénarios et les intégrations personnalisées. Documenter votre travail et informer l’organisation de votre site actif.
 - Effectuer un test de scénario méthodique.
-- Suivre les meilleures pratiques de test et de développement de logiciels avec au minimum un environnement de développement et de test et un environnement de production.
+- Suivre les meilleures pratiques en matière de développement de logiciels et de mise en lots. Au moins un environnement de développement et de test est recommandé.
 - Suivre les nouveaux développements des services et fournisseurs d’identité que vous intégrez. Par exemple, suivre les modifications apportées aux secrets, ainsi que les modifications planifiées et non planifiées du service.
 - Configurer la surveillance active et surveiller la réactivité des environnements de production. Pour plus d’informations sur l’intégration avec Application Insights, consultez [Azure Active Directory B2C : collecte des journaux](analytics-with-application-insights.md).
 - Garder les adresses e-mail de contact à jour dans l’abonnement Azure et rester attentif aux e-mails de l’équipe de site en ligne Microsoft.
@@ -58,7 +58,7 @@ Les développeurs qui utilisent les fonctionnalités de stratégie personnalisé
 
 ## <a name="features-by-stage-and-known-issues"></a>Fonctionnalités par étape et problèmes connus
 
-Les fonctionnalités de stratégie personnalisée/Identity Experience Framework font l’objet d’un développement rapide et constant. Le tableau suivant indique la disponibilité des fonctionnalités et des composants.
+Les capacités de stratégie personnalisée sont en constante évolution. Le tableau suivant indique la disponibilité des fonctionnalités et des composants.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protocoles et flux d’autorisation
@@ -144,7 +144,7 @@ Les fonctionnalités de stratégie personnalisée/Identity Experience Framework 
 | Expérience utilisateur de l’infrastructure d’expérience d’identité dans le Portail Azure |  |  | X |  |
 | Chargement de stratégie |  |  | X |  |
 | [Journaux de parcours utilisateur Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Utilisés pour la résolution des problèmes pendant le développement.  |
-| [Journaux d’événements Application Insights](application-insights-technical-profile.md) |  | X |  | Utilisés pour superviser les flux utilisateur en production. |
+| [Journaux d’événements Application Insights](analytics-with-application-insights.md) |  | X |  | Utilisés pour superviser les flux utilisateur en production. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,19 +3,24 @@ title: Configurer le proxy de centre de distribution de clés Kerberos pour Wind
 description: Comment configurer un pool d’hôtes Windows Virtual Desktop pour utiliser un proxy de centre de distribution de clés Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797998"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219653"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurer un proxy de centre de distribution de clés Kerberos
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurer un proxy de centre de distribution de clés Kerberos (préversion)
 
-Cet article vous montre comment configurer un proxy de centre de distribution de clés (KDC) Kerberos pour votre pool d’hôtes. Ce proxy permet aux organisations de s’authentifier auprès de Kerberos en dehors des frontières de leur entreprise. Par exemple, vous pouvez utiliser le proxy de KDC pour activer l’authentification par carte à puce pour les clients externes.
+> [!IMPORTANT]
+> Cette fonctionnalité est actuellement disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cet article vous montre comment configurer un proxy de centre de distribution de clés (KDC) Kerberos (préversion) pour votre pool d’hôtes. Ce proxy permet aux organisations de s’authentifier auprès de Kerberos en dehors des frontières de leur entreprise. Par exemple, vous pouvez utiliser le proxy de KDC pour activer l’authentification par carte à puce pour les clients externes.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Comment configurer le proxy de KDC
 

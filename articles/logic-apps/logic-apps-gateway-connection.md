@@ -3,15 +3,15 @@ title: Accéder à des sources de données locales
 description: Se connecter à des sources de données locales à partir d’Azure Logic Apps en créant une ressource de passerelle de données dans Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009249"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218992"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -57,8 +57,11 @@ Vous pouvez aussi créer des [connecteurs personnalisés](../logic-apps/custom-c
 * Vous avez les [mêmes compte et abonnement Azure](../logic-apps/logic-apps-gateway-install.md#requirements) que ceux que vous avez utilisé pour l’installation de votre passerelle. Votre compte Azure ne doit appartenir qu’à un seul [locataire ou annuaire Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Vous devez utiliser les mêmes compte et abonnement Azure pour créer votre ressource de passerelle dans Azure, car seul l’administrateur de la passerelle peut créer la ressource de passerelle dans Azure. Les principaux de service ne sont actuellement pas pris en charge.
 
   * Quand vous créez une ressource de passerelle dans Azure, vous sélectionnez une installation de passerelle à lier à votre ressource de passerelle, et uniquement à cette ressource de passerelle précise. Chaque ressource de passerelle ne peut être liée qu’à une seule installation de passerelle. Vous ne pouvez pas sélectionner une installation de passerelle déjà associée à une autre ressource de passerelle.
-  
-  * Vos application logique et ressource de passerelle n’ont pas besoin d’exister dans le même abonnement Azure. Si vous disposez d’un accès à l’abonnement, dans les déclencheurs et actions qui peuvent accéder à des sources de données locales, vous pouvez sélectionner d’autres abonnements Azure ayant des ressources de passerelle.
+
+  * Vos application logique et ressource de passerelle n’ont pas besoin d’exister dans le même abonnement Azure. Dans les déclencheurs et les actions dans lesquels vous pouvez utiliser la ressource de passerelle, vous pouvez sélectionner un autre abonnement Azure qui possède une ressource de passerelle, mais seulement si cet abonnement existe dans le même locataire ou répertoire Azure AD que votre application logique. Vous devez également disposer d’autorisations d’administrateur sur la passerelle, qu’un autre administrateur peut configurer pour vous. Pour plus d’informations, consultez [Passerelle de données : Automatisation à l’aide de PowerShell – Partie 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) et [PowerShell : Passerelle de données – Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Actuellement, vous ne pouvez pas partager une ressource ou une installation de passerelle entre plusieurs abonnements. Pour envoyer des commentaires sur le produit, consultez [Forum de commentaires Microsoft Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Après avoir créé votre ressource de passerelle et avoir associé votre abonne
 
 1. Sélectionnez l’option **Se connecter via la passerelle de données locale**.
 
-1. Sous **Passerelles**, dans la liste **Abonnements**, sélectionnez votre abonnement Azure qui a la ressource de passerelle souhaitée.
+1. Sous **Passerelle**, dans la liste **Abonnement**, sélectionnez votre abonnement Azure qui a la ressource de passerelle souhaitée.
 
-   Si vous disposez d’un accès à l’abonnement, vous pouvez choisir parmi différents abonnements Azure associés chacun à une ressource de passerelle distincte. Vos application logique et ressource de passerelle n’ont pas besoin d’exister dans le même abonnement Azure.
-
+   Vos application logique et ressource de passerelle n’ont pas besoin d’exister dans le même abonnement Azure. Vous pouvez choisir parmi d’autres abonnements Azure qui ont chacun une ressource de passerelle, mais uniquement si ces abonnements existent dans le même locataire ou répertoire Azure AD que votre application logique, et si vous disposez d’autorisations d’administrateur sur la passerelle, qu’un autre administrateur peut configurer pour vous. Pour plus d’informations, consultez [Passerelle de données : Automatisation à l’aide de PowerShell – Partie 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) et [PowerShell : Passerelle de données – Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. Dans la liste **Passerelle de connexion**, qui affiche les ressources de passerelle disponibles dans votre abonnement sélectionné, sélectionnez la ressource de passerelle de votre choix. Chaque ressource de passerelle est liée à une seule installation de passerelle.
 
    > [!NOTE]

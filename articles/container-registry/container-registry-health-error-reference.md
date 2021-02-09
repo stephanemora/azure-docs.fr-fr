@@ -2,17 +2,19 @@
 title: Référence des erreurs pour les contrôles d’intégrité d’un registre
 description: Codes d’erreur et solutions possibles en lie avec des problèmes détectés en exécutant la commande de diagnostic az acr check-health dans Azure Container Registry
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91565596"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061866"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
 Vous trouverez ci-après des détails sur les codes d’erreur retournés par la commande [az acr check-health][az-acr-check-health]. Pour chaque erreur, les solutions possibles sont répertoriées.
+
+Pour plus d’informations sur l’exécution de `az acr check-healh`, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -49,6 +51,12 @@ Cette erreur signifie que l’interface CLI n’a pas trouvé le client Helm, ce
 Cette erreur signifie que l’interface CLI n’a pas pu déterminer la version de Helm installée. Cela peut se produire si la version d’Azure CLI (ou la version de Helm) utilisée est obsolète.
 
 *Solutions potentielles* : mettre à jour vers la dernière version d’Azure CLI ou vers la version recommandée de Helm ; exécuter la commande manuellement et examiner le message d’erreur.
+
+## <a name="cmk_error"></a>CMK_ERROR
+
+Cette erreur signifie que le registre ne peut pas accéder à l’identité managée affectée par l’utilisateur ou par le système qui a été utilisée pour configurer le chiffrement du registre avec une clé gérée par le client. L’identité managée a peut-être été supprimée.  
+
+*Solution possible* : Pour résoudre le problème et permuter la clé à l’aide d’une identité managée différente, consultez les étapes à suivre pour dépanner [l’identité affectée par l’utilisateur](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 

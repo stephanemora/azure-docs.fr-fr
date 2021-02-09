@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733919"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429464"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -217,7 +217,7 @@ Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déc
 
   - absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;
   - Arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu.
-  - problèmes de réseau.
+  - [Problèmes de réseau](#usererrorvminternetconnectivityissue)
 
    ![Réinscription de machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
 

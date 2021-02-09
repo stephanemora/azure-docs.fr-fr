@@ -1,97 +1,144 @@
 ---
-title: Sécuriser les services back-end à l’aide d’une authentification par certificat client
+title: Sécuriser le serveur principal de Gestion des API à l’aide d’une authentification par certificat client
 titleSuffix: Azure API Management
-description: Découvrez comment sécuriser des services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
+description: Découvrez comment gérer les certificats clients et sécuriser les services principaux à l’aide de l’authentification par certificat client dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: apimpm
-ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2e4a398ab71878134887fb8fba025cd8aa6122ad
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077183"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492824"
 ---
-# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
+# <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Sécuriser les services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure
 
-La gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer les certificats de l’instance de service Gestion des API Azure dans le Portail Azure. Il explique également comment configurer une API pour utiliser un certificat et ainsi accéder à un service principal.
+Gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer des certificats dans une instance de service Gestion des API Azure à l’aide du portail Azure. Il explique également comment configurer une API pour utiliser un certificat pour accéder à un service principal.
 
-Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez <a href="/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entité de certificat API REST de gestion des API Azure</a>.
+Vous pouvez également gérer des certificats Gestion des API à l’aide de l’[API REST Gestion des API](/rest/api/apimanagement/2020-06-01-preview/certificate).
 
-## <a name="prerequisites"></a><a name="prerequisites"> </a>Prérequis
+## <a name="certificate-options"></a>Options de certificat
+
+Gestion des API offre deux options pour gérer les certificats utilisés pour sécuriser l’accès aux services principaux :
+
+* Référencer un certificat géré dans [Azure Key Vault](../key-vault/general/overview.md) 
+* Ajouter un fichier de certificat directement dans Gestion des API
+
+L’utilisation de certificats de coffre de clés est recommandée, car elle permet d’améliorer la sécurité de Gestion des API :
+
+* Les certificats stockés dans des coffres de clés peuvent être réutilisés entre les services.
+* Des [stratégies d’accès](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granulaires peuvent être appliquées à des certificats stockés dans des coffres de clés.
+* Les certificats mis à jour dans le coffre de clés sont automatiquement permutés dans Gestion des API. Après la mise à jour dans le coffre de clés, un certificat dans Gestion des API est mis à jour dans un délai de quatre heures. Vous pouvez également actualiser manuellement le certificat à l’aide du portail Azure ou par le biais de l’API REST de gestion.
+
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat pour accéder au service principal d'une API. Avant de suivre les étapes décrites dans cet article, votre service principal doit être configuré pour l’authentification de certificat client ([pour configurer l’authentification de certificat dans Azure App Service, reportez-vous à cet article][to configure certificate authentication in Azure WebSites refer to this article]). Vous devez avoir accès au certificat et au mot de passe pour le charger sur le service Gestion des API.
+* Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Créer une instance de service Gestion des API][Create an API Management service instance].
+* Votre service principal doit être configuré pour l’authentification par certificat client. Pour configurer l’authentification par certificat dans Azure App Service, consultez [cet article][to configure certificate authentication in Azure WebSites refer to this article]. 
+* Vous devez avoir accès au certificat et au mot de passe pour la gestion dans un coffre de clés Azure ou les charger sur le service Gestion des API. Le certificat doit être au format **PFX**. Les certificats auto-signés sont autorisés.
 
-## <a name="upload-a-certificate"></a><a name="step1"> </a>Charger un certificat
+### <a name="prerequisites-for-key-vault-integration"></a>Conditions préalables à l’intégration d’un coffre de clés
+
+1. Pour connaître la procédure de création d’un coffre de clés, consultez [Démarrage rapide : Créer un coffre de clés avec le portail Azure](../key-vault/general/quick-create-portal.md).
+1. Activer une[ identité managée](api-management-howto-use-managed-service-identity.md) attribuée par le système ou par l’utilisateur dans l’instance Gestion des API.
+1. Attribuez une [stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md) à l’identité managée avec les autorisations pour récupérer et répertorier les certificats du coffre. Pour ajouter la stratégie :
+    1. Dans le portail, accédez à votre coffre de clés.
+    1. Sélectionnez **Paramètres > Stratégies d’accès > + Ajouter une stratégie d’accès**.
+    1. Sélectionnez **Autorisations du certificat**, puis **Get** (Obtenir) et **List** (Lister).
+    1. Dans **Sélectionner le principal**, sélectionnez le nom de ressource de votre identité managée. Si vous utilisez une identité attribuée par le système, le principal est le nom de votre instance Gestion des API.
+1. Créez ou importez un certificat dans le coffre. Consultez [Démarrage rapide : Définir et récupérer un certificat dans Azure Key Vault à l’aide du portail Azure](../key-vault/certificates/quick-create-portal.md).
+
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
+
+## <a name="add-a-key-vault-certificate"></a>Ajouter un certificat de coffre de clés
+
+Voir [Conditions préalables à l’intégration d’un coffre de clés](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Lorsque vous utilisez un certificat de coffre de clés dans Gestion des API, veillez à ne pas supprimer le certificat, le coffre de clés ou l’identité managée utilisée pour accéder au coffre de clés.
+
+Pour ajouter un certificat de coffre de clés à Gestion des API :
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
+1. Sous **Sécurité**, sélectionnez **Certificats**.
+1. Sélectionnez **Certificats** >  **+ Ajouter**.
+1. Dans **ID**, entrez le nom de votre choix.
+1. Dans **Certificat**, sélectionnez **Coffre de clés**.
+1. Entrez l’identificateur d’un certificat de coffre de clés ou choisissez **Sélectionner** pour choisir un certificat dans un coffre de clés.
+    > [!IMPORTANT]
+    > Si vous entrez vous-même l’identificateur d’un certificat de coffre de clés, assurez-vous qu’il ne contient pas d’informations de version. Sinon, le certificat n’est pas automatiquement permuté dans Gestion des API après une mise à jour dans le coffre de clés.
+1. Dans **Identité du client**, sélectionnez une entité managée affectée par le système ou une entité managée existante affectée par l’utilisateur. Découvrez comment [ajouter ou modifier des identités managées dans votre service Gestion des API](api-management-howto-use-managed-service-identity.md).
+    > [!NOTE]
+    > L’identité a besoin d’autorisations pour obtenir et lister les certificats du coffre de clés. Si vous n’avez pas encore configuré l’accès au coffre de clés, Gestion des API vous invite à configurer automatiquement l’identité avec les autorisations nécessaires.
+1. Sélectionnez **Ajouter**.
+
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-kv.png" alt-text="Ajouter un certificat de coffre de clés":::
+
+## <a name="upload-a-certificate"></a>Téléchargement d'un certificat
+
+Pour charger un certificat client dans Gestion des API : 
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
+1. Sous **Sécurité**, sélectionnez **Certificats**.
+1. Sélectionnez **Certificats** >  **+ Ajouter**.
+1. Dans **ID**, entrez le nom de votre choix.
+1. Dans **Certificat**, sélectionnez **Personnalisé**.
+1. Accédez au fichier .pfx du certificat, sélectionnez-le et entrez son mot de passe.
+1. Sélectionnez **Ajouter**.
+
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-add.png" alt-text="Charger le certificat client":::
+
+Une fois le certificat chargé, il s’affiche dans la fenêtre **Certificats**. Si vous avez beaucoup de certificats, notez l’empreinte du certificat souhaité pour configurer une API afin qu’elle utilise un certificat client pour l’[authentification de la passerelle](#configure-an-api-to-use-client-certificate-for-gateway-authentication).
 
 > [!NOTE]
-> Au lieu d’un certificat chargé, vous pouvez utiliser un certificat stocké dans le service [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), comme indiqué dans cet [exemple](https://github.com/galiniliev/api-management-policy-snippets/blob/galin/AkvCert/examples/Look%20up%20Key%20Vault%20certificate%20using%20Managed%20Service%20Identity%20and%20call%20backend.policy.xml).
+> Pour désactiver la validation des chaînes de certificat lorsque vous utilisez, par exemple, un certificat auto-signé, suivez les étapes décrites dans la section [Certificats auto-signés](#self-signed-certificates) de cet article.
 
-![Ajouter des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-new.png)
+## <a name="configure-an-api-to-use-client-certificate-for-gateway-authentication"></a>Configurer une API afin d’utiliser un certificat client pour l’authentification de passerelle
 
-Suivez les étapes ci-dessous pour charger un nouveau certificat client. Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez le tutoriel [Créer une instance du service Gestion des API Azure][Create an API Management service instance].
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
+1. Sous **API**, sélectionnez **API**.
+1. Sélectionnez une API dans la liste. 
+2. Sous l’onglet **Conception**, sélectionnez l’icône de l’éditeur dans la section **Principal**.
+3. Dans **Informations d’identification de la passerelle**, sélectionnez **Certificat client** et sélectionnez votre certificat dans la liste déroulante.
+1. Sélectionnez **Enregistrer**.
 
-1. Accédez à votre instance de service Gestion des API Azure dans le Portail Azure.
-2. Sélectionnez **Certificats** dans le menu.
-3. Cliquez sur le bouton **+ Ajouter** .
-    ![Capture d’écran mettant en évidence le bouton + Ajouter.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
-4. Recherchez le certificat et indiquez son ID et mot de passe.
-5. Cliquez sur **Créer**.
+    :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Utiliser un certificat client pour l’authentification de passerelle":::
 
-> [!NOTE]
-> Le certificat doit être au format **.pfx** . Les certificats auto-signés sont autorisés.
-
-Lorsque le certificat est chargé, il s’affiche dans **Certificats**.  Si vous avez beaucoup de certificats, notez l’empreinte du certificat souhaité pour [configurer une API afin qu’elle utilise un certificat client pour l’authentification de la passerelle][Configure an API to use a client certificate for gateway authentication].
-
-> [!NOTE]
-> Pour désactiver la validation des chaînes de certificat lorsque vous utilisez, par exemple, un certificat auto-signé, suivez les étapes décrites dans cet [élément](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end) de FAQ.
-
-## <a name="delete-a-client-certificate"></a><a name="step1a"> </a>Supprimer un certificat client
-
-Pour supprimer un certificat, cliquez sur le menu contextuel **...** , puis sélectionnez **Supprimer** à côté du certificat.
-
-![Supprimer des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png)
-
-Si le certificat est en cours d'utilisation par une API, un écran d'avertissement s'affiche. Pour supprimer le certificat, vous devez d’abord le supprimer de toutes les API configurées pour l’utiliser.
-
-![Échec de suppression des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-delete-failure.png)
-
-## <a name="configure-an-api-to-use-a-client-certificate-for-gateway-authentication"></a><a name="step2"> </a>Configurer une API afin d’utiliser un certificat client pour l’authentification de passerelle
-
-1. Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis recherchez l’API.
-    ![Activer des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
-
-2. Dans l’onglet **Conception** , cliquez sur l’icône de crayon de la section **Principal**.
-3. Modifiez la valeur de **Gateway credentials** (Informations d’identification de passerelle) pour la définir sur **Client cert** (Certi client) et sélectionnez votre certificat dans la liste déroulante.
-    ![Capture d’écran montrant où modifier les informations d’identification de la passerelle et sélectionner votre certificat.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
-
-4. Cliquez sur **Enregistrer**.
-
-> [!WARNING]
-> Cette modification s'applique immédiatement, et les appels d'opérations de cette API utiliseront désormais ce certificat pour s'authentifier sur le serveur principal.
-
+> [!CAUTION]
+> Cette modification s’applique immédiatement, et les appels d’opérations de cette API utiliseront désormais ce certificat pour s’authentifier sur le serveur principal.
 
 > [!TIP]
-> Lorsqu’un certificat est spécifié pour l’authentification passerelle d’un service principal d’une API, il est intégré à la stratégie de cette API et peut être affiché dans l’éditeur de stratégies.
+> Lorsqu’un certificat est spécifié pour l’authentification de passerelle pour le service principal d’une API, il devient partie intégrante de la stratégie de cette API et peut être affiché dans l’éditeur de stratégies.
 
 ## <a name="self-signed-certificates"></a>Certificats auto-signés
 
-Si vous utilisez des certificats auto-signés, vous devrez désactiver la validation de chaîne d’approbation afin que le service Gestion des API puisse communiquer avec le système principal. Dans le cas contraire, un code d’erreur 500 est généré. Pour configurer ce paramètre, vous pouvez utiliser les applets de commande PowerShell [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau serveur principal) ou [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un serveur principal existant) et configurez le paramètre `-SkipCertificateChainValidation` sur `True`.
+Si vous utilisez des certificats auto-signés, vous devrez désactiver la validation des chaînes de certificat afin que le service Gestion des API puisse communiquer avec le système principal. Dans le cas contraire, un code d’erreur 500 est généré. Pour configurer ce paramètre, vous pouvez utiliser les cmdlets PowerShell [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau serveur principal) ou [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un serveur principal existant) et configurez le paramètre `-SkipCertificateChainValidation` sur `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
+
+## <a name="delete-a-client-certificate"></a>Supprimer un certificat client
+
+Pour supprimer un certificat, sélectionnez-le, puis sélectionnez **Supprimer** dans le menu contextuel ( **…** ).
+
+:::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png" alt-text="Supprimer un certificat":::
+
+> [!IMPORTANT]
+> Si le certificat est référencé par des stratégies, un écran d’avertissement s’affiche. Pour supprimer le certificat, vous devez d’abord le supprimer de toutes les stratégies configurées pour l’utiliser.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API](api-management-howto-mutual-certificates-for-clients.md)
+* En savoir plus sur les [stratégies dans Gestion des API](api-management-howto-policies.md)
+
 
 [How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
@@ -107,9 +154,3 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
-[Prerequisites]: #prerequisites
-[Upload a client certificate]: #step1
-[Delete a client certificate]: #step1a
-[Configure an API to use a client certificate for gateway authentication]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
-[Next steps]: #next-steps

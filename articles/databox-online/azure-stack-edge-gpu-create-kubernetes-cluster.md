@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf73640c1a4014b61809f407e1873686c229273f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635906"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954629"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Se connecter à un cluster Kubernetes et le gérer par le biais de kubectl sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -165,9 +165,9 @@ Vous pouvez maintenant déployer vos applications dans l’espace de noms, puis 
 
 ## <a name="remove-kubernetes-cluster"></a>Supprimer le cluster Kubernetes
 
-Pour supprimer le cluster Kubernetes, vous devez supprimer la configuration de calcul.
+Pour supprimer le cluster Kubernetes, vous devez supprimer la configuration d’IoT Edge.
 
-Pour obtenir des instructions détaillées, accédez à [Supprimer la configuration du calcul](azure-stack-edge-j-series-manage-compute.md#remove-compute-configuration).
+Pour obtenir des instructions détaillées, accédez à [Supprimer la configuration d’IoT Edge](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
    
 
 ## <a name="next-steps"></a>Étapes suivantes

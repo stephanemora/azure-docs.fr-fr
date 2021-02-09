@@ -1,24 +1,36 @@
 ---
 title: Nouveautés en matière d'approvisionnement des applications Azure Active Directory
 description: Approvisionnement des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562206"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255999"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Approvisionnement des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à l'approvisionnement des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière d'approvisionnement, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+- [Comment de l’approvisionnement Azure Active Directory s’intègre avec Workday](workday-integration-reference.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+- [Tutoriel : Développer un exemple de point de terminaison SCIM](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md)
+- [Intégration de l’approvisionnement Azure Active Directory avec SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Provisionnement d’application en état de quarantaine](application-provisioning-quarantine-status.md)
+
 
 ## <a name="december-2020"></a>Décembre 2020
 

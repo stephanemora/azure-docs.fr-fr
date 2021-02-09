@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706768"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219721"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Single Server
 
@@ -82,6 +82,16 @@ La restauration à un point dans le temps est utile dans plusieurs scénarios. P
 
 Vous devez peut-être attendre la prochaine sauvegarde du journal des transactions avant de pouvoir restaurer à un point dans le temps dans les cinq dernières minutes.
 
+Si vous souhaitez restaurer une table supprimée : 
+1. Restaurez le serveur source à l’aide de la méthode Jusqu`à une date et heure.
+2. Sauvegardez la table à l’aide de `pg_dump` à partir du serveur restauré.
+3. Renommez la table source sur le serveur d’origine.
+4. Importez la table à l’aide de la ligne de commande psql sur le serveur d’origine.
+5. Si vous le souhaitez, vous pouvez supprimer le serveur restauré.
+
+>[!Note]
+> Il est recommandé de ne pas créer plusieurs restaurations pour le même serveur en même temps. 
+
 ### <a name="geo-restore"></a>La géorestauration
 
 Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. Les serveurs qui prennent en charge jusqu’à 4 To de stockage peuvent être restaurés dans la région géographiquement associée ou dans n’importe quelle région qui prend en charge jusqu’à 16 To de stockage. Pour les serveurs prenant en charge jusqu’à 16 To de stockage, les géo-sauvegardes peuvent être restaurées dans n’importe quelle région qui prend également en charge les serveurs de 16 To. Passez en revue [Niveaux tarifaires d’Azure Database pour PostgreSQL](concepts-pricing-tiers.md) pour obtenir la liste des régions prises en charge.
@@ -97,7 +107,7 @@ Pendant la géorestauration, les configurations de serveur qui peuvent être cha
 
 Après une restauration à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
-- Si le nouveau serveur est destiné à remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur
+- Si le nouveau serveur est censé remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur. Remplacez également le nom d’utilisateur par `username@new-restored-server-name`.
 - Vérifiez que les règles de pare-feu et de réseau virtuel appropriées sont en place au niveau du serveur pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du serveur d’origine.
 - Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 - Configurer les alertes, selon les besoins

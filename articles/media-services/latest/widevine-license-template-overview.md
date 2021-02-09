@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du modèle de licence Widevine avec Azure Media Services v3
+title: Vue d’ensemble du modèle de licence Widevine de Media Services v3
 description: Découvrez Azure Media Services avec le modèle de licence Widevine et comment l’utiliser pour configurer des licences Widevine.
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: abedbd60a82f280bcd983c05a43685524a3a24e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39cccd270a4947820640940ae43fa0feb3e52028
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598151"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954477"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine avec Media Services v3
 

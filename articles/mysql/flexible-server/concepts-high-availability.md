@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble de la haute disponibilité redondante interzone avec le serveur flexible Azure Database pour MySQL
 description: Découvrir les concepts de la haute disponibilité redondante interzone avec le serveur flexible Azure Database pour MySQL
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241182"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097115"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de haute disponibilité dans le serveur flexible Azure Database pour MySQL (préversion)
 
@@ -48,7 +48,7 @@ Voici quelques avantages à utiliser la fonctionnalité de haute disponibilité 
 -   Le réplica de secours sera déployé dans une configuration de machine virtuelle à l’identique de celle du serveur principal, par exemple les vCores, le stockage, les paramètres réseau (réseau virtuel, pare-feu), etc.
 -   Possibilité de supprimer le réplica de secours en désactivant la haute disponibilité.
 -   Les sauvegardes automatiques se font par instantanés ; elles s’effectuent depuis le serveur de base de données primaire et sont stockées dans un stockage redondant interzone.
--   Si un événement de basculement se produit, un nouveau réplica de secours est provisionné dans la zone de disponibilité principale d’origine.
+-   En cas de basculement, le serveur flexible Azure Database pour MySQL bascule automatiquement vers le réplica de secours si la haute disponibilité est activée. La configuration de la haute disponibilité surveillera le serveur principal et le remettra en ligne.
 -   Les clients se connectent toujours au serveur de base de données primaire.
 -   En cas de plantage d’une base de données ou de défaillance d’un nœud, le redémarrage sera tenté en premier sur le même nœud. En cas d’échec, le basculement automatique est déclenché.
 -   Possibilité de redémarrer le serveur pour intégrer toute modification de paramètre du serveur statique.

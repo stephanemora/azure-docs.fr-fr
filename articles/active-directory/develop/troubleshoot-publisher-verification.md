@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 080d7c29a9e6950117fe475445458a84fb092e94
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756190"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090202"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Résoudre les problèmes de vérification de l’éditeur
 Si vous ne parvenez pas à finaliser le processus ou si vous êtes confronté à un comportement inattendu lors de la [vérification de l’éditeur](publisher-verification-overview.md), procédez comme suit si voyez s’afficher des erreurs ou constatez un comportement inattendu : 
@@ -149,87 +149,95 @@ HTTP/1.1 200 OK
 
 La liste suivante répertorie les codes d'erreur que vous pouvez rencontrer lors de la résolution des problèmes avec Microsoft Graph ou lors du processus sur le portail d'inscription des applications.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-L'ID MPN que vous avez fourni (<MPNID>) n'existe pas ou vous n'y avez pas accès. Fournissez un ID MPN valide, puis réessayez.
+L'ID MPN que vous avez fourni (`MPNID`) n'existe pas ou vous n'y avez pas accès. Fournissez un ID MPN valide, puis réessayez.
     
 Erreur le plus souvent due au fait que l’utilisateur connecté n’est pas membre du rôle approprié pour le compte MPN dans l’Espace partenaires. Pour plus d’informations, consultez les [exigences](publisher-verification-overview.md#requirements) pour obtenir la liste des rôles éligibles, et les [problèmes courants](#common-issues). Elle peut également être due au fait que le locataire dans lequel l’application est inscrite n’est pas ajouté au compte MPN, ou à un ID MPN non valide.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-L'ID MPN que vous avez fourni (<MPNID>) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
+L'ID MPN que vous avez fourni (`MPNID`) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
     
 Erreur le plus souvent due au fait qu’un ID MPN fourni correspond à un compte d’emplacement de partenaire (PLA). Seuls des comptes globaux de partenaire sont pris en charge. Pour plus d’informations, consultez [Structure de compte de l’Espace partenaires](/partner-center/account-structure).
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-L'ID MPN que vous avez fourni (<MPNID>) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
+L'ID MPN que vous avez fourni (`MPNID`) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
     
 Erreur le plus souvent due au fait que l’ID MPN fourni était erroné.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-L'ID MPN (<MPNID>) que vous avez fourni n'est pas allé au terme du processus de vérification. Finalisez ce processus dans l'Espace partenaires, puis réessayez. 
+L'ID MPN (`MPNID`) que vous avez fourni n'est pas allé au terme du processus de vérification. Finalisez ce processus dans l'Espace partenaires, puis réessayez. 
     
 Erreur le plus souvent due au fait que le compte MPN n’a pas terminé le processus de [vérification](/partner-center/verification-responses).
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-L'ID MPN que vous avez fourni (<MPNID>) n'est pas valide. Fournissez un ID MPN valide, puis réessayez. 
+L'ID MPN que vous avez fourni (`MPNID`) n'est pas valide. Fournissez un ID MPN valide, puis réessayez. 
    
 Erreur le plus souvent due au fait que l’ID MPN fourni était erroné.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-L'ID MPN que vous avez fourni (<MPNID>) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
+L'ID MPN que vous avez fourni (`MPNID`) n'est pas valide. Fournissez un ID MPN valide, puis réessayez.
     
 Erreur le plus souvent due au fait que l’ID MPN fourni était erroné.
 
-### <a name="applicationnotfound"></a>ApplicationNotFound  
+### <a name="applicationnotfound"></a>ApplicationNotFound
 
-L'application cible (<AppId>) est introuvable. Fournissez un ID d'application valide, puis réessayez.
+L'application cible (`AppId`) est introuvable. Fournissez un ID d'application valide, puis réessayez.
     
 Erreur le plus souvent due au fait que la vérification est effectuée via l’API Graph, et que l’ID de l’application fourni est incorrect. Remarque : l’ID de l’application doit être fourni, pas l’AppId/ClientId.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-Cette fonctionnalité n'est pas prise en charge dans le locataire Azure AD B2C. 
+Cette fonctionnalité n'est pas prise en charge dans le locataire Azure AD B2C.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-Cette fonctionnalité n'est pas prise en charge dans un locataire vérifié par e-mail. 
+Cette fonctionnalité n'est pas prise en charge dans un locataire vérifié par e-mail.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-Un domaine d’éditeur doit être défini pour l’application cible (\<AppId\>). Définissez un domaine d'éditeur, puis réessayez.
+Un domaine d’éditeur doit être défini pour l’application cible (`AppId`). Définissez un domaine d'éditeur, puis réessayez.
 
 Erreur due au fait qu’aucun [domaine de l’éditeur](howto-configure-publisher-domain.md) n’est configuré sur l’application.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-Le domaine d'éditeur (<publisherDomain>) de l'application cible ne correspond pas au domaine utilisé pour effectuer la vérification par e-mail dans l'Espace partenaires (<pcDomain>). Vérifiez que ces domaines correspondent, puis réessayez. 
+Le domaine d'éditeur (`publisherDomain`) de l'application cible ne correspond pas au domaine utilisé pour effectuer la vérification par e-mail dans l'Espace partenaires (`pcDomain`). Vérifiez que ces domaines correspondent, puis réessayez. 
     
 Erreur due au fait que ni le [domaine de l’éditeur](howto-configure-publisher-domain.md) de l’application ni aucun des [domaines personnalisés](../fundamentals/add-custom-domain.md) ajoutés au locataire Azure AD ne correspondent au domaine utilisé pour effectuer la vérification de l’adresse e-mail dans l’Espace partenaires.
 
-### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher
 
-Vous n'êtes pas autorisé à définir la propriété de l'éditeur vérifié sur l'application (<AppId>). 
+Vous n’êtes pas autorisé à définir la propriété de l’éditeur vérifié sur l’application (<`AppId`). 
   
 Erreur le plus souvent due au fait que l’utilisateur connecté n’est pas membre du rôle approprié pour le compte MPN dans Azure AD. Pour plus d’informations, consultez les [exigences](publisher-verification-overview.md#requirements) pour obtenir la liste des rôles éligibles, et les [problèmes courants](#common-issues).
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-L'ID MPN n'a pas été fourni dans le corps de la requête ou le type de contenu de la requête n'était pas "application/json". 
+L'ID MPN n'a pas été fourni dans le corps de la requête ou le type de contenu de la requête n'était pas "application/json".
 
-### <a name="msanotsupported"></a>MSANotSupported  
+### <a name="msanotsupported"></a>MSANotSupported 
 
 Cette fonctionnalité n'est pas prise en charge pour les comptes clients Microsoft. Seules les applications inscrites dans Azure AD par un utilisateur d'Azure AD sont prises en charge.
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Erreur due au fait que l’authentification multifacteur n’a pas été effectuée avant la tentative d’ajout d’un éditeur vérifié à l’application. Pour plus d’informations, voyez les [problèmes courants](#common-issues). Remarque : L’authentification multifacteur doit être exécutée dans la même session lors de la tentative d’ajout d’un éditeur vérifié. Si l’authentification multifacteur est activée, mais que son exécution n’est pas obligatoire dans la session, la demande échoue.   
+Erreur due au fait que l’authentification multifacteur n’a pas été effectuée avant la tentative d’ajout d’un éditeur vérifié à l’application. Pour plus d’informations, voyez les [problèmes courants](#common-issues). Remarque : L’authentification multifacteur doit être exécutée dans la même session lors de la tentative d’ajout d’un éditeur vérifié. Si l’authentification multifacteur est activée, mais que son exécution n’est pas obligatoire dans la session, la demande échoue. 
 
 Le message d’erreur affiché sera le suivant : « En raison d’un changement de configuration effectué par votre administrateur ou parce que vous avez changé d’endroit, vous devez utiliser l’authentification multifacteur pour continuer. »
+
+### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
+
+Le message d’erreur affiché est le suivant : « Un éditeur vérifié ne peut pas être ajouté à cette application. Pour obtenir de l’aide, contactez votre administrateur. »
+
+Tout d’abord, vérifiez que vous respectez les [conditions requises de la vérification de l’éditeur](publisher-verification-overview.md#requirements).
+
+Lorsqu’une demande d’ajout d’un éditeur vérifié est effectuée, un certain nombre de signaux sont utilisés pour évaluer les risques de sécurité. Si la demande est jugée risquée, une erreur est retournée. Pour des raisons de sécurité, Microsoft ne divulgue pas les critères spécifiques utilisés pour déterminer si une demande est risquée ou non.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

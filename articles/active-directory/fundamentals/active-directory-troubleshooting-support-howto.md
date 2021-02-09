@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e339e88bb62e81b1f873e8cf7e855f4dff8daade
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322532"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257404"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 
@@ -41,8 +41,8 @@ Si vous ne parvenez pas à trouver de réponses dans les ressources d’auto-ass
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Comment ouvrir un ticket de support pour Azure AD dans le portail Azure
 
 > [!NOTE]
-> Pour les problèmes de facturation ou d’abonnement, vous devez utiliser le [Centre d’administration Microsoft 365](https://admin.microsoft.com).
-> 
+> * Pour les problèmes de facturation ou d’abonnement, vous devez utiliser le [Centre d’administration Microsoft 365](https://admin.microsoft.com).  
+> * Si vous utilisez Azure AD B2C, ouvrez un ticket de support en basculant d’abord sur un locataire Azure AD auquel est associé un abonnement Azure. En règle générale, il s’agit du locataire de vos employés ou du locataire par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus, consultez [Association d’un abonnement Azure à Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez **Azure Active Directory**.
    
@@ -74,7 +74,7 @@ Si vous ne parvenez pas à trouver de réponses dans les ressources d’auto-ass
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Comment ouvrir un ticket de support pour Azure AD dans le Centre d’administration Microsoft 365 ?
 
 > [!NOTE]
-> Dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com), seuls les administrateurs peuvent bénéficier d’un support pour Azure AD. 
+> Dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com), seuls les administrateurs peuvent bénéficier d’un support pour Azure AD.
 
 1. Connectez-vous au [Centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte qui dispose d’une licence Enterprise Mobility + Security (EMS).
 

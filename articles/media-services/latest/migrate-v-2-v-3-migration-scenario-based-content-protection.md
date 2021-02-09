@@ -1,5 +1,5 @@
 ---
-title: Recommandations en matière de migration basées sur un scénario de protection de contenu | Microsoft Docs
+title: Guide de migration relatif à la protection du contenu
 description: Cet article fournit des recommandations basées sur un scénario de protection de contenu, qui vous aideront à opérer une migration de la version v2 à la version v3 d’Azure Media Services.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: a546120a93f311be29083d5f23d4716316bf64f4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9c0040c0ad34b019eaa90bbd1571377ad3539578
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689431"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940120"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario de protection de contenu
 

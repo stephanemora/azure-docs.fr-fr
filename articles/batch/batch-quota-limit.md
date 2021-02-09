@@ -2,14 +2,14 @@
 title: Quotas et limites du service
 description: En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814633"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052378"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -33,19 +33,7 @@ Notez également que les quotas ne sont pas des valeurs garanties. Les quotas pe
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de cœurs en mode de service Batch
 
-L’application de quotas de cœurs dédiés est en cours d’amélioration, les modifications étant mises à disposition par étapes et finalisées pour tous les comptes Batch d’ici à la fin janvier 2021.
-
-Des quotas de cœurs existent pour chaque série de machines virtuelles prises en charge par Batch et s’affichent sur la page **Quotas** dans le portail. Les limites de quota de la série de machines virtuelles peuvent être mises à jour avec une demande de support, comme indiqué ci-dessous.
-
-Une fois le mécanisme existant supprimé, les limites de quota pour les séries de machines virtuelles ne sont pas vérifiées, et seule la limite totale du quota pour le compte est appliquée. Cela signifie qu’il est possible d’allouer plus de cœurs pour une série de machines virtuelles que ce qui est indiqué par le quota de la série de machines virtuelles, jusqu’à la limite totale de quota du compte.
-
-Le mécanisme mis à jour appliquera les quotas de la série de machines virtuelles, en plus du quota total du compte. Dans le cadre de la transition vers le nouveau mécanisme, les valeurs de quota de la série de machines virtuelles peuvent être mises à jour pour éviter les échecs d’allocation : les séries de machines virtuelles utilisées au cours des derniers mois afficheront donc un quota de série de machines virtuelles mis à jour pour correspondre au quota total du compte. Cette modification n’autorise pas l’utilisation d’une capacité supérieure à celle déjà disponible.
-
-Il est possible de déterminer si l’application de quota de la série de machines virtuelles a été activée pour un compte Batch en vérifiant les éléments suivants :
-
-* La propriété d’API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) du compte Batch.
-
-* Texte sur la page **Quotas** du compte Batch dans le portail.
+Des quotas de cœurs existent pour chaque série de machines virtuelles prises en charge par Batch et s’affichent sur la page **Quotas** dans le portail. Les limites de quota de la série de machines virtuelles peuvent être mises à jour avec une demande de support, comme indiqué ci-dessous. Pour les nœuds dédiés, Batch applique une limite de quota de cœurs pour chaque série de machines virtuelles, ainsi qu’une limite de quota de cœurs total pour l’ensemble du compte Batch. Pour les nœuds de basse priorité, Batch applique uniquement un quota de cœurs total pour le compte Batch, sans aucune distinction entre les différentes séries de machines virtuelles.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de cœurs en mode Abonnement utilisateur
 

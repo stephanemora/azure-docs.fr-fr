@@ -4,16 +4,16 @@ description: Planifiez un déploiement avec Azure File Sync, un service qui vous
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880573"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219474"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -186,7 +186,7 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 
 ### <a name="data-deduplication"></a>Déduplication des données
 **Windows Server 2016 et Windows Server 2019**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
+La déduplication des données est prise en charge indépendamment du fait que la hiérarchisation cloud soit activée ou désactivée sur un ou plusieurs points de terminaison de serveur du volume pour Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
 
 Quand la déduplication des données est activée sur un volume où la hiérarchisation cloud est activée, les fichiers optimisés par la déduplication à l’emplacement du point de terminaison de serveur sont hiérarchisés d’une façon similaire à un fichier normal, en fonction des paramètres de stratégie de hiérarchisation cloud. Une fois que les fichiers optimisés par la déduplication ont été hiérarchisés, le travail de nettoyage de la mémoire de la déduplication des données s’exécute automatiquement pour récupérer de l’espace disque en supprimant les blocs inutiles qui ne sont plus référencés par d’autres fichiers sur le volume.
 
@@ -302,48 +302,16 @@ Pour plus d’informations sur le chiffrement en transit, voir [ Exiger un trans
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Disponibilité régionale d'Azure File Sync
-Azure File Sync est disponible dans les régions suivantes :
 
-| Cloud Azure | Zone géographique | Région Azure | Code de la région |
-|-------------|-------------------|--------------|-------------|
-| Public | Asia | Asie Est | `eastasia` |
-| Public | Asia | Asie Sud-Est | `southeastasia` |
-| Public | Australie | Australie Est | `australiaeast` |
-| Public | Australie | Sud-Australie Est | `australiasoutheast` |
-| Public | Brésil | Brésil Sud | `brazilsouth` |
-| Public | Canada | Centre du Canada | `canadacentral` |
-| Public | Canada | Est du Canada | `canadaeast` |
-| Public | Europe | Europe Nord | `northeurope` |
-| Public | Europe | Europe Ouest | `westeurope` |
-| Public | France | France Centre | `francecentral` |
-| Public | France | France Sud* | `francesouth` |
-| Public | Inde | Inde centrale | `centralindia` |
-| Public | Inde | Inde Sud | `southindia` |
-| Public | Japon | Japon Est | `japaneast` |
-| Public | Japon | OuJapon Est | `japanwest` |
-| Public | Corée du Sud | Centre de la Corée | `koreacentral` |
-| Public | Corée du Sud | Corée du Sud | `koreasouth` |
-| Public | Afrique du Sud | Afrique du Sud Nord | `southafricanorth` |
-| Public | Afrique du Sud | Afrique du Sud Ouest* | `southafricawest` |
-| Public | UAE | Émirats arabes unis Centre* | `uaecentral` |
-| Public | UAE | Émirats arabes unis Nord | `uaenorth` |
-| Public | Royaume-Uni | Sud du Royaume-Uni | `uksouth` |
-| Public | Royaume-Uni | Ouest du Royaume-Uni | `ukwest` |
-| Public | US | USA Centre | `centralus` |
-| Public | US | USA Est | `eastus` |
-| Public | US | USA Est 2 | `eastus2` |
-| Public | US | Centre-Nord des États-Unis | `northcentralus` |
-| Public | US | États-Unis - partie centrale méridionale | `southcentralus` |
-| Public | US | Centre-USA Ouest | `westcentralus` |
-| Public | US | USA Ouest | `westus` |
-| Public | US | USA Ouest 2 | `westus2` |
-| Gouvernement des États-Unis | US | Gouvernement des États-Unis – Arizona | `usgovarizona` |
-| Gouvernement des États-Unis | US | Gouvernement des États-Unis – Texas | `usgovtexas` |
-| Gouvernement des États-Unis | US | Gouvernement américain - Virginie | `usgovvirginia` |
+Pour connaître la disponibilité régionale, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
+Les régions suivantes vous obligent à demander l’accès à Stockage Azure avant de pouvoir utiliser Azure File Sync avec elles :
 
-Pour les régions marquées d’un astérisque, vous devez contacter le support Azure pour demander l’accès au stockage Azure dans ces régions. Le processus est décrit dans [ce document](https://azure.microsoft.com/global-infrastructure/geographies/).
+- France Sud
+- Afrique du Sud Ouest
+- Émirats arabes unis Centre
+
+Pour demander l’accès à ces régions, suivez le processus décrit dans [ce document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="redundancy"></a>Redondance
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

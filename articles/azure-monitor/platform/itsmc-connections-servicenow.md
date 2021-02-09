@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012782"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223387"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Connecter ServiceNow au connecteur ITSM
 
@@ -29,10 +29,11 @@ Pour plus d’informations sur l’installation d’ITSMC, consultez [Ajouter la
 
 ### <a name="oauth-setup"></a>Paramètres OAuth
 
-Les versions prises en charge par ServiceNow incluent Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki et Geneva.
+Les versions prises en charge par ServiceNow incluent Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki et Geneva.
 
 Les administrateurs ServiceNow doivent générer un ID client et une clé secrète client pour leur instance ServiceNow. Consultez les informations requises suivantes :
 
+- [Configurer OAuth pour Paris](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configurer OAuth pour Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configurer OAuth pour New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configurer OAuth pour Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -122,10 +123,10 @@ Exécutez la procédure suivante pour créer une connexion ServiceNow.
    | --- | --- |
    | **Nom de connexion**   | Entrez le nom de l’instance ServiceNow que vous souhaitez connecter à ITSMC. Vous utiliserez ce nom ultérieurement dans Log Analytics lors de la configuration des éléments de travail ITSM ou de l’affichage d’une analytique détaillée. |
    | **Type de partenaire**   | Sélectionnez **ServiceNow**. |
-   | **URL du serveur**   | Entrez l’URL de l’instance ServiceNow que vous souhaitez connecter à ITSMC. L’URL doit pointer vers une version SaaS prise en charge avec le suffixe *.servicenow.com*.|
+   | **URL du serveur**   | Entrez l’URL de l’instance ServiceNow que vous souhaitez connecter à ITSMC. L’URL doit pointer vers une version SaaS prise en charge avec le suffixe *.servicenow.com* (par exemple : https://XXXXX.service-now.com/).|
    | **Nom d’utilisateur**   | Entrez le nom d’utilisateur de l’intégration que vous avez créé dans l’application ServiceNow pour prendre en charge la connexion à ITSMC.|
    | **Mot de passe**   | Entrez le mot de passe associé à ce nom d’utilisateur. **Remarque** : Le nom d’utilisateur et le mot de passe servent uniquement à générer des jetons d’authentification. Ils ne sont stockés nulle part dans le service ITSMC.  |
-   | **ID de client**   | Entrez l’ID client généré précédemment que vous souhaitez utiliser pour l’authentification OAuth2. Pour plus d’informations sur la génération d’un ID client et d’un secret, consultez [Configurer OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **ID de client**   | Entrez l’ID client généré précédemment que vous souhaitez utiliser pour l’authentification OAuth2. Pour plus d’informations sur la génération d’un ID client et d’un secret, consultez [Configurer OAuth](https://old.wiki/index.php/OAuth_Setup). |
    | **Clé secrète client**   | Entrez la clé secrète client, générée pour cet ID.   |
    | **Étendue de la synchronisation des données (en jours)** | Entrez le nombre de jours passés dont vous souhaitez les données. La limite est de 120 jours. |
    | **Éléments de travail à synchroniser**   | Sélectionnez les éléments de travail de ServiceNow que vous souhaitez synchroniser avec Azure Log Analytics via ITSMC. Les valeurs sélectionnées sont importées dans Log Analytics. Les options sont des demandes de modification.|

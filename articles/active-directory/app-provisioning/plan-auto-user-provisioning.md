@@ -3,7 +3,7 @@ title: Planifier un déploiement d’attribution automatique d’utilisateurs po
 description: Conseils relatifs à la planification et à l’exécution de l’attribution automatique d’utilisateurs
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832622"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255761"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -322,7 +322,7 @@ Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de s
 
 * [Se tenir informé des nouveautés d’Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Forum Stack Overflow Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Forum Microsoft Q&A Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer l’attribution automatique d’utilisateurs](../app-provisioning/configure-automatic-user-provisioning-portal.md)

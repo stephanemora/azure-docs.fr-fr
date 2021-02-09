@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944627"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Comment connecter des appareils avec des certificats X.509 à l’aide du kit de développement logiciel (SDK) d’appareil Node.js pour une application IoT Central
 
@@ -199,7 +199,7 @@ L’appareil est maintenant configuré avec le certificat X.509.
 
 1. Copiez les fichiers _mytestselfcertprimary_key.pem_ et _mytestselfcertprimary_cert.pem_ dans le dossier _azure-iot-sdk-node/device/samples/pnp_ contenant l’application **simple_thermostat.js**. Vous avez utilisé cette application quand que vous avez effectué le tutoriel [Connecter un appareil (JavaScript)](./tutorial-connect-device.md).
 
-1. Modifiez les variables d’environnement que vous avez utilisées, comme suit :
+1. Modifiez les variables d’environnement que vous avez utilisées dans l’exemple ci-dessus comme suit :
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary

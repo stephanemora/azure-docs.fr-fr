@@ -1,5 +1,5 @@
 ---
-title: Encoder une transformation personnalisée avec Media Services v3 Azure CLI | Microsoft Docs
+title: Encoder avec une transformation personnalisée – CLI
 description: Cette rubrique explique comment utiliser Azure Media Services v3 pour encoder une transformation personnalisée à l’aide d’Azure CLI.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295783"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956104"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Comment encoder une transformation personnalisée avec Azure CLI
 

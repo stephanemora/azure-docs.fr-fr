@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814293"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474844"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Compétence cognitive Extraction de document
 
@@ -37,7 +37,7 @@ Les paramètres respectent la casse.
 | Entrées | Valeurs autorisées | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Définissez ce paramètre sur `default` pour l’extraction de documents à partir de fichiers qui ne sont pas en mode texte pur ou JSON. Définissez ce paramètre sur `text` pour améliorer les performances des fichiers en texte brut. Définissez ce paramètre sur `json` pour extraire le contenu structuré des fichiers JSON. Si `parsingMode` n’est pas défini explicitement, il sera défini sur `default`. |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Définissez ce paramètre sur `contentAndMetadata` pour extraire toutes les métadonnées et le contenu textuel de chaque fichier. Définissez ce paramètre sur `allMetadata` pour extraire uniquement les [métadonnées spécifiques au type de contenu](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (par exemple, seules les métadonnées propres aux fichiers .png). Si `dataToExtract` n’est pas défini explicitement, il sera défini sur `contentAndMetadata`. |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Définissez ce paramètre sur `contentAndMetadata` pour extraire toutes les métadonnées et le contenu textuel de chaque fichier. Définissez ce paramètre sur `allMetadata` pour extraire uniquement les [propriétés de métadonnées pour le type de contenu](search-blob-metadata-properties.md) (par exemple, seules les métadonnées propres aux fichiers .png). Si `dataToExtract` n’est pas défini explicitement, il sera défini sur `contentAndMetadata`. |
 | `configuration` | Voir ci-dessous. | Dictionnaire de paramètres facultatifs qui ajustent le mode d’exécution de l’extraction de document. Reportez-vous au tableau ci-dessous pour consulter une description des propriétés de configuration prises en charge. |
 
 | Paramètre de configuration   | Valeurs autorisées | Description |

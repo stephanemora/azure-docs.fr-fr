@@ -1,14 +1,14 @@
 ---
 title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936105"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089413"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
@@ -16,10 +16,12 @@ En tant que fournisseur de services, vous souhaiterez peut-être savoir quand le
 
 Dans le locataire gérant, le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) effectue le suivi de l’activité de délégation au niveau du locataire. Cette activité journalisée comprend les délégations ajoutées ou supprimées de tous les locataires clients.
 
-Cette rubrique décrit les autorisations nécessaires pour superviser l’activité de délégation à votre locataire (parmi tous vos clients) et les bonnes pratiques pour effectuer cette tâche. Elle comprend également un exemple de script qui illustre une méthode d’interrogation et de création de rapports sur ces données.
+Cette rubrique décrit les autorisations nécessaires pour superviser l’activité de délégation à votre locataire (parmi tous vos clients). Elle comprend également un exemple de script qui illustre une méthode d’interrogation et de création de rapports sur ces données.
 
 > [!IMPORTANT]
 > Toutes ces étapes doivent être effectuées dans votre locataire gérant, plutôt que dans les locataires clients.
+>
+> Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.
 
 ## <a name="enable-access-to-tenant-level-data"></a>Activer l’accès aux données au niveau du locataire
 
@@ -33,33 +35,21 @@ Pour obtenir des instructions détaillées sur l’ajout et la suppression de l�
 
 Une fois que vous avez élevé votre accès, votre compte dispose du rôle Administrateur de l’accès utilisateur dans Azure au niveau de l’étendue racine. Cette attribution de rôle vous permet de voir toutes les ressources et d’attribuer des accès dans n’importe quel abonnement ou groupe d’administration de l’annuaire ainsi que d’effectuer des attributions de rôle au niveau de l’étendue racine.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Créer un compte de principal de service pour accéder aux données au niveau du locataire
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>Attribuer le rôle Lecteur d’analyse au niveau de l’étendue racine
 
 Une fois que vous avez élevé votre accès, vous pouvez attribuer les autorisations appropriées à un compte afin qu’il puisse interroger les données du journal d’activité au niveau du locataire. Ce compte doit se voir attribuer le rôle intégré [Lecteur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure au niveau de l’étendue racine de votre locataire gérant.
 
 > [!IMPORTANT]
-> L’octroi d’une attribution de rôle au niveau de l’étendue racine signifie que les mêmes autorisations s’appliquent à toutes les ressources du locataire.
+> L’octroi d’une attribution de rôle au niveau de l’étendue racine signifie que les mêmes autorisations s’appliquent à toutes les ressources du locataire. Comme il s’agit d’un niveau d’accès étendu, vous pouvez [attribuer ce rôle à un compte de principal de service et utiliser ce compte pour interroger les données](#use-a-service-principal-account-to-query-the-activity-log). Vous pouvez également attribuer le rôle Lecteur d’analyse au niveau de l’étendue racine à des utilisateurs individuels ou à des groupes d’utilisateurs pour qu’ils puissent [consulter les informations de délégation directement dans le portail Azure](#view-delegation-changes-in-the-azure-portal). Si vous procédez ainsi, sachez qu’il s’agit d’un niveau d’accès large qui doit être limité au moins d’utilisateurs possible.
 
-Étant donné qu’il s’agit d’un niveau d’accès étendu, nous vous recommandons d’attribuer ce rôle à un compte de principal de service plutôt qu’à un utilisateur individuel ou à un groupe.
-
- De plus, nous vous recommandons d’appliquer les bonnes pratiques ci-dessous :
-
-- [Créez un compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md) dédié uniquement à cette fonction, au lieu d’attribuer ce rôle à un principal de service existant utilisé pour d’autres tâches d’automatisation.
-- Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
-- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/security-overview.md).
-- Limitez les utilisateurs habilités à agir pour le compte du principal de service.
-
-> [!NOTE]
-> Vous pouvez également attribuer le rôle intégré Lecteur d’analyse Azure à l’étendue racine à des utilisateurs individuels ou à des groupes d’utilisateurs. Cela peut être utile si vous souhaitez qu’un utilisateur soit en mesure d’[afficher les informations de délégation directement dans le Portail Azure](#view-delegation-changes-in-the-azure-portal). Si vous procédez ainsi, sachez qu’il s’agit d’un niveau d’accès large qui doit être limité au moins d’utilisateurs possible.
-
-Utilisez l’une des méthodes suivantes pour effectuer les attributions au niveau de l’étendue racine.
+Utilisez l’une des méthodes suivantes pour effectuer l’attribution au niveau de l’étendue racine.
 
 #### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>Azure CLI
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Supprimer l’accès élevé du compte Administrateur général
 
-Une fois que vous avez créé votre compte de principal de service et attribué le rôle Lecteur d’analyse au niveau de l’étendue racine, veillez à [supprimer l’accès élevé](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) du compte Administrateur général, car ce niveau d’accès n’est plus nécessaire.
+Une fois que vous avez attribué le rôle Lecteur d’analyse au niveau de l’étendue racine au compte souhaité, veillez à [supprimer l’accès élevé](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) du compte Administrateur général, car ce niveau d’accès n’est plus nécessaire.
 
-## <a name="query-the-activity-log"></a>Interroger le journal d’activité
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Afficher les modifications de délégation dans le Portail Azure
+
+Les utilisateurs qui ont été affectés au rôle Lecteur d’analyse au niveau de l’étendue racine peuvent consulter les modifications de délégation directement dans le portail Azure.
+
+1. Accédez à la page **Mes clients**, puis sélectionnez **Journal d’activité** dans le menu de navigation de gauche.
+1. Assurez-vous qu’**Activité du répertoire** est sélectionné dans le filtre près du haut de l’écran.
+
+Une liste des modifications de délégation s’affiche. Vous pouvez sélectionner **Modifier les colonnes** pour afficher ou masquer les éléments **État**, **Catégorie d’événement**, **Heure**, **Horodatage**, **Abonnement**, **Événement initié par**, **Groupe de ressources**, **Type de ressource** et les valeurs des **Ressources**.
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Capture d’écran des modifications de délégation dans le portail Azure.":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>Utiliser un compte de principal de service pour interroger le journal d’activité
+
+Comme le rôle Lecteur d’analyse au niveau de l’étendue racine est un niveau d’accès étendu, vous pouvez attribuer ce rôle à un compte de principal de service et utiliser ce compte pour interroger les données à l’aide du script ci-dessous.
+
+> [!IMPORTANT]
+> Actuellement, les locataires ayant une grande activité de délégation peuvent rencontrer des erreurs lors de l’interrogation de ces données.
+
+Lorsque vous utilisez un compte de principal de service pour interroger le journal d’activité, nous vous recommandons les meilleures pratiques suivantes :
+
+- [Créez un compte de principal de service](../../active-directory/develop/howto-create-service-principal-portal.md) dédié uniquement à cette fonction, au lieu d’attribuer ce rôle à un principal de service existant utilisé pour d’autres tâches d’automatisation.
+- Assurez-vous que ce principal de service n’a pas accès aux ressources client déléguées.
+- [Utilisez un certificat pour l’authentification](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) et [stockez-le de manière sécurisée dans Azure Key Vault](../../key-vault/general/security-overview.md).
+- Limitez les utilisateurs habilités à agir pour le compte du principal de service.
 
 Une fois que vous avez créé un compte de principal de service avec un accès Lecteur d’analyse au niveau de l’étendue racine de votre locataire gérant, vous pouvez l’utiliser pour interroger l’activité de délégation et créer des rapports sur celle-ci dans votre locataire.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> Même si nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, les [entreprises gérant plusieurs locataires](../concepts/enterprise.md) peuvent utiliser les mêmes processus.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Afficher les modifications de délégation dans le Portail Azure
-
-Les utilisateurs qui ont été affectés au rôle intégré Lecteur d’analyse Azure au niveau de l’étendue racine peuvent afficher les modifications de délégation directement dans le Portail Azure.
-
-1. Accédez à la page **Mes clients**, puis sélectionnez **Journal d’activité** dans le menu de navigation de gauche.
-1. Assurez-vous qu’**Activité du répertoire** est sélectionné dans le filtre près du haut de l’écran.
-
-Une liste des modifications de délégation s’affiche. Vous pouvez sélectionner **Modifier les colonnes** pour afficher ou masquer les éléments **État**, **Catégorie d’événement**, **Heure**, **Horodatage**, **Abonnement**, **Événement initié par**, **Groupe de ressources**, **Type de ressource** et les valeurs des **Ressources**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

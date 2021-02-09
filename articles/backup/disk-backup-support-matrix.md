@@ -4,12 +4,12 @@ description: Fournit un résumé des paramètres de prise en charge et des limit
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d6a8276de9674266415604e8654034f129da8f50
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757472"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430945"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice de prise en charge de la Sauvegarde de disque Azure (en préversion)
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser [Sauvegarde Azure](./backup-overview.md) pour protéger les
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La Sauvegarde de disque Azure est disponible en préversion dans les régions suivantes : USA Centre-Ouest, USA Est2, Corée Centre, Corée Sud, Japon Ouest, Émirats arabes unis Nord. 
+La Sauvegarde de disque Azure est disponible en préversion dans les régions suivantes : USA Ouest, USA Centre-Ouest, USA Est 2, Canada Centre, Royaume-Uni Ouest, Australie Centre, Corée Centre, Corée Sud, Japon Ouest, Asie Est, Émirats arabes unis Nord, Brésil Sud, Inde Centre. 
 
 D’autres régions seront annoncées quand elles seront disponibles.
 
@@ -65,6 +65,8 @@ D’autres régions seront annoncées quand elles seront disponibles.
 - Les disques managés permettent de modifier le niveau de performances au moment du déploiement ou ultérieurement sans modifier la taille du disque. La solution Sauvegarde de disque Azure prend en charge l’apport de modifications de niveau de performances au disque source en cours de sauvegarde. Pendant la restauration, le niveau de performances du disque restauré est identique à celui du disque source au moment de la sauvegarde. Suivez la documentation [ici](../virtual-machines/disks-performance-tiers-portal.md) pour modifier le niveau de performances de votre disque après l’opération de restauration.
 
 - La prise en charge des [liaisons privées](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) pour des disques managés vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Le Sauvegarde de disque Azure prend en charge la sauvegarde de disques sur lesquels des points de terminaison privés sont activés. Cela n’inclut pas que les données de sauvegarde ou les captures instantanées soient accessibles via le point de terminaison privé.
+
+- Pendant la préversion, vous ne pouvez pas désactiver la sauvegarde. Par conséquent, l’option **Arrêter la sauvegarde et conserver les données de sauvegarde** n’est pas prise en charge. Vous pouvez supprimer une instance de sauvegarde, ce qui entraînera non seulement l’arrêt de la sauvegarde, mais également la suppression de toutes les données de sauvegarde.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

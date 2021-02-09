@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dfe99a2ed57ecc953c69d1bad89e2b2c8816ca3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a58fbf874339bf287ce1af62e1edb39ec6227d99
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741444"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257100"
 ---
 # <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Forum aux questions sur Azure AD Multi-Factor Authentication
 
@@ -124,7 +124,7 @@ Pour plus d’informations sur les fournisseurs MFA, consultez [Prise en main du
 
 Dans certains cas, oui.
 
-Vous pouvez ajouter des licences MFA, si votre répertoire comporte un fournisseur Azure Multi-Factor Authentication *par utilisateur*. Les utilisateurs disposant de licences ne sont pas comptés dans la facturation à la consommation par utilisateur. Les utilisateurs sans licence peuvent toujours être activés pour MFA via le fournisseur MFA. Si vous achetez et affectez des licences à tous les utilisateurs pour utiliser Multi-Factor Authentication, vous pouvez supprimer le fournisseur Azure Multi-Factor Authentication. Vous pouvez toujours créer un autre fournisseur MFA par utilisateur si vous prévoyez d’avoir plus d’utilisateurs que de licences à l’avenir.
+Vous pouvez ajouter des licences MFA, si votre répertoire comporte un fournisseur Azure Multi-Factor Authentication *par utilisateur*. Les utilisateurs disposant de licences ne sont pas comptabilisés dans la facturation basée sur la consommation par utilisateur. Les utilisateurs sans licence peuvent toujours être activés pour MFA via le fournisseur MFA. Si vous achetez et affectez des licences à tous les utilisateurs pour utiliser Multi-Factor Authentication, vous pouvez supprimer le fournisseur Azure Multi-Factor Authentication. Vous pouvez toujours créer un autre fournisseur MFA par utilisateur si vous prévoyez d’avoir plus d’utilisateurs que de licences à l’avenir.
 
 Si votre répertoire comporte un fournisseur Azure Multi-Factor Authentication *par authentification*, vous continuez d’être facturé pour chaque authentification, tant que le fournisseur MFA est lié à votre abonnement. Vous pouvez attribuer des licences MFA aux utilisateurs, mais vous continuez d’être facturé pour chaque demande de vérification en deux étapes, qu’elle provienne d’une personne à laquelle une licence MFA a été affectée ou non.
 

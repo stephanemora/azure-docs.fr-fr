@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929563"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256473"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -105,7 +105,7 @@ En revanche, vous ne pouvez pas passer un magasin du niveau Standard au niveau G
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Est-ce qu’il y a des limites au nombre de requêtes adressées à App Configuration ?
 
-Les magasins de configuration dans le niveau Gratuit sont limités à 1 000 requêtes par jour. Les magasins de configuration dans le niveau Standard peuvent subir une limitation temporaire lorsque le taux de requêtes dépasse 20 000 requêtes par heure.
+Dans App Configuration, lors de la lecture de paires clé-valeur, les données seront paginées et chaque demande pourra lire jusqu’à 100 paires clé-valeur. Lors de l’écriture de paires clé-valeur, chaque demande peut créer ou mettre à jour une paire clé-valeur. Cela est pris en charge via l’API REST, les Kits de développement logiciel (SDK) App Configuration et les fournisseurs de configuration. Les magasins de configuration dans le niveau Gratuit sont limités à 1 000 requêtes par jour. Les magasins de configuration dans le niveau Standard peuvent subir une limitation temporaire lorsque le taux de requêtes dépasse 20 000 requêtes par heure.
 
 Lorsqu’un magasin atteint sa limite, il renvoie le code d’état HTTP 429 pour toutes les requêtes effectuées jusqu’à l’expiration de la période. L’en-tête `retry-after-ms` dans la réponse indique un délai d’attente suggéré (en millisecondes) avant d’effectuer une nouvelle tentative de requête.
 

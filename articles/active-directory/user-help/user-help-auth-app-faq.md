@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 2be1c7f76055cad1cf8b51938a65c7bbe6b2917e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881076"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226520"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -67,7 +67,11 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Quelles données Authenticator stocke-t-il en mon nom et comment puis-je les supprimer ?
 
-**R** : L’application Authenticator collecte trois types d’informations :<ul><li>Les informations de compte que vous fournissez quand vous ajoutez votre compte. Vous pouvez supprimer ces données en supprimant votre compte.</li><li>Les données des journaux de diagnostic qui demeurent uniquement dans l’application jusqu’à ce que vous sélectionniez **Envoyer les journaux** dans le menu **Aide** de l’application pour envoyer les journaux à Microsoft. Ces journaux peuvent contenir des données personnelles, telles que des adresses e-mail, des adresses de serveur ou des adresses IP. Elles peuvent également contenir des données relatives à l’appareil, telles que le nom de celui-ci et la version du système d’exploitation. Toutes les données personnelles collectées sont limitées aux informations nécessaires pour résoudre les problèmes liés aux applications. Vous pouvez parcourir ces fichiers journaux dans l’application à tout moment pour voir les informations collectées. Si vous envoyez vos fichiers journaux aux ingénieurs de l’application d’authentification, ceux-ci les utiliseront uniquement pour résoudre les problèmes signalés.</li><li>Les données d’utilisation non personnellement identifiables, telles que « flux d’ajout de compte démarré/compte correctement ajouté » ou « notification approuvée ». Ces données sont indispensables pour nos prises de décisions en matière d’ingénierie. Votre utilisation nous aide à déterminer les améliorations que nous pouvons apporter aux applications. Une notification relative à cette collecte de données s’affiche lorsque vous utilisez l’application pour la première fois. Elle vous informe que vous pouvez la désactiver via la page **Paramètres** de l’application. Vous pouvez activer ou désactiver ce paramètre à tout moment.</li></ul>
+**R** : L’application Authenticator collecte trois types d’informations :
+
+- Les informations de compte que vous fournissez quand vous ajoutez votre compte. Vous pouvez supprimer ces données en supprimant votre compte.
+- Les données des journaux de diagnostic qui demeurent uniquement dans l’application jusqu’à ce que vous **envoyiez des commentaires** dans le menu supérieur de l’application pour envoyer les journaux à Microsoft. Ces journaux peuvent contenir des données personnelles, telles que des adresses e-mail, des adresses de serveur ou des adresses IP. Elles peuvent également contenir des données relatives à l’appareil, telles que le nom de celui-ci et la version du système d’exploitation. Toutes les données personnelles collectées sont limitées aux informations nécessaires pour résoudre les problèmes liés aux applications. Vous pouvez parcourir ces fichiers journaux dans l’application à tout moment pour voir les informations collectées. Si vous envoyez vos fichiers journaux aux ingénieurs de l’application d’authentification, ceux-ci les utiliseront uniquement pour résoudre les problèmes signalés.
+- Les données d’utilisation non personnellement identifiables, telles que « flux d’ajout de compte démarré/compte correctement ajouté » ou « notification approuvée ». Ces données sont indispensables pour nos prises de décisions en matière d’ingénierie. Votre utilisation nous aide à déterminer les améliorations que nous pouvons apporter aux applications. Une notification relative à cette collecte de données s’affiche lorsque vous utilisez l’application pour la première fois. Elle vous informe que vous pouvez la désactiver via la page  **Paramètres** de l’application. Vous pouvez activer ou désactiver ce paramètre à tout moment.
 
 ### <a name="codes-in-the-app"></a>Codes dans l’application
 
@@ -102,7 +106,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Pourquoi reçois-je des notifications uniquement lorsque l’application est ouverte ? Lorsque l’application est fermée, je ne reçois pas de notifications.
 
-**R** : Si vous obtenez des notifications, mais pas d’alerte, même lorsque votre sonnerie est activée, vous devez vérifier les paramètres de votre application. Vérifiez que l’application est paramétrer pour signaler les notifications par un signal sonore ou en mode vibreur. Si vous ne recevez pas de notifications, vérifiez les conditions suivantes :<ul><li>Votre téléphone est-il en mode silencieux ou Ne pas déranger ? Ces modes peuvent empêcher les applications d’envoyer des notifications.</li><li>Vous recevez des notifications d’autres applications ? Si ce n’est pas le cas, il peut y avoir un problème au niveau des connexions réseau sur votre téléphone ou avec le canal de notifications d’Android ou Apple. Vous pouvez essayer de résoudre vos problèmes de connexion réseau via les paramètres de votre téléphone. Il se peut que vous deviez contacter votre fournisseur de services pour obtenir de l’aide en lien avec le canal de notifications Android ou Apple.</li><li>Vous pouvez recevoir des notifications de certains comptes sur l’application, mais pas d’autres ? Si oui, supprimez de votre application le compte qui pose problème et ajoutez-le à nouveau pour voir si le problème est résolu.</li></ul>Si le problème persiste alors que vous avez tenté toutes ces étapes, nous vous recommandons d’envoyer vos fichiers journaux de diagnostics. Ouvrez l’application, accédez au menu **Aide**, puis sélectionnez **Envoyer des journaux d’activité**. Ensuite, accédez au [Forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour nous faire part du problème que vous rencontrez et des étapes que vous avez tentées.
+**R** : Si vous obtenez des notifications, mais pas d’alerte, même lorsque votre sonnerie est activée, vous devez vérifier les paramètres de votre application. Vérifiez que l’application est paramétrer pour signaler les notifications par un signal sonore ou en mode vibreur. Si vous ne recevez pas de notifications, vérifiez les conditions suivantes :<ul><li>Votre téléphone est-il en mode silencieux ou Ne pas déranger ? Ces modes peuvent empêcher les applications d’envoyer des notifications.</li><li>Vous recevez des notifications d’autres applications ? Si ce n’est pas le cas, il peut y avoir un problème au niveau des connexions réseau sur votre téléphone ou avec le canal de notifications d’Android ou Apple. Vous pouvez essayer de résoudre vos problèmes de connexion réseau via les paramètres de votre téléphone. Il se peut que vous deviez contacter votre fournisseur de services pour obtenir de l’aide en lien avec le canal de notifications Android ou Apple.</li><li>Vous pouvez recevoir des notifications de certains comptes sur l’application, mais pas d’autres ? Si oui, supprimez de votre application le compte qui pose problème et ajoutez-le à nouveau pour voir si le problème est résolu.</li></ul>Si le problème persiste alors que vous avez tenté toutes ces étapes, nous vous recommandons d’envoyer vos fichiers journaux de diagnostics. Ouvrez l’application, accédez au menu de niveau supérieur de l’application, puis sélectionnez **Envoyer des commentaires**. Ensuite, accédez au [forum de l’application Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) pour informer Microsoft du problème que vous rencontrez et des étapes que vous avez tentées.
 
 ### <a name="switch-to-push-notifications"></a>Basculer vers les notifications Push
 
@@ -204,13 +208,13 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Mon application complémentaire Apple Watch a planté. Puis-je envoyer vous mes journaux d’activité d’incident afin que vous puissiez l’examiner ?
 
-**R** : Vous devez d’abord vous assurer que vous avez choisi de partager votre analytique avec nous. Si vous êtes un utilisateur de TestFlight, vous êtes déjà inscrit. Sinon, accédez à **Paramètres > Confidentialité > Analytique** et sélectionnez les options **Partager l’analyse de l’iPhone et de Watch** et **Partager avec les développeurs d’applications**.<br>Une fois inscrit, vous pouvez essayer de reproduire l’incident pour que vos journaux d’activité d’incident nous soient automatiquement envoyés pour examen. Toutefois, si vous ne pouvez pas reproduire l’incident, vous pouvez copier manuellement vos fichiers journaux et nous les envoyer.<ol><li>Ouvrez l’application Watch sur votre téléphone, accédez à **Paramètres > Général**, puis cliquez sur **Copy Watch Analytics** (Copier l’analyse de Watch).</li><li>Recherchez l’incident correspondant sous **Paramètres > Confidentialité > Analyse > Données d’analyse**, puis copiez manuellement l’intégralité du texte.</li><li>Ouvrez l’application Authenticator sur votre téléphone et collez le texte copié dans la zone de texte **Partage avec les développeurs d’applications** sur la page **Envoyer des journaux d’activité**.</li></ol>
+**R** : Vous devez d’abord vous assurer que vous avez choisi de partager votre analytique avec nous. Si vous êtes un utilisateur de TestFlight, vous êtes déjà inscrit. Sinon, accédez à **Paramètres > Confidentialité > Analytique** et sélectionnez les options **Partager l’analyse de l’iPhone et de Watch** et **Partager avec les développeurs d’applications**.<br>Une fois inscrit, vous pouvez essayer de reproduire l’incident pour que vos journaux d’activité d’incident nous soient automatiquement envoyés pour examen. Toutefois, si vous ne pouvez pas reproduire l’incident, vous pouvez copier manuellement vos fichiers journaux et nous les envoyer.<ol><li>Ouvrez l’application Watch sur votre téléphone, accédez à **Paramètres > Général**, puis cliquez sur **Copy Watch Analytics** (Copier l’analyse de Watch).</li><li>Recherchez l’incident correspondant sous **Paramètres > Confidentialité > Analyse > Données d’analyse**, puis copiez manuellement l’intégralité du texte.</li><li>Ouvrez Authenticator sur votre téléphone et collez le texte copié dans la zone  **Décrivez le problème que vous rencontrez** sous **Vous avez une difficulté ?** sur la page **Envoyer des commentaires**. </li></ol>
 
-## <a name="autofill-for-consumers"></a>Remplissage automatique pour les consommateurs
+## <a name="autofill-with-authenticator"></a>Remplir automatiquement avec Authenticator
 
-**Q** : Qu’est-ce que le remplissage automatique dans Authenticator ?
+**Q** : Qu’est-ce que le remplissage automatique avec Authenticator ?
 
-**R** : L’application Authenticator permet désormais de stocker et de remplir automatiquement et en toute sécurité les mots de passe des applications et des sites web que vous consultez sur votre téléphone. Vous pouvez utiliser la fonction de remplissage automatique pour synchroniser et remplir automatiquement vos mots de passe sur vos appareils iOS et Android. Une fois que vous avez configuré l’application Authenticator comme fournisseur de remplissage automatique sur votre téléphone, elle propose de sauvegarder vos mots de passe lorsque vous les entrez sur un site ou une page de connexion à l’application. Les mots de passe sont enregistrés dans le cadre de [votre compte Microsoft](https://account.microsoft.com/account) et sont également disponibles lorsque vous vous connectez à Microsoft Edge avec votre compte Microsoft.
+**R** : L’application Authenticator permet désormais de stocker et de remplir automatiquement et en toute sécurité les mots de passe des applications et des sites web que vous consultez sur votre téléphone. Vous pouvez utiliser la fonction de remplissage automatique pour synchroniser et remplir automatiquement vos mots de passe sur vos appareils iOS et Android. Une fois que vous avez configuré l’application Authenticator comme fournisseur de remplissage automatique sur votre téléphone, elle propose de sauvegarder vos mots de passe lorsque vous les entrez sur un site ou une page de connexion à une application. Les mots de passe sont enregistrés dans le cadre de [votre compte Microsoft personnel](https://account.microsoft.com/account) et sont également disponibles lorsque vous vous connectez à Microsoft Edge avec votre compte Microsoft personnel.
 
 **Q** : Quelles sont les informations qu’Authenticator peut remplir automatiquement pour moi ?
 
@@ -221,23 +225,22 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 **R** : Procédez comme suit :
 
 1. Ouvrez l’application Authenticator.
-1. Dans **Paramètres** sous **Bêta**, activez le **remplissage automatique**.
 1. Dans l’onglet **Mots de passe** d’Authenticator, sélectionnez **Se connecter avec Microsoft** et connectez-vous à l’aide de [votre compte Microsoft](https://account.microsoft.com/account). Actuellement, cette fonctionnalité prend uniquement en charge les comptes Microsoft ; elle ne prend pas encore en charge les comptes professionnels ou scolaires.
 
 **Q** : Comment faire d’Authenticator le fournisseur de remplissage automatique par défaut sur mon téléphone ?
 
 **R** : Procédez comme suit :
 
-1. Ouvrez les **paramètres** d’Authenticator et, sous **Bêta**, activez le **remplissage automatique**.
-1. Dans l’onglet **Mots de passe** de l’application, connectez-vous à l’aide de [votre compte Microsoft](https://account.microsoft.com/account).
+1. Ouvrez l’application Authenticator.
+1. Dans l’onglet **Mots de passe** à l’intérieur de l’application, sélectionnez **Se connecter avec Microsoft** et connectez-vous à l’aide de [votre compte Microsoft](https://account.microsoft.com/account).
 1. Effectuez l’une des opérations suivantes :
 
    - Sur iOS, sous **Paramètres**, sélectionnez **Comment activer la fonction de remplissage automatique** dans la section Paramètres de remplissage automatique pour savoir comment définir Authenticator comme fournisseur de remplissage automatique par défaut.
-   - Sur Android, sous **Paramètres**, sélectionnez **Définir comme fournisseur de remplissage automatique** dans la section Paramètres de remplissage automatique pour définir Authenticator comme fournisseur de remplissage automatique par défaut.
+   - Sur Android, sous **Paramètres**, sélectionnez **Définir comme fournisseur de remplissage automatique** dans la section Paramètres de remplissage automatique.
 
-**Q** : Que se passe-t-il si le bouton bascule du **remplissage automatique** est grisé dans mes paramètres ?
+**Q** : Que se passe-t-il si la fonctionnalité **Remplissage automatique** n’est pas disponible pour moi dans les paramètres ?
 
-**R** : Le remplissage automatique est actuellement en version bêta et n’a pas encore été activé pour toutes les organisations ni pour tous les types de comptes. Si le bouton bascule du **remplissage automatique** dans **Paramètres** est grisé, cela est probablement dû au fait que vous utilisez l’application Authenticator avec votre compte professionnel. Vous pouvez utiliser cette fonctionnalité sur un appareil sur lequel votre compte professionnel n’est pas ajouté. Si votre organisation travaille avec Microsoft, le bouton bascule du **remplissage automatique** est activé même lorsqu’un compte professionnel est ajouté à Authenticator.
+**R** : Si le remplissage automatique n’est pas disponible pour vous dans Authenticator, cela peut être parce que le remplissage automatique n’a pas encore été autorisé pour votre organisation ou votre type de compte. Vous pouvez utiliser cette fonctionnalité sur un appareil sur lequel votre compte professionnel ou scolaire n’a pas été ajouté. Pour en savoir plus sur la façon d’autoriser le remplissage automatique pour votre organisation, consultez [Remplissage automatique pour les administrateurs informatiques](#autofill-for-it-admins).
 
 **Q** : Comment arrêter la synchronisation des mots de passe ?
 
@@ -247,20 +250,16 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **R** : L’application Authenticator offre déjà un niveau de sécurité élevé pour l’authentification multifacteur et la gestion des comptes, et la même exigence élevée en matière de sécurité est appliquée à la gestion de vos mots de passe.
 
-- **Une authentification forte est nécessaire pour l’application Authenticator** : La connexion à Authenticator requiert un deuxième facteur. Cela signifie que vos mots de passe dans l’application Authenticator ne sont pas accessibles même si un tiers connaît le mot de passe de votre compte Microsoft.
-- **Les données de remplissage automatique sont protégées par des données biométriques et un code secret** : Avant de pouvoir remplir automatiquement le mot de passe sur une application ou un site, Authenticator requiert un code secret par données biométriques ou un code secret d’appareil. Cela garantit que, même si une autre personne a accès à votre appareil, elle ne peut ni remplir ni voir votre mot de passe, car elle serait incapable de fournir vos données biométriques ou le code confidentiel de l’appareil. En outre, un utilisateur ne peut pas ouvrir la page Mots de passe, sauf s’il fournit des données biométries ou un code confidentiel et ce, même s’il désactive la fonctionnalité Verrou d’application dans les paramètres de l’application.
-- **Mots de passe chiffrés sur l’appareil** : Les mots de passe sur l’appareil sont chiffrés, et les clés de chiffrement/déchiffrement ne sont jamais stockées et sont toujours générées à la volée. Les mots de passe ne sont déchiffrés que lorsque l’utilisateur le souhaite, c’est-à-dire lors du remplissage automatique ou lorsque l’utilisateur souhaite voir le mot de passe, les deux cas nécessitant des données biométriques ou un code confidentiel.
-- **Sécurité du cloud et du réseau** : Vos mots de passe sur le cloud sont chiffrés et déchiffrés uniquement lorsqu’ils atteignent votre appareil. Les mots de passe sont synchronisés via une connexion HTTPS protégée par SSL, ce qui garantit qu’aucun attaquant ne peut espionner les données sensibles lorsqu’elles sont synchronisées. Nous veillons également à vérifier l’intégrité des données synchronisées sur le réseau en utilisant des fonctions hachées de chiffrement (en particulier, un code d’authentification des messages basé sur le hachage).
+- **Une authentification forte est nécessaire pour l’application Authenticator** : La connexion à Authenticator requiert un deuxième facteur. Cela signifie que vos mots de passe dans l’application Authenticator sont protégés même si un tiers connaît le mot de passe de votre compte Microsoft.
+- **Les données de remplissage automatique sont protégées par des données biométriques et un code secret** : Avant de pouvoir remplir automatiquement le mot de passe sur une application ou un site, Authenticator requiert un code secret par données biométriques ou un code secret d’appareil. Cela permet d’ajouter une sécurité supplémentaire, de sorte que même si une autre personne a accès à votre appareil, elle ne peut ni remplir ni voir votre mot de passe, car elle est incapable de fournir vos données biométriques ou le code confidentiel de l’appareil. En outre, un utilisateur ne peut pas ouvrir la page Mots de passe, sauf s’il fournit des données biométries ou un code confidentiel et ce, même s’il désactive la fonctionnalité Verrou d’application dans les paramètres de l’application.
+- **Mots de passe chiffrés sur l’appareil** : Les mots de passe sur l’appareil sont chiffrés, et les clés de chiffrement/déchiffrement ne sont jamais stockées et sont toujours générées lorsque cela est nécessaire. Les mots de passe ne sont déchiffrés que lorsque l’utilisateur le souhaite, c’est-à-dire lors du remplissage automatique ou lorsque l’utilisateur souhaite voir le mot de passe, les deux cas nécessitant des données biométriques ou un code confidentiel.
+- **Sécurité du cloud et du réseau** : Vos mots de passe sur le cloud sont chiffrés et déchiffrés uniquement lorsqu’ils atteignent votre appareil. Les mots de passe sont synchronisés via une connexion HTTPS protégée par SSL, ce qui permet d’empêcher un attaquant d’espionner les données sensibles lorsqu’elles sont synchronisées. Nous veillons également à vérifier l’intégrité des données synchronisées sur le réseau en utilisant des fonctions hachées de chiffrement (en particulier, un code d’authentification des messages basé sur le hachage).
 
 ## <a name="autofill-for-it-admins"></a>Remplissage automatique pour les administrateurs informatiques
 
 **Q** : Mes employés ou étudiants pourront-ils utiliser le remplissage automatique des mots de passe dans l’application Authenticator ?
 
-**R** : Non. La fonctionnalité de remplissage automatique est actuellement en version bêta et n’a pas encore été activée pour toutes les organisations ni pour tous les types de comptes. Si votre employé ou étudiant a ajouté son compte professionnel ou scolaire à l’application Microsoft Authenticator, le remplissage automatique des mots de passe ne lui est pas accessible. La seule exception à cette restriction est lorsque votre employé ou étudiant ajoute son compte professionnel ou scolaire dans l’authentification multifacteur basée sur le cloud Microsoft en tant que [compte externe ou tiers](user-help-auth-app-add-non-ms-account.md).
-
-**Q** : Puis-je rendre la fonctionnalité de remplissage automatique disponible pour mes employés (ou étudiants) ?
-
-**R** : Oui. Pour permettre à vos employés ou étudiants d’y accéder, votre entreprise ou votre école peut être ajoutée à une liste d’autorisation. Contactez votre support technique ou votre contact Microsoft pour être ajouté à la liste d’autorisation. En outre, si vous êtes un administrateur informatique de votre organisation, vous pouvez également remplir un formulaire pour exprimer votre intérêt à rejoindre le programme sur la page [Ajouter une entreprise à une liste d’autorisation pour le remplissage automatique dans Authenticator](https://aka.ms/RequestAutofillInAuthenticator).
+**R** : Oui, le remplissage automatique fonctionne désormais pour la plupart des utilisateurs d’entreprise, même lorsqu’un compte professionnel ou scolaire est ajouté à l’application Authenticator. Vous pouvez remplir un formulaire pour configurer le remplissage automatique (autoriser ou refuser) pour votre organisation et [l’envoyer à l’équipe d’Authenticator](https://aka.ms/ConfigureAutofillInAuthenticator).
 
 **Q** : Le mot de passe du compte professionnel ou scolaire de mes utilisateurs sera-t-il automatiquement synchronisé ?
 
@@ -268,7 +267,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
   
 **Q** : Puis-je ajouter à une liste d’autorisation uniquement certains utilisateurs de mon organisation pour le remplissage automatique ?
 
-**R** : Non. Pour le moment, les entreprises peuvent uniquement activer le remplissage automatique des mots de passe pour tous leurs employés ou aucun d’entre eux. Nous développerons progressivement ces contrôles.
+**R** : Non. Pour le moment, les entreprises peuvent uniquement activer le remplissage automatique des mots de passe pour tous leurs employés ou aucun d’entre eux.
 
 **Q** : Que se passe-t-il si mon employé ou étudiant a plusieurs comptes professionnels ou scolaires ? Par exemple, mon employé a des comptes provenant de plusieurs entreprises ou écoles enregistrés dans son application Microsoft Authenticator.
 

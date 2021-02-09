@@ -1,16 +1,16 @@
 ---
-title: Ajouter des liaisons à une fonction existante dans Azure Functions
-description: Découvrez comment ajouter des liaisons à une fonction existante dans votre projet Azure Functions.
+title: Connecter des fonctions à d’autres services Azure
+description: Découvrez comment ajouter des liaisons qui se connectent à d’autres services Azure à une fonction existante dans votre projet Azure Functions.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654043"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258199"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Ajouter des liaisons à une fonction existante dans Azure Functions
+# <a name="connect-functions-to-azure-services-using-bindings"></a>Connecter des fonctions à des services Azure à l’aide de liaisons
 
 Lorsque vous créez une fonction, un code déclencheur spécifique à une langue est ajouté à votre projet à partir d’un ensemble de modèles de déclencheurs. Si vous souhaitez connecter votre fonction à d’autres services à l’aide de liaisons d’entrée ou de sortie, vous devez ajouter des définitions de liaison spécifiques à votre fonction. Pour en savoir plus sur les liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 

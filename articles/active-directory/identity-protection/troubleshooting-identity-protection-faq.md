@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c169847c96d10d1c9fb47b210bc85a15e0690e32
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 6117b1ac78faf84d73f5a78202709aec7a1f84d9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183113"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492584"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
 
@@ -37,7 +37,7 @@ Si vous êtes un client Azure AD Identity Protection, accédez à la vue [Utilis
 
 ### <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Pourquoi ma connexion est-elle bloquée, mais Identity Protection n’a-t-il pas généré de détection des risques ?
 Les connexions peuvent être bloquées pour plusieurs raisons. Il est important de noter qu’Identity Protection ne génère des détections de risque que lorsque des informations d’identification correctes sont utilisées dans la demande d’authentification. Si un utilisateur entre des informations d’identification incorrectes, il n’est pas marqué par Identity Protection, car il n’y a aucun risque de compromission des informations d’identification, sauf si une personne inappropriée utilise les informations d’identification correctes. Il est possible qu’Identity Protection ne génère pas de détection pour un utilisateur dont la signature a été bloquée pour certaines raisons, notamment :
-* L’**adresse IP peut être bloquée** en raison d’une activité malveillante à partir de l’adresse IP. Le message bloqué par l’adresse IP n’est pas différent si les informations d’identification sont correctes ou non. Si l’adresse IP est bloquée et que des informations d’identification incorrectes sont utilisées, Identity Protection ne génère pas de détection
+* L’**adresse IP peut être bloquée** en raison d’une activité malveillante à partir de l’adresse IP. Le message bloqué par l’adresse IP n’est pas différent si les informations d’identification sont correctes ou non. Si l’adresse IP est bloquée et que des informations d’identification incorrectes sont utilisées, Identity Protection ne génère pas de détection
 * Le **[verrouillage intelligent](../authentication/howto-password-smart-lockout.md)** peut empêcher la connexion du compte après plusieurs tentatives ayant échoué
 * Une **stratégie d’accès conditionnel** peut être appliquée et peut utiliser d’autres conditions que le niveau de risque pour bloquer une demande d’authentification
 

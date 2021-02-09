@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861866"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219670"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties au moyen d’une stratégie personnalisée dans Azure Active Directory B2C (Azure AD B2C). Les profils techniques sont utilisés pour communiquer avec votre locataire Azure AD B2C, créer un utilisateur ou lire un profil utilisateur. Un profil technique peut être déclaré automatiquement pour permettre l’interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, puis afficher la page d’inscription ou la page de réinitialisation du mot de passe.
+Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de tiers. Les profils techniques sont utilisés pour communiquer avec votre locataire Azure AD B2C, créer un utilisateur ou lire un profil utilisateur. Un profil technique peut être déclaré automatiquement pour permettre l’interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, puis afficher la page d’inscription ou la page de réinitialisation du mot de passe.
 
 ## <a name="type-of-technical-profiles"></a>Types de profils techniques
 
 Un profil technique permet les types de scénarios suivants :
 
-- [Application Insights](application-insights-technical-profile.md) - Envoi de données d’événement à [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md) - Envoi de données d’événement à [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md) : fournit une assistance pour la gestion des utilisateurs Azure Active Directory B2C.
 - [Azure AD Multi-Factor Authentication](multi-factor-auth-technical-profile.md) : permet de vérifier un numéro de téléphone à l'aide d'Azure AD Multi-Factor Authentication (MFA). 
 - [Transformation de revendications](claims-transformation-technical-profile.md) : appelle les transformations de revendications de sortie pour manipuler les valeurs de revendications, valider des revendications ou définir des valeurs par défaut pour un ensemble de revendications de sortie.
@@ -47,7 +47,7 @@ Un profil technique permet les types de scénarios suivants :
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
 
-Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Au terme du processus, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications.
+Tous les types de profils techniques partagent le même concept. Commencez par lire les revendications d’entrée, puis exécutez la transformation des revendications. Communiquez ensuite avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Au terme du processus, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Après l’exécution de la transformation des revendications, les revendications de sortie sont immédiatement stockées dans le conteneur de revendications, quel que soit le tiers avec lequel interagit le profil technique.
 
 ![Schéma illustrant le workflow du profil technique](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 1. **Transformations de revendications de sortie** : une fois le profil technique terminé, Azure AD B2C exécute la [transformation de revendications](claimstransformations.md) de sortie. 
 1. **Gestion de session d’authentification unique (SSO)**  : conserve les données du profil technique dans la session à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md).
 
-Un élément **TechnicalProfiles** contient un ensemble de profils techniques pris en charge par le fournisseur de revendication. Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques déterminant les points de terminaison et les protocoles nécessaires pour communiquer avec lui. Un fournisseur de revendications peut avoir plusieurs profils techniques.
+Un élément **TechnicalProfiles** contient un ensemble de profils techniques pris en charge par le fournisseur de revendication. Chaque fournisseur de revendications doit avoir au moins un profil technique. Le profil technique détermine les points de terminaison et les protocoles nécessaires pour communiquer avec le fournisseur de revendications. Un fournisseur de revendications peut avoir plusieurs profils techniques.
 
 ```xml
 <ClaimsProvider>
@@ -96,14 +96,14 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | DisplayName | 1:1 | Nom d’affichage du profil technique. |
 | Description | 0:1 | Description du profil technique. |
 | Protocol | 1:1 | Protocole utilisé pour la communication avec l’autre partie. |
-| Métadonnées | 0:1 | Collection de paires clé/valeur utilisées par le protocole pour communiquer avec le point de terminaison durant une transaction. |
+| Métadonnées | 0:1 | Collection de clé/valeur qui contrôle le comportement du profil technique. |
 | InputTokenFormat | 0:1 | Format du jeton d’entrée. Valeurs possibles : `JSON`, `JWT`, `SAML11` ou `SAML2`. La valeur `JWT` représente un JSON Web Token conforme à la spécification IETF. La valeur `SAML11` représente un jeton de sécurité SAML 1.1 conforme à la spécification OASIS.  La valeur `SAML2` représente un jeton de sécurité SAML 2.0 conforme à la spécification OASIS. |
 | OutputTokenFormat | 0:1 | Format du jeton de sortie. Valeurs possibles : `JSON`, `JWT`, `SAML11` ou `SAML2`. |
 | CryptographicKeys | 0:1 | Liste de clés de chiffrement utilisées dans le profil technique. |
 | InputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées avant l’envoi de toute revendication au fournisseur de revendications ou à la partie de confiance. |
 | InputClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont pris en tant qu’entrée dans le profil technique. |
-| PersistedClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont conservés par le fournisseur de revendications, qui a trait au profil technique. |
-| DisplayClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont présentés par le fournisseur de revendications, qui a trait au [profil technique autodéclaré](self-asserted-technical-profile.md). La fonctionnalité DisplayClaims est actuellement en **préversion**. |
+| PersistedClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui seront rendues persistantes par le profil technique. |
+| DisplayClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont présentés par le [profil technique autodéclaré](self-asserted-technical-profile.md). La fonctionnalité DisplayClaims est actuellement en **préversion**. |
 | OutputClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont pris en tant que sortie dans le profil technique. |
 | OutputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées après la réception des revendications provenant du fournisseur de revendications. |
 | ValidationTechnicalProfiles | 0:n | Liste des références à d’autres profils techniques que le profil technique utilise à des fins de validation. Pour plus d’informations, voir [Profil technique de validation](validation-technical-profile.md)|
@@ -121,7 +121,7 @@ Le **protocole** spécifie le protocole utilisé pour la communication avec l’
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary` ou `None`. |
-| Handler | Non | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom complet de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
+| Handler | Non | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
 
 ## <a name="metadata"></a>Métadonnées
 
@@ -129,7 +129,7 @@ L’élément **Metadata** contient les options de configuration appropriées po
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Élément | 0:n | Métadonnées relatives au profil technique. Chaque type de profil technique a un ensemble différent d’éléments de métadonnées. Pour plus d’informations, voir la section consacrée aux types de profils techniques. |
+| Élément | 0:n | Métadonnées relatives au profil technique. Chaque type de profil technique a un ensemble différent d’éléments de métadonnées. Pour plus d’informations, consultez la section consacrée aux types de profils techniques.  |
 
 ### <a name="item"></a>Élément
 
@@ -173,7 +173,7 @@ L’exemple suivant illustre l’utilisation des métadonnées relatives au [pro
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
-Azure AD B2C stocke les secrets et les certificats sous forme de [clés de stratégie](policy-keys-overview.md) pour établir une relation de confiance avec les services auxquels il s’intègre. Au cours de l’exécution du profil technique, Azure AD B2C récupère les clés de chiffrement à partir des clés de stratégie Azure AD B2C, puis utilise les clés pour établir l’approbation, chiffrer ou signer un jeton. Ces approbations sont constituées des éléments suivants :
+Pour établir une relation de confiance avec les services auxquels il s’intègre, Azure AD B2C stocke les secrets et les certificats sous forme de [clés de stratégie](policy-keys-overview.md). Au cours de l’exécution du profil technique, Azure AD B2C récupère les clés de chiffrement à partir des clés de stratégie Azure AD B2C. Il utilise ensuite les clés pour établir la relation de confiance et chiffrer ou signer un jeton. Ces approbations sont constituées des éléments suivants :
 
 - Fédération avec les fournisseurs d’identité [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)et [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
 - Sécuriser la connexion avec les [services d’API REST](secure-rest-api.md)
@@ -198,7 +198,7 @@ L’élément **Key** contient l’attribut suivant :
 
 L’élément **InputClaimsTransformations** peut contenir une collection d’éléments de transformation de revendications d’entrée qui sont utilisés pour modifier les revendications d’entrée ou en générer de nouvelles. 
 
-Les revendications de sortie d’une transformation de revendications précédente dans la collection de transformation de revendications peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieures, ce qui vous permet d’avoir une séquence de transformation de revendications dépendant l’une de l’autre.
+Les revendications de sortie d’une transformation de revendications précédente dans la collection de transformation de revendications peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieures, ce qui vous permet d’avoir une séquence de transformation de revendications qui dépend les unes des autres.
 
 L’élément **InputClaimsTransformations** contient l’élément suivant :
 
@@ -251,13 +251,13 @@ L’élément **InputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication. La revendication est déjà définie dans la section Schéma des revendications du fichier de stratégie ou dans le fichier de stratégie parent. |
 | DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
 | PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 ## <a name="display-claims"></a>Revendications d’affichage
 
-L’élément **DisplayClaims** contient une liste des revendications définie par le [profil technique autodéclaré](self-asserted-technical-profile.md) à présenter à l’écran pour collecter des données de l’utilisateur. Dans la collection de revendications d’affichage, vous pouvez inclure une référence à un [type de revendication](claimsschema.md) ou un [DisplayControl](display-controls.md) que vous avez créé. 
+L’élément **DisplayClaims** contient une liste des revendications à présenter à l’écran pour recueillir des données auprès de l’utilisateur. Dans la collection de revendications d’affichage, vous pouvez inclure une référence à un [type de revendication](claimsschema.md) ou un [DisplayControl](display-controls.md) que vous avez créé. 
 
 - Un type de revendication est une référence à une revendication à afficher à l’écran. 
   - Pour forcer l’utilisateur à fournir une valeur pour une revendication spécifique, affectez la valeur `true` à l’attribut **Required** de l’élément **DisplayClaims**.
@@ -326,7 +326,7 @@ L’élément **PersistedClaim** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
-| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
+| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication n’existe pas. |
 | PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 Dans l’exemple suivant, le profil technique **AAD-UserWriteUsingLogonEmail** ou le [pack de démarrage](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), qui crée un nouveau compte local, conserve les revendications suivantes :
@@ -357,13 +357,13 @@ L’élément **OutputClaim** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
-| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
+| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication n’existe pas. |
 |AlwaysUseDefaultValue |Non |Forcer l’utilisation de la valeur par défaut.  |
-| PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
+| PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut du type de revendication du partenaire n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 ## <a name="output-claims-transformations"></a>Transformations de revendications de sortie
 
-L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration.
+L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation**. Les transformations de revendications de sortie sont utilisées pour modifier les revendications de sortie ou en générer de nouvelles. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration.
 
 Les revendications de sortie d’une transformation de revendications précédente dans la collection de transformation de revendications peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieures, ce qui vous permet d’avoir une séquence de transformation de revendications dépendant l’une de l’autre.
 
@@ -404,7 +404,7 @@ Le profil technique suivant fait référence à la transformation de revendicati
 
 ## <a name="validation-technical-profiles"></a>Profils techniques de validation
 
-Un profil technique de validation sert à valider toutes ou certaines des revendications de sortie de référencement dans un [profil technique autodéclaré](self-asserted-technical-profile.md#validation-technical-profiles). Un profil technique de validation est un profil technique ordinaire issu de n’importe quel protocole, comme [Azure Active Directory](active-directory-technical-profile.md) ou une [API REST](restful-technical-profile.md). Le profil technique de validation retourne des revendications de sortie ou retourne un code d’erreur. Le message d’erreur s’affiche pour l’utilisateur, permettant à celui-ci de réessayer.
+Un profil technique de validation sert à valider des revendications de sortie dans un [profil technique autodéclaré](self-asserted-technical-profile.md#validation-technical-profiles). Un profil technique de validation est un profil technique ordinaire issu de n’importe quel protocole, comme [Azure Active Directory](active-directory-technical-profile.md) ou une [API REST](restful-technical-profile.md). Le profil technique de validation retourne des revendications de sortie ou retourne un code d’erreur. Le message d’erreur s’affiche pour l’utilisateur, permettant à celui-ci de réessayer.
 
 Le diagramme suivant illustre la façon dont Azure AD B2C utilise un profil technique de validation pour valider les informations d’identification de l’utilisateur.
 
@@ -434,7 +434,9 @@ L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 
 ## <a name="include-technical-profile"></a>Inclure un profil technique
 
-Un profil technique peut inclure un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités. L’élément **IncludeTechnicalProfile** est une référence au profil technique courant dont un profil technique découle. Pour réduire la redondance et la complexité de vos éléments de stratégie, utilisez l’inclusion quand vous disposez de plusieurs profils techniques qui partagent les éléments de base. Utilisez un profil technique courant avec l’ensemble courant de configuration, ainsi que des profils techniques de tâches spécifiques qui incluent le profil technique courant. Supposons par exemple que vous ayez un [profil technique d’API REST](restful-technical-profile.md) avec un seul point de terminaison où vous devez envoyer différents jeux de revendications pour différents scénarios. Créez un profil technique courant avec les fonctionnalités partagées, telles que l’URI de point de terminaison de l’API REST, les métadonnées, le type d’authentification et les clés de chiffrement. Créez ensuite des profils techniques de tâche spécifiques qui incluent le profil technique courant, ajoutez les revendications d’entrée, les revendications de sortie ou remplacez l’URI de point de terminaison de l’API REST correspondant à ce profil technique.
+Un profil technique peut inclure un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités. L’élément **IncludeTechnicalProfile** est une référence au profil technique courant dont un profil technique découle. Pour réduire la redondance et la complexité de vos éléments de stratégie, utilisez l’inclusion quand vous disposez de plusieurs profils techniques qui partagent les éléments de base. Utilisez un profil technique courant avec l’ensemble courant de configuration, ainsi que des profils techniques de tâches spécifiques qui incluent le profil technique courant. 
+
+Supposons que vous ayez un [profil technique d’API REST](restful-technical-profile.md) avec un seul point de terminaison auquel vous devez envoyer différents jeux de revendications pour différents scénarios. Créez un profil technique commun avec les fonctionnalités partagées, telles que l’URI de point de terminaison de l’API REST, les métadonnées, le type d’authentification et les clés de chiffrement. Créez des profils techniques de tâches spécifiques qui incluent le profil technique commun. Ajoutez ensuite les revendications d’entrée et les revendications de sortie ou remplacez l’URI de point de terminaison de l’API REST correspondant à ce profil technique.
 
 L’élément **IncludeTechnicalProfile** contient l’attribut suivant :
 
@@ -561,7 +563,10 @@ L’élément [ClaimsProviderSelections](userjourneys.md#claimsproviderselection
 - **OnItemExistenceInStringCollectionClaim**, exécuter uniquement s’il existe un élément dans une revendication de collection de chaîne.
 - **OnItemAbsenceInStringCollectionClaim**, exécuter uniquement s’il n’existe pas d’élément dans une revendication de collection de chaîne.
 
-L’utilisation de **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **OnItemAbsenceInStringCollectionClaim**, requiert que vous fournissez les métadonnées suivantes : **ClaimTypeOnWhichToEnable** spécifie le type de la revendication à évaluer, **ClaimValueOnWhichToEnable** spécifie la valeur à comparer.
+L’utilisation de **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** ou **OnItemAbsenceInStringCollectionClaim** requiert que vous fournissez les métadonnées suivantes : 
+
+- **ClaimTypeOnWhichToEnable** : spécifie le type de la revendication à évaluer.
+- **ClaimValueOnWhichToEnable** : spécifie la valeur à comparer.
 
 Le profil technique suivant est exécuté uniquement si la collection de chaînes **identityProviders** contient la valeur de `facebook.com` :
 

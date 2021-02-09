@@ -1,7 +1,7 @@
 ---
 title: Nouveautés d’Azure Active Directory B2C (Business-to-Customer)
 description: Documentation et nouvelle et mise à jour pour Azure Active Directory B2C (Business-to-Customer)
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559725"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255167"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service B2C, consultez [Nouveautés d’Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Personnaliser l’interface utilisateur dans Azure Active Directory B2C](customize-ui.md)
+- [Restrictions et limites du service Azure Active Directory B2C](service-limits.md)
+- [Configurer l’inscription et la connexion avec un compte Azure AD B2C à partir d’un autre locataire Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Configurer le fournisseur d’identité d’un compte local](identity-provider-local.md)
+- [Configurer un flux de connexion dans Azure Active Directory B2C](add-sign-in-policy.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Suivre le comportement des utilisateurs dans Azure Active Directory B2C à l’aide d’Application Insights](analytics-with-application-insights.md)
+- [TechnicalProfiles](technicalprofiles.md)
+- [Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C](customize-ui-with-html.md)
+- [Gérer Azure AD B2C avec Microsoft Graph](microsoft-graph-operations.md)
+- [Ajouter AD FS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-adfs.md)
+- [Configurer la connexion avec un fournisseur SAML Salesforce à l’aide du protocole SAML dans Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Tutoriel : Inscrire une application web dans Azure Active Directory B2C](tutorial-register-applications.md)
+- [Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C](identity-provider-amazon.md)
+- [Configurer l’inscription et la connexion avec un compte Azure AD B2C à partir d’un autre locataire Azure AD B2C](identity-provider-azure-ad-b2c.md)
+- [Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-azure-ad-multi-tenant.md)
+- [Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C](identity-provider-azure-ad-single-tenant.md)
+- [Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C](identity-provider-facebook.md)
+- [Configurer l’inscription et la connexion avec un compte GitHub à l’aide d’Azure Active Directory B2C](identity-provider-github.md)
+- [Configurer l’inscription et la connexion avec un compte Google à l’aide d’Azure Active Directory B2C](identity-provider-google.md)
+- [Configurer l’inscription et la connexion avec un compte ID.me à l’aide d’Azure Active Directory B2C](identity-provider-id-me.md)
+- [Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C](identity-provider-linkedin.md)
+- [Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C](identity-provider-microsoft-account.md)
+- [Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C](identity-provider-qq.md)
+- [Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C](identity-provider-salesforce.md)
+- [Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C](identity-provider-twitter.md)
+- [Configurer l’inscription et la connexion avec un compte WeChat à l’aide d’Azure Active Directory B2C](identity-provider-wechat.md)
+- [Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C](identity-provider-weibo.md)
+- [Vue d’ensemble de la stratégie personnalisée Azure AD B2C](custom-policy-trust-frameworks.md)
+
 
 ## <a name="december-2020"></a>Décembre 2020
 

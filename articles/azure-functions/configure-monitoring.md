@@ -4,12 +4,12 @@ description: Découvrez comment connecter votre application de fonction à Appli
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684706"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493751"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Comment configurer l’analyse pour Azure Functions
 
@@ -228,6 +228,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
+
+Une fois la journalisation du contrôleur d’échelle activée, vous pouvez [interroger vos journaux de contrôleur d’échelle](analyze-telemetry-data.md#query-scale-controller-logs). 
 
 ## <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
 

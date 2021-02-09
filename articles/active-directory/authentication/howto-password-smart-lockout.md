@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741726"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255371"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -89,6 +89,8 @@ Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre orga
 Lorsque le seuil de verrouillage intelligent est déclenché, le message suivant s'affiche en cas de verrouillage du compte :
 
 *Votre compte est verrouillé de façon temporaire afin d'éviter toute utilisation non autorisée. Réessayez plus tard. Si le problème persiste, contactez votre administrateur.*
+
+Lorsque vous testez le verrouillage intelligent, vos demandes de connexion peuvent être traitées par différents centres de données en raison de la nature géodistribuée et équilibrée en charge du service d’authentification d’Azure AD. Dans ce scénario, étant donné que chaque centre de données Azure AD effectue le suivi du verrouillage de façon indépendante, il se peut qu’il faille davantage de tentatives que le seuil de verrouillage défini pour provoquer un verrouillage. Un utilisateur dispose d’un nombre de tentatives incorrectes de (*seuil_limite * nombre_de_centres_de_données*) s’il atteint chaque centre de données avant qu’un verrouillage ne se produise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

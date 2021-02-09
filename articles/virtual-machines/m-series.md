@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: a8f39b5a1994574fa3d1472a2b53a3b080f82952
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91653653"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089239"
 ---
 # <a name="m-series"></a>Série M
 
@@ -27,6 +27,8 @@ Les machines virtuelles de la série M sont dotées de la technologie Hyper-Thre
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Générations 1 et 2<br>
 [Accélérateur d’écriture](./how-to-enable-write-accelerator.md) : Pris(e) en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre max de cartes réseau|Bande passante réseau attendue (Mbit/s) |
@@ -46,7 +48,7 @@ Les machines virtuelles de la série M sont dotées de la technologie Hyper-Thre
 | Standard_M128 <sup>1</sup>     | 128 | 2 048   | 14336 | 64 | 250 000/1 600 (2456)  | 80 000/2 000 | 8|32000 |
 | Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250 000/1 600 (2456)  | 80 000/2 000 | 8|32000 |
 
-<sup>1</sup> Plus de 64 processeurs virtuels nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
+<sup>1</sup> L’utilisation de plus de 64 processeurs virtuels nécessite l’une de ces versions d’invité prises en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
 
 <sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 

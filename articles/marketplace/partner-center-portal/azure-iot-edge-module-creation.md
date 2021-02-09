@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347480"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096438"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Créer une offre de module Azure IoT Edge
 
@@ -34,7 +34,7 @@ Cet article explique comment créer et publier une offre de module IoT (Internet
 Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre dans votre compte.
 
 - Cet ID est visible par les clients dans l’adresse web de l’offre de la Place de marché et des modèles Resource Manager, le cas échéant.
-- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1** , l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères. Par exemple, si vous entrez **test-offer-1**, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - L’ID d’offre ne peut pas être changé une fois que vous avez sélectionné **Créer**.
 
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
@@ -111,7 +111,7 @@ Nous proposons un modèle de contrat Standard pour faciliter les transactions da
 
 Pour en savoir plus sur le contrat Standard, consultez [Contrat standard pour la Place de marché commerciale de Microsoft](../standard-contract.md). Vous pouvez également télécharger le fichier PDF [Contrat Standard](https://go.microsoft.com/fwlink/?linkid=2041178) (assurez-vous que le bloqueur de fenêtres publicitaires est désactivé).
 
-Pour utiliser le contrat Standard, cochez la case **Utiliser le Contrat Standard pour la Place de marché commerciale Microsoft** , puis cliquez sur **Accepter**.
+Pour utiliser le contrat Standard, cochez la case **Utiliser le Contrat Standard pour la Place de marché commerciale Microsoft**, puis cliquez sur **Accepter**.
 
 > [!NOTE]
 > Après avoir publié une offre à l’aide du contrat Standard pour la Place de marché commerciale de Microsoft, vous ne pouvez pas utiliser vos propres conditions générales. Proposez votre solution avec le contrat Standard ou dans le cadre de vos propres conditions générales.
@@ -167,9 +167,9 @@ Entrez l’adresse web de la politique de confidentialité de votre organisation
 
 #### <a name="useful-links"></a>Liens utiles
 
-Fournissez des documents en ligne complémentaires à propos de votre offre. Vous pouvez ajouter jusqu’à 25 liens. Pour ajouter un lien, sélectionnez **+ Ajouter un lien** , puis complétez les champs suivants :
+Fournissez des documents en ligne complémentaires à propos de votre offre. Vous pouvez ajouter jusqu’à 25 liens. Pour ajouter un lien, sélectionnez **+ Ajouter un lien**, puis complétez les champs suivants :
 
-- **Titre**  : les clients verront le titre dans la page de détails de votre offre.
+- **Titre** : les clients verront le titre dans la page de détails de votre offre.
 - **Lien (URL)**  : entrez un lien pour que les clients voient votre document en ligne. Le lien doit commencer par `http://` ou `https://`.
 
 Veillez à ajouter au moins un lien vers votre documentation et un lien vers les appareils IoT Edge compatibles du  [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/).
@@ -182,9 +182,9 @@ Entrez le nom, l’adresse e-mail et le numéro de téléphone d’un **contact 
 - Contact en ingénierie (obligatoire) : Pour les questions techniques et les problèmes de certification.
 - Contact du programme du fournisseur de solutions cloud (facultatif) : Pour toute question du revendeur relative au programme CSP.
 
-Dans la section **Contact du support** , fournissez l’adresse web du **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
+Dans la section **Contact du support**, fournissez l’adresse web du **site web de support** où les partenaires peuvent trouver un support pour votre offre selon que celle-ci est disponible dans Azure international, Azure Government ou les deux.
 
-Dans la section **Contact du programme du fournisseur de solutions Cloud** , fournissez le lien ( **Ressources Marketing du programme CSP** ) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
+Dans la section **Contact du programme du fournisseur de solutions Cloud**, fournissez le lien (**Ressources Marketing du programme CSP**) où les partenaires CSP peuvent trouver des ressources marketing pour votre offre.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ressources d’annonce supplémentaires de place de marché
 
@@ -275,7 +275,7 @@ Voici un exemple de la façon dont les informations s’affichent dans la Place 
 
 ## <a name="preview"></a>PRÉVERSION
 
-Sous l’onglet **Préversion** , vous pouvez choisir de restreindre le **public de préversion** en vue de valider votre offre avant de la publier plus largement en ligne sur la Place de marché.
+Sous l’onglet **Préversion**, vous pouvez choisir de restreindre le **public de préversion** en vue de valider votre offre avant de la publier plus largement en ligne sur la Place de marché.
 
 > [!IMPORTANT]
 > Une fois que vous avez affiché votre offre en préversion, vous devez sélectionner **Mise en service** afin de publier votre offre pour le public.
@@ -305,16 +305,16 @@ Une fois que vous avez créé vos plans, l’onglet **Vue d’ensemble du plan**
 
 Les actions disponibles dans Vue d’ensemble du plan varient selon l’état actuel de votre plan. Ils comprennent :
 
-- **Supprimer le brouillon**  : si l’état du plan est Brouillon.
-- **Arrêter la vente du plan**  : si l’état du plan est « publié en ligne ».
+- **Supprimer le brouillon** : si l’état du plan est Brouillon.
+- **Arrêter la vente du plan** : si l’état du plan est « publié en ligne ».
 
 ### <a name="create-new-plan"></a>Créer un plan
 
 Sélectionnez **Créer un plan**. La boîte de dialogue **Nouveau plan** s’affiche.
 
-Dans la zone **ID du plan** , créez un ID de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’adresse web du produit. Utilisez uniquement des lettres minuscules et des chiffres, des tirets ou des traits de soulignement, dans la limite de 50 caractères.
+Dans la zone **ID du plan**, créez un ID de plan unique pour chaque plan contenu dans cette offre. Cet ID sera visible par les clients dans l’adresse web du produit. Utilisez uniquement des lettres minuscules et des chiffres, des tirets ou des traits de soulignement, dans la limite de 50 caractères.
 
-Dans la zone **Nom du plan** , entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique pour chaque plan dans cette offre. Par exemple, vous pouvez utiliser le nom d’offre **Windows Server** avec les plans **Windows Server 2016** et **Windows Server 2019**.
+Dans la zone **Nom du plan**, entrez un nom pour ce plan. Les clients voient ce nom quand ils décident du plan à sélectionner dans votre offre. Créez un nom unique pour chaque plan dans cette offre. Par exemple, vous pouvez utiliser le nom d’offre **Windows Server** avec les plans **Windows Server 2016** et **Windows Server 2019**.
 
 > [!NOTE]
 > L’ID de plan ne peut pas être changé une fois que vous avez sélectionné **Créer**.
@@ -393,7 +393,7 @@ Ce champ est couramment utilisé dans les cas suivants :
 
 ## <a name="technical-configuration"></a>Configuration technique
 
-Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique** , vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
+Le type d’offre **Module IoT Edge** est un type spécifique de conteneur qui s’exécute sur un appareil IoT Edge. Sous l’onglet **Configuration technique**, vous fournissez des informations de référence pour le dépôt d’images conteneur à l’intérieur de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) ainsi que des paramètres de configuration qui permettent aux clients d’utiliser le module facilement.
 
 Une fois l’offre publiée, votre image conteneur IoT Edge est copiée sur la Place de marché Azure dans un registre de conteneurs public spécifique. Toutes les demandes des utilisateurs Azure pour utiliser votre module sont traitées à partir du registre de conteneurs publics de la Place de marché Azure, et non pas depuis votre registre de conteneurs privé.
 
@@ -403,15 +403,15 @@ Vous pouvez cibler plusieurs plateformes et fournir plusieurs versions de l’im
 
 Vous devez fournir les informations suivantes sous l’onglet **Détails du référentiel d’images**.
 
-**Sélectionner la source de l’image**  : sélectionnez l’option **Registre de conteneurs Azure**.
+**Sélectionner la source de l’image** : sélectionnez l’option **Registre de conteneurs Azure**.
 
-**ID d’abonnement Azure**  : indiquez l’ID d’abonnement dans lequel l’utilisation des ressources est signalée et les services sont facturés pour le registre de conteneurs Azure qui contient votre image conteneur. Vous pouvez trouver cet ID dans la [page Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
+**ID d’abonnement Azure** : indiquez l’ID d’abonnement dans lequel l’utilisation des ressources est signalée et les services sont facturés pour le registre de conteneurs Azure qui contient votre image conteneur. Vous pouvez trouver cet ID dans la [page Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) du portail Azure.
 
-**Nom du groupe de ressources Azure**  : indiquez le nom du [groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
+**Nom du groupe de ressources Azure** : indiquez le nom du [groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md) qui contient le registre de conteneurs Azure abritant votre image conteneur. Le groupe de ressources doit être accessible dans l’ID d’abonnement (ci-dessus). Vous trouverez le nom dans la page [Groupes de ressources](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) du portail Azure.
 
-**Nom du registre de conteneurs Azure**  : indiquez le nom du [registre de conteneurs Azure](../../container-registry/container-registry-intro.md) contenant votre image conteneur. Le registre de conteneurs doit être présent dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
+**Nom du registre de conteneurs Azure** : indiquez le nom du [registre de conteneurs Azure](../../container-registry/container-registry-intro.md) contenant votre image conteneur. Le registre de conteneurs doit être présent dans le groupe de ressources Azure que vous avez fourni. Indiquez uniquement le nom du registre, et non le nom complet du serveur de connexion. Veillez à omettre **azurecr.io** dans le nom. Vous trouverez le nom du registre dans la [page Registres de conteneurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) du portail Azure.
 
-**Nom d’utilisateur administrateur pour le registre de conteneurs Azure**  : indiquez le [nom de l’utilisateur administrateur](../../container-registry/container-registry-authentication.md#admin-account)) associé au registre de conteneurs Azure contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
+**Nom d’utilisateur administrateur pour le registre de conteneurs Azure** : indiquez le [nom de l’utilisateur administrateur](../../container-registry/container-registry-authentication.md#admin-account)) associé au registre de conteneurs Azure contenant votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Pour obtenir le nom de l’utilisateur administrateur et le mot de passe, définissez la propriété **admin-enabled** sur **True** à l’aide de l’interface de ligne de commande Azure (CLI). Vous pouvez éventuellement définir **Utilisateur administrateur** sur **Activer** dans le portail Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Illustre la boîte de dialogue Mettre à jour le registre de conteneurs.":::
 
@@ -419,7 +419,7 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 
 1. Utilisateur administrateur
 
-<br>**Mot de passe pour le registre de conteneurs Azure**  : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](/cli/azure/acr/credential#az-acr-credential-show).
+<br>**Mot de passe pour le registre de conteneurs Azure** : indiquez le mot de passe de l’utilisateur administrateur qui est associé au registre de conteneurs Azure et qui a votre image conteneur. Le nom d’utilisateur et le mot de passe sont nécessaires pour que votre entreprise ait accès au registre. Vous pouvez récupérer le mot de passe à partir du portail Azure en accédant à **Registre de conteneurs** > **Clés d’accès** ou avec Azure CLI à l’aide de la [commande show](/cli/azure/acr/credential#az-acr-credential-show).
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Illustre l’écran des clés d’accès dans le portail Azure.":::
 
@@ -430,6 +430,9 @@ Vous devez fournir les informations suivantes sous l’onglet **Détails du réf
 3. Mot de passe
 
 **Nom du dépôt au sein du registre de conteneurs Azure**. Indiquez le nom du dépôt Azure Container Registry contenant votre image. Vous spécifiez le nom du dépôt quand vous envoyez (push) l’image vers le registre. Vous trouverez le nom du dépôt en accédant à [Registre de conteneurs](https://azure.microsoft.com/services/container-registry/) > **Page Dépôts**. Pour plus d’informations, consultez [Afficher les dépôts de registre de conteneurs dans le portail Azure](../../container-registry/container-registry-repositories.md). Une fois le nom défini, il ne peut plus être modifié. Utilisez un nom unique pour chaque offre dans votre compte.
+
+> [!NOTE]
+> Nous ne prenons pas en charge d’instance chiffrée d’Azure Container Registry pour la certification du module Edge. L’instance d’Azure Container Registry doit être créée sans que le chiffrement soit activé.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Étiquettes d’image pour les nouvelles versions de votre offre
 
@@ -481,9 +484,9 @@ Dans le coin supérieur droit du portail, sélectionnez **Vérifier et publier**
 Dans la page de révision, vous pouvez voir l’état de la publication :
 
 - Consultez l’état d’achèvement de chaque section de l’offre. Vous ne pouvez pas publier tant que toutes les sections de l’offre ne sont pas marquées comme étant complètes.
-    - **Non démarrée**  : la section n’a pas été démarrée et doit être complétée.
-    - **Incomplète**  : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
-    - **Complète**  : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
+    - **Non démarrée** : la section n’a pas été démarrée et doit être complétée.
+    - **Incomplète** : la section comporte des erreurs qui doivent être corrigées ou nécessite plus d’informations de votre part. Pour obtenir de l’aide, consultez les sections plus haut dans ce document.
+    - **Complète** : la section contient toutes les données nécessaires et ne comporte aucune erreur. Toutes les sections de l’offre doivent être complètes pour que vous puissiez envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour vous assurer que votre offre est correctement testée. Vous pouvez également fournir des notes supplémentaires utiles pour comprendre votre offre.
 
 Pour envoyer l’offre à des fins de publication, sélectionnez **Publier**.

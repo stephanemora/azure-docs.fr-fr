@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0972c9ed48f56a495804052c1ffc2b28e1db083
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650746"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095322"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -23,7 +23,9 @@ Les machines virtuelles de la série Av2 peuvent être déployées sur différe
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Non pris en charge <br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge <br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge <br>
-[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 1 <br>
+[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 <br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
 | Taille | vCore | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de disques de données/débit max. : E/S par seconde | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s)

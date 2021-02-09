@@ -3,19 +3,19 @@ title: Référence sur l’intégration d’Azure Active Directory et de Workday
 description: Présentation technique approfondie de l’approvisionnement piloté par Workday RH
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570143"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255982"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Comment de l’approvisionnement Azure Active Directory s’intègre avec Workday
 
@@ -43,7 +43,7 @@ Pour sécuriser davantage la connectivité entre le service d’approvisionnemen
 1. Copiez toutes les plages d’adresses IP répertoriées dans l’élément *addressPrefixes*, et utilisez la plage pour créer votre liste d’adresses IP.
 1. Connectez-vous au portail d’administration de Workday. 
 1. Accédez à la tâche **Maintain IP Ranges** (conserver les plages d’adresses IP) pour créer une plage d’adresses IP pour les centres de données Azure. Spécifiez les plages d’adresses IP (à l’aide d’une notation CIDR) sous la forme d’une liste séparée par des virgules.  
-1. Accédez à la tâche **Manage Authentication Policies** (Gérer les stratégies d’authentification) pour créer une stratégie d’authentification. Dans la stratégie d’authentification, utilisez une **liste verte d’authentification** pour spécifier la plage d’adresses IP Azure AD et le groupe de sécurité qui seront autorisés à accéder à partir de cette plage d’adresses IP. Enregistrez les modifications. 
+1. Accédez à la tâche **Manage Authentication Policies** (Gérer les stratégies d’authentification) pour créer une stratégie d’authentification. Dans la stratégie d’authentification, utilisez une liste d’autorisation d’authentification pour spécifier la plage d’adresses IP Azure AD et le groupe de sécurité qui seront autorisés à accéder à partir de cette plage d’adresses IP. Enregistrez les modifications. 
 1. Accédez à la tâche **Activate All Pending Authentication Policy Changes** (Activer toutes les modifications de stratégie d'authentification en attente) pour confirmer les modifications.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Limitation de l’accès aux données des employés dans Workday à l’aide de groupes de sécurité avec contraintes
@@ -348,7 +348,7 @@ Si l’une des requêtes ci-dessus retourne une embauche future, la demande *Get
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Récupération des attributs de données d’employé
+## <a name="retrieving-worker-data-attributes"></a>Récupération des attributs de données d’employé
 
 L’API *Get_Workers* peut retourner différents jeux de données associés à un employé. En fonction des [expressions d’API XPATH](workday-attribute-reference.md) configurées dans le schéma d’approvisionnement, le service d’approvisionnement Azure AD détermine les jeux de données à récupérer à partir de Workday. En conséquence, les indicateurs *Response_Group* sont définis dans la demande *Get_Workers*. 
 
@@ -402,6 +402,9 @@ Le tableau ci-dessous fournit des conseils sur la configuration de mappage à ut
 | 44 | Données d’évaluation de talent               | Non                  | wd:Worker\_Data/wd:Talent\_Assessment\_Data                                   |
 | 45 | Données de compte d'utilisateur                    | Non                  | wd:Worker\_Data/wd:User\_Account\_Data                                        |
 | 46 | Données de document d’employé                 | Non                  | wd:Worker\_Data/wd:Worker\_Document\_Data                                     |
+
+>[!NOTE]
+>Chaque entité Workday figurant dans la table est protégée par une **stratégie de sécurité du domaine** dans Workday. Si vous ne parvenez pas à récupérer un attribut associé à l’entité après avoir défini le bon XPATH, contactez votre administrateur Workday pour vous assurer que la stratégie appropriée de sécurité du domaine est configurée pour l’utilisateur du système d’intégration associé à l’application de configuration. Par exemple, pour récupérer des *données de compétence*, un accès *Get* est requis sur le domaine Workday *Données Workday : Compétences et expérience*. 
 
 Voici quelques exemples de la façon dont vous pouvez étendre l’intégration de Workday pour répondre à des exigences spécifiques. 
 

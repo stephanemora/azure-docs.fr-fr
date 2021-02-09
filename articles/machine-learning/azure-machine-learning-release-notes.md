@@ -9,17 +9,32 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788873"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430995"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) d’Azure Machine Learning.
 
+ ## <a name="2021-01-31"></a>2021-01-31
+### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de janvier)
++ **Nouvelles fonctionnalités**
+  + Éditeur de Markdown natif dans AzureML. Les utilisateurs peuvent désormais afficher et modifier les fichiers Markdown en mode natif dans AzureML Studio.
+  + [Bouton Exécuter pour les scripts (.py, .R et .sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). Les utilisateurs peuvent désormais exécuter facilement des scripts Python, R et Bash dans AzureML.
+  + [Explorateur de variables](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). Explorez le contenu des variables et des trames de données dans un panneau contextuel. Les utilisateurs peuvent facilement vérifier le type de données, la taille et le contenu.
+  + [Table des matières](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc). Accédez aux sections de votre notebook, indiquées par des en-têtes Markdown.
+  + Exportez votre notebook au format LaTex/HTML/Py. Créez des fichiers de notebook faciles à partager en les exportant au format LaTex, HTML ou .py
+  + IntelliCode. Les résultats alimentés par ML fournissent une [expérience de saisie semi-automatique intelligente](https://docs.microsoft.com/visualstudio/intellicode/overview) améliorée.
+
++ **Résolutions de bogue et améliorations**
+  + Amélioration des temps de chargement des pages
+  + performances améliorées 
+  + Amélioration de la vitesse et de la fiabilité du noyau
+  
  ## <a name="2021-01-25"></a>25-01-2021
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.21.0

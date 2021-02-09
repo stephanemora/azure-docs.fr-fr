@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516548"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493271"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrer des données de Cassandra vers un compte API Cassandra Azure Cosmos DB à l'aide d’Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> Les configurations `spark.cassandra.output.concurrent.writes` et `connections_per_executor_max` sont importantes pour éviter la [limitation du débit](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/) qui se produit lorsque les demandes de Cosmos DB dépassent le débit approvisionné ([unités de requête](./request-units.md)). Vous devrez peut-être ajuster ces paramètres en fonction du nombre d’exécuteurs du cluster Spark, voire de la taille (et par conséquent du coût RU) de chaque enregistrement écrit dans les tables cibles.
+> Les configurations `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` et `connections_per_executor_max` sont importantes pour éviter la [limitation du débit ](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)qui se produit lorsque les demandes adressées à Azure Cosmos DB dépassent le débit approvisionné ([unités de requête](./request-units.md)). Vous devrez peut-être ajuster ces paramètres en fonction du nombre d’exécuteurs du cluster Spark, voire de la taille (et par conséquent du coût RU) de chaque enregistrement écrit dans les tables cibles.
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="rate-limiting-429-error"></a>Limitation du débit (erreur 429)
+Vous pouvez voir un code d’erreur 429 ou un texte d’erreur `request rate is large`, malgré la réduction des paramètres ci-dessus à leurs valeurs minimales. Voici quelques scénarios de ce type :
+
+- **Le débit alloué à la table est inférieur à 6 000 [unités de requête](./request-units.md)** . Même avec les paramètres minimaux, Spark sera en mesure d’exécuter des écritures à un débit d’environ 6 000 unités de requête ou plus. Si vous avez approvisionné une table dans un espace de clé avec un débit partagé approvisionné, il est possible que cette table ait moins de 6 000 unités de capacité disponibles au moment de l’exécution. Assurez-vous que la table vers laquelle vous effectuez la migration a au moins 6 000 unités de requête disponibles lors de l’exécution de la migration et, si nécessaire, allouez à cette table des unités de requête dédiées. 
+- **Asymétrie excessive des données avec un volume important de données**. Si vous avez une grande quantité de données (c’est-à-dire des lignes de table) à migrer vers une table donnée, mais que les données présentent un asymétrie importante (c’est-à-dire qu’un grand nombre d’enregistrements sont écrits pour la même valeur de clé de partition), vous pouvez quand même subir une limitation de débit, même si vous disposez d’une grande quantité d’[unités de requête](./request-units.md) approvisionnées dans votre table. Cela est dû au fait que les unités de requête sont réparties de manière égale entre les partitions physiques, et une forte asymétrie des données peut entraîner un goulet d’étranglement des demandes adressées à une seule partition, ce qui limite le débit. Dans ce scénario, il est conseillé de réduire au minimum les paramètres de débit dans Spark pour éviter de limiter le débit et de forcer la migration à s’exécuter lentement. Ce scénario peut être plus courant lors de la migration de tables de référence ou de contrôle, où l’accès est moins fréquent, mais où l’asymétrie peut être importante. Toutefois, si une asymétrie significative est présente dans un autre type de table, il peut également être recommandé de passer en revue votre modèle de données pour éviter les problèmes de partition active pour votre charge de travail pendant les opérations à l’état stable. 
+- **Impossible d’obtenir le décompte sur une table volumineuse**. L’exécution de `select count(*) from table` n’est actuellement pas prise en charge pour les tables volumineuses. Vous pouvez obtenir le décompte des métriques dans Portail Azure (voir notre [article sur la résolution des problèmes](cassandra-troubleshoot.md)), mais, si vous devez déterminer le décompte d’une table volumineuse dans le contexte d’un travail Spark, vous pouvez copier les données dans une table temporaire, puis utiliser Spark SQL pour connaître le décompte, voir l’exemple ci-dessous (remplacez `<primary key>` par un champ de la table temporaire résultante).
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

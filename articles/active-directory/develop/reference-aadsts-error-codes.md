@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b948de6ad9e07a650df98ef38104c02462ab532d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169271"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428029"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -95,6 +95,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50000 | TokenIssuanceError : il existe un problème avec le service d’inscription. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour résoudre ce problème. |
 | AADSTS50001 | InvalidResource : la ressource est désactivée ou n’existe pas. Vérifiez le code de votre application pour vous assurer que vous avez spécifié l’URL de ressource exacte pour la ressource à laquelle vous essayez d’accéder.  |
 | AADSTS50002 | NotAllowedTenant : la connexion a échoué en raison d’un accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème. |
+| AADSTS500021 | L’accès au locataire « {tenant} » est refusé. AADSTS500021 indique que la fonctionnalité de restriction du locataire est configurée et que l’utilisateur tente d’accéder à un locataire qui ne figure pas dans la liste des locataires autorisés spécifiés dans l’en-tête `Restrict-Access-To-Tenant`. Pour plus d’informations, consultez [Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS](/azure/active-directory/manage-apps/tenant-restrictions).|
 | AADSTS50003 | MissingSigningKey : la connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Consultez les résolutions présentées dans [../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Si vous rencontrez toujours des problèmes, contactez le propriétaire ou l’administrateur de l’application. |
 | AADSTS50005 | DevicePolicyError : l’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel. |
 | AADSTS50006 | InvalidSignature : la vérification de la signature a échoué en raison d’une signature non valide. |

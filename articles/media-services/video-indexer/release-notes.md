@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120085"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427654"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -30,7 +30,23 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Résolution des bogues
 * Fonctionnalités dépréciées
 
-##  <a name="december-2020"></a>Décembre 2020
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer est déployé sur le cloud US Government 
+
+Vous pouvez maintenant créer un compte Video Indexer payant sur le cloud US Government dans les régions Virginie et Arizona. L’offre d’essai gratuit de Video Indexer n’est pas disponible dans la région mentionnée. Pour plus d’informations, accédez à la documentation de Video Indexer. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>Video Indexer déployé dans la région Inde Centre 
+
+Vous pouvez maintenant créer un compte Video Indexer payant dans la région Inde Centre. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Nouveau mode sombre pour l’expérience du site web de Video Indexer
+
+L’expérience du site web de Video Indexer est désormais disponible en mode sombre. Pour activer le mode sombre, ouvrez le panneau Paramètres et activez l’option **Mode sombre**. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Paramètre du mode sombre":::
+
+## <a name="december-2020"></a>Décembre 2020
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer déployé dans les régions Suisse Ouest et Suisse Nord
 

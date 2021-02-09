@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547149"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223455"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Sauvegarder et Restaurer des machines virtuelles Azure chiffrées
 
@@ -44,11 +44,11 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 
 ### <a name="limitations"></a>Limites
 
-- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées dans les mêmes abonnement et région.
+- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées par ADE dans les mêmes abonnement et région.
 - Sauvegarde Azure prend en charge les machines virtuelles chiffrées à l’aide de clés autonomes. Aucune clé appartenant à un certificat utilisé pour chiffrer une machine virtuelle n’est prise en charge.
-- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées dans les mêmes abonnement et région que le coffre de sauvegarde Recovery Services.
-- Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la machine virtuelle entière pour restaurer des fichiers et des dossiers.
-- Quand vous restaurez une machine virtuelle, vous ne pouvez pas utiliser l’option de [remplacement de la machine virtuelle existante](backup-azure-arm-restore-vms.md#restore-options) pour les machines virtuelles chiffrées. Cette option est uniquement prise en charge pour les disques managés non chiffrés.
+- Vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées par ADE dans les mêmes abonnement et région que le coffre de sauvegarde Recovery Services.
+- Les machines virtuelles chiffrées par ADE ne peuvent pas être récupérées au niveau du fichier/dossier. Vous devez récupérer la machine virtuelle entière pour restaurer des fichiers et des dossiers.
+- Quand vous restaurez une machine virtuelle, vous ne pouvez pas utiliser l’option de [remplacement de la machine virtuelle existante](backup-azure-arm-restore-vms.md#restore-options) pour les machines virtuelles chiffrées par ADE. Cette option est uniquement prise en charge pour les disques managés non chiffrés.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -125,6 +125,17 @@ Pour définir des autorisations :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Coffres de clés**.
 1. Sélectionnez le coffre de clés associé à la machine virtuelle chiffrée en cours de sauvegarde.
+
+    >[!TIP]
+    >Pour identifier un coffre de clés associé à une machine virtuelle, utilisez la commande PowerShell suivante. Remplacez par le nom de votre groupe de ressources et le nom de votre machine virtuelle :
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Recherchez le nom du coffre de clés dans cette ligne :
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Sélectionnez **Stratégies d’accès** > **Ajouter une stratégie d’accès**.
 
     ![Ajouter une stratégie d’accès](./media/backup-azure-vms-encryption/add-access-policy.png)
@@ -148,7 +159,7 @@ Vous ne pouvez restaurer les machines virtuelles chiffrées qu’en restaurant l
 Restaurez les machines virtuelles chiffrées de la façon suivante :
 
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
-2. Recréez l’instance de machine virtuelle en procédant de l’une des manières suivantes :
+2. Recréez l’instance de machine virtuelle en effectuant l’une des actions suivantes :
     1. Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
     2. Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
 3. Pour les machines virtuelles Linux, réinstallez l’extension ADE pour que les disques de données soient ouverts et montés.

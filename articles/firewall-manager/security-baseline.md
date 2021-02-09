@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b8dc91851ee736fd15f1fed8ef50c2cd7c7ab778
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5ef40b048fbc50174afb662aecd3335d97eb0106
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788296"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095970"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Base de référence de sécurité Azure pour Azure Firewall Manager
 
@@ -129,7 +129,7 @@ Azure Advanced Threat Protection (ATP) est une solution de sécurité qui peut u
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1 : Protéger et limiter les utilisateurs disposant de privilèges élevés
 
 **Conseils** : Azure Firewall Manager utilise Azure Active Directory (Azure AD) pour l’identité et l’accès. Les rôles intégrés les plus critiques dans Azure AD sont Administrateur général et Administrateur de rôle privilégié, car les utilisateurs affectés à ces deux rôles peuvent déléguer des rôles Administrateur :
-- Administrateur général ou Administrateur d’entreprise : Les utilisateurs disposant de ce rôle ont accès à toutes les fonctionnalités d’administration d’Azure AD, ainsi qu’aux services qui utilisent des identités Azure AD.
+- Administrateur général : Les utilisateurs disposant de ce rôle ont accès à toutes les fonctionnalités d’administration d’Azure AD, ainsi qu’aux services qui utilisent des identités Azure AD.
 - Administrateur de rôle privilégié : Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure AD et Azure AD Privileged Identity Management (PIM). De plus, ce rôle permet de gérer tous les aspects de PIM et des unités administratives.
 
 Vous pouvez avoir d’autres rôles critiques qui doivent être régis si vous utilisez des rôles personnalisés avec certaines autorisations attribuées. Vous pouvez également appliquer des contrôles similaires au compte Administrateur des ressources métier critiques.

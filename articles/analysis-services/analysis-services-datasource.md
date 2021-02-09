@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685593"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493818"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>Informations d’identification OAuth
 
-Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure Synapse, Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d'identification à l'aide de Power Query.
+Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode *en mémoire*, Azure SQL Database, Azure Synapse, Dynamics 365 et SharePoint List prennent en charge les informations d’identification OAuth. Pour générer des jetons valides, définissez les informations d'identification à l'aide de Power Query. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. 
+> [!NOTE]
+> L’actualisation des jetons managés n’est pas prise en charge pour les sources de données accessibles via une passerelle. Par exemple, une ou plusieurs sources de données de requête mashup sont accessibles via une passerelle, et/ou la propriété [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) a la valeur **true**. 
 
 Le mode de requête directe n’est pas compatible avec les informations d’identification OAuth.
 

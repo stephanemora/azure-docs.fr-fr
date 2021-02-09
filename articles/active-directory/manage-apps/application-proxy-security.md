@@ -4,7 +4,7 @@ description: Couvre les considérations de sécurité lors de l’utilisation du
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3c98bce0be2b456220815a359aae1ee697f3ca2c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649566"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254963"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -108,7 +108,7 @@ Le connecteur utilise un certificat client pour authentifier le service de proxy
 Le flux suivant se déroule lorsque le connecteur est configuré pour la première fois :
 
 1. L’inscription du connecteur sur le service se produit dans le cadre de l’installation du connecteur. Les utilisateurs sont invités à saisir leurs informations d’identification administrateur Azure AD.  Le jeton obtenu à partir de cette authentification est ensuite présenté au service de proxy d’application Azure AD.
-2. Le service de proxy d’Application évalue le jeton. Il vérifie si l’utilisateur est un administrateur d’entreprise dans le locataire.  Si l’utilisateur n’est pas un administrateur, le processus se termine.
+2. Le service de proxy d’Application évalue le jeton. Il vérifie si l’utilisateur est un administrateur général dans le locataire.  Si l’utilisateur n’est pas un administrateur, le processus se termine.
 3. Le connecteur génère une demande de certificat client et la transmet, ainsi que le jeton, au service de proxy d’application. À son tour, le service vérifie le jeton et signe la demande de certificat client.
 4. Le connecteur utilise le certificat client pour les communications ultérieures avec le service de proxy d’application.
 5. Le connecteur effectue une extraction initiale des données de configuration système à partir du service à l’aide de son certificat client et est désormais prêt à recevoir des demandes.

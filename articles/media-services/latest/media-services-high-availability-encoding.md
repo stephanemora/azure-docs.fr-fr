@@ -1,5 +1,5 @@
 ---
-title: Haute disponibilité avec Media Services et VOD (vidéo à la demande)
+title: Haute disponibilité avec Vidéo à la demande Media Services
 description: Cet article est une vue d’ensemble des services Azure que vous pouvez utiliser pour faciliter la haute disponibilité de l’application VOD.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494951"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955849"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Haute disponibilité avec Media Services et VOD (vidéo à la demande)
 

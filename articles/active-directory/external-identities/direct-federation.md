@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860624"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257183"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -78,7 +78,8 @@ Oui. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi 
 Lorsque la fédération directe est établie avec une organisation partenaire, elle est prioritaire sur l’authentification par code secret à usage unique par e-mail pour les nouveaux utilisateurs invités de cette organisation. Si un utilisateur invité a utilisé une invitation à l’aide de l’authentification par code secret à usage unique avant que vous n’ayez configuré la fédération directe, il continue d’utiliser l’authentification par code secret à usage unique. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La fédération directe répond-elle aux problèmes de connexion, étant une location partiellement synchronisée ?
 Non, la fonctionnalité de connexion par [code secret à usage unique par e-mail](one-time-passcode.md) doit être utilisée dans ce cas. Une « location partiellement synchronisée » fait référence à un locataire Azure AD partenaire où les identités utilisateur locales ne sont pas entièrement synchronisées avec le cloud. Un invité dont l’identité n’existe pas encore dans le cloud mais qui essaie d’utiliser votre invitation B2B ne pourra pas se connecter. La fonctionnalité de code secret à usage unique permettrait à cet invité de se connecter. La fonctionnalité de fédération directe répond aux scénarios où l’invité a son propre compte professionnel géré par le fournisseur d’identité, mais que l’organisation n’a aucune présence sur Azure AD.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Une fois que la fédération directe est configurée avec une organisation, faut-il envoyer une invitation individuelle à chaque invité pour qu’il l’utilise ?
+La configuration de la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en supprimant le compte d’utilisateur invité de votre répertoire et en le réinvitant.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Étape 1 : Configurer le fournisseur d’identité de l’organisation partenaire
 Votre organisation partenaire doit d’abord configurer son fournisseur d’identité avec les revendications requises et les approbations de partie de confiance. 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726678"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052411"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -51,6 +51,7 @@ Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFS
     | `Unix`    | NFS   | Bits en mode NFSv3   | UNIX  | NFS et Windows   |
     | `Ntfs`    | Windows   | ACL NTFS     | NTFS  |NFS et Windows|
 * Les utilisateurs d'UNIX qui montent le volume de style de sécurité NTFS via NFS sont authentifiés en tant qu'utilisateur Windows `root` pour UNIX `root` et `pcuser` pour tous les autres utilisateurs. Vérifiez que ces comptes d'utilisateur sont disponibles dans votre instance d'Active Directory avant de monter le volume lorsque vous utilisez NFS. 
+* Si vous avez de grandes topologies et que vous utilisez le style de sécurité `Unix` avec un volume à double protocole ou LDAP avec des groupes étendus, Azure NetApp Files peut ne pas être en mesure d’accéder à tous les serveurs de vos topologies.  Si cette situation se produit, contactez l’équipe chargée de votre compte pour obtenir de l’aide.  <!-- NFSAAS-15123 --> 
 * Vous n’avez pas besoin d’un certificat d’autorité de certification racine de serveur pour créer un volume à deux protocoles. Il n’est obligatoire que si le protocole LDAP sur TLS est activé.
 
 

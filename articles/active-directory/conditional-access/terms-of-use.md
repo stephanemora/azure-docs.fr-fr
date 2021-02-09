@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232775"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919627"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -26,11 +26,11 @@ Les stratégies de conditions d’utilisation d’Azure AD offrent aux organisa
 
 ## <a name="overview-videos"></a>Vidéos de présentation
 
-La vidéo suivante fournit une vue d’ensemble des stratégies de conditions d’utilisation.
+La vidéo suivante donne un aperçu rapide des stratégies en matière de conditions d’utilisation.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Pour voir d’autres vidéos, consultez :
+Pour plus de vidéos, consultez :
 - [Procédure de déploiement d’une stratégie de conditions d’utilisation dans Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Procédure d’installation d’une stratégie de conditions d’utilisation dans Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -226,7 +226,7 @@ Vous pouvez modifier certains détails des stratégies de conditions d’utilisa
     - (Préversion) Vous pouvez **mettre à jour un document de conditions d’utilisation existant**
     - Vous pouvez ajouter une langue à des conditions d’utilisation existantes
 
-   Si vous souhaitez changer d’autres paramètres, comme le document PDF, le fait de demander le consentement des utilisateurs sur chaque appareil, l’expiration des consentements, la durée avant nouvelle acceptation ou encore la stratégie d’accès conditionnel, vous devez établir une nouvelle stratégie de conditions d’utilisation.
+   Si vous souhaitez changer d’autres paramètres, comme le document PDF, le fait de demander le consentement des utilisateurs sur chaque appareil, l’expiration des consentements, la durée avant nouvelle acceptation ou encore la stratégie d’accès conditionnel, vous devez créer une nouvelle stratégie de conditions d’utilisation.
 
     ![Modifier les différentes options de langue ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Vous pouvez modifier certains détails des stratégies de conditions d’utilisa
 7.  Une fois que vous avez chargé votre nouveau fichier PDF et opéré votre choix quant à l’exigence d’une nouvelle acceptation, cliquez sur Ajouter en bas du volet.
 8.  La version la plus récente apparaît alors dans la colonne Document.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Afficher les versions précédentes de conditions d’utilisation
+## <a name="view-previous-versions-of-a-tou"></a>Afficher les versions précédentes des conditions d’utilisation
 
 1.  Connectez-vous à Azure et accédez à **Conditions d’utilisation** sur https://aka.ms/catou.
 2.  Sélectionnez la stratégie de conditions d’utilisation dont vous souhaitez afficher un historique des versions.
@@ -269,7 +269,7 @@ Vous pouvez modifier certains détails des stratégies de conditions d’utilisa
 5.  Vous pouvez également sélectionner une version spécifique dans la liste déroulante **Version** pour voir qui l’a acceptée.
 
 
-## <a name="add-a-terms-of-use-language"></a>Ajouter une langue aux conditions d’utilisation
+## <a name="add-a-tou-language"></a>Ajouter une langue dans les conditions d’utilisation
 
 La procédure suivante explique comment ajouter une langue aux conditions d’utilisation.
 
@@ -344,9 +344,13 @@ Pour supprimer d’anciennes stratégies de conditions d’utilisation, effectue
 
    Désormais, votre stratégie de conditions d’utilisation ne devrait plus s’afficher.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Utilisateurs supprimés et conditions d’utilisation actives
+## <a name="user-acceptance-record-deletion"></a>Suppression de l’enregistrement de l’acceptation de l’utilisateur
 
-Par défaut, un utilisateur supprimé conserve cet état dans Azure AD pendant 30 jours, au cours desquels il peut être restauré par un administrateur s’il y a lieu. Au bout de 30 jours, cet utilisateur est définitivement supprimé. En outre, à l’aide du portail Azure Active Directory, un Administrateur général peut explicitement [supprimer définitivement un utilisateur récemment supprimé](../fundamentals/active-directory-users-restore.md) avant que cette période arrive à son terme. Une fois qu’un utilisateur a été définitivement supprimé, les données le concernant sont supprimées des conditions de la stratégie de conditions d’utilisation active. Les informations d’audit relatives aux utilisateurs supprimés sont conservées dans le journal d’audit.
+Les enregistrements d’acceptation de l’utilisateur sont supprimés :
+
+- Lorsque l’administrateur supprime explicitement les conditions d’utilisation. Lorsque cela se produit, tous les enregistrements d’acceptation associés à ces conditions d’utilisation spécifiques sont également supprimés.
+- Lorsque le locataire perd sa licence Azure Active Directory Premium.
+- Lorsque le locataire est supprimé.
 
 ## <a name="policy-changes"></a>Modifications de stratégie
 

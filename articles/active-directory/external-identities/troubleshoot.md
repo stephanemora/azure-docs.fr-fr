@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe34de0fa7847a23d9335dcdb0a38a33e006fdc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355203"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090635"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
@@ -92,7 +92,7 @@ Un utilisateur disposant d’un compte invité ne peut pas ouvrir de session et 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non managé. En outre, il n’existe aucun administrateur global ou d’entreprise dans le locataire.
+L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non managé. En outre, il n’existe aucun administrateur général dans le locataire.
 
 Pour résoudre ce problème, vous devez prendre le contrôle du locataire abandonné. Reportez-vous à [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../enterprise-users/domains-admin-takeover.md). Vous devez également accéder au DNS accessible sur internet pour le suffixe de domaine en question afin de fournir la preuve directe que vous contrôlez l’espace de noms. Une fois que le client est renvoyé à un état géré, demandez au client si le fait de laisser les utilisateurs et les noms de domaine vérifiés est la meilleure option pour son organisation.
 

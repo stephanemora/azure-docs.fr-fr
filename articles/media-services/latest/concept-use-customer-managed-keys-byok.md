@@ -1,17 +1,17 @@
 ---
-title: Utiliser des clés BYOK (clé gérées par le client) avec Media Services
+title: Utiliser des clés BYOK (clé gérées par le client)
 description: Vous pouvez utiliser des clés gérées par le client (autrement dit apporter votre propre clé) avec Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 1/28/2020
+ms.openlocfilehash: 27d357279a54d7abc351370e7afda3a7961bac33
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681820"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428552"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -36,6 +36,13 @@ Vous pouvez spécifier un nom et une version de clé, ou simplement un nom de cl
 
 > [!WARNING]
 > Media Services surveille l’accès à la clé de client. Si la clé de client devient inaccessible (par exemple, si elle-même, le Key Vault ou l’autorisation d’accès est supprimé), Media Services définit l’état de la clé de client du compte sur Inaccessible (ce qui a pour effet de désactiver le compte). Le compte peut toutefois être supprimé même dans cet état. Les seules opérations prises en charge sont les opérations d’extraction (GET), de liste (LIST) et de suppression (DELETE) de compte. Toutes les autres requêtes (encodage, diffusion en continu, etc.) échouent tant que l’accès à la clé du compte n’est pas restauré.
+
+## <a name="double-encryption"></a>Double chiffrement
+
+Media Services prend automatiquement en charge le chiffrement double. Pour les données au repos, la première couche de chiffrement utilise une clé gérée par le client ou une clé gérée par Microsoft en fonction du paramètre `AccountEncryption` sur le compte.  La deuxième couche de chiffrement des données au repos est fournie automatiquement à l’aide d’une clé gérée par Microsoft distincte. Pour en savoir plus sur le double chiffrement, consultez [Double chiffrement Azure](../../security/fundamentals/double-encryption.md).
+
+> [!NOTE]
+> Le chiffrement double est activé automatiquement sur le compte Media Services. Toutefois, vous devez configurer séparément la clé gérée par le client et le chiffrement double sur votre compte de stockage. Voir [Chiffrement du stockage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## <a name="tutorials"></a>Tutoriels
 

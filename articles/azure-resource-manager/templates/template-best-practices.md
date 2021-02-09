@@ -3,12 +3,12 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager (modèles ARM). Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696344"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257995"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -276,6 +276,8 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
    > [!NOTE]
    > Pour garantir que les clés secrètes sont chiffrées lorsqu’elles sont transmises comme paramètres à des machines virtuelles et à des extensions, utilisez la propriété `protectedSettings` des extensions appropriées.
+
+* Spécifiez des valeurs explicites pour les propriétés qui ont des valeurs par défaut qui pourraient changer au fil du temps. Par exemple, si vous déployez un cluster AKS, vous pouvez spécifier ou omettre la propriété `kubernetesVersion`. Si vous ne la spécifiez pas, [le cluster est défini par défaut sur la version mineure N-1 et la version du correctif la plus récente](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). Lorsque vous déployez le cluster à l’aide d’un modèle ARM, ce comportement par défaut peut ne pas être celui que vous attendez. Le redéploiement de votre modèle peut entraîner une mise à niveau inattendue du cluster vers une nouvelle version de Kubernetes. Pensez plutôt à spécifier un numéro de version explicite, puis à le modifier manuellement lorsque vous êtes prêt à mettre à niveau votre cluster.
 
 ## <a name="use-test-toolkit"></a>Utiliser le kit de ressources de test
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591342"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493039"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -139,7 +139,7 @@ Un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) faisa
 
 ## <a name="throttling-limits"></a>Limites de la limitation
 
-Les requêtes de recherche et les demandes d’indexation sont limitées dès que le système s’approche de la capacité maximale. Le comportement de la limitation varie en fonction des API. Les API de requête (recherche/suggestion/saisie semi-automatique) et les API d’indexation se limitent dynamiquement en fonction de la charge du service. Les API d’indexation sont soumises à des limites de taux de requêtes statiques. 
+Les demandes d’API sont limitées dès que le système s’approche de la capacité maximale. Le comportement de la limitation varie en fonction des API. Les API de requête (recherche/suggestion/saisie semi-automatique) et les API d’indexation se limitent dynamiquement en fonction de la charge du service. Les API d’index et les API d’opérations de service ont des limites de taux de requêtes statiques. 
 
 Limites de taux de requêtes statiques pour les opérations liées à un index :
 
@@ -148,6 +148,10 @@ Limites de taux de requêtes statiques pour les opérations liées à un index 
 + Créer un index (POST /indexes) : 12 par minute par unité de recherche
 + Créer ou mettre à jour un index (PUT /indexes/myindex) : 6 par seconde par unité de recherche
 + Supprimer un index (DELETE /indexes/myindex) : 12 par minute par unité de recherche 
+
+Limites de taux de requêtes statiques pour les opérations liées à un service :
+
++ Statistiques du service (GET /servicestats) : 4 par seconde par unité de recherche
 
 ## <a name="api-request-limits"></a>Limites de requête d’API
 * 16 Mo maximum par requête <sup>1</sup>

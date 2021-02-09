@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071283"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492601"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -67,7 +67,10 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Authenticate with client certificate
- La stratégie `authentication-certificate` permet l’authentification auprès d’un service principal à l’aide d’un certificat client. Le certificat doit être [installé dans Gestion des API](./api-management-howto-mutual-certificates.md) en premier et identifié par son empreinte.
+ La stratégie `authentication-certificate` permet l’authentification auprès d’un service principal à l’aide d’un certificat client. Le certificat doit être [installé dans Gestion des API](./api-management-howto-mutual-certificates.md) en premier et identifié par son empreinte ou ID de certificat (nom de ressource). 
+
+> [!CAUTION]
+> Si le certificat fait référence à un certificat stocké dans Azure Key Vault, identifiez-le à l’aide de l’ID de certificat. Lorsqu’un certificat de coffre de clés est permuté, son empreinte dans Gestion des API est modifiée et la stratégie ne résout pas le nouveau certificat s’il est identifié par son empreinte.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -77,18 +80,17 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="examples"></a>Exemples
 
-Dans cet exemple, le certificat client est identifié par son empreinte :
-
-```xml
-<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
-```
-
-Dans cet exemple, le certificat client est identifié par le nom de ressource :
+Dans cet exemple, le certificat client est identifié par l’ID de certificat :
 
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ``` 
 
+Dans cet exemple, le certificat client est identifié par son empreinte :
+
+```xml
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
+```
 Dans cet exemple, le certificat client est défini dans la stratégie plutôt que récupéré dans le magasin de certificats intégré :
 
 ```xml

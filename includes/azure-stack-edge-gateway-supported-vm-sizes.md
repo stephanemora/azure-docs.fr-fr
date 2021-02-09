@@ -4,16 +4,16 @@ ms.service: databox
 ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 9ea5fb26a52c967c5296f1a83976e748c86c9e18
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763661"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475036"
 ---
-La taille de machine virtuelle détermine la quantité de ressources de calcul, comme le processeur, le processeur graphique (GPU) et la mémoire, qui sont mises à la disposition de la machine virtuelle. Les machines virtuelles doivent être créées avec une taille adaptée à la charge de travail. Même si toutes les machines vont s’exécuter sur le même matériel, leur taille ont des limites différentes pour l’accès au disque, ce qui peut vous aider à gérer l’accès global au disque sur toutes vos machines virtuelles. Si une charge de travail augmente, une machine virtuelle existante peut également être redimensionnée.
+La taille de machine virtuelle détermine la quantité de ressources de calcul (comme l’UC, le GPU et la mémoire) qui sont mises à la disposition de la machine virtuelle. Vous devez créer des machines virtuelles en utilisant une taille de machine virtuelle adaptée à la charge de travail. Même si toutes les machines vont s’exécuter sur le même matériel, leur taille ont des limites différentes pour l’accès au disque. Cela peut vous aider à gérer l’accès global au disque sur toutes vos machines virtuelles. Si une charge de travail augmente, vous pouvez également redimensionner une machine virtuelle existante.
 
-La création des machines virtuelles suivantes est prise en charge sur un appareil Azure Stack Edge.
+La création des machines virtuelles suivantes est prise en charge sur votre appareil Azure Stack Edge.
 
 ### <a name="dv2-series"></a>Série Dv2
 |Taille     |Processeurs virtuels     |Mémoire (Gio) | Taille du disque de ressources (Gio)  | Taille du disque du système d’exploitation (Gio) | Disques de données max. | Nombre max de cartes réseau |
@@ -40,7 +40,7 @@ La création des machines virtuelles suivantes est prise en charge sur un appare
 |**Standard_DS13_v2**|8   |56  |112|32000 |1 000 |16 |8 |
 
 
-Pour plus d’informations, consultez [Série Dv2 sur des tailles de machine virtuelle à usage général](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+Pour plus d’informations, consultez [Série Dv2 et DSv2](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
 
 ### <a name="ncast4_v3-series-preview"></a>Série NCasT4_v3 (préversion)
 
@@ -51,7 +51,7 @@ Ces tailles sont prises en charge pour les machines virtuelles GPU sur votre app
 |**Standard_NC4as_T4_v3** |4   |28  |180   |1 000|1 |16   |4 |
 |**Standard_NC8as_T4_v3** |8   |56  |360   |1 000|1 |16  |8 |
 
-Pour plus d’informations, consultez [Série NCasT4_v3 sur les tailles de machine virtuelle optimisées pour le GPU](../articles/virtual-machines/nct4-v3-series.md).
+Pour plus d’informations, consultez [Série NCasT4_v3](../articles/virtual-machines/nct4-v3-series.md).
 
 ### <a name="f-series"></a>Série F
 
@@ -70,5 +70,5 @@ Ces séries sont optimisées pour les charges de travail de calcul et s’exécu
 | Standard_F8s | 8 | 16 |32 |1 000| 32 |  8 |
 | Standard_F16s | 16 | 32 |64 |1 000| 64 |  8 |
 
-Pour plus d’informations, consultez [Série Fsv2_v3 sur les tailles de machine virtuelle optimisées pour le calcul](../articles/virtual-machines/fsv2-series.md).
+Pour plus d’informations, consultez [Série Fsv2](../articles/virtual-machines/fsv2-series.md).
 

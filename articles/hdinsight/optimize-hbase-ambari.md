@@ -1,18 +1,15 @@
 ---
 title: Optimiser Apache HBase avec Apache Ambari dans Azure HDInsight
 description: Utilisez l’interface utilisateur web d’Apache Ambari pour configurer et optimiser Apache HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/01/2021
+ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821707"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428198"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Optimiser Apache HBase avec Apache Ambari dans Azure HDInsight
 
@@ -21,6 +18,9 @@ Apache Ambari est une interface web qui permet de gérer et de superviser les cl
 La configuration d’Apache HBase est modifiable sous l’onglet **HBase Configs**. Les sections suivantes décrivent certains paramètres de configuration importants qui affectent les performances de HBase.
 
 ## <a name="set-hbase_heapsize"></a>Définir HBASE_HEAPSIZE
+
+> [!NOTE]
+> Cet article contient des références au terme *maître*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 La taille de tas HBase spécifie la quantité maximale de tas à utiliser en mégaoctets par les serveurs de *région* et *maîtres*. La valeur par défaut est 1 000 Mo. Cette valeur doit être adaptée à la charge de travail du cluster.
 

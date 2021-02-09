@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029564"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493835"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -62,16 +62,19 @@ Pour utiliser une [__cible de calcul__ Azure Machine Learning gérée](concept-c
 > * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. 
 > * Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, vérifiez que la communication avec le socket web n’est pas désactivée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 > * Lorsque l’instance de calcul est déployée dans un espace de travail privé, elle n’est accessible qu’à partir d’un réseau virtuel. Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour `<instance-name>.<region>.instances.azureml.ms` avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md).
+> * Le sous-réseau utilisé pour déployer l’instance/le cluster de calcul ne doit pas être délégué à un autre service comme ACI.
+> * Les stratégies de point de terminaison de service de réseau virtuel ne fonctionnent pas pour les comptes de stockage système de l’instance/du cluster de calcul.
+
     
 > [!TIP]
 > La capacité de calcul ou le cluster Machine Learning alloue automatiquement des ressources réseau supplémentaires au __groupe de ressources qui contient le réseau virtuel__. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
 > 
 > * Un seul groupe de sécurité réseau
-> * Une seule adresse IP publique
+> * Une seule IP publique. Si vous avez une stratégie Azure qui interdit la création d’IP publiques, le déploiement du cluster/des instances échouera
 > * Un seul équilibreur de charge
 > 
 > Dans le cas de clusters, ces ressources sont supprimées (et recréées) chaque fois que le cluster n’a plus aucun nœud. Toutefois, pour une instance, les ressources sont conservées jusqu’à ce que l’instance soit complètement supprimée (l’arrêt ne supprime pas les ressources). 
-> Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement.
+> Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si le groupe de ressources du réseau virtuel est verrouillé, la suppression de l’instance/du cluster de calcul échoue. L’équilibreur de charge ne peut pas être supprimé tant que l’instance/le cluster de calcul n’a pas été supprimé.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Ports requis

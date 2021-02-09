@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763453"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944953"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Déployer des machines virtuelles sur Azure Stack Edge Pro avec GPU via le portail Azure
 
@@ -22,6 +22,9 @@ Vous pouvez créer et gérer des machines virtuelles sur un appareil Azure Stack
 
 Cet article s'applique aux appareils Azure Stack Edge Pro GPU, Azure Stack Edge Pro R et Azure Stack Edge Mini R. 
 
+> [!IMPORTANT] 
+> Nous vous recommandons d’activer l’authentification multifacteur pour l’utilisateur qui gère les machines virtuelles déployées sur votre appareil à partir du cloud.
+        
 ## <a name="vm-deployment-workflow"></a>Workflow du déploiement de machine virtuelle
 
 Voici une synthèse globale du workflow de déploiement :

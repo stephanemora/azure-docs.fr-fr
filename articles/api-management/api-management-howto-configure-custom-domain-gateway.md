@@ -4,23 +4,20 @@ description: Cette rubrique décrit les étapes de configuration d’un nom de d
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506806"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490994"
 ---
-# <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
+# <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>Configurer un nom de domaine personnalisé pour une passerelle auto-hébergée
 
-Lorsque vous configurez une [passerelle de gestion des API Azure auto-hébergée](self-hosted-gateway-overview.md), aucun nom d’hôte ne lui est pas attribué et vous devez y faire référence par adresse IP. Cet article montre comment mapper un nom DNS personnalisé existant (également appelé nom d'hôte) à une passerelle auto-hébergée.
+Lorsque vous configurez une [passerelle Gestion des API Azure auto-hébergée](self-hosted-gateway-overview.md), aucun nom d’hôte ne lui est pas attribué et vous devez y faire référence par adresse IP. Cet article montre comment mapper un nom DNS personnalisé existant (également appelé nom d’hôte) à une passerelle auto-hébergée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,18 +31,16 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 - Une passerelle auto-hébergée. Pour plus d’informations, consultez [Comment configurer une passerelle auto-hébergée](api-management-howto-provision-self-hosted-gateway.md)
 -   Un nom de domaine personnalisé qui vous appartient ou à votre organisation. Cette rubrique ne fournit aucune instruction sur l’approvisionnement d’un nom de domaine personnalisé.
 -   Un enregistrement DNS hébergé sur un serveur DNS qui mappe le nom de domaine personnalisé à l’adresse IP de la passerelle auto-hébergée. Cette rubrique ne fournit aucune instruction sur l’hébergement d’un enregistrement DNS.
--   Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). L’objet ou l’autre nom de l’objet (SAN) doit correspondre au nom du domaine. Cela permet à l’instance APIM d’exposer des URL de manière sécurisée via TSL.
+-   Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). Le sujet ou l’autre nom du sujet (SAN) doit correspondre au nom de domaine. Cela permet à l’instance de Gestion des API d’exposer les URL de manière sécurisée sur TLS.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>Ajouter un certificat de domaine personnalisé à votre service Gestion des API
 
-1. Sélectionnez **Certificats** sous **Sécurité**.
-2. Sélectionnez **Ajouter**.
-3. Entrez un nom de ressource pour le certificat dans le champ **ID**.
-4. Sélectionnez le fichier contenant le certificat (.PFX) en sélectionnant le champ **Certificat** ou l’icône de dossier adjacente.
-5. Entrez le mot de passe du certificat dans le champ **Mot de passe**.
-6. Sélectionnez **Créer** pour ajouter le certificat à votre service Gestion des API.
+Ajoutez un fichier de certificat de domaine personnalisé (.PFX) à votre instance de Gestion des API, ou faites référence à un certificat stocké dans Azure Key Vault. Suivez les étapes décrites dans [Sécuriser les services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure](api-management-howto-mutual-certificates.md).
+
+> [!NOTE]
+> Nous vous recommandons d’utiliser un certificat de coffre de clés pour le domaine de passerelle auto-hébergé.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé pour votre passerelle auto-hébergée
 

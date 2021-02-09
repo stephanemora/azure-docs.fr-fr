@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755300"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428147"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Durées de vie des jetons configurables dans la plateforme d’identité Microsoft (préversion)
 
@@ -77,16 +77,14 @@ Pour obtenir un exemple, consultez [Créer une stratégie de connexion Web](conf
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Stratégies de durée de vie des jetons d’actualisation et de session
 
-Vous pouvez définir les stratégies de durée de vie des jetons d’actualisation et de session.
+Vous ne pouvez pas définir les stratégies de durée de vie des jetons d’actualisation et de session.
 
 > [!IMPORTANT]
-> À partir de mai 2020, les nouveaux locataires ne peuvent pas configurer les durées de vie des jetons d’actualisation et de session.  Les locataires avec une configuration existante peuvent modifier les stratégies des jetons d’actualisation et de session jusqu’au 30 janvier 2021.   Azure Active Directory cessera d’honorer la configuration actuelle des jetons d’actualisation et de session dans les stratégies après le 30 janvier 2021. Vous pourrez toujours configurer la durée de vie des jetons d’accès, SAML et d’ID après la mise hors service.
->
-> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, lisez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Si vous ne souhaitez pas utiliser l’accès conditionnel après la date de mise hors service, vos jetons d’actualisation et de session seront définis sur la [configuration par défaut](#configurable-token-lifetime-properties-after-the-retirement) à cette date, et vous ne pourrez plus modifier leur durée de vie.
+> Depuis le 30 janvier 2021, vous ne pouvez plus configurer la durée de vie des jetons d’actualisation et de session. Azure Active Directory n’honore plus la configuration des jetons d’actualisation et de session dans les stratégies existantes.  Les nouveaux jetons émis après l’expiration des jetons existants sont maintenant [configurés par défaut](#configurable-token-lifetime-properties-after-the-retirement). Vous pouvez toujours configurer la durée de vie des jetons d’accès, SAML et d’ID après la mise hors service de la configuration des jetons d’actualisation et de session.
 >
 > La durée de vie du jeton existant ne changera pas. Lorsqu’un jeton expire, un nouveau jeton est émis en fonction de la valeur par défaut.
+>
+> Si vous devez continuer à définir la période de temps avant qu’un utilisateur soit invité à se connecter à nouveau, configurez la fréquence de connexion dans Accès conditionnel. Pour en savoir plus sur l’accès conditionnel, lisez l’article [Configurer la gestion de session d’authentification avec l’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informations sur la mise hors service":::
 

@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222868"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493717"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Mettre à niveau des adresses IP publiques
 
-Les adresses IP publiques Azure sont créées avec une référence SKU (De base ou Standard) qui détermine les aspects de leurs fonctionnalités (notamment la méthode d’allocation, l’utilisation dans les zones de disponibilité et les ressources auxquelles elles peuvent être associées). 
+Les IP publiques Azure sont créées avec un SKU (De base ou Standard) qui détermine les aspects de leurs fonctionnalités (notamment la méthode d’allocation, la prise en charge des fonctionnalités et les ressources auxquelles elles peuvent être associées). 
 
 Les scénarios abordés dans cet article sont les suivants :
-* Mise à niveau d’une adresse IP publique de référence SKU De base vers une adresse IP publique de référence SKU Standard (à l’aide du portail, de PowerShell ou d’Azure CLI)
+* Mise à niveau d’une IP publique de SKU De base vers une IP publique de SKU Standard (à l’aide de PowerShell ou d’Azure CLI)
 * Migration d’une adresse IP réservée classique Azure vers une adresse IP publique de référence SKU De base Azure Resource Manager
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Mettre à niveau une adresse IP publique d’une référence SKU De base à Standard

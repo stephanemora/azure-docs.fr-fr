@@ -3,7 +3,7 @@ title: Configurer des classifications d’autorisations avec Azure AD
 description: Découvrez comment gérer les classifications d’autorisations déléguées.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b2d851f0f4476cd4b24b6ba30c237f9a42252726
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033202"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255218"
 ---
 # <a name="configure-permission-classifications"></a>Configurer des classifications d’autorisations
 
@@ -34,7 +34,7 @@ Actuellement, seule la classification d’autorisation ayant un « Faible impac
 
 Pour classifier les autorisations à l’aide du Portail Azure, procédez comme suit :
 
-1. Se connecter au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator)
+1. Se connecter au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator)
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Consentement et autorisations** > **Classifications d’autorisations**.
 1. Choisissez **Ajouter des autorisations** pour classifier une autorisation autrement que comme ayant un « Faible impact ».
 1. Sélectionnez l’API, puis les autorisations déléguées.
@@ -126,4 +126,4 @@ Pour en savoir plus :
 * [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
-* [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD sur Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

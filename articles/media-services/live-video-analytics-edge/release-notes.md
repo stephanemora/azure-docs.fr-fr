@@ -3,12 +3,12 @@ title: Notes de publication pour Live Video Analytics sur IoT Edge – Azure
 description: Cette rubrique fournit des notes de publication sur les versions, les améliorations, les correctifs de bogues et les problèmes connus de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f130b93b8d799c371a640f2b29c22c0d77834cba
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629774"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954393"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Notes de publication pour Live Video Analytics sur IoT Edge
 
@@ -48,7 +48,7 @@ Cette version est la préversion publique d’actualisation de Live Video Analyt
 ```
 ### <a name="module-updates"></a>Mises à jour de module
 * Ajout de la prise en charge de plusieurs processeurs d’extension HTTP et gRPC par topologie de graphe.
-* Ajout de la prise en charge de la gestion de l’espace disque pour les nœuds récepteurs.
+* Ajout de la prise en charge de la [gestion de l’espace disque pour les nœuds récepteurs](upgrading-lva-module.md#disk-space-management-with-sink-nodes).
 * Ajout de la prise en charge par le nœud `MediaGraphGrpcExtension` de la propriété [extensionConfiguration](grpc-extension-protocol.md) permettant d’utiliser plusieurs modèles IA au sein d’un même serveur gRPC.
 * Ajout de la prise en charge de la collecte des métriques du module Live Video Analytics au [format Prometheus](https://prometheus.io/docs/practices/naming/). En savoir plus sur la [collecte des métriques et de l’affichage dans Azure Monitor](monitoring-logging.md#azure-monitor-collection-via-telegraf). 
 * Ajout de la possibilité de filtrer la sélection de sortie. Vous pouvez transmettre **l’audio uniquement**, la **vidéo uniquement** ou **l’audio et la vidéo** avec `outputSelectors` à n’importe quel nœud de graphe. 
@@ -56,7 +56,7 @@ Cette version est la préversion publique d’actualisation de Live Video Analyt
     * Gestion de la fréquence d’images désormais disponible dans les nœuds du processeur d’extension de graphe.
 
 ### <a name="visual-studio-code-extension"></a>Extension de Visual Studio Code
-* Publication de [Live Video Analytics sur IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge), une extension Visual Studio Code qui facilite la gestion des graphes multimédias LVA. Elle fonctionne avec le **module LVA 2.0** et permet de modifier et de gérer les graphiques multimédias avec une interface graphique très élégante et facile à utiliser.
+* Publication de [Live Video Analytics sur IoT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge), une extension Visual Studio Code qui facilite la gestion des graphes multimédias LVA. Cette extension fonctionne avec le **module LVA 2.0** et permet de modifier et de gérer les graphiques multimédias avec une interface graphique élégante et facile à utiliser.
 ## <a name="september-22-2020"></a>22 septembre 2020
 
 La balise de version correspondant à l’actualisation de septembre 2020 du module est la suivante :
@@ -76,7 +76,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.4
 ### <a name="documentation-updates"></a>Mises à jour de la documentation
 
 * [Des instructions](deploy-azure-stack-edge-how-to.md) relatives à l’utilisation de Live Video Analytics sur IoT Edge sur des appareils Azure Stack Edge sont disponibles.
-* Nouveau tutoriel sur le développement de modèles de vision par ordinateur spécifiques à l’aide du [service Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) et l’utilisation de ce dernier pour [analyser des vidéos en direct](custom-vision-tutorial.md) en temps réel.
+* Nouveau tutoriel sur le développement de modèles de vision par ordinateur spécifiques à un scénario à l’aide du [service Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) et en utilisant ce dernier pour [analyser des vidéos en direct](custom-vision-tutorial.md) en temps réel.
 
 <hr width=100%>
 
@@ -93,7 +93,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="module-updates"></a>Mises à jour de module
 
-* Vous pouvez désormais bénéficier de performances de transfert de contenu de données élevées entre Live Video Analytics sur IoT Edge et votre extension personnalisée à l’aide de l’infrastructure gRPC. Consultez [ce](analyze-live-video-use-your-grpc-model-quickstart.md) pour vous lancer.
+* Vous pouvez désormais bénéficier de performances de transfert de contenu de données élevées entre Live Video Analytics sur IoT Edge et votre extension personnalisée à l’aide de l’infrastructure gRPC. Pour bien démarrer, consultez [le démarrage rapide](analyze-live-video-use-your-grpc-model-quickstart.md).
 * Déploiement régional plus étendu de Live Video Analytics et seul le service cloud a été mis à jour.  
 * Live Video Analytics est désormais disponible dans 25 régions supplémentaires dans le monde. Voici la [liste](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) de toutes les régions disponibles.  
 * La [configuration](https://aka.ms/lva-edge/setup-resources-for-samples) pour les démarrages rapides a également été mise à jour avec la prise en charge de nouvelles régions.
@@ -118,7 +118,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 
 ### <a name="module-updates"></a>Mises à jour de module
 
-* Vous pouvez désormais créer des topologies de graphiques qui ont un nœud récepteur de ressources, ainsi qu’un nœud récepteur de fichiers en aval d’un nœud processeur de porte de signal. Pour obtenir un exemple, consultez [cette page](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files).
+* Vous pouvez désormais créer des topologies de graphiques qui ont un nœud récepteur de ressources et un nœud récepteur de fichiers en aval d’un nœud processeur de porte de signal. Pour obtenir un exemple, consultez [la topologie](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files).
 
 ### <a name="bug-fixes"></a>Résolution des bogues
 
