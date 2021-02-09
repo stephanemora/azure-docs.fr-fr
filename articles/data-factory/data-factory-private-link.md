@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746345"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062186"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link pour Azure Data Factory
 
@@ -48,7 +48,7 @@ Avec la prise en charge de Liaison privée pour Azure Data Factory, vous pouvez�
 * Créer un point de terminaison privé dans votre réseau virtuel.
 * Activer la connexion privée à une instance spécifique de la fabrique de données. 
 
-Les communications avec le service Azure Data Factory transitent par Liaison privée et assurent une connectivité privée sécurisée. Vous n’avez pas besoin de configurer le domaine et le port précédents sur un réseau virtuel ou votre pare-feu d’entreprise pour offrir un moyen plus sûr de protéger vos ressources.  
+Les communications avec le service Azure Data Factory transitent par Liaison privée et assurent une connectivité privée sécurisée. 
 
 ![Diagramme d’une liaison privée pour Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -63,11 +63,14 @@ L’activation du service Private Link pour chacun des canaux de communication p
    > [!NOTE]
    > Pour les fonctionnalités non encore prises en charge, vous devez toujours configurer le domaine et le port précédemment mentionnés dans le réseau virtuel ou le pare-feu de votre entreprise. 
 
+   > [!NOTE]
+   > La connexion à Azure Data Factory via un point de terminaison privé s’applique uniquement au runtime d’intégration auto-hébergé dans la fabrique de données. Elle n’est pas prise en charge dans Synapse.
+
 > [!WARNING]
 > Quand vous créez un service lié, vérifiez que vos informations d’identification sont stockées dans un coffre de clés Azure. Sinon, les informations d’identification ne fonctionnent pas quand vous activez Private Link dans Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifications DNS pour les points de terminaison privés
-Quand vous créez un point de terminaison privé, l’enregistrement de la ressource DNS CNAME pour la fabrique de données est mis à jour avec un alias dans un sous-domaine avec le préfixe « privatelink ». Par défaut, nous créons également une [zone DNS privée](https://docs.microsoft.com/azure/dns/private-dns-overview) correspondant au sous-domaine « privatelink », avec les enregistrements de ressource DNS A pour les points de terminaison privés.
+Quand vous créez un point de terminaison privé, l’enregistrement de la ressource DNS CNAME pour la fabrique de données est mis à jour avec un alias dans un sous-domaine avec le préfixe « privatelink ». Par défaut, nous créons également une [zone DNS privée](../dns/private-dns-overview.md) correspondant au sous-domaine « privatelink », avec les enregistrements de ressource DNS A pour les points de terminaison privés.
 
 Lorsque vous résolvez l’URL du point de terminaison de la fabrique de données à l’extérieur du réseau virtuel avec le point de terminaison privé, elle correspond au point de terminaison public du service de fabrique de données. En cas de résolution à partir du réseau virtuel hébergeant le point de terminaison privé, l’URL du point de terminaison de stockage correspond à l’adresse IP du point de terminaison privé.
 
@@ -89,8 +92,8 @@ Les enregistrements de ressources DNS correspondant à DataFactoryA, lorsqu’il
 Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison Data Factory vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « DataFactoryA.{région}.privatelink.datafactory.azure.net » avec l’adresse IP du point de terminaison privé.
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
-- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuration DNS pour les points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Résolution de noms pour des ressources dans les réseaux virtuels Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuration DNS pour les points de terminaison privés](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurer Azure Private Link pour Azure Data Factory

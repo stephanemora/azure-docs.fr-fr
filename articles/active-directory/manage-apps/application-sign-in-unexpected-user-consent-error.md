@@ -4,7 +4,7 @@ description: Aborde les erreurs qui peuvent se produire durant le processus de c
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9f829672f88ea848e4611000b54d9cc200bc166d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658483"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259975"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -35,7 +35,7 @@ Certaines conditions doivent être réunies pour qu’un utilisateur consente au
 * **AADSTS90093 :** &lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
 * **AADSTS90094 :** pour accéder aux ressources de votre organisation, &lt;clientAppDisplayName&gt; a besoin d’une autorisation que seul un administrateur peut accorder. Avant d’utiliser cette application, demandez à un administrateur d’accorder une autorisation à celle-ci.
 
-Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
+Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur général, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
 Cette erreur peut également se produire quand un utilisateur est empêché de donner son consentement à une application parce que Microsoft a détecté que la demande d’autorisation présente un risque. Dans ce cas, un événement d’audit est également journalisé avec la catégorie « ApplicationManagement », le type d’activité « Consent to application » et la raison de l’état « Risky application detected ».
 
@@ -44,7 +44,7 @@ Cette erreur peut également se produire lorsque l’affectation de l’utilisat
 ## <a name="policy-prevents-granting-permissions-error"></a>Erreur : stratégie empêchant l’octroi d’autorisations
 * **AADSTS90093 :** Un administrateur de &lt;tenantDisplayName&gt; a défini une stratégie qui vous empêche d’octroyer à &lt;nom_application&gt; les autorisations qu’elle demande. Contactez un administrateur de &lt;tenantDisplayName&gt;, qui peut accorder des autorisations à cette application en votre nom.
 
-Cette erreur se produit quand un utilisateur non-administrateur tente d’utiliser une application qui nécessite son consentement et que l’administrateur d’entreprise l’en empêche. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
+Cette erreur se produit quand un utilisateur non-administrateur tente d’utiliser une application qui nécessite son consentement et que l’administrateur général l’en empêche. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
 ## <a name="intermittent-problem-error"></a>Erreur : problème intermittent
 * **AADSTS90090 :** Un problème intermittent s’est apparemment produit au cours du processus de connexion, lors de l’enregistrement des autorisations que vous avez tenté d’accorder à &lt;clientAppDisplayName&gt;. Réessayez plus tard.

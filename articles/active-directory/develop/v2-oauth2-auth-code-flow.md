@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756117"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090219"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -48,7 +48,7 @@ Vous devez consulter votre inscription d’application et mettre à jour l’URI
 
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 
-Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette demande, le client demande les autorisations `openid`, `offline_access` et `https://graph.microsoft.com/mail.read ` de l’utilisateur.  Certaines autorisations sont limitées par l'administrateur, par exemple l'écriture de données dans le répertoire d'une organisation à l'aide de `Directory.ReadWrite.All`. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application. Pour demander l'accès aux étendues limitées par l'administrateur, vous devez vous adresser directement à un administrateur d'entreprise.  Pour plus d'informations, consultez [Autorisations limitées par l'administrateur](v2-permissions-and-consent.md#admin-restricted-permissions).
+Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette demande, le client demande les autorisations `openid`, `offline_access` et `https://graph.microsoft.com/mail.read ` de l’utilisateur.  Certaines autorisations sont limitées par l'administrateur, par exemple l'écriture de données dans le répertoire d'une organisation à l'aide de `Directory.ReadWrite.All`. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application. Pour demander l'accès aux étendues limitées par l’administrateur, vous devez vous adresser directement à un administrateur général.  Pour plus d'informations, consultez [Autorisations limitées par l'administrateur](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only

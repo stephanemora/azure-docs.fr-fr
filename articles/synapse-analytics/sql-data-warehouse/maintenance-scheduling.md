@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210981"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920373"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 
@@ -38,7 +38,7 @@ L’intégration des notifications Azure Service Health et du moniteur de vérif
 Une notification 24 heures à l’avance doit précéder tous les événements de maintenance qui ne concernent pas les niveaux DWC400c et inférieurs.
 
 > [!NOTE]
-> Dans le cas où nous sommes amenés à déployer une mise à jour critique dans le temps, les temps de notification avancés peuvent être considérablement réduits.
+> Dans le cas où nous sommes amenés à déployer une mise à jour critique dans le temps, les temps de notification avancés peuvent être considérablement réduits. Cela peut se produire en dehors d’une fenêtre de maintenance identifiée en raison de la nature critique de la mise à jour.
 
 Si vous avez reçu une notification pour une prochaine maintenance mais que la maintenance ne peut pas être effectuée pendant la période annoncée, vous recevrez une notification d’annulation. La maintenance reprendra lors de la prochaine période de maintenance planifiée.
 
@@ -82,9 +82,9 @@ Dans la préversion, il est possible que certaines régions ne prennent pas en c
    ![Panneau Paramètres de maintenance](./media/maintenance-scheduling/maintenance-settings-page.png)
 
 4. Choisissez vos fenêtres de maintenance principale et secondaire par défaut à l’aide des zones de liste déroulante :
-   - **Jour** : jour par défaut où doit avoir lieu la maintenance pendant la fenêtre sélectionnée.
+   - **Jour** : Jour par défaut où doit avoir lieu la maintenance pendant la fenêtre sélectionnée.
    - **Heure de début** : heure par défaut à laquelle doit commencer la fenêtre de maintenance.
-   - **Fenêtre de temps** : durée par défaut de la fenêtre de temps.
+   - **Fenêtre de temps** : Durée par défaut de la fenêtre de temps.
 
    La zone **Résumé de la planification** en bas du panneau est mise à jour avec les valeurs que vous avez sélectionnées.
   

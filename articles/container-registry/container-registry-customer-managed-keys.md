@@ -4,12 +4,12 @@ description: Apprenez-en davantage sur le chiffrement au repos de votre registre
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620436"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062726"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
@@ -566,21 +566,31 @@ Après avoir effectué les étapes précédentes, permutez la clé pour la rempl
 
 ## <a name="troubleshoot"></a>Dépanner
 
-### <a name="removing-user-assigned-identity"></a>Suppression de l’identité affectée par l’utilisateur
+### <a name="removing-managed-identity"></a>Suppression de l’identité managée
 
-Si vous tentez de supprimer une identité affectée par l’utilisateur d’un registre qui est utilisée pour le chiffrement, un message d’erreur semblable à celui-ci peut s’afficher :
+
+Si vous tentez de supprimer d’un registre une identité managée affectée par l’utilisateur ou par le système qui est utilisée pour configurer le chiffrement, un message d’erreur semblable à celui-ci peut s’afficher :
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Vous ne pouvez pas non plus modifier (faire pivoter) la clé de chiffrement. Si ce problème se produit, réaffectez d’abord l’identité à l’aide du GUID affiché dans le message d’erreur. Par exemple :
+Vous ne pouvez pas non plus modifier (faire pivoter) la clé de chiffrement. Les étapes de résolution varient selon le type d’identité utilisé pour le chiffrement.
+
+**Identité affectée par l’utilisateur**
+
+Si ce problème se produit avec une identité affectée par l’utilisateur, réaffectez d’abord l’identité à l’aide du GUID affiché dans le message d’erreur. Par exemple :
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Ensuite, après avoir modifié la clé et affecté une autre identité, vous pouvez supprimer l’identité affectée par l’utilisateur d’origine.
+
+**Identité affectée par le système**
+
+Si ce problème se produit avec une identité affectée par le système, veuillez [créer un ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) pour obtenir de l’aide afin de restaurer l’identité.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

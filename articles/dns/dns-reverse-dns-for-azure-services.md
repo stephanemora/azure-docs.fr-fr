@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c72e17e601ebf87b0f344a4723159ae22abc81d1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965627"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919865"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurer des DNS inversés dans les services hébergés par Azure
 
@@ -33,7 +33,7 @@ Avant de lire cet article, prenez connaissance de cette [Vue d’ensemble des DN
 Dans Azure DNS, les ressources de calcul (machines virtuelles, groupes de machines virtuelles identiques ou clusters Service Fabric) sont exposées via une ressource PublicIpAddress. Les recherche DNS inversées sont configurées à l’aide de la propriété 'ReverseFqdn' de la ressource PublicIpAddress.
 
 
-Actuellement, les DNS inversés ne sont pas pris en charge dans Azure App Service.
+Actuellement, les DNS inversés ne sont pas pris en charge dans Azure App Service et Application Gateway.
 
 ## <a name="validation-of-reverse-dns-records"></a>Validation des enregistrements DNS inversés
 

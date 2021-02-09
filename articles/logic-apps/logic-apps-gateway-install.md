@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322510"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054769"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -138,9 +138,15 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 1. Maintenant, [créez la ressource Azure pour votre installation de passerelle](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Vérifier ou ajuster les paramètres de communication
 
-La passerelle de données locale dépend de la [messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour la connectivité au cloud et établit les connexions sortantes correspondantes à la région Azure associée de la passerelle. Si votre environnement de travail nécessite que le trafic passe par un proxy ou un pare-feu pour accéder à Internet, cette restriction peut empêcher la passerelle de données locale de se connecter au service cloud de passerelle et à la messagerie Azure Service Bus. La passerelle a plusieurs paramètres de communication que vous pouvez ajuster. Pour plus d’informations, consultez les rubriques suivantes :
+La passerelle de données locale dépend de la [messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour la connectivité au cloud et établit les connexions sortantes correspondantes à la région Azure associée de la passerelle. Si votre environnement de travail nécessite que le trafic passe par un proxy ou un pare-feu pour accéder à Internet, cette restriction peut empêcher la passerelle de données locale de se connecter au service cloud de passerelle et à la messagerie Azure Service Bus. La passerelle a plusieurs paramètres de communication que vous pouvez ajuster.
+
+C’est le cas, par exemple, lorsque vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales à l’aide de la ressource de passerelle de données locale dans Azure. Si vous avez également un pare-feu qui limite le trafic vers des adresses IP spécifiques, vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes[ de connecteurs gérés correspondantes](logic-apps-limits-and-config.md#outbound)* . *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
+
+Pour plus d’informations, consultez les rubriques suivantes :
 
 * [Ajuster les paramètres de communication pour la passerelle de données locale](/data-integration/gateway/service-gateway-communication)
 * [Configurer les paramètres de proxy pour la passerelle de données locale](/data-integration/gateway/service-gateway-proxy)

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d1360589fe2c2ec13c341dd14793db0ca8b809c4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358875"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093941"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -172,7 +172,7 @@ Les connexions SQL à partir du serveur SQL source peuvent être déplacées ver
 
 Par défaut, Azure Database Migration Service prend uniquement en charge la migration des connexions SQL. Toutefois, vous pouvez rendre possible la migration des connexions Windows en procédant comme suit :
 
-Assurez-vous que l’instance Azure SQL Managed Instance cible dispose de l’accès en lecture Azure AD, qui peut être configuré dans le portail Azure par un utilisateur doté du rôle **Administrateur d’entreprise** ou d’un rôle **Administrateur général**.
+Vérifiez que le service SQL Managed Instance cible dispose d’un accès en lecture à Azure AD, et que cet accès peut être configuré via le portail Azure par un utilisateur doté du rôle **Administrateur général**.
 Configurez votre instance Azure Database Migration Service pour activer la migration des connexions d’utilisateur ou de groupe Windows, qui est configurée via le Portail Azure, dans la page Configuration. Après avoir activé ce paramètre, redémarrez le service pour que les modifications prennent effet.
 
 Après le redémarrage du service, les connexions d’utilisateur ou de groupe Windows apparaissent dans la liste des connexions disponibles pour la migration. Pour toutes les connexions d’utilisateur ou de groupe Windows que vous migrez, vous êtes invité à fournir le nom de domaine associé. Les comptes d’utilisateur de service (comptes avec le nom de domaine NT AUTHORITY) et les comptes d’utilisateur virtuels (nom de compte avec le nom de domaine NT SERVICE) ne sont pas pris en charge.

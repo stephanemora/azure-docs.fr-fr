@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527307"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954544"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 
@@ -38,11 +38,12 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 
 Un exemple de notebook illustrant les déploiements locaux est inclus sur votre instance de calcul. Utilisez les étapes suivantes pour charger le notebook et déployer le modèle en tant que service web sur la machine virtuelle :
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com), sélectionnez vos instances de calcul Azure Machine Learning.
+1. À partir de [Azure Machine Learning Studio](https://ml.azure.com), sélectionnez « Notebooks », puis sélectionnez how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb sous « Exemples de notebooks ». Clonez ce notebook dans votre dossier utilisateur.
 
-1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Une fois ouvert, exécutez le notebook.
+1. Recherchez le notebook cloné à l’étape 1, choisissez ou créez une instance de calcul pour exécuter le notebook.
 
     ![Capture d’écran du service local en cours d’exécution sur le notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. Le notebook affiche l’URL et le port sur lequel le service s’exécute. Par exemple : `https://localhost:6789`. Vous pouvez également exécuter la cellule contenant `print('Local service port: {}'.format(local_service.port))` pour afficher ce port.
 

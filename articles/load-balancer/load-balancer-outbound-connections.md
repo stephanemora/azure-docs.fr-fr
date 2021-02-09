@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878220"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052820"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilisation de la SNAT pour les connexions sortantes
 
@@ -80,7 +80,7 @@ Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de cha
 
  | Associations | Méthode | Protocoles IP |
  | ------------ | ------ | ------------ |
- | Équilibreur de charge public | Utilisation des IP front-end de l’équilibreur de charge pour la [SNAT](#snat).| TCP </br> UDP |
+ | Équilibreur de charge public Standard | Utilisation des IP front-end de l’équilibreur de charge pour la [SNAT](#snat).| TCP </br> UDP |
 
 
  #### <a name="description"></a>Description
@@ -103,13 +103,23 @@ Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de cha
 
  Dans ce contexte, les ports éphémères utilisés pour la traduction d’adresses réseau sources sont appelés ports SNAT. Il est fortement recommandé de configurer explicitement une [règle de trafic sortant](./outbound-rules.md). Si vous utilisez la SNAT par défaut par le biais d’une règle d’équilibrage de charge, les ports SNAT sont pré-alloués comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
 
-
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scénario 3 : Machine virtuelle sans adresse IP publique et derrière un équilibreur de charge de base
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>Scénario 3 : Machine virtuelle sans adresse IP publique et derrière un équilibreur de charge interne Standard
 
 
  | Associations | Méthode | Protocoles IP |
  | ------------ | ------ | ------------ |
- |Aucun </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
+ | Équilibreur de charge interne Standard | Aucune connectivité Internet| None |
+
+ #### <a name="description"></a>Description
+ 
+Lorsque vous utilisez un équilibreur de charge interne Standard, il n’y a pas d’utilisation d’adresses IP éphémères pour SNAT. Cela permet de prendre en charge la sécurité par défaut et de s’assurer que toutes les adresses IP utilisées par la ressource sont configurables et peuvent être réservées. Pour obtenir une connectivité sortante à Internet lors de l’utilisation d’un équilibreur de charge interne Standard, configurez une adresse IP publique de niveau d’instance pour suivre le comportement de (scénario 1) [#scenario1] ou ajoutez les instances principales à un équilibreur de charge public Standard avec une règle de trafic sortant configurée en plus de l’équilibreur la charge interne pour suivre le comportement dans (scénario 2) [#scenario2]. 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>Scénario 4 : Machine virtuelle sans adresse IP publique et derrière un équilibreur de charge de base
+
+
+ | Associations | Méthode | Protocoles IP |
+ | ------------ | ------ | ------------ |
+ |None </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
 
  #### <a name="description"></a>Description
 
@@ -126,7 +136,6 @@ Quand vous configurez le [scénario 2](#scenario2) ci-dessous, l’hôte de cha
 
 
  N’utilisez pas ce scénario pour ajouter des IP à une liste d’autorisation. Utilisez le scénario 1 ou 2 dans lequel vous déclarez explicitement le comportement du trafic sortant. Les ports [SNAT](#snat) sont préalloués, comme décrit dans le [tableau d’allocation des ports SNAT par défaut](#snatporttable).
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Épuisement des ports
 

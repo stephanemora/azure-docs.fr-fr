@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878491"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430660"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Dépanner les partages de fichiers Azure NFS
 
@@ -67,7 +67,6 @@ NFS est disponible uniquement sur les comptes de stockage avec la configuration 
 
 - Niveau – Premium
 - Type de compte – FileStorage
-- Redondance – LRS
 - Régions : [liste des régions prises en charge](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solution
@@ -150,6 +149,17 @@ Le protocole NFS communique avec son serveur sur le port 2049. Assurez-vous que
 #### <a name="solution"></a>Solution
 
 Vérifiez que le port 2049 est ouvert sur votre client en exécutant la commande suivante : `telnet <storageaccountnamehere>.file.core.windows.net 2049`. Si le port n’est pas ouvert, ouvrez-le.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (List Files) affiche des résultats incorrects/incohérents
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Cause : Incohérence entre les valeurs mises en cache et les valeurs de métadonnées de fichier serveur lorsque le descripteur de fichier est ouvert
+Parfois, la commande « list files » affiche une taille différente de zéro comme prévu et, à la place, la commande « list files » suivante affiche la taille 0 ou un très ancien horodatage. Il s’agit d’un problème connu en raison d’une mise en cache incohérente des valeurs de métadonnées de fichier lorsque le fichier est ouvert. Vous pouvez utiliser l’une des solutions de contournement suivantes pour résoudre ce problème :
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Solution de contournement 1 : Pour récupérer la taille du fichier, utilisez wc -c au lieu de ls -l
+L’utilisation de wc -c récupère toujours la valeur la plus récente à partir du serveur et n’entraîne pas d’incohérence.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>Solution de contournement 2 : Utiliser l’indicateur de montage « noac »
+Remontez le système de fichiers à l’aide de l’indicateur « noac » avec votre commande mount. Cette opération récupère toujours toutes les valeurs de métadonnées du serveur. Il peut y avoir une surcharge de performances mineure pour toutes les opérations de métadonnées si cette solution de contournement est utilisée.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

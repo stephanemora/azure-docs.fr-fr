@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: a075cfa921a17d47cbef84f1e7e8ec8e306c38d5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9564727cfe59f243fd1096c93d7eadf1d830be9e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063023"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052547"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Guide pratique pour configurer une nouvelle application multilocataire
 
@@ -29,4 +29,4 @@ Voici une liste de rubriques recommandées pour en savoir plus sur les applicati
 - Pour plus d’informations, découvrez [comment une application multilocataire est configurée et codée de bout en bout](./howto-convert-app-to-be-multi-tenant.md), notamment comment inscrire, utiliser le point de terminaison « commun », implémenter le consentement « utilisateur » et « administrateur », et implémenter des scénarios multiniveaux plus avancés
 
 ## <a name="next-steps"></a>Étapes suivantes
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Questions et réponses Microsoft Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

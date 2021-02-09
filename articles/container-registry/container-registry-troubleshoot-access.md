@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351791"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052159"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -40,6 +40,8 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 Exécutez la commande [az acr check-health](/cli/azure/acr#az-acr-check-health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez certains problèmes de connectivité ou de configuration de réseau. 
 
 Consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md) pour obtenir des exemples de commandes. Si des erreurs sont signalées, examinez les [Informations de référence sur les erreurs](container-registry-health-error-reference.md) et les sections suivantes pour obtenir les solutions recommandées.
+
+Si vous rencontrez des problèmes lors de l’utilisation du registre avec Azure Kubernetes Service, exécutez la commande [az aks check-acr](/cli/azure/aks#az_aks_check_acr) pour vérifier que le registre est accessible à partir du cluster AKS.
 
 > [!NOTE]
 > Certains symptômes de connectivité réseau peuvent également se produire en cas de problème avec l’authentification ou l’autorisation du registre. Consultez [Résoudre les problèmes de connexion au registre](container-registry-troubleshoot-login.md).

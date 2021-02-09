@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740599"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071260"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Déléguer des autorisations d’inscription d’application dans Azure Active Directory
 
 Cet article explique comment utiliser des autorisations accordées par des rôles personnalisés dans Azure Active Directory (Azure AD) pour répondre à vos besoins en matière de gestion des applications. Dans Azure AD, vous pouvez déléguer les autorisations de création et de gestion d’applications en procédant ainsi :
 
-- [Restriction des utilisateurs autorisés à créer des applications](#restrict-who-can-create-applications) et à gérer les applications qu’ils créent. Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des inscriptions d’applications et gérer tous les aspects des applications qu’ils créent. Cela peut être limité pour autoriser uniquement les personnes qui sont autorisées.
+- [Restriction des utilisateurs autorisés à créer des applications](#restrict-who-can-create-applications) et à gérer les applications qu’ils créent. Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des applications et gérer tous les aspects des applications qu’ils créent. Cela peut être limité pour autoriser uniquement les personnes qui sont autorisées.
 - [Attribution d’un ou plusieurs propriétaires à une application](#assign-application-owners). Il s’agit d’un moyen simple d’accorder à une personne la possibilité de gérer tous les aspects de la configuration Azure AD pour une application spécifique.
 - [Attribution d’un rôle d’administrateur intégré](#assign-built-in-application-admin-roles) qui autorise l’accès à la gestion de la configuration dans Azure AD pour toutes les applications. Il s’agit de la méthode recommandée pour permettre aux experts informatiques de gérer des autorisations de configuration d’application étendues sans accorder l’accès pour gérer d’autres parties de Azure AD qui ne sont pas liées à la configuration de l’application.
 - [Création d’un rôle personnalisé](#create-and-assign-a-custom-role-preview) qui définit des autorisations très spécifiques et l’affecte à une personne soit au niveau d’une application unique en tant que propriétaire limité ou au niveau de l’étendue du répertoire (toutes les applications) en tant qu’administrateur limité.
@@ -34,7 +34,7 @@ Il est important de considérer l’octroi de l’accès à l’aide de l’une 
 
 ## <a name="restrict-who-can-create-applications"></a>Restreindre qui peut créer des applications
 
-Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des inscriptions d’applications et gérer tous les aspects des applications qu’ils créent. Tout le monde peut également donner son consentement aux applications qui accèdent aux données de l’entreprise en leur nom. Vous pouvez choisir d’accorder ces autorisations de manière sélective en définissant les commutateurs globaux sur « non » et en ajoutant les utilisateurs sélectionnés au rôle développeur d’applications.
+Par défaut, dans Azure AD, tous les utilisateurs peuvent inscrire des applications et gérer tous les aspects des applications qu’ils créent. Tout le monde peut également donner son consentement aux applications qui accèdent aux données de l’entreprise en leur nom. Vous pouvez choisir d’accorder ces autorisations de manière sélective en définissant les commutateurs globaux sur « non » et en ajoutant les utilisateurs sélectionnés au rôle développeur d’applications.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Pour désactiver la possibilité par défaut de créer des inscriptions d’applications ou de donner leur consentement aux applications
 

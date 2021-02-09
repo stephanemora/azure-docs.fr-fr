@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756049"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090185"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -164,7 +164,7 @@ Si l’application demande des permissions d’application et qu’un administra
 
 Une fois que vous avez utilisé le point de terminaison du consentement administrateur pour accorder le consentement administrateur, vous avez terminé. Les utilisateurs n’ont pas besoin d’effectuer d’autres actions. Une fois le consentement administrateur accordé, les utilisateurs peuvent obtenir un jeton d’accès par le biais d’un flux d’authentification standard. Le jeton d’accès obtenu possède les autorisations accordées.
 
-Lorsqu’un administrateur d’entreprise utilise votre application et est dirigé vers le point de terminaison d’autorisation, la plateforme d’identités Microsoft détecte le rôle de l’utilisateur. Elle demande si l’administrateur d’entreprise souhaite donner son consentement pour le compte de l’ensemble du locataire aux autorisations que vous avez demandées. Vous pouvez utiliser à la place un point de terminaison du consentement administrateur dédié pour demander de manière proactive à un administrateur d’accorder l’autorisation pour le compte de l’ensemble du locataire. Ce point de terminaison est également nécessaire pour demander des permissions d’application. Les permissions d’application ne peuvent pas être demandées à l’aide du point de terminaison d’autorisation.
+Lorsqu’un administrateur général utilise votre application et est dirigé vers le point de terminaison d’autorisation, la plateforme d’identités Microsoft détecte le rôle de l’utilisateur. Elle demande si l’administrateur général souhaite donner son consentement pour le compte de l’ensemble du locataire aux autorisations que vous avez demandées. Vous pouvez utiliser à la place un point de terminaison du consentement administrateur dédié pour demander de manière proactive à un administrateur d’accorder l’autorisation pour le compte de l’ensemble du locataire. Ce point de terminaison est également nécessaire pour demander des permissions d’application. Les permissions d’application ne peuvent pas être demandées à l’aide du point de terminaison d’autorisation.
 
 Si vous suivez ces étapes, votre application peut demander des autorisations pour tous les utilisateurs d’un locataire, notamment les étendues restreintes aux administrateurs. Cette opération demande des privilèges élevés. Utilisez l’opération uniquement si elle est nécessaire pour votre scénario.
 

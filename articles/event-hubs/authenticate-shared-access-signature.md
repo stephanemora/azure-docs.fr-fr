@@ -4,12 +4,12 @@ description: Cet article explique comment authentifier l’accès aux ressources
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510088"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986493"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Authentifier l’accès aux ressources Event Hubs avec des signatures d’accès partagé
 La signature d’accès partagé (SAS, shared access signature) vous offre un contrôle granulaire sur le type d’accès que vous octroyez aux clients qui la possèdent. Voici quelques-uns des contrôles que vous pouvez définir dans une signature d’accès partagé : 
@@ -203,7 +203,7 @@ Par exemple, pour définir des règles d’autorisation limitées à l’envoi e
 
 
 > [!NOTE]
-> Même si cela est déconseillé, il est possible d’équiper les appareils de jetons qui octroient un accès à un hub d’événements ou à un espace de noms. N’importe quel appareil qui détient ce jeton peut envoyer des messages directement à ce hub d’événements. En outre, il est impossible d’empêcher l’appareil d’effectuer des envois à ce hub d’événements.
+> Même si cela est déconseillé, il est possible d’équiper les appareils de jetons qui octroient un accès à un hub d’événements ou à un espace de noms. N’importe quel appareil qui détient ce jeton peut envoyer des messages directement à ce hub d’événements. En outre, il est impossible d’empêcher l’appareil d’effectuer des envois à cet Event Hub.
 > 
 > Il est toujours recommandé de fournir des étendues spécifiques et granulaires.
 

@@ -1,5 +1,6 @@
 ---
-title: Passer en production une application démon appelant des API web – Plateforme d’identités Microsoft | Azure
+title: Déplacer une application démon qui appelle des API web en production | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrir comment passer en production une application démon qui appelle des API web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 72e6d0a8677f7a8175223b80541c99026a9eb16f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04ee4ccc3b0553d6532869d6403000fdedd93b5f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119162"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062709"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Application démon appelant des API web : passage en production
 
@@ -31,20 +32,17 @@ Si vous êtes un éditeur de logiciels indépendant (ISV) créant une applicatio
 
 Vous devrez expliquer à vos clients comment effectuer ces opérations. Pour plus d’informations, consultez [Demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Voici quelques liens pour vous aider à en savoir plus :
+## <a name="code-samples"></a>Exemples de code
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-- Démarrage rapide : [Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application](./quickstart-v2-netcore-daemon.md).
 - Documentation de référence pour :
   - Instanciation de [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
   - Appeler [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Autres exemples/tutoriels :
-  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) propose une simple application de console démon .NET Core qui affiche les utilisateurs d’un locataire interrogeant Microsoft Graph.
+  - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) propose une petite application console démon .NET Core qui affiche les utilisateurs d’un locataire interrogeant Microsoft Graph.
 
     ![Exemple de la topologie d’une application démon](media/scenario-daemon-app/daemon-app-sample.svg)
 
@@ -56,12 +54,18 @@ Voici quelques liens pour vous aider à en savoir plus :
 
     ![Topologie](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+---
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Voici quelques liens pour vous aider à en savoir plus :
+
 # <a name="python"></a>[Python](#tab/python)
 
 Essayez le démarrage rapide [Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Python à l’aide de l’identité de l’application](./quickstart-v2-python-daemon.md).
 
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java est actuellement en préversion publique. Pour plus d’informations, voir [Exemples de développement MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+Essayez le démarrage rapide [Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Java à l’aide de l’identité de l’application](./quickstart-v2-java-daemon.md).
 
 ---

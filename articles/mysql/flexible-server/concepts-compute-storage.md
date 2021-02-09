@@ -1,17 +1,17 @@
 ---
 title: Options de calcul et de stockage - Azure Database pour MySQL - Serveur flexible
 description: Cet article décrit les options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534668"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052344"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -70,6 +70,9 @@ Les spécifications détaillées des types de serveurs disponibles sont les suiv
 | Standard_E64ds_v4    | 64     | 504               |
 
 Pour plus d’informations sur la série de calcul disponible, reportez-vous à la documentation des machines virtuelles Azure pour [Expansible (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Usage général (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md) et [À mémoire optimisée (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
+
+>[!NOTE]
+>Pour le [niveau de calcul Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md) si la machine virtuelle est démarrée/arrêtée ou redémarrée, les crédits peuvent être perdus. Pour plus d’informations, consultez les [questions fréquentes sur le niveau Burstable (série B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Stockage
 

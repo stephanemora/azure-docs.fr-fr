@@ -3,12 +3,12 @@ title: Résoudre des problèmes de connexion à un registre
 description: Symptômes, causes et résolution de problèmes courants de connexion à un registre de conteneurs Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379500"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052076"
 ---
 # <a name="troubleshoot-registry-login"></a>Résoudre des problèmes de connexion au registre
 
@@ -39,6 +39,8 @@ Peuvent inclure un ou plusieurs des symptômes suivants :
 Exécutez la commande [az acr check-health](/cli/azure/acr#az-acr-check-health) pour obtenir des informations supplémentaires sur l’intégrité de l’environnement de registre, et éventuellement l’accès à un registre cible. Par exemple, diagnostiquez des erreurs de configuration de Docker ou des problèmes de connexion à Azure Active Directory. 
 
 Pour des exemples de commandes, consultez [Vérifier l’intégrité d’un registre de conteneurs Azure](container-registry-check-health.md). Si des erreurs sont signalées, examinez les [Informations de référence sur les erreurs](container-registry-health-error-reference.md) et les sections suivantes pour obtenir les solutions recommandées.
+
+Si vous rencontrez des problèmes lors de l’utilisation du registre avec Azure Kubernetes Service, exécutez la commande [az aks check-acr](/cli/azure/aks#az_aks_check_acr) pour vérifier que le registre est accessible à partir du cluster AKS.
 
 > [!NOTE]
 > Certaines erreurs d’authentification ou d’autorisation peuvent également se produire s’il existe des configurations de pare-feu ou de réseau qui empêchent l’accès au registre. Consultez [Résoudre des problèmes de réseau avec un registre](container-registry-troubleshoot-access.md).
@@ -79,7 +81,7 @@ Vérifiez la validité des informations d’identification que vous utilisez pou
 * Si vous utilisez un principal de service Active Directory, veillez à utiliser les informations d’identification correctes dans le locataire Active Directory :
   * Nom d'utilisateur - ID d’application du principal de service (également appelé *ID client*)
   * Mot de passe - mot de passe du principal de service (également appelé *clé secrète client*)
-* Si vous utilisez un service Azure, tel que Azure Kubernetes Service ou Azure DevOps pour accéder au registre, confirmez la configuration du registre pour votre service.
+* Si vous utilisez un service Azure, tel que Azure Kubernetes Service ou Azure DevOps pour accéder au registre, confirmez la configuration du registre pour votre service. 
 * Si vous avez exécuté `az acr login` avec l’option `--expose-token` qui active la connexion au registre sans utiliser le démon Docker, veillez à vous authentifier avec le nom d’utilisateur `00000000-0000-0000-0000-000000000000`.
 * Si votre registre est configuré pour un [accès par tirage (pull) anonyme](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), les informations d’identification Docker existantes stockées à partir d’une connexion Docker précédente peuvent empêcher l’accès anonyme. Exécutez `docker logout` avant de tenter d’effectuer une opération de tirage (pull) anonyme sur le Registre.
 

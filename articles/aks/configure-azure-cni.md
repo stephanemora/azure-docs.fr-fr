@@ -4,12 +4,12 @@ description: Découvrez comment configurer un réseau (avancé) Azure CNI dans A
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000570"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062215"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -63,7 +63,7 @@ Le nombre maximal de pods par nœud dans un cluster AKS est de 250. Le nombre ma
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Oui (jusqu’à 250) |
 | Modèle Resource Manager | 110 | 30 | Oui (jusqu’à 250) |
-| Portail | 110 | 30 | Non |
+| Portail | 110 | 110 (configuré dans l’onglet Pools de nœuds) | Non |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
 
@@ -96,6 +96,8 @@ Quand vous créez un cluster AKS, les paramètres suivants sont configurables po
 **Réseau virtuel** : réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*. Pour plus d’informations sur les limites et quotas d’un réseau virtuel Azure, voir [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Sous-réseau** : sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*. Pour une connectivité hybride, la plage d’adresses ne doit pas chevaucher d’autres réseaux virtuels dans votre environnement.
+
+**Plug-in Réseau Azure** : Quand le plug-in Réseau Azure est utilisé, le service d’équilibrage de charge interne avec « externalTrafficPolicy=Local » n’est pas accessible à partir de machines virtuelles avec une adresse IP dans clusterCIDR qui n’appartient pas au cluster AKS.
 
 **Plage d’adresses du service Kubernetes** : il s’agit de l’ensemble d’adresses IP virtuelles que Kubernetes attribue aux [services][services] internes dans votre cluster. Vous pouvez utiliser n’importe quelle plage d’adresses privées répondant aux exigences suivantes :
 

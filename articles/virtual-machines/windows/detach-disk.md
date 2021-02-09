@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201550"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055193"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Détachement d’un disque de données d’une machine virtuelle Windows
 
@@ -53,11 +53,13 @@ Vous pouvez supprimer *à chaud* un disque de données, mais vérifiez cependant
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 1. Sélectionnez la machine virtuelle qui a le disque de données que vous voulez détacher.
 1. Sous **Paramètres**, sélectionnez **Disques**.
-1. Dans le volet **Disques**, tout à droite du disque de données que vous voulez détacher, cliquez sur le bouton de suppression **X**.
+1. Dans le volet **Disques**, tout à droite du disque de données que vous voulez détacher, cliquez sur le bouton de détachement **X**.
 1. Sélectionnez **Enregistrer** en haut de la page pour enregistrer vos modifications.
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez réutiliser le disque de données, vous pouvez simplement [l’attacher à une autre machine virtuelle](attach-managed-disk-portal.md)
+Si vous souhaitez réutiliser le disque de données, vous pouvez simplement l’[attacher à une autre machine virtuelle](attach-managed-disk-portal.md).
+
+Si vous souhaitez supprimer le disque afin d’éviter les coûts de stockage, consultez [Recherche et suppression des disques Azure non attachés (managés ou non) – Portail Azure](../disks-find-unattached-portal.md).

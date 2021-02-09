@@ -1,5 +1,5 @@
 ---
-title: Utiliser l'interface CLI pour la mise à l'échelle des unités réservées Multimédia (MRU) - Azure | Microsoft Docs
+title: Mettre à l’échelle des unités réservées Multimédia - CLI
 description: Cette rubrique explique comment utiliser la CLI pour la mise à l’échelle du traitement multimédia avec Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617143"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955883"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Mise à l'échelle des unités réservées Multimédia
 

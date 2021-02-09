@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223633"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919967"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée à l’aide d’Azure PowerShell
 
@@ -61,11 +61,9 @@ Les distributions suivantes sont prises en charge directement à partir de la ga
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
 
-La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul avec deux processeurs virtuels ou plus.  Séries prises en charge : Dv2/DSv2 et F/Fs.
+La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus). Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum 4 processeurs virtuels. 
 
-Dans des instances qui acceptent l’hyperthreading, la mise en réseau accélérée est prise en charge dans des instances de machine virtuelle comptant au minimum quatre processeurs virtuels. Séries prises en charge : D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, et Ms/Mmsv2.
-
-Pour plus d’informations sur les instances de machine virtuelle, reportez-vous à [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La prise en charge des performances réseau accélérées est abordée dans la [documentation des tailles de machines virtuelles](../virtual-machines/sizes.md). 
 
 ### <a name="custom-images"></a>Images personnalisées
 

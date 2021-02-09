@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266321"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090958"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Comment utiliser des identités managées pour ressources Azure sur une machine virtuelle Azure pour se connecter 
 
@@ -90,12 +90,7 @@ Des réponses telles que les suivantes peuvent indiquer que l’identité manag�
 - PowerShell : *Invoke-WebRequest : Impossible de se connecter au serveur distant*
 - Interface CLI : *MSI : Impossible de récupérer un jeton à partir de `http://localhost:50342/oauth2/token`, erreur 'HTTPConnectionPool(host='localhost', port=50342)* 
 
-Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure dans le [portail Azure](https://portal.azure.com) et :
-
-- Accédez à la page **Identité**, puis assurez-vous que l’option **Affecté(e) par le système** est définie sur « Oui ».
-- Allez à la page **Extensions**, puis assurez-vous que l’extension d’identités managées pour ressources Azure **(prévue pour janvier 2019)** a bien été déployée.
-
-Si l’un des paramétrages est incorrect, il se peut que vous deviez redéployer les identités managées pour ressources Azure sur votre ressource, ou résoudre le problème de déploiement. Si vous avez besoin d’aide pour configurer une machine virtuelle, voir [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](qs-configure-portal-windows-vm.md).
+Si vous recevez l’une de ces erreurs, revenez à la machine virtuelle Azure dans le [portail Azure](https://portal.azure.com) et accédez à la page **Identité** pour vérifier que **Affecté par le système** est défini sur « Oui ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

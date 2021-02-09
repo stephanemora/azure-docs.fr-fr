@@ -1,5 +1,5 @@
 ---
-title: Recommandations en matière de migration basées sur un scénario d’encodage | Microsoft Docs
+title: Guide de migration dans un scénario basé sur l’encodage
 description: Cet article fournit des recommandations basées sur un scénario d’encodage, qui vous aideront à opérer une migration de la version v2 à la version v3 d’Azure Media Services.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d122bdeb98de624d9053852b9bee4595b0ef8c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ab819239572fd99fdf5ff3bf23f81eb3cdff3b9a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689445"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940105"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’encodage
 

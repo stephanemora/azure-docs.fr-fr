@@ -1,18 +1,16 @@
 ---
-title: Activer Update Management à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+title: Activer Update Management à l’aide d’un modèle Azure Resource Manager
 description: Cet article explique comment utiliser un modèle Resource Manager pour activer Update Management.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183232"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050329"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Activer Update Management à l’aide d’un modèle Azure Resource Manager
 
@@ -29,7 +27,7 @@ Le modèle n’automatise pas l’activation d’Update Management sur une ou pl
 Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation déployés dans une région prise en charge dans votre abonnement, ils ne sont pas liés. Ce modèle permet de créer le lien et de déployer Update Management.
 
 >[!NOTE]
->La création du compte d’identification Automation n’est pas prise en charge quand vous utilisez un modèle ARM. Pour créer manuellement un compte d’identification à partir du portail ou avec PowerShell, consultez [Gérer les comptes d’identification](../manage-runas-account.md).
+>La création du compte d’identification Automation n’est pas prise en charge quand vous utilisez un modèle ARM. Pour créer manuellement un compte d’identification à partir du portail ou à l’aide de PowerShell, consultez [Créer un compte d’identification](../create-run-as-account.md).
 
 Une fois ces étapes accomplies, vous devez [configurer des paramètres de diagnostic](../automation-manage-send-joblogs-log-analytics.md) pour votre compte Automation, afin d’envoyer l’état de la tâche du Runbook et les flux de tâches à l’espace de travail Log Analytics lié.
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920822"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063010"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -216,7 +216,7 @@ Quand vous utilisez le déclencheur de requête pour gérer les requêtes entran
 > Si une action Réponse contient les en-têtes ci-dessous, Logic Apps les supprime du message de réponse généré sans afficher d’avertissement ou d’erreur :
 >
 > * `Allow`
-> * `Content-*` à ces exceptions près : `Content-Disposition`, `Content-Encoding` et `Content-Type`
+> * En-têtes `Content-*`, à l’exception de `Content-Disposition`, `Content-Encoding` et `Content-Type` lorsque vous utilisez des opérations POST et PUT, mais ne sont pas inclus pour les opérations GET
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

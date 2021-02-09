@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517966"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938567"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 
@@ -58,6 +58,9 @@ Nous avons trois modèles de connectivité distincts, qui se traduisent par troi
   * Table de routage associée : **Par défaut**
   * Propagation aux tables de routage : **RT_SHARED** et **Par défaut**
 
+> [!NOTE] 
+> Assurez-vous que les réseaux virtuels spoke ne se propagent pas à l’étiquette par défaut. Cela garantit que le trafic des branches vers les réseaux virtuels spoke est transféré aux appliances virtuelles réseau.
+
 Ces itinéraires statiques garantissent que le trafic à destination et en provenance du réseau virtuel et de la branche parcourt l’appliance virtuelle réseau dans le réseau virtuel de service (VNet 4) :
 
 | Description | Table de routage | Itinéraire statique              |
@@ -78,13 +81,13 @@ Pour plus d’informations, consultez [À propos du routage de hub virtuel](abou
 
 Voici un diagramme de l’architecture décrite précédemment dans cet article.
 
-Il y a un hub, appelé **Hub 1** .
+Il y a un hub, appelé **Hub 1**.
 
-* **Hub1** est connecté directement aux réseaux virtuels NVA **VNet 4** et **VNet 5** .
+* **Hub1** est connecté directement aux réseaux virtuels NVA **VNet 4** et **VNet 5**.
 
-* Le trafic entre les VNets 1, 2 et 3 et les branches devrait passer par la **NVA VNet 4**  10.4.0.5.
+* Le trafic entre les VNets 1, 2 et 3 et les branches devrait passer par la **NVA VNet 4** 10.4.0.5.
 
-* Tout le trafic Internet en provenance des VNets 1, 2 et 3 devrait passer par la **NVA VNet 5**  10.5.0.5.
+* Tout le trafic Internet en provenance des VNets 1, 2 et 3 devrait passer par la **NVA VNet 5** 10.5.0.5.
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Diagramme de l’architecture d’un réseau.":::
 
@@ -94,11 +97,11 @@ Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
 1. Pour que le trafic Internet transite via VNet 5, vous avez besoin que les VNets 1, 2 et 3 se connectent directement à VNet 5 via l’appairage de réseaux virtuels. Vous avez également besoin d’un itinéraire défini par l’utilisateur dans les réseaux virtuels pour 0.0.0.0/0 et le tronçon suivant 10.5.0.5. Actuellement, Virtual WAN n’autorise pas une appliance virtuelle réseau de tronçon suivant dans le hub virtuel pour 0.0.0.0/0.
 
-1. Dans le portail Azure, accédez à votre hub virtuel et créez une table de routage personnalisée appelée **RT_Shared** . Ce tableau apprend les itinéraires via la propagation à partir de toutes connexions de réseau virtuel et de branche. Vous pouvez voir cette table vide dans le diagramme suivant.
+1. Dans le portail Azure, accédez à votre hub virtuel et créez une table de routage personnalisée appelée **RT_Shared**. Ce tableau apprend les itinéraires via la propagation à partir de toutes connexions de réseau virtuel et de branche. Vous pouvez voir cette table vide dans le diagramme suivant.
 
    * **Itinéraires :** Vous n’avez pas besoin d’ajouter des itinéraires statiques.
 
-   * **Association :** Sélectionnez les VNet 4 et 5, ce qui signifie que les connexions de ces réseaux virtuels sont associées à la table de routage **RT_Shared** .
+   * **Association :** Sélectionnez les VNet 4 et 5, ce qui signifie que les connexions de ces réseaux virtuels sont associées à la table de routage **RT_Shared**.
 
    * **Propagation :** Étant donné que vous souhaitez que l’ensemble des branches et des connexions de réseau virtuel propagent leurs itinéraires de manière dynamique vers cette table de routage, sélectionnez les branches et tous les réseaux virtuels.
 
@@ -108,9 +111,9 @@ Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
    * **Association :** sélectionnez tous les VNets 1, 2 et 3. Cela implique que les connexions de réseau virtuel 1, 2 et 3 seront associées à cette table de routage et pourront apprendre des itinéraires statiques et dynamiques à partir de la propagation dans cette table de routage.
 
-   * **Propagation :** les connexions propagent des itinéraires vers des tables de routage. La sélection des VNets 1, 2 et 3 permet de propager les itinéraires des VNets 1, 2 et 3 vers cette table de routage. Il n’est pas nécessaire de propager les itinéraires des connexions de branche vers **RT_V2B** , car le trafic de réseau virtuel de branche transite par la NVA dans VNet 4.
+   * **Propagation :** les connexions propagent des itinéraires vers des tables de routage. La sélection des VNets 1, 2 et 3 permet de propager les itinéraires des VNets 1, 2 et 3 vers cette table de routage. Il n’est pas nécessaire de propager les itinéraires des connexions de branche vers **RT_V2B**, car le trafic de réseau virtuel de branche transite par la NVA dans VNet 4.
   
-1. Modifiez la table de routage par défaut **DefaultRouteTable** .
+1. Modifiez la table de routage par défaut **DefaultRouteTable**.
 
    Toutes les connexions VPN, Azure ExpressRoute et VPN utilisateur sont associées à la table de routage par défaut. Toutes les connexions VPN, ExpressRoute et VPN utilisateur propagent des itinéraires vers le même ensemble de tables de routage.
 
@@ -120,7 +123,7 @@ Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
    * **Propagation à partir de :** Assurez-vous que l’option des branches (VPN/ER/P2S) est sélectionnée, en veillant à ce que les connexions locales soient des routes propagées à la table de routage par défaut.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagramme de l’architecture d’un réseau." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagramme du workflow." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

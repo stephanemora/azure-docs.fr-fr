@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760627"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430795"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Présentation : Préversion Azure Logic Apps
 
@@ -168,6 +168,8 @@ Pour plus d’informations sur les modèles de tarification qui s’appliquent �
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Capacités modifiées, limitées, non disponibles ou non prises en charge
 
 Dans Azure Logic Apps (préversion), ces capacités ont changé, ou elles sont actuellement limitées, non disponibles ou non prises en charge :
+
+* **Prise en charge du système d’exploitation** : actuellement, le concepteur de Visual Studio Code ne fonctionne pas sur le système d’exploitation Linux. Toutefois, vous pouvez déployer des applications logiques qui utilisent le runtime Logic Apps Preview sur des machines virtuelles basées sur Linux. Pour le moment, vous pouvez créer vos applications logiques dans Visual Studio Code sur Windows ou macOS, puis les déployer sur une machine virtuelle Linux.
 
 * **Déclencheurs et actions** : Certains déclencheurs intégrés ne sont pas disponibles, tels que Fenêtre glissante et Traitement par lots. Pour démarrer votre workflow, utilisez le [déclencheur intégré Périodicité, Requête, HTTP, Webhook HTTP, Event Hubs ou Service Bus](../connectors/apis-list.md). Les déclencheurs et actions intégrés s’exécutent en mode natif dans le runtime d’Azure Logic Apps (préversion), tandis que les connecteurs gérés sont déployés dans Azure. Dans le concepteur, les déclencheurs et les actions intégrés s’affichent sous l’onglet **Intégré**, tandis que les déclencheurs et les actions des connecteurs gérés s’affichent sous l’onglet **Azure**.
 

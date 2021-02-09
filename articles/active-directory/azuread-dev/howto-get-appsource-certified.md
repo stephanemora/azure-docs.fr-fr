@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116316"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052242"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 
@@ -113,9 +113,9 @@ Pour plus d’informations sur l’expérience d’essai gratuit AppSource, rega
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Pour l’intégration Azure AD, nous utilisons [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) avec la communauté pour proposer de l’aide.
+Pour l’intégration Azure AD, nous utilisons [Microsoft Q&A](https://docs.microsoft.com/answers/products/) avec la communauté pour proposer de l’aide.
 
-Nous vous recommandons vivement de poser vos questions sur Stack Overflow d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Assurez-vous que vos questions ou commentaires portent les mentions [`[azure-active-directory]` et `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Nous vous recommandons vivement de poser vos questions sur Microsoft Q&A d’abord et de parcourir les problèmes existants pour voir si quelqu’un d’autre a déjà posé la même question. Vérifiez que vos questions ou commentaires sont associés aux mots-clés [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 Utilisez la section Commentaires suivante pour donner votre avis et nous aider à affiner et à mettre en forme notre contenu.
 

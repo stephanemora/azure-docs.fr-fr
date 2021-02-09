@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740803"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090788"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management est inclus dans Azure AD Premium P2 ou E
 
 Après avoir activé Azure AD Privileged Identity Management :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général de votre organisation de production Azure AD.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur général de votre organisation de production Azure AD.
 
 2. Pour sélectionner l’organisation Azure AD dans laquelle vous souhaitez utiliser Privileged Identity Management, sélectionnez votre nom d’utilisateur dans l’angle supérieur droit du portail Azure.
 
@@ -143,13 +143,14 @@ Avec la prolifération des appareils personnels (BYOD) et du télétravail, ains
 
 Si vos administrateurs généraux initiaux ont réutilisé leurs informations d’identification de compte Microsoft existantes quand ils ont commencé à utiliser Azure AD, remplacez les comptes Microsoft par des comptes cloud ou synchronisés individuels.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Vérifier les comptes d’utilisateur distincts et le transfert de messagerie pour les comptes administrateur général
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Garantir des comptes d’utilisateurs distincts et le transfert de messagerie pour les comptes Administrateur général
 
-Les comptes de courrier personnels étant régulièrement hameçonnés par des pirates informatiques, il constituent un risque qui rend les adresses de courrier personnelles inacceptables pour des comptes d’administrateur général. Pour dissocier les risques liés à Internet des privilèges administratifs, créez un compte dédié pour chaque utilisateur disposant de tels privilèges.
+Les comptes de courrier personnels étant régulièrement hameçonnés par des pirates informatiques, ils constituent un risque qui rend les adresses de courrier personnelles inacceptables pour des comptes Administrateur général. Pour dissocier les risques liés à Internet des privilèges administratifs, créez un compte dédié pour chaque utilisateur disposant de tels privilèges.
 
-* Veillez à créer des comptes distincts que les utilisateurs peuvent utiliser pour accomplir des tâches d’administration générale.
-* Assurez-vous que vos administrateurs généraux n’ouvrent pas d’e-mails ou n’exécutent pas de programmes accidentellement avec leurs comptes administrateur.
-* Veillez à ce que les e-mails adressés à ces comptes soient transféré vers une boîte aux lettres professionnelle.
+* Veillez à créer des comptes distincts que les utilisateurs peuvent utiliser pour accomplir les tâches d’un administrateur général.
+* Assurez-vous que vos administrateurs généraux n’ouvrent pas d’e-mails ou n’exécutent pas de programmes accidentellement avec leurs comptes Administrateur.
+* Veillez à ce que la messagerie de ces comptes soit transférée vers une boîte aux lettres professionnelle.
+* Les comptes Administrateur général (et autres groupes privilégiés) doivent être des comptes cloud uniquement sans lien avec les instances Active Directory locales.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Vérifier que les mots de passe des comptes administrateur ont été récemment modifiés
 
@@ -430,7 +431,7 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 **Q :** Que faire si je n’ai pas encore implémenté de composants d’accès sécurisé ?
 
-**Réponse :** Définissez au minimum deux comptes de secours, affectez MFA à vos comptes administrateur privilégiés et séparez les comptes utilisateurs des comptes administrateur général.
+**Réponse :** Définissez au minimum deux comptes de secours, affectez MFA à vos comptes Administrateur privilégiés et séparez les comptes d’utilisateurs des comptes Administrateur général.
 
 **Q :** Après une violation, quel est le problème à traiter en premier ?
 
@@ -438,7 +439,7 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 **Q :** Que se passe-t-il si nos administrateurs privilégiés ont été désactivés ?
 
-**Réponse :** Créez un compte administrateur général tenu à jour en permanence.
+**Réponse :** Créez un compte Administrateur général tenu à jour en permanence.
 
 **Q :** Que se passe-t-il s’il ne reste qu’un seul administrateur général et que celui-ci est inaccessible ?
 

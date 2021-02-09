@@ -1,24 +1,9 @@
 ---
-title: Comptes de stockage Azure
-titleSuffix: Azure Media Services
-description: Découvrez comment créer un compte de stockage Azure à utiliser avec Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882244"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Champs obligatoires. Pour en savoir plus, consultez aka.ms/skyeye/meta.
+titre : Comptes de stockage Azure : Description d’Azure Media Services : Découvrez comment créer un compte de stockage Azure à utiliser avec Azure Media Services.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 01/29/2021 ms.author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -34,7 +19,7 @@ Nous vous recommandons d’utiliser GPv2 afin de tirer parti des dernières fonc
 > [!NOTE]
 > Seul le niveau d’accès chaud est pris en charge pour une utilisation avec Azure Media Services, bien que les autres niveaux d’accès puissent être utilisés pour réduire les coûts de stockage sur le contenu qui n’est pas activement utilisé.
 
-Vous pouvez choisir entre différentes références SKU pour votre compte de stockage. Pour plus d’informations, consultez [Comptes de stockage](/cli/azure/storage/account?view=azure-cli-latest). Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité.
+Vous pouvez choisir entre différentes références SKU pour votre compte de stockage. Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité.
 
 ## <a name="assets-in-a-storage-account"></a>Ressources d’un compte de stockage
 
@@ -49,14 +34,15 @@ Pour protéger vos éléments multimédias au repos, les ressources doivent êtr
 
 |Option de chiffrement|Description|Media Services v3|
 |---|---|---|
-|Chiffrement du stockage Media Services| Chiffrement AES-256, clé gérée par Media Services. |Non pris en charge.<sup>(1)</sup>|
+|Chiffrement du stockage Media Services| Chiffrement AES-256, clé gérée par Media Services. |Non pris en charge.<sup>1</sup>|
 |[Chiffrement du service de stockage pour les données au repos](../../storage/common/storage-service-encryption.md)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Pris en charge.|
 |[Chiffrement du stockage côté client](../../storage/common/storage-client-side-encryption.md)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge.|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que v3 fonctionne avec les ressources chiffrées du stockage existant, mais n’autorise pas la création de nouveaux éléments.
 
-## <a name="double-encryption"></a>Double chiffrement
-Media Services prend en charge le double chiffrement.  Pour en savoir plus sur le double chiffrement, consultez [Double chiffrement Azure](../../security/fundamentals/double-encryption.md).
+## <a name="storage-account-double-encryption"></a>Double chiffrement du compte de stockage
+
+Les comptes de stockage prennent en charge le double chiffrement, mais la deuxième couche doit être activée explicitement. Pour en savoir plus, consultez [Chiffrement du Stockage Azure pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Erreurs relatives au compte de stockage
 
@@ -68,10 +54,6 @@ Voici les principaux scénarios qui aboutissent à un compte Media Services n’
 |---|---|
 |Le compte Media Services ou un ou plusieurs comptes de stockage attachés ont été migrés vers des abonnements distincts. |Migrez les comptes de stockage ou le compte Media Services afin qu’ils soient tous dans le même abonnement. |
 |Le compte Media Services utilise un compte de stockage attaché dans un abonnement différent car il s’agissait d’un ancien compte Media Services où ceci était pris en charge. Tous les anciens comptes Media Services ont été convertis en comptes modernes basés sur Azure Resource Manager et ont un état Déconnecté. |Migrez le compte de stockage ou le compte Media Services afin qu’ils soient tous dans le même abonnement.|
-
-## <a name="azure-storage-firewall"></a>Pare-feu de Stockage Azure
-
-La plateforme Azure Media Services ne prend pas en charge les comptes de stockage dont le pare-feu de Stockage Azure ou les [points de terminaison privés](../../storage/common/storage-network-security.md) sont activés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

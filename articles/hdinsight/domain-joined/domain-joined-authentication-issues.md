@@ -1,18 +1,15 @@
 ---
 title: Problèmes d’authentification dans Azure HDInsight
 description: Problèmes d’authentification dans Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 9f10597023314aed8640ee5a7499a77f952c3694
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284440"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095122"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problèmes d’authentification dans Azure HDInsight
 
@@ -38,7 +35,7 @@ Le code d’erreur 50126 d’Azure AD signifie que la stratégie `AllowCloudPass
 
 ### <a name="resolution"></a>Résolution
 
-L’administrateur de la société du locataire Azure AD doit autoriser Azure AD à utiliser des hachages de mot de passe pour les utilisateurs d’ADFS.  Appliquez la stratégie `AllowCloudPasswordValidationPolicy` comme montré dans l’article [Utiliser le pack Sécurité Entreprise dans HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+L’administrateur général du locataire Azure AD doit autoriser Azure AD à utiliser des hachages de mot de passe pour les utilisateurs d’ADFS.  Appliquez la stratégie `AllowCloudPasswordValidationPolicy` comme montré dans l’article [Utiliser le pack Sécurité Entreprise dans HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 

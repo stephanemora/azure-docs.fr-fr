@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 2537167783f3e68c52c665dafa9378193852acb4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.date: 02/01/2021
+ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930379"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223087"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Database pour PostgreSQL à l’aide d’Azure Data Factory
 
@@ -175,8 +175,9 @@ Pour copier des données vers Azure Database pour PostgreSQL, les propriétés s
 |:--- |:--- |:--- |
 | type | La propriété type du récepteur d’activité de copie doit être définie sur **AzurePostgreSQLSink**. | Oui |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant d'écrire des données dans Azure Database pour PostgreSQL à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
-| writeBatchSize | Insère des données dans la table Azure Database pour PostgreSQL quand la taille de la mémoire tampon atteint writeBatchSize.<br>La valeur autorisée est un entier qui représente le nombre de lignes. | Non (valeur par défaut : 10 000) |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Les valeurs autorisées sont des intervalles de temps. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:00:30) |
+| writeMethod | Méthode utilisée pour écrire des données dans Azure Database pour PostgreSQL.<br>Les valeurs autorisées sont les suivantes : **CopyCommand** (préversion, qui est plus performante), **BulkInsert** (par défaut). | Non |
+| writeBatchSize | Nombre de lignes chargées dans Azure Database pour PostgreSQL par lot.<br>La valeur autorisée est un entier qui représente le nombre de lignes. | Non (valeur par défaut : 1 000 000) |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Les valeurs autorisées sont des intervalles de temps. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:30:00) |
 
 **Exemple** :
 
@@ -204,7 +205,8 @@ Pour copier des données vers Azure Database pour PostgreSQL, les propriétés s
             "sink": {
                 "type": "AzurePostgreSQLSink",
                 "preCopyScript": "<custom SQL script>",
-                "writeBatchSize": 100000
+                "writeMethod": "CopyCommand",
+                "writeBatchSize": 1000000
             }
         }
     }
