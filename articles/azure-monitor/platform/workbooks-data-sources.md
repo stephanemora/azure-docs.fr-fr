@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927904"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061944"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Sources de données des classeurs Azure Monitor
 
@@ -59,7 +59,7 @@ Pour qu’un contrôle de requête utilise cette source de données, utilisez la
 
 ## <a name="azure-data-explorer"></a>Explorateur de données Azure
 
-Les classeurs prennent maintenant en charge l’interrogation de clusters [Azure Data Explorer](/azure/data-explorer/) avec le puissant langage de requête [Kusto](/azure/kusto/query/index).   
+Les classeurs prennent maintenant en charge l’interrogation de clusters [Azure Data Explorer](/azure/data-explorer/) avec le puissant langage de requête [Kusto](/azure/kusto/query/index).
 
 ![Capture d’écran de la fenêtre de requête Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Pour qu’un contrôle de requête utilise cette source de données, utilisez la
 
 ![Capture d’écran de la requête d’alertes qui permet d’afficher les listes de filtres d’intégrité](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Analyse des changements (préversion)
+
+Pour créer un contrôle de requête en utilisant l’[analyse des changements d'application](../app/change-analysis.md) comme source de données, utilisez la liste déroulante *Source de données*, puis choisissez *Analyse des changements (préversion)* et sélectionnez une seule ressource. Vous pouvez afficher les changements apportés les 14 derniers jours. La liste déroulante *Niveau* peut être utilisée pour filtrer les modifications « importantes », « normales » et « bruyantes ». Elle prend en charge les paramètres de classeur de type [liste déroulante](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran d’un classeur avec l’analyse des changements](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Fusionner des données de différentes sources
+
+Il est souvent nécessaire de rassembler des données de différentes sources afin d’améliorer l’expérience d’obtention d’insights. L’ajout d’informations sur les alertes actives avec les données de métriques associées en est un exemple. Cela permet aux utilisateurs de voir non seulement l’effet (une alerte active), mais également les causes potentielles (par exemple, utilisation élevée du processeur). Le domaine de surveillance contient de nombreuses sources de données corrélées qui sont souvent essentielles pour le flux de travail de triage et de diagnostic.
+
+Workbooks autorise l’interrogation de sources de données différentes et fournit également des contrôles simples qui vous permettent de fusionner ou de joindre les données pour fournir des insights enrichis. Le contrôle `merge` est le moyen d’atteindre cet objectif.
+
+L’exemple ci-dessous combine les données d’alerte avec les données de performances de machine virtuelle d’analytique des journaux d’activité pour obtenir une grille riche en insights.
+
+> [!div class="mx-imgBorder"]
+> ![Capture d’écran d’un classeur avec un contrôle de fusion qui associe les données d’alerte et d’analytique des journaux d’activité](./media/workbooks-data-sources/merge-control.png)
+
+Workbooks prend en charge diverses fusions :
+
+* Jointure interne unique
+* Jointure interne complète
+* Jointure externe entière
+* Jointure externe gauche
+* Jointure externe droite
+* Semi-jointure gauche
+* Semi-jointure droite
+* Jointure anti gauche
+* Jointure anti gauche droite
+* Union
+* Dupliquer la table
+
 ## <a name="json"></a>JSON
 
 Le fournisseur JSON vous permet de créer un résultat de requête à partir d’un contenu JSON statique. Il est le plus souvent utilisé dans Paramètres pour créer des paramètres déroulants de valeurs statiques. Des tableaux ou objets JSON simples seront automatiquement convertis en lignes et colonnes de grille.  Pour des comportements plus spécifiques, vous pouvez utiliser l’onglet Résultats et les paramètres JSONPATH afin de configurer les colonnes.
+
+Ce fournisseur prend en charge [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="alerts-preview"></a>Alertes (préversion)
 
@@ -102,10 +136,12 @@ Les classeurs prennent en charge l’obtention de données à partir de n’impo
 
 Pour qu’un contrôle de requête utilise cette source de données, utilisez la liste déroulante _Source de données_ pour choisir _Point de terminaison personnalisé_. Fournissez les paramètres appropriés, tels que `Http method`, `url`, `headers`, `url parameters` et/ou `body`. Assurez-vous que votre source de données prenne en charge [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). sinon, la requête échouera.
 
-Pour éviter d’effectuer automatiquement des appels à des hôtes non approuvés lors de l’utilisation de modèles, l’utilisateur doit marquer les hôtes utilisés comme approuvés. Pour ce faire, vous pouvez soit cliquer sur le bouton _Ajouter en tant qu’approuvé_ , soit l’ajouter en tant qu’hôte approuvé dans les Paramètres du classeur. Ces paramètres sont enregistrés dans les navigateurs qui prennent en charge IndexDb avec les traitements Web, plus d’informations [ici](https://caniuse.com/#feat=indexeddb).
+Pour éviter d’effectuer automatiquement des appels à des hôtes non approuvés lors de l’utilisation de modèles, l’utilisateur doit marquer les hôtes utilisés comme approuvés. Pour ce faire, vous pouvez soit cliquer sur le bouton _Ajouter en tant qu’approuvé_, soit l’ajouter en tant qu’hôte approuvé dans les Paramètres du classeur. Ces paramètres sont enregistrés dans les [navigateurs qui prennent en charge IndexDb avec les rôles de travail](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > N’écrivez aucun secret dans les champs (`headers`, `parameters`, `body`, `url`), car ils seront visibles par tous les utilisateurs du Classeur.
+
+Ce fournisseur prend en charge [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

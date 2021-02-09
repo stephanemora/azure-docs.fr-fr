@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Vue d’ensemble de Sauvegarde Azure
       href: backup-overview.md
@@ -472,7 +472,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
     - name: PowerShell – Agent Sauvegarde Azure
-      href: /powershell/module/msonlinebackup
+      href: /powershell/module/msonlinebackup/msonlinebackup
     - name: REST - Sauvegarde
       href: /rest/api/backup/
     - name: REST - Coffre Recovery Services
