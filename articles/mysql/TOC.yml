@@ -1,6 +1,7 @@
 - name: Documentation Azure Database pour MySQL
   href: index.yml
 - name: Vue d’ensemble
+  expanded: true
   items:
     - name: "Qu’est-ce qu’Azure DB pour MySQL\_?"
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: Serveur unique
-  expanded: true
   items:
     - name: Documentation Serveur unique
       href: single-server/index.yml
@@ -387,7 +387,7 @@
           displayName: application
         - name: Bonnes pratiques opérationnelles
           href: concept-operation-excellence-best-practices.md
-    - name: Dépannage
+    - name: Résolution des problèmes
       items:
         - name: Dépannage de la performance des requêtes
           href: howto-troubleshoot-query-performance.md

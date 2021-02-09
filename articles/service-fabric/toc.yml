@@ -713,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Se connecter à distance à la machine virtuelle du nœud de cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Mettre à niveau des nœuds de cluster pour utiliser des disques managés
-                  href: upgrade-managed-disks.md
         - name: Clusters autonomes
           items:
             - name: Créer
