@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632781"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221045"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à GitHub AE
 
@@ -71,7 +71,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **GitHub AE**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -93,11 +93,19 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![image](common/default-attributes.png)
 
-1. En plus de ce qui précède, l’application GitHub AE s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-    
-    | Nom |  Attribut source|
-    | ----------- | --------- |
-    | administrator | true |
+1. Modifiez **Attributs utilisateur et revendications**.
+
+1. Cliquez sur **Ajouter une nouvelle revendication**, puis entrez le nom **administrateur** dans la zone de texte.
+
+1. Développez **Conditions de revendication** et sélectionnez **Membres** dans **Type d’utilisateur**.
+
+1. Cliquez sur **Sélectionnez des groupes** et recherchez le **Groupe** pour lequel vous souhaitez inclure cette revendication, dont les membres doivent être administrateurs pour GHAE.
+
+1. Sélectionnez **Attribut** pour **Source** et entrez **true** pour **Valeur**. 
+
+10. Cliquez sur **Enregistrer**.
+
+    ![gérer la revendication](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > Pour savoir comment ajouter une revendication, suivez ce [lien](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).

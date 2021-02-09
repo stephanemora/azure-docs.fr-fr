@@ -1,17 +1,17 @@
 ---
 title: 'Paramètres d’un serveur : Azure Database pour MySQL'
 description: Cette rubrique fournit des instructions pour la configuration des paramètres de serveur dans Azure Database pour MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534906"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951308"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Paramètres de serveur dans Azure Database pour MySQL
 
@@ -261,6 +261,18 @@ Consultez la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 |Mémoire optimisée|8|16 777 216|1 024|536870912|
 |Mémoire optimisée|16|16 777 216|1 024|1073741824|
 |Mémoire optimisée|32|16 777 216|1 024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Warmup du pool des tampons InnoDB
+Après le redémarrage du serveur Azure Database pour MySQL, les pages de données résidant sur le disque sont chargées à mesure que les tables sont interrogées. Cela augmente la latence et ralentit les performances lors de la première exécution des requêtes. Cela peut ne pas être acceptable pour les charges de travail sensibles à la latence. L’utilisation du warmup du pool des tampons InnoDB raccourcit la période de warmup en rechargeant les pages de disque qui se trouvaient dans le pool des tampons avant le redémarrage, plutôt que d’attendre les opérations DML ou SELECT pour accéder aux lignes correspondantes.
+
+Vous pouvez réduire la période de warmup après le redémarrage de votre serveur Azure Database pour MySQL, ce qui représente un avantage en termes de performances, en configurant les [paramètres du serveur du pool des tampons InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB enregistre un pourcentage des pages utilisées les plus récentes pour chaque pool des tampons lors de l’arrêt du serveur et restaure ces pages lors du démarrage du serveur.
+
+Il est également important de noter que de meilleures performances entraînent un temps de démarrage plus long pour le serveur. Lorsque ce paramètre est activé, le délai de démarrage et de redémarrage du serveur doit augmenter en fonction des IOPS provisionnées sur le serveur. Nous vous recommandons de tester et de superviser le temps de redémarrage pour vous assurer que les performances de démarrage/redémarrage sont acceptables, car le serveur n’est pas disponible pendant ce temps. Il n’est pas recommandé d’utiliser ce paramètre lorsque les IOPS provisionnées sont inférieures à 1 000 (en d’autres termes, lorsque le stockage provisionné est inférieur à 335 Go).
+
+Pour enregistrer l’état du pool des tampons lors de l’arrêt du serveur, définissez le paramètre de serveur `innodb_buffer_pool_dump_at_shutdown` sur `ON`. De même, définissez le paramètre de serveur `innodb_buffer_pool_load_at_startup` sur `ON` pour restaurer l’état du pool des tampons lors du démarrage du serveur. Vous pouvez contrôler l’impact sur le démarrage/redémarrage en réduisant et en ajustant la valeur du paramètre de serveur `innodb_buffer_pool_dump_pct`, par défaut, ce paramètre est défini sur `25`.
+
+> [!Note]
+> Les paramètres de warmup du pool des tampons InnoDB sont uniquement pris en charge dans les serveurs de stockage à usage général avec un stockage allant jusqu’à 16 To. En savoir plus sur [les options de stockage Azure Database pour MySQL ici](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 

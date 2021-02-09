@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966647"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258539"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutoriel : Utiliser des stratégies d’allocation personnalisées avec le service DPS (Device Provisioning Service)
 
@@ -320,7 +320,7 @@ Dans cette section, vous allez mettre à jour un exemple d’approvisionnement n
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil Toaster et son assignation au hub IoT défini par la stratégie d’allocation personnalisée.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -347,7 +347,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Dans la fonction `main()`, recherchez l’appel à `Prov_Device_Register_Device()`. Juste avant cet appel, ajoutez les lignes de code suivantes qui utilisent [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) pour passer une charge utile JSON personnalisée pendant le provisionnement. Cela permet de fournir plus d’informations à vos fonctions d’allocation personnalisées. Cela peut également être utilisé pour passer le type d’appareil au lieu d’examiner l’ID d’inscription.
+6. Dans la fonction `main()`, recherchez l’appel à `Prov_Device_Register_Device()`. Juste avant cet appel, ajoutez les lignes de code suivantes qui utilisent [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) pour passer une charge utile JSON personnalisée pendant le provisionnement. Cela permet de fournir plus d’informations à vos fonctions d’allocation personnalisées. Cela peut également être utilisé pour passer le type d’appareil au lieu d’examiner l’ID d’inscription. Pour plus d’informations sur l’envoi et la réception de charges utiles de données personnalisées avec DPS, consultez [Guide pratique pour transférer des charges utiles entre des appareils et un service DPS](how-to-send-additional-data.md).
 
     ```c
     // An example custom payload
@@ -475,9 +475,9 @@ Pour supprimer le groupe de ressources par nom :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-2. Dans la zone de texte **Filtrer par nom...**, tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
+2. Dans la zone de texte **Filtrer par nom...** , tapez le nom du groupe de ressources contenant vos ressources (ici, **contoso-us-resource-group**). 
 
-3. À droite de votre groupe de ressources dans la liste des résultats, sélectionnez **...**, puis **Supprimer le groupe de ressources**.
+3. À droite de votre groupe de ressources dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 
 4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez à nouveau le nom de votre groupe de ressources pour confirmer, puis sélectionnez **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 

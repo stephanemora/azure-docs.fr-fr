@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985856"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089290"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -124,7 +124,7 @@ Pour définir l’administrateur Azure AD :
     ![Sélectionner Active Directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > Vous devez avoir le rôle « Administrateur d’entreprise » ou « Administrateur général » pour effectuer cette tâche.
+    > Vous devez être « Administrateur général » pour effectuer cette tâche.
 
 1. Dans la page **Ajouter un administrateur**, recherchez et sélectionnez l’utilisateur ou le groupe AD, puis choisissez **Sélectionner**. Tous les membres et groupes de votre annuaire Active Directory sont listés. Les entrées grisées ne sont pas prises en charge en tant qu’administrateurs Azure AD. Consultez [Limitations et fonctionnalités Azure AD](authentication-aad-overview.md#azure-ad-features-and-limitations).
 

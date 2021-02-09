@@ -3,19 +3,24 @@ title: Déployer le rôle Passerelle des services Bureau à distance Windows Vir
 description: Comment déployer le rôle Passerelle des services Bureau à distance Windows Virtual Desktop - Azure
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798001"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220817"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Déployer le rôle Passerelle des services Bureau à distance Windows Virtual Desktop
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Déployer le rôle Passerelle des services Bureau à distance Windows Virtual Desktop (préversion)
 
-Cet article vous indique comment déployer les serveurs de passerelle Bureau à distance dans votre environnement. Vous pouvez installer les rôles serveur sur des ordinateurs physiques ou des machines virtuelles, selon que vous créez un environnement local, hybride ou basé sur le cloud.
+> [!IMPORTANT]
+> Cette fonctionnalité est actuellement disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Cet article vous indique comment utiliser le rôle Passerelle des services Bureau à distance (préversion) pour déployer des serveurs de passerelle Bureau à distance dans votre environnement. Vous pouvez installer les rôles serveur sur des machines physiques ou des machines virtuelles selon que vous créez un environnement local, cloud ou hybride.
 
 ## <a name="install-the-rd-gateway-role"></a>Installer le rôle Passerelle des services Bureau à distance
 

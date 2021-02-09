@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4e2abda6e0e3ef3d638952c05c31a50d91d24e88
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9151a84aa03e9b87b02278672622d458fbc5281e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900910"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538709"
 ---
 Pour créer un hub IoT à l’aide du portail Azure :
 
@@ -35,37 +35,37 @@ Pour créer un hub IoT à l’aide du portail Azure :
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Créer un hub dans le portail Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png" alt-text="Créer un hub dans le portail Azure":::
 
 1. Sélectionnez **Suivant : Réseau** pour poursuivre la création de votre hub.
 
    Choisissez les points de terminaison qui peuvent se connecter à votre IoT Hub. Vous pouvez sélectionner le paramètre par défaut **Point de terminaison public (tous les réseaux)** ou choisir **Point de terminaison public (plages d’adresses IP sélectionnées)** ou **Point de terminaison privé**. Pour ce tutoriel, acceptez le paramètre par défaut.
 
-   ![Choisir les points de terminaison qui peuvent se connecter](media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png" alt-text="Choisissez les points de terminaison qui peuvent se connecter.":::
 
 1. Sélectionnez **Suivant : Gestion** pour poursuivre la création de votre hub.
 
-    ![Définir la taille et la mise à l’échelle d’un nouveau hub avec le portail Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-management.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-management.png" alt-text="Définissez la taille et la mise à l’échelle d’un nouveau hub avec le portail Azure.":::
 
-    Vous pouvez accepter les paramètres par défaut ici. Si vous le souhaitez, vous pouvez modifier les champs suivants :
+   Vous pouvez accepter les paramètres par défaut ici. Si vous le souhaitez, vous pouvez modifier les champs suivants :
 
-    - **Tarification et niveau de mise à l’échelle** : Le niveau sélectionné. Choisissez le niveau gratuit. Le niveau gratuit est destiné aux tests et à l’évaluation. Il permet la connexion de 500 appareils au hub, avec jusqu’à 8 000 messages par jour. Chaque abonnement Azure peut créer un hub IoT dans le niveau gratuit.
+   - **Tarification et niveau de mise à l’échelle** : Le niveau sélectionné. Choisissez le niveau gratuit. Le niveau gratuit est destiné aux tests et à l’évaluation. Il permet la connexion de 500 appareils au hub, avec jusqu’à 8 000 messages par jour. Chaque abonnement Azure peut créer un hub IoT dans le niveau gratuit.
 
-    - **Unités IoT Hub** : Le nombre de messages autorisés par unité par jour dépend du niveau de tarification de votre concentrateur. Par exemple, si vous souhaitez que le hub prenne en charge l’arrivée de 700 000 messages, vous choisissez deux unités de niveau S1.
-    Chaque abonnement Azure peut créer un hub IoT dans le niveau gratuit. Pour plus d’informations sur les autres options de niveau, consultez [Choix du bon niveau IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
+   - **Unités IoT Hub** : Le nombre de messages autorisés par unité par jour dépend du niveau de tarification de votre concentrateur. Par exemple, si vous souhaitez que le hub prenne en charge l’arrivée de 700 000 messages, vous choisissez deux unités de niveau S1.
+   Chaque abonnement Azure peut créer un hub IoT dans le niveau gratuit. Pour plus d’informations sur les autres options de niveau, consultez [Choix du bon niveau IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Defender pour IoT** : Activez cette fonction pour ajouter une couche de protection supplémentaire contre les menaces à IoT et à vos appareils. Cette option n’est pas disponible pour les hubs au niveau gratuit. Pour plus d’informations sur cette fonctionnalité, consultez [Azure Security Center pour IoT](/azure/asc-for-iot/).
+   - **Defender pour IoT** : Activez cette fonction pour ajouter une couche de protection supplémentaire contre les menaces à IoT et à vos appareils. Cette option n’est pas disponible pour les hubs au niveau gratuit. Pour plus d’informations sur cette fonctionnalité, consultez [Azure Security Center pour IoT](/azure/asc-for-iot/).
 
-    - **Paramètres avancés** > **Partitions appareil-à-cloud** : cette propriété associe les messages appareil-à-cloud au nombre de lecteurs simultanés des messages. La plupart des hubs n’ont besoin que de 4 partitions. Un hub de niveau gratuit est limité à deux partitions.
+   - **Paramètres avancés** > **Partitions appareil-à-cloud** : cette propriété associe les messages appareil-à-cloud au nombre de lecteurs simultanés des messages. La plupart des hubs n’ont besoin que de 4 partitions. Un hub de niveau gratuit est limité à deux partitions.
 
-1.  Sélectionnez **Suivant : Étiquettes** pour continuer à l’écran suivant.
+1. Sélectionnez **Suivant : Étiquettes** pour continuer à l’écran suivant.
 
-    Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../articles/azure-resource-manager/management/tag-resources.md).
+   Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Affecter des étiquettes pour le hub à l’aide du portail Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png" alt-text="Affectez des étiquettes pour le hub à l’aide du portail Azure.":::
 
-1.  Sélectionnez **Suivant : Vérifier + créer** pour passer en revue vos choix. Un écran semblable au suivant s’affiche, mais avec les valeurs que vous avez sélectionnées lors de la création du hub.
+1. Sélectionnez **Suivant : Vérifier + créer** pour passer en revue vos choix. Un écran semblable au suivant s’affiche, mais avec les valeurs que vous avez sélectionnées lors de la création du hub.
 
-    ![Vérifier les informations pour la création du hub](media/iot-hub-tutorials-create-free-hub/hub-definition-create.png)
+   :::image type="content" source="media/iot-hub-tutorials-create-free-hub/hub-definition-create.png" alt-text="Vérifiez les informations pour la création du hub.":::
 
 1. Notez le nom de hub IoT choisi. Vous utiliserez cette valeur plus loin dans le didacticiel.

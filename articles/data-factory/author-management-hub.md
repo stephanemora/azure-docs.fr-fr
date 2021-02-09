@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486128"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428993"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gestion dans Azure Data Factory
 
@@ -40,7 +40,11 @@ Un runtime d’intégration est une infrastructure de calcul qu’Azure Data Fac
 
 ### <a name="git-configuration"></a>Configuration Git
 
-Affichez et modifiez les paramètres configurés de votre référentiel git dans le hub de gestion. Pour plus d’informations, découvrez le [contrôle de code source dans Azure Data Factory](source-control.md).
+Vous pouvez afficher/modifier toutes les informations relatives à Git sous les paramètres de configuration Git dans le hub de gestion. 
+
+Les informations sur la dernière validation publiée sont également listées et peuvent aider à comprendre la validation exacte dernièrement publiée/déployée dans tous les environnements. Elles peuvent également être utiles lors de l’application de correctifs à chaud en production.
+
+Pour plus d’informations, découvrez le [contrôle de code source dans Azure Data Factory](source-control.md).
 
 ![Gérer le dépôt git](media/author-management-hub/management-hub-git.png)
 

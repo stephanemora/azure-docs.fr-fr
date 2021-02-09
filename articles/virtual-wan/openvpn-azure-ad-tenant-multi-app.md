@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043428"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898085"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory (AD) pour les connexions P2S de protocole OpenVPN
 
@@ -57,7 +57,7 @@ Une configuration P2S définit les paramètres permettant de connecter des clien
 
 3. Cliquez sur **Modifier le hub virtuel**.
 
-4. Cochez la case **Inclure la passerelle point à site** et sélectionnez l’ **unité d’échelle de passerelle** souhaitée.
+4. Cochez la case **Inclure la passerelle point à site** et sélectionnez l’**unité d’échelle de passerelle** souhaitée.
 
     ![Capture d’écran montrant la boîte de dialogue Modifier le hub virtuel dans laquelle vous pouvez sélectionner l’unité d’échelle de la passerelle.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
@@ -135,7 +135,15 @@ Utilisez ce [lien](https://go.microsoft.com/fwlink/?linkid=2117554) pour téléc
 
     ![Capture d’écran montrant l’option de diagnostic sélectionnée dans le menu.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
-2. Dans la page **Propriétés de connexion** , sélectionnez **Exécuter le diagnostic**.
+2. Dans la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
+
+    ![Capture d’écran montre le bouton d’exécution du diagnostic pour une connexion.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. Connectez-vous avec vos informations d’identification.
+
+    ![diagnostic 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. Examinez les résultats du diagnostic.
 
     ![Capture d’écran montre le bouton d’exécution du diagnostic pour une connexion.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

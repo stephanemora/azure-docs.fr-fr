@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893375"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ Microsoft travaille en partenariat avec les fournisseurs de logiciels indépenda
 | Partenaire fournisseur de logiciels indépendant | Description et procédures pas à pas d’intégration |
 |:-------------------------|:--------------|
 | ![Capture d’écran d’un logo Arkose Labs](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) est un fournisseur de solutions de prévention des fraudes qui aide les organisations à se protéger contre les attaques de bots, les attaques de prise de contrôle de comptes et les ouvertures de comptes frauduleuses. |
+| ![Capture d’écran d’un logo Ping](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) permet un accès hybride sécurisé aux applications héritées locales sur plusieurs clouds. |
 | ![Capture d’écran d’un logo Strata](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) fournit un accès hybride sécurisé à des applications locales en appliquant des stratégies d’accès cohérentes, en assurant la synchronisation des identités et en simplifiant la transition des applications entre des systèmes d’identité hérités et le contrôle d’accès et l’authentification standard fournis par Azure AD B2C. |
 | ![Capture d’écran d’un logo Zscaler](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) fournit un accès sécurisé basé sur des stratégies aux applications privées et aux ressources, sans les risques liés aux coûts, à la charge ou à la sécurité d’un réseau privé virtuel (VPN). |
 

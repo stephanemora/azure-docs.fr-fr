@@ -3,12 +3,12 @@ title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184014"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491625"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Déploiements de groupes d’administration avec des modèles Resource Manager
 
@@ -112,7 +112,7 @@ Pour plus d’informations sur les commandes et options de déploiement de modè
 
 Pour les déploiements au niveau du groupe d'administration, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement. Les déploiements d’[abonnement](deploy-to-subscription.md) et de [locataire](deploy-to-tenant.md) nécessitent également un emplacement. Pour les déploiements d’un [groupe de ressources](deploy-to-resource-group.md), l’emplacement du groupe de ressources est utilisé pour stocker les données de déploiement.
 
-Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé _azuredeploy.json_ crée le nom de déploiement par défaut **azuredeploy**.
 
 Pour chaque nom de déploiement, l’emplacement est immuable. Il n’est pas possible de créer un déploiement dans un emplacement s’il existe un déploiement du même nom dans un autre emplacement. Par exemple, si vous créez un déploiement de groupe d’administration avec le nom **deployment1** dans **centralus**, vous ne pouvez pas créer par la suite un autre déploiement avec le nom **deployment1** mais un emplacement **westus**. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
 
@@ -164,9 +164,9 @@ Pour utiliser un déploiement de groupe d’administration afin de créer un gro
 
 ### <a name="scope-to-tenant"></a>Étendue au locataire
 
-Vous pouvez créer des ressources au niveau du locataire en définissant `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
+Pour créer des ressources au niveau du locataire, définissez `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
 
-Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `location`.
+Pour utiliser un déploiement imbriqué, définissez `scope` et `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
@@ -222,7 +222,7 @@ L’exemple d’après crée un nouveau groupe d’administration dans le groupe
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Les définitions de stratégie personnalisée qui sont déployées sur un groupe d’administration sont des extensions de celui-ci. Pour obtenir l’ID d’une définition de stratégie personnalisée, utilisez la fonction [extensionResourceId()](template-functions-resource.md#extensionresourceid). Les définitions de stratégie intégrées sont des ressources de niveau locataire. Pour obtenir l’ID d’une définition de stratégie intégrée, utilisez la fonction [tenantResourceId](template-functions-resource.md#tenantresourceid).
+Les définitions de stratégie personnalisée qui sont déployées sur un groupe d’administration sont des extensions de celui-ci. Pour obtenir l’ID d’une définition de stratégie personnalisée, utilisez la fonction [extensionResourceId()](template-functions-resource.md#extensionresourceid). Les définitions de stratégie intégrées sont des ressources de niveau locataire. Pour obtenir l’ID d’une définition de stratégie intégrée, utilisez la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid).
 
 L’exemple suivant montre comment [définir](../../governance/policy/concepts/definition-structure.md) une stratégie au niveau du groupe d’administration et l’attribuer.
 

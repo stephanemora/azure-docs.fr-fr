@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059130"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050683"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -90,6 +90,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | ClaimsEndpointAccessTokenName | Non | Nom du paramètre de chaîne de requête du jeton accès. Les points de terminaison de revendications de certains fournisseurs d’identité prennent en charge les requêtes HTTP GET. Dans ce cas, le jeton du porteur est envoyé à l’aide d’un paramètre de chaîne de requête au lieu de l’en-tête d’autorisation. Valeur par défaut : `access_token`. |
 | ClaimsEndpointFormatName | Non | Nom du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir le nom en tant que `format` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
 | ClaimsEndpointFormat | Non | Valeur du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir la valeur en tant que `json` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
+| BearerTokenTransmissionMethod | Non | Spécifie la façon dont le jeton est envoyé. La méthode par défaut est une chaîne de requête. Pour envoyer le jeton comme en-tête de demande, définissez-le sur `AuthorizationHeader`. |
 | ProviderName | Non | Nom du fournisseur d'identité. |
 | response_mode | Non | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
 | scope | Non | Étendue de la requête définie conformément à la spécification de fournisseur d’identité OAuth2. Par exemple, `openid`, `profile` ou `email`. |

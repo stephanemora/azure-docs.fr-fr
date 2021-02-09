@@ -1,18 +1,18 @@
 ---
 title: Configurer des paramètres personnalisés
 description: Configurez des paramètres qui s’appliquent à l’ensemble de l’environnement Azure App Service. Découvrez comment faire cela avec des modèles Azure Resource Manager.
-author: stefsch
+author: ccompy
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 10/03/2020
-ms.author: stefsch
+ms.date: 01/29/2021
+ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 88163c07d570df5e0ff343776c17c463010ce368
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91713281"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226387"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Paramètres de configuration personnalisés pour les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -61,7 +61,7 @@ Par exemple, si un environnement App Service a quatre serveurs frontaux, la mise
 
 ## <a name="enable-internal-encryption"></a>Activer le chiffrement interne
 
-App Service Environment fonctionne comme un système de boîte noire dans laquelle vous ne pouvez pas voir les composants internes ou la communication au sein du système. Pour activer un débit plus élevé, le chiffrement n’est pas activé par défaut entre les composants internes. Le système est sécurisé, car le trafic est totalement inaccessible à des fins de supervision. Si toutefois vous avez une exigence de conformité qui requiert un chiffrement complet du chemin de données de bout en bout, il existe un moyen de l’activer avec un clusterSetting.  
+App Service Environment fonctionne comme un système de boîte noire dans laquelle vous ne pouvez pas voir les composants internes ou la communication au sein du système. Pour activer un débit plus élevé, le chiffrement n’est pas activé par défaut entre les composants internes. Le système est sécurisé, car le trafic est inaccessible à des fins de supervision. Si toutefois vous avez une exigence de conformité qui requiert un chiffrement complet du chemin de données de bout en bout, il existe un moyen d’activer le chiffrement du chemin de données complet avec un clusterSetting.  
 
 ```json
 "clusterSettings": [
@@ -71,7 +71,7 @@ App Service Environment fonctionne comme un système de boîte noire dans laquel
     }
 ],
 ```
-Ceci va chiffrer le trafic réseau interne de votre ASE entre les front-ends et les Workers, chiffrer le fichier d’échange et chiffrer les disques des Workers. Une fois le clusterSetting InternalEncryption activé, il peut y avoir un impact sur les performances de votre système. Quand vous apportez la modification pour activer InternalEncryption, votre ASE sera dans un état instable jusqu’à ce que la modification soit entièrement propagée. La propagation complète de la modification peut prendre quelques heures, en fonction du nombre d’instances présentes dans votre ASE. Nous vous recommandons vivement de ne pas procéder à l’activation sur un ASE pendant qu’il est en cours d’utilisation. Si vous avez besoin d’activer le chiffrement sur un ASE activement utilisé, nous vous recommandons vivement de diriger le trafic vers un environnement de sauvegarde jusqu’à ce que l’opération soit terminée. 
+L’affectation de la valeur true à InternalEncryption chiffre le trafic réseau interne de votre ASE entre les front-ends et les Workers, chiffre le fichier d’échange et chiffre les disques des Workers. Une fois le clusterSetting InternalEncryption activé, il peut y avoir un impact sur les performances de votre système. Quand vous apportez la modification pour activer InternalEncryption, votre ASE sera dans un état instable jusqu’à ce que la modification soit entièrement propagée. La propagation complète de la modification peut prendre quelques heures, en fonction du nombre d’instances présentes dans votre ASE. Nous vous recommandons vivement de ne pas activer InternalEncryption sur un ASE pendant qu’il est en cours d’utilisation. Si vous avez besoin d’activer InternalEncryption sur un ASE activement utilisé, nous vous recommandons vivement de diriger le trafic vers un environnement de sauvegarde jusqu’à ce que l’opération soit terminée. 
 
 
 ## <a name="disable-tls-10-and-tls-11"></a>Désactiver TLS 1.0 et TLS 1.1
@@ -92,13 +92,13 @@ Si vous souhaitez désactiver tout le trafic TLS 1.0 et TLS 1.1 entrant pour t
 Le nom du paramètre indique 1.0, mais quand il est configuré, il désactive TLS 1.0 et TLS 1.1.
 
 ## <a name="change-tls-cipher-suite-order"></a>Modifier l’ordre des suites de chiffrement TLS
-Les clients demandent également s’ils peuvent modifier la liste des chiffrements négociés par leur serveur. Ils peuvent le faire en modifiant l’attribut **clusterSettings** comme indiqué ci-dessous. Vous trouverez la liste des suites de chiffrement disponibles dans [cet article MSDN](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+L’ASE prend en charge la modification de la suite de chiffrement par défaut. L’ensemble de chiffrements par défaut est le même que celui utilisé dans le service multilocataire. La modification des suites de chiffrement affecte l’intégralité d’un déploiement App Service, ce qui est possible uniquement dans l’ASE monolocataire. Deux suites de chiffrement sont requises pour un ASE : TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 et TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256. Si vous souhaitez faire fonctionner votre ASE avec l’ensemble de suites de chiffrement le plus puissant et le plus minimal, utilisez uniquement les deux chiffrements requis. Pour configurer votre ASE de manière à ce qu’il utilise uniquement les chiffrements dont il a besoin, modifiez **clusterSettings** comme indiqué ci-dessous. 
 
 ```json
 "clusterSettings": [
     {
         "name": "FrontEndSSLCipherSuiteOrder",
-        "value": "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256"
+        "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
     }
 ],
 ```

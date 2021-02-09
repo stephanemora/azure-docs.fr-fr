@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735155"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493903"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Meraki Dashboard
 
@@ -103,7 +103,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Modifier le certificat de signature SAML](common/edit-certificate.png)
 
-1. Dans la section **Certificat de signature SAML**, copiez la **valeur de l’empreinte** et enregistrez-la sur votre ordinateur.
+1. Dans la section **Certificat de signature SAML**, copiez la **valeur de l’empreinte** et enregistrez-la sur votre ordinateur. Cette valeur doit être convertie pour inclure des signes deux-points afin que le tableau de bord Meraki la comprenne. Par exemple, si l’empreinte d’Azure est `C2569F50A4AAEDBB8E`, vous devrez la remplacer par `C2:56:9F:50:A4:AA:ED:BB:8E` pour l’utiliser ultérieurement dans le tableau de bord Meraki.
 
     ![Copier la valeur de l’empreinte](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Meraki Dashboard - Add a SAML IdP (Ajouter un fournisseur d’identité SAML)](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Collez la valeur **Empreinte** que vous avez copiée à partir du portail Azure dans la zone de texte **X.590 cert SHA1 fingerprint** (Certificat X.590, empreinte digitale SHA-1). Ensuite, cliquez sur **Enregistrer**. Après l’enregistrement, la valeur Consumer URL (URL du consommateur) s’affiche. Copiez la valeur Consumer URL, puis collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
+1. Collez la valeur d’**empreinte** convertie, que vous avez copiée à partir du portail Azure et convertie au format spécifié, comme indiqué à l’étape 9 de la section précédente, dans la zone de texte **X.590 cert SHA1 fingerprint**. Ensuite, cliquez sur **Enregistrer**. Après l’enregistrement, la valeur Consumer URL (URL du consommateur) s’affiche. Copiez la valeur Consumer URL, puis collez-la dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
     ![Configuration de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 

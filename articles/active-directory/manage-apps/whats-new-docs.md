@@ -1,24 +1,51 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563396"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258572"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+- [Planifier la configuration de Mes applications Azure Active Directory](my-apps-deployment-plan.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+- [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md)
+- [Résoudre les problèmes d’authentification unique par mot de passe dans Azure AD](troubleshoot-password-based-sso.md)
+- [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)
+- [Guide de prise en main de l’intégration d’Azure Active Directory avec les applications](plan-an-application-integration.md)
+- [Qu’est-ce que la gestion des applications ?](what-is-application-management.md)
+- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.md)
+- [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Développer des applications métier pour Azure Active Directory](developer-guidance-for-integrating-applications.md)
+- [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
+- [Comprendre l’authentification liée](configure-linked-sign-on.md)
+- [Comprendre l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
+- [Comprendre l’authentification unique basée sur SAML](configure-saml-single-sign-on.md)
+- [Résoudre les problèmes courants liés à l’ajout ou à la suppression d’une application dans Azure Active Directory](troubleshoot-adding-apps.md)
+- [Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités](application-types.md)
+- [Comprendre comment les utilisateurs sont affectés aux applications dans Azure Active Directory](ways-users-get-assigned-to-applications.md)
+- [Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)](delete-application-portal.md)
+- [Publier des services Bureau à distance avec le proxy d'application Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+- [Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.](manage-application-permissions.md)
+
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -90,7 +117,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Guide pratique pour utiliser l’accès aux applications en libre-service](access-panel-manage-self-service-access.md)
 - [Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications](application-sign-in-other-problem-access-panel.md)
 - [Résoudre les problèmes d’authentification unique par mot de passe dans Azure AD](troubleshoot-password-based-sso.md)
-- [Planifier le déploiement de Mes applications Azure Active Directory](access-panel-deployment-plan.md)
+- [Planifier le déploiement de Mes applications Azure Active Directory](my-apps-deployment-plan.md)
 - [Qu’est-ce que l’authentification unique ?](what-is-single-sign-on.md)
 - [Mesures relatives aux applications surprivilégiées ou suspectes dans Azure Active Directory.](manage-application-permissions.md)
 - [Démarrage rapide : Configurer les propriétés d’une application dans votre locataire Azure Active Directory (Azure AD)](add-application-portal-configure.md)

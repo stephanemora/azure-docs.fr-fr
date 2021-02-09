@@ -1,24 +1,11 @@
 ---
-title: Transformations et travaux dans Media Services
-titleSuffix: Azure Media Services
-description: Découvrez comment créer des transformations pour décrire les règles de traitement de vos vidéos dans Azure Media Services.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426789"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Champs obligatoires. En savoir plus sur aka.ms/skyeye/meta.
+titre : Transformations et travaux dans Azure Media Services : Description d’Azure Media Services : Découvrez comment créer des transformations pour décrire les règles de traitement de vos vidéos dans Azure Media Services.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019 ms.author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Transformations et travaux dans Media Services
 
 Cette rubrique fournit des informations détaillées sur les [transformations](/rest/api/media/transforms) et les [travaux](/rest/api/media/jobs) et explique la relation entre ces entités.
@@ -58,7 +45,7 @@ Utilisez des **transformations** pour configurer des tâches courantes de codage
 
 ### <a name="viewing-schema"></a>Consultation du schéma
 
-Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset** ) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ### <a name="creating-transforms"></a>Création de transformations
 
@@ -94,7 +81,7 @@ La progression et l’état des travaux peuvent être obtenus en surveillant les
 
 ### <a name="updating-jobs"></a>Mise à jour des travaux
 
-L’opération de mise à jour de l’entité [Travail](/rest/api/media/jobs) permet de modifier les propriétés *description* , et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
+L’opération de mise à jour de l’entité [Travail](/rest/api/media/jobs) permet de modifier les propriétés *description*, et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
 
 ### <a name="job-object-diagram"></a>Schéma de l’objet de travail
 

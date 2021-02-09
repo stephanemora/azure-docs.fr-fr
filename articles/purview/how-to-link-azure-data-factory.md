@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723878"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954178"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -69,12 +69,22 @@ Suivez les étapes ci-dessous pour connecter un compte Data Factory existant à 
 >[!Note]
 >Nous prenons désormais en charge l’ajout de 10 fabriques de données maximum à la fois. Si vous souhaitez ajouter plus de 10 fabriques de données à la fois, veuillez créer un ticket de support.
 
+### <a name="how-does-the-authentication-work"></a>Comment fonctionne l’authentification ?
+
+Lorsqu’un utilisateur Purview inscrit un Data Factory auquel il a accès, les événements suivants se produisent dans le serveur principal :
+
+1. Le **Data Factory MSI** est ajouté au rôle RBAC Purview : **Curateur de données Purview**.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Capture d’écran montrant Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. Le pipeline de Data Factory doit être exécuté de nouveau afin que les métadonnées de traçabilité puissent être renvoyées vers Purview.
+3. Après exécution, les métadonnées Data Factory sont envoyées vers Purview.
 
 ### <a name="remove-data-factory-connections"></a>Supprimer des connexions Data Factory
 Pour supprimer une connexion Data Factory, effectuez les étapes suivantes :
 
 1. Dans la page **Connexion Data Factory**, sélectionnez le bouton **Supprimer** en regard d’une ou plusieurs connexions Data Factory.
-1. Sélectionnez **Confirmer** dans la fenêtre contextuelle pour supprimer les connexions Data Factory sélectionnées.
+2. Sélectionnez **Confirmer** dans la fenêtre contextuelle pour supprimer les connexions Data Factory sélectionnées.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Capture d’écran montrant comment sélectionner des fabriques de données pour supprimer la connexion." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
@@ -119,7 +129,7 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 | Teradata | Oui | Oui |
 | SAP s4 Hana | Oui | Oui |
 | SAP ECC | Oui | Oui |
-| Ruche | Oui | Oui |
+| Hive | Oui | Oui |
 
 > [!Note]
 > La fonctionnalité de traçabilité implique certaines surcharges de performances dans l’activité de copie Data Factory. Ceux qui configurent des connexions Data Factory dans Purview constateront peut-être que certaines tâches de copie prennent davantage de temps. Le plus souvent, l’impact est négligeable, voire nul. Veuillez contacter le support en indiquant la comparaison de durée si les travaux de copie prennent beaucoup plus de temps que d’habitude.

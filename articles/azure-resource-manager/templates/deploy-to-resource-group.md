@@ -3,12 +3,12 @@ title: Déployer des ressources sur des groupes de ressources
 description: Explique comment définir des ressources dans un modèle Azure Resource Manager. Montre comment cibler plusieurs groupes de ressources.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186224"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491552"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Déploiements de groupes de ressources avec des modèles Resource Manager
 
@@ -128,9 +128,9 @@ Pour obtenir un exemple de modèle, consultez [Créer un groupe de ressources](#
 
 ### <a name="scope-to-tenant"></a>Étendue au locataire
 
-Vous pouvez créer des ressources au niveau du locataire en définissant `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
+Pour créer des ressources au niveau du locataire, définissez `scope` sur `/`. L’utilisateur qui déploie le modèle doit disposer de l’[accès requis pour déployer au niveau du locataire](deploy-to-tenant.md#required-access).
 
-Vous pouvez utiliser un déploiement imbriqué en définissant `scope` et `location`.
+Pour utiliser un déploiement imbriqué, définissez `scope` et `location`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Pour plus d’informations, consultez [Groupe d’administration](deploy-to-mana
 
 ## <a name="deploy-to-target-resource-group"></a>Déployer dans le groupe de ressources cible
 
-Pour déployer des ressources dans le groupe de ressources cible, définissez ces ressources dans la section **Ressources** du modèle. Le modèle suivant crée un compte de stockage dans le groupe de ressources qui est spécifié dans l’opération de déploiement.
+Pour déployer des ressources dans le groupe de ressources cible, définissez ces ressources dans la section `resources` du modèle. Le modèle suivant crée un compte de stockage dans le groupe de ressources qui est spécifié dans l’opération de déploiement.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589982"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257944"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -99,5 +99,6 @@ En général, lorsqu’un objet (un coffre de clés, une clé ou un secret) est 
 
 Les deux guides ci-après présentent les principaux scénarios d’usage de la suppression réversible.
 
+- [Guide pratique pour utiliser la suppression réversible Key Vault avec le portail](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec Azure Power​Shell](./key-vault-recovery.md) 
 - [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](./key-vault-recovery.md)

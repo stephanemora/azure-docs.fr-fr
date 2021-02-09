@@ -1,19 +1,23 @@
 ---
 title: Mise à niveau de version majeure dans Azure Database pour MySQL – Serveur unique
 description: Cet article explique comment mettre à niveau une version majeure pour Azure Database pour MySQL – Serveur unique.
-author: ambhatna
-ms.author: ambhatna
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 1/13/2021
-ms.openlocfilehash: b62f4ebc61ac27478788d8b2bae5e4145f87ac8b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 1/28/2021
+ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630198"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220834"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Mise à niveau de version majeure dans Azure Database pour MySQL Serveur unique
+
+> [!NOTE]
+> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Quand le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+>
 
 > [!IMPORTANT]
 > La mise à niveau de version majeure pour un serveur unique Azure Database pour MySQL est en préversion publique.
@@ -23,9 +27,8 @@ Cet article décrit comment vous pouvez mettre à niveau votre version majeure d
 Cette fonctionnalité permet aux clients d’effectuer des mises à niveau sur place de leurs serveurs MySQL 5.6 vers MySQL 5.7 en un clic de bouton sans devoir déplacer des données ou modifier une chaîne de connexion d’application.
 
 > [!Note]
-> * La mise à niveau de version majeure n’est disponible que pour une mise à niveau de version majeure de MySQL 5.6 vers MySQL 5.7<br>
-> * La mise à niveau de version majeure n’est pas encore prise en charge sur un serveur réplica.
-> * Le serveur ne sera pas disponible pendant l’opération de mise à niveau. Par conséquent, il est recommandé d’effectuer les mises à niveau au cours de votre fenêtre de maintenance planifiée.
+> * La mise à niveau de version majeure n’est disponible que pour une mise à niveau de version majeure de MySQL 5.6 vers MySQL 5.7.
+> * Le serveur ne sera pas disponible pendant l’opération de mise à niveau. Par conséquent, il est recommandé d’effectuer les mises à niveau au cours de votre fenêtre de maintenance planifiée. Vous pouvez envisager d’[effectuer une mise à niveau de version majeure avec temps d’arrêt minimal de MySQL 5.6 vers MySQL 5.7 à l’aide d’un réplica en lecture.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ## <a name="perform-major-version-upgrade-from-mysql-56-to-mysql-57-using-azure-portal"></a>Mise à niveau de version majeure de MySQL 5.6 à MySQL 5.7 avec le Portail Azure
 
@@ -57,12 +60,58 @@ Pour effectuer une mise à niveau de version majeure de votre serveur Azure Data
    La version 2.16.0 ou une version ultérieure d’Azure CLI est nécessaire pour cette mise à niveau. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée. Exécutez az version pour rechercher la version et les bibliothèques dépendantes installées. Pour effectuer une mise à niveau vers la dernière version, exécutez az upgrade.
 
 2. Une fois la connexion établie, exécutez la commande [az mysql server upgrade](https://docs.microsoft.com/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_upgrade&preserve-view=true) :
-    
+
    ```azurecli
    az mysql server upgrade --name testsvr --resource-group testgroup --subscription MySubscription --target-server-version 5.7"
    ```
    
    L’invite de commandes affiche le message « -Running ». Il disparaît une fois la mise à niveau de la version effectuée.
+
+## <a name="perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal"></a>Effectuer une mise à niveau de version majeure de MySQL 5.6 vers MySQL 5.7 sur un réplica en lecture avec le portail Azure
+
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur de réplica en lecture Azure Database pour MySQL 5.6 existant.
+
+2. Dans la page **Vue d’ensemble**, cliquez sur le bouton **Mise à niveau** dans la barre d’outils.
+
+3. Dans la section **Mise à niveau**, sélectionnez **OK** pour mettre à niveau le serveur de réplica en lecture Azure Database pour MySQL de la version 5.6 vers la version 5.7.
+
+   :::image type="content" source="./media/how-to-major-version-upgrade-portal/upgrade.png" alt-text="Azure Database pour MySQL – Vue d’ensemble – Mise à niveau":::
+
+4. Une notification confirme la réussite de la mise à niveau.
+
+5. Dans la page **Vue d’ensemble**, vérifiez que la version du serveur de réplica en lecture Azure Database pour MySQL est 5.7.
+
+6. Maintenant, accédez à votre serveur principal et [effectuez-y une mise à niveau de version majeure](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-using-azure-portal).
+
+## <a name="perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas"></a>Effectuer une mise à niveau de version majeure avec temps d’arrêt minimal de MySQL 5.6 vers MySQL 5.7 à l’aide de réplicas en lecture
+
+Vous pouvez effectuer une mise à niveau de version majeure avec temps d’arrêt minimal de MySQL 5.6 vers MySQL 5.7 en utilisant des réplicas en lecture. L’idée consiste à mettre à niveau le réplica en lecture de votre serveur vers la version 5.7, puis à basculer votre application pour qu’elle pointe vers le réplica en lecture et à faire de ce dernier un nouveau serveur principal.
+
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre instance Azure Database pour MySQL 5.6 existante.
+
+2. Créez un [réplica en lecture](https://docs.microsoft.com/azure/mysql/concepts-read-replicas#create-a-replica) à partir de votre serveur principal.
+
+3. [Mettez à niveau votre réplica en lecture](#perform-major-version-upgrade-from-mysql-56-to-mysql-57-on-read-replica-using-azure-portal) vers la version 5.7.
+
+4. Une fois que vous avez vérifié que le serveur réplica est en cours d’exécution sur la version 5.7, déconnectez votre application de votre serveur principal.
+ 
+5. Contrôlez l’état de la réplication et assurez-vous que le réplica est parfaitement en phase avec le serveur principal afin que toutes les données soient synchronisées, puis vérifiez qu’aucune nouvelle opération n’est effectuée sur le serveur principal.
+
+   Appelez la commande [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) sur le serveur réplica pour afficher l’état de réplication.
+
+   ```sql
+   SHOW SLAVE STATUS\G
+   ```
+
+   Si l’état de `Slave_IO_Running` et `Slave_SQL_Running` est « yes » et que la valeur de `Seconds_Behind_Master` est « 0 », cela signifie que la réplication fonctionne correctement. `Seconds_Behind_Master` indique que le retard du réplica. Si la valeur est différente de « 0 », cela signifie que le réplica est en train de traiter les mises à jour. Une fois que vous avez vérifié que `Seconds_Behind_Master` est « 0 », vous pouvez arrêter la réplication.
+
+6. Promouvez votre réplica en lecture en serveur principal en [arrêtant la réplication](https://docs.microsoft.com/azure/mysql/howto-read-replicas-portal#stop-replication-to-a-replica-server).
+
+7. Pointez votre application vers le nouveau serveur principal (ancien réplica) qui exécute Server 5.7. Chaque serveur est associé à une chaîne de connexion unique. Mettez à jour votre application pour qu’elle pointe vers l’ancien réplica plutôt que le serveur source.
+
+> [!Note]
+> Ce scénario entraîne un temps d’arrêt au cours des étapes 4, 5 et 6 uniquement.
+
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675714"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072234"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutoriel : Créer un cluster Azure Red Hat OpenShift 4
 
@@ -82,17 +82,17 @@ Lorsque vous exécutez la commande `az aro create`, vous pouvez spécifier un do
 Si vous fournissez un domaine personnalisé pour votre cluster, notez les points suivants :
 
 * Après avoir créé votre cluster, vous devez créer deux enregistrements DNS A dans votre serveur DNS pour le `--domain` spécifié :
-    * **api**  : pointant vers l’adresse IP du serveur d’API
-    * **\*.apps**  : pointant vers l’adresse IP d’entrée
+    * **api** : pointant vers l’adresse IP du serveur d’API
+    * **\*.apps** : pointant vers l’adresse IP d’entrée
     * Récupérez ces valeurs en exécutant la commande suivante après la création du cluster : `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
 
 * La console OpenShift sera disponible à une URL telle que `https://console-openshift-console.apps.example.com`, au lieu du domaine intégré `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* Par défaut, OpenShift utilise des certificats auto-signés pour toutes les routes créées sur des domaines personnalisés `*.apps.example.com`.  Si vous choisissez d’utiliser un DNS personnalisé après vous être connecté au cluster, vous devez suivre la documentation OpenShift afin de [configurer une autorité de certification personnalisée pour votre contrôleur d’entrée](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) et configurer une [autorité de certification personnalisée pour votre serveur d’API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* Par défaut, OpenShift utilise des certificats auto-signés pour toutes les routes créées sur des domaines personnalisés `*.apps.example.com`.  Si vous choisissez d’utiliser un DNS personnalisé après vous être connecté au cluster, vous devez suivre la documentation OpenShift afin de [configurer une autorité de certification personnalisée pour votre contrôleur d’entrée](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) et configurer une [autorité de certification personnalisée pour votre serveur d’API](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Créer un réseau virtuel contenant deux sous-réseaux vides
 
-Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vides.
+Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vides. Si vous disposez d’un réseau virtuel existant qui répond à vos besoins, vous pouvez ignorer cette étape.
 
 1. **Définissez les variables suivantes dans l’environnement de l’interpréteur de commandes où vous exécuterez les commandes `az`.**
 
@@ -131,7 +131,7 @@ Vous allez maintenant créer un réseau virtuel contenant deux sous-réseaux vid
 
 2. **Créez un réseau virtuel**.
 
-   Les clusters Azure Red Hat OpenShift exécutant OpenShift 4 nécessitent un réseau virtuel avec deux sous-réseaux vides (pour les nœuds principaux et les nœuds worker).
+   Les clusters Azure Red Hat OpenShift exécutant OpenShift 4 nécessitent un réseau virtuel avec deux sous-réseaux vides (pour les nœuds principaux et les nœuds worker). Vous pouvez créer un réseau virtuel pour cela, ou utiliser un réseau virtuel existant.
 
    Créez un réseau virtuel dans le groupe de ressources que vous avez créé précédemment :
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631947"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063465"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutoriel : Se connecter à un compte Azure Cosmos à l’aide d’un point de terminaison privé Azure
 
@@ -218,19 +218,19 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
 
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**.
 
-2. Sélectionnez **myResourceGroup**.
+1. Sélectionnez **myResourceGroup**.
 
-3. Sélectionnez **myVM**.
+1. Sélectionnez **myVM**.
 
-4. Dans la page de vue d’ensemble pour **myVM**, sélectionnez **Se connecter**, puis **Bastion**.
+1. Dans la page de vue d’ensemble pour **myVM**, sélectionnez **Se connecter**, puis **Bastion**.
 
-5. Sélectionnez le bouton bleu **Utiliser le bastion**.
+1. Sélectionnez le bouton bleu **Utiliser le bastion**.
 
-6. Entrez le nom d’utilisateur et le mot de passe que vous avez utilisés lors de la création de la machine virtuelle.
+1. Entrez le nom d’utilisateur et le mot de passe que vous avez utilisés lors de la création de la machine virtuelle.
 
-7. Ouvrez Windows PowerShell sur le serveur après vous être connecté.
+1. Ouvrez Windows PowerShell sur le serveur après vous être connecté.
 
-8. Entrez `nslookup <cosmosdb-account-name>.documents.azure.com`. Remplacez **\<cosmosdb-account-name>** par le nom du compte Cosmos DB que vous avez créé lors des étapes précédentes. 
+1. Entrez `nslookup <cosmosdb-account-name>.documents.azure.com` et validez la résolution de noms. Remplacez **\<cosmosdb-account-name>** par le nom du compte Cosmos DB que vous avez créé lors des étapes précédentes. 
 
     ```powershell
     Server:  UnKnown
@@ -241,28 +241,31 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
     Address:  10.1.0.5
     Aliases:  mycosmosdb8675.documents.azure.com
     ```
-
     L’adresse IP privée **10.1.0.5** est retournée pour le nom du compte Cosmos DB.  Cette adresse se trouve dans le sous-réseau du réseau virtuel que vous avez créé précédemment.
+    
+1. Récupérez votre chaîne de connexion principale Azure Cosmos DB à partir du portail. Une chaîne de connexion valide se présente au format suivant :
+   
+   Pour les comptes d’API SQL : `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` Pour l’API Azure Cosmos DB pour MongoDB : `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
-9. Installez l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) sur la machine virtuelle.
+1. Installez l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) sur la machine virtuelle.
 
-10. Sélectionnez **Terminer** après l’installation de l’**Explorateur Stockage Microsoft Azure**.  Laissez la case cochée pour ouvrir l’application.
+1. Sélectionnez **Terminer** après l’installation de l’**Explorateur Stockage Microsoft Azure**.  Laissez la case cochée pour ouvrir l’application.
 
-11. Dans l’écran **Se connecter au Stockage Azure**, sélectionnez **Annuler**.
+1. Dans l’écran **Se connecter au Stockage Azure**, sélectionnez **Annuler**.
 
-12. Dans l’Explorateur Stockage, sélectionnez le bouton droit de la souris sur **Comptes Cosmos DB**, puis sélectionnez **Se connecter à Cosmos DB**.
+1. Dans l’Explorateur Stockage, sélectionnez le bouton droit de la souris sur **Comptes Cosmos DB**, puis sélectionnez **Se connecter à Cosmos DB**.
 
-13. Conservez la valeur par défaut **SQL** sous **Sélectionner une API**.
+1. Conservez la valeur par défaut **SQL** sous **Sélectionner une API**.
 
-14. Dans la zone sous **Chaîne de connexion**, collez la chaîne de connexion du compte Cosmos DB que vous avez copiée lors des étapes précédentes.
+1. Dans la zone sous **Chaîne de connexion**, collez la chaîne de connexion du compte Cosmos DB que vous avez copiée lors des étapes précédentes.
 
-15. Sélectionnez **Suivant**.
+1. Sélectionnez **Suivant**.
 
-16. Vérifiez que les paramètres sont corrects dans **Résumé de la connexion**.  
+1. Vérifiez que les paramètres sont corrects dans **Résumé de la connexion**.  
 
-17. Sélectionnez **Connecter**.
+1. Sélectionnez **Connecter**.
 
-18. Fermez la connexion à **myVM**.
+1. Fermez la connexion à **myVM**.
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

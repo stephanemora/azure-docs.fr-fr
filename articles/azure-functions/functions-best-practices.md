@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697688"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428298"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -64,6 +64,31 @@ Si un élément de file d’attente a déjà été traité, permettez à votre f
 
 Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation relative aux [liaisons et déclencheurs de file d’attente de stockage Azure](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
+## <a name="function-organization-best-practices"></a>Bonnes pratiques pour l’organisation des fonctions
+
+Dans le cadre de votre solution, vous pouvez développer et publier plusieurs fonctions. Ces fonctions sont souvent combinées en une application de fonction unique, mais elles peuvent également être exécutées dans des applications de fonction distinctes. Dans les plans d’hébergement Premium et dédié (App Service), plusieurs applications de fonction peuvent également partager les mêmes ressources en s’exécutant dans le même plan. La façon dont vous regroupez vos fonctions et vos applications de fonction peut impacter les performances, la mise à l’échelle, la configuration, le déploiement et la sécurité de votre solution globale. Comme il n’existe pas de règles qui s’appliquent à tous les scénarios, tenez compte des informations contenues dans cette section lors de la planification et du développement de vos fonctions.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organiser les fonctions pour les performances et la mise à l’échelle
+
+Chaque fonction que vous créez a une empreinte mémoire. Même si cette empreinte est généralement petite, l’utilisation d’un trop grand nombre de fonctions dans une application de fonction peut entraîner un ralentissement du démarrage de votre application sur les nouvelles instances. Cela signifie également que l’utilisation globale de la mémoire de votre application de fonction peut être plus élevée. Il est difficile de savoir combien de fonctions doivent résider dans une même application ; cela dépend de votre charge de travail. Toutefois, si votre fonction stocke beaucoup de données en mémoire, envisagez d’avoir moins de fonctions dans une même application.
+
+Si vous exécutez plusieurs applications de fonction dans un même plan Premium ou dédié (App Service), ces applications sont toutes mises à l’échelle ensemble. Si une application de fonction demande plus de mémoire que les autres, elle utilise une quantité disproportionnée de ressources mémoire sur chaque instance sur laquelle elle est déployée. Dans la mesure où cela peut réduire la mémoire disponible pour les autres applications sur chaque instance, vous pouvez exécuter une application de fonction gourmande en mémoire comme celle-ci dans son propre plan d’hébergement.
+
+> [!NOTE]
+> Quand vous utilisez le [plan Consommation](./functions-scale.md), nous vous recommandons de toujours placer chaque application dans son propre plan, car les applications sont mises à l’échelle de manière indépendante.
+
+Déterminez si vous souhaitez regrouper des fonctions présentant des profils de charge différents. Par exemple, si vous avez une fonction qui traite des milliers de messages de file d’attente et une autre qui n’est appelée qu’occasionnellement, mais qui a des besoins en mémoire élevés, vous pouvez les déployer sur des applications de fonction distinctes afin qu’elles obtiennent leur propre ensemble de ressources et qu’elles soient mises à l’échelle indépendamment l’une de l’autre.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organiser les fonctions pour la configuration et le déploiement
+
+Les applications de fonction ont un fichier `host.json`, qui est utilisé pour configurer le comportement avancé des déclencheurs de fonction et du runtime Azure Functions. Les modifications apportées au fichier `host.json` s’appliquent à toutes les fonctions au sein de l’application. Si des fonctions ont besoin de configurations personnalisées, envisagez de les déplacer vers leur propre application de fonction.
+
+Toutes les fonctions de votre projet local sont déployées ensemble sous la forme d’un ensemble de fichiers sur votre application de fonction dans Azure. Vous devrez peut-être déployer des fonctions individuelles séparément ou utiliser des fonctionnalités telles que les [emplacements de déploiement](./functions-deployment-slots.md) pour certaines fonctions et pas pour d’autres. Dans ces cas, vous devez déployer ces fonctions (dans des projets de code distincts) sur différentes applications de fonction.
+
+### <a name="organize-functions-by-privilege"></a>Organiser les fonctions par privilège 
+
+Les chaînes de connexion et d’autres informations d’identification stockées dans les paramètres d’application donnent à toutes les fonctions de l’application de fonction le même ensemble d’autorisations dans la ressource associée. Envisagez de réduire le nombre de fonctions ayant accès à des informations d’identification spécifiques en déplaçant des fonctions qui n’utilisent pas lesdites informations d’identification vers une application de fonction distincte. Vous pouvez toujours utiliser des techniques telles que [le chaînage de fonctions](/learn/modules/chain-azure-functions-data-using-bindings/) pour passer des données entre des fonctions dans différentes applications de fonction.  
+
 ## <a name="scalability-best-practices"></a>Bonnes pratiques relatives à l’extensibilité
 
 Il existe un certain nombre de facteurs qui ont un impact sur la façon dont les instances de votre application de fonction se mettent à l’échelle. Les détails sont fournis dans la documentation sur la [mise à l’échelle de fonction](functions-scale.md).  Voici quelques-unes des bonnes pratiques assurant l’extensibilité optimale d’une application de fonction.
@@ -112,7 +137,7 @@ Pour les fonctions C#, vous pouvez modifier le type en tableau d’objets fortem
 
 Le fichier `host.json` dans l’application de fonction permet la configuration des comportements de déclencheur et de runtime hôtes.  En plus des comportements de traitement par lot, vous pouvez gérer l’accès concurrentiel d’un certain nombre de déclencheurs. Souvent l’ajustement des valeurs de ces options peut permettre la mise à l’échelle adéquate de chaque instance face aux demandes des fonctions appelées.
 
-Les paramètres dans le fichier host.json s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de deux fonctions HTTP avec une valeur pour les demandes simultanées [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les deux fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance). 
+Les paramètres dans le fichier host.json s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de deux fonctions HTTP avec une valeur pour les demandes simultanées [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les dix fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance). 
 
 D’autres options de configuration d’hôte sont consultables [dans l’article Configuration de host.json](functions-host-json.md).
 

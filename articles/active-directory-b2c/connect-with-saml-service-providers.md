@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80e6dbdc02b68c279452127933532106b0f78ab8
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 96a72dbc0e45ebd50a49000ae66e3713cb28aa9a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654657"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916917"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -71,28 +71,9 @@ Pour établir une relation d'approbation entre votre fournisseur de services et 
 
 Vous pouvez utiliser un certificat émis par une autorité de certification publique ou, dans le cadre de ce didacticiel, un certificat auto-signé.
 
-### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Préparer un certificat auto-signé
+### <a name="11-create-a-self-signed-certificate"></a>1.1 Créer un certificat auto-signé
 
-Si vous n’avez pas encore de certificat, vous pouvez utiliser un certificat auto-signé pour ce didacticiel. Sur Windows, vous pouvez utiliser l’applet de commande [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) de PowerShell pour générer un certificat.
-
-1. Exécutez cette commande PowerShell pour générer un certificat auto-signé. Modifiez l’argument `-Subject` comme il convient pour votre application et le nom de locataire Azure AD B2C. Vous pouvez également ajuster la date de `-NotAfter` pour spécifier un délai d’expiration différent pour le certificat.
-
-    ```PowerShell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```
-
-1. Open **Gérer les certificats utilisateur** > **Utilisateur actuel** > **Personnel** > **Certificats** > *yourappname.yourtenant.onmicrosoft.com*
-1. Sélectionnez le certificat > **Action** > **Toutes les tâches** > **Exporter**
-1. Sélectionnez **Oui** > **Suivant** > **Oui, exporter la clé privée** > **Suivant**
-1. Acceptez les valeurs par défaut pour **Format de fichier d’exportation**
-1. Fournissez un mot de passe pour le certificat
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ### <a name="12-upload-the-certificate"></a>1.2 Charger le certificat
 

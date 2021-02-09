@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331204"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537744"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison
 
@@ -163,6 +163,10 @@ Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 
 Une fois que vous avez enregistré votre domaine personnalisé, vous pouvez l’ajouter à votre point de terminaison CDN. 
 
+
+---
+# <a name="azure-portal"></a>[**Portail Azure**](#tab/azure-portal)
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/), puis accédez au profil CDN contenant le point de terminaison que vous souhaitez mapper à un domaine personnalisé.
     
 2. Sur la page **Profil CDN**, sélectionnez le point de terminaison CDN à associer avec le domaine personnalisé.
@@ -189,7 +193,43 @@ Une fois que vous avez enregistré votre domaine personnalisé, vous pouvez l’
     - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
     - Dans le cas des profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.   
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
+1. Connectez-vous à Azure PowerShell :
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Utilisez [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) pour mapper le domaine personnalisé à votre point de terminaison CDN. 
+
+    * Remplacez **myendpoint8675.azureedge.net** par l’URL de votre point de terminaison.
+    * Remplacez **myendpoint8675** par le nom de votre point de terminaison CDN.
+    * Remplacez **www.contoso.com** par le nom de votre domaine personnalisé.
+    * Remplacez **myCDN** par le nom de votre profil CDN.
+    * Remplacez **myResourceGroupCDN** par le nom de votre groupe de ressources.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Azure vérifie que l’enregistrement CNAME existe pour le nom de domaine personnalisé que vous avez entré. Si l'enregistrement CNAME est correct, votre domaine personnalisé sera validé. 
+
+   La propagation des nouveaux paramètres de domaine personnalisé sur tous les nœuds de périphérie CDN peut prendre un certain temps : 
+
+- Pour les profils du **CDN Azure Standard fourni par Microsoft**, la propagation s’effectue généralement dans un délai de 10 minutes. 
+- Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
+- Dans le cas des profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>Vérifier le domaine personnalisé
 
 Une fois que vous avez terminé l’inscription de votre domaine personnalisé, vérifiez qu’il référence votre point de terminaison CDN.
@@ -200,6 +240,9 @@ Une fois que vous avez terminé l’inscription de votre domaine personnalisé, 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
+---
+# <a name="azure-portal"></a>[**Portail Azure**](#tab/azure-portal-cleanup)
+
 Si vous ne voulez plus associer votre point de terminaison avec un domaine personnalisé, supprimez le domaine personnalisé en effectuant les étapes suivantes :
  
 1. Dans votre profil CDN, sélectionnez le point de terminaison avec le domaine personnalisé que vous souhaitez supprimer.
@@ -208,6 +251,29 @@ Si vous ne voulez plus associer votre point de terminaison avec un domaine perso
 
    Le domaine personnalisé est dissocié de votre point de terminaison.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+Si vous ne voulez plus associer votre point de terminaison avec un domaine personnalisé, supprimez le domaine personnalisé en effectuant les étapes suivantes :
+
+1. Utilisez [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) pour supprimer le domaine personnalisé du point de terminaison :
+
+    * Remplacez **myendpoint8675** par le nom de votre point de terminaison CDN.
+    * Remplacez **www.contoso.com** par le nom de votre domaine personnalisé.
+    * Remplacez **myCDN** par le nom de votre profil CDN.
+    * Remplacez **myResourceGroupCDN** par le nom de votre groupe de ressources.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :

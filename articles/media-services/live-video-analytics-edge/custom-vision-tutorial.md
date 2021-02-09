@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Custom Vision pour créer un mod�
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060496"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055363"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -51,7 +51,6 @@ Lisez les articles suivants avant de commencer :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Lisez les articles suivants avant de commencer :
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Ce module Custom Vision ne prend en charge que les architectures **Intel x86 et amd64**. Vérifiez l’architecture de votre périphérique avant de continuer.
+
 ## <a name="review-the-sample-video"></a>Réviser l’exemple de vidéo
 
 Ce tutoriel utilise un fichier de [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour simuler un stream en direct. Vous pouvez regarder la vidéo grâce à une application telle que [VLC Media Player](https://www.videolan.org/vlc/). Sélectionnez **Ctrl+N**, puis collez un lien vers la [vidéo d’inférence du jouet](https://lvamedia.blob.core.windows.net/public/t2.mkv) pour démarrer la lecture. Lorsque vous regarderez la vidéo, vous verrez qu’un camion jouet apparaît au bout de 36 secondes. Le modèle personnalisé a été entraîné à détecter ce jouet spécifique. 
@@ -81,6 +84,9 @@ Le nœud d’extension HTTP joue le rôle d’un proxy.  Il échantillonne les i
 Comme le nom Custom Vision le suggère, vous pouvez utiliser ce module afin de créer votre propre détecteur ou classifieur personnalisé d’objets dans le cloud. Il fournit une interface simple, facile à utiliser et intuitive pour créer des modèles Custom Vision qui peuvent être déployés dans le cloud ou en périphérie grâce à des conteneurs.
 
 Pour créer un détecteur de camion jouet, suivez les étapes décrites dans [Démarrage rapide : Créer un détecteur d’objets avec le site web Custom Vision](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Ce module Custom Vision ne prend en charge que les architectures **Intel x86 et amd64**. Vérifiez l’architecture de votre périphérique avant de continuer.
 
 Informations complémentaires :
  

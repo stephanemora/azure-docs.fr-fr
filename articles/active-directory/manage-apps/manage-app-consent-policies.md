@@ -3,7 +3,7 @@ title: Gérer les stratégies de consentement des applications dans Azure AD
 description: Apprenez à gérer les stratégies de consentement des applications intégrées et personnalisées pour contrôler le moment auquel le consentement peut être accordé.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 3587beaeb788665c68c1fcb6376af40566b6c35e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 68ff89191a4e9b11c2d84ec016090f76b8ea11b7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032777"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258114"
 ---
 # <a name="manage-app-consent-policies"></a>Gérer les stratégies de consentement des applications
 
@@ -152,4 +152,4 @@ Pour en savoir plus :
 * [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
 Pour obtenir de l’aide ou trouver des réponses à vos questions :
-* [Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD sur Microsoft Q&A](https://docs.microsoft.com/answers/products/)

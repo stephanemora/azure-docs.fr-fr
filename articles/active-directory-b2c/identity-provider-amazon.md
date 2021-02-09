@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 12/07/2020
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23867ac6eb6941e2d132ae885fccd0e938fef907
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654504"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953104"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654504"
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Créer une application dans la console de développement Amazon
 
-Pour utiliser un compte Amazon en tant que fournisseur d’identité fédérée dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans vos [technologies et services de développement Amazon](https://developer.amazon.com). Si vous ne disposez pas encore d’un compte Amazon, vous pouvez en créer un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).
+Pour permettre la connexion des utilisateurs avec un compte Amazon dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans [Services et technologies Amazon Developer](https://developer.amazon.com). Pour plus d’informations, consultez [S’inscrire pour se connecter avec Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Si vous ne disposez pas encore d’un compte Amazon, vous pouvez en créer un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).
 
 > [!NOTE]  
 > Utilisez les URL suivantes à l’**étape 8** ci-dessous, en remplaçant `your-tenant-name` par le nom de votre locataire. Quand vous entrez le nom de votre locataire, utilisez uniquement des minuscules même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
@@ -47,7 +47,7 @@ Pour utiliser un compte Amazon en tant que fournisseur d’identité fédérée 
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurer un compte Amazon comme fournisseur d’identité
+## <a name="configure-amazon-as-an-identity-provider"></a>Configuration d’Amazon en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
@@ -57,6 +57,16 @@ Pour utiliser un compte Amazon en tant que fournisseur d’identité fédérée 
 1. Dans **ID client**, entrez l’ID client de l’application Amazon que vous avez créée précédemment.
 1. Dans **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée.
 1. Sélectionnez **Enregistrer**.
+
+## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Amazon à un flux d’utilisateur 
+
+1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
+1. Cliquez sur le flux d’utilisateur auquel vous souhaitez ajouter le fournisseur d’identité Amazon.
+1. Sous **Fournisseurs d’identité sociale**, sélectionnez **Amazon**.
+1. Sélectionnez **Enregistrer**.
+1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**.
 
 ::: zone-end
 
@@ -77,9 +87,9 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
 10. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
+## <a name="configure-amazon-as-an-identity-provider"></a>Configuration d’Amazon en tant que fournisseur d’identité
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Amazon, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
+Pour permettre aux utilisateurs de se connecter avec un compte Amazon, vous devez définir le compte en tant que fournisseur de revendications. Azure AD B2C doit pouvoir communiquer avec celui-ci via un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir un compte Amazon en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
@@ -93,7 +103,7 @@ Vous pouvez définir un compte Amazon en tant que fournisseur de revendications 
       <Domain>amazon.com</Domain>
       <DisplayName>Amazon</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Amazon-OAUTH">
+        <TechnicalProfile Id="Amazon-OAuth2">
         <DisplayName>Amazon</DisplayName>
         <Protocol Name="OAuth2" />
         <Metadata>
@@ -130,77 +140,28 @@ Vous pouvez définir un compte Amazon en tant que fournisseur de revendications 
 4. Définissez **client_id** sur l’ID d’application de l’inscription de l’application.
 5. Enregistrez le fichier .
 
-### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-À ce stade, vous avez configuré votre stratégie afin qu’Azure AD B2C sache comment communiquer avec votre répertoire Azure AD. Essayez de télécharger le fichier d’extension de votre stratégie juste pour confirmer qu’il ne présente aucun problème pour le moment.
 
-1. Sur la page **Stratégies personnalisées** dans votre locataire Azure AD B2C, sélectionnez **Charger une stratégie**.
-2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-3. Cliquez sur **Télécharger**.
-
-## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
-
-À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous créez un doublon d’un modèle de parcours utilisateur, puis le modifiez afin qu’il dispose également du fournisseur d’identité Amazon.
-
-1. Ouvrez le fichier *TrustFrameworkBase.xml* à partir du pack de démarrage.
-2. Recherchez et copiez l’intégralité du contenu de l’élément **UserJourney** comprenant `Id="SignUpOrSignIn"`.
-3. Ouvrez le fichier *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
-4. Collez l’intégralité du contenu de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
-5. Renommez l’ID du parcours utilisateur. Par exemple : `SignUpSignInAmazon`.
-
-### <a name="display-the-button"></a>Afficher le bouton
-
-L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** pour un compte Amazon, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
-
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `AmazonExchange` :
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Lier le bouton à une action
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Maintenant que vous avez un bouton en place, vous devez le lier à une action. Dans ce cas, l’action effectuée correspond à la communication entre Azure AD B2C et le compte Amazon pour recevoir un jeton.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Recherchez l’élément **OrchestrationStep** comprenant `Order="2"` dans le parcours utilisateur.
-2. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’ID la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
-
-    ```xml
-    <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
-    ```
-
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `Amazon-OAuth`.
-
-3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Amazon à un flux d’utilisateur 
-
-1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
-1. Cliquez sur le flux d’utilisateur que vous souhaitez utiliser pour le fournisseur d’identité Amazon.
-1. Sous **Fournisseurs d’identité sociale**, sélectionnez **Amazon**.
-1. Sélectionnez **Enregistrer**.
-1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
-1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Mettre à jour et tester le fichier de partie de confiance
-
-Mettez à jour le fichier de partie de confiance qui lance le parcours utilisateur que vous avez créé.
-
-1. Faites une copie de *SignUpOrSignIn.xml* dans votre répertoire de travail, puis renommez-le. Par exemple, renommez-le en *SignUpSignInAmazon.xml*.
-1. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Par exemple : `SignUpSignInAmazon`.
-1. Mettez à jour la valeur de **PublicPolicyUri** avec l’URI de la stratégie. Exemple : `http://contoso.com/B2C_1A_signup_signin_amazon`
-1. Définissez l’attribut **ReferenceId** dans **DefaultUserJourney** sur l’ID du parcours utilisateur que vous avez créé (SignUpSignAmazon).
-1. Enregistrez vos modifications, chargez le fichier, puis sélectionnez la nouvelle stratégie dans la liste.
-1. Vérifiez que l’application Azure AD B2C que vous avez créée est sélectionnée dans le champ **Sélectionner une application**, puis testez-la en cliquant sur **Exécuter maintenant**.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

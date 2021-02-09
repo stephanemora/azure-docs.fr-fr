@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949783"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225206"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
 La tarification Azure Active Directory B2C (Azure AD B2C) est basée sur les utilisateurs actifs mensuels (MAU), qui représentent le nombre d’utilisateurs uniques avec une activité d’authentification au cours d’un mois civil. Ce modèle de facturation s’applique à la fois aux locataires Azure AD B2C et à la [collaboration d’utilisateur invité (B2B) Azure AD](../active-directory/external-identities/external-identities-pricing.md). La facturation MAU contribue à réduire les coûts en offrant un niveau gratuit et une tarification flexible et prévisible. Dans cet article, découvrez la facturation MAU, la liaison de vos locataires Azure AD B2C à un abonnement et le changement de niveau tarifaire.
 
 > [!IMPORTANT]
-> Cet article ne contient pas d’informations sur les tarifs. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Cet article ne contient pas d’informations sur les tarifs. Pour obtenir les informations les plus récentes sur les prix et la facturation, consultez [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Pour savoir où le service Azure AD B2C est disponible et où sont stockées les données utilisateur, consultez également [Disponibilité des régions et résidence des données pour Azure AD B2C](data-residency.md).
 
 ## <a name="what-do-i-need-to-do"></a>Que dois-je faire ?
 

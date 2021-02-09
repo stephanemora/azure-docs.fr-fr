@@ -3,44 +3,58 @@ title: Rechercher sur des blobs de texte brut
 titleSuffix: Azure Cognitive Search
 description: Configurez un indexeur de recherche pour extraire du texte brut de blobs Azure à des fins de recherche en texte intégral dans le service Recherche cognitive Azure.
 manager: nitinme
-author: mgottein
-ms.author: magottei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 417bdacc3ce8b619d5ec9618e6060ac071882471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/01/2021
+ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533923"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430426"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Comment indexer des objets en texte brut dans le service Recherche cognitive Azure
 
-Lors de l’utilisation d’un [indexeur de blobs](search-howto-indexing-azure-blob-storage.md) pour extraire du texte pouvant faire l’objet d’une recherche en texte intégral, vous pouvez appeler différents modes d’analyse pour obtenir de meilleurs résultats d’indexation. Par défaut, l’indexeur analyse les blobs de texte délimité comme un bloc de texte unique. Cependant, si tous vos blobs contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du **mode d’analyse de texte**.
+Lors de l’utilisation d’un [indexeur de blobs](search-howto-indexing-azure-blob-storage.md) pour extraire du texte pouvant faire l’objet d’une recherche en texte intégral, vous pouvez appeler différents modes d’analyse pour obtenir de meilleurs résultats d’indexation. Par défaut, l’indexeur analyse le contenu des blobs comme un bloc de texte unique. Cependant, si tous les blobs contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du mode d’analyse `text`.
+
+Vous devez utiliser le mode d’analyse `text` dans les cas suivants :
+
++ Le type de fichier est .txt.
++ Les fichiers sont de n’importe quel type, mais le contenu lui-même est du texte (par exemple, code source d’un programme, HTML, XML, etc.). Pour les fichiers dans une langue de balisage, tous les caractères de syntaxe sont fournis sous forme de texte statique.
+
+Rappelez-vous que les indexeurs sérialisent en JSON. Le contenu de la totalité du fichier texte est indexé dans un seul grand champ en tant que `"content": "<file-contents>"`. Les instructions de nouvelle ligne et de retour sont exprimées sous la forme `\r\n\`.
+
+Si vous souhaitez obtenir un résultat plus précis, envisagez les solutions suivantes :
+
++ Mode d’analyse [`delimitedText`](search-howto-index-csv-blobs.md), si la source est au format CSV
++ [`jsonArray` ou `jsonLines`](search-howto-index-json-blobs.md), si la source est au format JSON
+
+Une troisième option pour subdiviser le contenu nécessite des fonctionnalités avancées faisant appel à l’[enrichissement par IA](cognitive-search-concept-intro.md). Elle ajoute une analyse qui identifie et assigne des segments du fichier à différents champs de recherche. Il se peut que vous trouviez une solution complète ou partielle par le biais de [compétences intégrées](cognitive-search-predefined-skills.md), mais une solution plus probable serait un modèle d’apprentissage qui comprenne votre contenu, articulé dans un modèle d’apprentissage personnalisé et encapsulé dans une [compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
 ## <a name="set-up-plain-text-indexing"></a>Configurer l’indexation de texte brut
 
 Pour indexer des blobs de texte brut, créez ou mettez à jour une définition d’indexeur avec la propriété de configuration `parsingMode` pour `text` sur une demande [Créer un indexeur](/rest/api/searchservice/create-indexer) :
 
 ```http
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "parsingMode" : "text" } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "parsingMode" : "text" } }
+}
 ```
 
 Par défaut, le `UTF-8` encodage est possible. Pour spécifier un encodage différent, utilisez la `encoding` propriété de configuration : 
 
 ```http
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
-    }
+{
+  ... other parts of indexer definition
+  "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
+}
 ```
 
 ## <a name="request-example"></a>Exemple de requête
@@ -48,24 +62,20 @@ Par défaut, le `UTF-8` encodage est possible. Pour spécifier un encodage diff�
 Les modes d’analyse sont spécifiés dans la définition de l’indexeur.
 
 ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: [admin key]
+POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+Content-Type: application/json
+api-key: [admin key]
 
-    {
-      "name" : "my-plaintext-indexer",
-      "dataSourceName" : "my-blob-datasource",
-      "targetIndexName" : "my-target-index",
-      "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
-    }
+{
+  "name" : "my-plaintext-indexer",
+  "dataSourceName" : "my-blob-datasource",
+  "targetIndexName" : "my-target-index",
+  "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
+}
 ```
-
-## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer Recherche cognitive Azure
-
-Si vous avez des suggestions de fonctionnalités ou des idées d’amélioration, faites-le-nous savoir [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Si vous avez besoin d’aide pour utiliser la fonctionnalité existante, publiez votre question sur [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
-* [Comment configurer un indexeur de blobs](search-howto-indexing-azure-blob-storage.md)
-* [Vue d’ensemble de l’indexation de blobs](search-blob-storage-integration.md)
++ [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
++ [Comment configurer un indexeur de blobs](search-howto-indexing-azure-blob-storage.md)
++ [Vue d’ensemble de l’indexation de blobs](search-blob-storage-integration.md)

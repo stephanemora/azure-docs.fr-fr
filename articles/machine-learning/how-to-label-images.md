@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060365"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096964"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage 
 
@@ -63,11 +63,7 @@ Lorsque toutes les images de la page sont balisées, Azure active le bouton **En
 
 Une fois que vous avez envoyé les étiquettes relatives aux données disponibles, Azure actualise la page en affichant un nouvel ensemble d’images provenant de la file d’attente de travail.
 
-### <a name="assisted-machine-learning-preview"></a>Machine Learning assisté (préversion) 
-
-> [!IMPORTANT]
-> L’apprentissage automatique assisté est actuellement en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Machine Learning assisté
 
 Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
 
@@ -75,7 +71,14 @@ Des algorithmes Machine Learning peuvent être déclenchés. Si ces algorithmes 
 
 * Plus tard, **Tasks prelabeled** (Tâches préétiquetées) peut s’afficher en regard du nom du projet.  Les images s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Même si nous utilisons uniquement des images pour lesquelles le modèle est fiable, celles-ci peuvent malgré tout être préétiquetées de façon incorrecte.  Si c’est le cas, corrigez le nom de ces étiquettes avant d’envoyer la page.  
 
-* Pour les modèles de détection d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
+* Pour les modèles d’identification d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
+
+* Pour les modèles de segmentation, vous pouvez voir des polygones et des étiquettes déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page. 
+
+    > [!IMPORTANT]
+    > Les fonctionnalités qui s’affichent avec « (préversion) » sont en préversion publique.   
+    > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
 

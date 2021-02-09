@@ -1,21 +1,25 @@
 ---
 title: Gérer un serveur - Portail Azure - Azure Database pour MySQL
 description: Découvrez comment gérer un serveur Azure Database pour MySQL à partir du portail Azure.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541451"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897983"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gérer un serveur Azure Database pour MySQL à l’aide du portail Azure
 
 Cet article vous explique comment gérer vos serveurs Azure Database pour MySQL. Les tâches de gestion incluent notamment la mise à l’échelle du calcul et du stockage, la réinitialisation de mot de passe et l’affichage des informations relatives au serveur.
+
+> [!NOTE]
+> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+>
 
 ## <a name="sign-in"></a>Se connecter
 
@@ -83,6 +87,13 @@ Vous pouvez modifier le mot de passe du rôle d’administrateur à l’aide du 
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Capture d’écran du Portail Azure pour réinitialiser votre mot de passe et enregistrer dans Azure Database pour MySQL":::
 
 3. Sélectionnez **OK** pour enregistrer le nouveau mot de passe.
+ 
+
+> [!IMPORTANT]
+> La réinitialisation du mot de passe de l’administrateur du serveur réinitialise automatiquement les privilèges de l’administrateur du serveur sur les valeurs par défaut. Envisagez de réinitialiser votre mot de passe de l’administrateur du serveur si vous avez accidentellement révoqué un ou plusieurs des privilèges de l’administrateur du serveur.
+   
+> [!NOTE]
+> Par défaut, l’utilisateur administrateur du serveur dispose des privilèges suivants : SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 ## <a name="delete-a-server"></a>Supprimer un serveur
 

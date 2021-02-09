@@ -5,67 +5,40 @@ description: Surveillez l’état, la progression et les résultats des indexeur
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.date: 01/28/2021
+ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372827"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063244"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Comment surveiller l’état et les résultats d’un indexeur Recherche cognitive Azure
 
-Recherche cognitive Azure fournit des informations sur l’état et le suivi des exécutions actuelles et historiques de chaque indexeur.
+Vous pouvez superviser le traitement de l’indexeur dans le portail Azure ou programmatiquement par le biais d’appels REST ou d’un kit SDK Azure. Outre l’état de l’indexeur lui-même, vous pouvez consulter les heures de début et de fin, ainsi que les erreurs et avertissements détaillés d’une exécution spécifique.
 
-La surveillance de l’indexeur est utile lorsque vous souhaitez :
+## <a name="monitor-using-azure-portal"></a>Superviser à l’aide du portail Azure
 
-* Suivre la progression d’un indexeur durant une exécution.
-* Passer en revue les résultats de l’exécution en cours ou précédente de l’indexeur.
-* Identifier les erreurs de l’indexeur de niveau supérieur et les erreurs ou avertissements concernant l’indexation de documents individuels.
-
-## <a name="get-status-and-history"></a>Obtenir l’état et l’historique
-
-Vous pouvez accéder aux informations de surveillance de l’indexeur de différentes manières, notamment :
-
-* Dans le [portail Azure](#portal) :
-* À l’aide de l’[API REST](#restapi)
-* À l’aide du [SDK .NET](#dotnetsdk)
-
-Les informations de surveillance de l’indexeur disponibles comprennent toutes les informations suivantes (bien que les formats de données diffèrent en fonction de la méthode d’accès utilisée) :
-
-* Informations d’état de l’indexeur lui-même
-* Informations sur l’exécution la plus récente de l’indexeur, y compris son état, les heures de début et de fin et les erreurs et avertissements détaillés.
-* Liste des exécutions de l’indexeur d’historique, ainsi que leurs états, résultats, erreurs et avertissements.
-
-L’exécution des indexeurs qui traitent de grands volumes de données peut être longue. Par exemple, les indexeurs qui traitent des millions de documents sources peuvent fonctionner pendant 24 heures, puis redémarrer presque immédiatement. Les indexeurs traitant de grands volumes de données peuvent se trouver encore à l’état **En cours** dans le portail. Même lorsqu’un indexeur est en cours d’exécution, des informations détaillées sont disponibles sur la progression en cours et les exécutions précédentes.
-
-<a name="portal"></a>
-
-## <a name="monitor-using-the-portal"></a>Surveiller à l’aide du portail
-
-L’état actuel de tous vos indexeurs figure dans la liste **Indexeurs** de la page Vue d’ensemble de votre service de recherche.
+L’état actuel de tous vos indexeurs se trouve dans la page Vue d’ensemble de votre service de recherche. Les pages du portail sont actualisées au bout de quelques minutes. Vous ne verrez donc pas immédiatement une nouvelle exécution de l’indexeur.
 
    ![Liste des indexeurs](media/search-monitor-indexers/indexers-list.png "Liste des indexeurs")
 
-Lorsqu’un indexeur est en cours d’exécution, la liste affiche l’état **En cours** et la valeur de **Documents ayant réussi** indique le nombre de documents traités à ce jour. Le portail peut prendre quelques minutes pour mettre à jour les valeurs d’état de l’indexeur et le nombre de documents.
+| Statut | Description |
+|--------|-------------|
+| **En cours** | Indique une exécution active. Le portail donne des informations partielles. À mesure que l’indexation progresse, vous pouvez observer que la valeur **Documents ayant réussi** augmente en conséquence. L’exécution des indexeurs qui traitent de grands volumes de données peut être longue. Par exemple, les indexeurs qui traitent des millions de documents sources peuvent fonctionner pendant 24 heures, puis redémarrer presque immédiatement. Les indexeurs traitant de grands volumes de données peuvent se trouver encore à l’état **En cours** dans le portail. Même lorsqu’un indexeur est en cours d’exécution, des informations détaillées sont disponibles sur la progression en cours et les exécutions précédentes. |
+| **Success** | Indique que l’exécution a réussi. Une exécution de l’indexeur peut réussir même si des documents individuels contiennent des erreurs, car le nombre d’erreurs est inférieur à la valeur du paramètre **Nombre maximal d’éléments en échec** de l’indexeur. |
+| **Échec** | Le nombre d’erreurs était supérieur à **Nombre maximal d’éléments ayant échoué** et l’indexation s’est arrêtée. |
+| **Réinitialiser** | L’état de suivi des modifications interne de l’indexeur a été réinitialisé. L’indexeur s’exécute entièrement, en actualisant tous les documents, et pas seulement ceux avec des horodatages plus récents. |
 
-Un indexeur dont l’exécution la plus récente a réussi affiche **Réussite**. Une exécution de l’indexeur peut réussir même si des documents individuels contiennent des erreurs, car le nombre d’erreurs est inférieur à la valeur du paramètre **Nombre maximal d’éléments en échec** de l’indexeur.
-
-Si la dernière exécution s’est terminée avec une erreur, l’état affiche **Échec**. **Réinitialiser** signifie que l’état de suivi des modifications de l’indexeur a été réinitialisé.
-
-Cliquez sur un indexeur dans la liste pour afficher plus de détails sur les exécutions actuelles et récentes de l’indexeur.
+Vous pouvez cliquer sur un indexeur dans la liste pour afficher plus de détails sur les exécutions actuelles et récentes de l’indexeur.
 
    ![Résumé de l’indexeur et historique d’exécution](media/search-monitor-indexers/indexer-summary.png "Résumé de l’indexeur et historique d’exécution")
 
 Le graphique **Résumé de l’indexeur** indique le nombre de documents traités lors des exécutions les plus récentes de l’indexeur.
 
-La liste **Détails de l’exécution** affiche jusqu’à 50 des résultats d’exécution les plus récents.
-
-Cliquez sur un résultat d’exécution dans la liste pour afficher les détails correspondants. Cela inclut les heures de début et de fin, ainsi que les erreurs et les avertissements qui se sont produits.
+La liste **Détails de l’exécution** affiche jusqu’à 50 des résultats d’exécution les plus récents. Cliquez sur un résultat d’exécution dans la liste pour afficher les détails correspondants. Cela inclut les heures de début et de fin, ainsi que les erreurs et les avertissements qui se sont produits.
 
    ![Détails de l’exécution de l’indexeur](media/search-monitor-indexers/indexer-execution.png "Détails de l’exécution de l’indexeur")
 
@@ -73,13 +46,11 @@ Si vous rencontrez des problèmes spécifiques au document pendant l’exécutio
 
    ![Détails de l’indexeur avec des erreurs](media/search-monitor-indexers/indexer-execution-error.png "Détails de l’indexeur avec des erreurs")
 
-Les avertissements sont courants avec certains types d’indexeurs et n’indiquent pas toujours un problème. Par exemple, les indexeurs qui utilisent des services cognitifs peuvent signaler des avertissements lorsque les fichiers image ou PDF ne contiennent pas de texte à traiter.
+Les avertissements sont courants avec certains types d’indexeurs et n’indiquent pas toujours un problème. Par exemple, les indexeurs qui utilisent des services cognitifs peuvent signaler des avertissements lorsque les fichiers image ou PDF ne contiennent pas de texte à traiter. 
 
 Pour plus d’informations sur l’analyse des erreurs et des avertissements de l’indexeur, consultez [Résoudre les problèmes courants des indexeurs dans Recherche cognitive Azure](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## <a name="monitor-using-rest-apis"></a>Surveiller à l’aide d’API REST
+## <a name="monitor-using-get-indexer-status-rest-api"></a>Superviser avec Get Indexer Status (API REST)
 
 Vous pouvez récupérer l’état et l’historique d’exécution d’un indexeur à l’aide de la [commande Get Indexer Status](/rest/api/searchservice/get-indexer-status) :
 
@@ -126,11 +97,9 @@ Chaque exécution de l’indexeur possède également un état qui indique si ce
 
 Lorsque l’on réinitialise un indexeur pour actualiser son état de suivi des modifications, une entrée distincte indiquant l’état **Réinitialiser** est ajoutée à l’historique des exécutions.
 
-Pour plus d’informations sur les codes d’état et les données de surveillance de l’indexeur, consultez [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+Pour plus d’informations sur les codes d’état et les données de supervision de l’indexeur, consultez [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## <a name="monitor-using-the-net-sdk"></a>Surveiller à l’aide du Kit de développement logiciel (SDK) .NET
+## <a name="monitor-using-net"></a>Superviser avec .NET
 
 En utilisant le Kit de développement logiciel (SDK) .NET Recherche cognitive Azure, l’exemple C# suivant écrit des informations sur l’état d’un indexeur et les résultats de son exécution la plus récente (ou en cours) sur la console.
 

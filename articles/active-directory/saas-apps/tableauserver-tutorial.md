@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 3c9d79ef4fd73adbe3ba376f1723693ea8e85197
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7ee22121fd023f3942eed64bd605bf87b961d893
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736505"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tableau Server
 
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Tableau Server prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Ajout de Tableau Server à partir de la galerie
+## <a name="add-tableau-server-from-the-gallery"></a>Ajouter Tableau Server à partir de la galerie
 
 Pour configurer l’intégration de Tableau Server à Azure AD, vous devez ajouter Tableau Server, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > Les valeurs ci-dessus ne sont pas des valeurs réelles. Mettez à jour les valeurs avec l’URL et l’identificateur réels à partir de la page de configuration de Tableau Server, conformément aux explications données plus loin dans le tutoriel.
+    > Les valeurs ci-dessus ne sont pas des valeurs réelles. Mettez à jour les valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels à partir de la page de configuration de Tableau Server, conformément aux explications données plus loin dans le tutoriel.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -123,21 +123,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Sur l’onglet **CONFIGURATION**, sélectionnez **User Identity & Access** (Identité utilisateur et accès), puis l’onglet de la méthode d’**authentification**.
 
-    ![Capture d’écran montrant l’élément Authentication sélectionné dans User Identity & Access.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Capture d’écran montrant l’élément Authentication sélectionné dans User Identity & Access.](./media/tableauserver-tutorial/auth.png)
 
 3. Dans la page **CONFIGURATION**, effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant la page Configuration dans laquelle vous pouvez indiquer les valeurs décrites.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Capture d’écran montrant la page Configuration dans laquelle vous pouvez indiquer les valeurs décrites.](./media/tableauserver-tutorial/config.png)
 
     a. Pour **Méthode d’authentification**, sélectionnez SAML.
 
     b. Cochez la case **Enable SAML Authentication for the server** (Activer l’authentification SAML pour le serveur).
 
-    c. Tableau Server return URL (URL de retour Tableau Server) : URL à laquelle accèdent les utilisateurs Tableau Server, telle que `http://tableau_server`. L’utilisation de `http://localhost` n’est pas recommandée. L’utilisation d’une URL avec une barre oblique finale (par exemple, `http://tableau_server/`) n’est pas prise en charge. Copiez l’**URL de retour de Tableau Server** et collez-la dans la zone de texte **URL de connexion** située dans la section **Configuration SAML de base** dans le portail Azure
+    c. Tableau Server return URL (URL de retour Tableau Server) : URL à laquelle accèdent les utilisateurs Tableau Server, telle que `http://tableau_server`. L’utilisation de `http://localhost` n’est pas recommandée. L’utilisation d’une URL avec une barre oblique finale (par exemple, `http://tableau_server/`) n’est pas prise en charge. Copiez l’**URL de retour de Tableau Server** et collez-la dans la zone de texte **URL de connexion** située dans la section **Configuration SAML de base** dans le portail Azure.
 
-    d. SAML entity ID (ID d’entité SAML) : l’ID d’entité identifie de façon unique votre installation Tableau Server auprès du fournisseur d’identité. Vous pouvez à nouveau entrer l’URL Tableau Server ici, si vous le souhaitez, mais ce n’est pas obligatoire. Copiez l’**ID d’entité SAML** et collez-la dans la zone de texte **Identificateur** située dans la section **Configuration SAML de base** dans le portail Azure
+    d. SAML entity ID (ID d’entité SAML) : l’ID d’entité identifie de façon unique votre installation Tableau Server auprès du fournisseur d’identité. Vous pouvez à nouveau entrer l’URL Tableau Server ici, si vous le souhaitez, mais ce n’est pas obligatoire. Copiez l’**ID d’entité SAML** et collez-la dans la zone de texte **Identificateur** située dans la section **Configuration SAML de base** dans le portail Azure.
 
-    e. Cliquez sur **Download XML Metadata File** (Télécharger le fichier de métadonnées XML) et ouvrez-le dans l’application de l’éditeur de texte. Recherchez l’URL Assertion Consumer Service avec HTTP POST et Index 0, puis copiez l’URL. Maintenant collez-la dans la zone de texte **URL de réponse** située dans la section **Configuration SAML de base** dans le portail Azure
+    e. Cliquez sur **Download XML Metadata File** (Télécharger le fichier de métadonnées XML) et ouvrez-le dans l’application de l’éditeur de texte. Recherchez l’URL Assertion Consumer Service avec HTTP POST et Index 0, puis copiez l’URL. Maintenant, collez-la dans la zone de texte **URL de réponse** située dans la section **Configuration SAML de base** dans le portail Azure.
 
     f. Localisez votre fichier de métadonnées de fédération téléchargé à partir du portail Azure, puis chargez-le dans le **fichier de métadonnées du fournisseur d’identité SAML**.
 
@@ -165,9 +165,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Tableau Server pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Tableau Server dans Mes applications, vous êtes redirigé vers l’URL de connexion Tableau Server. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
-
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Tableau Server dans Mes applications, vous êtes redirigé vers l’URL de connexion Tableau Server. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Tableau Server, vous pouvez appliquer des contrôles de session qui protègent en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Après avoir configuré Tableau Server, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

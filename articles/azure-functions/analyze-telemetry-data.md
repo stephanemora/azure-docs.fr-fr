@@ -4,12 +4,12 @@ description: Découvrez comment afficher et interroger les données de télémé
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937295"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493768"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analyser la télémétrie d’Azure Functions dans Application Insights 
 
@@ -77,18 +77,18 @@ Choisissez **Journaux** pour explorer ou rechercher les événements journalisé
 
 Voici un exemple de requête qui montre la distribution des demandes par nœud Worker au cours des 30 dernières minutes.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 Les tables disponibles sont affichées sous l’onglet **Schéma** situé à gauche. Les données générées par les appels de fonction sont disponibles dans les tables suivantes :
 
 | Table de charge de travail | Description |
 | ----- | ----------- |
-| **traces** | Journaux créés par le runtime et traces de votre code de fonction. |
+| **traces** | Journaux créés par le runtime, le contrôleur d’échelle et les traces de votre code de fonction. |
 | **requests** | Une demande par appel de fonction. |
 | **exceptions** | Toutes les exceptions levées par le runtime. |
 | **customMetrics** | Nombre d’appels ayant réussi ou échoué, taux de réussite, durée. |
@@ -99,12 +99,38 @@ Les autres tables concernent les tests de disponibilité et les données de tél
 
 Dans chaque table, un champ `customDimensions` contient certaines des données spécifiques à Azure Functions.  Par exemple, la requête suivante récupère toutes les traces dont le niveau de journal est `Error`.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 Le runtime fournit les champs `customDimensions.LogLevel` et `customDimensions.Category`. Vous pouvez fournir des champs supplémentaires dans les journaux d’activité que vous écrivez dans votre code de fonction. Pour obtenir un exemple en C#, consultez [Journalisation structurée](functions-dotnet-class-library.md#structured-logging) dans le guide du développeur de la bibliothèque de classes .NET.
+
+## <a name="query-scale-controller-logs"></a>Interroger les journaux de contrôleur d’échelle
+
+_Cette fonctionnalité est en préversion._
+
+Une fois que vous avez activé la [journalisation du contrôleur d’échelle](configure-monitoring.md#configure-scale-controller-logs) et l’[intégration à Application Insights](configure-monitoring.md#enable-application-insights-integration), vous pouvez utiliser la recherche dans les journaux Application Insights pour interroger les journaux du contrôleur d’échelle émis. Les journaux du contrôleur d’échelle sont enregistrés dans la collection `traces` sous la catégorie **ScaleControllerLogs**.
+
+La requête suivante peut être utilisée afin de rechercher tous les journaux du contrôleur d’échelle pour l’application de fonction actuelle dans le délai spécifié :
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+La requête suivante complète la requête précédente pour montrer comment obtenir uniquement les journaux indiquant une modification d’échelle :
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Mesures spécifiques au plan Consommation
 

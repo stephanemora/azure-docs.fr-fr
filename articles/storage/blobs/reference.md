@@ -1,6 +1,6 @@
 ---
-title: Informations de référence sur le stockage Blob Azure
-description: Recherchez les informations de référence sur l’API de stockage Blob Azure, les fichiers Lisez-moi et les packages de bibliothèque cliente.
+title: Informations de référence sur le Stockage Blob Azure
+description: Retrouvez des informations de référence sur l’API Stockage Blob Azure, des fichiers Lisez-moi et des packages de bibliothèques de client.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/10/2020
@@ -8,24 +8,24 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912278"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054074"
 ---
-# <a name="azure-blob-storage-reference"></a>Informations de référence sur le stockage Blob Azure
+# <a name="azure-blob-storage-reference"></a>Informations de référence sur le Stockage Blob Azure
 
-Recherchez les informations de référence sur l’API de stockage Blob Azure, les packages de bibliothèque, les fichiers Lisez-moi et les articles de prise en main.
+Retrouvez des informations de référence sur l’API Stockage Blob Azure, des packages de bibliothèques, des fichiers Lisez-moi et des articles de prise en main.
 
 ## <a name="net-client-libraries"></a>Bibliothèques clientes .NET
 
-Le tableau suivant répertorie des références et des exemples de documentation pour les API .NET Stockage Blob Azure.
+Dans le tableau suivant figurent la documentation de référence et les exemples associés des API .NET Stockage Blob Azure.
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliothèque cliente Stockage Blob Azure pour .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour .NET](./storage-quickstart-blobs-dotnet.md) |
+| 12.x | [Bibliothèque de client Stockage Blob Azure pour .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Démarrage rapide : Bibliothèque de Stockage Blob Azure v12 pour .NET](./storage-quickstart-blobs-dotnet.md) |
 | 11.x | [Espace de noms Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Démarrage rapide : Bibliothèque de client Stockage Blob Azure v11 pour .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gestion du stockage
@@ -46,7 +46,7 @@ Le tableau suivant répertorie la documentation de référence pour les API .NET
 
 ## <a name="java-client-libraries"></a>Bibliothèques clientes Java
 
-Le tableau suivant répertorie des références et des exemples de documentation pour les API Java de stockage Blob Azure.
+Dans le tableau suivant figurent la documentation de référence et les exemples associés des API Java Stockage Blob Azure.
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -63,7 +63,7 @@ Le tableau suivant répertorie la documentation de référence pour les API Java
 
 ## <a name="python-client-libraries"></a>Bibliothèques clientes Python
 
-Le tableau suivant répertorie des références et des exemples de documentation pour les API Python de stockage Blob Azure.
+Dans le tableau suivant figurent la documentation de référence et les exemples associés des API Python Stockage Blob Azure.
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -72,7 +72,7 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 ## <a name="javascript-client-libraries"></a>Bibliothèques clientes JavaScript
 
-Le tableau suivant répertorie des références et des exemples de documentation pour les API JavaScript Stockage Blob Azure.
+Dans le tableau suivant figurent la documentation de référence et les exemples associés des API JavaScript Stockage Blob Azure.
 
 |  Version  | Documentation de référence | Package | Démarrage rapide |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -81,7 +81,7 @@ Le tableau suivant répertorie des références et des exemples de documentation
 
 ## <a name="rest-apis"></a>API REST
 
-Le tableau suivant répertorie des références et des exemples de documentation pour les API REST Stockage Blob Azure.
+Dans le tableau suivant figurent la documentation de référence et les exemples associés des API REST Stockage Blob Azure.
 
 | Documentation de référence | Vue d’ensemble |
 | ----------------------- | -------- |

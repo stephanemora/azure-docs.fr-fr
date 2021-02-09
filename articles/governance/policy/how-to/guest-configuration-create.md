@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration pour Windows
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881784"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070642"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Créer des stratégies Guest Configuration pour Windows
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 L’étape suivante consiste à publier le fichier dans Stockage Blob Azure. La commande `Publish-GuestConfigurationPackage` requiert le module `Az.Storage`.
+
+Paramètres de la cmdlet `Publish-GuestConfigurationPackage` :
+
+- **Chemin d’accès** : emplacement du package à publier
+- **ResourceGroupName** : nom du groupe de ressources dans lequel se trouve le compte de stockage
+- **StorageAccountName** : nom du compte de stockage dans lequel le package doit être publié
+- **StorageContainerName** (par défaut *guestconfiguration*) : nom du conteneur de stockage dans le compte de stockage
+- **Force** : remplacer le package existant dans le compte de stockage du même nom
+
+L’exemple ci-dessous publie le package dans le conteneur de stockage nommé « guestconfiguration ».
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

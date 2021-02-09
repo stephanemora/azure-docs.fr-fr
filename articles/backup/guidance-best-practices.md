@@ -3,12 +3,12 @@ title: Aide et bonnes pratiques
 description: Découvrez les meilleures pratiques et des conseils pour la sauvegarde de la charge de travail Cloud et locale dans le Cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092305"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258759"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Sauvegardez des charges de travail Cloud et locales vers le Cloud
 
@@ -32,7 +32,7 @@ Bien qu’il soit facile de commencer à protéger l’infrastructure et les app
 
 Sauvegarde Azure active la protection des données pour différentes charges de travail (locales et dans le Cloud). Il s’agit d’un mécanisme de protection des données intégré, sécurisé et fiable dans Azure. Il peut mettre à l’échelle en toute transparence sa protection sur plusieurs charges de travail sans aucune surcharge de gestion. Il existe également plusieurs canaux d’automatisation pour activer cette fonction (par le biais de PowerShell, de l’interface CLI, des modèles Azure Resource Manager et des API REST).
 
-* **Solution de stockage évolutive, durable et sécurisée** , la sauvegarde Azure utilise un stockage d’objets BLOB fiable avec des fonctionnalités de sécurité et de haute disponibilité intégrées. Vous pouvez choisir des stockages LRS, GRS ou RA-GRS pour vos données de sauvegarde.  
+* **Solution de stockage évolutive, durable et sécurisée**, la sauvegarde Azure utilise un stockage d’objets BLOB fiable avec des fonctionnalités de sécurité et de haute disponibilité intégrées. Vous pouvez choisir des stockages LRS, GRS ou RA-GRS pour vos données de sauvegarde.  
 
 * **Intégration de la charge de travail Native -** Sauvegarde Azure fournit une intégration native avec les charges de travail Azure (machines virtuelles, SAP HANA, SQL dans les machines virtuelles Azure et même Azure Files) sans que vous ayez besoin de gérer l’automatisation ou l’infrastructure pour déployer des agents, écrire de nouveaux scripts ou approvisionner le stockage.
 
@@ -73,7 +73,7 @@ Vous pouvez utiliser un coffre unique ou plusieurs coffres pour organiser et gé
 * Si vos charges de travail sont réparties entre les abonnements, vous pouvez créer plusieurs coffres, un ou plusieurs par abonnement.
   * Le Centre de sauvegarde vous permet de disposer d’un seul volet pour gérer toutes les tâches liées à la sauvegarde. [En savoir plus ici]().
   * Vous pouvez personnaliser vos vues avec des modèles de classeur. L’Explorateur de sauvegarde est un modèle de ce type pour les machines virtuelles Azure. [En savoir plus ici](monitor-azure-backup-with-backup-explorer.md).
-  * Si vous avez besoin d’une stratégie cohérente dans les coffres, vous pouvez utiliser une stratégie Azure pour propager la stratégie de sauvegarde dans plusieurs coffres. Vous pouvez écrire une [définition de stratégie Azure](../governance/policy/concepts/definition-structure.md) personnalisée qui utilise l’effet [« deployifnotexists »](../governance/policy/concepts/effects.md#deployifnotexists) pour propager une stratégie de sauvegarde dans plusieurs coffres. Vous pouvez [attribuer](../governance/policy/assign-policy-portal.md) cette définition Azure Policy à un domaine particulier (abonnement ou RG), de sorte qu’elle déploie une ressource de « politique de sauvegarde » dans tous les coffres Recovery services dans le cadre de l’attribution Azure Policy. Les paramètres de la stratégie de sauvegarde (par exemple, la fréquence de sauvegarde, la rétention, etc.) doivent être spécifiés par l’utilisateur en tant que paramètres dans l’affectation de la stratégie Azure.
+  * Si vous avez besoin d’une stratégie cohérente dans les coffres, vous pouvez utiliser une stratégie Azure pour propager la stratégie de sauvegarde dans plusieurs coffres. Vous pouvez écrire une [définition de stratégie Azure](../governance/policy/concepts/definition-structure.md) personnalisée qui utilise l’effet [« deployifnotexists »](../governance/policy/concepts/effects.md#deployifnotexists) pour propager une stratégie de sauvegarde dans plusieurs coffres. Vous pouvez également [attribuer](../governance/policy/assign-policy-portal.md) cette définition Azure Policy à un domaine particulier (abonnement ou RG), de sorte qu’elle déploie une ressource de « politique de sauvegarde » dans tous les coffres Recovery services dans le cadre de l’attribution Azure Policy. Les paramètres de la stratégie de sauvegarde (par exemple, la fréquence de sauvegarde, la rétention, etc.) doivent être spécifiés par l’utilisateur en tant que paramètres dans l’affectation de la stratégie Azure.
 
 * À mesure que l’encombrement de votre organisation augmente, vous souhaiterez peut-être déplacer les charges de travail entre les abonnements pour les raisons suivantes : aligner par stratégie de sauvegarde, consolider les coffres,compromis sur une redondance moindre pour économiser sur les coûts (passage de GRS à LRS).  Sauvegarde Azure permet de déplacer un coffre de Recovery Services entre les abonnements Azure, ou vers un autre groupe de ressources au sein du même abonnement. [En savoir plus ici](backup-azure-move-recovery-services-vault.md).
 
@@ -120,9 +120,9 @@ Respectez les consignes suivantes lorsque vous créez une stratégie de sauvegar
   * Si la conservation est réduite, ils sont marqués de sorte à être nettoyés lors de la prochaine tâche de nettoyage, puis supprimés.
   * Les dernières règles de rétention s’appliquent à tous les points de rétention (sauf les points de rétention à la demande). Par conséquent, si la période de rétention est étendue (par exemple, à 100 jours), lorsque la sauvegarde est effectuée, puis réduite (par exemple, de 100 jours à 7 jours), toutes les données de sauvegarde sont conservées en fonction de la dernière période de rétention spécifiée (c’est-à-dire 7 jours).
 
-* Le service Sauvegarde Azure vous offre la possibilité d’ *arrêter la protection et la gestion de vos sauvegardes*  :
-  * *Arrêter la protection et conserver les données de sauvegarde* . Si vous mettez hors service ou désinstallez votre source de données (machine virtuelle, application), mais que vous devez conserver les données à des fins d’audit ou de conformité, vous pouvez utiliser cette option pour arrêter toutes les futures tâches de sauvegarde de la protection de votre source de données et conserver les points de récupération qui ont été sauvegardés. Vous pouvez ensuite restaurer ou reprendre la protection de la machine virtuelle.
-  * *Arrêter la protection et supprimer les données de sauvegarde* . Cette option empêche toutes les futures tâches de sauvegarde de protéger votre machine virtuelle et supprime tous les points de récupération. Vous ne pourrez pas restaurer la machine virtuelle, ni utiliser l’option Reprendre la sauvegarde.
+* Le service Sauvegarde Azure vous offre la possibilité d’*arrêter la protection et la gestion de vos sauvegardes* :
+  * *Arrêter la protection et conserver les données de sauvegarde*. Si vous mettez hors service ou désinstallez votre source de données (machine virtuelle, application), mais que vous devez conserver les données à des fins d’audit ou de conformité, vous pouvez utiliser cette option pour arrêter toutes les futures tâches de sauvegarde de la protection de votre source de données et conserver les points de récupération qui ont été sauvegardés. Vous pouvez ensuite restaurer ou reprendre la protection de la machine virtuelle.
+  * *Arrêter la protection et supprimer les données de sauvegarde*. Cette option empêche toutes les futures tâches de sauvegarde de protéger votre machine virtuelle et supprime tous les points de récupération. Vous ne pourrez pas restaurer la machine virtuelle, ni utiliser l’option Reprendre la sauvegarde.
 
   * Si vous reprenez la protection (d’une source de données qui a été arrêtée lors de la conservation des données), les règles de rétention s’appliquent. Tous les points de récupération ayant expiré seront supprimés (à l’heure planifiée).
 
@@ -232,13 +232,13 @@ En tant qu’administrateur ou utilisateur de sauvegarde, vous devez être en me
   * Le tableau de bord fournit des activités opérationnelles au cours des sept derniers jours (maximum). Si vous devez conserver ces données, vous pouvez les exporter en tant que fichier Excel et les conserver.
   * Si vous êtes un utilisateur d’Azure Lighthouse, vous pouvez afficher des informations sur plusieurs locataires, ce qui permet une surveillance sans limite.
 
-* Si vous avez besoin de conserver et d’afficher les activités opérationnelles à long terme, utilisez **Rapports** . Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauvegardes, en fonction de données couvrant une longue période. Voici quelques-uns des cas d’usage d’une telle solution :
+* Si vous avez besoin de conserver et d’afficher les activités opérationnelles à long terme, utilisez **Rapports**. Les administrateurs de sauvegarde ont souvent besoin d’insights sur les sauvegardes, en fonction de données couvrant une longue période. Voici quelques-uns des cas d’usage d’une telle solution :
   * allocation et prévision du stockage cloud utilisé ;
   * audit des sauvegardes et restaurations ;
   * identification des tendances clés à différents niveaux de granularité.
 
 * De plus :
-  * Vous pouvez envoyer des données (par exemple, des travaux, des stratégies, etc.) à l’espace de travail **Log Analytics** . Cela permet d’activer les fonctionnalités des journaux d’Azure Monitor pour permettre la corrélation des données avec d’autres données d’analyse collectées par Azure Monitor, consolider les entrées de journal à partir de plusieurs abonnements et clients Azure en un seul emplacement pour l’analyse ensemble, utiliser des requêtes de journal pour effectuer une analyse complexe et obtenir des informations détaillées sur les entrées de journal. [En savoir plus ici](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * Vous pouvez envoyer des données (par exemple, des travaux, des stratégies, etc.) à l’espace de travail **Log Analytics**. Cela permet d’activer les fonctionnalités des journaux d’Azure Monitor pour permettre la corrélation des données avec d’autres données d’analyse collectées par Azure Monitor, consolider les entrées de journal à partir de plusieurs abonnements et clients Azure en un seul emplacement pour l’analyse ensemble, utiliser des requêtes de journal pour effectuer une analyse complexe et obtenir des informations détaillées sur les entrées de journal. [En savoir plus ici](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
   * Vous pouvez envoyer des données au hub d’événements pour envoyer des entrées en dehors d’Azure, par exemple à une solution SIEM (Security Information and Event Management) tierce ou autre solution log analytics. [En savoir plus ici](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
   * Envoyez le journal d’activité à un compte de stockage Azure si vous souhaitez conserver vos données de journal plus de 90 jours à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours. [Plus d’informations](../azure-monitor/platform/activity-log.md#send-to--azure-storage)
 

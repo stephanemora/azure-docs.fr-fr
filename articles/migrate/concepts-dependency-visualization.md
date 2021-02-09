@@ -6,16 +6,16 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f198d47191e7893e74b072ae8fd10546e3a6ee7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752207"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491989"
 ---
 # <a name="dependency-analysis"></a>Analyse des dépendances
 
-Cet article décrit l’analyse des dépendances dans l’outil Azure Migrate : évaluation de serveur.
+Cet article décrit l’analyse des dépendances dans l’outil Azure Migrate : Server Assessment.
 
 
 L’analyse des dépendances identifie les dépendances entre les machines locales découvertes. Il offre les avantages suivants : 

@@ -4,12 +4,12 @@ description: Créer et gérer un principal de service Azure Active Directory pou
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614793"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475435"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -128,7 +128,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 - Si vous ne transmettez pas spécifiquement un principal de service dans des commandes CLI AKS supplémentaires, le principal de service par défaut situé dans `~/.azure/aksServicePrincipal.json` est utilisé.  
 - Vous pouvez également supprimer le fichier aksServicePrincipal.json, auquel cas AKS créera un principal de service.
 - Si vous supprimez un cluster AKS qui a été créé par [az aks create][az-aks-create], le principal de service qui a été créé automatiquement ne sera pas supprimé.
-    - Pour supprimer le principal du service, recherchez votre *servicePrincipalProfile.clientId* de cluster et procédez à la suppression en utilisant [az ad app delete][az-ad-app-delete]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :
+    - Pour supprimer le principal de service, recherchez votre *servicePrincipalProfile.clientId* de cluster et procédez à la suppression en utilisant [az ad sp delete][az-ad-sp-delete]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)

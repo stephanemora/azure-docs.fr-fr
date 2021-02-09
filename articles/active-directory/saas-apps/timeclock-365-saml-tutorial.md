@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 329e0fbfdea43f3933333744f89ed1c03ef0ed13
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d0c8364cc85cfce900021272d17456527919122b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729295"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050802"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Timeclock 365 SAML
 
@@ -70,7 +70,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Timeclock 365 SAML**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -109,7 +109,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-timeclock-365-saml-sso"></a>Configurer l’authentification unique Timeclock 365 SAML
 
-1. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre site d’entreprise Timeclock 365 SAML en tant qu’administrateur.
+1. Pour automatiser la configuration dans Timeclock 365 SAML, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Timeclock 365 SAML** pour être dirigé vers l’application Timeclock 365 SAML. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Timeclock 365 SAML. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 et 4.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer Timeclock 365 SAML manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Timeclock 365 SAML en tant qu’administrateur.
 
 1. Effectuez les étapes indiquées ci-dessous.
 

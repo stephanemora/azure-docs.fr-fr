@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756405"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226336"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 
@@ -47,7 +47,7 @@ Procédez comme suit pour ajouter un URI de redirection pour une application qui
 1. Dans le portail Azure, sélectionnez l’inscription d’application que vous avez créée à l’étape [Créer l’inscription d’application](#create-the-app-registration).
 1. Sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**.
 1. Sous **Applications web**, sélectionnez la vignette **Application monopage**.
-1. Sous **URI de redirection**, entrez un [URI de redirection](reply-url.md). N’activez **AUCUNE** des cases à cocher sous **Octroi implicite**.
+1. Sous **URI de redirection**, entrez un [URI de redirection](reply-url.md). Ne cochez **AUCUNE** des cases sous **Octroi implicite et flux hybrides**.
 1. Sélectionnez **Configurer** pour terminer l’ajout de l’URI de redirection.
 
 Vous avez maintenant terminé l’inscription de votre application monopage, et avez configuré un URI de redirection vers lequel le client sera redirigé et auquel tous les jetons de sécurité seront envoyés. Si vous configurez votre URI de redirection à l’aide de la vignette **Application monopage** dans le volet **Ajouter une plateforme**, l’inscription de votre application est configurée pour prendre en charge le flux de code d’autorisation avec PKCE et CORS.
@@ -62,7 +62,7 @@ Procédez comme suit pour ajouter un URI de redirection pour une application mon
 1. Sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**.
 1. Sous **Applications web**, sélectionnez la vignette **Application monopage**.
 1. Sous **URI de redirection**, entrez un [URI de redirection](reply-url.md).
-1. Activez le **Flux implicite** :
+1. Activez l’**Octroi implicite et les flux hybrides** :
     - Si votre application connecte des utilisateurs, sélectionnez **Jetons d’ID**.
     - Si votre application doit également appeler une API web protégée, sélectionnez **Jetons d’accès**. Pour plus d’informations sur ces types de jetons, consultez [Jetons d’ID](id-tokens.md) et [Jetons d’accès](access-tokens.md).
 1. Sélectionnez **Configurer** pour terminer l’ajout de l’URI de redirection.

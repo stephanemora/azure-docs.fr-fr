@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878288"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051293"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Résoudre les problèmes liés à Live Video Analytics sur IoT Edge
 
@@ -97,6 +97,18 @@ Live Video Analytics est déployé en tant que module IoT Edge sur l’appareil 
 
     > [!TIP]
     > Si vous rencontrez des problèmes lors de l’exécution de modules Azure IoT Edge dans votre environnement, utilisez l’article **[Étapes de diagnostic standard d’Azure IoT Edge](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** qui vous guidera pour la résolution des problèmes et les diagnostics.
+
+Il se peut également que vous rencontriez des problèmes lors de l’exécution du **[script de configuration des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)** . Voici quelques problèmes courants :
+
+* Si vous utilisez un abonnement pour lequel vous ne disposez pas de privilèges de propriétaire, le script échoue avec une erreur **ForbiddenError** ou **AuthorizationFailed**.
+    * Pour résoudre ce problème, veillez à disposer des privilèges **PROPRIÉTAIRE** sur l’abonnement que vous prévoyez d’utiliser. Si vous ne pouvez pas le faire par vous-même, contactez l’administrateur de l’abonnement pour qu’il vous accorde les privilèges nécessaires.
+* **Le déploiement du modèle a échoué à cause de la violation de stratégie.**
+    * Pour résoudre ce problème, contactez votre administrateur informatique pour faire en sorte que le ou les appels à créer une machine virtuelle contournent le blocage de l’authentification SSH. Ce ne sera pas nécessaire, car nous utilisons un réseau Bastion sécurisé qui a besoin d’un nom d’utilisateur et d’un mot de passe pour communiquer avec les ressources Azure. Ces informations d’identification sont stockées dans le fichier **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** dans Cloud Shell, une fois la machine virtuelle créée, déployée et attachée au hub IoT.
+* Le script de configuration ne parvient pas à créer un principal de service ou des ressources Azure.
+    * Pour résoudre ce problème, vérifiez que ni votre abonnement ni le locataire Azure n’ont atteint leurs limites de service maximales. Pour plus d’informations, consultez [Limites et restrictions du service Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) et [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+
+> [!TIP]
+> Si vous rencontrez des problèmes supplémentaires pour lesquels vous avez besoin d’aide, **[collectez des journaux et soumettez un ticket de support](#collect-logs-for-submitting-a-support-ticket)** . Vous pouvez également nous contacter en nous envoyant un e-mail à l’adresse **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>Live Video Analytics avec des modules externes
 
 Live Video Analytics avec les processeurs d’extension de graphe multimédia peut étendre le graphe multimédia pour envoyer et recevoir des données à partir d’autres modules IoT Edge à l’aide de protocoles HTTP ou gRPC. À titre [d’exemple spécifique](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), ce graphe multimédia peut envoyer des trames vidéo sous forme d’images à un module d’inférence externe comme Yolo v3 et recevoir des résultats analytiques JSON suivant le protocole HTTP. Dans ce type de topologie, la destination des événements est principalement le hub IoT. Dans les cas où vous ne voyez pas les événements d’inférence sur le hub, vérifiez les éléments suivants :

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services V3 avec le modèle de licence Microsoft PlayReady
+title: Modèle de licence Microsoft PlayReady Media Services
 description: Découvrez Azure Media Services V3 avec le modèle de licence PlayReady et comment configurer des licences PlayReady.
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a4b694ca449390e5b2f282f1361f0a455ba5750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dc015ee1798bb4b9ce632d11f952178156155d6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531438"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955183"
 ---
 # <a name="media-services-v3-with-playready-license-template"></a>Azure Media Services V3 avec le modèle de licence PlayReady
 

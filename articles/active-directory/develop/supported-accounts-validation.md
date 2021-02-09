@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752970"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937811"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Différences de validation par types de comptes pris en charge (signInAudience)
 
@@ -24,9 +24,9 @@ Lors de l’inscription d’une application auprès de la plateforme d’identit
 
 Les options disponibles sont les suivantes :
 
-- *AzureADMyOrg* - Uniquement les comptes dans l’annuaire de l’organisation où l’application est inscrite (monolocataire)
-- *AzureADMultipleOrgs* - Comptes dans un annuaire d’organisation (multilocataire)
-- *AzureADandPersonalMicrosoftAccount* - Comptes dans un annuaire d’organisation (multilocataire) et comptes Microsoft personnels (par exemple, Skype, Xbox et Outlook.com)
+- **AzureADMyOrg** - uniquement les comptes de l’annuaire de l’organisation dans lequel l’application est inscrite (monolocataire).
+- **AzureADMultipleOrgs** - les comptes de tous les annuaires de l’organisation (multilocataire).
+- **AzureADandPersonalMicrosoftAccount** - les comptes de tous les annuaires de l’organisation (multilocataire) et les comptes Microsoft personnels (par exemple Skype, Xbox et Outlook.com).
 
 Pour les applications inscrites, vous pouvez trouver la valeur des types de comptes pris en charge dans la section **Authentification** d’une application. Vous pouvez également la trouver sous la propriété `signInAudience` dans le **Manifeste**.
 
@@ -44,11 +44,11 @@ Consultez le tableau suivant pour connaître les différences de validation de c
 | Étendues définies par cette API (`oauth2Permissions`) | Longueur maximale du nom de l’étendue de 120 caractères <br><br> Aucune limite* sur le nombre de niveaux définis | Longueur maximale du nom de l’étendue de 120 caractères <br><br> Aucune limite* sur le nombre de niveaux définis |  Longueur maximale du nom de l’étendue de 40 caractères <br><br> Maximum de 100 étendues définies | 
 | Applications clientes autorisées (`preAuthorizedApplications`) | Aucune limite* | Aucune limite* | Nombre total maximal de 500 <br><br> Maximum de 100 applications clientes définies <br><br> Maximum de 30 étendues définies par client | 
 | appRoles | Prise en charge <br> Aucune limite* | Prise en charge <br> Aucune limite* | Non pris en charge | 
-| URL de déconnexion | http://localhost est autorisé <br><br> Longueur maximale de 255 caractères | http://localhost est autorisé <br><br> Longueur maximale de 255 caractères | <br><br> https://localhost est autorisé, http://localhost échoue pour MSA <br><br> Longueur maximale de 255 caractères <br><br> Le schéma HTTP n’est pas autorisé <br><br> Les caractères génériques ne sont pas pris en charge | 
+| URL de déconnexion du canal frontal | https://localhost est autorisé <br><br> Schéma `http` non autorisé <br><br> Longueur maximale de 255 caractères | https://localhost est autorisé <br><br> Schéma `http` non autorisé <br><br> Longueur maximale de 255 caractères | <br><br> https://localhost est autorisé, http://localhost échoue pour MSA <br><br> Longueur maximale de 255 caractères <br><br> Schéma `http` non autorisé <br><br> Les caractères génériques ne sont pas pris en charge | 
 
-*Il existe une limite globale d’environ 1000 éléments sur l’ensemble des propriétés de collection de l’objet d’application
+\* Il existe une limite globale d’environ 1 000 éléments sur l’ensemble des propriétés de collection de l’objet d’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur l’[inscription des applications](app-objects-and-service-principals.md)
-- En savoir plus sur le [manifeste de l'application](reference-app-manifest.md)
+- En savoir plus sur [l’inscription d’application](app-objects-and-service-principals.md).
+- En savoir plus sur le [manifeste de l’application](reference-app-manifest.md).

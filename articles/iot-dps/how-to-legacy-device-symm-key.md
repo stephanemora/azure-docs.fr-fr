@@ -3,17 +3,17 @@ title: Provisionner des appareils en utilisant des clés symétriques – Servic
 description: Guide pratique pour utiliser des clés symétriques afin de provisionner des appareils avec votre instance DPS (Device Provisioning Service)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967310"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051107"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Comment approvisionner des appareils à l’aide de groupes d’inscription avec des clés symétriques
 
@@ -21,9 +21,7 @@ Cet article explique comment approvisionner de façon sécurisée plusieurs appa
 
 Certains appareils peuvent ne pas avoir de certificat, de module de plateforme sécurisée (TPM) ou d’autre fonctionnalité de sécurité utilisable pour identifier l’appareil de façon sécurisée. Le service Device Provisioning inclut l’[attestation de clé symétrique](concepts-symmetric-key-attestation.md). L’attestation de clé symétrique peut être utilisée pour identifier un appareil sur la base d’informations uniques comme l’adresse MAC ou un numéro de série.
 
-Si vous pouvez facilement installer un [module de sécurité matériel](concepts-service.md#hardware-security-module) et un certificat, cette approche peut être meilleure pour identifier et provisionner vos appareils. En effet, cette approche peut vous permettre de contourner la mise à jour du code déployé sur tous vos appareils et vous n’avez pas de clé secrète incorporée dans l’image de votre appareil.
-
-Cet article suppose que ni un module de sécurité matériel ni un certificat ne sont des options viables. Il est cependant supposé que vous disposez d’une méthode de mise à jour du code de l’appareil pour utiliser le service Device Provisioning afin de provisionner ces appareils. 
+Si vous pouvez facilement installer un [module de sécurité matériel](concepts-service.md#hardware-security-module) et un certificat, cette approche peut être meilleure pour identifier et provisionner vos appareils. L’utilisation d’un module HSM permet de contourner la mise à jour du code déployé sur tous vos appareils et d’éviter d’avoir une clé secrète incorporée dans les images de votre appareil. Cet article suppose que ni un module de sécurité matériel ni un certificat ne sont des options viables. Il est cependant supposé que vous disposez d’une méthode de mise à jour du code de l’appareil pour utiliser le service Device Provisioning afin de provisionner ces appareils. 
 
 Cet article suppose également que la mise à jour de l’appareil a lieu dans un environnement sécurisé, pour empêcher tout accès non autorisé à la clé de groupe principale ou à la clé d’appareil dérivée.
 
@@ -142,39 +140,18 @@ Dans cet exemple, nous utilisons une combinaison d’une adresse MAC et du numé
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Créez un ID d’inscription unique pour votre appareil. Les caractères valides sont les caractères alphanumériques minuscules et les tirets (« - »).
+Créez des ID d’inscription uniques pour chaque appareil. Les caractères valides sont les caractères alphanumériques minuscules et les tirets (« - »).
 
 
 ## <a name="derive-a-device-key"></a>Dériver une clé d’appareil 
 
-Pour générer la clé de l’appareil, calculez le code [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription unique de l’appareil en utilisant la clé de groupe principale, puis convertissez le résultat au format Base64.
+Pour générer des clés d’appareil, utilisez la clé principale du groupe d’inscription pour calculer une valeur [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription de chaque appareil. Le résultat est ensuite converti au format Base64 pour chaque appareil.
 
 > [!WARNING]
-> Votre code d’appareil doit inclure uniquement la clé d’appareil dérivée pour l’appareil individuel. N’incluez pas votre clé de groupe principale dans le code de l’appareil. Une clé principale compromise est susceptible de compromettre la sécurité de tous les appareils qui y sont authentifiés.
+> Votre code d’appareil pour chaque appareil doit inclure uniquement la clé d’appareil dérivée correspondante pour cet appareil. N’incluez pas votre clé de groupe principale dans le code de l’appareil. Une clé principale compromise est susceptible de compromettre la sécurité de tous les appareils qui y sont authentifiés.
 
 
-#### <a name="linux-workstations"></a>Stations de travail Linux
-
-Si vous utilisez une station de travail Linux, vous pouvez utiliser openssl pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
-
-Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
-
-Remplacez la valeur de **REG_ID** avec votre ID d’inscription.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Stations de travail Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Si vous utilisez une station de travail Windows, utilisez PowerShell pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-Votre appareil utilise la clé d’appareil dérivée avec votre ID d’inscription unique pour effectuer l’attestation de clé symétrique avec le groupe d’inscription lors du provisionnement.
+Si vous utilisez une station de travail Linux, vous pouvez utiliser openssl pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
+
+Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
+
+Remplacez la valeur de **REG_ID** avec votre ID d’inscription.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Chaque appareil utilise sa clé d’appareil dérivée et un ID d’inscription unique pour effectuer l’attestation de clé symétrique avec le groupe d’inscription lors du provisionnement.
 
 
 
@@ -206,9 +204,9 @@ Votre appareil utilise la clé d’appareil dérivée avec votre ID d’inscript
 
 Dans cette section, vous allez mettre à jour un exemple de provisionnement nommé **prov\_dev\_client\_sample** provenant du SDK Azure IoT pour C que vous avez configuré précédemment. 
 
-Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil et son affectation au hub IoT que vous avez configuré sur le groupe d’inscription.
+Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil et son affectation au hub IoT que vous avez configuré sur le groupe d’inscription. Cette opération est effectuée pour chaque appareil provisionné à l’aide du groupe d’inscription.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -280,10 +278,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
 ## <a name="security-concerns"></a>Considérations sur la sécurité
 
-Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans l’image, ce qui n’est pas une bonne pratique de sécurité recommandée. C’est une raison pour laquelle la sécurité et la facilité d’utilisation sont des compromis. 
-
-
-
+Notez que cette opération laisse la clé d’appareil dérivée incluse dans l’image pour chaque appareil, ce qui ne correspond pas aux meilleures pratiques de sécurité recommandées. C’est l’une des raisons pour laquelle la sécurité et la facilité d’utilisation impliquent souvent des compromis. Vous devez examiner entièrement la sécurité de vos appareils en fonction de vos propres exigences.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

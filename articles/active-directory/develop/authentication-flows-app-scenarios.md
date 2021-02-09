@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c302e10a169a190d11f016620ec048cc58e3ac28
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755776"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220162"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -42,8 +42,8 @@ Les sections suivantes décrivent les catégories d’applications.
 
 Les scénarios d’authentification impliquent deux activités :
 
-- **Acquisition de jetons de sécurité pour une API web protégée** : Nous vous recommandons d’utiliser les [bibliothèques de client prises en charge par Microsoft](reference-v2-libraries.md#microsoft-supported-client-libraries) pour acquérir des jetons. Nous vous recommandons plus particulièrement d’utiliser la famille de bibliothèques MSAL (Microsoft Authentication Library).
-- **Protection d’une API web ou d’une application web** : l’une des tâches les plus complexes dans la protection de ces ressources est la validation du jeton de sécurité. Sur certaines plateformes, Microsoft propose des [bibliothèques d’intergiciels (middleware)](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
+- **Acquisition de jetons de sécurité pour une API web protégée** : Nous vous recommandons d’utiliser la [bibliothèque MSAL (Microsoft Authentication Library)](reference-v2-libraries.md), développée et prise en charge par Microsoft.
+- **Protection d’une API web ou d’une application web** : l’une des tâches les plus complexes dans la protection de ces ressources est la validation du jeton de sécurité. Sur certaines plateformes, Microsoft propose des [bibliothèques d’intergiciels (middleware)](reference-v2-libraries.md).
 
 ### <a name="with-users-or-without-users"></a>Avec utilisateurs ou sans utilisateurs
 
@@ -65,7 +65,7 @@ Les jetons de sécurité peuvent être acquis par plusieurs types d’applicatio
   - Applications de bureau qui appellent des API web pour le compte d’utilisateurs connectés
   - Applications mobiles
   - Applications s’exécutant sur des appareils qui n’ont pas de navigateur, comme ceux qui s’exécutent sur IoT
-  
+
 - **Applications clientes confidentielles** : Les applications appartenant à cette catégorie sont les suivantes :
   - Applications web qui appellent une API web
   - API web qui appellent une API web
@@ -95,7 +95,7 @@ Les applications utilisent les différents flux d’authentification pour connec
 
 De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Ces applications utilisent JavaScript ou un framework comme Angular, Vue ou React. Ces applications s’exécutent dans un navigateur web.
 
-Les applications monopages se différencient des applications web traditionnelles côté serveur au niveau des caractéristiques d’authentification. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web. La plateforme d’identités Microsoft propose deux types d’autorisation pour les applications JavaScript : 
+Les applications monopages se différencient des applications web traditionnelles côté serveur au niveau des caractéristiques d’authentification. Avec la plateforme d’identités Microsoft, les applications monopages peuvent connecter des utilisateurs et obtenir des jetons pour accéder à des services back-end ou à des API web. La plateforme d’identités Microsoft propose deux types d’autorisation pour les applications JavaScript :
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez [Application mobile qui appelle des API we
 
 ### <a name="protected-web-api"></a>API web protégée
 
-Vous pouvez utiliser la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
+Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
 
 Si vous souhaitez protéger votre API web ASP.NET ou ASP.NET Core, vous devez valider le jeton d’accès. Pour cette validation, vous utilisez le middleware JWT ASP.NET. La validation est effectuée par la bibliothèque d’[extensions IdentityModel pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), non par MSAL.NET.
 
@@ -309,7 +309,7 @@ Dans la colonne Windows du tableau suivant, chaque fois que .NET Core est mentio
 | [Application démon](scenario-daemon-overview.md) <br/> [![Application démon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [API web qui appelle des API web](scenario-web-api-call-api-overview.md) <br/><br/> [![API web qui appelle des API web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-Pour plus d’informations, consultez [Prise en charge Microsoft des bibliothèques selon le système d’exploitation et le langage](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
+Pour plus d’informations, consultez [Bibliothèques d’authentification de plateforme d’identité Microsoft](reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

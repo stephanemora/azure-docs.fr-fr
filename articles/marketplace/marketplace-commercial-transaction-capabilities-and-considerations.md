@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880740"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986460"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Fonctionnalités de transaction de la place de marché commerciale
 
@@ -84,7 +84,7 @@ Dans les scénarios de publication d’offres Transaction, vous pouvez proposer 
 
 Outre la sélection de types d’offres et de modèles de facturation pour monétiser une offre, vous pouvez proposer une offre privée, l’associer à des tarifs par transaction négociés ou personnaliser les configurations. Les offres privées sont disponibles pour les 3 options de publication Transaction.
 
-Cette option tarifaire peut être supérieure ou inférieure à l'offre disponible publiquement. Vous pouvez utiliser des offres privées pour appliquer une remise ou ajouter un supplément à une offre. Vous pouvez en proposer à un ou plusieurs clients en autorisant leur abonnement Azure au niveau de l’offre.
+Cette option tarifaire peut être supérieure ou inférieure à l'offre disponible publiquement. Vous pouvez utiliser des offres privées pour appliquer une remise ou ajouter un supplément à une offre. Vous pouvez en proposer à un ou plusieurs clients en ajoutant leur abonnement Azure à la liste d’autorisation au niveau de l’offre.
 
 ### <a name="commercial-marketplace-service-fees"></a>Frais de service de la Place de marché commerciale
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879475"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428772"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.locfileid: "98879475"
 
 ## <a name="limit-use-of-global-administrator"></a>Limiter l’utilisation de l’administrateur général
 
-Les utilisateurs qui sont affectés au rôle d’administrateur d’entreprise peuvent lire et modifier chaque paramètre d’administration de votre organisation Azure AD. Par défaut, quand un utilisateur s’inscrit à un service cloud Microsoft, un locataire Azure AD est créé, et l’utilisateur est promu membre du rôle Administrateur général. Lorsque vous ajoutez un abonnement à un locataire existant, le rôle Administrateur général ne vous est pas attribué. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques pour votre entreprise, nous vous recommandons d’attribuer ce rôle à un nombre restreint de personnes de votre organisation.
+Les utilisateurs qui sont affectés au rôle Administrateur général peuvent lire et modifier chaque paramètre d’administration de votre organisation Azure AD. Par défaut, quand un utilisateur s’inscrit à un service cloud Microsoft, un locataire Azure AD est créé, et l’utilisateur est promu membre du rôle Administrateur général. Lorsque vous ajoutez un abonnement à un locataire existant, le rôle Administrateur général ne vous est pas attribué. Seuls les administrateurs généraux et les administrateurs disposant d’un rôle privilégié peuvent déléguer des rôles d’administrateur. Pour limiter les risques pour votre entreprise, nous vous recommandons d’attribuer ce rôle à un nombre restreint de personnes de votre organisation.
 
 Nous vous recommandons d'attribuer ce rôle à moins de cinq personnes au sein de votre organisation. Si plus de cinq personnes disposent du rôle d'administrateur général au sein de votre organisation, voici quelques façons de réduire l'utilisation de ce rôle.
 
@@ -35,9 +35,9 @@ Nous vous recommandons d'attribuer ce rôle à moins de cinq personnes au sein d
 
 Si vous ne trouvez pas le rôle dont vous avez besoin dans une liste composée de nombreux rôles, Azure AD peut vous montrer des sous-ensembles des rôles en fonction des catégories de rôles. Consultez notre nouveau filtre de **Type** pour [Rôles et administrateurs Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) afin de ne montrer que les rôles du type sélectionné.
 
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Il existe maintenant un rôle qui n’existait pas lorsque vous avez attribué le rôle Administrateur général
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Il existe maintenant un rôle qui n’existait pas quand vous avez attribué le rôle Administrateur général
 
-Il est possible qu’un ou plusieurs rôles aient été ajoutés à Azure AD pour fournir des autorisations plus granulaires qui n’étaient pas en option lorsque vous avez attribué à certains utilisateurs le rôle d’administrateur d’entreprise. Au fil du temps, nous déployons des rôles supplémentaires pour des tâches que seul le rôle d’administrateur d’entreprise pouvait accomplir auparavant. Vous pouvez voir ces éléments reflétés dans les [Rôles disponibles](#available-roles) suivants.
+Il est possible qu’un ou plusieurs rôles aient été ajoutés à Azure AD pour fournir des autorisations plus précises qui n’étaient pas en option quand vous avez attribué à certains utilisateurs le rôle Administrateur général. Au fil du temps, nous déployons des rôles supplémentaires pour des tâches que seul le rôle Administrateur général pouvait accomplir. Vous pouvez voir ces éléments reflétés dans les [Rôles disponibles](#available-roles) suivants.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
 
@@ -59,7 +59,7 @@ Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des app
 Ce rôle permet également de _donner son consentement_ pour des permissions déléguées et des permissions d’application, à l’exception des permissions d’application sur l’API Microsoft Graph.
 
 > [!IMPORTANT]
-> Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple les applications Microsoft ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
+> Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple les applications Microsoft ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans l’annuaire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir Administrateur général.
 >
 >Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à une ressource, telle que la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions en empruntant l’identité de l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications lui donne la possibilité d’emprunter l’identité d’une application.
 
@@ -69,13 +69,7 @@ Les utilisateurs dans ce rôle peuvent créer des inscriptions d’application q
 
 ### <a name="authentication-administrator"></a>[Administrateur d’authentification](#authentication-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour certains utilisateurs et peuvent mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil**, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Ces actions s’appliquent uniquement aux utilisateurs qui ne sont pas administrateurs ou qui se voient attribuer un ou plusieurs des rôles suivants :
-
-* Administrateur d’authentification
-* Lecteurs de répertoires
-* Inviteur
-* Lecteur du Centre de messages
-* Lecteur de rapports
+Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour certains utilisateurs et peuvent mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil**, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Le rôle attribué à un utilisateur détermine si un administrateur d’authentification peut réinitialiser le mot de passe de l’utilisateur. Pour obtenir la liste des rôles pour lesquels un administrateur d’authentification peut réinitialiser les mots de passe, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
 
 Le rôle [Administrateur d’authentification privilégié](#privileged-authentication-administrator) a l’autorisation de forcer la réinscription et l’authentification multifacteur pour tous les utilisateurs.
 
@@ -222,14 +216,9 @@ Cet administrateur gère la fédération entre les organisations Azure AD et les
 * Organisations Azure AD pour les employés et les partenaires : L’ajout d’une fédération (par exemple, avec Gmail) impacte immédiatement toutes les invitations d’invités qui ne sont pas encore utilisées. Consultez [Ajout de Google comme fournisseur d’identité pour les utilisateurs invités B2B](../external-identities/google-federation.md).
 * Organisations Azure Active Directory B2C : L’ajout d’une fédération (par exemple, avec Facebook ou une autre organisation Azure AD) n’impacte pas immédiatement les flux d’utilisateurs finaux tant que le fournisseur d’identité n’est pas ajouté comme option dans un flux d’utilisateurs (aussi appelé stratégie intégrée). Consultez [Configuration d’un compte Microsoft comme fournisseur d’identité](../../active-directory-b2c/identity-provider-microsoft-account.md) pour obtenir un exemple.  Pour modifier des flux d’utilisateurs, le rôle limité d’« administrateur de flux d’utilisateurs B2C » est nécessaire.
 
-### <a name="global-administrator--company-administrator"></a>[Administrateur général ou Administrateur d’entreprise](#company-administrator-permissions)
+### <a name="global-administrator"></a>[Administrateur général](#global-administrator-permissions)
 
-Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. Par ailleurs, les administrateurs généraux peuvent [élever leur accès](../../role-based-access-control/elevate-access-global-admin.md) pour gérer tous les abonnements et groupes d’administration Azure. Ils obtiennent ainsi un accès complet à toutes les ressources Azure à l’aide du locataire Azure AD correspondant. La personne qui s’inscrit pour l’organisation Azure AD devient un administrateur général. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
-
-> [!NOTE]
-> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur d’entreprise ». Il est « Administrateur général » dans le [portail Azure](https://portal.azure.com).
->
->
+Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. Par ailleurs, les administrateurs généraux peuvent [élever leur accès](../../role-based-access-control/elevate-access-global-admin.md) pour gérer tous les abonnements et groupes d’administration Azure. Ils obtiennent ainsi un accès complet à toutes les ressources Azure à l’aide du locataire Azure AD correspondant. La personne qui s’inscrit pour l’organisation Azure AD devient administrateur général. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
 
 ### <a name="global-reader"></a>[Lecteur général](#global-reader-permissions)
 
@@ -258,14 +247,7 @@ les utilisateurs auxquels ce rôle est assigné peuvent gérer les invitations d
 
 ### <a name="helpdesk-administrator"></a>[Administrateur du support technique](#helpdesk-administrator-permissions)
 
-Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Les administrateurs du support peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui ne sont pas administrateurs ni dotés des rôles suivants uniquement :
-
-* Lecteurs de répertoires
-* Inviteur
-* Administrateur du support technique
-* Lecteur du Centre de messages
-* Administrateur de mots de passe
-* Lecteur de rapports
+Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Le rôle attribué à un utilisateur détermine si un administrateur du support technique peut réinitialiser le mot de passe de l’utilisateur et invalider les jetons d’actualisation. Pour obtenir la liste des rôles pour lesquels un administrateur du support technique peut réinitialiser les mots de passe et invalider les jetons d’actualisation, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
@@ -276,7 +258,7 @@ Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non val
 >- Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
 >- Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
-La délégation d’autorisations administratives à des sous-ensembles d’utilisateurs et l’application de stratégies à un sous-ensemble d’utilisateurs sont possibles avec des [unités administratives (maintenant en préversion publique)](administrative-units.md).
+La délégation d’autorisations administratives à des sous-ensembles d’utilisateurs et l’application de stratégies à un sous-ensemble d’utilisateurs sont possibles avec des [unités administratives](administrative-units.md).
 
 Ce rôle était auparavant appelé « administrateur de mot de passe » dans le [portail Azure](https://portal.azure.com/). Le nom « Administrateur du support » dans Azure AD correspond maintenant à celui utilisé dans Azure AD PowerShell et l’API Microsoft Graph.
 
@@ -349,11 +331,7 @@ Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’
 
 ### <a name="password-administrator"></a>[Administrateur de mots de passe](#password-administrator-permissions)
 
-Les utilisateurs disposant de ce rôle ont une capacité limitée à gérer les mots de passe. Ce rôle n’accorde pas la possibilité de gérer les demandes de service ou de surveiller l’intégrité du service. Les administrateurs de mot de passe peuvent réinitialiser les mots de passe d’autres utilisateurs qui ne sont pas administrateurs ou membres des rôles suivants uniquement :
-
-* Lecteurs de répertoires
-* Inviteur
-* Administrateur de mots de passe
+Les utilisateurs disposant de ce rôle ont une capacité limitée à gérer les mots de passe. Ce rôle n’accorde pas la possibilité de gérer les demandes de service ou de surveiller l’intégrité du service. Le rôle attribué à un utilisateur détermine si un administrateur de mot de passe peut réinitialiser le mot de passe de l’utilisateur. Pour obtenir la liste des rôles pour lesquels un administrateur de mot de passe peut réinitialiser les mots de passe, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
 
 ### <a name="power-bi-administrator"></a>[Administrateur Power BI](#power-bi-service-administrator-permissions)
 
@@ -376,13 +354,7 @@ Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer leur 
 
 ### <a name="privileged-authentication-administrator"></a>[Administrateur d’authentification privilégié](#privileged-authentication-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification de tous les utilisateurs, y compris des administrateurs généraux, et mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui a pour effet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs. Le rôle [Administrateur de l’authentification](#authentication-administrator) peut forcer la réinscription et l’authentification multifacteur exclusivement pour les utilisateurs non-administrateurs et les utilisateurs attribués aux rôles Azure AD suivants :
-
-* Administrateur d’authentification
-* Lecteurs de répertoires
-* Inviteur
-* Lecteur du Centre de messages
-* Lecteur de rapports
+Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification de tous les utilisateurs, y compris des administrateurs généraux, et mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui a pour effet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs.
 
 ### <a name="privileged-role-administrator"></a>[Administrateur de rôle privilégié](#privileged-role-administrator-permissions)
 
@@ -505,11 +477,12 @@ Les utilisateurs disposant de ce rôle peuvent accéder aux données agrégées 
 
 Les utilisateurs dotés de ce rôle peuvent créer des utilisateurs, gérer tous les aspects des utilisateurs avec certaines restrictions (voir le tableau) et mettre à jour les stratégies d’expiration de mot de passe. De plus, les utilisateurs dotés de ce rôle peuvent créer et gérer tous les groupes. Ce rôle inclut également la possibilité de créer et de gérer des affichages utilisateur, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Les administrateurs d’utilisateurs n’ont pas l’autorisation de gérer certaines propriétés utilisateur pour les utilisateurs affectés à des rôles d’administrateur. L’utilisateur ayant ce rôle n’est pas autorisé à gérer l’authentification multifacteur. Les rôles qui sont des exceptions à cette restriction sont listés dans le tableau suivant.
 
-| **Permission** | **Peut** |
+| Autorisation d’administrateur d’utilisateurs | Notes |
 | --- | --- |
-|Autorisations générales|<p>Créer des utilisateurs et des groupes</p><p>Créer et gérer des vues utilisateur</p><p>Gérer les tickets de support Office<p>Mettre à jour les stratégies d’expiration de mot de passe|
-| <p>Tous les utilisateurs, notamment les administrateurs</p>|<p>Gérer les licences</p><p>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal</p>
-| Uniquement pour les utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles d’administrateur limités suivants :<ul><li>Lecteurs de répertoires<li>Administrateur de groupes<li>Inviteur<li>Administrateur du support technique<li>Lecteur du Centre de messages<li>Administrateur de mots de passe<li>Lecteur de rapports<li>Administrateur d'utilisateurs|<p>Supprimer et restaurer</p><p>Désactiver et activer</p><p>Invalider les jetons d’actualisation</p><p>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal</p><p>Réinitialiser le mot de passe</p><p>Mettre à jour les clés d’appareil (FIDO)</p>|
+| Créer des utilisateurs et des groupes<br/>Créer et gérer des vues utilisateur<br/>Gérer les tickets de support Office<br/>Mettre à jour les stratégies d’expiration de mot de passe |  |
+| Gérer les licences<br/>Gérer toutes les propriétés de l’utilisateur, sauf le nom d’utilisateur principal | S’applique à tous les utilisateurs, notamment les administrateurs |
+| Supprimer et restaurer<br/>Désactiver et activer<br/>Gérer toutes les propriétés de l’utilisateur, y compris le nom d’utilisateur principal<br/>Mettre à jour les clés d’appareil (FIDO) | S’applique aux utilisateurs qui ne sont pas administrateurs ou qui ont l’un des rôles suivants :<ul><li>Administrateur du support technique</li><li>Utilisateur sans rôle</li><li>Administrateur d'utilisateurs</li></ul> |
+| Invalider les jetons d’actualisation<br/>Réinitialiser le mot de passe | Pour obtenir la liste des rôles pour lesquels un administrateur d’utilisateurs peut réinitialiser les mots de passe et invalider les jetons d’actualisation, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Les utilisateurs auxquels ce rôle est assigné peuvent changer les mots de passe des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer le mot de passe d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
@@ -577,6 +550,7 @@ Peut créer et gérer tous les aspects des inscriptions d’applications et des 
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
 ### <a name="application-developer-permissions"></a>Autorisations de développeur d’applications
 
@@ -652,6 +626,7 @@ Peut gérer tous les aspects du service Azure Information Protection.
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Autorisations d’administrateur de jeux de clés B2C IEF
 
@@ -730,6 +705,7 @@ Peut créer et gérer tous les aspects des inscriptions d’applications et des 
 | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Autorisations d’administrateur d’appareil cloud
 
@@ -747,9 +723,9 @@ Accès total pour gérer des appareils dans Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 
-### <a name="company-administrator-permissions"></a>Autorisations d’administrateur de la société
+### <a name="global-administrator-permissions"></a>Autorisations d’administrateur général
 
-Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisent des identités Azure AD. Ce rôle est également connu sous le nom de rôle d’administrateur général. 
+Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisent des identités Azure AD.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
@@ -1749,10 +1725,12 @@ Crée et gère les événements de sécurité.
 | microsoft.directory/cloudAppSecurity/allProperties/allTasks | Lisez et configurez Microsoft Cloud App Security. |
 | microsoft.directory/identityProtection/allProperties/read | Lisez toutes les ressources dans microsoft.aad.identityProtection. |
 | microsoft.directory/privilegedIdentityManagement/allProperties/read | Lisez toutes les ressources dans microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/provisioningLogs/allProperties/read | Lisez toutes les propriétés des journaux d'approvisionnement. |
 | microsoft.intune/allEntities/allTasks | Gérez tous les aspects d’Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Lisez et configurez le Centre de sécurité et de conformité. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lisez et configurez Windows Defender Advanced Threat Protection. |
+
 
 ### <a name="security-reader-permissions"></a>Autorisations de lecteur de sécurité
 
@@ -2067,6 +2045,31 @@ Support de niveau 2 partenaire | Non affiché, car il ne doit pas être utilis�
 Utilisateur invité restreint | Non affiché, car il ne peut pas être utilisé | N/D
 Utilisateur | Non affiché, car il ne peut pas être utilisé | N/D
 Jonction d’appareils d’espace de travail | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Autorisations de réinitialisation de mot de passe
+
+Les en-têtes de colonne représentent les rôles qui peuvent réinitialiser les mots de passe. Les lignes du tableau contiennent les rôles dont le mot de passe peut être réinitialisé.
+
+Le mot de passe peut être réinitialisé | Administrateur d’authentification | Administrateur du support technique | Administrateur de mot de passe | User Admin | Administrateur d’authentification privilégié | Administrateur général
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Administrateur d’authentification | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Lecteurs de répertoires | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrateur général | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Administrateur de groupes | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Invité | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Inviteur | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrateur du support technique | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Lecteur du Centre de messages | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrateur de mot de passe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrateur d’authentification privilégié | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Administrateur de rôle privilégié | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Lecteur de rapports | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Invité restreint | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Utilisateur (aucun rôle d’administrateur) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Lecteur de rapports de synthèse sur l'utilisation | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Un administrateur général ne peut pas supprimer sa propre attribution d’administrateur général. Cela permet d’éviter une situation dans laquelle une organisation a 0 administrateur général.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

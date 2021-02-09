@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755470"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051598"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -121,6 +121,7 @@ Les tableaux suivants affichent les indicateurs de performance disponibles et le
 >| Nombre de nettoyages de mémoire Gén 0  | gen-0-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 0 par seconde. |
 >| Nombre de nettoyages de mémoire Gén 1  | gen-1-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 1 par seconde. |
 >| Nombre de nettoyages de mémoire Gén 2  | gen-2-gc-count | Count        | Nombre de nettoyages de mémoire de Génération 2 par seconde. |
+>| Heure du nettoyage de la mémoire      | timein-gc      | Pourcentage      | Pourcentage de temps de nettoyage de la mémoire depuis le dernier nettoyage. |
 >| Taille du tas de la génération 0 | gen-0-size     | Octets        | Taille des segments de mémoire de Génération 0. |
 >| Taille du tas de la génération 1 | gen-1-size     | Octets        | Taille des segments de mémoire de Génération 1. |
 >| Taille du tas de la génération 2 | gen-2-size     | Octets        | Taille des segments de mémoire de Génération 2. |

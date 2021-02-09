@@ -2,24 +2,23 @@
 title: Hyperparamètre optimisant un modèle
 titleSuffix: Azure Machine Learning
 description: Automatisez l’optimisation des hyperparamètres de vos modèles Deep Learning et Machine Learning avec Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133850"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430345"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hyperparamètre optimisant un modèle avec Azure Machine Learning
-
 
 Automatisez une optimisation efficace des hyperparamètres à l’aide du [package HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) Azure Machine Learning. Découvrez comment effectuer les étapes nécessaires pour régler les hyperparamètres à l’aide du SDK [Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) :
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualiser les exécutions d’optimisation des hyperparamètres
 
+Vous pouvez visualiser vos exécutions d’optimisation des hyperparamètres dans Azure Machine Learning studio, ou vous pouvez utiliser un widget de notebook.
+
+### <a name="studio"></a>Studio
+
+Vous pouvez visualiser toutes vos exécutions d’optimisation des hyperparamètres dans [Azure Machine Learning studio](https://ml.azure.com). Pour plus d’informations sur la visualisation d’une expérience sur le portail, reportez-vous à [Consulter les enregistrements d’exécution dans le studio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Graphique des métriques** : cette visualisation assure le suivi des métriques journalisées pour chaque exécution enfant Hyperdrive pendant la durée de l’optimisation des hyperparamètres. Chaque ligne représente une exécution enfant, tandis que chaque point mesure la valeur de métrique principale à cette itération d’exécution.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Graphique des métriques de l’optimisation des hyperparamètres":::
+
+- **Graphique des coordonnées parallèles** : cette visualisation montre la corrélation entre les performances de la métrique principale et les valeurs individuelles des hyperparamètres. Le graphique est interactif via le déplacement des axes (cliquez sur l’étiquette d’un axe et faites-la glisser) et la mise en surbrillance des valeurs d’un axe spécifique (cliquez sur un axe et opérez un glissement vertical le long de ce dernier pour mettre en surbrillance une plage de valeurs souhaitées).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Graphique des coordonnées parallèles de l’optimisation des hyperparamètres":::
+
+- **Graphique à nuages de points bidimensionnel** : cette visualisation montre la corrélation entre deux hyperparamètres individuels et la valeur de leur métrique principale associée.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Graphique à nuages de points bidimensionnel de l’optimisation des hyperparamètres":::
+
+- **Graphique à nuages de points tridimensionnel** : cette visualisation est identique à celle à 2 dimensions, mais elle permet trois dimensions de corrélation des hyperparamètres avec la valeur de la métrique principale. Vous pouvez également cliquer et faire glisser pour réorienter le graphique afin de voir différentes corrélations dans l’espace 3D.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Graphique à nuages de points tridimensionnel de l’optimisation des hyperparamètres":::
+
+### <a name="notebook-widget"></a>Widget de bloc-notes
+
 Utilisez le [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) pour visualiser la progression de vos exécutions d’entraînement. L’extrait de code suivant vous permet de visualiser toutes vos exécutions d’optimisation des hyperparamètres dans un notebook Jupyter :
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Ce code présente un tableau avec des détails sur les exécutions d’entraînement pour chacune des configurations d’hyperparamètres.
 
-![Tableau des optimisations des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tableau de l’optimisation des hyperparamètres":::
 
-Vous pouvez également visualiser les performances de chacune des exécutions au fil de l’entraînement. 
-
-![Tracé de l’optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Vous pouvez identifier visuellement la corrélation entre les performances et les valeurs des hyperparamètres individuels avec un tracé de coordonnées parallèles. 
-
-[![Coordonnées parallèles de l'optimisation des hyperparamètres](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail, consultez le [guide pratique pour suivre les expériences](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Vous pouvez également visualiser les performances de chacune des exécutions au fil de l’entraînement.
 
 ## <a name="find-the-best-model"></a>Trouver le meilleur modèle
 

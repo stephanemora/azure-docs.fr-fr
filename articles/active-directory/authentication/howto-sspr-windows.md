@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741488"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491383"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Activer la réinitialisation de mot de passe en libre-service Azure Active Directory depuis l’écran de connexion Windows
 
@@ -40,7 +40,7 @@ Les limitations suivantes s’appliquent à l’utilisation de SSPR depuis l’�
 - Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache. Cela signifie que les appareils doivent se trouver sur le réseau interne de l’organisation ou sur un VPN disposant d’un accès réseau à un contrôleur de domaine local.
 - Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations au sujet de cette étape dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Les paramètres suivants sont connus pour interférer avec la fonctionnalité de réinitialisation des mots de passe sur les appareils Windows 10 :
-    - Si Ctrl+Alt+Suppr est imposé par une stratégie dans les versions de Windows 10 antérieure à la version 1909, la commande **Réinitialiser le mot de passe** ne fonctionnera pas.
+    - Si Ctrl+Alt+Suppr est imposé par une stratégie dans Windows 10, la commande **Réinitialiser le mot de passe** ne fonctionne pas.
     - Si les notifications de l’écran de verrouillage sont désactivées, la commande **Réinitialiser le mot de passe** ne fonctionnera pas.
     - *HideFastUserSwitching* a la valeur enabled ou 1
     - *DontDisplayLastUserName* a la valeur enabled ou 1
@@ -51,6 +51,10 @@ Les limitations suivantes s’appliquent à l’utilisation de SSPR depuis l’�
     - Ouverture de session interactive : N’exige pas la combinaison de touches CTRL + ALT + SUPPR = Désactivé
     - *DisableLockScreenAppNotifications* = 1 ou Enabled
     - La référence SKU Windows ne correspond pas à l’édition Famille ou Professionnel
+
+> [!NOTE]
+> Ces limitations s’appliquent également à la réinitialisation du code PIN Windows Hello Entreprise à partir de l’écran de verrouillage de l’appareil.
+>
 
 ## <a name="windows-10-password-reset"></a>Réinitialisation de mot de passe de Windows 10
 

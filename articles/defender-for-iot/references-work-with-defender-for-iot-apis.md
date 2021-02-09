@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624572"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222097"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API de capteur et de console de gestion Defender pour IoT
 
@@ -56,33 +56,31 @@ Pour générer un jeton :
 
 Cette section décrit les API de capteur suivantes :
 
-- /api/v1/devices
+- [Récupérer des informations sur les appareils – /api/v1/devices](#retrieve-device-information---apiv1devices)
 
-- /api/v1/devices/connections
+- [Récupérer les informations de connexion des appareils – /api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
 
-- /api/v1/devices/cves
+- [Récupérer des informations sur les CVE – /api/v1/devices/cves](#retrieve-information-on-cves---apiv1devicescves)
 
-- /api/v1/alerts
+- [Récupérer des informations sur les alertes – /api/v1/alerts](#retrieve-alert-information---apiv1alerts)
 
-- /api/v1/events
+- [Récupérer les événements de chronologie – /api/v1/events](#retrieve-timeline-events---apiv1events)
 
-- /api/v1/reports/vulnerabilities/devices
+- [Récupérer des informations sur les vulnérabilités – /api/v1/reports/vulnerabilities/devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)
 
-- /api/v1/reports/vulnerabilities/security
+- [Récupérer les failles de sécurité – /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
-- /api/v1/reports/vulnerabilities/operational
+- [Récupérer les vulnérabilités opérationnelles – /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- /api/external/authentication/validation
+- [Valider les informations d’identification d’utilisateur – /api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
 
-- /external/authentication/set_password
+- [Modifier le mot de passe – /external/authentication/set_password](#change-password---externalauthenticationset_password)
 
-- /external/authentication/set_password_by_admin
+- [Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-### <a name="retrieve-device-information"></a>Récupérer les informations des appareils
+### <a name="retrieve-device-information---apiv1devices"></a>Récupérer des informations sur les appareils – /api/v1/devices
 
 Utilisez cette API pour demander une liste de tous les appareils détectés par un capteur Defender pour IoT.
-
-#### <a name="apiv1devices"></a>/api/v1/devices
 
 #### <a name="method"></a>Méthode
 
@@ -279,11 +277,15 @@ Tableau d'objets JSON qui représentent les appareils.
 ]
 ```
 
-### <a name="retrieve-device-connection-information"></a>Récupérer les informations de connexion de l’appareil
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:<span>//127<span>.0.0.1/api/v1/devices?authorized=true |
+
+### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>Récupérer les informations de connexion des appareils – /api/v1/devices/connections
 
 Utilisez cette API pour demander une liste de toutes les connexions par appareil.
-
-#### <a name="apiv1devicesconnections"></a>/api/v1/devices/connections
 
 #### <a name="method"></a>Méthode
 
@@ -447,11 +449,17 @@ Tableau d'objets JSON qui représentent les connexions de l’appareil.
 ]
 ```
 
-### <a name="retrieve-information-on-cves"></a>Récupérer des informations sur les CVE
+#### <a name="curl-command"></a>Commande Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Type | API | Exemple |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/connections | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections |
+> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
+
+### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Récupérer des informations sur les CVE – /api/v1/devices/cves
 
 Utilisez cette API pour demander une liste de tous les CVE connus découverts sur les appareils du réseau.
-
-#### <a name="apiv1devicescves"></a>/api/v1/devices/cves
 
 #### <a name="method"></a>Méthode
 
@@ -557,11 +565,16 @@ Tableau d’objets JSON qui représentent les CVE identifiés sur les adresses I
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Récupérer les informations d’alerte
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/cves | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves |
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/devices/<deviceIpAddress>/cves?top= | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
+
+### <a name="retrieve-alert-information---apiv1alerts"></a>Récupérer des informations sur les alertes – /api/v1/alerts
 
 Utilisez cette API pour demander une liste de toutes les alertes détectées par le capteur Defender pour IoT.
-
-#### <a name="apiv1alerts"></a>/api/v1/alerts
 
 #### <a name="method"></a>Méthode
 
@@ -685,11 +698,16 @@ Tableau d'objets JSON qui représentent les alertes.
 
 ```
 
-### <a name="retrieve-timeline-events"></a>Récupérer les événements de chronologie
+#### <a name="curl-command"></a>Commande Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Type | API | Exemple |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
+
+### <a name="retrieve-timeline-events---apiv1events"></a>Récupérer les événements de chronologie – /api/v1/events
 
 Utilisez cette API pour demander une liste des événements signalés à la chronologie des événements.
-
-#### <a name="apiv1events"></a>/api/v1/events
 
 #### <a name="method"></a>Méthode
 
@@ -802,11 +820,15 @@ Tableau d'objets JSON qui représentent les alertes.
 
 ```
 
-### <a name="retrieve-vulnerability-information"></a>Récupérer les informations sur la vulnérabilité
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
+
+### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>Récupérer des informations sur les vulnérabilités – /api/v1/reports/vulnerabilities/devices
 
 Utilisez cette API pour demander les résultats de l’évaluation de vulnérabilité pour chaque appareil.
-
-#### <a name="apiv1reportsvulnerabilitiesdevices"></a>/api/v1/reports/vulnerabilities/devices
 
 #### <a name="method"></a>Méthode
 
@@ -1052,13 +1074,17 @@ L’objet d’appareil contient :
 
 ```
 
-### <a name="retrieve-security-vulnerabilities"></a>Récupérer les failles de sécurité
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/devices |
+
+### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>Récupérer les failles de sécurité – /api/v1/reports/vulnerabilities/security
 
 Utilisez cette API pour demander les résultats de l’évaluation de vulnérabilité générale. Cette évaluation fournit des informations sur le niveau de sécurité de votre système.
 
 Cette évaluation est basée sur des informations générales sur le réseau et le système, et non sur l’évaluation d’un appareil spécifique.
-
-#### <a name="apiv1reportsvulnerabilitiessecurity"></a>/api/v1/reports/vulnerabilities/security
 
 #### <a name="method"></a>Méthode
 
@@ -1295,11 +1321,15 @@ Objet JSON qui représente les résultats évalués. Chaque clé peut accepter l
 
 ```
 
-### <a name="retrieve-operational-vulnerabilities"></a>Récupérer les vulnérabilités opérationnelles
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/security | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/security |
+
+### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>Récupérer les vulnérabilités opérationnelles – /api/v1/reports/vulnerabilities/operational
 
 Utilisez cette API pour demander les résultats de l’évaluation de vulnérabilité générale. Cette évaluation fournit un aperçu de l’état opérationnel de votre réseau. Elle est basée sur des informations générales sur le réseau et le système, et non sur l’évaluation d’un appareil spécifique.
-
-#### <a name="apiv1reportsvulnerabilitiesoperational"></a>/api/v1/reports/vulnerabilities/operational
 
 #### <a name="method"></a>Méthode
 
@@ -1488,13 +1518,17 @@ Objet JSON qui représente les résultats évalués. Chaque clé contient un tab
 
 ```
 
-### <a name="validate-user-credentials"></a>Valider les informations d’identification de l’utilisateur
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/operational | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/operational |
+
+### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>Valider les informations d’identification d’utilisateur – /api/external/authentication/validation
 
 Utilisez cette API pour valider un nom d’utilisateur et un mot de passe Defender pour IoT. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API.
 
 Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="apiexternalauthenticationvalidation"></a>/api/external/authentication/validation
 
 #### <a name="method"></a>Méthode
 
@@ -1551,11 +1585,15 @@ response:
 
 ```
 
-### <a name="change-password"></a>Modifier le mot de passe
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/external/authentication/validation | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/external/authentication/validation |
+
+### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
 Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="externalauthenticationset_password"></a>/external/authentication/set_password
 
 #### <a name="method"></a>Méthode
 
@@ -1621,11 +1659,15 @@ response:
 | **mot de passe** | String | Non |
 | **new_password** | String | Non |
 
-### <a name="user-password-update-by-system-admin"></a>Mise à jour du mot de passe utilisateur par l’administrateur système
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| POST | curl -k -d '{"username": "<NOM_UTILISATEUR>","password": "<MOT_DE_PASSE_ACTUEL>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/api/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
 Utilisez cette API pour permettre aux administrateurs système de modifier les mots de passe des utilisateurs spécifiés. Tous les rôles d’utilisateur Administrateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>/external/authentication/set_password_by_admin
 
 #### <a name="method"></a>Méthode
 
@@ -1697,6 +1739,13 @@ response:
 | **username** | String | Non |
 | **new_password** | String | Non |
 
+#### <a name="curl-command"></a>Commande Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Type | API | Exemple |
+> |--|--|--|
+> | POST | curl -k -d '{"admin_username":"<NOM_UTILISATEUR_ADMINISTRATEUR>","admin_password":"<MOT_DE_PASSE_ADMINISTRATEUR>","username": "<NOM_UTILISATEUR>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
+
 ## <a name="on-premises-management-console-api-specifications"></a>Spécifications des API de la console de gestion locale
 
 Cette section décrit les API de la console de gestion locale suivantes :
@@ -1726,23 +1775,17 @@ Les API que vous définissez ici apparaissent dans la fenêtre de la console de 
 
 ```
 
-#### <a name="change-password"></a>Modifier le mot de passe
+#### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
 Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
 
-- **/external/authentication/set_password**
-
-#### <a name="user-password-update-by-system-admin"></a>Mise à jour du mot de passe utilisateur par l’administrateur système
+#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
 Utilisez cette API pour permettre aux administrateurs système de modifier les mots de passe d’utilisateurs spécifiques. Tous les rôles d’utilisateur administrateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
 
-- **/external/authentication/set_password_by_admin**
-
-### <a name="retrieve-device-information"></a>Récupérer les informations des appareils
+### <a name="retrieve-device-information---externalv1devices"></a>Récupérer des informations sur les appareils – /external/v1/devices
 
 Cette API demande une liste de tous les appareils détectés par les capteurs Defender pour IoT connectés à une console de gestion locale.
-
-- **/external/v1/devices**
 
 #### <a name="method"></a>Méthode
 
@@ -1959,11 +2002,15 @@ Tableau d'objets JSON qui représentent les appareils.
 ]
 ```
 
-### <a name="retrieve-alert-information"></a>Récupérer les informations d’alerte
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<>ADRESSE_IP>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true' |
+
+### <a name="retrieve-alert-information---externalv1alerts"></a>Récupérer des informations sur les alertes – /external/v1/alerts
 
 Utilisez cette API pour récupérer toutes les alertes ou les alertes filtrées à partir d’une console de gestion locale.
-
-#### <a name="externalv1alerts"></a>/external/v1/alerts
 
 #### <a name="method"></a>Méthode
 
@@ -2116,6 +2163,13 @@ Utilisez cette API pour récupérer toutes les alertes ou les alertes filtrées 
 ]
 ```
 
+#### <a name="curl-command"></a>Commande Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Type | API | Exemple |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<>ADRESSE_IP>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1' |
+
 ### <a name="qradar-alerts"></a>Alertes QRadar
 
 L’intégration de QRadar à Defender pour IoT vous aide à identifier les alertes générées par Defender pour IoT et à effectuer des actions avec ces alertes. QRadar reçoit les données de Defender pour IoT, puis contacte le composant de la console de gestion locale de l’API publique.
@@ -2213,15 +2267,19 @@ Tableau d'objets JSON qui représentent les appareils.
 }
 ```
 
-### <a name="alert-exclusions-maintenance-window"></a>Exclusions d’alerte (fenêtre de maintenance)
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| PUT | curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/external/v1/alerts/<UUID> | curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000 |
+
+### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Exclusions d’alerte (fenêtre de maintenance) – /external/v1/maintenanceWindow
 
 Définissez les conditions dans lesquelles les alertes ne seront pas envoyées. Par exemple, définissez et mettez à jour les heures d’arrêt et de démarrage, les appareils ou sous-réseaux qui doivent être exclus lors du déclenchement d’alertes ou les moteurs Defender pour IoT qui doivent être exclus. Par exemple, au cours d’une fenêtre de maintenance, vous souhaiterez peut-être arrêter l’envoi de toutes les alertes, à l’exception des alertes de programmes malveillants sur les appareils critiques.
 
 Les API que vous définissez ici apparaissent dans la fenêtre de la console de gestion locale **Exclusions d’alerte** comme une règle d’exclusion en lecture seule.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="La fenêtre Exclusions d’alertes, qui présente la liste de toutes les règles d’exclusion. ":::
-
-#### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
 #### <a name="method---post"></a>Méthode - POST
 
@@ -2367,11 +2425,18 @@ Tableau d’objets JSON qui représentent les opérations de fenêtre de mainten
 | **ttl** | Numérique | - | Oui |
 | **operationType** | String | Les valeurs sont « OPEN », « UPDATE » et « CLOSE » | non |
 
-### <a name="authenticate-user-credentials"></a>S’authentifier avec les informations d’identification de l’utilisateur
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| POST | curl -k -X POST -d '{"ticketId": "<ID_TICKET>",ttl": <DURÉE_DE_VIE>,"engines": [<MOTEUR1, MOTEUR2...MOTEURn>],"sensorIds": [<ID_CAPTEUR1, ID_CAPTEUR2...ID_CAPTEURn>],"subnets": [<SOUS-RÉSEAU1, SOUS-RÉSEAU2...SOUS-RÉSEAUn>]}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| PUT | curl -k -X PUT -d '{"ticketId": "<ID_TICKET>",ttl": "<DURÉE_DE_VIE>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| DELETE | curl -k -X DELETE -d '{"ticketId": "<ID_TICKET>"}' -H "Authorization: <JETON_AUTHENTIFICATION>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
+
+### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Authentifier les informations d’identification d’utilisateur – /external/authentication/validation
 
 Utilisez cette API pour valider les informations d’identification de l’utilisateur. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="externalauthenticationvalidation"></a>/external/authentication/validation
 
 #### <a name="method"></a>Méthode
 
@@ -2426,11 +2491,15 @@ response:
 }
 ```
 
-### <a name="change-password"></a>Modifier le mot de passe
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| POST | curl -k -d '{"username":"<NOM_UTILISATEUR>","password":"PASSWORD"}' 'https://<ADRESSE_IP>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation' |
+
+### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
 Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="externalauthenticationset_password"></a>/external/authentication/set_password
 
 #### <a name="method"></a>Méthode
 
@@ -2496,11 +2565,15 @@ response:
 | **mot de passe** | String | Non |
 | **new_password** | String | Non |
 
-### <a name="user-password-update-by-system-admin"></a>Mise à jour du mot de passe utilisateur par l’administrateur système
+#### <a name="curl-command"></a>Commande Curl
+
+| Type | API | Exemple |
+|--|--|--|
+| POST | curl -k -d '{"username": "<NOM_UTILISATEUR>","password": "<MOT_DE_PASSE_ACTUEL>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
+
+### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
 Utilisez cette API pour permettre aux administrateurs système de modifier les mots de passe des utilisateurs spécifiés. Tous les rôles d’utilisateur administrateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="externalauthenticationset_password_by_admin"></a>/external/authentication/set_password_by_admin
 
 #### <a name="method"></a>Méthode
 
@@ -2572,6 +2645,15 @@ response:
 | **username** | String | Non |
 | **new_password** | String | Non |
 
-## <a name="see-also"></a>Voir aussi
-[Examiner les détections de capteur dans un inventaire des appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-[Examiner toutes les détections de capteur d’entreprise dans un inventaire des appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+#### <a name="curl-command"></a>Commande Curl
+
+> [!div class="mx-tdBreakAll"]
+> | Type | API | Exemple |
+> |--|--|--|
+> | POST | curl -k -d '{"admin_username":"<NOM_UTILISATEUR_ADMINISTRATEUR>","admin_password":"<MOT_DE_PASSE_ADMINISTRATEUR>","username": "<NOM_UTILISATEUR>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Examiner toutes les détections de capteur d’un inventaire d’appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+- [Examiner toutes les détections de capteur de l’entreprise d’un inventaire d’appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221950"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475182"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
 | **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |
 | **AzureCognitiveSearch** | Recherche cognitive Azure. <br/><br/>Cette balise ou les adresses IP qu’elle couvre permettent d’accorder aux indexeurs un accès sécurisé à des sources de données. Pour plus de détails, consultez la [documentation sur la connexion d’indexeur](../search/search-indexer-troubleshooting.md#connection-errors). <br/><br/> *Remarque* : L’adresse IP du service de recherche n’est pas incluse dans la liste des plages d’adresses IP pour cette balise de service et **doit également être ajoutée** au pare-feu IP des sources de données. | Trafic entrant | Non | Non |
-| **AzureConnectors** | Connecteurs Azure Logic Apps pour les connexions principales/de sonde. | Trafic entrant | Oui | Oui |
+| **AzureConnectors** | Cette étiquette représente les adresses IP utilisées pour les connecteurs managés qui effectuent des rappels de webhook entrants vers le service Azure Logic Apps et des appels sortants vers leurs services respectifs, par exemple, Stockage Azure ou Azure Event Hubs. | Trafic entrant/sortant | Oui | Oui |
 | **AzureContainerRegistry** | Azure Container Registry. | Règle de trafic sortant | Oui | Oui |
 | **AzureCosmosDB** | Azure Cosmos DB. | Règle de trafic sortant | Oui | Oui |
 | **AzureDatabricks** | Azure Databricks. | Les deux | Non | Non |
@@ -97,6 +97,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **LogicAppsManagement** | Trafic de gestion pour Logic Apps. | Trafic entrant | Non | Non |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Règle de trafic sortant | Non | Non |
 | **MicrosoftContainerRegistry** | Registre de conteneurs pour les images de conteneur Microsoft. <br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Oui | Oui |
+| **PowerBI** | PowerBi. *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Les deux | Non | Non|
 | **PowerQueryOnline** | Power Query en ligne. | Les deux | Non | Non |
 | **ServiceBus** | Trafic Azure Service Bus qui utilise le niveau de service Premium. | Règle de trafic sortant | Oui | Oui |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Service Fabric pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion pour leurs clusters Service Fabric à partir de leur réseau virtuel (point de terminaison, par exemple https://westus.servicefabric.azure.com) | Les deux | Non | Non |
@@ -129,8 +130,8 @@ Vous pouvez obtenir la balise de service et les informations de plage actuelles 
 Vous pouvez récupérer par programmation la liste actuelle des balises de service ainsi que les informations relatives aux plages d’adresses IP :
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > Bien qu’elle soit en préversion publique, l’API Discovery peut renvoyer des informations qui sont moins actuelles que celles renvoyées par les téléchargements JSON. (Voir la section suivante.)

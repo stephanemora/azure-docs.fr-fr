@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639061"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221208"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Comprendre la connectivité réseau de Windows Virtual Desktop
 
@@ -50,7 +50,7 @@ Séquence de connexion du client décrite ci-dessous :
 
 ## <a name="connection-security"></a>Sécurité de la connexion
 
-TLS 1.2 est utilisé pour toutes les connexions initiées à partir des clients et des hôtes de session vers les composants de l’infrastructure de Windows Virtual Desktop.
+TLS 1.2 est utilisé pour toutes les connexions initiées à partir des clients et des hôtes de session vers les composants de l’infrastructure de Windows Virtual Desktop. Windows Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Il est important de s’assurer que les ordinateurs clients et les hôtes de session peuvent utiliser ces chiffrements.
 Pour le transport de connexion inverse, le client et l’hôte de session se connectent à la passerelle Windows Virtual Desktop. Après avoir établi la connexion TCP, le client ou l’hôte de session valide le certificat de la passerelle Windows Virtual Desktop.
 Une fois le transport de base établi, le protocole RDP établit une connexion TLS imbriquée entre le client et l’hôte de session à l’aide des certificats de l’hôte de session. Par défaut, le certificat utilisé pour le chiffrement RDP est généré automatiquement par le système d’exploitation pendant le déploiement. Si vous le souhaitez, les clients peuvent déployer des certificats gérés de manière centralisée émis par l’autorité de certification d’entreprise. Pour plus d’informations sur la configuration des certificats, consultez la [documentation de Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

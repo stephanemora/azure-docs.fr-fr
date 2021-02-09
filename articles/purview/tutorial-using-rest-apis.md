@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202944"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951241"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Tutoriel : Utiliser les API REST
 
@@ -92,7 +92,7 @@ Pour configurer Azure Purview afin qu’il approuve votre nouveau principal de s
 
 1. Pour **Attribuer l’accès à**, laissez la valeur par défaut **Utilisateur, groupe ou principal de service**.
 
-1. Pour **Sélectionner**, entrez le nom de l’utilisateur, du groupe Azure Active Directory ou du principal de service que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
+1. Pour **Sélectionner**, entrez le nom du principal de service créé précédemment que vous souhaitez affecter, puis cliquez sur son nom dans le volet des résultats.
 
 1. Dans le menu Paramètres, cliquez sur **Enregistrer**
 

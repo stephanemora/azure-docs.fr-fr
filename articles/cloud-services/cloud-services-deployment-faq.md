@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742214"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896475"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)
 
@@ -52,7 +52,7 @@ Le déploiement d’un service cloud peut échouer si les ressources qui doivent
 
 Vous pouvez aussi suivre l’utilisation et/ou le quota actuel de votre abonnement sur le portail : Portail Azure => Abonnements => \<appropriate subscription> => « Utilisation + quota ».
 
-Vous pouvez aussi obtenir des informations sur l’utilisation/consommation de ressources via les API de facturation Azure. Consultez [API Azure Resource Usage (version préliminaire)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Vous pouvez aussi obtenir des informations sur l’utilisation/consommation de ressources via les API de facturation Azure. Consultez [Présentation des API Azure Consumption](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Comment modifier la taille de machine virtuelle d’un service cloud déployé sans le redéployer ?
 Vous ne pouvez pas modifier la taille de machine virtuelle d’un service cloud déployé sans le redéployer. La taille de machine virtuelle est intégrée au fichier CSDEF, dont la mise à jour n’est possible que moyennant un redéploiement.

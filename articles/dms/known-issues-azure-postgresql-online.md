@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3c1d28a7fbb3e3c9c449feb03a75d48178b718
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fdefcabdda64402610f115832976ec9f7af81b80
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609035"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258827"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problèmes connus et limitations concernant les migrations en ligne de PostgreSQL vers Azure DB pour PostgreSQL
 
@@ -123,3 +123,4 @@ Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS Postgre
 - Le comportement d’une migration de plusieurs tables portant le même nom mais selon une casse différente (par exemple, table1, TABLE1 et Table1) peut-être imprévisible, elle n’est donc pas prise en charge.
 - Le traitement des modifications des DDL de table [CREATE | ALTER | DROP | TRUNCATE] n’est pas pris en charge.
 - Dans Azure Database Migration Service, une même activité de migration peut prendre en charge jusqu’à quatre bases de données.
+- La migration de la table pg_largeobject n’est pas prise en charge. 

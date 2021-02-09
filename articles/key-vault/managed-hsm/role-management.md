@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 594dd2fd154b37eed49c069cef1b539e13ca6876
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445640"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094240"
 ---
 # <a name="managed-hsm-role-management"></a>Gestion du rôle HSM managé
 
@@ -81,6 +81,9 @@ Toutes les attributions de rôles au niveau du HSM pour un utilisateur spécifiq
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
+
+> [!NOTE]
+> Quand la valeur de l’étendue est / (ou /keys), la commande list liste uniquement toutes les attributions de rôles au niveau supérieur et n’affiche pas les attributions de rôles au niveau des clés individuelles.
 
 Toutes les attributions de rôles pour un utilisateur spécifique **user2@contoso.com** et une clé spécifique **myrsakey**.
 

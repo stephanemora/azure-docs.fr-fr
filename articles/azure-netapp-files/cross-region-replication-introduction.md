@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696089"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220902"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -28,26 +29,31 @@ La fonctionnalité de réplication Azure NetApp Files fournit une protection des
 > [!IMPORTANT]
 > La fonctionnalité de réplication inter-région est actuellement disponible en préversion publique. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
 
-## <a name="supported-region-pairs"></a>Paires de régions prises en charge
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Paires de réplication interrégion prises en charge
 
-La réplication de volume Azure NetApp Files est actuellement disponible dans les paires de régions fixes suivantes :  
+La réplication de volume Azure NetApp Files est prise en charge entre différentes [paires de régions Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) et des régions non appairées. La réplication de volume Azure NetApp Files est actuellement disponible entre les régions suivantes :  
 
-* USA Ouest et USA Est
-* USA Ouest 2 et USA Est 
-* USA Centre Sud et USA Centre 
-* USA Centre Sud et USA Est
-* USA Centre Sud et USA Est 2 
-* USA Est et USA Est 2  
-* USA Est 2 et USA Centre 
+### <a name="azure-regional-pairs"></a>Paires régionales Azure
+
+* USA Est et USA Ouest
+* USA Est 2 et USA Centre
 * Australie Est et Australie Sud-Est
 * Canada Centre et Canada Est
-* Inde Centre et Inde Sud
+* Inde Sud et Inde Centre 
 * Allemagne Centre-Ouest et Allemagne Nord
 * Japon Est et Japon Ouest
 * Europe Nord et Europe Ouest
-* Asie Sud-Est et Australie Est
-* Royaume-Uni Sud et Allemagne Centre-Ouest
 * Royaume-Uni Sud et Royaume-Uni Ouest
+
+### <a name="azure-regional-non-pairs"></a>Régions Azure non appairées
+
+*   USA Ouest 2 et USA Est
+*   USA Centre Sud et USA Centre
+*   USA Centre Sud et USA Est
+*   USA Centre Sud et USA Est 2
+*   USA Est et USA Est 2
+*   Australie Est et Asie Sud-Est 
+*   Allemagne Centre-Ouest et Royaume-Uni Sud
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 

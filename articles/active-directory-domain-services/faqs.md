@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: justinha
-ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619731"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491163"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Foire aux questions (FAQ) sur Azure Active Directory (AD) Domain Services
 
@@ -106,7 +106,7 @@ Tout compte d’utilisateur faisant partie du domaine managé peut joindre une m
 Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges *Administrateur de domaine* et *Administrateur d’entreprise* ne sont pas disponibles pour vous dans le domaine. Les membres des groupes d’administrateurs de domaine ou d’administrateurs d’entreprise de votre instance Active Directory locale ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine managé.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines gérés ?
-Il n’est pas possible de modifier les utilisateurs et les groupes synchronisés à partir d’Azure Active Directory sur Azure AD Domain Services, car leur source d’origine est Azure Active Directory. En revanche, tout utilisateur ou groupe provenant du domaine managé peut être modifié.
+Il n’est pas possible de modifier les utilisateurs et les groupes synchronisés à partir d’Azure Active Directory sur Azure AD Domain Services, car leur source d’origine est Azure Active Directory. Cela comprend le déplacement des utilisateurs ou des groupes de l’unité d’organisation managée Utilisateurs AADDC vers une unité d’organisation personnalisée. En revanche, tout utilisateur ou groupe provenant du domaine managé peut être modifié.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine géré ?
 Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées automatiquement avec votre domaine géré. Ce processus de synchronisation se produit en arrière-plan. Il n’y a pas de période définie pour cette synchronisation pour effectuer toutes les modifications d’objets.

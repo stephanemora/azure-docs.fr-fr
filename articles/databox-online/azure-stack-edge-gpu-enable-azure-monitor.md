@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465275"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493910"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Monitor sur votre appareil Azure Stack Edge Pro avec GPU
 
@@ -30,7 +30,7 @@ Avant de commencer, vous avez besoin des éléments suivants :
 - Vous avez terminé l’étape **Configurer le calcul** du [Tutoriel : Configurer le calcul sur votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md) sur votre propre appareil. Votre appareil doit être associé à une ressource IoT Hub, un appareil IoT et un appareil IoT Edge.
 
 
-## <a name="create-log-analytics-workspace"></a>Créez un espace de travail Log Analytics.
+## <a name="create-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 
 Pour créer un espace de travail Log Analytics, suivez la procédure ci-dessous. Un espace de travail Log Analytics est une unité de stockage logique dans laquelle les données de journal sont collectées et stockées.
 
@@ -118,8 +118,8 @@ Procédez comme suit pour activer Container Insights sur votre espace de travail
 
 1. Obtenez l’ID de ressource et l’emplacement. Atteindre `Your Log Analytics workspace > General > Properties`. Copiez les informations suivantes :
 
-    - **ID de ressource** qui correspond à l’ID de ressource Azure complet de l’espace de travail Azure Log Analytics. 
-    - **Emplacement** qui correspond à la région Azure.
+    - **ID de ressource**, qui correspond à l’ID de ressource Azure complet de l’espace de travail Azure Log Analytics. 
+    - **Localisation**, qui correspond à la région Azure.
 
     ![Propriétés de l’espace de travail Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Procédez comme suit pour activer Container Insights sur votre espace de travail
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [surveiller les charges de travail Kubernetes via le tableau de bord Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Découvrez comment [gérer les notifications d’alerte d’événement d’appareil](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

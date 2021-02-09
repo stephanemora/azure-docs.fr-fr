@@ -3,12 +3,12 @@ title: Lecture d’enregistrements sur plusieurs jours - Azure
 description: Dans ce tutoriel, vous allez apprendre à utiliser les API Azure Media Services pour lire un enregistrement vidéo continu de plusieurs jours.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 1ec9260be7241057478b06446ac2aa53c14bcb47
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803430"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492787"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutoriel : Lecture d’enregistrements sur plusieurs jours  
 
@@ -57,7 +57,7 @@ Dans le cadre du [tutoriel CVR](continuous-video-recording-tutorial.md), vous av
 }
 ```
 
-Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contient les fichiers nécessaires à ce tutoriel. Ouvrez le fichier appsettings.json et copiez son contenu dans un nouveau fichier, appsettings.development.json. Apportez les modifications suivantes à ce fichier :
+Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contient les fichiers nécessaires à ce tutoriel. Ouvrez le fichier appsettings.json et copiez son contenu dans un nouveau fichier, appsettings.development.json. Apportez les modifications suivantes au fichier appsettings.development.json nouvellement créé :
 
 ```
   "AMS" : {
@@ -78,7 +78,7 @@ Ensuite, dans Visual Studio Code, ouvrez src/ams-asset-player. Ce dossier contie
 1. Recherchez et activez « Afficher le message détaillé ».
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Paramètres d’extension":::
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Afficher le message détaillé":::
 1. <!--In Visual Studio Code, you can click-->Cliquez sur l’icône Exécuter sur la gauche (ou Ctrl+Maj+D) pour lancer l’exécution des applications disponibles :
 
     ![Capture d’écran montrant un menu dans Visual Studio Code avec l’élément Exécuter sélectionné.](./media/playback-multi-day-recordings-tutorial/run.png)

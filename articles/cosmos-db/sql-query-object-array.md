@@ -5,19 +5,43 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dccb8e51fbc578f8f218fe1582f95f7bcaf42d7
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018902"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493785"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Utilisation de tableaux et objets dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Une fonctionnalité essentielle de l’API SQL Azure Cosmos DB est la création de tableau et d’objet.
+Une fonctionnalité essentielle de l’API SQL Azure Cosmos DB est la création de tableau et d’objet. Ce document utilise des exemples qui peuvent être recréés à l’aide du [jeu de données des familles](sql-query-getting-started.md#upload-sample-data).
+
+Voici un exemple d’élément de ce jeu de données :
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## <a name="arrays"></a>Tableaux
 
@@ -177,6 +201,8 @@ Les résultats sont :
 
 > [!NOTE]
 > Lorsque vous utilisez le mot clé IN pour l’itération, vous ne pouvez pas filtrer ou projeter des propriétés en dehors du tableau. Utilisez plutôt [JOINs](sql-query-join.md).
+
+Pour obtenir des exemples supplémentaires, consultez notre [billet de blog sur l’utilisation de tableaux dans Azure Cosmos DB](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

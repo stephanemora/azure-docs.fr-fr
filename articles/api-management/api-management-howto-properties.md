@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504730"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491008"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -43,7 +43,7 @@ L’utilisation de secrets Key Vault est recommandée car elle permet d’améli
 
 * Les secrets stockés dans les coffres de clés peuvent être réutilisés dans les services
 * Des [stratégies d’accès](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granulaires peuvent être appliquées aux secrets
-* Les secrets mis à jour dans le coffre de clés sont automatiquement permutés dans Gestion des API. Après la mise à jour dans le coffre de clés, une valeur nommée dans Gestion des API est mise à jour dans les 4 heures. 
+* Les secrets mis à jour dans le coffre de clés sont automatiquement permutés dans Gestion des API. Après la mise à jour dans le coffre de clés, une valeur nommée dans Gestion des API est mise à jour dans les 4 heures. Vous pouvez également actualiser manuellement le secret à l’aide du portail Azure ou par le biais de l’API REST de gestion.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Conditions préalables à l’intégration d’un coffre de clés
 
@@ -58,25 +58,16 @@ L’utilisation de secrets Key Vault est recommandée car elle permet d’améli
 
 Pour utiliser le secret du coffre de clés, [ajoutez ou modifiez une valeur nommée](#add-or-edit-a-named-value), puis spécifiez un type de **coffre de clés**. Sélectionnez le secret dans le coffre de clés.
 
-> [!CAUTION]
-> Lorsque vous utilisez un secret de coffre de clés dans Gestion des API, veillez à ne pas supprimer le secret, le coffre de clés ou l’identité managée utilisée pour accéder au coffre de clés.
-
-Si le [pare-feu Key Vault](../key-vault/general/network-security.md) est activé sur votre coffre de clés, les conditions suivantes sont requises pour l’utilisation des secrets Key Vault :
-
-* Vous devez utiliser l’identité managée **attribuée par le système** à l’instance Gestion des API pour accéder au coffre de clés.
-* Dans le pare-feu Key Vault, activez l’option **Autoriser les services Microsoft approuvés à contourner ce pare-feu**.
-
-Si l’instance Gestion des API est déployée dans un réseau virtuel, configurez également les paramètres réseau suivants :
-* Activez un [point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md) pour Azure Key Vault sur le sous-réseau Gestion des API.
-* Configurez une règle de groupe de sécurité réseau (NSG) pour autoriser le trafic sortant vers les [balises de service](../virtual-network/service-tags-overview.md) AzureKeyVault et AzureActiveDirectory. 
-
-Pour plus d’informations, consultez les détails de la configuration réseau dans la section [Se connecter à un réseau virtuel](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Ajouter ou modifier une valeur nommée
 
 ### <a name="add-a-key-vault-secret"></a>Ajouter un secret de coffre de clés
 
 Voir [Conditions préalables à l’intégration d’un coffre de clés](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Lorsque vous utilisez un secret de coffre de clés dans Gestion des API, veillez à ne pas supprimer le secret, le coffre de clés ou l’identité managée utilisée pour accéder au coffre de clés.
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance APIM.
 1. Sous **API**, sélectionnez **Valeurs nommées** > **Ajouter**.

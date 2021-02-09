@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681648"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475098"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ Dans Azure Cosmos DB, la consommation totale du stockage correspond à la somme 
 
 * La taille d’index dépend de la stratégie d’indexation. Si toutes les propriétés sont indexées, la taille d’index peut être supérieure à la taille des données.
 * Lorsque des données sont supprimées, les index sont compactés de manière quasi continue. Toutefois, pour les petites suppressions de données, vous risquez de ne pas observer de diminution immédiate de la taille d’index.
-* La taille d’index peut croître dans les cas suivants :
-
-  * Durée de fractionnement de la partition : l’espace d’index est libéré après fractionnement de la partition.
-  * Lors du fractionnement d’une partition, l’espace d’index augmente temporairement pendant le processus. 
+* La taille de l’index peut croître temporairement quand les partitions physiques sont divisées. L’espace d’index est libéré après la division de la partition.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusion et exclusion de chemins de propriété
 
@@ -186,33 +183,35 @@ Vous devez personnaliser votre stratégie d’indexation afin de pouvoir servir 
 
 Si une requête a des filtres sur deux propriétés ou plus, il peut être utile de créer un index composite pour ces propriétés.
 
-Par exemple, considérez la requête suivante qui a un filtre d’égalité sur deux propriétés :
+Par exemple, considérez la requête suivante qui a un filtre d’égalité et un filtre de plage :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-Cette requête serait plus efficace, prendrait moins de temps et consommerait moins de RU, si elle est en mesure de tirer parti d’un index composite sur (name ASC, age ASC).
+Cette requête serait plus efficace, prendrait moins de temps et consommerait moins de RU, si elle était en mesure de tirer parti d’un index composite sur `(name ASC, age ASC)`.
 
-Les requêtes avec des filtres de plage peuvent également être optimisées à l’aide d’un index composite. Toutefois, la requête ne peut avoir qu’un seul filtre de plage. Les filtres de plage incluent `>`, `<`, `<=`, `>=` et `!=`. Le filtre de plage doit être défini en dernier dans l’index composite.
+Les requêtes avec plusieurs filtres de plage peuvent également être optimisées à l’aide d’un index composite. Toutefois, chaque index composite individuel ne peut optimiser qu’un seul filtre de plage. Les filtres de plage incluent `>`, `<`, `<=`, `>=` et `!=`. Le filtre de plage doit être défini en dernier dans l’index composite.
 
-Considérez la requête suivante avec des filtres d’égalité et de plage :
+Considérez la requête suivante, qui comprend un filtre d’égalité et deux filtres de plage :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-Cette requête serait plus efficace avec un index composite sur (name ASC, age ASC). Toutefois, la requête n’utiliserait pas d’index composite sur (name ASC, age ASC), car les filtres d’égalité doivent être définis en premier dans l’index composite.
+Cette requête serait plus efficace avec un index composite sur `(name ASC, age ASC)` et `(name ASC, _ts ASC)`. Toutefois, la requête n’utiliserait pas d’index composite sur `(age ASC, name ASC)`, car les propriétés avec des filtres d’égalité doivent être définies en premier dans l’index composite. Deux index composites distincts sont requis au lieu d’un index composite unique sur `(name ASC, age ASC, _ts ASC)`, car chaque index composite peut uniquement optimiser un seul filtre de plage.
 
 Les considérations suivantes sont utilisées lors de la création d’index composites pour les requêtes avec des filtres sur plusieurs propriétés
 
+- Les expressions de filtre peuvent utiliser plusieurs index composites.
 - Les propriétés du filtre de la requête doivent correspondre à celles de l’index composite. Si une propriété se trouve dans l’index composite, mais qu’elle n’est pas incluse dans la requête en tant que filtre, la requête n’utilise pas l’index composite.
 - Si une requête a des propriétés supplémentaires dans le filtre qui n’ont pas été définies dans un index composite, une combinaison d’index composites et de plage sera utilisée pour évaluer la requête. Cela nécessite moins de RU que l’utilisation exclusive d’index de plage.
-- Si une propriété a un filtre de plage (`>`, `<`, `<=`, `>=` ou `!=`), cette propriété doit être définie en dernier dans l’index composite. Si une requête a plusieurs filtres de plage, elle n’utilise pas l’index composite.
+- Si une propriété a un filtre de plage (`>`, `<`, `<=`, `>=` ou `!=`), cette propriété doit être définie en dernier dans l’index composite. Si une requête a plusieurs filtres de plage, elle peut tirer parti de plusieurs index composites.
 - Lors de la création d’un index composite pour optimiser des requêtes avec plusieurs filtres, `ORDER` de l’index composite n’aura aucun impact sur les résultats. Cette propriété est facultative.
-- Si vous ne définissez pas d’index composite pour une requête avec des filtres sur plusieurs propriétés, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite.
-- Les index composites se révèlent également avantageux pour les requêtes qui comportent à la fois des agrégations (par exemple, COUNT ou SUM) et des filtres.
-- Les expressions de filtre peuvent utiliser plusieurs index composites.
 
 Prenons les exemples suivants, où un index composite est défini sur des propriétés name, age et timestamp :
 
@@ -227,43 +226,76 @@ Prenons les exemples suivants, où un index composite est défini sur des propri
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>Requêtes avec un filtre et une clause ORDER BY
+### <a name="queries-with-a-filter-and-order-by"></a>Requêtes avec un filtre et la clause ORDER BY
 
 Si une requête filtre sur une ou plusieurs propriétés et possède des propriétés différentes dans la clause ORDER BY, il peut être utile d’ajouter les propriétés du filtre à la clause `ORDER BY`.
 
-Par exemple, en ajoutant les propriétés du filtre à la clause ORDER BY, la requête suivante peut être réécrite pour tirer parti d’un index composite :
+Par exemple, en ajoutant les propriétés du filtre à la clause `ORDER BY`, la requête suivante peut être réécrite pour tirer parti d’un index composite :
 
 Requête utilisant un index de plage :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 Requête utilisant un index composite :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-Le même modèle et les mêmes optimisations de requête peuvent être généralisés pour les requêtes avec plusieurs filtres d’égalité :
+Vous pouvez généraliser les mêmes optimisations de requête pour toutes les requêtes `ORDER BY` avec des filtres, en gardant à l’esprit que les index composites individuels ne peuvent prendre en charge qu’un seul filtre de plage.
 
 Requête utilisant un index de plage :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 Requête utilisant un index composite :
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+En outre, vous pouvez utiliser des index composites pour optimiser les requêtes comportant des fonctions système et la clause ORDER BY :
+
+Requête utilisant un index de plage :
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+Requête utilisant un index composite :
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 Les considérations suivantes sont utilisées lors de la création d’index composites pour optimiser une requête avec un filtre et une clause `ORDER BY` :
 
+* Si vous ne définissez pas d’index composite sur une requête avec un filtre sur une propriété et une clause `ORDER BY` distincte à l’aide d’une autre propriété, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite, en particulier si la propriété de la clause `ORDER BY` a une cardinalité élevée.
 * Si la requête filtre sur les propriétés, celles-ci doivent être incluses en premier dans la clause `ORDER BY`.
 * Si la requête filtre plusieurs propriétés, les filtres d’égalité doivent être les premières propriétés de la clause `ORDER BY`.
-* Si vous ne définissez pas d’index composite sur une requête avec un filtre sur une propriété et une clause `ORDER BY` distincte à l’aide d’une autre propriété, la requête réussit quand même. Toutefois, le coût RU de la requête peut être réduit à l’aide d’un index composite, en particulier si la propriété de la clause `ORDER BY` a une cardinalité élevée.
+* Si la requête filtre sur plusieurs propriétés, vous pouvez utiliser au maximum un filtre de plage ou une fonction système par index composite. La propriété utilisée dans le filtre de plage ou la fonction système doit être définie en dernier dans l’index composite.
 * Toutes les considérations relatives à la création d’index composites pour les requêtes `ORDER BY` avec plusieurs propriétés, ainsi que les requêtes avec des filtres sur plusieurs propriétés, s’appliquent toujours.
 
 
@@ -276,6 +308,7 @@ Les considérations suivantes sont utilisées lors de la création d’index com
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>Modification de la stratégie d’indexation
 

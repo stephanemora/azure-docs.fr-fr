@@ -3,14 +3,14 @@ title: Présentation de la fonctionnalité Suivi des modifications et inventaire
 description: Cet article présente la fonctionnalité Change Tracking and Inventory, qui permet d’identifier les modifications apportées aux logiciels et aux services Microsoft de votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445419"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896627"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -32,7 +32,7 @@ Suivi des modifications et inventaire utilise le [Monitoring d’intégrité de 
 - Services Microsoft
 - Démons Linux
 
-L’activation des complètes de Suivi des modifications et inventaire peut entraîner des frais supplémentaires. Avant de continuer, passez en revue [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/) et [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). 
+L’activation des complètes de Suivi des modifications et inventaire peut entraîner des frais supplémentaires. Avant de continuer, passez en revue [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/) et [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Suivi des modifications et inventaire transfère les données vers des journaux Azure Monitor, et les données collectées sont stockées dans un espace de travail Log Analytics. La fonctionnalité FIM (File Integrity Monitoring) est disponible uniquement lorsque **Azure Defender pour les serveurs** est activé. Consultez [Tarification d’Azure Security Center](../../security-center/security-center-pricing.md) pour en savoir plus. FIM charge des données dans le même espace de travail Log Analytics que celui créé pour stocker des données à partir de Suivi des modifications et inventaire. Nous vous recommandons de surveiller votre espace de travail Log Analytics lié pour effectuer le suivi de votre utilisation exacte. Pour plus d'informations sur l'analyse de l'utilisation des données des journaux d'activité Azure Monitor, consultez [Gérer l'utilisation et les coûts](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -74,16 +74,7 @@ L’exécutable python2 doit avoir un alias pour *python*.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
-Les adresses suivantes sont exigées particulièrement pour Suivi des modifications et inventaire. La communication avec ces adresses s’effectue par le biais du port 443.
-
-|Azure (public)  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net | *.azure-automation.us|
-
-Lorsque vous créez des règles de sécurité de groupe réseau ou configurez le pare-feu Azure pour autoriser le trafic vers le service Automation et l’espace de travail Log Analytics, utilisez la balise [service](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** et **AzureMonitor**. Cela simplifie la gestion continue de vos règles de sécurité réseau. Pour vous connecter au service Automation à partir de vos machines virtuelles Azure en toute sécurité et de façon privée, consultez [Utiliser Azure Private Link](../how-to/private-link-security.md). Pour obtenir la balise de service et les informations de plage actuelles à inclure dans le cadre de vos configurations du pare-feu local, consultez les [fichiers JSON téléchargeables](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Pour plus d’informations sur les ports, URL et autres informations réseaux nécessaires pour le Suivi des modifications et inventaire, consultez [Configuration réseau d’Azure Automation](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bff13c24e0b5818b352e76df1d8ecd8251a5f12c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746010"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430224"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Exemples de modèles Resource Manager pour les règles de collecte de données dans Azure Monitor
 Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](../platform/log-analytics-agent.md) et l’[extension de diagnostic](../platform/diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
@@ -21,7 +21,7 @@ Cet article contient des exemples de [modèle Azure Resource Manager](../../azur
 
 ## <a name="create-association-with-azure-vm"></a>Créer une association avec une machine virtuelle Azure
 
-L’exemple suivant installe l’agent Azure Monitor sur une machine virtuelle Microsoft Azure. Une association est créée entre une machine virtuelle Azure et une règle de collecte de données.
+L’exemple suivant crée une association entre une machine virtuelle Azure et une règle de collecte de données.
 
 ### <a name="template-file"></a>Fichier de modèle
 
@@ -80,7 +80,7 @@ L’exemple suivant installe l’agent Azure Monitor sur une machine virtuelle M
 }
 ```
 
-## <a name="create-association-ith-azure-arc"></a>Créer une association avec Azure Arc
+## <a name="create-association-with-azure-arc"></a>Créer une association avec Azure Arc
 
 L’exemple suivant installe l’agent Azure Monitor sur une machine virtuelle Microsoft Azure. Une association est créée entre un ordinateur serveur avec Azure Arc et une règle de collecte de données.
 

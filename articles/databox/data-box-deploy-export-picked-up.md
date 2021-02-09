@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680833"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537355"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutoriel : Retourner un appareil Azure Data Box
 
@@ -172,9 +172,27 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 En cas de problème, envoyez un e-mail à Data Box Operations Asia à l’adresse [adbo@microsoft.com](mailto:adbo@microsoft.com), en spécifiant le nom du travail dans l’en-tête d’objet et le problème rencontré.
 
+## <a name="united-arab-emirates"></a>[Émirats arabes unis](#tab/in-uae)
+
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
+2. Vérifiez que la copie des données sur l’appareil est terminée et que l’étape **Préparation de l’expédition** a été correctement effectuée.
+3. Notez le numéro de référence indiqué dans la page **Préparation de l’expédition** de l’interface utilisateur web locale .
+4. Mettez l’appareil hors tension, puis débranchez les câbles. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
+6. Emballez l’appareil à des fins de réexpédition dans sa boîte d’origine.
+7. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) pour recevoir un ID qui sera utilisé pour identifier le package lors de son retour au centre de données.
+8. Inscrivez cet ID sur l’étiquette d’expédition imprimée, à côté de l’adresse de retour afin qu’il soit clairement visible.  
+9. Réservez un enlèvement en ligne en accédant au site [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) (DHL Express - Émirats arabes unis) > **Schedule a Pickup** (Planifier un enlèvement).
+   - Entrez le numéro de référence indiqué dans la page **Préparation de l’expédition** de l’interface utilisateur web locale de l’appareil dans le champ du numéro de bordereau.
+   - Les réservations sont acceptées de 9h00 à 14h00, 6 jours par semaine (sauf le vendredi et les jours fériés).
+   - Les demandes d’enlèvement doivent être effectuées au moins 90 minutes avant l’heure de fermeture de bureau du client.
+10. Si vous rencontrez des problèmes avec l’outil de réservation de DHL, vous pouvez contacter DHL en utilisant l’une des méthodes suivantes :
+    - Appelez le 04-2924545.
+    - Envoyez un e-mail à l’adresse [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) contenant des détails sur le ou les problèmes rencontrés, et indiquez le numéro de numéro de bordereau dans la ligne Objet.
+    - Appelez le support du service client au 600 567567.
+
 ## <a name="self-managed"></a>[Autogérée](#tab/in-selfmanaged)
 
-Si vous utilisez la Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud ou en Europe de l’Ouest et que vous avez sélectionné l’option d’expédition autogérée pendant la création de la commande, suivez ces instructions.
+Si vous utilisez Data Box au Japon, à Singapour, en Corée, en Inde, en Afrique du Sud, au Royaume-Uni, en Europe de l’Ouest ou en Australie, et que vous avez sélectionné l’option d’expédition autogérée pendant la création de la commande, suivez ces instructions.
 
 1. Notez le code d’autorisation indiqué dans la page Préparation de l’expédition de l’interface utilisateur web locale de la Data Box une fois cette étape terminée.
 2. Mettez l’appareil hors tension et débranchez les câbles. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
@@ -209,5 +227,3 @@ Passez à l’article suivant pour découvrir comment gérer votre Data Box.
 
 > [!div class="nextstepaction"]
 > [Gérer Data Box par le biais du portail Azure](./data-box-portal-admin.md)
-
-

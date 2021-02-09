@@ -3,14 +3,14 @@ title: Gérer les modules dans Azure Automation
 description: Cet article explique comment utiliser des modules PowerShell pour activer des cmdlets de runbooks et de ressources DSC dans des configurations DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458147"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936625"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -25,10 +25,18 @@ Azure Automation utilise un certain nombre de modules PowerShell pour activer de
 
 Lorsque vous créez un compte Automation, Azure Automation importe certains modules par défaut. Voir [Modules par défaut](#default-modules).
 
+## <a name="sandboxes"></a>Bacs à sable
+
 Quand Automation exécute des travaux de runbook et de compilation DSC, le service charge les modules dans des bacs à sable où les runbooks peuvent s’exécuter et les configurations DSC compiler. Automation place automatiquement toutes les ressources DSC des modules sur le serveur Pull DSC. Les machines peuvent extraire les ressources lorsqu’elles appliquent les configurations DSC.
 
 >[!NOTE]
 >Veillez à importer uniquement les modules dont vos runbooks et configurations DSC ont réellement besoin. Nous vous déconseillons d’importer le module Az racine. Il comprend de nombreux autres modules dont vous n’avez peut-être pas besoin, ce qui peut entraîner des problèmes de performances. Importez des modules individuels, tels que Az.Compute, à la place.
+
+Le bac à sable cloud prend en charge un maximum de 48 appels système et restreint tous les autres appels pour des raisons de sécurité. D’autres fonctionnalités telles que la gestion des informations d’identification et certaines fonctionnalités de mise en réseau ne sont pas prises en charge dans le bac à sable cloud.
+
+En raison du nombre de modules et de cmdlets inclus, il est difficile de connaître au préalable les cmdlets qui ne sont pas prises en charge. En général, les problèmes concernent les cmdlets qui nécessitent un accès avec des privilèges élevés, qui requièrent des informations d’identification en tant que paramètres ou les cmdlets associées à la mise en réseau. Les cmdlets qui effectuent des opérations de réseau complètes ne sont pas prises en charge dans le bac à sable, notamment [Connect-AipService](/powershell/module/aipservice/connect-aipservice) du module PowerShell AIPService et [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) du module DNSClient.
+
+Il s’agit de limitations connues du bac à sable. La solution de contournement recommandée consiste à déployer un [Runbook Worker hybride](../automation-hybrid-runbook-worker.md) ou à utiliser [Azure Functions](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Modules par défaut
 
@@ -134,7 +142,7 @@ Le fait d’importer un module Az dans votre compte Automation n’a pas pour ef
 
 Vous pouvez importer les modules Az dans le portail Azure. N’oubliez pas d’importer uniquement les modules Az dont vous avez besoin, et non l’intégralité du module Az.Automation. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) étant une dépendance pour les autres modules Az, veillez à importer ce module avant tout autre.
 
-1. À partir de votre compte Automation, sous **Ressources partagées** , sélectionnez **Modules**.
+1. À partir de votre compte Automation, sous **Ressources partagées**, sélectionnez **Modules**.
 2. Sélectionnez **Parcourir la galerie**.  
 3. Dans la barre de recherche, entrez le nom du module, par exemple, `Az.Accounts`.
 4. Dans la page Module PowerShell, sélectionnez **Importer** pour importer le module dans votre compte Automation.
@@ -169,7 +177,7 @@ TestModule
 
 Dans chacun des dossiers de version, copiez vos fichiers .psm1, .psd1 PowerShell ou les fichiers **.dll** du module PowerShell qui constituent un module dans le dossier de version respectif. Compressez le dossier du module au format .zip afin qu’Azure Automation puisse l’importer sous forme de fichier .zip unique. Alors qu’Automation n’affiche que la version la plus récente du module importé, si le package du module contient des versions côte à côte du module, elles sont toutes disponibles pour une utilisation dans vos runbooks ou configurations DSC.  
 
-Alors qu’Automation prend en charge les modules contenant des versions côte à côte dans le même package, il ne prend pas en charge l’utilisation de plusieurs versions d’un module dans les importations de package de module. Par exemple, vous importez **module A** , qui contient les versions 1 et 2 dans votre compte Automation. Plus tard, vous mettez à jour **module A** de manière à inclure les versions 3 et 4. Lorsque vous importez dans votre compte Automation, seules les versions 3 et 4 sont utilisables dans les runbooks ou les configurations DSC. Si toutes les versions (1, 2, 3 et 4) doivent être disponibles, le fichier. zip que vous importez doit contenir les versions 1, 2, 3 et 4.
+Alors qu’Automation prend en charge les modules contenant des versions côte à côte dans le même package, il ne prend pas en charge l’utilisation de plusieurs versions d’un module dans les importations de package de module. Par exemple, vous importez **module A**, qui contient les versions 1 et 2 dans votre compte Automation. Plus tard, vous mettez à jour **module A** de manière à inclure les versions 3 et 4. Lorsque vous importez dans votre compte Automation, seules les versions 3 et 4 sont utilisables dans les runbooks ou les configurations DSC. Si toutes les versions (1, 2, 3 et 4) doivent être disponibles, le fichier. zip que vous importez doit contenir les versions 1, 2, 3 et 4.
 
 Si vous envisagez d’utiliser différentes versions du même module entre les runbooks, vous devez toujours déclarer la version que vous souhaitez utiliser dans votre runbook à l’aide de la cmdlet `Import-Module` et inclure le paramètre `-RequiredVersion <version>`. Même si la version que vous souhaitez utiliser est la version la plus récente. Cela est dû au fait que les tâches de runbook peuvent s’exécuter dans le même bac à sable. Si le bac à sable a déjà chargé explicitement un module d’un certain numéro de version, étant donné qu’une tâche précédente de ce bac à sable a déclaré faire cela, les tâches futures de ce bac à sable ne chargent pas automatiquement la dernière version de ce module. En effet, une certaine version est déjà chargée dans le bac à sable.
 
@@ -316,7 +324,7 @@ Cette section décrit plusieurs façons d’importer un module dans votre compte
 Pour importer un module dans le portail Azure :
 
 1. Accédez à votre compte Automation.
-2. Sous **Ressources partagées** , sélectionnez **Modules**.
+2. Sous **Ressources partagées**, sélectionnez **Modules**.
 3. Sélectionnez **Ajouter un module**.
 4. Sélectionnez le fichier **.zip** qui contient votre module.
 5. Sélectionnez **OK** pour démarrer le processus d’importation.
@@ -344,15 +352,15 @@ Vous pouvez importer des modules [PowerShell Gallery](https://www.powershellgall
 Pour importer un module directement à partir de PowerShell Gallery :
 
 1. Accédez à https://www.powershellgallery.com et recherchez le module à importer.
-2. Dans **Options d’installation** , sous l’onglet **Azure Automation** , sélectionnez **Déployer sur Azure Automation**. Cette action ouvre le Portail Azure. 
+2. Dans **Options d’installation**, sous l’onglet **Azure Automation**, sélectionnez **Déployer sur Azure Automation**. Cette action ouvre le Portail Azure. 
 3. Dans la page Importer, sélectionnez votre compte Automation, puis sélectionnez **OK**.
 
 ![Capture d’écran du module d’importation de PowerShell Gallery](../media/modules/powershell-gallery.png)
 
 Pour importer un module PowerShell Gallery directement à partir de votre compte Automation :
 
-1. Sous **Ressources partagées** , sélectionnez **Modules**. 
-2. Sélectionnez **parcourir la Galerie** , puis recherchez un module dans la Galerie. 
+1. Sous **Ressources partagées**, sélectionnez **Modules**. 
+2. Sélectionnez **parcourir la Galerie**, puis recherchez un module dans la Galerie. 
 3. Sélectionnez le module à importer, puis **Importer**. 
 4. Sélectionnez **OK** pour démarrer le processus d’importation.
 
@@ -366,7 +374,7 @@ Si vous rencontrez des problèmes avec un module ou si vous avez besoin de reven
 
 Pour supprimer un module dans le portail Azure :
 
-1. Accédez à votre compte Automation. Sous **Ressources partagées** , sélectionnez **Modules**.
+1. Accédez à votre compte Automation. Sous **Ressources partagées**, sélectionnez **Modules**.
 2. Sélectionnez le module que vous souhaitez supprimer.
 3. Dans la page Module, sélectionnez **Supprimer**. Si ce module fait partie des [modules par défaut](#default-modules), la version présente au moment où le compte Automation a été créé est restaurée.
 

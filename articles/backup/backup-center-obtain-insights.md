@@ -3,16 +3,16 @@ title: Obtenir des Insights à l’aide du Centre de sauvegarde
 description: Découvrez comment analyser des tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes avec le Centre de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c0f687ee123abe2f95ad0d23a6fe302f4a5c22e1
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173755"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893691"
 ---
-# <a name="obtain-insights-using-backup-center"></a>Obtenir des insights à l’aide du Centre de sauvegarde
+# <a name="obtain-insights-using-backup-center-preview"></a>Obtenir des insights à l’aide du Centre de sauvegarde (préversion)
 
-Pour analyser les tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes, le Centre de sauvegarde fournit une interface pour les [Rapports de sauvegarde](configure-reports.md), qui utilise des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) et des [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). La solution Rapports de sauvegarde offre les fonctionnalités suivantes :
+Pour analyser les tendances historiques et obtenir des insights plus approfondies sur vos sauvegardes, le Centre de sauvegarde fournit une interface pour les [Rapports de sauvegarde (préversion)](configure-reports.md), qui utilise des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) et des [classeurs Azure](../azure-monitor/platform/workbooks-overview.md). La solution Rapports de sauvegarde offre les fonctionnalités suivantes :
 
 - allocation et prévision du stockage cloud utilisé ;
 
@@ -24,7 +24,7 @@ Pour analyser les tendances historiques et obtenir des insights plus approfondie
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- La solution Rapports de sauvegarde n’est actuellement pas disponible pour la sauvegarde du serveur Azure Database pour PostgreSQL.
+- La solution Rapports de sauvegarde (préversion) n’est actuellement pas disponible pour la sauvegarde du serveur Azure Database pour PostgreSQL.
 
 - Pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge, consultez la [Matrice de prise en charge](backup-center-support-matrix.md).
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078831"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053905"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -112,7 +112,7 @@ Les journaux disponibles pour l’agent Log Analytics et le compte **nxautomatio
 
 ## <a name="runbook-permissions"></a>Autorisations de Runbook
 
-Un runbook a besoin d’autorisations pour l’authentification auprès d’Azure, par le biais des informations d’identification. Consultez [Gérer les comptes d’identification Azure Automation](manage-runas-account.md).
+Un runbook a besoin d’autorisations pour l’authentification auprès d’Azure, par le biais des informations d’identification. Consultez [Vue d’ensemble de l’authentification Azure Automation](automation-security-overview.md).
 
 ## <a name="modules"></a>Modules
 
@@ -139,6 +139,7 @@ Le tableau suivant décrit les différents états possibles d’une tâche. Vous
 
 | Statut | Description |
 |:--- |:--- |
+| Activation |Le travail en cours d’activation. |
 | Completed |La tâche s'est terminée avec succès. |
 | Échec |Un runbook graphique ou un graphique de workflow PowerShell n’a pas pu être compilé. Un runbook PowerShell n’a pas pu démarrer ou la tâche a rencontré une exception. Consultez [Types de runbooks Azure Automation](automation-runbook-types.md).|
 | Échec, en attente de ressources |La tâche a échoué, car elle a atteint la limite de [répartition de charge équilibrée](#fair-share) trois fois et a démarré à partir du même point de contrôle ou à partir du début du Runbook à chaque fois. |
@@ -220,7 +221,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>webhooks
+## <a name="webhooks"></a>Webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète.
 

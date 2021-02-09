@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: b67d75ac99f247659723ac0b5a90fd32ebf627e3
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569876"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226015"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>Tutoriel : Créer une application Blazor Server qui utilise la plateforme d’identité Microsoft pour l’authentification
 
@@ -40,7 +40,7 @@ Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authen
 - Pour les **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel**.
 - Laissez le champ déroulant **URI de redirection** défini sur **Web** et entrez `https://localhost:5001/signin-oidc`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
 
-Dans **Authentification** > **Octroi implicite**, cochez les cases pour **Jetons d’accès** et **Jetons d’ID**, puis sélectionnez le bouton **Enregistrer**.
+Sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’accès** et **Jetons d’ID**, puis **Enregistrer**.
 
 Enfin, étant donné que l’application appelle une API protégée (dans ce cas, Microsoft Graph), elle a besoin d’une clé secrète client afin de vérifier son identité lorsqu’elle demande un jeton d’accès pour appeler cette API.
 

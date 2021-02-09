@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618533"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256540"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -213,6 +213,12 @@ L’activation du protocole LDAP sécurisé pour votre domaine managé prend que
 
 Voici quelques raisons d’échec courantes : le nom de domaine est incorrect, l’algorithme de chiffrement du certificat n’est pas *TripleDES-SHA1* ou le certificat expire ou a déjà expiré. Vous pouvez recréer le certificat avec des paramètres valides, puis activer le protocole LDAP sécurisé en utilisant ce certificat mis à jour.
 
+## <a name="change-an-expiring-certificate"></a>Modifier un certificat arrivant à expiration
+
+1. Créez un certificat LDAP sécurisé de remplacement en suivant les étapes de [création d’un certificat pour le protocole LDAP sécurisé](#create-a-certificate-for-secure-ldap).
+1. Pour appliquer le certificat de remplacement à Azure AD DS, dans le menu de gauche d’Azure AD DS dans le portail Azure, sélectionnez **LDAP sécurisé**, puis **Modifier le certificat**.
+1. Distribuez le certificat à tous les clients qui se connectent à l’aide du protocole LDAP sécurisé. 
+
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Verrouiller l’accès LDAP sécurisé via Internet
 
 Quand vous activez l’accès LDAP sécurisé via Internet à votre domaine managé, cela crée une menace de sécurité. Le domaine managé est accessible depuis Internet sur le port TCP 636. Il est recommandé de restreindre l’accès au domaine managé à des adresses IP connues spécifiques pour votre environnement. Une règle de groupe de sécurité réseau Azure peut être utilisée pour limiter l’accès au protocole LDAP sécurisé.
@@ -232,7 +238,7 @@ Créons une règle pour autoriser l’accès LDAP sécurisé entrant sur le port
     | Destination                       | Quelconque          |
     | Plages de ports de destination           | 636          |
     | Protocol                          | TCP          |
-    | Action                            | Autoriser        |
+    | Action                            | Allow        |
     | Priority                          | 401          |
     | Nom                              | AllowLDAPS   |
 

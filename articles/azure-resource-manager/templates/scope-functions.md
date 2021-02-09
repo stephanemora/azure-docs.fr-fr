@@ -3,12 +3,12 @@ title: Fonctions de modèle dans les déploiements délimités
 description: Décrit le mode de résolution des fonctions de modèle dans les déploiements délimités. Les étendues peuvent être un locataire, des groupes de ressources, des abonnements et des groupes de ressources.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681279"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492091"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>Fonctions de modèle ARM dans les étendues de déploiement
 
@@ -40,7 +40,7 @@ Lors du déploiement sur différentes étendues, il est important de tenir compt
 * Utilisez la fonction [extensionResourceId()](template-functions-resource.md#extensionresourceid) pour les ressources qui sont implémentées en tant qu’extensions du groupe d’administration. Les définitions de stratégie personnalisée qui sont déployées sur un groupe d’administration sont des extensions de celui-ci.
 
   Pour obtenir l’ID de ressource d’une définition de stratégie personnalisée au niveau du groupe d’administration, utilisez :
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -48,7 +48,7 @@ Lors du déploiement sur différentes étendues, il est important de tenir compt
 * Utilisez la fonction [tenantResourceId()](template-functions-resource.md#tenantresourceid) pour obtenir l’ID d’une ressource déployée au niveau du locataire. Les définitions de stratégie intégrées sont des ressources de niveau locataire. Lorsque vous affectez une stratégie intégrée au niveau du groupe d’administration, utilisez la fonction tenantResourceId.
 
   Pour obtenir l’ID de ressource d’une définition de stratégie intégrée, utilisez :
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -140,4 +140,4 @@ La sortie de l’exemple précédent est :
 
 * Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](template-syntax.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](common-deployment-errors.md).
-* Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](secure-template-with-sas-token.md).
+* Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déployer un modèle ARM privé avec un jeton SAP](secure-template-with-sas-token.md).

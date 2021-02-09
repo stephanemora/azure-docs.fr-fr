@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579451"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050768"
 ---
 # <a name="use-source-control-integration"></a>Utiliser l’intégration du contrôle de code source
 
@@ -29,7 +29,7 @@ Azure Automation prend en charge trois types de contrôles de code source :
 ## <a name="prerequisites"></a>Prérequis
 
 * Un dépôt de contrôle de code source (GitHub ou Azure Repos)
-* Un [compte d’identification](manage-runas-account.md)
+* Un [compte d’identification](automation-security-overview.md#run-as-accounts)
 * Les [derniers modules Azure](automation-update-azure-modules.md) dans votre compte Automation, notamment le module `Az.Accounts` (module Az équivalant à `AzureRM.Profile`)
 
 > [!NOTE]
@@ -209,4 +209,4 @@ Actuellement, vous ne pouvez pas utiliser le portail Azure pour mettre à jour l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour découvrir comment intégrer le contrôle de code source dans Azure Automation, consultez [Azure Automation : Intégration du contrôle de code source dans Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Pour découvrir comment intégrer le contrôle de code source du runbook avec Visual Studio Online, consultez [Azure Automation : Intégration du contrôle de code source de Runbook à l’aide de Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Pour découvrir comment intégrer le contrôle de code source du runbook avec Visual Studio Codespaces, consultez [Azure Automation : Intégration du contrôle de code source de Runbook à l’aide de Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

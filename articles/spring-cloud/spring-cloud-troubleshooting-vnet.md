@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887079"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935265"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Résolution des problèmes Azure Spring Cloud dans des réseaux virtuels
 
@@ -39,7 +39,7 @@ Pour configurer l’instance de service Azure Spring Cloud à l’aide du modèl
 |------|------|
 | Les ressources créées par Azure Spring Cloud n’ont pas été autorisées par la stratégie. | Les ressources réseau sont créées lors du déploiement d’Azure Spring Cloud dans votre propre réseau virtuel. Vérifiez si vous disposez d’[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) définie pour bloquer ces créations. Les ressources qui n’ont pas pu être créées sont indiquées dans le message d’erreur. |
 | Les sous-réseaux fournis sont associés à des tables de routage, veuillez les dissocier. | Actuellement, il n’est pas possible de déployer Azure Spring Cloud dans un sous-réseau associé à des tables de routage existantes. Veuillez les dissocier et réessayez. |
-| Le trafic requis n’est pas inclus dans la liste verte. | Reportez-vous à [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](spring-cloud-vnet-customer-responsibilities.md) pour garantir que le trafic requis est autorisé. |
+| Le trafic requis n’est pas inclus dans la liste d’autorisation. | Pour faire en sorte que le trafic requis soit inclus dans la liste d’autorisation, consultez [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](spring-cloud-vnet-customer-responsibilities.md). |
 
 ## <a name="my-application-cant-be-registered"></a>Impossible d’inscrire mon application
 

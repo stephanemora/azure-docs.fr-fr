@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726513"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054752"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -380,27 +380,42 @@ Lorsque vous désactivez une application logique, aucune nouvelle exécution n�
 Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuration du pare-feu : Adresses IP et balises de service
 
-Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortants dépendent de la région où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Certains appels de [Power Automate](/power-automate/getting-started), tels que les requêtes **HTTP** et **HTTP + OpenAPI**, passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration dans Power Automate](/flow/limits-and-config#ip-address-configuration).
+Quand votre application logique doit communiquer via un pare-feu qui limite le trafic vers des adresses IP spécifiques, ce pare-feu doit autoriser l’accès *à la fois* aux adresses IP [entrantes](#inbound) et [sortantes](#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouve votre application logique. *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
 
-> [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser les [balises de service](../virtual-network/service-tags-overview.md), au lieu de spécifier les adresses IP Logic Apps pour chaque région, comme décrit plus loin dans cette section.
-> Ces balises fonctionnent dans les régions où le service Logic Apps est disponible :
->
-> * **LogicAppsManagement** : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
-> * **LogicApps** : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
+Par exemple, pour prendre en charge les appels que les applications logiques envoient ou reçoivent dans la région USA Ouest via des déclencheurs et actions intégrés, tels que le [déclencheur ou l’action HTTP](../connectors/connectors-native-http.md), votre pare-feu doit autoriser l’accès pour *toutes* les adresses IP entrantes du service Logic Apps *et* les adresses IP sortantes qui existent dans la région USA Ouest.
 
-* Pour [Azure Chine 21Vianet](/azure/china/), les adresses IP fixes ou réservées ne sont pas disponibles pour les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) et les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), par exemple Stockage Azure, SQL Server, Office 365 Outlook, etc.
+Si votre application logique utilise également des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](#outbound) dans la région Azure de votre application logique. En outre, si vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes[ de connecteurs managés](#outbound)* .
 
-* Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez votre pare-feu avec toutes les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région.
+Pour plus d’informations sur la configuration des paramètres de communication sur la passerelle, consultez les rubriques suivantes :
 
-* Pour prendre en charge les appels que passent les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
+* [Ajuster les paramètres de communication pour la passerelle de données locale](/data-integration/gateway/service-gateway-communication)
+* [Configurer les paramètres de proxy pour la passerelle de données locale](/data-integration/gateway/service-gateway-proxy)
 
-* Pour permettre la communication des applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), veillez à [ouvrir ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* Si vos applications logiques rencontrent des problèmes d’accès aux comptes de stockage Azure qui utilisent des [pare-feu et des règles de pare-feu](../storage/common/storage-network-security.md), vous disposez de [différentes options pour activer l’accès](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### <a name="firewall-ip-configuration-considerations"></a>Considérations importantes relatives à la configuration de l’adresse IP du pare-feu
+
+Avant de configurer votre pare-feu avec des adresses IP, passez en revue les considérations suivantes :
+
+* Si vous utilisez [Power Automate](/power-automate/getting-started), certaines actions telles que **HTTP** et **HTTP + OpenAPI** passent directement par le service Azure Logic Apps et proviennent des adresses IP listées ici. Pour plus d’informations sur les adresses IP utilisées par Power Automate, consultez [Limites et configuration pour Power Automate](/flow/limits-and-config#ip-address-configuration).
+
+* Pour [Azure China 21Vianet](/azure/china/), les adresses IP fixes ou réservées ne sont pas disponibles pour les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) et les [connecteurs managés](../connectors/apis-list.md#managed-api-connectors) tels que Stockage Azure, SQL Server, Office 365 Outlook, etc.
+
+* Si vos applications logiques s’exécutent dans un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), assurez-vous que vous [ouvrez ces ports également](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Pour vous aider à simplifier les règles de sécurité que vous souhaitez créer, vous pouvez éventuellement utiliser les [étiquettes de service](../virtual-network/service-tags-overview.md) plutôt que de spécifier des préfixes d’adresses IP pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible :
+
+  * **LogicAppsManagement** : représente les préfixes d’adresses IP entrantes pour le service Logic Apps.
+
+  * **LogicApps** : représente les préfixes d’adresse IP sortantes pour le service Logic Apps.
+
+  * **AzureConnectors** : Représente les préfixes d’adresses IP utilisées pour les connecteurs managés qui effectuent des rappels de Webhook entrants vers le service Logic Apps et des appels sortants vers leurs services respectifs, tels que Stockage Azure ou Azure Event Hubs.
+
+* Si vos applications logiques rencontrent des problèmes d’accès aux comptes Stockage Azure qui utilisent des [pare-feux et des règles de pare-feu](../storage/common/storage-network-security.md), vous disposez de [différentes options alternatives pour activer l’accès](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -411,9 +426,7 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sorta
 Cette section répertorie les adresses IP entrantes pour le service Azure Logic Apps uniquement. Si vous avez Azure Government, consultez [Azure Government - Adresses IP entrantes](#azure-government-inbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région.
-> Pour les connecteurs gérés, vous pouvez éventuellement utiliser la balise de service **AzureConnectors**, plutôt que de spécifier des préfixes d’adresse IP entrants de connecteur géré pour chaque région.
-> Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région. Vous pouvez éventuellement utiliser l’étiquette de service **AzureConnectors** pour les connecteurs managés qui effectuent des appels de Webhook entrants vers le service Logic Apps, plutôt que de spécifier des préfixes d’adresse IP entrante de connecteur managé pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps et les connecteurs managés. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
 
 > [!TIP]
-> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région.
-> Cette balise fonctionne dans les régions où le service Logic Apps est disponible. 
+> Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région. Vous pouvez éventuellement utiliser l’étiquette de service **AzureConnectors** pour les connecteurs managés qui effectuent des appels sortants vers leurs services respectifs, tels que Stockage Azure ou Azure Event Hubs, plutôt que de spécifier des préfixes d’adresse IP sortante de connecteur managé pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
 
 <a name="multi-tenant-outbound"></a>
 

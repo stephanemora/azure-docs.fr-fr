@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743673"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955452"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gérer le calcul sur votre appareil Azure Stack Edge Pro avec GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Cet article explique comment gérer le calcul sur votre appareil Azure Stack Edge Pro. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
+Cet article explique comment gérer le calcul par l’intermédiaire du service IoT Edge sur un appareil GPU Azure Stack Edge Pro. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le Portail Azure permet de gérer les modules, les déclencheurs, la configuration IoT Edge et l’interface utilisateur locale pour l’administration des paramètres réseau de calcul.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Gérer les déclencheurs
-> * Gérer la configuration du calcul
+> * Gérer la configuration IoT Edge
 
 
 ## <a name="manage-triggers"></a>Gérer les déclencheurs
@@ -40,7 +40,7 @@ Les événements sont des faits qui se produisent au sein de votre environnement
 
 Pour créer un déclencher, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Déclencheur**. Sélectionnez **+ Ajouter un déclencheur** dans la barre de commandes.
+1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge**. Accédez à **Déclencheurs**, puis sélectionnez **+ Ajouter un déclencheur** dans la barre de commandes.
 
     ![Sélectionner Ajouter un déclencheur](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -76,52 +76,52 @@ Pour supprimer un déclencheur, procédez comme suit sur le portail Azure.
 
     ![Sélectionner Supprimer](media/azure-stack-edge-j-series-manage-compute/delete-trigger-2.png)
 
-3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
+3. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération.
 
     ![Confirmation de suppression](media/azure-stack-edge-j-series-manage-compute/delete-trigger-3.png)
 
 La liste des déclencheurs est actualisée afin de refléter la suppression.
 
-## <a name="manage-compute-configuration"></a>Gérer la configuration du calcul
+## <a name="manage-iot-edge-configuration"></a>Gestion de la configuration IoT Edge
 
 Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante, ou actualiser la configuration de calcul afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour Azure Stack Edge Pro.
 
-### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
+### <a name="view-iot-edge-configuration"></a>Affichage de la configuration IoT Edge
 
-Pour afficher la configuration de calcul de votre appareil, procédez comme suit sur le portail Azure.
+Pour afficher la configuration IoT Edge de votre appareil, suivez la procédure ci-dessous sur le Portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Modules**. Sélectionnez **Voir le computing** dans la barre de commandes.
+1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge**. Une fois le service IoT Edge activé sur l’appareil, la page Vue d’ensemble indique qu’il s’exécute bien.
 
     ![Sélectionner Voir le computing](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. Prenez note de la configuration de calcul sur votre appareil. Lorsque vous avez configuré le calcul, vous avez créé une ressource IoT Hub. Sous cette ressource IoT Hub, un appareil IoT et un appareil IoT Edge sont configurés. Seuls les modules Linux sont pris en charge pour s’exécuter sur l’appareil IoT Edge.
+2. Accédez à **Propriétés** pour afficher la configuration IoT Edge sur votre appareil. Lorsque vous avez configuré le calcul, vous avez créé une ressource IoT Hub. Sous cette ressource IoT Hub, un appareil IoT et un appareil IoT Edge sont configurés. Seuls les modules Linux sont pris en charge pour s’exécuter sur l’appareil IoT Edge.
 
     ![Afficher la configuration](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>Supprimer la configuration du calcul
+### <a name="remove-iot-edge-service"></a>Suppression du service IoT Edge
 
-Pour supprimer la configuration de computing en périphérie de votre appareil, procédez comme suit sur le portail Azure.
+Pour supprimer la configuration IoT Edge existante de votre appareil, suivez la procédure ci-dessous sur le Portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Prise en main**. Sélectionnez **Supprimer le computing** dans la barre de commandes.
+1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **IoT Edge**. Accédez à **Vue d’ensemble** et sélectionnez **Supprimer** dans la barre de commandes.
 
     ![Sélectionner Supprimer le computing](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. Si vous supprimez la configuration de calcul, vous devrez reconfigurer votre appareil si vous avez besoin d’utiliser le calcul à nouveau. Quand vous êtes invité à confirmer l’opération, sélectionnez **Oui**.
+2. Si vous supprimez le service IoT Edge, l’action est irréversible et ne peut pas être annulée. Les modules et les déclencheurs que vous avez créés seront également supprimés. Il vous faudra reconfigurer votre appareil au cas où vous devriez utiliser de nouveau IoT Edge. Quand il vous est demandé de confirmer l’opération, sélectionnez **OK**.
 
     ![Sélectionner Supprimer le computing 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge
 
-Lorsque vous configurez le calcul sur Azure Stack Edge Pro, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
+Lorsque vous configurez le calcul sur votre ressource Azure Stack Edge Pro, un appareil IoT et un appareil IoT Edge sont créés. Des clés d’accès symétriques sont affectées automatiquement à ces appareils. Conformément aux meilleures pratiques de sécurité, le service IoT Hub veille à une rotation régulière de ces clés.
 
 Pour définir la rotation de ces clés, vous pouvez accéder au service IoT Hub que vous avez créé, puis sélectionnez l’appareil IoT ou l’appareil IoT Edge. Chaque appareil possède une clé d’accès primaire et une clé d’accès secondaire. Affectez la clé d’accès primaire à la clé d’accès secondaire, puis régénérez la clé d’accès primaire.
 
-Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre Azure Stack Edge Pro pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge Pro utilise uniquement les clés d’accès primaires.
+Si une rotation des clés de vos appareils IoT et IoT Edge a eu lieu, vous devez actualiser la configuration sur votre ressource Azure Stack Edge Pro pour obtenir les dernières clés d’accès. La synchronisation aide l’appareil à obtenir les dernières clés de vos appareils IoT et IoT Edge. Azure Stack Edge Pro utilise uniquement les clés d’accès primaires.
 
 Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit sur le portail Azure.
 
-1. Sur le portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing en périphérie > Prise en main**. Sélectionnez **Actualiser la configuration** dans la barre de commandes.
+1. Sur le Portail Azure, accédez à votre ressource Azure Stack Edge, puis à **Computing IoT Edge**. Accédez à **Vue d’ensemble** et sélectionnez **Actualiser la configuration** dans la barre de commandes.
 
     ![Sélectionner Actualiser la configuration](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 

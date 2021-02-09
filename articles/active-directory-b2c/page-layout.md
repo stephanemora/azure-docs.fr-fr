@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976501"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492244"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
 Les packages de mise en page sont régulièrement mis à jour afin d’ajouter des correctifs et des améliorations à leurs éléments de page. Le journal des modifications suivant indique les modifications introduites dans chaque version.
 
 ## <a name="self-asserted-page-selfasserted"></a>Page autodéclarée (selfasserted)
+
+**2.1.2**
+- Correction du problème d’encodage de la localisation pour des langues telles que l’espagnol et le français.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 - Version initiale
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Page d’inscription à la connexion unifiée avec lien de réinitialisation de mot de passe (unifiedssp)
+
+**2.1.2**
+- Correction du problème d’encodage de la localisation pour des langues telles que l’espagnol et le français.
+- Possibilité d’utiliser le lien « mot de passe oublié » comme échange de revendications tel qu’un fournisseur d’identité sociale.
 
 **2.1.1**
 - Ajout d’un élément `heading` UXString en plus de `intro` à afficher sur la page en tant que titre. Cet élément est masqué par défaut.

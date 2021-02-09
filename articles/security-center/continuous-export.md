@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832707"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916780"
 ---
 # <a name="continuously-export-security-center-data"></a>Exporter en continu des données Security Center
 
@@ -25,6 +25,8 @@ Azure Security Center génère des alertes et recommandations de sécurité dét
 - Tous les résultats de gravité moyenne ou plus élevée issus des analyses d’évaluation des vulnérabilités de vos serveurs SQL sont envoyés à un espace de travail Log Analytics spécifique
 - Les recommandations spécifiques sont transmises à un Event Hub ou à un espace de travail Log Analytics lorsqu’elles sont générées 
 - Le score sécurisé pour un abonnement est envoyé à un espace de travail Log Analytics chaque fois que le score d’un contrôle change de 0,01 ou plus 
+
+Bien que la fonctionnalité soit appelée *continue*, il existe également une option permettant d’exporter des instantanés hebdomadaires de données de niveau de sécurité ou de conformité réglementaire.
 
 Cet article explique comment configurer l’exportation continue vers des espaces de travail Log Analytics ou vers Azure Event Hubs.
 
@@ -78,6 +80,10 @@ Les étapes ci-dessous sont nécessaires si vous configurez une exportation cont
     Les options d’exportation sont affichées ici. Il y a un onglet distinct pour chaque cible d’exportation disponible. 
 
 1. Sélectionnez le type de données que vous souhaitez exporter, puis choisissez les filtres à appliquer sur chaque type (par exemple, exporter uniquement les alertes d’un niveau de gravité élevé).
+1. Sélectionnez la fréquence d’exportation appropriée :
+    - **Diffusion en continu** : les évaluations sont envoyées en temps réel lorsque l’état d’intégrité d’une ressource est mis à jour (si aucune mise à jour n’est effectuée, aucune donnée n’est envoyée).
+    - **Captures instantanées** : un instantané de l’état actuel de toutes les évaluations de conformité réglementaire est envoyé chaque semaine (il s’agit d’une fonctionnalité en préversion pour les instantanés hebdomadaires de données de niveau de sécurité et de conformité réglementaire).
+
 1. Éventuellement, si votre sélection inclut l’une de ces recommandations, vous pouvez inclure les résultats de l’évaluation des vulnérabilités :
     - Les résultats de l’évaluation des vulnérabilités sur vos bases de données SQL doivent être corrigés
     - Les résultats de l’évaluation des vulnérabilités de vos serveurs SQL sur des machines doivent être corrigés (préversion)

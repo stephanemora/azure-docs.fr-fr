@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937620"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -35,8 +35,13 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 ![Authentification unique transparente](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->L’authentification unique transparente a besoin uniquement que l’appareil de l’utilisateur soit **joint au domaine** , mais elle n’est pas utilisée sur des appareils [joints à Azure AD](../devices/concept-azure-ad-join.md) ou [joints à Azure AD Hybride](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils joints à Azure AD, joints à Azure AD Hybride et inscrits auprès d’Azure AD opère en fonction du [jeton d’actualisation principal](../devices/concept-primary-refresh-token.md).
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>Authentification unique à l’aide d’un jeton d’actualisation principal ou authentification unique fluide
+
+Pour Windows 10, il est recommandé d’utiliser l’authentification unique à l’aide d’un jeton d’actualisation principal (PRT). Pour Windows 7 et 8.1, il est recommandé d’utiliser l’authentification unique fluide.
+L’authentification unique fluide a besoin que l’appareil de l’utilisateur soit joint à un domaine, mais cette propriété n’est pas utilisée sur les appareils Windows 10 avec [jointure Azure AD](../devices/concept-azure-ad-join.md) ou [jointure hybride Azure AD](../devices/concept-azure-ad-join-hybrid.md). L’authentification unique sur des appareils avec jointure Azure AD, avec jointure hybride Azure AD et inscrits dans Azure AD fonctionne selon le [jeton d’actualisation principal (PRT)](../devices/concept-primary-refresh-token.md)
+
+L’authentification unique via PRT fonctionne une fois que les appareils sont inscrits auprès d’Azure AD pour les appareils Azure AD avec jointure hybride, les appareils avec jointure Azure AD ou les appareils personnels inscrits via Ajouter un compte professionnel ou scolaire. Pour plus d’informations sur le fonctionnement de l’authentification unique avec Windows 10 à l’aide de PRT, consultez : [Jeton d’actualisation principal (PRT) et Azure AD](../devices/concept-primary-refresh-token.md)
+
 
 ## <a name="key-benefits"></a>Principaux avantages
 
@@ -78,9 +83,6 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 \*\*\*Nécessite une [configuration supplémentaire](how-to-connect-sso-quick-start.md#browser-considerations).
 
 \*\*\*\*Nécessite Microsoft Edge version 77 ou une version ultérieure.
-
->[!NOTE]
->Concernant Windows 10, il est recommandé d’utiliser [Azure AD Join](../devices/concept-azure-ad-join.md) pour une expérience optimale d’authentification unique dans Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

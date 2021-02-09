@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 060ed8bfc424fcb9dab8fc12faf5e3822fa86a31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621442"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538704"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 
@@ -66,15 +66,15 @@ Un appareil doit s’authentifier auprès de votre Hub avant de pouvoir échange
 
 Connectez-vous au portail et accédez à votre IoT Hub. Puis accédez à l’outil **Appareils IoT** :
 
-![Outil Appareils IoT](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="Outil Appareils IoT":::
 
-Pour inscrire un nouvel appareil, cliquez sur **+ Ajouter**, définissez **l’ID d’appareil** sur **MyTestDevice**, puis cliquez sur **Enregistrer** :
+Pour inscrire un nouvel appareil, cliquez sur **+ Nouveau**, définissez l’**ID d’appareil** sur **MyTestDevice**, puis cliquez sur **Enregistrer**.
 
-![Ajouter un nouvel appareil](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Ajouter un nouvel appareil":::
 
-Pour récupérer la chaîne de connexion de **MyTestDevice**, cliquez dessus dans la liste d’appareils puis copiez la valeur **Chaîne de connexion-clé primaire**. La chaîne de connexion inclut la *clé d’accès partagé* pour l’appareil.
+Pour récupérer la chaîne de connexion de **MyTestDevice**, cliquez dessus dans la liste d’appareils, puis copiez la valeur **Chaîne de connexion principale**. La chaîne de connexion inclut la *clé d’accès partagé* pour l’appareil.
 
-![Récupérer la chaîne de connexion de l’appareil](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Récupérer la chaîne de connexion de l’appareil":::
 
 Pour simuler l’envoi de données de télémétrie de **MyTestDevice** à votre Hub IoT, exécutez l’application d’appareil simulé Node.js que vous avez téléchargée précédemment.
 
@@ -176,7 +176,7 @@ Après la connexion d’un appareil, ce dernier essaie généralement d’envoye
 Récupérez tout d’abord la chaîne de connexion en cours pour votre appareil simulé à l’aide de la commande suivante :
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 Pour exécuter un appareil simulé qui envoie des messages, accédez au dossier **iot-hub\Tutorials\ConnectivityTests** dans le code que vous avez téléchargé.
@@ -218,7 +218,7 @@ L’appareil simulé affiche un message dans la console lorsqu’il reçoit un a
 
 ![L’appareil simulé reçoit un appel de méthode directe](media/tutorial-connectivity/receive-method-call.png)
 
-Lorsque l’appareil simulé a reçu correctement l’appel de méthode directe, il envoie un accusé de réception au Hub :
+Quand l’appareil simulé reçoit correctement l’appel de méthode directe, il renvoie un accusé de réception au hub :
 
 ![Recevoir l’accusé de réception de méthode directe](media/tutorial-connectivity/method-acknowledgement.png)
 

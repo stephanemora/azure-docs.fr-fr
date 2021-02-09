@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680263"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226420"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
@@ -42,7 +42,7 @@ Chaque application qui utilise Azure Active Directory (Azure AD) pour l’authen
 - Pour les **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel**.
 - Laissez le champ déroulant **URI de redirection** défini sur **Web** et entrez `https://localhost:5001/authentication/login-callback`. Le port par défaut pour une application s’exécutant sur Kestrel est 5001. Si l’application est disponible sur un autre port, spécifiez ce numéro de port au lieu de `5001`.
 
-Une fois inscrite, dans **Authentification** > **Octroi implicite**, cochez les cases pour **Jetons d’accès** et **Jetons d’ID**, puis sélectionnez le bouton **Enregistrer**.
+Une fois l’inscription effectuée, sous **Gérer**, sélectionnez **Authentification** > **Octroi implicite et flux hybrides**. Sélectionnez **Jetons d’accès** et **Jetons d’ID**, puis **Enregistrer**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Créer l’application à l’aide de l’interface CLI .NET Core
 
@@ -80,7 +80,7 @@ Les composants de ce modèle qui activent les connexions avec Azure AD en utilis
 
 [Microsoft Graph](/graph/overview) contient des API qui permettent d’accéder à des données Microsoft 365 pour vos utilisateurs, et prend en charge les jetons émis par la plateforme d’identités Microsoft, ce qui en fait une bonne API protégée à utiliser comme exemple. Dans cette section, vous ajoutez du code pour appeler Microsoft Graph et afficher les e-mails de l’utilisateur dans la page « Extraire les données » de l’application.
 
-Cette section est écrite selon une approche courante de l’appel d’une API protégée à l’aide d’un client nommé. La même méthode peut être utilisée pour d’autres API protégées à appeler. Toutefois, si vous envisagez d’appeler Microsoft Graph à partir de votre application, vous pouvez utiliser le SDK Graph pour réduire la réutilisabilité. La documentation .NET contient des instructions sur la [manière d’utiliser le SDK Graph](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Cette section est écrite selon une approche courante de l’appel d’une API protégée à l’aide d’un client nommé. La même méthode peut être utilisée pour d’autres API protégées à appeler. Toutefois, si vous envisagez d’appeler Microsoft Graph à partir de votre application, vous pouvez utiliser le SDK Graph pour réduire la réutilisabilité. La documentation .NET contient des instructions sur la [manière d’utiliser le SDK Graph](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
 Avant de commencer, déconnectez-vous de votre application, car vous allez apporter des modifications aux autorisations requises et votre jeton actuel ne fonctionnera pas. Si vous ne l’avez pas encore fait, exécutez à nouveau votre application et sélectionnez **Se déconnecter** avant de mettre à jour le code ci-dessous.
 

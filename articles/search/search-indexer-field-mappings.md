@@ -3,19 +3,17 @@ title: Mappages de champs dans les indexeurs
 titleSuffix: Azure Cognitive Search
 description: Configurez des mappages de champs d’un indexeur vers un compte pour détecter des différences de noms de champs et de représentations des données.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358930"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430443"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
@@ -28,7 +26,7 @@ Quelques situations où les mappages de champs sont utiles :
 * Votre source de données a un champ appelé `_id`, mais la Recherche cognitive Azure n’autorise pas les noms de champs commençant par un trait de soulignement. Un mappage de champ vous permet de renommer un champ.
 * Vous souhaitez remplir plusieurs champs de l’index à partir des données de la même source de données. Par exemple, vous souhaiterez peut-être appliquer différents analyseurs à ces champs.
 * Vous voulez remplir un champ d’index avec des données provenant de plusieurs sources de données, lesquelles utilisent des noms de champs différents.
-* Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage** , y compris les fonctions d’encodage et de décodage en Base64.
+* Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage**, y compris les fonctions d’encodage et de décodage en Base64.
 
 > [!NOTE]
 > Les mappages de champs dans les indexeurs sont un moyen simple de mapper des champs de données à des champs d’index, avec une certaine possibilité de conversion de données simples. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format propice à l’indexation. L’une des options que vous pouvez envisager est [Azure Data Factory](../data-factory/index.yml).
@@ -44,16 +42,15 @@ Un mappage de champs se compose de trois parties :
 Les mappages de champs sont ajoutés au tableau `fieldMappings` dans la définition de l’indexeur.
 
 > [!NOTE]
-> Si aucun mappage de champs n’est ajouté, les indexeurs supposent que les champs de source de données doivent être mappés à des champs d’index portant le même nom. L’ajout d’un mappage de champs supprime ces mappages de champs par défaut pour les champs source et cible. Certains indexeurs, comme [l’indexeur de stockage d’objets blob](search-howto-indexing-azure-blob-storage.md), ajoutent des mappages de champs par défaut pour le champ de clé d’index.
+> Si aucun mappage de champs n’est ajouté, les indexeurs supposent que les champs de source de données doivent être mappés à des champs d’index portant le même nom. L’ajout d’un mappage de champs supprime ces mappages de champs par défaut pour les champs source et cible. Certains indexeurs, comme l’[indexeur de stockage d’objets blob](search-howto-indexing-azure-blob-storage.md), ajoutent des mappages de champs par défaut pour le champ de clé d’index.
 
-## <a name="map-fields-using-the-rest-api"></a>Mapper des champs avec l’API REST
+## <a name="map-fields-using-rest"></a>Mapper des champs à l’aide de REST
 
 Vous pouvez ajouter des mappages de champs lors de la création d’un indexeur avec la requête d’API [Créer un indexeur](/rest/api/searchservice/create-Indexer). Vous pouvez gérer les mappages de champs d’un indexeur existant avec la requête d’API [Mise à jour d’un indexeur](/rest/api/searchservice/update-indexer).
 
 Par exemple, voici comment mapper un champ source à un champ cible avec un nom différent :
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -77,9 +74,8 @@ Un champ source peut être référencé dans plusieurs mappages de champs. L’e
 > [!NOTE]
 > Azure Search utilise une comparaison qui ne respecte pas la casse pour résoudre les noms de champ et de fonction dans les mappages de champs. C'est pratique (vous n'avez besoin de faire attention à la casse), mais cela signifie que votre source de données et votre index ne peuvent pas comporter des champs qui diffèrent uniquement par la casse.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Mapper des champs avec le Kit de développement logiciel (SDK) .NET
+## <a name="map-fields-using-net"></a>Mapper des champs à l’aide de .NET
 
 Vous définissez des mappages de champs dans le Kit de développement logiciel (SDK) .NET à l’aide de la classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping), qui possède les propriétés `SourceFieldName` et `TargetFieldName`, ainsi qu’une référence `MappingFunction` en option.
 

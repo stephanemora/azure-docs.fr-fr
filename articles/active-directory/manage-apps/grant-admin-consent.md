@@ -3,7 +3,7 @@ title: Accorder le consentement administrateur au niveau locataire à une applic
 description: Découvrez comment accorder un consentement au niveau locataire à une application afin d’éviter que les utilisateurs finaux donnent leur consentement lors de la connexion à une application.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659078"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258318"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Accorder le consentement administrateur au niveau locataire à une application
 
@@ -27,7 +27,7 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-L’octroi du consentement administrateur au niveau locataire vous oblige à vous connecter en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
+L’octroi du consentement administrateur au niveau locataire vous oblige à vous connecter en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > Lorsqu’une application a reçu le consentement administrateur au niveau locataire, tous les utilisateurs peuvent se connecter à l’application, sauf si elle a été configurée pour exiger l’attribution de l’utilisateur. Pour restreindre à des utilisateurs spécifiques l’accès à une application, demandez l’affectation d’utilisateurs, puis affectez des utilisateurs ou des groupes à l’application. Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](./assign-user-or-group-access-portal.md).
@@ -47,7 +47,7 @@ Vous pouvez accorder le consentement administrateur au niveau locataire via *App
 
 Pour accorder le consentement administrateur au niveau locataire à une application figurant dans **Applications d’entreprise** :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Sélectionnez **Azure Active Directory** puis **Applications d’entreprise**.
 3. Sélectionnez l’application à laquelle vous souhaitez accorder le consentement administrateur au niveau locataire.
 4. Sélectionnez **Autorisations**, puis cliquez sur **Accorder le consentement administrateur**.
@@ -63,7 +63,7 @@ Pour les applications développées par votre organisation ou inscrites directem
 
 Pour accorder le consentement administrateur au niveau locataire dans **Inscriptions d'applications** :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator--company-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) en tant qu’[administrateur général](../roles/permissions-reference.md#global-administrator), [administrateur d’application](../roles/permissions-reference.md#application-administrator) ou [administrateur d’application cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Sélectionnez **Azure Active Directory**, puis **Inscription d’applications**.
 3. Sélectionnez l’application à laquelle vous souhaitez accorder le consentement administrateur au niveau locataire.
 4. Sélectionnez **Autorisations d’API**, puis cliquez sur **Accorder le consentement administrateur**.
@@ -101,4 +101,4 @@ Comme toujours, examinez attentivement les autorisations demandées par une appl
 
 [Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/v2-permissions-and-consent.md)
 
-[Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD sur Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

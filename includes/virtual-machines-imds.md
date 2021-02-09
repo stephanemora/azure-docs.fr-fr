@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: ceb560a3f0c56a13b9f8da6c867f513b2b08e59b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962203"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500345"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
@@ -78,7 +78,7 @@ Toutes les demandes qui ne respectent pas **ces deux** exigences sont rejetées 
 IMDS n’est **pas** destiné à être utilisé derrière un proxy, ce qui n’est pas pris en charge. La plupart des clients HTTP proposent une option vous permettant de désactiver les proxys sur vos demandes. Cette fonctionnalité doit être utilisée lors de la communication avec IMDS. Pour plus d’informations, consultez la documentation de votre client.
 
 > [!IMPORTANT]
-> Même si vous n’avez connaissance d’aucune configuration de proxy dans votre environnement, **vous devez toujours remplacer les paramètres de proxy client par défaut**. Les configurations de proxy peuvent être découvertes automatiquement. Si vous ne les contournez pas, vous vous exposez à des risques d’infraction en cas de modification ultérieure de la configuration de la machine.
+> Même si vous n’avez connaissance d’aucune configuration de proxy dans votre environnement, **vous devez toujours remplacer les paramètres de proxy client par défaut**. Les configurations de proxy peuvent être découvertes automatiquement. Si vous ne les contournez pas, vous vous exposez à des risques de panne en cas de modification ultérieure de la configuration de la machine.
 
 ## <a name="rate-limiting"></a>Limitation du débit
 
