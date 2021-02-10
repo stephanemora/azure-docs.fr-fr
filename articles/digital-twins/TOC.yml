@@ -1,6 +1,6 @@
 - name: Documentation Azure Digital Twins
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "À propos d’Azure\_Digital\_Twins"
       href: overview.md
@@ -259,6 +259,8 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Spécification DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: 'Découvrez : Développer avec Azure Digital Twins'
+      href: /learn/paths/develop-azure-digital-twins/
     - name: Vidéos Channel 9
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: Témoignages client

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 07db57ee36d39454e8a247be11dac4a9c51af3af
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1f4c57986f356f267448ff43de23973534b8126
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946112"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006664"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Composants et versions d’Apache disponibles pour Azure HDInsight
 
@@ -133,3 +133,5 @@ Pour plus d’informations sur les références SKU de machine virtuelle à sél
 - [Pack Sécurité Entreprise](./enterprise-security-package.md)
 - [Notes de publication Hortonworks associées aux versions d’Azure HDInsight](./hortonworks-release-notes.md)
 - [Travailler à partir d’un PC Windows dans Apache Hadoop sur HDInsight](hdinsight-hadoop-windows-tools.md)
+
+

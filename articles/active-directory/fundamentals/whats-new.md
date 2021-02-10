@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da71db47e396ee1d699cbc72dd51b5c7f9b1a12
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091460"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988878"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -48,7 +48,7 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 
 Auparavant, le champ jeton secret pouvait rester vide lors de la configuration du provisionnement sur l’application personnalisée/BYOA. Cette fonction n’était destinée qu’à des fins de test. Nous allons mettre à jour l’interface utilisateur pour rendre le champ obligatoire. 
 
-Les clients peuvent contourner cette exigence à des fins de test à l’aide d’un indicateur de fonctionnalité dans l’URL du navigateur. [En savoir plus](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery)
+Les clients peuvent contourner cette exigence à des fins de test à l’aide d’un indicateur de fonctionnalité dans l’URL du navigateur. [En savoir plus](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery)
  
 ---
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896509"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008160"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Résoudre les problèmes de déploiement de fonctionnalités
 
@@ -148,7 +148,7 @@ Dans votre espace de travail, supprimez les ressources des fonctionnalités suiv
 Une fois les ressources des fonctionnalités supprimées, vous pouvez dissocier votre espace de travail. Il est important de supprimer tous les artefacts existants de ces fonctionnalités dans votre espace de travail et votre compte Automation.
 
 * Pour Update Management, supprimez les **déploiements de mises à jour (planifications)** de votre compte Automation.
-* Pour « Start/Stop VMs during off-hours », supprimez tous les verrous des composants de la fonctionnalité dans votre compte Automation sous **Paramètres** > **Verrous**. Pour plus d’informations, consultez [Supprimer la fonctionnalité](../automation-solution-vm-management.md#remove-the-feature).
+* Pour « Start/Stop VMs during off-hours », supprimez tous les verrous des composants de la fonctionnalité dans votre compte Automation sous **Paramètres** > **Verrous**. Pour plus d’informations, consultez [Supprimer la fonctionnalité](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics pour les échecs de l’extension Windows
 
