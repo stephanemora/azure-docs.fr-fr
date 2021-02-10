@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 662c28196b06f5fbe49f69cb7145fdd33805e000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15822c357db63db81e6c1efda2467279a98d7c34
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019043"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594144"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Interagir avec les composants et objets de jeu Unity
 
@@ -25,42 +25,21 @@ L’intégration à Unity d’Azure Remote Rendering offre donc une fonctionnali
 
 Quand vous chargez un modèle, vous obtenez une référence à l’objet racine du modèle chargé. Cette référence n’est pas un objet de jeu Unity. Mais vous pouvez en faire un tel objet en utilisant la méthode d’extension `Entity.GetOrCreateGameObject()`. Cette fonction attend un argument de type `UnityCreationMode`. Si vous transmettez `CreateUnityComponents`, le nouvel objet de jeu Unity sera également renseigné avec les composants de proxy pour tous les composants Remote Rendering qui existent sur l’hôte. Toutefois, il est recommandé de privilégier `DoNotCreateUnityComponents` pour minimiser la surcharge.
 
-### <a name="load-model-with-task"></a>Charger un modèle avec une tâche
-
-```cs
-LoadModelAsync _pendingLoadTask = null;
-void LoadModelWithTask()
-{
-    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
-
-    _pendingLoadTask.Completed += (LoadModelAsync res) =>
-    {
-        // turn the root object into a Unity game object
-        var gameObject = res.Result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-        _pendingLoadTask = null;
-    };
-
-    // also listen to progress updates:
-    _pendingLoadTask.ProgressUpdated += (float progress) =>
-    {
-        // progress is a fraction in [0..1] range
-        int percentage = (int)(progress * 100.0f);
-        // do something...
-        // Since the updates are triggered by the main thread, we may access unity objects here.
-    };
-}
-```
-
 ### <a name="load-model-with-unity-coroutines"></a>Charger un modèle avec les coroutines Unity
 
 ```cs
-IEnumerator LoadModelWithCoroutine()
+IEnumerator LoadModelWithCoroutine(RenderingSession session)
 {
-    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
+    float currentProgress = 0.0f;
+    var task = session.Connection.LoadModelFromSasAsync(new LoadModelFromSasOptions("builtin://Engine"),
+        (float progress) =>
+        {
+            currentProgress = progress;
+        });
 
-    while (!task.IsCompleted)
+    while (!task.IsCompleted && !task.IsFaulted)
     {
-        int percentage = (int)(task.Progress * 100.0f);
+        int percentage = (int)(currentProgress * 100.0f);
         yield return null;
     }
 
@@ -68,22 +47,20 @@ IEnumerator LoadModelWithCoroutine()
     {
         var gameObject = task.Result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
     }
-
-    task = null;
 }
 ```
 
 ### <a name="load-model-with-await-pattern"></a>Charger un modèle avec le modèle d’awaiter
 
 ```cs
-async void LoadModelWithAwait()
+async void LoadModelWithAwait(RenderingSession session)
 {
-    var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
+    var result = await session.Connection.LoadModelFromSasAsync(new LoadModelFromSasOptions("builtin://Engine"), null);
     var gameObject = result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 }
 ```
 
-Les exemples de code ci-dessus utilisent le chemin de chargement du modèle par le biais d’une SAS, car le modèle intégré est chargé. L’envoi du modèle par le biais de conteneurs d’objets Blob (avec `LoadModelAsync` et `LoadModelParams`) fonctionne exactement de la même manière.
+Les exemples de code ci-dessus utilisent le chemin de chargement du modèle par le biais d’une SAS, car le modèle intégré est chargé. L’envoi du modèle par le biais de conteneurs d’objets Blob (avec `LoadModelAsync` et `LoadModelOptions`) fonctionne exactement de la même manière.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131121"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585090"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer 
 
@@ -35,7 +35,7 @@ L’API Carte de visite prédéfinie extrait les champs clés des cartes de visi
 |:-----|:----|:----|:----|
 | ContactNames | tableau d’objets | Nom de contact extrait de la carte de visite | [{ "FirstName": "John", "LastName": "Doe" }] |
 | FirstName | string | Prénom du contact | "John" | 
-| LastName | string | Nom du contact |   "Doe" | 
+| LastName | string | Nom du contact |     "Doe" | 
 | CompanyNames | tableau de chaînes | Nom de société extrait de la carte de visite | ["Contoso"] | 
 | Departments | tableau de chaînes | Service ou organisation de contact | ["R&D"] | 
 | JobTitles | tableau de chaînes | Poste indiqué du contact | ["Software Engineer"] | 
@@ -45,7 +45,7 @@ L’API Carte de visite prédéfinie extrait les champs clés des cartes de visi
 | MobilePhones | tableau de numéros de téléphone | Numéro de téléphone mobile extrait de la carte de visite | ["+19876543210"] |
 | Télécopies | tableau de numéros de téléphone | Numéro de télécopie extrait de la carte de visite | ["+19876543211"] |
 | WorkPhones | tableau de numéros de téléphone | Numéro de téléphone professionnel extrait de la carte de visite | ["+19876543231"] |
-| OtherPhones    | tableau de numéros de téléphone | Autre numéro de téléphone extrait de la carte de visite | ["+19876543233"] |
+| OtherPhones     | tableau de numéros de téléphone | Autre numéro de téléphone extrait de la carte de visite | ["+19876543233"] |
 
 
 L’API Carte de visite peut également retourner tout le texte reconnu de la carte de visite. Cette sortie OCR est incluse dans la réponse JSON.  

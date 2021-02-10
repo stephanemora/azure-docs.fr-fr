@@ -10,18 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 28cc0e27e5ac97ca52f5e94a556795b1404f6961
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 1cd90bc1906140e6e559c1557234458035e54042
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663194"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524700"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Préparer des données en vue de créer une voix personnalisée
 
 Dès que vous êtes prêt à créer une voix personnalisée pour la synthèse vocale dans votre application, vous devez dans un premier temps rassembler les enregistrements audio et les scripts associés pour commencer l’entraînement du modèle de voix. Le service Speech se sert de ces données pour créer une voix unique correspondant à la voix des enregistrements. Après avoir entraîné la voix, vous pouvez commencer la synthèse vocale dans vos applications.
 
-Vous pouvez commencer par un petit volume de données pour créer une preuve de concept. Cependant, plus vous fournirez de données, plus votre voix personnalisée semblera naturelle. Avant d’entraîner votre propre modèle vocal pour la synthèse vocale, vous avez besoin d’enregistrements audio et des transcriptions de texte associées. Dans cette page, nous allons passer en revue les différents types de données, leurs utilisations et leur gestion respective.
+Avant d’entraîner votre propre modèle vocal pour la synthèse vocale, vous avez besoin d’enregistrements audio et des transcriptions de texte associées. Dans cette page, nous allons passer en revue les différents types de données, leurs utilisations et leur gestion respective.
+
+> [!NOTE]
+> Si vous souhaitez entraîner une voix neuronale, vous devez spécifier un profil de voix professionnelle avec le fichier de consentement audio fourni par la voix professionnelle qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal personnalisé. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous. 
+
+> « Je, soussigné(e) [indiquez votre nom et votre prénom], avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
+Cette phrase servira à vérifier si les données d’entraînement sont enregistrées par la personne qui a donné son consentement. Découvrez ici davantage d’informations sur la [vérification des voix professionnelles](https://aka.ms/CNV-data-privacy).
+
+> La voix neuronale personnalisée est disponible avec un accès limité. Veillez à bien comprendre les [conditions de l’IA responsable](https://aka.ms/gating-overview) et [demandez l’accès ici](https://aka.ms/customneural). 
 
 ## <a name="data-types"></a>Types de données
 
@@ -31,22 +39,22 @@ Dans certains cas, vous n’aurez peut-être pas à disposition le jeu de donné
 
 Ce tableau liste les types de données et la façon dont chacun est utilisé pour créer un modèle vocal personnalisé pour la synthèse vocale.
 
-| Type de données | Description | Quand l’utiliser | Autre service nécessaire | Quantité nécessaire pour l’entraînement d’un modèle | Paramètres régionaux |
-| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distinctes pour les autres paramètres régionaux. | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
-| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | Pas d’exigence précise  | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
-| **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.| Pas d’exigence précise | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
+| Type de données | Description | Quand l’utiliser | Traitement supplémentaire requis | 
+| --------- | ----------- | ----------- | --------------------------- |
+| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. |
+| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | 
+| **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.| 
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
 > [!NOTE]
-> Le nombre maximal de jeux de données qu’il est autorisé d’importer par abonnement est de 10 fichiers .zip pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 500 pour ceux qui disposent d’un abonnement standard (S0).
+> Le nombre maximal de jeux de données qu’il est autorisé d’importer par abonnement est de 10 fichiers zip pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 500 pour ceux qui ont un abonnement standard (S0).
 
 ## <a name="individual-utterances--matching-transcript"></a>Énoncés individuels + transcription correspondante
 
 Vous pouvez préparer les enregistrements d’énoncés individuels et la transcription correspondante de deux façons différentes : soit en écrivant un script et en le faisant lire par une voix professionnelle, soit en utilisant un enregistrement audio disponible publiquement et en le transcrivant en texte. Dans ce dernier cas, éliminez les disfluences dans les fichiers audio telles que les « euh » et autres sons de remplissage, bégaiements, mots marmonnés ou erreurs de prononciation.
 
-Pour produire une police de voix de qualité satisfaisante, créez les enregistrements dans une pièce silencieuse avec un microphone de grande qualité. Il est essentiel de faire attention à l’homogénéité du volume, au débit, à la tonalité et de s’exprimer de manière expressive.
+Pour obtenir un modèle de voix de qualité satisfaisante, créez les enregistrements dans une pièce silencieuse avec un microphone de qualité. Il est essentiel de faire attention à l’homogénéité du volume, au débit, à la tonalité et de s’exprimer de manière expressive.
 
 > [!TIP]
 > Pour créer une voix à des fins de production, nous vous recommandons de faire appel aux services d’un studio d’enregistrement et d’une voix professionnelle. Pour plus d’informations, consultez le [Guide pratique pour enregistrer des exemples de voix pour une voix personnalisée](record-custom-voice-samples.md).
@@ -89,9 +97,6 @@ Voici un exemple d’organisation des transcriptions, énoncé par énoncé, dan
 0000000003[tab] It was Janet Maslin.
 ```
 Il est important que les transcriptions soient parfaitement fidèles au contenu audio correspondant. Les erreurs de transcription entraînent une perte de qualité pendant l’entraînement.
-
-> [!TIP]
-> Quand vous créez des voix pour une synthèse vocale de production, sélectionnez des énoncés (ou rédigez des scripts) qui conjuguent efficacité et couverture phonétique. Des difficultés à obtenir les résultats que vous souhaitez ? [Contactez l’équipe Custom Voice](mailto:speechsupport@microsoft.com) pour savoir comment obtenir des conseils.
 
 ## <a name="long-audio--transcript-beta"></a>Contenu audio long + transcription (bêta)
 

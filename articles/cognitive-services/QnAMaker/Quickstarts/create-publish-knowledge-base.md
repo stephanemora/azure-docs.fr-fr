@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387783"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987905"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
@@ -212,4 +212,4 @@ Si vous ne passez pas au démarrage rapide suivant, supprimez les ressources de 
 Pour plus d'informations :
 
 * [Format Markdown dans les réponses](../reference-markdown-format.md)
-* [Sources de données](../index.yml) QnA Maker
+* [Sources de données](../Concepts/data-sources-and-content.md) QnA Maker

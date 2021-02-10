@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0945b35f7aff8e93a1a3ba23b89db288db3d8efa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80679407"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593889"
 ---
 # <a name="object-and-resource-lifetime"></a>Durée de vie des objets et ressources
 
@@ -32,7 +32,7 @@ De nombreuses ressources sont immuables, par exemple, les [maillages](meshes.md)
 
 ### <a name="built-in-resources"></a>Ressources intégrées
 
-Azure Remote Rendering intègre des ressources qu’il est possible de charger en préfixant leur identificateur avec `builtin://` lors de l’appel de la commande `AzureSession.Actions.LoadXYZAsync()`. Les ressources intégrées disponibles sont répertoriées dans la documentation de chaque fonctionnalité. Par exemple, le chapitre [Ciel](../overview/features/sky.md) répertorie les textures de ciel intégrées.
+Azure Remote Rendering intègre des ressources qu’il est possible de charger en préfixant leur identificateur avec `builtin://` lors de l’appel de la commande `RenderingSession.Connection.LoadXYZAsync()`. Les ressources intégrées disponibles sont répertoriées dans la documentation de chaque fonctionnalité. Par exemple, le chapitre [Ciel](../overview/features/sky.md) répertorie les textures de ciel intégrées.
 
 ## <a name="general-lifetime"></a>Durée de vie générale
 

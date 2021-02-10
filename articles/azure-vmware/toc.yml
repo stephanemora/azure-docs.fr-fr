@@ -107,7 +107,7 @@
         - name: Ouvrir une demande de support pour les échecs de déploiement
           href: fix-deployment-provisioning-failures.md
     - name: Questions fréquentes (FAQ)
-      href: faq.md
+      href: faq.yml
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: d9491c43382def26ca9106675997e1dc4f071535
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: 74cc0686c2eec631b0be84285ab88365bf8b3a2d
+  ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92756850"
+  ms.lasthandoff: 02/03/2021
+  ms.locfileid: "99507597"
 landingContent:
 - title: À propos de la synthèse vocale
   linkLists:
@@ -40,12 +40,12 @@ landingContent:
       url: long-audio-api.md
   - linkListType: concept
     links:
+    - text: Qu’est-ce qu’une voix neuronale personnalisée ?
+      url: custom-neural-voice.md
     - text: Bien démarrer avec Custom Voice
       url: how-to-custom-voice.md
     - text: Créer et utiliser des modèles Custom Voice
       url: how-to-custom-voice-create-voice.md
-    - text: Restriction d’accès à Custom Voice
-      url: concepts-gating-overview.md
 - title: Informations de référence
   linkLists:
   - linkListType: reference

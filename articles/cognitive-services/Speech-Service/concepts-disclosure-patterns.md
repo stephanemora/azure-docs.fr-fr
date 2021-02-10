@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021981"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537338"
 ---
 # <a name="disclosure-design-patterns"></a>Modèles de conception de divulgation
 Maintenant que vous avez déterminé le [niveau de divulgation](concepts-disclosure-guidelines.md#disclosure-assessment) adéquat pour votre expérience de voix de synthèse, le moment est venu d’explorer les modèles de conception potentiels.
@@ -237,21 +237,14 @@ Utilisez la divulgation comme une opportunité d’échec élégant.
 - [Offrir des possibilités d’en savoir plus sur la façon dont la voix a été fabriquée](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [Procédure de transfert aux humains](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>Ressources supplémentaires
 - [Instructions pour Microsoft Bot](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Instructions pour la conception de Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Instructions pour la conception de Microsoft Windows UWP Speech](/windows/uwp/design/input/speech-interactions)
 - [Instructions pour les commandes vocales de Microsoft Windows Mixed Reality](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>Documents de référence
+## <a name="see-also"></a>Voir également
 
-* [Divulgation d’un talent vocal](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Divulgation d’un talent vocal](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Vue d’ensemble du contingentement](concepts-gating-overview.md)
 * [Comment divulguer](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>Étapes suivantes
-
-* [Divulgation d’un talent vocal](/legal/cognitive-services/speech-service/disclosure-voice-talent)

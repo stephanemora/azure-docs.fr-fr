@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: cb6d0ee9c651ca1dcc554f5951a5733727af2d6b
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954104"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988029"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborer avec d’autres auteurs et éditeurs
 
@@ -46,7 +46,7 @@ Si vous envisagez d’appeler les [API de création](../index.yml), découvrez-e
 
 ## <a name="authenticate-by-qna-maker-portal"></a>S’authentifier à l’aide du portail QnA Maker
 
-Si vous créez et collaborez à l’aide du portail QnA Maker, après avoir [ajouté le rôle approprié à la ressource pour un collaborateur](../index.yml), le portail QnA Maker gère toutes les autorisations d’accès.
+Si vous créez et collaborez à l’aide du portail QnA Maker, après avoir ajouté le rôle approprié à la ressource pour un collaborateur, le portail QnA Maker gère toutes les autorisations d’accès.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>S’authentifier à l’aide des API et Kits de développement logiciel (SDK) QnA Maker
 
@@ -54,4 +54,4 @@ Si vous créez et collaborez à l’aide des API, via REST ou des Kits de dével
 
 ## <a name="next-step"></a>Étape suivante
 
-* Concevoir une base de connaissances pour les [langages](../index.yml) et les [applications clientes](../index.yml)
+* Concevoir une base de connaissances pour les langages et les applications clientes

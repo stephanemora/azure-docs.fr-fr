@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945076"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988151"
 ---
 # <a name="create-luis-resources"></a>Créer des ressources LUIS
 
@@ -236,6 +236,10 @@ Pour les processus automatisés tels que les pipelines CI/CD, vous pouvez être 
 
 1. Obtenez un jeton Azure Resource Manager à partir de ce [site web](https://resources.azure.com/api/token?plaintext=true). Ce jeton a un délai d’expiration. Veillez donc à l’utiliser immédiatement. La requête retourne un jeton Azure Resource Manager.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Capture d’écran montrant le site web qui permet de demander un jeton Azure Resource Manager.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Utilisez le jeton pour demander les ressources de runtime LUIS parmi les différents abonnements. Utilisez l’[API de récupération des comptes LUIS Azure](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), à laquelle votre compte d’utilisateur a accès.

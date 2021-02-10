@@ -58,6 +58,8 @@
 - name: Concepts
   expanded: false
   items:
+    - name: Interopérabilité de Teams
+      href: concepts/teams-interop.md
     - name: Conversation
       items:
         - name: Vue d’ensemble de la bibliothèque de client Conversation
@@ -78,8 +80,6 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Concepts relatifs à la voix et à la vidéo
           href: concepts/voice-video-calling/about-call-types.md
-        - name: Interopérabilité de Teams
-          href: concepts/voice-video-calling/teams-interop.md
     - name: Infrastructure d’interface utilisateur
       items:
         - name: Vue d’ensemble de l’infrastructure d’interface utilisateur

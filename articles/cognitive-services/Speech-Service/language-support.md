@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 83d7263d430ed9dc8f2f61711fc4c1339ba03810
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 118ab33c8d8ce46559957236daa21ba494655e69
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662928"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526277"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -392,10 +392,30 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 ### <a name="customization"></a>Personnalisation
 
-La personnalisation vocale est disponible pour `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR`et `zh-CN`. Sélectionnez les paramètres régionaux qui correspondent aux données d’apprentissage servant à entraîner un modèle vocal personnalisé. Par exemple, si vos données d’enregistrement sont en anglais avec un accent britannique, sélectionnez `en-GB`.
+Custom Voice est disponible dans le niveau standard et le niveau neuronal. Les langues prises en charge sont différentes pour ces deux niveaux. 
+
+| Langage | Paramètres régionaux | Standard | Neuronale |
+|--|--|--|--|
+| Chinois (mandarin, simplifié) | `zh-CN` | Oui | Oui |
+| Chinois (mandarin, simplifié), anglais bilingue | `zh-CN` bilingue | Oui | Oui |
+| Anglais (Australie) | `en-AU` | Non | Oui |
+| Anglais (Inde) | `en-IN` | Oui | Oui |
+| Anglais (Royaume-Uni) | `en-GB` | Oui | Oui |
+| Anglais (États-Unis) | `en-US` | Oui | Oui |
+| Français (Canada) | `fr-CA` | Non | Oui |
+| Français (France) | `fr-FR` | Oui | Oui |
+| Allemand (Allemagne) | `de-DE` | Oui | Oui |
+| Italien (Italie) | `it-IT` | Oui | Oui |
+| Japonais (Japon) | `ja-JP` | Non | Oui |
+| Coréen (Corée) | `ko-KR` | Non | Oui |
+| Portugais (Brésil) | `pt-BR` | Oui | Oui |
+| Espagnol (Mexique) | `es-MX` | Oui | Oui |
+| Espagnol (Espagne) | `es-ES` | Non | Oui |
+
+Sélectionnez les paramètres régionaux qui correspondent aux données d’apprentissage servant à entraîner un modèle vocal personnalisé. Par exemple, si vos données d’enregistrement sont en anglais avec un accent britannique, sélectionnez `en-GB`.
 
 > [!NOTE]
-> À l’exception du chinois-anglais, nous ne gérons pas l’apprentissage de modèles bilingues dans Custom Voice. Sélectionnez « Bilingue chinois-anglais » si vous souhaitez effectuer l’apprentissage d’une voix en chinois qui parle aussi anglais. Dans tous les paramètres régionaux, la formation vocale commence par un jeu de données de plus de 2 000 énoncés, à l’exception de `en-US` et `zh-CN`, pour lesquels la taille des données de formation de départ n’a pas d’importance.
+> À l’exception du chinois-anglais, nous ne gérons pas l’apprentissage de modèles bilingues dans Custom Voice. Sélectionnez « Bilingue chinois-anglais » si vous souhaitez effectuer l’apprentissage d’une voix en chinois qui parle aussi anglais. L’entraînement du modèle bilingue chinois-anglais à l’aide de la méthode standard est disponible uniquement pour la région Europe Nord et la région USA Centre Nord. L’entraînement de la voix neuronale personnalisée est disponible dans les régions Royaume-Uni Sud et USA Est.
 
 ## <a name="speech-translation"></a>Traduction vocale
 

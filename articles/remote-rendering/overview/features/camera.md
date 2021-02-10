@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: dbe86313054706af974ccb324a39e942e9b5ca44
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246279"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594127"
 ---
 # <a name="camera"></a>Appareil photo
 
@@ -57,14 +57,14 @@ Les mémoires tampons de profondeurs enregistrent normalement les valeurs Z dans
 L’API Azure Remote Rendering doit connaître la convention de mémoire tampon de profondeur de votre convertisseur local pour composer correctement la profondeur à distance dans la mémoire tampon de profondeur locale. Si la plage de mémoire tampon de profondeur est [0;1], laissez cet indicateur défini sur `false`. Si vous utilisez une mémoire tampon de profondeur inversée avec une plage [1;0], affectez à l’indicateur `InverseDepth` la valeur `true`.
 
 > [!NOTE]
-> Pour Unity, le paramètre correct étant déjà appliqué par `RemoteManager`, aucune intervention manuelle n’est nécessaire.
+> Pour Unity, le paramètre correct étant déjà appliqué par `RenderingConnection`, aucune intervention manuelle n’est nécessaire.
 
 La modification des paramètres de caméra peut être effectuée comme suit :
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
@@ -73,9 +73,9 @@ void ChangeCameraSetting(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);

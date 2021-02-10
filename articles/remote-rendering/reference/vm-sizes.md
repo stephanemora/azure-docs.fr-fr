@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988040"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594398"
 ---
 # <a name="server-sizes"></a>Tailles des serveurs
 
@@ -30,26 +30,35 @@ Quand le convertisseur sur un serveur de taille « standard » atteint cette l
 Le type souhaité de configuration de serveur doit être spécifié au moment de l’initialisation de la session de rendu. Il ne peut pas être modifié pendant une session en cours d’exécution. Les exemples de code suivants illustrent l’emplacement où la taille de serveur doit être spécifiée :
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 Pour les [exemples de scripts PowerShell](../samples/powershell-example-scripts.md), la taille de serveur souhaitée doit être spécifiée dans le fichier `arrconfig.json` :
@@ -77,7 +86,7 @@ Par conséquent, il est possible d’écrire une application qui cible la taille
 
 Il existe deux façons de déterminer le nombre de polygones d’un modèle ou d’une scène qui contribuent à la limite budgétaire de la taille de serveur `standard` :
 * Du côté conversion du modèle, récupérez le [fichier json de sortie de conversion](../how-tos/conversion/get-information.md) et vérifiez l’entrée `numFaces` dans la [section *inputStatistics*](../how-tos/conversion/get-information.md#the-inputstatistics-section).
-* Si votre application traite du contenu dynamique, le nombre de polygones rendus peut être interrogé de manière dynamique pendant l’exécution. Utilisez une [requête d’évaluation des performances](../overview/features/performance-queries.md#performance-assessment-queries) et recherchez le membre `polygonsRendered` dans le struct `FrameStatistics`. Le champ `polygonsRendered` est défini sur `bad` lorsque le convertisseur atteint la limite du polygone. Le damier d’arrière-plan apparaît toujours en fondu avec un certain délai, afin de garantir qu’une action utilisateur puisse être effectuée après cette requête asynchrone. L’action utilisateur peut par exemple masquer ou supprimer des instances de modèle.
+* Si votre application traite du contenu dynamique, le nombre de polygones rendus peut être interrogé de manière dynamique pendant l’exécution. Utilisez une [requête d’évaluation des performances](../overview/features/performance-queries.md#performance-assessment-queries) et recherchez le membre `polygonsRendered` dans le struct `FrameStatistics`. Le champ `PolygonsRendered` est défini sur `bad` lorsque le convertisseur atteint la limite du polygone. Le damier d’arrière-plan apparaît toujours en fondu avec un certain délai, afin de garantir qu’une action utilisateur puisse être effectuée après cette requête asynchrone. L’action utilisateur peut par exemple masquer ou supprimer des instances de modèle.
 
 ## <a name="pricing"></a>Tarifs
 
