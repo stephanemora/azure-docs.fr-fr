@@ -30,6 +30,8 @@
       href: Concepts/azure-resources.md
     - name: Sources de données et contenu
       href: Concepts/data-sources-and-content.md
+    - name: Contrôle d’accès en fonction du rôle Azure (Azure RBAC)
+      href: Concepts/role-based-access-control.md
     - name: Processus de classement
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -46,7 +48,7 @@
     - name: Gérer des ressources Azure
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
-    - name: Gérer une application QnA Maker
+    - name: Gérer l’accès aux ressources QnA Maker
       href: How-To/manage-qna-maker-app.md
     - name: Activation de l’apprentissage actif
       href: How-To/use-active-learning.md
@@ -92,8 +94,6 @@
       href: Concepts/confidence-score.md
     - name: Dépannage
       href: troubleshooting.md
-    - name: Paires de questions-réponses
-      href: Concepts/question-answer-set.md
     - name: Réponse précise
       href: reference-precise-answering.md
     - name: Ajouter des fichiers SharePoint sécurisés
@@ -105,14 +105,6 @@
       href: reference-app-service.md
     - name: Instructions relatives au format de contenu
       href: reference-document-format-guidelines.md
-    - name: Formats de contenu et de données
-      items:
-        - name: Instructions relatives au format de contenu
-          href: reference-document-format-guidelines.md
-        - name: URLs
-          href: reference-document-type-url.md
-        - name: Conseils sur l’importation et l’exportation de données
-          href: reference-data-guidelines.md
     - name: Format d’affichage
       href: reference-markdown-format.md
     - name: Liaisons privées

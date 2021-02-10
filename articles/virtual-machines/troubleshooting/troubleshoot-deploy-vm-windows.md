@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8ed567ee20835cfe076c9b06234f2cba23f3a8bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98a16e0a60ddf149e8f0e1a092051f3e98ea8225
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002554"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627060"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Windows dans Azure
 
@@ -104,7 +104,7 @@ Vous pouvez vérifier la disponibilité à l’aide de la [Table des produits di
 
 Vous pouvez utiliser Windows 7, Windows 8 ou Windows 10 dans Azure pour des scénarios de développement / de test à condition de disposer d'un abonnement Visual Studio (anciennement MSDN) approprié. 
 
-- Les images Windows 10 sont disponibles dans la galerie Azure sous [eligible dev/test offers](../windows/client-images.md#eligible-offers). 
+- Les images Windows 10 sont disponibles dans la galerie Azure sous [eligible dev/test offers](../windows/client-images.md). 
 - Les abonnés Visual Studio dans n’importe quel type d’offre peuvent également [préparer et créer correctement](../windows/prepare-for-upload-vhd-image.md) une image 64 bits de Windows 7, Windows 8 ou Windows 10, puis la [charger dans Azure](../windows/upload-generalized-managed.md). L’utilisation reste limitée au développement/test par les abonnés Visual Studio actifs.
 
 Cet [article](../windows/client-images.md) décrit les conditions d’éligibilité pour les clients Windows en cours d’exécution dans Azure et l’utilisation des images de galerie Azure.

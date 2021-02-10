@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813936"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819841"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Démarrage rapide : Créer et configurer Azure DDoS Protection Standard
 
@@ -77,7 +77,7 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Activer la protection DDoS pour tous les réseaux virtuels
 
-Cette [stratégie](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) détecte tous les réseaux virtuels dans une étendue définie pour lesquels Azure DDoS Protection standard n’est pas activé, puis crée éventuellement une tâche de correction qui crée l’association pour protéger le réseau virtuel. Pour obtenir des instructions pas à pas détaillées sur le déploiement de cette stratégie, consultez https://aka.ms/ddosvnetpolicy-techcommunity.
+Cette [stratégie](https://aka.ms/ddosvnetpolicy) détecte tous les réseaux virtuels dans une étendue définie pour lesquels Azure DDoS Protection standard n’est pas activé, puis crée éventuellement une tâche de correction qui crée l’association pour protéger le réseau virtuel. Pour obtenir des instructions pas à pas détaillées sur le déploiement de cette stratégie, consultez https://aka.ms/ddosvnetpolicy-techcommunity.
 
 ## <a name="validate-and-test"></a>Valider et tester
 

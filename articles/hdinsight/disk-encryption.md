@@ -5,12 +5,12 @@ description: Cet article décrit les deux couches de chiffrement disponibles pou
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927332"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988619"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Double chiffrement Azure HDInsight pour les données au repos
 
@@ -116,7 +116,7 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
 Vous êtes maintenant prêt à créer un cluster HDInsight. Les clés gérées par le client ne peuvent être appliquées qu’aux nouveaux clusters, pendant leur création. Vous ne pouvez pas supprimer le chiffrement des clusters à clés gérées par le client, ni ajouter de clés gérées par le client aux clusters existants.
 
-À compter de la [version de novembre 2020](hdinsight-release-notes.md#release-date-11182020), HDInsight prend en charge la création de clusters à l’aide d’URI de clé avec et sans version. Si vous créez le cluster avec un URI de clé sans version, le cluster HDInsight essaiera d’effectuer la rotation automatique des clés lorsque la clé est mise à jour dans votre coffre de clés Azure. Si vous créez le cluster avec un URI de clé avec version, vous devez effectuer une rotation manuelle de clé, comme indiqué dans [Rotation de la clé de chiffrement](#rotating-the-encryption-key).
+À compter de la version de novembre 2020, HDInsight prend en charge la création de clusters à l’aide d’URI de clé avec et sans version. Si vous créez le cluster avec un URI de clé sans version, le cluster HDInsight essaiera d’effectuer la rotation automatique des clés lorsque la clé est mise à jour dans votre coffre de clés Azure. Si vous créez le cluster avec un URI de clé avec version, vous devez effectuer une rotation manuelle de clé, comme indiqué dans [Rotation de la clé de chiffrement](#rotating-the-encryption-key).
 
 Pour les clusters créés avant la version de novembre 2020, vous devez effectuer une rotation de clé manuelle à l’aide de l’URI de clé avec version.
 

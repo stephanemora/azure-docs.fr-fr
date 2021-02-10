@@ -72,7 +72,7 @@
               href: overview-security-agents.md
             - name: Authentification des agents de sécurité
               href: concept-security-agent-authentication-methods.md
-            - name: Base de référence
+            - name: Ligne de base
               href: concept-baseline.md
             - name: Base de référence de sécurité Azure pour Azure Defender pour IoT
               href: security-baseline.md
@@ -257,7 +257,7 @@
               href: how-to-security-data-access.md
             - name: Investiguer un appareil
               href: how-to-investigate-device.md
-- name: Dépannage
+- name: Résolution des problèmes
   items:
     - name: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
       href: troubleshoot-defender-micro-agent.md

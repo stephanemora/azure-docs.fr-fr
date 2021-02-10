@@ -1,10 +1,11 @@
-- name: Documentation Azure IoT Central pour le secteur de l’énergie
+- name: Documentation Azure IoT Central pour l’énergie
   href: index.yml
 - name: Vue d’ensemble
   items:
     - name: Création de solutions énergétiques avec Azure IoT Central
       href: overview-iot-central-energy.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Créer une application intelligente de suivi de compteurs
       href: tutorial-smart-meter-app.md

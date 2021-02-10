@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258284"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830717"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planifier la configuration de Mes applications Azure Active Directory
 
 > [!NOTE]
-> Cet article est destiné aux professionnels de l’informatique qui doivent planifier la configuration du portail Mes applications de leur organisation. Pour plus d’informations destinées à l’utilisateur final sur l’utilisation de Mes applications et des collections, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
+> Cet article est destiné aux professionnels de l’informatique qui doivent planifier la configuration du portail Mes applications de leur organisation. 
 >
 > **Pour la documentation destinée à l’utilisateur final, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md)** .
 

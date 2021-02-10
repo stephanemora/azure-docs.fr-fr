@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 57d3607b2076b7a5990361278c8c1372fff1b711
-  ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+  ms.openlocfilehash: 2f792ffb95323444d8666c4c676025995f5db438
+  ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/01/2021
-  ms.locfileid: "99225583"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "99979468"
 highlightedContent:
   items:
   - title: Guide de prise en main pour les développeurs Azure
@@ -71,6 +71,12 @@ productDirectory:
     - ai-machine-learning
     - analytics
     url: /azure/databricks/
+  - title: Health Bot
+    summary: Service managé conçu pour le développement d’assistants médicaux virtuels.
+    imageSrc: media/index/health-bot-logo.svg
+    azureCategories:
+    - ai-machine-learning
+    url: /azure/health-bot/
   - title: Azure Machine Learning
     summary: Proposez l’intelligence artificielle à tous avec une plateforme de bout en bout, évolutive et approuvée qui inclut l’expérimentation et la gestion des modèles
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -1129,13 +1135,13 @@ productDirectory:
     azureCategories:
     - security
     url: security-center/azure-defender.md
-  - title: Azure Defender pour IoT (préversion)
+  - title: Azure Defender pour IoT
     summary: Gestion continue des actifs et détection des menaces pour les appareils IoT/OT managés et non managés
     imageSrc: ./media/index/defender-iot.svg
     azureCategories:
     - security
     - iot
-    url: ./security-center/azure-defender.md
+    url: ./defender-for-iot/index.yml
   - title: Protection DDoS dans Azure
     summary: Protéger ses applications contre les attaques DDoS (Distributed Denial of Service, déni de service distribué)
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg

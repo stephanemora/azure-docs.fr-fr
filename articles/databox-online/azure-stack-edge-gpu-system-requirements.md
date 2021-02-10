@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: d97f500bb84f816bacf44208ba305840e797b3bd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d2fa464214f6a4201b1ecd62ee1a5dacdd7ec158
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447705"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832451"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Configuration système exigée pour Azure Stack Edge Pro avec GPU 
 
@@ -79,7 +79,7 @@ Azure IoT Edge permet les communications sortantes entre un appareil Edge local 
 
 Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant le runtime Azure IoT Edge :
 
-| N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Guidance |
+| N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
 

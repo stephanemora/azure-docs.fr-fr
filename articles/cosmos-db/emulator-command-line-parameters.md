@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2579326e92144149472874611b5307920a93c049
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e0c795484bf860402d05c1dc5779633962a44ec2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031400"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979502"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Informations de référence sur la ligne de commande et PowerShell pour l’émulateur Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -75,10 +75,10 @@ L’émulateur est fourni avec un module PowerShell que vous pouvez utiliser pou
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-Vous pouvez aussi placer le répertoire `PSModules` dans `PSModulesPath` et importer le module en utilisant la commande suivante :
+Vous pouvez aussi placer le répertoire `PSModules` dans `PSModulePath` et importer le module en utilisant la commande suivante :
 
 ```powershell
-$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+$env:PSModulePath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
 Import-Module Microsoft.Azure.CosmosDB.Emulator
 ```
 

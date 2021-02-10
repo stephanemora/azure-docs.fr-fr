@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b0d7eeeb840a3efc560c20310b38bee93a038795
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ecc6580148dfba92077336a26ff9160fbe88eb2c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056803"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806153"
 ---
 # <a name="import-passwords-into-the-microsoft-authenticator-app"></a>Importation de mots de passe dans l’application Microsoft Authenticator
 
@@ -39,21 +39,21 @@ Les utilisateurs de Google Chrome sur des appareils Android et Apple peuvent imp
 
 1. Appuyez sur le ![menu déroulant Google Chrome](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) en haut à droite pour les téléphones Android ou en bas à droite pour les appareils iOS, puis appuyez sur **Paramètres**.
 
-   &nbsp; | &nbsp;
+   Plateforme | Lien
    ---------- | --------
    Android | ![Emplacement du menu Paramètres Google Chrome](./media/user-help-authenticator-app-import-passwords/android-settings-menu.png)
    iOS | ![Icône du menu Paramètres Google Chrome](./media/user-help-authenticator-app-import-passwords/apple-settings-menu.png)
 
 1. Dans **Paramètres**, ouvrez **Mots de passe**.
 
-   &nbsp; | &nbsp;
+   Plateforme | Lien
    ---------- | --------
    Android | ![Emplacement de la commande Mots de passe Chrome Android](./media/user-help-authenticator-app-import-passwords/android-passwords-location.png)
    iOS | ![Emplacement de la commande Mots de passe Chrome Apple](./media/user-help-authenticator-app-import-passwords/apple-passwords-location.png)
 
 1. Sur les appareils Android, appuyez sur le ![menu déroulant Google Chrome](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) en haut à droite pour les téléphones Android ou en bas à droite pour les appareils iOS, puis appuyez sur **Exporter les mots de passe**.
 
-   &nbsp; | &nbsp;
+   Plateforme | Lien
    ---------- | --------
    Android | ![Emplacement Exporter les mots de passe Chrome Android](./media/user-help-authenticator-app-import-passwords/android-export-passwords-location.png)
    iOS | ![Emplacement Exporter les mots de passe Chrome Apple](./media/user-help-authenticator-app-import-passwords/apple-export-passwords-location.png)
@@ -62,7 +62,7 @@ Les utilisateurs de Google Chrome sur des appareils Android et Apple peuvent imp
 
 1. Une fois les mots de passe exportés, Chrome vous invite à choisir l’application dans laquelle vous effectuez l’importation. Sélectionnez **Authenticator** pour commencer l’importation des mots de passe. L’état de l’importation vous sera communiqué lorsqu’elle sera terminée.
 
-   &nbsp; | &nbsp;
+   Plateforme | Lien
    ---------- | --------
    Android | ![Emplacement Importer les mots de passe Chrome Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
    iOS | ![Emplacement Importer les mots de passe Chrome Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -105,7 +105,7 @@ Firefox ne permet l’exportation de mots de passe qu’à partir du navigateur 
 
       1. Transférez le fichier CSV exporté sur votre téléphone Android ou iOS suivant la méthode sécurisée de votre choix, puis téléchargez-le. Ensuite, partagez-le avec l’application Authenticator pour commencer l’importation.
 
-         &nbsp; | &nbsp;
+         Plateforme | Lien
          ---------- | --------
          Android | ![Emplacement Importer les mots de passe Chrome Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Emplacement Importer les mots de passe Chrome Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -134,7 +134,7 @@ LastPass ne prend en charge l’exportation de mots de passe qu’à partir d’
 
       1. Transférez le fichier CSV exporté sur votre smartphone suivant la méthode sécurisée de votre choix, puis téléchargez-le. Ensuite, partagez-le avec l’application Authenticator pour commencer l’importation.
 
-         &nbsp; | &nbsp;
+         Plateforme | Lien
          ---------- | --------
          Android | ![Emplacement Importer les mots de passe LastPass Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Emplacement Importer les mots de passe LastPass Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -153,7 +153,7 @@ Bitwarden ne prend en charge l’exportation de mots de passe qu’à partir d�
 
       1. Transférez le fichier CSV exporté sur votre smartphone suivant la méthode sécurisée de votre choix, puis téléchargez-le. Ensuite, partagez-le avec l’application Authenticator pour commencer l’importation.
 
-         &nbsp; | &nbsp;
+         Plateforme | Lien
          ---------- | --------
          Android | ![Emplacement Importer les mots de passe Bitwarden Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Emplacement Importer les mots de passe Bitwarden Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -186,7 +186,7 @@ RoboForm ne permet l’exportation de mots de passe qu’à partir de son applic
 
       1. Transférez le fichier CSV exporté sur votre smartphone suivant la méthode sécurisée de votre choix, puis téléchargez-le. Ensuite, partagez-le avec l’application Authenticator pour commencer l’importation.
 
-         &nbsp; | &nbsp;
+         Plateforme | Lien
          ---------- | --------
          Android | ![Emplacement Importer les mots de passe RoboForm Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Emplacement Importer les mots de passe RoboForm Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -209,7 +209,7 @@ Si la procédure d’importation des mots de passe à partir de votre gestionnai
 
       1. Transférez le fichier CSV exporté sur votre smartphone suivant la méthode sécurisée de votre choix, puis téléchargez-le. Ensuite, partagez-le avec l’application Authenticator pour commencer l’importation.
 
-         &nbsp; | &nbsp;
+         Plateforme | Lien
          ---------- | --------
          Android | ![Emplacement Importer les mots de passe CSV Android](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Emplacement Importer les mots de passe CSV Apple](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)

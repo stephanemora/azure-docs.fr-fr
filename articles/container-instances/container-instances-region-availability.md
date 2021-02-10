@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661372"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831278"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -34,7 +34,7 @@ Les régions et les ressources maximales suivantes sont disponibles pour les gro
 | Australie Est | 4 | 16 | 4 | 16 | 50 | N/A |
 | Brésil Sud | 4 | 16 | 2 | 8 | 50 | N/A |
 | Centre du Canada | 4 | 16 | 4 | 16 | 50 | N/A |
-| Inde centrale | 4 | 16 | N/A | N/A | 50 | V100 |
+| Inde centrale | 4 | 16 | 4 | 4 | 50 | V100 |
 | USA Centre | 4 | 16 | 4 | 16 | 50 | N/A |
 | Asie Est | 4 | 16 | 4 | 16 | 50 | N/A |
 | USA Est | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

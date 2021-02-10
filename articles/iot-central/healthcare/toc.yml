@@ -5,9 +5,12 @@
     - name: Création de solutions de santé avec Azure IoT Central
       href: overview-iot-central-healthcare.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Créer une application de suivi continu des patients
       href: tutorial-continuous-patient-monitoring.md
+    - name: Créer un tableau de bord de triage des données de santé
+      href: howto-health-data-triage.md
 - name: Concepts
   items:
     - name: Architecture du suivi continu des patients
@@ -18,8 +21,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Guides pratiques
   items:
-    - name: Créer un tableau de bord de triage des données de santé
-      href: howto-health-data-triage.md
     - name: Connecter et développer des appareils
       items:
         - name: "Préparer et connecter un Rigado Cascade\_500"

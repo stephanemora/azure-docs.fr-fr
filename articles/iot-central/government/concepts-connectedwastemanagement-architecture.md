@@ -4,15 +4,15 @@ description: Découvrez les concepts qui se rapportent à une solution de gestio
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2d6c8c693db42789a965ee896a6d913d6ee20ae0
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586803"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831669"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Architecture de référence d’une solution connectée de suivi des déchets 
 

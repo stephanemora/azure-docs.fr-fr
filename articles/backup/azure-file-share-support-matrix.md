@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378030"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819858"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice de prise en charge de la sauvegarde de partage de fichiers Azure
 
@@ -60,7 +60,7 @@ La sauvegarde des partages de fichiers Azure est disponible dans toutes les rég
 | Paramètre                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Nombre maximal de restaurations par jour                           | 10      |
-| Nombre maximal de fichiers par restauration                         | 10      |
+| Nombre maximal de fichiers par restauration                         | 99      |
 | Taille de restauration maximale recommandée par restauration pour des partages de fichiers volumineux | 15 Tio |
 
 ## <a name="retention-limits"></a>Limites de rétention

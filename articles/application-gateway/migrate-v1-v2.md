@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397221"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594263"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -125,7 +125,7 @@ Pour exécuter le script :
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Pour créer une liste d’objets PSApplicationGatewayTrustedRootCertificate, consultez [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+      Pour créer une liste d’objets PSApplicationGatewayTrustedRootCertificate, consultez [New-AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate).
    * **privateIpAddress : [chaîne] : Facultatif**. Adresse IP privée spécifique que vous souhaitez associer à votre nouvelle passerelle v2.  Elle doit provenir du même réseau virtuel que vous allouez pour votre nouvelle passerelle v2. Si elle n’est pas spécifiée, le script alloue une adresse IP privée pour votre passerelle v2.
    * **publicIpResourceId : [chaîne] : Facultatif**. L’ID de ressource de la ressource d’IP publique (référence SKU standard) existante dans votre abonnement que vous souhaitez allouer à la nouvelle passerelle v2. S’il n’est pas spécifié, le script alloue une nouvelle adresse IP publique dans le même groupe de ressources. Ce nom correspond au nom de la passerelle v2 avec *-IP* ajouté.
    * **validateMigration : [commutateur] : Facultatif**. Utilisez ce paramètre si vous souhaitez que le script effectue des validations de comparaison de configuration de base après la création de la passerelle v2 et la copie de la configuration. Par défaut, aucune validation n’est effectuée.

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728089"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979570"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Extraire des paramètres d’App Configuration à l’aide d’Azure Pipelines
 
@@ -60,7 +60,7 @@ Attribuez le rôle App Configuration approprié à la connexion de service utili
 
 Cette section explique comment utiliser la tâche Azure App Configuration dans un pipeline de build Azure DevOps.
 
-1. Accédez à la page de pipeline de build en cliquant sur **Pipelines** > **Pipelines**. Pour accéder à la documentation sur les pipelines de build, consultez [Créer votre premier pipeline](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser).
+1. Accédez à la page de pipeline de build en cliquant sur **Pipelines** > **Pipelines**. Pour accéder à la documentation sur les pipelines de build, consultez [Créer votre premier pipeline](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser).
       - Si vous créez un pipeline de build, cliquez sur **Nouveau pipeline**, puis sélectionnez le dépôt de votre pipeline. Sélectionnez **Afficher l’Assistant** sur le côté droit du pipeline, puis recherchez la tâche **Azure App Configuration**.
       - Si vous utilisez un pipeline de build existant, sélectionnez **Modifier** pour modifier le pipeline. Sous l’onglet **Tâches**, recherchez la tâche **Azure App Configuration**.
 1. Configurez les paramètres nécessaires à la tâche pour extraire les paires clé-valeur du magasin App Configuration. Vous trouverez les descriptions des paramètres dans la section **Paramètres** ci-dessous ainsi que dans les info-bulles en regard de chaque paramètre.
@@ -73,10 +73,10 @@ Cette section explique comment utiliser la tâche Azure App Configuration dans u
 
 Cette section explique comment utiliser la tâche Azure App Configuration dans un pipeline de mise en production Azure DevOps.
 
-1. Accédez à la page de pipeline de mise en production en sélectionnant **Pipelines** > **Mises en production**. Pour accéder à la documentation sur les pipelines de mise en production, consultez [Pipelines de mise en production](/azure/devops/pipelines/release?view=azure-devops).
+1. Accédez à la page de pipeline de mise en production en sélectionnant **Pipelines** > **Mises en production**. Pour accéder à la documentation sur les pipelines de mise en production, consultez [Pipelines de mise en production](/azure/devops/pipelines/release).
 1. Choisissez un pipeline de mise en production existant. Si vous n’en avez pas, cliquez sur **Nouveau pipeline** pour en créer un.
 1. Sélectionnez le bouton **Modifier** dans le coin supérieur droit pour modifier le pipeline de mise en production.
-1. Choisissez la **phase** à laquelle ajouter la tâche. Pour plus d’informations sur les phases, consultez la section [Ajouter des phases, des dépendances et des conditions](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Choisissez la **phase** à laquelle ajouter la tâche. Pour plus d’informations sur les phases, consultez la section [Ajouter des phases, des dépendances et des conditions](/azure/devops/pipelines/release/environments).
 1. Cliquez sur **+** pour « Exécuter sur l’agent », puis ajoutez la tâche **Azure App Configuration** sous l’onglet **Ajouter des tâches**.
 1. Configurez les paramètres nécessaires dans la tâche pour extraire vos paires clé-valeur du magasin App Configuration. Vous trouverez les descriptions des paramètres dans la section **Paramètres** ci-dessous ainsi que dans les info-bulles en regard de chaque paramètre.
       - Affectez au paramètre **Abonnement Azure** le nom de la connexion de service que vous avez créée à une étape précédente.

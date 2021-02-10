@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999261"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626102"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurer un laboratoire pour les cours d’ingénierie à l’aide de SOLIDWORKS
 
@@ -57,7 +57,7 @@ Utilisez les paramètres du tableau ci-dessous lors de la configuration d’un l
 > La machine virtuelle de **GPU de petite taille (visualisation)** est configurée pour permettre une expérience graphique très performante.  Pour plus d’informations sur cette taille de machine virtuelle, consultez l’article sur [la configuration d’un laboratoire avec des GPU](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> N’oubliez pas [d’interconnecter le réseau virtuel](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) du compte de laboratoire au réseau virtuel du serveur de licences **avant** de créer le laboratoire.
+> N’oubliez pas [d’interconnecter le réseau virtuel](./how-to-connect-peer-virtual-network.md) du compte de laboratoire au réseau virtuel du serveur de licences **avant** de créer le laboratoire.
 
 ## <a name="template-virtual-machine-configuration"></a>Configuration de la machine virtuelle de modèle
 

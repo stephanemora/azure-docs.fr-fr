@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932708"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981389"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Authentification HMAC – Informations de référence sur l’API REST
 
@@ -22,7 +22,7 @@ Vous pouvez authentifier les requêtes HTTP à l’aide du schéma d’authentif
 - **Informations d’identification** - \<Access Key ID\>
 - **Secret** – Valeur de clé d’accès décodée en base64. ``base64_decode(<Access Key Value>)``
 
-La valeur des informations d’identification (également appelée `id`) et la valeur du secret (également appelée `value`) doivent être obtenues à partir de l’instance d’Azure App Configuration. Vous pouvez effectuer cette opération en utilisant le [portail Azure](https://portal.azure.com) ou l’interface [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+La valeur des informations d’identification (également appelée `id`) et la valeur du secret (également appelée `value`) doivent être obtenues à partir de l’instance d’Azure App Configuration. Vous pouvez effectuer cette opération en utilisant le [portail Azure](https://portal.azure.com) ou l’interface [Azure CLI](/cli/azure/).
 
 Fournissez chaque demande avec tous les en-têtes HTTP requis pour l’authentification. Voici le minimum requis :
 

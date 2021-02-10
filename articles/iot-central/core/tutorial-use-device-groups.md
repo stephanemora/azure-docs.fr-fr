@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8c26afc9cf9630f6d26ddc76759393a6ea1a8696
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990271"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832842"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutoriel : Utiliser un groupe d’appareils pour analyser les données de télémétrie des appareils
 
@@ -82,6 +82,10 @@ Pour analyser les données de télémétrie d’un groupe d’appareils :
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Capture d’écran affichant les valeurs moyennes de tous les appareils Contoso":::
 
     Vous pouvez personnaliser l’affichage, modifier la période affichée et exporter les données.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

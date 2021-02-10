@@ -766,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: Résoudre les problèmes du message d’erreur Non autorisé
                   href: troubleshoot-unauthorized.md
+                - name: Résoudre les problèmes du message d’erreur Interdit
+                  href: troubleshoot-forbidden.md
                 - name: Problèmes de disponibilité dans les environnements multirégions
                   href: troubleshoot-sdk-availability.md
             - name: .NET

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 08ab78171376f702aecb1f49571dda583eae5d82
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: df53062c7c897493a47d88ea2873f9710b9825bf
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813868"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806254"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gérer les plans de protection DDoS : autorisations et restrictions
 
@@ -43,7 +43,7 @@ Pour que vous puissiez activer la protection DDoS sur un réseau virtuel, il est
 
 La création de plusieurs plans n’est pas requise pour la plupart des organisations. Un plan ne peut pas être déplacé d’un abonnement vers un autre. Si vous souhaitez changer l’abonnement auquel un plan est rattaché, vous devez supprimer le plan existant et en créer un.
 
-Pour les clients qui disposent de plusieurs abonnements différents et qui souhaitent déployer un seul et même plan sur l’ensemble de leur locataire pour maîtriser les coûts, vous pouvez utiliser Azure Policy afin de [restreindre la création de plans Azure DDoS Protection Standard](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Cette stratégie bloque la création de plans DDoS, sauf si l’abonnement a été marqué comme une exception. Cette stratégie affiche également la liste de tous les abonnements pour lesquels un plan DDoS est déployé alors qu’il ne devrait pas l’être, en les signalant comme non conformes.
+Pour les clients qui disposent de plusieurs abonnements différents et qui souhaitent déployer un seul et même plan sur l’ensemble de leur locataire pour maîtriser les coûts, vous pouvez utiliser Azure Policy afin de [restreindre la création de plans Azure DDoS Protection Standard](https://aka.ms/ddosrestrictplan). Cette stratégie bloque la création de plans DDoS, sauf si l’abonnement a été marqué comme une exception. Cette stratégie affiche également la liste de tous les abonnements pour lesquels un plan DDoS est déployé alors qu’il ne devrait pas l’être, en les signalant comme non conformes.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

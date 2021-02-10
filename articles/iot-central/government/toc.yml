@@ -5,6 +5,7 @@
     - name: Création de solutions pour le secteur public avec Azure IoT Central
       href: overview-iot-central-government.md
 - name: Tutoriels
+  expanded: true
   items:
     - name: Créer une application connectée de gestion des déchets
       href: tutorial-connected-waste-management.md

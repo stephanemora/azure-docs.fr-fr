@@ -3,7 +3,7 @@ title: Afficher et configurer les alertes de protection DDoS pour Azure DDoS Pro
 description: Découvrez comment afficher et configurer les alertes de protection DDoS pour Azure DDoS Protection Standard.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915145"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832519"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Afficher et configurer les alertes de protection DDoS
 
@@ -41,13 +41,14 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Avec ces modèles, vous pouvez configurer des alertes pour toutes les adresses IP publiques pour lesquelles vous avez activé la journalisation des diagnostics. Par conséquent, pour utiliser ces modèles d’alerte, vous devez d’abord disposer d’un espace de travail Log Analytics avec les paramètres de diagnostic activés. Consultez [Afficher et configurer la journalisation des diagnostics DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Règle d’alerte Azure Monitor
-Cette [règle d’alerte Azure Monitor](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) exécute une requête simple pour détecter si une atténuation DDoS active se produit. Cela indique une attaque potentielle. Les groupes d’actions peuvent être utilisés pour appeler des actions à la suite de l’alerte.
+
+Cette [règle d’alerte Azure Monitor](https://aka.ms/DDOSmitigationstatus) exécute une requête simple pour détecter si une atténuation DDoS active se produit. Cela indique une attaque potentielle. Les groupes d’actions peuvent être utilisés pour appeler des actions à la suite de l’alerte.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Règle d’alerte Azure Monitor avec une application logique
 
-Ce [modèle](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) déploie les composants nécessaires d’une alerte d’atténuation DDoS enrichie : règle d’alerte Azure Monitor, groupe d’actions et application logique. Le résultat du processus est une alerte par e-mail contenant des informations sur l’adresse IP attaquée, notamment des informations sur la ressource associée à l’adresse IP. Le propriétaire de la ressource est ajouté en tant que destinataire de l’e-mail, ainsi que l’équipe de sécurité. Un test de base pour la disponibilité des applications est également effectué et les résultats sont inclus dans l’alerte par e-mail.
+Ce [modèle](https://aka.ms/ddosalert) déploie les composants nécessaires d’une alerte d’atténuation DDoS enrichie : règle d’alerte Azure Monitor, groupe d’actions et application logique. Le résultat du processus est une alerte par e-mail contenant des informations sur l’adresse IP attaquée, notamment des informations sur la ressource associée à l’adresse IP. Le propriétaire de la ressource est ajouté en tant que destinataire de l’e-mail, ainsi que l’équipe de sécurité. Un test de base pour la disponibilité des applications est également effectué et les résultats sont inclus dans l’alerte par e-mail.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
