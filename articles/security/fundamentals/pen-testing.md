@@ -4,8 +4,7 @@ description: Cet article fournit une vue d'ensemble du processus de test d'intru
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 695d918c-a9ac-4eba-8692-af4526734ccc
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,22 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2020
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 9f65133f622c71189f35a1533e278ca09ab02085
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968940"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550199"
 ---
 # <a name="penetration-testing"></a>Test d’intrusion
 
 L’un des avantages liés à l’utilisation d’Azure pour tester et déployer des applications est que vous pouvez créer rapidement des environnements. Vous n’avez pas à vous soucier des aspects liés à la demande, à l’acquisition, à la mise en rack et à l’empilage de votre propre matériel en local.
 
 Créer rapidement des environnements, c'est très bien, mais vous devez toujours effectuer les contrôles de sécurité standard. Vous souhaiterez notamment soumettre les applications que vous déployez dans Azure à un test de pénétration.
-
-Vous savez sans doute déjà que Microsoft effectue le [test de pénétration de l’environnement Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Ce test permet de dynamiser les améliorations d'Azure.
 
 Nous n'effectuons pas les tests d'intrusion à votre place, mais nous savons parfaitement qu'il est important pour vous d'exécuter ces tests sur vos propres applications. Et nous ne pouvons que vous en remercier car, lorsque vous améliorez la sécurité de vos applications, vous renforcez la sécurité de l’ensemble de l’écosystème Azure.
 

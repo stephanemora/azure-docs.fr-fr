@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021930"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537253"
 ---
 # <a name="disclosure-design-guidelines"></a>Guide de conception de la divulgation
 Apprenez à nouer et à entretenir une relation de confiance avec vos clients en étant transparent sur la nature synthétique de votre expérience vocale.
@@ -74,12 +74,8 @@ Utilisez le diagramme suivant pour déterminer si votre expérience de voix de s
 
   ![Diagramme d’évaluation de la divulgation](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>Documents de référence
-
-* [Divulgation d’un talent vocal](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Vue d’ensemble du contingentement](concepts-gating-overview.md)
-
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir également
 
 * [Modèles de conception de divulgation](concepts-disclosure-patterns.md)
+* [Divulgation d’un talent vocal](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [Instructions pour le déploiement responsable de la technologie des voix de synthèse](concepts-guidelines-responsible-deployment-synthetic.md)

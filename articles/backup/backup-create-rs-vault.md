@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer et configurer des coffr
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915724"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525972"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Créer et configurer un coffre Recovery Services
 
@@ -71,6 +71,7 @@ Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration inte
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, CRR pour les machines virtuelles Azure est pris en charge uniquement pour les machines virtuelles Azure Resource Manager. Les machines virtuelles Azure classiques ne sont pas prises en charge.  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
 >- La restauration inter-région **ne peut actuellement pas être rétablie** pour revenir au geo-redundant storage (GRS) ou au stockage localement redondant (LRS) une fois que la protection a été lancée pour la première fois.
+>- Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) est jusqu’à 12 heures de la région primaire, même si la réplication du [stockage géo-redondant avec accès en lecture (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) est de 15 minutes.
 
 ### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8aa6a2168bff6e90d636770804900fa93f081ced
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97417428"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558339"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurer l’attachement d’application MSIX (préversion) avec PowerShell
 
@@ -30,11 +30,12 @@ Voici ce dont vous avez besoin pour configurer l’attachement d’application M
 
 - Un déploiement Windows Virtual Desktop opérationnel. Pour apprendre à déployer Windows Virtual Desktop (classique), consultez [Création d’un locataire dans Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Pour apprendre à déployer Windows Virtual Desktop avec intégration Azure Resource Manager, consultez [Création d’un pool d’hôtes avec le Portail Azure](./create-host-pools-azure-marketplace.md).
 - Un pool d’hôtes Windows Virtual Desktop avec au moins un hôte de session actif.
+- Ce pool d’hôtes doit se trouver dans l’environnement de validation.
 - Un groupe d’applications distant de bureau.
 - Outil de d’empaquetage MSIX.
-- Une application empaquetée au format MSIX et développée en une image MSIX chargée dans un partage de fichiers.
+- Une application empaquetée au format MSIX et développée en image MSIX qui est chargée dans un partage de fichiers.
 - Un partage de fichiers dans votre déploiement Windows Virtual Desktop où le package MSIX sera stocké.
-- Le partage de fichiers dans lequel vous avez chargé l’image MSIX doit également être accessible à toutes les machines virtuelles du pool d’hôtes. Les utilisateurs auront besoin d’autorisations en lecture seule pour accéder à l’image.
+- Le partage de fichiers dans lequel vous avez chargé l’image MSIX doit également être accessible à toutes les machines virtuelles du pool d’hôtes. Les utilisateurs auront besoin d’autorisations en lecture seule pour accéder à l’image.
 - Téléchargez et installez PowerShell Core.
 - Téléchargez le module Azure PowerShell en préversion publique et développez-le dans un dossier local.
 - Installez le module Azure en exécutant l’applet de commande suivante :

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c3bb05af3e0a24ebb10dc98b9174cfb235ddda13
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567469"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555917"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -66,11 +66,13 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 
 - **Solutions externes via API** : Certaines sources de données sont connectées à l’aide d’API fournies par la source de données connectée. En général, la plupart des technologies de sécurité fournissent un ensemble d’API par le biais duquel les journaux des événements peuvent être récupérés. Les API se connectent à Azure Sentinel, collectent des types de données spécifiques et les envoient à Azure Log Analytics. Les appliances connectées via une API sont les suivantes :
     
+    - [Agari Phishing Defense and Brand Protection](connect-agari-phishing-defense.md)
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Pare-feu d’applications web Barracuda](connect-barracuda.md)
     - [Pare-feu Barracuda CloudGen](connect-barracuda-cloudgen-firewall.md)
     - [BETTER Mobile Threat Defense](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
+    - [Cisco Umbrella](connect-cisco-umbrella.md)
     - [Citrix Analytics (Sécurité)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -95,6 +97,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 
     - **Pare-feu, proxys et points de terminaison - CEF :**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
+        - [Akamai Security Events](connect-akamai-security-events.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -104,6 +107,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
         - [Produits Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+        - [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
         - [Thycotic Secret Server](connect-thycotic-secret-server.md)
@@ -113,6 +117,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
         - [Zscaler](connect-zscaler.md)
         - [Autres appliances basées sur le format CEF](connect-common-event-format.md)
     - **Pare-feu, proxys et points de terminaison - Syslog :**
+        - [Alsid for Active Directory](connect-alsid-active-directory.md)
         - [Cisco Unified Computing System (UCS)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
@@ -122,6 +127,7 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Autres appliances basées sur Syslog](connect-syslog.md)
+    - [Apache HTTP Server](connect-apache-http-server.md)
     - Solutions DLP
     - [Fournisseurs de renseignement sur les menaces](connect-threat-intelligence.md)
     - [Machines DNS](connect-dns.md) : agent installé directement sur la machine DNS
@@ -132,7 +138,6 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 ## <a name="agent-connection-options"></a>Options de connexion de l’agent<a name="agent-options"></a>
 
 Pour connecter votre appliance externe à Azure Sentinel, l’agent doit être déployé sur une machine dédiée (machine virtuelle ou ordinateur local) pour prendre en charge la communication entre l’appliance et Azure Sentinel. Vous pouvez déployer l’agent manuellement ou automatiquement. Le déploiement automatique n’est disponible que si votre machine dédiée est une nouvelle machine virtuelle que vous créez dans Azure. 
-
 
 ![CEF dans Azure](./media/connect-cef/cef-syslog-azure.png)
 

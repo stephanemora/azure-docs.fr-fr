@@ -2,14 +2,14 @@
 title: Diagnostics et traçage de bout en bout d’Azure Service Bus | Microsoft Docs
 description: Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus (client via tous les services impliqués dans le traitement).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601253"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539211"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Suivi distribué et corrélation via la messagerie Service Bus
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 Dans cet exemple, l’écouteur journalise la durée, le résultat, l’identificateur unique et l’heure de début de chaque opération Service Bus.
 
 ### <a name="events"></a>Événements
-Pour chaque opération, deux événements sont envoyés : « Start » et « Stop ». Dans la plupart des cas, seuls les événements « Stop » présentent un intérêt. Ceux-ci fournissent le résultat de l’opération, ainsi que l’heure de début et la durée sous la forme de propriétés Activity.
-
-La charge utile d’événement, qui fournit un écouteur avec le contexte de l’opération, réplique les paramètres entrants et la valeur de retour de l’API. La charge utile d’événement « Stop » contient toutes les propriétés de la charge utile d’événement « Start ». Vous pouvez donc ignorer l’événement « Start ».
-
-Chaque événement « Stop » comprend la propriété `Status` qui indique le `TaskStatus` à la fin de l’opération asynchrone. Par souci de simplicité, ces éléments ne figurent pas non plus dans le tableau suivant.
-
 Tous les événements ont les propriétés suivantes conformes à la spécification de télémétrie ouverte : https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md.
 
 - `message_bus.destination` : chemin d’accès de file d’attente/rubrique/abonnement

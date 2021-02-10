@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499371"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573600"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez le portail Azure pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
@@ -37,7 +37,7 @@ Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’
 
 ## <a name="prerequisites"></a>Prérequis
 
-Afin de pouvoir utiliser le chiffrement sur l'hôte pour vos machines virtuelles ou groupes de machines virtuelles identiques, vous devez activer la fonctionnalité dans votre abonnement. Envoyez-nous un e-mail à l’adresse encryptionAtHost@microsoft. com avec vos ID d’abonnement pour activer la fonctionnalité.
+Afin de pouvoir utiliser le chiffrement sur l'hôte pour vos machines virtuelles ou groupes de machines virtuelles identiques, vous devez activer la fonctionnalité dans votre abonnement. Envoyez un e-mail à encryptionAtHost@microsoft.com avec vos ID d’abonnement pour activer la fonctionnalité.
 
 Connectez-vous au portail Azure à l’aide du [lien fourni](https://aka.ms/diskencryptionupdates).
 

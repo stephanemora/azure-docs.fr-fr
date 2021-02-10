@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cf651a1a09662e3084a8a9bdb6365b69b6ea52b5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427371"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580243"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -45,7 +45,7 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
 1. Sélectionnez **Suivant : Gestion** pour poursuivre la création de votre hub.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Définir la taille et la mise à l’échelle d’un nouveau hub à l’aide du portail Azure.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Définir la taille et la mise à l’échelle d’un nouveau hub à l’aide du portail Azure.":::
 
     Vous pouvez accepter les paramètres par défaut ici. Si vous le souhaitez, vous pouvez modifier les champs suivants :
 

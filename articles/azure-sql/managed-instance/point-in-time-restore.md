@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3414cb31192211c1663a84e1541f56b63674660
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788347"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525379"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données d'Azure SQL Managed Instance à un point antérieur dans le temps
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,7 +62,7 @@ Restaurez une base de données existante sur la même instance de SQL Managed In
 
     ![Restaurer une base de données à l’aide du portail Azure](./media/point-in-time-restore/restore-database-to-mi.png)
 
-4. Dans la page **Restaurer** , sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
+4. Dans la page **Restaurer**, sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
 5. Sélectionnez **Confirmer** pour restaurer votre base de données. Cette action démarre le processus de restauration qui crée une nouvelle base de données et est rempli avec les données de la base de données d’origine au point spécifié dans le temps. Pour plus d’informations sur le processus de récupération, consultez [Heure de récupération](../database/recovery-using-backups.md#recovery-time).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -139,7 +139,7 @@ La restauration d’une base de données supprimée peut être effectuée en uti
 ### <a name="portal"></a>Portail 
 
 
-Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de présentation de l'instance de SQL Managed Instance, puis sélectionnez **Bases de données supprimées** . Choisissez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
+Pour récupérer une base de données managée à partir du portail Azure, ouvrez la page de présentation de l'instance de SQL Managed Instance, puis sélectionnez **Bases de données supprimées**. Choisissez une base de données supprimée que vous souhaitez restaurer, puis tapez le nom de la nouvelle base de données qui sera créée avec les données restaurées à partir de la sauvegarde.
 
   ![Capture d’écran de la restauration d’une base de données d’instance Azure SQL supprimée](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -162,7 +162,7 @@ $targetDatabaseName = "<target database name>"
 $deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
 -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -176,7 +176,7 @@ Pour restaurer la base de données vers une autre instance de SQL Managed Instan
 $targetResourceGroupName = "<Resource group of target SQL Managed Instance>"
 $targetInstanceName = "<Target SQL Managed Instance name>"
 
-Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+Restore-AzSqlinstanceDatabase -FromPointInTimeBackup -Name $deletedDatabase.Name `
    -InstanceName $deletedDatabase.ManagedInstanceName `
    -ResourceGroupName $deletedDatabase.ResourceGroupName `
    -DeletionDate $deletedDatabase.DeletionDate `
@@ -211,7 +211,7 @@ Utilisez l'une des méthodes suivantes pour vous connecter à votre base de donn
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Sur le portail Azure, sélectionnez la base de données à partir de l'instance de SQL Managed Instance et sélectionnez **Supprimer** .
+Sur le portail Azure, sélectionnez la base de données à partir de l'instance de SQL Managed Instance et sélectionnez **Supprimer**.
 
    ![Supprimer une base de données à l’aide du portail Azure](./media/point-in-time-restore/delete-database-from-mi.png)
 

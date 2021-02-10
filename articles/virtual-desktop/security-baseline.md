@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e987f96402f4c922bdaca8ecf32348bc99c34199
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 01cd79afe3e718a32663544a76a2a43353bc082e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798005"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575379"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Base de sécurité Azure pour Windows Virtual Desktop
 
@@ -64,7 +64,7 @@ Pour interconnecter deux réseaux virtuels ou plus dans Azure, utilisez l’appa
 
 - [Vue d’ensemble des VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md) 
 
-- [Peering de réseau virtuel](/azure/virtual-network/virtual-network-peering-overvie)
+- [Peering de réseau virtuel](/azure/virtual-network/virtual-network-peering-overview)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -96,7 +96,7 @@ Si vous êtes soumis à une réglementation ou une autre exigence concernant l�
 
 - [La Place de marché Azure comprend des fonctionnalités IDS tierces](https://azuremarketplace.microsoft.com/marketplace?search=IDS) 
 
-- [Fonctionnalité de détection de point de terminaison et réponse (EDR) de Microsoft Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/overviewendpoint-detection-response)
+- [Fonctionnalité de détection de point de terminaison et réponse (EDR) de Microsoft Defender ATP](/bs-cyrl-ba/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -310,7 +310,7 @@ Vous devez vous assurer que les informations d’identification (telles que le m
 
 Utilisez Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protection (MDATP) ou Microsoft Intune pour déployer une station de travail utilisateur sécurisée et gérée pour les tâches d’administration. Les stations de travail sécurisées peuvent être gérées de manière centralisée pour appliquer une configuration sécurisée, notamment une authentification forte, des lignes de base logicielles et matérielles et un accès réseau et logique restreint.
 
-- [Comprendre les stations de travail d’accès privilégié](/azure/active-directory/devices/concept-azure-managed-workstation) 
+- [Comprendre les stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Déployer une station de travail d’accès privilégié](/azure/active-directory/devices/howto-azure-managed-workstation)
 
@@ -488,7 +488,7 @@ Il est recommandé que le client crée un processus pour capturer les modificati
 
 ## <a name="logging-and-threat-detection"></a>Journalisation et détection des menaces
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1 : Activer la détection des menaces pour les ressources Azure
 
@@ -684,7 +684,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 ## <a name="posture-and-vulnerability-management"></a>Gestion de la posture et des vulnérabilités
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV-3 : Établir des configurations sécurisées pour des ressources de calcul
 
@@ -765,9 +765,9 @@ Utilisez Azure Automation Update Management ou une solution tierce pour garantir
 
 Utilisez une solution tierce de gestion des correctifs pour les logiciels tiers ou un éditeur de mise à jour System Center pour Configuration Manager.
 
-- [Configurer Update Management pour les machines virtuelles dans Azure](/azure/automation/automation-update-management) 
+- [Configurer Update Management pour les machines virtuelles dans Azure](/azure/automation/update-management/overview) 
 
-- [Gestion des mises à jour et des correctifs des machines virtuelles Azure](/azure/automation/automation-tutorial-update-management)
+- [Gestion des mises à jour et des correctifs des machines virtuelles Azure](/azure/automation/update-management/manage-updates-for-vm)
 
 - [Configurer Microsoft Endpoint Configuration Manager pour Windows Virtual Desktop](configure-automatic-updates.md)
 
@@ -928,9 +928,9 @@ Pour plus d’informations, consultez les références suivantes :
 
 - [Cloud Adoption Framework - Meilleures pratiques en matière de chiffrement et de sécurité des données Azure](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Benchmark de sécurité Azure - Gestion des ressources](/azure/security/benchmarks/security-controls-v2-asset-management)
 
-- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Benchmark de sécurité Azure - Protection des données](/azure/security/benchmarks/security-controls-v2-data-protection)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -958,7 +958,7 @@ Veillez à ce que la stratégie de segmentation soit implémentée de manière c
 
 **Conseils** : Mesurez et atténuez en permanence les risques liés à vos ressources individuelles et à l’environnement dans lequel elles sont hébergées. Priorisez les ressources à valeur élevée et les surfaces d’attaque hautement exposées, comme les applications publiées, les points d’entrée et de sortie du réseau, les points de terminaison utilisateur et administrateur, etc.
 
-- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Benchmark de sécurité Azure - Gestion de la posture et des vulnérabilités](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -999,7 +999,7 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 Pour plus d’informations, consultez les références suivantes :
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Benchmark de sécurité Azure – Sécurité réseau](/azure/security/benchmarks/security-controls-v2-network-security)
 
 - [Vue d’ensemble de la sécurité réseau d’Azure](../security/fundamentals/network-overview.md)
 
@@ -1027,9 +1027,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Gestion des identités](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Benchmark de sécurité Azure - Gestion des identités](/azure/automation/update-management/overview)
 
-- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Benchmark de sécurité Azure - Accès privilégié](/azure/security/benchmarks/security-controls-v2-privileged-access)
 
 - [Meilleures pratiques pour la sécurité Azure 11 – Architecture. Stratégie de sécurité unifiée unique](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -1061,9 +1061,9 @@ Cette stratégie doit inclure les recommandations, stratégies et normes documen
 
 Pour plus d’informations, consultez les références suivantes :
 
-- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Benchmark de sécurité Azure - Journalisation et détection des menaces](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
 
-- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Benchmark de sécurité Azure - Réponse aux incidents](/azure/security/benchmarks/security-controls-v2-incident-response)
 
 - [Meilleures pratiques pour la sécurité Azure 4 - Processus. Mise à jour des processus de réponse aux incidents pour le cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

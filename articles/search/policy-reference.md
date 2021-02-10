@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Recherche cognitive Azure
 description: Liste les définitions de stratégie intégrées Azure Policy pour Recherche cognitive Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: HeidiSteen
 ms.author: heidist
 ms.service: search
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 2dad3d14fc52109063b39331cbef872c805180e6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f0938ae4aeedf63f0e3a8d48407854bc3192277b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091080"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557979"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cognitive-search"></a>Définitions intégrées Azure Policy pour Recherche cognitive Azure
 

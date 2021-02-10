@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour les groupes de machines virtuelles identiques Azure
 description: Liste les définitions de stratégie intégrées Azure Policy pour les groupes de machines virtuelles identiques Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 96377f8b115b915fc21cab26132865607bbac639
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 7d02db9cb9256b7a7f3db3d5db48874be1d93a16
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095887"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560935"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Définitions intégrées Azure Policy pour les groupes de machines virtuelles identiques Azure
 

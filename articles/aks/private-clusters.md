@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2749e66375fbd808a9e87f252a813f1054ceff21
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254510"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525566"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -126,7 +126,7 @@ Comme indiqué, l’appairage de réseaux virtuels est un moyen d’accéder à 
 ## <a name="limitations"></a>Limites 
 * Les plages d’adresses IP autorisées ne peuvent pas être appliquées au point de terminaison du serveur d’API privé, elles sont uniquement applicables au serveur d’API public.
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés.
-* Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops). 
+* Aucune prise en charge des agents hébergés par Microsoft Azure DevOps avec des clusters privés. Envisagez d’utiliser des [agents auto-hébergés](/azure/devops/pipelines/agents/agents?tabs=browser). 
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
 * Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 

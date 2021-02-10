@@ -2,13 +2,13 @@
 title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
-ms.date: 10/05/2020
-ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 02/03/2021
+ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371662"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549150"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 
@@ -58,7 +58,7 @@ if ($eventGridSP -match "Microsoft.EventGrid")
 ```
 
 ### <a name="create-a-role-for-your-application"></a>Créer un rôle pour votre application   
-Exécutez le script suivant pour créer un rôle pour votre application Azure AD. Dans cet exemple, le nom du rôle est : **AzureEventGridSecureWebhook** . Modifiez le `$myTenantId` du script PowerShell pour utiliser votre ID de locataire Azure AD et `$myAzureADApplicationObjectId` avec l’ID d’objet de votre application Azure AD
+Exécutez le script suivant pour créer un rôle pour votre application Azure AD. Dans cet exemple, le nom du rôle est : **AzureEventGridSecureWebhook**. Modifiez le `$myTenantId` du script PowerShell pour utiliser votre ID de locataire Azure AD et `$myAzureADApplicationObjectId` avec l’ID d’objet de votre application Azure AD
 
 ```PowerShell
 # This is your Azure AD Application's ObjectId. 
@@ -92,6 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
+    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 } else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")

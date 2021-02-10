@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951381"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538905"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Fonctionnalités de Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ Recherche cognitive Azure fournit un moteur de recherche en texte intégral, un 
 |-------------------|----------|
 |Traitement de l’IA pendant l’indexation | Un [**enrichissement de l’IA**](cognitive-search-concept-intro.md) à des fins d’analyse de texte et d’images peut être appliqué à un pipeline d’indexation afin d’extraire des informations textuelles à partir de contenus bruts. Parmi les [compétences intégrées](cognitive-search-predefined-skills.md), on peut citer la reconnaissance de caractères optiques (ce qui rend possible la recherche de JPEG), la reconnaissance d’entité (identifiant une organisation, un nom ou un emplacement), et la reconnaissance de phrase clé. Vous pouvez aussi [coder des compétences personnalisées](cognitive-search-create-custom-skill-example.md) à attacher au pipeline. Vous pouvez également [intégrer des compétences créées Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
 | Stockage de contenu enrichi pour l’analyse et la consommation dans des scénarios de non-recherche | La [**base de connaissances**](knowledge-store-concept-intro.md) est une autre sortie d’un pipeline d’indexation. Au lieu d’envoyer des termes sous forme de jetons à un index, vous pouvez envoyer des documents enrichis créés par le pipeline d’indexation à une base de connaissances, résidant dans Stockage Blob Azure ou Stockage Table, en fonction de la configuration. Les bases de connaissances sont créées à partir de l’indexation basée sur l’intelligence artificielle (ensembles de compétences). L’objectif d’une base de connaissances est de prendre en charge l’analyse ou le traitement en aval. Grâce aux nouvelles informations et structures d’une base de connaissances, vous pouvez l’associer à un processus de Machine Learning ou vous connecter à partir de Power BI pour explorer les données.<br/><br/> |
-| Contenu mis en cache | L’option [**Enrichissement incrémentiel (préversion)** ](cognitive-search-incremental-indexing-conceptual.md) limite le traitement uniquement aux documents modifiés par des modifications spécifiques du pipeline, à l’aide du contenu mis en cache pour les parties du pipeline qui ne changent pas. |
+| Contenu mis en cache | L’option [**Enrichissement incrémentiel (préversion)**](cognitive-search-incremental-indexing-conceptual.md) limite le traitement uniquement aux documents modifiés par des modifications spécifiques du pipeline, à l’aide du contenu mis en cache pour les parties du pipeline qui ne changent pas. |
 
 ## <a name="query-and-user-experience"></a>Interrogation et expérience de l’utilisateur
 
@@ -49,7 +49,7 @@ Recherche cognitive Azure fournit un moteur de recherche en texte intégral, un 
 
 | Catégorie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Fonctionnalités |
 |-------------------|----------|
-| Chiffrement des données | Le [**chiffrement au repos géré par Microsoft**](search-security-overview.md#encrypted-transmissions-and-storage) est intégré dans la couche de stockage interne et est irrévocable. <br/><br/>Les [**clés de chiffrement gérées par le client**](search-security-manage-encryption-keys.md) que vous créez et gérez dans Azure Key Vault peuvent être utilisées pour le chiffrement supplémentaire des index et des cartes de synonymes. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.|
+| Chiffrement des données | Le [**chiffrement au repos géré par Microsoft**](search-security-overview.md#encryption) est intégré dans la couche de stockage interne et est irrévocable. <br/><br/>Les [**clés de chiffrement gérées par le client**](search-security-manage-encryption-keys.md) que vous créez et gérez dans Azure Key Vault peuvent être utilisées pour le chiffrement supplémentaire des index et des cartes de synonymes. Pour les services créés après le 1er août 2020, le chiffrement CMK s’étend aux données sur les disques temporaires, pour le double chiffrement complet du contenu indexé.|
 | Protection du point de terminaison | Les [**règles IP pour la prise en charge du pare-feu entrant**](service-configure-firewall.md) vous permettent de configurer des plages IP sur lesquelles le service de recherche acceptera les requêtes.<br/><br/>[**Créez un point de terminaison privé**](service-create-private-endpoint.md) à l’aide d’Azure Private Link pour forcer toutes les requêtes via un réseau virtuel. |
 | Sécurité sortante (indexeurs) | [**L’accès aux données via des points de terminaison privés**](search-indexer-howto-access-private.md) permet à un indexeur de se connecter à des ressources Azure protégées via Azure Private Link.<br/><br/>L’[**accès aux données à l’aide d’une identité approuvée**](search-howto-managed-identities-data-sources.md) signifie que les chaînes de connexion aux sources de données externes peuvent omettre les noms d’utilisateur et les mots de passe. Lorsqu’un indexeur se connecte à la source de données, la ressource autorise la connexion si le service de recherche a été précédemment enregistré en tant que service approuvé. |
 

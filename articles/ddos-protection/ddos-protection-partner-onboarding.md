@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: f6cba0118a98ea50e8020b91b9c2064299ca4ccf
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a7a21dcaea22ed0d1c077d0c42ddb5b4bd50d24f
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019157"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539330"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partenariat avec Azure DDoS Protection Standard
 Cet article décrit les opportunités de partenariat offertes par Azure DDoS Protection Standard. Il est conçu pour aider les chefs de produits et les personnes en charge du développement commercial à comprendre les parcours d’investissement et à fournir des insights sur les propositions de valeur de partenariat.
@@ -94,3 +94,4 @@ La configuration de l’intégration avec Azure DDoS Protection Standard par les
 Consultez les intégrations partenaires existantes :
 
 - [Barracuda WAF-as-a-Service](https://www.barracuda.com/waf-as-a-service)
+- [Azure Cloud WAF de Radware](https://www.radware.com/resources/microsoft-azure/)

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897154"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576276"
 ---
 # <a name="create-a-video-indexer-account"></a>Créer un compte Video Indexer
 
@@ -195,7 +195,7 @@ L’automatisation de la création du compte est un processus en deux étapes :
 1. Utilisez Azure Resource Manager pour créer un compte Azure Media Services et une application Azure AD.
 
     Consultez un exemple de [modèle de création de compte Media Services](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Appelez [Create-Account avec l’application Media Services et Azure AD](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Appelez [Create-Account avec l’application Media Services et Azure AD](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## <a name="video-indexer-in-azure-government"></a>Video Indexer dans Azure Government
 
@@ -222,7 +222,7 @@ Pour créer un compte payant via le portail Video Indexer :
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Créer un nouveau compte via l’API sur Azure Government
 
-Pour créer un compte payant dans Azure Government, suivez les instructions de [Création de compte payant](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Ce point de terminaison d’API comprend uniquement les régions du cloud Government.
+Pour créer un compte payant dans Azure Government, suivez les instructions de [Création de compte payant](/azure/media-services/video-indexer/connect-to-azure). Ce point de terminaison d’API comprend uniquement les régions du cloud Government.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitations de Video Indexer sur Azure Government
 

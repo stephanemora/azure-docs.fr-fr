@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493039"
+ms.locfileid: "99509365"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
@@ -124,14 +124,6 @@ Le nombre maximal de cartes de synonymes varie en fonction du niveau. Chaque rè
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mappages de synonymes maximum |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Nombre maximal de règles par mappage |5 000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
-
-## <a name="queries-per-second-qps"></a>Requêtes par seconde
-
-Les estimations du nombre de requêtes par seconde doivent être développées indépendamment par chaque client. La taille et la complexité des index et des requêtes ainsi que la quantité de trafic sont les principaux facteurs qui déterminent le nombre de requêtes par seconde. Si ces facteurs sont inconnus, il est impossible d’établir des estimations significatives.
-
-Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche cognitive Azure](search-performance-optimization.md).
-
-Pour les niveaux à stockage optimisé (L1 et L2), attendez-vous à un plus faible débit des requêtes et à une latence plus élevée que les niveaux Standard.
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement de l’IA)
 

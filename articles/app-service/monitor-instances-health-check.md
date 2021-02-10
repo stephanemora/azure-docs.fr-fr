@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792460"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575226"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Superviser des instances App Service à l’aide du contrôle d’intégrité
 
 ![Échec du contrôle d’intégrité][2]
 
-Cet article utilise le contrôle d’intégrité dans le portail Azure pour superviser des instances App Service. Le contrôle d’intégrité augmente la disponibilité de votre application en supprimant les instances qui ne sont pas saines. Votre [plan App Service](/overview-hosting-plans) doit être mis à l’échelle vers deux instances ou plus pour utiliser le contrôle d’intégrité. Le chemin du contrôle d’intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
+Cet article utilise le contrôle d’intégrité dans le portail Azure pour superviser des instances App Service. Le contrôle d’intégrité augmente la disponibilité de votre application en supprimant les instances qui ne sont pas saines. Votre [plan App Service](/azure/app-service/overview-hosting-plans) doit être mis à l’échelle vers deux instances ou plus pour utiliser le contrôle d’intégrité. Le chemin du contrôle d’intégrité doit vérifier les composants critiques de votre application. Par exemple, si votre application dépend d’une base de données et d’un système de messagerie, le point de terminaison de contrôle d’intégrité doit se connecter à ces composants. Si l’application ne peut pas se connecter à un composant critique, le chemin doit retourner un code de réponse de niveau 500 pour indiquer que l’application n’est pas saine.
 
 ## <a name="what-app-service-does-with-health-checks"></a>Que fait App Service avec les contrôles d’intégrité ?
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a177b22f0f91d82013956bff36eaa57a084c27d1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147754"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576580"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
 ## <a name="overview"></a>Vue d’ensemble
@@ -74,11 +74,11 @@ En général, vous déployez un projet Web avec l’indicateur `customErrors` d
 
 **Nous avons rencontré une erreur :**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png" alt-text="Capture d’écran montrant un exemple d’erreur générique survenant dans un navigateur web.":::
 
 **Le site Web ne peut pas afficher la page**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="Capture d’écran montrant que le site web ne peut pas afficher l’erreur de page dans un navigateur web.":::
 
 Généralement, la méthode la plus simple pour rechercher la cause d’une erreur consiste à activer les messages d’erreur détaillés : la première capture d’écran de la série précédente montre comment procéder. Vous devez modifier le fichier Web.config déployé. Vous pouvez modifier le fichier *Web.config* dans le projet et redéployer ce dernier, ou vous pouvez créer une [transformation Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) et déployer une build de débogage, mais la solution la plus rapide est la suivante : dans l'**Explorateur de solutions**, vous pouvez afficher et modifier directement les fichiers dans l'application distante à l'aide de la fonctionnalité d'*affichage à distance*.
 
@@ -139,7 +139,7 @@ Cette section illustre comment déboguer à distance à l'aide du projet que vou
 
 1. Dans l'**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application, puis cliquez sur **Attacher le débogueur**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png" alt-text="Capture d’écran de la fenêtre de Explorateur de serveurs montrant une application sélectionnée, puis un clic sur Attacher le débogueur.":::
 
     Le navigateur ouvre automatiquement votre page d'accueil exécutée dans Azure. Vous devrez peut-être attendre environ 20 secondes pendant qu'Azure configure le serveur pour le débogage. Ce retard se produit uniquement la première fois que vous exécutez le mode débogage sur une application au cours d'une période de 48 heures. Si vous commencez à déboguer à nouveau au cours de la même période, aucun retard ne se produit.
 
@@ -192,7 +192,7 @@ Le débogage à distance fonctionne uniquement avec les tâches Web en continu. 
 
 8. Cliquez sur **Attacher le débogueur**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png" alt-text="Capture d’écran de l’Explorateur de serveurs montrant ContosoAdsWebJob sélectionnés dans le menu déroulant et Attacher le débogueur sélectionné.":::
 
     Le navigateur ouvre automatiquement votre page d'accueil exécutée dans Azure. Vous devrez peut-être attendre environ 20 secondes pendant qu'Azure configure le serveur pour le débogage. Ce retard se produit uniquement la première fois que vous exécutez le mode débogage sur une application au cours d'une période de 48 heures. Si vous commencez à déboguer à nouveau au cours de la même période, aucun retard ne se produit.
 
@@ -340,11 +340,11 @@ L’élément `WebPageTraceListener` vous permet d’afficher la sortie de suivi
 1. Dans la barre d’adresse du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur Entrée (l’URL ressemble à `http://localhost:53370/trace.axd`).
 1. Sur la page **Suivi d’application**, cliquez sur **Afficher les détails** sur la première ligne (pas la ligne BrowserLink).
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png" alt-text="Capture d’écran de la page Trace de l’application dans un navigateur web montrant Afficher les détails sélectionné sur la première ligne.":::
 
     La page **Détails de la demande** s’affiche et la section **Informations de suivi** affiche la sortie des instructions de suivi ajoutées à la méthode `Index`.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png" alt-text="Capture d’écran de la page Détails de la requête dans un navigateur web montrant un message mis en évidence dans la section Informations de traçage.":::
 
     Par défaut, `trace.axd` est uniquement disponible localement. Si vous souhaitez le rendre disponible à partir d'une application distante, vous pouvez ajouter `localOnly="false"` à l'élément `trace` dans le fichier *Web.config*, comme le montre l'exemple suivant :
 
@@ -361,11 +361,11 @@ L’élément `WebPageTraceListener` vous permet d’afficher la sortie de suivi
     Une fois que Visual Studio a publié votre mise à jour, il ouvre une fenêtre de navigateur vers votre page d’accueil (en partant du principe que vous n’avez pas désactivé la case à cocher **URL de destination** sous l’onglet **Connexion**).
 3. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur votre application et sélectionnez **Afficher les journaux d’activité de diffusion en continu**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png" alt-text="Capture d’écran de l’Explorateur de serveurs après un clic droit sur votre application, avec l’option Afficher les journaux de streaming sélectionnée dans une nouvelle fenêtre.":::
 
     La fenêtre **Sortie** indique que vous êtes connecté au service de diffusion de journaux en continu et ajoute une ligne de notification à chaque minute passée sans affichage de journal.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png" alt-text="Capture d’écran de la fenêtre Sortie montrant un exemple de connexion à un service de streaming de journaux avec des lignes de notification.":::
 
 4. Dans la fenêtre du navigateur qui affiche la page d'accueil de votre application, cliquez sur **Contacter**.
 
@@ -394,7 +394,7 @@ L’élément `WebPageTraceListener` vous permet d’afficher la sortie de suivi
 ### <a name="output-window-features"></a>Fonctionnalités de la fenêtre Sortie
 L’onglet **Journaux d’activité Microsoft Azure** de la fenêtre **Sortie** contient plusieurs boutons et une zone de texte :
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png" alt-text="Capture d’écran montrant les boutons et la zone de texte de l’onglet Journaux Microsoft Azure dans la fenêtre Sortie.":::
 
 Ces éléments permettent d'effectuer les opérations suivantes :
 
@@ -458,18 +458,18 @@ Tous les journaux d’activité que vous pouvez surveiller dans la fenêtre **So
 
 1. Dans la fenêtre **Sortie**, cliquez sur **Télécharger les journaux d’activité de diffusion en continu**.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadicon.png" alt-text="Capture d’écran de la fenêtre Sortie montrant le bouton Télécharger les journaux de streaming mis en évidence.":::
 
     L'Explorateur de fichiers ouvre votre dossier *Téléchargements* dans lequel le fichier téléchargé est sélectionné.
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-downloadedfile.png" alt-text="Capture d’écran du dossier Téléchargements dans l’Explorateur de fichiers avec un fichier téléchargé sélectionné.":::
 
 2. Procédez à l'extraction du fichier *.zip* pour afficher la structure de dossiers suivante :
 
-    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Capture d’écran montrant une erreur Erreur de serveur dans l’application « / » dans un navigateur web.":::
+    :::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png" alt-text="Capture d’écran de la structure de dossiers de fichiers .zip après l’extraction du fichier.":::
 
    * Les journaux d’activité de suivi d’application sont dans des fichiers *.txt* dans le dossier *LogFiles\Application*.
-   * Les journaux d’activité de serveur web sont dans des fichiers *.log* dans le dossier *LogFiles\http\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) pour afficher et manipuler ces fichiers.
+   * Les journaux d’activité de serveur web sont dans des fichiers *.log* dans le dossier *LogFiles\http\RawLogs*. Vous pouvez utiliser un outil tel que [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22) pour afficher et manipuler ces fichiers.
    * Les journaux d’activité de messages d’erreur détaillés sont dans des fichiers *.html* dans le dossier *LogFiles\DetailedErrors*.
 
      Le dossier *deployments* contient les fichiers créés par la publication à partir du contrôle de code source : il n'a rien à voir avec la publication Visual Studio. Le dossier *Git* contient le suivi lié à la publication à partir du contrôle de code source et au service de diffusion de fichier journal en continu.  
@@ -678,7 +678,7 @@ En outre, vous n’avez pas besoin d’utiliser ASP.NET ou le suivi `System.Diag
 ### <a name="analyzing-web-server-logs"></a>Analyse de journaux d’activité de serveur Web
 Pour plus d’informations sur l’analyse des journaux d’activité de serveur Web, consultez les ressources suivantes :
 
-* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.iis.net/downloads/community/2010/04/log-parser-22)<br/>
   Un outil pour afficher les données des journaux d’activité de serveur Web (fichiers *.log* ).
 * [Résolution des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Une introduction à l’outil LogParser que vous pouvez utiliser pour analyser les journaux d’activité de serveur Web.

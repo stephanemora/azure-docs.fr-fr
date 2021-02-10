@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511278"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576614"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -140,7 +140,7 @@ La [détection des risques de sécurité](https://www.microsoft.com/en-us/securi
 
 L’examen de la surface d’attaque après l’exécution de code permet de garantir que toute modification de conception ou d’implémentation apportée à une application ou un système a été prise en compte. Cela permet de s’assurer que les nouveaux vecteurs d’attaque créés à la suite de modifications, y compris les modèles de menace, on été examinés et atténués.
 
-Vous pouvez créer une image de la surface d’attaque en analysant l’application. Microsoft propose un outil d’analyse de la surface d’attaque appelé [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). Vous pouvez choisir parmi de nombreux outils d’analyse des vulnérabilités et de test dynamique commerciaux, notamment [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), et [w3af](http://w3af.sourceforge.net/). Ces outils d’analyse parcourent votre application et mappent les parties de l’application accessibles via le web. Vous pouvez également effectuer des recherches dans Place de marché Azure pour trouver des [outils de développement](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) similaires.
+Vous pouvez créer une image de la surface d’attaque en analysant l’application. Microsoft propose un outil d’analyse de la surface d’attaque appelé [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). Vous pouvez choisir parmi de nombreux outils d’analyse des vulnérabilités et de test dynamique commerciaux, notamment [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/), et [w3af](http://w3af.sourceforge.net/). Ces outils d’analyse parcourent votre application et mappent les parties de l’application accessibles via le web. Vous pouvez également effectuer des recherches dans Place de marché Azure pour trouver des [outils de développement](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1) similaires.
 
 ### <a name="perform-security-penetration-testing"></a>Effectuer des tests d’intrusion sécurisés
 

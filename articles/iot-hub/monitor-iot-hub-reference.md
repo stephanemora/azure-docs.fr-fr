@@ -5,13 +5,14 @@ author: robinsh
 ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460850"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581599"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Informations de référence sur l’analyse des données Azure IoT Hub
 
@@ -60,9 +61,9 @@ Pour la plupart des métriques, tous les types d’agrégation sont valides ; t
 |Nom d’affichage de la métrique|Métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Messages cloud vers appareil ayant expiré (préversion)|C2DMessagesExpired|Count|Total|Nombre de messages cloud vers appareil ayant expiré|None|
-|Remises de messages cloud vers appareil terminées|c2d.commands.egress.complete.success|Nombre|Total|Nombre de remises de messages cloud vers appareil terminées avec succès par l’appareil|None|
-|Messages cloud vers appareil abandonnés|c2d.commands.egress.abandon.success|Nombre|Total|Nombre de messages cloud vers appareil abandonnés par l’appareil|None|
-|Messages cloud vers appareil rejetés|c2d.commands.egress.reject.success|Nombre|Total|Nombre de messages cloud vers appareil rejetés par l’appareil|None|
+|Remises de messages cloud vers appareil terminées|c2d.commands.egress.complete.success|Count|Total|Nombre de remises de messages cloud vers appareil terminées avec succès par l’appareil|None|
+|Messages cloud vers appareil abandonnés|c2d.commands.egress.abandon.success|Count|Total|Nombre de messages cloud vers appareil abandonnés par l’appareil|None|
+|Messages cloud vers appareil rejetés|c2d.commands.egress.reject.success|Count|Total|Nombre de messages cloud vers appareil rejetés par l’appareil|None|
 
 Pour les métriques dont la valeur d’**unité** est **Comptage**, seule l’agrégation totale (somme) est valide. Les agrégations Minimum, Maximum et Moyenne retournent toujours la valeur 1. Pour en savoir plus, consultez les [agrégations prises en charge](#supported-aggregations).
 
@@ -113,7 +114,7 @@ Pour *Nombre total de messages utilisés*, seules les agrégations Minimum, Maxi
 |Nom d’affichage de la métrique|Métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Nombre total d’appareils (déconseillé)|devices.totalDevices|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|None|
-|Appareils connectés (déconseillé) |devices.connectedDevices.allProtocol|Nombre|Total|Nombre d’appareils connectés à votre hub IoT|None|
+|Appareils connectés (déconseillé) |devices.connectedDevices.allProtocol|Count|Total|Nombre d’appareils connectés à votre hub IoT|None|
 |Nombre total d’appareils (préversion)|totalDeviceCount|Count|Average|Nombre d’appareils enregistrés sur votre hub IoT|None|
 |Appareils connectés (préversion)|connectedDeviceCount|Count|Average|Nombre d’appareils connectés à votre hub IoT|None|
 
@@ -127,8 +128,8 @@ Pour *Nombre total d’appareils (préversion)* et *Appareils connectés (préve
 
 |Nom d’affichage de la métrique|Métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|Nombre d’erreurs de limitation|d2c.telemetry.ingress.sendThrottle|Nombre|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|None|
-|Tentatives d’envoi de message de télémétrie|d2c.telemetry.ingress.allProtocol|Nombre|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|None|
+|Nombre d’erreurs de limitation|d2c.telemetry.ingress.sendThrottle|Count|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|None|
+|Tentatives d’envoi de message de télémétrie|d2c.telemetry.ingress.allProtocol|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|None|
 |Messages de télémétrie envoyés|d2c.telemetry.ingress.success|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|None|
 
 Pour les métriques dont la valeur d’**unité** est **Comptage**, seule l’agrégation totale (somme) est valide. Les agrégations Minimum, Maximum et Moyenne retournent toujours la valeur 1. Pour en savoir plus, consultez les [agrégations prises en charge](#supported-aggregations).
@@ -161,13 +162,13 @@ Pour les métriques dont la valeur d’**unité** est **Comptage**, seule l’ag
 |---|---|---|---|---|---|
 |Travaux terminés|jobs.completed|Count|Total|Total des travaux terminés.|None|
 |Appels en échec pour répertorier les travaux|jobs.listJobs.failure|Count|Total|Total des appels en échec pour répertorier les travaux.|None|
-|Créations des travaux d’appel de méthode en échec|jobs.createDirectMethodJob.failure|Nombre|Total|Total des créations en échec des travaux d’appel de méthode directe.|None|
-|Créations des travaux de mises à jour de représentations en échec|jobs.createTwinUpdateJob.failure|Nombre|Total|Total des créations en échec des travaux de mises à jour de représentations.|None|
+|Créations des travaux d’appel de méthode en échec|jobs.createDirectMethodJob.failure|Count|Total|Total des créations en échec des travaux d’appel de méthode directe.|None|
+|Créations des travaux de mises à jour de représentations en échec|jobs.createTwinUpdateJob.failure|Count|Total|Total des créations en échec des travaux de mises à jour de représentations.|None|
 |Annulations de travaux en échec|jobs.cancelJob.failure|Count|Total|Total des appels en échec pour annuler un travail.|None|
 |Requêtes de travaux en échec|jobs.queryJobs.failure|Count|Total|Total des appels en échec pour interroger les travaux.|None|
 |Travaux en échec|jobs.failed|Count|Total|Total des travaux en échec.|None|
 |Appels réussis pour répertorier les travaux|jobs.listJobs.success|Count|Total|Total des appels réussis pour répertorier les travaux.|None|
-|Créations réussies des travaux d’appel de méthode|jobs.createDirectMethodJob.success|Nombre|Total|Total des créations réussies des travaux d’appel de méthode directe.|None|
+|Créations réussies des travaux d’appel de méthode|jobs.createDirectMethodJob.success|Count|Total|Total des créations réussies des travaux d’appel de méthode directe.|None|
 |Créations réussies des travaux de mises à jour de représentations|jobs.createTwinUpdateJob.<br>success|Count|Total|Total des créations réussies de travaux de mises à jour de représentations.|None|
 |Annulations de travaux réussies|jobs.cancelJob.success|Count|Total|Total des appels réussis pour annuler un travail.|None|
 |Requêtes de travaux réussies|jobs.queryJobs.success|Count|Total|Total des appels réussis pour interroger les travaux.|None|
@@ -181,22 +182,22 @@ Pour les métriques dont la valeur d’**unité** est **Comptage**, seule l’ag
 | Tentatives de livraison de routage (préversion) |RoutingDeliveries | Count | Total |Il s’agit de la métrique de livraison de routage. Utilisez les dimensions pour identifier l’état de livraison d’un point de terminaison ou d’une source de routage spécifiques.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*Pour plus d’informations, consultez [Dimensions de métrique](#metric-dimensions)* . |
 | Taille des données de livraison du routage en octets (préversion)|RoutingDataSizeInBytesDelivered| Octets | Total |Nombre total d’octets acheminés par IoT Hub vers un point de terminaison personnalisé et un point de terminaison intégré. Utilisez les dimensions pour identifier la taille des données acheminées vers un point de terminaison ou une source de routage spécifiques.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Pour plus d’informations, consultez [Dimensions de métrique](#metric-dimensions)* .|
 | Latence du routage (préversion) |RoutingDeliveryLatency| Millisecondes | Average |Il s’agit de la métrique de latence de la livraison de routage. Utilisez les dimensions pour identifier l’état de livraison d’un point de terminaison ou d’une source de routage spécifiques.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*Pour plus d’informations, consultez [Dimensions de métrique](#metric-dimensions)* .|
-|Routage : objets blob remis au stockage|d2c.endpoints.egress.storage.blobs|Nombre|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|None|
+|Routage : objets blob remis au stockage|d2c.endpoints.egress.storage.blobs|Count|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|None|
 |Routage : données remises au stockage|d2c.endpoints.egress.storage.bytes|Octets|Total|Quantité de données (octets) que le routage IoT Hub a remis aux points de terminaison de stockage.|None|
 |Routage : latence des messages d’Event Hub|d2c.endpoints.latency.eventHubs|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans des points de terminaison personnalisés de type Event Hub. Ceci n’inclut pas les itinéraires des messages vers les points de terminaison intégrés (événements).|None|
 |Routage : latence des messages de la file d’attente Service Bus|d2c.endpoints.latency.serviceBusQueues|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans un point de terminaison de file d’attente Service Bus.|None|
 |Routage : latence des messages de la rubrique Service Bus|d2c.endpoints.latency.serviceBusTopics|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans un point de terminaison de rubrique Service Bus.|None|
 |Routage : latence des messages de messages/d’événements|d2c.endpoints.latency.builtIn.events|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans le point de terminaison intégré (messages/événements) l’itinéraire de secours.|None|
 |Routage : latence des messages du stockage|d2c.endpoints.latency.storage|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans un point de terminaison de stockage.|None|
-|Routage : messages remis à Event Hub|d2c.endpoints.egress.eventHubs|Nombre|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison personnalisés de type Event Hub. Ceci n’inclut pas les itinéraires des messages vers les points de terminaison intégrés (événements).|None|
-|Routage : messages remis à la file d’attente Service Bus|d2c.endpoints.egress.serviceBusQueues|Nombre|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages aux points de terminaison de file d’attente Service Bus.|None|
-|Routage : messages remis à la rubrique Service Bus|d2c.endpoints.egress.serviceBusTopics|Nombre|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de rubrique Service Bus.|None|
-|Routage : messages remis à l’itinéraire de secours|d2c.telemetry.egress.fallback|Nombre|Total|Nombre de fois où le routage IoT Hub a remis des messages au point de terminaison associé à l’itinéraire de secours.|None|
-|Routage : messages remis à des messages/événements|d2c.endpoints.egress.builtIn.events|Nombre|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages au point de terminaison intégré (messages/événements) à l’itinéraire de secours.|None|
-|Routage : messages remis au stockage|d2c.endpoints.egress.storage|Nombre|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de stockage.|None|
-|Routage : messages de télémétrie remis|d2c.telemetry.egress.success|Nombre|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|None|
-|Routage : messages de télémétrie annulés |d2c.telemetry.egress.dropped|Nombre|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|None|
-|Routage : messages de télémétrie incompatibles|d2c.telemetry.egress.invalid|Nombre|Total|Nombre de fois où le routage IoT Hub n’a pas réussi à remettre des messages en raison d’une incompatibilité avec le point de terminaison. Un message est incompatible avec un point de terminaison quand IoT Hub tente de remettre le message à un point de terminaison et échoue avec une erreur non temporaire. Il n’y a pas de nouvelle tentative pour les messages non valides. Cette valeur n’inclut pas les nouvelles tentatives.|None|
+|Routage : messages remis à Event Hub|d2c.endpoints.egress.eventHubs|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison personnalisés de type Event Hub. Ceci n’inclut pas les itinéraires des messages vers les points de terminaison intégrés (événements).|None|
+|Routage : messages remis à la file d’attente Service Bus|d2c.endpoints.egress.serviceBusQueues|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages aux points de terminaison de file d’attente Service Bus.|None|
+|Routage : messages remis à la rubrique Service Bus|d2c.endpoints.egress.serviceBusTopics|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de rubrique Service Bus.|None|
+|Routage : messages remis à l’itinéraire de secours|d2c.telemetry.egress.fallback|Count|Total|Nombre de fois où le routage IoT Hub a remis des messages au point de terminaison associé à l’itinéraire de secours.|None|
+|Routage : messages remis à des messages/événements|d2c.endpoints.egress.builtIn.events|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages au point de terminaison intégré (messages/événements) à l’itinéraire de secours.|None|
+|Routage : messages remis au stockage|d2c.endpoints.egress.storage|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de stockage.|None|
+|Routage : messages de télémétrie remis|d2c.telemetry.egress.success|Count|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|None|
+|Routage : messages de télémétrie annulés |d2c.telemetry.egress.dropped|Count|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|None|
+|Routage : messages de télémétrie incompatibles|d2c.telemetry.egress.invalid|Count|Total|Nombre de fois où le routage IoT Hub n’a pas réussi à remettre des messages en raison d’une incompatibilité avec le point de terminaison. Un message est incompatible avec un point de terminaison quand IoT Hub tente de remettre le message à un point de terminaison et échoue avec une erreur non temporaire. Il n’y a pas de nouvelle tentative pour les messages non valides. Cette valeur n’inclut pas les nouvelles tentatives.|None|
 |Routage : messages de télémétrie orphelins |d2c.telemetry.egress.orphaned|Count|Total|Nombre de fois où des messages ont été définis comme orphelins par le routage IoT Hub car ils ne correspondaient à aucune requête de routage, lorsque la route de secours est désactivée.|None|
 
 Pour les métriques dont la valeur d’**unité** est **Comptage**, seule l’agrégation totale (somme) est valide. Les agrégations Minimum, Maximum et Moyenne retournent toujours la valeur 1. Pour en savoir plus, consultez les [agrégations prises en charge](#supported-aggregations).

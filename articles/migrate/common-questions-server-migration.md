@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 1f32e9788b2255be373a4db8c159ef2a6b6ccf04
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 63c7f226dcd99ec8040f2078ce12be0fe3c594df
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753839"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548811"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
@@ -32,14 +32,14 @@ Azure Migrate : L’outil Server Migration migre les machines UEFI vers Azure e
 
 | **Systèmes d’exploitation pris en charge pour les machines UEFI** | **VMware sans agent vers Azure**                                                                                                             | **Hyper-V sans agent vers Azure** | **VMware avec agent, supports physiques et autres clouds vers Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | O                                                                                                                                         | Y                              | O                                                          |
-| Windows 10 Professionnel, Windows 10 Entreprise                   | O                                                                                                                                         | Y                              | O                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | O                                                                                                                                         | Y                              | O                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | O                                                                                                                                         | Y                              | O                                                          |
-| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | O                                                                                                                                         | Y                              | O                                                          |
+| Windows Server 2019, 2016, 2012 R2, 2012                | O                                                                                                                                         | O                              | O                                                          |
+| Windows 10 Professionnel, Windows 10 Entreprise                   | O                                                                                                                                         | O                              | O                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | O                                                                                                                                         | O                              | O                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | O                                                                                                                                         | O                              | O                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | O                                                                                                                                         | O                              | O                                                          |
 | RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | O<br>                 _RHEL 8.x nécessite une [préparation manuelle](./prepare-for-migration.md#linux-machines)_   | O                              | O                                                          |
 | CentOS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | O<br>_CentOS 8.x nécessite une [préparation manuelle](./prepare-for-migration.md#linux-machines)_ | O                              | O                                                          |
-| Oracle Linux 7.7, 7.7-CI                                |  O                                                                                                                                        | Y                              | O                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  O                                                                                                                                        | O                              | O                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Est-ce que je peux utiliser le coffre Recovery Services créé par Azure Migrate pour les scénarios de reprise d’activité ?
 Nous vous déconseillons d’utiliser le coffre Recovery Services créé par Azure Migrate pour les scénarios de reprise d’activité. Cela peut entraîner des échecs de démarrage de la réplication dans Azure Migrate. 

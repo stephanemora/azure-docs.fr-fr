@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017557"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525769"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostiquer et résoudre les problèmes liés à des exceptions introuvables Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ Attendez que l’indexation soit à jour ou modifiez la stratégie d’indexatio
 La base de données ou le conteneur dans lequel se trouve l’élément a été supprimé.
 
 #### <a name="solution"></a>Solution :
-1. [Restaurez](./online-backup-and-restore.md#request-data-restore-from-a-backup) la ressource parente ou recréez les ressources.
+1. [Restaurez](./configure-periodic-backup-restore.md#request-restore) la ressource parente ou recréez les ressources.
 1. Créez une ressource pour remplacer la ressource supprimée.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. Les noms de conteneur/collection sont sensibles à la casse

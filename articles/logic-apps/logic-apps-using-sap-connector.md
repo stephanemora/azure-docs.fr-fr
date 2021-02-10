@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252608"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575481"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -504,7 +504,7 @@ Si vous ne pouvez pas envoyer de paquets IDoc de SAP vers le déclencheur de vot
   * Pour que ces segments soient diffusés par SAP, contactez l’ingénieur ABAP pour votre système SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Requête-réponse asynchrone pour les déclencheurs
 
-Le connecteur SAP prend en charge le [modèle requête-réponse asynchrone](/azure/architecture/patterns/async-request-reply.md) d’Azure pour les déclencheurs Logic Apps. Vous pouvez utiliser ce modèle pour créer des requêtes réussies qui auraient échoué avec le modèle de requête-réponse synchrone par défaut. 
+Le connecteur SAP prend en charge le [modèle requête-réponse asynchrone](/azure/architecture/patterns/async-request-reply) d’Azure pour les déclencheurs Logic Apps. Vous pouvez utiliser ce modèle pour créer des requêtes réussies qui auraient échoué avec le modèle de requête-réponse synchrone par défaut. 
 
 > [!TIP]
 > Dans les applications logiques avec plusieurs actions de réponse, toutes les actions de réponse doivent utiliser le même modèle requête-réponse. Par exemple, si votre application logique utilise un contrôle commutateur avec plusieurs actions de réponse possibles, vous devez configurer toutes les actions de réponse pour qu’elles utilisent le même modèle requête-réponse, qu’il soit synchrone ou asynchrone. 

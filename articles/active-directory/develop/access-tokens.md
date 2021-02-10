@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232384"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575752"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -241,7 +241,7 @@ Cette étape est déterminée par la logique métier de votre application, certa
 * Validez l’état d’authentification du client appelant à l’aide de `appidacr`. Si les clients publics ne sont pas autorisés à appeler votre API, sa valeur doit être différente de 0.
 * Vérifiez par rapport à une liste de revendications `nonce` passées pour savoir si le jeton n’est pas en relecture.
 * Vérifiez que `tid` correspond à un client autorisé à appeler votre API.
-* Utilisez la revendication `acr` pour vérifier que l’utilisateur a effectué la MFA. Cela doit être exécuté à l’aide d’un [accès conditionnel](../conditional-access/overview.md).
+* Utilisez la revendication `amr` pour vérifier que l’utilisateur a effectué la MFA. Cela doit être exécuté à l’aide d’un [accès conditionnel](../conditional-access/overview.md).
 * Si vous avez demandé les revendications `roles` ou `groups` dans le jeton d’accès, vérifiez que l’utilisateur fait bien partie du groupe autorisé à effectuer cette action.
   * Pour les jetons récupérés à l’aide du flux implicite, vous devrez probablement interroger le [Microsoft Graph](https://developer.microsoft.com/graph/) de ces données, car il est souvent trop grand pour être contenu dans le jeton.
 

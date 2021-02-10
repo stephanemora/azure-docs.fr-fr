@@ -4,12 +4,12 @@ description: Découvrez comment gérer des événements externes dans l’extens
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014937"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576327"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestion des événements externes dans Fonctions durables (Azure Functions)
 
@@ -20,7 +20,7 @@ Les fonctions d’orchestrateur ont la capacité d’attendre et d’écouter de
 
 ## <a name="wait-for-events"></a>Attendre des événements
 
-Les méthodes [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET), `waitForExternalEvent` (JavaScript) et `wait_for_external_event` (Python) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger) permettent à une fonction d’orchestrateur d’attendre et d’écouter de façon asynchrone un événement externe. La fonction d’orchestrateur qui écoute déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
+Les méthodes [WaitForExternalEvent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.NET), `waitForExternalEvent` (JavaScript) et `wait_for_external_event` (Python) de la [liaison de déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger) permettent à une fonction d’orchestrateur d’attendre et d’écouter de façon asynchrone un événement externe. La fonction d’orchestrateur qui écoute déclare le *nom* de l’événement et la *forme des données* qu’il s’attend à recevoir.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,7 +230,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>Envoyer des événements
 
-Vous pouvez utiliser les méthodes [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.NET) ou `raiseEventAsync` (JavaScript) pour envoyer un événement externe à une orchestration. Ces méthodes sont exposées par la liaison du [client d’orchestration](durable-functions-bindings.md#orchestration-client). Vous pouvez également utiliser l’[API HTTP de déclenchement d’événement](durable-functions-http-api.md#raise-event) pour envoyer un événement externe à une orchestration.
+Vous pouvez utiliser les méthodes [RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.NET) ou `raiseEventAsync` (JavaScript) pour envoyer un événement externe à une orchestration. Ces méthodes sont exposées par la liaison du [client d’orchestration](durable-functions-bindings.md#orchestration-client). Vous pouvez également utiliser l’[API HTTP de déclenchement d’événement](durable-functions-http-api.md#raise-event) pour envoyer un événement externe à une orchestration.
 
 Un événement déclenché inclut les paramètres *ID d’instance*, *eventName* et *eventData*. Les fonctions d’orchestrateur gèrent ces événements à l’aide des API `WaitForExternalEvent` (.NET) ou `waitForExternalEvent` (JavaScript). Le paramètre *eventName* doit correspondre à la fois aux terminaisons d’envoi et de réception pour que l’événement soit traité. Les données d’événement doivent également être sérialisables au format JSON.
 

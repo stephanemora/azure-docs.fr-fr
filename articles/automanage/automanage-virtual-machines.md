@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695668"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550782"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage pour machines virtuelles
 
@@ -42,7 +42,6 @@ Enfin, l’interface est incroyablement simple.
 Il existe plusieurs conditions préalables à prendre en compte avant d’essayer d’activer le service Azure Automanage sur vos machines virtuelles.
 
 - Les machines virtuelles concernées doivent être exclusivement Windows Server.
-- Les machines virtuelles doivent être en cours d’exécution.
 - Les machines virtuelles doivent se trouver dans une région prise en charge (voir paragraphe ci-dessous).
 - L’utilisateur doit disposer des autorisations appropriées (voir paragraphe ci-dessous).
 - Automanage ne prend pas en charge les abonnements sandbox à ce stade

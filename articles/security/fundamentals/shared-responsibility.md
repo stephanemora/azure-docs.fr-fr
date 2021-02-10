@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518145"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548947"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>Responsabilité partagée dans le cloud
 
@@ -50,4 +50,4 @@ Le schéma suivant illustre une approche traditionnelle où un grand nombre de r
 Dans l’approche basée sur le cloud, vous pouvez aussi tirer parti des fonctionnalités de sécurité du cloud pour plus d’efficacité et utiliser l’intelligence cloud pour améliorer la détection des menaces et votre temps de réponse. En transférant les responsabilités au fournisseur de cloud, les organisations peuvent optimiser leur couverture de sécurité, ce qui leur permet de réaffecter des ressources de sécurité et leur budget à d'autres priorités de l’entreprise.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la répartition des responsabilités entre vous et Microsoft dans un déploiement SaaS, PaaS et IaaS, consultez [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Pour plus d’informations sur la répartition des responsabilités entre vous et Microsoft dans un déploiement SaaS, PaaS et IaaS, consultez [Shared Responsibilities for Cloud Computing](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/).

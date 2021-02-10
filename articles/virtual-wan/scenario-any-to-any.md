@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955273"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525786"
 ---
 # <a name="scenario-any-to-any"></a>Scénario : Any-to-any
 
-Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. Vous pouvez créer cette configuration à l’aide de différentes méthodes, telles que le portail Azure ou un [Modèle de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md). 
+Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un certain nombre de scénarios disponibles. Dans un scénario Any-to-any, tout spoke peut atteindre un autre spoke. En présence de plusieurs hubs, le routage de hub à hub (ou « entre hubs ») est activé par défaut dans le Virtual WAN standard. Vous pouvez créer cette configuration à l’aide de différentes méthodes, telles que le portail Azure ou un [Modèle de démarrage rapide Azure](quickstart-any-to-any-template.md). Pour plus d’informations sur le routage de hub virtuel, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Conception
 
