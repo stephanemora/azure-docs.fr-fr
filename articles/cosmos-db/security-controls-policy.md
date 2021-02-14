@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire Azure Policy pour Azure Cosmos DB
 description: Liste les contrôles de conformité réglementaire Azure Policy disponibles pour Azure Cosmos DB. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1733a21f1fc50ad04ae5c1f3ea19b196fe9be946
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ae8273aa25c26e7bd9e5f866fc54cf2bd72fdb7a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093661"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097282"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cosmos-db"></a>Contrôles de conformité réglementaire Azure Policy pour Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
