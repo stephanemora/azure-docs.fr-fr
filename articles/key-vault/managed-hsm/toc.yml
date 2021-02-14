@@ -1,6 +1,6 @@
 - name: Documentation HSM managé
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de HSM managé
       href: overview.md
@@ -39,8 +39,6 @@
       href: access-control.md
     - name: Rôles intégrés RBAC locaux
       href: built-in-roles.md
-- name: Guides pratiques
-  items: null
 - name: Informations de référence
   items:
     - name: Azure PowerShell

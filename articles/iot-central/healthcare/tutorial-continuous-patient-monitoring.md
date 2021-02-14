@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531268"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832502"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutoriel : Déployer et parcourir pas à pas un modèle d’application de surveillance continue des patients
 
@@ -24,6 +24,10 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer un modèle d’application
 > * Parcourir pas à pas le modèle d’application
+
+## <a name="prerequisites"></a>Prérequis
+
+Un abonnement Azure est recommandé. Vous pouvez également utiliser une version d’évaluation gratuite pendant 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Créer un modèle d’application
 
@@ -61,11 +65,11 @@ Après avoir déployé le modèle d’application, vous accédez dans un premier
 
 * Changer le **statut de surveillance** de votre appareil pour indiquer s’il est utilisé à l’hôpital ou dans un scénario à distance.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="État du patient hospitalisé":::
 
 Vous pouvez aussi sélectionner **Go to remote patient dashboard** (Accéder au tableau de bord de surveillance à distance des patients) pour voir le tableau de bord de l’opérateur du Burkville Hospital. Ce tableau de bord contient un ensemble similaire d’actions, de données de télémétrie et d’informations. Vous pouvez également voir plusieurs appareils en cours d’utilisation et choisir de **mettre à jour le microprogramme** sur chacun.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Tableau de bord de l’opérateur distant":::
 
 ### <a name="device-templates"></a>Modèles d’appareil
 
@@ -75,7 +79,7 @@ Si vous sélectionnez **Modèles d’appareil**, vous voyez les deux types d’a
 
 * **Smart Knee Brace** : cet appareil représente une attelle de genou que les patients utilisent à la suite d’une opération de reconstruction du genou. Si vous sélectionnez ce modèle, vous voyez des fonctionnalités comme des données sur l’appareil, l’amplitude de mouvement et la mobilité.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modèle de patch intelligent":::
 
 ### <a name="device-groups"></a>Groupes d'appareils
 
@@ -93,7 +97,7 @@ Si vous sélectionnez **Règles**, vous voyez les trois règles dans le modèle�
 
 * **Patch battery low** (Faible niveau de charge du patch) : cette règle se déclenche quand le niveau de charge de la batterie de l’appareil est inférieur à 10 %. Utilisez cette règle pour déclencher une notification à l’intention du patient afin qu’il charge son appareil.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Règles":::
 
 ### <a name="jobs"></a>travaux
 
@@ -113,7 +117,7 @@ L’onglet **Propriétés** vous permet de modifier les propriétés du cloud et
 
 L’onglet **Commandes** vous permet d’exécuter des commandes sur l’appareil.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Tableau de bord de l’attelle de genou":::
 
 ### <a name="data-export"></a>Exportation de données
 
@@ -123,7 +127,7 @@ L’exportation de données vous permet d’exporter les données de vos apparei
 
 Si vous n’envisagez pas de continuer à utiliser cette application, supprimez-la en accédant à **Administration > Application settings** (Administration > Paramètre d’application), puis cliquez sur **Delete** (Supprimer).
 
-:::image type="content" source="media/admin-delete.png" alt-text="Modèle d’application Santé":::
+:::image type="content" source="media/admin-delete.png" alt-text="Nettoyer les ressources":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

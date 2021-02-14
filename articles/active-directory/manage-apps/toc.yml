@@ -1,6 +1,6 @@
 - name: Documentation Gestion des applications
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la gestion des applications\_?"
@@ -158,6 +158,8 @@
           href: migration-resources.md
         - name: "Migrer une application AD\_FS vers Azure"
           href: migrate-adfs-apps-to-azure.md
+        - name: Migrer l’authentification des applications vers Azure Active Directory
+          href: migrate-application-authentication-to-azure-active-directory.md
         - name: Utiliser le rapport d’activité d’application AD FS (préversion)
           href: migrate-adfs-application-activity.md
     - name: Configurer des connecteurs locaux

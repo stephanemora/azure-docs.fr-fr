@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317848"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576023"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Tutoriel : Convertir des expériences ML en code Python de production
 
@@ -353,7 +353,7 @@ Troisièmement, les fonctions associées doivent être fusionnées dans des fich
 Convertissez votre notebook en script exécutable. Pour cela, exécutez dans une invite de commandes l’instruction suivante qui utilise le package `nbconvert` et le chemin de `experimentation/Diabetes Ridge Regression Training.ipynb` :
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Une fois le notebook converti en `train.py`, supprimez tous les commentaires non souhaités. Remplacez l’appel à `main()` à la fin du fichier par un appel conditionnel semblable au code suivant :
@@ -441,7 +441,7 @@ Le fichier `train_aml.py` situé dans le répertoire `diabetes_regression/traini
 Convertissez votre notebook en script exécutable. Pour cela, exécutez dans une invite de commandes l’instruction suivante qui utilise le package `nbconvert` et le chemin de `experimentation/Diabetes Ridge Regression Scoring.ipynb` :
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Une fois le notebook converti en `score.py`, supprimez tous les commentaires non souhaités. Votre fichier `score.py` doit ressembler au code suivant :

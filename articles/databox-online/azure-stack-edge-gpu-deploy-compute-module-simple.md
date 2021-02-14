@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 290aed6c817b5e1cfc8bc75b3551bfe15a7b3691
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 44265efd4d125bb2701742a490fc883c48f1877b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524755"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550990"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Tutoriel : Exécuter une charge de travail de calcul avec un module IoT Edge sur Azure Stack Edge Pro avec GPU
 
@@ -151,4 +151,4 @@ Dans ce didacticiel, vous avez appris à :
 Pour savoir comment gérer votre appareil Azure Stack Edge Pro, consultez :
 
 > [!div class="nextstepaction"]
-> [Administrer un appareil Azure Stack Edge Pro via l'interface utilisateur web locale](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Administrer un appareil Azure Stack Edge Pro via l'interface utilisateur web locale](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md)
