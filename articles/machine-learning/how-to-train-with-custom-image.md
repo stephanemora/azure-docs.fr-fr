@@ -1,5 +1,5 @@
 ---
-title: Former un modèle à l’aide d’une image Docker personnalisée
+title: Entraîner un modèle à l’aide d’une image Docker personnalisée
 titleSuffix: Azure Machine Learning
 description: Apprenez à utiliser vos propres images Docker ou celles de Microsoft et à effectuer l’apprentissage de modèles dans Azure Machine Learning.
 services: machine-learning
@@ -17,7 +17,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 01/20/2021
 ms.locfileid: "98601335"
 ---
-# <a name="train-a-model-by-using-a-custom-docker-image"></a>Former un modèle à l’aide d’une image Docker personnalisée
+# <a name="train-a-model-by-using-a-custom-docker-image"></a>Entraîner un modèle à l’aide d’une image Docker personnalisée
 
 Dans cet article, découvrez comment utiliser une image Docker personnalisée lors du déploiement de modèles formés avec Azure Machine Learning. Vous utiliserez les exemples de scripts de cet article pour classifier les images de PET en créant un réseau neuronal de convolution. 
 
