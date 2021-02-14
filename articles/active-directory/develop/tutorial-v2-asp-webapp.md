@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226302"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103122"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
 
@@ -361,7 +361,7 @@ Pour inscrire votre application et ajouter les informations d’inscription de l
 
 Pour inscrire rapidement votre application, effectuez les étapes suivantes :
 
-1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.  
+1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications</a>.  
 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 1. Suivez les instructions permettant de télécharger et de configurer automatiquement votre nouvelle application en un seul clic.
 
@@ -375,7 +375,7 @@ Pour inscrire votre application et ajouter manuellement les informations d’ins
    1. Cliquez avec le bouton droit sur le projet dans Visual Studio et sélectionnez **Propriétés**, puis l’onglet **Web**. Dans la section **Serveurs**, remplacez l’**URL du projet** par l’**URL SSL**.
    1. Copiez l’URL SSL. Vous allez ajouter cette URL à la liste des URI de redirection dans la liste des URI de redirection du portail d’inscription à l’étape suivante.<br/><br/>![Propriétés d’un projet](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.

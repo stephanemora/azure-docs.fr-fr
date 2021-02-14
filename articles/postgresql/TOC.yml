@@ -30,6 +30,9 @@
     - name: Stratégie de version
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Problèmes connus et limitations
+      href: concepts-known-issues-limitations.md
+      displayName: 'issues, limitations, postgresql'
 - name: Serveur unique
   expanded: true
   items:

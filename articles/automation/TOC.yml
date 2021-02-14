@@ -1,6 +1,6 @@
 - name: "Documentation de l’utilisateur Azure\_Automation"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Automation\_?"
       href: automation-intro.md
@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Interroger les journaux à partir de Start/Stop VMs during off-hours
           href: automation-solution-vm-management-logs.md
+        - name: Supprimer Start/Stop VMs during off-hours
+          href: automation-solution-vm-management-remove.md
         - name: Résoudre les problèmes liés à Stop/Start VMs during off-hours
           href: troubleshoot/start-stop-vm.md
     - name: Update Management
@@ -359,5 +361,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

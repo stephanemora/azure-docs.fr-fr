@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 48c6e1141a00635dd1fd82ef9053b2e77168e5e8
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 374a7dd37c23cdc8391485ec8f87f3427fc61ef1
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956277"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569602"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examiner et modifier les exemples de fichiers
 
@@ -15,11 +15,11 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     Le modèle de déploiement fait référence au manifeste de déploiement de l’appareil de périphérie. Il inclut des valeurs d’espace réservé. Le fichier  *.env* inclut les valeurs de ces variables.
 1. Accédez au dossier *src/cloud-to-device-console-app*. Ce dernier contient votre fichier *appsettings.json* et quelques autres fichiers :
 
-    * ***c2d-console-app.csproj** _ : fichier projet pour Visual Studio Code.
-    _ ***operations.json** _ : liste des opérations que vous voulez que le programme exécute.
-    _ ***Program.cs** _ : exemple de code de programme. Ce code :
+    * ***c2d-console-app.csproj*** : fichier projet pour Visual Studio Code.
+    * ***operations.json*** : liste des opérations que vous voulez que le programme exécute.
+    * ***Program.cs*** : exemple de code de programme. Ce code :
 
-        _ Charge les paramètres de l’application.
+        * Il charge les paramètres de l’application.
         * Invoque les méthodes directes exposées par le module Live Video Analytics sur IoT Edge. Vous pouvez utiliser le module pour analyser des flux vidéo en direct en invoquant ses [méthodes directes](../../../direct-methods.md).
         * S’interrompt pour vous permettre d’examiner la sortie du programme dans la fenêtre **TERMINAL** et d’examiner les événements qui ont été générés par le module dans la fenêtre **SORTIE**.
         * Invoque des méthodes directes pour nettoyer des ressources.
@@ -49,11 +49,11 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
     
     ![Définir la chaîne de connexion IoT Hub](../../../media/quickstarts/set-iotconnection-string.png)
 
-> [!NOTE]
-> Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 1. Cliquez avec le bouton droit sur *src/edge/config/ deployment.yolov3.amd64.json*, puis sélectionnez **Créer un déploiement pour un seul appareil**. 
 
@@ -92,6 +92,11 @@ Dans le cadre des prérequis, vous avez téléchargé l’exemple de code dans u
 
    ![Démarrer la surveillance](../../../media/quickstarts/start-monitoring-iothub-events.png) 
 
+> [!NOTE]
+> Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 ### <a name="run-the-sample-program"></a>Exécuter l'exemple de programme
 
 1. Pour démarrer une session de débogage, appuyez sur la touche F5. Des messages s’affichent dans la fenêtre **TERMINAL**.

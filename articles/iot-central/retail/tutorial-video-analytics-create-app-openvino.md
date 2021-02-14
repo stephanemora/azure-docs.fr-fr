@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: fbe1e84525eed47127a08abc9fb7ec5d1144d02f
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a201a0300cb4ae0fba1a41b5f64838c17904fa83
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763607"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832094"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Tutoriel : Créer une application d’analytique vidéo pour la détection d’objets et de mouvements dans Azure IoT Central (OpenVINO&trade;)
 
@@ -125,3 +125,25 @@ Dans la page **LVA Edge Gateway v2**, sélectionnez **+ Remplacer le manifeste**
 Accédez au dossier *lva-configuration* et sélectionnez le fichier manifeste *deployment.openvino.amd64.json* modifié précédemment. Sélectionnez **Télécharger**. Une fois la validation terminée, sélectionnez **Remplacer**.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous en avez terminé avec l’application, vous pouvez supprimer toutes les ressources que vous avez créées comme suit :
+
+1. Dans l’application IoT Central, dans la section **Administration**, accédez à la page **Votre application** . Puis sélectionnez **Supprimer**.
+1. Dans le portail Azure, supprimez le groupe de ressources **lva-rg**.
+1. Sur votre ordinateur local, arrêtez le conteneur Docker **amp-Viewer**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous venez de créer une application IoT Central à l’aide du modèle d’application **Analytique vidéo - Détection d’objets et de mouvements**, de créer un modèle d’appareil pour l’appareil de passerelle et d’ajouter un appareil de passerelle à l’application.
+
+Si vous souhaitez tester l’application Analytique vidéo - Détection d’objets et de mouvements à l’aide des modules IoT Edge exécutant une machine virtuelle cloud avec des flux vidéo simulés :
+
+> [!div class="nextstepaction"]
+> [Créer une instance IoT Edge pour l’analytique vidéo (machine virtuelle Linux)](tutorial-video-analytics-iot-edge-vm.md)
+
+Si vous souhaitez tester l’application Analytique vidéo - Détection d’objets et de mouvements à l’aide des modules IoT Edge exécutant un appareil réel avec la caméra réelle **ONVIF** :
+
+> [!div class="nextstepaction"]
+> [Créer une instance IoT Edge pour l’analytique vidéo (Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md)
