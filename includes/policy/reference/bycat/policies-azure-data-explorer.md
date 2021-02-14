@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 5ca261f7482d0c802142efc56b45fc85ba084013
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 1d5006cf1afcf3e98b568a86e5a361bda954b0fe
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99214951"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100100195"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Le chiffrement au repos Azure Data Explorer doit utiliser une clé gérée par le client](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F81e74cea-30fd-40d5-802f-d72103c2aaaa) |Le fait d’activer le chiffrement au repos à l’aide d’une clé gérée par le client dans votre cluster Azure Data Explorer vous offre un contrôle supplémentaire sur cette clé. Cette fonctionnalité est souvent utilisée par les clients qui ont des exigences particulières au niveau de la conformité. Par ailleurs, elle nécessite un coffre de clés pour la gestion des clés. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_CMK.json) |
-|[Le chiffrement de disque doit être activé dans Azure Data Explorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |Le fait d’activer le chiffrement de disque vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise concernant la sécurité et la conformité. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
-|[Le chiffrement double doit être activé dans Azure Data Explorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |Le fait d’activer le chiffrement double vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise concernant la sécurité et la conformité. Lorsque le chiffrement double est activé, les données d’un compte de stockage sont chiffrées deux fois : une fois au niveau du service et une fois au niveau de l’infrastructure, avec deux algorithmes de chiffrement différents et deux clés différentes. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
+|[Le chiffrement de disque doit être activé dans Azure Data Explorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4b53539-8df9-40e4-86c6-6b607703bd4e) |Le fait d’activer le chiffrement de disque vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise concernant la sécurité et la conformité. |Audit, Refuser, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_disk_encrypted.json) |
+|[Le chiffrement double doit être activé dans Azure Data Explorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec068d99-e9c7-401f-8cef-5bdde4e6ccf1) |Le fait d’activer le chiffrement double vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise concernant la sécurité et la conformité. Lorsque le chiffrement double est activé, les données d’un compte de stockage sont chiffrées deux fois : une fois au niveau du service et une fois au niveau de l’infrastructure, avec deux algorithmes de chiffrement différents et deux clés différentes. |Audit, Refuser, Désactivé |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_doubleEncryption.json) |
 |[L’injection de réseau virtuel doit être activée dans Azure Data Explorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ad2fd1f-b25f-47a2-aa01-1a5a779e6413) |Sécurisez votre périmètre réseau à l’aide de l’injection de réseau virtuel qui vous permet d’appliquer des règles de groupe de sécurité réseau, de vous connecter localement et de sécuriser vos sources de connexion de données avec des points de terminaison de service. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Data%20Explorer/ADX_VNET_configured.json) |

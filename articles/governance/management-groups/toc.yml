@@ -22,9 +22,15 @@
     - name: Créer un groupe d’administration - .NET
       displayName: hierarchy
       href: ./create-management-group-dotnet.md
+    - name: Créer un groupe d’administration - Go
+      displayName: hierarchy
+      href: ./create-management-group-go.md
     - name: Créer un groupe d’administration - JavaScript
       displayName: hierarchy
       href: ./create-management-group-javascript.md
+    - name: Créer un groupe d’administration - Python
+      displayName: hierarchy
+      href: ./create-management-group-python.md
     - name: Créer un groupe d’administration - REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
@@ -48,8 +54,12 @@
       href: /powershell/module/az.resources/#resources
     - name: Kit SDK Azure pour .NET
       href: /dotnet/api/overview/azure/managementgroups
+    - name: Kit de développement logiciel Microsoft Azure SDK pour Go
+      href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups'
     - name: Kit SDK Azure pour JavaScript
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
+    - name: Kit SDK Azure pour Python
+      href: /python/api/azure-mgmt-managementgroups/azure.mgmt.managementgroups
     - name: REST
       href: /rest/api/resources/managementgroups
     - name: Modèles Resource Manager

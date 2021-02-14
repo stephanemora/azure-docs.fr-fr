@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226184"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103020"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutoriel : Créer un démon multilocataire qui utilise la plateforme d’identités Microsoft
 
@@ -93,7 +93,7 @@ Si vous ne souhaitez pas utiliser l’automatisation, suivez les étapes décrit
 
 ### <a name="choose-the-azure-ad-tenant"></a>Choisir le locataire Azure AD
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 
 
@@ -203,7 +203,7 @@ Ce projet comporte des projets d’API web et d’applications web. Pour les dé
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Créer et publier dotnet-web-daemon-v2 sur un site web Azure
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Dans le coin supérieur gauche, sélectionnez **Créer une ressource**.
 1. Sélectionnez **Web** > **Application web**, puis donnez un nom à votre site web. Par exemple, nommez-le **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Sélectionnez les informations concernant l’**abonnement**, le **groupe de ressources**, ainsi que le **plan App Service et l’emplacement**. **Système d’exploitation** est défini sur **Windows** et **Publier** est défini sur **Code**.
@@ -224,7 +224,7 @@ Visual Studio publie le projet et ouvre automatiquement l’URL du projet dans u
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Mettre à jour l’inscription de l’application locataire Azure AD pour dotnet-web-daemon-v2
 
-1. Revenez au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Revenez au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Dans le volet de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Sélectionnez l’application **dotnet-web-daemon-v2**.
 1. Dans la page d’**authentification** de votre application, mettez à jour les champs **Front-channel logout URL** (URL de déconnexion du canal frontal) avec l’adresse de votre service. Par exemple, utilisez `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.

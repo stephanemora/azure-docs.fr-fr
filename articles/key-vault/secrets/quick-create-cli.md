@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c2c6d106a198445fdbd08fbaeb7d03472b688b62
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e84a9fe15f648311c22fb0f7e8f8374454f5668a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071373"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989160"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI
 
@@ -50,7 +50,7 @@ Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté à Azu
 Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 
 ```azurecli
-az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>"
+az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"
 ```
 
 Vous venez de créer un coffre de clés, d’y stocker un secret et de récupérer ce dernier.
