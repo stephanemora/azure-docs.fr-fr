@@ -4,16 +4,16 @@ description: Découvrez comment utiliser le Kit de développement logiciel (SDK)
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acfaed10cf627e87691a3068ad0b8cffe9d3b2ee
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 0c029abd87e1b819cc4d96e906be8824c019f433
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096286"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584972"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Télécharger de grandes quantités de données aléatoires depuis le stockage Azure
 

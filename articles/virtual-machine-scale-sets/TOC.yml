@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Utiliser des hôtes dédiés (préversion)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: Utiliser des hôtes dédiés
           items:
+            - name: Vue d’ensemble
+              href: ../virtual-machines/dedicated-hosts.md
             - name: Interface de ligne de commande
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

@@ -1,18 +1,18 @@
 ---
 title: Contrôles de conformité réglementaire d’Azure Policy pour les réseaux virtuels Azure
 description: Liste les contrôles de conformité réglementaire d’Azure Policy disponibles pour les réseaux virtuels Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de la conformité de vos ressources Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 5ae4db3b8ff1aa61c778b6385f9e84a5270d2b2c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: a7a10c9831bf31ea3ca3e7e256737ce3f5a669d2
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096075"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091281"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Contrôles de conformité réglementaire d’Azure Policy pour les réseaux virtuels Azure
 
