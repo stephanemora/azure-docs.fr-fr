@@ -1,14 +1,14 @@
 ---
 title: Créer un groupe d’administration avec le portail Azure
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661748"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592430"
 ---
 # <a name="quickstart-create-a-management-group"></a>Démarrage rapide : Créer un groupe d’administration
 
@@ -39,7 +39,7 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
    - L’**ID du groupe d’administration** est l’identificateur unique de l’annuaire utilisé pour envoyer des commandes sur ce groupe d’administration. Cet identificateur n’est pas modifiable après sa création car il est utilisé dans tout le système Azure pour identifier ce groupe. Le [groupe d’administration racine](./overview.md#root-management-group-for-each-directory) est automatiquement créé avec un ID qui correspond à l’ID Azure Active Directory. Pour tous les autres groupes d’administration, affectez un ID unique.
    - Le champ du nom d’affichage correspond au nom qui s’affiche dans le portail Azure. Un nom d’affichage distinct est un champ facultatif lors de la création du groupe d’administration. Il peut être modifié à tout moment.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="Capture d’écran de la page Groupes d’administration montrant les abonnements et les groupes d’administration enfants.":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="Capture d’écran des options « Ajouter un groupe d’administration » pour la création d’un nouveau groupe d’administration.":::
 
 1. Sélectionnez **Enregistrer**.
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9fe5cb13ee352b2c49ab6ae57cabd6116cdfa720
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667671"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593635"
 ---
 # <a name="call-flows"></a>Flux d’appels
 
@@ -44,13 +44,13 @@ Si deux appareils se trouvent dans des sous-réseaux qui ne peuvent pas s’atte
 
 Pour Alice, il s’agit du traducteur d’adresses réseau (NAT) du café et, pour Bob, du traducteur d’adresses réseau de son bureau à domicile. L’appareil d’Alice envoie l’adresse externe de son traducteur d’adresses réseau et Bob fait de même. Les bibliothèques de client apprennent ces adresses externes à partir d’un service STUN (Session Traversal Utilities for NAT) qu’Azure Communication Services fournit gratuitement. La logique qui gère la négociation entre Alice et Bob est incorporée dans les bibliothèques de client fournies par Azure Communication Services. (Vous n’avez pas besoin d’une configuration supplémentaire)
 
-:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
+:::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Schéma montrant un appel VoIP exploitant une connexion STUN.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Cas n° 3 : VoIP où aucune connexion directe ni NAT n’est possible
 
 Si un appareil client ou les deux se trouvent derrière un traducteur d’adresses réseau symétrique, un service cloud distinct servant à relayer le contenu multimédia entre les deux bibliothèques de client est requis. Ce service est appelé TURN (Traversal Using Relays around NAT) et est également fourni par Communication Services. La bibliothèque de client Communication Services Calling utilise automatiquement les services TURN en fonction des conditions de réseau détectées. L’utilisation du service TURN de Microsoft fait l’objet d’une facturation distincte.
 
-:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
+:::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Schéma montrant un appel VoIP exploitant une connexion TURN.":::
  
 ### <a name="case-4-group-calls-with-pstn"></a>Cas 4 : Appels de groupe avec RTPC
 
@@ -58,7 +58,7 @@ Dans le cadre des appels RTPC, la signalisation et le contenu multimédia utilis
 
 Le trafic multimédia RTPC circule via un composant appelé processeur multimédia.
 
-:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
+:::image type="content" source="./media/call-flows/about-voice-pstn.png" alt-text="Schéma montrant un appel de groupe RTPC avec Communication Services.":::
 
 > [!NOTE]
 > Pour ceux qui connaissent bien le traitement de contenu multimédia, notre processeur multimédia est également un agent utilisateur dos à dos, tel que défini dans la [RFC 3261 Protocole SIP : Protocole d’initiation de session](https://tools.ietf.org/html/rfc3261), ce qui signifie qu’il peut traduire les codecs lors de la gestion des appels entre les réseaux Microsoft et de l’opérateur. Le contrôleur de signalisation d’Azure Communication Services est l’implémentation par Microsoft d’un proxy SIP conformément à la même RFC.
@@ -70,11 +70,11 @@ Le protocole RTP (Real-Time Protocol) par défaut pour les appels de groupe est 
 > [!NOTE]
 > Le processeur multimédia peut agir comme une unité de contrôle multipoint (MCU) ou une unité de transfert sélectif (SFU)
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Schéma montrant le flux de processus multimédia UDP dans Communication Services.":::
 
 Si la bibliothèque de client ne peut pas utiliser le protocole UDP pour le contenu multimédia en raison des restrictions du pare-feu, une tentative d’utilisation du protocole TCP (Transmission Control Protocol) est effectuée. Notez que le composant de processeur multimédia nécessite le protocole UDP. Ainsi, lorsque cela se produit, le service TURN de Communication Services est ajouté à l’appel de groupe pour traduire le protocole TCP en protocole UDP. Des frais liés à TURN sont facturés dans ce cas, sauf si les fonctionnalités TURN sont désactivées manuellement.
 
-:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
+:::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Schéma montrant le flux du processus multimédia TCP dans Communication Services.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

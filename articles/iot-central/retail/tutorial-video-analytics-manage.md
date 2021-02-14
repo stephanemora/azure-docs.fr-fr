@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874796"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832604"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutoriel : Surveiller et gérer une application d’analytique vidéo pour la détection d’objet et de mouvement
 
@@ -61,7 +61,7 @@ Si vous avez deux caméras connectées à votre appareil de passerelle IoT Edge,
 
 Sélectionnez l’onglet **Appareils en aval** pour l’appareil **Passerelle d’analytique vidéo en direct 001** afin de voir les caméras que vous venez d’ajouter :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspecter":::
 
 Les caméras figurent également dans la liste de la page **Appareils** dans l’application.
 
@@ -98,7 +98,7 @@ Sélectionnez **Enregistrer**.
 
 Au bout de quelques secondes, vous voyez s’afficher le message de confirmation **Accepté** pour chaque paramètre :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Détection d’objet":::
 
 ## <a name="start-lva-processing"></a>Démarrer le traitement d’analytique vidéo en direct
 
@@ -108,13 +108,13 @@ Exécutez la commande **Démarrer le traitement d’analytique vidéo en direct*
 
 Une fois l’exécution de la commande terminée, affichez l’historique des commandes pour vous assurer qu’il n’y a pas d’erreurs :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Commande Démarrer le traitement d’analytique vidéo en direct":::
 
 ## <a name="monitor-the-cameras"></a>Surveiller les caméras
 
 Accédez à l’appareil **caméra-003** et sélectionnez l’onglet **Tableau de bord** :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Tableau de bord de la caméra":::
 
 La vignette **Nombre de détections** affiche le nombre moyen de détections pour chacun des objets classes de détection sélectionnés pendant un intervalle de détection d’une seconde.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Accédez à l’appareil **caméra-003** et sélectionnez l’onglet **Tableau de bord**. Cliquez ensuite sur l’un des liens hypertexte de détection d’objet capturés dans la vignette **Vidéo d’événement d’inférence**. La vidéo apparaît sur une page affichée dans le lecteur vidéo local :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Extrait vidéo":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Changer les appareils simulés dans les tableaux de bord d’application
 
@@ -182,7 +182,7 @@ Les tableaux de bord d’application affichent initialement la télémétrie et 
 
 Le tableau de bord **Moniteur de caméra réelle** affiche maintenant les valeurs de votre caméra réelle :
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Ajouter une caméra":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Tableau de bord d’application Caméras réelles":::
 
 ## <a name="pause-processing"></a>Suspendre le traitement
 
@@ -195,7 +195,7 @@ Vous pouvez suspendre le traitement de l’analytique vidéo en direct dans l’
     * Cliquez sur la ressource **Point de terminaison de streaming**.
     * Dans la page **Détails du point de terminaison de streaming**, sélectionnez **Arrêter**.
 
-## <a name="tidy-up"></a>Nettoyer
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous en avez terminé avec l’application, vous pouvez supprimer toutes les ressources que vous avez créées comme suit :
 

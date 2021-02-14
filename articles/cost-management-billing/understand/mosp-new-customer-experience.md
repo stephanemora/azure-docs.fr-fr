@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133556"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575464"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Bien démarrer avec votre compte de facturation Azure mis à jour
 
@@ -42,7 +42,7 @@ Lorsque votre compte est mis à jour, un profil de facturation est automatiqueme
 
 Les rôles associés aux profils de facturation sont autorisés à afficher et à gérer les factures et les modes de paiement. Ces rôles sont à attribuer aux utilisateurs qui paient les factures tels que les membres du service de comptabilité d’une organisation. Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Lorsque votre compte est mis à jour, pour chaque abonnement pour lequel vous avez accordé à d’autres utilisateurs l’autorisation d’[afficher des factures](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), les utilisateurs titulaires d’un rôle Azure propriétaire, contributeur, lecteur ou lecteur de facturation se voient attribuer le rôle lecteur sur le profil de facturation correspondant.
+Lorsque votre compte est mis à jour, pour chaque abonnement pour lequel vous avez accordé à d’autres utilisateurs l’autorisation d’[afficher des factures](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice), les utilisateurs titulaires d’un rôle Azure propriétaire, contributeur, lecteur ou lecteur de facturation se voient attribuer le rôle lecteur sur le profil de facturation correspondant.
 
 ## <a name="invoice-sections"></a>Sections de facture
 
