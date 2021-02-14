@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fc8ddba2ec9b7bc9f1c2db8673ab805810afe17e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545478"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981287"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Démarrage rapide : Déployer un hub Azure IoT et un compte de stockage en utilisant un modèle ARM
 
@@ -53,7 +53,7 @@ Cette section décrit les étapes de déploiement du modèle, de création d’u
 
 1. Téléchargez et décompressez les [exemples C# IoT](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
-1. Ouvrez une fenêtre de commande et accédez au dossier où vous avez décompressé les exemples C# IoT. Recherchez le dossier contenant le fichier arm-read-write.csproj. Vous créez les variables d’environnement dans cette fenêtre de commande. Connectez-vous au [portail Azure](https://portal.azure.com) pour obtenir les clés. Sélectionnez **Groupes de ressources** , puis sélectionnez le groupe de ressources utilisé pour ce guide de démarrage rapide.
+1. Ouvrez une fenêtre de commande et accédez au dossier où vous avez décompressé les exemples C# IoT. Recherchez le dossier contenant le fichier arm-read-write.csproj. Vous créez les variables d’environnement dans cette fenêtre de commande. Connectez-vous au [portail Azure](https://portal.azure.com) pour obtenir les clés. Sélectionnez **Groupes de ressources**, puis sélectionnez le groupe de ressources utilisé pour ce guide de démarrage rapide.
 
    ![Sélectionner le groupe de ressources](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -89,9 +89,9 @@ Cette section décrit les étapes de déploiement du modèle, de création d’u
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. La dernière variable d’environnement est l’ **ID d’appareil**. Dans la fenêtre de commande, configurez la commande et exécutez-la.
+1. La dernière variable d’environnement est l’**ID d’appareil**. Dans la fenêtre de commande, configurez la commande et exécutez-la.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
@@ -101,7 +101,7 @@ Cette section décrit les étapes de déploiement du modèle, de création d’u
    SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
-1. Pour voir les variables d’environnement que vous avez définies, tapez SET sur la ligne de commande et appuyez sur **Entrée** , puis recherchez celles qui commencent par **IoT**.
+1. Pour voir les variables d’environnement que vous avez définies, tapez SET sur la ligne de commande et appuyez sur **Entrée**, puis recherchez celles qui commencent par **IoT**.
 
    ![Voir les variables d’environnement](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
@@ -121,7 +121,7 @@ Cette section décrit les étapes de déploiement du modèle, de création d’u
 
    ![Examiner les fichiers du compte de stockage](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Sélectionnez un des fichiers et sélectionnez **Télécharger** , puis téléchargez le fichier à un emplacement que vous pouvez retrouver ultérieurement. Son nom est un nombre, par exemple 47. Ajoutez _.txt_ à la fin, puis double-cliquez sur le fichier pour l’ouvrir.
+1. Sélectionnez un des fichiers et sélectionnez **Télécharger**, puis téléchargez le fichier à un emplacement que vous pouvez retrouver ultérieurement. Son nom est un nombre, par exemple 47. Ajoutez _.txt_ à la fin, puis double-cliquez sur le fichier pour l’ouvrir.
 
 1. Quand vous ouvrez le fichier, chaque ligne correspond à un message différent ; le corps de chaque message est chiffré. Il doit vous permettre d’effectuer des requêtes sur le corps du message.
 
@@ -134,7 +134,7 @@ Vous avez déployé un modèle ARM pour créer un hub IoT et un compte de stocka
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer les ressources ajoutées au cours de ce démarrage rapide, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Groupes de ressources** , puis recherchez le groupe de ressources utilisé pour ce guide de démarrage rapide. Sélectionnez le nom du groupe de ressources, puis sélectionnez *Supprimer*. Ceci va supprimer toutes les ressources dans le groupe.
+Pour supprimer les ressources ajoutées au cours de ce démarrage rapide, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Groupes de ressources**, puis recherchez le groupe de ressources utilisé pour ce guide de démarrage rapide. Sélectionnez le nom du groupe de ressources, puis sélectionnez *Supprimer*. Ceci va supprimer toutes les ressources dans le groupe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

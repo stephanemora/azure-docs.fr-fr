@@ -223,7 +223,7 @@
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
-        - name: Stratégie
+        - name: Policy
           href: /powershell/module/az.resources#policy
         - name: Policy Insights
           href: /powershell/module/az.policyinsights
@@ -249,7 +249,7 @@
           href: /javascript/api/@azure/arm-policyinsights
     - name: Kit SDK Azure pour Python
       items:
-        - name: Stratégie
+        - name: Policy
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
         - name: Client de stratégie
           href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
@@ -323,8 +323,6 @@
       items:
         - name: Chaîne YouTube Governance
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: "Vidéo - Ignite\_2019"
-          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
         - name: Vidéos de configuration invité
           items:
             - name: Mise en route
