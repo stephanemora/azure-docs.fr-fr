@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: e4485e4f8e873b1b49dc3d6df72eb04a1cbe8c17
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 4c63a9833e6b9a9b243d289d79428ddef1468253
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992752"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833879"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Démarrage rapide : Utiliser Azure IoT Central pour surveiller vos appareils
 
@@ -50,6 +50,10 @@ Pour apporter une modification à l’appareil, utilisez la page **Gérer l’ap
 Affectez la valeur 80 à **Target temperature** pour chauffer l’appareil et réduire l’humidité. Choisissez **Enregistrer** pour mettre à jour l’appareil. Quand l’appareil confirme la modification du paramètre, l’état de la propriété passe à **synchronisé** :
 
 :::image type="content" source="media/quick-monitor-devices/change-settings.png" alt-text="Capture d’écran montrant le paramètre de température cible mis à jour pour l’appareil":::
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
