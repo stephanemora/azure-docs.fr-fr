@@ -1,6 +1,6 @@
 - name: Documentation Azure Machine Learning
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu'est-ce que Azure Machine Learning\_?"
@@ -278,8 +278,16 @@
         - name: Configurer des environnements de développement
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Exécuter des notebooks Jupyter
-          href: how-to-run-jupyter-notebooks.md
+        - name: Configurer un environnement de studio
+          items:
+            - name: Créer et gérer des fichiers
+              href: how-to-manage-files.md
+              displayName: 'Jupyter, notebooks, clone, samples'
+            - name: Exécuter des notebooks Jupyter
+              href: how-to-run-jupyter-notebooks.md
+            - name: Utiliser un terminal
+              href: how-to-access-terminal.md
+              displayName: 'git, github, clone, kernel, package'
         - name: Configurer des environnements logiciels
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md

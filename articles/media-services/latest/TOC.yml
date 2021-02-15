@@ -13,6 +13,8 @@
   items:
     - name: Configurer votre environnement
       items:
+        - name: Rechercher votre ID de locataire
+          href: how-to-set-azure-tenant.md
         - name: Trouver votre abonnement Azure
           href: how-to-set-azure-subscription.md
         - name: Créer un compte Media Services
@@ -70,6 +72,8 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
+        - name: Activer le stockage approuvé
+          href: tutorial-trusted-storage-rest.md
         - name: Encoder et diffuser en streaming un fichier distant REST
           href: stream-files-tutorial-with-rest.md
         - name: Clés gérées par le client avec l’API REST
@@ -305,6 +309,12 @@
           displayName: 'migration, samples'
 - name: Guides pratiques
   items:
+    - name: Rechercher votre locataire et votre abonnement
+      items:
+        - name: Rechercher votre ID de locataire
+          href: how-to-set-azure-tenant.md
+        - name: Recherche de votre ID d’abonnement
+          href: how-to-set-azure-subscription.md
     - name: Créer des ressources et charger des éléments multimédias
       items:
         - name: Créer une ressource

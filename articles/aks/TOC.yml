@@ -338,7 +338,7 @@
         - name: Créer une application avec MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Déployer une application Open Liberty ou WebSphere Liberty
+        - name: Créer une application avec Open Liberty ou WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md
@@ -430,7 +430,7 @@
       href: 'https://github.com/Azure/AKS/projects/1'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Vidéos
+    - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
     - name: Questions fréquentes (FAQ)
       href: faq.md
