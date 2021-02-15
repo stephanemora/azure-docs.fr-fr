@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: f54659cc279b68113150f2f49d18e938f2500030
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: fda727a1abb488910d52b756455d2b6843e0e8b1
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526261"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550250"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -195,6 +195,12 @@ Pour voir les événements du module objectCounter et du module Live Video Analy
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Démarrer la supervision du point de terminaison d’événement intégré":::
+
+    > [!NOTE]
+    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 ## <a name="run-the-program"></a>Exécuter le programme
 
@@ -210,7 +216,7 @@ Pour voir les événements du module objectCounter et du module Live Video Analy
 1. <!--In Visual Studio Code, go-->Accédez à src/cloud-to-device-console-app/operations.json.
 1. Sous le nœud **GraphTopologySet**, modifiez les points suivants :
 
-    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/2.0/topology.json"`
     
 1. Ensuite, sous les nœuds **GraphInstanceSet** et **GraphTopologyDelete**, modifiez :
 
