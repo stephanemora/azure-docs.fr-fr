@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995520"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832383"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutoriel - Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -51,11 +51,11 @@ Pour créer un modèle d’appareil pour un appareil **S1 Sensor** :
 
 1. Dans la page **Vérifier**, sélectionnez **Créer** pour ajouter le modèle d’appareil à votre application. 
 
-Pour créer un modèle d’appareil pour un appareil **_RS40 Occupancy Sensor_*  :
+Pour créer un modèle d’appareil pour un appareil ***RS40 Occupancy Sensor** :
 
 1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
 
-1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil **_RS40 Occupancy Sensor_*. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
+1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil ***RS40 Occupancy Sensor**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
 
 1. Dans la page **Vérifier**, sélectionnez **Créer** pour ajouter le modèle d’appareil à votre application. 
 
@@ -198,6 +198,10 @@ Vos appareils en aval simulés sont maintenant connectés à votre appareil de p
 
 Sélectionnez un modèle d’appareil de passerelle et une instance d’appareil de passerelle, puis sélectionnez **Rejoindre**.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
@@ -208,9 +212,6 @@ Dans ce didacticiel, vous avez appris à :
 * Définir une visualisation pour la télémétrie de l’appareil.
 * Ajouter des relations.
 * Publier votre modèle d’appareil.
-
-> [!NOTE]
-> La génération de code basé sur VS Code n’est pas prise en charge pour les appareils de passerelle modélisés dans IoT Central.
 
 Ensuite, en tant que développeur d’appareils, vous pouvez apprendre à :
 

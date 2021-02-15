@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Déployer Azure File Sync
           href: storage-sync-files-deployment-guide.md
-        - name: Créer un partage de fichiers premium
-          href: storage-how-to-create-premium-fileshare.md
         - name: Créer un partage NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: Instance de cluster de basculement SQL Server avec partages de fichiers Premium

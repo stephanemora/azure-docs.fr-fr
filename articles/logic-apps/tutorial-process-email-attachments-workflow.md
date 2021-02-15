@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 95cc13a79f39888a5be10e423bda4c7cd7c84cb3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054786"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576361"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
@@ -88,7 +88,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
       ![Copier et enregistrer un nom de compte de stockage et une clé](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou [Azure CLI](/cli/azure/storage/account/keys.md#az-storage-account-keys-list).
+   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou [Azure CLI](/cli/azure/storage/account/keys).
 
 1. Créez un conteneur de stockage d’objets blob pour vos pièces jointes.
 

@@ -147,14 +147,10 @@
                   href: encryption-customer-provided-keys.md
                 - name: Étendues de chiffrement
                   href: encryption-scope-overview.md
-            - name: Objets blob immuables
-              href: storage-blob-immutable-storage.md
             - name: Utiliser des points de terminaison privés Azure
               href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurer la préférence de routage réseau
               href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Redondance des données
-          href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Protection de données
           items:
             - name: Contrôle de version
@@ -169,6 +165,14 @@
               href: storage-blob-change-feed.md
             - name: Restauration dans le temps
               href: point-in-time-restore-overview.md
+            - name: Objets blob immuables
+              href: storage-blob-immutable-storage.md
+        - name: Redondance et reprise d’activité
+          items:
+            - name: Redondance des données
+              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Basculement géré par le client pour la reprise d’activité
+              href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Réplication d’objets
           href: object-replication-overview.md
         - name: Niveaux d’accès et de performances
@@ -181,8 +185,6 @@
               href: storage-blob-performance-tiers.md
             - name: Automatiser le cycle de vie des niveaux d’accès
               href: storage-lifecycle-management-concepts.md
-        - name: Reprise d’activité après sinistre et basculement
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Optimisation des performances, de la mise à l’échelle et des coûts'
           items:
             - name: Liste de contrôle des performances et de l’évolutivité
@@ -391,15 +393,7 @@
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurer Azure Defender pour la protection contre les menaces
               href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Définir et gérer des stratégies d’immuabilité
-              href: storage-blob-immutability-policies-manage.md
-        - name: Gérer la redondance des données
-          items:
-            - name: Changer la configuration de redondance
-              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Concevoir des applications hautement disponibles
-              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Protéger vos données
+        - name: Protéger les données de blob
           items:
             - name: Activer la gestion des versions des objets blob
               href: versioning-enable.md
@@ -413,14 +407,20 @@
               href: storage-blob-change-feed-how-to.md
             - name: Activer la restauration dans le temps
               href: point-in-time-restore-manage.md
-        - name: Configurer la réplication d’objets
-          href: object-replication-configure.md
-        - name: Gérer la reprise d’activité après sinistre
+            - name: Définir et gérer des stratégies d’immuabilité
+              href: storage-blob-immutability-policies-manage.md
+        - name: Gérer la redondance et le basculement
           items:
+            - name: Changer la configuration de redondance
+              href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Concevoir des applications hautement disponibles
+              href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Vérifier la propriété Heure de la dernière synchronisation
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Initier un basculement de compte
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configurer la réplication d’objets
+          href: object-replication-configure.md
         - name: Gérer la concurrence
           href: concurrency-manage.md
         - name: Utiliser un émulateur de stockage
@@ -575,7 +575,7 @@
           href: 'https://azure.microsoft.com/pricing/details/storage/page-blobs/'
         - name: Calculatrice de prix Azure
           href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Vidéos
+        - name: Videos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
         - name: Packages NuGet (.NET)
           items:
@@ -871,5 +871,5 @@
           href: 'https://azure.microsoft.com/updates/?product=storage'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-        - name: Vidéos
+        - name: Videos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
