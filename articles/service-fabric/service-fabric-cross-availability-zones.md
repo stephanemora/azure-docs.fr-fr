@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918921"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007038"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -374,8 +374,8 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 * La première valeur, **multipleAvailabilityZones**, doit être définie sur true pour le nodeType.
 * La deuxième valeur, **sfZonalUpgradeMode**, est facultative. Il n’est pas possible de modifier cette propriété si un nodeType avec plusieurs AZ est déjà présent dans le cluster.
       La propriété contrôle le regroupement logique des machines virtuelles dans les domaines de mise à niveau.
-          Si la valeur est définie sur false (mode plat) : les machines virtuelles sous le type de nœud seront regroupées en UD en ignorant les informations de zone dans 5 UD.
-          Si la valeur est omise ou définie sur true (mode hiérarchique) : les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des 3 zones aura 5 UD.
+          Si la valeur est définie sur « Parallèle » : Les machines virtuelles sous le type de nœud seront regroupées en UD en ignorant les informations de zone dans 5 UD.
+          Si la valeur est omise ou définie sur « Hiérarchique » : les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des 3 zones aura 5 UD.
           Cette propriété définit uniquement le comportement de mise à niveau pour l’application ServiceFabric et les mises à niveau de code. Les mises à niveau du groupe de machines virtuelles identiques sous-jacentes seront toujours parallèles dans tous les AZ.
       Cette propriété n’a aucun impact sur la distribution d’UD pour les types de nœuds pour lesquels plusieurs zones ne sont pas activées.
 * La troisième valeur est **vmssZonalUpgradeMode = Parallel**. Il s’agit d’une propriété *obligatoire* à configurer dans le cluster en cas d’ajout d’un nodeType avec plusieurs AZ. Cette propriété définit le mode de mise à niveau pour les mises à jour du groupe de machines virtuelles identiques qui se produiront en parallèle simultanément dans tous les AZ.

@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927732"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979978"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -175,6 +175,24 @@ Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[
 
 ## <a name="create-using-azure-policy"></a>Créer à l’aide d’Azure Policy
 Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Pour plus d’informations, consultez [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
+
+## <a name="metric-category-is-not-supported-error"></a>Erreur de catégorie de métrique non prise en charge
+Lors du déploiement d’un paramètre de diagnostic, vous recevez le message d’erreur suivant :
+
+   « La catégorie de métrique « *xxxx* » n’est pas prise en charge »
+
+Par exemple : 
+
+   « La catégorie de métrique « ActionsFailed » n’est pas prise en charge »
+
+alors que votre précédent déploiement avait réussi. 
+
+Le problème se produit lors de l’utilisation d’un modèle Resource Manager, de l’API REST des paramètres de diagnostic, d’Azure CLI ou d’Azure PowerShell. Les paramètres de diagnostic créés via le portail Azure ne sont pas affectés, car seuls les noms des catégories prises en charge sont présentés.
+
+Le problème est dû à une modification récente de l’API sous-jacente. Les catégories de métriques autres que « AllMetrics » ne sont pas prises en charge et ne l’ont jamais été, à l’exception de quelques services Azure spécifiques. Par le passé, les autres noms de catégorie étaient ignorés lors du déploiement d’un paramètre de diagnostic. Le back-end Azure Monitor redirigeait simplement ces catégories vers « AllMetrics ».  À compter de février 2021, le back-end a été mis à jour et vérifie maintenant spécifiquement que la catégorie de métriques fournie est exacte. Ce changement a entraîné l’échec de certains déploiements.
+
+Si vous recevez cette erreur, mettez à jour vos déploiements en y remplaçant tous les noms de catégories de métriques par « AllMetrics » pour résoudre le problème. Si le déploiement cumulait déjà plusieurs catégories, une seule catégorie avec la référence « AllMetrics » doit être conservée. Si vous continuez à rencontrer le problème, contactez le support technique Azure via le portail Azure. 
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

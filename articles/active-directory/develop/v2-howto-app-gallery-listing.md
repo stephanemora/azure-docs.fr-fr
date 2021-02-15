@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752866"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988903"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publier votre application dans la galerie d’applications Azure AD
 
@@ -85,7 +85,7 @@ Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités A
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Étape 1 : Choisissez la norme d’authentification unique appropriée pour votre application
 
-Pour répertorier une application dans la Galerie d’applications Azure AD, vous devez implémenter au moins une des options d’authentification unique prises en charge. Pour comprendre les options d’authentification unique et la façon dont les clients les configurent dans Azure AD, consultez [Options d’authentification unique](../manage-apps/sso-options.md).
+Pour lister une application dans la Galerie d’applications Azure AD, implémentez au moins une des options d’authentification unique prises en charge. Pour comprendre les options d’authentification unique et la façon dont les clients les configurent dans Azure AD, consultez [Options d’authentification unique](../manage-apps/sso-options.md).
 
 Le tableau suivant compare les normes principales : Open Authentication 2.0 (OAuth 2.0) avec OpenID Connect (OIDC), Security Assertion Markup Language (SAML) et Web Services Federation (WS-Fed).
 
@@ -186,7 +186,7 @@ Vous aurez besoin d’un locataire Azure AD pour tester votre application. Pour 
 
 En guise d’alternative, un locataire Azure AD est fourni avec chaque abonnement Microsoft 365. Pour configurer un environnement de développement Microsoft 365 gratuit, consultez [Rejoindre le programme pour développeurs Microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Une fois que vous avez un locataire, vous devez tester l’authentification unique et l’[approvisionnement](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Une fois que vous avez un locataire, testez l’authentification unique et le [provisionnement](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **Pour les applications OIDC ou Oath**, [inscrivez votre application](quickstart-register-app.md) comme une application mutualisée. Sous Types de comptes pris en charge, sélectionnez l’option Comptes dans un annuaire organisationnel et comptes personnels Microsoft.
 

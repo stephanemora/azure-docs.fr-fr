@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936207"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592328"
 ---
 # <a name="app-service-overview"></a>Vue d'ensemble d'App Service
 
@@ -56,7 +56,7 @@ Si vous devez créer une autre application web avec une version obsolète du run
 
 - App Service sur Linux n’est pas pris en charge au niveau de tarification [Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). 
 - Vous ne pouvez pas mélanger les applications Windows et Linux dans le même plan App Service.  
-- Au sein du même groupe de ressources, vous ne pouvez pas mélanger les applications Windows et Linux dans la même région.
+- Pendant longtemps, il n’était pas possible de mélanger des applications Windows et Linux dans un même groupe de ressources. Cependant, tous les groupes de ressources créés à partir du 21 janvier 2021 prennent en charge ce scénario. Pour les groupes de ressources créés avant le 21 janvier 2021, il sera bientôt possible d’ajouter des déploiements sur plateformes mixtes dans les régions Azure (notamment les régions de cloud national).
 - Le portail Azure affiche uniquement les fonctionnalités actuellement compatibles avec les applications Linux. À mesure que des fonctionnalités sont compatibles, elles sont activées sur le portail.
 - En cas de déploiement sur des images intégrées, votre code et votre contenu sont alloués à un volume de stockage pour le contenu web et sauvegardé par le Stockage Azure. La latence du disque de ce volume est supérieure et plus variable que la latence du système de fichiers du conteneur. L’option de conteneur peut être bénéfique aux applications qui nécessitent un accès en lecture seule intensif aux fichiers de contenu, car les fichiers sont placés dans le système de fichiers du conteneur plutôt que sur le volume de contenu.
 

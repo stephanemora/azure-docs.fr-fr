@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033287"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575938"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -32,7 +32,7 @@ Vous pouvez créer des applications Vision par ordinateur par le biais d’un [k
 
 ## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
-Vision par ordinateur comprend des [fonctionnalités de reconnaissance optique de caractères (OCR)](concept-recognizing-text.md). Vous pouvez utiliser la nouvelle API Lire pour extraire du texte imprimé et manuscrit d’images et de documents. Elle utilise les modèles les plus récents et fonctionne avec du texte sur diverses surfaces et fonds. Ces derniers comprennent les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les deux API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
+Vision par ordinateur comprend des [fonctionnalités de reconnaissance optique de caractères (OCR)](concept-recognizing-text.md). Vous pouvez utiliser la nouvelle API Lire pour extraire du texte imprimé et manuscrit d’images et de documents. Elle utilise des modèles basés sur le Deep Learning et fonctionne avec du texte sur diverses surfaces et fonds. Ces derniers comprennent les documents commerciaux, les factures, les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Vision par ordinateur pour la gestion des ressources numériques
 

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bibliothèque de client QnA Maker pour .NET'
 description: Ce guide de démarrage rapide montre comment bien démarrer avec la bibliothèque cliente QnA Maker pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.  QnA Maker vous permet de mettre en place un service de questions-réponses à partir de votre contenu semi-structuré, comme des documents de questions fréquentes (FAQ), des URL et des manuels de produit.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: e75fdbe49910f9d6fe4fe25a7996fccf415fdf35
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 18d8dbc59d1c43961cd665a3ea98d1041516afb7
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947511"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616284"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/version-1)
 
@@ -151,7 +151,9 @@ Dans la méthode `Main` de l’application, ajoutez des variables et du code, co
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/version-1)
 
 > [!IMPORTANT]
-> Accédez au portail Azure, puis recherchez la clé et le point de terminaison de la ressource QnA Maker que vous avez créés à l’étape des prérequis. Ces informations se trouvent dans la page sur **la clé et le point de terminaison** de la ressource, sous **gestion des ressources**.
+> Accédez au portail Azure, puis recherchez la clé et le point de terminaison de la ressource QnA Maker que vous avez créés à l’étape des prérequis. Ces informations se trouvent dans la page sur **la clé et le point de terminaison** de la ressource, sous **gestion des ressources**. 
+
+Nous utilisons une clé d’abonnement et une clé de création de manière interchangeable. Pour plus d’informations sur la clé de création, consultez [Clés dans QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker).
 
 - Créez des variables d’environnement nommées QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT et QNA_MAKER_RUNTIME_ENDPOINT pour stocker ces valeurs.
 - Le format de la valeur de QNA_MAKER_ENDPOINT est `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
@@ -163,7 +165,9 @@ Dans la méthode `Main` de l’application, ajoutez des variables et du code, co
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/version-2)
 
 > [!IMPORTANT]
-> Accédez au portail Azure, puis recherchez la clé et le point de terminaison de la ressource QnA Maker que vous avez créés à l’étape des prérequis. Ces informations se trouvent dans la page sur **la clé et le point de terminaison** de la ressource, sous **gestion des ressources**.
+> Accédez au portail Azure, puis recherchez la clé et le point de terminaison de la ressource QnA Maker que vous avez créés à l’étape des prérequis. Ces informations se trouvent dans la page sur **la clé et le point de terminaison** de la ressource, sous **gestion des ressources**. 
+
+Nous utilisons une clé d’abonnement et une clé de création de manière interchangeable. Pour plus d’informations sur la clé de création, consultez [Clés dans QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker).
 
 - Créez des variables d’environnement nommées QNA_MAKER_SUBSCRIPTION_KEY et QNA_MAKER_ENDPOINT pour stocker ces valeurs.
 - Le format de la valeur de QNA_MAKER_ENDPOINT est `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
@@ -172,6 +176,7 @@ Dans la méthode `Main` de l’application, ajoutez des variables et du code, co
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=Resourcevariables)]
 
 ---
+
 
 ## <a name="object-models"></a>Modèles objet
 
