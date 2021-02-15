@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221089"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584717"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -176,7 +176,7 @@ Il indique aussi les tables qui ont été automatiquement extraites. Cliquez sur
 
 ### <a name="apply-labels-to-text"></a>Appliquer des étiquettes à du texte
 
-Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle reconnaisse.
+Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle analyse.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.

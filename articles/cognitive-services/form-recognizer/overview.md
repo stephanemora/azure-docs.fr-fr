@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044762"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584564"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -87,13 +87,13 @@ Form Recognizer utilise l’[API de disposition](#layout-api) pour connaître le
 Form Recognizer comprend aussi des modèles prédéfinis pour le traitement de données automatisé des types de formulaires uniques.
 
 ### <a name="prebuilt-invoice-model"></a>Modèle de facture prédéfini
-Le modèle de facture prédéfini extrait les données des factures dans différents formats et retourne des données structurées. Ce modèle extrait des informations clés, comme l’ID de facture, les détails du client, les détails du fournisseur, le destinataire de l’envoi, le destinataire de la facture, le total, les taxes, le sous-total, etc. De plus, le modèle de facture prédéfini est entraîné pour reconnaître et retourner tout le texte et tous les tableaux de la facture. Pour plus d’informations, consultez le guide conceptuel [Factures](./concept-invoices.md).
+Le modèle de facture prédéfini extrait les données des factures dans différents formats et retourne des données structurées. Ce modèle extrait des informations clés, comme l’ID de facture, les détails du client, les détails du fournisseur, le destinataire de l’envoi, le destinataire de la facture, le total, les taxes, le sous-total, etc. De plus, le modèle de facture prédéfini est entraîné pour analyser et retourner tout le texte et tous les tableaux de la facture. Pour plus d’informations, consultez le guide conceptuel [Factures](./concept-invoices.md).
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="Exemple de facture" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modèle de ticket de caisse prédéfini
 
-Le modèle Prebuilt Receipt (Ticket de caisse prédéfini) permet de lire les tickets de caisse en anglais émis en Australie, au Canada, en Grande-Bretagne, en Inde et aux États-Unis&mdash;du type utilisé dans les restaurants, les stations-service, les commerces, etc. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du commerçant, le montant des taxes, les articles, les totaux, etc. En outre, le modèle de reçu préconstruit est entraîné pour reconnaître et retourner tout le texte d’un reçu. Pour plus d’informations, consultez le guide conceptuel des [reçus](./concept-receipts.md).
+Le modèle Prebuilt Receipt (Ticket de caisse prédéfini) permet de lire les tickets de caisse en anglais émis en Australie, au Canada, en Grande-Bretagne, en Inde et aux États-Unis&mdash;du type utilisé dans les restaurants, les stations-service, les commerces, etc. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du commerçant, le montant des taxes, les articles, les totaux, etc. En outre, le modèle de reçu préconstruit est entraîné pour analyser et retourner tout le texte d’un reçu. Pour plus d’informations, consultez le guide conceptuel des [reçus](./concept-receipts.md).
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="exemple de ticket de caisse" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Comme c’est le cas pour tous les services Cognitive Services, les développeur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez un [guide de démarrage rapide](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de votre choix.
+Suivez un [guide de démarrage rapide](quickstarts/client-library.md) pour vous lancer dans l’écriture d’une application de traitement de formulaires avec Form Recognizer dans le langage de développement de votre choix.

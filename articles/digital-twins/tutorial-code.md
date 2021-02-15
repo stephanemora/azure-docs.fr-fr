@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602123"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576259"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutoriel : Codage avec les API Azure Digital Twins
 
@@ -253,12 +253,16 @@ Dans votre fenêtre de commande, exécutez le programme avec `dotnet run`. La so
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
- 
-L’instance utilisée dans ce tutoriel peut être réutilisée dans le tutoriel suivant, intitulé [*Tutoriel : Explorer les bases avec un exemple d’application cliente*](tutorial-command-line-app.md). Si vous envisagez de passer au tutoriel suivant, vous pouvez conserver l’instance Azure Digital Twins que vous avez configurée ici.
+
+À l’issue de ce tutoriel, vous pourrez choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
+
+* **Si vous envisagez de passer au tutoriel suivant**, vous pourrez y réutiliser l’instance utilisée dans ce tutoriel. Vous pouvez conserver les ressources Azure Digital Twins que vous avez configurées ici et ignorer le reste de cette section.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Pour finir, supprimez le dossier de projet que vous avez créé sur votre ordinateur local.
+Vous pouvez également supprimer le dossier de projet de votre ordinateur local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

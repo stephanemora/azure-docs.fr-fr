@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684003"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575803"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -401,18 +401,15 @@ Voici une révision du scénario que vous avez créé au cours de ce tutoriel.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer. 
+À l’issue de ce tutoriel, vous pourrez choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
 
-Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Sont ainsi supprimés le groupe de ressources ; l’instance Azure Digital Twins ; le hub IoT et l’inscription de l’appareil hub ; la rubrique Event Grid et les abonnements associés ; l’application Azure Functions, y compris les deux fonctions et les ressources associées (par exemple, le stockage).
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. 
+* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins que vous avez configurée dans cet article, tout en effaçant tout ou partie de ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes CLI [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) dans une fenêtre [Azure Cloud Shell](https://shell.azure.com) pour supprimer les éléments que vous souhaitez enlever.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Cette option ne supprime pas les autres ressources Azure créées dans ce tutoriel (hub IoT, application Azure Functions, etc.). Vous pouvez les supprimer individuellement à l’aide des [ commande dt](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) appropriées pour chaque type de ressource.
 
-Pour finir, supprimez le dossier d’exemple de projet que vous avez téléchargé sur votre ordinateur local.
+Vous pouvez également supprimer le dossier de projet de votre ordinateur local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947471"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584649"
 ---
 > [!IMPORTANT]
 > * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Consultez la documentation de référence ci-dessous. 
@@ -81,15 +81,15 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient` propose des opérations pour :
 
- * Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour reconnaître vos formulaires personnalisés. Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`.
+ * Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour analyser vos formulaires personnalisés. Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`.
  * Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle. Le contenu des formulaires est retourné dans une collection d’objets `FormPage`.
  * Reconnaître les champs communs des tickets de caisse, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer. Ces champs et métadonnées sont retournés dans une collection de `RecognizedReceipt`.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient` propose des opérations pour :
 
-* Entraîner les modèles personnalisés à reconnaître tous les champs et les valeurs rencontrés dans vos formulaires personnalisés. Un `CustomFormModel` est retourné indiquant les types de formulaire que le modèle va reconnaître et les champs qu’il va extraire pour chaque type de formulaire. Pour obtenir des informations plus détaillées sur la création d’un jeu de données d’entraînement, consultez la [documentation du service sur l’entraînement d’un modèle sans étiquettes](#train-a-model-without-labels).
-* Entraîner les modèles personnalisés à reconnaître des champs et des valeurs spécifiques que vous spécifiez en étiquetant vos formulaires personnalisés. Un `CustomFormModel` est retourné indiquant les champs que le modèle va extraire ainsi que la précision estimée pour chaque champ. Pour obtenir des informations plus détaillées sur l’application d’étiquettes à un jeu de données d’entraînement, consultez la [documentation du service sur l’entraînement d’un modèle avec étiquettes](#train-a-model-with-labels).
+* Entraîner les modèles personnalisés à analyser tous les champs et les valeurs rencontrés dans vos formulaires personnalisés. Un `CustomFormModel` est retourné indiquant les types de formulaire que le modèle va analyser et les champs qu’il va extraire pour chaque type de formulaire. Pour obtenir des informations plus détaillées sur la création d’un jeu de données d’entraînement, consultez la [documentation du service sur l’entraînement d’un modèle sans étiquettes](#train-a-model-without-labels).
+* Entraîner les modèles personnalisés à analyser des champs et des valeurs spécifiques que vous spécifiez en étiquetant vos formulaires personnalisés. Un `CustomFormModel` est retourné indiquant les champs que le modèle va extraire ainsi que la précision estimée pour chaque champ. Pour obtenir des informations plus détaillées sur l’application d’étiquettes à un jeu de données d’entraînement, consultez la [documentation du service sur l’entraînement d’un modèle avec étiquettes](#train-a-model-with-labels).
 * Gérer les modèles créés dans votre compte.
 * Copier un modèle personnalisé d’une ressource Form Recognizer vers une autre.
 
@@ -128,7 +128,7 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 
 ## <a name="analyze-layout"></a>Analyser la disposition
 
-Vous pouvez utiliser Form Recognizer pour reconnaître les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. Pour reconnaître le contenu d’un fichier à un URI donné, utilisez la méthode `beginRecognizeContentFromUrl`.
+Vous pouvez utiliser Form Recognizer pour analyser les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. Pour plus d’informations sur l’extraction d’une disposition, consultez le [guide conceptuel des dispositions](../../concept-layout.md). Pour analyser le contenu d’un fichier à un URI donné, utilisez la méthode `beginRecognizeContentFromUrl`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -152,31 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="analyze-receipts"></a>Analyser les reçus
 
-Cette section montre comment reconnaître et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné.
-
-Pour reconnaître les tickets à partir d’un URI, utilisez la méthode `beginRecognizeReceiptsFromUrl`. Le code suivant traite un ticket à l’URI donné et imprime les champs principaux et les valeurs dans la console.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> Vous pouvez également reconnaître les images de tickets de caisse locales. Consultez les méthodes [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), telles que **beginRecognizeReceipts**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) pour obtenir des scénarios impliquant des images locales.
-
-### <a name="output"></a>Output
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
-```
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 
@@ -187,7 +163,7 @@ Cette section montre comment entraîner un modèle avec vos propres données. Un
 
 ### <a name="train-a-model-without-labels"></a>Entraîner un modèle sans étiquettes
 
-Entraînez les modèles personnalisés à reconnaître tous les champs et valeurs rencontrés dans vos formulaires personnalisés sans étiqueter manuellement les documents d’entraînement.
+Entraînez les modèles personnalisés à analyser tous les champs et valeurs rencontrés dans vos formulaires personnalisés sans étiqueter manuellement les documents d’entraînement.
 
 La fonction suivante entraîne un modèle sur un ensemble donné de documents et imprime l’état du modèle dans la console. 
 
@@ -320,6 +296,32 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
+```
+
+## <a name="analyze-receipts"></a>Analyser les reçus
+
+Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md).
+
+Pour analyser les tickets de caisse à partir d’un URI, utilisez la méthode `beginRecognizeReceiptsFromUrl`. Le code suivant traite un ticket à l’URI donné et imprime les champs principaux et les valeurs dans la console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> Vous pouvez également analyser les images de tickets de caisse locales. Consultez les méthodes [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), telles que **beginRecognizeReceipts**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) pour obtenir des scénarios impliquant des images locales.
+
+### <a name="output"></a>Output
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
 ```
 
 ## <a name="manage-your-custom-models"></a>Gérer vos modèles personnalisés

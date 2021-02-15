@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050236"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576242"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutoriel : Explorer Azure Digital Twins avec un exemple d’application cliente
 
@@ -274,12 +274,15 @@ L’une des principales fonctionnalités d’Azure Digital Twins est la capacit�
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Le projet de ce tutoriel forme la base du tutoriel suivant, intitulé [*Tutoriel : Connecter une solution de bout en bout*](tutorial-end-to-end.md). Si vous envisagez de continuer avec le tutoriel suivant, vous pouvez conserver les ressources configurées ici pour continuer à utiliser cette instance Azure Digital Twins et l’exemple d’application configurée.
-* Dans ce cas, vous pouvez utiliser les commandes `DeleteAllTwins` et `DeleteAllModels` de l’exemple d’application pour effacer respectivement les jumeaux et les modèles de votre instance. Vous repartirez alors sur de nouvelles bases pour le tutoriel suivant.
+À l’issue de ce tutoriel, vous pourrez choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
+
+* **Si vous envisagez de continuer avec le tutoriel suivant**, vous pouvez conserver les ressources configurées ici pour continuer à utiliser cette instance Azure Digital Twins et l’exemple d’application configurée pour le prochain tutoriel.
+
+* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins, mais effacer tous ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes `DeleteAllTwins` et `DeleteAllModels` de l’exemple d’application pour effacer les jumeaux et les modèles de votre instance, respectivement. Vous repartirez alors sur de nouvelles bases pour le tutoriel suivant.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Pour finir, supprimez le dossier d’exemple de projet que vous avez téléchargé sur votre ordinateur local.
+Vous pouvez également supprimer le dossier de projet de votre ordinateur local.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
