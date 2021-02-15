@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825381"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980607"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -171,7 +171,7 @@ Pour les applications Windows, le fichier ZIP contient le contenu du répertoire
 | **Journaux d’application** |*/LogFiles/Application/* | Contient un ou plusieurs fichiers texte. Le format des messages de journalisation dépend du fournisseur de journalisation que vous utilisez. |
 | **Suivi des demandes ayant échoué** | */LogFiles/W3SVC#########/* | Contient des fichiers XML et un fichier XSL. Vous pouvez afficher les fichiers XML mis en forme dans le navigateur. |
 | **Journaux d’erreurs détaillés** | */LogFiles/DetailedErrors/* | Contient les fichiers d’erreur HTM. Vous pouvez afficher les fichiers HTM dans le navigateur.<br/>Un autre moyen d’afficher le suivi des demandes ayant échoué consiste à accéder à la page de votre application dans le portail. Dans le menu de gauche, sélectionnez **Diagnostiquer et résoudre les problèmes**, puis recherchez **Journaux de traçage des requêtes ayant échoué**, puis cliquez sur l’icône pour parcourir et afficher la trace que vous souhaitez. |
-| **Journaux de serveur web** | */LogFiles/http/RawLogs/* | Contient les fichiers texte au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l’aide d’un éditeur de texte ou d’un utilitaire tel que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service ne prend pas en charge les champs `s-computername`, `s-ip` ni `cs-version`. |
+| **Journaux de serveur web** | */LogFiles/http/RawLogs/* | Contient les fichiers texte au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Ces informations peuvent être lues à l’aide d’un éditeur de texte ou d’un utilitaire tel que [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service ne prend pas en charge les champs `s-computername`, `s-ip` ni `cs-version`. |
 | **Journaux de déploiement** | */LogFiles/Git/* et */deployments/* | Contient les journaux générés par les processus de déploiement internes, ainsi que les journaux des déploiements Git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Envoyer des journaux à Azure Monitor (préversion)
@@ -191,10 +191,11 @@ Le tableau suivant renseigne sur les types et la descriptions des journaux pris 
 | AppServiceHTTPLogs | Oui | Oui | Oui | Oui | Journaux d’activité des serveurs Web |
 | AppServiceEnvironmentPlatformLogs | Oui | N/A | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
 | AppServiceAuditLogs | Oui | Oui | Oui | Oui | Activité de connexion via FTP et Kudu |
-| AppServiceFileAuditLogs | Oui | Oui | À confirmer | À confirmer | Modifications de fichier apportées au contenu du site ; disponible uniquement pour le niveau Premium et supérieur |
+| AppServiceFileAuditLogs | Oui | Oui | À confirmer | À confirmer | Modifications de fichier apportées au contenu du site ; **disponible seulement pour le niveau Premium et supérieur** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Journaux d’activité d’application |
 | AppServiceIPSecAuditLogs  | Oui | Oui | Oui | Oui | Demandes à partir de règles IP |
 | AppServicePlatformLogs  | À confirmer | Oui | Oui | Oui | journaux des opérations du conteneur |
+| AppServiceAntivirusScanAuditLogs | Oui | Oui | Oui | Oui | [Journaux de l’analyse antivirus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) avec Microsoft Defender ; **disponibles seulement pour le niveau Premium** | 
 
 <sup>1</sup> Pour les applications Java SE, ajoutez « $WEBSITE_AZMON_PREVIEW_ENABLED » aux paramètres de l’application et définissez-le sur 1 ou true.
 

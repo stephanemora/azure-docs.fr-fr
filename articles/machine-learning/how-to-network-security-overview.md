@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060008"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980573"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -137,6 +137,15 @@ Le diagramme de réseau suivant représente un espace de travail Azure Machine L
 ### <a name="limitations"></a>Limites
 - Les clusters AKS doivent appartenir au même réseau virtuel que l’espace de travail et ses ressources associées. 
 
+## <a name="optional-enable-public-access"></a>Facultatif : Activer l’accès public
+
+Vous pouvez sécuriser l’espace de travail derrière un réseau virtuel en utilisant un point de terminaison privé tout en autorisant l’accès via l’internet public. La configuration initiale est la même que pour [la sécurisation de l’espace de travail et des ressources associées](#secure-the-workspace-and-associated-resources). 
+
+Après la sécurisation de l’espace de travail avec un lien privé, vous [activez l’accès public](how-to-configure-private-link.md#enable-public-access). Après cela, vous pouvez accéder à l’espace de travail à partir de l’internet public et du réseau virtuel.
+
+### <a name="limitations"></a>Limites
+
+- Si vous utilisez Azure Machine Learning Studio via l’internet public, certaines fonctionnalités, comme le concepteur, peuvent échouer à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
 ## <a name="optional-enable-studio-functionality"></a>Facultatif : activer la fonctionnalité studio
 
 [Sécuriser l’espace de travail](#secure-the-workspace-and-associated-resources) > [Sécuriser l’environnement d’entraînement](#secure-the-training-environment) > [Sécuriser l’environnement d’inférence](#secure-the-inferencing-environment) > **Activer la fonctionnalité studio** > [Configurer les paramètres du pare-feu](#configure-firewall-settings)

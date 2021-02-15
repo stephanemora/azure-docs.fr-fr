@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222813"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007054"
 ---
 # <a name="common-questions"></a>Questions courantes
 
 Cet article répond à des questions courantes sur [Azure Resource Mover](overview.md).
-
-## <a name="general"></a>Général
-
-### <a name="is-resource-mover-generally-available"></a>Resource Mover est-il mis à la disposition générale ?
-
-Resource Mover est actuellement disponible en préversion publique. Les charges de travail de production sont prises en charge.
-
 
 
 ## <a name="moving-across-regions"></a>Déplacement entre les régions
@@ -45,10 +38,21 @@ Actuellement, vous pouvez déplacer des ressources de n’importe quelle région
 - Équilibreurs de charge internes et publics 
 - Bases de données Azure SQL et pools élastiques
 
+### <a name="can-i-move-disks-across-regions"></a>Est-ce que je peux déplacer des disques entre les régions ?
+
+Vous ne pouvez pas sélectionner des disques comme ressources à déplacer entre des régions. Les disques sont cependant déplacés lors d’un déplacement d’une machine virtuelle.
+
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>Qu’est-ce que cela signifie de déplacer un groupe de ressources ?
+
+Quand une ressource est sélectionnée pour être déplacée, le groupe de ressources correspondant est automatiquement ajouté pour être déplacé. C’est nécessaire, car la ressource de destination doit être placée sous un groupe de ressources tel qu’il était dans la cible. Vous pouvez choisir de personnaliser et de fournir un groupe de ressources existant une fois qu’il a été ajouté pour être déplacé. Notez que le déplacement d’un groupe de ressources ne signifie **pas** que toutes les ressources du groupe de ressources source seront déplacées.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Puis-je déplacer des ressources d’un abonnement à l’autre lorsque je les déplace d’une région à l’autre ?
 
 Vous pouvez modifier l’abonnement après avoir déplacé les ressources vers la région de destination. [En savoir plus](../azure-resource-manager/management/move-resource-group-and-subscription.md) sur le déplacement de ressources vers un autre abonnement. 
+
+### <a name="does-azure-resource-move-service-store-customer-data"></a>Le service de déplacement de ressources Azure stocke-t-il les données des clients ? 
+Non. Le service de déplacement de ressources ne stocke pas les données des clients : il stocke seulement les informations de métadonnées qui facilitent le suivi et la progression des ressources sélectionnées par le client pour être déplacées.
+
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Où sont stockées les métadonnées permettant d’effectuer un déplacement d’une région à l’autre ?
 
@@ -69,7 +73,7 @@ L’[identité managée](../active-directory/managed-identities-azure-resources/
 - Si vous déplacez des ressources d’une région à l’autre dans le portail, ce processus se produit automatiquement.
 - Si vous déplacez des ressources à l’aide de PowerShell, vous exécutez des cmdlets pour attribuer une identité affectée par le système à la collection, puis vous attribuez un rôle avec les autorisations d’abonnement appropriées au principal d’identité. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>De quelles autorisations d’identité managée a besoin Resource Mover ?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>De quelles autorisations d’identité managée a besoin Resource Mover ? 
 
 L’identité managée Azure Resource Mover nécessite au moins les autorisations suivantes : 
 
@@ -93,6 +97,12 @@ L’abonnement a été déplacé vers un autre locataire. | Désactivez puis act
 ### <a name="how-can-i-do-multiple-moves-together"></a>Comment puis-je effectuer plusieurs déplacements en même temps ?
 
 Modifiez les combinaisons source/cible en fonction des besoins à l’aide de l’option de modification dans le portail.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>Que se passe-t-il quand je supprime une ressource d’une liste de ressources à déplacer ?
+
+Vous pouvez supprimer des ressources que vous avez ajoutées à la liste de ressources à déplacer. Quand vous supprimez une ressource de la liste, le comportement dépend de l’état de la ressource. [Plus d’informations](remove-move-resources.md#vm-resource-state-after-removing)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

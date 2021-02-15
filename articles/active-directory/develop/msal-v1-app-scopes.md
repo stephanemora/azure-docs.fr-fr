@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754664"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583584"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Étendues pour une API web acceptant des jetons v1.0
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Pour lire et écrire avec MSAL.NET Azure AD à l’aide de l’API Microsoft Graph (https:\//graph.microsoft.com/), vous devez créer une liste des étendues, comme illustré dans les exemples suivants :
+Pour lire et écrire avec MSAL.NET Azure AD en utilisant l’API Microsoft Graph (https:\//graph.microsoft.com/), créez une liste des étendues, comme illustré dans les exemples suivants :
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Pour écrire l’étendue correspondant à l’API Azure Resource Manager (https:\//management.core.windows.net/), vous devez demander l’étendue suivante (notez les deux barres obliques) :
+Pour écrire l’étendue correspondant à l’API Azure Resource Manager (https:\//management.core.windows.net/), demandez l’étendue suivante (notez les deux barres obliques) :
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Vous devez utiliser deux barres obliques, car l’API Azure Resource Manager attend une barre oblique dans sa revendication d’audience (aud) et il y a une barre oblique qui sépare le nom de l’API de l’étendue.
+> Utilisez deux barres obliques, car l’API Azure Resource Manager attend une barre oblique dans sa revendication d’audience (aud), et il y a aussi une barre oblique qui sépare le nom de l’API de l’étendue.
 
 La logique utilisée par Azure AD est la suivante :
 

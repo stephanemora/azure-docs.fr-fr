@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625163"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833012"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
 ![Symbole de Network Performance Monitor](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
 
 Cet article présente les questions fréquemment posées sur Network Performance Monitor (NPM) dans Azure
 
@@ -54,7 +57,7 @@ Vous trouverez plus d'informations sur les avantages liés à chaque protocole [
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Comment puis-je configurer un nœud pour prendre en charge la surveillance à l’aide du protocole TCP ?
 Pour permettre à un nœud de prendre en charge la surveillance à l’aide du protocole TCP : 
 * Vérifiez que la plateforme de nœud correspond à Windows Server (2008 SP1 ou version ultérieure).
-* Exécutez le script Powershell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sur le nœud. Pour plus d'informations, voir [Instructions](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
+* Exécutez le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sur le nœud. Pour plus d'informations, voir [Instructions](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring).
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Comment puis-je modifier le port TCP utilisé par NPM à des fins de surveillance ?
@@ -242,7 +245,7 @@ Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pa
 Les chemins d’accès réseau de A vers B peuvent être différents des chemins d’accès réseau de B vers A, des valeurs distinctes en termes de perte et latence peuvent être observées.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Pourquoi mes circuits ExpressRoute et connexions de peering ne sont-ils pas détectés ?
-NPM détecte désormais les circuits ExpressRoute et les connexions de peering dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un peering privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre peering. NPM ne détecte pas les circuits ni les Peerings qui se trouvent dans un locataire différent de l’espace de travail Log Analytics.
+NPM détecte désormais les circuits ExpressRoute et les connexions de peering dans tous les abonnements auxquels l’utilisateur a accès. Choisissez tous les abonnements dans lesquels vos ressources ExpressRoute sont reliées et activez la surveillance pour chaque ressource découverte. NPM recherche les objets de connexion lors de la découverte d’un peering privé. Par conséquent, vérifiez si un réseau virtuel est associé à votre peering. NPM ne détecte pas les circuits ni les appairages qui se trouvent dans un locataire différent de celui de l’espace de travail Log Analytics.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>La fonctionnalité Moniteur ER affiche un message de diagnostic « Le trafic n'est acheminé dans AUCUN circuit ». Qu'est-ce que cela signifie ?
 
@@ -255,10 +258,10 @@ Cela peut se produire si :
 * Les nœuds locaux et Azure choisis pour surveiller le circuit ExpressRoute dans la configuration de surveillance n'ont pas de connectivité entre eux sur le circuit ExpressRoute prévu. Vérifiez que vous avez choisi des nœuds présentant une connectivité entre eux sur le circuit ExpressRoute que vous souhaitez surveiller.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Pourquoi Moniteur ExpressRoute signale-t-il mon circuit/Peering comme non sain alors qu’il est disponible et transmet des données ?
-Moniteur ExpressRoute compare les valeurs de performances du réseau (perte, latence et utilisation de la bande passante) signalées par les agents ou le service aux seuils définis lors de la configuration. Pour un circuit, si l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, le circuit est marqué comme non sain. Pour les Peerings, si la perte, la latence ou l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, le Peering est marqué comme non sain. NPM n’utilise pas de métriques ni toute autre forme de données pour déterminer l’état d’intégrité.
+Le moniteur ExpressRoute compare les valeurs des performances du réseau (perte, latence et utilisation de la bande passante) signalées par les agents ou le service aux seuils définis lors de la configuration. Pour un circuit, si l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, le circuit est marqué comme non sain. Pour les appairages, si la perte, la latence ou l’utilisation de la bande passante indiquée est supérieure au seuil défini dans la configuration, l’appairage est marqué comme non sain. NPM n’utilise pas de métriques ni aucune autre forme de données pour déterminer l’état d’intégrité.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Pourquoi l’utilisation de la bande passante de Moniteur ExpressRoute rapporte-t-elle une valeur différente des entrées/sorties de bits des métriques ?
-Pour Moniteur ExpressRoute, l’utilisation de la bande passante correspond à la moyenne de la bande passante entrante et sortante au cours des 20 dernières minutes ; elle est exprimée en bits/s. Pour les métriques d’ExpressRoute, les entrées/sorties de bits sont des points de données par minute. En interne, le jeu de données utilisé pour les deux est le même, mais l’agrégation varie entre les métriques NPM et ER. Pour une surveillance granulaire, minute par minute et des alertes rapides, nous vous recommandons de définir des alertes directement sur les métriques ER
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Pourquoi l’utilisation de la bande passante du moniteur ExpressRoute indique-t-elle une valeur différente des entrées/sorties en bits des métriques ?
+Pour le moniteur ExpressRoute, l’utilisation de la bande passante correspond à la moyenne de la bande passante entrante et sortante au cours des 20 dernières minutes ; elle est exprimée en bits/s. Pour les métriques d’ExpressRoute, les entrées/sorties en bits sont des points de données par minute. En interne, le jeu de données utilisé pour les deux est le même, mais l’agrégation varie entre les métriques NPM et ER. Pour une surveillance granulaire, minute par minute et des alertes rapides, nous vous recommandons de définir des alertes directement sur les métriques ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Lors de la configuration de la surveillance de mon circuit ExpressRoute, les nœuds Azure ne sont pas détectés.
 Cela peut se produire si les nœuds Azure sont connectés via Operations Manager. La fonctionnalité Moniteur ExpressRoute prend uniquement en charge les nœuds Azure connectés en tant qu'agents directs.
@@ -289,7 +292,7 @@ Cela peut se produire si le service cible ne correspond pas à une application w
 Le processus NPM est configuré pour s’arrêter s'il utilise plus de 5 % des ressources d'UC de l'hôte. Vous pouvez ainsi continuer d'utiliser les nœuds pour leurs charges de travail habituelles, sans impact en termes de performances.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>NPM modifie-t-il les règles de pare-feu pour la surveillance ?
-NPM crée uniquement une règle de pare-feu Windows locale sur les nœuds sur lesquels le script Powershell EnableRules.ps1 est exécuté afin d'autoriser les agents à créer des connexions TCP entre eux sur le port spécifié. La solution ne modifie pas les règles de pare-feu réseau ou de groupe de sécurité réseau.
+NPM crée seulement une règle de pare-feu Windows locale sur les nœuds où le script PowerShell EnableRules.ps1 est exécuté afin d’autoriser les agents à créer des connexions TCP entre eux sur le port spécifié. La solution ne modifie pas les règles de pare-feu réseau ou de groupe de sécurité réseau.
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Comment puis-je vérifier l’intégrité des nœuds utilisés à des fins de surveillance ?
 Vous pouvez afficher l’état d’intégrité des nœuds utilisés pour la surveillance à partir de l’affichage suivant : Network Performance Monitor -> Configuration -> Nœuds. Si un nœud s'avère non sain, vous pouvez afficher les détails correspondants et prendre les mesures suggérées.
@@ -300,4 +303,3 @@ NPM arrondit les valeurs de latence dans l’interface utilisateur en millisecon
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d'informations sur Network Performance Monitor, voir [Solution Network Performance Monitor dans Azure](./network-performance-monitor.md).
-

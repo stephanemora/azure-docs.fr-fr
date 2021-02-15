@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 2c894ea4bcb9701b8b65bcb9cd0b4b82c1898448
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 7d391998e7f20cff0f77f6aab7938bc375f75c9e
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500053"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616374"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -25,10 +25,7 @@ ms.locfileid: "99500053"
 Utilisez la commande `npm install` pour installer les bibliothèques clientes Azure Communication Services d’appel et communes pour JavaScript.
 
 ```console
-npm install @azure/communication-common --save
-
 npm install @azure/communication-calling --save
-
 ```
 
 ## <a name="object-model"></a>Modèle objet
@@ -39,21 +36,22 @@ Les classes et les interfaces suivantes gèrent certaines des principales foncti
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Appel.                                                                       |
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
-| AzureCommunicationUserCredential | La classe AzureCommunicationUserCredential implémente l’interface CommunicationUserCredential qui est utilisée pour instancier le CallAgent. |
+| DeviceManager                    | DeviceManager est utilisé pour gérer les appareils multimédias                                                                                           |
+| AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implémente l’interface CommunicationTokenCredential qui est utilisée pour instancier CallAgent. |
 
 
 ## <a name="initialize-the-callclient-create-callagent-and-access-devicemanager"></a>Initialiser CallClient, créer CallAgent et accéder à DeviceManager
 
 Instanciez une nouvelle instance de `CallClient` . Vous pouvez le configurer à l’aide d’options personnalisées comme une instance d’enregistreur d’événements.
 Une fois un `CallClient` instancié, vous pouvez créer une instance `CallAgent` en appelant la méthode `createCallAgent` sur l’instance `CallClient`. Cette opération renvoie un objet d’instance `CallAgent` de manière asynchrone.
-La méthode `createCallAgent` prend un `CommunicationUserCredential` en tant qu’argument, qui accepte un [jeton d’accès utilisateur](../../access-tokens.md).
+La méthode `createCallAgent` prend un `CommunicationTokenCredential` en tant qu’argument, qui accepte un [jeton d’accès utilisateur](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 Pour accéder à `DeviceManager`, une instance callAgent doit d’abord être créée. Vous pouvez ensuite utiliser la méthode `getDeviceManager` sur l’instance `CallClient` pour obtenir DeviceManager.
 
 ```js
 const userToken = '<user token>';
 callClient = new CallClient(options);
-const tokenCredential = new AzureCommunicationUserCredential(userToken);
-const callAgent = await callClient.createCallAgent(tokenCredential, { displayName: 'optional ACS user name' });
+const tokenCredential = new AzureCommunicationTokenCredential(userToken);
+const callAgent = await callClient.createCallAgent(tokenCredential, {displayName: 'optional ACS user name'});
 const deviceManager = await callClient.getDeviceManager()
 ```
 
@@ -63,25 +61,31 @@ Pour créer et démarrer un appel, vous devez utiliser l’une des API sur CallA
 
 La création et le démarrage de l’appel sont synchrones. L’instance d’appel vous permet de vous abonner à des événements d’appel.
 
-## <a name="place-a-11-call-to-a-user-or-a-1n-call-with-users-and-pstn"></a>Passer un appel 1:1 à un utilisateur ou un appel 1:n avec plusieurs utilisateurs et RTC
+## <a name="place-a-call"></a>Passer un appel
 
-Pour passer un appel à un autre utilisateur de Communication Services, appelez la méthode `call` sur `callAgent`, et transmettez le CommunicationUser que vous avez [créé avec la bibliothèque d’administration de Communication Services](../../access-tokens.md).
+### <a name="place-a-11-call-to-a-user-or-pstn"></a>Passer un appel 1:1 à un utilisateur ou à un RTC
+Pour passer un appel à un autre utilisateur de Communication Services, appelez la méthode `call` sur `callAgent` et passez le CommunicationUserIdentifier de l’appelé :
 
 ```js
-const oneToOneCall = callAgent.call([CommunicationUser]);
+const userCallee = { communicationUserId: '<ACS_USER_ID>' }
+const oneToOneCall = callAgent.call([userCallee]);
+```
+
+Pour passer un appel à un RTC, appelez la méthode `call` sur `callAgent` et passez le PhoneNumberIdentifier de l’appelé.
+Votre ressource Communication Services doit être configurée pour autoriser l’appel RTC.
+Lors de l’appel d’un numéro RTC, vous devez spécifier votre ID d’appelant de substitution.
+```js
+const pstnCalee = { phoneNumber: '<ACS_USER_ID>' }
+const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
+const oneToOneCall = callAgent.call([pstnCallee], {alternateCallerId});
 ```
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Passer un appel 1:n avec des utilisateurs et un RTC
-
-Pour passer un appel 1 : n à un utilisateur et un numéro RTPC, vous devez spécifier un CommunicationUser et un numéro de téléphone pour les deux appelés.
-
-Votre ressource Communication Services doit être configurée pour autoriser l’appel RTC.
 ```js
-
-const userCallee = { communicationUserId: <ACS_USER_ID> };
+const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
-
+const alternateCallerId = {alternateCallerId: '<Alternate caller Id>'};
+const groupCall = callAgent.call([userCallee, pstnCallee], {alternateCallerId});
 ```
 
 ### <a name="place-a-11-call-with-video-camera"></a>Passer un appel 1:1 avec une caméra vidéo
@@ -89,9 +93,7 @@ const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 > Il ne peut actuellement y avoir qu’un seul flux vidéo local sortant.
 Pour passer un appel vidéo, vous devez énumérer des caméras locales à l’aide de l’API `getCameraList` de DeviceManager.
 Une fois la caméra souhaitée sélectionnée, utilisez-la pour construire une instance `LocalVideoStream` et passer celle-ci dans `videoOptions` en tant qu’élément du tableau `localVideoStream` à la méthode `call`.
-Une fois votre appel connecté, il commence automatiquement à envoyer un flux vidéo aux autres participants à partir de la caméra sélectionnée.
-
-Cela s’applique également aux options vidéo Call.accept() et aux options vidéo CallAgent.join().
+Une fois votre appel connecté, il commence automatiquement à envoyer un flux vidéo aux autres participants à partir de la caméra sélectionnée. Ceci s’applique également aux options vidéo Call.Accept() et aux options vidéo CallAgent.join().
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
@@ -101,26 +103,14 @@ const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
-### <a name="receiving-an-incoming-call"></a>Réception d’un appel entrant
-```js
-callAgent.on('callsUpdated', e => {
-    e.added.forEach(addedCall => {
-        if(addedCall.isIncoming) {
-        addedCall.accept();
-    }
-    });
-})
-```
-
 ### <a name="join-a-group-call"></a>Rejoindre un appel de groupe
 Pour démarrer un nouvel appel de groupe ou rejoindre un appel de groupe, utilisez la méthode « join » et transmettez un objet avec une propriété `groupId`. La valeur doit être un GUID.
 ```js
 
-const locator = { groupId: <GUID>}
-const call = callAgent.join(locator);
+const context = { groupId: <GUID>}
+const call = callAgent.join(context);
 
 ```
-
 ### <a name="join-a-teams-meeting"></a>Participer à une réunion Teams
 Pour participer à une réunion Teams, utilisez la méthode « join » et transmettez un lien de réunion ou les coordonnées d’une réunion
 ```js
@@ -137,6 +127,24 @@ const locator = {
 }
 const call = callAgent.join(locator);
 ```
+
+## <a name="receiving-an-incoming-call"></a>Réception d’un appel entrant
+
+L’instance de `CallAgent` émet un événement `incomingCall` quand l’identité connectée reçoit un appel entrant. Pour être à l’écoute de cet événement, abonnez-vous de la façon suivante :
+
+```js
+const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
+    //accept the call
+    var call = await incomingCall.accept();
+
+    //reject the call
+    incomingCall.reject();
+};
+callAgentInstance.on('incomingCall', incomingCallHander);
+```
+
+L’événement `incomingCall` est fourni avec une instance de `IncomingCall` sur laquelle vous pouvez accepter ou rejeter un appel.
+
 
 ## <a name="call-management"></a>Gestion des appels
 
@@ -155,10 +163,10 @@ const callId: string = call.id;
 const remoteParticipants = call.remoteParticipants;
 ```
 
-* L’identité de l’appelant si l’appel est entrant. L’identité correspond à l’un des types `Identifier`
+* L’identité de l’appelant si l’appel est entrant. L’identité correspond à l’un des types `CommunicationIdentifier`
 ```js
 
-const callerIdentity = call.callerIdentity;
+const callerIdentity = call.callerInfo.identity;
 
 ```
 
@@ -177,9 +185,8 @@ Retourne une chaîne représentant l’état actuel d’un appel :
 * « Connecté » – l’appel est connecté
 * « En attente » – l’appel est mis en attente, aucun média ne circule entre le point de terminaison local et les participants distants
 * « Déconnexion » – état de transition avant que l’appel passe à l’état « Déconnecté »
-* « Déconnecté » – état d’appel final.
-   * Si la connexion réseau est perdue, l’état passe à « Déconnecté » au bout de 2 minutes environ.
-
+* « Déconnecté » – état d’appel final
+  * Si la connexion réseau est perdue, l’état passe à « Déconnecté » au bout de 2 minutes environ.
 
 * Pour connaître la raison pour laquelle un appel donné s’est terminé, inspectez la propriété `callEndReason`.
 ```js
@@ -189,14 +196,10 @@ const callEndReason = call.callEndReason;
 // callEndReason.subCode (number) subCode associated with the reason
 ```
 
-* Pour savoir si l’appel en cours est un appel entrant, inspectez la propriété `isIncoming`. Elle retourne un `Boolean`.
+* Pour savoir si l’appel en cours est un appel entrant ou sortant, inspectez la propriété `direction`, qui retourne `CallDirection`.
 ```js
-const isIncoming = call.isIncoming;
-```
-
-* Pour vérifier si l’appel est en train d’être enregistré, inspectez la propriété `isRecordingActive`. Elle retourne un `Boolean`.
-```js
-const isResordingActive = call.isRecordingActive;
+const isIncoming = call.direction == 'Incoming';
+const isOutgoing = call.direction == 'Outgoing';
 ```
 
 *  Pour vérifier si le microphone actuel est désactivé, inspectez la propriété `muted`. Elle retourne un `Boolean`.
@@ -218,6 +221,18 @@ const isScreenSharingOn = call.isScreenSharingOn;
 
 const localVideoStreams = call.localVideoStreams;
 
+```
+
+### <a name="call-ended-event"></a>Événement d’appel terminé
+
+L’instance de `Call` émet un événement `callEnded` quand l’appel se termine. Pour être à l’écoute de cet événement, abonnez-vous de la façon suivante :
+
+```js
+const callEndHander = async (args: { callEndReason: CallEndReason }) => {
+    console.log(args.callEndReason)
+};
+
+call.on('callEnded', callEndHander);
 ```
 
 ### <a name="mute-and-unmute"></a>Activer et désactiver le son
@@ -269,9 +284,6 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
-### <a name="faq"></a>Questions fréquentes (FAQ)
- * Si la connectivité réseau est perdue, l’état de l’appel passe-t-il à « Déconnecté » ?
-    * Oui, si la connexion réseau est perdue pendant plus de 2 minutes, l’appel passe à l’état Déconnecté et l’appel prend fin.
 
 ## <a name="remote-participants-management"></a>Gestion des participants distants
 
@@ -288,17 +300,18 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 
 ### <a name="remote-participant-properties"></a>Propriétés du participant distant
 Un participant distant dispose d’un ensemble de propriétés et de collections qui lui sont associés
-
-* Obtenez l’identificateur de ce participant distant.
-L’identité est l’un des types d’identificateurs :
+#### <a name="communicationidentifier"></a>CommunicationIdentifier
+Obtenez l’identificateur de ce participant distant.
 ```js
 const identifier = remoteParticipant.identifier;
-//It can be one of:
-// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
-// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
+Il peut s’agir d’un des types de « CommunicationIdentifier » :
+  * { communicationUserId: ’<ACS_USER_ID>’ } - objet représentant l’utilisateur ACS
+  * { phoneNumber: ’<E.164>’ } - objet représentant le numéro de téléphone au format E.164
+  * { microsoftTeamsUserId: ’<TEAMS_USER_ID>’, isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" } - objet représentant l’utilisateur Teams
 
-* Obtenez l’état de ce participant distant.
+#### <a name="state"></a>State
+Obtenez l’état de ce participant distant.
 ```js
 
 const state = remoteParticipant.state;
@@ -309,30 +322,29 @@ Il peut s’agir de l’un des états suivants :
 * « Connecté » – le participant est connecté à l’appel
 * « En attente » – le participant est en attente
 * « EarlyMedia » – une annonce est lue avant que le participant soit connecté à l’appel
-* « Déconnecté » – état final ; le participant est déconnecté de l’appel.
-   * Si un participant à distance perd sa connectivité réseau, son état passe à « Déconnecté » après environ 2 minutes.
+* « Déconnecté » – état final ; le participant est déconnecté de l’appel
+  * Si un participant à distance perd sa connectivité réseau, son état passe à « Déconnecté » après environ 2 minutes.
 
+#### <a name="call-end-reason"></a>Motif de fin de l’appel
 Pour savoir pourquoi le participant a quitté l’appel, inspectez lz propriété `callEndReason` :
 ```js
-
 const callEndReason = remoteParticipant.callEndReason;
 // callEndReason.code (number) code associated with the reason
 // callEndReason.subCode (number) subCode associated with the reason
 ```
-
-* Pour vérifier si ce participant distant est muet ou non, inspectez la propriété `isMuted`. Elle retourne un `Boolean`.
+#### <a name="is-muted"></a>A le micro coupé
+Pour vérifier si ce participant distant est muet ou non, inspectez la propriété `isMuted`. Elle retourne un `Boolean`.
 ```js
 const isMuted = remoteParticipant.isMuted;
 ```
-
-* Pour vérifier si ce participant distant parle ou non, inspectez la propriété `isSpeaking`. Elle retourne un `Boolean`.
+#### <a name="is-speaking"></a>Est en train de parler
+Pour vérifier si ce participant distant parle ou non, inspectez la propriété `isSpeaking`. Elle retourne un `Boolean`.
 ```js
-
 const isSpeaking = remoteParticipant.isSpeaking;
-
 ```
 
-* Pour inspecter tous les flux vidéo qu’un participant donné envoie dans cet appel, vérifiez la collection `videoStreams`. Elle contient des objets `RemoteVideoStream`.
+#### <a name="video-streams"></a>Flux vidéo
+Pour inspecter tous les flux vidéo qu’un participant donné envoie dans cet appel, vérifiez la collection `videoStreams`. Elle contient des objets `RemoteVideoStream`.
 ```js
 
 const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
@@ -348,9 +360,9 @@ Cette opération retourne de façon synchrone l’instance de participant distan
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
-const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>};
+const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
-const remoteParticipant = call.addParticipant(pstnIdentifier);
+const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<Alternate Caller ID>'});
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Supprimer un participant d’un appel
@@ -361,7 +373,7 @@ Le participant sera également supprimé de la collection `remoteParticipants`.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
-const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>};
+const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 await call.removeParticipant(userIdentifier);
 await call.removeParticipant(pstnIdentifier);
 ```
@@ -381,9 +393,8 @@ Quand cela se produit, créez une instance de `Renderer`, puis une nouvelle inst
 Chaque fois que la disponibilité d’un flux distant change, vous pouvez choisir de détruire le convertisseur tout entier ou un `RendererView` spécifique, ou de les conserver, mais cela entraîne l’affichage d’une image vidéo vide.
 
 ```js
-let renderer: Renderer;
+let renderer: Renderer = new Renderer(remoteParticipantStream);
 const displayVideo = () => {
-    renderer = new Renderer(remoteParticipantStream);
     const view = await renderer.createView();
     htmlElement.appendChild(view.target);
 }
@@ -407,7 +418,7 @@ Les flux vidéo distants ont les propriétés suivantes :
 const id: number = remoteVideoStream.id;
 ```
 
-* `StreamSize` - taille (largeur/hauteur) d’un flux vidéo distant
+* `StreamSize` – taille (largeur/hauteur) d’un flux vidéo distant
 ```js
 const size: {width: number; height: number} = remoteVideoStream.size;
 ```
@@ -450,9 +461,7 @@ Vous pouvez mettre à jour ultérieurement le mode de mise à l’échelle en ap
 ```js
 view.updateScalingMode('Crop')
 ```
-### <a name="faq"></a>Questions fréquentes (FAQ)
-* Si un participant à distance perd sa connexion réseau, son état passe-t-il à « Déconnecté » ?
-    * Oui, si un participant à distance perd sa connexion réseau pendant plus de 2 minutes, son état passe à Déconnecté et il est supprimé de l’appel.
+
 ## <a name="device-management"></a>Gestion des appareils
 
 `DeviceManager` vous permet d’énumérer les appareils locaux utilisables dans un appel pour transmettre vos flux audio/vidéo. Il vous permet également de demander à un utilisateur l’autorisation d’accéder à son microphone et à sa caméra à l’aide de l’API de navigateur natif.
@@ -495,7 +504,7 @@ Si les valeurs par défaut du client ne sont pas définies, Azure Communication 
 const defaultMicrophone = deviceManager.getMicrophone();
 
 // Set the microphone device to use.
-await deviceMicrophone.setMicrophone(AudioDeviceInfo);
+await deviceManager.setMicrophone(AudioDeviceInfo);
 
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.getSpeaker();
@@ -542,7 +551,93 @@ console.log(result); // 'Granted' | 'Denied' | 'Prompt' | 'Unknown';
 
 ```
 
-## <a name="eventing-model"></a>Modèle d’événements
+## <a name="call-recording-management"></a>Gestion de l’enregistrement des appels
+
+L’enregistrement des appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
+
+```js
+const callRecordingApi = call.api(Features.Recording);
+```
+
+Ensuite, pour vérifier si l’appel est en train d’être enregistré, inspectez la propriété `isRecordingActive` de `callRecordingApi`, qui retourne un `Boolean`.
+
+```js
+const isResordingActive = callRecordingApi.isRecordingActive;
+```
+
+Vous pouvez également vous abonner à l’enregistrement des modifications :
+
+```js
+const isRecordingActiveChangedHandler = () => {
+  console.log(callRecordingApi.isRecordingActive);
+};
+
+callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
+               
+```
+
+## <a name="call-transfer-management"></a>Gestion des transferts d’appels
+
+Le transfert d’appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité de transfert :
+
+```js
+const callTransferApi = call.api(Features.Transfer);
+```
+
+Le transfert d’appels implique trois parties : le *transférant*, le *transféré* et la *cible de transfert*. Le flux de transfert fonctionne comme suit :
+
+1. Il existe déjà un appel connecté entre le *transférant* et le *transféré*
+2. Le *transférant* décider de transférer l’appel (*transféré* -> *cible de transfert*)
+3. Le *transférant* appelle l’API `transfer`
+4. Le *transféré* décide de faire un `accept` ou un `reject` de la demande de transfert vers la *cible de transfert* via l’événement `transferRequested`.
+5. La *cible de transfert* reçoit un appel entrant seulement si le *transféré* a fait un `accept` de la demande de transfert
+
+### <a name="transfer-terminology"></a>Terminologie des transferts
+
+- Transférant : celui qui lance la demande de transfert.
+- Transféré : celui qui est transféré par le transférant vers la cible de transfert.
+- Cible de transfert : celui qui est la cible vers laquelle le transfert est effectué
+
+Pour transférer un appel en cours, vous pouvez utiliser l’API synchrone `transfer`. `transfer` prend des `TransferCallOptions` facultatives, ce qui vous permet de définir l’indicateur `disableForwardingAndUnanswered` :
+
+- `disableForwardingAndUnanswered` = false : si la *cible de transfert* ne répond pas à l’appel transféré, il suit les paramètres de transfert et de non-réponse de la *cible de transfert*.
+- `disableForwardingAndUnanswered` = true : si la *cible de transfert* ne répond pas à l’appel transféré, la tentative de transfert se termine
+
+```js
+// transfer target can be ACS user
+const id = { communicationUserId: <ACS_USER_ID> };
+```
+
+```js
+// call transfer API
+const transfer = callTransferApi.transfer({targetParticipant: id});
+```
+
+Le transfert vous permet de vous abonner aux événements `transferStateChanged` et `transferRequested`. L’événement `transferRequsted` provient de l’instance de `call`, et l’événement `transferStateChanged` et les informations `state` et `error` du transfert proviennent de l’instance de `transfer`
+
+```js
+// transfer state
+const transferState = transfer.state; // None | Transferring | Transferred | Failed
+
+// to check the transfer failure reason
+const transferError = transfer.error; // transfer error code that describes the failure if transfer request failed
+```
+
+Le transféré peut accepter ou rejeter la demande de transfert lancée par le transférant dans l’événement `transferRequested` via `accept()` ou `reject()` dans `transferRequestedEventArgs`. Vous pouvez accéder aux informations de `targetParticipant`, et aux méthodes `accept` et `reject` dans `transferRequestedEventArgs`.
+
+```js
+// Transferee to accept the transfer request
+callTransferApi.on('transferRequested', args => {
+  args.accept();
+});
+
+// Transferee to reject the transfer request
+callTransferApi.on('transferRequested', args => {
+  args.reject();
+});
+```
+
+## <a name="eventing-model"></a>Modèle d’événement
 
 Vous pouvez vous abonner à la plupart des propriétés et collections pour être averti quand des valeurs changent.
 

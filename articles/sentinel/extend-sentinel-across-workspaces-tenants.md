@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757117"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006681"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Étendre Azure Sentinel dans les espaces de travail et les locataires
 
@@ -98,7 +98,7 @@ Vous pouvez ensuite écrire une requête sur les deux espaces de travail en comm
 <!-- Bookmark added for backward compatibility with old heading -->
 Des requêtes sur plusieurs espaces de travail peuvent désormais être incluses dans des règles d’analytique planifiée, sous réserve des limitations suivantes :
 
-- Jusqu’à 15 espaces de travail peuvent être inclus dans une seule requête.
+- Jusqu’à 20 espaces de travail peuvent être inclus dans une même requête.
 - Azure Sentinel doit être déployé sur chaque espace de travail référencé dans la requête.
 
 > [!NOTE] 
@@ -127,7 +127,7 @@ Les capacités de chasse dans plusieurs espaces de travail permettent à vos cha
 
 Pour configurer et gérer plusieurs espaces de travail Azure Sentinel, vous devez automatiser l’utilisation de l’API de gestion Azure Sentinel. Pour plus d’informations sur l’automatisation du déploiement des ressources Azure Sentinel, notamment les règles d’alerte, les requêtes de repérage, les classeurs et les playbooks, consultez [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885) (Extension d’Azure Sentinel : automatisation des API, de l’intégration et de la gestion).
 
-Consultez également [Déployer et gérer Azure Sentinel as a Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) et [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) (Combiner Azure Lighthouse avec les fonctionnalités DevOps Sentinel) pour connaître une méthodologie consolidée et proposée par la communauté pour gérer Azure Sentinel as a code, déployer et configurer des ressources à partir d’un référentiel GitHub privé. 
+Consultez également [Deploying and Managing Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) et [Combining Azure Lighthouse with Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) pour une méthodologie consolidée et proposée par la communauté permettant de gérer Azure Sentinel en tant que code, et de déployer et configurer des ressources à partir d’un référentiel GitHub privé. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gérer les espaces de travail parmi les locataires avec Azure Lighthouse
 

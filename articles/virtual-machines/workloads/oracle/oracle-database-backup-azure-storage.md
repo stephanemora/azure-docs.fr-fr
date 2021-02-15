@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064332"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806271"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Stockage Azure
 
@@ -31,19 +31,19 @@ Cet article explique comment utiliser le service Stockage Azure comme support po
    ssh azureuser@<publicIpAddress>
    ```
    
-2. Basculez vers l'utilisateur **_root_* _ :
+2. Basculez vers l'utilisateur ***racine*** :
  
    ```bash
    sudo su -
    ```
     
-3. Ajoutez l'utilisateur oracle au fichier _*_ /etc/sudoers_*_ :
+3. Ajoutez l'utilisateur oracle au fichier ***/etc/sudoers*** :
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. Cette étape part du principe que vous disposez d'une instance d'Oracle (test) exécutée sur une machine virtuelle nommée _vmoracle19c*.
+4. Cette étape suppose que vous disposez d’une instance d’Oracle (test) exécutée sur une machine virtuelle nommée *vmoracle19c*.
 
    Basculez vers l'utilisateur *oracle* :
 
@@ -182,31 +182,31 @@ Pour commencer, configurez votre compte de stockage.
 
 1. Configurer Azure Files sur le portail Azure
 
-    Sur le portail Azure, sélectionnez * **+ Créer une ressource** _, puis recherchez et sélectionnez _*_Compte de stockage_*_.
+    Dans le portail Azure, sélectionnez **+ Créer une ressource** _, puis recherchez et sélectionnez _ *_Compte de stockage_**
     
-    ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/storage-1.png)
+    ![Capture d’écran montrant où créer une ressource et sélectionner le compte de stockage.](./media/oracle-backup-recovery/storage-1.png)
     
-2. Sur la page Créer un compte de stockage, choisissez votre groupe de ressources existant (_*_rg-oracle_*_), nommez votre compte de stockage _*_oracbkup1_*_ et sélectionnez _*_Stockage V2 (generalpurpose v2)_*_ sous Type de compte. Remplacez la réplication par _*_Stockage localement redondant (LRS)_*_ et définissez Performances sur _*_Standard_*_. Assurez-vous que l'Emplacement est défini sur la même région que toutes les autres ressources du groupe de ressources. 
+2. Dans la page Créer un compte de stockage, choisissez votre groupe de ressources existant ***rg-oracle** _, nommez votre compte de stockage _*_oracbkup1_*_ et choisissez _*_Stockage V2 (generalpurpose v2)_*_ pour Type de compte. Changez la réplication en _*_Stockage localement redondant (LRS)_*_ et définissez Performances sur _*_Standard_**. Assurez-vous que l'Emplacement est défini sur la même région que toutes les autres ressources du groupe de ressources. 
     
-    ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/file-storage-1.png)
+    ![Capture d’écran montrant où choisir votre groupe de ressources existant.](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. Cliquez sur l'onglet _*_Avancé_*_ et, sous Azure Files, définissez _*_Partages de fichiers volumineux_*_ sur _*_Activé_*_. Cliquez sur Vérifier + créer, puis sur Créer.
+3. Cliquez sur l’onglet ***Avancé** _ et, sous Azure Files, définissez _*_Partages de fichiers volumineux_*_ sur _*_Activé_**. Cliquez sur Vérifier + créer, puis sur Créer.
     
-    ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. Une fois le compte de stockage créé, accédez à la ressource et sélectionnez _*_Partages de fichiers_*_.
-    
-    ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. Cliquez sur _*_ + Partage de fichiers_ *_ et, dans le panneau _* _Nouveau partage de fichiers_ *_, nommez votre partage de fichiers _* _orabkup1_ *_. Définissez le _* _Quota_ *_ sur _* _10240_ *_ Gio et cochez _* _Transaction optimisée_ *_. Le quota reflète une limite supérieure que le partage de fichiers peut atteindre. Comme nous utilisons un stockage standard, les ressources reposent sur le paiement à l'utilisation (PAYG) et ne sont pas approvisionnées. Par conséquent, leur définition sur 10 Tio n'entraîne pas de frais au-delà de ce que vous utilisez. Si votre stratégie de sauvegarde nécessite davantage de stockage, vous devez fixer le quota sur un niveau approprié pour contenir toutes les sauvegardes.   Une fois le panneau Nouveau partage de fichiers renseigné, cliquez sur _* _Créer_*_.
-    
-    ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/file-storage-4.png)
+    ![Capture d’écran montrant où définir Partages de fichiers volumineux sur Activé.](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. Cliquez ensuite sur _*_orabkup1_*_ sur la page Paramètres du partage de fichiers. 
-    Cliquez sur l'onglet _*_Se connecter_*_ pour ouvrir le panneau Se connecter, puis cliquez sur l’onglet _*_Linux_*_. Copiez les commandes fournies pour monter le partage de fichiers à l'aide du protocole SMB. 
+4. Une fois le compte de stockage créé, accédez à la ressource et sélectionnez ***Partages de fichiers***.
+    
+    ![Capture d’écran montrant où sélectionner Partages de fichiers.](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. Cliquez sur * **+ Partage de fichiers** _ et, dans le panneau _*_Nouveau partage de fichiers_*_, nommez votre partage de fichiers _*_orabkup1_*_. Définissez _*_Quota_*_ sur _*_10240_*_  Gio et cochez _*_Transaction optimisée_*_ comme niveau. Le quota reflète une limite supérieure que le partage de fichiers peut atteindre. Comme nous utilisons un stockage standard, les ressources reposent sur le paiement à l'utilisation (PAYG) et ne sont pas approvisionnées. Par conséquent, leur définition sur 10 Tio n'entraîne pas de frais au-delà de ce que vous utilisez. Si votre stratégie de sauvegarde nécessite davantage de stockage, vous devez fixer le quota sur un niveau approprié pour contenir toutes les sauvegardes.   Une fois le panneau Nouveau partage de fichiers renseigné, cliquez sur _*_Créer_**.
+    
+    ![Capture d’écran montrant où ajouter un nouveau partage de fichiers.](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. Cliquez ensuite sur ***orabkup1*** sur la page Paramètres du partage de fichiers. 
+    Cliquez sur l’onglet ***Se connecter** _ pour ouvrir le panneau Se connecter, puis cliquez sur l’onglet _ *_Linux_**. Copiez les commandes fournies pour monter le partage de fichiers à l'aide du protocole SMB. 
     
     ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ L'utilisation de l'outil RMAN et du stockage Azure Files pour la sauvegarde de b
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. Les commandes suivantes utilisent RMAN pour restaurer les fichiers de données manquants et récupérer la base de données :

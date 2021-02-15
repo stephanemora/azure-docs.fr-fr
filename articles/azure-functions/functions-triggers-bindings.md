@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353542"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627597"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -39,16 +39,19 @@ La liste de ces exemples n’est pas exhaustive. Elle est fournie pour montrer c
 
 ###  <a name="trigger-and-binding-definitions"></a>Définitions de liaisons et de déclencheurs
 
-La définition des déclencheurs et des liaisons varie selon l’approche de développement.
+La définition des déclencheurs et des liaisons varie selon le langage de développement.
 
-| Plateforme | Déclencheurs et liaisons configurés par… |
+| Langage | Déclencheurs et liaisons configurés par… |
 |-------------|--------------------------------------------|
 | Bibliothèque de classes C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la décoration des méthodes et des paramètres à l’aide d’attributs C# |
-| Toutes les autres (y compris le portail Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la mise à jour de [function.json](./functions-reference.md) ([schéma](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Décoration des méthodes et des paramètres avec des annotations Java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;la mise à jour de [function.json](./functions-reference.md) ([schéma](http://json.schemastore.org/function)) |
 
-Le portail fournit une interface utilisateur pour cette configuration. Toutefois, vous pouvez modifier le fichier directement en ouvrant l’**Éditeur avancé** qui est disponible sous l’onglet **Intégrer** de votre fonction.
+Pour les langages qui s’appuient sur function.json, le portail fournit une interface utilisateur pour l’ajout de liaisons sous l’onglet **Intégration**. Vous pouvez également modifier le fichier directement dans le portail sous l’onglet **Code + test** de votre fonction. Visual Studio Code vous permet d’[ajouter facilement une liaison à un fichier function.json](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) en suivant une série d’invites simple. 
 
-Dans .NET, le type de paramètre définit le type des données d’entrée. Par exemple, utilisez `string` pour établir une liaison au texte d’un déclencheur de file d’attente, un tableau d’octets à lire au format binaire et un type personnalisé pour désérialiser dans un objet.
+Dans .NET et Java, le type de paramètre définit le type des données d’entrée. Par exemple, utilisez `string` pour établir une liaison au texte d’un déclencheur de file d’attente, un tableau d’octets à lire au format binaire et un type personnalisé pour désérialiser sur un objet. Dans la mesure où les fonctions des bibliothèques de classes .NET et les fonctions Java ne s’appuient pas sur *function.json* pour les définitions de liaison, elles ne peuvent pas être créées et modifiées dans le portail. La modification de code C# dans le portail est basée sur un script C#, qui utilise *function.json* au lieu d’utiliser des attributs.
+
+Pour découvrir comment ajouter des liaisons à des fonctions existantes, consultez [Connecter des fonctions à des services Azure en utilisant des liaisons](add-bindings-existing-function.md).
 
 Pour les langages dont le type est dynamique, tels que JavaScript, utilisez la propriété `dataType` dans le fichier *function.json*. Par exemple, pour lire le contenu d’une requête HTTP au format binaire, définissez `dataType` sur `binary` :
 

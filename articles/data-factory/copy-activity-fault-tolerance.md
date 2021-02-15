@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593641"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809539"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -58,7 +58,8 @@ Lorsque vous copiez des fichiers binaires entre des magasins de stockage, vous p
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true     
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +84,7 @@ skipErrorFile | Groupe de propriétés permettant de spécifier les types de dé
 fileMissing | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les fichiers qui sont en cours de suppression par d’autres applications lorsque Azure Data Factory procède dans l’intervalle à la copie. <br/> \- True : vous souhaitez copier les fichiers en ignorant ceux qui sont supprimés par d’autres applications. <br/> - False : vous voulez abandonner l’activité de copie lorsque des fichiers sont supprimés du magasin source au cours d’un déplacement de données. <br/>Sachez que cette propriété est définie sur True par défaut. | True(default) <br/>False | Non
 fileForbidden | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer des fichiers particuliers lorsque les listes de contrôle d’accès de ces fichiers ou dossiers nécessitent un niveau d’autorisation plus élevé que celui de la connexion configurée dans Azure Data Factory. <br/> \- True : vous souhaitez effectuer la copie en ignorant ces fichiers. <br/> - False : vous voulez abandonner l’activité de copie lorsque vous êtes confronté au problème d’autorisation sur des dossiers ou des fichiers. | True <br/>False(default) | Non
 dataInconsistency | Une des paires clé-valeur dans le jeu de propriétés skipErrorFile permettant de déterminer si vous souhaitez ignorer les données incohérentes entre les magasins source et de destination. <br/> - True : vous souhaitez effectuer la copie en ignorant les données incohérentes. <br/> - False : vous souhaitez abandonner l’activité de copie lorsque des données incohérentes ont été trouvées. <br/>Sachez que cette propriété n’est valide que lorsque vous définissez validateDataConsistency sur la valeur True. | True <br/>False(default) | Non
+invalidFileName | Une des paires clé-valeur dans le conteneur de propriétés skipErrorFile permettant de déterminer si vous voulez ignorer des fichiers particuliers quand les noms de fichiers ne sont pas valides pour le magasin source. <br/> \- True : vous voulez copier le reste en ignorant les fichiers qui ont des noms de fichiers non valides. <br/> - False : vous voulez abandonner l’activité de copie dès lors qu’un fichier a un nom de fichier non valide. <br/>Notez bien que cette propriété fonctionne seulement lors de la copie de fichiers binaires depuis un magasin de stockage vers ADLS Gen2 ou lors de la copie de fichiers binaires depuis AWS S3 vers n’importe quel magasin de stockage. | True <br/>False(default) | Non
 logSettings  | Groupe de propriétés pouvant être spécifié lorsque vous souhaitez journaliser les noms des objets ignorés. | &nbsp; | Non
 linkedServiceName | Service lié de [Stockage Blob Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) pour stocker les fichiers journaux de session. | Noms d’un service lié de type `AzureBlobStorage` ou `AzureBlobFS` faisant référence à l’instance que vous utilisez pour stocker le fichier journal. | Non
 path | Chemin des fichiers journaux. | Spécifiez le chemin que vous utilisez pour stocker les fichiers journaux. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
@@ -166,7 +168,7 @@ L’activité de copie offre trois possibilités de détecter, d’ignorer et de
     Par exemple : Copier des données d’un serveur SQL vers une base de données SQL. Il existe une clé primaire définie dans la base de données SQL réceptrice, mais aucune clé primaire correspondante n’est définie dans le serveur SQL source. Les lignes en double qui peuvent exister dans la source ne sont pas copiées dans le récepteur. L’activité de copie ne copie que la première ligne des données sources dans le récepteur. Toutes les lignes sources suivantes contenant une valeur de clé primaire en double sont considérées comme incompatibles et ignorées.
 
 >[!NOTE]
->- Pour charger des données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant les règles de rejet « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.
+>- Pour charger des données dans Azure Synapse Analytics avec PolyBase, configurez les paramètres natifs de la tolérance de panne de PolyBase en spécifiant des règles de rejet via « [polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink) » dans l’activité de copie. Vous pouvez toujours activer la redirection des lignes PolyBase incompatibles vers Blob ou ADLS normalement, comme indiqué ci-dessous.
 >- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée de sorte à appeler [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Cette fonctionnalité ne s’applique pas lorsque l’activité de copie est configurée pour appeler une [procédure stockée à partir d’un récepteur SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 

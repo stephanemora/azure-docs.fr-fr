@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054752"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805932"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -388,7 +388,7 @@ Quand votre application logique doit communiquer via un pare-feu qui limite le t
 
 Par exemple, pour prendre en charge les appels que les applications logiques envoient ou reçoivent dans la région USA Ouest via des déclencheurs et actions intégrés, tels que le [déclencheur ou l’action HTTP](../connectors/connectors-native-http.md), votre pare-feu doit autoriser l’accès pour *toutes* les adresses IP entrantes du service Logic Apps *et* les adresses IP sortantes qui existent dans la région USA Ouest.
 
-Si votre application logique utilise également des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](#outbound) dans la région Azure de votre application logique. En outre, si vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes[ de connecteurs managés](#outbound)* .
+Si votre application logique utilise également des [connecteurs managés](../connectors/apis-list.md#managed-api-connectors), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’elle utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](#outbound) dans la région Azure de votre application logique. En outre, si vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes [ de connecteurs managés](#outbound)* .
 
 Pour plus d’informations sur la configuration des paramètres de communication sur la passerelle, consultez les rubriques suivantes :
 
@@ -427,6 +427,12 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, au lieu de spécifier les préfixes d’adresses IP Logic Apps entrants pour chaque région. Vous pouvez éventuellement utiliser l’étiquette de service **AzureConnectors** pour les connecteurs managés qui effectuent des appels de Webhook entrants vers le service Logic Apps, plutôt que de spécifier des préfixes d’adresse IP entrante de connecteur managé pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.
+>
+> Les connecteurs suivants effectuent des rappels de webhook entrants au service Logic Apps :
+>
+> Adobe Creative Cloud, Adobe Sign, Démo Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, Démo DocuSign, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, Shifts pour Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP** : L’appelant en retour varie selon que l’environnement de déploiement est multilocataire Azure ou ISE. Dans l’environnement multi-locataire, la passerelle de données locale effectue le rappel au service Logic Apps. Dans un environnement ISE, le connecteur SAP effectue le rappel au service Logic Apps.
 
 <a name="multi-tenant-inbound"></a>
 

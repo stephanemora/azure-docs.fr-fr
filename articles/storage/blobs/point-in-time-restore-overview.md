@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803865"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980510"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -32,6 +32,10 @@ Pour activer la restauration dans le temps, vous créez une stratégie de gestio
 Pour lancer une restauration dans le temps, appelez l'opération [Restaurer les plages d’objets blob](/rest/api/storagerp/storageaccounts/restoreblobranges) et spécifiez un point de restauration en heure UTC. Vous pouvez spécifier des plages lexicographiques de noms de conteneurs et d’objets blob à restaurer ou omettre la plage pour restaurer tous les conteneurs dans le compte de stockage. Dix plages lexicographiques sont prises en charge par opération de restauration.
 
 Stockage Azure analyse toutes les modifications apportées aux objets blob spécifiés entre le point de restauration demandé, spécifié en heure UTC, et le moment présent. L’opération de restauration est atomique, ce qui signifie qu’elle réussit entièrement à restaurer toutes les modifications ou qu’elle échoue. S’il existe des objets blob qui ne peuvent pas être restaurés, l’opération échoue, et les opérations de lecture et d’écriture sur les conteneurs concernés reprennent.
+
+Le diagramme suivant montre le fonctionnement de la restauration à un point dans le temps. Un ou plusieurs conteneurs ou plages d’objets blob sont restaurés à leur état à *n* jours auparavant, où *n* est inférieur ou égal à la période de conservation définie pour la restauration à un point dans le temps. L’effet est le rétablissement des opérations d’écriture et de suppression qui se sont produites pendant la période de conservation.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagramme montrant comment la restauration à un point dans le temps restaure des conteneurs à un état antérieur":::
 
 Une seule opération de restauration à la fois peut être exécutée sur un compte de stockage. Une opération de restauration ne peut pas être annulée une fois qu’elle est en cours, mais une deuxième opération de restauration peut être effectuée pour annuler la première opération.
 

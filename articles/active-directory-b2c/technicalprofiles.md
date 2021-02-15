@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219670"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805392"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -448,14 +448,14 @@ L’élément **IncludeTechnicalProfile** contient l’attribut suivant :
 L'exemple ci-dessous illustre l'utilisation de l'inclusion :
 
 - *REST-API-Common* : profil technique courant avec la configuration de base.
-- *REST-ValidateProfile* : comprend le profil technique *REST-API-Commom* et spécifie les revendications d’entrée et de sortie.
-- *REST-UpdateProfile* : comprend le profil technique *REST-API-Commom*, spécifie les revendications d’entrée et écrase les métadonnées `ServiceUrl`.
+- *REST-ValidateProfile* : comprend le profil technique *REST-API-Common* et spécifie les revendications d’entrée et de sortie.
+- *REST-UpdateProfile* : comprend le profil technique *REST-API-Common*, spécifie les revendications d’entrée et remplace les métadonnées de `ServiceUrl`.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="REST-API-Commom">
+    <TechnicalProfile Id="REST-API-Common">
       <DisplayName>Base REST API configuration</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -480,7 +480,7 @@ L'exemple ci-dessous illustre l'utilisation de l'inclusion :
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
@@ -492,7 +492,7 @@ L'exemple ci-dessous illustre l'utilisation de l'inclusion :
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>

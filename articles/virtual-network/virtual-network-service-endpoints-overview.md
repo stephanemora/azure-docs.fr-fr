@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097420"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576665"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -126,7 +126,7 @@ Les points de terminaison de service peuvent être configurés indépendamment s
 
 Pour plus d’informations sur les rôles intégrés, consultez [Rôles intégrés Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour plus d’informations sur l’attribution d’autorisations spécifiques à des rôles personnalisés, consultez [Rôles Azure personnalisés](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. Si le réseau virtuel et les ressources de service Azure se trouvent dans différents abonnements, les ressources doivent être sous le même client Active Directory (AD). 
+Les réseaux virtuels et les ressources du service Azure peuvent être dans des abonnements identiques ou différents. Certains services Azure (pas tous), comme Stockage Azure et Azure Key Vault, prennent également en charge les points de terminaison de service sur différents locataires Active Directory (AD) : c’est-à-dire que le réseau virtuel et la ressource de service Azure peuvent se trouver dans différents locataires Active Directory (AD). Pour plus d’informations, consultez la documentation des services individuels.  
 
 ## <a name="pricing-and-limits"></a>Tarification et limites
 
