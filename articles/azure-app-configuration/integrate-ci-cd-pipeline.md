@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928447"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979842"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Intégrer avec un pipeline CI/CD
 
@@ -35,9 +35,9 @@ Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les éta
 
 ### <a name="prerequisites"></a>Prérequis
 
-Si vous créez localement, téléchargez et installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) si vous ne l’avez pas déjà fait.
+Si vous créez localement, téléchargez et installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) si vous ne l’avez pas déjà fait.
 
-Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) est installée dans votre système de build.
+Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli) est installée dans votre système de build.
 
 ### <a name="export-an-app-configuration-store"></a>Exporter un magasin App Configuration
 
@@ -107,4 +107,4 @@ Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que 
 Dans ce tutoriel, vous avez exporté des données d’Azure App Configuration à utiliser dans un pipeline de déploiement. Pour en savoir plus sur l’utilisation d’App Configuration, passez aux exemples Azure CLI.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig)

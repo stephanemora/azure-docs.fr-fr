@@ -215,22 +215,6 @@
         - name: IoT Central
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
-          items:
-            - name: IoT Central
-              tocHref: /azure/iot-central/core/
-              topicHref: /azure/iot-central/core/
-            - name: IoT Central pour le secteur de l’énergie
-              tocHref: /azure/iot-central/energy/
-              topicHref: /azure/iot-central/energy/
-            - name: IoT Central pour le secteur public
-              tocHref: /azure/iot-central/government/
-              topicHref: /azure/iot-central/government/
-            - name: IoT Central pour la santé
-              tocHref: /azure/iot-central/healthcare/
-              topicHref: /azure/iot-central/healthcare/
-            - name: IoT Central pour la vente au détail
-              tocHref: /azure/iot-central/retail/
-              topicHref: /azure/iot-central/retail/
         - name: IoT Edge
           tocHref: /azure/iot-edge/
           topicHref: /azure/iot-edge/
@@ -511,7 +495,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Stratégie
+        - name: Policy
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph

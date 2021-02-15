@@ -3,12 +3,12 @@ title: Bien démarrer avec Live Video Analytics sur IoT Edge - Azure
 description: Ce guide de démarrage rapide montre comment commencer avec Live Video Analytics sur IoT Edge. Découvrez comment détecter tout mouvement dans un flux vidéo en direct.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507780"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573804"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Démarrage rapide : Bien démarrer - Live Video Analytics sur IoT Edge
 
@@ -563,6 +563,12 @@ Pour observer les résultats, effectuez les étapes suivantes.
 3. Cliquez avec le bouton droit sur **lva-sample-device**, puis sélectionnez **Démarrer la supervision de l’événement intégré**.
 
     ![Démarrer la surveillance des événements IoT Hub](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 La fenêtre **SORTIE** affiche le message suivant :
 
@@ -595,13 +601,6 @@ La fenêtre **SORTIE** affiche le message suivant :
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

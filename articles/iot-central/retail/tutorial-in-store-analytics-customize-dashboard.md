@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348048"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831709"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutoriel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
 
@@ -246,7 +246,12 @@ Pour ajouter une vignette de commande afin de redémarrer la passerelle :
 
 1. Si vous le souhaitez, sélectionnez la vignette **Redémarrer** pour exécuter la commande de redémarrage sur votre passerelle.
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce didacticiel, vous avez appris à :
 
 * Modifier le nom du tableau de bord

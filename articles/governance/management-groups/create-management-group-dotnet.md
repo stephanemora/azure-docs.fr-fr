@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec .NET Core'
 description: Dans ce démarrage rapide, vous allez utiliser .NET Core pour créer un groupe d’administration afin de hiérarchiser vos ressources.
-ms.date: 09/30/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 138998fdc23fd8a296ca50093e2952017888041f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604540"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592549"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>Démarrage rapide : Créer un groupe d’administration avec .NET Core
 
