@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Tableau de bord des évaluations et des avis
       href: partner-center-portal/ratings-reviews.md
+    - name: Détection d’anomalie pour la facturation à l’usage
+      href: anomaly-detection.md
     - name: Questions fréquentes sur Analytics
       href: analytics-faq.md
 - name: Stratégies et les conditions

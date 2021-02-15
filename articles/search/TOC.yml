@@ -212,6 +212,8 @@
       items:
         - name: Créer un indexeur
           href: search-howto-create-indexers.md
+        - name: Exécuter ou réinitialiser des indexeurs
+          href: search-howto-run-reset-indexers.md
         - name: Planifier un indexeur
           href: search-howto-schedule-indexers.md
         - name: Définir des mappages de champs
@@ -560,5 +562,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'
