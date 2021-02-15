@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050525"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575678"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Démarrage rapide - Explorer un exemple de scénario Azure Digital Twins avec ADT Explorer
 
@@ -306,11 +306,15 @@ Dans ce guide de démarrage rapide, vous avez mis à jour la température manuel
 
 Pour conclure ce guide de démarrage rapide, arrêtez l’exécution de l’application console. Cette action désactive la connexion à l’application ADT Explorer dans le navigateur. Vous ne serez plus en mesure de voir les données actives dans le navigateur. Vous pouvez fermer l’onglet du navigateur.
 
-Si vous envisagez de passer aux tutoriels Azure Digital Twins, ne supprimez pas l’instance de ce guide de démarrage rapide, car vous pourrez la réutiliser.
+Vous pouvez alors choisir les ressources à supprimer, en fonction de ce que vous souhaitez faire ensuite.
+
+* **Si vous envisagez de passer aux tutoriels Azure Digital Twins**, ne supprimez pas l’instance de ce guide de démarrage rapide, car vous pourrez la réutiliser.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Enfin, supprimez le dossier d’exemple de projet, **Azure_Digital_Twins__ADT__explorer**, que vous avez téléchargé sur votre ordinateur local. Vous devrez peut-être supprimer à la fois les versions compressées et décompressées.
+Vous pouvez également supprimer le dossier de projet de votre ordinateur local.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

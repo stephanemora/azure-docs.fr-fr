@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281345"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594465"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Démarrage rapide : Convertir un modèle pour le rendu
 
@@ -69,15 +69,15 @@ Quand vous cliquez sur ce bouton, l’écran suivant s’affiche avec les propri
 
 Remplissez le formulaire de la manière suivante :
 
-* Créez un groupe de ressources à partir du lien situé sous la zone de liste déroulante et nommez-le **ARR_Tutorial** .
-* Sous **Nom du groupe de stockage** , entrez un nom unique. **Ce nom doit être globalement unique** . Sinon, une invite vous informe qu’il est déjà pris. Dans le cadre de ce guide de démarrage rapide, nous le nommons **arrtutorialstorage** . Chaque occurrence de ce nom dans ce guide de démarrage rapide doit donc être remplacée par le nom de votre propre compte.
+* Créez un groupe de ressources à partir du lien situé sous la zone de liste déroulante et nommez-le **ARR_Tutorial**.
+* Sous **Nom du groupe de stockage**, entrez un nom unique. **Ce nom doit être globalement unique**. Sinon, une invite vous informe qu’il est déjà pris. Dans le cadre de ce guide de démarrage rapide, nous le nommons **arrtutorialstorage**. Chaque occurrence de ce nom dans ce guide de démarrage rapide doit donc être remplacée par le nom de votre propre compte.
 * Sélectionnez un **emplacement** proche de vous. Dans l’idéal, utilisez le même emplacement que celui utilisé pour la configuration du rendu dans l’autre guide de démarrage rapide.
 * **Performances** défini sur Standard
 * **Type de compte** défini sur StorageV2 (v2 universel)
 * **Réplication** défini sur Stockage géo-redondant avec accès en lecture (RA-GRS)
 * **Niveau d’accès** défini sur Chaud
 
-Aucune des propriétés des autres onglets ne doit être modifiée. Vous pouvez donc poursuivre en sélectionnant **Vérifier + Créer** , puis suivre les étapes nécessaires pour terminer la configuration.
+Aucune des propriétés des autres onglets ne doit être modifiée. Vous pouvez donc poursuivre en sélectionnant **Vérifier + Créer**, puis suivre les étapes nécessaires pour terminer la configuration.
 
 Le site web vous informe de la progression de votre déploiement. À la fin, il affiche le message « Votre déploiement a été effectué ». Cliquez sur le bouton **Accéder à la ressource** pour poursuivre la procédure :
 
@@ -87,17 +87,17 @@ Le site web vous informe de la progression de votre déploiement. À la fin, il 
 
 Nous avons à présent besoin de deux conteneurs d’objets Blob : un pour l’entrée et un pour la sortie.
 
-Le bouton **Accéder à la ressource** ci-dessus vous permet d’accéder à une page comprenant, à gauche, un menu sous forme de liste. Dans cette liste, sous la catégorie **Service Blob** , cliquez sur le bouton **Conteneurs**  :
+Le bouton **Accéder à la ressource** ci-dessus vous permet d’accéder à une page comprenant, à gauche, un menu sous forme de liste. Dans cette liste, sous la catégorie **Service Blob**, cliquez sur le bouton **Conteneurs** :
 
 ![Azure - ajouter des conteneurs](./media/azure-add-containers.png)
 
-Sélectionnez le bouton **+ Conteneur** pour créer le conteneur de stockage Blob d’ **entrée** .
+Sélectionnez le bouton **+ Conteneur** pour créer le conteneur de stockage Blob d’**entrée**.
 Utilisez les paramètres suivants pour la création du conteneur :
   
 * Nom = arrinput
 * Niveau d’accès public = Privé
 
-Après la création du conteneur, cliquez à nouveau sur **+ Conteneur** et utilisez les mêmes paramètres pour le conteneur de **sortie**  :
+Après la création du conteneur, cliquez à nouveau sur **+ Conteneur** et utilisez les mêmes paramètres pour le conteneur de **sortie** :
 
 * Nom = arroutput
 * Niveau d’accès public = Privé
@@ -117,7 +117,7 @@ Il existe un [outil basé sur l’interface utilisateur appelé ARRT](./../sampl
 
 ### <a name="2-conversion-via-a-powershell-script"></a>2. Conversion via un script PowerShell
 
-Nous fournissons un script utilitaire pour faciliter l’appel du service de conversion de ressource. Il se trouve dans le dossier *Scripts* et se nomme **Conversion.ps1** .
+Nous fournissons un script utilitaire pour faciliter l’appel du service de conversion de ressource. Il se trouve dans le dossier *Scripts* et se nomme **Conversion.ps1**.
 
 Ce script effectue notamment les tâches suivantes :
 
@@ -126,7 +126,7 @@ Ce script effectue notamment les tâches suivantes :
 1. Il interroge l’API d’état de conversion avec l’ID de conversion récupéré jusqu’à ce que le processus de conversion se termine (avec succès ou non).
 1. Il récupère un lien vers la ressource convertie dans le stockage de sortie.
 
-Le script lit sa configuration à partir du fichier *Scripts\arrconfig.json* . Ouvrez ce fichier JSON dans un éditeur de texte.
+Le script lit sa configuration à partir du fichier *Scripts\arrconfig.json*. Ouvrez ce fichier JSON dans un éditeur de texte.
 
 ```json
 {
@@ -155,16 +155,16 @@ Le script lit sa configuration à partir du fichier *Scripts\arrconfig.json* . O
 
 Vous devez renseigner la configuration dans le groupe **accountSettings** (clé et ID de compte) comme décrit dans le guide de démarrage rapide [Afficher un modèle avec Unity](render-model.md) pour les informations d’identification.
 
-Dans le groupe **assetConversionSettings** , veillez à modifier **resourceGroup** , **blobInputContainerName** et **blobOutputContainerName** comme indiqué précédemment.
+Dans le groupe **assetConversionSettings**, veillez à modifier **resourceGroup**, **blobInputContainerName** et **blobOutputContainerName** comme indiqué précédemment.
 Notez que la valeur pour **arrtutorialstorage** doit être remplacée par le nom unique que vous avez choisi quand vous avez créé le compte de stockage.
 
 Modifiez **localAssetDirectoryPath** pour qu’il pointe vers le répertoire de votre disque contenant le modèle que vous souhaitez convertir. Veillez à utiliser correctement les barres obliques inverses d’échappement (« \\ ») dans le chemin : utilisez des barres obliques inverses doubles (« \\\\ »).
 
-Toutes les données sous le chemin **localAssetDirectoryPath** seront chargées vers le conteneur d’objets Blob **blobInputContainerName** sous le sous-chemin **inputFolderPath** . Ainsi, dans l’exemple de configuration ci-dessus, le contenu du répertoire « D:\\tmp\\robot » est chargé dans le conteneur d’objets Blob « arrinput » du compte de stockage « arrtutorialstorage » sous le chemin « robotConversion ». Les fichiers existants sont remplacés.
+Toutes les données sous le chemin **localAssetDirectoryPath** seront chargées vers le conteneur d’objets Blob **blobInputContainerName** sous le sous-chemin **inputFolderPath**. Ainsi, dans l’exemple de configuration ci-dessus, le contenu du répertoire « D:\\tmp\\robot » est chargé dans le conteneur d’objets Blob « arrinput » du compte de stockage « arrtutorialstorage » sous le chemin « robotConversion ». Les fichiers existants sont remplacés.
 
 Définissez **inputAssetPath** sur le chemin du modèle à convertir (chemin relatif à localAssetDirectoryPath). Utilisez « / » comme séparateur de chemin au lieu de « \\ ». Ainsi, pour un fichier « robot.fbx », situé directement dans « D:\\tmp\\robot », utilisez « robot.fbx ».
 
-Quand le modèle est converti, il est réécrit dans le conteneur de stockage donné par **blobOutputContainerName** . Vous pouvez spécifier un sous-chemin en définissant **outputFolderPath** si vous le souhaitez. Dans l’exemple ci-dessus, le « robot.arrAsset » obtenu est copié dans le conteneur d’objets Blob de sortie sous « converted/robot ».
+Quand le modèle est converti, il est réécrit dans le conteneur de stockage donné par **blobOutputContainerName**. Vous pouvez spécifier un sous-chemin en définissant **outputFolderPath** si vous le souhaitez. Dans l’exemple ci-dessus, le « robot.arrAsset » obtenu est copié dans le conteneur d’objets Blob de sortie sous « converted/robot ».
 
 Le paramètre de configuration **outputAssetFileName** détermine le nom de la ressource convertie. Ce paramètre est facultatif. S’il n’est pas défini, le nom du fichier de sortie est déduit du nom du fichier d’entrée.
 
@@ -188,8 +188,8 @@ Le résultat suivant devrait s'afficher : ![Conversion.ps1](./media/successful-
 ### <a name="3-conversion-via-api-calls"></a>3. Conversion via des appels d’API
 
 Les API C# et C++ fournissent toutes les deux un point d’entrée pour interagir avec le service :
-* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Insérer un nouveau modèle dans l’exemple d’application de démarrage rapide
@@ -205,9 +205,9 @@ Le script de conversion génère un URI de *signature d’accès partagé (SAS)*
 L’URI SAS créé par le script de conversion sera valide pendant 24 heures uniquement. Toutefois, après son expiration, vous n’avez pas besoin de reconvertir votre modèle. En fait, vous pouvez créer une nouvelle SAS dans le portail comme décrit dans les étapes suivantes :
 
 1. Accédez au [Portail Azure](https://www.portal.azure.com).
-1. Cliquez sur votre ressource **Compte de stockage**  : ![Capture d’écran avec mise en évidence de la ressource de compte de stockage sélectionnée.](./media/portal-storage-accounts.png)
-1. Dans l’écran suivant, cliquez sur **Explorateur de stockage** dans le panneau de gauche et recherchez votre modèle de sortie (fichier *.arrAsset* ) dans le conteneur de stockage Blob *arroutput* . Cliquez sur le fichier avec le bouton droit, puis sélectionnez **Obtenir la signature d’accès partagé** dans le menu contextuel : ![Accès avec signature](./media/portal-storage-explorer.png)
-1. Un nouvel écran s’ouvre. Vous pouvez y sélectionner une date d’expiration. Sélectionnez **Créer** , puis copiez l’URI affiché dans la boîte de dialogue suivante. Ce nouvel URI remplace l’URI temporaire créé par le script.
+1. Cliquez sur votre ressource **Compte de stockage** : ![Capture d’écran avec mise en évidence de la ressource de compte de stockage sélectionnée.](./media/portal-storage-accounts.png)
+1. Dans l’écran suivant, cliquez sur **Explorateur de stockage** dans le panneau de gauche et recherchez votre modèle de sortie (fichier *.arrAsset*) dans le conteneur de stockage Blob *arroutput*. Cliquez sur le fichier avec le bouton droit, puis sélectionnez **Obtenir la signature d’accès partagé** dans le menu contextuel : ![Accès avec signature](./media/portal-storage-explorer.png)
+1. Un nouvel écran s’ouvre. Vous pouvez y sélectionner une date d’expiration. Sélectionnez **Créer**, puis copiez l’URI affiché dans la boîte de dialogue suivante. Ce nouvel URI remplace l’URI temporaire créé par le script.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

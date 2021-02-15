@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 93282e79321f8999ddf8c737ebcb5ea76fbf6e02
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e85a6ad4619897a6c655874b43e6a6b1a7723d3a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948269"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584648"
 ---
 > [!IMPORTANT]
 > Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité.
@@ -112,7 +112,7 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
 `FormRecognizerClient` propose des opérations pour :
 
- - Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour reconnaître vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
+ - Reconnaître les champs et le contenu de formulaires, à l’aide de modèles personnalisés entraînés pour analyser vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
  - Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Analyser la disposition](#analyze-layout).
  - Reconnaître les champs communs des tickets de caisse émis aux États-Unis, à l’aide d’un modèle de ticket de caisse préentraîné dans le service Form Recognizer. Ces champs et métadonnées sont retournés dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les reçus](#analyze-receipts).
 
@@ -120,8 +120,8 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
 `FormTrainingClient` propose des opérations pour :
 
-- Entraîner les modèles personnalisés à reconnaître tous les champs et les valeurs rencontrés dans vos formulaires personnalisés.  Un `CustomFormModel` est retourné indiquant les types de formulaire que le modèle va reconnaître et les champs qu’il va extraire pour chaque type de formulaire.
-- Entraîner les modèles personnalisés à reconnaître des champs et des valeurs spécifiques que vous spécifiez en étiquetant vos formulaires personnalisés.  Un `CustomFormModel` est retourné indiquant les champs que le modèle va extraire ainsi que la précision estimée pour chaque champ.
+- Entraîner les modèles personnalisés à analyser tous les champs et les valeurs rencontrés dans vos formulaires personnalisés.  Un `CustomFormModel` est retourné indiquant les types de formulaire que le modèle va analyser et les champs qu’il va extraire pour chaque type de formulaire.
+- Entraîner les modèles personnalisés à analyser des champs et des valeurs spécifiques que vous spécifiez en étiquetant vos formulaires personnalisés.  Un `CustomFormModel` est retourné indiquant les champs que le modèle va extraire ainsi que la précision estimée pour chaque champ.
 - Gérer les modèles créés dans votre compte.
 - Copier un modèle personnalisé d’une ressource Form Recognizer vers une autre.
 
@@ -191,9 +191,9 @@ Vous devrez aussi ajouter des références aux URL pour vos données d’entraî
 
 ## <a name="analyze-layout"></a>Analyser la disposition
 
-Vous pouvez utiliser Form Recognizer pour reconnaître les tables, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. La valeur retournée est une collection d’objets **FormPage** : un pour chaque page du document envoyé. 
+Vous pouvez utiliser Form Recognizer pour analyser les tableaux, les lignes et les mots dans les documents, sans avoir besoin d’entraîner un modèle. La valeur retournée est une collection d’objets **FormPage** : un pour chaque page du document envoyé. Pour plus d’informations sur l’extraction d’une disposition, consultez le [guide conceptuel des dispositions](../../concept-layout.md).
 
-Pour reconnaître le contenu d’un fichier à une URL donnée, utilisez la méthode `StartRecognizeContentFromUri`.
+Pour analyser le contenu d’un fichier à une URL donnée, utilisez la méthode `StartRecognizeContentFromUri`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
 
@@ -239,89 +239,6 @@ Table 0 has 2 rows and 6 columns.
     Cell (1, 5) contains text: 'PT'.
 ```
 
-## <a name="analyze-receipts"></a>Analyser les reçus
-
-Cette section montre comment reconnaître et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné.
-
-Pour reconnaître les tickets de caisse à partir d’une URL, utilisez la méthode `StartRecognizeReceiptsFromUri`. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
-
-> [!TIP]
-> Vous pouvez également reconnaître les images de tickets de caisse locales. Consultez les méthodes [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), telles que **StartRecognizeReceipts**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
-
-La valeur retournée est une collection d’objets `RecognizedReceipt` : un pour chaque page du document envoyé. Le code suivant traite le ticket à l’URI donné et affiche les champs principaux et les valeurs dans la console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
-
-### <a name="output"></a>Output 
-
-```console
-Form Page 1 has 18 lines.
-    Line 0 has 1 word, and text: 'Contoso'.
-    Line 1 has 1 word, and text: 'Address:'.
-    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
-    Line 3 has 4 words, and text: '1 Redmond way Suite'.
-    Line 4 has 3 words, and text: '1020 Enterprise Way'.
-    Line 5 has 3 words, and text: '6000 Redmond, WA'.
-    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
-    Line 7 has 1 word, and text: '99243'.
-    Line 8 has 2 words, and text: 'Invoice Number'.
-    Line 9 has 2 words, and text: 'Invoice Date'.
-    Line 10 has 3 words, and text: 'Invoice Due Date'.
-    Line 11 has 1 word, and text: 'Charges'.
-    Line 12 has 2 words, and text: 'VAT ID'.
-    Line 13 has 1 word, and text: '34278587'.
-    Line 14 has 1 word, and text: '6/18/2017'.
-    Line 15 has 1 word, and text: '6/24/2017'.
-    Line 16 has 1 word, and text: '$56,651.49'.
-    Line 17 has 1 word, and text: 'PT'.
-Table 0 has 2 rows and 6 columns.
-    Cell (0, 0) contains text: 'Invoice Number'.
-    Cell (0, 1) contains text: 'Invoice Date'.
-    Cell (0, 2) contains text: 'Invoice Due Date'.
-    Cell (0, 3) contains text: 'Charges'.
-    Cell (0, 5) contains text: 'VAT ID'.
-    Cell (1, 0) contains text: '34278587'.
-    Cell (1, 1) contains text: '6/18/2017'.
-    Cell (1, 2) contains text: '6/24/2017'.
-    Cell (1, 3) contains text: '$56,651.49'.
-    Cell (1, 5) contains text: 'PT'.
-Merchant Name: 'Contoso Contoso', with confidence 0.516
-Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
-Item:
-    Name: '8GB RAM (Black)', with confidence 0.916
-    Total Price: '999', with confidence 0.559
-Item:
-    Name: 'SurfacePen', with confidence 0.858
-    Total Price: '99.99', with confidence 0.386
-Total: '1203.39', with confidence '0.774'
-```
-
-## <a name="analyze-business-cards"></a>Analyser les cartes de visite
-
-#### <a name="version-20"></a>[version 2.0](#tab/ga)
-
-> [!IMPORTANT]
-> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
-
-#### <a name="version-21-preview"></a>[version 2.1 (préversion)](#tab/preview)
-
-
-Cette section montre comment reconnaître et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné.
-
-Pour reconnaître des cartes de visite à partir d’une URL, utilisez la méthode `StartRecognizeBusinessCardsFromUriAsync`. 
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
-
-> [!TIP]
-> Vous pouvez également reconnaître les images de tickets de caisse locales. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), comme **StartRecognizeBusinessCards**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
-
-La valeur retournée est une collection d’objets `RecognizedForm`, un pour chaque carte du document. Le code suivant traite la carte de visite à l’URI donné, et affiche les champs principaux et leurs valeurs sur la console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
-
----
 
 ## <a name="analyze-invoices"></a>Analyser les factures
 
@@ -332,14 +249,14 @@ La valeur retournée est une collection d’objets `RecognizedForm`, un pour cha
 
 #### <a name="version-21-preview"></a>[version 2.1 (préversion)](#tab/preview)
 
-Cette section montre comment reconnaître et extraire les champs communs de factures de vente en utilisant un modèle préentraîné.
+Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md).
 
-Pour reconnaître des factures à partir d’une URL, utilisez la méthode `StartRecognizeInvoicesFromUriAsync`. 
+Pour analyser des factures à partir d’une URL, utilisez la méthode `StartRecognizeInvoicesFromUriAsync`. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> Vous pouvez également reconnaître les images de factures locales. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), comme **StartRecognizeInvoices**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
+> Vous pouvez également analyser des images de factures locales. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), comme **StartRecognizeInvoices**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
 
 La valeur retournée est une collection d’objets `RecognizedForm`, un pour chaque facture du document soumis. Le code suivant traite la facture à l’URI donné et affiche les champs principaux et leurs valeurs sur la console.
 
@@ -357,13 +274,13 @@ Cette section montre comment entraîner un modèle avec vos propres données. Un
 
 ### <a name="train-a-model-without-labels"></a>Entraîner un modèle sans étiquettes
 
-Entraînez les modèles personnalisés à reconnaître tous les champs et valeurs rencontrés dans vos formulaires personnalisés sans étiqueter manuellement les documents d’entraînement. La méthode suivante entraîne un modèle sur un ensemble donné de documents et imprime l’état du modèle dans la console. 
+Entraînez les modèles personnalisés à analyser tous les champs et valeurs rencontrés dans vos formulaires personnalisés sans étiqueter manuellement les documents d’entraînement. La méthode suivante entraîne un modèle sur un ensemble donné de documents et imprime l’état du modèle dans la console. 
 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train)]
 
 
-L’objet `CustomFormModel` retourné contient des informations sur les types de formulaires que le modèle peut reconnaître et les champs qu’il peut extraire de chaque type de formulaire. Le bloc de code suivant imprime ces informations dans la console.
+L’objet `CustomFormModel` retourné contient des informations sur les types de formulaires que le modèle peut analyser et les champs qu’il peut extraire de chaque type de formulaire. Le bloc de code suivant imprime ces informations dans la console.
 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_response)]
@@ -560,6 +477,90 @@ Field 'Azure.AI.FormRecognizer.Models.FieldValue:
     Confidence: '0.114
    ...
 ```
+
+## <a name="analyze-receipts"></a>Analyser les reçus
+
+Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md).
+
+Pour analyser les tickets de caisse à partir d’une URL, utilisez la méthode `StartRecognizeReceiptsFromUri`. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
+
+> [!TIP]
+> Vous pouvez également analyser les images de tickets de caisse locales. Consultez les méthodes [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), telles que **StartRecognizeReceipts**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
+
+La valeur retournée est une collection d’objets `RecognizedReceipt` : un pour chaque page du document envoyé. Le code suivant traite le ticket à l’URI donné et affiche les champs principaux et les valeurs dans la console.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_print)]
+
+### <a name="output"></a>Output 
+
+```console
+Form Page 1 has 18 lines.
+    Line 0 has 1 word, and text: 'Contoso'.
+    Line 1 has 1 word, and text: 'Address:'.
+    Line 2 has 3 words, and text: 'Invoice For: Microsoft'.
+    Line 3 has 4 words, and text: '1 Redmond way Suite'.
+    Line 4 has 3 words, and text: '1020 Enterprise Way'.
+    Line 5 has 3 words, and text: '6000 Redmond, WA'.
+    Line 6 has 3 words, and text: 'Sunnayvale, CA 87659'.
+    Line 7 has 1 word, and text: '99243'.
+    Line 8 has 2 words, and text: 'Invoice Number'.
+    Line 9 has 2 words, and text: 'Invoice Date'.
+    Line 10 has 3 words, and text: 'Invoice Due Date'.
+    Line 11 has 1 word, and text: 'Charges'.
+    Line 12 has 2 words, and text: 'VAT ID'.
+    Line 13 has 1 word, and text: '34278587'.
+    Line 14 has 1 word, and text: '6/18/2017'.
+    Line 15 has 1 word, and text: '6/24/2017'.
+    Line 16 has 1 word, and text: '$56,651.49'.
+    Line 17 has 1 word, and text: 'PT'.
+Table 0 has 2 rows and 6 columns.
+    Cell (0, 0) contains text: 'Invoice Number'.
+    Cell (0, 1) contains text: 'Invoice Date'.
+    Cell (0, 2) contains text: 'Invoice Due Date'.
+    Cell (0, 3) contains text: 'Charges'.
+    Cell (0, 5) contains text: 'VAT ID'.
+    Cell (1, 0) contains text: '34278587'.
+    Cell (1, 1) contains text: '6/18/2017'.
+    Cell (1, 2) contains text: '6/24/2017'.
+    Cell (1, 3) contains text: '$56,651.49'.
+    Cell (1, 5) contains text: 'PT'.
+Merchant Name: 'Contoso Contoso', with confidence 0.516
+Transaction Date: '6/10/2019 12:00:00 AM', with confidence 0.985
+Item:
+    Name: '8GB RAM (Black)', with confidence 0.916
+    Total Price: '999', with confidence 0.559
+Item:
+    Name: 'SurfacePen', with confidence 0.858
+    Total Price: '99.99', with confidence 0.386
+Total: '1203.39', with confidence '0.774'
+```
+
+## <a name="analyze-business-cards"></a>Analyser les cartes de visite
+
+#### <a name="version-20"></a>[version 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Cette fonctionnalité n’est pas disponible dans la version de l’API sélectionnée.
+
+#### <a name="version-21-preview"></a>[version 2.1 (préversion)](#tab/preview)
+
+
+Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md).
+
+Pour analyser des cartes de visite à partir d’une URL, utilisez la méthode `StartRecognizeBusinessCardsFromUriAsync`. 
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
+
+> [!TIP]
+> Vous pouvez également analyser les images de tickets de caisse locales. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), comme **StartRecognizeBusinessCards**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour obtenir des scénarios impliquant des images locales.
+
+La valeur retournée est une collection d’objets `RecognizedForm`, un pour chaque carte du document. Le code suivant traite la carte de visite à l’URI donné, et affiche les champs principaux et leurs valeurs sur la console.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
+
+---
 
 ## <a name="manage-custom-models"></a>Gérer des modèles personnalisés
 

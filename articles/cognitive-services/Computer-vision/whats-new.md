@@ -10,16 +10,32 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490875"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007395"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
 Découvrir les nouveautés du service. Ces éléments peuvent être des notes de publication, des vidéos, des billets de blog et d’autres types d’informations. Marquez cette page pour rester informé des nouveautés du service.
+
+## <a name="february-2021"></a>Février 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Préversion publique de l’API Lire v3.2 avec prise en charge de la reconnaissance optique de caractères (OCR) pour 73 langues
+La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponible en tant que service cloud et conteneur Docker, comprend les mises à jour suivantes :
+* [OCR pour 73 langues](./language-support.md#optical-character-recognition-ocr) y compris le chinois simplifié, le chinois traditionnel, le japonais, le coréen et le latin.
+* Ordre de lecture naturel pour la sortie des lignes de texte.
+* Classification du style d’écriture manuscrite pour les lignes de texte avec un score de confiance (langues latines uniquement).
+* Extrayez uniquement le texte des pages sélectionnées pour un document multipage.
+* Disponible en tant que [conteneur Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) pour un déploiement local.
+
+[Découvrez-en plus](concept-recognizing-text.md) sur l’API Lire.
+
+> [!div class="nextstepaction"]
+> [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Janvier 2021
 

@@ -1,26 +1,24 @@
 ---
 author: baanders
-description: fichier include pour le nettoyage d’une instance Azure Digital Twins de base
+description: Fichier include pour le nettoyage d’une instance Azure Digital Twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 8/13/2020
+ms.date: 2/4/2021
 ms.author: baanders
-ms.openlocfilehash: 4c03ef942896dda63f678018cdd257024cfbb6d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c3c1b814b357a2e4b724590261657e485852f99c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011255"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575679"
 ---
-Si vous n’avez plus besoin des ressources créées dans ce tutoriel, effectuez les étapes suivantes pour les supprimer.
-
-Dans [Azure Cloud Shell](https://shell.azure.com), vous pouvez supprimer toutes les ressources Azure d’un groupe de ressources avec la commande [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Cette commande supprime le groupe de ressources et l’instance Azure Digital Twins.
-
-> [!IMPORTANT]
-> La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources.
-
-Ouvrez Azure Cloud Shell et exécutez la commande suivante pour supprimer le groupe de ressources et tout ce qu’il contient.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+* **Si vous n’avez pas besoin des ressources que vous avez créées dans ce tutoriel**, vous pouvez supprimer l’instance Azure Digital Twins et toutes les autres ressources de cet article à l’aide de la commande [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Cette opération supprime toutes les ressources Azure d’un groupe de ressources ainsi que ce dernier.
+    
+    > [!IMPORTANT]
+    > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement les mauvaises ressources ou le mauvais groupe de ressources.
+    
+    Ouvrez [Azure Cloud Shell](https://shell.azure.com) et exécutez la commande suivante pour supprimer le groupe de ressources et tout ce qu’il contient.
+    
+    ```azurecli-interactive
+    az group delete --name <your-resource-group>
+    ```

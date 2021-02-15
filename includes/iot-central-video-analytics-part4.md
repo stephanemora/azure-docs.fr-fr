@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: d9c2aea284a2ab84b5d45fe35a35785adfc88123
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763419"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832065"
 ---
 ### <a name="publish-the-device-template"></a>Publier le modèle d’appareil
 
@@ -61,16 +61,3 @@ Vous avez besoin des informations d’identification qui permettent à l’appar
 
 1. Sélectionnez **Fermer**.
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Vous venez de créer une application IoT Central à l’aide du modèle d’application **Analytique vidéo - Détection d’objets et de mouvements**, de créer un modèle d’appareil pour l’appareil de passerelle et d’ajouter un appareil de passerelle à l’application.
-
-Si vous souhaitez tester l’application Analytique vidéo - Détection d’objets et de mouvements à l’aide des modules IoT Edge exécutant une machine virtuelle cloud avec des flux vidéo simulés :
-
-> [!div class="nextstepaction"]
-> [Créer une instance IoT Edge pour l’analytique vidéo (machine virtuelle Linux)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-Si vous souhaitez tester l’application Analytique vidéo - Détection d’objets et de mouvements à l’aide des modules IoT Edge exécutant un appareil réel avec la caméra réelle **ONVIF** :
-
-> [!div class="nextstepaction"]
-> [Créer une instance IoT Edge pour l’analytique vidéo (Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)
