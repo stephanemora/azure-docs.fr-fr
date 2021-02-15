@@ -3,12 +3,12 @@ title: 'Tutoriel : Déployer un cluster vSphere dans Azure'
 description: Découvrez comment déployer un cluster vSphere dans Azure en utilisant Azure VMware Solution
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966307"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093945"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution dans Azure
 
@@ -74,25 +74,6 @@ Spécifiez un nom pour le groupe de ressources et le cloud privé, un emplacemen
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Supprimer un cloud privé Azure VMware Solution
-
-Si vous avez un cloud privé Azure VMware Solution dont vous n’avez plus besoin, vous pouvez le supprimer. Un cloud privé Azure VMware Solution comprend un domaine de réseau isolé, un ou plusieurs clusters vSphere provisionnés sur des hôtes serveur dédiés et plusieurs machines virtuelles. Quand un cloud privé est supprimé, toutes les machines virtuelles, leurs données et les clusters sont supprimés. Les hôtes nus dédiés sont réinitialisés sans problème et retournés au pool libre. Le domaine de réseau provisionné pour le client est supprimé.  
-
-> [!CAUTION]
-> La suppression du cloud privé est une opération irréversible. Une fois le cloud privé supprimé, les données ne peuvent pas être récupérées, car cela met fin à l’ensemble des charges de travail et composants en cours d’exécution, et détruit toutes les données et tous les paramètres de configuration du cloud privé, notamment les adresses IP publiques.
-
-### <a name="prerequisites"></a>Prérequis
-
-Une fois qu’un cloud privé est supprimé, il n’existe aucun moyen de récupérer les machines virtuelles et leurs données. Les données de machines virtuelles seront nécessaires ultérieurement, mais l’administrateur doit d’abord sauvegarder toutes les données avant de supprimer le cloud privé.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Étapes à suivre pour supprimer un cloud privé Azure VMware Solution
-
-1. Accédez à la page Azure VMware Solutions à partir du portail Azure.
-
-2. Sélectionnez le cloud privé à supprimer.
- 
-3. Entrez le nom du cloud privé, puis sélectionnez **Oui**. Le processus de suppression se termine en quelques heures.  
 
 ## <a name="azure-vmware-commands"></a>Commandes Azure VMware
 

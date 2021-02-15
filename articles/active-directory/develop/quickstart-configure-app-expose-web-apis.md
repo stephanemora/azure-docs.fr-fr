@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017750"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103972"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Démarrage rapide : Configurer une application pour exposer une API web
 
@@ -45,7 +45,7 @@ Le code d’une application cliente demande l’autorisation d’effectuer des o
 
 Tout d’abord, effectuez les étapes suivantes pour créer un exemple d’étendue nommé `Employees.Read.All` :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire contenant l’inscription de votre application cliente.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications**, puis l’inscription d’application de votre API.
 1. Sélectionnez **Exposer une API** > **Ajouter une étendue**.

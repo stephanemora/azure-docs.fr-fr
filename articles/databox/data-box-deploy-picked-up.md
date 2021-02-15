@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2020
+ms.date: 02/02/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524990"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539109"
 ---
 ::: zone target="docs"
 
@@ -267,6 +267,35 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
     ```
 
 Si vous rencontrez des problèmes, envoyez un e-mail à Data Box Operations Asia à cette adresse [adbo@microsoft.com](mailto:adbo@microsoft.com), en détaillant le ou les problèmes et en indiquant le nom du travail dans la ligne Objet.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Vérifier le chargement des données dans Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Effacer les données de la Data Box
+ 
+
+::: zone-end
+
+## <a name="united-arab-emirates"></a>[Émirats arabes unis](#tab/in-uae)
+
+1. Conservez la boîte d’origine utilisée pour expédier l’appareil, en cas de retour.
+2. Vérifiez que la copie des données sur l’appareil est terminée et que l’étape **Préparation de l’expédition** a été correctement effectuée.
+3. Notez le numéro de référence indiqué dans la page **Préparation de l’expédition** de l’interface utilisateur web locale .
+4. Mettez l’appareil hors tension, puis débranchez les câbles. Enroulez le cordon d’alimentation fourni avec l’appareil, et fixez-le à l’arrière de ce dernier.
+6. Emballez l’appareil à des fins de réexpédition dans sa boîte d’origine.
+7. Envoyez un e-mail à l’[équipe des opérations Azure Data Box](mailto:adbops@microsoft.com) pour recevoir un ID qui sera utilisé pour identifier le package lors de son retour au centre de données.
+8. Inscrivez cet ID sur l’étiquette d’expédition imprimée, à côté de l’adresse de retour afin qu’il soit clairement visible.  
+9. Réservez un enlèvement en ligne en accédant au site [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) (DHL Express - Émirats arabes unis) > **Schedule a Pickup** (Planifier un enlèvement).
+   - Entrez le numéro de référence indiqué dans la page **Préparation de l’expédition** de l’interface utilisateur web locale de l’appareil dans le champ du numéro de bordereau.
+   - Les réservations sont acceptées de 9h00 à 14h00, 6 jours par semaine (sauf le vendredi et les jours fériés).
+   - Les demandes d’enlèvement doivent être effectuées au moins 90 minutes avant l’heure de fermeture de bureau du client.
+10. Si vous rencontrez des problèmes avec l’outil de réservation de DHL, vous pouvez contacter DHL en utilisant l’une des méthodes suivantes :
+    - Appelez le 04-2924545.
+    - Envoyez un e-mail à l’adresse [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) contenant des détails sur le ou les problèmes rencontrés, et indiquez le numéro de numéro de bordereau dans la ligne Objet.
+    - Appelez le support du service client au 600 567567.
 
 ::: zone target="chromeless"
 
