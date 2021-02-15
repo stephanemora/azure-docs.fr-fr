@@ -66,8 +66,8 @@
               href: build-enrollment-app.md
 - name: Informations de référence
   items:
-    - name: API Visage
-      href: APIReference.md
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/face/'
     - name: Kits SDK
       items:
         - name: .NET

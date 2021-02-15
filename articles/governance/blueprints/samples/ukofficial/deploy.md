@@ -1,14 +1,14 @@
 ---
 title: Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 description: Étapes de déploiement des exemples de blueprint UK OFFICIAL et UK NHS, y compris les détails du paramètre d’artefact blueprint.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 14e832397c21f183c94720bc71f06530d9caaf14
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420323"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627548"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -33,8 +33,8 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 1. Entrez les _Fonctions de base_ de l’exemple de blueprint :
 
-   - **Nom du blueprint**  : Entrez le nom de votre copie de l’exemple de blueprint.
-   - **Emplacement de la définition**  : utilisez les points de suspension et sélectionnez le groupe d’administration dans lequel vous souhaitez enregistrer votre copie de l’exemple.
+   - **Nom du blueprint** : Entrez le nom de votre copie de l’exemple de blueprint.
+   - **Emplacement de la définition** : utilisez les points de suspension et sélectionnez le groupe d’administration dans lequel vous souhaitez enregistrer votre copie de l’exemple.
 
 1. Sélectionnez l’onglet _Artefacts_ dans le haut de la page ou **Suivant : Artefacts** dans le bas de la page.
 
@@ -48,11 +48,11 @@ Votre copie de l’exemple de blueprint est à présent créée dans votre envir
 
 1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de blueprint, puis sélectionnez-la.
 
-1. Sélectionnez **Publier le blueprint** dans le haut de la page. Dans la nouvelle page à droite, indiquez la **Version** de votre copie de l’exemple de blueprint. Cette propriété est utile si vous prévoyez d’effectuer une modification ultérieurement. Dans **Notes de changement** , indiquez par exemple « Première version publiée à partir de l’exemple de blueprint UK OFFICIAL ou UK NHS ». Sélectionnez ensuite **Publier** en bas de la page.
+1. Sélectionnez **Publier le blueprint** dans le haut de la page. Dans la nouvelle page à droite, indiquez la **Version** de votre copie de l’exemple de blueprint. Cette propriété est utile si vous prévoyez d’effectuer une modification ultérieurement. Dans **Notes de changement**, indiquez par exemple « Première version publiée à partir de l’exemple de blueprint UK OFFICIAL ou UK NHS ». Sélectionnez ensuite **Publier** en bas de la page.
 
 ## <a name="assign-the-sample-copy"></a>Affecter la copie de l’exemple
 
-Une fois que la copie de l’exemple de blueprint a été **publiée** , elle peut être affectée à un abonnement dans le groupe d’administration où elle a été enregistrée. C’est à cette étape que les paramètres sont fournis pour que chaque déploiement de la copie de l’exemple de blueprint soit unique.
+Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peut être affectée à un abonnement dans le groupe d’administration où elle a été enregistrée. C’est à cette étape que les paramètres sont fournis pour que chaque déploiement de la copie de l’exemple de blueprint soit unique.
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
@@ -64,11 +64,11 @@ Une fois que la copie de l’exemple de blueprint a été **publiée** , elle pe
 
    - Concepts de base
 
-     - **Abonnements**  : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre copie de l’exemple de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
-     - **Nom de l’affectation**  : Le nom est prérempli en fonction du nom du blueprint.
+     - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre copie de l’exemple de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
+     - **Nom de l’affectation** : Le nom est prérempli en fonction du nom du blueprint.
        Changez-le si nécessaire ou laissez-le tel quel.
      - **Emplacement** : Sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Version de définition du blueprint**  : Choisissez une version **publiée** de votre copie de l’exemple de blueprint.
+     - **Version de définition du blueprint** : Choisissez une version **publiée** de votre copie de l’exemple de blueprint.
 
    - Verrouiller l'affectation
 
@@ -76,7 +76,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée** , elle pe
 
    - Identité managée
 
-     Conservez l’option par défaut, _Affecté(e) par le système_ , pour l’identité managée.
+     Conservez l’option par défaut, _Affecté(e) par le système_, pour l’identité managée.
 
    - Paramètres d'artefact
 

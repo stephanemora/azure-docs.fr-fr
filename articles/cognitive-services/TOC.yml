@@ -51,7 +51,7 @@
     - name: Étiquettes d’image conteneur et notes de publication
       href: ./containers/container-image-tags.md
     - name: Questions fréquentes (FAQ) sur les conteneurs
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: Recettes de conteneur
       items:
         - name: Réutilisation des conteneurs
