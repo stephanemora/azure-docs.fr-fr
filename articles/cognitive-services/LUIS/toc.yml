@@ -1,6 +1,6 @@
 - name: Documentation LUIS
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le service Language Understanding\_?"
@@ -413,7 +413,7 @@
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Chiffrement
-      href: luis-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Configurer des réseaux virtuels
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
