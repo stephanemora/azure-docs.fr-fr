@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753329"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582314"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Application web qui appelle des API web : Configuration de code
 
@@ -44,7 +44,7 @@ Sélectionnez l'onglet correspondant à la plateforme qui vous intéresse :
 
 ## <a name="client-secrets-or-client-certificates"></a>Secrets clients ou certificats clients
 
-Dans la mesure où votre application web appelle désormais une API web en aval, vous devez fournir un secret client ou un certificat client dans le fichier *appsettings.json*. Vous pouvez également ajouter une section spécifiant ce qui suit :
+Dans la mesure où votre application web appelle désormais une API web en aval, fournissez un secret client ou un certificat client dans le fichier *appsettings.json*. Vous pouvez également ajouter une section spécifiant ce qui suit :
 
 - URL de l’API web en aval ;
 - étendues requises pour appeler l’API.

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071898"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548829"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser une liste verte ou d’exclusion pour autoriser ou bloquer 
 
 - Vous pouvez créer une liste verte ou une liste d’exclusion. Vous ne pouvez pas configurer les deux types de listes. Par défaut, les domaines qui ne sont pas dans la liste verte sont dans la liste d’exclusion et vice versa. 
 - Vous ne pouvez créer qu’une seule stratégie par organisation. Vous pouvez mettre à jour la stratégie pour inclure plusieurs domaines ou vous pouvez supprimer la stratégie pour en créer une nouvelle. 
-- Le nombre de domaines que vous pouvez ajouter à une liste verte ou à une liste d’exclusion n’est limité que par la taille de la stratégie. La taille maximale de la stratégie entière est de 25 Ko (25 000 caractères). Elle comprend la liste verte ou la liste d’exclusion et tous les autres paramètres configurés pour d’autres fonctionnalités.
+- Le nombre de domaines que vous pouvez ajouter à une liste verte ou à une liste d’exclusion n’est limité que par la taille de la stratégie. Cette limite s’applique au nombre de caractères, de sorte que vous pouvez avoir plus de domaines plus courts ou moins de domaines plus longs. La taille maximale de la stratégie entière est de 25 Ko (25 000 caractères). Elle comprend la liste verte ou la liste d’exclusion et tous les autres paramètres configurés pour d’autres fonctionnalités.
 - Cette liste fonctionne indépendamment à partir des listes vertes/rouges OneDrive Entreprise et SharePoint Online. Si vous souhaitez restreindre le partage des fichiers individuels dans SharePoint Online, vous devez configurer une liste verte ou d’exclusion pour OneDrive Entreprise et SharePoint Online. Pour plus d’informations, consultez [Partage des domaines restreints dans SharePoint Online et OneDrive Entreprise](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
 - La liste ne s’applique pas aux utilisateurs externes qui ont déjà utilisé l’invitation. La liste est appliquée une fois configurée. Si une invitation de l’utilisateur est en attente et que vous définissez une stratégie qui bloque leur domaine, la tentative de l’utilisateur d’utiliser l’invitation échoue.
 

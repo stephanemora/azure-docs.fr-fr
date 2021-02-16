@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8b40be366afe24b960f7419d84cc2a9976b592
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842697"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625699"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Présentation de la gestion réseau dans les applications Service Fabric Mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Cet article décrit les différents types d’équilibreurs de charge, comment les passerelles connectent le réseau de vos applications à d’autres réseaux, et comment le trafic est acheminé entre les services dans vos applications.
 
 ## <a name="layer-4-vs-layer-7-load-balancers"></a>Équilibreurs de charge de couche 7 et de couche 4

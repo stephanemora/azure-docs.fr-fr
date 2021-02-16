@@ -5,15 +5,15 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 610c545bf25822d27e0a641a1b2631f899502420
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 16004e6e471094c99229c32a63396ac3b0490905
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340156"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524275"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,8 @@ Retourne une valeur numérique signée indiquant le nombre actuel de cycles de 1
 
 GetCurrentTicks() est une fonction non déterministe. Le résultat retourné est au format UTC (temps universel coordonné).
 
-Cette fonction système n’utilisera pas l’index.
+> [!NOTE]
+> Cette fonction système n’utilisera pas l’index. Si vous devez comparer des valeurs à l’heure actuelle, obtenez l’heure actuelle avant d’exécuter la requête et utilisez cette valeur de chaîne constante dans la clause `WHERE`.
 
 ## <a name="examples"></a>Exemples
 

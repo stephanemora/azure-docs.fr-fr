@@ -6,16 +6,21 @@ ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd42752dc7ef2c7686073b7a2d780fe9356425c7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372465"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625581"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in Maven pour Service Fabric Mesh
 
-## <a name="prerequisites"></a>Conditions préalables requises
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
+## <a name="prerequisites"></a>Prérequis
 
 - Kit de développement logiciel (SDK) Java
 - Maven

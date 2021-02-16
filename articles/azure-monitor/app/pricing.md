@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531324"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556135"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -186,7 +186,7 @@ Voici quelques suggestions de techniques pour vous aider à gérer le volume de 
 
 * **Échantillonnage** : vous pouvez effectuer un échantillonnage pour réduire la quantité de données de télémétrie envoyées à partir de votre serveur et de vos applications clientes, avec une distorsion minimale des métriques. L’échantillonnage est le principal outil dont vous disposez pour ajuster la quantité de données que vous envoyez. Découvrez plus en détail les [fonctionnalités d’échantillonnage](./sampling.md).
 
-* **Limitez les appels AJAX** : vous pouvez [Limiter le nombre d’appels Ajax qui peuvent être signalés](./javascript.md#configuration) dans chaque affichage de page, ou désactiver les rapports Ajax.
+* **Limitez les appels AJAX** : vous pouvez [Limiter le nombre d’appels Ajax qui peuvent être signalés](./javascript.md#configuration) dans chaque affichage de page, ou désactiver les rapports Ajax. Notez que la désactivation des appels Ajax désactive la [corrélation JavaScript](./javascript.md#enable-correlation).
 
 * **Désactivez les modules inutiles** : [Modifiez ApplicationInsights.config](./configuration-with-applicationinsights-config.md) pour désactiver les modules de collecte dont vous n’avez pas besoin. Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 

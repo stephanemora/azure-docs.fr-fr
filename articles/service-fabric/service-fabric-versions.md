@@ -3,12 +3,12 @@ title: Mettre à niveau la version de votre cluster Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918107"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549066"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Mettre à niveau la version de votre cluster Azure Service Fabric
 
@@ -40,7 +40,7 @@ Les clusters Azure Service Fabric qui s’exécutent sur les versions 5.7 à 6.
 Effectuez une mise à niveau vers une version prise en charge de Service Fabric pour éviter les temps d’arrêt ou la perte de fonctionnalités liées à cette modification. Vérifiez que vos clusters exécutent au minimum les versions suivantes pour éviter tout problème au sein de votre environnement.
 
 > [!Note]
-> Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
+> **Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.**
   
   | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
   | --- | --- |--- |
@@ -75,9 +75,15 @@ Pour éviter les temps d’arrêt ou la perte de fonctionnalité, assurez-vous q
 Les versions de Service Fabric dans le tableau contiennent les modifications nécessaires pour empêcher la perte de fonctionnalités. Assurez-vous que vous utilisez l’une de ces versions.  
 
 > [!Note]
-> Toutes les mises en production de la version 7.2 incluent les modifications nécessaires.
+> **Les clusters Azure Service Fabric s’exécutant sur la version 6.5 doivent effectuer plusieurs mises à niveau en même temps avant que l’infrastructure ne soit modifiée pour éviter la perte de fonctionnalités dans le cluster**. 
+>   -   1. Mettre à niveau vers 7.0.466. **Les clusters exécutant le système d’exploitation Windows pour lequel la fonctionnalité de conteneur Windows est activée ne peuvent PAS être sur cette version intermédiaire. Ils doivent effectuer l’étape suivante (ii) ci-dessous, à savoir Mise à niveau vers une version plus sûre et conforme afin d’éviter les interruptions de service**
+>   -   2. Effectuez une mise à niveau vers les versions les plus récentes de la version 7.0* (7.0.478) ou de l’une des versions supérieures listées ci-dessous.
 
-  | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
+
+> [!Note]
+> **Toutes les mises en production de la version 7.2 incluent les modifications nécessaires**.
+
+ | Système d’exploitation | Runtime Service Fabric actuel dans le cluster | Date de publication du CU/correctif |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |

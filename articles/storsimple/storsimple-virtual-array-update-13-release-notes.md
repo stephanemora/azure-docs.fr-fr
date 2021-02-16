@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 02611bdf9689d2f62f661f558fd547ea46bd4d36
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743959"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576006"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.3
 
@@ -28,15 +28,15 @@ Update 1.3 correspond à la version logicielle 10.0.10319.0.
 
 ## <a name="whats-new-in-update-13"></a>Nouveautés d’Update 1.3
 
-Cette mise à jour contient les améliorations suivantes :
+Cette mise à jour contient les améliorations suivantes : KB4540725
 
 - Transport Layer Security (TLS) 1.2 est une mise à jour obligatoire et doit être installée. À partir de cette version, TLS 1.2 devient le protocole standard pour toutes les communications du Portail Azure.
 - Les correctifs de bogues de nettoyage de la mémoire (garbage collection) améliorent les performances du cycle de nettoyage de la mémoire quand l’appareil et le compte de stockage se trouvent dans deux régions distantes.
 - Correction des échecs de sauvegarde en raison de délais d’attente d’objets blob.
 - Mises à jour des correctifs de sécurité du système d’exploitation/.NET Framework :
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64) : Mise à jour de la pile de maintenance (SSU) de mars 2020
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64) : Correctif cumulatif de juillet 2020
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64) : Mise à jour .NET Framework de juillet 2020
+  - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86) : Mise à jour de la pile de maintenance (SSU) de mars 2020
+  - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01) : Correctif cumulatif de juillet 2020
+  - [KB4565622](https://support.microsoft.com/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00) : Mise à jour .NET Framework de juillet 2020
 
 ## <a name="download-update-13"></a>Télécharger Update 1.3
 

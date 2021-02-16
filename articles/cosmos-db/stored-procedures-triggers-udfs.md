@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340700"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575955"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB offre une exécution transactionnelle, intégrée au langage, de JavaScript. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez écrire les **procédures stockées** , les **déclencheurs** et les **fonctions définies par l’utilisateur** dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) ou des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB offre une exécution transactionnelle, intégrée au langage, de JavaScript. Lorsque vous utilisez l’API SQL dans Azure Cosmos DB, vous pouvez écrire les **procédures stockées**, les **déclencheurs** et les **fonctions définies par l’utilisateur** dans le langage JavaScript. Vous pouvez écrire votre logique dans JavaScript et l’exécuter dans le moteur de base de données. Vous pouvez créer et exécuter des déclencheurs, des procédures stockées et des fonctions définies par l’utilisateur à l’aide du [Portail Azure](https://portal.azure.com/), de [l’API de requête avec langage intégré JavaScript dans Azure Cosmos DB](javascript-query-api.md) ou des [Kits de développement logiciel (SDK) clients de l’API SQL Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Avantages de l’utilisation de la programmation côté serveur
 
@@ -72,7 +72,7 @@ Les procédures stockées et les déclencheurs sont toujours exécutés dans le 
 
 ## <a name="bounded-execution"></a>Exécution limitée
 
-Toutes les opérations Azure Cosmos DB doivent s’effectuer avant le délai d’expiration spécifié. Cette contrainte s’applique aux fonctions JavaScript (procédures stockées, déclencheurs et fonctions définies par l’utilisateur). Si une opération n'est pas terminée dans ce délai imparti, la transaction est annulée.
+Toutes les opérations Azure Cosmos DB doivent s’effectuer avant le délai d’expiration spécifié. Les procédures stockées ont un délai d’expiration de 5 secondes. Cette contrainte s’applique aux fonctions JavaScript (procédures stockées, déclencheurs et fonctions définies par l’utilisateur). Si une opération n'est pas terminée dans ce délai imparti, la transaction est annulée.
 
 Vous pouvez vous assurer que les fonctions JavaScript s’exécutent dans ce délai ou mettre en œuvre un modèle basé sur la continuation pour traiter par lots/reprendre l’exécution. Afin de simplifier le développement de procédures stockées et de déclencheurs pour gérer les limites de temps, toutes les fonctions sous le conteneur Azure Cosmos (par exemple, création, lecture, remplacement et suppression d’éléments) retournent une valeur booléenne qui indique si l'opération arrivera à son terme. Si cette valeur est false, cela indique que la procédure doit clôturer l’exécution, car le script consomme plus de temps ou de débit provisionné que la valeur configurée. Les opérations mises en file d'attente avant la première opération de stockage non acceptée sont assurées de s'exécuter si la procédure stockée s'exécute à temps et ne place pas d'autres demandes dans la file d'attente. Par conséquent, les opérations doivent être mises en file d’attente une à la fois à l’aide de la convention de rappel de JavaScript pour gérer le flux de contrôle du script. Étant donné que les scripts sont exécutés dans un environnement côté serveur, ils sont strictement régis. Les scripts enfreignant de façon répétitive les limites de l’exécution peuvent être marqués comme inactifs et ne peuvent pas être exécutés. Ils doivent être recréés pour respecter les limites de l’exécution.
 

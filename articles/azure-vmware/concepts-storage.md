@@ -2,13 +2,13 @@
 title: Concepts – Stockage
 description: Découvrez les principales capacités de stockage dans les clouds privés d’Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/02/2021
+ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062793"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536948"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Concepts de stockage pour Azure VMware Solution
 
@@ -32,15 +32,19 @@ Par défaut, les magasins de données vSAN utilisent le chiffrement des données
 
 ## <a name="scaling"></a>Mise à l'échelle
 
-La capacité de stockage du cluster natif est mise à l’échelle en ajoutant des hôtes à un cluster. Pour les clusters qui utilisent des hôtes haut de gamme, la capacité brute à l’échelle du cluster est augmentée de 15,4 To par hôte supplémentaire. La capacité brute des clusters créés avec des hôtes à usage général est augmentée de 7,7 To par hôte supplémentaire. Dans les deux types de clusters, l’ajout d’hôtes à un cluster prend environ 10 minutes. Pour obtenir des instructions sur la mise à l’échelle des clusters, consultez le [tutoriel relatif à la mise à l’échelle d’un cloud privé][tutorial-scale-private-cloud].
+La capacité de stockage du cluster natif est mise à l’échelle en ajoutant des hôtes à un cluster. Pour les clusters qui utilisent des hôtes haut de gamme, la capacité brute à l’échelle du cluster est augmentée de 15,4 To par hôte ajouté. La capacité brute des clusters créés avec des hôtes à usage général est augmentée de 7,7 To par hôte ajouté. Dans les deux types de clusters, l’ajout d’hôtes à un cluster prend environ 10 minutes. Pour obtenir des instructions sur la mise à l’échelle des clusters, consultez le [tutoriel relatif à la mise à l’échelle d’un cloud privé][tutorial-scale-private-cloud].
 
 ## <a name="azure-storage-integration"></a>Intégration du Stockage Azure
 
-Vous pouvez utiliser les services de Stockage Azure sur des charges de travail qui s’exécutent dans votre cloud privé. Les services de Stockage Azure incluent les Comptes de stockage, le Stockage Table et le Stockage Blob. La connexion des charges de travail aux services de Stockage Azure ne traverse pas Internet. Cette connectivité offre une sécurité supplémentaire et vous permet d’utiliser les services de Stockage Azure basés sur un Contrat de niveau de service (SLA) dans vos charges de travail de cloud privé.
+Vous pouvez utiliser les services de Stockage Azure sur des charges de travail qui s’exécutent dans votre cloud privé. Les services de Stockage Azure incluent les Comptes de stockage, le Stockage Table et le Stockage Blob. La connexion des charges de travail aux services de Stockage Azure ne traverse pas Internet. Cette connectivité offre une sécurité supplémentaire et vous permet d’utiliser les services Stockage Azure basés sur un Contrat de niveau de service (SLA) dans vos charges de travail de cloud privé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’étape suivante consiste à découvrir les [concepts de l’identité de cloud privé][concepts-identity].
+Maintenant que vous avez abordé les concepts de stockage d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
+
+- [Concepts d’identité de cloud privé](concepts-identity.md).
+- [Contrôle d’accès en fonction du rôle vSphere pour Azure VMware Solution](concepts-role-based-access-control.md).
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external-->
 

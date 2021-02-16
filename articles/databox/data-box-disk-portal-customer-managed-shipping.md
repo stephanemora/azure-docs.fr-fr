@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f512b4415f4a83e779a8f9bf790ba2806e3b05c5
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575161"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526328"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilisez l’expédition autogérée pour Azure Data Box Disk dans le portail Azure
 
@@ -24,7 +24,9 @@ Cet article décrit les tâches d’expédition autogérées pour la commande, l
 L’expédition autogérée est disponible comme option lorsque vous [commandez Azure Data Box Disk](data-box-disk-deploy-ordered.md). L’expédition autogérée est disponible uniquement dans les régions suivantes :
 
 * Gouvernement américain
+* Royaume-Uni
 * Europe de l’Ouest
+* Australie
 * Japon
 * Singapour
 * Corée du Sud
@@ -41,7 +43,7 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
 2. Lorsque vous choisissez le type de livraison, sélectionnez l’option **expédition autogérée**. Cette option est disponible uniquement si vous êtes dans une des régions prises en charge, comme cela est décrit dans les prérequis.
 
-3. Une fois que vous avez fourni votre adresse de livraison, vous devez la valider et terminer votre commande.
+3. Après avoir fourni votre adresse de livraison, vous devez la valider et terminer votre commande.
 
    ![Capture d’écran de la boîte de dialogue Ajouter une adresse de livraison avec les options Expédier avec et l’option Ajouter une adresse d’expédition en évidence.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
@@ -57,13 +59,13 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
    ![Capture d’écran de la boîte de dialogue Panifier la récupération pour Azure avec la zone de texte Code d’autorisation pour la récupération mise en évidence.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
-   Notez ce **code d’autorisation**.
+   Prenez note de ce code d’autorisation.
 
    Conformément aux exigences de sécurité, au moment de la planification de l’enlèvement, il est nécessaire de donner le nom de la personne qui sera présente lors de l’enlèvement.
 
-   Vous devez également fournir des détails sur les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validé par le centre de donnée.
+   Vous devez également fournir des détails sur les personnes qui se rendront au centre de données pour l’enlèvement. Vous ou le point de contact devez posséder une pièce d’identité avec photo approuvée par le gouvernement qui sera validée par le centre de données.
 
-   En outre, la personne qui viendra enlever l’appareil doit également avoir le **code d’autorisation**. Le code d’autorisation pour la collecte ou le dépôt est unique et est validé dans le centre de données.
+   La personne qui viendra enlever l’appareil doit également avoir le code d’autorisation. Le code d’autorisation pour la collecte ou le dépôt est unique et est validé dans le centre de données.
 
 7. Votre commande passe automatiquement à l’état **Récupérée** une fois l’appareil enlevé au centre de données.
 
@@ -71,12 +73,12 @@ Quand passez une commande de Data Box Disk, vous pouvez choisir l’option d’e
 
 8. Après avoir enlevé l’appareil, vous pouvez copier les données vers le ou les Data Box Disk sur votre site. Une fois la copie des données terminée, vous pouvez préparer l’expédition du Data Box Disk.
 
-   Lorsque vous avez terminé la copie des données, vous devez contacter le service des opérations pour planifier un rendez-vous pour le dépôt. Vous devrez partager les informations concernant la personne qui se rendra au centre de données pour déposer les disques. Le centre de données devra également vérifier le code d’autorisation au moment du dépôt. Le code d’autorisation pour le dépôt est disponible sur le portail Azure sous **Planifier le dépôt**.
+   Une fois la copie des données terminée, contactez le service des opérations pour planifier un rendez-vous pour le dépôt. Vous devrez partager les informations concernant la personne qui se rendra au centre de données pour déposer les disques. Le centre de données devra également vérifier le code d’autorisation au moment du dépôt. Vous trouverez le code d’autorisation pour le dépôt dans le portail Azure, sous **Planifier le dépôt**.
 
    > [!NOTE]
-   > Ne partagez pas le code d’autorisation par e-mail. Il doit uniquement être vérifié au centre de données lors du dépôt.
+   > Ne partagez pas le code d’autorisation par e-mail. Il ne doit être vérifié qu’au centre de données lors du dépôt.
 
-9. Si vous avez reçu une date de rendez-vous pour le dépôt, l’état de la commande doit maintenant être passé à **Prête à être reçue au centre de données Azure** sur le portail Azure.
+9. Une fois que vous avez reçu une date de rendez-vous pour le dépôt, la commande doit se trouver à l’état **Prêt pour la réception au centre de données Azure** dans le portail Azure.
 
    ![Capture d’écran de la boîte de dialogue Ajouter une adresse d’expédition avec les options Expédier avec et le bouton Ajouter l’adresse d’expédition mis en évidence.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 

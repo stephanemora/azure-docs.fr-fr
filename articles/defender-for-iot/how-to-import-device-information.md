@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625412"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509433"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importer des informations d’appareil sur un capteur
 
@@ -160,7 +160,7 @@ Pour importer l’adresse IP, le système d’exploitation et le niveau de patc
 
    - **Système d’exploitation**: Sélectionnez dans la liste déroulante.
 
-   - **Dernière mise à jour** : Utilisez le format AAAA-MM-JJ.
+   - **Date de la dernière mise à jour** : Utilisez le format AAAA-MM-JJ.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="Contenu à l’écran.":::
 
@@ -172,7 +172,7 @@ Pour importer l’adresse IP, le système d’exploitation et le niveau de patc
 
 Pour importer l’état de l’autorisation :
 
-1. Téléchargez et enregistrez le fichier [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) à partir du centre d’aide Defender pour IoT. Vérifiez que vous avez enregistré le fichier au format CSV.
+1. Téléchargez et enregistrez le fichier [authorized_devices - examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) à partir du centre d’aide Defender pour IoT. Vérifiez que vous avez enregistré le fichier au format CSV.
 
 2. Entrez les informations suivantes :
 

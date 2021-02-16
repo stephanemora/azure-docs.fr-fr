@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732409"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550859"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -169,6 +169,8 @@ Si vous remarquez un problème impliquant le comportement d’un nœud ou de tâ
 
 Pour les comptes Batch en mode d’abonnement utilisateur, les mises à jour automatiques du système d’exploitation peuvent interrompre la progression des tâches, en particulier si elles sont de longue durée. La [création de tâches idempotent](#build-durable-tasks) peut aider à réduire les erreurs provoquées par ces interruptions. Nous vous recommandons également de [planifier des mises à jour des images de système d’exploitation pour les périodes où les tâches ne sont pas censées s’exécuter](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+Pour des pools Windows, `enableAutomaticUpdates` est défini sur `true` par défaut. Il est recommandé d’autoriser les mises à jour automatiques, mais vous pouvez définir cette valeur sur `false` pour vous assurer qu’une mise à jour du système d’exploitation ne se produise pas de manière inattendue.
+
 ## <a name="isolation-security"></a>Isolation de sécurité
 
 À des fins d’isolation, si votre scénario nécessite l’isolation des travaux les uns des autres, isolez ces travaux en les plaçant dans des pools distincts. Un pool est la limite d’isolation de sécurité dans Batch et, par défaut, deux pools ne sont pas visibles l’un par l’autre ni en mesure de communiquer entre eux. Évitez d’utiliser des comptes Batch distincts comme méthode d’isolation.
@@ -189,8 +191,7 @@ Passez en revue les recommandations suivantes associées à la connectivité dan
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Groupes de sécurité réseau (NSG) et Itinéraires définis par l’utilisateur (UDR)
 
-Lorsque vous approvisionnez des [pools Batch dans un réseau virtuel](batch-virtual-network.md), veillez à respecter scrupuleusement les instructions relatives à l’utilisation de la balise de service `BatchNodeManagement`, des ports, des protocoles et de la direction de la règle.
-L’utilisation de la balise du service est fortement recommandée, contrairement à celle des adresses IP du service Batch sous-jacent. En effet, les adresses IP du service Batch peuvent changer au fil du temps. L’utilisation directe d’adresses IP du service Batch peut entraîner une instabilité, des interruptions ou des pannes au niveau de vos pools Batch.
+Lorsque vous approvisionnez des [pools Batch dans un réseau virtuel](batch-virtual-network.md), veillez à respecter scrupuleusement les instructions relatives à l’utilisation de la balise de service `BatchNodeManagement`, des ports, des protocoles et de la direction de la règle. L’utilisation de la balise du service est fortement recommandée, contrairement à celle des adresses IP du service Batch sous-jacent. En effet, les adresses IP du service Batch peuvent changer au fil du temps. L’utilisation directe d’adresses IP du service Batch peut entraîner une instabilité, des interruptions ou des pannes au niveau de vos pools Batch.
 
 Pour les itinéraires définis par l’utilisateur (UDR), assurez-vous d’avoir mis en place un processus qui met régulièrement à jour les adresses IP du service Batch dans votre table d’itinéraires à mesure que ces adresses évoluent au fil du temps. Pour savoir comment obtenir la liste des adresses IP du service Batch, consultez [Balises de service locales](../virtual-network/service-tags-overview.md). Les adresses IP du service Batch sont associées à la balise de service `BatchNodeManagement` (ou à la variante régionale correspondant à la région de votre compte Batch).
 

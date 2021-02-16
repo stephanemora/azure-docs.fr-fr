@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323793"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584938"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -57,14 +57,14 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
 
 ## <a name="results"></a>Résultats
 
-Après avoir exécuté **Évaluer le modèle** , sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux** , puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes. L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
+Après avoir exécuté **Évaluer le modèle**, sélectionnez le module pour ouvrir le volet de navigation **Évaluer le modèle** à droite.  Ensuite, choisissez l’onglet **Sorties + journaux**, puis, sous cet onglet, la section **Sorties de données** comporte plusieurs icônes. L’icône **Visualiser** contient une icône de graphique à barres et est une première façon de voir les résultats.
 
-Pour la classification binaire, après avoir cliqué sur l’icône **Visualiser** , vous pouvez visualiser la matrice de confusion binaire.
+Pour la classification binaire, après avoir cliqué sur l’icône **Visualiser**, vous pouvez visualiser la matrice de confusion binaire.
 Pour la multiclassification, vous trouverez le fichier de tracé de la matrice de confusion sous l’onglet **Sorties + journaux** comme suit :
 > [!div class="mx-imgBorder"]
 > ![Aperçu de l’image chargée](media/module/multi-class-confusion-matrix.png)
 
-Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle** , les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
+Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle**, les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
 Le modèle ou les données associés au port de gauche apparaissent en premier dans le rapport, suivis des métriques pour le jeu de données ou le modèle associé au port de droite.  
 
 Par exemple, l’image suivante représente une comparaison des résultats de deux modèles de clustering qui ont été créés sur les mêmes données, mais avec des paramètres différents.  
@@ -86,7 +86,7 @@ Cette section décrit les métriques retournées pour les types spécifiques de 
 
 Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification binaire.
   
--   L’ **exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
+-   L’**exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
   
 -   La **précision** correspond à la proportion de résultats réels sur tous les résultats positifs. Précision = TP/(TP+FP)  
   
@@ -94,7 +94,7 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
   
 -   Le **score F1** est calculé comme la moyenne pondérée de précision et de rappel comprise entre 0 et 1, la valeur de score F1 idéale étant 1.  
   
--   **AUC** mesure la zone sous la courbe tracée avec les vrais positifs sur l’axe y et les faux positifs sur l’axe x. Cette métrique est utile car elle fournit un nombre unique qui vous permet de comparer les modèles de types différents.  
+-   **AUC** mesure la zone sous la courbe tracée avec les vrais positifs sur l’axe y et les faux positifs sur l’axe x. Cette métrique est utile car elle fournit un nombre unique qui vous permet de comparer les modèles de types différents. AUC est un invariant de seuil de classification. Il mesure la qualité des prédictions du modèle, quel que soit le seuil de classification choisi.
 
 
 ### <a name="metrics-for-regression-models"></a>Métriques pour les modèles de régression
@@ -103,17 +103,17 @@ Les métriques retournées pour les modèles de régression sont conçues pour e
   
  Les métriques suivantes sont rapportées lors de l’évaluation de modèles de régression.
   
-- L’ **erreur absolue moyenne (MAE)** mesure la précision des prédictions par rapport aux résultats réels ; un score inférieur est donc préférence.  
+- L’**erreur absolue moyenne (MAE)** mesure la précision des prédictions par rapport aux résultats réels ; un score inférieur est donc préférence.  
   
 - La **racine carrée de l’erreur quadratique moyenne (RMSE)** crée une valeur unique qui résume l’erreur dans le modèle. En mettant la différence au carré, la métrique ne tient pas compte de la différence entre sur-prédiction et sous-prédiction.  
   
-- L’ **erreur absolue relative (RAE)** est la différence absolue relative entre valeurs prévues et réelles ; elle est relative car la différence moyenne est divisée par la moyenne arithmétique.  
+- L’**erreur absolue relative (RAE)** est la différence absolue relative entre valeurs prévues et réelles ; elle est relative car la différence moyenne est divisée par la moyenne arithmétique.  
   
-- L’ **erreur quadratique relative (RSE)** normalise de manière similaire l’erreur quadratique totale des valeurs prévues en divisant par l’erreur quadratique totale des valeurs réelles.  
+- L’**erreur quadratique relative (RSE)** normalise de manière similaire l’erreur quadratique totale des valeurs prévues en divisant par l’erreur quadratique totale des valeurs réelles.  
   
 
   
-- Le **coefficient de détermination** , généralement appelé R <sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
+- Le **coefficient de détermination**, généralement appelé R <sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
 
 ###  <a name="metrics-for-clustering-models"></a>Mesures pour les modèles de clustering
 

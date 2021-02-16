@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 651329b1b061f2cf5a06dbdc9d60f73cec64e7d3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843207"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625547"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestion d’état avec Service Fabric
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Service Fabric prend en charge de nombreuses option de stockage d’état. Pour une vue d’ensemble conceptuelle des modèles de gestion d’état et de Service Fabric, voir [Concepts de Service Fabric : état](../service-fabric/service-fabric-concepts-state.md). Tous ces concepts s’appliquent, que vos services s’exécutent à l’intérieur ou à l’extérieur de Service Fabric mesh. 
 

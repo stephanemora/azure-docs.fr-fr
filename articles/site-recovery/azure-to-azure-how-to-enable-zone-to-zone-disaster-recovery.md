@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 21bdbecdbba31eae112053bf81411781245cc170
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: d207a5629647ef3582f1e0490ef6ccc407f935f7
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678686"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584836"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Activer la récupération d’urgence des machines virtuelles Azure entre les zones de disponibilité
 
@@ -20,7 +20,7 @@ Cet article explique comment répliquer, basculer et restaurer automatiquement d
 
 >[!NOTE]
 >
->- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée à cinq régions : Asie Sud-est, Royaume-Uni Sud, Japon Est, Australie Est et Europe Ouest.  
+>- La prise en charge de la récupération d’urgence de zone à zone est actuellement limitée à neuf régions : Asie Sud-Est, Japon Est, Australie Est, Royaume-Uni Sud, Europe Ouest, Europe Nord, USA Centre, USA Est et USA Ouest 2.  
 >- Site Recovery ne déplace pas et ne stocke pas les données client hors de la région dans laquelle il est déployé lorsque le client utilise la récupération d’urgence de zone à zone. S’ils le souhaitent, les clients peuvent sélectionner un coffre Recovery Services dans une autre région. Le coffre Recovery Services contient des métadonnées, mais pas de données client réelles.
 
 Le service Site Recovery contribue à votre stratégie de continuité d’activité et reprise d’activité en veillant à ce que vos applications métier restent opérationnelles lors d’interruptions planifiées ou non. Il s’agit de l’option de récupération d’urgence recommandée pour maintenir vos applications opérationnelles en cas de pannes régionales.

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 902348063a24b50d1de0a821d9d6e67931cc53cd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014720"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582534"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
@@ -79,9 +79,9 @@ Si vous préférez configurer manuellement l'URI de redirection, utilisez le man
 
 ### <a name="username-password-authentication"></a>Authentification par nom d'utilisateur/mot de passe
 
-Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers le point de terminaison de la plateforme d'identités Microsoft version 2.2.0. Votre application ne sera pas rappelée sur un URI spécifique.
+Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers la plateforme d'identités Microsoft. Votre application ne sera pas rappelée sur un URI spécifique.
 
-Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire :
+Identifiez toutefois votre application en tant qu'application cliente publique. Pour ce faire :
 
 1. Toujours dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, sélectionnez votre application dans **Inscriptions d’applications**, puis sélectionnez **Authentification**.
 1. Dans **Paramètres avancés** > **Autoriser les flux de clients publics** > **Activer les flux mobiles et de bureau suivants**, sélectionnez **Oui**.

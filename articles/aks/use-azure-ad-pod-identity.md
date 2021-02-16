@@ -4,16 +4,19 @@ description: Découvrez comment utiliser des identités managées par pod AAD da
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: d992c5c5384c04fe39511481550ab7b0ea47069e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217870"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557358"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)
 
 Les identités managées par pod Azure Active Directory utilisent des primitives Kubernetes pour associer des [identités managées pour les ressources Azure][az-managed-identities] et des identités dans Azure Active Directory (AAD) avec des pods. Les administrateurs créent des identités et des liaisons en tant que primitives Kubernetes qui permettent aux pods d’accéder aux ressources Azure qui reposent sur AAD en tant que fournisseur d’identité.
+
+> [!NOTE]
+> Si vous disposez d’une installation existante de AADPODIDENTITY, vous devez supprimer l’installation existante. L’activation de cette fonctionnalité signifie que le composant MIC n’est pas nécessaire.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

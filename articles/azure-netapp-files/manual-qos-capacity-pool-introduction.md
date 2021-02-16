@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993989"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581123"
 ---
 # <a name="manual-qos-capacity-pool"></a>Pool de capacités QoS
 
@@ -29,7 +29,7 @@ Cet article fournit une introduction à la fonctionnalité de pool de capacités
 
 Le [type de QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) est un attribut de pool de capacités. Azure NetApp Files fournit deux types de QoS pour les pools de capacités : automatique (par défaut) et manuelle.  
 
-Au sein d’un pool de capacités avec QoS *manuelle*, vous pouvez attribuer la capacité et le débit d’un volume de manière indépendante. Le débit total de tous les volumes créés avec un pool de capacités de QoS manuel est limité par le débit total du pool. Il est déterminé par la combinaison de la taille du pool et du débit au niveau du service. 
+Au sein d’un pool de capacités avec QoS *manuelle*, vous pouvez attribuer la capacité et le débit d’un volume de manière indépendante. Pour les niveaux de débit minimaux et maximaux, consultez [Limites de ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). Le débit total de tous les volumes créés avec un pool de capacités de QoS manuel est limité par le débit total du pool. Il est déterminé par la combinaison de la taille du pool et du débit au niveau du service. 
 
 Dans un pool de capacités avec QoS *automatique*, le débit est attribué automatiquement aux volumes du pool, proportionnellement au quota de taille alloué aux volumes.  
 

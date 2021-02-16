@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901536"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582007"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901536"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Comment le trafic est envoyé lors de l’utilisation de Private Link ?
 Le trafic est envoyé dans le cadre d’une connexion privée à l’aide de l’infrastructure principale Microsoft. Il ne passe pas par Internet. Azure Private Link ne stocke pas les données client.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Quelle est la différence entre un point de terminaison de service et un point de terminaison privé ?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>Quelle est la différence entre des points de terminaison de service et des points de terminaison privés ?
 - Les points de terminaison privés accordent un accès réseau à des ressources spécifiques derrière un service donné fournissant une segmentation granulaire. Le trafic peut atteindre la ressource du service à partir d’un emplacement local sans utiliser de points de terminaison publics.
 - Un point de terminaison de service reste une adresse IP routable publiquement.  Un point de terminaison privé est une adresse IP privée dans l’espace d’adressage du réseau virtuel sur lequel le point de terminaison privé est configuré.
 
@@ -34,6 +34,9 @@ Le trafic est envoyé dans le cadre d’une connexion privée à l’aide de l�
 Plusieurs types de ressources Private Link prennent en charge l’accès via un point de terminaison privé. Les ressources incluent les services Azure PaaS et votre propre service Private Link. Il s’agit d’une relation un-à-plusieurs. 
 
 Un service Azure Private Link reçoit des connexions provenant de plusieurs points de terminaison privés. Un point de terminaison privé se connecte à un service Azure Private Link.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>Dois-je désactiver les stratégies réseau pour Private Link
+Oui. Le point de terminaison privé et le service Private Link doivent désactiver les stratégies réseau pour fonctionner correctement. Tous deux ont des propriétés indépendantes les unes des autres.
 
 ## <a name="private-endpoint"></a>Point de terminaison privé 
  

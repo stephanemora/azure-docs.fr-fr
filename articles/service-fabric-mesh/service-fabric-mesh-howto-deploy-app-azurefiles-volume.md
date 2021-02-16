@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 00addbe992bc113c67df08f73414107d51b3bce5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 40d10568e13ad455bc5178821da80e89f4132e93
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007390"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625835"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Azure Files dans une application Service Fabric Mesh 
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Cet article décrit comment monter un volume basé sur Azure Files dans un service d’une application Service Fabric Mesh.  Le pilote de volume Azure Files est un pilote de volume Docker utilisé pour monter un partage Azure Files sur un conteneur, auquel vous faites appel pour conserver l’état du service. Les volumes vous offrent un stockage de fichiers universel et vous permettent de lire/écrire des fichiers à l’aide d’API de fichier d’E/S de disque normal.  Pour en savoir plus sur les volumes et les options de stockage des données d’application, consultez [Stockage d’état](service-fabric-mesh-storing-state.md).
 

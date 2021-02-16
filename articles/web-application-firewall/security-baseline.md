@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878119"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807867"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Base de référence de sécurité pour Azure Web Application Firewall
 
@@ -135,7 +135,7 @@ Choisissez Azure PowerShell ou Azure CLI pour rechercher des ressources ou effec
 
 **Conseils** : Configurez les journaux d’Azure Web Application Firewall (WAF) à envoyer à une solution de gestion des journaux de sécurité centralisée, telle qu’Azure Sentinel, ou une application SIEM tierce. Ces journaux incluent les journaux d’activité Azure, de diagnostic et de WAF en temps réel. Ces journaux peuvent ensuite être affichés dans différents outils, tels qu’Azure Monitor, Excel et Power BI. Les journaux d’Azure Web Application Firewall fournissent des informations sur ce qu’Azure WAF évalue, met en correspondance et bloque.
 
-Azure Sentinel possède un classeur Azure WAF intégré qui fournit une vue d’ensemble des événements de sécurité sur Azure WAF. Ce classeur inclut les événements, les règles de correspondance et les règles bloquées ainsi que tout le reste de ce qui est consigné dans les journaux du pare-feu. Cette télémétrie peut être utilisée pour lancer l’automatisation du playbook pour notifier ou prendre des mesures correctives en fonction des événements WAF collectés par Sentinel.
+Azure Sentinel possède un classeur Azure WAF intégré qui fournit une vue d’ensemble des événements de sécurité sur Azure WAF. Ce classeur inclut les événements, les règles de correspondance et les règles bloquées ainsi que tout le reste de ce qui est consigné dans les journaux du pare-feu. Cette télémétrie peut être utilisée pour lancer l’automatisation du guide opérationnel pour notifier ou prendre des mesures correctives en fonction des événements WAF collectés par Azure Sentinel.
 
 - [Afficher les journaux d’activité](../azure-resource-manager/management/view-activity-logs.md)
 

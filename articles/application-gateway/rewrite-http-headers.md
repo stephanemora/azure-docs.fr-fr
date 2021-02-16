@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397147"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575651"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire des en-têtes HTTP avec Application Gateway
 
@@ -49,14 +49,14 @@ Vous pouvez utiliser une condition pour déterminer si une variable spécifiée 
 Les actions de réécriture permettent de spécifier les en-têtes de requête et de réponse que vous souhaitez réécrire ainsi que la nouvelle valeur de ces en-têtes. Vous pouvez créer un nouvel en-tête, modifiez la valeur d’un en-tête existant ou supprimer un en-tête existant. La valeur d’un nouvel en-tête ou d’un en-tête existant peut être définie avec ces types de valeur :
 
 - Texte.
-- En-tête de demande. Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_ *headerName* }.
-- En-tête de réponse. Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_ *headerName* }.
-- Variable de serveur. Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_ *serverVariable* }.
+- En-tête de demande. Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_ *headerName*}.
+- En-tête de réponse. Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_ *headerName*}.
+- Variable de serveur. Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_ *serverVariable*}.
 - Texte, en-tête de requête, en-tête de réponse et variable de serveur combinés.
 
 ## <a name="server-variables"></a>Variables de serveur
 
-Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_ *serverVariable* }
+Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes. Pour utiliser la valeur des variables de serveur afin de réécrire des en-têtes, vous devez spécifier ces variables dans la syntaxe {var_ *serverVariable*}
 
 Application Gateway prend en charge ces variables de serveur :
 
@@ -69,21 +69,21 @@ Application Gateway prend en charge ces variables de serveur :
 | client_port                | Port client.                                                  |
 | client_tcp_rtt             | Informations sur la connexion TCP cliente. Disponible sur les systèmes qui prennent en charge l’option de socket TCP_INFO. |
 | client_user                | Quand l’authentification HTTP est utilisée, nom d’utilisateur fourni pour l’authentification. |
-| host                       | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur host sera *contoso.com* |
+| host                       | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur host sera *contoso.com* |
 | cookie_ *name*              | Cookie *name*.                                            |
 | http_method                | Méthode utilisée pour effectuer la requête d’URL. Par exemple, GET ou POST. |
 | HTTP_STATUS                | État de session. Par exemple, 200, 400 ou 403.                       |
 | http_version               | Protocole de requête. Généralement, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | Liste de paires variable/valeur qui suivent le « ? » dans l’URL demandée. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur query_string sera *id=123&title=fabrikam* |
+| query_string               | Liste de paires variable/valeur qui suivent le « ? » dans l’URL demandée. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur query_string sera *id=123&title=fabrikam* |
 | received_bytes             | Longueur de la requête (incluant la ligne, l’en-tête et le corps de la requête). |
 | request_query              | Arguments dans la ligne de la requête.                                |
 | request_scheme             | Schéma de requête : « http » ou « https ».                            |
-| request_uri                | URI complet de la requête d’origine (avec les arguments). Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur request_uri sera */article.aspx?id=123&title=fabrikam*   |
+| request_uri                | URI complet de la requête d’origine (avec les arguments). Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur request_uri sera */article.aspx?id=123&title=fabrikam*   |
 | sent_bytes                 | Nombre d’octets envoyés à un client.                             |
 | server_port                | Port du serveur qui a accepté une requête.                 |
 | ssl_connection_protocol    | Protocole d’une connexion TLS établie.        |
 | ssl_enabled                | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
-| uri_path                   | Identifie la ressource spécifique dans l’hôte à laquelle le client web souhaite accéder. Il s’agit de la partie de l’URI de demande sans les arguments. Exemple : dans la demande *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , la valeur uri_path sera */article.aspx*  |
+| uri_path                   | Identifie la ressource spécifique dans l’hôte à laquelle le client web souhaite accéder. Il s’agit de la partie de l’URI de demande sans les arguments. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur uri_path sera */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Configuration de la réécriture
 
@@ -91,19 +91,19 @@ Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces éta
 
 1. Créez les objets nécessaires à la réécriture d’en-tête HTTP :
 
-   - **Action de réécriture**  : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture à une action de réécriture.
+   - **Action de réécriture** : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture à une action de réécriture.
 
-   - **Condition de réécriture**  : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
+   - **Condition de réécriture** : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
      Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération AND logique.
 
-   - **Règle de réécriture**  : contient plusieurs combinaisons d’actions/conditions de réécriture.
+   - **Règle de réécriture** : contient plusieurs combinaisons d’actions/conditions de réécriture.
 
-   - **Séquence de règle**  : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
+   - **Séquence de règle** : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
 
-   - **Jeu de réécritures**  : contient plusieurs règles de réécriture qui seront associées à une règle de routage de requête.
+   - **Jeu de réécritures** : contient plusieurs règles de réécriture qui seront associées à une règle de routage de requête.
 
-2. Attachez le jeu de réécritures ( *RewriteRuleSet* ) à une règle de routage. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
+2. Attachez le jeu de réécritures (*RewriteRuleSet*) à une règle de routage. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
    > [!NOTE]
    > La réécriture d’URL modifie les en-têtes ; elle ne change pas l’URL du chemin.
 

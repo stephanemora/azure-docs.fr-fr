@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442046"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548659"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 
@@ -67,6 +66,16 @@ L’API offre les fonctionnalités suivantes :
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>Déterminer si un utilisateur a déjà été invité dans votre répertoire
+
+Vous pouvez utiliser l’API d’invitation pour déterminer si un utilisateur existe déjà dans votre locataire de ressource. Cela peut être utile lorsque vous développez une application qui utilise l’API d’invitation pour inviter un utilisateur. Si l’utilisateur existe déjà dans votre répertoire de ressources, il ne recevra pas d’invitation. Vous pouvez donc d’abord exécuter une requête pour déterminer si l’adresse e-mail existe en tant qu’UPN ou autre propriété de connexion.
+
+1. Vérifiez que le domaine de messagerie de l’utilisateur ne fait pas partie du domaine vérifié de votre locataire de ressource.
+2. Dans le locataire de la ressource, utilisez la requête d’obtention d’utilisateur suivante, où {0} est l’adresse e-mail que vous invitez :
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>Modèle d’autorisation
 
@@ -103,9 +112,9 @@ Vous pouvez utiliser les options suivantes :
 Une fois que vous avez envoyé une invitation à un utilisateur externe, vous pouvez utiliser l’applet de commande **Get-AzureADUser** pour voir s’il l’a acceptée. Les propriétés suivantes de l’applet de commande Get-AzureADUser sont remplies quand une invitation est envoyée à un utilisateur externe :
 
 * **UserState** indique si le statut de l’invitation est **PendingAcceptance** (En attente d’acceptation) ou **Accepted** (Acceptée).
-* **UserStateChangedOn** affiche l’horodatage de la modification la plus récente de la propriété **UserState** .
+* **UserStateChangedOn** affiche l’horodatage de la modification la plus récente de la propriété **UserState**.
 
-Vous pouvez utiliser l’option **Filter** pour filtrer les résultats en fonction de la propriété **UserState** . L’exemple ci-dessous montre comment filtrer les résultats pour afficher uniquement les utilisateurs qui ont une invitation en attente. L’exemple illustre également l’option **Format-List** , qui vous permet de spécifier les propriétés à afficher. 
+Vous pouvez utiliser l’option **Filter** pour filtrer les résultats en fonction de la propriété **UserState**. L’exemple ci-dessous montre comment filtrer les résultats pour afficher uniquement les utilisateurs qui ont une invitation en attente. L’exemple illustre également l’option **Format-List**, qui vous permet de spécifier les propriétés à afficher. 
  
 
 ```powershell
@@ -115,13 +124,13 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Vérifiez que vous disposez de la dernière version du module AzureAD PowerShell ou du module AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir également
 
 Consultez les informations de référence sur les API d’invitation dans [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
-- [Éléments de l’e-mail d’invitation de B2B Collaboration](invitation-email-elements.md)
+- [Éléments de l’e-mail d’invitation de collaboration B2B](invitation-email-elements.md)
 - [Utilisation d’une invitation B2B Collaboration](redemption-experience.md)
 - [Ajouter des utilisateurs B2B Collaboration sans invitation](add-user-without-invite.md)

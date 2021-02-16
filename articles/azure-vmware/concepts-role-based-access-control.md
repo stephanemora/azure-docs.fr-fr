@@ -2,13 +2,13 @@
 title: Concepts - Contrôle d'accès en fonction du rôle vSphere (vSphere RBAC)
 description: Familiarisez-vous avec les principales fonctionnalités du contrôle d'accès en fonction du rôle vSphere pour Azure VMware Solution
 ms.topic: conceptual
-ms.date: 10/23/2020
-ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 02/02/2021
+ms.openlocfilehash: 9d7c724fba194d86c2d73bb8323439de7c83c170
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888400"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537016"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>Contrôle d'accès en fonction du rôle vSphere (vSphere RBAC) pour Azure VMware Solution
 
@@ -22,9 +22,6 @@ Dans un déploiement local vCenter et ESXi, l’administrateur a accès au compt
 Dans un déploiement Azure VMware Solution, l’administrateur n’a pas accès au compte d’utilisateur administrateur. Il peut cependant attribuer des utilisateurs et groupes AD au rôle CloudAdmin sur vCenter.  
 
 L’utilisateur de cloud privé n’a pas accès et ne peut pas configurer de composants de gestion spécifiques pris en charge et gérés par Microsoft. Par exemple, les clusters, les hôtes, les magasins de données et les commutateurs virtuels distribués.
-
-
-
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Rôle CloudAdmin d’Azure VMware Solution sur vCenter
 
@@ -63,7 +60,11 @@ Le rôle CloudAdmin dans Azure VMware Solution dispose des privilèges suivants 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Reportez-vous à la [documentation produit VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) pour obtenir une explication détaillée de chaque privilège.
+Maintenant que vous avez abordé les notions de base du contrôle d’accès en fonction du rôle vSphere pour Azure VMware Solution, vous pouvez en savoir plus sur les éléments suivants :
+
+- Les détails de chaque privilège dans la [documentation du produit VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+- [Surveillance et réparation des clouds privés Azure VMware Solution](concepts-monitor-repair-private-cloud.md).
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

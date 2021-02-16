@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429464"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557737"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -202,17 +202,24 @@ L’opération est bloquée, car vous avez atteint la limite du nombre d’opér
 |---|---|---|
 L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur s’affiche. Cette erreur s’affiche généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service de sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple : si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+L’opération d’extension de la charge de travail AzureBackup a échoué. | La machine virtuelle est arrêtée ou elle ne peut pas contacter le service Azure Backup en raison de problèmes de connectivité Internet.| <li> Assurez-vous que la machine virtuelle est en cours d’exécution et qu’elle dispose d’une connexion Internet.<li> [Réinscrire une extension sur la machine virtuelle SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| - Si vous utilisez NSG afin de limiter la connectivité, vous devez utiliser la balise de service *AzureBackup* pour autoriser l'accès sortant au service Sauvegarde Azure, et de même pour les services Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Suivez ces [étapes](./backup-sql-server-database-azure-vms.md#nsg-tags) pour autoriser l’accès.<br>- Assurez-vous que DNS résout les points de terminaison Azure.<br>- Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles.<br>- Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
+La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| <li> Si vous utilisez NSG afin de limiter la connectivité, vous devez utiliser la balise de service *AzureBackup* pour autoriser l'accès sortant au service Sauvegarde Azure, et de même pour les services Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*). Suivez ces [étapes](./backup-sql-server-database-azure-vms.md#nsg-tags) pour autoriser l’accès. <li> Assurez-vous que DNS résout les points de terminaison Azure. <li> Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles. <li> Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
 
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 
 Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déclencher l’opération de réinscription :
 
-- Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)** , **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
 
   - absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;

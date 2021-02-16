@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795622"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582024"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
@@ -101,12 +101,12 @@ Dans l’inscription d’application Azure pour l’application cliente :
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application
 
-Sur la base de votre certificat, vous devez calculer :
+Après l’acquisition d’un certificat, calculez les valeurs suivantes :
 
 - `$base64Thumbprint` -Valeur encodée en base64 du code de hachage du certificat
 - `$base64Value` -Valeur encodée en base64 des données brutes du certificat
 
-Vous devez également fournir un GUID pour identifier la clé dans le manifeste de l’application (`$keyId`).
+Fournissez un GUID pour identifier la clé dans le manifeste de l’application (`$keyId`).
 
 Dans l’inscription d’application Azure pour l’application cliente :
 1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application.

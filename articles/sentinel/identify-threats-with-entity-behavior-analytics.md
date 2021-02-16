@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784793"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807561"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identifier les menaces avancées avec l’analyse du comportement des utilisateurs et des entités (User and Entity Behavior Analytics, UEBA) dans Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_* _ les régions et zones géographiques Azure Sentinel.
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_** les régions et zones géographiques Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Qu’est-ce que l’analyse du comportement des utilisateurs et des entités ?
 
@@ -35,7 +35,7 @@ L’identification des menaces au sein de votre organisation, ainsi que de leur 
 
 La fonctionnalité d’analyse du comportement des utilisateurs et des entités d’Azure Sentinel élimine la pénibilité des charges de travail de vos analystes et l’incertitude liée aux résultats de leurs efforts. Elle leur apporte également une intelligence hautement fiable et actionnable, qui leur permet de se concentrer sur les tâches d’investigation et de correction.
 
-Azure Sentinel collecte les journaux et les alertes de toutes les sources de données connectées, les analyse, et génère au fil du temps des profils comportementaux de base des entités de votre organisation (utilisateurs, hôtes, adresses IP, applications, etc.), ainsi qu’un horizon de groupe d’homologues. À l’aide de diverses techniques et fonctionnalités d’apprentissage automatique, Sentinel peut ensuite identifier l’activité anormale et vous aider à déterminer si une ressource a été compromise. Outre cela, il peut déterminer la sensibilité relative de ressources particulières, identifier des groupes homologues de ressources et évaluer l’impact potentiel (« rayon d’impact ») de la compromission de toute ressource. Ces informations vous permettent de hiérarchiser efficacement l’investigation et la gestion de l’incident. 
+Azure Sentinel collecte les journaux et les alertes de toutes les sources de données connectées, les analyse, et génère au fil du temps des profils comportementaux de base des entités de votre organisation (telles que les utilisateurs, hôtes, adresses IP et applications), ainsi qu’un horizon de groupe d’homologues. À l’aide de diverses techniques et fonctionnalités de Machine Learning, Azure Sentinel peut ensuite identifier l’activité anormale et vous aider à déterminer si une ressource a été compromise. Outre cela, il peut déterminer la sensibilité relative de ressources particulières, identifier des groupes homologues de ressources et évaluer l’impact potentiel (« rayon d’impact ») de la compromission de toute ressource. Ces informations vous permettent de hiérarchiser efficacement l’investigation et la gestion de l’incident. 
 
 ### <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 
@@ -45,7 +45,7 @@ Azure Sentinel collecte les journaux et les alertes de toutes les sources de don
 
 Inspiré par le paradigme de Gartner pour les solutions d’analyse du comportement des utilisateurs et des entités, Azure Sentinel propose une approche de l’extérieur vers l’intérieur, basée sur trois images de référence :
 
-- _ *Cas d’usage :* * en hiérarchisant les vecteurs et scénarios d’attaque pertinents basés sur une recherche en matière de sécurité alignée sur l’infrastructure de tactiques, techniques et sous-techniques MITRE ATT&CK, ayant pour effet de classer les diverses entités en victimes, auteurs ou points pivots dans la chaîne de destruction, Azure Sentinel se concentre spécifiquement sur les journaux les plus précieux que chaque source de données peut fournir.
+- **Cas d’usage :** en hiérarchisant les vecteurs et scénarios d’attaque pertinents basés sur une recherche en matière de sécurité alignée sur l’infrastructure de tactiques, techniques et sous-techniques MITRE ATT&CK, ayant pour effet de classer les diverses entités en victimes, auteurs ou points pivots dans la chaîne de destruction, Azure Sentinel se concentre spécifiquement sur les journaux les plus précieux que chaque source de données peut fournir.
 
 - **Sources de données :** tout en prenant en charge d’abord et avant tout les sources de données Azure, Azure Sentinel sélectionne soigneusement des sources de données tierces afin de fournir des données correspondant à nos scénarios de menaces.
 

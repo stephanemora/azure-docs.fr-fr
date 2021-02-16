@@ -1,5 +1,5 @@
 ---
-title: Convertir le stockage de disques managés entre les disques SSD standard et premium
+title: Convertir le stockage de disques managés entre les disques SSD standard et premium à l’aide d’Azure PowerShell
 description: Comment convertir un stockage sur disques managés Azure de Standard en Premium et vice versa avec Azure PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d81cd0ac57a5a18d90144584e8705cbffcba6f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13159e527fac76a1a79118e9363b94904935a2be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871426"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807493"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 

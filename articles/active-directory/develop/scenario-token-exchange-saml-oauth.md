@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063295"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582347"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Scénarios d’échange de jeton de plateforme d’identités Microsoft avec SAML et OIDC/OAuth
 

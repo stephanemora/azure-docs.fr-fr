@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986681"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548862"
 ---
-# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnalisation de l’ensemble de normes du tableau de bord de conformité réglementaire
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personnaliser l’ensemble de normes du tableau de bord de conformité réglementaire
 
 Azure Security Center compare continuellement la configuration de vos ressources avec les exigences des normes, réglementations et tests d’évaluation du secteur. Le **tableau de bord de conformité réglementaire** fournit des analyses sur votre situation de conformité selon la façon dont vous répondez aux exigences de conformité.
 
@@ -123,5 +123,5 @@ Dans cet article, vous avez découvert comment **ajouter des normes de conformit
 Pour obtenir des informations connexes, consultez les pages suivantes :
 
 - [Benchmark de sécurité Azure](../security/benchmarks/introduction.md)
-- [Tableau de bord de conformité réglementaire de Security Center](security-center-compliance-dashboard.md)
+- [Tableau de bord de conformité réglementaire de Security Center](security-center-compliance-dashboard.md) : découvrez comment suivre et exporter vos données de conformité réglementaire avec Security Center et des outils externes
 - [Utilisation de stratégies de sécurité](tutorial-security-policy.md)

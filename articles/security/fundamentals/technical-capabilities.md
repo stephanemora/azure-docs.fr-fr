@@ -2,20 +2,21 @@
 title: Fonctionnalités techniques de la sécurité dans Azure - Microsoft Azure
 description: Introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092766"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585141"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -431,20 +432,6 @@ Resource Manager offre plusieurs avantages :
 > [!Note]
 > Resource Manager propose une nouvelle façon de déployer et de gérer vos solutions. Si vous avez utilisé un modèle de déploiement antérieur et souhaitez obtenir des informations sur les modifications, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../../azure-resource-manager/management/deployment-models.md).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
-Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
-
-- [Audit et journalisation](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Cybercrime](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Conception et sécurité opérationnelle](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Chiffrement](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Gestion de l’identité et de l’accès](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Sécurité du réseau](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Gestion des menaces](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+Le [benchmark de sécurité Azure](../benchmarks/introduction.md) comprend un ensemble de recommandations de sécurité qui peuvent vous permettre de sécuriser les services que vous utilisez dans Azure.

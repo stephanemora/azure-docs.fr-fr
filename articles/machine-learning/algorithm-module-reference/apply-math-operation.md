@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 04ce45f428604275696d83938708bcee0c6c023f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536764"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584988"
 ---
 # <a name="apply-math-operation"></a>Appliquer une opération mathématique
 
@@ -249,16 +249,19 @@ Retourne la valeur inférieure : la valeur du **Jeu de colonnes** ou la valeur 
 
 Comprend les opérations arithmétiques de base : addition et soustraction, division et multiplication.  Comme la plupart des opérations sont binaires (nécessitent deux nombres), vous devez d’abord choisir l’opération, puis choisir la colonne ou les nombres à utiliser dans les premier et deuxième arguments.
 
-L’ordre dans lequel vous choisissez les colonnes pour la division et la soustraction peut paraître contre-intuitif, toutefois, pour faciliter la compréhension des résultats, l’en-tête de colonne fournit le nom de l’opération ainsi que l’ordre dans lequel les colonnes ont été utilisées.
+L’ordre de division et de soustraction est le suivant : 
+- Soustraire(Arg1_Arg2) = Arg1 - Arg2
+- Diviser(Arg1_Arg2) = Arg1 / Arg2
 
+Le tableau suivant présente des exemples
 Opération|Num1|Num2|Colonne de résultats|Valeur de résultat|
 ----|----|----|----|----
-|Addition|1|5|Add(Num2_Num1)| 4|
+|Addition|1|5|Add(Num2_Num1)| 6|
 |Multiplication|1|5|Multiple(Num2_Num1)|5|
-|Soustraction|1|5|Subtract(Num2_Num1)|4|
-|Soustraction|0|1|Subtract(Num2_Num1)|0|
-|Division|1|5|Divide(Num2_Num1)|5|
-|Division|0|1|Divide(Num2_Num1)|Infini|
+|Soustraction|5|1|Subtract(Num2_Num1)|4|
+|Soustraction|0|1|Subtract(Num2_Num1)|-1|
+|Division|5|1|Divide(Num2_Num1)|5|
+|Division|1|0|Divide(Num2_Num1)|Infini|
 
 ### <a name="add"></a>Ajouter
 
@@ -300,7 +303,7 @@ Renvoie la valeur plancher des valeurs figurant dans le **jeu de colonnes**, sel
 
 ### <a name="mod"></a>Mod
 
-Renvoie la partie fractionnaire des valeurs figurant dans le **jeu de colonnes**, selon la précision spécifiée.  
+Retourne la partie fractionnaire des valeurs du **Jeu de colonnes**, à la précision spécifiée.  
 
 ### <a name="quotient"></a>Quotient
 

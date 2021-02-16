@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874904"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807544"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -84,7 +84,7 @@ Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL P
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Image montrant la liste des sources de données pouvant être choisies":::
 
-1. Donnez un nom convivial à votre instance de Power BI.
+3. Donnez un nom convivial à votre instance de Power BI.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Image montrant le nom convivial de la source de données Power BI":::
 
@@ -94,17 +94,21 @@ Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL P
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Source de données Power BI inscrite":::
 
-1. Donnez un nom à votre analyse. Notez que la seule méthode d’authentification prise en charge est **Identité managée**.
+    > [!Note]
+    > Pour Power BI, l’inscription et l’analyse de la source de données sont autorisées pour une seule instance.
+
+
+4. Donnez un nom à votre analyse. Notez que la seule méthode d’authentification prise en charge est **Identité managée**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Image montrant la configuration de l’analyse Power BI":::
 
     Le nom de l’analyse doit comporter entre 3 et 63 caractères, et contenir uniquement des lettres minuscules, des chiffres, des traits de soulignement et des traits d’union.  Les espaces ne sont pas autorisés.
 
-1. Configurez un déclencheur d’analyse. Les options disponibles sont **Une fois**, **Tous les 7 jours** et **Tous les 30 jours**.
+5. Configurez un déclencheur d’analyse. Les options disponibles sont **Une fois**, **Tous les 7 jours** et **Tous les 30 jours**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Image de déclencheur d’analyse":::
 
-1. Dans **Vérifier la nouvelle analyse**, sélectionnez **Enregistrer et exécuter** pour lancer l’analyse.
+6. Dans **Vérifier la nouvelle analyse**, sélectionnez **Enregistrer et exécuter** pour lancer l’analyse.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Image de l’écran Enregistrer et exécuter dans Power BI":::
 

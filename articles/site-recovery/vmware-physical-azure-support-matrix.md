@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475469"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550842"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -141,19 +141,19 @@ Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Tous les noyaux de [stock SUSE 12 SP1, SP2, SP3, SP4](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.38-azure|
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Tous les noyaux de [stock SUSE 12 SP1, SP2, SP3, SP4](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.34-azure |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | Tous les noyaux de [stock SUSE 12 SP1, SP2, SP3, SP4](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.28-azure |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/),  | Tous les noyaux de [stock SUSE 12 SP1, SP2, SP3, SP4](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.22-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Tous les [noyaux de stock SUSE 12 SP1, SP2, SP3, SP4, SP5](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.38-azure|
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | Tous les [noyaux de stock SUSE 12 SP1, SP2, SP3, SP4, SP5](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.34-azure |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | Tous les [noyaux de stock SUSE 12 SP1, SP2, SP3, SP4, SP5](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.28-azure |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/),  | Tous les [noyaux de stock SUSE 12 SP1, SP2, SP3, SP4, SP5](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.4.138-4.7-azure à 4.4.180-4.31-azure,</br>4.12.14-6.3-azure à 4.12.14-6.43-azure </br> 4.12.14-16.7-azure à 4.12.14-16.22-azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>Versions du noyau prises en charge de SUSE Linux Enterprise Server 15
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Par défaut, tous les [noyaux de stock SUSE 15 et 15](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.29-azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Par défaut, tous les [noyaux de stock SUSE 15 et 15](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.21-azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | Par défaut, tous les [noyaux de stock SUSE 15 et 15](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.18-azure
-SUSE Linux Enterprise Server 15 et 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | Par défaut, tous les [noyaux de stock SUSE 15 et 15](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.38-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.29-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.21-azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure à 5.3.18-18.18-azure
+SUSE Linux Enterprise Server 15 et 15 SP1 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/)  | Par défaut, tous les [noyaux de stock SUSE 15 SP1 et SP2](https://www.suse.com/support/kb/doc/?id=000019587) sont pris en charge.</br></br> 4.12.14-5.5-azure à 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure à 4.12.14-8.38-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Stockage invité/système de fichiers Linux
 
@@ -231,7 +231,7 @@ NFS invité/serveur | Non
 iSCSI invité/serveur | Pour la migration : Oui<br/>Pour la récupération d’urgence : Non. iSCSI est automatiquement restauré en tant que disque attaché à la machine virtuelle
 SMB 3.0 invité/serveur | Non
 RDM invité/serveur | Oui<br/><br/> N/A pour les serveurs physiques
-Disque invité/serveur > 1 To | Oui, le disque doit être d’une taille supérieure à 1024 Mo<br/><br/>Jusqu’à 32 To lors de la réplication sur des disques managés (à partir de la version 9.40)<br></br> Jusqu'à 4 095 Go lors de la réplication vers des comptes de stockage
+Disque invité/serveur > 1 To | Oui, le disque doit être d’une taille supérieure à 1024 Mo<br/><br/>Jusqu'à 8 192 Go lors de la réplication sur des disques managés (à partir de la version 9.26)<br></br> Jusqu'à 4 095 Go lors de la réplication vers des comptes de stockage
 Disque invité/serveur avec une taille de secteur logique de 4 Ko et une taille de secteur physique de 4 K | Non
 Disque invité/serveur avec une taille de secteur logique de 4 K et une taille de secteur physique de 512 octets | Non
 Volume invité/serveur avec disque à bandes > 4 To | Oui
@@ -292,7 +292,7 @@ Architecture du système d’exploitation invité | 64 bits. | La vérification
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 </br> une partition système et de démarrage sur différents disques n’est pas prise en charge | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.
-Taille de disque de données | Jusqu’à 32 To lors de la réplication sur un disque managé (à partir de la version 9.40)<br></br>Jusqu'à 4 095 Go lors de la réplication vers un compte de stockage| La vérification est mise en échec en cas de défaut de prise en charge.
+Taille de disque de données | Jusqu'à 8 192 Go lors de la réplication sur un disque managé (à partir de la version 9.26)<br></br>Jusqu'à 4 095 Go lors de la réplication vers un compte de stockage| La vérification est mise en échec en cas de défaut de prise en charge.
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
 Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617372"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526413"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Meilleures pratiques pour Azure RBAC
 
@@ -41,6 +41,10 @@ Vous devez disposer d'un maximum de trois propriétaires d’abonnement afin de 
 Pour protéger des comptes privilégiés contre les cyberattaques malveillantes, vous pouvez utiliser Azure Active Directory Privileged Identity Management (PIM) afin de réduire le temps d’exposition des privilèges et d’augmenter la visibilité quant à leur utilisation via des rapports et des alertes. PIM permet de protéger les comptes privilégiés en fournissant un accès privilégié de type juste-à-temps aux ressources Azure AD et Azure. L’accès peut être lié au laps de temps après lequel les privilèges sont automatiquement révoqués. 
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure AD Privileged Identity Management ?](../active-directory/privileged-identity-management/pim-configure.md).
+
+## <a name="assign-roles-to-groups-not-users"></a>Attribuer des rôles à des groupes et non à des utilisateurs
+
+Pour faciliter la gestion des attributions de rôles, évitez d’attribuer des rôles directement aux utilisateurs. Attribuez plutôt des rôles à des groupes. L’attribution de rôles à des groupes plutôt qu’à des utilisateurs permet également de réduire le nombre d’attributions de rôles, dont la limite est de [2 000 attributions de rôles par abonnement](troubleshooting.md#azure-role-assignments-limit). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

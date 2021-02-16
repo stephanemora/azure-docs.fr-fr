@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757635"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556419"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organiser les groupes d’administration, les abonnements et la visibilité à l’échelle du locataire
 
@@ -81,12 +81,14 @@ Vous pouvez ajouter des abonnements au groupe d’administration que vous avez c
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Accorder à vous-même des autorisations à l’échelle du locataire
 
-Si un utilisateur ayant le rôle Azure Active Directory d’**Administrateur général** peut avoir des responsabilités à l’échelle du locataire, il peut ne pas disposer des autorisations Azure lui permettant de consulter les informations à l’échelle de l’organisation dans Azure Security Center. 
+Si un utilisateur ayant le rôle Azure Active Directory (AD) d’**administrateur général** peut avoir des responsabilités à l’échelle du locataire, il peut ne pas disposer des autorisations Azure lui permettant de consulter les informations à l’échelle de l’organisation dans Azure Security Center. L’élévation d’autorisations est requise, car les attributions de rôles Azure AD n’accordent pas l’accès aux ressources Azure. 
 
 > [!TIP]
-> Si votre organisation gère l’accès aux ressources avec [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) ou tout autre outil PIM, le rôle d’administrateur général doit être actif pour l’utilisateur qui effectue ces modifications.
+> En savoir plus sur l’élévation d’autorisations pour le rôle d’administrateur général dans [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 Pour vous attribuer des autorisations au niveau du locataire :
+
+1. Si votre organisation gère l’accès aux ressources avec [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md) ou tout autre outil PIM, le rôle d’administrateur général doit être actif pour l’utilisateur qui effectue la procédure ci-dessous.
 
 1. En tant qu’utilisateur Administrateur général sans affectation au groupe d’administration racine du locataire, ouvrez la page **Vue d’ensemble** de Security Center, puis sélectionnez le lien **Visibilité à l’échelle du locataire** dans la bannière. 
 

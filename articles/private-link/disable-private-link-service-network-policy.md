@@ -7,18 +7,18 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 1062f126da8be6b37f6b52eee520425b3edcde16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7528d12dcbfba09b4dae4ac07a5c683a7c11bd88
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744338"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548797"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>Désactiver les stratégies réseau pour l’adresse IP source du service Private Link
 
 Lorsque vous choisissez une adresse IP source pour votre service Private Link, vous devez configurer un paramètre de désactivation `privateLinkServiceNetworkPolicies` explicite dans le sous-réseau. Ce paramètre s’applique uniquement à l’adresse IP privée que vous avez choisie comme adresse IP source pour le service Private Link. Pour les autres ressources du sous-réseau, l’accès est contrôlé en fonction des règles de sécurité des groupes de sécurité réseau (NSG). 
  
-Lorsque vous utilisez un client Azure (PowerShell, CLI ou des modèles), vous devez effectuer une étape supplémentaire qui consiste à modifier cette propriété. Vous pouvez désactiver la stratégie à l’aide de Cloud Shell dans le portail Azure, à partir d’installations locales d’Azure PowerShell ou d’Azure CLI, ou à l’aide de modèles Azure Resource Manager.  
+Lorsque vous utilisez le portail pour créer un service Private Link, ce paramètre est automatiquement désactivé dans le cadre du processus de création. Les déploiements utilisant un client Azure (PowerShell, CLI ou des modèles) nécessitent une étape supplémentaire qui consiste à modifier cette propriété. Vous pouvez désactiver la stratégie à l’aide de Cloud Shell dans le portail Azure, à partir d’installations locales d’Azure PowerShell ou d’Azure CLI, ou à l’aide de modèles Azure Resource Manager.  
  
 Suivez les étapes ci-dessous afin de désactiver les stratégies réseau du service Private Link pour le réseau virtuel nommé *myVirtualNetwork*, dont le sous-réseau *par défaut* est hébergé dans un groupe de ressources nommé *myResourceGroup*. 
 

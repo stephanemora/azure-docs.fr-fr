@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620989"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509585"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -273,6 +273,11 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 - [Créer ou mettre à jour la stratégie d’audit *étendue* de serveur](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [Obtenir la stratégie d’audit *étendue* de base de données](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenir la stratégie d’audit *étendue* de serveur](/rest/api/sql/server%20auditing%20settings/get)
+
+### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
+
+- [Gérer la stratégie d’audit d’un serveur](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Gérer la stratégie d’audit d’une base de données](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
 

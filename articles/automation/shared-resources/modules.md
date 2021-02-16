@@ -3,14 +3,14 @@ title: Gérer les modules dans Azure Automation
 description: Cet article explique comment utiliser des modules PowerShell pour activer des cmdlets de runbooks et de ressources DSC dans des configurations DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936625"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548767"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -40,7 +40,11 @@ Il s’agit de limitations connues du bac à sable. La solution de contournement
 
 ## <a name="default-modules"></a>Modules par défaut
 
-Le tableau suivant répertorie les modules qu’Azure Automation importe par défaut lorsque vous créez votre compte Automation. Automation peut importer des versions plus récentes de ces modules. Toutefois, vous ne pouvez pas supprimer la version originale de votre compte Automation, même si vous supprimez une version plus récente. Notez que ces modules par défaut incluent plusieurs modules AzureRM. 
+Le tableau suivant répertorie les modules qu’Azure Automation importe par défaut lorsque vous créez votre compte Automation. Automation peut importer des versions plus récentes de ces modules. Toutefois, vous ne pouvez pas supprimer la version originale de votre compte Automation, même si vous supprimez une version plus récente. Notez que ces modules par défaut incluent plusieurs modules AzureRM.
+
+Les modules par défaut sont également appelés modules globaux. Dans le portail Azure, la propriété **Global module** est **true** lors de l’affichage d’un module qui a été importé à la création du compte.
+
+![Capture d’écran de la propriété global module dans le portail Azure](../media/modules/automation-global-modules.png)
 
 Automation n’importe pas automatiquement le module Az racine dans les comptes Automation nouveaux ou existants. Pour plus d’informations sur l’utilisation de ces modules, consultez [Migration vers les modules Az](#migrate-to-az-modules).
 

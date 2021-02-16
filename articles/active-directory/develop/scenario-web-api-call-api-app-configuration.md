@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753505"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582364"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Une API web qui appelle des API web : Configuration de code
 
@@ -33,7 +33,7 @@ Microsoft vous recommande d’utiliser le package NuGet [Microsoft.Identity.Web]
 
 ## <a name="client-secrets-or-client-certificates"></a>Secrets clients ou certificats clients
 
-Dans la mesure où votre API web appelle désormais une API web en aval, vous devez fournir un secret client ou un certificat client dans le fichier *appsettings.json*. Vous pouvez également ajouter une section spécifiant ce qui suit :
+Dans la mesure où votre API web appelle désormais une API web en aval, fournissez un secret client ou un certificat client dans le fichier *appsettings.json*. Vous pouvez également ajouter une section spécifiant ce qui suit :
 
 - URL de l’API web en aval ;
 - étendues requises pour appeler l’API.

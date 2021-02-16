@@ -1,14 +1,14 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131149"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575904"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -49,9 +49,9 @@ Une fois que vous avez déployé vos stratégies, les données sont journalisée
 
 Vous pouvez afficher les [alertes](../../azure-monitor/platform/alerts-overview.md) pour les abonnements délégués dans les locataires client que vous gérez.
 
-Pour actualiser automatiquement les alertes sur plusieurs clients, utilisez une requête [Azure Resource Graph](../../governance/resource-graph/overview.md) pour filtrer les alertes. Vous pouvez épingler la requête à votre tableau de bord et sélectionner tous les clients et abonnements appropriés.
+À partir de votre locataire gérant, vous pouvez [créer, afficher et gérer des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md) dans le portail Azure ou via des API et des outils de gestion.
 
-L’exemple de requête suivant affiche les alertes de gravité 0 et 1, qui sont actualisées toutes les 60 minutes.
+Pour actualiser automatiquement les alertes sur plusieurs clients, utilisez une requête [Azure Resource Graph](../../governance/resource-graph/overview.md) pour filtrer les alertes. Vous pouvez épingler la requête à votre tableau de bord et sélectionner tous les clients et abonnements appropriés. Par exemple, la requête ci-dessous affiche les alertes de gravité 0 et 1, qui sont actualisées toutes les 60 minutes.
 
 ```kusto
 alertsmanagementresources

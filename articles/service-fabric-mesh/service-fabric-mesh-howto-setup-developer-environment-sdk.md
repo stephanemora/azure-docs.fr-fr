@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 479e975abd40be80e17fc187f1d13500d11cb983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc234f6954cf263423cc517bb3dda2ba2efa3358
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842748"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625733"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Pour générer et exécuter des applications Azure Service Fabric Mesh sur votre machine de développement Windows, vous devez disposer de ce qui suit :
 

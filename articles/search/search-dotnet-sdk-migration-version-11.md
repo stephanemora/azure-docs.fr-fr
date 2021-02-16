@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f070f59df69bb186041af450e6ca922469d960
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: df8841cb2dcac6335b09a5e7715f42c508c69e76
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043742"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536813"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Mettre à niveau vers la version 11 du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure
 
@@ -168,8 +168,8 @@ La version 11.1 ajoute ce qui suit :
 
 Les fonctionnalités suivantes de la version 10 ne sont pas encore disponibles dans la version 11. Si vous avez besoin de ces fonctionnalités, reportez la migration jusqu’à ce qu’elles soient prises en charge.
 
-+ Types géospatiaux
 + [Base de connaissances](knowledge-store-concept-intro.md)
++ Types géospatiaux - Le support de première classe des types géospatiaux est toujours en cours. Pour le moment, le package [Microsoft.Spatial](https://www.nuget.org/packages/Microsoft.Spatial/) peut être utilisé pour prendre en charge les opérations géographiques. Des exemples sont disponibles pour [System.Text.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) et [Newtonsoft.Json](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md).
 
 <a name="UpgradeSteps"></a>
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881159"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575769"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger une stratégie de protection d’application pour l’accès aux applications cloud avec l’accès conditionnel
 
@@ -34,7 +34,7 @@ Dans l’accès conditionnel, on dit que ces applications clientes sont protég�
 > Toutes les applications ne sont pas prises en charge comme des applications approuvées ni ne prennent en charge les stratégies de protection d’application. Pour obtenir la liste des applications clientes éligibles, consultez [Présence obligatoire d’une stratégie de protection d’application](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> Le contrôle « Demander un des contrôles sélectionnés » sous les contrôles d’octroi est semblable à une clause OR. Il est utilisé dans la stratégie pour permettre aux utilisateurs d’utiliser les applications prenant en charge les contrôles d’octroi **Exiger une stratégie de protection des applications** ou **Demander une application cliente approuvée**. **Exiger une stratégie de protection des applications** est appliqué si une application est prise en charge dans les deux stratégies. Pour plus d’informations sur les applications prenant en charge le contrôle d'octroi **Exiger une stratégie de protection des applications**, consultez [Présence obligatoire d’une stratégie de protection des applications](concept-conditional-access-grant.md#require-app-protection-policy).
+> Le contrôle « Demander un des contrôles sélectionnés » sous les contrôles d’octroi est semblable à une clause OR. Il est utilisé dans la stratégie pour permettre aux utilisateurs d’utiliser les applications prenant en charge les contrôles d’octroi **Exiger une stratégie de protection des applications** ou **Demander une application cliente approuvée**. L’**exigence d’une stratégie de protection des applications** est mise en œuvre lorsque l’application prend en charge ce contrôle d’octroi. Pour plus d’informations sur les applications prenant en charge le contrôle d'octroi **Exiger une stratégie de protection des applications**, consultez [Présence obligatoire d’une stratégie de protection des applications](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scénario 1 : Les applications Microsoft 365 demandent des applications approuvées avec des stratégies de protection d’application
 

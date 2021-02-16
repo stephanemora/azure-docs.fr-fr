@@ -4,14 +4,19 @@ description: Découvrez les questions et réponses fréquentes concernant Azure 
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 64eeb43d743d71d5acd456409445a4fadfe91aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e53ab0ae4cc463bea8a6a8cb6d339f94fdcac6d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260121"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626034"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. Cet article contient des réponses aux questions fréquemment posées.
 
@@ -163,7 +168,7 @@ Dans votre modèle d’application, utilisez l’ID de ressource complet pour qu
 ]
 ```
 
-### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Lorsque j’effectue un scale-out, tous mes conteneurs sont affectés, y compris ceux qui sont en cours d’exécution
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>Lorsque je monte en charge, je vois que tous mes conteneurs sont affectés, y compris ceux qui sont en cours d’exécution
 
 Il s’agit d’un bogue. Un correctif est en cours d’implémentation.
 

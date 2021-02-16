@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848123"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525989"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
 Azure Monitor est désormais devenu un service unifié de supervision de la pile complète qui prend maintenant en charge les fonctionnalités « Métriques unifiées » et « Alertes unifiées » pour l’ensemble des ressources. Pour plus d’informations, consultez notre [billet de blog sur la nouvelle instance Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). La nouvelle plateforme de supervision et de gestion des alertes Azure a été conçue pour être plus rapide, plus intelligente et extensible, permettant ainsi de suivre le rythme de l’expansion croissante du cloud computing et conformément à la philosophie du cloud intelligent Microsoft.
 
-Avec la nouvelle plateforme de surveillance et d’alerte Azure en place, les alertes classiques dans Azure Monitor sont mises hors service, bien qu’elles soient toujours utilisées pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. La date de mise hors service de ces alertes a été repoussée. Une nouvelle date sera annoncée bientôt pour la migration des alertes restantes ([cloud Azure Government](../../azure-government/documentation-government-welcome.md) et [Azure China 21Vianet](https://docs.azure.cn/)).
+Avec la nouvelle plateforme de surveillance et d’alerte Azure en place, les alertes classiques dans Azure Monitor sont mises hors service pour les utilisateurs du cloud public, bien qu’elles soient toujours utilisées pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. La date de mise hors service de ces alertes a été repoussée. Une nouvelle date sera annoncée bientôt pour la migration des alertes restantes ([cloud Azure Government](../../azure-government/documentation-government-welcome.md) et [Azure China 21Vianet](https://docs.azure.cn/)).
 
- ![Alerte classique dans le portail Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Alerte classique dans le portail Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Nous vous encourageons à l’utiliser et à recréer vos alertes sur la nouvelle plateforme.
 
@@ -48,7 +48,7 @@ Les métriques plus récentes pour les ressources Azure sont disponibles sous le
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Mise hors service de la plateforme de supervision et de gestion des alertes classiques
 
-Comme indiqué précédemment, l’ancienne plateforme de supervision et de gestion des alertes classiques est mise hors service (dont la fermeture des API, de l’interface du portail Azure et des services qui y sont liés), bien qu’elle soient toujours utilisée pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. Plus précisément, les fonctionnalités suivantes seront dépréciées :
+Comme indiqué précédemment, l’ancienne plateforme de supervision et de gestion des alertes classiques est mise hors service pour les utilisateurs du cloud public (notamment la fermeture des API, de l’interface du portail Azure et des services qui y sont liés), bien qu’elle soit toujours utilisée pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. Plus précisément, les fonctionnalités suivantes seront dépréciées :
 
 - Les anciennes métriques et alertes (classiques) pour les ressources Azure telles que disponibles par le biais de la [section Alertes (classiques)](./alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
 - Les anciennes métriques personnalisées et de plateforme (classiques) pour Application Insights ainsi que la gestion des alertes définies dessus, telles que disponibles par le biais de la [section Alertes (classiques)](./alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](/rest/api/monitor/alertrules)
