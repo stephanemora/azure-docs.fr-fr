@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: Définir le contrôle d’accès utilisateur global
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: Contrôler quel trafic est surveillé
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Gérer des capteurs individuels
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: Gérer les capteurs dans le cloud
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gérer la console de gestion locale
@@ -153,10 +153,13 @@
           items:
             - name: Investiguer toutes les détections de capteur de l’entreprise d’un inventaire d’appareils
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: Investiguer toutes les détections de capteur d’un inventaire d’appareils
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: Utiliser la carte des appareils pour les détections de capteur
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: Utiliser les alertes détectées par un capteur
           items:
             - name: Utiliser une alerte sur votre capteur
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: Afficher les informations fournies dans les alertes
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: Gérer l’événement d’alerte
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: Accélérer la réponse aux incidents d’alerte
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: 'Obtenir des informations sur les menaces locales, régionales et mondiales'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: Utiliser les alertes dans la console de gestion locale
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Créer des rapports
           items:
             - name: Créer des rapports d’évaluation des risques
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: Créer des rapports de vecteur d’attaque
               href: how-to-create-attack-vector-reports.md
             - name: Créer des rapports d’exploration de données
               href: how-to-create-data-mining-queries.md
             - name: Créer des rapports de tendances et de statistiques
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: Enrichir les informations sur les appareils
           items:
             - name: Utiliser les notifications des appareils
@@ -278,7 +286,7 @@
             - name: Investiguer un appareil
               displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
-- name: Dépannage
+- name: Résolution des problèmes
   items:
     - name: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
       displayName: 'service status, review logs'
