@@ -4,12 +4,12 @@ description: Découvrez comment déployer un service sur plusieurs régions avec
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333203"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627497"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion publique)
 
@@ -21,19 +21,19 @@ Azure Deployment Manager est en préversion. Aidez-nous à améliorer cette fonc
 
 Pour utiliser Deployment Manager, vous devez créer quatre fichiers :
 
-* Modèle de topologie
-* Modèle de lancement
-* Fichier de paramètres pour la topologie
-* Fichier de paramètres pour le lancement
+* Modèle de topologie.
+* Modèle de lancement.
+* Fichier de paramètres pour la topologie.
+* Fichier de paramètres pour le lancement.
 
 Vous déployez le modèle de topologie avant de déployer le modèle de lancement.
 
 Ressources supplémentaires :
 
-- Les [informations de référence de l’API REST Azure Deployment Manager](/rest/api/deploymentmanager/).
-- [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
-- [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
-- [Un exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
+* [Informations de référence sur l’API Azure Deployment Manager](/rest/api/deploymentmanager/).
+* [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
+* [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identité et accès
 
@@ -49,10 +49,10 @@ Le modèle de topologie décrit les ressources Azure constituant votre service, 
 
 Le modèle de topologie comporte les ressources suivantes :
 
-* Source d’artefact - Emplacement où sont stockés vos modèles et paramètres Resource Manager
-* Topologie de service - Pointe vers la source d’artefact
-  * Services - Spécifie l’emplacement et l’ID d’abonnement Azure
-    * Unités de service - Spécifie le groupe de ressources, le mode de déploiement et le chemin au modèle et au fichier de paramètres
+* Source d’artefact - Emplacement où sont stockés vos modèles et paramètres Resource Manager.
+* Topologie de service - Pointe vers la source d’artefact.
+  * Services - Spécifie l’emplacement et l’ID d’abonnement Azure.
+    * Unités de service - Spécifie le groupe de ressources, le mode de déploiement et le chemin au modèle et au fichier de paramètres.
 
 Pour comprendre ce qui se passe à chaque niveau, il est utile de voir quelles valeurs vous fournissez.
 
@@ -87,7 +87,7 @@ Pour plus d’informations, consultez [Informations de référence sur le modèl
 
 ### <a name="service-topology"></a>Topologie de service
 
-L’exemple suivant montre le format général de la ressource de topologie de service. Vous fournissez l’ID de ressource de la source d’artefact qui contient les fichiers de paramètres et les modèles. La topologie de service comprend toutes les ressources de service. Pour vous assurer que la source d’artefact est disponible, la topologie de service en dépend.
+L’exemple suivant montre le format général de la ressource de topologie de service. Vous fournissez l’ID de ressource de la source d’artefact qui contient les fichiers de paramètres et les modèles. La topologie de service comprend toutes les ressources de service. Assurez-vous que la source d’artefact est disponible, car la topologie de service en dépend.
 
 ```json
 {
@@ -175,11 +175,11 @@ Pour plus d’informations, consultez [Informations de référence sur le modèl
 
 Le modèle de lancement décrit les étapes à suivre lors du déploiement de votre service. Vous spécifiez la topologie de service à utiliser et définissez l’ordre de déploiement des unités de service. Il comprend une source d’artefact pour le stockage des fichiers binaires du déploiement. Dans votre modèle de lancement, vous définissez la hiérarchie suivante :
 
-* Source d’artefact
-* Étape
-* Lancement
-  * Groupes d’étape
-    * Opérations de déploiement
+* Source d’artefact.
+* Étape.
+* Lancement.
+  * Groupes d’étapes.
+    * Opérations de déploiement.
 
 L’illustration suivante détaille la hiérarchie du modèle de lancement :
 
@@ -193,9 +193,9 @@ Dans le modèle de lancement, vous créez une source d’artefact pour les fichi
 
 ### <a name="steps"></a>Étapes
 
-Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seules les étapes `wait` et « healthCheck » sont disponibles.
+Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seules les étapes `wait` et `healthCheck` sont disponibles.
 
-Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape d’attente.
+Cette étape `wait` suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape `wait`.
 
 ```json
 {
@@ -214,13 +214,13 @@ Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous 
 
 La propriété duration utilise la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L’exemple précédent indique une attente d’une minute.
 
-Pour plus d’informations sur l’étape de contrôle d’intégrité, consultez [Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager](./deployment-manager-health-check.md) et [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+Pour plus d’informations sur les contrôles d’intégrité, consultez [Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager](./deployment-manager-health-check.md) et [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Pour plus d’informations, consultez [Informations de référence sur le modèle des étapes](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lancements
 
-Pour vous assurer que la source d’artefact est disponible, le lancement en est tributaire. Le lancement définit les groupes d’étape de chaque unité de service déployée. Vous pouvez définir les actions à entreprendre avant ou après le déploiement. Par exemple, vous pouvez spécifier que le déploiement attende la fin du déploiement de l’unité de service. Vous pouvez définir l’ordre des groupes d’étape.
+Assurer-vous que la source d’artefact est disponible, car le lancement en est tributaire. Le lancement définit les groupes d’étape de chaque unité de service déployée. Vous pouvez définir les actions à entreprendre avant ou après le déploiement. Par exemple, vous pouvez spécifier que le déploiement attende la fin du déploiement de l’unité de service. Vous pouvez définir l’ordre des groupes d’étape.
 
 L’objet d’identité spécifie l’[identité managée affectée à l’utilisateur](#identity-and-access) qui effectue les actions de déploiement.
 
@@ -270,7 +270,7 @@ Vous créez deux fichiers de paramètres. L’un des fichiers de paramètres est
 
 Avec les déploiements par version, le chemin à vos artefacts change avec chaque nouvelle version. La première fois que vous exécutez un déploiement, le chemin peut être `https://<base-uri-blob-container>/binaries/1.0.0.0`. La deuxième fois, il peut être `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifie l’obtention du chemin racine correct pour le déploiement actif à l’aide de la variable `$containerRoot`. Cette valeur change avec chaque version et elle n’est pas connue avant le déploiement.
 
-Utilisez la variable `$containerRoot` dans le fichier de paramètres pour que le modèle déploie les ressources Azure. Au moment du déploiement, cette variable est remplacée par les valeurs réelles au lancement.
+Utilisez la variable `$containerRoot` dans le fichier de paramètres pour le modèle qui déploie les ressources Azure. Au moment du déploiement, cette variable est remplacée par les valeurs réelles au lancement.
 
 Par exemple, au cours du lancement, vous créez une source d’artefact pour les artefacts binaires.
 
@@ -296,7 +296,7 @@ Par exemple, au cours du lancement, vous créez une source d’artefact pour les
 
 Remarquez les propriétés `artifactRoot` et `sasUri`. La racine de l’artefact peut être définie avec une valeur telle que `binaries/1.0.0.0`. L’URI SAS est l’URI menant à votre conteneur de stockage, avec un jeton SAS pour l’accès. Deployment Manager construit automatiquement la valeur de la variable `$containerRoot`. Il combine ces valeurs dans le format `<container>/<artifactRoot>`.
 
-Votre modèle et votre fichier de paramètre doivent connaître le chemin correct pour l’obtention des fichiers binaires par version. Par exemple, pour déployer les fichiers d’une application web, créez le fichier de paramètres suivant avec la variable $containerRoot. Vous devez utiliser deux barres obliques inverses (`\\`) pour le chemin, car la première barre est un caractère d’échappement.
+Votre modèle et votre fichier de paramètre doivent connaître le chemin correct pour l’obtention des fichiers binaires par version. Par exemple, pour déployer les fichiers d’une application web, créez le fichier de paramètres suivant avec la variable `$containerRoot`. Vous devez utiliser deux barres obliques inverses (`\\`) pour le chemin, car la première barre est un caractère d’échappement.
 
 ```json
 {
@@ -330,7 +330,7 @@ Utilisez ensuite ce paramètre dans votre modèle :
 }
 ```
 
-Vous gérez les déploiements avec version en créant des dossiers et en transmettant cette racine pendant le lancement. Le chemin transite jusqu’au modèle qui déploie les ressources.
+Vous gérez les déploiements avec version en créant des dossiers et en transmettant ce chemin racine pendant le lancement. Le chemin transite jusqu’au modèle qui déploie les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

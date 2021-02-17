@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988039"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104516"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -147,7 +147,7 @@ QnA Maker permet aux utilisateurs de travailler en collaboration sur une base de
 
 ## <a name="active-learning"></a>Apprentissage actif
 
-L’[apprentissage actif](../How-to/use-active-learning.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)**, puis vérifier et accepter, ou rejeter, ces suggestions.
+L’[apprentissage actif](../How-to/use-active-learning.md) est le plus à même de suggérer d’autres questions quand il dispose d’un large éventail qualitatif et quantitatif de requêtes utilisateur. Il est important d’autoriser les requêtes utilisateur des applications clientes à participer à la boucle de commentaires sur l’apprentissage actif sans censure. Une fois les questions suggérées dans le portail QnA Maker, vous pouvez **[appliquer un filtre par suggestions](../How-To/improve-knowledge-base.md)**, puis vérifier et accepter, ou rejeter, ces suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

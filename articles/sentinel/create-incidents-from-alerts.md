@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fabf847b672f4dbf3e680a21bc7015655c612552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c7c3d69bb26773171e9e0afc9f79ff25909a12a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906299"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807290"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft
 
-Les alertes déclenchées dans des solutions de sécurité Microsoft qui sont connectées à Azure Sentinel, comme Microsoft Cloud App Security et Microsoft Defender pour Identity (anciennement Azure ATP), ne créent pas automatiquement des incidents dans Azure Sentinel. Par défaut, quand vous connectez une solution Microsoft à Azure Sentinel, toute alerte générée dans ce service est stockée sous la forme de données brutes dans Azure Sentinel, dans la table des alertes de sécurité de votre espace de travail Azure Sentinel. Vous pouvez ensuite utiliser ces données comme n’importe quelle autre donnée brute que vous connectez à Sentinel.
+Les alertes déclenchées dans des solutions de sécurité Microsoft qui sont connectées à Azure Sentinel, comme Microsoft Cloud App Security et Microsoft Defender pour Identity (anciennement Azure ATP), ne créent pas automatiquement des incidents dans Azure Sentinel. Par défaut, quand vous connectez une solution Microsoft à Azure Sentinel, toute alerte générée dans ce service est stockée sous la forme de données brutes dans Azure Sentinel, dans la table des alertes de sécurité de votre espace de travail Azure Sentinel. Vous pouvez ensuite utiliser ces données comme n’importe quelle autre donnée brute que vous connectez à Azure Sentinel.
 
 Vous pouvez facilement configurer Azure Sentinel pour créer automatiquement des incidents chaque fois qu’une alerte est déclenchée dans une solution de sécurité Microsoft connectée, en suivant les instructions mentionnées dans cet article.
 

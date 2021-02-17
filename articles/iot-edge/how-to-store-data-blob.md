@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108668"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539431"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Stocker des données en périphérie avec le Stockage Blob Azure sur IoT Edge
 
@@ -184,6 +184,7 @@ La documentation du Stockage Blob Azure comprend des guides de démarrage rapide
 Les exemples de guides de démarrage rapide suivants utilisent des langages qui sont également pris en charge par IoT Edge, vous pouvez donc les déployer en tant que modules IoT Edge en même temps que le module de stockage d’objets blob :
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * Le module Stockage Blob Azure sur IoT Edge v1.4.0 et ses versions antérieures sont compatibles avec le Kit de développement logiciel (SDK) WindowsAzure.Storage 9.3.3, et v 1.4.1 prend également en charge le Kit de développement logiciel (SDK) Azure.Storage.Blobs 12.8.0.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Les versions antérieures à la version 2.1 du kit de développement logiciel (SDK) Python présentent un problème connu dans lequel le module ne retourne pas l’heure de création de l’objet blob. En raison de ce problème, certaines méthodes comme les objets BLOB de liste ne fonctionnent pas. En tant que solution de contournement, définissez explicitement la version de l’API sur le client d’objet blob sur « 2017-04-17 ». Exemple : `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Exemple Append Blob](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -292,7 +293,7 @@ Ce module Stockage Blob Azure sur IoT Edge permet désormais d’intégrer Event
 
 ## <a name="release-notes"></a>Notes de publication
 
-Voici les [notes de publication dans docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) pour ce module
+Voici les [notes de publication dans docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) pour ce module. Vous pouvez trouver plus d’informations sur les correctifs de bogues et les mises à jour de correction dans les notes de publication d’une version spécifique.
 
 ## <a name="suggestions"></a>Suggestions
 

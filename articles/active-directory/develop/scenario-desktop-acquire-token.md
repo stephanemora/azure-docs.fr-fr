@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785123"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582653"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -445,7 +445,7 @@ Pour plus d’informations sur le consentement, consultez [Autorisations et cons
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Dans MSAL.NET, vous devez utiliser :
+Dans MSAL.NET, utilisez ceci :
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Ce flux n’est pas pris en charge sur MSAL pour macOS.
 
 ### <a name="device-code-flow"></a>Flux de code d’appareil
 
-Si vous écrivez un outil en ligne de commande qui n’a pas de contrôles web, et que vous ne pouvez pas ou ne souhaitez pas utiliser les flux précédents, vous devez utiliser le flux de code d’appareil.
+Si vous écrivez un outil en ligne de commande qui n’a pas de contrôles web, et que vous ne pouvez pas ou ne souhaitez pas utiliser les flux précédents, utilisez le flux de code d’appareil.
 
 L’authentification interactive avec Azure AD nécessite un navigateur web. Pour plus d’informations, consultez [Utilisation de navigateurs Web](https://aka.ms/msal-net-uses-web-browser). Pour authentifier des utilisateurs sur des appareils ou des systèmes d’exploitation qui ne fournissent pas de navigateur web, le flux de code d’appareil permet à l’utilisateur de se servir d’un autre appareil, tel qu’un ordinateur ou un téléphone mobile, pour se connecter de manière interactive. En utilisant le flux de code d’appareil, l’application obtient les jetons via un processus en deux étapes, conçu pour ces appareils ou systèmes d’exploitation. De telles applications se retrouvent par exemple à s’exécuter sur IoT ou des outils en ligne de commande (CLI). L’idée est la suivante :
 

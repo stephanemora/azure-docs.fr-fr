@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934541"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547160"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -54,11 +54,6 @@ Azure fournit **deux rôles intégrés Azure** pour autoriser l’accès à aux 
 | Propriétaire des données Azure Digital Twins | Octroie un accès total aux ressources Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Lecteur des données Azure Digital Twins | Octroie un accès en lecture seule aux ressources Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
->[!NOTE]
-> Ces rôles ont été récemment renommés à partir de leurs anciens noms dans la préversion :
-> * *Propriétaire des données Azure Digital Twins* était anciennement *Propriétaire Azure Digital Twins (préversion)* .
-> * *Lecteur des données Azure Digital Twins* était anciennement *Lecteur Azure Digital Twins (préversion)* .
-
 Vous pouvez attribuer des rôles de deux manières :
 * Via le volet de contrôle d’accès (IAM) pour Azure Digital Twins dans le portail Azure (consultez [*Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure*](../role-based-access-control/role-assignments-portal.md))
 * Via les commandes CLI pour ajouter ou supprimer un rôle
@@ -97,7 +92,7 @@ Azure prend en charge deux types d’identités managées : celles affectées p
 
 Vous pouvez utiliser une identité managée affectée par le système pour votre instance Azure Digital pour l’authentification auprès d’[un point de terminaison personnalisé](concepts-route-events.md#create-an-endpoint). Azure Digital Twins prend en charge l’authentification basée sur l’identité affectée par le système aux points de terminaison pour les destinations [Event Hub](../event-hubs/event-hubs-about.md) et  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) , et à un point de terminaison [Conteneur Stockage Azure](../storage/blobs/storage-blobs-introduction.md)  pour les [événements de lettres mortes](concepts-route-events.md#dead-letter-events). Les points de terminaison [Event Grid](../event-grid/overview.md)  ne sont actuellement pas pris en charge pour les identités managées.
 
-Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)* ](how-to-enable-managed-identities.md).
+Pour obtenir des instructions sur l’activation d’une identité managée par le système pour Azure Digital Twins afin de l’utiliser pour acheminer des événements, consultez le [*Guide pratique : Activer une identité managée pour les événements de routage (préversion)*](how-to-enable-managed-identities.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Accès réseau privé avec Azure Private Link (préversion)
 
@@ -111,7 +106,7 @@ Le point de terminaison privé utilise une adresse IP de l’espace d’adressag
 
 La configuration d’un point de terminaison privé pour votre instance Azure Digital Twins vous permet de sécuriser cette instance et d’éliminer l’exposition publique, tout en évitant l’exfiltration de données à partir de votre réseau virtuel.
 
-Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)* ](how-to-enable-private-link.md).
+Pour obtenir des instructions sur la configuration d’une liaison privée pour Azure Digital Twins, consultez le [*Guide pratique : Activer l’accès privé avec Private Link (préversion)*](how-to-enable-private-link.md).
 
 ### <a name="design-considerations"></a>Remarques relatives à la conception 
 

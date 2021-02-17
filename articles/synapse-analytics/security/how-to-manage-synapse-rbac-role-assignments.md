@@ -1,19 +1,19 @@
 ---
 title: Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 description: Cet article explique comment attribuer et révoquer des rôles RBAC Synapse dans des principaux de sécurité AAD
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: bed0c00b8cb5718456302dff06e98ff2f7f2b4e8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218193"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102187"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Gestion des attributions de rôles RBAC Synapse dans Synapse Studio
 

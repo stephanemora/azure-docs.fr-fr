@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955431"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523717"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Résoudre les problèmes du capteur et de la console de gestion locale
 
@@ -283,7 +283,7 @@ Les journaux exportés sont ajoutés à la liste **Journaux archivés**. Envoyez
 
 La liste des journaux archivés peut contenir jusqu’à cinq éléments. Si le nombre d’éléments de la liste dépasse ce nombre, l’élément le plus ancien est supprimé.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Afficher les alertes](how-to-view-alerts.md)
 

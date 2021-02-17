@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées destinées à Azure Database pour PostgreSQL
 description: Liste les définitions de stratégie intégrées d’Azure Policy destinées à Azure Database pour PostgreSQL. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c12e8e0aaf977d0f70c0ac4f50cd90dd31ea175c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6428fb10f3f7c563f1db1b5a7c973e7571bdd8c8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560382"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096467"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Définitions intégrées d’Azure Policy pour Azure Database pour PostgreSQL
 

@@ -1,23 +1,18 @@
 ---
 title: Appeler une procédure stockée à partir d’une activité de copie dans Azure Data Factory
 description: Découvrez comment appeler une procédure stockée dans Azure SQL Database ou SQL Server à partir d’une activité de copie Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2b10744222da8e5d85b19e1ded5aa24cf9c9706
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f06b84ac0807a37c7adc603a557894be85a4cea
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374964"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Appeler une procédure stockée à partir d’une activité de copie dans Azure Data Factory
 > [!NOTE]
@@ -29,7 +24,7 @@ Lorsque vous copiez des données dans [SQL Server](data-factory-sqlserver-connec
 L’exemple suivant montre comment invoquer une procédure stockée dans une base de données SQL Server à partir d’un pipeline Data Factory (activité de copie) :  
 
 ## <a name="output-dataset-json"></a>JSON du jeu de données de sortie
-Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable** . Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec Azure SQL Database. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
+Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable**. Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec Azure SQL Database. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
 
 ```json
 {
@@ -49,7 +44,7 @@ Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlS
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>Section SqlSink dans le JSON de l’activité de copie
-Définissez la section **SqlSink** dans le JSON de l’activité de copie comme suit. Pour appeler une procédure stockée lors de l’insertion de données dans la base de données réceptrice ou de destination, spécifiez des valeurs pour les propriétés **SqlWriterStoredProcedureName** et **SqlWriterTableType** . Pour obtenir une description de ces propriétés, consultez la [section SqlSink de l’article sur le connecteur SQL Server](data-factory-sqlserver-connector.md#sqlsink).
+Définissez la section **SqlSink** dans le JSON de l’activité de copie comme suit. Pour appeler une procédure stockée lors de l’insertion de données dans la base de données réceptrice ou de destination, spécifiez des valeurs pour les propriétés **SqlWriterStoredProcedureName** et **SqlWriterTableType**. Pour obtenir une description de ces propriétés, consultez la [section SqlSink de l’article sur le connecteur SQL Server](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -68,7 +63,7 @@ Définissez la section **SqlSink** dans le JSON de l’activité de copie comme 
 ```
 
 ## <a name="stored-procedure-definition"></a>Définition de la procédure stockée 
-Dans votre base de données, définissez la procédure stockée avec le même nom que **SqlWriterStoredProcedureName** . La procédure stockée gère les données d’entrée provenant du magasin de données source et insère les données dans une table dans la base de données de destination. Le nom du premier paramètre de la procédure stockée doit correspondre au nom de table défini dans le JSON du jeu de données (Marketing).
+Dans votre base de données, définissez la procédure stockée avec le même nom que **SqlWriterStoredProcedureName**. La procédure stockée gère les données d’entrée provenant du magasin de données source et insère les données dans une table dans la base de données de destination. Le nom du premier paramètre de la procédure stockée doit correspondre au nom de table défini dans le JSON du jeu de données (Marketing).
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -81,7 +76,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Définition du type de table
-Dans votre base de données, définissez le type de table avec le même nom que **SqlWriterTableType** . Le schéma du type de table doit correspondre au schéma du jeu de données d’entrée.
+Dans votre base de données, définissez le type de table avec le même nom que **SqlWriterTableType**. Le schéma du type de table doit correspondre au schéma du jeu de données d’entrée.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

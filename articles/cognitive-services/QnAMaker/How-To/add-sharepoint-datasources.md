@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 36724e518f1bae636c2d2602a227b53a11257591
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791052"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584768"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 
@@ -132,8 +132,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 Il existe une solution de contournement pour ajouter le contenu SharePoint le plus récent via l’API à l’aide du Stockage Blob Azure. Voici les étapes ci-dessous : 
 1.  Téléchargez les fichiers SharePoint localement. L’utilisateur appelant l’API doit avoir accès à SharePoint. 
-1.  Chargez-les sur le Stockage Blob Azure. Cela permet de créer un accès partagé sécurisé [à l’aide du jeton SAP.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
-1. Transmettez l’URL de blob générée avec le jeton SAP à l’API QnA Maker. Pour permettre l’extraction des réponses à la question à partir des fichiers, vous devez ajouter le type de fichier de suffixe « &ext=pdf » ou « &ext=doc » à la fin de l’URL avant de le transmettre à l’API QnA Maker>  
+1.  Chargez-les sur Stockage Blob Azure. Cela permet de créer un accès partagé sécurisé [à l’aide du jeton SAP.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Transmettez l’URL de blob générée avec le jeton SAP à l’API QnA Maker. Pour permettre l’extraction des paires question/réponse à partir des fichiers, vous devez ajouter le type de fichier de suffixe « &ext=pdf » ou « &ext=doc » à la fin de l’URL avant de la transmettre à l’API QnA Maker.
 
 
 <!--

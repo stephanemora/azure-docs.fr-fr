@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734621"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831771"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -236,10 +236,7 @@ Le panneau **Planification de mises à jour** vous permet de désigner une fenê
 
 Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour, puis cliquez sur **OK**. L’heure de la maintenance est au format UTC.
 
-> [!IMPORTANT]
-> La fonctionnalité **Planifier les mises à jour** est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la page [Administration du cache Azure pour Redis – Planification de mises à jour](cache-administration.md#schedule-updates).
->
->
+Pour plus d’informations et pour obtenir des instructions, consultez la page [Administration d’Azure Cache pour Redis – Planification de mises à jour](cache-administration.md#schedule-updates)
 
 ### <a name="geo-replication"></a>Géoréplication
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82b72567a0db4dc9dbff9128402d0ee9f40f3512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880031"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094149"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Azure Purview dans le portail Azure
 
@@ -115,6 +115,9 @@ Si nécessaire, suivez ces étapes qui permettent de configurer votre abonnement
 1. Accédez à la page **Comptes Purview** dans le portail Azure et sélectionnez **Ajouter** pour créer un compte Azure Purview. Vous pouvez également accéder à la Place de marché pour rechercher **Comptes Purview**, puis sélectionner **Créer**. Notez que vous ne pouvez ajouter qu’un seul compte Azure Purview à la fois.
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Capture d’écran illustrant la création d’une instance de compte Azure Purview dans le portail Azure.":::
+
+    > [!Note] 
+    > Le déplacement de compte Azure Purview entre régions n’est pas pris en charge. Pour plus d’informations à ce sujet, consultez la [page des services pris en charge par Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support).
 
 1. Dans l’onglet **De base**, effectuez les actions suivantes :
     1. Sélectionnez un **groupe de ressources**.

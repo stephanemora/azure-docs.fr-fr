@@ -2,19 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1c6e767a1c6be08060865c43614c90aa7469d1b2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: dcd08c0635eb4a104cc945fbf4025a6807987968
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99214295"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100100344"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les espaces de travail Azure Synapse doit utiliser des clés gérées par le client pour chiffrer les données au repos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Utilisez des clés gérées par le client pour contrôler le chiffrement au repos des données stockées dans des espaces de travail Azure Synapse. Les clés gérées par le client fournissent un double chiffrement en ajoutant une deuxième couche de chiffrement en plus du chiffrement par défaut avec les clés gérées par le service. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
+|[Les espaces de travail Azure Synapse doivent autoriser le trafic de données sortant uniquement vers les cibles approuvées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3484ce98-c0c5-4c83-994b-c5ac24785218) |Augmentez la sécurité de votre espace de travail Synapse en autorisant le trafic de données sortant uniquement vers les cibles approuvées. Cela permet de prévenir l’exfiltration de données en validant la cible avant d’envoyer des données. |Audit, Désactivé, Refus |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_RestrictOutboundDataTraffic_Audit.json) |
+|[Les espaces de travail Azure Synapse doivent utiliser des clés gérées par le client pour chiffrer les données au repos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Utilisez des clés gérées par le client pour contrôler le chiffrement au repos des données stockées dans des espaces de travail Azure synapse. Les clés gérées par le client fournissent un double chiffrement en ajoutant une deuxième couche de chiffrement en plus du chiffrement par défaut avec les clés gérées par le service. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 |[Les règles de pare-feu IP sur les espaces de travail Azure Synapse doivent être supprimées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |La suppression de toutes les règles de pare-feu IP renforce la sécurité en garantissant que votre espace de travail Azure Synapse est accessible uniquement à partir d’un point de terminaison privé. Cette configuration audite la création de règles de pare-feu qui autorisent l’accès au réseau public sur l’espace de travail. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
 |[Un réseau virtuel d’espace de travail managé sur les espaces de travail Azure Synapse doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |L’activation d’un réseau virtuel d’espace de travail managé garantit que le réseau de votre espace de travail est isolé de celui des autres espaces de travail. L’intégration de données et les ressources Spark déployées dans ce réseau virtuel fournissent également l’isolation de niveau utilisateur pour les activités Spark. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Les connexions des points de terminaison privés sur les espaces de travail Azure Synapse doivent être activées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Les points de terminaison privés peuvent être configurés pour se connecter en privé à un espace de travail Azure Synapse. Cela permet d’appliquer un canal de communication sécurisé à l’espace de travail Azure Synapse. |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |

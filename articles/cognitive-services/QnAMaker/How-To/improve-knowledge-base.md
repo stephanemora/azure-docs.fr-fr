@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 7c477655dfb24eebab9a2669697d9ef610088198
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164938"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592022"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 
@@ -49,28 +49,55 @@ Pour consulter les questions suggérées, vous devez [activer l'apprentissage ac
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>Les suggestions d’apprentissage actif sont enregistrées dans la base de connaissances exportée
+
+Lorsque l’apprentissage actif est activé pour votre application et que vous exportez l’application, la colonne `SuggestedQuestions` dans le fichier tsv conserve les données d’apprentissage actif.
+
+La colonne `SuggestedQuestions` est un objet JSON d’informations des commentaires implicites, `autosuggested`, et explicites, `usersuggested`. Un exemple de cet objet JSON pour une seule question soumise par l’utilisateur de `help` est :
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Lorsque vous réimportez cette application, l’apprentissage actif continue à collecter des informations et à recommander des suggestions pour votre base de connaissances.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Flux architectural pour utiliser les API Train et GenerateAnswer à partir d’un bot
 
 Un bot ou une autre application cliente doivent utiliser le flux architectural suivant pour utiliser l’apprentissage actif :
 
 * Le bot [obtient la réponse de la base de connaissances](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) avec l’API GenerateAnswer, à l’aide de la propriété `top` pour obtenir un certain nombre de réponses.
+
+    #### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Utilisation de la propriété principale dans la requête GenerateAnswer pour obtenir plusieurs réponses correspondantes
+
+    Lorsque vous soumettez une question à QnA Maker pour obtenir une réponse, la propriété `top` du corps JSON définit le nombre de réponses à renvoyer.
+
+    ```json
+    {
+        "question": "wi-fi",
+        "isTest": false,
+        "top": 3
+    }
+    ```
+
 * Le bot détermine des commentaires explicites :
     * À l’aide de votre [logique métier personnalisée](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtrez les scores faibles.
     * Dans le bot ou l’application cliente, affichez la liste de réponses possibles pour l’utilisateur et obtenez la réponse sélectionnée par l’utilisateur.
 * Le bot [envoie la réponse sélectionnée à QnA Maker](#bot-framework-sample-code) avec [l’API Train](#train-api).
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Utilisation de la propriété principale dans la requête GenerateAnswer pour obtenir plusieurs réponses correspondantes
-
-Lorsque vous soumettez une question à QnA Maker pour obtenir une réponse, la propriété `top` du corps JSON définit le nombre de réponses à renvoyer.
-
-```json
-{
-    "question": "wi-fi",
-    "isTest": false,
-    "top": 3
-}
-```
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Utiliser la propriété de score, ainsi que la logique métier pour obtenir la liste de réponses à afficher pour l’utilisateur
 
@@ -309,33 +336,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>L’apprentissage actif est enregistré dans la base de connaissances exportée
-
-Lorsque l’apprentissage actif est activé pour votre application et que vous exportez l’application, la colonne `SuggestedQuestions` dans le fichier tsv conserve les données d’apprentissage actif.
-
-La colonne `SuggestedQuestions` est un objet JSON d’informations des commentaires implicites, `autosuggested`, et explicites, `usersuggested`. Un exemple de cet objet JSON pour une seule question soumise par l’utilisateur de `help` est :
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-Lorsque vous réimportez cette application, l’apprentissage actif continue à collecter des informations et à recommander des suggestions pour votre base de connaissances.
-
-
 
 ## <a name="best-practices"></a>Meilleures pratiques
 

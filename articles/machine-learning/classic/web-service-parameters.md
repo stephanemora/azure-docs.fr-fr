@@ -4,19 +4,18 @@ description: Comment utiliser les paramètres de service Web Azure Machine Le
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308627"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518332"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Utiliser les paramètres de service web Azure Machine Learning Studio (classique)
 
@@ -51,8 +50,8 @@ Par exemple, supposons que nous avons une expérience avec un module [Exporter d
 1. Dans Machine Learning Studio (classique), cliquez sur le module [Exporter les données][writer] pour le sélectionner. Ses propriétés sont affichées dans le volet Propriétés à droite du canevas de l'expérience.
 2. Spécification du type de stockage :
    
-   * Sous le message **Veuillez spécifier la destination des données** , sélectionnez « Stockage d'objets blob Azure ».
-   * Sous le message **Veuillez spécifier le type d'authentification** , sélectionnez « Compte ».
+   * Sous le message **Veuillez spécifier la destination des données**, sélectionnez « Stockage d'objets blob Azure ».
+   * Sous le message **Veuillez spécifier le type d'authentification**, sélectionnez « Compte ».
    * Entrez les informations de compte correspondant au stockage d’objets blob Azure. 
 
 3. Cliquez sur l'icône à droite du **Chemin d'accès d’objet blob commençant par le paramètre du conteneur**. Voici à quoi cela ressemble :

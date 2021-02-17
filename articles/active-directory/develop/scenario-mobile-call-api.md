@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756482"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584395"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Appeler une API web à partir d’une application mobile
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Effectuer plusieurs requêtes vers l’API
 
-Si vous devez appeler la même API plusieurs fois, ou appeler plusieurs API, prenez en compte les points suivants quand vous créez votre application :
+Pour appeler la même API plusieurs fois ou appeler plusieurs API, prenez en compte les points suivants quand vous créez votre application :
 
 - **Consentement incrémentiel** : la plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur au moment où des autorisations sont requises, plutôt que d’obtenir toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues dont elle a besoin.
 
@@ -125,7 +125,7 @@ Si vous devez appeler la même API plusieurs fois, ou appeler plusieurs API, pre
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Appeler plusieurs API à l’aide du consentement incrémentiel et de l’accès conditionnel
 
-Si vous devez appeler plusieurs API pour le même utilisateur, après l’acquisition d’un jeton pour l’utilisateur, vous pouvez éviter de demander à l’utilisateur des informations d’identification à plusieurs reprises en appelant `AcquireTokenSilent` pour obtenir un jeton :
+Pour appeler plusieurs API pour le même utilisateur, après l’acquisition d’un jeton pour l’utilisateur, vous pouvez éviter de demander à l’utilisateur des informations d’identification à plusieurs reprises en appelant `AcquireTokenSilent` pour obtenir un jeton :
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

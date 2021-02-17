@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537998"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515986"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -26,7 +26,7 @@ Cet article est le troisième d’une série de cinq qui vous guide à travers l
 
 Consultez les autres articles de cette série :
 
-[1. Présentation du réseau virtuel](how-to-network-security-overview.md) > [Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > **3. Sécurisation de l’environnement d’entraînement** > [4. Sécurisation de l’environnement d’inférence](how-to-secure-inferencing-vnet.md)  > [5. Activation de la fonctionnalité de studio](how-to-enable-studio-virtual-network.md)
+[1. Présentation du réseau virtuel](how-to-network-security-overview.md) > [2. Sécurisation de l’espace de travail](how-to-secure-workspace-vnet.md) > **3. Sécurisation de l’environnement d’entraînement** > [4. Sécurisation de l’environnement d’inférence](how-to-secure-inferencing-vnet.md)  > [5. Activation de la fonctionnalité de studio](how-to-enable-studio-virtual-network.md)
 
 Dans cet article, vous découvrirez comment sécuriser les ressources de calcul d’entraînement dans un réseau virtuel :
 > [!div class="checklist"]
@@ -273,7 +273,7 @@ Vous devez remplir les conditions suivantes pour pouvoir utiliser Azure Databric
 > * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que le cluster Azure Databricks.
 > * Outre les sous-réseaux __databricks-private__ et __databricks-public__ utilisés par Azure Databricks, le sous-réseau __default__ créé pour le réseau virtuel est également requis.
 
-Pour obtenir des informations spécifiques sur l’utilisation d’Azure Databricks avec un réseau virtuel, consultez [Déployer des Azure Databricks dans votre réseau virtuel Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Pour obtenir des informations spécifiques sur l’utilisation d’Azure Databricks avec un réseau virtuel, consultez [Déployer des Azure Databricks dans votre réseau virtuel Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 <a id="vmorhdi"></a>
 

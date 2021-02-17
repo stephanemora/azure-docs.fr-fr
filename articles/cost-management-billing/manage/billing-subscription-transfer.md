@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601551"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979427"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -88,6 +88,20 @@ Pour annuler une demande de transfert :
 ## <a name="troubleshooting"></a>Dépannage
 
 Si vous éprouvez des difficultés à transférer des abonnements, utilisez les informations de résolution de problèmes suivantes.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Le propriétaire d’origine de la facturation de l’abonnement Azure quitte votre organisation
+
+Il se peut que le propriétaire d’origine de la facturation qui a créé un compte Azure et un abonnement Azure quitte votre organisation. Si cette situation se produit, son identité d’utilisateur ne figure plus dans l’annuaire Azure Active Directory de l’organisation. L’abonnement Azure n’a donc plus de propriétaire de facturation. Cette situation empêche quiconque d’effectuer des opérations de facturation sur le compte, notamment de voir et de payer les factures. L’abonnement peut passer à l’état impayé et, par la suite, être désactivé en raison du non-paiement. L’abonnement peut finalement être supprimé, ce qui affectera tous les services qui s’y exécutent.
+
+Quand un abonnement ne dispose plus d’un propriétaire de facturation valide, Azure envoie un e-mail à d’autres propriétaires de facturation, aux administrateurs de service, aux coadministrateurs et aux propriétaires d’abonnement les informant de la situation et leur fournit un lien pour accepter la propriété de facturation de l’abonnement. Tout utilisateur peut sélectionner le lien pour accepter la propriété de facturation. Pour plus d’informations sur les rôles de facturation, consultez les pages sur les [rôles de facturation](understand-mca-roles.md) et les [rôles d’abonnement classique et RBAC Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+L’exemple suivant montre à quoi ressemble l’e-mail.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="Capture d’écran montrant un exemple de l’e-mail permettant d’accepter la propriété de facturation." lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+Azure affiche également une bannière dans la fenêtre des détails de l’abonnement du portail Azure pour les propriétaires de facturation, administrateurs de services, coadministrateurs et propriétaires d’abonnement. Sélectionnez le lien dans la bannière pour accepter la propriété de facturation.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="Capture d’écran montrant un exemple d’abonnement sans propriétaire de facturation valide." lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>L’option « Transférer l’abonnement » n’est pas disponible
 

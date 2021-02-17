@@ -2,19 +2,16 @@
 title: Format Avro dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format Avro dans Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7d61121b4c80b7b89ec29ade4ab1bfab91a660d9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4be499e8e304f34b1cab10aed41b5b98a5f24e9b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010552"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392593"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 
@@ -67,7 +64,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="avro-as-source"></a>Avro en tant que source
 
-Les propriétés prises en charge dans la section **_\_source\*** * de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section ***\*source\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -76,7 +73,7 @@ Les propriétés prises en charge dans la section **_\_source\*** * de l’activ
 
 ### <a name="avro-as-sink"></a>Avro en tant que récepteur
 
-Les propriétés prises en charge dans la section **_\_récepteur\*** * de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section ***\*récepteur\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |

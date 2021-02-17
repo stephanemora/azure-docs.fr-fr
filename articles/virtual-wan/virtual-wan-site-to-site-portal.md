@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 7ba0f1b6f37da923e389964b99a02295dc3d6050
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f3458c3b12b3151fd20531282f56ed2f1fd29b6b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359525"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627700"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
@@ -55,7 +55,7 @@ Un hub est un réseau virtuel qui peut contenir des passerelles pour offrir des 
 
 ## <a name="create-a-site"></a><a name="site"></a>Créer un site
 
-Vous êtes maintenant prêt à créer les sites correspondant à vos emplacements physiques. Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1 000 sites par hub virtuel dans Virtual WAN. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN (lien d’insertion), contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter en un seul clic des informations de branche à grande échelle dans Azure, et de configurer la connectivité entre l’appareil CPE et la passerelle VPN Azure Virtual WAN. Pour plus d’informations, consultez [Guide d’automatisation Azure à l’intention des partenaires CPE](virtual-wan-configure-automation-providers.md).
+Dans cette section, vous allez créer un site. Les sites correspondent à vos emplacements physiques. Créez autant de sites qu’il vous faut. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1000 sites par hub virtuel dans un WAN virtuel. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN, contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter en un seul clic des informations de branche à grande échelle dans Azure, et de configurer la connectivité entre l’appareil CPE et la passerelle VPN Azure Virtual WAN. Pour plus d’informations, consultez [Guide d’automatisation Azure à l’intention des partenaires CPE](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -74,23 +74,23 @@ Au cours de cette étape, vous connectez votre site VPN au hub.
 Utilisez la configuration de périphérique VPN pour configurer votre périphérique VPN local.
 
 1. Dans la page de votre réseau étendu virtuel, cliquez sur **Vue d’ensemble**.
-2. En haut de la page **Hub ->VPNSite** , cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
+2. En haut de la page **Hub ->VPNSite**, cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
 3. Une fois que le fichier a terminé la création, vous pouvez cliquer sur le lien pour le télécharger.
 4. Appliquez la configuration à votre périphérique VPN local.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Comprendre le fichier de configuration de périphérique VPN
+### <a name="about-the-vpn-device-configuration-file"></a>À propos du fichier de configuration de périphérique VPN
 
 Le fichier de configuration de périphérique contient les paramètres à utiliser lors de la configuration de votre périphérique VPN sur site. Lorsque vous affichez ce fichier, notez les informations suivantes :
 
 * **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
 * **vpnSiteConnections -** Cette section fournit des informations sur les paramètres suivants :
 
-    * **Espace d’adressage** du réseau virtuel du/des hub(s)<br>Exemple :
+    * **Espace d’adressage** du réseau virtuel du/des hub(s).<br>Exemple :
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub<br>Exemple :
+    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub.<br>Exemple :
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -101,7 +101,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Détails de configuration de connexion de passerelle VPN** , comme BGP, une clé prépartagée, etc. La clé PSK est la clé prépartagée automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page Vue d’ensemble pour une clé PSK personnalisée.
+    * **Détails de configuration de connexion de passerelle VPN**, comme BGP, une clé prépartagée, etc. La clé PSK est la clé prépartagée automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page Vue d’ensemble pour une clé PSK personnalisée.
   
 ### <a name="example-device-configuration-file"></a>Exemple de fichier de configuration de périphérique
 
@@ -227,7 +227,7 @@ Vous pouvez afficher et configurer les paramètres de votre passerelle VPN à to
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Capture d’écran montrant la page « VPN (site à site) » avec une flèche pointant vers l’action « Afficher/configurer »." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
-Sur la page **Modifier la passerelle VPN** , vous pouvez voir les paramètres suivants :
+Sur la page **Modifier la passerelle VPN**, vous pouvez voir les paramètres suivants :
 
 * Adresse IP publique de la passerelle VPN (affectée par Azure)
 * Adresse IP privée de la passerelle VPN (affectée par Azure)

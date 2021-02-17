@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5813331d5eafd953d776dd19d9cc885ff71b8be0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361551"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -119,7 +119,6 @@ Le changement de modèle de licence est :
    - Pris en charge uniquement pour les éditions Standard et Entreprise de SQL Server. Les changements de licence ne sont pas pris en charge pour les versions Express, Web et Développeur. 
    - Pris en charge uniquement pour les machines virtuelles déployées à l’aide du modèle Azure Resource Manager. Les machines virtuelles déployées via le modèle classique ne sont pas prises en charge. 
    - Disponible uniquement pour les clouds publics ou Azure Government. 
-   - Pris en charge uniquement sur les machines virtuelles dotées d’une seule interface réseau (NIC). 
 
 > [!Note]
 > Seule une licence par cœur SQL Server avec Software Assurance ou des licences d’abonnement sont éligibles pour Azure Hybrid Benefit. Si vous utilisez une licence Serveur + licence d’accès client pour SQL Server et que vous disposez de Software Assurance, vous pouvez utiliser BYOL (apportez votre propre licence) sur une image de machine virtuelle Azure SQL Server pour tirer parti de la mobilité des licences pour ces serveurs, mais vous ne pouvez pas tirer parti des autres fonctionnalités d’Azure Hybrid Benefit. 
@@ -136,10 +135,6 @@ Cette erreur se produit lorsque vous essayez de changer le modèle de licence su
 
 Vous devez inscrire votre abonnement auprès du fournisseur de ressources, puis [inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
-
-**La machine virtuelle ’\<vmname\>’ a plus d’une carte réseau associée**
-
-Cette erreur se produit sur les machines virtuelles dotées de plusieurs cartes d’interface réseau. Supprimez l’une des cartes d’interface réseau avant de changer de modèle de licence. Bien que vous puissiez rajouter la carte d’interface réseau à la machine virtuelle après avoir changé de modèle de licence, les opérations dans le portail Azure telles que la sauvegarde et la mise à jour corrective automatiques ne sont plus prises en charge. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

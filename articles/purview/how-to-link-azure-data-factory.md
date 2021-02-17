@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954178"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807646"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -107,29 +107,29 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 
 ### <a name="data-factory-copy-data-support"></a>Prise en charge de la copie de données Data Factory
 
-| Système de stockage de données | Prise en charge en tant que source | Prise en charge en tant que récepteur |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Oui | Oui (copie non binaire uniquement) |
-| ADLS Gen2 | Oui | Oui |
-| Objets blob Azure | Oui | Oui |
-| Azure Cosmos DB (API SQL) | Oui | Oui |
-| Azure Cosmos DB (API Mongo) | Oui | Oui |
-| Recherche cognitive Azure | Oui | Oui |
-| Explorateur de données Azure | Oui | Oui |
-| Azure Database for Maria DB \* | Oui | Oui |
-| Azure Database pour MYSQL \* | Oui | Oui |
-| Azure Database pour PostgreSQL \* | Oui | Oui |
-| Stockage Fichier Azure | Oui | Oui |
-| Stockage de table Azure | Oui | Oui |
-| Azure SQL Database \* | Oui | Oui |
-| Azure SQL Database Managed Instance \* | Oui | Oui |
-| Azure Synapse Analytics (anciennement SQL DW) \* | Oui | Oui |
-| SQL Server local (SHIR requis) \* | Oui | Oui |
-| Amazon S3 | Oui | Oui |
-| Teradata | Oui | Oui |
-| SAP s4 Hana | Oui | Oui |
-| SAP ECC | Oui | Oui |
-| Hive | Oui | Oui |
+| Système de stockage de données | Prise en charge en tant que source | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Oui | 
+| ADLS Gen2 | Oui | 
+| Objets blob Azure | Oui |
+| Azure Cosmos DB (API SQL) | Oui | 
+| Azure Cosmos DB (API Mongo) | Oui |
+| Recherche cognitive Azure | Oui | 
+| Explorateur de données Azure | Oui | 
+| Azure Database for Maria DB \* | Oui | 
+| Azure Database pour MYSQL \* | Oui | 
+| Azure Database pour PostgreSQL \* | Oui |
+| Stockage Fichier Azure | Oui | 
+| Stockage de table Azure | Oui |
+| Azure SQL Database \* | Oui | 
+| Azure SQL Database Managed Instance \* | Oui | 
+| Azure Synapse Analytics (anciennement SQL DW) \* | Oui | 
+| SQL Server local  \* | Oui | 
+| Amazon S3 | Oui | 
+| Teradata | Oui | 
+| Connecteur de table SAP | Oui |
+| SAP ECC | Oui | 
+| Hive | Oui | 
 
 > [!Note]
 > La fonctionnalité de traçabilité implique certaines surcharges de performances dans l’activité de copie Data Factory. Ceux qui configurent des connexions Data Factory dans Purview constateront peut-être que certaines tâches de copie prennent davantage de temps. Le plus souvent, l’impact est négligeable, voire nul. Veuillez contacter le support en indiquant la comparaison de durée si les travaux de copie prennent beaucoup plus de temps que d’habitude.
@@ -137,7 +137,7 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 ### <a name="data-factory-data-flow-support"></a>Prise en charge de Data Flow dans Data Factory
 
 | Système de stockage de données | Prise en charge |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Oui |
 | ADLS Gen2 | Oui |
 | Objets blob Azure | Oui |
@@ -147,7 +147,7 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 ### <a name="data-factory-execute-ssis-package-support"></a>Prise en charge de l’exécution d’un package SSIS dans Data Factory
 
 | Système de stockage de données | Prise en charge |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Objets blob Azure | Oui |
 | ADLS Gen1 | Oui |
 | ADLS Gen2 | Oui |

@@ -1,23 +1,18 @@
 ---
 title: Copier des données à partir de Square (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Square vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
-ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529362"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384790"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -53,7 +48,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Square :
 | type | La propriété type doit être définie sur : **Square** | Oui |
 | connectionProperties | Groupe de propriétés qui définit la façon de se connecter au Carré. | Oui |
 | ***Sous `connectionProperties`:*** | | |
-| host | URL de l’instance Square. (c’est-à-dire mystore.mysquare.com).  | Oui |
+| host | URL de l’instance Square (c’est-à-dire mystore.mysquare.com).  | Oui |
 | clientId | ID client associé à l’application Square.  | Oui |
 | clientSecret | Clé secrète client associée à l’application Square. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | accessToken | Jeton d’accès obtenu à partir du Carré. Octroie un accès limité à un compte Carré en demandant à un utilisateur authentifié des autorisations explicites. Les jetons d’accès OAuth expirent 30 jours après leur émission, mais les jetons d’actualisation n’expirent pas. Des jetons d’accès peuvent être actualisés par un jeton d’actualisation.<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).  | Oui |

@@ -4,19 +4,18 @@ description: Découvrez comment utiliser les modules Importer des données et Ex
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308471"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520559"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Déployer des services web Azure Machine Learning Studio (classique) utilisant les modules d’importation et d’exportation des données
 
@@ -41,7 +40,7 @@ Pour lire les données à partir de la table SQL Azure :
 3. Dans la liste des résultats, ajoutez un module *Importer des données* à la zone de dessin de l’expérience.
 4. Connectez la sortie du module *Importer des données* à l’entrée du module *Nettoyer les données manquantes*.
 5. Dans le panneau Propriétés, sélectionnez **Azure SQL Database** dans la liste déroulante **Source de données**.
-6. Dans les champs **Nom du serveur de base de données** , **Nom de la base de données** , **Nom d’utilisateur** et **Mot de passe** saisissez les informations appropriées pour votre base de données.
+6. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom d’utilisateur** et **Mot de passe** saisissez les informations appropriées pour votre base de données.
 7. Dans le champ de requête de base de données, entrez la requête suivante.
 
     ```tsql
@@ -73,17 +72,17 @@ Maintenant, vous devez configurer l’expérience prédictive à partir de laque
 4. Dans la liste des résultats, ajoutez un module *Exporter des données* à la zone de dessin de l’expérience.
 5. Connectez la sortie du module *Noter le modèle* à l’entrée du module *Exporter des données*.
 6. Dans le panneau Propriétés, sélectionnez **Azure SQL Database** dans la liste déroulante de destination des données.
-7. Dans les champs **Nom du serveur de base de données** , **Nom de la base de données** , **Nom de compte d’utilisateur du serveur** et **Mot de passe de compte d’utilisateur du serveur** , saisissez les informations appropriées pour votre base de données.
+7. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom de compte d’utilisateur du serveur** et **Mot de passe de compte d’utilisateur du serveur**, saisissez les informations appropriées pour votre base de données.
 8. Dans le champ **Liste de colonnes séparées par des virgules à enregistrer** , tapez Étiquettes notées.
-9. Dans le **champ du nom de la table de données** , tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
+9. Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.
 10. Dans le champ **Liste des colonnes de table de données séparées par des virgules** , tapez Étiquettes notées.
 
 Lorsque vous écrivez une application qui appelle le service web final, vous pouvez spécifier une autre requête d’entrée ou table de destination lors de l’exécution. Pour configurer ces entrées et sorties, utilisez la fonctionnalité des paramètres du service web afin de définir la propriété de *source de données* du module *Importer des données* ainsi que la propriété de destination des données du module *Exporter des données*.  Pour plus d’informations sur les paramètres de service web, consultez l’[entrée des paramètres de service web Azure Machine Learning Studio](/archive/blogs/machinelearning/azureml-web-service-parameters) du blog Cortana Intelligence and Machine Learning.
 
 Pour configurer les paramètres du service web pour la requête d’importation et la table de destination :
 
-1. Dans le volet des propriétés du module *Importer des données* , cliquez sur l’icône en haut à droite du champ **Requête de base de données** , puis sélectionnez **Définir en tant que paramètre du service web**.
-2. Dans le volet des propriétés du module *Exporter des données* , cliquez sur l’icône en haut à droite du champ **Nom de la table de données** , puis sélectionnez **Définir en tant que paramètre du service web**.
+1. Dans le volet des propriétés du module *Importer des données*, cliquez sur l’icône en haut à droite du champ **Requête de base de données**, puis sélectionnez **Définir en tant que paramètre du service web**.
+2. Dans le volet des propriétés du module *Exporter des données*, cliquez sur l’icône en haut à droite du champ **Nom de la table de données**, puis sélectionnez **Définir en tant que paramètre du service web**.
 3. En bas du volet des propriétés du module *Exporter des données* , dans la section **Paramètres de service web** , cliquez sur Requête de base de données puis renommez-la Requête.
 4. Cliquez sur le champ **Nom de la table de données** et renommez-le **Table**.
 
@@ -102,7 +101,7 @@ Pour déployer comme un service web classique et créer une application afin de 
 1. En bas de la zone de dessin de l’expérience, cliquez sur Exécuter.
 2. Une fois l’exécution terminée, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [classique]** .
 3. Sur le tableau de bord du service web, recherchez votre clé API. Copiez et enregistrez cette clé pour une utilisation ultérieure.
-4. Dans la table **Point de terminaison par défaut** , cliquez sur le **Exécution de lot** pour ouvrir la page d’aide de l’API.
+4. Dans la table **Point de terminaison par défaut**, cliquez sur le **Exécution de lot** pour ouvrir la page d’aide de l’API.
 5. Dans Visual Studio, créez une application console C# : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Console App (.NET Framework)** .
 6. Sur la page d’aide de l’API, recherchez la section **Exemple de code** en bas de la page.
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs et supprimez toutes les références au stockage d’objets blob.
@@ -132,8 +131,8 @@ Pour déployer comme un nouveau service web et créer une application afin de l�
 1. En bas de la zone de dessin de l’expérience, cliquez sur **Exécuter**.
 2. ///MARDI 11H/// Une fois l’exécution terminée, cliquez sur **Déployer le service web** puis sélectionnez **Déployer le service web [nouveau]** .
 3. Sur la page de l’expérience de déploiement, nommez votre service web, sélectionnez un plan de tarification, puis cliquez sur **Déployer**.
-4. Sur la page **Quickstart** , cliquez sur **Consommer**.
-5. Dans la section **Exemple de code** , cliquez sur **Lot**.
+4. Sur la page **Quickstart**, cliquez sur **Consommer**.
+5. Dans la section **Exemple de code**, cliquez sur **Lot**.
 6. Dans Visual Studio, créez une application console C# : **Nouveau** > **Projet** > **Visual C#**  > **Bureau classique Windows** > **Console App (.NET Framework)** .
 7. Copiez et collez l’exemple de code C# dans votre fichier Program.cs.
 8. Mettez à jour la valeur de la variable *apiKey* variable avec la **clé primaire** située dans la section des **informations de base sur la consommation**.

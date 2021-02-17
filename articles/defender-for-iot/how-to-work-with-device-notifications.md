@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509029"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523564"
 ---
 # <a name="work-with-device-notifications"></a>Utiliser des notifications d’appareils
 
@@ -98,6 +98,6 @@ Examinez les suggestions afin d’enrichir la classification du système d’exp
 
 Lorsque vous acceptez une recommandation, les informations sur le type de système d’exploitation sont mises à jour dans le capteur.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Afficher les alertes](how-to-view-alerts.md)

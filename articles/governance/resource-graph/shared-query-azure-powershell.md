@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez suivre les étapes i
 ms.date: 01/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d7efc02cad3aaa67c639a319f1a7bb455d6e04b0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98128076"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981542"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Démarrage rapide : Créer une requête partagée Resource Graph avec Azure PowerShell
 
@@ -36,7 +36,7 @@ Cet article explique comment créer une requête partagée Azure Resource Graph 
 
 ## <a name="create-a-resource-graph-shared-query"></a>Créer une requête partagée Resource Graph
 
-Une fois le module PowerShell `Az.ResourceGraph` ajouté à l’environnement de votre choix, vous pouvez créer une requête partagée Resource Graph. La requête partagée est un objet Azure Resource Manager auquel vous pouvez accorder des autorisations ou que vous pouvez exécuter dans l’Explorateur Azure Resource Graph. La requête récapitule le nombre total de ressources regroupées par _emplacement_.
+Une fois le module PowerShell **Az.ResourceGraph** ajouté à l’environnement de votre choix, vous pouvez créer une requête partagée Resource Graph. La requête partagée est un objet Azure Resource Manager auquel vous pouvez accorder des autorisations ou que vous pouvez exécuter dans l’Explorateur Azure Resource Graph. La requête récapitule le nombre total de ressources regroupées par _emplacement_.
 
 1. Créez un groupe de ressources avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) pour stocker la requête partagée Azure Resource Graph. Ce groupe de ressources est nommé `resource-graph-queries` et son emplacement est `westus2`.
 
@@ -47,7 +47,7 @@ Une fois le module PowerShell `Az.ResourceGraph` ajouté à l’environnement de
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Créez la requête partagée Azure Resource Graph à l’aide du module PowerShell `Az.ResourceGraph` et de l’applet de commande [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery) :
+1. Créez la requête partagée Azure Resource Graph à l’aide du module PowerShell **Az.ResourceGraph** et de la cmdlet [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery) :
 
    ```azurepowershell-interactive
    # Create the Azure Resource Graph shared query
@@ -80,7 +80,7 @@ Une fois le module PowerShell `Az.ResourceGraph` ajouté à l’environnement de
 Si vous souhaitez supprimer la requête partagée et le groupe de ressources Resource Graph de votre environnement Azure, vous pouvez le faire à l’aide des commandes suivantes :
 
 - [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query

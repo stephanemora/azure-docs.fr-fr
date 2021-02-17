@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557181"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutoriel sur l’extension d’Azure AD B2C afin de protéger des applications locales à l’aide de Strata
 
@@ -85,7 +85,7 @@ Pour obtenir le logiciel que vous allez utiliser pour intégrer votre applicatio
 
 2. **Créez un flux utilisateur** : créez un [flux utilisateur d’inscription et de connexion](./tutorial-create-user-flows.md).
 
-3. **Ajoutez un fournisseur d’identité** : choisissez de connecter votre utilisateur avec un compte local ou un [fournisseur d’identité](./tutorial-add-identity-providers.md) sociale ou d’entreprise.
+3. **Ajoutez un fournisseur d’identité** : choisissez de connecter votre utilisateur avec un compte local ou un [fournisseur d’identité](./add-identity-provider.md) sociale ou d’entreprise.
 
 4. **Définissez les attributs utilisateur** : définissez les attributs à collecter lors de l’inscription.
 

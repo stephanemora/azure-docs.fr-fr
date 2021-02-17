@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508860"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523989"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Examiner les détections de capteur dans un inventaire d’appareils
 
@@ -223,7 +223,7 @@ Pour exporter un fichier CSV :
 
 - Dans le menu supérieur droit de l’inventaire des appareils, sélectionnez :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false":::. Le rapport CSV est généré et téléchargé.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Examiner toutes les détections de capteur de l’entreprise d’un inventaire d’appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

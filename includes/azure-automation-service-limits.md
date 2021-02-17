@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 4a6b21d3782931e3bee4a13ff95e7f313dcc1af2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379752"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974425"
 ---
 #### <a name="process-automation"></a>Automatisation de processus
 
@@ -22,9 +22,10 @@ ms.locfileid: "92379752"
 | Nombre maximum de nouveaux travaux pouvant être envoyés toutes les 30 secondes par compte Azure Automation (travaux non planifiés) |100 |Lorsque cette limite est atteinte, les demandes suivantes de création d’un travail échouent. Le client reçoit une réponse d’erreur.|
 | Nombre maximum de travaux simultanés pendant la même instance de temps par compte Automation (travaux non planifiés) |200 |Lorsque cette limite est atteinte, les demandes suivantes de création d’un travail échouent. Le client reçoit une réponse d’erreur.|
 | Taille maximum de stockage des métadonnées des tâches pour une période continue de 30 jours | 10 Go (environ 4 millions de tâches)|Lorsque cette limite est atteinte, les demandes suivantes de création d’un travail échouent. |
-| Limite maximum du flux de travail|1 Mio|Un flux ne peut pas dépasser 1 Mo.|
+| Limite maximum du flux de travail|1 Mio|Un flux ne peut pas dépasser 1 Mio.|
 | Nombre maximum de modules pouvant être importés toutes les 30 secondes par compte Automation |5 ||
 | Taille maximum d’un module |100 Mo ||
+| Taille maximale d’un fichier de configuration de nœud | 1 Mo | S’applique à la configuration de l’état |
 | Durée d’exécution de la tâche, Niveau Gratuit |500 minutes par abonnement et par mois ||
 | Quantité maximum d’espace disque autorisée par bac à sable<sup>1</sup> |1 Go |S’applique aux bacs à sable Azure uniquement.|
 | Quantité maximum de mémoire affectée à un bac à sable <sup>1</sup> |400 Mo |S’applique aux bacs à sable Azure uniquement.|

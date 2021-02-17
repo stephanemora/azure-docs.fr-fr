@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: aca6899da3c92cca0fd8564da5ec3d1679eb2579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d90061d6d56e24168bf368498d05962296892342
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75890978"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374862"
 ---
 # <a name="azure-netapp-files-videos"></a>Vidéos Azure NetApp Files
 Cet article fournit des références de vidéos qui contiennent des discussions approfondies sur l’utilisation d’Azure NetApp Files. 
 
 Plusieurs vidéos sont disponibles pour vous aider à en savoir plus sur Azure NetApp Files :  
 
-* [Microsoft Ignite 2019: Run your most demanding enterprise file workloads with Azure NetApp Files](https://myignite.techcommunity.microsoft.com/sessions/82938?source=sessions) (Exécutez vos charges de travail de fichiers d’entreprise les plus exigeantes avec Azure NetApp Files) présente brièvement Azure NetApp Files, notamment les cas d’usage et une démonstration, puis développe sur les fonctionnalités et la feuille de route.
+* [Microsoft Ignite 2019: Run your most demanding enterprise file workloads with Azure NetApp Files](https://azure.microsoft.com/resources/videos/ignite-2018-taking-on-the-most-demanding-enterprise-file-workloads-with-azure-netapp-files/) (Exécutez vos charges de travail de fichiers d’entreprise les plus exigeantes avec Azure NetApp Files) présente brièvement Azure NetApp Files, notamment les cas d’usage et une démonstration, puis développe sur les fonctionnalités et la feuille de route.
 * Les [Azure NetApp Files talks by Kirk Ryan](https://www.youtube.com/channel/UCq1jZkyVXqMsMSIvScBE2qg/playlists) (Discussions sur Azure NetApp Files par Kirk Ryan) sont une série de vidéos, de tutoriels et de démonstrations dédiée à Azure NetApp Files. 

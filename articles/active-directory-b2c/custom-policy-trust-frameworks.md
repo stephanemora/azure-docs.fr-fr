@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936658"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592838"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Vue d’ensemble de la stratégie personnalisée Azure AD B2C
 
@@ -115,7 +115,7 @@ Chaque pack de démarrage comprend les fichiers suivants :
 Le modèle d’héritage est le suivant :
 
 - La stratégie enfant peut hériter, à tous les niveaux, de la stratégie parente et l’étendre en ajoutant de nouveaux éléments.
-- Dans des scénarios plus complexes, vous pouvez ajouter des niveaux d’héritage (jusqu’à cinq au total).
+- Dans des scénarios plus complexes, vous pouvez ajouter des niveaux d’héritage (jusqu’à 10 au total).
 - Vous pouvez ajouter des stratégies de partie de confiance. Par exemple, supprimer mon compte, modifier un numéro de téléphone ou une stratégie de partie de confiance SAML, et bien plus encore.
 
 Le diagramme suivant montre la relation entre les fichiers de stratégie et les applications par partie de confiance.
