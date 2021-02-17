@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761379"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580936"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -73,7 +73,7 @@ Si vous ne spécifiez pas d’instance, votre application cible l’instance clo
 
 L’audience de connexion varie selon les besoins métier de votre application :
 
-- Si vous êtes un développeur d’application métier (LOB), vous allez probablement produire une application à locataire unique qui sera utilisée uniquement dans votre organisation. Dans ce cas, vous devez spécifier l’organisation, soit par son ID de locataire (ID de votre instance Azure AD) ou par un nom de domaine associé à l’instance Azure AD.
+- Si vous êtes un développeur d’application métier (LOB), vous allez probablement produire une application à locataire unique qui sera utilisée uniquement dans votre organisation. Dans ce cas, spécifiez l’organisation par son ID de locataire (ID de votre instance Azure AD) ou par un nom de domaine associé à l’instance Azure AD.
 - Si vous êtes un ISV, vous pouvez connecter des utilisateurs avec leurs comptes professionnels et scolaires dans toute organisation ou dans certaines organisations (application mutualisée). Mais vous pouvez également amener les utilisateurs à se connecter avec leurs comptes Microsoft personnels.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Comment spécifier l’audience dans votre code/configuration
@@ -122,9 +122,9 @@ Si vous êtes un développeur d’application cliente publique utilisant MSAL :
   | UWP | valeur de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Cela active l’authentification unique avec le navigateur en définissant la valeur sur le résultat de WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que vous devez inscrire |
   | .NET Core | `https://localhost`. Cela permet à l’utilisateur d’utiliser le navigateur système pour l’authentification interactive, car .NET Core n’a pas d’interface utilisateur pour l’affichage Web incorporé pour le moment. |
 
-- Vous n’avez pas besoin d’ajouter un URI de redirection si vous générez une application Xamarin Android et iOS qui ne prend pas en charge le répartiteur (l’URI de redirection est automatiquement défini sur `msal{ClientId}://auth` pour Xamarin Android et iOS)
+- Vous n’avez pas besoin d’ajouter un URI de redirection si vous générez une application Xamarin Android et iOS qui ne prend pas en charge l’URI de redirection du répartiteur. Il est automatiquement défini sur `msal{ClientId}://auth` pour Xamarin Android et iOS.
 
-- Vous avez besoin de configurer l’URI de redirection dans [Inscriptions d’applications](https://aka.ms/appregistrations) :
+- Configurez l’URI de redirection dans [Inscriptions d’applications](https://aka.ms/appregistrations) :
 
    ![URI de redirection dans Inscriptions d’applications](media/msal-client-application-configuration/redirect-uri.png)
 

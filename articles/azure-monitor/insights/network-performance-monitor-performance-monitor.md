@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326118"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832961"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : analyse des performances.
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -65,7 +68,7 @@ Pour créer des règles de surveillance personnalisées :
 6. Choisissez les conditions d’analyse. Si vous voulez définir des seuils personnalisés pour la génération d’événements d’intégrité, entrez des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux ou de sous-réseaux sélectionnée, un événement d’intégrité est généré. 
 7. Sélectionnez **Enregistrer** pour enregistrer la configuration. 
 
-Vous pouvez intégrer la règle de surveillance que vous avez enregistrée dans Alert Management en sélectionnant **Créer une alerte**. Une règle d’alerte est créée automatiquement avec la requête de recherche. Les autres paramètres obligatoires sont renseignés automatiquement. En utilisant une règle d’alerte, vous pouvez recevoir des alertes par e-mail en plus des alertes qui existent dans Network Performance Monitor. Les alertes peuvent également déclencher des actions correctives avec des runbooks, ou s’intégrer aux solutions existantes de gestion des services à l’aide de webhooks. Sélectionnez **Gérer l’alerte** pour modifier les paramètres d’alerte. 
+Vous pouvez intégrer la règle de surveillance que vous avez enregistrée dans Alert Management en sélectionnant **Créer une alerte**. Une règle d’alerte est créée automatiquement avec la requête de recherche. Les autres paramètres obligatoires sont renseignés automatiquement. En utilisant une règle d’alerte, vous pouvez recevoir des alertes par e-mail en plus des alertes qui existent dans Network Performance Monitor. Les alertes peuvent également déclencher des actions correctives avec des runbooks, ou s’intégrer aux solutions existantes de management des services à l’aide de webhooks. Sélectionnez **Gérer l’alerte** pour modifier les paramètres d’alerte. 
 
 Vous pouvez maintenant créer d’autres règles pour l’Analyseur de performances ou accéder au tableau de bord de la solution pour utiliser la fonctionnalité.
 
@@ -129,4 +132,3 @@ Dans l’image suivante, la cause racine des zones à problème dans la section 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Rechercher dans les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-

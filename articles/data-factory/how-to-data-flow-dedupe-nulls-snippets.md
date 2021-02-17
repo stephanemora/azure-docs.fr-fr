@@ -1,19 +1,17 @@
 ---
 title: Déduplication de lignes et recherche de valeurs Null à l’aide d’extraits de flux de données
 description: Découvrez comment dédupliquer facilement des lignes et rechercher des valeurs Null en utilisant des extraits de code dans des flux de données
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: makromer
-ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1b49b2584c4cb462c7c0f520fe8d1b5bf69c8674
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632445"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393664"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Déduplication de lignes et recherche de valeurs Null à l’aide d’extraits de flux de données
 
@@ -29,7 +27,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
 1. Ajoutez une activité de flux de données.
 
-1. Sélectionnez l’onglet **Paramètres de la source** , ajoutez une transformation source, puis connectez-la à l’un de vos jeux de données.
+1. Sélectionnez l’onglet **Paramètres de la source**, ajoutez une transformation source, puis connectez-la à l’un de vos jeux de données.
 
     ![Capture d’écran du volet « Paramètres de la source » pour l’ajout d’un type de source.](media/data-flow/snippet-adf-2.png)
 
@@ -57,7 +55,7 @@ En utilisant des extraits de code dans des flux de données de mappage, vous pou
 
 1. [Revenez à la bibliothèque d’extraits de code et cette fois copiez le code pour les contrôles de valeur Null.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
-   b. Dans le concepteur de flux de données, sélectionnez à nouveau **Script** , puis collez ce nouveau code de transformation en bas. Cette action connecte le script à votre transformation précédente en plaçant le nom de ladite transformation devant l’extrait de code collé.
+   b. Dans le concepteur de flux de données, sélectionnez à nouveau **Script**, puis collez ce nouveau code de transformation en bas. Cette action connecte le script à votre transformation précédente en plaçant le nom de ladite transformation devant l’extrait de code collé.
 
    Votre graphique de flux de données doit maintenant ressembler à ceci :
 

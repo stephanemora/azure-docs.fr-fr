@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576479"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,7 +43,7 @@ Les versions suivantes des pilotes Cassandra sont prises en charge par l’API C
 
 L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suivants :
 
-|Commande  |Pris en charge. |
+|Type  |Pris en charge. |
 |---------|---------|
 | ascii  | Oui |
 | bigint  | Oui |
@@ -82,13 +82,14 @@ L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 |Commande  |Pris en charge. |
 |---------|---------|
 | Jeton * | Oui |
-| ttl | Oui |
-| writetime | Oui |
+| ttl *** | Oui |
+| writetime *** | Oui |
 | cast ** | Oui |
 
 > [!NOTE] 
 > L’API Cassandra \* prend en charge le jeton en tant que projection/sélecteur et autorise uniquement token(pk) du côté gauche d’une clause Where. Par exemple, `WHERE token(pk) > 1024` est pris en charge, **contrairement à `WHERE token(pk) > token(100)`** .  
-> \*\* La fonction `cast()` ne peut pas être imbriquée dans l’API Cassandra. Par exemple, `SELECT cast(count as double) FROM myTable` est pris en charge, **contrairement à `SELECT avg(cast(count as double)) FROM myTable`** .
+> \*\* La fonction `cast()` ne peut pas être imbriquée dans l’API Cassandra. Par exemple, `SELECT cast(count as double) FROM myTable` est pris en charge, **contrairement à `SELECT avg(cast(count as double)) FROM myTable`** .    
+> \*\*\* Les horodatages personnalisés et la durée de vie spécifiés avec l’option `USING` sont appliqués au niveau d’une ligne (et non par cellule).
 
 
 
@@ -159,7 +160,6 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 | CREATE ROLE | Non |
 | CREATE USER (déprécié en Apache Cassandra natif) | Non |
 | Suppression | Oui |
-| DELETE (transactions légères avec condition IF)| Oui |
 | DISTINCT | Non |
 | DROP AGGREGATE | Non |
 | .DROP FUNCTION | Non |
@@ -173,17 +173,25 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 | DROP USER (déprécié en Apache Cassandra natif) | Non |
 | GRANT | Non |
 | INSERT | Oui |
-| INSERT (transactions légères avec condition IF)| Oui |
 | LIST PERMISSIONS | Non |
 | LIST ROLES | Non |
 | LIST USERS (déprécié en Apache Cassandra natif) | Non |
 | REVOKE | Non |
 | SELECT | Oui |
-| SELECT (transactions légères avec condition IF)| Non |
 | UPDATE | Oui |
-| UPDATE (transactions légères avec condition IF)| Non |
 | TRUNCATE | Non |
 | USE | Oui |
+
+## <a name="lightweight-transactions-lwt"></a>Transactions légères (LWT)
+
+| Composant  |Prise en charge |
+|---------|---------|
+| DELETE IF EXISTS | Yes |
+| Conditions DELETE | No |
+| INSERT IF NOT EXISTS | Yes |
+| UPDATE IF EXISTS | Yes |
+| UPDATE IF NOT EXISTS | Oui |
+| Conditions UPDATE | No |
 
 ## <a name="cql-shell-commands"></a>Commandes de l’interpréteur de commandes CQL
 

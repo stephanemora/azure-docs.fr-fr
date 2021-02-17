@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779898"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831499"
 ---
 # <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Azure SQL Managed Instance doit être déployé au sein d’un [réseau virtuel]
 > Utilisez toujours un nom de domaine complet (FQDN) pour les serveurs de messagerie, l’instance SQL Server et les autres services, même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` comme serveur de messagerie, car `smtp` ne sera pas résolu correctement. La création d’un serveur lié ou d’une réplication qui référence des machines virtuelles SQL Server sur le même réseau virtuel nécessite également un nom de domaine complet et un suffixe DNS par défaut. Par exemple : `SQLVM.internal.cloudapp.net`. Pour plus d’informations, consultez [Résolution de noms utilisant votre propre serveur DNS](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 > [!IMPORTANT]
-> La mise à jour des serveurs DNS du réseau virtuel n’affectera pas SQL Managed Instance immédiatement. La configuration DNS de SQL Managed Instance est mise à jour après l’expiration du bail DHCP ou après la mise à niveau de la plateforme, selon l’événement qui se produit en premier. **Les utilisateurs sont invités à définir la configuration DNS de leur réseau virtuel avant de créer leur première instance Managed Instance.**
+> La mise à jour des serveurs DNS du réseau virtuel n’affectera pas SQL Managed Instance immédiatement. Pour plus de détails, consultez [Synchroniser le paramétrage des serveurs DNS du réseau virtuel sur le cluster virtuel SQL Managed Instance](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

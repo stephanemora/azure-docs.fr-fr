@@ -1,29 +1,25 @@
 ---
 title: Automatisation de l’installation du runtime d’intégration auto-hébergé à l’aide de scripts PowerShell locaux
 description: Pour automatiser l’installation du runtime d’intégration auto-hébergé sur des ordinateurs locaux.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636967"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376205"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>Automatisation de l’installation du runtime d’intégration auto-hébergé à l’aide de scripts PowerShell locaux
 Pour automatiser l’installation du runtime d’intégration auto-hébergé sur des ordinateurs locaux (autres que des machines virtuelles Azure pour lesquelles nous pouvons tirer parti du modèle Resource Manager), vous pouvez utiliser des scripts PowerShell locaux. Cet article présente deux scripts que vous pouvez utiliser.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Lancez PowerShell sur votre ordinateur local. Pour exécuter les scripts, vous devez choisir **Exécuter en tant qu’administrateur** .
+* Lancez PowerShell sur votre ordinateur local. Pour exécuter les scripts, vous devez choisir **Exécuter en tant qu’administrateur**.
 * [Téléchargez](https://www.microsoft.com/download/details.aspx?id=39717) le logiciel du runtime d'intégration auto-hébergé. Copiez le chemin d’accès où se trouve le fichier téléchargé. 
 * Vous avez également besoin d’une **clé d’authentification** pour inscrire le runtime d’intégration auto-hébergé.
 * Pour automatiser les mises à jour manuelles, vous devez disposer d’un runtime d’intégration auto-hébergé préconfiguré.
@@ -38,13 +34,13 @@ Pour automatiser l’installation du runtime d’intégration auto-hébergé sur
 
 * Pour automatiser les mises à jour manuelles : Mettez à jour le nœud du runtime d’intégration auto-hébergé avec une version spécifique ou la version la plus récente **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** - Cette option est également prise en charge si vous avez désactivé la mise à jour automatique ou si vous souhaitez avoir davantage de contrôle sur les mises à jour. Le script peut être utilisé pour mettre à jour le nœud du runtime d’intégration auto-hébergé vers la version la plus récente ou vers une version supérieure spécifiée (il n’est pas possible de passer à une version antérieure). Il accepte un argument pour spécifier le numéro de version (exemple : version 3.13.6942.1). Si aucune version n’est spécifiée, il met toujours à jour le runtime d’intégration auto-hébergé avec la dernière version trouvée dans les [téléchargements](https://www.microsoft.com/download/details.aspx?id=39717).
     > [!NOTE]
-    > Seules les 3 dernières versions peuvent être spécifiées. Dans l’idéal, il est utilisé pour mettre à jour un nœud existant vers la dernière version. **IL PART DU PRINCIPE QUE VOUS DISPOSEZ D’UN RUNTIME D'INTÉGRATION AUTO-HÉBERGÉ ENREGISTRÉ** . 
+    > Seules les 3 dernières versions peuvent être spécifiées. Dans l’idéal, il est utilisé pour mettre à jour un nœud existant vers la dernière version. **IL PART DU PRINCIPE QUE VOUS DISPOSEZ D’UN RUNTIME D'INTÉGRATION AUTO-HÉBERGÉ ENREGISTRÉ**. 
 
 ## <a name="usage-examples"></a>Exemples d'utilisation
 
 ### <a name="for-automating-setup"></a>Pour l’automatisation de l’installation
 1. Téléchargez le runtime d’intégration auto-hébergé à partir d’[ici](https://www.microsoft.com/download/details.aspx?id=39717). 
-1. Spécifiez le chemin d’accès vers le fichier SHIR MSI (fichier d’installation) téléchargé précédemment. Par exemple, si le chemin d’accès est *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi* , vous pouvez utiliser l’exemple de ligne de commande PowerShell ci-dessous pour cette tâche :
+1. Spécifiez le chemin d’accès vers le fichier SHIR MSI (fichier d’installation) téléchargé précédemment. Par exemple, si le chemin d’accès est *C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi*, vous pouvez utiliser l’exemple de ligne de commande PowerShell ci-dessous pour cette tâche :
 
    ```powershell
    PS C:\windows\system32> C:\Users\username\Desktop\InstallGatewayOnLocalMachine.ps1 -path "C:\Users\username\Downloads\IntegrationRuntime_4.7.7368.1.msi" -authKey "[key]"

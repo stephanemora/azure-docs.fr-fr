@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628681"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628947"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -111,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Passer un appel 1:n avec des utilisateurs et un RTC
 > [!WARNING]
-> Les appels RTC ne sont pas disponibles actuellement. Pour passer un appel 1:n à un utilisateur et un numéro RTC, vous devez spécifier le numéro de téléphone de l’appelé.
+> Les appels RTC ne sont pas disponibles actuellement
+
+Pour passer un appel 1:n à un utilisateur et un numéro RTC, vous devez spécifier le numéro de téléphone de l’appelé.
 Votre ressource Communication Services doit être configurée de manière à autoriser l’appel RTC :
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);

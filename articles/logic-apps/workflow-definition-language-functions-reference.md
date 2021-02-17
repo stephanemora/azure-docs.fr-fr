@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234220"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507246"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 Cet exemple illustre l’ajout de 10 jours à l’horodatage spécifié :
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-Et retourne ce résultat : `"2018-03-25T00:00:0000000Z"`
+Et retourne ce résultat : `"2018-03-25T00:00:00.0000000Z"`
 
 *Exemple 2*
 
@@ -582,7 +582,7 @@ Cet exemple illustre le retrait de cinq jours de l’horodatage spécifié :
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-Et retourne ce résultat : `"2018-03-10T00:00:0000000Z"`
+Et retourne ce résultat : `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ Cet exemple illustre l’ajout de 10 heures à l’horodatage spécifié :
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-Et retourne ce résultat : `"2018-03-15T10:00:0000000Z"`
+Le résultat retourné est : « 2018-03-15T10:00:00.0000000Z ».
 
 *Exemple 2*
 
@@ -624,7 +624,7 @@ Cet exemple illustre le retrait de cinq heures de l’horodatage spécifié :
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-Et retourne ce résultat : `"2018-03-15T10:00:0000000Z"`
+Et retourne ce résultat : `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Non | String | Un seul [spécificateur de format](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
+| <*format*> | Non | String | Un seul [spécificateur de format](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -4011,7 +4011,7 @@ Cet exemple soustrait un jour de cet horodatage :
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-Et retourne ce résultat : `"2018-01-01T00:00:00:0000000Z"`
+Et retourne ce résultat : `"2018-01-01T00:00:00.0000000Z"`
 
 *Exemple 2*
 
@@ -4063,7 +4063,7 @@ Et retournent les résultats suivants :
 
 ### <a name="ticks"></a>ticks
 
-Retourne le nombre de cycles, soit des intervalles de 100 nanosecondes, depuis le 1er janvier 0001 12:00:00 minuit (ou DateTime.Ticks en C#) jusqu’à l’horodatage spécifié. Pour plus d’informations, consultez la rubrique suivante : [Propriété DateTime.Ticks (Système)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Retourne le nombre de cycles, soit des intervalles de 100 nanosecondes, depuis le 1er janvier 0001 12:00:00 minuit (ou DateTime.Ticks en C#) jusqu’à l’horodatage spécifié. Pour plus d’informations, consultez la rubrique suivante : [Propriété DateTime.Ticks (Système)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

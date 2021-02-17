@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195872"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576389"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -28,6 +28,17 @@ L’analyse des changements détecte les différents types de modifications, de 
 Le diagramme suivant illustre l’architecture de l’analyse des changements :
 
 ![Diagramme d’architecture de la façon dont l’analyse des changements obtient les données modifiées et les fournit aux outils clients](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>Types de ressources pris en charge
+
+Le service Analyse des changements d'application prend en charge les modifications de niveau de propriété de ressources dans tous les types de ressources Azure, y compris des ressources courantes telles que les suivantes :
+- Machine virtuelle
+- Jeu de mise à l’échelle de machine virtuelle
+- App Service
+- Azure Kubernetes Service
+- Fonction Azure
+- Ressources réseau : groupe de sécurité réseau, réseau virtuel, Application Gateway, etc.
+- Services de données : Stockage, SQL, Cache Redis, Cosmos DB, etc.
 
 ## <a name="data-sources"></a>Sources de données
 
@@ -49,17 +60,27 @@ L’analyse des changements capture l’état de déploiement et la configuratio
 
 ### <a name="dependency-changes"></a>Changements de dépendances
 
-Les modifications apportées aux dépendances de ressources peuvent également entraîner des problèmes dans une application web. Par exemple, si une application web appelle un cache Redis, la référence SKU du cache Redis peut affecter les performances de l’application web. Pour détecter les modifications dans les dépendances, l’analyse des changements vérifie les enregistrements DNS de l’application web. De cette façon, elle identifie les modifications dans tous les composants d’application qui peuvent entraîner des problèmes.
-Actuellement, les dépendances suivantes sont prises en charge :
+Les modifications apportées aux dépendances de ressources peuvent également occasionner des problèmes dans une ressource. Par exemple, si une application web appelle un cache Redis, la référence SKU du cache Redis peut affecter les performances de l’application web. Autre exemple. La fermeture du port 22 dans un groupe de sécurité réseau de machine virtuelle entraîne des erreurs de connectivité. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Navigateur pour le diagnostic et la résolution de problèmes d’application web (préversion)
+Pour détecter les modifications dans les dépendances, l’analyse des changements vérifie les enregistrements DNS de l’application web. De cette façon, elle identifie les modifications dans tous les composants d’application qui peuvent entraîner des problèmes.
+Actuellement, les dépendances suivantes sont prises en charge dans le **Navigateur pour le diagnostic et la résolution de problèmes d’application web (préversion)**  :
 - Web Apps
 - Stockage Azure
 - Azure SQL
 
-## <a name="application-change-analysis-service"></a>Service d’analyse des changements d’application
+#### <a name="related-resources"></a>Ressources associées
+La fonctionnalité Analyse des changements d'application détecte les ressources associées. Exemples courants : groupe de sécurité réseau, réseau virtuel, passerelle applicative et équilibreur de charge en lien avec une machine virtuelle. Les ressources réseau étant généralement approvisionnées automatiquement dans le même groupe de ressources que les ressources qui utilisent celui-ci, le filtrage des modifications par groupe de ressources affiche toutes les modifications de la machine virtuelle et des ressources réseau associées.
+
+![Capture d’écran des modifications de réseau](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>Activation du service Analyse des changements d’application
 
 Le service d’analyse des changements d’application calcule et agrège les données modifiées à partir des sources de données mentionnées ci-dessus. Il fournit un ensemble d’analytiques permettant aux utilisateurs de parcourir facilement toutes les modifications apportées aux ressources, et d’identifier quelle modification est pertinente dans le contexte de dépannage ou de supervision.
-Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez l’onglet autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit. Il est sans incidence sur votre abonnement pour ce qui est des performances ou des coûts. Quand vous activez Analyse des changements pour les applications web (ou que vous activez l’outil Diagnostiquer et résoudre les problèmes), l’opération a un impact négligeable sur les performances de l’application web et n’entraîne aucun coût de facturation.
-Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez la section [Analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) plus loin dans cet article.
+Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez l’onglet autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit. Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez la section [Analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) plus loin dans cet article.
+
+## <a name="cost"></a>Coût
+Le service Analyse des changements d'application est gratuit. Il n’entraîne aucun coût de facturation pour les abonnements sur lesquels il est activé. Il n’a pas non plus d’incidence sur les performances d’analyse des modifications de propriétés de ressources Azure. L’activation de l’analyse des changements dans l’invité d’applications web (ou de l’outil de diagnostic et résolution des problèmes) n’entraîne qu’un impact négligeable sur les performances de l’application web et aucun coût de facturation.
 
 ## <a name="visualizations-for-application-change-analysis"></a>Visualisations de l’analyse des changements d’application
 
@@ -82,6 +103,11 @@ Cliquez sur une ressource pour afficher toutes ses modifications. Au besoin, exp
 Pour tout commentaire, utilisez le bouton Envoyer des commentaires dans le panneau ou envoyez un e-mail à l’adresse changeanalysisteam@microsoft.com.
 
 ![Capture d’écran du bouton Commentaires dans le panneau Analyse des changements](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>Prise en charge d'abonnements multiples
+L’interface utilisateur prend en charge la sélection de plusieurs abonnements pour afficher les changements de ressources. Utiliser le filtre d’abonnement :
+
+![Capture d’écran de filtre d’abonnement prenant en charge la sélection de plusieurs abonnements](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>Diagnostiquer et résoudre les problèmes d’application web
 

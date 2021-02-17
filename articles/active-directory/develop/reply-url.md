@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752782"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582806"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitations et restrictions des URI de redirection (URL de réponse)
 
@@ -45,7 +45,7 @@ Vous pouvez utiliser un maximum de 256 caractères pour chaque URI de redirecti
 
 Le modèle d’application Azure Active Directory (Azure AD) prend actuellement en charge les schémas HTTP et HTTPS pour les applications qui connectent des comptes professionnels ou scolaires dans tout locataire Azure AD de l’organisation. Ces types de comptes sont spécifiés par les valeurs `AzureADMyOrg` et `AzureADMultipleOrgs` dans le champ `signInAudience` du manifeste de l’application. Pour les applications qui connectent des comptes Microsoft personnels (MSA) *et* des comptes professionnels et scolaires (c’est-à-dire que `signInAudience` est défini sur `AzureADandPersonalMicrosoftAccount`), seul le schéma HTTPS est autorisé.
 
-Pour ajouter des URI de redirection avec un schéma HTTP aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, vous devez utiliser l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le Portail Azure. Toutefois, bien qu’il soit possible de définir un URI de redirection basé sur HTTP à l’aide de l’éditeur de manifeste, nous recommandons *fortement* d’utiliser le schéma HTTPS pour vos URI de redirection.
+Pour ajouter des URI de redirection avec un schéma HTTP aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, utilisez l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure. Toutefois, bien qu’il soit possible de définir un URI de redirection basé sur HTTP à l’aide de l’éditeur de manifeste, nous recommandons *fortement* d’utiliser le schéma HTTPS pour vos URI de redirection.
 
 ## <a name="localhost-exceptions"></a>Exceptions de Localhost
 
@@ -65,7 +65,7 @@ Du point de vue du développement, cela signifie plusieurs choses :
 * N’inscrivez pas plusieurs URI de redirection quand seul le port diffère. Le serveur de connexion en choisit un arbitrairement et utilise le comportement associé à cet URI de redirection (par exemple, s’il s’agit d’une redirection de type `web`, `native` ou `spa`).
 
     Cela est particulièrement important lorsque vous souhaitez utiliser différents flux d’authentification dans la même inscription d’application, par exemple l’octroi d’un code d’autorisation et le flux implicite. Pour associer le comportement de réponse correct à chaque URI de redirection, le serveur de connexion doit pouvoir faire la distinction entre les URI de redirection et ne peut pas le faire lorsque seul le port diffère.
-* Si vous devez inscrire plusieurs URI de redirection sur localhost pour tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://localhost/MyWebApp` ne correspond pas à `http://localhost/MyNativeApp`.
+* Pour inscrire plusieurs URI de redirection sur localhost afin de tester différents flux pendant le développement, différenciez-les à l’aide du composant *path* de l’URI. Par exemple, `http://localhost/MyWebApp` ne correspond pas à `http://localhost/MyNativeApp`.
 * L’adresse de bouclage IPv6 (`[::1]`) n’est pas prise en charge actuellement.
 
 #### <a name="prefer-127001-over-localhost"></a>Donner la préférence à 127.0.0.1 plutôt qu’à localhost
@@ -84,7 +84,7 @@ Les URI avec caractères génériques comme `https://*.contoso.com` peuvent para
 
 Les URI avec caractères génériques ne sont actuellement pas pris en charge dans les inscriptions d’applications configurées pour se connecter à des comptes Microsoft personnels et à des comptes professionnels ou scolaires. Les URI avec caractères génériques sont autorisés, mais uniquement pour les applications configurées pour se connecter à des comptes professionnels ou scolaires dans un locataire Azure AD d’une organisation.
 
-Pour ajouter des URI de redirection avec des caractères génériques aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, vous devez utiliser l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le Portail Azure. Bien qu’il soit possible de définir un URI de redirection avec un caractère générique à l’aide de l’éditeur de manifeste, nous vous recommandons *fortement* de respecter la [section 3.1.2 de la RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) et d’utiliser uniquement des URI absolus.
+Pour ajouter des URI de redirection avec des caractères génériques aux inscriptions d’applications qui se connectent à des comptes professionnels ou scolaires, utilisez l’éditeur de manifeste de l’application dans [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure. Bien qu’il soit possible de définir un URI de redirection avec un caractère générique à l’aide de l’éditeur de manifeste, nous vous recommandons *fortement* de respecter la [section 3.1.2 de la RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) et d’utiliser uniquement des URI absolus.
 
 Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, envisagez l’[approche de paramètre d’état](#use-a-state-parameter) suivante au lieu d’ajouter un URI de redirection avec caractères génériques.
 

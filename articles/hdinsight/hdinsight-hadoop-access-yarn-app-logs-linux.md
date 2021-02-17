@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 0eb7dec2fd4ee327905acdea7a07456221bcbd46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946007"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980692"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux
 
@@ -37,7 +37,7 @@ YARN Timeline Server inclut le type de données suivant :
 
 ## <a name="yarn-applications-and-logs"></a>Applications et journaux d’activité YARN
 
-Les journaux des applications (et les journaux d’activité des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications avec l’[agrégation des journaux](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+Les journaux des applications (et les journaux d’activité des conteneurs associés) sont essentiels pour déboguer des applications Hadoop problématiques. YARN fournit une infrastructure adaptée à la collecte, à l’agrégation et au stockage des journaux des applications avec l’agrégation des journaux.
 
 La fonction d’agrégation de journaux d’activité rend l’accès aux journaux des applications plus déterministe. Il regroupe les journaux d’activité de tous les conteneurs sur un nœud Worker et les stocke dans un fichier journal agrégé par nœud Worker. Le journal est stocké sur le système de fichiers par défaut après la fin d’une application. Votre application peut utiliser des centaines voire des milliers de conteneurs, mais les journaux d’activité de tous les conteneurs exécutés sur un nœud worker unique sont toujours regroupés dans un fichier unique. Cela se traduit par l’existence d’un seul fichier journal par nœud worker utilisé par votre application. L’agrégation de journaux est activée par défaut sur les clusters HDInsight version 3.0 et versions ultérieures. Les journaux d’activité agrégés sont situés dans le stockage par défaut pour le cluster. Le chemin d’accès suivant est le chemin d’accès HDFS pour les journaux d’activité :
 

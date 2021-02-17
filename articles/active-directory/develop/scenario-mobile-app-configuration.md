@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756485"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584429"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web
 
@@ -82,7 +82,7 @@ Les sections ci-dessous fournissent plus d’informations sur l’instanciation 
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Spécifier l’interface utilisateur, la fenêtre ou l’activité parente
 
-Sur Android, vous devez transmettre l’activité parente avant d’effectuer l’authentification interactive. Sur iOS, lorsque vous utilisez un répartiteur, vous devez transmettre `ViewController`. De la même façon sur UWP, vous pouvez transmettre la fenêtre parente. Vous la transmettez lorsque vous acquérez le jeton. Toutefois, lorsque vous créez l’application, vous pouvez également spécifier un rappel comme délégué qui retourne `UIParent`.
+Sur Android, transmettez l’activité parente avant d’effectuer l’authentification interactive. Sur iOS, lorsque vous utilisez un répartiteur, transmettez `ViewController`. De la même façon sur UWP, vous pouvez transmettre la fenêtre parente. Vous la transmettez lorsque vous acquérez le jeton. Toutefois, lorsque vous créez l’application, vous pouvez également spécifier un rappel comme délégué qui retourne `UIParent`.
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)

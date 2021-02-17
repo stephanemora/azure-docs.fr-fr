@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610010"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507877"
 ---
 # <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Module de plateforme sécurisée (TPM) et protocole d’attestation de sécurité basée sur la virtualisation (VBS) de l’enclave 
 
@@ -55,7 +55,7 @@ Azure Attestation -> Client
 
 **vérification** (BASE64URL(OCTETS)) : Valeur aléatoire émise par le service.
 
-**service_context** (BASE64URL(OCTETS)) : Contexte chiffré, opaque, créé par le service, qui comprend entre autres la vérification et le délai d’expiration pour celle-ci. 
+**service_context** (BASE64URL(OCTETS)) : Contexte opaque créé par le service.
 
 
 ### <a name="request-message"></a>Message de requête
@@ -236,7 +236,7 @@ La charge utile JWS peut être de type de base ou VBS. Le type de base est utili
 
 - **value_type (String)**  : type de données de la valeur de la revendication.
 
-**service_context** (BASE64URL(OCTETS)) : Contexte chiffré, opaque, créé par le service, qui comprend, entre autres, la vérification et le délai d’expiration pour celle-ci.
+**service_context** (BASE64URL(OCTETS)) : Contexte opaque créé par le service.
 
 ### <a name="report-message"></a>Message du rapport
 

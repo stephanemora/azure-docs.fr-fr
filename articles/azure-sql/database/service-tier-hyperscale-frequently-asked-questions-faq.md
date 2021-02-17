@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459632"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526820"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -233,7 +233,7 @@ Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées, mais le
 
 Vous pouvez faire en sorte qu’une application cliente lise des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (tout comme vous pouvez le faire avec n’importe quelle autre base de données dans Azure SQL Database). Actuellement, PolyBase n’est pas pris en charge dans Azure SQL Database. Comme alternative pour fournir une charge rapide, vous pouvez utiliser [Azure Data Factory](../../data-factory/index.yml) ou utiliser un travail Spark dans [Azure Databricks](/azure/azure-databricks/) avec le [connecteur Spark pour SQL](spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
 
-Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Le modèle de récupération simple ou de journalisation en bloc n’est pas pris en charge dans Hyperscale. Le modèle de récupération complète est nécessaire pour fournir une haute disponibilité et la récupération jusqu`à une date et heure. Cependant, l’architecture de journalisation Hyperscale fournit un meilleur débit d’ingestion en comparaison avec d’autres niveaux de services Azure SQL Database.
 

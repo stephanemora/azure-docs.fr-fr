@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875142"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574531"
 ---
 # <a name="monitoring-azure-files"></a>Supervision d’Azure Files
 
@@ -589,13 +589,13 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier**, puis cliquez sur **Terminé**. 
 
-4. Cliquez sur **Sélectionnez une condition** et fournissez les informations suivantes pour l’alerte : 
+4. Cliquez sur **Ajouter une condition** et fournissez les informations suivantes pour l’alerte : 
 
     - **Mesure**
     - **Nom de la dimension**
     - **Logique d'alerte**
 
-5. Cliquez sur **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+5. Cliquez sur **Ajouter un groupe d’actions** et ajoutez un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
 
 6. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
 
@@ -609,16 +609,31 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
 2. Dans la section **Supervision**, cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
-4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
+4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
 5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Transactions**.
 6. Dans le panneau **Configurer la logique de signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Type de réponse**.
-7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez **SuccessWithThrottling** (pour SMB) ou **ClientThrottlingError** (pour REST).
+7. Cliquez sur la liste déroulante **Valeurs de dimension** et sélectionnez les types de réponses appropriés pour votre partage de fichiers.
+
+    Pour les partages de fichiers standard, sélectionnez les types de réponse suivants :
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Pour les partages de fichiers premium, sélectionnez les types de réponse suivants :
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Si la valeur de dimension SuccessWithThrottling ou ClientThrottlingError ne figure pas dans la liste, cela signifie que la ressource n’a pas été limitée. Pour ajouter la valeur de dimension, cliquez sur **Ajouter une valeur personnalisée** à côté de la liste déroulante **Valeurs de dimension**, tapez **SuccessWithThrottling** ou **ClientThrottlingError**, cliquez sur **OK**, puis répétez l’étape 7.
+   > Si les types de réponse ne sont pas répertoriés dans la liste déroulante **Valeurs de dimension**, cela signifie que la ressource n’a pas été limitée. Pour ajouter les valeurs de dimension, à côté de la liste déroulante **Valeurs de dimension**, sélectionnez **Ajouter une valeur personnalisée**, entrez le type de réponse (par exemple, **SuccessWithThrottling**), sélectionnez **OK**, puis répétez ces étapes pour ajouter tous les types de réponses pertinents à votre partage de fichiers.
 
 8. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
 9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+
 
    > [!NOTE]
    > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
@@ -628,8 +643,8 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
     > [!TIP]
     > Si vous utilisez un seuil statique, le graphique des métriques peut vous aider à déterminer une valeur seuil raisonnable si le partage de fichiers est actuellement limité. Si vous utilisez un seuil dynamique, le graphique des métriques affiche les seuils calculés en fonction des données récentes.
 
-11. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+11. Cliquez sur **Ajouter un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Comment créer une alerte si la taille du partage de fichiers Azure est de 80 % de la capacité
@@ -637,7 +652,7 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
 2. Dans la section **Supervision**, cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
-4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
+4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
 5. Une liste de signaux pris en charge pour le compte de stockage s’affiche. Sélectionnez la métrique **Capacité de fichiers**.
 6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
 7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
@@ -647,8 +662,8 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 
 8. Entrez la **Valeur du seuil**, en octets. Par exemple, si la taille du partage de fichiers est de 100 Tio et que vous voulez recevoir une alerte quand sa taille est de 80 % de la capacité, la valeur du seuil, en octets, est de 87960930222080.
 9. Définissez le reste des **paramètres d’alerte** (précision d’agrégation et fréquence d’évaluation), puis cliquez sur **Terminé**.
-10. Cliquez sur Sélectionner un groupe d’actions pour ajouter un groupe d’actions (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-11. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+10. Cliquez sur **Ajouter un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+11. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
 12. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Comment créer une alerte si la sortie du partage de fichiers Azure a dépassé 500 Gio en un jour
@@ -656,7 +671,7 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 1. Accédez à votre **compte de stockage** dans le **portail Azure**.
 2. Dans la section Surveillance, cliquez sur **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
 3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est contoso, sélectionnez la ressource contoso/file.
-4. Cliquez sur **Sélectionner une condition** pour ajouter une condition.
+4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
 5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Egress**.
 6. Dans le panneau **Configurer la logique du signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Partage de fichiers**.
 7. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
@@ -667,8 +682,8 @@ Le tableau suivant répertorie quelques exemples de scénarios destinés à la s
 8. Entrez **536870912000** octets pour la Valeur du seuil. 
 9. Cliquez sur la liste déroulante **Précision d’agrégation**, puis sélectionnez **24 heures**.
 10. Sélectionnez la **Fréquence d’évaluation**, puis cliquez sur **Terminé**.
-11. Cliquez sur **Sélectionner un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
-12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description et la **Gravité**.
+11. Cliquez sur **Ajouter un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
 13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 ## <a name="next-steps"></a>Étapes suivantes

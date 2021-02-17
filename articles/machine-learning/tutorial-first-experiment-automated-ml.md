@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879779"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549184"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 
@@ -102,8 +102,8 @@ Avant de configurer votre expérience, chargez votre fichier de données dans vo
         En-têtes de colonne| Indique la façon dont les éventuels en-têtes du jeu de données sont traités.| Tous les fichiers ont les mêmes en-têtes
         Ignorer les lignes | Indique le nombre éventuel de lignes ignorées dans le jeu de données.| None
 
-    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, nous n’effectuons aucune sélection. Sélectionnez **Suivant**.
-
+    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à **day_of_week**, afin de ne pas l’inclure. Sélectionnez **Suivant**.
+         ![Formulaire de schéma](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. Dans le formulaire **Confirmer les détails**, vérifiez que les informations correspondent à celles qui ont été précédemment renseignées sur les formulaires **Informations de base, magasin de données et sélection de fichiers** et **Paramètres et aperçu**.
     
     1. Sélectionnez **Créer** pour terminer la création de votre jeu de données.
@@ -170,12 +170,6 @@ Une fois que vous avez chargé et configuré vos données, vous pouvez configure
         
         Sélectionnez **Enregistrer**.
     
-    1. Sélectionnez **Afficher les paramètres de caractérisation**. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour la caractérisation dans cette expérience.
-
-        ![Sélection de caractérisation](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Sélectionnez **Enregistrer**.
-
 1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience. Cet état est mis à jour à mesure que l’expérience progresse. Les notifications s’affichent également en haut à droite de Studio pour vous informer de l’état de votre expérience.
 
 >[!IMPORTANT]

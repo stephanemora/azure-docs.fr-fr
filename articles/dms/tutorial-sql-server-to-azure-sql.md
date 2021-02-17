@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785361"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820787"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutoriel : Migrer SQL Server vers Azure SQL Database hors connexion à l’aide de DMS
 
@@ -237,6 +237,9 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 1. Dans l’écran **Sélectionner la cible**, spécifiez les détails de connexion de l’instance cible d’Azure SQL Database, qui est une instance préprovisionnée d’Azure SQL Database sur laquelle le schéma **Adventureworks2016** a été déployé à l’aide de l’Assistant Migration des données.
 
     ![Sélectionner la cible](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > Azure Database Migration Service prend en charge les connexions établies entre des points de terminaison privés et des cibles Azure SQL Database, sauf si vous utilisez un nom DNS personnalisé. 
 
 2. Sélectionnez **Suivant : Mapper aux bases de données cibles**, mappez les bases de données source et cible pour la migration.
 

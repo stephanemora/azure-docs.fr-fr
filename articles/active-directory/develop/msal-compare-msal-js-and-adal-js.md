@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754795"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580844"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Différences entre MSAL.js et ADAL.js
 
@@ -48,7 +48,7 @@ Mais vous devrez quand même utiliser ADAL.js si votre application a besoin de c
 
 Dans la version 1.0, l'utilisation de l'autorité `https://login.microsoftonline.com/common` permet aux utilisateurs de se connecter avec n'importe quel compte Azure AD (pour n'importe quelle organisation).
 
-Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonline.com/common` permet aux utilisateurs de se connecter avec n'importe quel compte d'organisation Azure AD ou compte personnel Microsoft (MSA). Pour restreindre la connexion aux seuls comptes Azure AD (même comportement qu'avec ADAL.js), vous devez utiliser `https://login.microsoftonline.com/organizations`. Pour plus de détails, reportez-vous à l'option de configuration `authority` dans [Initialiser à l'aide de MSAL.js](msal-js-initializing-client-applications.md).
+Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonline.com/common` permet aux utilisateurs de se connecter avec n'importe quel compte d'organisation Azure AD ou compte personnel Microsoft (MSA). Pour restreindre la connexion aux seuls comptes Azure AD (même comportement qu’avec ADAL.js), utilisez `https://login.microsoftonline.com/organizations`. Pour plus de détails, reportez-vous à l'option de configuration `authority` dans [Initialiser à l'aide de MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Étendues pour l'acquisition de jetons
 * Étendue au lieu du paramètre resource dans les demandes d'authentification pour l'acquisition de jetons

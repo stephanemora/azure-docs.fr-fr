@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522940"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980556"
 ---
 # <a name="about-the-move-process"></a>À propos du processus de déplacement
 
@@ -46,7 +46,7 @@ Chaque ressource de déplacement passe par les étapes récapitulées ici.
 **Étape 4 : Lancer le déplacement** | Lancez le processus de déplacement. La méthode de déplacement dépend du type de ressource :<br/><br/> - **Sans état** : En général, pour les ressources sans état, le processus de déplacement déploie un modèle importé sur la région cible. Ce modèle se base sur les paramètres de la ressource source, ainsi que sur toutes les éventuelles modifications manuelles que vous apportez aux paramètres cibles.<br/><br/> - **Avec état** : Pour les ressources avec état, le processus de déplacement peut impliquer de créer la ressource, ou d’en activer une copie, dans la région cible.<br/><br/>  Pour les ressources avec état uniquement, le lancement d’un déplacement peut entraîner un temps d’arrêt des ressources sources, comme des machines virtuelles et SQL. | Le lancement du déplacement fait passer l’état à *Lancement du déplacement en cours*.<br/><br/> Quand le lancement du déplacement aboutit, l’état des ressources passe à *Validation du déplacement en attente* et aucun problème ne subsiste. <br/><br/> Si le processus de déplacement échoue, l’état passe à *Impossible de lancer le déplacement*.
 **Étape 5, option 1 : Abandonner le déplacement** | Après le déplacement initial, vous pouvez décider de poursuivre avec un déplacement complet. Si vous ne voulez pas continuer, vous pouvez abandonner le déplacement. Resource Mover supprime alors les ressources créées dans la cible. Le processus de réplication des ressources avec état se poursuit après le processus d’abandon. Cette option s’avère utile à des fins de test. | L’abandon des ressources fait passer l’état à *Abandon en cours*.<br/><br/> Si l’abandon aboutit, l’état passe à *Lancement du déplacement en attente* et aucun problème ne subsiste.<br/><br/> Si l’abandon échoue, l’état passe à *Impossible d’abandonner le déplacement*. 
 **Étape 5, option 2 : Valider le déplacement** | Après le déplacement initial, si vous voulez poursuivre avec un déplacement complet, vous vérifiez les ressources dans la région cible et, quand vous êtes prêt, vous validez le déplacement.<br/><br/> Pour les ressources avec état uniquement, la validation peut entraîner l’inaccessibilité de ressources sources comme des machines virtuelles ou SQL. | Si vous validez le déplacement, l’état des ressources passe à *Validation du déplacement en cours**.<br/><br/> Si la validation aboutit, l’état des ressources indique *Validation du déplacement terminée* et aucun problème ne subsiste.<br/><br/> Si la validation échoue, l’état passe à *Impossible de valider le déplacement*.
-**Étape 6 : Supprimer la source** | Après avoir validé le déplacement et vérifié les ressources dans la région cible, vous pouvez supprimer la ressource source. | Après la validation du déplacement, l’état des ressources passe à *Suppression de la source en attente*.
+**Étape 6 : Supprimer la source** | Après avoir validé le déplacement et vérifié les ressources dans la région cible, vous pouvez supprimer la ressource source. | Après la validation, l’état des ressources passe à *Suppression de la source en attente*. Vous pouvez alors sélectionner la ressource source et la supprimer.<br/><br/> - Seules les ressources ayant l’état *Suppression de la source en attente* peuvent être supprimées. | La suppression d’un groupe de ressources ou d’un serveur SQL Server dans le portail Resource Mover n’est pas prise en charge. Ces ressources peuvent être supprimées uniquement à partir de la page de propriétés des ressources.
 
 
 ## <a name="move-region-states"></a>États du changement de région

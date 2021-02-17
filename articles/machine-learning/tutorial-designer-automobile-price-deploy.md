@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246466"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576056"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
 
 
-Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la première partie, vous avez entraîné votre modèle. À présent, il est temps de générer de nouvelles prédictions basées sur des entrées utilisateur. Dans cette partie du tutoriel, vous allez :
+Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la première partie, vous avez entraîné votre modèle. À présent, il est temps de générer des prédictions basées sur des entrées utilisateur. Dans cette partie du tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créez un pipeline d’inférence en temps réel.
@@ -122,17 +122,19 @@ Une fois le provisionnement du service AKS terminé, revenez au pipeline d’inf
 > Vous pouvez également effectuer le déploiement sur **Azure Container Instance** (ACI) si vous sélectionnez **Azure Container Instances** comme **Type de calcul** dans la zone des paramètres de point de terminaison en temps réel.
 > Le paramètre Azure Container Instances est utilisé à des fins de test ou de développement. Utilisez ACI pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM.
 
-## <a name="view-the-real-time-endpoint"></a>Afficher le point de terminaison en temps réel
+## <a name="test-the-real-time-endpoint"></a>Tester le point de terminaison en temps réel
 
 Une fois le déploiement effectué, vous pouvez afficher votre point de terminaison en temps réel en accédant à la page **Points de terminaison**.
 
 1. Dans la page **Points de terminaison**, sélectionnez le point de terminaison que vous avez déployé.
 
-1. Sous l’onglet **Détails**, vous pouvez obtenir plus d’informations, telles que l’URI REST, l’état et les étiquettes.
+    Sous l’onglet **Détails**, vous pouvez obtenir plus d’informations, telles que l’URI REST, la définition Swagger, l’état et les étiquettes.
 
-1. Sous l’onglet **Consommer**, vous pouvez rechercher des clés de sécurité et définir des méthodes d’authentification.
+    Sous l’onglet **Consommer**, vous trouverez un exemple de code de consommation et des clés de sécurité, et pouvez définir des méthodes d’authentification.
 
-1. Sous l’onglet **Journaux de déploiement**, vous trouverez les journaux de déploiement détaillés de votre point de terminaison en temps réel. 
+    Sous l’onglet **Journaux de déploiement**, vous trouverez les journaux de déploiement détaillés de votre point de terminaison en temps réel.
+
+1. Pour tester votre point de terminaison, accédez à l’onglet **Tester**. À partir de là, vous pouvez entrer des données de test et sélectionner **Tester** afin de vérifier la sortie de votre point de terminaison.
 
 Pour plus d’informations sur l’utilisation de votre service web, consultez [Consommer un modèle déployé en tant que service web](how-to-consume-web-service.md).
 

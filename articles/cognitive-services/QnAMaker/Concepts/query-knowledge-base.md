@@ -3,12 +3,12 @@ title: Interroger une base de connaissances – QnA Maker
 description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346203"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820379"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Interroger la base de connaissances pour obtenir des réponses
 
@@ -31,7 +31,7 @@ Le processus est expliqué dans le tableau suivant.
 |1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
 |3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
-|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
+|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes. Les filtres de recherche Azure [arrêtent les mots](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) dans cette étape.|
 |5|QnA Maker utilise des caractérisation syntaxiques et sémantiques pour déterminer la similarité entre la requête de l’utilisateur et les résultats QnA récupérés.|
 |6|Le modèle d’outil de classement issu de l’apprentissage automatique utilise les différentes fonctionnalités, à partir de l’étape 5, pour déterminer les scores de confiance et le nouvel ordre de classement.|
 |7|Les nouveaux résultats sont renvoyés vers l’application cliente selon l’ordre de classement.|
@@ -54,7 +54,7 @@ Le processus est expliqué dans le tableau suivant.
 |1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
 |3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
-|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
+|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes. Les filtres de recherche Azure [arrêtent les mots](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) dans cette étape.|
 |5|QnA Maker utilise un modèle basé sur un transformateur de pointe pour déterminer la similarité entre la requête utilisateur et les résultats QnA candidats extraits de Recherche cognitive Azure. Le modèle basé sur un transformateur est un modèle multilingue de deep learning, qui fonctionne horizontalement pour toutes les langues afin de déterminer les scores de confiance et le nouvel ordre de classement.|
 |6|Les nouveaux résultats sont renvoyés vers l’application cliente selon l’ordre de classement.|
 |||

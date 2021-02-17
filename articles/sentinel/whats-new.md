@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 8154e1adff8d8c2bdfe7fedc9309f95e5c5880bd
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.date: 02/04/2021
+ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99499457"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007361"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -32,6 +32,7 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 
 ## <a name="january-2021"></a>Janvier 2021
 
+- [Assistant de règle d’analyse : Amélioration de l’expérience de modification de requête (préversion publique)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Module PowerShell Az.SecurityInsights (préversion publique)](#azsecurityinsights-powershell-module-public-preview)
 - [Connecteur de base de données SQL](#sql-database-connector)
 - [Commentaires d’incident améliorés](#improved-incident-comments)
@@ -40,13 +41,23 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 - [Amélioration de l’optimisation des règles avec les graphiques d’aperçu des règles d’analytique](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistant de règle d’analyse : Amélioration de l’expérience de modification de requête (préversion publique)
+
+L’Assistant de règle d’analyse planifiée Azure Sentinel fournit désormais les améliorations suivantes pour l’écriture et la modification de requêtes :
+
+-   Fenêtre d’édition extensible vous offrant plus d’espace à l’écran pour afficher votre requête.
+-   Mise en surbrillance de mot clé dans le code de votre requête.
+-   Prise en charge de la saisie semi-automatique étendue.
+-   Validations de requêtes en temps réel. Les erreurs dans votre requête s’affichent désormais sous la forme d’un bloc rouge dans la barre de défilement, et d’un point rouge dans le nom d’onglet **Définir la logique de la règle**. En outre, il n’est pas possible d’enregistrer une requête comportant des erreurs.
+
+Pour plus d’informations, consultez [Didacticiel : Détection des menaces prête à l’emploi](tutorial-detect-threats-built-in.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Module PowerShell Az.SecurityInsights (préversion publique)
 
 Azure Sentinel prend désormais en charge le nouveau module PowerShell [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/).
 
 Le module **Az.SecurityInsights** prend en charge les cas d’utilisation Azure Sentinel courants, tels que l’interaction avec les incidents pour changer les états, la gravité, le propriétaire, etc., l’ajout de commentaires et d’étiquettes aux incidents et la création de signets.
 
-Même si nous vous déconseillons d’utiliser des modèles [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) pour votre pipeline CI/CD, le module **Az.SecurityInsights** est utile pour les tâches postérieures au déploiement et est spécifiquement destiné à l’automatisation du SOC.  Par exemple, l’automatisation de votre SOC peut inclure des étapes pour configurer des connecteurs de données, créer des règles d’analyse ou ajouter des actions d’automatisation à des règles d’analytique.
+Même si nous vous déconseillons d’utiliser des modèles [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) pour votre pipeline CI/CD, le module **Az.SecurityInsights** est utile pour les tâches postérieures au déploiement et destiné à l’automatisation du SOC.  Par exemple, l’automatisation de votre SOC peut inclure des étapes pour configurer des connecteurs de données, créer des règles d’analyse ou ajouter des actions d’automatisation à des règles d’analytique.
 
 Pour plus d’informations, notamment une liste complète et une description des applets de commande disponibles, des descriptions de paramètres et des exemples, consultez la [documentation PowerShell sur Az.SecurityInsights](/powershell/module/az.securityinsights/).
 

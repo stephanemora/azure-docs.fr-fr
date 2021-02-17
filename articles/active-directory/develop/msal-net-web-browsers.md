@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583737"
 ---
 # <a name="using-web-browsers-msalnet"></a>Utilisation de navigateurs web (MSAL.NET)
 
@@ -41,7 +41,7 @@ Il est important de comprendre que lors de l'acquisition d'un jeton de manière 
 
 MSAL.NET est une bibliothèque multi-infrastructures qui dispose d’un code spécifique à l’infrastructure pour héberger un navigateur dans un contrôle d’interface utilisateur (par exemple, sur .NET Classic, elle utilise WinForms, sur Xamarin, elle utilise des contrôles mobiles natifs, etc.). Ce contrôle est appelé interface utilisateur web `embedded`. MSAL.NET peut également lancer le navigateur du système d'exploitation.
 
-En règle générale, il est recommandé d'utiliser la plateforme par défaut, qui correspond généralement au navigateur du système. Le navigateur du système mémorise mieux les utilisateurs déjà connectés. Si nécessaire, utilisez `WithUseEmbeddedWebView(bool)` pour modifier ce comportement
+En règle générale, il est recommandé d'utiliser la plateforme par défaut, qui correspond généralement au navigateur du système. Le navigateur du système mémorise mieux les utilisateurs déjà connectés. Pour modifier ce comportement, utilisez `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Aperçu
 
@@ -141,7 +141,7 @@ Vous pouvez également activer des affichages web incorporés dans les applicati
 
 En tant que développeur qui utilisez MSAL.NET ciblant Xamarin, vous avez le choix entre des affichages web incorporés ou des navigateurs de système. C’est à vous de choisir selon l’expérience utilisateur et les préoccupations en matière de sécurité que vous voulez cibler.
 
-Actuellement, MSAL.NET ne prend pas en charge les répartiteurs iOS et Android. Par conséquent, si vous devez fournir l’authentification unique (SSO), la solution du navigateur système peut demeurer préférable. La prise en charge des répartiteurs avec le navigateur web intégré se trouve sur le backlog MSAL.NET.
+Actuellement, MSAL.NET ne prend pas en charge les répartiteurs iOS et Android. Par conséquent, pour fournir l’authentification unique (SSO), la solution du navigateur système peut demeurer préférable. La prise en charge des répartiteurs avec le navigateur web intégré se trouve sur le backlog MSAL.NET.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>Différences entre l’affichage web incorporé et le navigateur du système
 Il existe quelques différences visuelles entre la vue web incorporée et le navigateur du système dans MSAL.NET.

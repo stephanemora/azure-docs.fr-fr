@@ -3,16 +3,21 @@ title: Exemples de types de classes dans Azure Lab Services | Microsoft Docs
 description: Cite certains des types de classes pour lesquels il est possible de configurer des laboratoires à l’aide d’Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436400"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627431"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Vue d’ensemble des types de classes - Azure Lab Services
 
 Azure Lab Services vous permet de configurer rapidement un environnement lab de salle de classe dans le cloud. Les articles de cette section fournissent des conseils sur la configuration de plusieurs types de labos avec Azure Lab Services.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) est un type de système d’information géographique (SIG).  Vous pouvez configurer un labo qui utilise diverses applications du Bureau ArcGIS, telles que [ArcMap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) pour créer, modifier et analyser des cartes 2D.
+
+Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour le Bureau ArcMap\ArcGIS](class-type-arcgis.md).
 
 ## <a name="big-data-analytics"></a>Analytique du Big Data
 Vous pouvez configurer un labo de GPU pour enseigner une classe Analytique du Big Data. Grâce à ce type de classe, les étudiants apprennent à gérer de gros volumes de données et à appliquer des algorithmes d’apprentissage automatique et statistique pour obtenir des informations sur les données. L’un des principaux objectifs pour les étudiants est d’apprendre à utiliser les outils d’Analytique données, tels que le package logiciel open source d’Apache Hadoop qui fournit des outils pour le stockage, la gestion et le traitement du Big Data. 
@@ -41,6 +46,11 @@ Pour plus d’informations sur la configuration de ce type de labo, consultez [C
 
 Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour enseigner MATLAB](class-type-matlab.md).
 
+## <a name="networking-with-gns3"></a>Réseau avec GNS3
+Vous pouvez configurer un labo pour une classe qui se concentre sur la possibilité pour les étudiants d’émuler, de configurer, de tester et de dépanner des réseaux virtuels et réels à l’aide du logiciel [GNS3](https://www.gns3.com/). 
+
+Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour enseigner une classe réseau](class-type-networking-gns3.md).
+
 ## <a name="project-lead-the-way-pltw"></a>Project Lead the Way (PLTW)
 [Project Lead the Way (PLTW)](https://www.pltw.org/) est un organisme à but non lucratif qui propose des programmes éducatifs à l’intention des élèves du primaire à travers les États-Unis dans les domaines de l’informatique, de l’ingénierie et des sciences biomédicales.  Dans chaque cours PLTW, les élèves utilisent diverses applications logicielles dans le cadre de leur apprentissage pratique.
 
@@ -61,7 +71,12 @@ Pour plus d’informations sur la configuration de ce type de labo, consultez [S
 ## <a name="solidworks-computer-aided-design-cad"></a>Conception assistée par ordinateur (CAO) SolidWorks
 Vous pouvez configurer un laboratoire GPU qui donne aux étudiants d’ingénierie l’accès à [SolidWorks](https://www.solidworks.com/).  SolidWorks fournit un environnement de CAO 3D pour la modélisation des objets solides.  Avec SolidWorks, les ingénieurs peuvent facilement créer, visualiser, simuler et documenter leurs conceptions.
 
-Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour les cours d’ingénierie avec SolidWorks](class-type-solidworks.md)
+Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo pour les cours d’ingénierie avec SolidWorks](class-type-solidworks.md).
+
+## <a name="sql-database-and-management"></a>SQL Database et gestion
+SQL est le langage standard pour la gestion des bases de données relationnelles, notamment l’ajout, la récupération et la gestion du contenu dans une base de données.  Vous pouvez configurer un labo pour enseigner les concepts de base de données à l’aide du serveur de base de données [MySQL](https://www.mysql.com/) et du serveur [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+
+Pour des informations détaillées sur la configuration de ce type de labo, consultez [Configurer un labo pour enseigner la gestion des bases de données pour les bases de données relationnelles](class-type-database-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972644"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569520"
 ---
 ### <a name="standard-and-neural-voices"></a>Voix standard et neuronales
 
@@ -67,3 +67,14 @@ Si vous avez créé une police de la voix personnalisée, utilisez le point de t
 | Europe Ouest | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA Ouest | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA Ouest 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Voix neuronale personnalisée
+
+Le tableau suivant détaille la prise en charge régionale des fonctionnalités de la voix neuronale personnalisée.
+
+| Fonctionnalité | Régions prises en charge |
+|---|---|
+| Hébergement du modèle vocal | USA Est, USA Ouest 2, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, Australie Est |
+| Caractères en temps réel | USA Est, USA Ouest 2, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, Australie Est |
+| Caractères d’audio long | USA Est, Europe Ouest, Royaume-Uni Sud, Asie Sud-Est, Inde Centre |
+| Formation neuronale personnalisée | USA Est, Royaume-Uni Sud |
