@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811555"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509484"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Rapports de tendances et de statistiques des capteurs
 
@@ -26,19 +26,29 @@ Vous pouvez créer des graphiques de widget et des graphiques en secteurs pour o
 Le tableau de bord comprend des widgets qui décrivent graphiquement les types d’informations suivants :
 
 - Trafic par port
+- Trafic principal par port
 - Bande passante du canal
 - Bande passante totale
 - Connexion TCP active
+- Bande passante supérieure par VLAN
 - Appareils :
   - Nouveaux appareils
   - Appareils occupés
   - Appareils par fournisseur
   - Appareils par système d’exploitation
+  - Nombre d’appareils par VLAN
   - Appareils déconnectés
-- Perte de connectivité par heure
+- Pertes de connectivité par heure
 - Alertes pour les incidents par type
 - Accès à la table de base de données
 - Widgets de dissection de protocole
+- DELTAV
+  - Distribution des opérations roc DeltaV
+  - Événements roc DeltaV par nom
+  - Événements DeltaV par heure
+- AMS
+  - Trafic AMS par port du serveur
+  - Trafic AMS par commande
 - Ethernet et adresse IP :
   - Trafic d’adresses Ethernet et IP par service CIP
   - Trafic d’adresses Ethernet et IP par classe CIP
@@ -49,6 +59,15 @@ Le tableau de bord comprend des widgets qui décrivent graphiquement les types d
 - Siemens S7 :
   - Trafic S7 par fonction de contrôle
   - Trafic S7 par sous-fonction
+- VLAN
+  - Nombre d’appareils par VLAN
+  - Bande passante supérieure par VLAN
+- 60870-5-104
+  - Trafic IEC-60870 par ASDU
+- BACNET
+  - Services BACnet
+- DNP3
+  - Trafic DNP3 par fonction
 - SRTP :
   - Trafic SRTP par code de service
   - Erreurs SRTP par jour

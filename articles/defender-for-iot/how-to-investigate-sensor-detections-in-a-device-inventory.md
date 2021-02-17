@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625429"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508860"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Examiner les détections de capteur dans un inventaire d’appareils
 
@@ -32,18 +32,18 @@ Les attributs suivants apparaissent dans le tableau d’inventaire des appareils
 
 | Paramètre | Description |
 |--|--|
-| Nom | Nom de l’appareil lorsque le capteur l’a découvert. |
-| Type | Type d’appareil. |
+| Nom | Nom de l’appareil, tel qu’il a été découvert par le capteur ou entré par l’utilisateur. |
+| Type | Type d’appareil déterminé par le capteur ou entré par l’utilisateur. |
 | Fournisseur | Nom du fournisseur de l’appareil, tel que défini dans l’adresse MAC. |
-| Système d’exploitation | Le système d’exploitation de l’appareil. |
-| Microprogramme | Le microprogramme de l’appareil. |
-| Adresse IP | L’adresse IP de l’appareil. |
+| Système d’exploitation | Système d’exploitation de l’appareil, s’il est détecté. |
+| Version du microprogramme | Microprogramme de l’appareil, s’il est détecté. |
+| Adresse IP | Adresse IP de l’appareil lorsqu’elle est définie. |
 | VLAN | Le VLAN de l’appareil. Pour plus d’informations sur l’instruction permettant au capteur de découvrir des VLAN, consultez [Définir des noms de VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names).(how-to-define-management-console-network-settings.md#define-vlan-names). |
 | Adresse MAC | Adresse MAC de l’appareil. |
 | Protocoles | Les protocoles utilisés par l’appareil. |
 | Alertes sans accusé de réception | Nombre d’alertes sans accusé de réception associées à cet appareil. |
 | Est autorisé | L’état d’autorisation défini par l’utilisateur :<br />- **True** : L’appareil a été autorisé.<br />- **False** : L’appareil n’a pas été autorisé. |
-| Est considéré comme un scanneur | Défini comme appareil de numérisation par l’utilisateur. |
+| Est considéré comme un scanneur | Défini comme appareil d’analyse du réseau par l’utilisateur. |
 | Est un appareil de programmation | Défini comme appareil de programmation autorisé par l’utilisateur. <br />- **True** : L’appareil effectue des activités de programmation pour les PLC, RTU et contrôleurs qui sont pertinentes pour les stations d’ingénierie. <br />- **False** : L’appareil n’est pas un appareil de programmation. |
 | Groupes | Groupes auxquels cet appareil participe. |
 | Dernière activité | Dernière activité effectuée par l’appareil. |
@@ -111,7 +111,7 @@ Lorsque vous basculez vers la vue cartographique, les appareils filtrés sont mi
 
 ## <a name="learn-windows-registry-details"></a>Découvrir les détails du Registre Windows
 
-Outre la découverte des appareils OT, vous pouvez découvrir des appareils informatiques, dont les stations de travail et serveurs Microsoft Windows. Ces appareils sont également affichés dans l’inventaire des appareils. Une fois que vous avez découvert les appareils, vous pouvez enrichir l’inventaire des appareils avec des informations Windows détaillées, telles que :
+Outre la découverte des appareils OT, vous pouvez découvrir des stations de travail et des serveurs Microsoft Windows. Ces appareils sont également affichés dans Inventaire des appareils. Une fois que vous avez découvert les appareils, vous pouvez enrichir Inventaire des appareils avec des informations Windows détaillées, telles que :
 
 - Version de Windows installée
 
@@ -217,7 +217,7 @@ Pour importer :
 
 ## <a name="export-device-inventory-information"></a>Exporter les informations de l’inventaire des appareils
 
-Vous pouvez exporter les informations de l’inventaire des appareils vers un fichier Excel. Les informations importées remplacent les informations actuelles.
+Vous pouvez exporter les informations de l’inventaire des appareils vers un fichier Excel.
 
 Pour exporter un fichier CSV :
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424765"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626658"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -61,7 +61,7 @@ Compte tenu du fait que les spokes NVA ne sont pas gérés par Virtual WAN, tout
   * Table de routage associée : **Par défaut**
   * Propagation aux tables de routage : **Par défaut**
 
-Toutefois, dans ce scénario, nous devons réfléchir aux itinéraires statiques à configurer. Chaque itinéraire statique a deux composants, l’un dans le hub Virtual WAN qui indique aux composants Virtual WAN la connexion à utiliser pour chaque spoke, et l’autre dans cette connexion spécifique qui pointe vers l’adresse IP concrète assignée à la NVA (ou à un équilibreur de charge devant plusieurs NVA), comme le montre la **Figure 1**  :
+Toutefois, dans ce scénario, nous devons réfléchir aux itinéraires statiques à configurer. Chaque itinéraire statique a deux composants, l’un dans le hub Virtual WAN qui indique aux composants Virtual WAN la connexion à utiliser pour chaque spoke, et l’autre dans cette connexion spécifique qui pointe vers l’adresse IP concrète assignée à la NVA (ou à un équilibreur de charge devant plusieurs NVA), comme le montre la **Figure 1** :
 
 **Figure 1**
 
@@ -87,25 +87,25 @@ Désormais, les réseaux virtuels NVA, les réseaux virtuels non-NVA et les bran
 
 ## <a name="architecture"></a><a name="architecture"></a>Architecture
 
-Dans la **Figure 2** , il y a deux hubs : **Hub1** et **Hub2** .
+Dans la **Figure 2**, il y a deux hubs : **Hub1** et **Hub2**.
 
-* **Hub1** et **Hub2** sont connectés directement aux réseaux virtuels NVA **VNet 2** et **VNet 4** .
+* **Hub1** et **Hub2** sont connectés directement aux réseaux virtuels NVA **VNet 2** et **VNet 4**.
 
-* **VNet 5** et **VNet 6** sont appairés avec **VNet 2** .
+* **VNet 5** et **VNet 6** sont appairés avec **VNet 2**.
 
-* **VNet 7** et **VNet 8** sont appairés avec **VNet 4** .
+* **VNet 7** et **VNet 8** sont appairés avec **VNet 4**.
 
 * Les **VNets 5, 6, 7 et 8** sont des spokes indirects, qui ne sont pas directement connectés à un hub virtuel.
 
 **Figure 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 1" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Workflow du scénario
 
 Pour configurer le routage via la NVA, voici les étapes à prendre en compte :
 
-1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la **Figure 2** , il y a une **connexion VNet 2 (eastusconn)** et une **connexion VNet 4 (weconn)** .
+1. Identifiez la connexion du réseau virtuel en étoile à la NVA. Dans la **Figure 2**, il y a une **connexion VNet 2 (eastusconn)** et une **connexion VNet 4 (weconn)** .
 
    Vérifiez que des itinéraires définis par l’utilisateur (UDR) sont configurés :
    * De VNet 5 et VNet 6 à l’IP NVA de VNet 2
@@ -117,7 +117,7 @@ Virtual WAN ne prend pas en charge un scénario où les VNets 5, 6 se connectent
 
 2. Ajoutez une entrée d’itinéraire statique agrégé pour les VNets 2, 5 et 6 à la table de routage par défaut du Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figure 1":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemple":::
 
 3. Configurez un itinéraire statique pour les VNets 5 et 6 dans la connexion de réseau virtuel de VNet 2. Pour configurer la configuration du routage pour une connexion de réseau virtuel, consultez [routage de hub virtuel](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Cela entraîne des modifications de configuration de routage, comme l’illustre
 
 **Figure 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figure 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figure 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

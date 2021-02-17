@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103882"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807731"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Connecter les journaux de diagnostics et d’audit Azure SQL Database
 
 Azure SQL est un moteur de base de données PaaS (Platform-as-a-Service) complètement managé qui prend en charge la plupart des fonctions de gestion de base de données telles que la mise à niveau, la mise à jour corrective, les sauvegardes et la surveillance, sans intervention de l’utilisateur. 
 
-Le connecteur Azure SQL Database vous permet de diffuser les journaux d’audit et de diagnostics de vos bases de données dans Sentinel, ce qui vous permet de surveiller en continu l’activité dans toutes vos instances.
+Le connecteur de base de données Azure SQL vous permet de diffuser les journaux d’audit et de diagnostics de vos bases de données dans Sentinel, de façon à pouvoir surveiller en continu l’activité dans toutes vos instances.
 
-- La connexion des journaux de diagnostics vous permet d’envoyer des journaux de diagnostics de base de données de différents types de données à votre espace de travail Sentinel.
+- La connexion des journaux de diagnostics vous permet d’envoyer des journaux de diagnostics de base de données de différents types à votre espace de travail Sentinel.
 
 - La connexion des journaux d’audit vous permet de diffuser des journaux d’audit de sécurité à partir de toutes vos bases de données Azure SQL au niveau du serveur.
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052344"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581446"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -102,15 +102,14 @@ Nous vous recommandons <!--turn on storage auto-grow or to--> de configurer une 
 La croissance automatique du stockage n’est pas encore disponible pour Azure Database pour MySQL - Serveur flexible.
 
 ## <a name="iops"></a>E/S par seconde
-Le nombre minimal d’IOPS effectif est de 100 pour toutes les tailles de calcul et le nombre maximal d’IOPS effectif sont déterminés par les deux attributs suivants : 
-- Calcul : le nombre maximal d’IOPS effectif peut être limité par le nombre maximal d’IOPS disponibles pour la taille de calcul sélectionnée.
-- Stockage : dans tous les niveaux de calcul, les IOPS sont mises à l’échelle avec la taille de stockage approvisionnée selon un ratio de 3:1.
 
-Vous pouvez mettre à l’échelle les IOPS efficaces en augmentant le stockage approvisionné ou en passant à une plus grande taille de calcul (si vos IOPS sont limitées par le calcul). Dans la préversion, le nombre maximal d’IOPS effectif pris en charge est de 20 000.
+Azure Database pour MySQL – Serveur flexible prend en charge l’approvisionnement d’IOPS supplémentaires. Cette fonctionnalité vous permet d’approvisionner des IOPS supplémentaires au-delà de la limite IOPS gratuite. À l’aide de cette fonctionnalité, vous pouvez augmenter ou diminuer à tout moment le nombre d’IOPS approvisionnées en fonction des exigences de votre charge de travail. 
 
-Pour en savoir plus sur le nombre maximal d’IOPS effectif par taille de calcul, l’utilisation de la combinaison du calcul et du stockage est illustrée ci-dessous : 
+Le nombre minimal d’IOPS est de 100 pour toutes les tailles de calcul, et le nombre maximal d’IOPS est déterminé par la taille de calcul sélectionnée. Dans la préversion, le nombre maximal d’IOPS pris en charge est de 20 000.
 
-| Taille de calcul         | Nombre maximal d’IOPS effectif  | 
+Pour en savoir plus sur le nombre maximal d’IOPS par taille de calcul, voir ci-dessous : 
+
+| Taille de calcul         | Nombre maximal d’E/S par seconde        | 
 |----------------------|---------------------|
 | **Expansible**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ Pour en savoir plus sur le nombre maximal d’IOPS effectif par taille de calcul
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-Le nombre maximal d’IOPS effectif dépend du nombre maximal d’IOPS disponibles par taille de calcul. Consultez la formule ci-dessous et reportez-vous à la colonne *Débit du disque non mis en cache max. : IOPS/Mbits/s* dans la documentation [série B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) et [série Edsv4](../../virtual-machines/edv4-edsv4-series.md).
+Le nombre maximal d’IOPS dépend du nombre maximal d’IOPS disponibles par taille de calcul. Reportez-vous à la colonne *Débit du disque non mis en cache max. : IOPS/Mbits/s* dans la documentation [série B](../../virtual-machines/sizes-b-series-burstable.md), [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) et [série Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
-**Nombre maximal d’IOPS effectif** = MINIMUM (*Débit du disque non mis en cache max. : IOPS/Mbits/s* de la taille de calcul et du stockage approvisionné en Gio x 3)
+> [!Important]
+> **Les IOPS complémentaires** sont égales à MINIMUM(« Débit du disque non mis en cache max. : IOPS/Mbits/s » de la taille de calcul, stockage approvisionné en Gio * 3).<br>
+> **Le nombre minimal d’IOPS** est de 100 pour toutes les tailles de calcul.<br>
+> **Le nombre maximal d’IOPS** est déterminé par la taille de calcul sélectionnée. Dans la préversion, le nombre maximal d’IOPS pris en charge est de 20 000.
 
-Vous pouvez surveiller votre consommation d’E/S dans le portail Azure (avec Azure Monitor) à l’aide de la métrique [IO percent](./concepts-monitoring.md). Si vous avez besoin de plus d’IOPS, vous devez savoir si vous êtes limité par la taille de calcul ou par le stockage approvisionné. Mettez à l’échelle le calcul ou le stockage de votre serveur en conséquence.
+Vous pouvez surveiller votre consommation d’E/S dans le portail Azure (avec Azure Monitor) à l’aide de la métrique [IO percent](./concepts-monitoring.md). Si vous avez besoin de plus d’IOPS, le nombre maximal d’IOPS basé sur le calcul est nécessaire pour mettre à l’échelle le calcul de votre serveur.
 
 ## <a name="backup"></a>Sauvegarde
 

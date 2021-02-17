@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835733"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509029"
 ---
 # <a name="work-with-device-notifications"></a>Utiliser des notifications d’appareils
 
@@ -60,13 +60,13 @@ Le tableau suivant décrit les types d’événements de notification que vous p
 
 | Type d'événement de notification | Description | Réponses |
 |--|--|--|
-| Nouvelles adresses IP | Une nouvelle adresse IP est associée à l’appareil. Cinq scénarios peuvent être détectés : <br /><br /> Une adresse IP supplémentaire a été associée à un appareil. Cet appareil est également associé à une adresse MAC existante.<br /><br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise une adresse MAC existante. Actuellement, l’appareil ne communique pas à l’aide d’une adresse IP.<br /> <br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise un nom NetBIOS. <br /><br /> Une adresse IP a été détectée en tant qu’interface de gestion pour un appareil associé à une adresse MAC. <br /><br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise une adresse IP virtuelle. | **Définir une adresse IP supplémentaire sur l’appareil** (fusionner des appareils) <br /> <br />**Remplacer l’adresse IP existante** <br /> <br /> **Abandonner**<br /> Supprimez la notification. |
+| Nouvelle adresse IP détectée | Une nouvelle adresse IP est associée à l’appareil. Cinq scénarios peuvent être détectés : <br /><br /> Une adresse IP supplémentaire a été associée à un appareil. Cet appareil est également associé à une adresse MAC existante.<br /><br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise une adresse MAC existante. Actuellement, l’appareil ne communique pas à l’aide d’une adresse IP.<br /> <br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise un nom NetBIOS. <br /><br /> Une adresse IP a été détectée en tant qu’interface de gestion pour un appareil associé à une adresse MAC. <br /><br /> Une nouvelle adresse IP a été détectée pour un appareil qui utilise une adresse IP virtuelle. | **Définir une adresse IP supplémentaire sur l’appareil** (fusionner des appareils) <br /> <br />**Remplacer l’adresse IP existante** <br /> <br /> **Abandonner**<br /> Supprimez la notification. |
 | Appareils inactifs | Le trafic n’a pas été détecté sur un appareil depuis plus de 60 jours. | **Supprimer** <br /> Si cet appareil ne fait pas partie de votre réseau, supprimez-le. <br /><br />**Abandonner** <br /> Supprimez la notification si l’appareil fait partie de votre réseau. Si l’appareil est inactif, (par exemple parce qu’il est déconnecté par erreur du réseau), ignorez la notification et reconnectez l’appareil. |
-| Nouvel appareil OT | Un sous-réseau comprend un appareil OT qui n’est pas défini dans un sous-réseau ICS. <br /><br /> Chaque sous-réseau qui contient au moins un appareil OT peut être défini en tant que sous-réseau ICS. Cela permet de faire la différence entre les appareils OT et informatiques sur la carte. | **Définir comme sous-réseau ICS** <br /> <br /> **Abandonner** <br />Supprimez la notification si l’appareil ne fait pas partie du sous-réseau. |
+| Nouveaux appareils OT | Un sous-réseau comprend un appareil OT qui n’est pas défini dans un sous-réseau ICS. <br /><br /> Chaque sous-réseau qui contient au moins un appareil OT peut être défini en tant que sous-réseau ICS. Cela permet de faire la différence entre les appareils OT et informatiques sur la carte. | **Définir comme sous-réseau ICS** <br /> <br /> **Abandonner** <br />Supprimez la notification si l’appareil ne fait pas partie du sous-réseau. |
 | Aucun sous-réseau configuré | Aucun sous-réseau n’est actuellement configuré dans votre réseau. <br /><br /> Configurez des sous-réseaux pour une meilleure représentation dans le mappage et la possibilité de faire la distinction entre les appareils OT et les appareils informatiques. | **Ouvrez Configuration des sous-réseaux** et configurez les sous-réseaux. <br /><br />**Abandonner** <br /> Supprimez la notification. |
 | Changements liés au système d’exploitation | Un ou plusieurs nouveaux systèmes d’exploitation ont été associés à l’appareil. | Sélectionnez le nom du nouveau système d’exploitation que vous souhaitez associer à l’appareil.<br /><br /> **Abandonner** <br /> Supprimez la notification. |
-| Sous-réseaux détectés | De nouveaux sous-réseaux ont été découverts. | **Learn**<br />Ajoutez automatiquement le sous-réseau.<br />**Ouvrir la configuration des sous-réseaux**<br />Ajoutez toutes les informations de sous-réseau manquantes.<br />**Abandonner**<br />Supprimez la notification. |
-| La modification du type d’appareil a été détectée | Un nouveau type d’appareil a été associé à l’appareil. | **Défini en tant que {...}**<br />Associez le nouveau type à l’appareil.<br />**Abandonner**<br />Supprimez la notification. |
+| Nouveaux sous-réseaux | De nouveaux sous-réseaux ont été découverts. | **Learn**<br />Ajoutez automatiquement le sous-réseau.<br />**Ouvrir la configuration des sous-réseaux**<br />Ajoutez toutes les informations de sous-réseau manquantes.<br />**Abandonner**<br />Supprimez la notification. |
+| Modifications du type d’appareil | Un nouveau type d’appareil a été associé à l’appareil. | **Défini en tant que {...}**<br />Associez le nouveau type à l’appareil.<br />**Abandonner**<br />Supprimez la notification. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Répondre simultanément à de nombreuses notifications
 

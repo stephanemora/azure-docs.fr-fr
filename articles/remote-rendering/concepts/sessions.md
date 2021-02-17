@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f2adc846247c4f06c9356f482501fd01c5463bf
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202682"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593703"
 ---
 # <a name="remote-rendering-sessions"></a>Sessions Remote Rendering
 
@@ -25,9 +25,9 @@ Ainsi, quand vous utilisez Azure Remote Rendering, un serveur cloud possédant l
 
 ## <a name="managing-sessions"></a>Gestion des sessions
 
-Il existe plusieurs façons de gérer les sessions et d’interagir avec celles-ci. L’[API REST de gestion de session](../how-tos/session-rest-api.md) offre un moyen indépendant du langage de créer, de mettre à jour et d’arrêter des sessions. En C# et C++, ces opérations sont exposées par le biais des classes `AzureFrontend` et `AzureSession`. Pour les applications Unity, d’autres fonctions utilitaires sont fournies par le composant `ARRServiceUnity`.
+Il existe plusieurs façons de gérer les sessions et d’interagir avec celles-ci. L’[API REST de gestion de session](../how-tos/session-rest-api.md) offre un moyen indépendant du langage de créer, de mettre à jour et d’arrêter des sessions. En C# et C++, ces opérations sont exposées par le biais des classes `RemoteRenderingClient` et `RenderingSession`. Pour les applications Unity, d’autres fonctions utilitaires sont fournies par le composant `ARRServiceUnity`.
 
-Quand vous êtes *connecté* à une session active, les opérations telles que le [chargement de modèles](models.md) et l’interaction avec la scène sont exposées par le biais de la classe `AzureSession`.
+Quand vous êtes *connecté* à une session active, les opérations telles que le [chargement de modèles](models.md) et l’interaction avec la scène sont exposées par le biais de la classe `RenderingSession`.
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Gestion simultanée de plusieurs sessions
 
@@ -89,20 +89,22 @@ RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 
 RemoteManagerStatic.StartupRemoteRendering(init);
 
-AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
-// fill out accountInfo details...
+SessionConfiguration sessionConfig = new SessionConfiguration();
+// fill out sessionConfig details...
 
-AzureFrontend frontend = new AzureFrontend(accountInfo);
+RemoteRenderingClient client = new RemoteRenderingClient(sessionConfig);
 
-RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-// fill out sessionCreationParams...
+RenderingSessionCreationOptions rendererOptions = new RenderingSessionCreationOptions();
+// fill out rendererOptions...
 
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(rendererOptions);
 
+RenderingSession session = result.Session;
 RenderingSessionProperties sessionProperties;
 while (true)
 {
-    sessionProperties = await session.GetPropertiesAsync().AsTask();
+    var propertiesResult = await session.GetPropertiesAsync();
+    sessionProperties = propertiesResult.SessionProperties;
     if (sessionProperties.Status != RenderingSessionStatus.Starting &&
         sessionProperties.Status != RenderingSessionStatus.Unknown)
     {
@@ -118,43 +120,43 @@ if (sessionProperties.Status != RenderingSessionStatus.Ready)
 }
 
 // Connect to server
-Result connectResult = await session.ConnectToRuntime(new ConnectToRuntimeParams()).AsTask();
+ConnectionStatus connectStatus = await session.ConnectAsync(new RendererInitOptions());
 
 // Connected!
 
-while(...)
+while (...)
 {
     // per frame update
 
-    session.Actions.Update();
+    session.Connection.Update();
 }
 
 // Disconnect
-session.DisconnectFromRuntime();
+session.Disconnect();
 
 // stop the session
-await session.StopAsync().AsTask();
+await session.StopAsync();
 
 // shut down the remote rendering SDK
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-Vous pouvez gérer, manipuler et interroger plusieurs instances `AzureFrontend` et `AzureSession` à partir du code. Toutefois, un seul appareil peut se connecter à une instance `AzureSession` à la fois.
+Vous pouvez gérer, manipuler et interroger plusieurs instances `RemoteRenderingClient` et `RenderingSession` à partir du code. Toutefois, un seul appareil peut se connecter à une instance `RenderingSession` à la fois.
 
-La durée de vie d’une machine virtuelle n’est pas liée à l’instance `AzureFrontend` ou à l’instance `AzureSession`. `AzureSession.StopAsync` doit être appelé pour arrêter une session.
+La durée de vie d’une machine virtuelle n’est pas liée à l’instance `RemoteRenderingClient` ou à l’instance `RenderingSession`. `RenderingSession.StopAsync` doit être appelé pour arrêter une session.
 
-L’ID de session persistant peut être demandé avec `AzureSession.SessionUUID()` et mis en cache localement. Avec cet ID, une application peut appeler `AzureFrontend.OpenSession` pour se lier à cette session.
+L’ID de session persistant peut être demandé avec `RenderingSession.SessionUuid()` et mis en cache localement. Avec cet ID, une application peut appeler `RemoteRenderingClient.OpenRenderingSessionAsync` pour se lier à cette session.
 
-Quand `AzureSession.IsConnected` a la valeur true, `AzureSession.Actions` retourne une instance de `RemoteManager`, qui contient les fonctions permettant de [charger des modèles](models.md), de manipuler des [entités](entities.md) et de [demander des informations](../overview/features/spatial-queries.md) sur la scène rendue.
+Quand `RenderingSession.IsConnected` a la valeur true, `RenderingSession.Connection` retourne une instance de `RenderingConnection`, qui contient les fonctions permettant de [charger des modèles](models.md), de manipuler des [entités](entities.md) et de [demander des informations](../overview/features/spatial-queries.md) sur la scène rendue.
 
 ## <a name="api-documentation"></a>Documentation de l’API
 
-* [AzureSession, classe C#](/dotnet/api/microsoft.azure.remoterendering.azuresession)
-* [AzureFrontend.CreateNewRenderingSessionAsync(), C#](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
-* [AzureFrontend.OpenRenderingSession(), C#](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
-* [AzureSession, classe C++](/cpp/api/remote-rendering/azuresession)
-* [AzureFrontend::CreateNewRenderingSessionAsync, C++](/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
-* [AzureFrontend::OpenRenderingSession, C++](/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
+* [RenderingSession, classe C#](/dotnet/api/microsoft.azure.remoterendering.renderingsession)
+* [C# RemoteRenderingClient.CreateNewRenderingSessionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.createnewrenderingsessionasync)
+* [C# RemoteRenderingClient.OpenRenderingSessionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.openrenderingsessionasync)
+* [RenderingSession, classe C++](/cpp/api/remote-rendering/renderingsession)
+* [C++ RemoteRenderingClient::CreateNewRenderingSessionAsync](/cpp/api/remote-rendering/remoterenderingclient#createnewrenderingsessionasync)
+* [C++ RemoteRenderingClient::OpenRenderingSession](/cpp/api/remote-rendering/remoterenderingclient#openrenderingsession)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

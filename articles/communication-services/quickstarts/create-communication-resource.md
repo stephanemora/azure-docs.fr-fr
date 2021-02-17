@@ -10,15 +10,15 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886109"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820000"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Démarrage rapide : Créer et gérer des ressources Communication Services
-
+ 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Commencez avec Azure Communication Services en provisionnant votre première ressource Communication Services. Les ressources Communication Services peuvent être provisionnées via le portail Azure ou avec la bibliothèque de client .NET Management. La bibliothèque de client Management vous permet de créer, configurer, mettre à jour et supprimer votre ressource et vos interfaces à l’aide d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md), le service de gestion et de déploiement d’Azure. Toutes les fonctionnalités disponibles dans les bibliothèques de client sont accessibles à partir du portail Azure. 
@@ -28,6 +28,10 @@ Commencez avec Azure Communication Services en provisionnant votre première res
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
+::: zone-end
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/create-resource-azcli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
@@ -41,6 +45,14 @@ Les chaînes de connexion sont utilisées par les bibliothèques de client Commu
 Une fois que vous avez accédé à votre ressource Communication Services, sélectionnez **Clés** dans le menu de navigation et copiez les valeurs **Chaîne de connexion** ou **Point de terminaison** à utiliser par les bibliothèques de client Communication Services. Notez que vous avez accès aux clés primaires et secondaires. Cela peut être utile dans les scénarios où vous souhaitez accorder à un environnement tiers ou de préproduction un accès temporaire à vos ressources Communication Services.
 
 :::image type="content" source="./media/key.png" alt-text="Capture d’écran de la page Clés dans Communication Services.":::
+
+Vous pouvez également accéder aux informations de clé à l’aide d’Azure CLI :
+
+```azurecli
+az communication list --resource-group "<resourceGroup>"    
+
+az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
 
 ## <a name="store-your-connection-string"></a>Stocker votre chaîne de connexion
 

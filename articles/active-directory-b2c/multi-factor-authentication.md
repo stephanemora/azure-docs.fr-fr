@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 02/01/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d7bc92af31eb179155fd473356c741f365a07a35
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225156"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525142"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
@@ -41,9 +41,12 @@ Cette fonctionnalité permet aux applications de gérer des scénarios tels que�
 1. Sélectionnez le flux d’utilisateurs pour lequel vous souhaitez activer l’authentification multifacteur. Par exemple, *B2C_1_signinsignup*.
 1. Sélectionner **Propriétés**.
 1. Dans la section **Authentification multifacteur**, sélectionnez la **méthode MFA** souhaitée puis, sous **Application MFA**, sélectionnez **Always-on** ou **Conditionnelle (recommandé)** .
-  > [!NOTE]
-  > Si vous sélectionnez **Conditionnel (recommandé)** , vous devez également [ajouter une stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) et spécifier les applications auxquelles la stratégie doit s’appliquer.
-1. Sélectionnez Enregistrer. La MFA est maintenant activée pour ce flux d’utilisateurs.
+   > [!NOTE]
+   >
+   > - Si vous sélectionnez **Conditionnel (recommandé)** , vous devez également [ajouter une stratégie d’accès conditionnel](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) et spécifier les applications auxquelles la stratégie doit s’appliquer.
+   > - L’authentification multifacteur (MFA) est désactivée par défaut pour les flux d’utilisateurs d’inscription. Vous pouvez activer la MFA dans les flux d’utilisateurs avec l’inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
+
+1. Sélectionnez **Enregistrer**. La MFA est maintenant activée pour ce flux d’utilisateurs.
 
 Vous pouvez utiliser **Exécuter maintenant** sur le flux d’utilisateur à des fins de vérification. Vérifiez le scénario suivant :
 

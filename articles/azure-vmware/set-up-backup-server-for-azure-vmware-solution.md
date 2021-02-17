@@ -2,13 +2,13 @@
 title: Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 description: Configurez votre environnement Azure VMware Solution pour sauvegarder des machines virtuelles à l’aide du serveur de sauvegarde Azure.
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.date: 02/04/2021
+ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703400"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581480"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurer un serveur de sauvegarde Azure pour Azure VMware Solution
 
@@ -389,7 +389,7 @@ Le serveur de sauvegarde Azure v3 accepte uniquement les volumes de stockage. L
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez au didacticiel suivant pour découvrir comment configurer la sauvegarde de machines virtuelles VMware s’exécutant sur Azure VMware Solution à l’aide du serveur de sauvegarde Azure.
+Maintenant que vous savez comment configurer Serveur de sauvegarde Azure pour Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
-> [!div class="nextstepaction"]
-> [Configurer la sauvegarde des machines virtuelles de Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md)
+- [Configuration de sauvegardes pour vos machines virtuelles Azure VMware Solution](backup-azure-vmware-solution-virtual-machines.md).
+- [Protection de vos machines virtuelles Azure VMware Solution avec l’intégration Azure Security Center](azure-security-integration.md).

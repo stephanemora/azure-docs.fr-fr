@@ -3,14 +3,14 @@ title: Simulation de déploiement de modèle
 description: Déterminez les modifications qui seront apportées à vos ressources avant de déployer un modèle Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673968"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591622"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
@@ -21,10 +21,6 @@ Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure
 ## <a name="install-azure-powershell-module"></a>Installer le module Azure PowerShell
 
 Pour utiliser une simulation dans PowerShell, vous devez disposer de la version **4.2 ou d’une version ultérieure du module Az**.
-
-Toutefois, avant d’installer le module requis, vérifiez que vous disposez de PowerShell Core (6.x ou 7.x). Si vous disposez de PowerShell 5.x ou version antérieure, [mettez à jour votre version de PowerShell](/powershell/scripting/install/installing-powershell). Vous ne pouvez pas installer le module requis sur PowerShell version 5.x ou antérieure.
-
-### <a name="install-latest-version"></a>Installer la dernière version
 
 Pour installer le module, utilisez :
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 L’opération de simulation prend en charge l’utilisation du [mode de déploiement](deployment-modes.md). En mode Complete, les ressources qui ne sont pas dans le modèle sont supprimées. L’exemple suivant déploie un [modèle qui n’a aucune ressource définie](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) en mode Complete.
 
-Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez le paramètre de commutateur de confirmation avec la commande de déploiement. Si les modifications sont bien celles que vous attendiez, confirmez que vous souhaitez accomplir le déploiement.
+Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez le paramètre de commutateur de confirmation avec la commande de déploiement. Si les modifications sont bien celles que vous attendiez, répondez que vous souhaitez que le déploiement s’accomplisse.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

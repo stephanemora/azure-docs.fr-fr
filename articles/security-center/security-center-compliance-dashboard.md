@@ -11,30 +11,32 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/28/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 523b081b59bd2f4c45c1ceeb9f39c58f4e3b02b1
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 20a464011e5a8d37a6215b222323ca989e02ac04
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986902"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550914"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 
 Le **tableau de bord Conformité avec la réglementation** d’Azure Security Center simplifie le processus visant à respecter les exigences de conformité aux règlementations. 
 
-Security Center effectue des évaluations continues de votre environnement cloud hybride pour analyser les facteurs de risque en fonction des contrôles et des bonnes pratiques du point de vue des normes appliqués à vos abonnements. Le tableau de bord reflète l’état de votre conformité à ces normes. 
+Security Center évalue continuellement votre environnement cloud hybride afin d’analyser les facteurs de risque en fonction des contrôles et des bonnes pratiques du point de vue des normes appliqués à vos abonnements. Le tableau de bord reflète l’état de votre conformité à ces normes. 
 
 Quand vous activez Security Center sur un abonnement Azure, le [benchmark de sécurité Azure](../security/benchmarks/introduction.md) lui est automatiquement attribué. Ce benchmark, largement respecté et centré sur le cloud, est basé sur les contrôles du [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) et du [NIST (National Institute of Standards and Technology)](https://www.nist.gov/).
 
-Le tableau de bord de conformité réglementaire indique l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation particulières. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
+Le tableau de bord de conformité réglementaire montre l’état de toutes les évaluations au sein de votre environnement pour les normes et réglementations de votre choix. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Évaluer votre conformité aux réglementations à l’aide du tableau de bord de conformité réglementaire
 > * Améliorer votre niveau de conformité en suivant les recommandations
+> * Configurer des alertes en cas de modification de votre posture de conformité
+> * Exporter vos données de conformité en tant que flux continu et en tant qu’instantanés hebdomadaires
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -49,11 +51,11 @@ Pour parcourir les fonctionnalités couvertes dans ce tutoriel :
 
 Le tableau de bord de conformité réglementaire montre vos normes de conformité sélectionnées et toutes leurs exigences, celles prises en charge étant comparées aux évaluations de sécurité applicables. L’état de ces évaluations reflète votre conformité à la norme.
 
-Utilisez le tableau de bord de conformité réglementaire pour vous aider à prendre conscience d’un manque de conformité aux normes et aux réglementations qui sont importantes pour vous. Cette vue ciblée vous permet également de superviser votre conformité au fil du temps dans les environnements cloud et hybrides dynamiques.
+Utilisez le tableau de bord de conformité réglementaire pour vous aider à prendre conscience d’un manque de conformité aux normes et aux réglementations de votre choix. Cette vue ciblée vous permet également de superviser votre conformité au fil du temps dans les environnements cloud et hybrides dynamiques.
 
 1. Dans le menu de Security Center, sélectionnez **Conformité réglementaire**.
 
-    Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous pouvez voir votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
+    Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous verrez votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Tableau de bord de conformité réglementaire" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
@@ -69,37 +71,66 @@ Utilisez le tableau de bord de conformité réglementaire pour vous aider à pre
 
 ## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
 
-Compte tenu des informations figurant dans le tableau de bord de conformité réglementaire, vous pouvez améliorer votre niveau de conformité en suivant les recommandations directement dans le tableau de bord.
+À l’aide des informations figurant dans le tableau de bord de conformité réglementaire, améliorez votre niveau de conformité en résolvant les recommandations directement dans le tableau de bord.
 
 1.  Cliquez sur l’une des évaluations ayant échoué dans le tableau de bord pour voir les détails de cette recommandation. Chaque recommandation comprend un ensemble d’étapes de correction que vous devez suivre pour résoudre le problème.
 
-1.  Vous pouvez sélectionner une ressource particulière pour voir plus de détails et suivre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0**, vous pouvez sélectionner la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
+1.  Sélectionnez une ressource particulière pour voir plus de détails et résoudre la recommandation associée à cette ressource. <br>Par exemple, dans la **norme Azure CIS 1.1.0**, sélectionnez la recommandation **Le chiffrement de disque doit être appliqué sur les machines virtuelles**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="La sélection d’une recommandation concernant une norme vous amène directement à la page des détails de la recommandation":::
 
-1. Dans cet exemple, quand vous sélectionnez **Entreprendre une action** dans la page des détails de la recommandation, vous arrivez dans les pages relatives aux machines virtuelles Azure du portail Azure, où vous pouvez ouvrir l’onglet **Sécurité** et activer le chiffrement :
+1. Dans cet exemple, quand vous sélectionnez **Entreprendre une action** dans la page des détails de la recommandation, vous arrivez dans les pages relatives aux machines virtuelles Azure du portail Azure, où vous pouvez activer le chiffrement sous l’onglet **Sécurité** :
 
     :::image type="content" source="./media/security-center-compliance-dashboard/encrypting-vm-disks.png" alt-text="Le bouton Entreprendre une action de la page des détails de la recommandation vous amène aux options de correction":::
 
     Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-1.  Quand vous prenez des mesures pour résoudre les recommandations, vous pouvez constater une amélioration de votre score de conformité dans le rapport du tableau de bord de conformité.
+1.  Quand vous aurez pris des mesures pour résoudre les recommandations, vous constaterez une amélioration de votre score de conformité dans le rapport du tableau de bord de conformité.
 
     > [!NOTE]
     > Les évaluations s’exécutent toutes les 12 heures environ. L’impact sur vos données de conformité n’est donc visible qu’après l’exécution suivante de l’évaluation correspondante.
+
+
+## <a name="export-your-compliance-status-data"></a>Exporter vos données d’état de conformité
+
+Si vous souhaitez suivre votre état de conformité avec d’autres outils de supervision dans votre environnement, Security Center comprend un mécanisme d’exportation pour faciliter cette tâche. Configurez l’**exportation continue** pour envoyer des données spécifiques à un hub d’événements Azure ou à un espace de travail Log Analytics.
+
+Utilisez les données d’exportation continue envoyées à un hub d’événements Azure ou un espace de travail Log Analytics :
+
+- Exportez toutes les données de conformité réglementaire dans un **flux continu** :
+
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-stream.png" alt-text="Exporter en continu un flux de données de conformité réglementaire" lightbox="media/security-center-compliance-dashboard/export-compliance-data-stream.png":::
+
+- Exportez des **instantanés hebdomadaires** de vos données de conformité réglementaire :
+
+    :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Exporter en continu un instantané hebdomadaire des données de conformité réglementaire" lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
+
+Vous pouvez également exporter un **rapport PDF/CSV** de vos données de conformité directement à partir du tableau de bord de conformité réglementaire :
+
+:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Exporter vos données de conformité réglementaire sous forme de rapport PDF ou CSV" lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
+
+Apprenez-en davantage dans [Exporter en continu des données Security Center](continuous-export.md).
+
+
+## <a name="run-workflow-automations-when-there-are-changes-to-your-compliance"></a>Exécuter des automatisations de workflow en cas de modification de votre conformité
+
+La fonctionnalité d’automatisation de workflow de Security Center peut déclencher des applications logiques chaque fois que l’une de vos évaluations de conformité réglementaire change d’état.
+
+Par exemple, vous pouvez faire en sorte que Security Center envoie un e-mail à un utilisateur donné en cas d’échec d’une évaluation de conformité. Vous devez d’abord créer l’application logique (à l’aide d’[Azure Logic Apps](../logic-apps/logic-apps-overview.md)), puis configurer le déclencheur dans une nouvelle automatisation de workflow, comme expliqué dans [Automatiser les réponses aux déclencheurs Security Center](workflow-automation.md).
+
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilisation des modifications apportées aux évaluations de conformité réglementaire pour déclencher une automatisation de workflow" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à utiliser le tableau de bord de conformité réglementaire de Security Center pour effectuer les tâches suivantes :
 
--   Afficher et superviser votre niveau de conformité par rapport à des normes et à des réglementations qui sont importantes pour vous.
--   Améliorer votre état de conformité en suivant les recommandations appropriées et en augmentant le score de conformité.
+- Afficher et superviser votre niveau de conformité par rapport à des normes et à des réglementations qui sont importantes pour vous.
+- Améliorer votre état de conformité en suivant les recommandations appropriées et en augmentant le score de conformité.
 
-Le tableau de bord de conformité réglementaire peut grandement simplifier le processus de conformité et réduire considérablement le temps nécessaire à la collecte des preuves de conformité pour votre environnement Azure et hybride.
+Le tableau de bord de conformité réglementaire peut grandement simplifier le processus de conformité et réduire considérablement le temps nécessaire à la collecte des preuves de conformité pour votre environnement Azure, hybride et multicloud.
 
-Pour en savoir plus, consultez les articles connexes suivants :
+Pour en savoir plus, consultez les pages connexes suivantes :
 
--   [Mise à jour des packages de conformité dynamique dans votre tableau de bord de conformité réglementaire (préversion)](update-regulatory-compliance-packages.md) : découvrez cette fonctionnalité d’évaluation qui vous permet de mettre à jour les normes affichées dans votre tableau de bord de conformité réglementaire en fonction des nouveaux packages *dynamiques*. Vous pouvez également utiliser la même fonctionnalité en préversion pour ajouter de nouveaux packages de conformité et surveiller votre conformité avec des normes supplémentaires. 
--   [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
--   [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment utiliser les recommandations proposées par Azure Security Center pour protéger vos ressources Azure.
--   [Améliorer votre degré de sécurisation dans Azure Security Center](secure-score-security-controls.md) : découvrez comment classer par ordre de priorité les vulnérabilités et les recommandations pour améliorer votre niveau de sécurité.
+- [Personnaliser l’ensemble de normes dans votre tableau de bord de conformité réglementaire](update-regulatory-compliance-packages.md) : découvrez comment sélectionner les normes affichées dans votre tableau de bord de conformité réglementaire. 
+- [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
+- [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment utiliser les recommandations proposées par Azure Security Center pour protéger vos ressources Azure.

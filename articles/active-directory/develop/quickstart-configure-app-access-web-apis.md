@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012119"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102561"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Démarrage rapide : Configurer une application cliente pour accéder à une API web
 
@@ -42,7 +42,7 @@ Ce diagramme montre comment les deux inscriptions d’applications sont liées e
 
 Une fois que vous avez inscrit votre application cliente et votre API web et que vous avez exposé l’API en créant des étendues, vous pouvez configurer les autorisations du client sur l’API en effectuant les étapes suivantes :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire contenant l’inscription de votre application cliente.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications**, puis votre application cliente (et *pas* votre API web).
 1. Sélectionnez **Autorisations des API** > **Ajouter une autorisation** > **Mes API**.
@@ -71,7 +71,7 @@ En plus d’accéder à votre propre API web pour le compte de l’utilisateur c
 
 Configurez l’autorisation déléguée pour Microsoft Graph afin de permettre à votre application cliente d’effectuer des opérations pour le compte de l’utilisateur connecté, par exemple lire ses e-mails ou modifier son profil. Par défaut, les utilisateurs de votre application cliente sont invités, au moment où ils se connectent, à donner leur consentement pour les autorisations déléguées que vous avez configurées pour celle-ci.
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire contenant l’inscription de votre application cliente.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications**, puis votre application cliente.
 1. Sélectionnez **Autorisations de l’API** > **Ajouter une autorisation** > **Microsoft Graph**.
@@ -96,7 +96,7 @@ Configurez des autorisations d’application pour une application qui doit s’a
 
 Dans les étapes suivantes, vous accordez une autorisation à l’autorisation *Files.Read.All* de Microsoft Graph, par exemple.
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire contenant l’inscription de votre application cliente.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications**, puis votre application cliente.
 1. Sélectionnez **Autorisations de l’API** > **Ajouter une autorisation** > **Microsoft Graph** > **Autorisations de l’application**.

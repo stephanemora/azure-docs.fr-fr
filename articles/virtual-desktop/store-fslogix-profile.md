@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 189ff3bbfdb3b8533defcedb77e15fef433598b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023086"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526600"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -28,11 +28,11 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 |Cas d’utilisation|Usage général|Ultra-performance ou migration à partir de NetApp (déployé localement)|Multiplateforme|
 |Service de plateforme|Oui, solution Azure native|Oui, solution Azure native|Non, auto-managé|
 |Disponibilité régionale|Toutes les régions|[Sélectionner les régions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Toutes les régions|
-|Redondance|Localement redondant/redondant interzone/géoredondant|Localement redondant|Localement redondant/redondant interzone/géoredondant|
-|Niveaux et performances|Standard<br>Premium<br>Jusqu’à 100 000 IOPS par partage avec 5 Gbits/s par partage avec environ 3 ms de latence|Standard<br>Premium<br>Ultra<br>Jusqu’à 320 000 (16K) IOPS avec 4,5 Gbits/s par volume avec environ 1 ms de latence|Disque dur Standard : limites par disque jusqu’à 500 IOPS<br>Disque SSD Standard : limites par disque jusqu’à 4 000 IOPS<br>Disque SSD Premium : limites par disque jusqu’à 20 000 IOPS<br>Nous vous recommandons d’utiliser des disques Premium pour espaces de stockage direct|
-|Capacité|100 Tio par partage|100 Tio par volume, jusqu’à 12,5 Pio par abonnement|Maximum de 32 Tio par disque|
+|Redondance|Localement redondant/redondant interzone/géoredondant/géoredondant interzone|Localement redondant|Localement redondant/redondant interzone/géoredondant|
+|Niveaux et performances| Standard (optimisé pour les transactions)<br>Premium<br>Jusqu’à 100 000 IOPS par partage avec 10 Gbits/s par partage avec environ 3 ms de latence|Standard<br>Premium<br>Ultra<br>Jusqu’à 320 000 (16K) IOPS avec 4,5 Gbits/s par volume avec environ 1 ms de latence|Disque dur Standard : limites par disque jusqu’à 500 IOPS<br>Disque SSD Standard : limites par disque jusqu’à 4 000 IOPS<br>Disque SSD Premium : limites par disque jusqu’à 20 000 IOPS<br>Nous vous recommandons d’utiliser des disques Premium pour espaces de stockage direct|
+|Capacité|100 Tio par partage, jusqu’à 5 Pio par compte à usage général |100 Tio par volume, jusqu’à 12,5 Pio par abonnement|Maximum de 32 Tio par disque|
 |Infrastructure requise|Taille de partage minimale de 1 Gio|Pool de capacité minimal de 4 Tio, taille de volume min. de 100 Gio|Deux machines virtuelles sur Azure IaaS (+ témoin de cloud) ou au moins trois machines virtuelles sans coûts pour les disques|
-|Protocoles|SMB 2.1/3. et REST|NFSv3, NFSv4.1 (préversion), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
+|Protocoles|SMB 3.0/2.1, NFSv4.1 (préversion), REST|NFSv3, NFSv4.1 (préversion), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Détails de la gestion Azure
 

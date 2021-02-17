@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb26a669229ac140aba262032f8ce84ef9f37727
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024093"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593381"
 ---
 # <a name="color-materials"></a>Matériaux couleur
 
@@ -62,9 +62,9 @@ Les propriétés suivantes sont spécifiques aux matériaux de couleur :
 ## <a name="api-documentation"></a>Documentation de l’API
 
 * [ColorMaterial, classe C#](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [RemoteManager.CreateMaterial(), C#](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [ColorMaterial, classe C++](/cpp/api/remote-rendering/colormaterial)
-* [RemoteManager::CreateMaterial(), C++](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

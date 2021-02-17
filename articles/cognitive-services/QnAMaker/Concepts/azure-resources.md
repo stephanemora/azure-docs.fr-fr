@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705402"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979760"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -134,6 +134,94 @@ Procurez-vous les dernières mises à jour du runtime en [mettant à jour votre 
 
 ---
 
+## <a name="keys-in-qna-maker"></a>Clés dans QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+Votre service QnA Maker gère deux types de clés : **clés de création** et **clés de point de terminaison de requête** utilisées avec le runtime hébergé dans App service.
+
+Utilisez ces clés lorsque vous adressez des demandes au service via des API.
+
+![Gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
+
+|Nom|Emplacement|Objectif|
+|--|--|--|
+|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Rechercher des clés de création dans le portail Azure
+
+Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker a été créée. Ces clés sont parfois appelées clés d’abonnement.
+
+1. Accédez à la ressource QnA Maker dans le portail Azure et sélectionnez la ressource qui a le type _Cognitive Services_ :
+
+    ![Liste des ressources QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+
+2. Accédez aux **clés et point de terminaison** :
+
+    ![Clé d’abonnement QnA Maker managé (préversion)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+
+### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Rechercher des clés de point de terminaison de requête dans le portail QnA Maker
+
+Le point de terminaison se trouve dans la même région que la ressource, car les clés de point de terminaison sont utilisées pour appeler la base de connaissances.
+
+Les clés de point de terminaison peuvent être gérées à partir du [portail QnA Maker](https://qnamaker.ai).
+
+1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai), accédez à votre profil, puis sélectionnez **Paramètres de service** :
+
+    ![Clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+
+2. Affichez ou réinitialisez vos clés :
+
+    > [!div class="mx-imgBorder"]
+    > ![Gestionnaire de la clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+
+    >[!NOTE]
+    >Actualisez vos clés si vous pensez qu’elles ont été compromises. Cette opération peut nécessiter des modifications correspondantes de votre code de bot ou d’application cliente.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Votre service QnA Maker managé (préversion) traite deux types de clés : les **clés de création** et les **clés de Recherche cognitive Azure** utilisées pour accéder au service dans l’abonnement du client.
+
+Utilisez ces clés lorsque vous adressez des demandes au service via des API.
+
+![Préversion managée de la gestion des clés](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+
+|Nom|Emplacement|Objectif|
+|--|--|--|
+|Clé de création/d’abonnement|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé d’administration de Recherche cognitive Azure|[Azure portal](../../../search/search-security-api-keys.md)|Ces clés sont utilisées pour communiquer avec le service de recherche cognitive Azure déployé dans l’abonnement Azure de l’utilisateur. Quand vous associez une recherche cognitive Azure au service QnA Maker managé (préversion), la clé d’administration est automatiquement transmise au service QnA Maker. <br><br>Vous pouvez trouver ces clés sur la ressource **Recherche cognitive Azure** dans la page **Clés**.|
+
+### <a name="find-authoring-keys-in-the-azure-portal"></a>Rechercher des clés de création dans le portail Azure
+
+Vous pouvez afficher et réinitialiser vos clés de création à partir du portail Azure où la ressource QnA Maker managé (préversion) a été créée. Ces clés sont parfois appelées clés d’abonnement.
+
+1. Accédez à la ressource QnA Maker managé (préversion) dans le portail Azure et sélectionnez la ressource qui a le type *Cognitive Services* :
+
+    ![Liste des ressources QnA Maker managé (préversion)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
+
+2. Accédez aux **clés et point de terminaison** :
+
+    ![Clé d’abonnement QnA Maker managé (préversion)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
+
+### <a name="update-the-resources"></a>Mettre à jour les ressources
+
+Découvrez comment mettre à niveau les ressources utilisées par votre base de connaissances. QnA Maker managé (préversion) est **gratuit** en préversion. 
+
+---
+
+## <a name="management-service-region"></a>Région du service de gestion
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+Le service de gestion de QnA Maker est utilisé uniquement pour le portail QnA Maker et pour le traitement initial des données. Ce service est disponible uniquement dans la région **USA Ouest**. Il n’y a pas de stockage de données de clients dans ce service aux USA Ouest.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
+
+Dans QnA Maker managé (préversion), les services de gestion et de prédiction sont colocalisés dans la même région. Actuellement, QnA Maker managé (préversion) est disponible dans les régions **USA Centre Sud, Europe Nord et Australie Est**.
+
+---
+
 ## <a name="resource-naming-considerations"></a>Considérations relatives à l’affection de noms aux ressources
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
@@ -156,107 +244,6 @@ Une fois les ressources créées, elles portent le même nom, à l’exception d
 > [!TIP]
 > Utilisez une convention d’affectation de noms pour indiquer les niveaux tarifaires dans le nom de la ressource ou du groupe de ressources. Si vous recevez des erreurs lors de la création d’une base de connaissances ou de l’ajout de documents, la limite de niveau tarifaire de Recherche cognitive est un problème courant.
 
-### <a name="resource-purposes"></a>Objectifs des ressources
-
-Chaque ressource Azure créée avec QnA Maker a un objectif spécifique :
-
-* Ressource QnA Maker
-* Ressource Recherche cognitive
-* App Service
-* Service de plan d’application
-* Service Application Insights
-
-
-### <a name="cognitive-search-resource"></a>Ressource Recherche cognitive
-
-La ressource [Recherche cognitive](../../../search/index.yml) est utilisée pour :
-
-* Stocker les paires de questions-réponses
-* fournir le classement initial (ranker #1) des paires de questions-réponses lors du runtime
-
-#### <a name="index-usage"></a>Utilisation de l’index
-
-La ressource conserve un index faisant office d’index de test. Chacun des index restants est mis en corrélation avec une base de connaissances publiée.
-
-Une ressource tarifée pour contenir 15 index contient 14 bases de connaissances publiées, et un index est utilisé pour tester toutes les bases de connaissances. Cet index de test est partitionné par la base de connaissances afin qu’une requête utilisant le volet de test interactif utilise l’index de test, mais retourne uniquement les résultats de la partition associée à la base de connaissances.
-
-#### <a name="language-usage"></a>Utilisation de la langue
-
-La première base de connaissances créée dans la ressource QnA Maker est utilisée pour déterminer la langue _unique_ définie pour la ressource Recherche cognitive et tous ses index. Vous ne pouvez avoir _qu’une seule langue définie_ pour un service QnA Maker.
-
-### <a name="qna-maker-resource"></a>Ressource QnA Maker
-
-La ressource QnA Maker donne accès aux API de création et de publication, ainsi qu’à la deuxième couche de classement (ranker #2) basé sur le traitement en langage naturel des paires de questions-réponses au moment de l’exécution.
-
-Le deuxième classement applique des filtres intelligents qui peuvent inclure des métadonnées et des invites de suivi.
-
-#### <a name="qna-maker-resource-configuration-settings"></a>Paramètres de configuration de ressources QnA Maker
-
-Lorsque vous créez une base de connaissances dans le [portail QnA Maker](https://qnamaker.ai), le paramètre **Langue** est le seul appliqué au niveau de la ressource. Vous sélectionnez la langue lorsque vous créez la première base de connaissances pour la ressource.
-
-### <a name="app-service-and-app-service-plan"></a>App service et plan App service
-
-Votre application cliente utilise l’[App service](../../../app-service/index.yml) pour accéder aux bases de connaissances publiées via le point de terminaison du runtime.
-
-Pour interroger la base de connaissances publiée, toutes les bases de connaissances publiées utilisent le même point de terminaison d’URL, mais spécifient l’**ID de la base de connaissances** dans l’itinéraire.
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### <a name="application-insights"></a>Application Insights
-
-La fonctionnalité [Application Insights](../../../azure-monitor/app/app-insights-overview.md) est utilisée pour collecter les journaux de conversation et la télémétrie. Pour plus d’informations sur votre service, voir les [requêtes Kusto](../how-to/get-analytics-knowledge-base.md) communes.
-
-## <a name="share-services-with-qna-maker"></a>Partager des services avec QnA Maker
-
-QnA Maker crée plusieurs ressources Azure. Pour alléger la gestion et profiter du partage des coûts, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne pouvez pas partager :
-
-|Service|Partager|Motif|
-|--|--|--|
-|Cognitive Services|X|Impossible à la base|
-|Plan App Service|✔|Espace disque fixe alloué à un plan App Service. Si d’autres applications qui partagent le même plan App Service utilisent une quantité d’espace disque significative, l’instance QnAMaker App Service rencontrera des problèmes.|
-|App Service|X|Impossible à la base|
-|Application Insights|✔|Peut être partagé|
-|Service de recherche|✔|1. `testkb` est un nom réservé pour le service QnAMaker ; il ne peut pas être utilisé par d’autres.<br>2. Le nom de carte de synonymes `synonym-map` est réservé au service QnAMaker.<br>3. Le nombre de bases de connaissances publiées est limité par le niveau de service de recherche. Si des index gratuits sont disponibles, les autres services peuvent les utiliser.|
-
-### <a name="using-a-single-cognitive-search-service"></a>Utilisation d’un service Recherche cognitive unique
-
-Si vous créez un service QnA et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié au service QnA Maker. Une fois ces ressources créées, vous pouvez mettre à jour le paramètre App Service pour utiliser un service de recherche existant au préalable et supprimer celui que vous venez de créer.
-
-Découvrez [comment configurer](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker pour utiliser une ressource Service cognitif différente de celle créée dans le cadre du processus de création de ressource QnA Maker.
-
-## <a name="management-service-region"></a>Région du service de gestion
-
-Le service de gestion de QnA Maker est utilisé uniquement pour le portail QnA Maker et pour le traitement initial des données. Ce service est disponible uniquement dans la région **USA Ouest**. Il n’y a pas de stockage de données de clients dans ce service aux USA Ouest.
-
-## <a name="keys-in-qna-maker"></a>Clés dans QnA Maker
-
-Votre service QnA Maker gère deux types de clés : **clés de création** et **clés de point de terminaison de requête** utilisées avec le runtime hébergé dans App service.
-
-Si vous recherchez votre **clé d’abonnement**, [la terminologie a changé](#subscription-keys).
-
-Utilisez ces clés lorsque vous adressez des demandes au service via des API.
-
-![Gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
-
-|Nom|Emplacement|Objectif|
-|--|--|--|
-|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
-|Clé de point de terminaison de requête|[Portail QnA Maker](https://www.qnamaker.ai)|Ces clés sont utilisées pour interroger le point de terminaison de base de connaissances publié afin d’obtenir une réponse à une question d’utilisateur. En général, vous utilisez ce point de terminaison de requête dans votre bot conversationnel ou dans le code de l’application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
-
-### <a name="subscription-keys"></a>Clés d’abonnement
-
-Les expressions clé de création et clé de point de terminaison de requête sont rectificatives. L’expression utilisée précédemment était **clé d’abonnement**. Si vous lisez une autre documentation faisant référence à des clés d’abonnement, celles-ci correspondent aux clés de création et de point de terminaison de requête (utilisées dans le runtime).
-
-Pour savoir quelle clé vous devez trouver, vous devez savoir à quoi la clé permet d’accéder, à la gestion de la base de connaissances ou à l’interrogation de la base de connaissances.
-
-### <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau
-
-* Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
-* Protégez App Service (Runtime QnA) contre l’accès public :
-    * Autorisez le trafic uniquement à partir des adresses IP Cognitive Services. Celles-ci sont déjà incluses dans l’étiquette de service « CognitiveServicesManagement ». Les API de création (création/mise à jour de base de connaissances) peuvent ainsi appeler le service d’application et mettre à jour le service Recherche Azure en conséquence.
-    * Assurez-vous que vous autorisez également d’autres points d’entrée, tels que Bot Service ou le portail QnA Maker (éventuellement votre réseau d’entreprise), pour accéder à l’API de prédiction « GenerateAnswer ».
-    * Consultez d’[autres informations sur les étiquettes de service](../../../virtual-network/service-tags-overview.md).
-
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
 Le nom de la ressource QnA Maker managé (préversion), comme `qna-westus-f0-b`, est également utilisé pour nommer les autres ressources.
@@ -275,12 +262,87 @@ La fenêtre Créer du portail Azure vous permet de créer une ressource QnA Make
 > [!TIP]
 > Utilisez une convention d’affectation de noms pour indiquer les niveaux tarifaires dans le nom de la ressource ou du groupe de ressources. Si vous recevez des erreurs lors de la création d’une base de connaissances ou de l’ajout de documents, la limite de niveau tarifaire de Recherche cognitive est un problème courant.
 
-### <a name="resource-purposes"></a>Objectifs des ressources
+---
+
+## <a name="resource-purposes"></a>Objectifs des ressources
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
+
+Chaque ressource Azure créée avec QnA Maker a un objectif spécifique :
+
+* Ressource QnA Maker
+* Ressource Recherche cognitive
+* App Service
+* Service de plan d’application
+* Service Application Insights
+
+### <a name="qna-maker-resource"></a>Ressource QnA Maker
+
+La ressource QnA Maker donne accès aux API de création et de publication, ainsi qu’à la deuxième couche de classement (ranker #2) basé sur le traitement en langage naturel des paires de questions-réponses au moment de l’exécution.
+
+Le deuxième classement applique des filtres intelligents qui peuvent inclure des métadonnées et des invites de suivi.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>Paramètres de configuration de ressources QnA Maker
+
+Lorsque vous créez une base de connaissances dans le [portail QnA Maker](https://qnamaker.ai), le paramètre **Langue** est le seul appliqué au niveau de la ressource. Vous sélectionnez la langue lorsque vous créez la première base de connaissances pour la ressource.
+
+### <a name="cognitive-search-resource"></a>Ressource Recherche cognitive
+
+La ressource [Recherche cognitive](../../../search/index.yml) est utilisée pour :
+
+* Stocker les paires de questions-réponses
+* fournir le classement initial (ranker #1) des paires de questions-réponses lors du runtime
+
+#### <a name="index-usage"></a>Utilisation de l’index
+
+La ressource conserve un index faisant office d’index de test. Chacun des index restants est mis en corrélation avec une base de connaissances publiée.
+
+Une ressource tarifée pour contenir 15 index contient 14 bases de connaissances publiées, et un index est utilisé pour tester toutes les bases de connaissances. Cet index de test est partitionné par la base de connaissances afin qu’une requête utilisant le volet de test interactif utilise l’index de test, mais retourne uniquement les résultats de la partition associée à la base de connaissances.
+
+#### <a name="language-usage"></a>Utilisation de la langue
+
+La première base de connaissances créée dans la ressource QnA Maker est utilisée pour déterminer la langue _unique_ définie pour la ressource Recherche cognitive et tous ses index. Vous ne pouvez avoir _qu’une seule langue définie_ pour un service QnA Maker.
+
+#### <a name="using-a-single-cognitive-search-service"></a>Utilisation d’un service Recherche cognitive unique
+
+Si vous créez un service QnA et ses dépendances (par exemple, la recherche) via le portail, un service de recherche est créé pour vous et lié au service QnA Maker. Une fois ces ressources créées, vous pouvez mettre à jour le paramètre App Service pour utiliser un service de recherche existant au préalable et supprimer celui que vous venez de créer.
+
+Découvrez [comment configurer](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker pour utiliser une ressource Service cognitif différente de celle créée dans le cadre du processus de création de ressource QnA Maker.
+
+### <a name="app-service-and-app-service-plan"></a>App service et plan App service
+
+Votre application cliente utilise l’[App service](../../../app-service/index.yml) pour accéder aux bases de connaissances publiées via le point de terminaison du runtime.
+
+Pour interroger la base de connaissances publiée, toutes les bases de connaissances publiées utilisent le même point de terminaison d’URL, mais spécifient l’**ID de la base de connaissances** dans l’itinéraire.
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### <a name="application-insights"></a>Application Insights
+
+La fonctionnalité [Application Insights](../../../azure-monitor/app/app-insights-overview.md) est utilisée pour collecter les journaux de conversation et la télémétrie. Pour plus d’informations sur votre service, voir les [requêtes Kusto](../how-to/get-analytics-knowledge-base.md) communes.
+
+### <a name="share-services-with-qna-maker"></a>Partager des services avec QnA Maker
+
+QnA Maker crée plusieurs ressources Azure. Pour alléger la gestion et profiter du partage des coûts, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne pouvez pas partager :
+
+|Service|Partager|Motif|
+|--|--|--|
+|Cognitive Services|X|Impossible à la base|
+|Plan App Service|✔|Espace disque fixe alloué à un plan App Service. Si d’autres applications qui partagent le même plan App Service utilisent une quantité d’espace disque significative, l’instance QnAMaker App Service rencontrera des problèmes.|
+|App Service|X|Impossible à la base|
+|Application Insights|✔|Peut être partagé|
+|Service de recherche|✔|1. `testkb` est un nom réservé pour le service QnAMaker ; il ne peut pas être utilisé par d’autres.<br>2. Le nom de carte de synonymes `synonym-map` est réservé au service QnAMaker.<br>3. Le nombre de bases de connaissances publiées est limité par le niveau de service de recherche. Si des index gratuits sont disponibles, les autres services peuvent les utiliser.|
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 
 Chaque ressource Azure créée avec QnA Maker managé (préversion) a une utilité précise :
 
 * Ressource QnA Maker
 * Ressource Recherche cognitive
+
+### <a name="qna-maker-resource"></a>Ressource QnA Maker
+
+La ressource QnA Maker managé (préversion) permet d’accéder aux API de création et de publication, d’héberger le runtime de classement et de fournir des données de télémétrie.
 
 ### <a name="azure-cognitive-search-resource"></a>Ressource Recherche cognitive Azure
 
@@ -298,39 +360,6 @@ Par exemple, si votre niveau comporte 15 index autorisés, vous pouvez publier 1
 #### <a name="language-usage"></a>Utilisation de la langue
 
 Avec QnA Maker managé (préversion), vous avez la possibilité de configurer votre service QnA Maker pour des bases de connaissances unilingues ou multilingues. Vous faites ce choix lors de la création de la première base de connaissances dans votre service QnA Maker. Consultez [ceci](#pricing-tier-considerations) pour savoir comment configurer la langue par base de connaissances.
-
-### <a name="qna-maker-resource"></a>Ressource QnA Maker
-
-La ressource QnA Maker managé (préversion) permet d’accéder aux API de création et de publication, d’héberger le runtime de classement et de fournir des données de télémétrie.
-
-## <a name="region-support"></a>Prise en charge de la région
-
-Dans QnA Maker managé (préversion), les services de gestion et de prédiction sont colocalisés dans la même région. Actuellement, QnA Maker managé (préversion) est disponible dans les régions **USA Centre Sud, Europe Nord et Australie Est**.
-
-### <a name="keys-in-qna-maker-managed-preview"></a>Clés dans QnA Maker managé (préversion)
-
-Votre service QnA Maker managé (préversion) traite deux types de clés : les **clés de création** et les **clés de Recherche cognitive Azure** utilisées pour accéder au service dans l’abonnement du client.
-
-Si vous recherchez votre **clé d’abonnement**, [la terminologie a changé](#subscription-keys).
-
-Utilisez ces clés lorsque vous adressez des demandes au service via des API.
-
-![Préversion managée de la gestion des clés](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
-
-|Nom|Emplacement|Objectif|
-|--|--|--|
-|Clé de création|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
-|Clé d’administration de Recherche cognitive Azure|[Azure portal](../../../search/search-security-api-keys.md)|Ces clés sont utilisées pour communiquer avec le service de recherche cognitive Azure déployé dans l’abonnement Azure de l’utilisateur. Quand vous associez une recherche cognitive Azure au service QnA Maker managé (préversion), la clé d’administration est automatiquement transmise au service QnA Maker. <br><br>Vous pouvez trouver ces clés sur la ressource **Recherche cognitive Azure** dans la page **Clés**.|
-
-### <a name="subscription-keys"></a>Clés d’abonnement
-
-Les expressions clé de création et clé de point de terminaison de requête sont rectificatives. L’expression utilisée précédemment était **clé d’abonnement**. Si vous lisez une autre documentation faisant référence à des clés d’abonnement, celles-ci correspondent aux clés de création et de point de terminaison de requête (utilisées dans le runtime).
-
-Pour savoir quelle clé vous devez trouver, vous devez savoir à quoi la clé permet d’accéder, à la gestion de la base de connaissances ou à l’interrogation de la base de connaissances.
-
-### <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau 
-
-Protégez la ressource Cognitive Services contre l’accès public en [configurant le réseau virtuel](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ---
 

@@ -8,19 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 076355e39f813292e00aa54780a3aadc49c50d31
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081992"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988760"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la mise à l’échelle horizontale. Les conteneurs peuvent évoluer indépendamment en termes de débit et de stockage. Vous pouvez créer des conteneurs dans Azure Cosmos DB qui peuvent être automatiquement mis à l’échelle pour stocker des données graphiques. Les données sont automatiquement réparties en fonction de la **clé de partition** spécifiée.
 
-**Vous devez procéder à un partitionnement** si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partitioning-overview.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
+Le partitionnement est effectué en interne si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête (RU) par seconde. Les données sont automatiquement partitionnées en fonction de la clé de partition que vous spécifiez. La clé de partition est requise si vous créez des conteneurs de graphiques à partir du portail Azure ou les versions 3.x ou ultérieures des pilotes Gremlin. La clé de partition n’est pas requise si vous utilisez les versions 2.x ou antérieures des pilotes Gremlin.
+
+Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partitioning-overview.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Partitionnement dans Graph." border="false":::
 

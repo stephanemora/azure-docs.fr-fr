@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5efb1df378df323585bc0ca1094451cdb095fe4e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d477693667c8d78687d27b291d2b3c15612a0f30
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499779"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989046"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>Activation des fonctionnalités de l’espace de travail Synapse sur un pool SQL dédié existant (anciennement SQL DW)
 
@@ -32,7 +32,7 @@ Les informations suivantes s’appliquent lors de l’utilisation d’un DW SQL 
 - **Fonctionnalités SQL** Toutes les fonctionnalités SQL sont conservées sur le serveur SQL logique après l’activation de la fonctionnalité de l’espace de travail synapse. L’accès au serveur via le fournisseur de ressources SQL sera toujours possible une fois l’espace de travail activé. Toutes les fonctions de gestion peuvent être lancées par le biais de l’espace de travail et l’opération est effectuée sur le serveur SQL Server logique hébergeant vos pools SQL. L’automatisation, les outils ou les connexions existant(e)s ne sont pas interrompus lorsqu’un espace de travail est activé.  
 - **Déplacement de ressources**  Le lancement d’un déplacement de ressources sur un serveur avec la fonctionnalité d’espace de travail Synapse activée entraîne la rupture du lien entre le serveur et l’espace de travail et vous ne pourrez plus accéder à vos instances de pool SQL dédié (anciennement SQL DW) existantes à partir de l’espace de travail. Pour garantir que la connexion est maintenue, il est recommandé de conserver les deux ressources dans le même abonnement et le même groupe de ressources. 
 - **Supervision** Les requêtes SQL soumises par le biais de Synapse Studio dans un pool SQL dédié (anciennement SQL DW) activé sur l’espace de travail peuvent être consultées dans le hub Monitor. Pour toutes les autres activités de supervision, vous pouvez accéder à la supervision des pool SQL dédiés (anciennement SQL DW) sur le portail Azure. 
-- **Sécurité** et **Contrôle d’accès** Comme indiqué ci-dessus, toutes les fonctions de gestion de votre serveur SQL Server et les instances de pools SQL dédiés (anciennement SQL DW) continuent de résider sur le serveur SQL logique. Ces fonctions incluent la gestion des règles de pare-feu, la configuration de l’administrateur Azure AD du serveur et le contrôle de l’accès aux données de votre pool SQL dédié (anciennement SQL DW). Les étapes suivantes doivent être effectuées pour s’assurer que votre pool SQL dédié (anciennement SQL DW) est accessible et peut être utilisé par le biais de l’espace de travail Synapse. Les appartenances au rôle d’espace de travail ne donnent pas aux utilisateurs des autorisations d’accès aux données dans les instances de pool SQL dédié (anciennement SQL DW). Pour garantir que les utilisateurs peuvent accéder aux instances de pool SQL dédié (anciennement SQL DW) sur le serveur logique, suivez vos stratégies [d’authentification SQL](sql-data-warehouse-authentication.md) habituelles. 
+- **Sécurité** et **Contrôle d’accès** Comme indiqué ci-dessus, toutes les fonctions de gestion de votre serveur SQL Server et les instances de pools SQL dédiés (anciennement SQL DW) continuent de résider sur le serveur SQL logique. Ces fonctions incluent la gestion des règles de pare-feu, la configuration de l’administrateur Azure AD du serveur et le contrôle de l’accès aux données de votre pool SQL dédié (anciennement SQL DW). Les étapes suivantes doivent être effectuées pour s’assurer que votre pool SQL dédié (anciennement SQL DW) est accessible et peut être utilisé par le biais de l’espace de travail Synapse. Les appartenances au rôle d’espace de travail ne donnent pas aux utilisateurs des autorisations d’accès aux données dans les instances de pool SQL dédié (anciennement SQL DW). Pour garantir que les utilisateurs peuvent accéder aux instances de pool SQL dédié (anciennement SQL DW) sur le serveur logique, suivez vos stratégies [d’authentification SQL](sql-data-warehouse-authentication.md) habituelles. Si une identité managée est déjà attribuée au serveur hôte du pool SQL dédié (anciennement SQL DW), le nom de cette identité managée sera le même que celui de l’identité managée de l’espace de travail qui est automatiquement créée pour prendre en charge les services partenaires de l’espace de travail (par exemple, pipelines ADF).  Deux identités managées portant le même nom peuvent exister dans un scénario connecté. Il est possible de différencier les identités managées grâce à leurs ID d’objet Azure AD. La fonctionnalité permettant de créer des utilisateurs SQL à l’aide de l’ID d’objet sera bientôt disponible.
 
     ```sql
     CREATE USER [<workspace managed identity] FROM EXTERNAL PROVIDER 

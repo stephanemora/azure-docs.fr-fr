@@ -2,25 +2,29 @@
 title: CI/CD avec Azure Pipelines et des modèles
 description: Décrit comment configurer l’intégration continue dans Azure Pipelines à l’aide de modèles Azure Resource Manager. Montre comment utiliser un script PowerShell ou copier des fichiers vers un emplacement intermédiaire et le déployer à partir de là.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233812"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594195"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Intégrer des modèles ARM avec Azure Pipelines
 
-Vous pouvez intégrer des modèles Azure Resource Manager (modèles ARM) avec Azure Pipelines pour l’intégration continue et le déploiement continu (CI/CD). Le tutoriel [Intégration continue des modèles ARM avec Azure Pipelines](deployment-tutorial-pipeline.md) montre comment utiliser la [tâche de déploiement ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) pour déployer un modèle à partir de votre dépôt GitHub. Cette approche fonctionne lorsque vous souhaitez déployer un modèle directement à partir d’un dépôt.
+Vous pouvez intégrer des modèles Azure Resource Manager (modèles ARM) avec Azure Pipelines pour l’intégration continue et le déploiement continu (CI/CD). Dans cet article, vous allez apprendre deux autres façons avancées de déployer des modèles avec Azure Pipelines.
 
-Dans cet article, vous allez apprendre deux autres façons de déployer des modèles avec Azure Pipelines. Cet article montre comment :
+## <a name="select-your-option"></a>Choix de l’option
 
-* **Ajouter une tâche exécutant un script Azure PowerShell**. Cette option présente l’avantage de fournir une cohérence tout au long du cycle de vie du développement, car vous pouvez utiliser le script que vous avez utilisé lors de l’exécution des tests locaux. Votre script déploie le modèle, mais peut également exécuter d’autres opérations telles que l’obtention de valeurs à utiliser en tant que paramètres.
+Avant de poursuivre, examinons les différentes options de déploiement d’un modèle ARM à partir d’un pipeline.
+
+* **Utiliser la tâche de déploiement de modèle ARM**. Il s’agit de l’option la plus simple. Cette approche fonctionne lorsque vous souhaitez déployer un modèle directement à partir d’un dépôt. Cette option n’est pas abordée dans cet article. Elle est en revanche traitée dans le tutoriel [Intégration continue de modèles ARM avec Azure Pipelines](deployment-tutorial-pipeline.md), qui montre comment utiliser la [tâche de déploiement de modèle ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) pour déployer un modèle à partir d’un référentiel GitHub.
+
+* **Ajouter une tâche exécutant un script Azure PowerShell**. Cette option présente l’avantage de fournir une cohérence tout au long du cycle de vie du développement, car vous pouvez utiliser le script que vous avez utilisé lors de l’exécution des tests locaux. Votre script déploie le modèle, mais peut également exécuter d’autres opérations telles que l’obtention de valeurs à utiliser en tant que paramètres. Cette option est présentée dans cet article. Cf. [Tâche Azure PowerShell](#azure-powershell-task).
 
    Visual Studio fournit le [projet de groupe de ressources Azure](create-visual-studio-deployment-project.md) qui inclut un script PowerShell. Le script organise les artefacts de votre projet comme un compte de stockage auquel Resource Manager peut accéder. Les artefacts sont des éléments dans votre projet comme les modèles liés, les scripts et les fichiers binaires d’application. Si vous souhaitez continuer à utiliser le script à partir du projet, utilisez la tâche de script PowerShell présentée dans cet article.
 
-* **Ajouter des tâches pour copier et déployer des tâches**. Cette deuxième option est une alternative pratique au script de projet. Vous configurez deux tâches dans le pipeline. Une tâche importe les artefacts vers un emplacement accessible. L’autre tâche déploie le modèle à partir de cet emplacement.
+* **Ajouter des tâches pour copier et déployer des tâches**. Cette deuxième option est une alternative pratique au script de projet. Vous configurez deux tâches dans le pipeline. Une tâche importe les artefacts vers un emplacement accessible. L’autre tâche déploie le modèle à partir de cet emplacement. Cette option est présentée dans cet article. Cf. [Tâches de copie et de déploiement](#copy-and-deploy-tasks).
 
 ## <a name="prepare-your-project"></a>Préparation du projet
 
@@ -101,7 +105,7 @@ Dans `ScriptArguments`, fournissez les paramètres nécessaires à votre script.
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Lorsque vous sélectionnez **Enregistrer** , le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
+Lorsque vous sélectionnez **Enregistrer**, le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
 
 ![Afficher les résultats](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +230,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Lorsque vous sélectionnez **Enregistrer** , le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
+Lorsque vous sélectionnez **Enregistrer**, le pipeline de build s’exécute automatiquement. Revenez au résumé de votre pipeline de build et regardez l’état.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

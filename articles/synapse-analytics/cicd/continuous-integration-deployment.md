@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797309"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624757"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse
 
@@ -139,8 +139,8 @@ Si vous utilisez une intégration Git avec votre espace de travail Synapse, et d
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Utiliser la tâche de déploiement de l’espace de travail Synapse
 
-Dans Synapse, les artefacts ne sont pas tous des ressources ARM, ce qui est différent d’ADF. Vous ne pouvez pas utiliser la tâche de déploiement d’un modèle ARM pour déployer des artefacts Synapse.
+Dans Synapse, il existe un certain nombre d’artefacts qui ne sont pas des ressources ARM. Cela diffère d’Azure Data Factory. La tâche de déploiement d’un modèle ARM ne fonctionnera pas correctement pour déployer des artefacts Synapse.
  
 ### <a name="unexpected-token-error-in-release"></a>Erreur de jeton inattendu dans la mise en production
 
-Lorsque votre fichier de paramètres contient des valeurs de paramètre qui ne sont pas placées dans une séquence d’échappement, le pipeline de mise en production ne parvient pas à analyser le fichier avec l’erreur de jeton inattendu. Nous vous suggérons de remplacer les paramètres ou KeyVault pour accéder aux paramètres. Vous pouvez également doubler la séquence d’échappement comme solution de contournement.
+Lorsque votre fichier de paramètres contient des valeurs de paramètre qui ne sont pas placées dans une séquence d’échappement, le pipeline de mise en production ne parvient pas à analyser le fichier et génère l’erreur « Jeton inattendu ». Nous vous suggérons de remplacer les paramètres ou d’utiliser Azure Key Vault pour récupérer les valeurs des paramètres. Vous pouvez également utiliser des caractères d’échappement doubles comme solution de contournement.

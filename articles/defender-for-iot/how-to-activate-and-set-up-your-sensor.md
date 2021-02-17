@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623587"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805663"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activer et configurer votre capteur
 
@@ -81,7 +81,7 @@ Pour vous connecter et activer :
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Capteur Azure Defender pour IoT.":::
 
-1. Entrez les informations d’identification définies lors de l’installation du capteur. Si vous avez acheté un capteur préconfiguré auprès d’Arrow, vous devez d’abord générer un mot de passe. Pour plus d’informations sur la récupération du mot de passe, consultez [Examiner l’échec du mot de passe lors de la connexion initiale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Entrez les informations d’identification définies lors de l’installation du capteur ou sélectionnez l’option **Récupération du mot de passe**. Si vous avez acheté un capteur préconfiguré auprès d’Arrow, vous devez d’abord générer un mot de passe. Pour plus d’informations sur la récupération du mot de passe, consultez [Examiner l’échec du mot de passe lors de la connexion initiale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Une fois que vous êtes connecté, la boîte de dialogue **Activation** s’ouvre. Sélectionnez **Charger** et accédez au fichier d’activation que vous avez téléchargé lors de l’intégration du capteur.
 
@@ -152,7 +152,7 @@ Définissez les paramètres système du capteur. Par exemple :
 
 - Si le protocole DHCP est utilisé, définissez des plages DHCP légitimes.
 
-- Définissez l’intégration à Active Directory et à des serveurs de messagerie.
+- Définissez l’intégration à Active Directory et à des serveurs de messagerie, le cas échéant.
 
 ### <a name="disable-learning-mode"></a>Désactiver le mode d’apprentissage
 
@@ -181,7 +181,7 @@ Vous accédez aux outils de la console à partir du menu latéral.
 | -----------|--|--|
 | tableau de bord | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Visualiser un instantané intuitif de l’état de la sécurité du réseau. |
 | Carte des appareils | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Visualiser les périphériques réseau et les connexions et propriétés des appareils dans une carte. Plusieurs options de zoom, de mise en surbrillance et de filtre sont disponibles pour afficher votre réseau. |
-| Gestion des appareils | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | L’inventaire des appareils affiche un large éventail d’attributs d’appareil détectés par ce capteur. Des options sont disponibles pour : <br /> – Filtrer les informations en fonction des champs de la table et voir les informations filtrées affichées. <br /> – Exporter les informations dans un fichier CSV. <br /> – Importer les détails du Registre Windows.|
+| Gestion des appareils | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | L’inventaire des appareils affiche la liste des attributs d’appareil détectés par ce capteur. Des options sont disponibles pour : <br /> – Trier ou filtrer les informations en fonction des champs de la table et voir les informations filtrées affichées. <br /> – Exporter les informations dans un fichier CSV. <br /> – Importer les détails du Registre Windows.|
 | Alertes | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Afficher des alertes lorsque des violations de stratégie se produisent, que des écarts par rapport au comportement de la ligne de base se produisent ou que tout type d’activité suspecte dans le réseau est détecté. |
 | Rapports | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Afficher des rapports basés sur des requêtes d’exploration de données. |
 
@@ -196,7 +196,7 @@ Vous accédez aux outils de la console à partir du menu latéral.
 | Fenêtre | Icône | Description |
 |---|---|---|
 | Exploration de données | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Générer des informations complètes et granulaires sur les appareils de votre réseau dans différentes couches. |
-| Tendances et statistiques | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Afficher les tendances et les statistiques dans une large gamme de widgets. |
+| Investigation | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Afficher les tendances et les statistiques dans une large gamme de widgets. |
 | Évaluation des risques | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Afficher la fenêtre **Vulnérabilités**. |
 
 **Administrateur**
@@ -204,7 +204,7 @@ Vous accédez aux outils de la console à partir du menu latéral.
 | Fenêtre | Icône | Description |
 |---|---|---|
 | Utilisateurs | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Définir des utilisateurs et des rôles avec différents niveaux d’accès. |
-| Transfert | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Transmettre des informations d’alerte aux partenaires qui s’intègrent à Defender pour IoT, aux adresses e-mail, aux serveurs webhook, et bien plus encore. <br /> Voir [Transférer les informations d’alerte](how-to-forward-alert-information-to-partners.md) pour plus d’informations. |
+| Transfert | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Transmettre des informations d’alerte aux partenaires, ainsi que les sources internes (par exemple, Azure Sentinel), qui s’intègrent à Defender pour IoT, aux adresses e-mail, aux serveurs webhook, et bien plus encore. <br /> Voir [Transférer les informations d’alerte](how-to-forward-alert-information-to-partners.md) pour plus d’informations. |
 | Paramètres système | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configurer les paramètres système. Par exemple, définir les paramètres DHCP, fournir les détails du serveur de messagerie ou créer des alias de port. |
 | Paramètres d’importation | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Afficher la fenêtre **Importer les paramètres**. Vous pouvez apporter des modifications manuelles dans les informations d’un appareil.<br /> Voir [Importer les informations des appareils](how-to-import-device-information.md) pour plus d’informations. |
 

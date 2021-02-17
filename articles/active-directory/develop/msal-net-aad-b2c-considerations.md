@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614912"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580825"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
 Vous pouvez utiliser MSAL.NET pour connecter des utilisateurs au moyen d’identités sociales avec [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md). Azure AD B2C s’appuie sur la notion de stratégies. Dans MSAL.NET, la spécification d’une stratégie se traduit par la fourniture d’une autorité.
 
-- Lorsque vous instanciez l’application cliente publique, vous devez préciser la stratégie comme élément de cette autorité.
+- Lorsque vous instanciez l’application cliente publique, précisez la stratégie comme élément de cette autorité.
 - Lorsque vous souhaitez appliquer une stratégie, appelez un remplacement de `AcquireTokenInteractive` qui accepte le paramètre `authority`.
 
 Cet article s’applique à MSAL.NET 3.x. Pour MSAL.NET 2.x, consultez l’article concernant les [caractéristiques d’Azure AD B2C dans MSAL 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) du Wiki MSAL.NET sur GitHub.

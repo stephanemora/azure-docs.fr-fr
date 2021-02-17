@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051870"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576039"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Questions fréquentes sur Load Balancer
 
@@ -52,9 +52,11 @@ Non, cela n’est pas possible.
 ## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Quel est le débit de données maximal qui peut être atteint via un équilibreur de charge Azure ?
 Étant donné qu’un équilibreur de charge Azure est un équilibreur de charge réseau direct, les limites de débit sont dictées par le type de machine virtuelle utilisé dans le pool principal. Pour en savoir plus sur les autres informations relatives au débit réseau, consultez [Débit réseau des machines virtuelles](../virtual-network/virtual-machine-network-throughput.md).
 
-
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Comment fonctionnent les connexions au Stockage Azure dans la même région ?
 Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Azure Load Balancer prend-il en charge l’arrêt TLS/SSL ?
+Non, actuellement, Azure Load Balancer ne prend pas en charge l’arrêt, car il s’agit d’un équilibreur de charge réseau direct. Application Gateway peut être une solution si votre application en a besoin.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quelles sont les meilleures pratiques en matière de connectivité sortante ?
 Standard Load Balancer et les adresses IP publiques standard introduisent des fonctionnalités et des comportements différents pour la connectivité sortante. Ils ne sont pas identiques aux références SKU De base. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard. Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne. Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard. Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée. Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité et toutes les instances d’un groupe VMSS se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée. Ce comportement est également observé dans le cas d’une machine virtuelle autonome avec plusieurs cartes d’interface réseau attachées à un équilibreur de charge. Si une carte réseau est ajoutée comme composant autonome, elle aura le même comportement. Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](./load-balancer-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-connections.md#outboundrules).

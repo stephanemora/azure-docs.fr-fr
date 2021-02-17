@@ -1,10 +1,10 @@
 ---
-title: Détection avancée des menaces Azure | Microsoft Docs
-description: Découvrez les fonctionnalités de détection avancée des menaces intégrées pour Azure, telles que le service Azure Active Directory Identity Protection.
+title: Protection contre les menaces Azure | Microsoft Docs
+description: Découvrez les fonctionnalités intégrées de protection contre les menaces pour Azure, telles que le service Azure AD Identity Protection.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
-ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747271"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549925"
 ---
-# <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
+# <a name="azure-threat-protection"></a>Protection contre les menaces Azure
 
-Azure intègre une fonctionnalité de détection des menaces avancée via certains services, comme Azure Active Directory (Azure AD), les journaux Azure Monitor et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
+Azure offre des fonctionnalités intégrées de protection contre les menaces via des services tels qu’Azure Active Directory (Azure AD), les journaux Azure Monitor et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
 
 Azure propose un large choix d’options pour configurer et personnaliser la sécurité afin de satisfaire les besoins de vos déploiements d’applications. Cet article mentionne comment répondre à ces exigences.
 
@@ -84,23 +84,9 @@ En plus de fournir de précieux services de manière autonome, les journaux Azur
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approche globale de la sécurité et de la conformité
 
-Le [tableau de bord Log Analytics Security and Audit](../../security-center/security-center-introduction.md) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord Security and Audit est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans les journaux Azure Monitor. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
+[Azure Security Center](../../security-center/security-center-introduction.md) offre une vue détaillée de la sécurité informatique de votre organisation, avec des requêtes de recherche intégrées pour détecter des problèmes importants nécessitant votre attention. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de tout intervalle de temps personnalisé.
 
 Les journaux Azure Monitor vous permettent de comprendre rapidement et facilement les conditions de sécurité globales de n’importe quel environnement, dans le contexte des opérations informatiques, notamment : évaluation des mises à jour logicielles, évaluation des logiciels anti-programmes malveillants et référentiels de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
-
-![Tableau de bord Log Analytics Security and Audit](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-Le tableau de bord Log Analytics Security and Audit est organisé en quatre catégories principales :
-
--   **Domaines de sécurité** : vous permet d’explorer plus en détail les enregistrements de sécurité au fil du temps, d’accéder à l’évaluation des programmes malveillants, de mettre à jour les évaluations, d’afficher la sécurité du réseau ainsi que les informations d’identité et d’accès, de consulter les ordinateurs présentant des événements de sécurité et d’accéder rapidement au tableau de bord d’Azure Security Center.
-
--   **Problèmes importants** : vous permet d’identifier rapidement le nombre de problèmes actifs et leur gravité.
-
--   **Détections (préversion)**  : vous permet d’identifier les modèles d’attaques en affichant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
-
--   **Informations sur les menaces** : vous permet d’identifier les modèles d’attaques en affichant le nombre total de serveurs présentant un trafic IP sortant malveillant, le type de menace malveillante et une carte indiquant l’emplacement de ces adresses IP.
-
--   **Requêtes de sécurité courantes** : liste les requêtes de sécurité les plus courantes que vous pouvez utiliser pour superviser votre environnement. Lorsque vous sélectionnez une requête, le volet Recherche s’ouvre et affiche les résultats de cette requête.
 
 ### <a name="insight-and-analytics"></a>Avis et analyses
 Au cœur des [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) se trouve le référentiel qui est hébergé par Azure.
@@ -109,21 +95,16 @@ Au cœur des [journaux Azure Monitor](../../azure-monitor/log-query/log-query-ov
 
 Vous collectez des données dans le référentiel à partir de sources connectées en configurant des sources de données et en ajoutant des solutions à votre abonnement.
 
-![Tableau de bord des journaux Azure Monitor](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Les sources de données et les solutions créent chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais vous pouvez toujours les analyser ensemble dans des requêtes vers le référentiel. Vous pouvez utiliser les mêmes outils et méthodes pour utiliser diverses données collectées par différentes sources.
-
 
 La plupart de vos interactions avec les journaux Azure Monitor s’effectuent via le portail Azure qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser les données collectées et agir sur celles-ci. À partir du portail, vous pouvez utiliser :
 * [Recherche dans les journaux](../../azure-monitor/log-query/log-query-overview.md) où vous avez élaboré des requêtes pour analyser des données collectées.
 * [Tableaux de bord](../../azure-monitor/learn/tutorial-logs-dashboards.md), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
 * [Solutions](../../azure-monitor/insights/solutions.md), qui fournissent des outils d’analyse et des fonctionnalités supplémentaires.
 
-![Outils d’analyse](./media/threat-detection/azure-threat-detection-fig6.png)
-
 Les solutions permettent d’ajouter des fonctionnalités aux journaux Azure Monitor. Elles s’exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel Log Analytics. Ces solutions peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord Log Analytics.
 
-Le tableau de bord Sécurité et Audit est un exemple de ces types de solutions.
+Le système Security Center est un exemple de ces types de solutions.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automation and Control : alerte sur les anomalies de configuration de la sécurité
 
@@ -216,7 +197,7 @@ Azure Security Center s’appuie sur des équipes de recherche de sécurité et 
 
 Ces efforts combinés aboutissent à des détections nouvelles et améliorées, dont vous pouvez bénéficier instantanément. Aucune action de votre part n’est requise.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Fonctionnalités de détection de menaces avancées : Autres services Azure
+## <a name="threat-protection-features-other-azure-services"></a>Fonctionnalités de protection contre les menaces : Autres services Azure
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Machines virtuelles : Microsoft Antimalware
 
@@ -367,7 +348,7 @@ Cloud App Security intègre la visibilité à votre cloud :
 
 Cloud App Security exécute une analyse complexe sur les données recueillies auprès de ces sources. Cette solution vous alerte immédiatement en cas d’activités anormales et vous procure une visibilité totale sur votre environnement cloud. Vous pouvez configurer une stratégie dans Cloud App Security et l’utiliser pour protéger tous les éléments de votre environnement cloud.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Fonctionnalités tierces avancées de détection des menaces via la Place de marché Azure
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Fonctionnalités tierces de protection contre les menaces via la Place de marché Azure
 
 ### <a name="web-application-firewall"></a>Pare-feu d’applications web
 

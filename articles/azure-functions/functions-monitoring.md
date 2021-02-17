@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936836"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550757"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -88,6 +88,10 @@ Pour en savoir plus sur l’écriture des journaux à partir de vos fonctions, c
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
+
+## <a name="analyze-data"></a>Analyser des données
+
+Par défaut, les données collectées à partir de votre application de fonction sont stockées dans Application Insights. Dans le [portail Azure](https://portal.azure.com), Application Insights fournit un ensemble complet de visualisations de vos données de télémétrie. Vous pouvez parcourir les journaux d’erreurs et interroger les événements et les métriques. Pour en savoir plus, y compris des exemples de base montrant comment afficher et interroger vos données collectées, consultez [Analyser la télémétrie d’Azure Functions dans Application Insights](analyze-telemetry-data.md). 
 
 ## <a name="streaming-logs"></a>Journaux d’activité en continu
 

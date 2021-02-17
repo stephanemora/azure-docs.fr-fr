@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612475"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805527"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Résolution des problèmes de synchronisation cloud
 
@@ -164,7 +164,7 @@ La synchronisation cloud supervise l’intégrité de la configuration et place 
 
 En sélectionnant l’état, vous pouvez voir des informations supplémentaires sur la mise en quarantaine. Vous pouvez également obtenir le code et le message d’erreur.
 
-![Informations sur l’état de mise en quarantaine](media/how-to-troubleshoot/quarantine-2.png)
+![Capture d’écran qui affiche des informations supplémentaires sur la quarantaine.](media/how-to-troubleshoot/quarantine-2.png)
 
 Cliquez avec le bouton droit sur le statut pour afficher des options supplémentaires :
     
@@ -172,7 +172,7 @@ Cliquez avec le bouton droit sur le statut pour afficher des options supplément
    - Afficher l’agent
    - Désactiver la mise en quarantaine
 
-![Informations sur l’état de mise en quarantaine](media/how-to-troubleshoot/quarantine-4.png)
+![Capture d’écran des options de menu contextuel.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Résoudre une mise en quarantaine
@@ -186,7 +186,7 @@ Pour désactiver et exécuter une synchronisation différentielle sur le travail
 
 Une notification vous informe que la mise en quarantaine est en cours de désactivation.
 
-![Informations sur l’état de mise en quarantaine](media/how-to-troubleshoot/quarantine-5.png)
+![Capture d’écran qui montre l’avis d’effacement de la mise en quarantaine.](media/how-to-troubleshoot/quarantine-5.png)
 
 Ensuite, l’état de l’agent devient sain.
 

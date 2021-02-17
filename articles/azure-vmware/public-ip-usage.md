@@ -2,13 +2,13 @@
 title: Comment utiliser la fonctionnalité d’adresse IP publique dans Azure VMware Solution
 description: Cet article explique comment utiliser la fonctionnalité d’adresse IP publique dans Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517901"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581378"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Comment utiliser la fonctionnalité d’adresse IP publique dans Azure VMware Solution
 
@@ -128,15 +128,15 @@ Une fois que tous les composants sont déployés, vous pouvez les voir dans le g
    -  Action de collection de règles : Autoriser
    -  Nom de la règle
    -  Type de source : **Adresse IP**
-   -  Source :* *\** _
-   -  Protocole :_ *TCP**
+   -  Source - **\***
+   -  Protocole : **TCP**
    -  Port de destination : **80**
    -  Type de destination : **Adresse IP**
    -  Destination : **Adresse IP publique**
    -  Adresse traduite : **Adresse IP privée du serveur web Azure VMware Solution**
    -  Port traduit : **Port du serveur web Azure VMware Solution**
 
-1. Laissez la valeur par défaut, puis sélectionnez **Suivant : Hubs**.
+1. Laissez la valeur par défaut, puis sélectionnez **Suivant : Hubs**.
 
 1. Sélectionnez **Associer un hub virtuel**.
 
@@ -144,11 +144,11 @@ Une fois que tous les composants sont déployés, vous pouvez les voir dans le g
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Capture d’écran montrant les hubs sélectionnés qui seront convertis en hubs virtuels sécurisés." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Sélectionnez **Suivant : Balises**. 
+1. Sélectionnez **Suivant : Balises**. 
 
 1. (Facultatif) Créez des paires de nom et valeur pour classer vos ressources. 
 
-1. Sélectionnez **Suivant : Vérifier + créer**, puis **Créer**.
+1. Sélectionnez **Suivant : Vérifier + créer**, puis **Créer**.
 
 ## <a name="limitations"></a>Limites
 
@@ -156,5 +156,7 @@ Vous pouvez avoir 100 adresses IP publiques par SDDC.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur l’utilisation des adresses IP publiques à l’aide d’[Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Maintenant que vous avez couvert l’utilisation de la fonctionnalité d’IP publique dans Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
+- Utilisation d’IP publiques avec [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+- [Création d’un tunnel IPSec dans Azure VMware Solution](create-ipsec-tunnel.md).

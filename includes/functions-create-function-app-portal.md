@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187113"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980935"
 ---
 1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187113"
     | **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
     | **Nom de l’application de fonction** | Nom global unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.  |
     |**Publier**| Code | Option permettant de publier des fichiers de code ou un conteneur Docker. |
-    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. La modification sur le portail n’est pas prise en charge pour le [développement Python](../articles/azure-functions/functions-reference-python.md). |
+    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. La modification dans le portail n’est disponible que pour les scripts JavaScript, PowerShell, TypeScript et C#. Les fonctions de la bibliothèque de classes C#, ainsi que les fonctions Java et Python doivent être [développées localement](../articles/azure-functions/functions-develop-local.md#local-development-environments).  |
     |**Version**| Numéro de version | Choisissez la version de votre runtime installé. |
     |**Région**| Région recommandée | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
 

@@ -1,5 +1,5 @@
 ---
-title: Création de solutions pour le secteur public avec Azure IoT Central
+title: Présentation des solutions Azure IoT Central pour le secteur public
 description: Apprenez à créer des solutions de ville intelligente à l’aide de modèles d’application Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590815"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834338"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Création de solutions pour le secteur public avec Azure IoT Central
+# <a name="what-are-the-iot-central-government-solutions"></a>Présentation des solutions IoT Central pour le secteur public
 
 Lancez-vous dans la génération de solutions de ville intelligente à l’aide de modèles d’application Azure IoT Central. Commencez dès maintenant avec les modèles **Suivi de la qualité de l’eau**, **Suivi de la consommation d’eau** et **Gestion connectée des déchets**.
 
@@ -71,8 +71,6 @@ Prise en main avec le [didacticiel d’application Gestion connectée des déche
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Essayez gratuitement l’un des modèles d’application pour le secteur public dans IoT Central pour [créer une application](https://apps.azureiotcentral.com/build/government)
 * Découvrez les [concepts de Suivi de la qualité de l’eau](./concepts-waterqualitymonitoring-architecture.md)
 * Découvrez les [concepts de Suivi de la consommation d’eau](./concepts-waterconsumptionmonitoring-architecture.md)
 * Découvrez les [concepts de Gestion connectée des déchets](./concepts-connectedwastemanagement-architecture.md)  
-* Découvrez IoT Central dans [vue d’ensemble d’IoT Central](../core/overview-iot-central.md)

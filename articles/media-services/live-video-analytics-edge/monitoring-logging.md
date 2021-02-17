@@ -3,12 +3,12 @@ title: Supervision et journalisation - Azure
 description: Cet article fournit une vue d’ensemble de la supervision et de la journalisation dans Live Video Analytics sur IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878102"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507814"
 ---
 # <a name="monitoring-and-logging"></a>Surveillance et journalisation
 
@@ -254,14 +254,14 @@ Pour activer la collecte de métriques à partir du module Live Video Analytics 
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Veillez à remplacer les variables dans le fichier .toml. Les variables sont désignées par des accolades (`{}`).
 
-1. Dans le même dossier, créez un fichier `.dockerfile` qui contient les commandes suivantes :
+1. Dans le même dossier, créez un Dockerfile qui contient les commandes suivantes :
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,12 +305,27 @@ Pour activer la collecte de métriques à partir du module Live Video Analytics 
      `AZURE_CLIENT_SECRET` : secret de l’application à utiliser.  
      
      >[!TIP]
-     > Vous pouvez attribuer au principal du service le rôle **Éditeur de métriques de surveillance**.
+     > Vous pouvez attribuer au principal du service le rôle **Éditeur de métriques de surveillance**. Suivez les étapes décrites dans **[Créer un principal de service](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** pour créer le principal de service et attribuer le rôle.
 
 1. Une fois les modules déployés, les mesures s’affichent dans Azure Monitor sous un espace de noms unique. Les noms de métriques correspondent à ceux émis par Prometheus. 
 
    Dans ce cas, dans le portail Azure, accédez au hub IoT et sélectionnez **Métriques** dans le volet gauche. Les métriques y figurent.
 
+En utilisant Prometheus avec [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), vous pouvez générer et [surveiller des métriques](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) telles que l’utilisation de CPUPercent, MemoryUsedPercent, etc. À l’aide du langage de requête Kusto, vous pouvez écrire des requêtes comme ci-dessous et obtenir le pourcentage d’UC utilisé par les modules IoT Edge.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[ ![Diagramme montrant les métriques à l’aide d’une requête Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## <a name="logging"></a>Journalisation
 
 Comme avec d’autres modules IoT Edge, vous pouvez également [examiner les journaux de conteneur](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) sur le périphérique. Vous pouvez configurer les informations écrites dans les journaux à l’aide des [propriétés de jumeau de module](module-twin-configuration-schema.md) suivantes :

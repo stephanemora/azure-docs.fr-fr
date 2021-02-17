@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
-ms.date: 09/25/2019
-ms.openlocfilehash: fed568d67c688a8c2adab979eb68eaf384a72172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 02/03/2021
+ms.openlocfilehash: 359f268f69918ccfd9fe34a28c3f8d1c79988393
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539275"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575610"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutoriel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS
 
@@ -68,6 +68,18 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Vérifiez que les règles de groupe de sécurité de votre réseau virtuel ne bloquent pas les ports de communication suivants : 53, 443, 445, 9354 et 10000-20000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur MongoDB source via le port TCP 27017 (par défaut).
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
+
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>Configurer les nouvelles tentatives Azure Cosmos DB côté serveur pour une migration efficace
+
+Les clients qui effectuent une migration à partir de MongoDB vers Azure Cosmos DB bénéficient des fonctionnalités de gouvernance des ressources, qui vous permettent d’utiliser pleinement vos RU/s de débit provisionnés. Azure Cosmos DB peut limiter une demande de service de migration de données au cours de la migration si cette demande dépasse les RU/s provisionnés du conteneur. Vous devrez alors retenter cette demande. Le service de migration des données est capable d’effectuer de nouvelles tentatives. Cependant, le temps d’aller-retour nécessaire au tronçon réseau entre le service de migration des données et Azure Cosmos DB impacte le temps de réponse global de cette requête. L’amélioration du temps de réponse aux demandes limitées peut raccourcir le temps total nécessaire à la migration. La fonctionnalité de *nouvelle tentative côté serveur* d’Azure Cosmos DB permet au service d’intercepter les codes d’erreur de limitation et d’effectuer une nouvelle tentative avec un temps d’aller-retour beaucoup plus court, améliorant ainsi considérablement les temps de réponse aux requêtes.
+
+La fonctionnalité de nouvelle tentative côté serveur est accessible via le panneau *Fonctionnalités* du portail Azure Cosmos DB.
+
+![Capture d’écran de la fonctionnalité de nouvelle tentative côté serveur MongoDB.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-feature.png)
+
+Si cette fonctionnalité est *désactivée*, nous vous recommandons de l’activer comme indiqué ci-dessous.
+
+![Capture d’écran de l’activation de la fonctionnalité de nouvelle tentative côté serveur MongoDB.](media/tutorial-mongodb-to-cosmosdb-online/mongo-server-side-retry-enable.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
 

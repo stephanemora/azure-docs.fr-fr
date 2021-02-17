@@ -1,21 +1,21 @@
 ---
-title: Envoyer (push) et tirer (pull) une image Docker
-description: Transmission et extraction des images Docker à un Registre de conteneur privé dans Azure à l’aide de l’interface de ligne de commande (CLI) Docker
+title: Transmission et extraction d’image de conteneur
+description: Transmission et extraction d’images Docker à/de votre registre de conteneurs privé dans Azure à l’aide de l’interface de ligne de commande Docker
 ms.topic: article
 ms.date: 01/23/2019
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 83ef385313b035f5e5d7d993e7948725906c75a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071627"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987773"
 ---
-# <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
+# <a name="push-your-first-image-to-your-azure-container-registry-using-the-docker-cli"></a>Transmettre votre première image à votre registre de conteneurs Azure à l’aide de l’interface de ligne de commande Docker
 
-Un Registre de conteneur Azure stocke et gère les images privées du conteneur [Docker](https://hub.docker.com), de la même manière que [Docker Hub](https://hub.docker.com/) stocke les images publiques du Docker. Vous pouvez utiliser [l’interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/cli/) (interface CLI Docker) pour la [connexion (login)](https://docs.docker.com/engine/reference/commandline/login/), la [poussée (push)](https://docs.docker.com/engine/reference/commandline/push/), le [tirage (pull)](https://docs.docker.com/engine/reference/commandline/pull/) et autres opérations sur le registre du conteneur.
+Un registre de conteneurs Azure stocke et gère des images conteneurs privées ainsi que d’autres artefacts, de la même manière que [Docker Hub](https://hub.docker.com/) stocke des images conteneurs Docker publiques. Vous pouvez utiliser l’[interface de ligne de commande Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) pour la [connexion](https://docs.docker.com/engine/reference/commandline/login/), la [transmission](https://docs.docker.com/engine/reference/commandline/push/), l’[extraction](https://docs.docker.com/engine/reference/commandline/pull/) et d’autres opérations d’image conteneur sur le registre de conteneurs.
 
-Dans les étapes suivantes, téléchargez une [image Nginx](https://store.docker.com/images/nginx) officielle à partir du registre Docker Hub public, étiquetez-la pour votre registre de conteneurs Azure privé, poussez-la dans votre registre, puis tirez-la du registre.
+Dans les étapes suivantes, vous allez télécharger une [image Nginx](https://store.docker.com/images/nginx) publique, l’étiqueter pour votre registre de conteneurs Azure privé, la transmettre à votre registre, puis l’extraire du registre.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -24,9 +24,10 @@ Dans les étapes suivantes, téléchargez une [image Nginx](https://store.docker
 
 ## <a name="log-in-to-a-registry"></a>Se connecter à un Registre
 
-Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Par exemple, pour vous connecter à un registre nommé *myregistry* :
+Il existe [plusieurs façons de s’authentifier](container-registry-authentication.md) auprès de votre registre de conteneurs privé. La méthode recommandée avec une ligne de commande consiste à utiliser la commande Azure CLI [az acr login](/cli/azure/acr#az-acr-login). Par exemple, pour vous connecter à un registre nommé *myregistry*, connectez-vous à Azure CLI, puis authentifiez-vous auprès de votre registre :
 
 ```azurecli
+az login
 az acr login --name myregistry
 ```
 
@@ -43,12 +44,12 @@ Les deux commandes retournent `Login Succeeded` une fois terminées.
 > [!TIP]
 > Spécifiez toujours le nom complet du registre (tout en minuscules) lorsque vous utilisez `docker login` et lorsque vous étiquetez des images à pousser dans votre registre. Dans les exemples de cet article, le nom complet est *myregistry.azurecr.io*.
 
-## <a name="pull-the-official-nginx-image"></a>Tirer (pull) l’image Nginx officielle
+## <a name="pull-a-public-nginx-image"></a>Extraire une image Nginx publique
 
-Tout d’abord, tirez l’image Nginx publique sur votre ordinateur local.
+Tout d’abord, extrayez une image Nginx publique sur votre ordinateur local. Cet exemple extrait une image de Microsoft Container Registry.
 
 ```
-docker pull nginx
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 ## <a name="run-the-container-locally"></a>Exécutez localement le conteneur
@@ -56,7 +57,7 @@ docker pull nginx
 Exécutez la commande [docker run](https://docs.docker.com/engine/reference/run/) suivante pour démarrer une instance locale du conteneur Nginx de manière interactive (`-it`) sur le port 8080. L’argument `--rm` spécifie que le conteneur doit être supprimé lorsque vous l’arrêtez.
 
 ```
-docker run -it --rm -p 8080:80 nginx
+docker run -it --rm -p 8080:80 mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Accédez à `http://localhost:8080` pour afficher la page web par défaut servie par Nginx dans le conteneur en cours d’exécution. Une page similaire à celle ci-dessous doit s'afficher :
@@ -72,7 +73,7 @@ Pour arrêter et supprimer le conteneur, appuyez sur `Control`+`C`.
 Utilisez une [balise Docker](https://docs.docker.com/engine/reference/commandline/tag/) pour créer un alias de l’image, avec un chemin complet vers votre registre. Cet exemple spécifie l’espace de noms `samples` pour éviter l’encombrement à la racine du Registre.
 
 ```
-docker tag nginx myregistry.azurecr.io/samples/nginx
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx
 ```
 
 Pour plus d’informations sur le balisage avec des espaces de noms, consultez la section [Espaces de noms du référentiel](container-registry-best-practices.md#repository-namespaces) dans [Bonnes pratiques pour Azure Container Registry](container-registry-best-practices.md).

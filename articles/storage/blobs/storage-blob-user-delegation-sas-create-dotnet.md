@@ -1,27 +1,27 @@
 ---
-title: Utiliser .NET pour créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob
+title: Utiliser .NET pour créer une SAP de délégation d’utilisateur pour un conteneur, un répertoire ou un blob
 titleSuffix: Azure Storage
 description: Découvrez comment créer une SAS de délégation d’utilisateur avec des informations d’identification Azure Active Directory à l’aide de la bibliothèque de client .NET pour Stockage Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199255"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526803"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET
+# <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Créer une SAP de délégation d’utilisateur pour un conteneur, un répertoire ou un blob en utilisant .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un blob avec la bibliothèque de client de Stockage Azure pour .NET version 12.
+Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur, un répertoire ou un blob avec la bibliothèque de client de Stockage Azure pour .NET version 12.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -99,7 +99,7 @@ L’exemple suivant teste la SAP de délégation d’utilisateur créée dans l�
 
 ## <a name="get-a-user-delegation-sas-for-a-directory"></a>Obtenir une SAP de délégation d’utilisateur pour un répertoire
 
-L’exemple de code suivant montre comment générer une SAP de délégation d’utilisateur pour un répertoire lorsqu’un espace de noms hiérarchique est activé :
+L’exemple de code suivant montre comment générer une SAP de délégation d’utilisateur pour un répertoire lorsqu’un espace de noms hiérarchique est activé pour le compte de stockage :
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 

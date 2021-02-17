@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 5e44c2cfc81256a8715c7c625648b6ec25bcd319
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 566cc3b1192d632bbffb8f9ef091f291b4bcc6e6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929215"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581145"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Gérer un pool de capacités de QoS manuel
 
@@ -59,7 +59,8 @@ Pour créer un pool de capacités qui utilise le type QoS manuelle :
 Vous pouvez modifier un pool de capacités qui utilise actuellement le type QoS automatique pour utiliser le type QoS manuelle.  
 
 > [!IMPORTANT]
-> La définition du type de capacité sur la QoS manuelle est une modification permanente. Vous ne pouvez pas convertir un outil de capacité de type QoS manuelle en pool de capacités avec QoS automatique. 
+> La définition du type de capacité sur la QoS manuelle est une modification permanente. Vous ne pouvez pas convertir un outil de capacité de type QoS manuelle en pool de capacités avec QoS automatique.  
+> Au moment de la conversion, les niveaux de débit peuvent être plafonnés pour respecter les limites de débit pour les volumes de type QoS manuelle. Voir [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
 1. Dans le panneau de gestion de votre compte NetApp, cliquez sur **Pools de capacités** pour afficher les pools de capacités existants.   
  

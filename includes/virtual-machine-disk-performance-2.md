@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 086ebf71e2da19a96433f32cfb1bae133e875400
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518056"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808509"
 ---
 ![Graphique présentant les spécifications Dsv3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -28,14 +28,14 @@ Vous pouvez activer la mise en cache de l’hôte lorsque vous créez votre mach
 
 Vous pouvez ajuster la mise en cache de l’hôte pour correspondre à vos exigences de charge de travail pour chaque disque. Vous pouvez définir la mise en cache de l’hôte :
 
-- **Lecture seule**  : Pour les charges de travail qui effectuent uniquement des opérations de lecture
+- **Lecture seule** : Pour les charges de travail qui effectuent uniquement des opérations de lecture
 - **Lecture/écriture** : Pour les charges de travail qui effectuent un équilibre entre opérations de lecture et d’écriture
 
 Si votre charge de travail ne suit pas l’un de ces modèles, il est déconseillé d’utiliser la mise en cache de l’hôte.
 
-Examinons quelques exemples de différents paramètres de mise en cache de l’hôte pour voir comment ils agissent sur le flux de données et les performances. Dans ce premier exemple, nous allons examiner ce qui se passe avec les demandes d’E/S lorsque le paramètre de mise en cache de l’hôte est défini sur **Lecture seule** .
+Examinons quelques exemples de différents paramètres de mise en cache de l’hôte pour voir comment ils agissent sur le flux de données et les performances. Dans ce premier exemple, nous allons examiner ce qui se passe avec les demandes d’E/S lorsque le paramètre de mise en cache de l’hôte est défini sur **Lecture seule**.
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde mises en cache : 16 000
@@ -56,9 +56,9 @@ Lorsqu’une écriture est effectuée, elle doit être écrite dans le cache et 
 
 ![Diagramme montrant une écriture avec mise en cache de l’hôte sur lecture.](media/vm-disk-performance/host-caching-write.jpg)
 
-Ensuite, examinons ce qui se passe avec les demandes d’E/S lorsque le paramètre de mise en cache de l’hôte est défini sur **Lecture/écriture** .
+Ensuite, examinons ce qui se passe avec les demandes d’E/S lorsque le paramètre de mise en cache de l’hôte est défini sur **Lecture/écriture**.
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde mises en cache : 16 000
@@ -67,13 +67,13 @@ Ensuite, examinons ce qui se passe avec les demandes d’E/S lorsque le paramèt
   - IOPS : 5 000
   - Mise en cache de l’hôte : **Lecture/écriture**
 
-Une lecture est gérée de la même façon qu’une lecture seule. Les écritures sont la seule chose qui est différente pour la mise en cache en lecture/écriture. Lors de l’écriture avec la mise en cache de l’hôte définie sur **Lecture/écriture** , il suffit d’écrire l’écriture dans le cache de l’hôte pour que l’opération soit considérée comme terminée. L’écriture est ensuite écrite tardivement dans le disque dans le cadre d’un processus d’arrière-plan. Cela signifie qu’une écriture est comptabilisée pour les E/S de mise en cache lors de son écriture dans le cache. Lorsqu’elle est écrite tardivement sur le disque, elle est comptabilisée vers les E/S non mises en cache.
+Une lecture est gérée de la même façon qu’une lecture seule. Les écritures sont la seule chose qui est différente pour la mise en cache en lecture/écriture. Lors de l’écriture avec la mise en cache de l’hôte définie sur **Lecture/écriture**, il suffit d’écrire l’écriture dans le cache de l’hôte pour que l’opération soit considérée comme terminée. L’écriture est ensuite écrite tardivement dans le disque dans le cadre d’un processus d’arrière-plan. Cela signifie qu’une écriture est comptabilisée pour les E/S de mise en cache lors de son écriture dans le cache. Lorsqu’elle est écrite tardivement sur le disque, elle est comptabilisée vers les E/S non mises en cache.
 
 ![Diagramme montrant une écriture avec mise en cache de l’hôte sur lecture/écriture.](media/vm-disk-performance/host-caching-read-write.jpg)
 
 Poursuivons avec notre machine virtuelle Standard_D8s_v3. La différence est que cette fois, nous allons activer la mise en cache de l’hôte sur les disques. En outre, la limite d’IOPS de la machine virtuelle est désormais de 16 000 IOPS. Trois disques P30 sous-jacents qui peuvent gérer chacun 5 000 IOPS sont attachés à la machine virtuelle.
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde mises en cache : 16 000
@@ -95,7 +95,7 @@ Les limites de mise en cache d’une machine virtuelle sont séparées de ses li
 
 Nous allons parcourir un exemple pour vous aider à comprendre comment ces limites fonctionnent ensemble. Nous allons continuer avec la machine virtuelle Standard_D8s_v3 et la configuration avec disques Premium attachés.
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde mises en cache : 16 000
@@ -137,26 +137,27 @@ Nous disposons de métriques sur Azure qui fournissent des informations sur les 
 - **Disk Write Operations/Sec** : Le nombre d’opérations de sortie écrites en une seconde à partir de tous les disques attachés à une machine virtuelle.
 
 ## <a name="storage-io-utilization-metrics"></a>Métriques d’utilisation des E/S de stockage
+Les métriques suivantes aident à diagnostiquer les goulots d’étranglement dans votre combinaison Machine virtuelle et Disque. Ces métriques ne sont disponibles que lors de l’utilisation d’une machine virtuelle Premium. Ces métriques sont disponibles pour tous les types de disques, sauf le type Ultra. 
 
 Mesures permettant de diagnostiquer les limitations des E/S disque :
 
 - **Pourcentage d’IOPS du disque de données consommées** : Le pourcentage calculé en divisant les opérations d’IOPS de disque de données terminées par les IOPS de disque de données approvisionnées. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS de votre disque de données.
-- **Pourcentage de bande passante du disque de données consommée**  : Le pourcentage calculé par la bande passante consommée par rapport à la bande passante de disque de données approvisionnée. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de données.
+- **Pourcentage de bande passante du disque de données consommée** : Le pourcentage calculé par la bande passante consommée par rapport à la bande passante de disque de données approvisionnée. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de données.
 - **Pourcentage d’IOPS du disque de système d’exploitation consommées** : Le pourcentage calculé en divisant les opérations d’IOPS de disque de système d’exploitation terminées par les IOPS de disque du système d’exploitation approvisionnées. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS de votre disque de système d’exploitation.
-- **Pourcentage de bande passante du disque de système d’exploitation consommée**  : Le pourcentage calculé par le débit du disque du système d’exploitation consommé par rapport au débit de disque du système d’exploitation approvisionné. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de système d’exploitation.
+- **Pourcentage de bande passante du disque de système d’exploitation consommée** : Le pourcentage calculé par le débit du disque du système d’exploitation consommé par rapport au débit de disque du système d’exploitation approvisionné. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de système d’exploitation.
 
 Métriques permettant de diagnostiquer les limitations des E/S de machine virtuelle :
 
 - **Pourcentage d’IOPS en cache de machine virtuelle consommées** : Le pourcentage calculé en divisant le total des opérations d’IOPS terminées par le nombre maximal d’IOPS en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS en cache de votre machine virtuelle.
-- **Pourcentage de bande passante en cache consommée par la machine virtuelle**  : Le pourcentage calculé en divisant la bande passante de disque totale terminée par le débit maximal en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante en cache de votre machine virtuelle.
+- **Pourcentage de bande passante en cache consommée par la machine virtuelle** : Le pourcentage calculé en divisant la bande passante de disque totale terminée par le débit maximal en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante en cache de votre machine virtuelle.
 - **Pourcentage d’IOPS non mises en cache de machine virtuelle consommées** : Le pourcentage calculé en divisant le total des opérations d’IOPS terminées sur une machine virtuelle par la limite d’IOPS non mises en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS non mises en cache de votre machine virtuelle.
-- **Pourcentage de bande passante non mise en cache consommée par la machine virtuelle**  : Le pourcentage calculé en divisant la bande passante de disque totale terminée sur une machine virtuelle par le débit maximal approvisionné de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante non mise en cache de votre machine virtuelle.
+- **Pourcentage de bande passante non mise en cache consommée par la machine virtuelle** : Le pourcentage calculé en divisant la bande passante de disque totale terminée sur une machine virtuelle par le débit maximal approvisionné de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante non mise en cache de votre machine virtuelle.
 
 ## <a name="storage-io-utilization-metrics-example"></a>Exemples de métriques d’utilisation des E/S de stockage
 
 Examinons un exemple d’utilisation de ces nouvelles métriques d’utilisation des E/S de stockage pour nous aider à localiser un goulot d’étranglement dans notre système. La configuration système est identique à l’exemple précédent, sauf que cette fois, le disque de système d’exploitation attaché n’est *pas* mis en cache.
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde mises en cache : 16 000

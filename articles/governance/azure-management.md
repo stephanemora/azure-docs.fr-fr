@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble de la gestion Azure - Gouvernance Azure
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
-ms.date: 09/09/2020
+ms.date: 02/05/2021
 ms.topic: overview
-ms.openlocfilehash: 8ffb37cd1db5740ed022b52cd9687bb3db1632bb
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 754fe496b790a7ee32eb840109a60a04ee66ef97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949494"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593923"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Présentation des domaines de gestion Azure
 
@@ -33,7 +33,7 @@ La supervision consiste à collecter et analyser des données afin de détermine
 ## <a name="configure"></a>Configurer
 
 La configuration fait référence au déploiement initial et à la configuration des ressources ainsi qu’à leur maintenance continue.
-L’automatisation de ces tâches vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et votre efficacité. [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration. Alors que les runbooks gèrent l’automatisation des processus, la gestion de la configuration et des mises à jour vous aide à gérer la configuration.
+L’automatisation de ces tâches vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et votre efficacité. [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration. Alors que les runbooks gèrent l’automatisation des processus, la gestion de la configuration et des mises à jour vous permet de gérer la configuration.
 
 ## <a name="govern"></a>Gouvernance
 

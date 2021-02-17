@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 2/2/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 8dba607ae746c26dd80a8e036bcd75930a1e8b01
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131472"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538389"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -25,6 +25,7 @@ Les versions prises en charge de l'agent Azure File Sync sont les suivantes :
 
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
+| Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge : Distribution de version d’évaluation |
 | Mise en production V 11.1 – [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Prise en charge |
 | Version V10.1 : [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge |
 | Correctif cumulatif de mai 2020 : [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 mai 2020 | Prise en charge |
@@ -48,6 +49,32 @@ Les versions suivantes de l'agent Azure File Sync ont expiré et ne sont plus pr
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>Version de l’agent 11.2.0.0
+Les notes de publication suivantes concernent la version 11.2.0.0 de l’agent Azure File Sync publiée le 2 février 2021. Ces notes s’ajoutent aux notes de publication de la version 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus 
+- Si une session de synchronisation est annulée en raison d’un nombre élevé d’erreurs par élément, la synchronisation peut passer par un rapprochement quand une nouvelle session démarre si le service Azure File Sync détermine qu’une session de synchronisation personnalisée est nécessaire pour corriger les erreurs par élément.
+- L’inscription d’un serveur à l’aide de la cmdlet Register-AzStorageSyncServer peut échouer avec l’erreur « Exception non prise en charge ».
+- Nouvelle cmdlet PowerShell (Add-StorageSyncAllowedServerEndpointPath) pour configurer les chemins d’accès aux points de terminaison de serveur autorisés sur un serveur. Cette cmdlet est utile pour les scénarios dans lesquels le déploiement Azure File Sync est managé par un fournisseur de solutions cloud (CSP) ou un fournisseur de services, quand le client souhaite configurer des chemins d’accès aux points de terminaison de serveur autorisés sur un serveur. Lors de la création d’un point de terminaison de serveur, si le chemin d’accès spécifié n’est pas dans la liste d’autorisation, la création du point de terminaison de serveur échoue. Notez qu’il s’agit d’une fonctionnalité facultative et que tous les chemins d’accès pris en charge sont autorisés par défaut lors de la création d’un point de terminaison de serveur.  
+
+    
+    - Pour ajouter un chemin d’accès autorisé au point de terminaison de serveur, exécutez les commandes PowerShell suivantes sur le serveur :
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Pour obtenir la liste des chemins d’accès pris en charge, exécutez la commande PowerShell suivante :
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Pour supprimer un lien, exécutez la commande PowerShell suivante :
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>Version de l’agent 11.1.0.0
 Les notes de publication suivantes concernent la version 11.1.0.0 de l’agent Azure File Sync (mise en production le 4 novembre 2020).
 

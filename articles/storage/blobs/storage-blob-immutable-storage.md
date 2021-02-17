@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010059"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979133"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -53,6 +53,10 @@ Le stockage immuable prend en charge les fonctionnalités suivantes :
 Le stockage immuable du Stockage Blob Azure prend en charge deux types de stratégies WORM ou immuables : la conservation limitée dans le temps et l’archivage juridique. Lorsqu’une stratégie de conservation limitée dans le temps ou d’archivage juridique est appliquée sur un conteneur, tous les objets blob existants prennent l’état WORM immuable en moins de 30 secondes. Tous les nouveaux objets blob chargés dans ce conteneur protégé par une stratégie ont également cet état. Une fois que tous les objets blob sont à l’état immuable, la stratégie immuable est confirmée et aucune opération de remplacement ou de suppression n’est autorisée dans le conteneur immuable.
 
 La suppression du conteneur et du compte de stockage n’est pas non plus autorisée si le conteneur contient des objets blob protégés par une conservation légale ou une stratégie limitée dans le temps verrouillée. Une stratégie de conservation légale vous protège contre la suppression des objets blob, des conteneurs et des comptes de stockage. Les stratégies limitées dans le temps verrouillées et déverrouillées assurent une protection contre la suppression des objets blob pendant la durée spécifiée. Les stratégies limitées dans le temps verrouillées et déverrouillées assurent une protection contre la suppression des conteneurs à condition qu’ils contiennent au moins un objet blob. Seul un conteneur assorti d’une stratégie limitée dans le temps *verrouillée* assure une protection contre la suppression des comptes de stockage ; les conteneurs assortis de stratégies limitées dans le temps déverrouillées n’offrent pas de conformité ni de protection contre la suppression des comptes de stockage.
+
+Le diagramme suivant montre comment les stratégies de rétention basées sur le temps et les conservations légales empêchent les opérations d’écriture et de suppression quand elles sont appliquées.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagramme montrant comment les stratégies de rétention et les conservations légales empêchent les opérations d’écriture et de suppression":::
 
 Pour plus d’informations sur la façon de définir et de verrouiller des stratégies de rétention limitée dans le temps, consultez [Définir et gérer des stratégies d’immuabilité pour le stockage blob](storage-blob-immutability-policies-manage.md).
 

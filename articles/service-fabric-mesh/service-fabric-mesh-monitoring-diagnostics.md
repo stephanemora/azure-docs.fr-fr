@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682069"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626992"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Il ne sera plus autorisé d’effectuer de nouveaux déploiements par le biais de l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. La surveillance et les diagnostics pour Service Fabric mesh portent sur trois types principaux de données de diagnostic :
 
 - Journaux des applications : ils sont définis comme les journaux d’activité de vos applications en conteneur, selon la façon dont vous avez instrumenté votre application (par exemple, journaux d’activité Docker).
@@ -58,7 +64,7 @@ L’environnement Mesh expose un certain nombre de métriques indiquant le fonct
 | RestartCount | Nombre de redémarrages du conteneur | N/A |
 
 > [!NOTE]
-> Les valeurs ServiceStatus et ServiceReplicaStatus sont les mêmes que [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) dans Service Fabric. 
+> Les valeurs ServiceStatus et ServiceReplicaStatus sont les mêmes que [HealthState](/dotnet/api/system.fabric.health.healthstate) dans Service Fabric.
 
 Chaque métrique est disponible sur les différentes dimensions afin que vous puissiez voir les agrégats à différents niveaux. Voici la liste actuelle des dimensions :
 

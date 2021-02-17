@@ -2,13 +2,13 @@
 title: Concepts – Mises à jour et mises à niveau des clouds privés
 description: Découvrez les processus et fonctionnalités clés de mise à niveau dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/02/2021
+ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809647"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006699"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Mises à jour et mises à niveau des clouds privés Azure VMware Solution
 
@@ -53,11 +53,14 @@ En plus d’effectuer des mises à jour, Azure VMware Solution effectue une sauv
 
 En cas d’échec, Azure VMware Solution peut les restaurer à partir de la sauvegarde de la configuration. 
 
-Pour plus d’informations sur les versions des logiciels VMware, consultez l’[article sur les concepts des clusters et des clouds privés](concepts-private-clouds-clusters.md) ainsi que les [Questions fréquentes (FAQ)](faq.md).
+Pour plus d’informations sur les versions des logiciels VMware, consultez l’[article sur les concepts des clusters et des clouds privés](concepts-private-clouds-clusters.md) ainsi que les [Questions fréquentes (FAQ)](faq.yml).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’étape suivante consiste à [créer un cloud privé](tutorial-create-private-cloud.md).
+Maintenant que vous vous êtes penchés sur les processus et fonctionnalités de la mise à niveau de clés dans la solution Azure VMware (AVS), concentrez-vous sur :
+
+- [Comment créer un cloud privé](tutorial-create-private-cloud.md).
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

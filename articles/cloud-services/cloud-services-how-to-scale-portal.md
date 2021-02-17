@@ -1,6 +1,6 @@
 ---
 title: Mise à l’échelle automatique d’un service cloud (classique) dans le portail | Microsoft Docs
-description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure.
+description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour un rôle de service cloud (classique) dans Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743353"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980828"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud (classique) dans le portail
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743353"
 Des conditions peuvent être définies pour un rôle de travail de service cloud qui déclenchent une opération de scale-in ou de scale-out. Les conditions pour le rôle peuvent être basées sur le processeur, le disque ou la charge réseau du rôle. Vous pouvez également définir une condition basée sur une file d’attente de messages ou sur des mesures d’une autre ressource Azure associée à votre abonnement.
 
 > [!NOTE]
-> Cet article porte essentiellement sur les rôles web et de travail d’un service cloud. Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Vous pouvez mettre à l’échelle une machine virtuelle standard en l’associant à un [groupe à haute disponibilité](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) et en l’activant ou la désactivant manuellement.
+> Cet article porte essentiellement sur un service cloud (classique). Lorsque vous créez directement une machine virtuelle (Classic), elle est hébergée dans un service cloud. Vous pouvez mettre à l’échelle une machine virtuelle standard en l’associant à un [groupe à haute disponibilité](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) et en l’activant ou la désactivant manuellement.
 
 ## <a name="considerations"></a>Considérations
 Vous devez tenir compte des informations suivantes avant de configurer la mise à l'échelle de votre application :

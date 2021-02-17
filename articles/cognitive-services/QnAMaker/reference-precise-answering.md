@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 4f64bab698cb87e26fa4fd1587c4269acf99fa59
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 5dde3da693d87d537fd2177a6f12b55297b5776e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94385194"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582194"
 ---
 # <a name="precise-answering"></a>Réponse précise
 
-La fonctionnalité Réponse précise vous permet d’obtenir la réponse brève précise du meilleur passage candidat de la réponse présent dans la base de connaissances pour toute requête utilisateur. Cette fonctionnalité utilise un modèle deep learning qui, au moment de l’exécution, comprend l’intention de la requête utilisateur et détecte la réponse brève précise dans le passage de la réponse, s’il existe une réponse brève présente en tant que fait dans le passage de la réponse. 
+La fonctionnalité Réponse précise introduite dans QnA Maker managé (préversion) vous permet d’obtenir la réponse brève précise du meilleur passage candidat de la réponse présent dans la base de connaissances pour toute requête utilisateur. Cette fonctionnalité utilise un modèle deep learning qui, au moment de l’exécution, comprend l’intention de la requête utilisateur et détecte la réponse brève précise dans le passage de la réponse, s’il existe une réponse brève présente en tant que fait dans le passage de la réponse. 
 
 Cette fonctionnalité est activée par défaut dans le volet de test, ce qui vous permet d’en tester le fonctionnement propre à votre scénario. Cette fonctionnalité est extrêmement précieuse pour les développeurs de contenus et les utilisateurs finaux. Maintenant, les développeurs de contenus n’ont pas besoin d’organiser manuellement des paires QnA spécifiques pour chaque fait présent dans la base de connaissances, et l’utilisateur final n’a pas besoin de parcourir l’ensemble du passage de la réponse retourné par le service pour trouver le fait réel qui répond à sa requête. 
 
@@ -32,7 +32,7 @@ Le service retourne aussi le score de confiance de la réponse précise sous la 
 
 ## <a name="publishing-a-qna-maker-bot"></a>Publication d’un bot QnA Maker
 
-Quand vous publiez un bot, vous obtenez l’expérience de réponse précise par défaut dans votre application, qui vous permet de voir une réponse brève en plus du passage de la réponse. L’utilisateur a la possibilité de choisir d’autres expériences en mettant à jour le modèle par le biais du service d’application eBot. 
+Quand vous publiez un bot, vous obtenez l’expérience de réponse précise par défaut dans votre application, qui vous permet de voir une réponse brève en plus du passage de la réponse. Reportez-vous à la référence d’API pour [Génération de la réponse](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerv5.0-preview.1/knowledgebase/generateanswer#answerspan) pour voir comment utiliser la réponse précise (appelée AnswerSpan) dans la réponse. L’utilisateur a la possibilité de choisir d’autres expériences en mettant à jour le modèle par le biais du service d’application Bot. 
 
 ## <a name="language-support"></a>Support multilingue
 

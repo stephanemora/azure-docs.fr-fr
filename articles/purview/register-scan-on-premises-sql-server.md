@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555897"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574955"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -50,33 +50,32 @@ Il n’existe qu’une seule façon de configurer l’authentification pour un s
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
-L’identité SQL doit avoir accès à la base de données primaire. Il s’agit de l’emplacement où `sys.databases` est stocké. Le scanneur Purview doit énumérer `sys.databases` pour rechercher toutes les instances de base de données SQL dans le serveur.
+Le compte SQL doit avoir accès à la base de données **MASTER**. Cela est dû au fait que `sys.databases` se trouve dans la base de données MASTER. Le scanneur Purview doit énumérer `sys.databases` pour rechercher toutes les bases de données SQL sur le serveur.
 
 #### <a name="using-an-existing-server-administrator"></a>Utilisation d’un administrateur de serveur existant
 
 Si vous envisagez d’utiliser un utilisateur administrateur de serveur (sa) existant pour analyser votre serveur SQL local, vérifiez les points suivants :
 
-1. `sa` n’est pas le type d’authentification Windows.
+1. `sa` n’est pas un compte d’authentification Windows.
 
-2. L’utilisateur au niveau du serveur que vous envisagez d’utiliser doit avoir les rôles de serveur public et sysadmin. Vous pouvez vérifier cela en accédant à SQL Server Management Studio (SSMS), en vous connectant au serveur, en accédant à la sécurité, en sélectionnant la connexion que vous prévoyez d’utiliser, en cliquant avec le bouton droit sur **Propriétés**, puis en sélectionnant **Rôles de serveur**.
+2. La connexion au niveau du serveur que vous envisagez d’utiliser doit avoir les rôles serveur public et sysadmin. Vous pouvez vérifier cela en vous connectant au serveur, en accédant à SQL Server Management Studio (SSMS), en accédant à la sécurité, en sélectionnant la connexion que vous prévoyez d’utiliser, en cliquant avec le bouton droit sur **Propriétés**, puis en sélectionnant **Rôles serveur**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Connexion au niveau du serveur.":::
-
-3. Les bases de données sont mappées à un utilisateur qui dispose au moins d’un accès de niveau db_datareader sur chaque base de données.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="mappage de l’utilisateur pour sa.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Création d’une connexion et d’un utilisateur
 
 Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser votre serveur SQL, procédez comme suit :
 
+> [!Note]
+   > Toutes les étapes ci-dessous peuvent être exécutées à l’aide du code fourni [ici](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+
 1. Accédez à SQL Server Management Studio (SSMS), connectez-vous au serveur, accédez à la sécurité, cliquez avec le bouton droit sur connexion, puis créez une connexion. Veillez à sélectionner l’authentification SQL.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Créer une connexion et un utilisateur.":::
 
-2. Sélectionnez les rôles de serveurs dans le volet de navigation de gauche, puis sélectionnez public et sysadmin.
+2. Sélectionnez Rôles serveur dans le volet de navigation gauche et vérifiez que le rôle public est attribué.
 
-3. Sélectionnez un mappage d’utilisateur dans le volet de navigation de gauche, puis sélectionnez toutes les bases de données dans le mappage.
+3. Sélectionnez Mappage d’utilisateur dans le volet de navigation de gauche, sélectionnez toutes les bases de données dans le mappage et sélectionnez le rôle de base de données : **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="mappage d’utilisateur.":::
 
@@ -88,8 +87,7 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Stockage de votre mot de passe de connexion SQL dans un coffre de clés et création d’informations d’identification dans Purview
 
-1. Accédez à votre coffre de clés dans le portail Azure.
-1. Sélectionnez **Paramètres > Secrets**.
+1. Accédez à votre coffre de clés dans le portail Azure1. Sélectionnez **Paramètres > Secrets**.
 1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** et la **Valeur** en tant que *mot de passe* de votre connexion au serveur SQL.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).

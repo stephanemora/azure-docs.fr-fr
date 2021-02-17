@@ -13,20 +13,22 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bf0df4cc6e686b553baf8c2439c807d2f07ef440
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734981"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807477"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
-Les bibliothèques de gestion des fonctionnalités .NET Core fournissent une prise en charge idiomatique de l’implémentation des indicateurs de fonctionnalités dans une application .NET ou ASP.NET Core. Ces bibliothèques vous permettent d’ajouter de manière déclarative des indicateurs de fonctionnalités à votre code afin de vous éviter d’écrire manuellement toutes les instructions `if` correspondantes.
+Les bibliothèques de gestion des fonctionnalités .NET Core fournissent une prise en charge idiomatique de l’implémentation des indicateurs de fonctionnalités dans une application .NET ou ASP.NET Core. Ces bibliothèques vous permettent d’ajouter de façon déclarative des indicateurs de fonctionnalités à votre code afin de vous éviter d’écrire manuellement le code nécessaire pour activer ou désactiver des fonctionnalités avec des instructions `if`.
 
 Les bibliothèques de gestion des fonctionnalités gèrent également les cycles de vie des indicateurs de fonctionnalités en arrière-plan. Par exemple, elles actualisent et mettent en cache l’état des indicateurs ou garantissent qu’un état d’indicateur est immuable pendant un appel de demande. De plus, la bibliothèque ASP.NET Core offre des intégrations prêtes à l’emploi, notamment des intergiciels (middleware), des routes, des vues et des actions de contrôleur MVC.
 
-Le [guide de démarrage rapide Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) montre plusieurs façons d’ajouter des indicateurs de fonctionnalités à une application ASP.NET Core. Ce tutoriel explique plus en détails ces différentes méthodes. Pour obtenir une référence complète, consultez la [documentation sur la gestion des fonctionnalités ASP.NET Core](/dotnet/api/microsoft.featuremanagement).
+Le guide de démarrage rapide [Ajouter des indicateurs de fonctionnalités à une application ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) montre un exemple simple d’utilisation d’indicateurs de fonctionnalités dans une application ASP.NET Core. Ce tutoriel présente d’autres fonctionnalités et options de configuration des bibliothèques de gestion des fonctionnalités. Vous pouvez utiliser l’exemple d’application créé dans le guide de démarrage rapide pour essayer l’exemple de code présenté dans ce tutoriel. 
+
+Pour obtenir la documentation de référence de l’API de gestion des fonctionnalités ASP.NET Core, consultez [Espace de noms Microsoft.FeatureManagement](/dotnet/api/microsoft.featuremanagement).
 
 Dans ce didacticiel, vous apprendrez à :
 
@@ -36,8 +38,12 @@ Dans ce didacticiel, vous apprendrez à :
 
 ## <a name="set-up-feature-management"></a>Configurer la gestion des fonctionnalités
 
-Ajoutez une référence aux packages NuGet `Microsoft.FeatureManagement.AspNetCore` et `Microsoft.FeatureManagement` pour utiliser le gestionnaire de fonctionnalités .NET Core.
-Le gestionnaire de fonctionnalités de .NET Core `IFeatureManager` obtient les indicateurs de fonctionnalités à partir du système de configuration natif du framework. En conséquence, vous pouvez définir les indicateurs de fonctionnalités de votre application à l’aide de n’importe quelle source de configuration prise en charge par .NET Core, notamment le fichier *appsettings.json* local ou des variables d’environnement. `IFeatureManager` s’appuie sur l’injection de dépendances .NET Core. Vous pouvez inscrire les services de gestion des fonctionnalités à l’aide de conventions standard :
+Pour accéder au gestionnaire de fonctionnalités .NET Core, votre application doit avoir des références au package NuGet `Microsoft.FeatureManagement.AspNetCore`.
+
+Le gestionnaire de fonctionnalités .NET Core est configuré à partir du système de configuration natif du framework. Vous pouvez donc définir les paramètres des indicateurs de fonctionnalités de votre application à l’aide de n’importe quelle source de configuration prise en charge par .NET Core, notamment le fichier *appsettings.json* local ou des variables d’environnement.
+
+Par défaut, le gestionnaire de fonctionnalités récupère la configuration des indicateurs de fonctionnalités à partir de la section `"FeatureManagement"` des données de configuration .NET Core. Pour utiliser l’emplacement de configuration par défaut, appelez la méthode [AddFeatureManagement](/dotnet/api/microsoft.featuremanagement.servicecollectionextensions.addfeaturemanagement) de l’interface **IServiceCollection** passée dans la méthode **ConfigureServices** de la classe **Startup**.
+
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -46,12 +52,13 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        ...
         services.AddFeatureManagement();
     }
 }
 ```
 
-Par défaut, le gestionnaire de fonctionnalités récupère les indicateurs de fonctionnalités à partir de la section `"FeatureManagement"` des données de configuration .NET Core. L’exemple suivant fait en sorte qu’il lise à partir d’une autre section nommée `"MyFeatureFlags"` à la place :
+Vous pouvez spécifier que la configuration de la gestion des fonctionnalités doit être récupérée à partir d’une section de configuration différente en appelant [Configuration.GetSection](/dotnet/api/microsoft.web.administration.configuration.getsection) et en passant le nom de la section souhaitée. L’exemple suivant fait en sorte qu’il lise à partir d’une autre section nommée `"MyFeatureFlags"` à la place :
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -60,15 +67,18 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddFeatureManagement(options =>
-        {
-                options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
-        });
+        ...
+        services.AddFeatureManagement(Configuration.GetSection("MyFeatureFlags"));
     }
 }
 ```
 
-Si vous utilisez des filtres dans vos indicateurs de fonctionnalités, vous devez inclure une bibliothèque supplémentaire et l’inscrire. L’exemple suivant montre comment utiliser un filtre de fonctionnalité intégré nommé `PercentageFilter` :
+
+Si vous utilisez des filtres dans vos indicateurs de fonctionnalités, vous devez inclure l’espace de noms [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) et ajouter un appel à [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) spécifiant le nom de type du filtre que vous souhaitez utiliser comme type générique de la méthode. Pour plus d’informations sur l’utilisation de filtres de fonctionnalités pour activer et désactiver des fonctionnalités de manière dynamique, consultez [Activer le déploiement échelonné des fonctionnalités pour des audiences ciblées](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+
+L’exemple suivant montre comment utiliser un filtre de fonctionnalité intégré nommé `PercentageFilter` :
+
+
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -78,42 +88,79 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        ...
         services.AddFeatureManagement()
                 .AddFeatureFilter<PercentageFilter>();
     }
 }
 ```
 
-Nous vous recommandons de conserver les indicateurs de fonctionnalités en dehors de l’application et de les gérer séparément. Cela vous permet de modifier l’état des indicateurs à tout moment, et d’appliquer immédiatement ces changements dans l’application. Le service App Configuration fournit un emplacement centralisé pour organiser et contrôler tous vos indicateurs de fonctionnalités par le biais d’une interface utilisateur de portail dédiée. Il remet également les indicateurs à votre application directement par le biais de ses bibliothèques clientes .NET Core.
+Plutôt que de coder en dur vos indicateurs de fonctionnalités dans votre application, nous vous recommandons de conserver les indicateurs de fonctionnalités en dehors de l’application et de les gérer séparément. Cela vous permet de modifier l’état des indicateurs à tout moment, et d’appliquer immédiatement ces changements dans l’application. Le service Azure App Configuration fournit une interface utilisateur de portail dédiée pour la gestion de tous les indicateurs de fonctionnalités. Le service Azure App Configuration remet également les indicateurs de fonctionnalités à votre application directement par le biais de ses bibliothèques de client .NET Core.
 
-Le moyen le plus simple de connecter votre application ASP.NET Core à App Configuration est de passer par l’objet `Microsoft.Azure.AppConfiguration.AspNetCore` du fournisseur de configuration. Suivez ces étapes pour utiliser ce package NuGet.
+Le moyen le plus simple de connecter votre application ASP.NET Core à App Configuration est de passer par le fournisseur de configuration inclus dans le package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore`. Après avoir inclus une référence au package, effectuez les étapes suivantes pour utiliser ce package NuGet.
 
 1. Ouvrez le fichier *Program.cs* et ajoutez le code suivant.
+    > [!IMPORTANT]
+    > `CreateHostBuilder` remplace `CreateWebHostBuilder` dans .NET Core 3.x. Sélectionnez la syntaxe appropriée en fonction de votre environnement.
 
-   ```csharp
-   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+    
+    ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-       WebHost.CreateDefaultBuilder(args)
-              .ConfigureAppConfiguration((hostingContext, config) => {
-                  var settings = config.Build();
-                  config.AddAzureAppConfiguration(options => {
-                      options.Connect(settings["ConnectionStrings:AppConfig"])
-                             .UseFeatureFlags();
-                   });
-              })
-              .UseStartup<Startup>();
-   ```
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                        options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
+                }).UseStartup<Startup>());
+    ```
+
+    ### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    
+    ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration(config =>
+            {
+                var settings = config.Build();
+                config.AddAzureAppConfiguration(options =>
+                    options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
+            }).UseStartup<Startup>());
+    ```
+        
+    ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    
+    ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                    .ConfigureAppConfiguration(config =>
+                    {
+                        var settings = config.Build();
+                        config.AddAzureAppConfiguration(options =>
+                            options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags());
+                    }).UseStartup<Startup>();
+    ```
+    ---
 
 2. Ouvrez *Startup.cs* et mettez à jour la méthode `Configure` et `ConfigureServices` pour ajouter l’intergiciel (middleware) intégré appelé `UseAzureAppConfiguration`. Ce middleware permet l’actualisation des valeurs d’indicateurs de fonctionnalités à intervalles réguliers pendant que l’application web ASP.NET continue de recevoir des requêtes.
 
-   ```csharp
-   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-   {
-       app.UseAzureAppConfiguration();
-       app.UseMvc();
-   }
-   ```
+
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+    }
+    ```
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -122,20 +169,22 @@ Le moyen le plus simple de connecter votre application ASP.NET Core à App Confi
    }
    ```
    
-Les valeurs des indicateurs de fonctionnalités sont supposées changer au fil du temps. Par défaut, les valeurs d’indicateur de fonctionnalité sont mises en cache pendant une période de 30 secondes. Une opération d’actualisation déclenchée quand le middleware reçoit une demande ne met donc à jour la valeur qu’après l’expiration de la valeur mise en cache. Le code suivant montre comment faire passer l’heure d’expiration du cache ou l’intervalle d’interrogation à 5 minutes dans l’appel `options.UseFeatureFlags()`.
+Dans un scénario classique, vous mettez périodiquement à jour les valeurs de vos indicateurs de fonctionnalités à mesure que vous déployez et activez les différentes fonctionnalités de votre application. Par défaut, les valeurs d’indicateur de fonctionnalité sont mises en cache pendant une période de 30 secondes. Une opération d’actualisation déclenchée quand le middleware reçoit une demande ne met donc à jour la valeur qu’après l’expiration de la valeur mise en cache. Le code suivant montre comment faire passer l’heure d’expiration du cache ou l’intervalle d’interrogation à 5 minutes en affectant **UseFeatureFlags** à [CacheExpirationInterval](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.featuremanagement.featureflagoptions.cacheexpirationinterval) dans l’appel.
 
+
+    
 ```csharp
-config.AddAzureAppConfiguration(options => {
-    options.Connect(settings["ConnectionStrings:AppConfig"])
-           .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
-           });
+config.AddAzureAppConfiguration(options =>
+    options.Connect(settings["ConnectionStrings:AppConfig"]).UseFeatureFlags(featureFlagOptions => {
+        featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
+    }));
 });
 ```
 
+
 ## <a name="feature-flag-declaration"></a>Déclaration d’indicateur de fonctionnalité
 
-Chaque indicateur de fonctionnalité comporte deux parties : un nom et une liste d’un ou plusieurs filtres qui servent à évaluer si l’état d’une fonctionnalité est *on* (autrement dit, quand sa valeur est `True`). Un filtre définit un cas d’usage pour le moment où une fonctionnalité doit être activée.
+Chaque déclaration d’indicateur de fonctionnalité comporte deux parties : un nom et une liste d’un ou plusieurs filtres qui servent à évaluer si l’état d’une fonctionnalité est *on* (autrement dit, quand sa valeur est `True`). Un filtre définit un critère pour le moment où une fonctionnalité doit être activée.
 
 Si un indicateur de fonctionnalité a plusieurs filtres, la liste des filtres est parcourue dans l’ordre jusqu’à ce que l’un d’eux détermine que la fonctionnalité doit être activée. À ce stade, l’indicateur de fonctionnalité est *on* (activée) et les résultats du filtrage restants sont ignorés. Si aucun filtre n’indique que la fonctionnalité doit être activée, l’indicateur de fonctionnalité est *off* (désactivée).
 
@@ -162,37 +211,48 @@ Par convention, la section `FeatureManagement` de ce document JSON est utilisée
 
 * `FeatureA` est défini sur *on*.
 * `FeatureB` est défini sur *off*.
-* `FeatureC` spécifie un filtre nommé `Percentage` avec une propriété `Parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `FeatureC` soit défini sur *on*.
+* `FeatureC` spécifie un filtre nommé `Percentage` avec une propriété `Parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `FeatureC` soit défini sur *on*. Pour obtenir un guide pratique sur l’utilisation des filtres de fonctionnalités, consultez [Utiliser des filtres de fonctionnalités pour activer les indicateurs de fonctionnalités conditionnels](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
 
-## <a name="feature-flag-references"></a>Références des indicateurs de fonctionnalités
 
-Pour pouvoir aisément référencer des indicateurs de fonctionnalités dans du code, vous devez les définir en tant que variables `enum` :
 
+
+## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Utiliser l’injection de dépendances pour accéder à IFeatureManager 
+
+Pour certaines opérations, telles que la vérification manuelle des valeurs d’indicateurs de fonctionnalités, vous devez obtenir une instance de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage). Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances. Dans l’exemple suivant, un argument de type `IFeatureManager` est ajouté à la signature du constructeur d’un contrôleur. Le runtime résout automatiquement la référence et fournit une interface lors de l’appel du constructeur. Si vous utilisez un modèle d’application dans lequel le contrôleur a déjà un ou plusieurs arguments d’injection de dépendances dans le constructeur, par exemple `ILogger`, vous pouvez simplement ajouter `IFeatureManager` comme argument supplémentaire :
+
+### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+    
 ```csharp
-public enum MyFeatureFlags
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
 {
-    FeatureA,
-    FeatureB,
-    FeatureC
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
+    {
+        _featureManager = featureManager;
+    }
 }
 ```
 
-## <a name="feature-flag-checks"></a>Vérifications des indicateurs de fonctionnalités
-
-Le modèle de gestion des fonctionnalités de base consiste à d’abord vérifier si un indicateur de fonctionnalité est défini sur *on*. Si c’est le cas, le gestionnaire de fonctionnalités exécute les actions que la fonctionnalité contient. Par exemple :
+### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
-IFeatureManager featureManager;
-...
-if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
+using Microsoft.FeatureManagement;
+
+public class HomeController : Controller
 {
-    // Run the following code
+    private readonly IFeatureManager _featureManager;
+
+    public HomeController(ILogger<HomeController> logger, IFeatureManager featureManager)
+    {
+        _featureManager = featureManager;
+    }
 }
 ```
-
-## <a name="dependency-injection"></a>Injection de dépendances
-
-Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances :
+    
+### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -208,9 +268,37 @@ public class HomeController : Controller
 }
 ```
 
+---
+
+## <a name="feature-flag-references"></a>Références des indicateurs de fonctionnalités
+
+Définissez les indicateurs de fonctionnalités en tant que variables de chaîne pour les référencer à partir du code :
+
+```csharp
+public static class MyFeatureFlags
+{
+    public const string FeatureA = "FeatureA";
+    public const string FeatureB = "FeatureB";
+    public const string FeatureC = "FeatureC";
+}
+```
+
+## <a name="feature-flag-checks"></a>Vérifications des indicateurs de fonctionnalités
+
+Le modèle de gestion des fonctionnalités courant consiste à vérifier si un indicateur de fonctionnalité est défini sur *on* et, le cas échéant, à exécuter une section de code. Par exemple :
+
+```csharp
+IFeatureManager featureManager;
+...
+if (await featureManager.IsEnabledAsync(MyFeatureFlags.FeatureA))
+{
+    // Run the following code
+}
+```
+
 ## <a name="controller-actions"></a>Actions de contrôleur
 
-Dans les contrôleurs MVC, vous pouvez utiliser un attribut `FeatureGate` pour déterminer si l’ensemble d’une classe de contrôleur ou une action spécifique est activée. Le contrôleur `HomeController` suivant exige que `FeatureA` soit défini sur *on* avant l’exécution de toute action que contient la classe de contrôleur :
+Avec les contrôleurs MVC, vous pouvez utiliser l’attribut `FeatureGate` pour déterminer si l’ensemble d’une classe de contrôleur ou une action spécifique est activée. Le contrôleur `HomeController` suivant exige que `FeatureA` soit défini sur *on* avant l’exécution de toute action que contient la classe de contrôleur :
 
 ```csharp
 using Microsoft.FeatureManagement.Mvc;
@@ -234,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off*, une interface `IDisabledFeaturesHandler` inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
+Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off*, une interface [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
 
 ## <a name="mvc-views"></a>Vues MVC
 
@@ -273,7 +361,7 @@ La balise de fonctionnalité `<feature>` peut également être utilisée pour af
 
 ## <a name="mvc-filters"></a>Filtres MVC
 
-Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Le code suivant ajoute un filtre MVC nommé `SomeMvcFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `FeatureA` est activé. Cette fonctionnalité est limitée à `IAsyncActionFilter`. 
+Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Cette fonctionnalité est limitée aux filtres qui implémentent [IAsyncActionFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncactionfilter). Le code suivant ajoute un filtre MVC nommé `ThirdPartyActionFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `FeatureA` est activé.  
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -283,7 +371,7 @@ IConfiguration Configuration { get; set;}
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc(options => {
-        options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
+        options.Filters.AddForFeature<ThirdPartyActionFilter>(MyFeatureFlags.FeatureA);
     });
 }
 ```
@@ -293,7 +381,7 @@ public void ConfigureServices(IServiceCollection services)
 Vous pouvez également utiliser des indicateurs de fonctionnalités pour ajouter de manière conditionnelle des intergiciels (middlewares) et des branches d’application. Le code suivant insère un composant d’intergiciel dans le pipeline de requête uniquement quand `FeatureA` est activé :
 
 ```csharp
-app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
+app.UseMiddlewareForFeature<ThirdPartyMiddleware>(MyFeatureFlags.FeatureA);
 ```
 
 Ce code repose sur la capacité plus générique qui consiste à créer une branche de l’ensemble de l’application entière en fonction d’un indicateur de fonctionnalité :

@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600566"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627363"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Dans les rares cas de panne régionale, Azure Cosmos DB s’assure que votre bas
 
 * Pendant une panne de la région de lecture, les comptes Azure Cosmos utilisant un niveau de cohérence ou une cohérence forte avec au moins trois régions de lecture restent hautement disponibles pour les lectures et les écritures.
 
-* Les comptes Azure Cosmos utilisant une cohérence forte avec deux régions de lecture ou moins (incluant la région de lecture et d’écriture) perdent la disponibilité en lecture/écriture en cas de défaillance de la région de lecture.
+* Les comptes Azure Cosmos utilisant une cohérence forte avec trois régions ou moins au total (une en écriture, deux en lecture) perdent la disponibilité en écriture en cas de défaillance de la région de lecture. Toutefois, les clients avec quatre régions au maximum peuvent s’abonner à l’utilisation de quorums de lecture dynamiques en soumettant un ticket de support. Les comptes qui maintiennent au moins deux régions de lecture dans cette configuration assurent la disponibilité des écritures.
 
 * La région impactée est automatiquement déconnectée et marquée comme étant hors connexion. Les [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) redirigent les appels de lecture vers la prochaine région disponible dans la liste des régions préférées.
 
@@ -112,15 +112,15 @@ Le tableau suivant récapitule la fonctionnalité de haute disponibilité des di
 |Défaillances de zone – Disponibilité | Perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité |
 |Panne régionale - Perte de données | Perte de données |  Perte de données | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](consistency-levels-tradeoffs.md). | Dépend du niveau de cohérence. Pour plus d’informations, consultez [Compromis entre cohérence, disponibilité et performance](consistency-levels-tradeoffs.md).
 |Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité pour échec dans la région de lecture, temporaire pour échec dans la région d’écriture | Aucune perte de disponibilité |
-|Prix (**_1_* _) | N/A | Unités de requête approvisionnées x taux de 1,25 | Unités de requête approvisionnées x taux de 1,25 (_*_2_*_) | Taux d’écriture multirégion |
+|Prix (***1** _) | N/A | Unités de requête approvisionnées x taux de 1,25 | Unités de requête approvisionnées x taux de 1,25 (_*_2_**) | Taux d’écriture multirégion |
 
-_*_1_*_ Les unités de requête (RU) de comptes serverless sont multipliées par un facteur de 1,25.
+***1*** Les unités de requête (RU) de comptes serverless sont multipliées par un facteur de 1,25.
 
-_*_2_*_ Taux de 1,25 appliqué uniquement aux régions dans lesquelles une zone de disponibilité est activée.
+***2*** Taux de 1,25 appliqué uniquement aux régions dans lesquelles une zone de disponibilité est activée.
 
 La fonctionnalité Zones de disponibilité peut être activée via :
 
-_ [Portail Azure](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

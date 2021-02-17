@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608263"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096342"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutoriel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -309,17 +309,20 @@ Si vous recevez une erreur HTTP 404 (Introuvable) lors de la navigation vers l
 - Un enregistrement A et/ou un enregistrement CNAME est manquant dans le domaine personnalisé configuré.
 - Le client du navigateur a mis en cache l'ancienne adresse IP de votre domaine. Effacez le cache et testez à nouveau la résolution DNS. Sur une machine Windows, effacez le cache avec `ipconfig /flushdns`.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## <a name="migrate-an-active-domain"></a>Migrer un domaine actif
 
 Pour migrer un site actif et son nom de domaine DNS vers App Service sans interruption de service, voir [Migrer un nom DNS actif vers Azure App Service](manage-custom-dns-migrate-domain.md).
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="redirect-to-a-custom-directory"></a>Rediriger vers un répertoire personnalisé
 
 Par défaut, App Service dirige les demandes web au répertoire racine du code de votre application. Cependant, certains frameworks web ne démarrent pas dans le répertoire racine. Par exemple, [Laravel](https://laravel.com/) démarre dans le sous-répertoire `public`. Pour continuer avec l’exemple DNS `contoso.com`, une telle application est accessible à partir de `http://contoso.com/public`, mais il est préférable de diriger `http://contoso.com` vers le répertoire `public`. Cette étape n’implique pas la résolution DNS, mais la personnalisation du répertoire virtuel.
 
-Pour personnaliser un répertoire virtuel, sélectionnez **Paramètres de l’application** dans le volet gauche de la page de votre application web.
+Pour personnaliser un répertoire virtuel pour des applications Windows, sélectionnez **Paramètres de l’application** dans le volet gauche de la page de votre application web. 
+
+> [!NOTE]
+> Les applications Linux n’ont pas cette page. Pour changer la racine du site pour les applications Linux, consultez les guides de configuration spécifiques à un langage ([PHP](configure-language-php.md?pivots=platform-linux#change-site-root), par exemple).
 
 En bas de la page, le répertoire virtuel racine `/` pointe par défaut vers `site\wwwroot`, qui correspond au répertoire racine de votre code d'application. Modifiez-le afin qu'il pointe vers `site\wwwroot\public`, par exemple, puis enregistrez vos modifications.
 

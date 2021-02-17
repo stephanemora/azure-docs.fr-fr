@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102645"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576191"
 ---
 # <a name="managed-disk-bursting"></a>Mode rafale des disques managés
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Mode rafale au niveau des machines virtuelles
-La prise en charge du mode rafale au niveau des machines virtuelles est activée dans toutes les régions du cloud public sur les tailles prises en charge suivantes : 
+La fonctionnalité de bursting au niveau machine virtuelle est activée sur la série de machines virtuelles suivante dans toutes les régions dans lesquelles elles sont prises en charge :
 - [Série Lsv2](lsv2-series.md)
-
-Le mode rafale au niveau des machines virtuelles est également disponible dans USA Centre-Ouest pour les tailles prises en charge suivantes :
 - [Dsv3-series](dv3-dsv3-series.md)
 - [Série Esv3](ev3-esv3-series.md)
 

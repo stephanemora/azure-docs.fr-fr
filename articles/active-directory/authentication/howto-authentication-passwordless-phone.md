@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743596"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626153"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -57,10 +57,13 @@ Azure AD vous permet de choisir les méthodes d’authentification qui peuvent �
 Pour activer la méthode d’authentification pour la connexion par téléphone sans mot de passe, effectuez les étapes suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte d’*administrateur général*.
-1. Recherchez et sélectionnez *Azure Active Directory*, puis accédez à **Sécurité** > **Méthodes d’authentification** > **Stratégie de méthode d’authentification (préversion)**
-1. Sous **Connexion par téléphone sans mot de passe**, choisissez les options suivantes :
+1. Recherchez et sélectionnez *Azure Active Directory*, puis accédez à **Sécurité** > **Méthodes d’authentification** > **Stratégies**.
+1. Sous **Microsoft Authenticator (préversion)** , choisissez les options suivantes :
    1. **Activer** - Oui ou Non
    1. **Cible** - Tous les utilisateurs ou les utilisateurs sélectionnés
+1. Chaque groupe ou utilisateur ajouté est activé par défaut pour utiliser Microsoft Authenticator dans les modes de notifications sans mot de passe et push (mode « Tout »). Pour modifier cela, pour chaque ligne :
+   1. Accédez à **...**  > **Configurer**.
+   1. Pour **Mode d’authentification** : Tout, Sans mot de passe ou Push
 1. Pour appliquer la nouvelle stratégie, sélectionnez **Enregistrer**.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Inscription des utilisateurs et gestion de Microsoft Authenticator

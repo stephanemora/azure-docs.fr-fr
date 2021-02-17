@@ -8,25 +8,25 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 422346430e32ccb8745d5a5d829c5d61089a99c6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430426"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509450"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Comment indexer des objets en texte brut dans le service Recherche cognitive Azure
 
-Lors de l’utilisation d’un [indexeur de blobs](search-howto-indexing-azure-blob-storage.md) pour extraire du texte pouvant faire l’objet d’une recherche en texte intégral, vous pouvez appeler différents modes d’analyse pour obtenir de meilleurs résultats d’indexation. Par défaut, l’indexeur analyse le contenu des blobs comme un bloc de texte unique. Cependant, si tous les blobs contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du mode d’analyse `text`.
+Quand vous utilisez un [indexeur d’objets blob](search-howto-indexing-azure-blob-storage.md) pour extraire du texte d’objet blob pouvant faire l’objet d’une recherche en texte intégral, vous pouvez attribuer un mode d’analyse pour obtenir de meilleurs résultats d’indexation. Par défaut, l’indexeur analyse le contenu des blobs comme un bloc de texte unique. Cependant, si tous les blobs contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du mode d’analyse `text`.
 
-Vous devez utiliser le mode d’analyse `text` dans les cas suivants :
+Recommandations pour l’utilisation de l’analyse `text` :
 
 + Le type de fichier est .txt.
 + Les fichiers sont de n’importe quel type, mais le contenu lui-même est du texte (par exemple, code source d’un programme, HTML, XML, etc.). Pour les fichiers dans une langue de balisage, tous les caractères de syntaxe sont fournis sous forme de texte statique.
 
-Rappelez-vous que les indexeurs sérialisent en JSON. Le contenu de la totalité du fichier texte est indexé dans un seul grand champ en tant que `"content": "<file-contents>"`. Les instructions de nouvelle ligne et de retour sont exprimées sous la forme `\r\n\`.
+Rappelez-vous que tous les indexeurs sérialisent en JSON. Par défaut, le contenu de la totalité du fichier texte est indexé dans un seul grand champ en tant que `"content": "<file-contents>"`. Toutes les instructions de nouvelle ligne et de retour sont incorporées dans le champ de contenu et exprimées sous la forme `\r\n\`.
 
-Si vous souhaitez obtenir un résultat plus précis, envisagez les solutions suivantes :
+Si vous souhaitez obtenir un résultat plus précis et que le type de fichier est compatible, envisagez les solutions suivantes :
 
 + Mode d’analyse [`delimitedText`](search-howto-index-csv-blobs.md), si la source est au format CSV
 + [`jsonArray` ou `jsonLines`](search-howto-index-json-blobs.md), si la source est au format JSON

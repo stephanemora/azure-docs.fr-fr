@@ -2,13 +2,13 @@
 title: Concepts – Interconnexion de réseaux
 description: Découvrez des aspects clés et des cas d’utilisation de mise en réseau et d’interconnexion dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.date: 02/02/2021
+ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475418"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538973"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Concepts de réseau et d’interconnexion d’Azure VMware Solution
 
@@ -59,10 +59,11 @@ Pour une interconnexion complète à votre cloud privé, activez ExpressRoute Gl
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-Maintenant que vous avez couvert ces concepts de réseau et d’interconnexion, vous voudrez peut-être en savoir plus :
+Maintenant que vous avez couvert les concepts de réseau et d’interconnexion d’Azure VMware Solution, vous voudrez peut-être en savoir plus :
 
 - [Concepts de stockage pour Azure VMware Solution](concepts-storage.md).
-- [Concepts d’identité d’Azure VMware Solution](concepts-identity.md)
+- [Concepts d’identité d’Azure VMware Solution](concepts-identity.md).
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

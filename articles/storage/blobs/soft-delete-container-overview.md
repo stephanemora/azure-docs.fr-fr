@@ -6,33 +6,39 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962174"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979099"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
-La suppression réversible pour les conteneurs (préversion) protège vos données contre les modifications ou suppressions accidentelles ou erronées. Lorsque la suppression réversible de conteneur est activée pour un compte de stockage, tout conteneur supprimé et son contenu sont conservés dans Stockage Azure pour la période que vous spécifiez. Pendant la période de rétention, vous pouvez restaurer des conteneurs précédemment supprimés et tous les blobs qu’ils contiennent.
+La suppression réversible pour les conteneurs (préversion) protège vos données contre les suppressions accidentelles ou malveillantes. Lorsque la suppression réversible de conteneur est activée pour un compte de stockage, tout conteneur supprimé et son contenu sont conservés dans Stockage Azure pour la période que vous spécifiez. Pendant la période de rétention, vous pouvez restaurer des conteneurs précédemment supprimés. La restauration d’un conteneur a pour effet de restaurer tous les blobs figurant dans celui-ci au moment de sa suppression.
 
 Pour la protection de bout en bout de vos données de blobs, Microsoft recommande d’activer les fonctionnalités de protection des données suivantes :
 
-- Suppression réversible de conteneur, pour vous protéger de la suppression ou du remplacement accidentel d’un conteneur. Pour savoir comment activer la suppression réversible de conteneur, consultez [Activer et gérer la suppression réversible pour les conteneurs](soft-delete-container-enable.md).
-- Suppression réversible de blob, pour vous protéger de la suppression ou du remplacement accidentel d’un blob. Pour savoir comment activer la suppression réversible de blob, consultez [Suppression réversible pour les blobs](soft-delete-blob-overview.md).
+- Suppression réversible de conteneur, pour restaurer un conteneur supprimé. Pour savoir comment activer la suppression réversible de conteneur, consultez [Activer et gérer la suppression réversible pour les conteneurs](soft-delete-container-enable.md).
 - Gestion des versions des objets blob, pour gérer automatiquement les versions précédentes d’un objet blob. Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur. Pour savoir comment activer le contrôle de version des blobs, consultez [Activer et gérer le contrôle de version des blobs](versioning-enable.md).
+- Suppression réversible de blob, pour restaurer un blob ou une version supprimés. Pour savoir comment activer la suppression réversible de blob, consultez [Activer et gérer la suppression réversible pour les blobs](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> La suppression d’un compte de stockage est irréversible. La suppression réversible ne protège pas contre la suppression d’un compte de stockage. Pour empêcher toute suppression accidentelle d’un compte de stockage, configurez un verrou **CannotDelete** verrou sur la ressource du compte de stockage. Pour plus d’informations, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+> La suppression d’un compte de stockage est irréversible. La suppression réversible n’a pas pour effet de protéger contre la suppression d’un compte de stockage, mais uniquement contre la suppression d’objets de données dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou **CannotDelete** sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage des ressources Azure Resource Manager, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Fonctionnement de la suppression réversible de conteneur
 
 Lorsque vous activez la suppression réversible de conteneur, vous pouvez spécifier une période de rétention pour les conteneurs supprimés qui est comprise entre 1 et 365 jours. La période de conservation par défaut est 7 jours. Pendant la période de rétention, vous pouvez récupérer un conteneur supprimé en appelant l’opération **Undelete Container**.
+
+Lorsque vous restaurez un conteneur, cela a également pour effet de restaurer les blobs qu’il contient ainsi que leurs versions. Toutefois, vous ne pouvez utiliser une suppression réversible de conteneur que pour restaurer des blobs que si le conteneur proprement dit a été supprimé. Pour restaurer un blob supprimé quand son conteneur parent n’a pas été supprimé, vous devez utiliser la suppression réversible ou le contrôle de version de blob.
+
+Le diagramme suivant montre comment restaurer un conteneur supprimé quand la suppression réversible de conteneur est activée :
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagramme montrant comment restaurer un conteneur supprimé de manière réversible":::
 
 Lorsque vous restaurez un conteneur, vous pouvez le restaurer avec son nom d’origine si celui-ci n’a pas été réutilisé. Si le nom du conteneur d’origine a été utilisé, vous pouvez restaurer le conteneur avec un nouveau nom.
 

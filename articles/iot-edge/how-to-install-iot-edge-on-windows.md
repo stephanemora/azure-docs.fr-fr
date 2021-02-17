@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703663"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008568"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows (version préliminaire)
 
@@ -27,6 +27,8 @@ Cet article répertorie les étapes à suivre pour configurer IoT Edge sur un ap
 
 >[!NOTE]
 >IoT Edge pour Linux sur Windows est en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>Si IoT Edge pour Linux sur Windows est l’expérience recommandée pour l’utilisation d’Azure IoT Edge dans un environnement Windows, les conteneurs Windows sont toujours disponibles. Si vous préférez utiliser des conteneurs Windows, consultez le guide pratique concernant [l’installation et la gestion d’Azure IoT Edge pour Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -211,7 +213,7 @@ Cette section traite de la configuration manuelle de votre appareil à l’aide 
 
    ![Choisissez Approvisionnement avec la méthode sélectionnée après avoir collé la chaîne de connexion de votre appareil](./media/how-to-install-iot-edge-on-windows/provisioning-with-selected-method-connection-string.png)
 
-1. Une fois l’approvisionnement terminé, sélectionnez **Terminer**. Vous êtes redirigé vers le tableau de bord principal. Un nouvel appareil, dont le type est `IoT Edge Devices`, doit maintenant apparaître dans la liste. Vous pouvez sélectionner l’appareil IoT Edge pour vous y connecter. Une fois sur la page de **présentation**, vous pouvez consulter la **liste des modules IoT Edge** et l’**état IoT Edge** de votre appareil.
+1. Une fois l’approvisionnement terminé, sélectionnez **Terminer**. Vous êtes redirigé vers le tableau de bord principal. Un nouvel appareil, dont le type est `IoT Edge Devices`, doit maintenant apparaître dans la liste. Vous pouvez sélectionner l’appareil IoT Edge pour vous y connecter. Une fois sur la page de **vue d’ensemble**, vous pouvez consulter la **liste des modules IoT Edge** et l’**état IoT Edge** de votre appareil.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -296,7 +298,7 @@ Cette section traite de l’approvisionnement automatique de votre appareil à l
 1. Copiez la commande ci-après dans un éditeur de texte. Remplacez le texte d’espace réservé par vos informations en suivant les indications.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. Dans le [portail Azure](https://ms.portal.azure.com/), accédez à votre instance DPS.

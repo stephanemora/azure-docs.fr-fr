@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660778"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807137"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importer le renseignement sur les menaces dans Azure Sentinel
 
@@ -36,7 +36,7 @@ Vous pouvez intégrer le renseignement sur les menaces à Azure Sentinel par le 
 - Utilisez les modèles de règle d’**analytique** intégrés pour générer des alertes et des incidents de sécurité à l’aide de votre renseignement sur les menaces importé.
 - Visualisez les informations essentielles concernant votre renseignement sur les menaces dans Azure Sentinel à l’aide du **classeur Threat Intelligence**.
 
-Le renseignement sur les menaces fournit également un contexte utile dans d’autres expériences Azure Sentinel, comme la **Chasse** et les **Notebooks**, et bien qu’elles ne soient pas abordées dans cet article, ces expériences sont traitées dans [ce billet de blog très intéressant d’Ian Hellen sur les notebooks Jupyter dans Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), qui traite de l’utilisation du renseignement sur les cybermenaces dans les notebooks.
+Le renseignement sur les menaces fournit également un contexte utile dans d’autres expériences Azure Sentinel, comme le **Repérage** et les **Notebooks**. Bien qu’elles ne soient pas abordées dans cet article, ces expériences sont traitées dans [cet excellent billet de blog d’Ian Hellen sur Jupyter Notebook dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), qui porte sur l’utilisation du renseignement sur les cybermenaces dans les Notebooks.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Connecteurs de données Azure Sentinel pour le renseignement sur les menaces
 

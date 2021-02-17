@@ -3,16 +3,16 @@ title: Connecter votre compte GCP à Azure Security Center
 description: Surveillance de vos ressources GCP à partir d’Azure Security Center
 author: memildin
 ms.author: memildin
-ms.date: 01/24/2021
+ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 94c7a800fc551faf6650b8e30fe7c2188f7d2dbb
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757608"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008381"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connectez vos comptes GCP à Azure Security Center
 
@@ -20,7 +20,7 @@ Les charges de travail cloud couvrant généralement plusieurs plates-formes clo
 
 Azure Security Center protège les charges de travail dans Azure, Amazon Web Services (AWS) et Google Cloud Platform (GCP).
 
-L’intégration de votre compte GCP dans Security Center intègre GCP Security Command et Azure Security Center. Security Center offre ainsi une visibilité et une protection dans ces deux environnements cloud pour fournir les éléments suivants :
+L’incorporation de vos comptes GCP dans Security Center intègre GCP Security Command et Azure Security Center. Security Center offre ainsi une visibilité et une protection dans ces deux environnements cloud pour fournir les éléments suivants :
 
 - Détection des erreurs de configuration de sécurité
 - Vue unique présentant les recommandations de Security Center et les découvertes de GCP Security Command Center
@@ -44,6 +44,15 @@ Dans la capture d’écran ci-dessous, vous pouvez voir les projets GCP affiché
 
 ## <a name="connect-your-gcp-account"></a>Connecter votre compte GCP
 
+Créez un connecteur pour chaque organisation que vous souhaitez superviser à partir Security Center.
+
+Lors de la connexion de vos comptes GCP à des abonnements Azure spécifiques, tenez compte de la [hiérarchie des ressources Google Cloud](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) et des instructions suivantes :
+
+- Vous pouvez connecter vos comptes GCP à ASC au niveau de l’*organisation*
+- Vous pouvez connecter plusieurs organisations à un seul abonnement Azure
+- Vous pouvez connecter plusieurs organisations à plusieurs abonnements Azure
+- Lorsque vous connectez une organisation, tous les *projets* au sein de cette organisation sont ajoutés à Security Center
+
 Suivez les étapes ci-dessous pour créer votre connecteur cloud GCP. 
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Étape 1. Configurer la sécurité de GCP et Command Center avec Security Health Analytics
@@ -61,7 +70,7 @@ Lorsque vous activez pour la première fois Security Health Center, plusieurs he
 
 ### <a name="step-2-enable-gcp-security-command-center-api"></a>Étape 2. Activer l’API GCP Security Command Center
 
-1. À partir de la **bibliothèque d’API de Google Cloud Console**, sélectionnez le projet que vous souhaitez connecter à Azure Security Center.
+1. À partir de la **bibliothèque d’API de Google Cloud Console**, sélectionnez chaque projet dans l’organisation que vous souhaitez connecter à Azure Security Center.
 1. Dans la bibliothèque d’API, recherchez et sélectionnez **API Security Command Center**.
 1. Sur la page de l’API, sélectionnez **ACTIVER**.
 
@@ -70,7 +79,11 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 
 ### <a name="step-3-create-a-dedicated-service-account-for-the-security-configuration-integration"></a>Étape 3. Créer un compte de service dédié pour l’intégration de la configuration de la sécurité
 
-1. Dans la **console GCP**, sélectionnez le projet que vous souhaitez connecter à Security Center.
+1. Dans **GCP Console**, sélectionnez un projet à partir de l’organisation dans laquelle vous créez le compte de service demandé. 
+
+    > [!NOTE]
+    > Lorsque ce compte de service est ajouté au niveau de l’organisation, il est utilisé pour accéder aux données collectées par Security Command Center à partir de tous les autres projets activés dans l’organisation. 
+
 1. Dans le **menu de navigation**, sous les options **IAM & admin**, sélectionnez **Comptes de service**.
 1. Sélectionnez **CRÉER LE COMPTE DE SERVICE**.
 1. Entrez un nom de compte, puis sélectionnez **Créer**.
@@ -81,7 +94,7 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
     1. Basculez vers le niveau de l’organisation.
     1. Sélectionnez **AJOUTER**.
     1. Dans le champ **Nouveaux membres**, collez la **valeur E-mail** que vous avez copiée précédemment.
-    1. Spécifiez le rôle **Visionneuse d’administration de Security Center**, puis sélectionnez Enregistrer.
+    1. Spécifiez le rôle **Visionneuse d’administration de Security Center**, puis sélectionnez **Enregistrer**.
         :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Définition les autorisations GCP pertinentes":::
 
 
@@ -94,7 +107,7 @@ En savoir plus sur [l’API Security Command Center](https://cloud.google.com/se
 1. Enregistrez ce fichier JSON pour une utilisation ultérieure.
 
 
-### <a name="step-5-connect-gcp-to-security-center"></a>Étape 5. Connecter GCP à Security Center 
+### <a name="step-5-connect-gcp-to-security-center"></a>Étape 5. Connecter GCP à Security Center
 1. Dans le menu de Security Center, sélectionnez **Connecteurs cloud**.
 1. Sélectionnez Ajouter un compte GCP.
 1. Dans la page d’intégration, effectuez les opérations suivantes, puis sélectionnez **Suivant**.
@@ -121,8 +134,22 @@ Pour afficher toutes les recommandations actives pour vos ressources par type de
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtre de type de ressource de la page d’inventaire des ressources avec les options GCP"::: 
 
 
+## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>Questions fréquentes (FAQ) sur la connexion de comptes GCP à Azure Security Center
+
+### <a name="can-i-connect-multiple-gcp-organizations-to-security-center"></a>Est-ce que je peux connecter plusieurs organisations GCP à Security Center ?
+Oui. Le connecteur GCP de Security Center connecte vos ressources Google Cloud au niveau de l’*organisation*. 
+
+Créez un connecteur pour chaque organisation GCP que vous souhaitez superviser à partir de Security Center. Lorsque vous connectez une organisation, tous les projets au sein de cette organisation sont ajoutés à Security Center.
+
+Découvrez la hiérarchie des ressources Google Cloud dans la [documentation en ligne de Google](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+
+
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>Existe-t-il une API pour connecter mes ressources GCP à Security Center ?
+Oui. Pour créer, modifier ou supprimer des connecteurs cloud Security Center avec une API REST, consultez les détails de [l’API Connectors](/rest/api/securitycenter/connectors).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 La connexion de votre compte GCP fait partie de l’expérience multi-cloud disponible dans Azure Security Center. Pour accéder à des informations connexes, consultez la page suivante :
 
 - [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md)
+- [Hiérarchie des ressources Google Cloud](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--En savoir plus sur la hiérarchie des ressources Google Cloud dans la documentation en ligne de Google

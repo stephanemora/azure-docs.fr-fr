@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463269"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832179"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutoriel : Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central
 
-
-
 Ce didacticiel vous montre comment prendre en main le déploiement d’un modèle d’application de **gestion intelligente des stocks** IoT Central. Vous allez apprendre à déployer le modèle et découvrir les fonctionnalités prêtes à l’emploi incluses ainsi que les différentes possibilités qui s’offrent à vous.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
-* Créer une application de gestion intelligente des stocks 
-* Examiner l’application 
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> Créer une application de gestion intelligente des stocks et parcourir l’application 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -110,8 +109,8 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 > ![Capture d’écran montrant comment supprimer l’application lorsque vous n’en avez plus besoin](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur la gestion intelligente des stocks 
+
+En savoir plus sur la gestion intelligente des stocks :
+
 > [!div class="nextstepaction"]
 > [Concept de la gestion intelligente des stocks](./architecture-smart-inventory-management.md)
-* En savoir plus sur d’autres [modèles de distribution IoT Central](./overview-iot-central-retail.md)
-* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../core/overview-iot-central.md)

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753619"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582551"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
@@ -26,7 +26,7 @@ Pour pouvoir appeler des API web protégées, votre application doit disposer d'
 
 ## <a name="define-a-scope"></a>Définir une étendue
 
-Lorsque vous demandez un jeton, vous devez définir une étendue. L’étendue détermine les données auxquelles votre application peut accéder.
+Lorsque vous demandez un jeton, définissez une étendue. L’étendue détermine les données auxquelles votre application peut accéder.
 
 Pour définir une étendue, l'approche la plus simple consiste à combiner l'`App ID URI` de l'API web souhaitée avec l'étendue `.default`. Cette définition indique à la plateforme d’identités Microsoft que votre application a besoin de toutes les étendues définies sur le portail.
 
@@ -236,7 +236,7 @@ La classe définit les constantes suivantes :
     Cette option peut être utile si l'acquisition du jeton échoue et que vous souhaitez permettre à l'utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. Vous souhaiterez peut-être utiliser cette option dans les applications axées sur la sécurité pour lesquelles la gouvernance de l'organisation exige que l'utilisateur se connecte chaque fois qu'il accède à des parties spécifiques de l'application.
 - `Never` concerne uniquement .NET 4.5 et Windows Runtime (WinRT). Cette constante n'affichera aucune invite utilisateur, mais elle tentera d'utiliser le cookie stocké dans l'affichage web incorporé masqué. Pour plus d'informations, consultez [Utilisation de navigateurs avec MSAL.NET](./msal-net-web-browsers.md).
 
-    Si cette option échoue, `AcquireTokenInteractive` renvoie une exception pour vous informer qu'une interaction avec l'interface utilisateur est nécessaire. Vous devez alors utiliser un autre paramètre `Prompt`.
+    Si cette option échoue, `AcquireTokenInteractive` renvoie une exception pour vous informer qu'une interaction avec l'interface utilisateur est nécessaire. Utilisez ensuite un autre paramètre `Prompt`.
 - `NoPrompt` n'envoie pas d'invite au fournisseur d'identité.
 
     Cette option n'est utile que pour les stratégies de modification de profil d'Azure Active Directory B2C. Pour plus d'informations, consultez [Spécificités de B2C](https://aka.ms/msal-net-b2c-specificities).

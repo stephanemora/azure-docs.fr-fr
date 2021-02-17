@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943885"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988436"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -632,7 +632,7 @@ Pour cette méthode, utilisez les entités d’index qui stockent les données s
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Capture d’écran qui montre l’entité d’index Employé qui contient une liste des ID d’employés pour les employés dont le nom de famille est stocké dans RowKey et PartitionKey.":::
 
-La propriété `EmployeeIDs` contient une liste d’ID d’employés pour les employés portant le nom stocké dans la `RowKey` et `PartitionKey`.  
+La propriété `EmployeeDetails` contient une liste de paires ID d’employés/nom de département pour les employés portant le nom stocké dans la `RowKey`.
 
 Vous ne pouvez pas utiliser des EGT pour maintenir la cohérence, car les entités d’index sont dans une partition distincte des entités d’employés. Vérifiez que les entités d’index sont cohérentes avec les entités d’employé.  
 

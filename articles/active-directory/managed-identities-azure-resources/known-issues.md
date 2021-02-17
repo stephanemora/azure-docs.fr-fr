@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825808"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008534"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec des identités managées pour les ressources Azure
 
@@ -48,6 +48,10 @@ Non. Les identités managées et les inscriptions d’applications Azure AD sont
 Les inscriptions d’applications ont deux composants : un objet application et un objet principal de service. Les identités managées des ressources Azure ont un seul de ces composants : un objet principal de service. 
 
 Les identités managées n’ont pas d’objet application dans l’annuaire, qui est l’objet couramment utilisé pour accorder des autorisations d’application pour MS Graph. Au lieu de cela, les autorisations MS Graph pour les identités managées doivent être accordées directement au principal de service.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>La même identité managée peut-elle être utilisée dans plusieurs régions ?
+
+En deux mots, oui, vous pouvez utiliser des identités managées affectées par l’utilisateur dans plusieurs régions Azure. La réponse plus longue est que, si des identités managées affectées par l’utilisateur sont créées en tant que ressources régionales, le [principal de service](../develop/app-objects-and-service-principals.md#service-principal-object) (SPN) associé créé dans Azure AD est disponible globalement. Le principal de service peut être utilisé à partir de n’importe quelle région Azure et sa disponibilité dépend de celle d’Azure AD. Par exemple, si vous avez créé une identité managée affectée par l'utilisateur dans la région Sud-Centre et que cette région devient indisponible, ce problème n’affecte que les activités de [plan de contrôle](../../azure-resource-manager/management/control-plane-and-data-plane.md) sur l’identité managée proprement dite.  Les activités effectuées par des ressources déjà configurées pour utiliser des identités managées ne seront pas affectées.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Les identités managées pour les ressources Azure fonctionnent-elles avec Azure Cloud Services ?
 

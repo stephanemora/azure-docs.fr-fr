@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223225"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806955"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -54,7 +54,7 @@ Les adresses IP publiques de référence SKU standard :
 - Dotées d’un délai d’inactivité du flux entrant réglable de 4 à 30 minutes, avec une valeur par défaut de 4 minutes et d’un délai d’inactivité du flux sortant fixe de 4 minutes.
 - Sont sécurisées par défaut et fermées au trafic entrant. Autorisez la liste du trafic entrant avec un [groupe de sécurité réseau](./network-security-groups-overview.md#network-security-groups).
 - Sont assignées à des interfaces réseau, des équilibreurs de charge publics standard ou des passerelles d’application. Pour plus d’informations sur Standard Load Balancer, consultez [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Peuvent être redondantes dans une zone (publiées depuis les 3 zones) ou zonales (peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Les IP redondantes dans une zone peuvent être créées seulement dans des [régions où 3 zones de disponibilité](../availability-zones/az-region.md) sont actives.** Les IP créées avant que les zones soient actives ne sont pas redondantes dans une zone.
+- Peut être redondant interzone (provenant de l’ensemble des 3 zones), zonal (garanti dans une zone de disponibilité présélectionnée spécifique) ou sans zone (non associé à une zone de disponibilité présélectionnée spécifique). Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Équilibreur de charge standard et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Les IP redondantes dans une zone peuvent être créées seulement dans des [régions où 3 zones de disponibilité](../availability-zones/az-region.md) sont actives.** Les IP créées avant que les zones soient actives ne sont pas redondantes dans une zone.
 - Peuvent être utilisées comme adresses IP frontales anycast pour [les équilibreurs de charge interrégions](../load-balancer/cross-region-overview.md) (fonctionnalité d’évaluation).
  
 > [!NOTE]
@@ -62,6 +62,9 @@ Les adresses IP publiques de référence SKU standard :
 
 > [!NOTE]
 > Seules les adresses IP publiques avec la référence SKU De base sont disponibles lorsque vous utilisez [le service de métadonnées d’instance (IMDS, instance metadata service)](../virtual-machines/windows/instance-metadata-service.md). La référence SKU Standard n’est pas prise en charge.
+
+> [!NOTE]
+> Les paramètres de diagnostic n’apparaissent pas dans le panneau de la ressource lors de l’utilisation d’une adresse IP publique de référence SKU standard. Pour activer la journalisation sur votre ressource d’adresse IP publique standard, accédez aux paramètres de diagnostic dans le panneau Azure Monitor et sélectionnez votre ressource d’adresse IP.
 
 ### <a name="basic"></a>De base
 

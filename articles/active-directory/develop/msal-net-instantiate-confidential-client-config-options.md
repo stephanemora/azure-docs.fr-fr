@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063550"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583940"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente confidentielle avec des options de configuration à l’aide de MSAL.NET
 
@@ -28,7 +28,7 @@ Avant d’initialiser une application, vous devez d’abord [l’inscrire](quick
 
 - L’ID client (une chaîne représentant un GUID)
 - L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
-- L’ID locataire si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
+- L’ID locataire, si vous écrivez une application cœur de métier uniquement pour votre organisation (également nommée application à locataire unique).
 - Le secret d’application (chaîne secrète client) ou le certificat (de type X509Certificate2) s’il s’agit d’une application cliente confidentielle.
 - Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez également avoir défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
 
@@ -60,7 +60,7 @@ Une configuration d’application ASP.NET Core est décrite dans un fichier *app
 
 À partir de MSAL.NET v3.x, vous pouvez configurer votre application cliente confidentielle à partir du fichier config.
 
-Dans la classe où vous souhaitez configurer et instancier votre application, vous devez déclarer un objet `ConfidentialClientApplicationOptions`.  Liez la configuration lue dans la source (y compris le fichier appconfig.json) à l’instance des options d’application. Pour cela, utilisez la méthode `IConfigurationRoot.Bind()` à partir du [package NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) :
+Dans la classe où vous souhaitez configurer et instancier votre application, déclarez un objet `ConfidentialClientApplicationOptions`.  Liez la configuration lue dans la source (y compris le fichier appconfig.json) à l’instance des options d’application. Pour cela, utilisez la méthode `IConfigurationRoot.Bind()` à partir du [package NuGet Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) :
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -79,7 +79,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>Ajouter la configuration du runtime
-Dans une application cliente confidentielle, vous disposez généralement d’un cache par utilisateur. Par conséquent, vous devrez obtenir le cache associé à l’utilisateur et informer le générateur d’applications que vous souhaitez l’utiliser. Dans la même façon, vous pouvez avoir un URI de redirection calculé de façon dynamique. Dans ce cas, utilisez le code suivant :
+Dans une application cliente confidentielle, vous disposez généralement d’un cache par utilisateur. Par conséquent, vous devrez obtenir le cache associé à l’utilisateur et informer le générateur d’applications que vous souhaitez l’utiliser. Dans la même façon, vous pouvez avoir un URI de redirection calculé de façon dynamique. Dans ce cas, utilisez le code suivant :
 
 ```csharp
 IConfidentialClientApplication app;

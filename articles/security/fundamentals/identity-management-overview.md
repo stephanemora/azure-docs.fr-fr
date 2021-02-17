@@ -4,8 +4,7 @@ description: Découvrez les principales fonctionnalités de sécurité Azure qui
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843687"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627631"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -62,9 +61,9 @@ Non seulement les utilisateurs n’ont plus besoin de gérer plusieurs noms d’
 
 En savoir plus :
 
-* [Présentation de l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Série de démarrages rapides sur la gestion des applications](../../active-directory/manage-apps/view-applications-portal.md)
+* [Vue d’ensemble de l’authentification unique](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Vidéo présentant les concepts de base de l’authentification](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Série de guides de démarrage rapide sur la gestion des applications](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy inversé
 
