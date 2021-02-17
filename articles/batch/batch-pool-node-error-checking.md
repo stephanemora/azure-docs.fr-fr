@@ -3,28 +3,28 @@ title: Rechercher les erreurs des pools et des nœuds
 description: Cet article décrit les opérations d'arrière-plan qui peuvent se produire, ainsi que les erreurs à rechercher et comment les éviter lors de la création de pools et de nœuds.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/23/2019
+ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85979915"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576310"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 
-Lorsque vous créez et gérez des pools Azure Batch, certaines opérations se produisent immédiatement. Toutefois, certaines opérations sont asynchrones et s’exécutent en arrière-plan, ce qui prend plusieurs minutes.
+Lorsque vous créez et gérez des pools Azure Batch, certaines opérations se produisent immédiatement. La détection des échecs de ces opérations est généralement simple, car ils sont retournés immédiatement par l’API, l’interface de ligne de commande ou l’interface utilisateur. Toutefois, certaines opérations sont asynchrones et s’exécutent en arrière-plan, ce qui prend plusieurs minutes.
 
-La détection des échecs des opérations qui ont lieu immédiatement est simple, car les échecs éventuels sont retournés immédiatement par l’API, l’interface CLI ou l’interface utilisateur.
+Vérifiez que vous avez paramétré vos applications pour implémenter le contrôle complet des erreurs, en particulier pour les opérations asynchrones. Cela peut vous aider à identifier et diagnostiquer rapidement les problèmes.
 
-Cet article traite des opérations d’arrière-plan qui peuvent survenir pour les groupes et les nœuds de groupe. Il indique comment vous pouvez détecter et éviter les échecs.
+Cet article explique comment détecter et éviter les échecs d’opérations en arrière-plan susceptibles de se produire pour des pools et nœuds de pool.
 
 ## <a name="pool-errors"></a>Erreurs de pool
 
 ### <a name="resize-timeout-or-failure"></a>Dépassement du délai d’attente ou échec du redimensionnement
 
-Lors de la création d’un pool ou du redimensionnement d’un pool existant, vous spécifiez le nombre de nœuds cible.  L’opération de création ou de redimensionnement se termine immédiatement, mais l’allocation réelle des nouveaux nœuds ou la suppression de nœuds existants peut prendre plusieurs minutes.  Vous spécifiez le délai d’expiration du redimensionnement dans l’API [create](/rest/api/batchservice/pool/add) ou l’API [resize](/rest/api/batchservice/pool/resize). Si Batch ne peut pas obtenir le nombre cible de nœuds pendant le délai d'expiration du redimensionnement, le pool passe à l’état stable et signale les erreurs de redimensionnement.
+Lors de la création d’un pool ou du redimensionnement d’un pool existant, vous spécifiez le nombre de nœuds cible. L’opération de création ou de redimensionnement se termine immédiatement, mais l’allocation réelle des nouveaux nœuds ou la suppression de nœuds existants peut prendre plusieurs minutes. Vous pouvez spécifier le délai d’attente du redimensionnement dans l’API de [création](/rest/api/batchservice/pool/add) ou de [redimensionnement](/rest/api/batchservice/pool/resize). Si Batch ne peut pas obtenir le nombre cible de nœuds pendant le délai d'attente du redimensionnement, le pool passe à l’état stable et signale des erreurs de redimensionnement.
 
 La propriété [ResizeError](/rest/api/batchservice/pool/get#resizeerror) de l’évaluation la plus récente répertorie toutes les erreurs survenues.
 
@@ -44,23 +44,25 @@ Les causes courantes des erreurs de redimensionnement sont notamment les suivant
 
 ### <a name="automatic-scaling-failures"></a>Échecs de mise à l’échelle automatique
 
-Vous pouvez également configurer Azure Batch pour mettre automatiquement à l’échelle le nombre de nœuds dans un pool. Vous définissez les paramètres de la [formule de mise à l’échelle automatique d’un pool](./batch-automatic-scaling.md). Le service Batch utilise la formule pour évaluer régulièrement le nombre de nœuds dans le pool et définir un nouveau nombre de cibles. Les types de problèmes suivants peuvent se produire :
+Vous pouvez configurer Azure Batch de façon à mettre automatiquement à l’échelle le nombre de nœuds dans un pool. Vous définissez les paramètres de la [formule de mise à l’échelle automatique d’un pool](./batch-automatic-scaling.md). Le service Batch utilise ensuite la formule pour évaluer régulièrement le nombre de nœuds du pool et définir un nouveau nombre de cibles.
+
+Les types de problèmes suivants peuvent se produire lors de l’utilisation d’une mise à l’échelle automatique :
 
 - L’évaluation de la mise à l’échelle automatique échoue.
 - L’opération de redimensionnement qui en résulte échoue et dépasse le délai d’expiration.
 - Un problème portant sur la formule de mise à l’échelle automatique produit des valeurs cibles de nœud incorrectes. Le redimensionnement fonctionne ou arrive à expiration.
 
-Vous pouvez obtenir des informations sur la dernière évaluation automatique de mise à l’échelle à l’aide de la propriété [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Cette propriété rapporte le temps d’évaluation, les valeurs et les résultats, ainsi que les éventuelles erreurs de performance.
+Pour obtenir des informations sur la dernière évaluation de mise à l’échelle automatique, utilisez la propriété [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun). Cette propriété rapporte le temps d’évaluation, les valeurs et les résultats, ainsi que les éventuelles erreurs de performance.
 
 Un [événement de fin de redimensionnement de pool](./batch-pool-resize-complete-event.md) capture les informations sur toutes les évaluations.
 
-### <a name="delete"></a>DELETE
+### <a name="pool-deletion-failures"></a>Échecs de suppression de pool
 
-Lorsque vous supprimez un pool qui contient des nœuds, le premier Batch supprime les nœuds. Il supprime ensuite l’objet pool lui-même. Quelques minutes peuvent être nécessaires pour supprimer les nœuds du pool.
+Lorsque vous supprimez un pool qui contient des nœuds, le premier Batch supprime les nœuds. L’exécution de cette commande peut prendre plusieurs minutes. Ensuite, Batch supprime l’objet pool proprement dit.
 
 Batch définit l’[état du pool](/rest/api/batchservice/pool/get#poolstate) sur **En cours de suppression** pendant le processus de suppression. L’application appelante peut détecter si la suppression du pool prend trop de temps en utilisant les propriétés **state** et **stateTransitionTime**.
 
-## <a name="pool-compute-node-errors"></a>Erreurs des nœuds de calcul du pool
+## <a name="node-errors"></a>Erreurs de nœud
 
 Même lorsque Batch alloue des nœuds d’un pool, différents problèmes peuvent les endommager ou les rendre incapables d’exécuter des tâches. Ces nœuds entraînent toujours des frais. Il est donc important de détecter les problèmes afin d’éviter de payer pour des nœuds qui ne peuvent pas être utilisés. En plus des erreurs de nœud courantes, il est utile de connaître l’[état actuel de la tâche](/rest/api/batchservice/job/get#jobstate) en vue de la résolution des problèmes.
 
@@ -74,7 +76,7 @@ Vous pouvez détecter les échecs des tâches de démarrage via les propriétés
 
 Une tâche de démarrage qui a échoué fait passer [l’état](/rest/api/batchservice/computenode/get#computenodestate) du nœud à **starttaskfailed** si **waitForSuccess** a été défini sur **true**.
 
-Comme avec n’importe quelle tâche, plusieurs causes d’échec de la tâche de démarrage sont possibles.  Pour résoudre les problèmes, examinez les fichiers journaux stdout, stderr et tous les fichiers journaux spécifiques aux tâches.
+Comme toute tâche, une tâche de démarrage peut échouer pour diverses raisons. Pour résoudre les problèmes, examinez les fichiers journaux stdout, stderr et tous les fichiers journaux spécifiques aux tâches.
 
 Les tâches de démarrage doivent être réentrantes, car il est possible que la tâche de démarrage soit exécutée plusieurs fois sur le même nœud ; la tâche de démarrage est exécutée lors de la réinitialisation ou du redémarrage d’un nœud. Dans de rares cas, une tâche de démarrage est exécutée après un événement provoquant un redémarrage du nœud, où l’un des systèmes d’exploitation ou des disques éphémères a été réinitialisé alors que l’autre ne l’a pas été. Étant donné que les tâches de démarrage de Batch (comme toutes les tâches Batch) sont exécutées à partir du disque éphémère, ce n’est normalement pas un problème. Cependant, dans certains cas, où la tâche de démarrage installe une application sur le disque du système d'exploitation et conserve les autres données sur le disque éphémère, des problèmes liés à l’absence de synchronisation peuvent survenir. Protégez votre application en conséquence si vous utilisez les deux disques.
 
@@ -87,6 +89,10 @@ La propriété [errors](/rest/api/batchservice/computenode/get#computenodeerror)
 ### <a name="container-download-failure"></a>Échec du téléchargement du conteneur
 
 Vous pouvez spécifier une ou plusieurs références de conteneur sur un pool. Batch télécharge les conteneurs spécifiés pour chaque nœud. La propriété [erreurs](/rest/api/batchservice/computenode/get#computenodeerror) du nœud signale l’échec de téléchargement d’un conteneur et définit l’état du nœud sur **inutilisable**.
+
+### <a name="node-os-updates"></a>Mises à jour de système d’exploitation de nœud
+
+Pour des pools Windows, `enableAutomaticUpdates` est défini sur `true` par défaut. S’il est recommandé d’autoriser les mises à jour automatiques, celles-ci peuvent interrompre la progression des tâches, en particulier de longue durée. Vous pouvez définir cette valeur sur `false` pour vous assurer qu’une mise à jour du système d’exploitation ne se produise pas de manière inattendue.
 
 ### <a name="node-in-unusable-state"></a>Nœud dans un état inutilisable
 
@@ -116,7 +122,7 @@ Si vous devez contacter le support technique concernant un problème de nœud de
 
 ### <a name="node-disk-full"></a>Disque de nœud plein
 
-Le lecteur temporaire d’une machine virtuelle de nœud de pool est utilisé par Batch pour les fichiers de travail, les fichiers de tâches et les fichiers partagés.
+Batch utilise le lecteur temporaire d’une machine virtuelle de nœud de pool pour des fichiers de travail, des fichiers de tâche et des fichiers partagés tels que les suivants :
 
 - Fichiers de packages d’applications
 - Fichiers de ressources de tâche
@@ -135,23 +141,17 @@ La taille du lecteur temporaire dépend de la taille de la machine virtuelle. L�
 
 Concernant les fichiers écrits par chaque tâche, une durée de rétention déterminant la durée pendant laquelle ils seront conservés avant d’être automatiquement nettoyés peut respectivement être spécifiée. La durée de rétention peut être raccourcie pour réduire les exigences de stockage.
 
-
 Si le disque temporaire manque (ou est sur le point de manquer) d’espace, le nœud passera à l’état [Inutilisable](/rest/api/batchservice/computenode/get#computenodestate) et une erreur de nœud indiquera que le disque est plein.
 
-### <a name="what-to-do-when-a-disk-is-full"></a>Procédure à suivre lorsqu’un disque est plein
+Si vous n’êtes pas certain de ce qui occupe de l’espace sur le nœud, essayez d’y accéder à distance et d’examiner manuellement l’utilisation de l’espace. Vous pouvez également recourir à [l’API Batch Lister les fichiers](/rest/api/batchservice/file/listfromcomputenode) pour examiner les fichiers des dossiers gérés par Batch (par exemple, les sorties de tâches). Notez que cette API répertorie uniquement les fichiers figurant dans les répertoires gérés par Batch. Si vos tâches ont créé des fichiers ailleurs, vous ne les verrez pas.
 
-Déterminez la raison pour laquelle le disque est plein : Si vous ne savez pas ce qui occupe de l’espace sur le nœud, nous vous recommandons d’y accéder à distance et d’examiner manuellement à quoi cet espace est utilisé. Vous pouvez également recourir à [l’API Batch Lister les fichiers](/rest/api/batchservice/file/listfromcomputenode) pour examiner les fichiers des dossiers gérés par Batch (par exemple, les sorties de tâches). Il faut savoir que cette API ne répertorie que les fichiers présents dans les répertoires gérés par Batch ; si vos tâches ont créé des fichiers ailleurs, ceux-ci n’apparaîtront pas.
+Vérifiez que toutes les données dont vous avez besoin ont été récupérées à partir du nœud ou chargées dans un magasin durable, puis supprimez les données nécessaires pour libérer de l’espace.
 
-Vérifiez que toutes les données dont vous avez besoin ont été récupérées à partir du nœud ou chargées dans un magasin durable. L’atténuation du problème de disque plein implique nécessairement la suppression de données pour libérer de l’espace.
+Vous pouvez supprimer d’anciens travaux ou tâches accomplis dont les données se trouvent toujours sur les nœuds. Examinez la collection [RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) sur le nœud, ou les [fichiers sur le nœud](/rest/api/batchservice/file/listfromcomputenode). La suppression d’un travail entraîne la suppression de toutes les tâches associées à celui-ci. La suppression des tâches du travail a pour effet de supprimer des données des répertoires de tâches sur le nœud, et donc de libérer de l’espace. Une fois que vous avez libéré suffisamment d’espace, redémarrez le nœud ; il devrait repasser de l’état « Inutilisable » à l’état « Inactif ».
 
-### <a name="recovering-the-node"></a>Récupération du nœud
-
-1. Si votre pool est un pool [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), vous pouvez recréer l’image du nœud avec [l’API Batch Recréation d’image](/rest/api/batchservice/computenode/reimage), qui nettoie la totalité du disque. La recréation d’image n’est à l’heure actuelle pas prise en charge pour les pools [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
-
-2. Si votre pool est un pool [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), vous pouvez supprimer le nœud du pool avec [l’API Suppression de nœuds](/rest/api/batchservice/pool/removenodes), puis agrandir le pool pour remplacer le mauvais nœud par un nouveau.
-
-3.  Supprimez les anciennes tâches et les anciens travaux terminés dont les données se trouvent toujours sur les nœuds. Pour savoir quelles données sont concernées, vous pouvez regarder dans la [collection RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) sur le nœud, ou examiner les [fichiers sur le nœud](/rest/api/batchservice/file/listfromcomputenode). La suppression du travail entraîne la suppression de toutes les tâches qu’il comporte, qui elle entraîne la suppression des données des répertoires de tâches du nœud, ce qui libère de l’espace. Une fois que vous avez libéré suffisamment d’espace, redémarrez le nœud ; il devrait repasser de l’état « Inutilisable » à l’état « Inactif ».
+Pour récupérer un nœud inutilisable dans des pools [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), vous pouvez supprimer un nœud du pool à l’aide de l’[API Suppression de nœuds](/rest/api/batchservice/pool/removenodes), puis agrandir le pool pour remplacer le mauvais nœud par un nouveau. Pour les pools [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration), vous pouvez réimager le nœud via l’[API Batch Recréation d’image](/rest/api/batchservice/computenode/reimage). Cela a pour effet de nettoyer le disque entier. La recréation d’image n’est à l’heure actuelle pas prise en charge pour les pools [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vérifiez que vous avez paramétré votre application pour implémenter le contrôle complet des erreurs, en particulier pour les opérations asynchrones. Il peut être essentiel de rapidement détecter et diagnostiquer les problèmes.
+- Découvrez la [vérification des erreurs de travail et de tâche](batch-job-task-error-checking.md).
+- Découvrez les [meilleures pratiques](best-practices.md) d’utilisation d’Azure Batch.

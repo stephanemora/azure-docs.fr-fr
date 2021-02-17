@@ -2,13 +2,13 @@
 title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019971"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988249"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
@@ -35,6 +35,11 @@ Pour importer des images conteneur, cet article nécessite que vous exécutiez l
 > [!NOTE]
 > Si vous avez besoin de distribuer des images conteneur identiques dans plusieurs régions Azure, Azure Container Registry prend également en charge la [géoréplication](container-registry-geo-replication.md). En géoréplicant un registre (niveau de service Premium requis), vous pouvez servir plusieurs régions avec des noms d’image et d’étiquette identiques à partir d’un seul registre.
 >
+
+> [!IMPORTANT]
+> Les modifications apportées à l’importation d’image entre deux registres de conteneurs Azure ont été introduites à partir du mois de janvier 2021 :
+> * L’importation vers ou depuis un registre de conteneurs Azure avec accès restreint au réseau requiert que le registre restreint [**autorise l’accès par des services de confiance**](allow-access-trusted-services.md) pour contourner le réseau. Par défaut, le paramètre est activé, ce qui permet l’importation. Si le paramètre n’est pas activé dans un registre nouvellement créé avec un point de terminaison privé ou avec des règles de pare-feu de registre, l’importation échoue. 
+> * Dans un registre de conteneurs Azure avec accès restreint au réseau existant utilisé comme source d’importation ou cible, l’activation de cette fonctionnalité de sécurité réseau est facultative, mais recommandée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,13 +68,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-L’exemple suivant importe une image publique à partir du dépôt `tensorflow` dans Docker Hub :
+Si vous avez un [compte Docker Hub](https://www.docker.com/pricing), nous vous recommandons d’utiliser les informations d’identification lors de l’importation d’une image à partir de Docker Hub. Transmettez le nom d’utilisateur et le mot de passe du Docker Hub ou un [jeton d’accès personnel](https://docs.docker.com/docker-hub/access-tokens/) en tant que paramètres à `az acr import`. L’exemple suivant importe une image publique à partir du référentiel `tensorflow` dans Docker Hub, en utilisant les informations d'identification de Docker Hub :
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Importer à partir du registre de conteneurs Microsoft
@@ -92,6 +99,8 @@ Vous pouvez importer une image à partir d'un registre de conteneurs Azure situ�
 * Le registre peut se trouver dans un abonnement Azure identique ou différent dans le même locataire Active Directory.
 
 * L’[accès public](container-registry-access-selected-networks.md#disable-public-network-access) au registre source peut être désactivé. Si l’accès public est désactivé, spécifiez le registre source par ID de ressource plutôt que par nom de serveur de connexion au registre.
+
+* Si le registre source et/ou le registre cible ont un point de terminaison privé ou si des règles de pare-feu de registre sont appliqués, assurez-vous que le registre restreint [permet aux services de confiance](allow-access-trusted-services.md) d’accéder au réseau.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importer à partir d’un registre dans le même abonnement
 

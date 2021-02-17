@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901196"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593947"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flux de travail GitHub Actions pour Azure Static Web Apps - Préversion
 
@@ -38,11 +38,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 
 jobs:
   build_and_deploy_job:
@@ -87,16 +87,16 @@ Le [déclencheur](https://help.github.com/actions/reference/events-that-trigger-
 on:
   push:
     branches:
-    - master
+    - main
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-    - master
+    - main
 ```
 
 Avec les paramètres associés à la propriété `on`, vous pouvez définir les branches qui déclenchent un travail et définir les déclencheurs à activer pour les différents états de demandes de tirage (pull request).
 
-Dans cet exemple, un flux de travail est démarré lorsque la branche _master_ change. Les modifications qui lancent le flux de travail sont entre autres les validations et les demandes de tirage (pull request) sur la branche choisie.
+Dans cet exemple, un flux de travail est démarré lorsque la branche _principale_ change. Les modifications qui lancent le flux de travail sont entre autres les validations et les demandes de tirage (pull request) sur la branche choisie.
 
 ## <a name="jobs"></a>travaux
 
@@ -107,7 +107,7 @@ Dans le fichier de flux de travail Static Web Apps, deux travaux sont disponible
 | Nom  | Description |
 |---------|---------|
 |`build_and_deploy_job` | S’exécute quand vous envoyez des validations ou que vous ouvrez une demande de tirage (pull request) sur la branche indiquée dans la propriété `on`. |
-|`close_pull_request_job` | S’exécute uniquement lorsque vous fermez une requête de tirage qui supprime l’environnement intermédiaire créé à partir des demandes de tirage (pull requests). |
+|`close_pull_request_job` | S’exécute UNIQUEMENT lorsque vous fermez une demande de tirage (pull request) qui supprime l’environnement intermédiaire créé à partir des demandes de tirage (pull requests). |
 
 ## <a name="steps"></a>Étapes
 
@@ -139,7 +139,7 @@ with:
 | Propriété | Description | Obligatoire |
 |---|---|---|
 | `app_location` | Emplacement du code de votre application.<br><br>Par exemple, entrez `/` si le code source de votre application se trouve à la racine du référentiel ou `/app` si le code de votre application se trouve dans un répertoire appelé `app`. | Oui |
-| `api_location` | Emplacement de votre code Azure Functions.<br><br>Par exemple, entrez `/api` si le code de votre application se trouve dans un dossier appelé `api`. Si aucune application Azure Functions n’est détectée dans le dossier, la création n’échoue pas, le flux de travail suppose que vous ne souhaitez pas d’API. | Non |
+| `api_location` | Emplacement de votre code Azure Functions.<br><br>Par exemple, entrez `/api` si le code de votre application se trouve dans un dossier appelé `api`. Si aucune application Azure Functions n’est détectée dans le dossier, la génération n’échoue pas, le flux de travail suppose que vous ne voulez pas d’API. | Non |
 | `output_location` | Emplacement du répertoire de sortie de compilation par rapport à `app_location`.<br><br>Par exemple, si le code source de votre application se trouve dans `/app`, et que le script de compilation place les fichiers dans le dossier `/app/build`, définissez `build` comme valeur `output_location`. | Non |
 
 Les valeurs `repo_token`, `action`et `azure_static_web_apps_api_token` sont définies pour vous par Azure Static Web Apps et ne doivent pas être modifiées manuellement.
@@ -194,6 +194,54 @@ jobs:
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0
 ```
+
+## <a name="monorepo-support"></a>Prise en charge de référentiel unique
+
+Un référentiel unique est un référentiel qui contient du code pour plusieurs applications. Par défaut, un fichier de flux de travail Static Web Apps fait le suivi de tous les fichiers dans un référentiel, mais vous pouvez l’ajuster pour cibler une seule application. Par conséquent, pour les référentiels uniques, chaque application statique possède son propre fichier de configuration. Ces fichiers cohabitent dans le dossier *.github/workflows* du référentiel.
+
+```files
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
+│
+├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
+├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
+│
+└── README.md
+```
+
+Pour cibler un fichier de flux de travail sur une seule application, vous spécifiez les chemins d’accès dans les sections `push` et `pull_request`.
+
+L’exemple suivant montre comment ajouter un nœud `paths` aux sections `push` et `pull_request` d’un fichier nommé _azure-static-web-apps-purple-pond.yml_.
+
+```yml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - app1/**
+      - api1/**
+      - .github/workflows/azure-static-web-apps-purple-pond.yml
+```
+
+Dans ce cas, seules les modifications apportées aux fichiers suivants déclenchent une nouvelle génération :
+
+- Tous les fichiers contenus dans le dossier *app1*
+- Tous les fichiers contenus dans le dossier *api1*
+- Modifications apportées au fichier de flux de travail *azure-static-web-apps-purple-pond.yml* de l’application
 
 ## <a name="next-steps"></a>Étapes suivantes
 

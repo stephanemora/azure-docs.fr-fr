@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : La science des données pour les débutants - A
 description: La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307477"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520389"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
 
@@ -45,7 +45,7 @@ Dans cette première vidéo, nous allons parler des « 5 questions auxquelles la
 
 La science des données utilise des nombres et des noms (également connus sous les noms de catégories ou d’étiquettes) pour prédire des réponses à des questions.
 
-Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science des données répond* :
+Cela peut vous surprendre, mais *il existe cinq questions auxquelles la science des données répond*:
 
 * Est-ce A ou B ?
 * Est-ce étrange ?

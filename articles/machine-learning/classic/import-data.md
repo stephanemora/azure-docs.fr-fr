@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Importation de données d’apprentissage – Az
 description: Découvrez comment importer vos données Azure Machine Learning Studio (classique) depuis différentes sources de données. Découvrez quels types de données et quels formats de données sont pris en charge.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302776"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520372"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importer vos données d’entraînement dans Azure Machine Learning Studio (classique) à partir de différentes sources de données
 
@@ -73,12 +73,12 @@ Les types de données reconnus par Studio (classique) sont les suivants :
 * DateTime
 * TimeSpan
 
-Studio utilise un type de données interne appelé ***table de données** _ pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
+Studio utilise un type de données interne appelé ***Table de données*** pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
 
 Tout module qui accepte des formats autres que la table de données convertit silencieusement les données en table de données avant de les passer au module suivant.
 
 Au besoin, vous pouvez convertir à nouveau le format de table de données au format CSV, TSV, ARFF ou SVMLight à l’aide d’autres modules de conversion.
-Recherchez dans la section _ *Conversion des formats de données** de la palette des modules ceux qui exécutent ces fonctions.
+Recherchez dans la section **Conversion des formats de données** de la palette des modules ceux qui exécutent ces fonctions.
 
 ## <a name="data-capacities"></a>Capacités des données
 

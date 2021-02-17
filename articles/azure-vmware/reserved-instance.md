@@ -2,13 +2,13 @@
 title: Économiser grâce à l’instance réservée de Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600861"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550973"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -132,3 +132,12 @@ Pour plus d’informations sur les réservations gérées par CSP, consultez [Ve
 Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 Les CSP peuvent annuler, échanger ou rembourser, avec certaines restrictions, les réservations achetées pour leur client. Pour plus d’informations, consultez [Gérer, annuler, échanger ou rembourser des réservations Microsoft Azure pour les clients](/partner-center/azure-reservations-manage).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Maintenant que vous avez abordé l’achat d’une instance réservée d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
+
+- [Création d’une évaluation Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Gestion du protocole DHCP pour Azure VMware Solution](manage-dhcp.md).
+- [Gestion du cycle de vie des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

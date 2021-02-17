@@ -5,22 +5,20 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520439"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979740"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutoriel : Déplacer des machines virtuelles Azure d’une région à une autre
 
 Dans cet article, apprenez à déplacer dans une autre région Azure des machines virtuelles Azure ainsi que les ressources réseau et de stockage associées, en utilisant [Azure Resource Mover](overview.md).
-
-> [!NOTE]
-> Azure Resource Mover est actuellement en préversion publique.
+.
 
 
 Dans ce tutoriel, vous allez apprendre à :
@@ -40,26 +38,21 @@ Dans ce tutoriel, vous allez apprendre à :
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer. Puis, connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Prérequis
-
--  Veillez à disposer d’un accès *Propriétaire* sur l’abonnement contenant les ressources que vous souhaitez déplacer.
-    - La première fois que vous ajoutez une ressource pour une paire source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement.
-    - Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
-- L’abonnement a besoin d’un quota suffisant pour créer les ressources que vous déplacez dans la région cible. S’il n’a pas le quota, [demandez des limites supplémentaires](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
+**Prérequis** | **Description**
+--- | ---
+**Autorisations d’abonnement** | Veillez à disposer d’un accès *Propriétaire* sur l’abonnement contenant les ressources que vous souhaitez déplacer.<br/><br/> **Pourquoi ai-je besoin d’un accès Propriétaire ?** La première fois que vous ajoutez une ressource pour une paire source et destination spécifique dans un abonnement Azure, Resource Mover crée une [identité managée affectée par le système](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (anciennement Managed Service Identify, MSI) qui est approuvée par l’abonnement. Afin de créer l’identité et lui affecter le rôle demandé (Contributeur ou Administrateur de l’accès utilisateur dans l’abonnement source), le compte que vous utilisez pour ajouter des ressources a besoin des autorisations *Propriétaire* sur l’abonnement. [Explorez en détail](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) les rôles Azure.
+**Prise en charge des machines virtuelles** |  Assurez-vous que les machines virtuelles que vous souhaitez déplacer sont prises en charge.<br/><br/> - [Vérifiez](support-matrix-move-region-azure-vm.md#windows-vm-support) les machines virtuelles Windows prises en charge.<br/><br/> - [Vérifiez](support-matrix-move-region-azure-vm.md#linux-vm-support) les machines virtuelles Linux et les versions du noyau prises en charge.<br/><br/> Contrôlez les paramètres de [calcul](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), de [stockage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) et de [réseau](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) pris en charge.
+**Abonnement de destination** | L’abonnement dans la région de destination a besoin d’un quota suffisant pour créer les ressources que vous déplacez dans la région cible. S’il n’a pas le quota, [demandez des limites supplémentaires](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Frais relatifs à la région de destination** | Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
     
 
-## <a name="check-vm-requirements"></a>Vérifier la configuration requise pour les machines virtuelles
+## <a name="prepare-vms"></a>Préparer les machines virtuelles
 
-1. Assurez-vous que les machines virtuelles que vous souhaitez déplacer sont prises en charge.
-
-    - [Vérifiez](support-matrix-move-region-azure-vm.md#windows-vm-support) les machines virtuelles Windows prises en charge.
-    - [Vérifiez](support-matrix-move-region-azure-vm.md#linux-vm-support) les machines virtuelles Linux et les versions du noyau prises en charge.
-    - Contrôlez les paramètres de [calcul](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), de [stockage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) et de [réseau](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) pris en charge.
-2. Vérifiez que les machines virtuelles que vous souhaitez déplacer sont activées.
-3. Assurez-vous que les machines virtuelles disposent des certificats racine approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. Pour ce faire :
+1. Après avoir vérifié que les machines virtuelles répondaient aux exigences, vérifiez que les machines virtuelles que vous souhaitez déplacer sont allumées. Tous les disques de machines virtuelles que vous souhaitez mettre à disposition dans la région de destination doivent être attachés et initialisés dans la machine virtuelle.
+1. Assurez-vous que les machines virtuelles disposent des certificats racine approuvés les plus récents et d’une liste de révocation de certificats (CRL) mise à jour. Pour ce faire :
     - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
     - Sur les machines virtuelles Linux, suivez les instructions du distributeur afin que les machines disposent des derniers certificats et des listes de révocation de certificats les plus récentes. 
-4. Autorisez une connexion sortante à partir des machines virtuelles :
+1. Autorisez une connexion sortante à partir des machines virtuelles :
     - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connexion sortante, autorisez l’accès à ces [URL](support-matrix-move-region-azure-vm.md#url-access) :
     - Si vous utilisez des règles de groupe de sécurité réseau (NSG) pour contrôler la connexion sortante, créez ces [règles d’étiquette de service](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -85,12 +78,12 @@ Sélectionnez les ressources que vous souhaitez déplacer.
     ![Page de sélection de la région source et de la région de destination](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. Dans **Ressources à déplacer**, cliquez sur **Sélectionner des ressources**.
-7. Dans **Sélectionner des ressources**, sélectionnez la machine virtuelle. Vous pouvez uniquement ajouter des [ressources prises en charge pour le déplacement](#check-vm-requirements). Cliquez ensuite sur **Terminé**.
+7. Dans **Sélectionner des ressources**, sélectionnez la machine virtuelle. Vous pouvez uniquement ajouter des [ressources prises en charge pour le déplacement](#prepare-vms). Cliquez ensuite sur **Terminé**.
 
     ![Page de sélection des machines virtuelles à déplacer](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  Dans **Ressources à déplacer**, cliquez sur **Suivant**.
-9. Dans **Vérifier + ajouter**, contrôlez les paramètres de source et de destination. 
+9. Dans **Vérifier**, contrôlez les paramètres de source et de destination. 
 
     ![Page de vérification des paramètres et de la poursuite du déplacement](./media/tutorial-move-region-virtual-machines/review.png)
 10. Cliquez sur **Continuer** pour commencer à ajouter les ressources.
@@ -99,25 +92,27 @@ Sélectionnez les ressources que vous souhaitez déplacer.
 
 > [!NOTE]
 > - Les ressources ajoutées présentent l’état *Préparation en attente*.
+> - Le groupe de ressources pour les machines virtuelles est ajouté automatiquement.
 > - Si vous souhaitez supprimer une ressource d’une collection de déplacement, la méthode permettant d’effectuer cette opération dépend de l’étape où vous vous trouvez dans la procédure de déplacement. [Plus d’informations](remove-move-resources.md)
 
 ## <a name="resolve-dependencies"></a>Résoudre les erreurs de dépendance
 
 1. Si des ressources affichent un message *Valider les dépendances* dans la colonne **Problèmes**, cliquez sur le bouton **Valider les dépendances**. Le processus de validation démarre.
 2. Si des dépendances sont trouvées, cliquez sur **Ajouter des dépendances**. 
-3. Dans **Ajouter des dépendances**, sélectionnez les ressources dépendantes > **Ajouter des dépendances**. Supervisez la progression dans les notifications.
+3. Dans **Ajouter des dépendances**, conservez l’option par défaut **Afficher toutes les dépendances**.
+
+    - « Afficher toutes les dépendances » itère au sein de toutes les dépendances directes et indirectes d’une ressource. Par exemple, pour une machine virtuelle, la carte réseau, le réseau virtuel, les groupes de sécurité réseau, et ainsi de suite, sont affichés.
+    - « Afficher uniquement les dépendances de premier niveau » affiche uniquement les dépendances directes. Par exemple, pour une machine virtuelle, la carte réseau est affichée, mais pas le réseau virtuel.
+
+
+4. Sélectionnez les ressources dépendantes que vous souhaitez ajouter > **Ajouter des dépendances**. Supervisez la progression dans les notifications.
 
     ![Ajout de dépendances](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Ajoutez des dépendances supplémentaires si nécessaire, puis validez de nouveau les dépendances. 
+4. Revalidez les dépendances. 
     ![Page d’ajout des dépendances supplémentaires](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. Dans la page **Entre régions**, vérifiez que les ressources présentent maintenant l’état *Préparation en attente*, sans aucun problème répertorié.
 
-    ![Page montrant les ressources avec l’état de préparation en attente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> Si vous souhaitez modifier les paramètres cibles avant de commencer le déplacement, sélectionnez le lien dans la colonne **Configuration de la destination** pour la ressource, puis modifiez les paramètres. Si vous modifiez les paramètres de la machine virtuelle cible, la taille de cette machine ne doit pas être inférieure à celle de la machine virtuelle source.  
 
 ## <a name="move-the-source-resource-group"></a>Déplacer le groupe de ressources source 
 
@@ -158,9 +153,17 @@ Pour valider et terminer la procédure de déplacement :
 
 ## <a name="prepare-resources-to-move"></a>Préparer les ressources à déplacer
 
+Maintenant que le groupe de ressources source est déplacé, vous pouvez préparer le déplacement d’autres ressources qui sont à l’état *Préparation en attente*.
+
+1. Dans **Entre régions**, vérifiez que les ressources sont maintenant à l’état *Préparation en attente*, sans aucun problème listé. Si ce n’est pas le cas, validez à nouveau et résolvez les problèmes en suspens.
+
+    ![Page montrant les ressources avec l’état de préparation en attente](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. Si vous souhaitez modifier les paramètres cibles avant de commencer le déplacement, sélectionnez le lien dans la colonne **Configuration de la destination** pour la ressource, puis modifiez les paramètres. Si vous modifiez les paramètres de la machine virtuelle cible, la taille de cette machine ne doit pas être inférieure à celle de la machine virtuelle source.  
+
 Maintenant que le groupe de ressources source est déplacé, vous pouvez préparer le déplacement des autres ressources.
 
-1. Dans **Entre régions**, sélectionnez les ressources que vous souhaitez préparer. 
+3. Sélectionnez les ressources que vous souhaitez préparer. 
 
     ![Page de sélection pour la préparation d’autres ressources](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -238,12 +241,16 @@ Si vous voulez terminer la procédure de déplacement, validez le déplacement.
 - Le service Mobilité n’est pas désinstallé automatiquement sur les machines virtuelles. Désinstallez-le manuellement ou laissez-le si vous envisagez de déplacer à nouveau le serveur.
 - Modifiez les règles de contrôle d’accès en fonction du rôle (Azure RBAC) après le déplacement.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Supprimer les ressources sources après la validation
 
 Après le déplacement, vous pouvez, si vous le souhaitez, supprimer les ressources dans la région source. 
 
-1. Dans **Entre régions**, cliquez sur le nom de chaque ressource source que vous décidez de supprimer.
-2. Dans la page des propriétés de chaque ressource, sélectionnez **Supprimer**.
+> [!NOTE]
+> Certaines ressources, telles que les coffres de clés et les serveurs SQL Server, ne peuvent pas être supprimées à partir du portail et doivent être supprimées à partir de la page de propriétés de la ressource.
+
+1. Dans **Entre régions**, cliquez sur le nom de la ressource source que vous souhaitez supprimer.
+2. Sélectionnez **Supprimer la source**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Supprimer les ressources supplémentaires créées pour le déplacement
 

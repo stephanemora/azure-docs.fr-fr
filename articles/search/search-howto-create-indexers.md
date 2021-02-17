@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430043"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509382"
 ---
-# <a name="create-a-search-indexer"></a>Créer un indexeur de recherche
+# <a name="creating-indexers-in-azure-cognitive-search"></a>Création d’indexeurs dans Recherche cognitive Azure
 
 Un indexeur de recherche fournit un workflow automatisé pour transférer les documents et le contenu d’une source de données externe vers un index de recherche sur votre service de recherche. Comme initialement conçu, il extrait le texte et les métadonnées d’une source de données Azure, sérialise les documents au format JSON et transmet les documents obtenus à un moteur de recherche pour l’indexation. Depuis, il a été étendu pour prendre en charge l’[enrichissement par IA](cognitive-search-concept-intro.md) pour un traitement approfondi du contenu. 
 
@@ -99,7 +99,7 @@ La capture d’écran suivante montre où vous pouvez trouver ces fonctionnalit�
 
 ### <a name="use-a-rest-client"></a>Utiliser un client REST
 
-Postman et Visual Studio Code (avec une extension pour Recherche cognitive Azure) peuvent tous deux fonctionner comme client d’indexation. En utilisant l’un ou l’autre de ces outils, vous pouvez vous connecter à votre service de recherche et envoyer des demandes de création d’index et d’autres objets. Il existe de nombreux tutoriels et exemples qui illustrent le fonctionnement des clients REST pour la création d’objets. 
+Postman et Visual Studio Code (avec une extension pour Recherche cognitive Azure) peuvent tous deux fonctionner comme client d’indexation. En utilisant l’un ou l’autre de ces outils, vous pouvez vous connecter à votre service de recherche et envoyer des requêtes [Create indexer (REST)](/rest/api/searchservice/create-indexer). Il existe de nombreux tutoriels et exemples qui illustrent le fonctionnement des clients REST pour la création d’objets. 
 
 Commencez par l’un de ces articles pour en savoir plus sur chaque client :
 
@@ -110,7 +110,7 @@ Reportez-vous aux [opérations de l’indexeur (REST)](/rest/api/searchservice/I
 
 ### <a name="use-an-sdk"></a>Utiliser un Kit de développement logiciel (SDK)
 
-Pour Recherche cognitive, les Kits de développement logiciel (SDK) Azure implémentent des fonctionnalités généralement disponibles. Ainsi, vous pouvez utiliser n’importe lequel des Kits de développement logiciel (SDK) pour créer des objets liés à l’indexeur. Ils implémentent tous un **SearchIndexerClient** qui fournit des méthodes pour créer des indexeurs et des objets connexes, y compris des ensembles de compétences.
+Pour Recherche cognitive, les Kits de développement logiciel (SDK) Azure implémentent des fonctionnalités généralement disponibles. Ainsi, vous pouvez utiliser n’importe lequel des Kits de développement logiciel (SDK) pour créer des objets liés à l’indexeur. Ils fournissent tous un **SearchIndexerClient** qui contient des méthodes pour créer des indexeurs et des objets connexes, y compris des ensembles de compétences.
 
 | Azure SDK | Client | Exemples |
 |-----------|--------|----------|

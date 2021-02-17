@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Complément Excel pour les services web – Azur
 description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310078"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519998"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complément Excel de services web Azure Machine Learning Studio (classique)
 
@@ -38,7 +38,7 @@ Excel permet d'appeler facilement des services web directement sans qu'il soit 
     ![Sélectionner un service web](./media/excel-add-in-for-web-services/image1.png)
 3. Vous accédez alors à la section **Prédire**.  Ce classeur contient déjà des exemples de données mais, pour un classeur vide, vous pouvez également sélectionner une cellule dans Excel et cliquer sur **Utiliser les exemples de données**.
 4. Sélectionnez les données avec les en-têtes et cliquez sur l'icône de plage de données d'entrée.  Assurez-vous que la case « Mes données ont des en-têtes » est activée.
-5. Sous **Sortie** , entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
+5. Sous **Sortie**, entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
 6. Cliquez sur **Prédire**. Si vous cochez la case de prédiction automatique, toutes les modifications apportées aux zones sélectionnées (celles spécifiées en tant qu’entrée) déclenchent une requête et une mise à jour des cellules de sortie, sans que vous n’ayez à appuyer sur le bouton de prédiction.
    
     ![Section Prédire](./media/excel-add-in-for-web-services/image1.png)
@@ -65,7 +65,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 
 **Utiliser un nouveau service web**
 
-1. Dans le portail [Services web Azure Machine Learning](https://services.azureml.net), cliquez sur **Services web** , puis sélectionnez votre service web. 
+1. Dans le portail [Services web Azure Machine Learning](https://services.azureml.net), cliquez sur **Services web**, puis sélectionnez votre service web. 
 2. Cliquez sur **Consommer**.
 3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
 
@@ -74,7 +74,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 1. Déployez un service web ou utilisez un service web existant. Pour plus d’informations sur le déploiement d’un service web, consultez [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md).
 2. Cliquez sur **Consommer**.
 3. Recherchez la section **des informations de base sur la consommation** . Copiez et enregistrez la **Clé primaire** et l’URL de **Demande-réponse**.
-4. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire** , cliquez sur la flèche de retour pour accéder à la liste des services web).
+4. Dans Excel, accédez à la section **Services web** (si vous vous trouvez dans la section **Prédire**, cliquez sur la flèche de retour pour accéder à la liste des services web).
    
     ![Accéder à la sélection du service web](./media/excel-add-in-for-web-services/image3.png)
 5. Cliquez sur **Ajouter un service web**.

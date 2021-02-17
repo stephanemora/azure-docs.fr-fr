@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226420"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979876"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutoriel : Connecter des utilisateurs et appeler une API protégée à partir d’une application Blazor WebAssembly
 
@@ -102,7 +102,7 @@ Ensuite, ajoutez ce qui suit au fichier *.csproj* de votre projet, dans **ItemGr
 
 Modifiez ensuite le code comme indiqué dans les étapes suivantes. Ces modifications ajouteront des [jetons d’accès](access-tokens.md) aux requêtes sortantes envoyées à l’API Microsoft Graph. Ce modèle est abordé plus en détail dans [Scénarios de sécurité supplémentaires Blazor WebAssembly ASP.NET Core](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-Tout d’abord, créez un fichier nommé *GraphAuthorizationMessageHandler.cs* avec le code suivant. Ce gestionnaire sera utilisé afin d’ajouter un jeton d’accès pour les étendues `User.Read` et `Mail.Read` aux requêtes sortantes à destination de l’API Microsoft Graph.
+Tout d’abord, créez un fichier nommé *GraphAPIAuthorizationMessageHandler.cs* avec le code suivant. Ce gestionnaire sera utilisé afin d’ajouter un jeton d’accès pour les étendues `User.Read` et `Mail.Read` aux requêtes sortantes à destination de l’API Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

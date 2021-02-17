@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: a9eae2e547b347c88f8e745742ed34194c37a3b2
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862473"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008585"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
@@ -32,17 +32,17 @@ Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à
 > [!NOTE]
 > Le conteneur Read 3.0-preview est déconseillé. 
 
-Le conteneur Read 3.2-preview offre ce qui suit :
+Le conteneur d’OCR Read 3.2-preview offre ce qui suit :
 * Nouveaux modèles pour une précision accrue.
-* Prise en charge de plusieurs langues dans le même document
-* Prise en charge des langues suivantes : néerlandais, anglais, français, allemand, italien, portugais et espagnol.
+* Prise en charge de plusieurs langues dans le même document.
+* Prise en charge d’un total de 73 langues. Consultez la liste complète des [langues prises en charge par la reconnaissance optique de caractères](./language-support.md#optical-character-recognition-ocr).
 * Une seule opération pour les documents et les images.
 * Prise en charge des documents et des images de grande taille.
-* Scores de confiance compris entre 0 et 1.
-* Prise en charge des documents contenant à la fois du texte imprimé et du texte manuscrit
-* Prise en charge du chinois simplifié et du japonais.
-* Scores de confiance et étiquettes pour texte imprimé et texte manuscrit. 
+* Scores de confiance.
+* Prise en charge des documents contenant à la fois du texte imprimé et du texte manuscrit.
 * Possibilité d'extraire le texte de la page ou des pages sélectionnées dans un document.
+* Choix de l’ordre de sortie des lignes de texte, de l’ordre par défaut à un ordre de lecture plus naturel.
+* Classification des lignes de texte comme style manuscrit ou non pour les langues latines uniquement.
 
 Si vous utilisez actuellement des conteneurs Read 2.0, consultez le [guide de migration](read-container-migration-guide.md) pour en savoir plus sur les modifications apportées aux nouvelles versions.
 
@@ -92,7 +92,7 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |-----------|------------|
 | Read 2.0 (préversion) | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Read 3.2-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
+| Read 3.2-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
@@ -101,7 +101,7 @@ Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/co
 # <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 # <a name="version-20-preview"></a>[Version 2.0-preview](#tab/version-2)
@@ -131,7 +131,7 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -207,7 +207,7 @@ Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur. Le chemi
 Vous pouvez utiliser conjointement les opérations `POST /vision/v3.2/read/analyze` et `GET /vision/v3.2/read/operations/{operationId}` pour lire de façon asynchrone une image, ce qui est similaire à la façon dont le service Vision par ordinateur utilise ces opérations REST correspondantes. La méthode POST asynchrone retourne un `operationId` qui est utilisé comme identificateur de la requête HTTP GET.
 
 
-À partir de l’interface utilisateur Swagger, sélectionnez le `asyncBatchAnalyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
+À partir de l’interface utilisateur Swagger, sélectionnez le `Analyze` pour le développer dans le navigateur. Ensuite, sélectionnez **Faites un essai** > **Choisir un fichier**. Dans cet exemple, nous allons utiliser l’image suivante :
 
 ![Tabulations et espaces](media/tabs-vs-spaces.png)
 
@@ -225,51 +225,99 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:30:14Z",
-  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
   "analyzeResult": {
     "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
-        "angle": 2.12,
+        "angle": 2.1243,
         "width": 502,
         "height": 252,
         "unit": "pixel",
-        "language": "",
         "lines": [
           {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
             "text": "Tabs vs",
             "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.999
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
             },
             "words": [
               {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
                 "text": "Tabs",
-                "confidence": 0.981
+                "confidence": 0.933
               },
               {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
                 "text": "vs",
-                "confidence": 0.958
+                "confidence": 0.977
               }
             ]
           },
           {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
             "text": "paces",
             "appearance": {
-              "style": "print",
-              "styleConfidence": 0.603
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
             },
             "words": [
               {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
                 "text": "paces",
-                "confidence": 0.918
+                "confidence": 0.938
               }
             ]
           }

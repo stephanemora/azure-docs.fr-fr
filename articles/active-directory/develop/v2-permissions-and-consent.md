@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090185"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102476"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorisations et consentement dans la plateforme d’identités Microsoft
 
@@ -181,7 +181,7 @@ En général, les autorisations doivent être définies de manière statique pou
 
 Pour configurer la liste des autorisations demandées de manière statique pour une application :
 
-1. Accédez à votre application dans l’expérience de démarrage rapide <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Portail Azure – Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Accédez à votre application dans l’expérience de démarrage rapide <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">Portail Azure – Inscriptions d’applications</a>.
 1. Sélectionnez une application ou [créez une application](quickstart-register-app.md) si vous ne l’avez pas déjà fait.
 1. Dans la page **Vue d’ensemble** de l’application, sous **Gérer**, sélectionnez **Autorisations de l’API** > **Ajouter une autorisation**.
 1. Sélectionnez **Microsoft Graph** dans la liste des API disponibles. Ajoutez ensuite les autorisations dont votre application a besoin.

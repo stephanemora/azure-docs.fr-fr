@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec l’API REST'
 description: Dans ce guide de démarrage rapide, vous utilisez l’API REST pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236998"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592498"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Démarrage rapide : Créer un groupe d’administration avec l’API REST
 
@@ -20,7 +20,7 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
 
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-- Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). Il s’agit d’un outil qui envoie des requêtes HTTP aux API REST basées sur Azure Resource Manager. Vous pouvez également utiliser la fonctionnalité « Essayer » dans la documentation REST ou des outils tels que [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [Postman](https://www.postman.com) de PowerShell.
+- Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). Il s’agit d’un outil qui envoie des requêtes HTTP aux API REST basées sur Azure Resource Manager. À la place, vous pouvez utiliser la fonctionnalité « Essayer » de la documentation REST ou des outils comme la commande [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) ou [Postman](https://www.postman.com) de PowerShell.
 
 - Tout utilisateur Azure AD dans le locataire peut créer un groupe d’administration sans l’autorisation d’écriture du groupe d’administration attribuée à cet utilisateur si la [protection de la hiérarchie](./how-to/protect-resource-hierarchy.md#setting---require-authorization) n’est pas activée. Ce nouveau groupe d’administration devient alors un enfant du groupe d’administration racine ou le [groupe d’administration par défaut](./how-to/protect-resource-hierarchy.md#setting---default-management-group), et le rôle « Propriétaire » est attribué au créateur. Le service de groupe d’administration offre cette possibilité afin que les attributions de rôles ne soient pas nécessaires au niveau de la racine. Aucun utilisateur n’a accès au groupe d’administration racine lors de sa création. Pour éviter l’obstacle que constitue la recherche des administrateurs généraux Azure AD pour commencer à utiliser des groupes d’administration, nous autorisons la création des groupes d’administration initiaux au niveau racine.
 

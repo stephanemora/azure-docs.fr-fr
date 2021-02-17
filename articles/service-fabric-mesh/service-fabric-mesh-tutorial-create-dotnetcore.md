@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842544"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626791"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés par le biais de l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à utiliser Visual Studio pour créer une application Azure Service Fabric Mesh comportant un serveur web frontend ASP.NET et un service backend d’API web ASP.NET Core. Vous allez ensuite déboguer l’application dans votre cluster de développement local. Vous allez publier l’application sur Azure, apporter des changements à la configuration et au code, puis mettre à niveau l’application. Enfin, vous allez nettoyer les ressources Azure inutilisées afin d’éviter d’être facturé pour ce que vous n’utilisez pas.
 

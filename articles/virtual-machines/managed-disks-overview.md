@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202706"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627813"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction aux disques managés Azure
 
@@ -44,6 +44,10 @@ Les disques managés prennent en charge les [zones de disponibilité](../availab
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
 Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Cela vous permet d’effectuer des restaurations de machines virtuelles ou de disques managés à votre convenance. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à 32 tébioctets (Tio). [Apprenez-en davantage](../backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
+
+#### <a name="azure-disk-backup"></a>Sauvegarde des disques Azure
+
+Sauvegarde Azure propose Sauvegarde des disques Azure (préversion) comme une solution de sauvegarde informatique native sur des disques managés. Il s’agit d’une solution simple, sécurisée et économique qui vous permet de configurer la protection des disques managés en quelques étapes. La sauvegarde des disques Azure offre une solution clé en main qui fournit une gestion du cycle de vie des instantanés pour les disques managés en automatisant la création périodique d’instantanés et en les conservant pour une durée configurée à l’aide d’une stratégie de sauvegarde. Pour plus d’informations Sauvegarde des disques Azure, consultez [Présentation de Sauvegarde des disques Azure (préversion)](../backup/disk-backup-overview.md).
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 

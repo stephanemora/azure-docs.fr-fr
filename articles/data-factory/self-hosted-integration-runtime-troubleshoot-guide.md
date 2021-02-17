@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942051"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551074"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -244,7 +244,7 @@ Installez les pilotes pour les magasins de données source et de destination sur
  
 Si le trafic ne peut pas traverser le réseau entre deux magasins de données (par exemple, s’ils sont configurés en deux réseaux virtuels), vous risquez de ne pas terminer la copie en une seule activité, même si l’IR est installé. Si vous ne pouvez pas terminer la copie en une seule activité, vous pouvez créer deux activités de copie avec deux IR, chacun dans un VENT : 
 * Copiez un IR du magasin de données 1 vers le Stockage Blob Azure.
-* Copiez l’autre IR à partir du Stockage Blob Azure vers le magasin de données ddatastore 2. 
+* Copiez l’autre IR à partir de Stockage Blob Azure vers le magasin de données 2. 
 
 Cette solution peut simuler la nécessité d’utiliser le runtime d’intégration pour créer un pont qui connecte deux magasins de données déconnectés.
 
@@ -710,7 +710,7 @@ Cette notification s’applique aux scénarios suivants :
 
 Comment déterminer si vous êtes concerné :
 
-- Vous *n’êtes pas* concerné si vous définissez des règles de pare-feu basées sur des noms de domaine complets qui utilisent l’approche décrite dans le document [Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Vous *n’êtes pas* concerné si vous définissez des règles de pare-feu basées sur des noms de domaine complets qui utilisent l’approche décrite dans le document [Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - Vous êtes *concerné* si vous activez explicitement la liste d’autorisation pour les adresses IP sortantes sur votre pare-feu d’entreprise.
 

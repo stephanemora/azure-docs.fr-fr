@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Optimiser les algorithmes - Azure'
 description: Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a216dc7cb17b9e35e412c6bebe34c0cccfb732e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519301"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Machine Learning Studio (classique)
 
@@ -30,8 +30,8 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 
 1. **Définir l’espace de paramètre :** Pour l’algorithme, vous devez d’abord déterminer les valeurs de paramètres exactes que vous souhaitez prendre en compte.
 2. **Définir les paramètres de validation croisée** : Déterminez comment choisir les plis de validation croisée pour le jeu de données.
-3. **Définir la mesure**  : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
-4. **Apprentissage, évaluation et comparaison**  : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
+3. **Définir la mesure** : déterminez la mesure à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
+4. **Apprentissage, évaluation et comparaison** : pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la mesure d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
 L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio (classique).
 
@@ -66,7 +66,7 @@ Le module dispose également d’un jeu de données d’entrée facultatif. Conn
 
 ![Classifieur d’arbre de décision optimisé](./media/algorithm-parameters-optimize/fig6a.png)
 
-Le modèle est ensuite évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes comme fonctions des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, en fonction de la mesure choisie (dans ce cas, l’ **exactitude** ).  
+Le modèle est ensuite évalué sur le jeu de données de validation. Le port de sortie de gauche du module affiche des mesures différentes comme fonctions des valeurs de paramètres. Le port de sortie de droite indique le modèle formé correspondant au modèle le plus performant, en fonction de la mesure choisie (dans ce cas, l’**exactitude**).  
 
 ![Jeu de données de validation](./media/algorithm-parameters-optimize/fig6b.png)
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754483"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557230"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs (préversion)
 
@@ -89,7 +89,7 @@ Voici un exemple montrant comment ajouter l’inscription par téléphone à un 
 9. Sous **Fournisseurs d’identité sociaux**, sélectionnez tout autre fournisseur d’identité que vous souhaitez autoriser pour ce flux d’utilisateur.
 
    > [!NOTE]
-   > L’authentification multifacteur (MFA) est désactivée par défaut. Vous pouvez activer la MFA pour un flux d’utilisateur avec inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
+   > L’authentification multifacteur (MFA) est désactivée par défaut pour les flux d’utilisateurs d’inscription. Vous pouvez activer la MFA pour un flux d’utilisateur avec inscription par téléphone, mais, comme un numéro de téléphone est utilisé comme identificateur principal, l’envoi par e-mail d’un code secret à usage unique est la seule option disponible pour le deuxième facteur d’authentification.
 
 1. Dans la section **Attributs utilisateur et revendications de jetons**, choisissez les revendications et les attributs à collecter et qui doivent être envoyés par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Pays/région**, **Nom d’affichage** et **Code postal**. Sélectionnez **OK**.
 
@@ -142,5 +142,5 @@ Une fois que vous avez activé l’inscription et la connexion par téléphone e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter des fournisseurs d’identité externes](tutorial-add-identity-providers.md)
+- [Ajouter des fournisseurs d’identité externes](add-identity-provider.md)
 - [Créer un flux utilisateur](tutorial-create-user-flows.md)

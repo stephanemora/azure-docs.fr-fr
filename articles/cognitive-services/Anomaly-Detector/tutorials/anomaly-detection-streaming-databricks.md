@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368710"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519131"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
@@ -65,7 +65,7 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
 
     ![Azure Databricks sur le portail](../media/tutorials/azure-databricks-on-portal.png "Databricks sur le portail Azure")
 
-3. Sous **Service Azure Databricks** , renseignez les valeurs suivantes pour créer un espace de travail Databricks :
+3. Sous **Service Azure Databricks**, renseignez les valeurs suivantes pour créer un espace de travail Databricks :
 
 
     |Propriété  |Description  |
@@ -88,14 +88,14 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
 
     ![Databricks sur Azure](../media/tutorials/databricks-on-azure.png "Databricks sur Azure")
 
-3. Dans la page **Nouveau cluster** , renseignez les valeurs pour créer un cluster.
+3. Dans la page **Nouveau cluster**, renseignez les valeurs pour créer un cluster.
 
     ![Créer un cluster Databricks Spark sur Azure](../media/tutorials/create-databricks-spark-cluster.png "Créer un cluster Databricks Spark sur Azure")
 
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **5.2**. Ne sélectionnez pas le runtime  **5.3**.
+   * Pour cet article, créez un cluster avec le runtime **5.2**. Ne sélectionnez pas le runtime **5.3**.
    * Vérifiez que la case **Arrêter après \_\_ minutes d’inactivité** est cochée. Indiquez une durée (en minutes) pour arrêter le cluster, si celui-ci n’est pas utilisé
 
      Sélectionnez **Créer un cluster**.
@@ -109,7 +109,7 @@ Pour recevoir un flux de tweets, vous devez créer une application dans Twitter.
 
     ![Créer une application Twitter](../media/tutorials/databricks-create-twitter-app.png "Créer une application Twitter")
 
-2. Sur la page **Créer une application** , renseignez les informations de la nouvelle application, puis sélectionnez **Créer votre application Twitter**.
+2. Sur la page **Créer une application**, renseignez les informations de la nouvelle application, puis sélectionnez **Créer votre application Twitter**.
 
     ![Détails de l’application Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Détails de l’application Twitter")
 
@@ -123,11 +123,11 @@ Enregistrez les valeurs que vous avez récupérées pour l’application Twitter
 
 Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks puis associez-les à votre cluster Spark. Les instructions suivantes expliquent comment ajouter les bibliothèques au dossier **Partagé** dans votre espace de travail.
 
-1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail** , puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
+1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail**, puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
 
    ![Boîte de dialogue Ajouter une bibliothèque](../media/tutorials/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
 
-2. Dans la page Nouvelle bibliothèque, pour **Source** , sélectionnez **Maven**. Pour **Coordonnées** , entrez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
+2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Pour **Coordonnées**, entrez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
 
    * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
@@ -159,7 +159,7 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
 
     ![Créer une ressource Détecteur d’anomalies](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Créer une ressource Détecteur d’anomalies")
 
-4. Dans la boîte de dialogue **Créer** , saisissez les valeurs suivantes :
+4. Dans la boîte de dialogue **Créer**, saisissez les valeurs suivantes :
 
     |Valeur |Description  |
     |---------|---------|
@@ -172,11 +172,11 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
 
      Sélectionnez **Create** (Créer).
 
-5. Une fois la ressource créée, sous l’onglet **Vue d’ensemble** , copiez et enregistrez l’URL **Point de terminaison** , comme indiqué dans la capture d’écran. Ensuite, sélectionnez **Afficher les clés d’accès**.
+5. Une fois la ressource créée, sous l’onglet **Vue d’ensemble**, copiez et enregistrez l’URL **Point de terminaison**, comme indiqué dans la capture d’écran. Ensuite, sélectionnez **Afficher les clés d’accès**.
 
     ![Afficher les touches d’accès rapide](../media/tutorials/cognitive-services-get-access-keys.png "Afficher les touches d’accès rapide")
 
-6. Sous **Clés** , sélectionnez l’icône de copie sur la clé que vous souhaitez utiliser. Enregistrez la clé d’accès.
+6. Sous **Clés**, sélectionnez l’icône de copie sur la clé que vous souhaitez utiliser. Enregistrez la clé d’accès.
 
     ![Copier les clés d’accès](../media/tutorials/cognitive-services-copy-access-keys.png "Copier les clés d’accès")
 
@@ -185,13 +185,13 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
 Dans cette section, vous allez créer deux notebooks dans l’espace de travail Databricks avec les noms suivants
 
 - **SendTweetsToEventHub** : un notebook producteur à utiliser pour obtenir des tweets de Twitter et les diffuser dans Event Hubs.
-- **AnalyzeTweetsFromEventHub**  : un notebook consommateur à utiliser pour lire les tweets à partir d’Event Hubs et exécuter la détection d’anomalie.
+- **AnalyzeTweetsFromEventHub** : un notebook consommateur à utiliser pour lire les tweets à partir d’Event Hubs et exécuter la détection d’anomalie.
 
-1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail** dans le volet gauche. Dans la liste déroulante **Espace de travail** , sélectionnez **Créer** et **Notebook**.
+1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail** dans le volet gauche. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** et **Notebook**.
 
     ![Créer un notebook dans Databricks](../media/tutorials/databricks-create-notebook.png "Créer un notebook dans Databricks")
 
-2. Dans la boîte de dialogue **Créer un notebook** , entrez **SendTweetsToEventHub** comme nom, sélectionnez **Scala** comme langage, puis sélectionnez le cluster Spark que vous avez créé.
+2. Dans la boîte de dialogue **Créer un notebook**, entrez **SendTweetsToEventHub** comme nom, sélectionnez **Scala** comme langage, puis sélectionnez le cluster Spark que vous avez créé.
 
     ![Détails du notebook](../media/tutorials/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
@@ -201,7 +201,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
 ## <a name="send-tweets-to-event-hubs"></a>Envoyer des tweets vers Event Hubs
 
-Dans le notebook **SendTweetsToEventHub** , collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce notebook extrait l’heure de création et le nombre de « Like » à partir des tweets avec le mot clé « Azure », et diffuse ces informations en tant qu’événements dans Event Hubs en temps réel.
+Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce notebook extrait l’heure de création et le nombre de « Like » à partir des tweets avec le mot clé « Azure », et diffuse ces informations en tant qu’événements dans Event Hubs en temps réel.
 
 ```scala
 //
@@ -323,7 +323,7 @@ Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une so
 
 ## <a name="read-tweets-from-event-hubs"></a>Lire des tweets à partir d’Event Hubs
 
-Dans le notebook **AnalyzeTweetsFromEventHub** , collez le code suivant et remplacez l’espace réservé par les valeurs de votre ressource Détecteur d’anomalies. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
+Dans le notebook **AnalyzeTweetsFromEventHub**, collez le code suivant et remplacez l’espace réservé par les valeurs de votre ressource Détecteur d’anomalies. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
 
 Tout d’abord, écrivez un client pour appeler le Détecteur d’anomalies.
 ```scala
@@ -586,7 +586,7 @@ groupTime                       average
 
 Ensuite, obtenez le résultat de la sortie agrégé dans Delta. La détection d’anomalie exigeant une fenêtre d’historique plus longue, nous utilisons Delta afin de conserver les données d’historique pour le point que vous souhaitez détecter.
 Remplacez le « [Placeholder: table name] » par un nom de table Delta qualifié qui doit être créé (par exemple, « tweets »). Remplacez « [Placeholder: folder name for checkpoints] » par une valeur de chaîne qui est unique chaque fois que vous exécutez ce code (par exemple, « etl-from-eventhub-20190605 »).
-Pour en savoir plus sur Delta Lake sur Azure Databricks, consultez le [Guide Delta Lake](https://docs.azuredatabricks.net/delta/index.html).
+Pour en savoir plus sur Delta Lake sur Azure Databricks, consultez le [Guide Delta Lake](/databricks/delta/).
 
 
 ```scala
@@ -684,7 +684,7 @@ Bien que dans ce tutoriel la précision soit « toutes les heures », vous pou
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, sélectionnez **Clusters** dans le volet gauche. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions** , sélectionnez l’icône **Arrêter** , puis **Confirmer**.
+Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, sélectionnez **Clusters** dans le volet gauche. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, sélectionnez l’icône **Arrêter**, puis **Confirmer**.
 
 ![Arrêter un cluster Databricks](../media/tutorials/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 

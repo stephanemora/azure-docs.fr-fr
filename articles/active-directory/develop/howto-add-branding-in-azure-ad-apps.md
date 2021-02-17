@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706198"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581990"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 
@@ -27,7 +27,7 @@ Lorsque vous développez des applications avec la plateforme d’identité Micro
 En lisant cet article, vous pourrez :
 
 - En savoir plus sur les deux types de compte utilisateur gérés par Microsoft et sur la façon de faire référence aux comptes Azure AD dans votre application
-- Découvrir ce que vous devez faire pour ajouter le logo Microsoft en vue de son utilisation dans votre application
+- En savoir plus sur les conditions requises pour utiliser le logo Microsoft dans votre application
 - Télécharger les images **Se connecter** ou **Se connecter avec Microsoft** officielles en vue de leur utilisation dans votre application
 - En savoir plus sur les choses à faire et à éviter en matière de personnalisation et de navigation
 

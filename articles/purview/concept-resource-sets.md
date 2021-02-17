@@ -1,36 +1,35 @@
 ---
 title: Présentation des jeux de ressources
 description: Cet article explique ce que sont les jeux de ressources et comment Azure Purview les crée.
-author: yaronyg
-ms.author: yarong
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 55efa9443fd59b66a7677c9c460e473715f201df
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 02/03/2021
+ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550164"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539465"
 ---
 # <a name="understanding-resource-sets"></a>Présentation des jeux de ressources
 
 Cet article vous aide à comprendre comment Azure Purview utilise des jeux de ressources pour mapper des ressources de données à des ressources logiques.
-
 ## <a name="background-info"></a>Informations générales
 
 Les systèmes de traitement de données à l’échelle stockent généralement une table unique sur un disque en tant que fichiers multiples. Ce concept est représenté dans Azure Purview à l’aide de jeux de ressources. Un jeu de ressources est un objet unique dans le catalogue qui représente un grand nombre de ressources dans le stockage.
 
-Supposons, par exemple, que votre cluster Spark a rendu persistant un DataFrame dans une source de données ADLS Gen2. Bien que dans Spark, le tableau ressemble à une ressource logique unique, sur le disque, il y a probablement des milliers de fichiers Parquet, chacun représentant une partition du contenu total de DataFrame. Les données IoT et les données de journal web sont confrontées au même défi. Imaginez que vous avez un capteur qui génère des fichiers journaux plusieurs fois par seconde. Cela ne prendra pas trop de temps tant que vous n’aurez pas de centaines de milliers de fichiers journaux à partir de ce capteur unique.
+Supposons, par exemple, que votre cluster Spark a rendu persistant un DataFrame dans une source de données Azure Data Lake Storage (ADLS) Gen2. Bien que dans Spark, le tableau ressemble à une ressource logique unique, sur le disque, il y a probablement des milliers de fichiers Parquet, chacun représentant une partition du contenu total de DataFrame. Les données IoT et les données de journal web sont confrontées au même défi. Imaginez que vous avez un capteur qui génère des fichiers journaux plusieurs fois par seconde. Cela ne prendra pas trop de temps tant que vous n’aurez pas de centaines de milliers de fichiers journaux à partir de ce capteur unique.
 
 Pour résoudre le problème de mappage d’un grand nombre de ressources de données à une seule ressource logique, Azure Purview utilise des jeux de ressources.
 
 ## <a name="how-azure-purview-detects-resource-sets"></a>Comment Azure Purview détecte les jeux de ressources
 
-Azure Purview prend en charge la détection des jeux de ressources uniquement dans les objets BLOB Azure, ADLS Gen1 et ADLS Gen2.
+Azure Purview prend en charge la détection des jeux de ressources dans Stockage Blob Azure, ADLS Gen1 et ADLS Gen2.
 
-Azure Purview détecte automatiquement les jeux de ressources à l’aide d’une fonctionnalité appelée détection automatisée des groupes de ressources. Cette fonctionnalité examine toutes les données qui sont ingérées par le biais de l’analyse et les compare à un ensemble de modèles définis.
+Azure Purview détecte automatiquement les jeux de ressources lors de l’analyse. Cette fonctionnalité examine toutes les données qui sont ingérées par le biais de l’analyse et les compare à un ensemble de modèles définis.
 
 Par exemple, supposons que vous analysiez une source de données dont l’URL est `https://myaccount.blob.core.windows.net/mycontainer/machinesets/23/foo.parquet`. Azure Purview examine les segments de ligne et détermine s’ils correspondent à des modèles intégrés. Il possède des modèles intégrés pour les GUID, les nombres, les formats de date, les codes de localisation (par exemple, en-us), etc. Dans ce cas, le modèle de nombre correspond à *23*. Azure Purview part du principe que ce fichier fait partie d’un jeu de ressources nommé `https://myaccount.blob.core.windows.net/mycontainer/machinesets/{N}/foo.parquet`.
 
@@ -42,12 +41,9 @@ Ou, pour une URL telle que `https://myaccount.blob.core.windows.net/mycontainer/
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-> [!Note]
-> Azure Data Lake Storage Gen2 est maintenant en disponibilité générale. Nous vous recommandons de commencer à l’utiliser dès aujourd'hui. Pour plus d’informations, consultez la [page du produit](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
-
 ## <a name="file-types-that-azure-purview-will-not-detect-as-resource-sets"></a>Types de fichiers qui ne seront pas détectés par Azure Purview en tant que jeux de ressources
 
-Purview ne tente pas de classer la plupart des types de fichiers de document tels que Word, Excel ou PDF comme jeux de ressources. L’exception est le format CSV, car il s’agit d’un format de fichier partitionné courant.
+Purview ne tente pas de classer la plupart des types de fichiers de document tels que Word, Excel ou PDF comme jeux de ressources. L’exception est le format CSV, car il s’agit d’un format de fichier partitionné courant.
 
 ## <a name="how-azure-purview-scans-resource-sets"></a>Comment Azure Purview analyse les jeux de ressources
 
@@ -66,16 +62,47 @@ Outre le schéma unique et les classifications, Azure Purview stocke les informa
 ## <a name="built-in-resource-set-patterns"></a>Modèles de jeu de ressources intégrés
 
 Azure Purview prend en charge les modèles de jeu de ressources suivants. Ces modèles peuvent apparaître sous la forme d’un nom dans un répertoire ou en tant que partie d’un nom de fichier.
+### <a name="regex-based-patterns"></a>Modèles basés sur une expression régulière
 
-| Nom du modèle | Nom complet | Description |
+| Nom du modèle | Nom d’affichage | Description |
 |--------------|--------------|-------------|
-| GUID         | {GUID}       | Identificateur global unique, tel que défini dans [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| Guid         | {GUID}       | Identificateur global unique, tel que défini dans la norme [RFC 4122](https://tools.ietf.org/html/rfc4122). |
 | Nombre       | {N}          | Un ou plusieurs chiffres. |
-| Formats de date et heure | {N}     | Azure Purview prend en charge différents types de formats de date et d’heure, mais tous sont réduits à une série de {N}s. |
+| Formats de date et heure | {Year}{Month}{Day}{N}     | Nous prenons en charge différents formats de date et d’heure, mais tous sont représentés par {Year}[delimiter]{Month}[delimiter]{Day} ou une série de {N}. |
 | 4ByteHex     | {HEX}        | Nombre hexadécimal à quatre chiffres. |
-| Localisation | {LOC}        | Une balise de langue, telle que définie dans [BCP 47](https://tools.ietf.org/html/bcp47). Azure Purview prend en charge les balises qui contiennent un trait d’union (-) ou un trait de soulignement (_). Par exemple, en_ca et en-ca. |
+| Localisation | {LOC}        | Une balise de langue telle que définie dans la norme [BCP 47](https://tools.ietf.org/html/bcp47), les noms contenant les caractères « - » et « _ » sont pris en charge (par exemple, en_ca et en-ca). |
 
-## <a name="issues-with-resource-sets"></a>Problèmes liés aux jeux de ressources
+### <a name="complex-patterns"></a>Modèles complexes
+
+| Nom du modèle | Nom d’affichage | Description |
+|--------------|--------------|-------------|
+| SparkPath    | {SparkPartitions} | Identificateur du fichier de partition Spark |
+| Date(yyyy/mm/dd)InPath  | {Year}/{Month}/{Day} | Modèle année/mois/jour couvrant plusieurs dossiers |
+
+
+## <a name="how-resource-sets-are-displayed-in-the-azure-purview-catalog"></a>Affichage des jeux de ressources dans le catalogue Azure Purview
+
+Quand Azure Purview correspond à un groupe de ressources dans un jeu de ressources, il tente d’extraire les informations les plus utiles à utiliser comme nom d’affichage dans le catalogue. Voici quelques exemples de la convention d’affectation de noms par défaut : 
+
+### <a name="example-1"></a>Exemple 1
+
+Nom qualifié : https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+
+Nom d’affichage : « nom de la sortie Spark »
+
+### <a name="example-2"></a>Exemple 2
+
+Nom qualifié : https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+
+Nom d’affichage : « mes données partitionnées »
+
+### <a name="example-3"></a>Exemple 3
+
+Nom qualifié : https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+
+Nom d’affichage : « données »
+
+## <a name="known-issues-with-resource-sets"></a>Problèmes connus liés aux jeux de ressources
 
 Bien que les jeux de ressources fonctionnent bien dans la plupart des cas, vous pouvez rencontrer les problèmes suivants, dans lesquels Azure Purview :
 
@@ -85,4 +112,4 @@ Bien que les jeux de ressources fonctionnent bien dans la plupart des cas, vous 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer à utiliser Data Catalog, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
+Pour prendre en main Azure Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).

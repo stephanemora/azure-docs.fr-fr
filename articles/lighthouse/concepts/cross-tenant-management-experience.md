@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881399"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981083"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -98,6 +98,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher et d’actualiser des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - [Log Analytics](../../azure-monitor/platform/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
+- [Créez, affichez et gérez des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md) dans des locataires clients
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
 - Créer des [paramètres de diagnostic](../..//azure-monitor/platform/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
@@ -142,7 +143,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 - Gérer les ressources Azure Sentinel [dans les locataires clients](../../sentinel/multiple-tenants-service-providers.md)
 - [Suivre les attaques et afficher les alertes de sécurité sur plusieurs locataires](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Afficher les incidents](../../sentinel/multiple-workspace-view.md) dans plusieurs espaces de travail Sentinel répartis entre les locataires
+- [Afficher les incidents](../../sentinel/multiple-workspace-view.md) dans plusieurs espaces de travail Azure Sentinel répartis entre les locataires
 
 [Azure Service Health](../../service-health/index.yml) :
 
@@ -164,6 +165,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 Demandes de support :
 
 - [Ouvrir des demandes de support à partir du panneau **Aide + Support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) dans le portail Azure pour les ressources déléguées (en sélectionnant le plan de support disponible pour l’étendue déléguée)
+- Utiliser l’[API de quota Azure](/rest/api/reserved-vm-instances/quotaapi) pour afficher et gérer les quotas de service Azure pour les ressources client déléguées
 
 ## <a name="current-limitations"></a>Limites actuelles
 

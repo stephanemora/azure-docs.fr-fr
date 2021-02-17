@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 735b1ce4391598d05a1bf0b4486503092f4de37d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835751"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509072"
 ---
 # <a name="the-dashboard"></a>Le tableau de bord
 
@@ -28,7 +28,7 @@ Le tableau de bord vous permet d’afficher rapidement l’état de sécurité d
 
 - Avertissements
 
-- Les deux jauges au centre de la page indiquent les paquets par seconde (PPS) et les alertes sans accusé de réception (UA). **PPS** est le nombre de paquets reconnus par le système par seconde. **UA** est le nombre d’alertes qui n’ont pas encore été acquittées.
+- Les deux indicateurs au centre de la page affichent les paquets par seconde (PPS) et les alertes sans accusé de réception (UA). **PPS** est le nombre de paquets reconnus par le système par seconde. **UA** est le nombre d’alertes qui n’ont pas encore été acquittées.
 
 - Liste des alertes sans accusé de réception avec leur description.
 
@@ -78,23 +78,23 @@ Sélectionnez la flèche vers le bas **V** en bas d’une zone d’alerte pour a
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Entrée d’alerte et informations sur les appareils":::
 
-- Sélectionnez l’appareil ou **Afficher les appareils** pour afficher la carte en mode physique. Les appareils concernés sont mis en surbrillance.
+- Sélectionnez l’appareil pour afficher la carte en mode physique. Les appareils concernés sont mis en surbrillance.
+
+- Cliquez n’importe où dans la zone d’alerte pour afficher des détails supplémentaires sur l’alerte. Une fenêtre contextuelle s’affiche comme celle ci-dessous.
 
 - Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: pour exporter un fichier CSV à propos de l’alerte.
 
 - Administrateurs et analystes de la sécurité uniquement : sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Accuser réception de tout"::: pour **accuser réception de toutes les alertes associées**.
 
-- Sélectionnez l’entrée d’alerte pour afficher le type et la description de l’alerte :
-
 - Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF"::: pour télécharger un rapport d’alerte sous forme de fichier PDF.
 
-- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Épingler"::: pour épingler ou désépingler l’alerte.
+- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Épingler"::: pour épingler ou désépingler l’alerte. Si vous sélectionnez l’option pour épingler, elle est ajoutée à la fenêtre **Alertes épinglées** de l’écran **Alertes**.
 
-- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Télécharger"::: pour analyser l’alerte en téléchargeant le fichier PCAP contenant une analyse de protocole réseau.
+- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Télécharger"::: pour analyser l’alerte en téléchargeant le fichier PCAP associé contenant une analyse de protocole réseau.
 
-- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud"::: pour télécharger un fichier PCAP filtré qui contient uniquement les paquets pertinents pour l’alerte, réduisant ainsi la taille du fichier de sortie et permettant une analyse plus ciblée. Vous pouvez l’afficher à l’aide de [Wireshark](https://www.wireshark.org/).
+- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud"::: pour télécharger un fichier PCAP associé filtré qui contient uniquement les paquets pertinents pour l’alerte, réduisant ainsi la taille du fichier de sortie et permettant une analyse plus ciblée. Vous pouvez l’afficher à l’aide de [Wireshark](https://www.wireshark.org/).
 
-- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation"::: pour accéder à la chronologie de l’événement au moment de l’alerte demandée.
+- Sélectionnez :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation"::: pour accéder à la chronologie de l’événement au moment de l’alerte demandée. Cela vous permet d’évaluer d’autres événements qui peuvent se produire autour de l’alerte spécifique.
 
 - Administrateurs et analystes de la sécurité uniquement : modifiez l’état de l’alerte de non acquitté à acquitté. Sélectionnez Découvrir pour approuver l’activité détectée.
 

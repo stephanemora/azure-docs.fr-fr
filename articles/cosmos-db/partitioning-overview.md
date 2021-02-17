@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080830"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627766"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionnement et mise à l’échelle horizontale dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,7 +20,7 @@ Azure Cosmos DB utilise le partitionnement pour procéder à la mise à l’éch
 
 Par exemple, un conteneur contient des éléments. Chaque élément a une valeur unique pour la propriété `UserID`. Si `UserID` sert de clé de partition pour les éléments présents dans un conteneur et qu’il existe 1 000 valeurs `UserID` uniques, 1 000 partitions logiques sont créées pour le conteneur.
 
-Outre une clé de partition qui détermine la partition logique de l’élément, chaque élément présent dans un conteneur possède un *ID d’élément* (unique dans une partition logique). La combinaison de la clé de partition et de l’ *ID d’élément* crée l’ *index* de l’élément, qui identifie l’élément de façon unique. Le [choix d’une clé de partition](#choose-partitionkey) est une décision importante qui déterminera les performances de votre application.
+Outre une clé de partition qui détermine la partition logique de l’élément, chaque élément présent dans un conteneur possède un *ID d’élément* (unique dans une partition logique). La combinaison de la clé de partition et de l’*ID d’élément* crée l’*index* de l’élément, qui identifie l’élément de façon unique. Le [choix d’une clé de partition](#choose-partitionkey) est une décision importante qui déterminera les performances de votre application.
 
 Cet article explique la relation entre les partitions logiques et physiques. Il présente également les bonnes pratiques pour le partitionnement et donne une vue détaillée du fonctionnement de la mise à l’échelle horizontale dans Azure Cosmos DB. Il n’est pas nécessaire de comprendre ces détails internes pour sélectionner votre clé de partition, mais nous les avons abordés afin que vous compreniez bien comment fonctionne Azure Cosmos DB.
 
@@ -36,10 +36,13 @@ Il n’existe aucune limite au nombre de partitions logiques dans votre conteneu
 
 Un conteneur est mis à l’échelle en distribuant les données et le débit sur des partitions physiques. En interne, une ou plusieurs partitions logiques sont mappées à une seule partition physique. En général, les petits conteneurs ont de nombreuses partitions logiques, mais ils n’ont besoin que d’une seule partition physique. Contrairement aux partitions logiques, les partitions physiques sont une implémentation interne du système et sont entièrement gérées par Azure Cosmos DB.
 
-Le nombre de partitions physiques dans votre conteneur dépend de la configuration suivante :
+Le nombre de partitions physiques dans votre conteneur dépend des éléments suivants :
 
 * La quantité de débit approvisionnée (chaque partition physique peut fournir un débit allant jusqu’à 10 000 unités de requête par seconde).
 * Le stockage de données total (chaque partition physique peut stocker jusqu’à 50 Go de données).
+
+> [!NOTE]
+> Les partitions physiques sont une implémentation interne du système et sont entièrement gérées par Azure Cosmos DB. Lorsque vous développez vos solutions, ne vous concentrez pas sur les partitions physiques, car vous ne pouvez pas les contrôler. Au lieu de cela, concentrez-vous sur vos clés de partition. Si vous choisissez une clé de partition qui répartit uniformément la consommation du débit entre les partitions logiques, vous vous assurez que la consommation du débit sur les partitions physiques est équilibrée.
 
 Il n’existe aucune limite au nombre total de partitions physiques dans votre conteneur. À mesure qu’augmente la taille des données ou du débit provisionné, Azure Cosmos DB crée automatiquement des partitions physiques en divisant celles qui existent déjà. Les divisions des partitions physiques n’impactent pas la disponibilité de votre application. Après la division des partitions physiques, toutes les données d’une seule partition logique sont toujours stockées sur la même partition physique. La division d’une partition physique crée simplement un mappage de partitions logiques sur des partitions physiques.
 
@@ -49,12 +52,9 @@ Vous pouvez voir les partitions physiques de votre conteneur dans la section **S
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Affichage du nombre de partitions physiques" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-Dans la capture d’écran ci-dessus, un conteneur a `/foodGroup` comme clé de partition. Chacune des trois barres du graphique représente une partition physique. Dans l’image, la **plage de clés de partition** est identique à une partition physique. La partition physique sélectionnée contient trois partitions logiques : `Beef Products`, `Vegetable and Vegetable Products` et `Soups, Sauces, and Gravies`.
+Dans la capture d’écran ci-dessus, un conteneur a `/foodGroup` comme clé de partition. Chacune des trois barres du graphique représente une partition physique. Dans l’image, la **plage de clés de partition** est identique à une partition physique. La partition physique sélectionnée reprend les trois partitions logiques mes plus significatives : `Beef Products`, `Vegetable and Vegetable Products` et `Soups, Sauces, and Gravies`.
 
 Si vous approvisionnez un débit de 18 000 unités de requête par seconde (RU/s), chacune des trois partitions physiques peut utiliser 1/3 du débit total approvisionné. Au sein de la partition physique sélectionnée, les clés de partition logique `Beef Products`, `Vegetable and Vegetable Products` et `Soups, Sauces, and Gravies` peuvent, collectivement, utiliser les 6 000  RU/s provisionnées de la partition physique. Le débit provisionné étant réparti uniformément entre les partitions physiques de votre conteneur, il est important de choisir une clé de partition qui répartit uniformément la consommation du débit en [choisissant la clé de partition logique appropriée](#choose-partitionkey). 
-
-> [!NOTE]
-> Si vous choisissez une clé de partition qui répartit uniformément la consommation du débit entre les partitions logiques, vous vous assurez que la consommation du débit sur les partitions physiques est équilibrée.
 
 ## <a name="managing-logical-partitions"></a>Gestion des partitions logiques
 
@@ -88,7 +88,7 @@ Pour en savoir plus sur les limites du débit, du stockage et de la longueur de 
 
 La sélection de votre clé de partition est un choix de conception simple, mais important dans Azure Cosmos DB. Une fois que vous avez sélectionné votre clé de partition, il n’est pas possible de la modifier sur place. Si vous avez besoin de modifier votre clé de partition, vous devez déplacer vos données vers un nouveau conteneur à l’aide de la nouvelle clé de partition de votre choix.
 
-Pour **tous les conteneurs** , votre clé de partition doit :
+Pour **tous les conteneurs**, votre clé de partition doit :
 
 * Être une propriété qui a une valeur qui ne change pas. Si une propriété est votre clé de partition, vous ne pouvez pas mettre à jour la valeur de cette propriété.
 
@@ -114,20 +114,20 @@ Si votre conteneur peut atteindre plus de quelques partitions physiques, vous de
 
 ## <a name="using-item-id-as-the-partition-key"></a>Utilisation de l’ID d’élément comme clé de partition
 
-Si votre conteneur a une propriété qui présente une large gamme de valeurs possibles, il s’agit probablement d’un bon choix de clé de partition. L’ *ID d’élément* est un exemple possible d’une telle propriété. Pour les petits conteneurs à lecture intensive ou les conteneurs à écriture intensive de toute taille, l’ *ID d’élément* est naturellement un bon choix pour la clé de partition.
+Si votre conteneur a une propriété qui présente une large gamme de valeurs possibles, il s’agit probablement d’un bon choix de clé de partition. L’*ID d’élément* est un exemple possible d’une telle propriété. Pour les petits conteneurs à lecture intensive ou les conteneurs à écriture intensive de toute taille, l’*ID d’élément* est naturellement un bon choix pour la clé de partition.
 
-La propriété système *ID d’élément* existe dans chaque élément de votre conteneur. Vous pouvez avoir d’autres propriétés qui représentent un ID logique de votre élément. Dans de nombreux cas, il s’agit également d’excellents choix de clé de partition pour les mêmes raisons que pour l’ *ID d’élément*.
+La propriété système *ID d’élément* existe dans chaque élément de votre conteneur. Vous pouvez avoir d’autres propriétés qui représentent un ID logique de votre élément. Dans de nombreux cas, il s’agit également d’excellents choix de clé de partition pour les mêmes raisons que pour l’*ID d’élément*.
 
-L’ *ID d’élément* est un excellent choix de clé de partition pour les raisons suivantes :
+L’*ID d’élément* est un excellent choix de clé de partition pour les raisons suivantes :
 
 * Il existe un large éventail de valeurs possibles (un *ID d’élément* unique par élément).
-* Étant donné qu’il existe un *ID d’élément* unique par élément, l’ *ID d’élément* fait un excellent travail pour équilibrer la consommation des RU et le stockage des données.
+* Étant donné qu’il existe un *ID d’élément* unique par élément, l’*ID d’élément* fait un excellent travail pour équilibrer la consommation des RU et le stockage des données.
 * Vous pouvez facilement effectuer des lectures de point efficaces, car vous connaissez toujours la clé de partition d’un élément si vous connaissez son *ID d’élément*.
 
-Voici quelques points à prendre en compte lors de la sélection de l’ *ID d’élément* comme clé de partition :
+Voici quelques points à prendre en compte lors de la sélection de l’*ID d’élément* comme clé de partition :
 
-* Si l’ *ID d’élément* est la clé de partition, il deviendra un identificateur unique dans tout le conteneur. Vous ne pouvez pas avoir d’éléments dont l’ *ID d’élément* est dupliqué.
-* Si vous disposez d’un conteneur à lecture intensive qui comporte un grand nombre de [partitions physiques](partitioning-overview.md#physical-partitions), les requêtes seront plus efficaces si elles sont dotées d’un filtre d’égalité avec l’ *ID d’élément*.
+* Si l’*ID d’élément* est la clé de partition, il deviendra un identificateur unique dans tout le conteneur. Vous ne pouvez pas avoir d’éléments dont l’*ID d’élément* est dupliqué.
+* Si vous disposez d’un conteneur à lecture intensive qui comporte un grand nombre de [partitions physiques](partitioning-overview.md#physical-partitions), les requêtes seront plus efficaces si elles sont dotées d’un filtre d’égalité avec l’*ID d’élément*.
 * Vous ne pouvez pas exécuter de procédures stockées ni de déclencheurs sur plusieurs partitions logiques.
 
 ## <a name="next-steps"></a>Étapes suivantes

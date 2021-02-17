@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735262"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559438"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personnaliser la configuration des nœuds pour les pools de nœuds Azure Kubernetes service (AKS) [préversion]
 
@@ -166,7 +166,7 @@ Créez un fichier `linuxosconfig.json` avec le contenu suivant :
 }
 ```
 
-Créez un cluster en spécifiant les configurations kublet et du système d’exploitation à l’aide des fichiers JSON créés à l’étape précédente. 
+Créez un cluster en spécifiant les configurations kubelet et du système d’exploitation à l’aide des fichiers JSON créés à l’étape précédente. 
 
 > [!NOTE]
 > Lorsque vous créez un cluster, vous pouvez spécifier la configuration kubelet, la configuration du système d’exploitation ou les deux. Si vous spécifiez une configuration lors de la création d’un cluster, cette configuration sera appliquée uniquement aux nœuds du pool de nœuds initial. Les paramètres qui ne sont pas configurés dans le fichier JSON conservent la valeur par défaut.

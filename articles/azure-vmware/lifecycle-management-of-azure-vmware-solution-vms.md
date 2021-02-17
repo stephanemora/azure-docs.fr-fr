@@ -2,13 +2,13 @@
 title: Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
 description: Découvrez comment gérer tous les aspects du cycle de vie des machines virtuelles de votre service Azure VMware Solution avec les outils natifs de Microsoft Azure.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062894"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988535"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution
 
@@ -110,3 +110,11 @@ Le service Azure Monitor est une solution complète pour la collecte, l’analys
     - [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md).
     - [Règles d’action](../azure-monitor/platform/alerts-action-rules.md) pour définir des actions et notifications automatisées.
     - [Connecter Azure aux outils de gestion des services informatiques (ITSM) à l’aide du connecteur de gestion des services informatiques](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## <a name="next-steps"></a>Étapes suivantes
+
+Maintenant que vous avez vu les outils natifs d’Azure permettant de gérer vos machines virtuelles Azure VMware Solution tout au long de leur cycle de vie, vous souhaiterez peut-être en savoir plus sur les aspects suivants :
+
+- [Protection de machines virtuelles Azure VMware Solution avec Azure Security Center](azure-security-integration.md)
+- [Configuration d’un serveur de sauvegarde Azure pour Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md)
+- [Intégration d’Azure VMware Solution dans une architecture hub-and-spoke](concepts-hub-and-spoke.md)

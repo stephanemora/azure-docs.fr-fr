@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222796"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980488"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
@@ -116,7 +116,7 @@ Extensions | Non pris en charge | Les extensions ne sont pas copiées sur la mac
 Ce tableau récapitule la prise en charge du disque du système d’exploitation, du disque de données et du disque temporaire de la machine virtuelle Azure. Il est important d’observer les limites et les cibles des [disques managés](../virtual-machines/disks-scalability-targets.md) pour éviter tout problème de performances.
 
 > [!NOTE]
-> La taille de la machine virtuelle cible doit être supérieure ou égale à celle de la machine virtuelle source. Les paramètres utilisés pour la validation sont les suivants : Nombre de disques de données, Nombre de cartes réseau, Processeurs disponibles, Mémoire en Go. Si ce n'est pas le cas, une erreur est émise.
+> La taille de la machine virtuelle cible doit être supérieure ou égale à celle de la machine virtuelle source. Les paramètres utilisés pour la validation sont les suivants : Nombre de disques de données, Nombre de cartes réseau, Processeurs disponibles, Mémoire en Go. Si ce n’est pas le cas, une erreur est émise.
 
 
 **Composant** | **Support** | **Détails**
@@ -134,6 +134,8 @@ Disque managé (Premium) | Prise en charge |
 SSD Standard | Prise en charge |
 Génération 2 (démarrage UEFI) | Prise en charge
 Compte de stockage des diagnostics de démarrage | Non pris en charge | Réactivez-le après avoir déplacé la machine virtuelle vers la région cible.
+Machines virtuelles avec Azure Disk Encryption activé | Prise en charge | [En savoir plus](tutorial-move-region-encrypted-virtual-machines.md)
+Machines virtuelles utilisant le chiffrement côté serveur avec une clé gérée par le client | Prise en charge | [En savoir plus](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Limites et taux de changement des données
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575803"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545936"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -124,8 +124,6 @@ De retour dans la fenêtre de Visual Studio où le projet _**AdtE2ESample**_ est
 ### <a name="assign-permissions-to-the-function-app"></a>Attribuer des autorisations à l’application de fonction
 
 Pour permettre à l’application de fonction d’accéder à Azure Digital Twins, l’étape suivante consiste à configurer un paramètre d’application, à attribuer à l’application une identité Azure AD managée par le système et à accorder à cette identité le rôle *Propriétaire des données Azure Digital Twins* dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Dans Azure Cloud Shell, utilisez la commande suivante pour définir un paramètre d’application que votre application de fonction utilisera pour référencer votre instance Azure Digital Twins. Remplissez les espaces réservés avec les détails de vos ressources (rappelez-vous que l’URL de votre instance Azure Digital Twins est son nom d’hôte précédé de *https://* ).
 

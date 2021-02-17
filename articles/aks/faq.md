@@ -3,12 +3,12 @@ title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127632"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820260"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,9 @@ La prise en charge des pools de nœuds dans Windows Server comprend certaines li
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
 
-AKS fournit des garanties adossées à un contrat SLA à titre complémentaire facultatif avec le [Contrat SLA de durée de fonctionnement][uptime-sla].
+AKS fournit des garanties adossées à un contrat SLA à titre complémentaire facultatif avec le [Contrat SLA de durée de fonctionnement][uptime-sla]. 
+
+Le contrat SLA Gratuit proposé par défaut ne garantit pas un point de terminaison de serveur d’API à haut niveau de disponibilité (notre objectif de niveau de service est de 99,5 %). Il peut arriver que des problèmes de connectivité temporaires soient observés en cas de mise à niveau, de nœuds Underlay défectueux, de maintenance de la plateforme, etc. Si votre charge de travail ne tolère pas les redémarrages du serveur d’API, nous vous suggérons d’opter pour le contrat SLA Durée de bon fonctionnement.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Puis-je appliquer des remises de réservation Azure sur mes nœuds d’agent AKS ?
 

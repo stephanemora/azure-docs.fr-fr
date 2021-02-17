@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 141abea0c0946c98b6dfe627f32f01682a18be44
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315777"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581021"
 ---
 # <a name="bring-your-own-key-specification"></a>Spécification Bring Your Own Key
 
@@ -35,7 +35,7 @@ Les conditions requises sont les suivantes :
 |---|---|---|---|
 |Key Exchange Key (KEK)|RSA|HSM Azure Key Vault|Paire de clés RSA-HSM générée dans Azure Key Vault
 Clé d'enveloppement|AES|HSM du fournisseur|Clé AES [éphémère] générée localement par HSM
-Clé cible|RSA, EC, AES|HSM du fournisseur|Clé à transférer au HSM d’Azure Key Vault
+Clé cible|RSA, EC, AES (HSM managé uniquement)|HSM du fournisseur|Clé à transférer au HSM d’Azure Key Vault
 
 **Key Exchange Key (KEK)**  : clé HSM que le client génère dans le coffre de clés où la clé BYOK sera importée. Les propriétés de cette KEK doivent être les suivantes :
 
@@ -130,9 +130,16 @@ L'objet blob JSON est stocké dans un fichier « .byok » afin que les clients
 
 Le client transférera l'objet blob de transfert de clé (fichier « .byok ») vers une station de travail en ligne, puis exécutera une commande **az keyvault key import** pour importer cet objet blob en tant que nouvelle clé HSM dans Key Vault. 
 
+Pour importer une clé RSA, utilisez cette commande :
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
+Pour importer une clé EC, vous devez spécifier le type de clé et le nom de la courbe.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+```
+
 
 Lorsque la commande ci-dessus est exécutée, elle se traduit par l'envoi d'une requête d'API REST :
 
@@ -140,7 +147,7 @@ Lorsque la commande ci-dessus est exécutée, elle se traduit par l'envoi d'une 
 PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-version=7.0
 ```
 
-Corps de la requête :
+Corps de la demande lors de l’importation d’une clé RSA :
 ```json
 {
   "key": {
@@ -156,6 +163,25 @@ Corps de la requête :
   }
 }
 ```
+
+Corps de la demande lors de l’importation d’une clé EC :
+```json
+{
+  "key": {
+    "kty": "EC-HSM",
+    "crv": "P-256",
+    "key_ops": [
+      "sign",
+      "verify"
+    ],
+    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+  },
+  "attributes": {
+    "enabled": true
+  }
+}
+```
+
 la valeur « key_hsm » est le contenu entier du fichier KeyTransferPackage-ContosoFirstHSMkey.byok encodé au format Base64.
 
 ## <a name="references"></a>References

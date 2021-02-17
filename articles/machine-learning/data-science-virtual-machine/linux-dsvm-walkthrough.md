@@ -3,18 +3,17 @@ title: Explorer Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez comment effectuer plusieurs tâches courantes de science des données à l’aide de la Data Science Virtual Machine Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315791"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517669"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Ubuntu sur Azure
 
@@ -62,7 +61,7 @@ mv headers spambaseHeaders.data
 
 Le jeu de données possède plusieurs types de statistiques pour chaque e-mail :
 
-* Les colonnes comme **word\_freq\__MOT_** indiquent le pourcentage de mots dans l’e-mail correspondant à *MOT*. Par exemple, si la valeur **word\_freq\_make** correspond à **1** , 1 % de tous les mots dans l’e-mail était *make*.
+* Les colonnes comme **word\_freq\__MOT_** indiquent le pourcentage de mots dans l’e-mail correspondant à *MOT*. Par exemple, si la valeur **word\_freq\_make** correspond à **1**, 1 % de tous les mots dans l’e-mail était *make*.
 * Les colonnes comme **char\_freq\__CAR_** indiquent le pourcentage de caractères dans l’e-mail correspondant à *CAR*.
 * **capital\_run\_length\_longest** est la longueur la plus longue d’une séquence de lettres majuscules.
 * **capital\_run\_length\_average** est la longueur moyenne de toutes les séquences de lettres majuscules.
@@ -315,7 +314,7 @@ Plusieurs exemples de notebooks sont déjà installés sur la DSVM :
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (l’ *o* util d’ *analyse* *R* *p* our *a* pprendre plus *f* acilement) est un outil R graphique pour l’exploration de données. Rattle possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles. [Rattle : une interface utilisateur graphique pour l’exploration de données pour R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fournit une procédure pas à pas présentant les fonctionnalités de Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (l’*o* util d’*analyse* *R* *p* our *a* pprendre plus *f* acilement) est un outil R graphique pour l’exploration de données. Rattle possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles. [Rattle : une interface utilisateur graphique pour l’exploration de données pour R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fournit une procédure pas à pas présentant les fonctionnalités de Rattle.
 
 Installez et démarrez Rattle en exécutant les commandes suivantes :
 
@@ -333,9 +332,9 @@ Rattle utilise une interface basée sur des onglets. La plupart des onglets corr
 Pour charger et configurer le jeu de données :
 
 1. Pour charger le fichier, sélectionnez l’onglet **Données**.
-1. Choisissez le sélecteur en regard de **Nom de fichier** , puis sélectionnez **spambaseHeaders.data**.
+1. Choisissez le sélecteur en regard de **Nom de fichier**, puis sélectionnez **spambaseHeaders.data**.
 1. Pour charger le fichier, sélectionnez **Exécuter**. Vous devez voir un résumé de chaque colonne, notamment son type de données identifié, qu’il s’agisse d’une entrée, d’une cible ou d’un autre type de variable, ainsi que le nombre de valeurs uniques.
-1. Rattle a correctement identifié la colonne **spam** comme étant la cible. Sélectionnez la colonne **Spam** , puis définissez le **Type de données cible** sur **Par catégorie**.
+1. Rattle a correctement identifié la colonne **spam** comme étant la cible. Sélectionnez la colonne **Spam**, puis définissez le **Type de données cible** sur **Par catégorie**.
 
 Pour explorer les données :
 
@@ -346,22 +345,22 @@ Pour explorer les données :
 Vous pouvez également utiliser l'onglet **Explorer** pour générer des tracés pertinents. Pour tracer un histogramme des données :
 
 1. Sélectionnez **Distributions**.
-1. Pour **word_freq_remove** et **word_freq_you** , sélectionnez **Histogramme**.
+1. Pour **word_freq_remove** et **word_freq_you**, sélectionnez **Histogramme**.
 1. Sélectionnez **Exécuter**. Vous devez voir les deux graphiques de densité dans une seule fenêtre de graphique, où il est clair que le mot _you_ (vous) apparaît beaucoup plus fréquemment dans les e-mails que le mot _remove_ (supprimer).
 
 Les tracés de **Corrélation** sont également intéressants. Pour créer un tracé :
 
-1. Pour **Type** , sélectionnez **Corrélation**.
+1. Pour **Type**, sélectionnez **Corrélation**.
 1. Sélectionnez **Exécuter**.
 1. Rattle vous avertit qu’il recommande un maximum de 40 variables. Sélectionnez **Oui** pour afficher le tracé.
 
-Des corrélations intéressantes existent : le terme _technologie_ est étroitement corrélé avec les termes _HP_ et _laboratoires_ , par exemple. Il est également étroitement corrélé avec _650_ , car le code de région des donneurs du dataset est 650.
+Des corrélations intéressantes existent : le terme _technologie_ est étroitement corrélé avec les termes _HP_ et _laboratoires_, par exemple. Il est également étroitement corrélé avec _650_, car le code de région des donneurs du dataset est 650.
 
 Les valeurs numériques des corrélations entre les mots sont disponibles dans la fenêtre **Explorer**. Il est intéressant de noter, par exemple, que le terme _technologie_ est négativement corrélé avec les termes _votre_ et _argent_.
 
 Rattle peut transformer le jeu de données pour gérer certains problèmes courants. Par exemple, il vous permet de remettre à l’échelle les fonctionnalités, d’imputer les valeurs manquantes, de gérer les valeurs hors-norme et de supprimer des variables ou des observations avec des données manquantes. Rattle peut également identifier des règles d’association entre des observations et des variables. Ces onglets ne sont pas couverts dans cette procédure pas à pas d’introduction.
 
-Rattle peut également exécuter l’analyse du cluster. Nous allons exclure certaines fonctionnalités pour simplifier la lecture de la sortie. Sous l’onglet **Données** , sélectionnez **Ignorer** en regard de chacune des variables à l’exception de ces 10 éléments :
+Rattle peut également exécuter l’analyse du cluster. Nous allons exclure certaines fonctionnalités pour simplifier la lecture de la sortie. Sous l’onglet **Données**, sélectionnez **Ignorer** en regard de chacune des variables à l’exception de ces 10 éléments :
 
 * word_freq_hp
 * word_freq_technology
@@ -374,20 +373,20 @@ Rattle peut également exécuter l’analyse du cluster. Nous allons exclure cer
 * word_freq_business
 * spam
 
-Revenez à l'onglet **Cluster**. Sélectionnez **KMeans** , puis définissez le **Nombre de clusters** sur **4**. Sélectionnez **Exécuter**. Les résultats s’affichent dans la fenêtre de sortie. Un cluster possède une fréquence élevée de _george_ et de _hp_ et est probablement un e-mail professionnel légitime.
+Revenez à l'onglet **Cluster**. Sélectionnez **KMeans**, puis définissez le **Nombre de clusters** sur **4**. Sélectionnez **Exécuter**. Les résultats s’affichent dans la fenêtre de sortie. Un cluster possède une fréquence élevée de _george_ et de _hp_ et est probablement un e-mail professionnel légitime.
 
 Pour créer un modèle Machine Learning d’arbre de décision de base :
 
 1. Sélectionnez l’onglet **Modèle** ,
-1. Pour le **Type** , sélectionnez **Arborescence**.
+1. Pour le **Type**, sélectionnez **Arborescence**.
 1. Sélectionnez **Exécuter** pour afficher l’arbre sous forme de texte dans la fenêtre de sortie.
 1. Sélectionnez le bouton **Dessin** pour afficher une version graphique. L’arbre de décision ressemble à l’arbre obtenu précédemment à l’aide de rpart.
 
 Une des fonctionnalités utiles de Rattle est sa capacité à exécuter plusieurs méthodes Machine Learning et à les évaluer rapidement. Voici la procédure à suivre :
 
-1. Pour **Type** , sélectionnez **Tout**.
+1. Pour **Type**, sélectionnez **Tout**.
 1. Sélectionnez **Exécuter**.
-1. Une fois l’exécution de Rattle terminée, vous pouvez sélectionner n’importe quelle valeur de **Type** , par exemple **SVM** , et afficher les résultats.
+1. Une fois l’exécution de Rattle terminée, vous pouvez sélectionner n’importe quelle valeur de **Type**, par exemple **SVM**, et afficher les résultats.
 1. Vous pouvez également comparer les performances des modèles sur le jeu de validation à l’aide de l’onglet **Évaluer** . Par exemple, la sélection de l’option **Matrice d’erreur** affiche la matrice de confusion, l’erreur globale et l’erreur de classe moyennée pour chaque modèle sur le jeu de validation. Vous pouvez également tracer des courbes ROC, exécuter des analyses de sensibilité et d’autres types d’évaluations de modèle.
 
 Une fois que vous avez terminé la création de modèles, sélectionnez l’onglet **Journal** pour afficher le code R exécuté par Rattle pendant votre session. Vous pouvez sélectionner le bouton **Exporter** pour l’enregistrer.
@@ -416,7 +415,7 @@ host    all             all             127.0.0.1/32            ident
 host    all             all             ::1/128                 ident
 ```
 
-Modifiez la ligne **connexions locales IPv4** pour utiliser **md5** au lieu d’ **ident** , afin de permettre la connexion avec un nom d’utilisateur et un mot de passe :
+Modifiez la ligne **connexions locales IPv4** pour utiliser **md5** au lieu d’**ident**, afin de permettre la connexion avec un nom d’utilisateur et un mot de passe :
 
 ```
 # IPv4 local connections:
@@ -429,7 +428,7 @@ Ensuite, redémarrez le service PostgreSQL :
 sudo systemctl restart postgresql
 ```
 
-Pour lancer *psql* , un terminal interactif pour PostgreSQL, en tant qu’utilisateur postgres intégré, exécutez la commande suivante :
+Pour lancer *psql*, un terminal interactif pour PostgreSQL, en tant qu’utilisateur postgres intégré, exécutez la commande suivante :
 
 ```Bash
 sudo -u postgres psql
@@ -462,30 +461,30 @@ CREATE TABLE data (word_freq_make real, word_freq_address real, word_freq_all re
 
 À présent, nous allons explorer les données et exécuter des requêtes à l’aide de SQuirreL SQL, un outil graphique que vous pouvez utiliser pour interagir avec les bases de données via un pilote JDBC.
 
-Pour commencer, dans le menu **Applications** , ouvrez SQuirreL SQL. Pour configurer le pilote :
+Pour commencer, dans le menu **Applications**, ouvrez SQuirreL SQL. Pour configurer le pilote :
 
 1. Sélectionnez **Windows** > **Afficher les pilotes**.
 1. Cliquez avec le bouton droit sur **PostgreSQL** et sélectionnez **Modifier le pilote**.
 1. Sélectionnez **Chemin d’accès de la classe supplémentaire** > **Ajouter**.
-1. Pour le **Nom de fichier** , entrez **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Pour le **Nom de fichier**, entrez **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Sélectionnez **Ouvrir**.
-1. Sélectionnez **Répertorier les pilotes**. Pour **Nom de la classe** , sélectionnez **org.postgresql.Driver** , puis sélectionnez **OK**.
+1. Sélectionnez **Répertorier les pilotes**. Pour **Nom de la classe**, sélectionnez **org.postgresql.Driver**, puis sélectionnez **OK**.
 
 Pour configurer la connexion au serveur local :
 
 1. Sélectionnez **Windows** > **Afficher les alias.**
 1. Sélectionnez le bouton **+** pour créer un nouvel alias. Pour le nouveau nom d’alias, entrez **Base de données de courrier indésirable**. 
-1. Pour **Pilote** , sélectionnez **PostgreSQL**.
+1. Pour **Pilote**, sélectionnez **PostgreSQL**.
 1. Définissez l’URL sur **jdbc:postgresql://localhost/spam**.
 1. Entrez votre nom d'utilisateur et votre mot de passe.
 1. Sélectionnez **OK**.
-1. Pour ouvrir la fenêtre **Connexion** , double-cliquez sur l’alias de la **Base de données de courrier indésirable**.
+1. Pour ouvrir la fenêtre **Connexion**, double-cliquez sur l’alias de la **Base de données de courrier indésirable**.
 1. Sélectionnez **Connecter**.
 
 Pour exécuter des requêtes :
 
 1. Sélectionnez l’onglet **SQL** .
-1. Dans la zone de requête située en haut de l'onglet **SQL** , entrez une requête de base, par exemple `SELECT * from data;`.
+1. Dans la zone de requête située en haut de l'onglet **SQL**, entrez une requête de base, par exemple `SELECT * from data;`.
 1. Appuyez sur Ctrl+Entrée pour exécuter la requête. Par défaut, SQuirreL SQL renvoie les 100 premières lignes de votre requête.
 
 Il existe de nombreuses requêtes supplémentaires, que vous pouvez exécuter pour explorer ces données. Par exemple, en quoi la fréquence du mot *make* diffère-t-elle entre le courrier indésirable et le courrier légitime ?

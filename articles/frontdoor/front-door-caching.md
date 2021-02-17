@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d001a7a24d44c46a19bde08051e21d3ae3c5acb8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535829"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538049"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
 Le document suivant explique comment spécifier les comportements d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne qui, outre l’accélération de site dynamique et l’équilibrage de charge, prend en charge les comportements de mise en cache comme n’importe quel autre CDN.
@@ -24,13 +24,13 @@ Le document suivant explique comment spécifier les comportements d’une porte 
 ## <a name="delivery-of-large-files"></a>Distribution de fichiers volumineux
 Azure Front Door permet de distribuer des fichiers volumineux sans aucune plafond de taille de fichier. Front Door utilise une technique appelée segmentation d’objets. Quand un fichier volumineux est demandé, la porte d’entrée récupère les petits éléments du fichier auprès du backend. Après avoir reçu une demande de fichier complet ou de plage d’octets, l’environnement Front Door demande le fichier du serveur principale par blocs de 8 Mo.
 
-</br>Dès qu’un bloc parvient à l’environnement Front Door, il est mis en cache et immédiatement servi à l’utilisateur. La porte d’entrée se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération est l’assurance que le contenu a un bloc d’avance sur l’utilisateur, ce qui réduit la latence. Ce processus se poursuit jusqu’à ce que le fichier entier soit téléchargé (si nécessaire) ou que le client ferme la connexion.
+Dès qu’un bloc parvient à l’environnement Front Door, il est mis en cache et immédiatement servi à l’utilisateur. La porte d’entrée se prépare ensuite à récupérer le bloc suivant en parallèle. Cette prérécupération est l’assurance que le contenu a un bloc d’avance sur l’utilisateur, ce qui réduit la latence. Ce processus se poursuit jusqu’à ce que le fichier entier soit téléchargé (si nécessaire) ou que le client ferme la connexion.
 
-</br>Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+Pour plus d’informations sur la demande de plage d’octets, consultez [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Front Door met en cache les blocs au fur et à mesure de leur réception, ce qui évite d’avoir à mettre l’intégralité du fichier dans le cache Front Door. Les demandes subséquentes du fichier ou de plages d’octets sont servies à partir du cache. Si certains blocs ne sont pas mis en cache, ils sont demandés au serveur principal via une prérécupération. Cette optimisation s’appuie sur la capacité du serveur principal à prendre en charge les demandes de plages d’octets. Si le serveur principal ne prend pas en charge les demandes de plages d’octets, cette optimisation n’est pas effective.
 
 ## <a name="file-compression"></a>Compression de fichiers
-Front Door peut compresser de manière dynamique le contenu en périphérie, ce qui a pour effet de réduire la taille et le délai de la réponse envoyée à vos clients. Tous les fichiers peuvent faire l’objet d’une compression. Cependant, un fichier doit être de type MIME pour être éligible pour la compression. À l’heure actuelle, Front Door n’autorise pas la modification de cette liste. Voici la liste actuelle :</br>
+Front Door peut compresser de manière dynamique le contenu en périphérie, ce qui a pour effet de réduire la taille et le délai de la réponse envoyée à vos clients. Pour qu’un fichier soit éligible à la compression, la mise en cache doit être activée et le fichier doit être de type MIME pour être éligible à la compression. À l’heure actuelle, Front Door n’autorise pas la modification de cette liste. Voici la liste actuelle :
 - "application/eot"
 - "application/font"
 - "application/font-sfnt"
