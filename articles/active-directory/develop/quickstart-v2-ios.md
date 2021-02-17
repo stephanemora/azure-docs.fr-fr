@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d2c5af6aeccfbae0851513ff575bde3c39e3ca5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754309"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103785"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -46,7 +46,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger l’exemple de code
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application :
-> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications</a>.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 >
@@ -55,7 +55,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
-> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 > 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.    
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
@@ -69,7 +69,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
-> Pour que l'exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection compatible avec le répartiteur d'authentification.
+> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, ajoutez un **URI de redirection** compatible avec le répartiteur d’authentification.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
 >
@@ -118,7 +118,7 @@ Dans une fenêtre de terminal, accédez au dossier à l’aide de l’exemple de
 >     ```
 > 1. Ouvrez les paramètres du projet. Dans la section **Identité**, entrez l’**Identificateur de bundle** que vous avez indiqué dans le portail.
 > 1. Cliquez avec le bouton droit sur **Info.plist** et sélectionnez **Ouvrir en tant que** > **Code source**.
-> 1. Sous le nœud racine du dictionnaire, remplacez `Enter_the_bundle_Id_Here` par l’**_ID de bundle_* _ que vous avez utilisé dans le portail.
+> 1. Sous le nœud racine du dictionnaire, remplacez `Enter_the_bundle_Id_Here` par l’***ID d’ensemble*** que vous avez utilisé dans le portail.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |Où : | Description |
 > |---------|---------|
-> | `clientId` | ID d’application de l’application inscrite dans _portal.azure.com* |
+> | `clientId` | L’ID d’application de l’application inscrite dans *portal.azure.com* |
 > | `authority` | Plateforme d’identités Microsoft. Dans la plupart des cas, ce sera `https://login.microsoftonline.com/common` |
 > | `redirectUri` | URI de redirection de l'application. Vous pouvez passer « nil » pour utiliser la valeur par défaut, ou votre URI de redirection personnalisé. |
 
@@ -214,7 +214,7 @@ Votre application doit également comporter ce qui suit dans la propriété `App
     }
  ```
 
-Enfin, votre application doit comporter une entrée `LSApplicationQueriesSchemes` dans la liste ***Info.plist** _ en plus des `CFBundleURLTypes`. Ceci est inclus dans l'exemple fourni.
+Enfin, votre application doit comporter une entrée `LSApplicationQueriesSchemes` dans la liste ***Info.plist*** en plus des `CFBundleURLTypes`. Ceci est inclus dans l'exemple fourni.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ MSAL utilise deux méthodes pour acquérir des jetons : `acquireToken` et `acqui
 
 Certaines situations nécessitent l'interaction des utilisateurs avec la Plateforme d'identités Microsoft. Dans ce cas, l'utilisateur final peut être amené à sélectionner son compte, à saisir ses informations d'identification ou à accepter les autorisations relatives à votre application. Par exemple,
 
-_ Lorsque des utilisateurs se connectent pour la première fois à l’application
+* La première connexion des utilisateurs à l’application
 * Si un utilisateur réinitialise son mot de passe, il doit entrer ses informations d’identification
 * Lorsque votre application demande l'accès à une ressource pour la première fois
 * Lorsque l'authentification multifacteur ou d'autres stratégies d'accès conditionnel sont requises

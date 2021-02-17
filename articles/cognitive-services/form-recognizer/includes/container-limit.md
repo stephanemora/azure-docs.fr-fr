@@ -3,15 +3,15 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
-ms.openlocfilehash: f8918766174d77ea2a9c50d9c97d9feae2d9f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f620789e4224f5c278187ea3359752a6f7705be
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512773"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579777"
 ---
-> [!IMPORTANT]
-> * La limite pour les utilisateurs du conteneur Form Recognizer a été atteinte. Nous n’acceptons actuellement aucune nouvelle inscription pour le conteneur Form Recognizer. 
-> * Les conteneurs Form Recognizer utilisent actuellement la version 1.0 de l’API Form Recognizer. Vous pouvez accéder à la dernière version de l’API en utilisant le service managé à la place.
+> [!CAUTION]
+> * Le conteneur Form Recognizer v1.0 est mis hors service. Cet article est destiné à des fins de référence uniquement. 
+> * Vous pouvez accéder à la dernière version de l’API avec l’API REST et le Kit de développement logiciel (SDK).

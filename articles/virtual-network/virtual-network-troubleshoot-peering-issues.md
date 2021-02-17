@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096387"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518162"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Résoudre les problèmes d’appairage de réseaux virtuels
 
@@ -233,7 +233,7 @@ Pour résoudre ce problème, supprimez le peering des deux réseaux virtuels, pu
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Échec de l’appairage d’un réseau virtuel Databricks
 
-Pour résoudre ce problème, configurez le peering de réseaux virtuels sous **Azure Databricks**, puis spécifiez le réseau virtuel cible à l’aide de l’**ID de la ressource**. Pour plus d’informations, voir [Appairer un réseau virtuel Databricks à un réseau virtuel distant](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Pour résoudre ce problème, configurez le peering de réseaux virtuels sous **Azure Databricks**, puis spécifiez le réseau virtuel cible à l’aide de l’**ID de la ressource**. Pour plus d’informations, voir [Appairer un réseau virtuel Databricks à un réseau virtuel distant](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Le réseau virtuel distant n’a pas de passerelle
 

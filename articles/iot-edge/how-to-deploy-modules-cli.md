@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 86cccbc9a72459ad038defca32e232381368ef45
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6e4782ad25886c4121742634e9e73f62ff4f0a2c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046687"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370238"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Déployer des modules Azure IoT Edge avec Azure CLI
 
@@ -29,7 +29,7 @@ Cet article explique comment créer un manifeste de déploiement JSON, puis util
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) dans votre abonnement Azure.
 * Un appareil IoT Edge.
 
-  Si vous n’avez aucun appareil IoT Edge configuré, vous pouvez en créer un sur une machine virtuelle Azure. Suivez la procédure décrite dans l’un des articles de démarrage rapide suivants : [Création d’un appareil Linux virtuel](quickstart-linux.md) ou [Création d’un appareil Windows virtuel](quickstart.md).
+  Si vous n’avez aucun appareil IoT Edge configuré, vous pouvez en créer un sur une machine virtuelle Azure. Suivez les étapes décrites dans l’un des articles de démarrage rapide pour [Créer un appareil Linux virtuel](quickstart-linux.md) ou [Créer un appareil Windows virtuel](quickstart.md).
 
 * [Azure CLI](/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.70 ou ultérieure. Utilisez `az --version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack.
 * [Extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
@@ -43,7 +43,7 @@ Pour déployer des modules avec Azure CLI, enregistrez localement le manifeste d
 Par exemple, voici un manifeste de déploiement de base comportant un seul module :
 
 >[!NOTE]
->Cet exemple de manifeste de déploiement utilise la version de schéma 1.1 pour l’agent IoT Edge et le hub. La version de schéma 1.1, publiée avec IoT Edge version 1.0.10, active des fonctionnalités telles que l’ordre de démarrage des modules et la hiérarchisation des itinéraires.
+>Cet exemple de manifeste de déploiement utilise la version de schéma 1.1 pour l’agent et le hub IoT Edge. La version de schéma 1.1, publiée avec IoT Edge version 1.0.10, active des fonctionnalités telles que l’ordre de démarrage des modules et la hiérarchisation des itinéraires.
 
 ```json
 {
@@ -64,7 +64,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -73,7 +73,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }

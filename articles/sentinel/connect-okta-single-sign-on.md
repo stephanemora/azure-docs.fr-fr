@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e76aea8a3fc59827664900a6d5686e2e725e258d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083920"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093113"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Connecter votre Okta Single Sign-On à Azure Sentinel avec Azure Functions
 
@@ -48,7 +48,7 @@ Une fois la connexion correctement établie, les données apparaissent dans l’
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
-Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.
+Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

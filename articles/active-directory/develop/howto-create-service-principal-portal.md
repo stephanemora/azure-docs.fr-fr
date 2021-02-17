@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014941"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581752"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -115,7 +115,7 @@ La section suivante montre comment obtenir les valeurs nécessaires pour vous co
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Obtenir les valeurs d’ID de locataire et d’ID d’application pour la connexion
 
-Quand vous vous connectez par programmation, vous devez transmettre l’ID du locataire avec votre demande d’authentification et l’ID de l’application.  Vous avez également besoin d’un certificat ou d’une clé d’authentification (décrite dans la section suivante). Pour obtenir ces valeurs, procédez comme suit :
+Quand vous vous connectez par programmation, transmettez l’ID du locataire avec votre demande d’authentification et l’ID de l’application.  Vous avez également besoin d’un certificat ou d’une clé d’authentification (décrite dans la section suivante). Pour obtenir ces valeurs, procédez comme suit :
 
 1. Sélectionnez **Azure Active Directory**.
 1. Dans **Inscriptions d’applications** dans Azure AD, sélectionnez votre application.
@@ -162,7 +162,7 @@ Pour charger le certificat :
 
 1. Sélectionnez **Ajouter**.
 
-Une fois le certificat inscrit avec votre application dans le portail d’inscription des applications, vous devez activer le code de l’application cliente pour utiliser le certificat.
+Une fois le certificat inscrit avec votre application dans le portail d’inscription des applications, activez le code de l’application cliente pour utiliser le certificat.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Option n°2 : Créer un secret d’application
 

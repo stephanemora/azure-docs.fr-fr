@@ -4,15 +4,15 @@ description: Supprimer une passerelle de réseau virtuel à l’aide du portail 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 7d9ae31b5701707589d79fd5f3d7eb0802038eb9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148197"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376380"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Supprimer une passerelle de réseau virtuel à l’aide du portail
 
@@ -44,24 +44,24 @@ Les étapes suivantes vous permettent de supprimer toutes les ressources qui ne 
 
 #### <a name="to-delete-the-local-network-gateway"></a>Pour supprimer la passerelle de réseau local
 
-1. Sous **Toutes les ressources** , recherchez les passerelles de réseau local associées à chaque connexion.
-1. Dans le panneau **Vue d’ensemble** de la passerelle de réseau local, cliquez sur **Supprimer** .
+1. Sous **Toutes les ressources**, recherchez les passerelles de réseau local associées à chaque connexion.
+1. Dans le panneau **Vue d’ensemble** de la passerelle de réseau local, cliquez sur **Supprimer**.
 
 #### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>Pour supprimer la ressource de l’adresse IP publique de la passerelle
 
-1. Sous **Toutes les ressources** , recherchez la ressource d’adresse IP publique qui a été associée à la passerelle. Si la passerelle de réseau virtuel était active-active, vous verrez deux adresses IP publiques.
-1. Sur la page **Vue d’ensemble** de l’adresse IP publique, cliquez sur **Supprimer** , puis sur **Oui** pour confirmer.
+1. Sous **Toutes les ressources**, recherchez la ressource d’adresse IP publique qui a été associée à la passerelle. Si la passerelle de réseau virtuel était active-active, vous verrez deux adresses IP publiques.
+1. Sur la page **Vue d’ensemble** de l’adresse IP publique, cliquez sur **Supprimer**, puis sur **Oui** pour confirmer.
 
 #### <a name="to-delete-the-gateway-subnet"></a>Pour supprimer le sous-réseau de la passerelle
 
-1. Sous **Toutes les ressources** , recherchez le réseau virtuel. 
-1. Dans le panneau **Sous-réseaux** , cliquez sur **Sous-réseau de passerelle** , puis cliquez sur **Supprimer** . 
+1. Sous **Toutes les ressources**, recherchez le réseau virtuel. 
+1. Dans le panneau **Sous-réseaux**, cliquez sur **Sous-réseau de passerelle**, puis cliquez sur **Supprimer**. 
 1. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le sous-réseau de passerelle.
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Supprimer une passerelle VPN en supprimant le groupe de ressources
 
 Si vous n’avez pas besoin de conserver de ressources dans le groupe de ressources et que vous voulez simplement recommencer à zéro, vous pouvez supprimer tout un groupe de ressources. Il s’agit d’un moyen rapide de tout supprimer. Les étapes suivantes s’appliquent uniquement au modèle de déploiement Resource Manager.
 
-1. Sous **Toutes les ressources** , recherchez le groupe de ressources et cliquez pour ouvrir le panneau.
-1. Cliquez sur **Supprimer** . Dans le panneau Supprimer, affichez les ressources affectées. Vérifiez que vous voulez supprimer toutes ces ressources. Si ce n'est pas le cas, utilisez les étapes disponibles sous Supprimer une passerelle VPN en haut de cet article.
-1. Pour continuer, saisissez le nom du groupe de ressources que vous souhaitez supprimer, puis cliquez sur **Supprimer** .
+1. Sous **Toutes les ressources**, recherchez le groupe de ressources et cliquez pour ouvrir le panneau.
+1. Cliquez sur **Supprimer**. Dans le panneau Supprimer, affichez les ressources affectées. Vérifiez que vous voulez supprimer toutes ces ressources. Si ce n'est pas le cas, utilisez les étapes disponibles sous Supprimer une passerelle VPN en haut de cet article.
+1. Pour continuer, saisissez le nom du groupe de ressources que vous souhaitez supprimer, puis cliquez sur **Supprimer**.

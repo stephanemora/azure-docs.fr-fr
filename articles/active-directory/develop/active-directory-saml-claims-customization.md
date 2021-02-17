@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756068"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102697"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -81,10 +81,8 @@ Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID 
 
 Vous pouvez également attribuer une valeur constante (statique) quelconque à toute revendication que vous définissez dans Azure AD. Suivez les étapes ci-dessous pour attribuer une valeur constante :
 
-1. Dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
-
+1. Dans le <a href="https://portal.azure.com/" target="_blank">Portail Azure</a>, dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
 1. Cliquez sur la revendication requise que vous souhaitez modifier.
-
 1. Entrez la valeur constante sans guillemets dans **Attribut source** conformément à votre organisation, puis cliquez sur **Enregistrer**.
 
     ![Organisation de la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)

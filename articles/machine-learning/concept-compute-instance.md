@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862139"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099793"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -51,7 +51,7 @@ L’instance de calcul Azure Machine Learning vous permet de créer, d’effectu
 
 Vous pouvez exécuter des blocs-notes Jupyter dans [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) à l’aide de l’instance de calcul en tant que serveur distant sans avoir besoin de SSH. Vous pouvez également activer l’intégration de VS Code via l’[extension SSH à distance](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Vous pouvez [installer des packages](how-to-create-manage-compute-instance.md#install-packages) et [ajouter des noyaux](how-to-create-manage-compute-instance.md#add-new-kernels) à votre instance de calcul.  
+Vous pouvez [installer des packages](how-to-access-terminal.md#install-packages) et [ajouter des noyaux](how-to-access-terminal.md#add-new-kernels) à votre instance de calcul.  
 
 Les outils et environnements suivants sont déjà installés sur l’instance de calcul : 
 
@@ -77,7 +77,7 @@ Les outils et environnements suivants sont déjà installés sur l’instance de
 |Anaconda Python||
 |Jupyter et extensions||
 |Jupyterlab et extensions||
-[SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-run-jupyter-notebooks.md#terminal), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
+[SDK Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>de PyPI|Comprend la plupart des packages supplémentaires azureml.  Pour afficher la liste complète, [ouvrez une fenêtre de terminal sur votre instance de calcul](how-to-access-terminal.md), puis exécutez <br/> `conda list -n azureml_py36 azureml*` |
 |Autres packages PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|

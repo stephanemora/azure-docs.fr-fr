@@ -1,19 +1,19 @@
 ---
 title: Comment examiner les attributions de rôles RBAC Synapse dans Synapse Studio
 description: Cet article explique comment examiner les attributions de rôles RBAC Synapse à l’aide de Synapse Studio
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee3b2c69d7782dca10b16a3b1726b75bfd99326e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9065ca9c7638f3d2bda36e4831b81963936f4b45
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218123"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102153"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Guide pratique pour passer en revue les attributions de rôles RBAC Synapse
 

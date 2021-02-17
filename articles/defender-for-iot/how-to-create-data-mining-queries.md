@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811557"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507568"
 ---
 # <a name="sensor-data-mining-queries"></a>Requêtes d’exploration de données de capteur
 
@@ -55,11 +55,11 @@ Les requêtes d’exploration de données que vous créez sont mises à jour dyn
 
 Vous pouvez utiliser des requêtes pour gérer un large éventail de besoins de sécurité pour différentes équipes de sécurité :
 
-- **Réponse aux incidents SOC** : Générez un rapport en temps réel pour vous aider à répondre immédiatement aux incidents. Par exemple, générez un rapport pour une liste des appareils qui peuvent nécessiter une mise à jour corrective.
+- **Réponse aux incidents SOC** : Générez un rapport en temps réel pour vous aider à répondre immédiatement aux incidents. Par exemple, l’exploration de données peut générer un rapport qui liste les appareils qui peuvent nécessiter une mise à jour corrective.
 
 - **Forensique** : Générez un rapport basé sur les données d’historique des rapports d’investigation.
 
-- **Intégrité du réseau informatique** : Générez un rapport qui contribue à améliorer la sécurité globale du réseau. Par exemple, générez un rapport qui répertorie les appareils avec des informations d’authentification faibles.
+- **Intégrité du réseau informatique** : Générez un rapport qui contribue à améliorer la sécurité globale du réseau. Par exemple, un rapport peut être généré et répertorier les appareils ayant des informations d’authentification faibles.
 
 - **Visibilité** : Générez un rapport qui couvre tous les éléments de requête pour afficher tous les paramètres de ligne de base de votre réseau.
 

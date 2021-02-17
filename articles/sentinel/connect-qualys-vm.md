@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e11c4182520e143007b46c8a7907b5e71bfb27d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059855"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097583"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Connecter votre solution Qualys VM à Azure Sentinel à l’aide d’Azure Functions
 
@@ -48,7 +48,7 @@ Une fois la connexion établie, les données apparaissent dans Log Analytics sou
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 
-Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.
+Jusqu’à 20 minutes peuvent être nécessaires avant que vos journaux ne commencent à apparaître dans Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

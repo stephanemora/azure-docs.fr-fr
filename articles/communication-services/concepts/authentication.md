@@ -2,19 +2,19 @@
 title: S’authentifier auprès d’Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Découvrez les différentes façons dont une application ou un service peut s’authentifier auprès de Communication Services.
-author: matthewrobertson
+author: GrantMeStrength
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e20c822c2e792c67ed655080385a3c90794d53fd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571094"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545137"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
@@ -72,11 +72,11 @@ Si vous n’utilisez pas de bibliothèque cliente pour effectuer les requêtes H
 
 Les jetons d’accès utilisateur permettent à vos applications clientes de s’authentifier directement auprès d’Azure Communication Services. Pour ce faire, vous devez configurer un service approuvé qui authentifie les utilisateurs de votre application et émet des jetons d’accès utilisateur avec la bibliothèque cliente d’administration. Pour en savoir plus sur nos considérations en matière d’architecture, consultez la documentation conceptuelle [architecture client et serveur](./client-and-server-architecture.md).
 
-La classe `CommunicationUserCredential` contient la logique permettant de fournir des informations d’identification de jeton d’accès utilisateur aux bibliothèques clientes et de gérer leur cycle de vie.
+La classe `CommunicationTokenCredential` contient la logique permettant de fournir des informations d’identification de jeton d’accès utilisateur aux bibliothèques clientes et de gérer leur cycle de vie.
 
 ### <a name="initialize-the-client-libraries"></a>Initialiser les bibliothèques client
 
-Pour initialiser les bibliothèques clientes Azure Communication Services qui requièrent l’authentification par jeton d’accès utilisateur, vous devez d’abord créer une instance de la classe `CommunicationUserCredential`, puis l’utiliser pour initialiser un client API.
+Pour initialiser les bibliothèques clientes Azure Communication Services qui requièrent l’authentification par jeton d’accès utilisateur, vous devez d’abord créer une instance de la classe `CommunicationTokenCredential`, puis l’utiliser pour initialiser un client API.
 
 Les extraits de code suivants montrent comment initialiser la bibliothèque cliente de conversation avec un jeton d’accès utilisateur :
 
@@ -86,8 +86,8 @@ Les extraits de code suivants montrent comment initialiser la bibliothèque clie
 // user access tokens should be created by a trusted service using the Administration client library
 var token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-var userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+var userCredential = new CommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -99,8 +99,8 @@ var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
-const userCredential = new AzureCommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
+const userCredential = new AzureCommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -112,8 +112,8 @@ let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 let token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-let userCredential = try CommunicationUserCredential(token: token)
+// create a CommunicationTokenCredential instance
+let userCredential = try CommunicationTokenCredential(token: token)
 
 // initialize the chat client library with the credential
 let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
@@ -125,8 +125,8 @@ let chatClient = try CommunicationChatClient(credential: userCredential, endpoin
 // user access tokens should be created by a trusted service using the Administration client library
 String token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-CommunicationUserCredential userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
 
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
@@ -140,12 +140,12 @@ ChatClient chatClient = builder.buildClient();
 
 ### <a name="refreshing-user-access-tokens"></a>Actualisation des jetons d’accès utilisateur
 
-Les jetons d’accès utilisateur sont des informations d’identification de courte durée qui doivent être réémises afin d’éviter que les utilisateurs rencontrent des interruptions de service. Le constructeur `CommunicationUserCredential` accepte une fonction de rappel d’actualisation qui vous permet de mettre à jour les jetons d’accès utilisateur avant qu’ils n’expirent. Vous devez utiliser ce rappel pour récupérer un nouveau jeton d’accès utilisateur à partir de votre service approuvé.
+Les jetons d’accès utilisateur sont des informations d’identification de courte durée qui doivent être réémises afin d’éviter que les utilisateurs rencontrent des interruptions de service. Le constructeur `CommunicationTokenCredential` accepte une fonction de rappel d’actualisation qui vous permet de mettre à jour les jetons d’accès utilisateur avant qu’ils n’expirent. Vous devez utiliser ce rappel pour récupérer un nouveau jeton d’accès utilisateur à partir de votre service approuvé.
 
 #### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-var userCredential = new CommunicationUserCredential(
+var userCredential = new CommunicationTokenCredential(
     initialToken: token,
     refreshProactively: true,
     tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
@@ -155,7 +155,7 @@ var userCredential = new CommunicationUserCredential(
 #### <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new AzureCommunicationUserCredential({
+const userCredential = new AzureCommunicationTokenCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
@@ -165,7 +165,7 @@ const userCredential = new AzureCommunicationUserCredential({
 #### <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
- let userCredential = try CommunicationUserCredential(initialToken: token, refreshProactively: true) { |completionHandler|
+ let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
    let updatedToken = fetchTokenForCurrentUser()
    completionHandler(updatedToken, nil)
  }
@@ -181,7 +181,7 @@ TokenRefresher tokenRefresher = new TokenRefresher() {
     }
 }
 
-CommunicationUserCredential credential = new CommunicationUserCredential(tokenRefresher, token, true);
+CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
 ```
 ---
 

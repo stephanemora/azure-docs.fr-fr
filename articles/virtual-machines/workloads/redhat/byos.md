@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872890"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391018"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure
 
@@ -30,9 +30,6 @@ Les images RHEL (Red Hat Enterprise Linux) sont disponibles dans Azure sous la f
 - Les machines virtuelles provisionnées à partir d’images Red Hat Gold ne sont pas soumises aux redevances RHEL associées aux images RHEL Paiement à l’utilisation.
 - Les images ne sont pas autorisées. Vous devez donc utiliser Red Hat Subscription-Manager pour vous inscrire et vous abonner aux machines virtuelles afin d’obtenir directement les mises à jour auprès de Red Hat.
 - Il est possible de passer d’images assortie d’un paiement à l’utilisation à une stratégie BYOS à l’aide d’[Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). En revanche, il n’est pas possible de passer d’une stratégie BYOS déployée initialement à un modèle de facturation de paiement à l’utilisation pour des images Linux. Pour changer de modèle de facturation afin de passer d’une stratégie BYOS au paiement à l’utilisation, vous devez redéployer la machine virtuelle à partir de l’image correspondante.
-
->[!NOTE]
-> Les images BYOS RHEL génération 2 ne sont actuellement pas disponibles via l’offre de la Place de marché. Si vous avez besoin d’une image BYOS RHEL génération 2, consultez le tableau de bord Cloud Access dans Red Hat Subscription Management. Pour plus d’informations, consultez la [documentation de Red Hat](https://access.redhat.com/articles/4847681).
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Exigences et conditions pour accéder aux images Red Hat Gold
 

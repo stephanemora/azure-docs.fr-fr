@@ -1,22 +1,17 @@
 ---
 title: Migrer des charges de travail SQL Server Integration Services (SSIS) locales vers SSIS dans Azure Data Factory
 description: Migrez des charges de travail SSIS locales vers SSIS dans ADF.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: ef4b01e38a60d6770ba476988fab934ada0bc631
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635692"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373604"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrer des charges de travail SSIS locales vers SSIS dans ADF
 
@@ -28,7 +23,7 @@ Lorsque vous migrez vos charges de travail de base de données d'un serveur SQL 
 
 Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF) prend en charge l’exécution de packages SSIS. Une fois qu’Azure-SSIS IR est provisionné, vous pouvez utiliser des outils familiers comme SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS) et des utilitaires de ligne de commande comme dtinstall/dtutil/dtexec pour déployer et exécuter vos packages dans Azure. Pour plus d’informations, consultez [Effectuer un « lift-and-shift » des charges de travail SQL Server Integration Services](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
-Cet article met en évidence le processus de migration de vos charges de travail ETL SSIS locales vers SSIS dans ADF. Le processus de migration se déroule en deux phases : l’ **évaluation** et la **migration** .
+Cet article met en évidence le processus de migration de vos charges de travail ETL SSIS locales vers SSIS dans ADF. Le processus de migration se déroule en deux phases : l’**évaluation** et la **migration**.
 
 ## <a name="assessment"></a>Évaluation
 
@@ -49,7 +44,7 @@ Pour établir un plan de migration complet, une évaluation minutieuse permettra
   - MSDB : une base de données système dans SQL Server utilisée pour stocker les packages SSIS
   - Système de fichiers géré : un dossier spécifique dans le chemin d’installation de SQL Server, utilisé pour stocker les packages SSIS
 
-DMA prend en charge l’évaluation par lot des packages stockés dans **Système de fichiers** , **Magasin de packages** et **Catalogue SSIS** depuis la **version 5.0 de DMA** .
+DMA prend en charge l’évaluation par lot des packages stockés dans **Système de fichiers**, **Magasin de packages** et **Catalogue SSIS** depuis la **version 5.0 de DMA**.
 
 Obtenez [DMA](/sql/dma/dma-overview) et [utilisez-le pour évaluer votre package](/sql/dma/dma-assess-ssis).
 

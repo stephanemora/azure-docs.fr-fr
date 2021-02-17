@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805201"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546922"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Déployer des machines virtuelles sur votre appareil Azure Stack Edge Pro avec GPU au moyen de modèles
 
@@ -149,7 +149,7 @@ Dans un environnement classique, votre DNS est configuré de telle sorte que tou
 
 ### <a name="optional-install-certificates"></a>Installation des certificats (facultatif)
 
-Ignorez cette étape si vous vous connectez au moyen de l’Explorateur Stockage par *HTTP*. Si vous utilisez *HTTPS*, vous devez installer les certificats correspondants dans l’Explorateur Stockage. Dans ce cas, installez le certificat du point de terminaison d’objet blob. Pour plus d’informations, découvrez comment créer et charger des certificats dans [Gestion des certificats](azure-stack-edge-j-series-manage-certificates.md). 
+Ignorez cette étape si vous vous connectez au moyen de l’Explorateur Stockage par *HTTP*. Si vous utilisez *HTTPS*, vous devez installer les certificats correspondants dans l’Explorateur Stockage. Dans ce cas, installez le certificat du point de terminaison d’objet blob. Pour plus d’informations, découvrez comment créer et charger des certificats dans [Gestion des certificats](azure-stack-edge-gpu-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Créer et charger un disque dur virtuel
 

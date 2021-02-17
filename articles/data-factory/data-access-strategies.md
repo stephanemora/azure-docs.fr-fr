@@ -1,19 +1,17 @@
 ---
 title: Stratégies d’accès aux données
 description: Azure Data Factory prend désormais en charge les plages d’adresses IP statiques.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632768"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389244"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données
 
@@ -39,10 +37,10 @@ Cela devrait fonctionner dans de nombreux scénarios et nous savons bien qu’un
 
 * **[Azure Private Link](../private-link/private-link-overview.md)**  : vous pouvez créer un runtime d’intégration Azure au sein d’un réseau virtuel géré Azure Data Factory et il tirera parti des points de terminaison privés pour se connecter en toute sécurité aux magasins de données pris en charge. Le trafic entre le réseau virtuel géré et les sources de données transite par le réseau principal de Microsoft et n’est pas exposé au réseau public.
 * **[Service approuvé](../storage/common/storage-network-security.md#exceptions)**  : le Stockage Azure (BLOB, ADLS Gen2) prend en charge une configuration de pare-feu qui permet à certains services de plateforme Azure approuvés d’accéder au compte de stockage en toute sécurité . Les services approuvés appliquent une authentification d’identité gérée, qui garantit qu’aucune autre fabrique de données ne peut se connecter à ce stockage, sauf si elle est autorisée à le faire à l’aide de son identité gérée. Pour plus d’informations, lisez **[ce blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Cette solution est donc extrêmement sécurisée et recommandée. 
-* **Adresse IP statique unique**  : vous devez configurer un runtime d’intégration auto-hébergé pour obtenir une adresse IP statique pour les connecteurs Data Factory. Ce mécanisme garantit que vous pouvez bloquer l’accès à partir de toutes les autres adresses IP. 
+* **Adresse IP statique unique** : vous devez configurer un runtime d’intégration auto-hébergé pour obtenir une adresse IP statique pour les connecteurs Data Factory. Ce mécanisme garantit que vous pouvez bloquer l’accès à partir de toutes les autres adresses IP. 
 * **[Plage d’adresses IP statiques](./azure-integration-runtime-ip-addresses.md)**  : vous pouvez utiliser les adresses IP d’Azure Integration Runtime pour les autoriser par mise en liste verte dans votre stockage (par exemple, S3, Salesforce, etc.). Cela restreint certainement les adresses IP qui peuvent se connecter aux magasins de données, mais dépend également des règles d’authentification/autorisation.
 * **[Balise de service](../virtual-network/service-tags-overview.md)**  : une balise de service représente un groupe de préfixes d’adresses IP d’un service Azure donné (comme Azure Data Factory). Microsoft gère les préfixes d’adresses englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes relatives aux règles de sécurité réseau. Cette solution est utile lors du filtrage de l’accès aux données sur des magasins de données hébergés par IaaS dans un réseau virtuel.
-* **Autoriser les services Azure**  : certains services vous permettent d’autoriser tous les services Azure à s’y connecter si vous choisissez cette option. 
+* **Autoriser les services Azure** : certains services vous permettent d’autoriser tous les services Azure à s’y connecter si vous choisissez cette option. 
 
 Pour plus d’informations sur les mécanismes de sécurité réseau pris en charge sur les banques de données dans Azure Integration Runtime et le runtime d’intégration auto-hébergé, voir les deux tableaux ci-dessous.  
 * **Azure Integration Runtime**

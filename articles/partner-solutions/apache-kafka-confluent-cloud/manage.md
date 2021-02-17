@@ -3,15 +3,15 @@ title: Gérer un Confluent Cloud – Solutions partenaires Azure
 description: Cet article décrit la gestion d’un Confluent Cloud sur le portail Azure. Comment configurer l’authentification unique, supprimer une organisation Confluent et obtenir de l’assistance.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253216"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989120"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Gérer la ressource Confluent Cloud
 
@@ -66,13 +66,23 @@ Pour soumettre une demande de support à Confluent, contactez le [Support Conflu
 > [!NOTE]
 > Pour les tout nouveaux utilisateurs, réinitialisez votre mot de passe avant de vous connecter au portail du support Confluent. Si vous n’avez pas de compte Confluent Cloud, envoyez un e-mail à `cloud-support@confluent.io` pour obtenir une assistance supplémentaire.
 
+Sur le portail, vous pouvez envoyer une demande par le biais de l’aide et du support Azure, ou directement à partir de votre instance d’Apache Kafka pour Confluent Cloud sur Azure.
+
+Pour soumettre une demande par le biais de l’aide et du support Azure, procédez comme suit :
+
+1. Sélectionnez **Aide + Support**.
+1. Sélectionnez **Créer une demande de support**.
+1. Dans le formulaire, sélectionnez **Technique** comme **Type de problème**. Sélectionnez votre abonnement. Dans la liste des services, sélectionnez **Confluent sur Azure**.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Création d’une demande de support à partir de l’aide.":::
+
 Pour soumettre une demande à partir de votre ressource, procédez comme suit :
 
 1. Dans le portail Azure, sélectionnez votre organisation Confluent.
 1. Dans le menu du côté gauche de l’écran, sélectionnez **Nouvelle demande de support**.
 1. Pour créer une demande de support, sélectionnez le lien vers le **portail Confluent**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Créer une demande de support.":::
+    :::image type="content" source="media/support-request.png" alt-text="Création d’une demande de support à partir de l’instance.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

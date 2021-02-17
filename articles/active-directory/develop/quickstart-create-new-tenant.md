@@ -13,58 +13,63 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 83cf8840ffb9d123efa88d4acc304c8af4db5bf8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012017"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102459"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
-La plateforme d’identité Microsoft permet aux développeurs de créer des applications qui ciblent un large éventail d’environnements Microsoft 365 personnalisés et d’identités. Pour bien commencer avec la plateforme d’identité Microsoft, vous devrez accéder à un environnement, également appelé un locataire Azure AD, qui peut inscrire et gérer des applications, accéder aux données Microsoft 365 et déployer des accès conditionnels et des restrictions personnalisés au niveau du locataire.
+Si vous souhaitez créer des applications qui utilisent la plateforme d’identités Microsoft pour la gestion des identités et des accès, vous devez accéder à un *locataire* Azure Active Directory (Azure AD). C’est dans le locataire Azure AD que vous inscrivez et gérez vos applications, configurez leur accès aux données dans Microsoft 365 et d’autres API web, et activez des fonctionnalités telles que l’accès conditionnel.
 
-Le locataire est la représentation d’une organisation. Il s’agit d’une instance Azure AD dédiée, reçue par une organisation ou un développeur d’applications lorsque l’organisation ou le développeur d’applications crée une relation avec Microsoft (l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple).
+Un locataire représente une organisation. Il s’agit d’une instance dédiée d’Azure AD qu’une organisation ou un développeur d’applications reçoit au début d’une relation avec Microsoft. Cette relation peut commencer par l’inscription à Azure, Microsoft Intune ou Microsoft 365, par exemple.
 
-Chaque locataire Azure AD est distinct et séparé des autres locataires Azure AD. Il dispose de sa propre représentation d’identités professionnelles et scolaires, d’identités des consommateurs (dans le cas de locataire Azure AD B2C) et d’inscriptions d’application. Dans votre locataire, une inscription d’application peut autoriser des authentifications à partir de comptes situés au sein de votre locataire uniquement ou bien à partir de tous les locataires.
+Chaque locataire Azure AD est distinct et indépendant des autres locataires Azure AD. Il dispose de sa propre représentation d’identités professionnelles et scolaires, d’identités de consommateurs (dans le cas d’un locataire Azure AD B2C) et d’inscriptions d’applications. Dans votre locataire, une inscription d’application peut autoriser des authentifications uniquement à partir de comptes situés dans votre locataire ou dans tous les locataires.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Un compte Azure disposant d’un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="determining-environment-type"></a>Déterminer le type d’environnement
+## <a name="determining-the-environment-type"></a>Déterminer le type d’environnement
 
-Vous pouvez créer deux types d’environnements. Pour décider celui dont vous avez besoin, vous devez déterminer le type d’utilisateurs authentifiés par votre application.
+Vous pouvez créer deux types d’environnements. L’environnement dépend uniquement des types d’utilisateurs authentifiés par votre application. 
 
-* Comptes professionnels et scolaires (comptes Azure AD) ou comptes Microsoft (par exemple, outlook.com et live.com)
-* Comptes sociaux et locaux (Azure AD B2C)
+Ce guide de démarrage rapide développe deux scénarios pour le type d’application que vous souhaitez créer :
 
-Le guide de démarrage rapide comporte deux scénarios selon le type d’application que vous souhaitez générer.
+* Comptes professionnels et scolaires (Azure AD) ou comptes Microsoft (par exemple, Outlook.com et Live.com)
+* Comptes sociaux et locaux (Azure AD B2C)
 
 ## <a name="work-and-school-accounts-or-personal-microsoft-accounts"></a>Comptes professionnels et scolaires ou comptes Microsoft personnels
 
-### <a name="use-an-existing-tenant"></a>Utiliser un locataire existant
+Si vous voulez créer un environnement pour les comptes professionnels et scolaires, ou les comptes Microsoft personnels, vous pouvez utiliser un locataire Azure AD existant ou en créer un.
+### <a name="use-an-existing-azure-ad-tenant"></a>Utiliser un locataire Azure AD existant
 
-De nombreux développeurs disposent déjà de locataires grâce à des services ou abonnements liés à des locataires Azure AD, comme des abonnements Microsoft 365 ou Azure.
+Nombreux sont les développeurs qui disposent déjà de locataires par le biais de services ou d’abonnements liés à des locataires Azure AD, comme les abonnements Microsoft 365 ou Azure.
 
-1. Pour vérifier le locataire, connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> avec le compte que vous souhaitez utiliser pour gérer votre application.
-1. Vérifiez l’angle supérieur droit. Si vous disposez d’un locataire, vous êtes automatiquement connecté à celui-ci, et vous pouvez voir son nom directement sous le nom de votre compte.
-   * Dans l’angle supérieur droit du Portail Azure, survolez le nom de votre compte avec la souris pour voir votre nom, votre adresse e-mail, votre répertoire et votre ID de locataire (un GUID), ainsi que votre domaine.
+Pour vérifier l’existence du locataire :
+
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>. Utilisez le compte dont vous vous servirez pour gérer votre application.
+1. Regardez dans le coin supérieur droit. Si vous disposez d’un locataire, vous êtes automatiquement connecté. Le nom du locataire s’affiche directement sous le nom de votre compte.
+   * Pointez sur le nom de votre compte pour voir votre nom, votre adresse e-mail, votre ID d’annuaire ou de locataire (un GUID) et votre domaine.
    * Si votre compte est associé à plusieurs locataires, vous pouvez sélectionner le nom de votre compte pour ouvrir un menu dans lequel vous pouvez passer d’un locataire à l’autre. Chaque locataire a son propre ID.
 
 > [!TIP]
-> Deux options s’offrent à vous si vous avez besoin de trouver l’ID du locataire :
-> * Survolez le nom de votre compte avec la souris pour obtenir le répertoire/ID du locataire.
-> * Recherchez et sélectionnez **Azure Active Directory > Propriétés > ID de locataire** dans le portail Azure
+> Pour trouver l’ID du locataire, vous avez le choix entre :
+> * Survoler le nom de votre compte avec la souris pour obtenir l’ID d’annuaire ou de locataire.
+> * Recherchez et sélectionnez **Azure Active Directory** > **Propriétés** > **ID de locataire** dans le portail Azure.
 
-Si vous ne disposez pas de locataire associé à votre compte, vous voyez un GUID sous le nom de votre compte et vous ne pouvez pas effectuer certaines actions comme l’inscription d’applications tant que vous n’avez pas suivi les étapes de la prochaine section.
+Si aucun locataire n’est associé à votre compte, un GUID s’affiche sous le nom de votre compte. Vous ne pourrez pas effectuer des actions telles que l’inscription d’applications tant que vous n’aurez pas créé un locataire Azure AD.
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Créer un nouveau locataire Azure AD
 
-Si vous ne disposez pas déjà d’un locataire Azure AD ou si vous souhaitez en créer un autre à des fins de développement, consultez le [guide de démarrage rapide](../fundamentals/active-directory-access-create-new-tenant.md) ou suivez simplement l’[expérience de création d’annuaire](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Vous devez fournir les informations suivantes pour créer un locataire :
+Si vous ne disposez pas déjà d’un locataire Azure AD, ou si vous souhaitez en créer un autre à des fins de développement, consultez [Créer un locataire dans Azure AD](../fundamentals/active-directory-access-create-new-tenant.md). Sinon, utilisez [l’expérience de création d’un annuaire](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) dans le portail Azure. 
+
+Vous devez fournir les informations suivantes pour créer un locataire :
 
 - **Nom de l’organisation**
-- **Domaine initial** : il est ajouté à *.onmicrosoft.com. Vous pourrez personnaliser le domaine ultérieurement.
+- **Domaine initial** : ce domaine fait partie de *.onmicrosoft.com. Vous pourrez personnaliser le domaine ultérieurement.
 - **Pays ou région**
 
 > [!NOTE]
@@ -72,7 +77,7 @@ Si vous ne disposez pas déjà d’un locataire Azure AD ou si vous souhaitez en
 
 ## <a name="social-and-local-accounts"></a>Comptes sociaux et locaux
 
-Pour commencer à créer des applications pour connecter des comptes sociaux et locaux, vous devez créer un locataire Azure AD B2C. Pour commencer, suivez les instructions de [création d’un locataire Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
+Pour commencer à créer des applications qui se connectent à des comptes sociaux et locaux, créez un locataire Azure AD B2C. Pour commencer, consultez [Créer un locataire Azure AD B2C](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

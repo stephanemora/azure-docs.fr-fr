@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3c094bf5397d15e24c3b1a58369a74438c99017e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018409"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833981"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrer vers le Moniteur de connexion à partir du Moniteur de connexion (classique)
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux moniteurs de connexion dans le Moniteur de connexion (classique), mais vous pourrez continuer à utiliser les moniteurs de connexion déjà créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez du Moniteur de connexion (classique) vers le nouveau Moniteur de connexion](migrate-to-connection-monitor-from-connection-monitor-classic.md) dans Azure Network Watcher avant le 29 février 2024.
 
 En quelques clics et sans temps d’arrêt, vous pouvez migrer des moniteurs de connexion vers la nouvelle fonctionnalité Moniteur de connexion améliorée. Pour en savoir plus sur les avantages, consultez [Moniteur de connexion](./connection-monitor-overview.md).
 

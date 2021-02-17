@@ -3,13 +3,13 @@ title: Concepts – Surveiller et réparer des clouds privés Azure VMware Solut
 description: Découvrez comment Azure VMware Solution surveille et répare les serveurs VMware ESXi sur un cloud privé Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 11/20/2020
-ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 02/03/2021
+ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033593"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538956"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Surveiller et réparer des clouds privés Azure VMware Solution
 
@@ -43,10 +43,7 @@ Le processus de correction de l’hôte commence par l’ajout d’un nouveau n�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voici quelques rubriques pour en savoir plus :
+Maintenant que vous avez abordé la façon dont Azure VMware Solution surveille et répare les clouds privés, vous pouvez en apprendre davantage sur les sujets suivants :
 
-- [Mises à niveau de clouds privés Azure VMware Solution](concepts-upgrades.md)
-- [Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md)
-- [Protégez vos machines virtuelles Azure VMware Solution avec l’intégration Azure Security Center](azure-security-integration.md)
-- [Sauvegarder des machines virtuelles Azure VMware Solution avec le serveur de sauvegarde Azure](backup-azure-vmware-solution-virtual-machines.md)
-- [Effectuer une récupération d'urgence de machines virtuelles à l'aide d’Azure VMware Solution](disaster-recovery-for-virtual-machines.md)
+- [Mises à niveau de clouds privés Azure VMware Solution](concepts-upgrades.md).
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).

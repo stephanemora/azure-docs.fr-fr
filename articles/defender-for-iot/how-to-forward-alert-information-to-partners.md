@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835880"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522731"
 ---
 # <a name="forward-alert-information"></a>Transférer les informations d’alerte
 
@@ -203,6 +203,6 @@ L’administrateur peut avoir défini des règles d’exclusion d’alerte. Ces 
 
 Cela signifie que les règles de transfert que vous définissez peuvent être ignorées en fonction des règles d’exclusion créées par votre administrateur. Les règles d’exclusion sont définies dans la console de gestion locale.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)

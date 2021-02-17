@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976756"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523836"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Examiner les détections de capteur dans la carte des appareils
 
@@ -63,7 +63,7 @@ La figure ci-dessous illustre un sous-réseau informatique réduit avec 27 él�
 
 Pour activer la fonctionnalité de réduction des réseaux informatiques :
 
-- Dans la fenêtre Paramètres système, assurez-vous que la fonctionnalité Réseaux informatiques est activée.
+- Dans la fenêtre **Paramètres système**, assurez-vous que la capacité Activer/désactiver le regroupement des réseaux informatiques est activée.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="Fenêtre des paramètres système":::
 
@@ -76,7 +76,7 @@ Pour développer un sous-réseau informatique :
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Configuration des sous-réseaux":::
 
-2. Dans la fenêtre Modifier la configuration des sous-réseaux, désactivez le sous-réseau ICS pour chaque sous-réseau que vous souhaitez définir en tant que sous-réseau informatique. Les sous-réseaux informatiques apparaissent réduits dans la carte des appareils avec les notifications pour les appareils ICS, comme les contrôleurs ou PLC, sur les réseaux informatiques.
+2. Dans la fenêtre **Modifier la configuration des sous-réseaux**, décochez la case **Sous-réseau ICS** pour chaque sous-réseau que vous souhaitez définir en tant que sous-réseau informatique. Les sous-réseaux informatiques apparaissent réduits dans la carte des appareils avec les notifications pour les appareils ICS, comme les contrôleurs ou PLC, sur les réseaux informatiques.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Modifier la configuration des sous-réseaux":::
 
@@ -106,13 +106,13 @@ L’icône de réduction est mise à jour avec le nombre de sous-réseaux inform
 
 ## <a name="view-or-highlight-device-groups"></a>Afficher ou mettre en surbrillance des groupes d’appareils
 
-Vous pouvez personnaliser l’affichage de la carte en fonction des groupes d’appareils. Par exemple, des groupes d’appareils associés à un VLAN ou sous-réseau spécifique. Des groupes prédéfinis sont disponibles et des groupes personnalisés peuvent être créés.
+Vous pouvez personnaliser l’affichage de la carte en fonction des groupes d’appareils. Par exemple, des groupes d’appareils associés à un protocole OT, à un VLAN ou à sous-réseau spécifique. Des groupes prédéfinis sont disponibles et des groupes personnalisés peuvent être créés.
 
 Affichez les groupes par :
 
   - **Mise en surbrillance :** Mettez en surbrillance les appareils qui appartiennent à un groupe spécifique en bleu.
 
-  - **Filtrage :** Affiche uniquement les appareils de la carte qui appartiennent à un groupe spécifique.
+  - **Filtrage :** Affiche uniquement les appareils qui appartiennent à un groupe spécifique.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Vue standard de votre port":::
 
@@ -120,17 +120,18 @@ Les groupes prédéfinis suivants sont disponibles :
 
 | Nom du groupe | Description |
 |--|--|
-| **Applications connues ou ports non standard (par défaut)** | Appareils qui utilisent des ports réservés, tels que TCP. Appareils qui utilisent des ports non standard ou des ports auxquels aucun alias n’a été attribué. |
-| **Protocoles OT (par défaut)** | Appareils qui gèrent le trafic OT. |
-| **Autorisation (par défaut)** | Les appareils qui ont été découverts sur le réseau pendant le processus d’apprentissage ou qui ont été officiellement ajoutés au réseau |
+| **Applications connues** | Appareils qui utilisent des ports réservés, tels que TCP.  |
+| **Ports non standard (par défaut)** | Appareils qui utilisent des ports non standard ou des ports auxquels aucun alias n’a été attribué. |
+| **Protocoles OT (par défaut)** | Appareils qui gèrent le trafic OT connu. |
+| **Autorisation (par défaut)** | Appareils qui ont été découverts sur le réseau pendant le processus d’apprentissage ou qui ont été officiellement autorisés sur le réseau. |
 | **Filtres d’inventaire des appareils** | Appareils regroupés en fonction des filtres enregistrés dans le tableau d’inventaire des appareils. |
 | **Fréquences d’interrogation** | Appareils regroupés par intervalles d’interrogation. Les intervalles d’interrogation sont générés automatiquement en fonction de canaux cycliques ou de périodes. Par exemple, 15,0 secondes, 3,0 secondes, 1,5 seconde ou n’importe quel intervalle. L’examen de ces informations vous aide à déterminer si les systèmes sont interrogés trop rapidement ou lentement. |
-| **Programmation** | Stations d’ingénierie et contrôleurs programmés |
+| **Programmation** | Stations d’ingénierie et machines de programmation. |
 | **Sous-réseaux** | Appareils appartenant à un sous-réseau spécifique. |
 | **VLAN** | Appareils associés à un ID de VLAN spécifique. |
-| **Connexion entre sous-réseaux** | Appareils associés à la connexion entre sous-réseaux. |
+| **Connexions entre sous-réseaux** | Appareils qui communiquent d’un sous-réseau à un autre sous-réseau. |
 | **Alertes épinglées** | Appareils pour lesquels l’utilisateur a épinglé une alerte. |
-| **Simulations de vecteurs d’attaque** | Appareils vulnérables détectés dans les rapports de vecteur d’attaque. Pour afficher ces appareils sur la carte, activez la case **Afficher sur la carte des appareils** lors de la génération du vecteur d’attaque. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Ajouter des simulations de vecteur d’attaque"::: |
+| **Simulations de vecteurs d’attaque** | Appareils vulnérables détectés dans les rapports de vecteur d’attaque. Pour afficher ces appareils sur la carte, activez la case **Afficher sur la carte des appareils** lors de la génération du vecteur d’attaque. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Ajouter des simulations de vecteur d’attaque":::. |
 | **Dernière consultation** | Appareils regroupés selon la période de temps pendant laquelle ils ont été vus pour la dernière fois, par exemple : Une heure, six heures, un jour, sept jours. |
 | **Non présent dans Active Directory** | Tous les appareils non PLC qui ne communiquent pas avec Active Directory. |
 
@@ -142,7 +143,7 @@ Pour mettre en surbrillance ou filtrer des appareils :
 
 3. Dans le volet Groupes, sélectionnez le groupe que vous souhaitez mettre en surbrillance ou pour lequel vous souhaitez filtrer les appareils.
 
-4. Sélectionnez **Mettre en surbrillance** ou **Filtrer**.
+4. Sélectionnez **Mettre en surbrillance** ou **Filtrer**. Activez ou désactivez la même sélection pour supprimer la mise en surbrillance ou le filtre.
 
 ## <a name="define-custom-groups"></a>Définir des groupes personnalisés
 
@@ -155,20 +156,20 @@ Pour créer un groupe :
 
 1. Sélectionnez **Appareils** dans le menu latéral. La carte des appareils s’affiche.
 
-2. Sélectionnez :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Paramètres de groupe"::: pour afficher les paramètres du groupe.
+1. Sélectionnez :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Paramètres de groupe"::: pour afficher les paramètres du groupe.
 
-3. Sélectionnez :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groupes"::: pour créer un groupe personnalisé.
+1. Sélectionnez :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groupes"::: pour créer un groupe personnalisé.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Écran Créer un groupe personnalisé":::
 
-4. Ajoutez le nom du groupe, en utilisant jusqu’à 30 caractères.
+1. Ajoutez le nom du groupe, en utilisant jusqu’à 30 caractères.
 
-5. Sélectionnez les appareils pertinents, comme suit :
+1. Sélectionnez les appareils pertinents, comme suit :
 
    - Ajoutez les appareils à partir de ce menu en les sélectionnant dans la liste (sélectionnez le bouton fléché),<br /> Ou, <br /> 
    - Ajoutez les appareils à partir de ce menu en les copiant à partir d’un groupe sélectionné (sélectionnez le bouton fléché)
 
-6. Sélectionnez **Ajouter un groupe**.
+1. Sélectionnez **Ajouter un groupe** pour ajouter des groupes existants à des groupes personnalisés.
 
 ### <a name="add-devices-to-a-custom-group"></a>Ajouter des appareils à un groupe personnalisé
 
@@ -176,13 +177,13 @@ Vous pouvez ajouter des appareils à un groupe personnalisé ou créer un groupe
 
 1. Cliquez avec le bouton droit sur un ou plusieurs appareils sur la carte.
 
-2. Sélectionnez **Ajouter au groupe**.
+1. Sélectionnez **Ajouter au groupe**.
 
-3. Entrez un nom de groupe dans le champ de groupe et sélectionnez +. Le nouveau groupe s’affiche. Si le groupe existe déjà, l’appareil est ajouté au groupe personnalisé existant.
+1. Entrez un nom de groupe dans le champ de groupe et sélectionnez +. Le nouveau groupe s’affiche. Si le groupe existe déjà, l’appareil est ajouté au groupe personnalisé existant.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Nom du groupe":::
 
-4. Ajoutez des appareils à un groupe en répétant les étapes 1-3.
+1. Ajoutez des appareils à un groupe en répétant les étapes 1-3.
 
 ## <a name="map-zoom-views"></a>Vues de zoom sur la carte
 
@@ -319,12 +320,12 @@ Les informations suivantes peuvent être mises à jour manuellement. Les informa
 | Informations de base | Les informations de base nécessaires. |
 | Nom | Le nom de l'appareil. <br /> Par défaut, le capteur découvre le nom de l’appareil tel qu’il est défini dans le réseau. Par exemple, un nom défini dans le serveur DNS. <br /> Si aucun nom de ce type n’a été défini, l’adresse IP de l’appareil apparaît dans ce champ. <br /> Vous pouvez modifier un nom de périphérique manuellement. Donnez à vos appareils des noms significatifs qui reflètent leurs fonctionnalités. |
 | Type | Type d’appareil détecté par le capteur. <br /> Pour plus d’informations, consultez [Afficher les types d’appareils](#view-device-types). |
-| Fournisseur | Le fournisseur de l’appareil. |
-| Système d’exploitation | Le système d’exploitation. |
+| Fournisseur | Le fournisseur de l’appareil. Il est déterminé par les caractères au début de l’adresse MAC de l’appareil. Ce champ est en lecture seule. |
+| Système d’exploitation | Le système d’exploitation de l’appareil détecté par le capteur. |
 | Couche Purdue | La couche Purdue identifiée par le capteur pour cet appareil, y compris : <br /> - Automatique <br /> - Contrôle de processus <br /> - Superviseur <br /> - Entreprise |
 | Description | Un champ de texte libre. <br /> Ajoutez plus d’informations sur l’appareil. |
 | Attributs | Toutes les informations supplémentaires découvertes sur l’appareil pendant la période d’apprentissage et qui n’appartiennent pas à d’autres catégories s’affichent dans la section Attributs. <br /> Ces informations sont en lecture seule. |
-| Paramètres | Vous pouvez modifier manuellement les paramètres de l’appareil pour éviter les faux positifs : <br /> - **Appareil autorisé** : Pendant la période d’apprentissage, tous les appareils découverts sur le réseau sont identifiés comme des appareils autorisés. Quand un appareil est découvert après la période d’apprentissage, il apparaît comme un appareil non autorisé par défaut. Vous pouvez modifier cette définition manuellement. <br /> - **Est considéré comme un scanneur** : Activez cette option si vous savez que cet appareil est connu comme étant un scanneur et qu’il est inutile de vous en informer. <br /> - **Appareil de programmation** : Activez cette option si vous savez que cet appareil est connu comme étant un appareil de programmation et qu’il est inutile de vous en informer. |
+| Paramètres | Vous pouvez modifier manuellement les paramètres de l’appareil pour éviter les faux positifs : <br /> - **Appareil autorisé** : Pendant la période d’apprentissage, tous les appareils découverts sur le réseau sont identifiés comme des appareils autorisés. Quand un appareil est découvert après la période d’apprentissage, il apparaît comme un appareil non autorisé par défaut. Vous pouvez modifier cette définition manuellement. <br /> - **Est considéré comme un scanneur** : Activez cette option si vous savez que cet appareil est connu comme étant un scanneur et qu’il est inutile de vous en informer. <br /> - **Appareil de programmation** : Activez cette option si vous savez que cet appareil est connu comme étant un appareil de programmation et qu’il est utilisé pour apporter des modifications de programmation. Son identification en tant qu’appareil de programmation bloquera les alertes relatives aux modifications de programmation provenant de cette ressource. |
 | Groupes personnalisés | Groupes personnalisés dans la table des appareils auxquels cet appareil participe. |
 | État | La sécurité et l’état d’autorisation de l’appareil : <br /> - L’État est `Secured` s’il n’y a aucune alerte <br /> - Lorsqu’il existe des alertes relatives à l’appareil, le nombre d’alertes s’affiche <br /> -L’état `Unauthorized` s’affiche pour les appareils qui ont été ajoutés au réseau après la période d’apprentissage. Vous pouvez définir manuellement l’appareil comme étant un `Authorized Device` dans les paramètres <br /> - Si l’adresse de cet appareil est définie en tant qu’adresse dynamique, `DHCP` est ajouté à l’état. |
 
@@ -369,7 +370,7 @@ Pour afficher les informations sur l’appareil :
 
 2. Cliquez avec le bouton droit sur un appareil, puis sélectionnez **Afficher les propriétés**. La fenêtre Propriétés de l’appareil est affichée.
 
-3. Sélectionnez l’alerte requise en bas de cette fenêtre pour afficher des informations détaillées sur les alertes de cet appareil.
+3. Sélectionnez l’alerte requise pour afficher des informations détaillées sur les alertes de cet appareil.
 
 ### <a name="backplane-properties"></a>Propriétés du fond de panier
 
@@ -429,7 +430,7 @@ Améliorez les investigations en affichant les événements de programmation eff
 
 Vous pouvez afficher un appareil programmé et faire défiler les différentes modifications de programmation effectuées par d’autres appareils.
 
-Affichez le code qui a été ajouté, modifié, supprimé ou laissé inchangé par l’appareil de programmation. Recherchez des modifications de programmation en fonction des types de fichiers, des dates ou des heures qui vous intéressent.
+Affichez le code qui a été ajouté, modifié, supprimé ou rechargé par l’appareil de programmation. Recherchez des modifications de programmation en fonction des types de fichiers, des dates ou des heures qui vous intéressent.
 
 ### <a name="when-to-review-programming-activity"></a>Quand passer en revue l’activité de programmation 
 
@@ -443,7 +444,7 @@ Vous pourriez avoir à passer en revue l’activité de programmation :
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Journal des modifications de programmation":::
 
-Des options supplémentaires vous permettent de :
+Autres options disponibles :
 
   - Marquer les événements d’intérêt avec une étoile.
 
@@ -476,7 +477,7 @@ Des alertes sont déclenchées lorsque des appareils de programmation non autori
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Alertes de programmation non autorisée":::
 
 > [!NOTE]
-> Vous pouvez également afficher des informations de programmation de base dans la fenêtre Propriétés de l’appareil et dans l’inventaire des appareils. Consultez [Informations de programmation d’appareil : Emplacements supplémentaires](#device-programming-information-additional-locations) pour plus d’informations.
+> Vous pouvez également afficher des informations de programmation de base dans la fenêtre Propriétés de l’appareil et dans l’inventaire des appareils.
 
 ### <a name="working-in-the-programming-timeline-window"></a>Utilisation de la fenêtre de chronologie de programmation
 
@@ -539,7 +540,7 @@ Pour comparer :
 
 5. Le fichier sélectionné dans le volet Événements/Fichiers récents s’affiche toujours à droite.
 
-### <a name="device-programming-information-additional-locations"></a>Informations de programmation de l’appareil : emplacements supplémentaires
+### <a name="device-programming-information-other-locations"></a>Informations de programmation d’appareil : Autres emplacements
 
 En plus de passer en revue les détails de la chronologie de programmation, vous pouvez accéder aux informations de programmation dans la fenêtre Propriétés d’appareil et dans l’inventaire des appareils.
 
@@ -556,7 +557,7 @@ Le capteur ne met pas à jour et n’affecte pas les appareils directement sur l
 
 Vous souhaiterez peut-être supprimer un appareil si les informations apprises ne sont pas pertinentes. Par exemple,
 
-  - Un entrepreneur partenaire sur une station de travail d’ingénierie se connecte pour effectuer des mises à jour de configuration. Une fois la tâche terminée, l’appareil ne doit plus être surveillé.
+  - Un entrepreneur partenaire sur une station de travail d’ingénierie se connecte temporairement pour effectuer des mises à jour de configuration. Une fois la tâche terminée, l’appareil est supprimé.
 
   - En raison des modifications apportées au réseau, certains appareils ne sont plus connectés.
 
@@ -566,7 +567,7 @@ Vous pouvez recevoir une alerte indiquant que l’appareil ne répond pas si un 
 
 L’appareil sera supprimé de la carte des appareils, de l’inventaire des appareils et des rapports d’exploration de données. Les autres informations, comme celles stockées dans les widgets, sont conservées.
 
-L’appareil doit être actif pendant au moins 10 minutes avant de pouvoir le supprimer.
+L’appareil doit être inactif pendant au moins 10 minutes avant de pouvoir le supprimer.
 
 Pour supprimer un appareil de la carte des appareils :
 
@@ -576,15 +577,17 @@ Pour supprimer un appareil de la carte des appareils :
 
 ### <a name="merge-devices"></a>Fusionner des appareils
 
-Dans certains cas, vous devrez peut-être fusionner des appareils. Cela peut être nécessaire si le capteur a découvert des entités réseau distinctes qui sont un appareil unique. Par exemple,
+Dans certains cas, vous devrez peut-être fusionner des appareils. Cela peut être nécessaire si le capteur a découvert des entités réseau distinctes qui sont associées à un appareil unique. Par exemple,
 
-  - Un PLC avec quatre cartes réseau
+  - Un PLC avec quatre cartes réseau.
 
-  - Un ordinateur portable avec une carte Wi-Fi et une carte physique
+  - Un ordinateur portable avec une carte Wi-Fi et une carte physique.
+  
+  - Une station de travail avec deux cartes réseau ou plus.
 
 Lors de la fusion, vous indiquez au capteur de combiner les propriétés de deux appareils en un seul. Lorsque vous procédez ainsi, la fenêtre Propriétés de l’appareil et les rapports de capteur sont mis à jour avec les nouveaux détails de propriété de l’appareil.
 
-Par exemple, si vous fusionnez deux appareils avec une adresse IP, les deux adresses IP s’affichent en tant qu’interfaces distinctes dans la fenêtre Propriétés de l’appareil. Vous ne pouvez fusionner que des appareils autorisés.
+Par exemple, si vous fusionnez deux appareils, chacun avec une adresse IP, les deux adresses IP s’affichent en tant qu’interfaces distinctes dans la fenêtre Propriétés de l’appareil. Vous ne pouvez fusionner que des appareils autorisés.
 
 :::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Fenêtre Propriétés de l’appareil":::
 
@@ -596,7 +599,7 @@ Vous ne pouvez pas annuler une fusion d’appareil. Si vous avez fusionné deux 
 
 Pour fusionner des appareils :
 
-1. Sélectionnez deux appareils et cliquez avec le bouton droit sur l’un d’eux.
+1. Sélectionnez deux appareils (Maj + clic), puis cliquez avec le bouton droit sur l’un d’eux.
 
 2. Sélectionnez **Fusionner** pour fusionner les appareils. La fusion peut prendre jusqu’à 2 minutes.
 
@@ -622,7 +625,7 @@ Si vous déplacez un appareil sur la carte ou modifiez manuellement les proprié
 
 #### <a name="unauthorized-devices---attack-vectors-and-risk-assessment-reports"></a>Appareils non autorisés : vecteurs d’attaque et rapports d’évaluation des risques
 
-Les appareils non autorisés sont calculés dans les rapports d’évaluation des risques et de vecteurs d’attaque.
+Les appareils non autorisés sont inclus dans les rapports d’évaluation des risques et de vecteurs d’attaque.
 
 - **Rapports de vecteur d’attaque :** Les appareils marqués comme non autorisés sont résolus dans le vecteur d’attaque en tant qu’appareils non autorisés soupçonnés d’être malveillants qui peuvent constituer une menace pour le réseau.
 
@@ -706,6 +709,6 @@ Pour exporter :
 
 1. Sélectionnez une option d’exportation.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Examiner les détections de capteur dans un inventaire des appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)

@@ -1,5 +1,5 @@
 ---
-title: Synchronisation entrante pour la synchronisation cloud à l’aide de l’API MS Graph
+title: Comment configurer par programmation la synchronisation cloud avec l’API MS Graph
 description: Cette rubrique explique comment activer la synchronisation entrante à l’aide de l’API Graph.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682036"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593158"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Synchronisation entrante pour la synchronisation cloud à l’aide de l’API MS Graph
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Comment configurer par programmation la synchronisation cloud avec l’API MS Graph
 
 Le document suivant explique comment répliquer un profil de synchronisation à partir de zéro en utilisant uniquement des API MS Graph.  
 Les étapes nécessaires sont les suivantes :  Il s'agit des éléments suivants :
@@ -28,6 +28,7 @@ Les étapes nécessaires sont les suivantes :  Il s'agit des éléments suivant
 - [Créer une tâche de synchronisation](#create-sync-job)
 - [Mettre à jour un domaine ciblé](#update-targeted-domain)
 - [Activer les hachages de mot de passe de synchronisation](#enable-sync-password-hashes-on-configuration-blade)
+- [Suppressions accidentelles](#accidental-deletes)
 - [Démarrer la tâche de synchronisation](#start-sync-job)
 - [Vérifier l’état](#review-status)
 
@@ -210,6 +211,71 @@ Ici, la valeur « Domain » correspond au nom du domaine Active Directory loca
 ```
 
  Ajoutez le schéma dans le corps de la demande. 
+
+## <a name="accidental-deletes"></a>Suppressions accidentelles
+Cette section explique comment activer/désactiver et utiliser des [suppressions accidentelles](how-to-accidental-deletes.md) par programmation.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Activation et définition du seuil
+Il existe deux paramètres par travail que vous pouvez utiliser, à savoir :
+
+ - DeleteThresholdEnabled : active la prévention de suppression accidentelle pour le travail quand la valeur est « true ». Valeur « true » par défaut.
+ - DeleteThresholdValue : définit le nombre maximal de suppressions qui seront autorisées dans chaque exécution du travail lorsque la prévention des suppressions accidentelles est activée. La valeur définie par défaut est 500.  Ainsi, si la valeur est définie sur 500, le nombre maximal de suppressions autorisées sera de 499 dans chaque exécution.
+
+Les paramètres de seuil de suppression font partie des paramètres `SyncNotificationSettings` et peuvent être modifiés via un graphique. 
+
+Nous allons devoir mettre à jour les paramètres SyncNotificationSettings que cette configuration cible, et donc mettre à jour les secrets.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Ajoutez la paire clé/valeur suivante dans le tableau de valeurs ci-dessous en fonction de ce que vous essayez de faire :
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+Le paramètre « Activé » dans l’exemple ci-dessus permet d’activer ou de désactiver les e-mails de notification lorsque le travail est mis en quarantaine.
+
+
+Étant donné que nous ne prenons pas en charge actuellement les demandes PATCH pour les secrets, vous devrez ajouter toutes les valeurs dans le corps de la demande PUT (comme dans l’exemple ci-dessus) afin de conserver les autres valeurs.
+
+Vous pouvez récupérer les valeurs existantes pour tous les secrets à l’aide de 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Autoriser les suppressions
+Pour autoriser le passage des suppressions une fois le travail en quarantaine, vous devez lancer un redémarrage avec simplement « ForceDeletes » comme étendue. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
 
 ## <a name="start-sync-job"></a>Démarrer la tâche de synchronisation
 La tâche peut être récupérée à nouveau à l’aide de la commande suivante :

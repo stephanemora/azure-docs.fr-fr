@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177116"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552585"
 ---
 #### <a name="to-create-a-volume"></a>Pour créer un volume
-1. Sélectionnez votre appareil dans la liste tabulaire des appareils du panneau **Appareils**. Cliquez sur **+ Ajouter un volume**.
+1. Sélectionnez votre appareil dans la liste tabulaire des appareils du panneau **Appareils**. Cliquez sur **+ Ajouter un volume**.<!--Note to reviewer. No screen updates. Had to rename screens to be able to correct a formatting error.-->
 
-    ![Ajouter un volume](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
+    ![Ajouter un volume](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
 
 2. Dans le panneau **Ajouter un volume** :
    
@@ -35,10 +35,10 @@ ms.locfileid: "67177116"
        Vous pouvez configurer des volumes épinglés localement d’une taille maximale de 8,5 To ou des volumes à plusieurs niveaux d’une taille maximale de 200 To sur l’appareil 8100. Sur l’appareil 8600, qui a une plus grande capacité, vous pouvez configurer des volumes épinglés localement d’une taille maximale de 22,5 To ou des volumes à plusieurs niveaux d’une taille maximale de 500 To. Un espace local sur l’appareil étant nécessaire pour héberger la plage de travail des volumes à plusieurs niveaux, la création de volumes épinglés localement a un impact sur l’espace disponible pour la configuration de volumes à plusieurs niveaux. Par conséquent, si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes à plusieurs niveaux est réduit. De même, si vous créez un volume à plusieurs niveaux, l’espace disponible pour la création de volumes épinglés localement est réduit.
       
        Si vous configurez un volume épinglé localement de 8,5 To (taille maximale autorisée) sur votre appareil 8100, vous avez utilisé tout l’espace local disponible sur l’appareil. Vous ne pourrez donc pas créer de volume à plusieurs niveaux, puisque l’espace local de l’appareil sera insuffisant pour héberger la plage de travail du volume en question. Les volumes à plusieurs niveaux existants affectent également l’espace disponible. Par exemple, si vous avez un appareil 8100 qui possède déjà des volumes à plusieurs niveaux de 106 To, seuls 4 To d’espace sont disponibles pour les volumes épinglés localement.
-
+ 
       1. Cliquez sur la flèche du champ **Hôtes connectés**. 
 
-         ![Hôtes connectés](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Hôtes connectés](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
 
       1. Dans le panneau **Hôtes connectés**, choisissez un ACR existant ou ajoutez-en un en procédant comme suit :
 
@@ -47,7 +47,7 @@ ms.locfileid: "67177116"
 
       1. Cliquez sur **Créer**. Un volume est créé avec les paramètres spécifiés.
 
-         ![Cliquez sur Create.](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Cliquez sur Create.](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
 
          > [!NOTE]
          > N’oubliez pas que le volume que vous avez créé ici n’est pas protégé. Vous devez créer des stratégies de sauvegarde et les associer à ce volume pour effectuer des sauvegardes planifiées. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732148"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550429"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer Fortes Change Cloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -50,11 +50,11 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer Fortes Change Cloud pour prendre en charge l’approvisionnement avec Azure AD
 
-1. Connectez-vous avec votre compte d’administrateur à Fortes Change Cloud. Cliquez sur l’**icône Paramètres**, puis accédez à **Paramètres SCIM**.
+1. Connectez-vous avec votre compte d’administrateur à Fortes Change Cloud. Cliquez sur l’**icône Paramètres**, puis accédez à **Attribution d’utilisateurs (SCIM)** .
 
     [ ![Paramètre SCIM de Fortes Change Cloud](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. Dans la nouvelle fenêtre, copiez et enregistrez le **jeton principal**. Vous devrez entrer cette valeur dans le champ Jeton secret sous l’onglet Approvisionnement de votre application Fortes Change Cloud dans le portail Azure.
+2. Dans la nouvelle fenêtre, copiez et enregistrez l’**URL du locataire** et le **jeton principal**. L’URL du locataire sera entrée dans le champ **URL du locataire*** et le jeton principal sera entré dans le champ **Jeton secret*** sous l’onglet Approvisionnement de votre application Fortes Change Cloud dans le portail Azure.
      
       [ ![Jeton principal de Fortes Change Cloud](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 

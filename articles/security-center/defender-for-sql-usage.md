@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2020
+ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: d741aad2e97b211e42dc6c8b6176f102703acc5b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916487"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391068"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender pour les serveurs SQL sur les machines 
 
@@ -70,7 +70,7 @@ Ces deux étapes sont décrites ci-dessous.
 
 1. Définissez l’option pour le plan **Azure Defender pour les serveurs SQL Server sur les machines** à  **sur**. 
 
-    ![Page de tarification Security Center avec des plans facultatifs](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Page de tarification Security Center avec des plans facultatifs":::
 
     Le plan est activé sur tous les serveurs SQL connectés à l’espace de travail sélectionné. La protection sera complètement active après le premier redémarrage de l’instance SQL Server.
 

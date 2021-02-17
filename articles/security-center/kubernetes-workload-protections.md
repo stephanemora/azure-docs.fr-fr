@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/12/2020
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222181"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546259"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -35,11 +35,11 @@ Security Center offre davantage de fonctionnalités de sécurité de conteneur s
 
 |Aspect|Détails|
 |----|:----|
-|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|État de sortie :|Disponibilité générale (GA)|
 |Prix :|Gratuit|
 |Rôles et autorisations obligatoires :|**Propriétaire** ou **Administrateur de la sécurité** pour modifier une attribution<br>**Lecteur** pour afficher les recommandations|
-|Clusters pris en charge :|Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
+|Configuration requise pour l’environnement :|Kubernetes v1.14 (ou version ultérieure) est requis<br>Aucune ressource PodSecurityPolicy (ancien modèle PSP) sur les clusters<br>Les nœuds Windows ne sont pas pris en charge|
+|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
 |||
 
 
@@ -52,6 +52,8 @@ Azure Security Center comprend un ensemble de recommandations qui sont disponibl
 Pour configurer les recommandations, installez le **module complémentaire Azure Policy pour Kubernetes**. 
 
 - Vous pouvez déployer automatiquement ce module complémentaire comme cela est expliqué dans [Activer le provisionnement automatique des extensions](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Lorsque le provisionnement automatique du module complémentaire est défini sur « activé », l’extension est activée par défaut dans tous les clusters existants et futurs (qui répondent à la configuration requise de l’installation du module complémentaire).
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Utilisation de l’outil d’approvisionnement automatique de Security Center pour installer le module complémentaire de stratégie pour Kubernetes":::
 
 - Pour déployer manuellement le module complémentaire
 

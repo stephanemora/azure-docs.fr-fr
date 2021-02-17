@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725126"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365359"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Contrôler l’accès avec des étiquettes de confidentialité 
 
@@ -66,7 +66,7 @@ Lorsque vous réfléchissez à la gouvernance de l’accès externe à votre con
 
 * Quels paramètres par défaut doivent être en place pour les données HBI, les sites et les groupes Microsoft 365 ?
 
-* Où allez-vous utiliser des étiquettes de confidentialité pour [étiqueter et surveiller](/microsoft-365/compliance/label-analytics?view=o365-worldwide), au lieu d’[appliquer un chiffrement](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou d’[appliquer des restrictions d’accès au conteneur](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) ?
+* Où allez-vous utiliser des étiquettes de confidentialité pour [étiqueter et surveiller](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), au lieu d’[appliquer un chiffrement](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou d’[appliquer des restrictions d’accès au conteneur](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide) ?
 
 **Pour un e-mail et du contenu**
 

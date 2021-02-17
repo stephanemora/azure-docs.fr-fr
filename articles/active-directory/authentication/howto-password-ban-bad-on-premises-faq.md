@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741896"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625125"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la protection par mot de passe Azure AD en local
 
@@ -150,6 +150,146 @@ Le mode Audit est uniquement pris en charge dans l’environnement Active Direct
 **Q : Mes utilisateurs voient le message d’erreur Windows classique lorsqu’un mot de passe est rejeté par la protection par mot de passe Azure AD. Est-il possible de personnaliser ce message d’erreur afin que les utilisateurs sachent ce qui s’est réellement produit ?**
 
 Non. Le message d’erreur, affiché par les utilisateurs lorsqu’un mot de passe est rejeté par un contrôleur de domaine, est contrôlé par la machine cliente, et non par le contrôleur de domaine. Ce comportement se manifeste si un mot de passe est rejeté par les stratégies de mot de passe Active Directory par défaut, ou par une solution basée sur un filtre de mot de passe, comme la protection par mot de passe Azure AD.
+
+## <a name="password-testing-procedures"></a>Procédures de test de mot de passe
+
+Vous pouvez effectuer quelques tests de base sur différents mots de passe afin de valider le bon fonctionnement du logiciel et de mieux comprendre l’[algorithme d’évaluation des mots de passe](concept-password-ban-bad.md#how-are-passwords-evaluated). Cette section décrit une méthode de test conçue pour produire des résultats reproductibles.
+
+Pourquoi est-il nécessaire de suivre ces étapes ? Plusieurs facteurs font qu’il est difficile de procéder à des tests contrôlés et reproductibles des mots de passe dans l’environnement Active Directory local :
+
+* La stratégie de mot de passe est configurée et conservée dans Azure, et les copies de la stratégie sont synchronisées périodiquement par les agents DC locaux à l’aide d’un mécanisme d’interrogation. La latence inhérente à ce cycle d’interrogation peut être source de confusion. Par exemple, si vous configurez la stratégie dans Azure, mais que vous oubliez de la synchroniser avec l’agent DC, vos tests risquent de ne pas produire les résultats escomptés. L’intervalle d’interrogation est actuellement codé en dur pour se produire une fois par heure, mais attendre une heure entre deux modifications de stratégie n’est pas idéal pour un scénario de test interactif.
+* Une fois qu’une nouvelle stratégie de mot de passe est synchronisée avec un contrôleur de domaine, la latence sera plus importante lors de la réplication vers d’autres contrôleurs de domaine. Ces délais peuvent entraîner des résultats inattendus si vous testez une modification de mot de passe sur un contrôleur de domaine qui n’a pas encore reçu la dernière version de la stratégie.
+* Le fait de tester des modifications de mot de passe via une interface utilisateur rend difficile la confiance dans vos résultats. Par exemple, il est facile de mal saisir un mot de passe non valide dans une interface utilisateur, en particulier dans la mesure où la plupart des interfaces utilisateur de mot de passe masquent les entrées utilisateur (par exemple, l’interface utilisateur Windows Ctrl+Alt+Supprimer -> Changer le mot de passe).
+* Il n’est pas possible de contrôler strictement quel contrôleur de domaine est utilisé lors des tests de modification de mot de passe à partir de clients joints à un domaine. Le système d’exploitation client Windows sélectionne un contrôleur de domaine en fonction de facteurs tels que des attributions de site et de sous-réseau Active Directory, une configuration réseau spécifique à l’environnement, etc.
+
+Afin d’éviter ces problèmes, les étapes ci-dessous sont basées sur le test de la réinitialisation de mot de passe par ligne de commande lors de la connexion à un contrôleur de domaine.
+
+> [!WARNING]
+> Ces procédures doivent être utilisées uniquement dans un environnement de test, car toutes les modifications et réinitialisations de mot de passe entrantes seront acceptées sans validation pendant l’arrêt du service de l’agent DC, ainsi que pour éviter les risques accrus inhérents à la connexion à un contrôleur de domaine.
+
+Les étapes suivantes supposent que vous avez installé l’agent DC sur au moins un contrôleur de domaine, que vous avez installé au moins un proxy et que vous avez inscrit le proxy et la forêt.
+
+1. À l’aide des informations d’identification d’administrateur de domaine (ou d’autres informations d’identification disposant de privilèges suffisants pour créer des comptes d’utilisateur de test et réinitialiser les mots de passe), connectez-vous au contrôleur de domaine sur lequel est installé le logiciel de l’agent DC et qui a été redémarré.
+1. Ouvrez Observateur d’événements et accédez au [journal des événements d’administration de l’agent DC](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log).
+1. Ouvrez une fenêtre d’invite de commandes avec élévation de privilèges.
+1. Créez un compte de test pour tester les mots de passe.
+
+   Il existe de nombreuses façons de créer un compte d’utilisateur, mais une option de ligne de commande est proposée ici pour vous faciliter la tâche lors des cycles de tests répétitifs :
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   Pour les besoins de la discussion ci-dessous, supposons que nous avons créé un compte de test nommé « ContosoUser », par exemple :
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. Ouvrez un navigateur web (vous devrez peut-être utiliser un appareil distinct au lieu de votre contrôleur de domaine), connectez-vous au [portail Azure](https://portal.azure.com) et accédez à Azure Active Directory > Sécurité > Méthodes d’authentification > Protection par mot de passe.
+1. Modifiez la stratégie de protection par mot de passe Azure AD selon les besoins des tests que vous souhaitez effectuer.  Par exemple, vous pouvez décider de configurer le mode Appliqué ou le mode Audit, ou vous pouvez décider de modifier la liste des termes interdits dans votre liste personnalisée des mots de passe interdits.
+1. Synchronisez la nouvelle stratégie en arrêtant et en redémarrant le service de l’agent DC.
+
+   Cette étape peut être réalisée de différentes façons. Une façon serait d’utiliser la console d’administration de management des services en cliquant avec le bouton droit sur le service Protection par mot de passe Azure AD de l’agent DC et en choisissant « Redémarrer ». Une autre méthode peut être utilisée à partir de la fenêtre d’invite de commandes comme suit :
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. Consultez l’observateur d’événements pour vérifier qu’une nouvelle stratégie a été téléchargée.
+
+   Chaque fois que le service de l’agent DC est arrêté et démarré, vous devez voir deux événements 30006 émis à la suite. Le premier événement 30006 reflète la mise en cache de la stratégie sur le disque, dans le partage sysvol. Le deuxième événement 30006 (le cas échéant) doit avoir une date de stratégie Locataire mise à jour et, si tel est le cas, il reflète le téléchargement de la stratégie à partir d’Azure. La valeur de date de la stratégie Locataire est actuellement codée pour afficher l’heure approximative à laquelle la stratégie a été téléchargée à partir d’Azure.
+   
+   Si le deuxième événement 30006 n’apparaît pas, vous devez résoudre le problème avant de continuer.
+   
+   Les événements 30006 se présentent comme suit :
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   Par exemple, le passage du mode Appliqué au mode Audit entraîne la modification de l’indicateur AuditOnly (la stratégie ci-dessus avec AuditOnly=0 est en mode Appliqué) ; les modifications apportées à la liste personnalisée des mots de passe interdits ne sont pas reflétées directement dans l’événement 30006 ci-dessus (et ne sont pas consignées ailleurs pour des raisons de sécurité). Le téléchargement de la stratégie à partir d’Azure après une telle modification inclut également la liste personnalisée des mots de passe interdits modifiée.
+
+1. Effectuez un test en tentant de réinitialiser un nouveau mot de passe sur le compte d’utilisateur de test.
+
+   Cette étape peut être effectuée à partir de la fenêtre d’invite de commandes comme suit :
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   Après avoir exécuté la commande, vous pouvez obtenir plus d’informations sur le résultat de la commande en consultant l’observateur d’événements. Les résultats de la validation du mot de passe sont documentés dans la rubrique [Journal des événements d’administration de l’agent DC](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log). Vous utiliserez ces événements pour valider le résultat de votre test en plus de la sortie interactive des commandes net.exe.
+
+   Essayons un exemple : tenter de définir un mot de passe qui est interdit par la liste globale de Microsoft (notez que cette liste [n’est pas documentée](concept-password-ban-bad.md#global-banned-password-list), mais nous pouvons ici faire le test par rapport à un terme interdit connu). Cet exemple suppose que vous avez configuré la stratégie en mode Appliqué et que vous avez ajouté zéro terme à la liste personnalisée des mots de passe interdits.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   Conformément à la documentation, étant donné que notre test était une opération de réinitialisation de mot de passe, vous devriez voir un événement 10017 et un événement 30005 pour l’utilisateur ContosoUser.
+
+   L’événement 10017 doit se présenter comme dans l’exemple suivant :
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   L’événement 30005 doit se présenter comme dans l’exemple suivant :
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   Essayons un autre exemple ! Cette fois, nous allons tenter de définir un mot de passe qui est interdit par la liste personnalisée des mots de passe interdits alors que la stratégie est en mode Audit. Cet exemple suppose que vous avez effectué les étapes suivantes : vous avez configuré la stratégie en mode Audit, ajouté le terme « larmoyant » à la liste personnalisée des mots de passe interdits et synchronisé la nouvelle stratégie résultante avec le contrôleur de domaine en effectuant un cycle du service de l’agent DC comme décrit ci-dessus.
+
+   Maintenant que tout est bon, définissez une variante du mot de passe interdit :
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   N’oubliez pas que, cette fois-ci, l’opération a réussi, car la stratégie est en mode Audit. Vous devez voir un événement 10025 et un événement 30007 pour l’utilisateur ContosoUser.
+
+   L’événement 10025 doit se présenter comme dans l’exemple suivant :
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   L’événement 30007 doit se présenter comme dans l’exemple suivant :
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. Continuez à tester les différents mots de passe de votre choix et vérifiez les résultats dans l’observateur d’événements à l’aide des procédures décrites dans les étapes précédentes. Si vous avez besoin de modifier la stratégie dans le portail Azure, n’oubliez pas de synchroniser la nouvelle stratégie avec l’agent DC comme décrit précédemment.
+
+Nous avons traité des procédures qui vous permettent de tester de manière contrôlée le comportement de validation des mots de passe de la capacité Protection par mot de passe Azure AD. La réinitialisation des mots de passe utilisateur à partir de la ligne de commande directement sur un contrôleur de domaine peut paraître un moyen étrange d’effectuer de tels tests, mais, comme décrit précédemment, il est conçu pour produire des résultats reproductibles. Lorsque vous testez différents mots de passe, gardez l’[algorithme d’évaluation des mots de passe](concept-password-ban-bad.md#how-are-passwords-evaluated) à l’esprit, car cela peut aider à expliquer des résultats auxquels vous ne vous attendiez pas.
+
+> [!WARNING]
+> Une fois tous les tests terminés, n’oubliez pas de supprimer tous les comptes d’utilisateur créés à des fins de test !
 
 ## <a name="additional-content"></a>Contenu supplémentaire
 

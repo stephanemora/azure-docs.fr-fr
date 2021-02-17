@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232970"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989091"
 ---
 # <a name="self-hosted-gateway-overview"></a>Vue d’ensemble de la passerelle auto-hébergée
 
@@ -43,13 +43,13 @@ Le déploiement de passerelles auto-hébergées dans les mêmes environnements o
 
 ## <a name="packaging-and-features"></a>Empaquetage et caractéristiques
 
-La passerelle auto-hébergée est une version en conteneur, fonctionnellement équivalente, de la passerelle managée déployée sur Azure dans le cadre de chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un [conteneur](https://aka.ms/apim/sputnik/dhub) Docker basé sur Linux à partir de Microsoft Container Registry. Elle peut être déployée sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneurs s’exécutant sur un cluster de serveurs local, sur une infrastructure cloud ou, à des fins d’évaluation et de développement, sur un ordinateur personnel.
+La passerelle auto-hébergée est une version conteneurisée, fonctionnellement équivalente de la passerelle managée déployée sur Azure pour chaque service Gestion des API. La passerelle auto-hébergée est disponible sous la forme d’un [conteneur](https://aka.ms/apim/sputnik/dhub) Docker basé sur Linux à partir de Microsoft Container Registry. Elle peut être déployée sur Docker, Kubernetes ou toute autre solution d’orchestration de conteneurs s’exécutant sur un cluster de serveurs local, sur une infrastructure cloud ou, à des fins d’évaluation et de développement, sur un ordinateur personnel.
 
 Les fonctionnalités suivantes, présentes dans les passerelles gérées, **ne sont pas disponibles** dans les passerelles auto-hébergées :
 
 - Journaux d’activité Azure Monitor
 - Gestion du chiffrement et de la version TLS en amont (côté principal)
-- Validation des certificats serveur et client à l’aide de [certificats racine de l’autorité de certification](api-management-howto-ca-certificates.md) chargés vers le service Gestion des API. Pour ajouter la prise en charge d’une autorité de certification personnalisée, ajoutez une couche à l’image conteneur de la passerelle auto-hébergée qui installe le certificat racine de l’autorité de certification
+- Validation des certificats serveur et client à l’aide de [certificats racine de l’autorité de certification](api-management-howto-ca-certificates.md) chargés vers le service Gestion des API. Pour plus d’informations, consultez [Validation de certificat dans une passerelle auto-hébergée](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway).
 - Intégration à [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - Reprise de session TLS
 - Renégociation du certificat client. Cela signifie que, pour que l’[authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) fonctionne, les utilisateurs d’API doivent présenter leurs certificats dans le cadre de la négociation TLS initiale. Pour vous en assurer, activez le paramètre de négociation du certificat client lors de la configuration d’un nom d’hôte personnalisé pour une passerelle auto-hébergée

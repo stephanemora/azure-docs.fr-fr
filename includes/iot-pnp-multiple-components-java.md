@@ -4,16 +4,24 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 49b18b83c778a990398c4443d508743566ecfb20
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511269"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834152"
 ---
 Ce tutoriel montre comment créer un exemple d’application d’appareil IoT Plug-and-Play incluant plusieurs composants, comment le connecter à votre hub IoT et comment utiliser Azure CLI pour afficher les données de télémétrie qu’il envoie. L’exemple d’application est écrit en Java et est inclus dans l’Azure IoT device SDK pour Java. Un créateur de solutions peut utiliser Azure CLI pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner du code d’appareil.
 
 Ce tutoriel vous montre comment créer un exemple d'application d'appareil IoT Plug-and-Play avec des composants, comment le connecter à votre hub IoT, et comment utiliser l'outil Explorateur Azure IoT pour voir les informations qu'il envoie au hub. L’exemple d’application est écrit en Java et est inclus dans l’Azure IoT device SDK pour Java. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner du code d’appareil.
+
+Dans ce tutoriel, vous allez :
+
+> [!div class="checklist"]
+> * Téléchargez l’exemple de code.
+> * Générez l’exemple de code.
+> * Exécutez l’exemple d’application d’appareil et vérifiez qu’il se connecte à votre hub IoT.
+> * Vérifiez le code source.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -135,5 +143,3 @@ Utilisez l’outil Explorateur Azure IoT pour visualiser les données de télém
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Appareil à plusieurs composants dans l’Explorateur Azure IoT":::
 
 Vous pouvez également utiliser l'outil Explorateur Azure IoT pour appeler des commandes dans l'un ou l'autre des deux composants de thermostat, ou dans le composant par défaut.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

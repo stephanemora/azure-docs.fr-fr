@@ -3,18 +3,17 @@ title: Suivi des expériences et déploiement de modèles
 titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez comment suivre et journaliser les expériences à partir de Data Science Virtual Machine avec Azure Machine Learning et/ou MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704538"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518536"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Suivi des expériences et déployer des modèles dans Azure Machine Learning
 
@@ -30,7 +29,7 @@ Le diagramme suivant montre qu’avec MLflow Tracking, vous suivez les métrique
 
 ## <a name="create-a-new-notebook"></a>Créer une nouvelle instance Notebook
 
-Azure Machine Learning et le Kit de développement logiciel (SDK) MLFlow sont préinstallés sur Data Science Virtual Machine et accessibles dans l’environnement Conda **azureml_py36_\** _. Dans JupyterLab, cliquez sur le lanceur, puis sélectionnez le noyau suivant :
+Azure Machine Learning et le SDK MLFlow sont préinstallés sur Data Science Virtual Machine et sont accessibles dans l’environnement conda **azureml_py36_\*** . Dans JupyterLab, cliquez sur le lanceur, puis sélectionnez le noyau suivant :
 
 ![sélection du noyau](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ Dans le menu de gauche d’[AzureML Studio](https://ml.azure.com), cliquez sur _
 
 Dans le volet __Nouveau cluster d’inférence__, fournissez des détails pour :
 
-_ Nom de la capacité de calcul
+* Nom de la capacité de calcul
 * Service Kubernetes – Sélectionnez Créer
 * Sélectionner la région
 * Sélectionner la taille de machine virtuelle (pour les besoins de ce tutoriel, la valeur par défaut Standard_D3_v2 est suffisante)

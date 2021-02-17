@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: c28e2f1c24d39ceb915be9f4f6f222d70de9ee73
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509484"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522221"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Rapports de tendances et de statistiques des capteurs
 
@@ -93,7 +93,7 @@ Sélectionnez **Tendances et statistiques** dans le menu latéral.
 
 Par défaut, les résultats sont affichés pour les détections au cours des 7 derniers jours. Vous pouvez utiliser les outils de filtre pour modifier cette plage. Pat exemple, une recherche de texte libre.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Rapports d’évaluation des risques](how-to-create-risk-assessment-reports.md)
 [Requêtes d’exploration de données des capteurs](how-to-create-data-mining-queries.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071713"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576546"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendre les jumeaux numériques et leur graphique de jumeaux
 
@@ -58,9 +58,9 @@ Vous pouvez également utiliser une classe d’assistance appelée `BasicDigital
 
 ### <a name="create-relationships"></a>Créer des relations
 
-Voici un exemple de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour créer une relation entre un jumeau numérique de type *Étage*, appelé *Rez-de-chaussée*, et un jumeau numérique de type *Salle*, appelé *Café*.
+Voici un exemple de code client qui utilise les [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) pour créer une relation d’un jumeau numérique (le jumeau « source ») à un autre jumeau numérique (le jumeau « cible »).
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>Représentations JSON des éléments de graphique
 

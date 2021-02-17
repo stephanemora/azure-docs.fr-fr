@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2687141ea870b0af0a4405ebef2261c5a303c767
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090219"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584110"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -44,7 +44,7 @@ Si vous tentez d’utiliser le flux de code d’autorisation et voyez le message
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-Vous devez consulter votre inscription d’application et mettre à jour l’URI de redirection de votre application pour le type `spa`.
+Accédez ensuite à votre inscription d’application et mettez à jour l’URI de redirection de votre application sur le type `spa`.
 
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 

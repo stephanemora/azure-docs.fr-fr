@@ -1,22 +1,18 @@
 ---
 title: Copie de fichiers à partir de plusieurs conteneurs
 description: Découvrez comment utiliser un modèle de solution pour copier des fichiers provenant de plusieurs conteneurs à l’aide d’Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629423"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376086"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copier plusieurs dossiers avec Azure Data Factory
 
@@ -33,14 +29,14 @@ Ce modèle énumère les dossiers d’un dossier parent donné sur votre magasin
 
 Le modèle comporte trois activités :
 - **GetMetadata** analyse votre magasin de stockage source et obtient la liste des sous-dossiers d’un dossier parent donné.
-- **ForEach** obtient la liste des sous-dossiers auprès de l’activité **GetMetadata** , puis itère au sein de la liste et transmet chaque dossier à l’activité de copie.
+- **ForEach** obtient la liste des sous-dossiers auprès de l’activité **GetMetadata**, puis itère au sein de la liste et transmet chaque dossier à l’activité de copie.
 - **Copy** copie chaque dossier du magasin de stockage source dans le magasin de destination.
 
 Le modèle définit les paramètres suivants :
-- *SourceFileFolder* fait partie du chemin d’accès au dossier parent de votre magasin de sources de données : *SourceFileFolder/SourceFileDirectory* , où vous pouvez obtenir la liste des sous-dossiers. 
-- *SourceFileDirectory* fait partie du chemin d’accès au dossier parent de votre magasin de sources de données : *SourceFileFolder/SourceFileDirectory* , où vous pouvez obtenir la liste des sous-dossiers. 
-- *DestinationFileFolder* fait partie du chemin d’accès au dossier parent : *DestinationFileFolder/DestinationFileDirectory* , où les fichiers seront copiés dans votre magasin de destination. 
-- *DestinationFileDirectory* fait partie du chemin d’accès au dossier parent : *DestinationFileFolder/DestinationFileDirectory* , où les fichiers seront copiés dans votre magasin de destination. 
+- *SourceFileFolder* fait partie du chemin d’accès au dossier parent de votre magasin de sources de données : *SourceFileFolder/SourceFileDirectory*, où vous pouvez obtenir la liste des sous-dossiers. 
+- *SourceFileDirectory* fait partie du chemin d’accès au dossier parent de votre magasin de sources de données : *SourceFileFolder/SourceFileDirectory*, où vous pouvez obtenir la liste des sous-dossiers. 
+- *DestinationFileFolder* fait partie du chemin d’accès au dossier parent : *DestinationFileFolder/DestinationFileDirectory*, où les fichiers seront copiés dans votre magasin de destination. 
+- *DestinationFileDirectory* fait partie du chemin d’accès au dossier parent : *DestinationFileFolder/DestinationFileDirectory*, où les fichiers seront copiés dans votre magasin de destination. 
 
 Si vous souhaitez copier plusieurs conteneurs sous des dossiers racine entre des magasins de stockage, vous pouvez entrer les quatre paramètres comme */* . En procédant ainsi, vous répliquez tout ce qui se trouve entre les magasins de stockage.
 
@@ -62,7 +58,7 @@ Si vous souhaitez copier plusieurs conteneurs sous des dossiers racine entre des
 
     ![Afficher le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Sélectionnez **Déboguer** , entrez les **Paramètres** , puis sélectionnez **Terminer**.
+5. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
     ![Exécuter le pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
