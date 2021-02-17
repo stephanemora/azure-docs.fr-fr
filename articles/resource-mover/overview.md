@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653293"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820161"
 ---
 # <a name="what-is-azure-resource-mover"></a>Qu’est-ce qu’Azure Resource Mover ?
 
@@ -29,8 +29,6 @@ Vous pouvez déplacer des ressources dans d’autres régions Azure pour les rai
 - **Respecter les exigences de déploiement** : Déplacer des ressources qui ont été déployées par erreur ou déplacez-les en réponse aux besoins de capacité.
 - **Respecter la désaffectation** : Déplacer des ressources car une région est retirée.
 
-> [!IMPORTANT]
-> Azure Resource Mover est actuellement en préversion publique.
 
 ## <a name="why-use-resource-mover"></a>Pourquoi utiliser Azure Resource Mover ?
 
@@ -40,8 +38,8 @@ Resource Mover fournit :
 - Une réduction de la complexité et du temps de déplacement. Tout ce dont vous avez besoin se trouve à un même emplacement.
 - Une expérience simple et cohérente pour le déplacement des différents types de ressources Azure.
 - Un moyen simple d’identifier les dépendances des ressources que vous souhaitez déplacer. Cela vous permet de déplacer les ressources associées ensemble, pour que tout fonctionne comme prévu dans la région cible après le déplacement.
-- Le nettoyage automatique des ressources dans la région source, si vous souhaitez les supprimer après le déplacement.
-- Test Vous pouvez essayer un déplacement, puis l’annuler si vous ne souhaitez pas effectuer un déplacement complet.
+- Le nettoyage automatique des ressources dans la région source, si vous souhaitez les supprimer après le déplacement
+- Tests. Vous pouvez essayer un déplacement, puis l’annuler si vous ne souhaitez pas effectuer un déplacement complet.
 
 ## <a name="move-across-regions"></a>Passer d’une région à l’autre
 
@@ -62,15 +60,16 @@ Vous pouvez déplacer des ressources d’une région à l’autre dans le hub Re
 À l’aide de Resource Mover, vous pouvez actuellement déplacer les ressources suivantes d’une région à l’autre :
 
 - Machines virtuelles Azure et disques associés
+- Machines virtuelles Azure chiffrées et disques associés. Ces ressources comprennent les machines virtuelles pour lesquelles le chiffrement de disque Azure est activé et les machines virtuelles Azure utilisant le chiffrement côté serveur par défaut (avec des clés gérées par la plateforme et des clés gérées par le client).
 - Cartes réseau
 - Groupes à haute disponibilité 
 - Réseaux virtuels Azure 
 - Adresses IP publiques
-- Groupes de sécurité réseau (NSG) :
+- Groupes de sécurité réseau (NSG)
 - Équilibreurs de charge internes et publics 
 - Bases de données Azure SQL et pools élastiques
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez-en plus](about-move-process.md) sur les composants de Resource Mover et le processus de déplacement.
+[En savoir plus](about-move-process.md) sur les composants de Resource Mover et le processus de déplacement.

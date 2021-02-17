@@ -1,5 +1,6 @@
 ---
-title: Passer en production une application web connectant des utilisateurs - Plateforme d’identités Microsoft | Azure
+title: Déplacer l’application web qui connecte les utilisateurs en production | Azure
+titleSuffix: Microsoft identity platform
 description: Apprenez à générer une application web qui connecte des utilisateurs (passage en production)
 services: active-directory
 author: jmprieur
@@ -11,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169288"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584295"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Application web qui connecte les utilisateurs : Passer en production
 
-Maintenant que vous savez comment obtenir un jeton pour appeler des API web, découvrez comment passer en production.
+À présent que vous savez comment obtenir un jeton pour appeler des API web, voici quelques aspects à prendre en compte lors du déplacement de votre application vers la production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Dépannage
-
-> [!NOTE]
-> Lorsque les utilisateurs se connectent à l’application web pour la première fois, ils doivent donner leur consentement. Toutefois, dans certaines organisations, les utilisateurs peuvent voir un message similaire à ce qui suit :
->
-> Pour accéder aux ressources de votre organisation, *AppName a besoin d’autorisations que seul un administrateur peut accorder. Veuillez demander à un administrateur d’accorder une autorisation pour cette application avant de pouvoir l’utiliser.*
->
-> Cela est dû au fait que votre administrateur client a **désactivé** la possibilité pour les utilisateurs de donner leur consentement. Dans ce cas, vous devez contacter vos administrateurs clients pour qu’ils effectuent un consentement d’administrateur pour les étendues requises par l’application.
+Lorsque les utilisateurs se connectent à l’application web pour la première fois, ils doivent donner leur consentement. Toutefois, dans certaines organisations, les utilisateurs peuvent voir un message similaire à ce qui suit : Pour accéder aux ressources de votre organisation, *AppName a besoin d’autorisations que seul un administrateur peut accorder. Veuillez demander à un administrateur d’accorder une autorisation pour cette application avant de pouvoir l’utiliser.*
+Cela est dû au fait que votre administrateur client a **désactivé** la possibilité pour les utilisateurs de donner leur consentement. Dans ce cas, contactez vos administrateurs clients pour qu’ils donnent leur consentement d’administrateur pour les étendues requises par l’application.
 
 ## <a name="same-site"></a>Même site
 

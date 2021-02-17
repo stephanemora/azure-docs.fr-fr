@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220834"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509568"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Mise à niveau de version majeure dans Azure Database pour MySQL Serveur unique
 
@@ -121,15 +121,7 @@ La disponibilité générale de cette fonctionnalité est prévue avant l’aban
 
 ### <a name="will-this-cause-downtime-of-the-server-and-if-so-how-long"></a>Cela entraînera-t-il un temps d’arrêt du serveur et, le cas échéant, de combien de temps ?
 
-Oui, le serveur n’est pas disponible pendant le processus de mise à niveau. Nous vous recommandons donc d’effectuer cette opération au cours de la fenêtre de maintenance planifiée. Le temps d’arrêt estimé dépend de la taille de la base de données, de la taille de stockage approvisionnée (IOPs approvisionnée) et du nombre de tables sur la base de données. La durée de la mise à niveau est directement proportionnelle au nombre de tables sur le serveur. Les mises à niveau des serveurs de référence SKU de base sont censées prendre plus de temps que sur une plateforme de stockage standard. Pour estimer le temps d’arrêt de votre environnement de serveur, nous vous recommandons d’effectuer la mise à niveau sur la copie restaurée du serveur.  
-
-### <a name="it-is-noted-that-it-is-not-supported-on-replica-server-yet-what-does-that-mean-concrete"></a>Notez que la prise en charge n’est pas encore assurée sur un serveur réplica. Qu’est-ce que cela signifie concrètement ?
-
-Actuellement, la mise à niveau de la version majeure n’est pas prise en charge pour le serveur réplica, ce qui signifie que vous ne devez pas l’exécuter pour les serveurs impliqués dans la réplication (serveur source ou réplica). Si vous souhaitez tester la mise à niveau des serveurs impliqués dans la réplication avant d’ajouter la prise en charge du réplica pour la fonctionnalité de mise à niveau, nous vous recommandons de procéder comme suit :
-
-1. Au cours de la maintenance planifiée, [arrêtez la réplication et supprimez le serveur de réplication](howto-read-replicas-portal.md) après avoir capturé son nom et toutes les informations de configuration (paramètres du pare-feu, configuration des paramètres du serveur s’il est différent du serveur source).
-2. Effectuez la mise à niveau du serveur source.
-3. Approvisionnez un nouveau serveur réplica en lecture avec le même nom et les mêmes paramètres de configuration que ceux capturés à l’étape 1. Le nouveau serveur réplica passe automatiquement à la v5.7 une fois que le serveur source a été mis à niveau vers v5.7.
+Oui, le serveur n’est pas disponible pendant le processus de mise à niveau. Nous vous recommandons donc d’effectuer cette opération au cours de la fenêtre de maintenance planifiée. Le temps d’arrêt estimé dépend de la taille de la base de données, de la taille de stockage approvisionnée (IOPs approvisionnée) et du nombre de tables sur la base de données. La durée de la mise à niveau est directement proportionnelle au nombre de tables sur le serveur. Les mises à niveau des serveurs de référence SKU de base sont censées prendre plus de temps que sur une plateforme de stockage standard. Pour estimer le temps d’arrêt de votre environnement de serveur, nous vous recommandons d’effectuer la mise à niveau sur la copie restaurée du serveur. Envisagez d’[effectuer une mise à niveau de version majeure avec un temps d’arrêt minimal de MySQL 5.6 vers MySQL 5.7 à l’aide d’un réplica en lecture](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas).
 
 ### <a name="what-will-happen-if-we-do-not-choose-to-upgrade-our-mysql-v56-server-before-february-5-2021"></a>Que se passe-t-il si nous ne choisissons pas de mettre à niveau notre serveur MySQL v5.6 avant le 5 février 2021 ?
 

@@ -4,15 +4,15 @@ description: Découvrez comment créer et utiliser des connexions hybrides dans 
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825978"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594229"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
@@ -42,7 +42,7 @@ La fonctionnalité de connexions hybrides offre un certain nombre d’avantages,
 - Normalement, elle ne nécessite pas de trous de pare-feu. Les connexions sont toutes sortantes via des ports web standard.
 - la fonctionnalité se situant au niveau du réseau, elle n’est pas spécifique au langage utilisé par votre application et à la technologie utilisée par le point de terminaison ;
 - elle peut être utilisée pour fournir un accès à plusieurs réseaux à partir d’une même application. 
-- Elle est prise en charge en disponibilité générale pour les applications natives Windows et en préversion pour les applications Linux. Elle n’est pas prise en charge pour les applications de conteneurs Windows.
+- Elle est prise en charge en disponibilité générale pour les applications Windows et Linux. Elle n’est pas prise en charge pour les applications de conteneurs Windows.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Ce que vous ne pouvez pas faire avec les connexions hybrides ###
 
@@ -201,9 +201,16 @@ Toute personne bénéficiant d’un accès `Reader` au relais peut _voir_ la con
 
 ## <a name="troubleshooting"></a>Dépannage ##
 
-L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté**, votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure.
+L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté**, votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure. Quand votre HCM affiche **Non connecté**, il y a plusieurs choses à vérifier :
 
-La principale raison pour laquelle les clients ne peuvent pas se connecter à leur point de terminaison est que le point de terminaison a été spécifié à l’aide d’une adresse IP au lieu d’un nom DNS. Si votre application ne peut pas accéder au point de terminaison souhaité et que vous avez utilisé une adresse IP, utilisez un nom DNS valide sur l’hôte sur lequel le GCH est exécuté. Vérifiez également que le nom DNS est correctement résolu sur l’hôte sur lequel le HCM est en cours d’exécution. Vérifiez qu’il existe une connectivité à partir de l’hôte où le HCM est en cours d’exécution vers le point de terminaison de connexion hybride.  
+* Votre hôte dispose-t-il d’un accès sortant à Azure sur le port 443 ? Vous pouvez tester à partir de votre hôte HCM à l’aide de la commande PowerShell *Test-NetConnection Destination -P Port* 
+* Votre HCM est-il susceptible d’être en mauvais état ? Essayez de redémarrer le service local « Azure Hybrid Connection Manager Service ».
+
+Si l’état indique **Connecté** mais que votre application ne peut pas atteindre votre point de terminaison, procédez comme suit :
+
+* Vérifiez que vous utilisez un nom DNS dans votre connexion hybride. Si vous utilisez une adresse IP, la recherche DNS du client requis peut ne pas se produire. Si le client en cours d’exécution dans votre application web n’effectue pas de recherche DNS, la connexion hybride ne fonctionnera pas.
+* Vérifiez que le nom DNS utilisé dans votre connexion hybride peut être résolu à partir de l’hôte HCM. Vérifiez la résolution à l’aide de *nslookup EndpointDNSname* où EndpointDNSname correspond exactement à ce qui est utilisé dans votre définition de connexion hybride.
+* Testez l’accès de votre hôte HCM à votre point de terminaison à l’aide de la commande PowerShell *Test-NetConnection EndpointDNSname -P Port*  Si vous ne pouvez pas atteindre le point de terminaison à partir de votre hôte HCM, alors vérifiez les pare-feux entre les deux hôtes, notamment les pare-feux basés sur un hôte, sur l’hôte de destination.
 
 Dans App Service, l’outil de ligne de commande **tcpping** peut être appelé à partir de la console Outils avancés (Kudu). Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride. Lorsque vous utilisez l’outil dans la console par rapport à un point de terminaison de connexion hybride, vous confirmez seulement qu’il utilise une combinaison hôte:port.  
 

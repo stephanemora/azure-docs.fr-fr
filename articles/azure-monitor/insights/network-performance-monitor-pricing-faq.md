@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539650"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832876"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modification de la tarification d’Azure Network Performance Monitor
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
 
 Nous avons pris note de vos commentaires et récemment introduit une [nouvelle expérience de tarification](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) pour différents services de surveillance sur Azure. Cet article présente les modifications de tarification relatives à Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM) dans un format de questions/réponses simple à lire.
 
@@ -29,7 +32,7 @@ Les sections suivantes expliquent les modifications de tarification des composan
 **Comment l’analyseur de performances était-il facturé dans l’ancien modèle ?**
 
 La facturation de NPM était basée sur l’utilisation et la consommation de deux composants :
-* **Nœuds** : toutes les transactions synthétiques commencent et se terminent au niveau des nœuds. Les nœuds sont également appelés agents ou Microsoft Management Agents.
+* **Nœuds** : toutes les transactions synthétiques commencent et se terminent au niveau des nœuds. Les nœuds sont également appelés agents ou Microsoft Management Agents.
 * **Données** : les résultats des différents tests de réseau sont stockés dans l'espace de travail Log Analytics.
 
 Dans l’ancien modèle, la facture était calculée en fonction du nombre de nœuds et du volume de données généré. 
@@ -109,6 +112,6 @@ Une connexion est un test d’accessibilité à un point de terminaison (URL ou 
 
 Reportez-vous à la section [Contrôle de la connexion](https://azure.microsoft.com/pricing/details/network-watcher/) pour connaître le coût de la surveillance d’un point de terminaison pour un mois entier. Les frais de données sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, dans la section relative à l’ingestion des données.
 
-## <a name="references"></a>References
+## <a name="references"></a>Références
 
 [FAQ sur la tarification de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) : la section FAQ contient des informations sur le niveau gratuit, la tarification par nœud, ainsi que d’autres détails de tarification.

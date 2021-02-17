@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621926"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508606"
 ---
 # <a name="basic-concepts"></a>Concepts de base 
 
@@ -20,9 +20,9 @@ Cet article décrit les principaux avantages d’Azure Defender pour IoT.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Déploiement non invasif rapide et surveillance passive
 
-Les capteurs Defender pour IoT se connectent à un port SPAN ou un TAP réseau et commencent immédiatement à collecter le trafic réseau ICS via une surveillance passive (sans agent). L’inspection profonde des paquets (DPI) est utilisée pour étudier en détail le trafic à partir de l’équipement réseau de contrôle Ethernet et série. Defender pour IoT n’a aucun impact sur les réseaux OT, car il n’est pas placé dans le chemin d’accès aux données et n’analyse pas activement les appareils. 
+Les capteurs Defender pour IoT se connectent aux ports SPAN (Miroir) des commutateurs et aux TAP du réseau et commencent immédiatement à collecter le trafic ICS via une surveillance passive (sans agent). L’inspection profonde des paquets (DPI) est utilisée pour étudier en détail le trafic à partir de l’équipement réseau de contrôle Ethernet et série. Defender pour IoT n’a aucun impact sur les réseaux OT, car il n’est pas placé dans le chemin d’accès aux données et n’analyse pas activement les appareils. 
 
-Pour fournir des instantanés d’informations détaillées sur les appareils, le capteur Defender pour IoT complète la surveillance passive avec un composant actif facultatif. Ce composant utilise des commandes fiables, approuvées par le fournisseur, pour interroger les appareils Windows et les contrôleurs sur les ressources des appareils, à la fréquence que vous avez définie.
+Pour fournir des instantanés d’informations détaillées sur les appareils Windows, le capteur Defender pour IoT peut être configuré pour compléter la surveillance passive avec un composant actif facultatif. Ce composant utilise des commandes fiables, approuvées par le fournisseur, pour interroger les appareils Windows sur les détails des appareils, à la fréquence que vous avez définie.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Connaissances incorporées des protocoles, des appareils et des applications ICS
 

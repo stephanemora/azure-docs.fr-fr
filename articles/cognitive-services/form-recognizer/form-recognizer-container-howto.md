@@ -7,23 +7,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750c24fd84629f709beb7a92e92fd1ecf581c09a
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862230"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584785"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>Installer et exécuter des conteneurs Form Recognizer (préversion)
+# <a name="install-and-run-form-recognizer-containers-retiring"></a>Installer et exécuter des conteneurs Form Recognizer (mise hors service)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Le service Azure Form Recognizer utilise la technologie Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. Il associe à celles-ci des valeurs et des entrées de table, puis génère des données structurées qui incluent les relations dans le fichier d’origine. 
 
-Pour réduire la complexité et intégrer facilement un modèle Form Recognizer personnalisé dans votre processus d’automatisation de flux de travail ou une autre application, vous pouvez appeler le modèle à l’aide d’une simple API REST. Seuls cinq formulaires (ou un formulaire vide et deux formulaires complétés) sont nécessaires pour obtenir des résultats rapides, précis et adaptés à votre contenu. Cela ne nécessite pas d’intervention manuelle et aucune expertise en science des données n’est requise. Cela ne nécessite pas davantage d’étiquetage ou d’annotation de données.
+Pour réduire la complexité et intégrer facilement un modèle Form Recognizer personnalisé dans votre processus d’automatisation de flux de travail ou une autre application, vous pouvez appeler le modèle à l’aide d’une simple API REST. Seuls cinq formulaires sont nécessaires pour obtenir des résultats rapides, précis et adaptés à votre contenu. Cela ne nécessite pas d’intervention manuelle et aucune expertise en science des données n’est requise. Cela ne nécessite pas davantage d’étiquetage ou d’annotation de données.
 
 | Fonction | Fonctionnalités |
 |----------|----------|
@@ -84,37 +84,9 @@ Les quantités minimale et recommandée de cœurs de processeur et de mémoire �
 > [!Note]
 > Les valeurs minimale et recommandée sont basées sur les limites de Docker, *pas* sur les ressources de la machine hôte.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Obtenir les images conteneur avec la commande docker pull
-
-Les images conteneur des offres **Form Recognizer** et **Reconnaître le texte** sont disponibles dans le registre de conteneurs suivant :
-
-| Conteneur | Nom complet de l’image |
-|-----------|------------|
-| Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Reconnaître le texte | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-Vous aurez besoin des deux conteneurs. Pour plus de détails sur le conteneur **Reconnaître le texte**, consultez [cet article](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull).
+Vous aurez besoin des deux conteneurs Form Recognizer et Reconnaître le texte. Pour plus de détails sur le conteneur **Reconnaître le texte**, consultez [cet article](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull).
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Commande docker pull du conteneur Form Recognizer
-
-#### <a name="form-recognizer"></a>Form Recognizer
-
-Pour obtenir le conteneur Form Recognizer, utilisez la commande suivante :
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### <a name="docker-pull-for-the-recognize-text-container"></a>Commande docker pull du conteneur Reconnaître le texte
-
-#### <a name="recognize-text"></a>Reconnaître le texte
-
-Pour obtenir le conteneur Reconnaître le texte, utilisez la commande suivante :
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
 

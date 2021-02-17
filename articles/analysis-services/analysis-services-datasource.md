@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493818"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981491"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -36,7 +36,7 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 **Remarques :**
 
 <a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.  
-<a name="azprovider">2</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, les modèles en mémoire et DirectQuery nécessitent MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé), SQL Server Native Client 11.0 ou le Fournisseur de données .NET Framework pour SQL Server.  
+<a name="azprovider">2</a> – Quand elle est spécifiée en tant que source de données *fournisseur* dans des modèles tabulaires 1200 et supérieurs, les modèles en mémoire et DirectQuery nécessitent MSOLEDBSQL de Microsoft OLE DB Driver pour SQL Server (recommandé) ou le Fournisseur de données .NET Framework pour SQL Server.  
 <a name="azsqlmanaged">3</a> – Azure SQL Managed Instance est pris en charge. Comme l'instance gérée SQL s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n’est pas activée, une [passerelle de données locale](analysis-services-gateway.md) est nécessaire.  
 <a name="databricks">4</a> – Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.  
 <a name="gen2">5</a> – Le connecteur ADLS Gen2 n’est pas pris en charge actuellement. Cependant, le connecteur Stockage Blob Azure peut être utilisé avec une source de données ADLS Gen2.
@@ -118,13 +118,6 @@ Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
 
-## <a name="service-principal-authentication"></a>Authentification du principal de service
-
-Lorsqu’il est spécifié comme source de données de *fournisseur*, Azure Analysis Services prend en charge l’authentification du principal de service Azure Active Directory [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) pour les sources de données Azure SQL Database et Azure Synapse.
-
-`
-Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
-`
 
 ## <a name="oauth-credentials"></a>Informations d’identification OAuth
 

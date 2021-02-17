@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer des alertes personnalisées'
-description: Étudiez, créez et affectez des alertes d’appareil personnalisées destinées au service de sécurité Azure Defender pour IoT.
+title: Créer des alertes personnalisées
+description: Découvrez, créez et affectez des alertes d’appareil personnalisées destinées au service de sécurité Azure Defender pour IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945082"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809038"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
+# <a name="create-custom-alerts"></a>Créer des alertes personnalisées
 
 Les alertes et groupes de sécurité personnalisés vous permettent de tirer pleinement parti des informations de sécurité de bout en bout et des connaissances catégorisées sur les appareils pour assurer une plus grande sécurité dans votre solution IoT.
 
@@ -65,17 +65,23 @@ Utilisez des groupes de sécurité pour regrouper vos appareils par catégories 
 
 ## <a name="customize-an-alert"></a>Personnaliser une alerte
 
-1. Ouvrez votre hub IoT et sélectionnez **Paramètres** dans le menu **Sécurité**. 
-1. Cliquez sur **Alertes personnalisées**.
+1. Ouvrez votre hub IoT et sélectionnez **Paramètres** dans le menu **Sécurité**.
+
+1. Sélectionnez **Alertes personnalisées**.
+
 1. Choisissez un groupe de sécurité auquel vous souhaitez appliquer la personnalisation.
-1. Cliquez sur **Ajouter une alerte personnalisée**.
+
+1. Sélectionnez **Ajouter une alerte personnalisée**.
+
 1. Sélectionnez une alerte personnalisée dans la liste déroulante.
-1. Modifiez les propriétés nécessaires, puis cliquez sur **OK**.
-1. N’oubliez pas de cliquer sur **ENREGISTRER**. Si la nouvelle alerte n’est pas enregistrée, elle est supprimée la prochaine fois que vous fermez IoT Hub.
+
+1. Modifiez les propriétés nécessaires, puis sélectionnez **OK**.
+
+1. Veillez à sélectionner **ENREGISTRER**. Si la nouvelle alerte n’est pas enregistrée, elle est supprimée la prochaine fois que vous fermez IoT Hub.
 
 ## <a name="alerts-available-for-customization"></a>Alertes disponibles pour la personnalisation
 
-Defender pour IoT propose un grand nombre d’alertes qui peuvent être personnalisées en fonction de vos besoins spécifiques. Consultez le [tableau d’alertes personnalisables](concept-customizable-security-alerts.md) pour connaître la gravité des alertes, la source de données et la description ainsi que les étapes de correction que nous suggérons, si et quand chaque alerte est reçue.
+Defender pour IoT propose un grand nombre d’alertes, lesquelles peuvent être personnalisées en fonction de vos besoins spécifiques. Consultez la [table des alertes personnalisables](concept-customizable-security-alerts.md) pour connaître la gravité, la source de données et la description des alertes, ainsi que les étapes de correction que nous suggérons si et quand chaque alerte est reçue.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

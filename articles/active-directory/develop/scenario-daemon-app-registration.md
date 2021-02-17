@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996001"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582905"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Application démon qui appelle des API web - inscription d'application
 
@@ -24,7 +24,7 @@ Voici ce que vous devez savoir lors de l’inscription d’une application démo
 
 ## <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Les applications démon n’ont de sens que dans les locataires Azure AD. Ainsi, quand vous créez l’application, vous devez choisir l’une des options suivantes :
+Les applications démon n’ont de sens que dans les locataires Azure AD. Ainsi, quand vous créez l’application, choisissez l’une des options suivantes :
 
 - **Comptes dans cet annuaire organisationnel uniquement**. Ce choix est le plus fréquent car les applications démon sont généralement écrites par des développeurs métier.
 - **Comptes dans un annuaire organisationnel**. ce choix s'applique aux éditeurs de logiciels indépendants qui fournissent un utilitaire à leurs clients. Les administrateurs de locataires de vos clients doivent l’approuver.

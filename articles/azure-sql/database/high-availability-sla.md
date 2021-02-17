@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095438"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593416"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ La version redondante interzone de l’architecture de haute disponibilité pour
 ![Configuration redondante interzone pour le niveau Usage général](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Pour obtenir des informations à jour sur les régions qui prennent en charge les bases de données redondantes dans une zone, consultez [Prise en charge des services par région](../../availability-zones/az-region.md). La configuration redondante interzone n’est disponible que lorsque le matériel de calcul Gen5 est sélectionné. Cette fonctionnalité n'est pas disponible dans SQL Managed Instance.
+> La configuration redondante interzone n’est disponible que lorsque le matériel de calcul Gen5 est sélectionné. Cette fonctionnalité n'est pas disponible dans SQL Managed Instance. La configuration de zone redondante pour le niveau usage général n’est disponible que dans les régions suivantes : USA Est, USA Est 2, USA Ouest 2, Europe Nord, Europe Ouest, Asie Sud-Est, Australie Est, Japon Est, Royaume-Uni Sud et France Centre.
 
 > [!NOTE]
 > Les bases de données à usage général dont la taille est de 80 vcore peuvent subir une altération des performances avec une configuration redondante interzone. En outre, les opérations telles que la sauvegarde, la restauration, la copie de base de données et la configuration de relations de récupération d’urgence de zone géographique peuvent connaître un ralentissement des performances pour toutes les bases de données uniques de plus de 1 To. 

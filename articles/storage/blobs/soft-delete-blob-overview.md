@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127479"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979287"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
@@ -27,6 +27,10 @@ S’il existe une possibilité de modification ou de suppression accidentelles d
 ## <a name="about-soft-delete-for-blobs"></a>À propos de la suppression réversible pour les objets blob
 
 Lorsque la suppression réversible pour les objets blob est activée sur un compte de stockage, vous pouvez récupérer les objets une fois qu’ils ont été supprimés, au cours de la période de conservation des données spécifiée. Cette protection s’étend à tous les blobs (objets blob de blocs, objets blob d’ajout ou objets blob de pages) qui sont effacées à la suite d’un remplacement.
+
+Le diagramme suivant montre comment un objet Blob supprimé peut être restauré lorsque la suppression réversible d’objets Blob est activée :
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagramme montrant comment un objet Blob supprimé de manière réversible peut être restauré":::
 
 Si les données d’un objet blob ou d’une capture instantanée existant sont supprimées alors que la suppression réversible d’objet blob est activée, mais que le contrôle de version des blobs n’est pas activé, une capture instantanée supprimée de manière réversible est générée pour enregistrer l’état des données remplacées. Une fois la période de rétention spécifiée expirée, l’objet est supprimé définitivement.
 

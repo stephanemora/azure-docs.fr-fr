@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533053"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979621"
 ---
 # <a name="modify-target-settings"></a>Modifier les paramètres cibles
 
@@ -37,15 +37,15 @@ Les paramètres de configuration que vous pouvez modifier sont résumés dans le
 **Ressource** | **Options** 
 --- | --- | --- 
 **Nom de la machine virtuelle** | Options :<br/><br/> - Créer une nouvelle machine virtuelle sous le même nom dans la région cible.<br/><br/> - Créer une nouvelle machine virtuelle sous un nom différent dans la région cible.<br/><br/> - Utiliser une machine virtuelle existante dans la région cible.<br/><br/> Si vous créez une nouvelle machine virtuelle, mis à part les paramètres que vous modifiez, la nouvelle machine virtuelle hérite des mêmes paramètres que la source.
-**Zone de disponibilité de la machine virtuelle** | Zone de disponibilité dans laquelle la machine virtuelle cible sera placée. Vous pouvez la marquer **N/A** si vous ne voulez pas modifier les paramètres de la source ou si vous n’avez pas l’intention de placer la machine virtuelle dans une zone de disponibilité.
+**Zone de disponibilité de la machine virtuelle** | Zone de disponibilité dans laquelle la machine virtuelle cible sera placée. Sélectionnez **Non applicable** si vous ne voulez pas modifier les paramètres de la source ou si vous ne souhaitez pas placer la machine virtuelle dans une zone de disponibilité.
 **Référence de la machine virtuelle** | [Type de machine virtuelle](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (disponible dans la région cible) qui sera utilisé pour la machine virtuelle cible.<br/><br/> La taille de la machine virtuelle cible sélectionnée ne doit pas être inférieure à celle de la machine virtuelle source.
-**Ressources réseau** | Options pour les réseaux virtuels (VNets)/groupes de sécurité/interfaces réseau :<br/><br/> - Créer une nouvelle ressource sous le même nom dans la région cible.<br/><br/> - Créer une nouvelle ressource sous un nom différent dans la région cible.<br/><br/> - Utiliser une ressource réseau existante dans la région cible.<br/><br/> Si vous créez une nouvelle ressource cible, mis à part les paramètres que vous modifiez, elle hérite des mêmes paramètres que la ressource source.
-**Nom de l’adresse IP publique** | Spécifiez le nom.
-**Référence SKU d’adresse IP publique** | Spécifiez la référence [SKU](../virtual-network/public-ip-addresses.md#sku).
-**Zone des adresses IP publiques** | Spécifiez la [zone](../virtual-network/public-ip-addresses.md#standard) pour les adresses IP publiques standard.<br/><br/> Si vous voulez qu’elles soient redondantes interzone, définissez-les comme étant **Redondant interzone**.
-**Nom de l’équilibreur de charge** | Spécifiez le nom.
-**Référence SKU de l’équilibreur de charge** | De base ou Standard. Nous vous recommandons d’utiliser l’option Standard.
-**Zone de l’équilibreur de charge** | Spécifiez une zone pour l’équilibreur de charge. <br/><br/> Si vous voulez qu’il soit redondant interzone, définissez-le comme étant **Redondant interzone**.
+**Groupe à haute disponibilité de machines virtuelles | Groupe à haute disponibilité dans laquelle la machine virtuelle cible sera placée. Sélectionnez **Non applicable** si vous ne voulez pas modifier les paramètres de la source ou si vous ne souhaitez pas placer la machine virtuelle dans un groupe à haute disponibilité.
+**Coffre de clés de machine virtuelle** | Coffre de clés associé lorsque Azure Disk Encryption est activé sur une machine virtuelle.
+**Jeu de chiffrement de disque** | Jeu de chiffrement de disque associé si la machine virtuelle utilise une clé gérée par le client pour le chiffrement côté serveur.
+**Groupe de ressources** | Groupe de ressources dans laquelle la machine virtuelle cible sera placée.
+**Ressources réseau** | Options pour les interfaces réseau, les réseaux virtuels et les groupes de sécurité/interfaces réseau :<br/><br/> - Créer une nouvelle ressource sous le même nom dans la région cible.<br/><br/> - Créer une nouvelle ressource sous un nom différent dans la région cible.<br/><br/> - Utiliser une ressource réseau existante dans la région cible.<br/><br/> Si vous créez une nouvelle ressource cible, mis à part les paramètres que vous modifiez, elle hérite des mêmes paramètres que la ressource source.
+**Nom, référence SKU et zone de l’adresse IP publique** | Nom, [référence SKU](../virtual-network/public-ip-addresses.md#sku) et [zone](../virtual-network/public-ip-addresses.md#standard) des adresses IP publiques standard.<br/><br/> Si vous voulez qu’il soit redondant interzone, définissez-le comme étant **Redondant interzone**.
+**Nom, référence SKU et zone de l’équilibreur de charge** | Nom, référence SKU (De base ou Standard) et zone de l’équilibreur de charge.<br/><br/> Nous vous recommandons d’utiliser la référence SKU Standard.<br/><br/> Si vous voulez qu’il soit redondant interzone, spécifiez **Redondant interzone**.
 **Dépendances des ressources** | Options pour chaque dépendance :<br/><br/>- La ressource utilise des ressources dépendantes de la source qui seront déplacées dans la région cible.<br/><br/> - La ressource utilise d’autres ressources dépendantes situées dans la région cible. Dans ce cas, vous pouvez effectuer un choix parmi des ressources similaires dans la région cible.
 
 ### <a name="edit-vm-target-settings"></a>Modifier les paramètres cibles de machine virtuelle

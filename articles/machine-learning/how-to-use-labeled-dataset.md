@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987369"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981508"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
@@ -39,6 +39,9 @@ Lorsque vous terminez un projet d’étiquetage de données, vous pouvez en expo
 ### <a name="coco"></a>COCO 
 
  Le fichier COCO est créé dans le magasin d’objets blob par défaut de l’espace de travail Azure Machine Learning, dans un dossier situé au sein de *export/coco*. 
+ 
+>[!NOTE]
+>Dans les projets de détection d’objets, les valeurs exportées « bbox : [x, y, largeur, hauteur] » dans le fichier COCO sont normalisées. Elles sont mises à l’échelle à 1. Exemple : un cadre englobant à l’emplacement (10, 10), avec une largeur de 30 pixels, une hauteur de 60 pixels, dans une image de 640x480 pixels, est annoté (0.015625. 0.02083, 0.046875, 0.125). Étant donné que les coordonnées sont normalisées, la valeur sera « 0.0 » pour la « largeur » et la « hauteur » pour toutes les images. La largeur et la hauteur réelles peuvent être obtenues à l’aide de l’une bibliothèque Python comme OpenCV ou Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Jeu de données Azure Machine Learning
 

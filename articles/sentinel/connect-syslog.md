@@ -1,6 +1,6 @@
 ---
 title: Connecter des données Syslog à Azure Sentinel | Microsoft Docs
-description: Connectez une machine ou appliance prenant en charge Syslog à Azure Sentinel en utilisant un agent sur une machine Linux entre l’appliance et Sentinel.
+description: Connectez une machine ou appliance prenant en charge Syslog à Azure Sentinel en utilisant un agent sur une machine Linux entre l’appliance et Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747188"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807901"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Collecter des données de sources Linux à l’aide de Syslog
 

@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 02a6e934b517cdd118b6175d9cfef73bee4c996d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7d0c83f1ae18d36557a7a5b0222aee2905e05cb7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223004"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550233"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Démarrage rapide : Créer une adresse IP publique à l’aide du portail Azure
 
 Cet article explique comment créer une ressource d’adresse IP publique à l’aide du portail Azure. Pour savoir quelles ressources peuvent être associées, connaître la différence entre les références SKU De base et Standard et obtenir d’autres informations connexes, consultez [Adresses IP publiques](./public-ip-addresses.md).  Cet exemple traite seulement des adresses IPv4. Pour plus d’informations sur les adresses IPv6, consultez [IPv6 pour les réseaux virtuels Azure](./ipv6-overview.md).
 
-# <a name="standard-sku---using-zones"></a>[**Référence SKU Standard - Avec des zones**](#tab/option-create-public-ip-standard-zones)
+# <a name="standard-sku"></a>[**Référence Standard**](#tab/option-create-public-ip-standard-zones)
 
 Effectuez les étapes suivantes pour créer une adresse IP publique redondante interzone standard nommée **myStandardZRPublicIP**.
 
@@ -44,9 +44,9 @@ Effectuez les étapes suivantes pour créer une adresse IP publique redondante i
     | Abonnement            | Sélectionnez votre abonnement.   |
     | Resource group          | Sélectionnez **Créer**, entrez myResourceGroup et sélectionnez **OK** |
     | Emplacement                | Sélectionnez **USA Est 2**      |
-    | Zone de disponibilité       | Sélectionnez **Redondant interzone** ou choisissez une zone spécifique (voir la remarque ci-dessous) |
+    | Zone de disponibilité       | Sélectionnez **Redondant interzone**, Aucune zone, ou choisissez une zone spécifique (voir la remarque ci-dessous) |
 
-Notez que ces sélections sont valides uniquement dans des régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (Vous pouvez également sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone.)
+Notez que ces sélections sont valides uniquement dans des régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  (Vous pouvez également sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone.)  Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 \* = Le niveau se rapporte à la fonctionnalité [Équilibreur de charge interrégion](../load-balancer/cross-region-overview.md), actuellement en préversion.
 

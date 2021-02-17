@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6ca489dc0c5c7ba8ba67f3456d04be953544a8fb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420595"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987825"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Mettre à l’échelle pour les performances de la Recherche cognitive Azure
 
@@ -86,6 +86,27 @@ Les réplicas permettent non seulement de réduire la latence des requêtes, mai
 Pour plus d’informations, consultez le [Contrat de niveau de service de la Recherche cognitive Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Étant donné que les réplicas sont des copies de vos données, l’utilisation de plusieurs réplicas permet au service Recherche cognitive Azure de gérer les redémarrages et la maintenance des machines pour un réplica spécifique, alors que les requêtes continuent de s’exécuter sur d’autres réplicas. À l’inverse, si vous retirez des réplicas, vous constaterez une dégradation des performances de requête, en supposant que ces réplicas constituaient des ressources sous-exploitées.
+
+### <a name="availability-zones"></a>Zones de disponibilité
+
+Les [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview) divisent les centres de données d’une région en groupes situés dans des emplacements physiques distincts afin de fournir une haute disponibilité intra-régionale. Le service de recherche s’exécute dans une région, et les réplicas dans différentes zones.
+
+Vous pouvez utiliser des zones de disponibilité avec le service Recherche cognitive Azure en ajoutant au moins deux réplicas à votre service de recherche. Chaque réplica sera placé dans une zone de disponibilité distincte au sein de la région. Si vous avez plus de réplicas qu’il n’y a de zones de disponibilité, les réplicas sont répartis entre les zones de disponibilité aussi uniformément que possible.
+
+Le service Recherche cognitive Azure prend actuellement en charge les zones de disponibilité pour les services de recherche de niveau standard ou supérieurs qui ont été créés dans l’une des régions suivantes :
++ Australie Est (créée le 30 janvier 2021 ou ultérieurement)
++ Canada Centre (créée le 30 janvier 2021 ou ultérieurement)
++ USA Centre (créée le 4 décembre 2020 ou ultérieurement)
++ USA Est 2 (créée le 30 janvier 2021 ou ultérieurement)
++ France Centre (créée le 23 octobre 2020 ou ultérieurement)
++ Japon Est (créée le 30 janvier 2021 ou ultérieurement)
++ Europe Nord (créée le 28 janvier 2021 ou ultérieurement)
++ Asie Sud-Est (créée le 31 janvier 2021 ou ultérieurement)
++ Royaume-Uni Sud (créée le 30 janvier 2021 ou ultérieurement)
++ Europe Ouest (créée le 29 janvier 2021 ou ultérieurement)
++ USA Ouest 2 (créée le 30 janvier 2021 ou ultérieurement)
+
+Les zones de disponibilité n’ont pas d’incidence sur le [Contrat de niveau de service de la Recherche cognitive Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Mettre à l’échelle pour les charges de travail géodistribuées et la géoredondance
 

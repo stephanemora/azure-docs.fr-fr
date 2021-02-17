@@ -6,16 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 750cf0a938fffd4e5bfe25811bb276f7cb1b5583
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757557"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830751"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Créer et gérer des projets Azure Migrate
 
-Cet article explique comment créer, gérer et supprimer des projets [Azure Migrate](migrate-services-overview.md). Si vous utilisez des projets Azure Migrate classiques, supprimez-les et suivez la procédure pour créer un projet Azure Migrate. Il n’est pas possible de mettre à niveau des projets ni des composants Azure Migrate classiques vers Azure Migrate. Affichez la [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) avant de commencer le processus de création.
+Cet article explique comment créer, gérer et supprimer des projets [Azure Migrate](migrate-services-overview.md). 
+
+Azure Migrate classique sera mis hors service en février 2024. Après février 2024, la version classique d’Azure Migrate ne sera plus prise en charge et les métadonnées d’inventaire dans le projet classique seront supprimées. Si vous utilisez des projets Azure Migrate classiques, supprimez-les et suivez la procédure pour créer un projet Azure Migrate. Il n’est pas possible de mettre à niveau des projets ni des composants Azure Migrate classiques vers Azure Migrate. Affichez la [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) avant de commencer le processus de création.
 
 Un projet de Azure Migrate est utilisé pour stocker les métadonnées de découverte, d’évaluation et de migration collectées à partir de l’environnement que vous évaluez ou migrez. Dans un projet, vous pouvez suivre les ressources découvertes, créer des évaluations et orchestrer des migrations vers Azure.  
 

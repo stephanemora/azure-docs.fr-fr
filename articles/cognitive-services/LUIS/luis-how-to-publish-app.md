@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180028"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558905"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publier votre application active, formée sur un point de terminaison intermédiaire ou de production
 
@@ -57,7 +57,6 @@ Par exemple, pour une application créée sur [www.luis.ai](https://www.luis.ai)
 Après avoir sélectionné l’emplacement, configurez les paramètres de publication suivants :
 
 * analyse de sentiments
-* [Correction orthographique](luis-tutorial-bing-spellcheck.md)
 * Préparation vocale
 
 Après publication, ces paramètres sont accessibles via la page **Paramètres de publication** de la section **Gérer**. Vous pouvez modifier les paramètres pour chaque publication. Si vous annulez une publication, les modifications que vous avez apportées lors de la publication sont également annulées.
@@ -79,37 +78,6 @@ Vous ne devez pas nécessairement fournir une clé d’Analyse de texte, et votr
 Les données de sentiment correspondent à un score compris entre 1 et 0 indiquant le sentiment, positif (plus proche de 1) ou négatif (plus proche de 0), des données. L’étiquette de sentiment de `positive`, `neutral` et `negative` est fonction de la culture prise en charge. Actuellement, seul l’anglais prend en charge les étiquettes de sentiment.
 
 Pour plus d’informations sur la réponse du point de terminaison JSON avec l’analyse des sentiments, voir [Analyse des sentiments](luis-reference-prebuilt-sentiment.md).
-
-## <a name="spelling-correction"></a>Correction orthographique
-
-L’API de prédiction v3 prend désormais en charge l’API de vérification orthographique Bing. Vous pouvez ajouter la vérification orthographique à votre application en incluant la clé de votre ressource Recherche Bing dans l’en-tête de vos demandes. Vous pouvez utiliser une ressource Bing existante si vous en possédez déjà une, ou [en créer une](https://portal.azure.com/#create/Microsoft.BingSearch) pour utiliser cette fonctionnalité. 
-
-|Clé d’en-tête|Valeur de l’en-tête|
-|--|--|
-|`mkt-bing-spell-check-key`|Clés disponibles dans le panneau **Clés et point de terminaison** de la ressource|
-
-Exemple de sortie de prédiction pour une requête mal orthographiée :
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-Les corrections orthographiques sont effectuées avant la prédiction d’énoncé utilisateur LUIS. Vous pouvez voir toutes les modifications apportées à l’énoncé d’origine, y compris en lien avec l’orthographe, dans la réponse.
 
 ## <a name="speech-priming"></a>Préparation vocale
 

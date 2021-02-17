@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747870"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625381"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutoriel : Mettre à l’échelle une application en cours d’exécution dans Service Fabric Mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés par le biais de l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Ce tutoriel est le deuxième d’une série. Découvrez comment mettre à l’échelle manuellement le nombre d’instances de service d’une application qui a été [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Après avoir terminé, vous disposerez d’un service frontal exécutant trois instances et d’un service de données exécutant deux instances.
 
@@ -32,7 +37,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -88,7 +93,7 @@ Enregistrez les modifications apportées au fichier de paramètres.  Les paramè
     }
 ```
 
-La propriété *replicaCount* du service WebFrontEnd fait référence au paramètre *frontEndReplicaCount* , tandis que la propriété *replicaCount* du service ToDoService fait référence au paramètre *serviceReplicaCount* :
+La propriété *replicaCount* du service WebFrontEnd fait référence au paramètre *frontEndReplicaCount*, tandis que la propriété *replicaCount* du service ToDoService fait référence au paramètre *serviceReplicaCount* :
 
 ```json
     "services": [

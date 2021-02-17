@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210016"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593127"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -113,6 +113,9 @@ La fonctionnalité des restrictions d’accès basées sur IP est utile quand vo
 * Restreindre l’accès au trafic en provenance d’un service d’équilibrage de charge externe ou d’autres appliances réseau dont les adresses IP de sortie sont connues. 
 
 Pour découvrir comment activer cette fonctionnalité, voir [Restrictions d’accès dans Azure App Service][iprestrictions].
+
+> [!NOTE]
+> Les règles de restriction d’accès basées sur l’IP ne gèrent les plages d’adresses de réseau virtuel que lorsque votre application se trouve dans un App Service Environment. Si votre application se trouve dans le service multilocataire, vous devez utiliser des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) pour limiter le trafic à certains sous-réseaux de votre réseau virtuel.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Règles de restriction d’accès basées sur des points de terminaison de service 
 

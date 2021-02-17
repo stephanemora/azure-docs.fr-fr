@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: ac64233467166ca6567f1601c3b90f80fdba3dcf
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954646"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594601"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Configurer le réseau pour Azure Stack Edge Pro avec GPU
 
@@ -56,15 +56,13 @@ Procédez comme suit pour configurer le réseau de votre appareil.
     
     ![Page « Paramètres réseau » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. Pour modifier les paramètres réseau, sélectionnez un port et, dans le volet droit qui s’affiche, modifiez l’adresse IP, le sous-réseau, la passerelle, le DNS principal et le DNS secondaire. 
 
     - Si vous sélectionnez le Port 1, vous pouvez voir qu’il est préconfiguré comme statique. 
 
         ![Interface utilisateur web locale, « Paramètres réseau du Port 1 »](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-3.png)
 
-    - Si vous sélectionnez le Port 2, 3, 4 ou 5, tous ces ports sont configurés en tant que DHCP par défaut.
+    - Si vous sélectionnez le Port 2, 3, 4 ou 5, tous ces ports sont configurés en tant que DHCP par défaut.
 
         ![Interface utilisateur web locale, « Paramètres réseau du Port 3 »](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-4.png)
 
@@ -73,7 +71,8 @@ Procédez comme suit pour configurer le réseau de votre appareil.
    * Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. Une adresse IP, un sous-réseau, une passerelle et un DNS sont automatiquement attribués.
    * Si le protocole DHCP n’est pas activé, vous pouvez, le cas échéant, attribuer des adresses IP statiques.
    * Vous pouvez configurer votre interface réseau sur IPv4.
-   * Sur les interfaces 25 Gbits/s, vous pouvez définir le mode RDMA (accès direct à distance) sur iWarp ou RoCE (RDMA sur Ethernet). Si des latences faibles sont l’exigence principale et que l’évolutivité n’est pas un problème, utilisez RoCE. Lorsque la latence est une exigence essentielle, mais que la facilité d’utilisation et l’évolutivité ont également des priorités élevées, iWARP est le meilleur choix.
+   * Sur les interfaces 25 Gbits/s, vous pouvez définir le mode RDMA (accès direct à distance) sur iWarp ou RoCE (RDMA sur Ethernet). Si des latences faibles sont l’exigence principale et que l’évolutivité n’est pas un problème, utilisez RoCE. Lorsque la latence est une exigence essentielle, mais que la facilité d’utilisation et l’évolutivité ont également des priorités élevées, iWARP est le meilleur choix.
+   * L’association de cartes d’interface réseau et l’agrégation de liens ne sont pas prises en charge avec Azure Stack Edge. 
    * Le numéro de série d’un port correspond au numéro de série du nœud.
 
     Une fois le réseau de l’appareil configuré, la page est mise à jour comme indiqué ci-dessous.
@@ -81,12 +80,11 @@ Procédez comme suit pour configurer le réseau de votre appareil.
     ![Page 2 « Paramètres réseau » de l’interface utilisateur web locale](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * Nous vous recommandons de ne pas remplacer Statique par DHCP pour l’adresse IP locale de l’interface réseau, sauf si vous disposez d’une autre adresse IP pour vous connecter à l’appareil. Si vous utilisez une seule interface réseau et que vous passez à DHCP, il n’y a aucun moyen de déterminer l’adresse DHCP. Si vous voulez passer à une adresse DHCP, attendez que l’appareil se soit activé auprès du service, puis faites la modification. Vous pouvez ensuite voir les adresses IP de tous les adaptateurs dans les **propriétés de l’appareil** dans le portail Azure pour votre service.
+     > [!NOTE]
+     > Nous vous recommandons de ne pas remplacer Statique par DHCP pour l’adresse IP locale de l’interface réseau, sauf si vous disposez d’une autre adresse IP pour vous connecter à l’appareil. Si vous utilisez une seule interface réseau et que vous passez à DHCP, il n’y a aucun moyen de déterminer l’adresse DHCP. Si vous voulez passer à une adresse DHCP, attendez que l’appareil se soit activé auprès du service, puis faites la modification. Vous pouvez ensuite voir les adresses IP de tous les adaptateurs dans les **propriétés de l’appareil** dans le portail Azure pour votre service.
 
 
-    Après avoir configuré et appliqué les paramètres réseau, sélectionnez Suivant : Calcul pour configurer le réseau de calcul.
+    Après avoir configuré et appliqué les paramètres réseau, sélectionnez **Suivant : Calcul** pour configurer le réseau de calcul.
 
 ## <a name="enable-compute-network"></a>Activer le réseau de calcul
 

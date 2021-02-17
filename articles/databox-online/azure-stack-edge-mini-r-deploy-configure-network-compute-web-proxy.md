@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464261"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594449"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutoriel : Configurer le réseau pour Azure Stack Edge Mini R
 
@@ -108,7 +108,7 @@ Procédez comme suit pour configurer le réseau de votre appareil.
 
     ![« Paramètres réseau du port Wi-Fi » 4 de l’interface utilisateur web locale](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-6. Sélectionnez le profil Wi-Fi que vous avez ajouté à l’étape précédente et sélectionnez **Appliquer**. 
+6. Sélectionnez le profil Wi-Fi que vous avez ajouté à l’étape précédente, puis sélectionnez **Appliquer**. 
 
     ![« Paramètres réseau du port Wi-Fi » 5 de l’interface utilisateur web locale](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
@@ -126,6 +126,7 @@ Procédez comme suit pour configurer le réseau de votre appareil.
    - Si le protocole DHCP est activé dans votre environnement, les interfaces réseau sont configurées automatiquement. Une adresse IP, un sous-réseau, une passerelle et un DNS sont automatiquement attribués.
    - Si le protocole DHCP n’est pas activé, vous pouvez, le cas échéant, attribuer des adresses IP statiques.
    - Vous pouvez configurer votre interface réseau sur IPv4.
+   - L’association de cartes d’interface réseau et l’agrégation de liens ne sont pas prises en charge avec Azure Stack Edge.
    - Le numéro de série d’un port correspond au numéro de série du nœud. Pour un appareil de la série K, un seul numéro de série apparaît.
 
      >[!NOTE] 
@@ -161,7 +162,7 @@ Procédez comme suit pour activer le calcul et configurer le réseau de calcul.
 
     ![Page Calcul dans l'interface utilisateur web locale 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
-1. Quelques minutes sont nécessaires pour appliquer la configuration et une actualisation du navigateur peut être requise. Vous pouvez constater que le port spécifié est activé pour le calcul. 
+1. Quelques minutes sont nécessaires pour appliquer la configuration, et une actualisation du navigateur peut être requise. Vous pouvez constater que le port spécifié est activé pour le calcul. 
  
     ![Page Calcul de l'interface utilisateur web locale 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 

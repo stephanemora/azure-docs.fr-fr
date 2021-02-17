@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326152"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833080"
 ---
 # <a name="expressroute-monitor"></a>Moniteur ExpressRoute
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de tests dans un espace de travail existant ou activer un nouvel espace de travail dans Network Performance Monitor. Vous pouvez continuer à utiliser les tests créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor vers le nouveau Moniteur de connexion](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) dans Azure Network Watcher avant le 29 février 2024.
 
 Vous pouvez utiliser la fonctionnalité Moniteur Azure ExpressRoute de [Network Performance Monitor](network-performance-monitor.md) pour surveiller les performances et la connectivité de bout en bout entre vos succursales et Azure, via Azure ExpressRoute. Les avantages clés sont les suivants : 
 
@@ -81,7 +84,7 @@ Pour afficher une liste de tous les circuits ExpressRoute surveillés, sélectio
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>Tendances concernant les pertes, la latence et le débit 
 
-Les graphiques représentant l’utilisation de la bande passante, la latence et la perte sont interactifs. Vous pouvez zoomer sur n’importe quelle section de ces graphiques, à l’aide des contrôles de la souris. Vous pouvez également voir la bande passante, la latence et la perte de données pour les autres intervalles. Dans le coin supérieur gauche, sous le bouton **Actions**, sélectionnez **Date/Heure**. 
+Les graphiques représentant l’utilisation de la bande passante, la latence et la perte sont interactifs. Vous pouvez zoomer sur n’importe quelle section de ces graphiques, à l’aide des contrôles de la souris. Vous pouvez également voir la bande passante, la latence et la perte de données pour les autres intervalles. Dans le coin supérieur gauche, sous le bouton **Actions**, sélectionnez  **Date/Heure**. 
 
 ![Latence d’ExpressRoute](media/network-performance-monitor-expressroute/expressroute-latency.png) 
 
@@ -141,4 +144,3 @@ Vous pouvez afficher les codes de notification et définir des alertes avec **Lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Rechercher dans les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
-

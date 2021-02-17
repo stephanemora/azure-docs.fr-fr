@@ -6,27 +6,27 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fe57174f1b090cbaa2196930f5ddd252074f1978
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880506"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526447"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique ou l’attachement sans code Azure Monitor Application Insights ?
 
 L’auto-instrumentation, ou l’attachement sans code, vous permet d’activer la supervision des applications avec Application Insights sans modifier votre code.  
 
-Application Insights est intégré à différents fournisseurs de ressources et fonctionne sur différents environnements. En substance, il vous suffit d’activer et, dans certains cas, de configurer l’agent, qui collecte ensuite les données de télémétrie directement. En un rien de temps, vous voyez les métriques, les données et les dépendances dans votre ressource Application Insights. Ainsi, vous pouvez localiser la source des problèmes potentiels avant qu’ils se produisent et analyser la cause racine avec un affichage des transactions de bout en bout.
+Application Insights est intégré à différents fournisseurs de ressources et fonctionne sur différents environnements. En substance, il vous suffit d’activer et, dans certains cas, de configurer l’agent, qui collecte ensuite automatiquement les données de télémétrie. En un rien de temps, vous voyez les métriques, les données et les dépendances dans votre ressource Application Insights. Ainsi, vous pouvez localiser la source des problèmes potentiels avant qu’ils se produisent et analyser la cause racine avec un affichage des transactions de bout en bout.
 
 ## <a name="supported-environments-languages-and-resource-providers"></a>Environnements, langages et fournisseurs de ressources pris en charge
 
-Avec l’ajout d’un nombre de plus en plus important d’intégrations, la matrice des capacités de l’instrumentation automatique gagne en complexité. Le tableau ci-dessous montre l’état actuel de la question de la prise en charge de divers fournisseurs de ressources, langages et environnements.
+À mesure que nous ajoutons des intégrations supplémentaires, la matrice des capacités de l’instrumentation automatique gagne en complexité. Le tableau ci-dessous montre l’état actuel de la question de la prise en charge de divers fournisseurs de ressources, langages et environnements.
 
 |Environnement/fournisseur de ressources          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | Version préliminaire privée | Version préliminaire privée | Non pris en charge   |
-|Azure App Service sur Linux             | N/A             | Non pris en charge   | Version préliminaire privée | Version préliminaire publique  | Non pris en charge   |
+|Azure App Service sur Windows           | Disponibilité générale, APD*       | Disponibilité générale, consentement      | En cours     | En cours     | Non pris en charge   |
+|Azure App Service sur Linux             | N/A             | Non pris en charge   | En cours     | Version préliminaire publique  | Non pris en charge   |
 |Azure App Service sur AKS               | N/A             | Intégré       | Intégré       | Intégré       | Non pris en charge   |
 |Azure Functions - De base                | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       | Disponibilité générale, APD*       |
 |Azure Functions Windows – Dépendances | Non pris en charge   | Non pris en charge   | Version préliminaire publique  | Non pris en charge   | Non pris en charge   |
@@ -41,11 +41,31 @@ Avec l’ajout d’un nombre de plus en plus important d’intégrations, la mat
 
 ### <a name="windows"></a>Windows
 
-[La supervision des applications sur Azure App Service](./azure-web-apps.md?tabs=net) est disponible pour l’application .NET et est activée par défaut. .NET Core peut être activé en un seul clic, et Java et Node.js sont en préversion privée.
+#### <a name="net"></a>.NET
+La surveillance des applications sur Azure App Service sur Windows est disponible pour les [applications .NET](./azure-web-apps.md?tabs=net) et est activée par défaut.
 
-### <a name="linux"></a>Linux 
+#### <a name="netcore"></a>.NETCore
+La surveillance des [applications .NETCore](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=netcore) peut être activée en un seul clic.
 
-La supervision des applications Java et Node.js dans App Service est en préversion publique et peut être activée dans le Portail Azure. Elle est disponible dans toutes les régions.
+#### <a name="java"></a>Java
+L’intégration du portail pour la surveillance des applications Java sur App Service sur Windows n’est pas disponible pour le moment. Toutefois, vous pouvez ajouter l’[agent autonome Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) d’Application Insights à votre application sans modifier le code avant de déployer les applications sur App Service. L’agent Application Insights Java 3.0 est mis à la disposition générale.
+
+#### <a name="nodejs"></a>Node.js
+La surveillance des applications Node.js sur Windows ne peut pas être activée actuellement à partir du portail. Pour superviser les applications Node.js, utilisez le [Kit de développement logiciel (SDK)](https://docs.microsoft.com/azure/azure-monitor/app/nodejs).
+
+### <a name="linux"></a>Linux
+
+#### <a name="netcore"></a>.NETCore
+Pour surveiller les applications .NETCore s’exécutant sur Linux, utilisent le [Kit de développement logiciel (SDK)](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+
+#### <a name="java"></a>Java 
+L’activation de la surveillance des applications Java pour App Service sur Linux à partir du portail n’est pas disponible, mais vous pouvez ajouter [l’agent Java 3.0 d’Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) à votre application avant de déployer les applications sur App Service. L’agent Application Insights Java 3.0 est mis à la disposition générale.
+
+#### <a name="nodejs"></a>Node.js
+La [supervision des applications Node.js dans App Service sur Linux](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=nodejs) est en préversion publique et peut être activée dans Portail Azure. Elle est disponible dans toutes les régions. 
+
+#### <a name="python"></a>Python
+Utilisez le Kit de développement logiciel (SDK) pour [surveiller votre application Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python). 
 
 ## <a name="azure-functions"></a>Azure Functions
 
@@ -57,7 +77,7 @@ L’instrumentation sans code dans Azure Kubernetes Service est actuellement dis
 
 ## <a name="azure-windows-vms-and-virtual-machine-scale-set"></a>Machines virtuelles Windows Azure et groupe de machines virtuelles identiques
 
-[L’auto-instrumentation pour les machines virtuelles Azure et le groupe de machines virtuelles identiques](./azure-vm-vmss-apps.md) est disponible pour les applications .NET 
+L’auto-instrumentation pour les machines virtuelles Azure et le groupe de machines virtuelles identiques est disponible pour [.NET](./azure-vm-vmss-apps.md) et [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).  
 
 ## <a name="on-premises-servers"></a>Serveurs locaux
 Vous pouvez facilement activer la supervision de vos [serveurs Windows locaux pour les applications .NET](./status-monitor-v2-overview.md) et pour les [applications Java](./java-in-process-agent.md).

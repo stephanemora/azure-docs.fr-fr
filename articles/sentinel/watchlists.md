@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797354"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555639"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Utiliser les Watchlists Azure Sentinel
 
@@ -28,7 +28,7 @@ Les scénarios courants pour l’utilisation des Watchlists sont notamment les s
 
 - **L’examen des menaces** et la réponse rapide aux incidents avec l’importation rapide d’adresses IP, de hachages de fichiers et d’autres données à partir de fichiers CSV. Une fois importées, vous pouvez utiliser des paires nom-valeur de Watchlist pour les jointures et les filtres dans les règles d’alerte, la recherche de menaces, les classeurs, les notebook et les requêtes générales.
 
-- **Importation de données métiers** en tant que Watchlists. Par exemple, importez des listes d’utilisateurs avec un accès privilégié au système, ou des employés arrêtés, puis utilisez la Watchlist pour créer des listes d’autorisation et de refus utilisées pour détecter ou empêcher ces utilisateurs de se connecter au réseau.
+- **Importation de données métier** en tant que Watchlist. Par exemple, importez des listes d’utilisateurs avec un accès privilégié au système, ou des employés arrêtés, puis utilisez la Watchlist pour créer des listes d’autorisation et de refus utilisées pour détecter ou empêcher ces utilisateurs de se connecter au réseau.
 
 - **Réduction de fatigue des alertes**. Créer des listes d’autorisation pour supprimer des alertes d’un groupe d’utilisateurs, tels que les utilisateurs d’adresses IP autorisées qui effectuent des tâches qui déclencheraient normalement l’alerte, et empêchent les événements bénins de devenir des alertes.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756460"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584378"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -58,7 +58,7 @@ D’autres paramètres spécifiques aux API web sont l’API exposée et les ét
 
 Les étendues se présentent généralement sous la forme `resourceURI/scopeName`. Pour Microsoft Graph, les étendues ont des raccourcis. Par exemple, `User.Read` est un raccourci pour `https://graph.microsoft.com/user.read`.
 
-Lors de l’inscription de l’application, vous devez définir les paramètres suivants :
+Lors de l’inscription de l’application, définissez les paramètres suivants :
 
 - L’URI de ressource
 - Une ou plusieurs étendues
@@ -68,7 +68,7 @@ Par défaut, le portail d’inscription des applications vous recommande d’uti
 
 Pour les applications clientes, les étendues s’affichent en tant que *permissions déléguées* et les rôles d’application en tant que *permissions d’application* pour votre API web.
 
-Les étendues s’affichent également dans la fenêtre de consentement présentée aux utilisateurs de votre application. Par conséquent, vous devez fournir les chaînes correspondantes qui décrivent l’étendue :
+Les étendues s’affichent également dans la fenêtre de consentement présentée aux utilisateurs de votre application. Par conséquent, fournissez les chaînes correspondantes qui décrivent l’étendue :
 
 - Comme vue par un utilisateur.
 - Comme vue par l’administrateur client, qui peut accorder un consentement administrateur.
@@ -99,7 +99,7 @@ Dans cette section, vous apprenez à inscrire votre API web protégée afin que 
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exposition des autorisations d’application (rôles d’application)
 
-Pour exposer les permissions d’application, vous devez modifier le manifeste.
+Pour exposer les permissions d’application, modifiez le manifeste.
 
 1. Dans l’inscription d’application pour votre application, sélectionnez **Manifeste**.
 1. Pour modifier le manifeste, recherchez le paramètre `appRoles` et ajoutez des rôles d’application. La définition de rôle est fournie dans l’exemple de bloc JSON suivant.

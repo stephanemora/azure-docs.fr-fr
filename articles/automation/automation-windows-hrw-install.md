@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182782"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006987"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -38,8 +38,8 @@ Le rôle Runbook Worker hybride requiert l’[agent Log Analytics](../azure-moni
 
 La fonctionnalité de Runbook Worker hybride prend en charge les systèmes d’exploitation suivants :
 
-* Windows Server 2019
-* Windows Server 2016, versions 1709 et 1803
+* Windows Server 2019 (avec Server Core)
+* Windows Server 2016, version 1709 et 1803 (à l’exception de Server Core)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
 * Windows 10 entreprise (y compris multi-sessions) et Pro

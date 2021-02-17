@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915162"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806305"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Afficher et configurer la journalisation des diagnostics DDoS
 
@@ -128,7 +128,7 @@ Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>Activer la journalisation des diagnostics sur toutes les adresses IP publiques
 
-Ce [modèle](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) crée une définition Azure Policy pour activer automatiquement la journalisation des diagnostics sur tous les journaux d’IP publiques dans une étendue définie.
+Ce [modèle](https://aka.ms/ddosdiaglogs) crée une définition Azure Policy pour activer automatiquement la journalisation des diagnostics sur tous les journaux d’IP publiques dans une étendue définie.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
@@ -142,7 +142,7 @@ Vous pouvez connecter vos journaux à Azure Sentinel, afficher et analyser vos d
 
 ### <a name="azure-ddos-protection-workbook"></a>Classeur Azure DDoS Protection
 
-Vous pouvez utiliser ce modèle Azure Resource Manager (ARM) pour déployer un classeur d’analyse des attaques. Ce classeur vous permet de visualiser les données d’attaque sur plusieurs panneaux filtrables pour comprendre facilement ce qui est en jeu. 
+Vous pouvez utiliser [ce modèle Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) pour déployer un classeur d’analyse des attaques. Ce classeur vous permet de visualiser les données d’attaque sur plusieurs panneaux filtrables pour comprendre facilement ce qui est en jeu. 
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 

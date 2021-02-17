@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/08/2020
+ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2f5f653fdaf9df5d1bb2cf87d06047510ad46d7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856713"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627697"
 ---
 1. Sélectionnez **Connecter des sites VPN** pour ouvrir la page **Connecter des sites**.
 
@@ -26,13 +26,13 @@ ms.locfileid: "91856713"
    * Sélectionnez l’option appropriée pour **Propager l’itinéraire par défaut**. L’option **Activer** permet au hub virtuel de propager un itinéraire par défaut appris à cette connexion. Cet indicateur active la propagation de l’itinéraire par défaut à une connexion uniquement si l’itinéraire par défaut est déjà appris par le hub Virtual WAN suite au déploiement d’un pare-feu dans le hub, ou si le tunneling forcé est activé sur un autre site connecté. L’itinéraire par défaut ne provient pas du hub Virtual WAN.
 
 2. Sélectionnez **Connecter**.
-3. En quelques minutes, le site affiche la connexion et l’état de la connectivité.
+3. Au bout de quelques minutes, le site affiche la connexion et l’état de la connectivité.
 
-   ![Capture d’écran montrant une connexion de site à site VPN et un état de connectivité.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![Capture d’écran montrant une connexion de site à site et un état de connectivité.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
-   **État de la connexion :** Il s’agit de l’état de la ressource Azure pour la connexion qui connecte le site VPN à la passerelle VPN du hub Azure. Une fois cette opération de plan de contrôle réussie, la passerelle VPN Azure et le périphérique VPN local continuent d’établir la connectivité.
+   **État de la connexion :** Il s’agit de l’état de la ressource Azure pour la connexion qui connecte le site VPN à la passerelle VPN du hub Azure. Une fois cette opération de plan de contrôle réussie, la passerelle VPN Azure et le périphérique VPN local continuent d’établir la connectivité.
 
-   **État de la connectivité :** Il s’agit de l’état de connectivité réel (chemin d’accès aux données) entre la passerelle VPN d’Azure dans le hub et le site VPN. Il peut afficher l’un des états suivants :
+   **État de la connectivité :** Il s’agit de l’état de la connectivité (chemin des données) entre la passerelle VPN Azure dans le hub et le site VPN. Il peut afficher l’un des états suivants :
 
     * **Inconnue** : Cet état est généralement observé si les systèmes principaux travaillent à la transition vers un autre état.
     * **Connexion en cours** : La passerelle VPN Azure tente d’accéder au site VPN local réel.

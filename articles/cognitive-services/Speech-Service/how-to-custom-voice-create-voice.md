@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: b59d9ebf55f7a4c02891a782b7271eec2f521576
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663279"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524513"
 ---
 # <a name="create-a-custom-voice"></a>Créer une voix personnalisée Custom Voice
 
@@ -52,17 +52,21 @@ Le tableau suivant présente les états de traitement des jeux de données impor
 
 Une fois la validation terminée, le nombre total d’énoncés correspondants apparaît pour chacun des jeux de données dans la colonne **Énoncés**. Si le type de données que vous avez sélectionné implique une longue segmentation audio, cette colonne ne reflètera que les énoncés segmentés automatiquement à partir de vos transcriptions ou avec le service de transcription vocale. Vous pouvez télécharger la suite du jeu de données validé pour voir les résultats détaillés des énoncés importés et les transcriptions associées. Remarque : la segmentation audio longue durée peut prendre plus d’une heure dans le cadre du traitement des données.
 
-Avec des jeux de données en-US et zh-CN, vous pouvez télécharger la suite d’un rapport pour vérifier les scores de prononciation et le niveau de bruit de chacun de vos enregistrements. Le score de prononciation est compris entre 0 et 100. Normalement, un score inférieur à 70 indique une erreur de prononciation ou un problème de correspondance du script. Un accent marqué peut réduire votre score de prononciation et avoir un impact sur la voix numérique générée.
+Dans la vue détaillée des données, vous pouvez vérifier plus précisément les scores de prononciation et le niveau de bruit de chacun de vos jeux de données. Le score de prononciation est compris entre 0 et 100. Normalement, un score inférieur à 70 indique une erreur de prononciation ou un problème de correspondance du script. Un accent marqué peut réduire votre score de prononciation et avoir un impact sur la voix numérique générée.
 
 Un rapport signal/bruit (SNR) supérieur indique un bruit plus faible dans votre contenu audio. Vous pouvez généralement atteindre un SNR supérieur à 50 en effectuant les enregistrements dans un studio professionnel. Un contenu audio dont le SNR est inférieur à 20 peut entraîner un niveau de bruit conséquent dans la voix générée.
 
 N’hésitez pas à réenregistrer les énoncés affichant un faible score de prononciation ou un mauvais ratio signal / bruit. Si vous ne pouvez pas réenregistrer, vous pouvez exclure ces énoncés de votre jeu de données.
 
+> [!NOTE]
+> Si vous utilisez une voix neuronale personnalisée, vous devez enregistrer votre voix professionnelle sous l’onglet **Voix professionnelle**. Quand vous préparez votre script d’enregistrement, veillez à inclure la phrase ci-dessous pour recueillir le consentement de la voix professionnelle à utiliser ses données vocales pour créer un modèle vocal TTS et générer une voix synthétique. « Je, soussigné(e) [indiquez votre nom et votre prénom], avoir compris que les enregistrements de ma voix seront utilisés par [indiquez le nom de la société] pour créer et utiliser une version synthétique de ma voix. »
+Cette phrase servira à vérifier si les enregistrements dans vos jeux de données d’entraînement sont réalisés par la personne qui a donné son consentement. [Découvrez ici davantage d’informations sur le traitement de vos données et sur la vérification des voix professionnelles](https://aka.ms/CNV-data-privacy). 
+
 ## <a name="build-your-custom-voice-model"></a>Créer un modèle vocal personnalisé
 
 Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer votre modèle vocal personnalisé.
 
-1.  Accédez à **Synthèse vocale > Custom Voice > [nom du projet] > Entraînement en cours**.
+1.  Accédez à **Synthèse vocale > Custom Voice > [nom du projet] > Modèle**.
 
 2.  Cliquez sur **Train model**.
 
@@ -72,15 +76,22 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer vot
 
     Le champ **Description** sert souvent à enregistrer les noms des jeux de données qui ont été utilisés pour créer le modèle.
 
-4.  Sur la page **Sélectionner les données d’apprentissage**, choisissez le ou les jeux de données à utiliser pour l’apprentissage. Vérifiez le nombre d’énoncés avant de les envoyer. Le nombre d’énoncés de départ est indifférent pour les modèles vocaux en-US et zh-CN. Pour les autres paramètres régionaux, il faut sélectionner plus de 2 000 énoncés pour pouvoir entraîner une voix.
+4.  Sur la page **Sélectionner les données d’apprentissage**, choisissez le ou les jeux de données à utiliser pour l’apprentissage. Vérifiez le nombre d’énoncés avant de les envoyer. Vous pouvez commencer avec le nombre d’énoncés que vous voulez pour les modèles vocaux en-US et zh-CN en utilisant la méthode d’entraînement « Adaptation ». Pour les autres paramètres régionaux, vous devez sélectionner plus de 2 000 énoncés pour entraîner une voix en utilisant un niveau standard, y compris les méthodes d’entraînement « Statistiques paramétriques » et « Concaténation », et plus de 300 énoncés pour entraîner une voix neuronale personnalisée. 
 
     > [!NOTE]
     > Les noms audio en double seront retirés de l’apprentissage. Veillez à ce que les jeux de données sélectionnés ne comportent pas les mêmes noms audio dans plusieurs fichiers .zip.
 
     > [!TIP]
-    > Il est nécessaire d’utiliser des jeux de données provenant du même orateur pour obtenir des résultats de qualité. Si les jeux de données soumis pour l’apprentissage contiennent au total moins de 6 000 énoncés distincts, le modèle vocal sera entraîné suivant la technique de synthèse paramétrique statistique. Dans le cas où les données d’apprentissage dépassent 6 000 énoncés distincts, le processus d’apprentissage qui se déclenchera utilisera la technique de synthèse concaténative. La technologie de concaténation donne normalement des résultats vocaux plus naturels et plus fidèles. [Contactez l’équipe Custom Voice](https://go.microsoft.com/fwlink/?linkid=2108737) si vous souhaitez entraîner un modèle avec la dernière technologie de synthèse vocale neuronale, capable de produire une voix numérique équivalente aux [voix neuronales](language-support.md#neural-voices) proposées au public.
+    > Il est nécessaire d’utiliser des jeux de données provenant du même orateur pour obtenir des résultats de qualité. La taille des données d’entraînement requise est différente selon la méthode d’entraînement utilisée. Pour entraîner un modèle avec la méthode « Statistiques paramétriques », il faut prévoir 2 000 énoncés distincts au minimum. Il faut au moins 6 000 énoncés avec la méthode « Concaténation », alors qu’il en faut 300 avec la méthode « Neuronale ».
 
-5.  Cliquez sur **Entraîner** pour commencer à créer votre modèle vocal.
+5. Sélectionnez la **méthode d’entraînement** à l’étape suivante. 
+
+    > [!NOTE]
+    > Si vous souhaitez entraîner une voix neuronale, vous devez spécifier un profil de voix professionnelle avec le fichier de consentement audio fourni par la voix professionnelle qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal personnalisé. La voix neuronale personnalisée est disponible avec un accès limité. Veillez à bien comprendre les [conditions de l’IA responsable](https://aka.ms/gating-overview) et [demandez l’accès ici](https://aka.ms/customneural). 
+    
+    Dans cette page, vous pouvez également choisir de charger votre script à des fins de test. Le script de test doit être un fichier .txt d’une taille inférieure à 1 Mo. ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE et UTF-16-BE sont des formats d’encodage pris en charge. Chaque paragraphe de l’énoncé produira fera l’objet d’un audio distinct. Si vous préférez combiner toutes les phrases dans un seul audio, incluez-les toutes dans un même paragraphe. 
+
+6. Cliquez sur **Entraîner** pour commencer à créer votre modèle vocal.
 
 La table Training (Entraînement) comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état : Processing, Succeeded, Failed (En cours de traitement, Réussite, Échec).
 
@@ -92,10 +103,13 @@ L’état indiqué reflète le processus de conversion du jeu de données en mod
 | Opération réussie | Le modèle vocal a été créé et peut être déployé. |
 | Échec | L’apprentissage du modèle vocal a échoué pour plusieurs raisons possibles, par exemple des problèmes inédits de données ou de réseau. |
 
-Le temps d’apprentissage varie selon le volume de données audio traitées. Il varie généralement d’environ 30 minutes pour plusieurs centaines d’énoncés à 40 heures pour 20 000 énoncés. Une fois l’apprentissage de votre modèle réussi, vous pouvez commencer à le tester.
+La durée de l’entraînement varie en fonction du volume des données audio traitées et de la méthode d’entraînement que vous avez sélectionnée. Elle peut aller de 30 minutes à 40 heures. Une fois l’apprentissage de votre modèle réussi, vous pouvez commencer à le tester. 
 
 > [!NOTE]
 > Les utilisateurs disposant d’un abonnement gratuit (F0) peuvent entraîner une seule police de la voix à la fois. Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, en entraîner trois simultanément. Si vous atteignez la limite, attendez au moins la fin de la formation de l’une de vos polices de la voix, puis réessayez.
+
+> [!NOTE]
+> L’entraînement des voix neuronales personnalisées n’est pas gratuit. Consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) ici. 
 
 > [!NOTE]
 > Le nombre maximal de modèles vocaux qu’il est autorisé d’entraîner par abonnement est de 10 pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 100 pour ceux qui disposent d’un abonnement standard (S0).
@@ -104,32 +118,27 @@ Si vous utilisez la fonctionnalité d’entraînement de voix neuronale, vous po
 
 ## <a name="test-your-voice-model"></a>Tester un modèle vocal
 
-Une fois votre police de la voix créée, vous pouvez la tester avant de procéder à son déploiement.
+Chaque formation génère automatiquement 100 exemples de fichiers audio pour vous aider à tester le modèle. Une fois votre modèle vocal créé, vous pouvez le tester avant de procéder à son déploiement.
 
-1.  Accédez à **Synthèse vocale > Custom Voice > [nom du projet] > Test en cours**.
+1.  Accédez à **Synthèse vocale > Custom Voice > [nom du projet] > Modèle**.
 
-2.  Cliquez sur **Ajouter un test**.
+2.  Cliquez sur le nom du modèle que vous souhaitez tester.
 
-3.  Sélectionnez un ou plusieurs modèles à tester.
+3.  Dans la page de détails du modèle, vous trouverez les exemples de fichiers audio sous l’onglet **Test**. 
 
-4.  Indiquez le texte qui devra être prononcé. Si vous avez choisi de tester plusieurs modèles en même temps, le même texte sera utilisé.
-
-    > [!NOTE]
-    > La langue de votre texte doit être identique à celle de votre police vocale. Seuls les modèles dont l’apprentissage a réussi peuvent être testés. Seul le texte brut est pris en charge à cette étape.
-
-5.  Cliquez sur **Créer**.
-
-Après avoir envoyé votre demande de test, vous revenez à la page de test. Le tableau inclut désormais une entrée qui correspond à votre nouvelle demande, ainsi que la colonne d’état. La synthétisation vocale peut prendre plusieurs minutes. Dès que la colonne d’état indique **Réussite**, vous pouvez lire la sortie audio ou télécharger l’entrée de texte (un fichier .txt) et la sortie audio (un fichier .wav) pour tester la qualité de cette dernière.
-
-Vous trouverez également les résultats des tests sur la page de détails de chacun des modèles sélectionnés pour le test. Accédez à l’onglet **Apprentissage** et cliquez sur le nom du modèle pour vous rendre sur la page de détails correspondante.
+La qualité de la voix dépend de divers facteurs, parmi lesquels la taille des données d’entraînement, la qualité de l’enregistrement, la précision du fichier de transcription, la correspondance entre la voix enregistrée dans les données d’entraînement et la personnalité de la voix créée pour le cas d’usage prévu, etc. [Consultez cette page pour en savoir plus sur les capacités et les limites de notre technologie, ainsi que sur les bonnes pratiques permettant d’améliorer la qualité de votre modèle](https://aka.ms/CNV-limits). 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Créer et utiliser un point de terminaison Custom Voice
 
 Une fois que vous avez créé et testé votre modèle vocal, déployez-le sur un point de terminaison de synthèse vocale personnalisé. Vous pouvez ensuite utiliser ce point de terminaison à la place du point de terminaison habituel quand vous effectuez des requêtes de synthèse vocale par le biais de l’API REST. Votre point de terminaison personnalisé ne peut être appelé que par l’abonnement ayant servi à déployer la police.
 
-Pour créer un nouveau point de terminaison Custom Voice, accédez à **Synthèse vocale > Custom Voice > Déploiement**. Sélectionnez **Ajouter un point de terminaison** et entrez le **Nom** et la **Description** de votre point de terminaison personnalisé. Ensuite, sélectionnez le modèle vocal personnalisé que vous souhaitez associer à ce point de terminaison.
+Pour créer un autre point de terminaison Custom Voice, accédez à **Synthèse vocale > Custom Voice > Point de terminaison**. Sélectionnez **Ajouter un point de terminaison** et entrez le **Nom** et la **Description** de votre point de terminaison personnalisé. Ensuite, sélectionnez le modèle vocal personnalisé que vous souhaitez associer à ce point de terminaison.
 
 Dès que vous avez cliqué sur le bouton **Ajouter** dans la table du point de terminaison, l’entrée de votre nouveau point de terminaison apparaît. L’instanciation d’un nouveau point de terminaison peut prendre quelques minutes. Quand l’état du déploiement affiche **Succeeded** (Réussite), le point de terminaison est prêt à être utilisé.
+
+Vous pouvez **interrompre** et **reprendre** un point de terminaison que vous utilisez par intermittence. Quand un point de terminaison est réactivé après avoir été interrompu, son URL ne change pas, ce qui vous évite d’avoir à modifier le code dans vos applications. 
+
+Vous pouvez également mettre à jour le point de terminaison pour utiliser un nouveau modèle. Si vous changez de modèle, assurez-vous que le nouveau modèle a le même nom que le modèle à mettre à jour. 
 
 > [!NOTE]
 > Les utilisateurs disposant d’un abonnement gratuit (F0) ne peuvent déployer qu’un seul modèle à la fois. Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, créer jusqu’à 50 points de terminaison, chacun ayant sa propre voix personnalisée.

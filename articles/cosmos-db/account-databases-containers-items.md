@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341363"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627329"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modèle de ressource Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB est une plateforme en tant que service (Paas) entièrement gérée. Pour commencer à utiliser Azure Cosmos DB, vous devez initialement créer un compte Azure Cosmos dans votre abonnement Azure et les bases de données, les conteneurs et les éléments qu’il contient. Cet article décrit le modèle de ressource Azure Cosmos DB et les différentes entités dans la hiérarchie du modèle de ressource.
 
-Le compte Azure Cosmos est une unité fondamentale de distribution mondiale et de haute disponibilité. Votre compte Azure Cosmos contient un nom DNS unique et vous pouvez gérer un compte à l’aide du portail Azure, Azure CLI ou à l’aide de différents Kits de développement logiciel (SDK) spécifiques à une langue. Pour en savoir plus, consultez [Comment gérer votre compte Azure Cosmos](how-to-manage-database-account.md). Pour distribuer vos données et votre débit dans plusieurs régions Azure à l’échelle mondiale, vous pouvez ajouter des régions Azure à votre compte et en supprimer à tout moment. Vous pouvez configurer votre compte pour une seule région ou pour plusieurs régions d’écriture. Pour en savoir plus, consultez [comment ajouter et supprimer des régions Azure sur votre compte](how-to-manage-database-account.md). Vous pouvez configurer le [niveau de cohérence par défaut](consistency-levels.md) sur un compte.
+Le compte Azure Cosmos est une unité fondamentale de distribution mondiale et de haute disponibilité. Votre compte Azure Cosmos contient un nom DNS unique et vous pouvez gérer un compte à l’aide du portail Azure, d’Azure CLI ou à l’aide de différents Kits de développement logiciel (SDK) spécifiques à une langue. Pour en savoir plus, consultez [Comment gérer votre compte Azure Cosmos](how-to-manage-database-account.md). Pour distribuer vos données et votre débit dans plusieurs régions Azure à l’échelle mondiale, vous pouvez ajouter des régions Azure à votre compte et en supprimer à tout moment. Vous pouvez configurer votre compte pour une seule région ou pour plusieurs régions d’écriture. Pour en savoir plus, consultez [comment ajouter et supprimer des régions Azure sur votre compte](how-to-manage-database-account.md). Vous pouvez configurer le [niveau de cohérence par défaut](consistency-levels.md) sur un compte.
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Éléments d’un compte Azure Cosmos
 
-Le conteneur Azure Cosmos est l’unité d’extensibilité de base. Vous pouvez pratiquement avoir un débit approvisionné illimité (RU/s) et un stockage sur un conteneur. Azure Cosmos DB partitionne votre conteneur en toute transparence à l’aide de la clé de partition logique que vous spécifiez pour mettre à l’échelle votre débit approvisionné et votre stockage.
+Un conteneur Azure Cosmos est l’unité d’extensibilité de base. Vous pouvez pratiquement avoir un débit approvisionné illimité (RU/s) et un stockage sur un conteneur. Azure Cosmos DB partitionne votre conteneur en toute transparence à l’aide de la clé de partition logique que vous spécifiez pour mettre à l’échelle votre débit approvisionné et votre stockage.
 
 Actuellement, vous pouvez créer jusqu’à 50 comptes Azure Cosmos dans un abonnement Azure (il s’agit d’une limite logicielle qui peut être augmentée en envoyant une demande au support). Un seul compte Azure Cosmos peut gérer une quantité de données et un débit provisionné pratiquement illimités. Pour gérer vos données et votre débit provisionné, vous pouvez créer une ou plusieurs bases de données Azure Cosmos pour votre compte, puis, au sein de ces bases de données, créer un ou plusieurs conteneurs. L’image suivante illustre la hiérarchie de ces différents éléments dans un compte Azure Cosmos :
 
@@ -63,9 +63,9 @@ Un conteneur Azure Cosmos correspond à l’unité de scalabilité du débit et 
 
 Lorsque vous créez un conteneur, vous configurez le débit avec l’un des modes suivants :
 
-* Mode **Débit provisionné dédié**  : Le débit provisionné pour un conteneur lui est exclusivement réservé ; ce débit est défini par les contrats de niveau de service (SLA). Pour plus d’informations, consultez [Approvisionnement du débit sur un conteneur](how-to-provision-container-throughput.md).
+* Mode **Débit provisionné dédié** : Le débit provisionné pour un conteneur lui est exclusivement réservé ; ce débit est défini par les contrats de niveau de service (SLA). Pour plus d’informations, consultez [Approvisionnement du débit sur un conteneur](how-to-provision-container-throughput.md).
 
-* Mode **Débit provisionné partagé**  : ces conteneurs partagent le débit provisionné avec d’autres conteneurs de la même base de données (à l’exclusion des conteneurs qui ont été configurés pour le débit provisionné dédié). En d’autres termes, le débit provisionné pour la base de données est partagé entre tous les conteneurs « débit partagé ». Pour plus d’informations, consultez [Approvisionnement du débit sur une base de données](how-to-provision-database-throughput.md).
+* Mode **Débit provisionné partagé** : ces conteneurs partagent le débit provisionné avec d’autres conteneurs de la même base de données (à l’exclusion des conteneurs qui ont été configurés pour le débit provisionné dédié). En d’autres termes, le débit provisionné pour la base de données est partagé entre tous les conteneurs « débit partagé ». Pour plus d’informations, consultez [Approvisionnement du débit sur une base de données](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > Vous pouvez configurer le débit partagé et dédié uniquement lors de la création de la base de données et du conteneur. Pour passer du mode de débit dédié au mode de débit partagé (et inversement) une fois le conteneur créé, vous devez créer un conteneur et migrer les données vers ce nouveau conteneur. Vous pouvez migrer les données à l’aide de la fonctionnalité Flux de modification d’Azure Cosmos DB.

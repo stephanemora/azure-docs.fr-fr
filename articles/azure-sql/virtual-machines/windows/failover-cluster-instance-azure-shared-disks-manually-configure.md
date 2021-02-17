@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70f4ac69721db57aa06c0d8fda12189f43e79686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736410"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537828"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Créer une instance FCI avec des disques partagés Azure (SQL Server sur les machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Pour plus d’informations, consultez une présentation de [l’instance FCI ave
 Avant de suivre les instructions décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
 - Un abonnement Azure. Démarrer [gratuitement](https://azure.microsoft.com/free/). 
-- [Au moins deux machines virtuelles Windows Azure](failover-cluster-instance-prepare-vm.md). Les [groupes à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md) et les [groupes de placement de proximité](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPG) sont pris en charge pour SSD Premium et les [zones de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) sont prises en charge pour Disques Ultra. Si vous utilisez un groupe PPG, tous les nœuds doivent exister dans le même groupe.
+- [Au moins deux machines virtuelles Windows Azure](failover-cluster-instance-prepare-vm.md). Les [groupes à haute disponibilité](../../../virtual-machines/windows/tutorial-availability-sets.md) et les [groupes de placement de proximité](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPG) sont pris en charge pour SSD Premium et les [zones de disponibilité](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) sont prises en charge pour Disques Ultra. Tous les nœuds doivent exister dans le même [groupe de placement de proximité](../../../virtual-machines/co-location.md#proximity-placement-groups).
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
 - La dernière version de [PowerShell](/powershell/azure/install-az-ps). 
 
