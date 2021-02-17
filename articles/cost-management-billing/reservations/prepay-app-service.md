@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 89e0c62b580c0c354fc7277e61b452005a86e3d9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577399"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374539"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Réaliser des économies avec les instances réservées Azure App Service
 
@@ -37,24 +37,12 @@ Vous pouvez utiliser les suggestions de réservation pour déterminer les réser
 - Vous pouvez utiliser les API pour obtenir des suggestions d’achat tant pour l’étendue partagée que pour l’étendue d’un abonnement unique. Pour plus d’informations, voir [API de suggestion d’achat d’instance réservée pour les entreprises](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Pour les clients Accord Entreprise (EA) et Microsoft Customer Agreement (MCA), des suggestions d’achat pour des étendues d’abonnement simples et partagées sont disponibles dans le [pack de contenu Power BI Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
-#### <a name="instance-size-flexibility-setting"></a>Paramètre de flexibilité de la taille d’instance
-
-Le paramètre de flexibilité de la taille d’instance détermine les services qui obtiennent les remises d’instance réservée.
-
-Que le paramètre soit activé ou désactivé, les remises de réservation s’appliquent automatiquement à toute utilisation d’instance réservée Premium v3.
-
 ### <a name="analyze-your-usage-information"></a>Analyser vos informations d’utilisation
 
 Pour faciliter la détermination des réservations à acheter, vous devez analyser vos informations d’utilisation. Des données d’utilisation sont disponibles dans le fichier d’utilisation et les API. Combinez-les pour déterminer la réservation à acheter. Pour déterminer la quantité de réservations à acheter, identifiez des instances Premium v3 très utilisées quotidiennement.
 
 Votre fichier d’utilisation indique vos frais par période de facturation et l’utilisation quotidienne. Pour plus d’informations sur le téléchargement de votre fichier d’utilisation, consultez [Afficher et télécharger vos informations d’utilisation et vos frais Azure](../understand/download-azure-daily-usage.md). Ensuite, en utilisant les informations du fichier d’utilisation, vous pouvez [déterminer la réservation à acheter](determine-reservation-purchase.md).
 
-### <a name="purchase-restriction-considerations"></a>Considérations en matière de restriction d’achat
-
-Les remises sur réservation ne s’appliquent pas aux instances Premium v3 suivantes :
-
-- **Instances en préversion et promotion** : n’importe quelle série ou taille d’instance réservée Premium v3 en préversion ou qui utilise un compteur promotionnel.
-- **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Acheter une instance réservée Premium v3
 
@@ -79,7 +67,6 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 | Étendue | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement. </li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul> |
 | Région | Région Azure couverte par la réservation. |
 | Taille des instances réservées Premium v3 | Taille des instances réservées Premium v3. |
-| Optimiser pour | La flexibilité de la taille d’instance réservée Premium v3 est sélectionnée par défaut. Cliquez sur **Paramètres avancés** pour changer la valeur de flexibilité de taille d’instance afin d’appliquer la remise de réservation à d’autres instances réservées Premium v3 dans le même [groupe de tailles d’instance réservée Premium v3](../../virtual-machines/reserved-vm-instance-size-flexibility.md). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cela vous offre une assurance supplémentaire quant à votre capacité à lancer les instances réservées Premium v3 quand vous en avez besoin. La priorité de capacité est uniquement disponible si l’étendue de réservation comprend un seul abonnement. |
 | Terme | Une année ou trois ans. Une durée de 5 ans est également disponible uniquement pour les instances réservées Premium v3 HBv2. |
 | Quantité | Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances réservées Premium v3 en cours d’exécution pouvant bénéficier de la remise. Par exemple, si vous exécutez 10 instances réservées Premium v3 Standard\_D2 dans la région USA Est, vous devez spécifier 10 comme quantité afin d’optimiser l’avantage pour toutes les instances réservées Premium v3 en cours d’exécution. |
 
