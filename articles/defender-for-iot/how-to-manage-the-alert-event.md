@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803517"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508741"
 ---
 # <a name="manage-alert-events"></a>Gérer les événements d’alerte
 
@@ -45,7 +45,7 @@ Dans certaines situations, il peut arriver que vous ne souhaitiez pas qu’un ca
 
 Après atténuation ou enquête, vous pouvez demander au capteur de masquer l’alerte en sélectionnant **Reconnaître**. L’alerte sera de nouveau déclenchée si l’événement est de nouveau détecté.
 
-Pour masquer l’alerte :
+Pour effacer l’alerte :
 
   - Sélectionnez **Reconnaître**.
 
@@ -70,9 +70,9 @@ Dans ces situations, l’apprentissage n’est pas disponible. Lorsqu’il n’e
 
 ### <a name="what-traffic-is-muted"></a>Quel type de trafic est désactivé ?
 
-Un scénario de désactivation inclut les appareils réseau et le trafic détectés pour un événement. Le titre de l’alerte décrit le trafic en cours de désactivation.
+Un scénario de désactivation inclut les appareils réseau et le trafic détecté pour un événement. Le titre de l’alerte décrit le trafic en cours de désactivation.
 
-Le ou les appareils en cours de désactivation apparaissent sous forme d’images dans l’alerte. Si deux appareils apparaissent, le trafic entre eux est désactivé.
+Le ou les appareils en cours de désactivation apparaissent sous forme d’images dans l’alerte. Si deux appareils apparaissent, le trafic d’alerte spécifique entre eux est désactivé.
 
 **Exemple 1**
 

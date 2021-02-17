@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4a0f43d93e848ee98560811d921e6b1168f35828
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225763"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103802"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion à la Plateforme d'identités Microsoft dans une application web ASP.NET
 
@@ -38,7 +38,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications</a>.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
 >
@@ -47,7 +47,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
-> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 > 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
@@ -59,7 +59,7 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Cet exemple de code du guide de démarrage rapide nécessite l’**URI de redirection** `https://localhost:44368/`.
+> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, ajoutez l’**URI de redirection** `https://localhost:44368/`.
 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
@@ -179,7 +179,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Le paramètre `ValidateIssuer = false` est une simplification destinée aux seules fins de ce guide de démarrage rapide. Dans une application réelle, vous auriez à valider l’émetteur.
+> Le paramètre `ValidateIssuer = false` est une simplification destinée aux seules fins de ce guide de démarrage rapide. Dans les applications réelles, validez l’émetteur.
 > Pour savoir comment procéder, consultez les exemples.
 
 ### <a name="initiate-an-authentication-challenge"></a>Initier une demande d’authentification

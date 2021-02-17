@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940050"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989073"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurer des réseaux virtuels Azure Cognitive Services
 
@@ -59,7 +59,7 @@ Les réseaux virtuels (VNET) sont pris en charge dans les [régions où les serv
 
 
 > [!NOTE]
-> Si vous utilisez LUIS, la balise **CognitiveServicesManagement** vous permet uniquement d’utiliser le service à l’aide du kit de développement logiciel (SDK) ou de l’API REST. Pour accéder au portail LUIS et l’utiliser à partir d’un réseau virtuel, vous devez utiliser les balises suivantes :  
+> Si vous utilisez LUIS ou les services Speech, l’étiquette **CognitiveServicesManagement** vous permet uniquement d’utiliser le service à l’aide du kit de développement logiciel (SDK) ou de l’API REST. Pour accéder au portail LUIS et/ou à Speech Studio et les utiliser à partir d’un réseau virtuel, vous devez utiliser les étiquettes suivantes :  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les ressource
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Accorder l’accès à partir d’un réseau virtuel
 
@@ -169,7 +169,7 @@ Chaque ressource Cognitive Services prend en charge jusqu’à 100 règles de r
 
 ### <a name="required-permissions"></a>Autorisations requises
 
-Pour appliquer une règle de réseau virtuel à une ressource Cognitive Services, l’utilisateur doit disposer des autorisations appropriées pour les sous-réseaux à ajouter. L’autorisation nécessaire correspond au rôle _Contributeur* par défaut ou au rôle *Contributeur Cognitive Services*. Les autorisations nécessaires peuvent également être ajoutées à des définitions de rôle personnalisées.
+Pour appliquer une règle de réseau virtuel à une ressource Cognitive Services, l’utilisateur doit disposer des autorisations appropriées pour les sous-réseaux à ajouter. L’autorisation nécessaire correspond au rôle *Contributeur* par défaut ou au rôle *Contributeur Cognitive Services*. Les autorisations nécessaires peuvent également être ajoutées à des définitions de rôle personnalisées.
 
 La ressource Cognitive Services et les réseaux virtuels auxquels l’accès est accordé peuvent se trouver dans des abonnements différents, y compris des abonnements appartenant à un autre locataire Azure AD.
 
@@ -325,10 +325,10 @@ Vous pouvez gérer les règles de réseau virtuel pour les ressources Cognitive 
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Veillez à [définir la règle par défaut](#change-the-default-network-access-rule) sur _*Refuser**, sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Accorder l’accès à partir d’une plage d’adresses IP Internet
 
@@ -472,10 +472,10 @@ Vous pouvez gérer les règles de réseau IP pour les ressources Cognitive Servi
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Veillez à [définir la règle par défaut](#change-the-default-network-access-rule) sur _*Refuser**, sinon les règles de réseau n’ont aucun effet.
+> [Définissez la règle par défaut](#change-the-default-network-access-rule) sur **Refuser**, sinon les règles de réseau n’ont aucun effet.
 
 ## <a name="use-private-endpoints"></a>Utiliser des points de terminaison privés
 

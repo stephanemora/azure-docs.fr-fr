@@ -1,27 +1,25 @@
 ---
 title: Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés aux connecteurs dans Azure Data Factory.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/07/2021
+ms.date: 02/08/2021
 ms.author: jingwang
-ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: fdc4bbd463c45fecfc9e3961e42f81ed93d820ae
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 63a690ffaaefc506de296d43e7de13020fbd584a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366923"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Résoudre les problèmes liés aux connecteurs dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explore les façons courantes de résoudre les problèmes liés aux connecteurs dans Azure Data Factory.
-  
+
 ## <a name="azure-blob-storage"></a>Stockage Blob Azure
 
 ### <a name="error-code-azurebloboperationfailed"></a>Code d’erreur : AzureBlobOperationFailed
@@ -109,7 +107,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
             
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (API SQL)
 
-### <a name="error-code--cosmosdbsqlapioperationfailed"></a>Code d’erreur :  CosmosDbSqlApiOperationFailed
+### <a name="error-code-cosmosdbsqlapioperationfailed"></a>Code d’erreur : CosmosDbSqlApiOperationFailed
 
 - **Message** : `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
@@ -161,17 +159,13 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 - **Message** : `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
-- **Cause** : Si Azure Data Lake Storage Gen2 lève cette erreur, l’opération a échoué.
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Recommandation** :  Consultez le message d’erreur détaillé généré par Azure Data Lake Storage Gen2. Si l’erreur est un échec temporaire, recommencez l’opération. Si vous avez besoin d’aide supplémentaire, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur.
-
-- **Cause** : Si le message d’erreur contient la chaîne « Forbidden », le principal du service ou l’identité managée que vous utilisez ne dispose peut-être pas des autorisations suffisantes pour accéder à Azure Data Lake Storage Gen2.
-
-- **Recommandation** :  Pour résoudre cette erreur, consultez [Copier et transformer des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication).
-
-- **Cause** : Si le message d’erreur contient la chaîne « InternalServerError », l’erreur est retournée par Azure Data Lake Storage Gen2.
-
-- **Recommandation** :  L’erreur peut être due à un échec temporaire. Si c’est le cas, recommencez l’opération. Si le problème persiste, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur.
+  | Analyse de la cause                                               | Recommandation                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | Si Azure Data Lake Storage Gen2 lève une erreur, une opération a échoué.| Consultez le message d’erreur détaillé généré par Azure Data Lake Storage Gen2. Si l’erreur est un échec temporaire, recommencez l’opération. Si vous avez besoin d’aide supplémentaire, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur. |
+  | Si le message d’erreur contient la chaîne « Forbidden », le principal du service ou l’identité managée que vous utilisez ne dispose peut-être pas des autorisations suffisantes pour accéder à Azure Data Lake Storage Gen2. | Pour résoudre cette erreur, consultez [Copier et transformer des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication). |
+  | Si le message d’erreur contient la chaîne « InternalServerError », l’erreur est retournée par Azure Data Lake Storage Gen2. | L’erreur peut être due à un échec temporaire. Si c’est le cas, recommencez l’opération. Si le problème persiste, contactez le support Stockage Azure et fournissez l’ID de la requête indiqué dans le message d’erreur. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>La requête au compte Azure Data Lake Storage Gen2 a provoqué une erreur de dépassement de délai
 
@@ -204,7 +198,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
                   
 ## <a name="azure-files-storage"></a>Stockage Azure Files
 
-### <a name="error-code--azurefileoperationfailed"></a>Code d’erreur :  AzureFileOperationFailed
+### <a name="error-code-azurefileoperationfailed"></a>Code d’erreur : AzureFileOperationFailed
 
 - **Message** : `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
 
@@ -215,55 +209,34 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure Synapse Analytics, Azure SQL Database et SQL Server
 
-### <a name="error-code--sqlfailedtoconnect"></a>Code d’erreur :  SqlFailedToConnect
+### <a name="error-code-sqlfailedtoconnect"></a>Code d’erreur : SqlFailedToConnect
 
 - **Message** : `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Cause** : Pour Azure SQL, si le message d’erreur contient la chaîne « SqlErrorNumber=47073 », cela signifie que l’accès au réseau public est refusé dans le paramètre de connectivité.
-
-- **Recommandation** : Dans le pare-feu Azure SQL, définissez l’option **Refuser l’accès au réseau public** sur *Non*. Pour plus d’informations, consultez les [paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
-
-- **Cause** : Pour Azure SQL, si le message d’erreur contient un code d’erreur SQL, par exemple « SqlErrorNumber=[errorcode] », consultez le guide de résolution des problèmes Azure SQL.
-
-- **Recommandation** : Pour obtenir une recommandation, consultez [Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues).
-
-- **Cause** : Vérifiez si le port 1433 figure sur la liste verte du pare-feu.
-
-- **Recommandation** : Pour plus d’informations, consultez [Ports utilisés par SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-).
-
-- **Cause** : Si le message d’erreur contient la chaîne « SqlException »,SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué.
-
-- **Recommandation** :  Pour plus d’informations, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL.
-
-- **Cause** : S’il s’agit d’un problème temporaire (par exemple, une connexion réseau instable), ajoutez une nouvelle tentative dans la stratégie d’activité à atténuer.
-
-- **Recommandation** :  Pour plus d’informations, consultez [Pipelines et activités dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy).
-
-- **Cause** : Si le message d’erreur contient la chaîne « Le client avec l’adresse IP "…" n’est pas autorisé à accéder au serveur » et que vous essayez de vous connecter à Azure SQL Database, ce problème est généralement causé par un problème de pare-feu Azure SQL Database.
-
-- **Recommandation** :  Dans Configuration du pare-feu Azure SQL Server, activez l’option **Autoriser les services et les ressources Azure à accéder à ce serveur**. Pour plus d’informations, consultez [Règles de pare-feu IP Azure SQL Database et Azure Synapse](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-
-
-### <a name="error-code--sqloperationfailed"></a>Code d’erreur :  SqlOperationFailed
+    | Analyse de la cause                                               | Recommandation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Pour Azure SQL, si le message d’erreur contient la chaîne « SqlErrorNumber=47073 », cela signifie que l’accès au réseau public est refusé dans le paramètre de connectivité. | Dans le pare-feu Azure SQL, définissez l’option **Refuser l’accès au réseau public** sur *Non*. Pour plus d’informations, consultez les [paramètres de connectivité Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
+    | Pour Azure SQL, si le message d’erreur contient un code d’erreur SQL, par exemple « SqlErrorNumber=[errorcode] », consultez le guide de résolution des problèmes Azure SQL. | Pour obtenir une recommandation, consultez [Résolution des problèmes de connectivité et autres erreurs avec Azure SQL Database et Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues). |
+    | Vérifiez si le port 1433 figure sur la liste verte du pare-feu. | Pour plus d’informations, consultez [Ports utilisés par SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | Si le message d’erreur contient la chaîne « SqlException »,SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué. | Pour plus d’informations, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
+    | S’il s’agit d’un problème temporaire (par exemple, une connexion réseau instable), ajoutez une nouvelle tentative dans la stratégie d’activité à atténuer. | Pour plus d’informations, consultez [Pipelines et activités dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy). |
+    | Si le message d’erreur contient la chaîne « Le client avec l’adresse IP "…" n’est pas autorisé à accéder au serveur » et que vous essayez de vous connecter à Azure SQL Database, l’erreur est généralement causée par un problème de pare-feu Azure SQL Database. | Dans Configuration du pare-feu Azure SQL Server, activez l’option **Autoriser les services et les ressources Azure à accéder à ce serveur**. Pour plus d’informations, consultez [Règles de pare-feu IP Azure SQL Database et Azure Synapse](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure). |
+    
+### <a name="error-code-sqloperationfailed"></a>Code d’erreur : SqlOperationFailed
 
 - **Message** : `A database operation failed. Please search error to get more details.`
 
-- **Cause** : Si le message d’erreur contient la chaîne « SqlException », SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué.
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Recommandation** :  Si l’erreur SQL n’est pas claire, essayez de régler la base de données sur le niveau de compatibilité « 150 » le plus récent. Cela peut lever des erreurs SQL de dernière version. Pour plus d’informations, consultez la [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
-
-    Pour plus d’informations sur la résolution des problèmes SQL, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL.
-
-- **Cause** : Si le message d’erreur contient la chaîne « PdwManagedToNativeInteropException », cela est généralement dû à une incompatibilité entre les tailles de colonne source et récepteur.
-
-- **Recommandation** :  Vérifiez la taille des colonnes source et récepteur. Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL.
-
-- **Cause** : Si le message d’erreur contient la chaîne « InvalidOperationException », cela est généralement dû à des données d’entrée non valides.
-
-- **Recommandation** :  Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie, qui peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
+    | Analyse de la cause                                               | Recommandation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Si le message d’erreur contient la chaîne « SqlException », SQL Database génère l’erreur indiquant qu’une opération spécifique a échoué. | Si l’erreur SQL n’est pas claire, essayez de régler la base de données sur le niveau de compatibilité « 150 » le plus récent. Cela peut lever des erreurs SQL de dernière version. Pour plus d’informations, consultez la [documentation](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Pour plus d’informations sur la résolution des problèmes SQL, effectuez une recherche par code d’erreur SQL dans [Erreurs du moteur de base de données](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
+    | Si le message d’erreur contient la chaîne « PdwManagedToNativeInteropException », cela est généralement dû à une incompatibilité entre les tailles de colonne source et récepteur. | Vérifiez la taille des colonnes source et récepteur. Si vous avez besoin d’aide supplémentaire, contactez le support Azure SQL. |
+    | Si le message d’erreur contient la chaîne « InvalidOperationException », cela est généralement dû à des données d’entrée non valides. | Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie, qui peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance). |
 
 
-### <a name="error-code--sqlunauthorizedaccess"></a>Code d’erreur :  SqlUnauthorizedAccess
+### <a name="error-code-sqlunauthorizedaccess"></a>Code d’erreur : SqlUnauthorizedAccess
 
 - **Message** : `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
@@ -272,7 +245,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez que le compte de connexion dispose des autorisations suffisantes pour accéder à la base de données SQL.
 
 
-### <a name="error-code--sqlopenconnectiontimeout"></a>Code d’erreur :  SqlOpenConnectionTimeout
+### <a name="error-code-sqlopenconnectiontimeout"></a>Code d’erreur : SqlOpenConnectionTimeout
 
 - **Message** : `Open connection to database timeout after '%timeoutValue;' seconds.`
 
@@ -281,7 +254,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Réessayez de mettre à jour la chaîne de connexion de service lié avec une valeur de délai d’attente de connexion plus importante.
 
 
-### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Code d’erreur :  SqlAutoCreateTableTypeMapFailed
+### <a name="error-code-sqlautocreatetabletypemapfailed"></a>Code d’erreur : SqlAutoCreateTableTypeMapFailed
 
 - **Message** : `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
@@ -290,7 +263,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Mettez à jour le type de colonne dans *mappages* ou créez manuellement la table du récepteur dans le serveur cible.
 
 
-### <a name="error-code--sqldatatypenotsupported"></a>Code d’erreur :  SqlDataTypeNotSupported
+### <a name="error-code-sqldatatypenotsupported"></a>Code d’erreur : SqlDataTypeNotSupported
 
 - **Message** : `A database operation failed. Check the SQL errors.`
 
@@ -303,7 +276,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Mettez à jour le type de colonne correspondant en type *datetime2* dans la table du récepteur.
 
 
-### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Code d’erreur :  SqlInvalidDbStoredProcedure
+### <a name="error-code-sqlinvaliddbstoredprocedure"></a>Code d’erreur : SqlInvalidDbStoredProcedure
 
 - **Message** : `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
@@ -312,7 +285,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Validez la procédure stockée à l’aide des outils SQL. Assurez-vous que la procédure stockée peut retourner des données.
 
 
-### <a name="error-code--sqlinvaliddbquerystring"></a>Code d’erreur :  SqlInvalidDbQueryString
+### <a name="error-code-sqlinvaliddbquerystring"></a>Code d’erreur : SqlInvalidDbQueryString
 
 - **Message** : `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
@@ -321,7 +294,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Validez la requête SQL à l’aide des outils SQL. Assurez-vous que la requête peut retourner des données.
 
 
-### <a name="error-code--sqlinvalidcolumnname"></a>Code d’erreur :  SqlInvalidColumnName
+### <a name="error-code-sqlinvalidcolumnname"></a>Code d’erreur : SqlInvalidColumnName
 
 - **Message** : `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
@@ -330,7 +303,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez la colonne dans la requête, *structure* dans le jeu de données et *mappages* dans l’activité.
 
 
-### <a name="error-code--sqlbatchwritetimeout"></a>Code d’erreur :  SqlBatchWriteTimeout
+### <a name="error-code-sqlbatchwritetimeout"></a>Code d’erreur : SqlBatchWriteTimeout
 
 - **Message** : `Timeouts in SQL write operation.`
 
@@ -339,7 +312,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Retentez l’opération. Si le problème persiste, contactez le support Azure SQL.
 
 
-### <a name="error-code--sqlbatchwritetransactionfailed"></a>Code d’erreur :  SqlBatchWriteTransactionFailed
+### <a name="error-code-sqlbatchwritetransactionfailed"></a>Code d’erreur : SqlBatchWriteTransactionFailed
 
 - **Message** : `SQL transaction commits failed.`
 
@@ -352,7 +325,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Réessayez l’activité et passez en revue les métriques du côté de la base de données SQL.
 
 
-### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Code d’erreur :  SqlBulkCopyInvalidColumnLength
+### <a name="error-code-sqlbulkcopyinvalidcolumnlength"></a>Code d’erreur : SqlBulkCopyInvalidColumnLength
 
 - **Message** : `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
@@ -361,7 +334,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Pour identifier la ligne qui a rencontré le problème, activez la fonctionnalité de tolérance de panne sur l’activité de copie. Cela peut rediriger les lignes problématiques vers le stockage pour une investigation plus poussée. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
 
 
-### <a name="error-code--sqlconnectionisclosed"></a>Code d’erreur :  SqlConnectionIsClosed
+### <a name="error-code-sqlconnectionisclosed"></a>Code d’erreur : SqlConnectionIsClosed
 
 - **Message** : `The connection is closed by SQL Database.`
 
@@ -480,7 +453,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="azure-table-storage"></a>Stockage de table Azure
 
-### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>Code d’erreur :  AzureTableDuplicateColumnsFromSource
+### <a name="error-code-azuretableduplicatecolumnsfromsource"></a>Code d’erreur : AzureTableDuplicateColumnsFromSource
 
 - **Message** : `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink.`
 
@@ -493,7 +466,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="db2"></a>DB2
 
-### <a name="error-code--db2driverrunfailed"></a>Code d’erreur :  DB2DriverRunFailed
+### <a name="error-code-db2driverrunfailed"></a>Code d’erreur : DB2DriverRunFailed
 
 - **Message** : `Error thrown from driver. Sql code: '%code;'`
 
@@ -504,7 +477,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="delimited-text-format"></a>Format de texte délimité
 
-### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Code d’erreur :  DelimitedTextColumnNameNotAllowNull
+### <a name="error-code-delimitedtextcolumnnamenotallownull"></a>Code d’erreur : DelimitedTextColumnNameNotAllowNull
 
 - **Message** : `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
@@ -513,26 +486,22 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez la première ligne et corrigez la valeur si elle est vide.
 
 
-### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Code d’erreur :  DelimitedTextMoreColumnsThanDefined
+### <a name="error-code-delimitedtextmorecolumnsthandefined"></a>Code d’erreur : DelimitedTextMoreColumnsThanDefined
 
 - **Message** : `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
-- **Cause** : Le nombre de colonnes de la ligne problématique est plus important que le nombre de colonnes de la première ligne. Cela peut être dû à un problème de données ou à des paramètres de délimiteur de colonne ou de guillemet incorrects.
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Recommandation** :  Récupérez le nombre de lignes dans le message d’erreur, vérifiez la colonne de la ligne et corrigez les données.
-
-- **Cause** : Si le nombre de colonnes attendu est « 1 » dans le message d’erreur, vous avez peut-être spécifié des paramètres de compression ou de mise en forme incorrects, ce qui a provoqué l’analyse incorrecte de vos fichiers par Data Factory.
-
-- **Recommandation** :  Vérifiez les paramètres de mise en forme pour vous assurer qu’ils correspondent à vos fichiers sources.
-
-- **Cause** : Si votre source est un dossier, il est possible que les fichiers du dossier spécifié aient un schéma différent.
-
-- **Recommandation** :  Assurez-vous que les fichiers dans le dossier spécifié ont un schéma identique.
+  | Analyse de la cause                                               | Recommandation                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | Le nombre de colonnes de la ligne problématique est plus important que le nombre de colonnes de la première ligne. Cela peut être dû à un problème de données ou à des paramètres de délimiteur de colonne ou de guillemet incorrects. | Récupérez le nombre de lignes dans le message d’erreur, vérifiez la colonne de la ligne et corrigez les données. |
+  | Si le nombre de colonnes attendu est « 1 » dans le message d’erreur, vous avez peut-être spécifié des paramètres de compression ou de mise en forme incorrects, ce qui a provoqué l’analyse incorrecte de vos fichiers par Data Factory. | Vérifiez les paramètres de mise en forme pour vous assurer qu’ils correspondent à vos fichiers sources. |
+  | Si votre source est un dossier, il est possible que les fichiers du dossier spécifié aient un schéma différent. | Assurez-vous que les fichiers dans le dossier spécifié ont un schéma identique. |
 
 
 ## <a name="dynamics-365-common-data-service-and-dynamics-crm"></a>Dynamics 365, Common Data Service et Dynamics CRM
 
-### <a name="error-code--dynamicscreateserviceclienterror"></a>Code d’erreur :  DynamicsCreateServiceClientError
+### <a name="error-code-dynamicscreateserviceclienterror"></a>Code d’erreur : DynamicsCreateServiceClientError
 
 - **Message** : `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
@@ -550,7 +519,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** : Ajoutez manuellement les colonnes sous l’onglet de mappage.
 
 
-### <a name="error-code--dynamicsmissingtargetformultitargetlookupfield"></a>Code d’erreur :  DynamicsMissingTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsmissingtargetformultitargetlookupfield"></a>Code d’erreur : DynamicsMissingTargetForMultiTargetLookupField
 
 - **Message** : `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
@@ -561,7 +530,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
   2. Ajoutez la colonne cible dans le mappage de colonnes. Assurez-vous que la colonne du récepteur est au format *{fieldName}@EntityReference* .
 
 
-### <a name="error-code--dynamicsinvalidtargetformultitargetlookupfield"></a>Code d’erreur :  DynamicsInvalidTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtargetformultitargetlookupfield"></a>Code d’erreur : DynamicsInvalidTargetForMultiTargetLookupField
 
 - **Message** : `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
@@ -570,7 +539,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Fournissez un nom d’entité valide pour le champ de recherche à plusieurs cibles.
 
 
-### <a name="error-code--dynamicsinvalidtypeformultitargetlookupfield"></a>Code d’erreur :  DynamicsInvalidTypeForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtypeformultitargetlookupfield"></a>Code d’erreur : DynamicsInvalidTypeForMultiTargetLookupField
 
 - **Message** : `The provided target type is not a valid string. Field: '%fieldName;'.`
 
@@ -579,18 +548,18 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Fournissez une chaîne valide dans la colonne cible de recherche à plusieurs cibles.
 
 
-### <a name="error-code--dynamicsfailedtorequetserver"></a>Code d’erreur :  DynamicsFailedToRequetServer
+### <a name="error-code-dynamicsfailedtorequetserver"></a>Code d’erreur : DynamicsFailedToRequetServer
 
 - **Message** : `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **Cause** : Le serveur Dynamics est instable ou inaccessible ou le réseau rencontre des problèmes.
 
 - **Recommandation** :  Pour plus d’informations, vérifiez la connectivité réseau ou consultez le journal du serveur Dynamics. Pour obtenir de l’aide supplémentaire, contactez le support Dynamics.
-    
+  
 
 ## <a name="ftp"></a>FTP
 
-### <a name="error-code--ftpfailedtoconnecttoftpserver"></a>Code d’erreur :  FtpFailedToConnectToFtpServer
+### <a name="error-code-ftpfailedtoconnecttoftpserver"></a>Code d’erreur : FtpFailedToConnectToFtpServer
 
 - **Message** : `Failed to connect to FTP server. Please make sure the provided server information is correct, and try again.`
 
@@ -601,7 +570,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="http"></a>HTTP
 
-### <a name="error-code--httpfilefailedtoread"></a>Code d’erreur :  HttpFileFailedToRead
+### <a name="error-code-httpfilefailedtoread"></a>Code d’erreur : HttpFileFailedToRead
 
 - **Message** : `Failed to read data from http server. Check the error from http server：%message;`
 
@@ -627,31 +596,20 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="orc-format"></a>Format ORC
 
-### <a name="error-code--orcjavainvocationexception"></a>Code d’erreur :  OrcJavaInvocationException
+### <a name="error-code-orcjavainvocationexception"></a>Code d’erreur : OrcJavaInvocationException
 
 - **Message** : `An error occurred when invoking Java, message: %javaException;.`
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Cause** : Lorsque le message d’erreur contient les chaînes « java.lang.OutOfMemory », « Java heap space » et « doubleCapacity », il s’agit généralement d’un problème de gestion de la mémoire dans une ancienne version du runtime d’intégration.
+    | Analyse de la cause                                               | Recommandation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Lorsque le message d’erreur contient les chaînes « java.lang.OutOfMemory », « Java heap space » et « doubleCapacity », il s’agit généralement d’un problème de gestion de la mémoire dans une ancienne version du runtime d’intégration. | Si vous utilisez des runtime d’intégration auto-hébergés, nous vous recommandons une mise à niveau vers la version la plus récente. |
+    | Lorsque le message d’erreur contient la chaîne « java.lang.OutOfMemory », le runtime d’intégration ne dispose pas de suffisamment de ressources pour traiter les fichiers. | Limitez les exécutions simultanées sur le runtime d’intégration. Pour les runtimes d’intégration auto-hébergés, effectuez un scale-up vers un ordinateur puissant doté d’une mémoire égale ou supérieure à 8 Go. |
+    |Lorsque le message d’erreur contient la chaîne « NullPointerReference », cela peut être dû à une erreur temporaire. | Retentez l’opération. Si le problème persiste, contactez le support technique. |
+    | Lorsque le message d’erreur contient la chaîne « BufferOverflowException », cela peut être dû à une erreur temporaire. | Retentez l’opération. Si le problème persiste, contactez le support technique. |
+    | Lorsque le message d’erreur contient la chaîne « java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable can't be cast to org.apache.hadoop.io.Text », il peut s’agir d’un problème de conversion de type au sein du runtime Java. En règle générale, cela signifie que les données sources ne peuvent pas être gérées correctement dans le runtime Java. | Il s’agit d’un problème de données. Essayez d’utiliser une chaîne au lieu de char ou de varchar dans des données au format ORC. |
 
-- **Recommandation** :  Si vous utilisez des runtime d’intégration auto-hébergés, nous vous recommandons une mise à niveau vers la version la plus récente.
-
-- **Cause** : Lorsque le message d’erreur contient la chaîne « java.lang.OutOfMemory », le runtime d’intégration ne dispose pas de suffisamment de ressources pour traiter les fichiers.
-
-- **Recommandation** :  Limitez les exécutions simultanées sur le runtime d’intégration. Pour les runtimes d’intégration auto-hébergés, effectuez un scale-up vers un ordinateur puissant doté d’une mémoire égale ou supérieure à 8 Go.
-
-- **Cause** : Lorsque le message d’erreur contient la chaîne « NullPointerReference », cela peut être dû à une erreur temporaire.
-
-- **Recommandation** :  Retentez l’opération. Si le problème persiste, contactez le support technique.
-
-- **Cause** : Lorsque le message d’erreur contient la chaîne « BufferOverflowException », cela peut être dû à une erreur temporaire.
-
-- **Recommandation** :  Retentez l’opération. Si le problème persiste, contactez le support technique.
-
-- **Cause** : Lorsque le message d’erreur contient la chaîne « java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable can't be cast to org.apache.hadoop.io.Text », il peut s’agir d’un problème de conversion de type au sein du runtime Java. En règle générale, cela signifie que les données sources ne peuvent pas être gérées correctement dans le runtime Java.
-
-- **Recommandation** :  Il s’agit d’un problème de données. Essayez d’utiliser une chaîne au lieu de char ou de varchar dans des données au format ORC.
-
-### <a name="error-code--orcdatetimeexceedlimit"></a>Code d’erreur :  OrcDateTimeExceedLimit
+### <a name="error-code-orcdatetimeexceedlimit"></a>Code d’erreur : OrcDateTimeExceedLimit
 
 - **Message** : `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
@@ -662,24 +620,19 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="parquet-format"></a>Format Parquet
 
-### <a name="error-code--parquetjavainvocationexception"></a>Code d’erreur :  ParquetJavaInvocationException
+### <a name="error-code-parquetjavainvocationexception"></a>Code d’erreur : ParquetJavaInvocationException
 
 - **Message** : `An error occurred when invoking java, message: %javaException;.`
 
-- **Cause** : Lorsque le message d’erreur contient les chaînes « java.lang.OutOfMemory », « Java heap space » et « doubleCapacity », il s’agit généralement d’un problème de gestion de la mémoire dans une ancienne version du runtime d’intégration.
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Recommandation** :  Si vous utilisez des runtimes d’intégration auto-hébergés et que la version est antérieure à 3.20.7159.1, nous vous recommandons une mise à niveau vers la version la plus récente.
+    | Analyse de la cause                                               | Recommandation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Lorsque le message d’erreur contient les chaînes « java.lang.OutOfMemory », « Java heap space » et « doubleCapacity », il s’agit généralement d’un problème de gestion de la mémoire dans une ancienne version du runtime d’intégration. | Si vous utilisez des runtimes d’intégration auto-hébergés et que la version est antérieure à 3.20.7159.1, nous vous recommandons une mise à niveau vers la version la plus récente. |
+    | Lorsque le message d’erreur contient la chaîne « java.lang.OutOfMemory », le runtime d’intégration ne dispose pas de suffisamment de ressources pour traiter les fichiers. | Limitez les exécutions simultanées sur le runtime d’intégration. Pour les runtimes d’intégration auto-hébergés, effectuez un scale-up vers un ordinateur puissant doté d’une mémoire égale ou supérieure à 8 Go. |
+    | Lorsque le message d’erreur contient la chaîne « NullPointerReference », cela peut être dû à une erreur temporaire. | Retentez l’opération. Si le problème persiste, contactez le support technique. |
 
-- **Cause** : Lorsque le message d’erreur contient la chaîne « java.lang.OutOfMemory », le runtime d’intégration ne dispose pas de suffisamment de ressources pour traiter les fichiers.
-
-- **Recommandation** :  Limitez les exécutions simultanées sur le runtime d’intégration. Pour les runtimes d’intégration auto-hébergés, effectuez un scale-up vers un ordinateur puissant doté d’une mémoire égale ou supérieure à 8 Go.
-
-- **Cause** : Lorsque le message d’erreur contient la chaîne « NullPointerReference », cela peut être dû à une erreur temporaire.
-
-- **Recommandation** :  Retentez l’opération. Si le problème persiste, contactez le support technique.
-
-
-### <a name="error-code--parquetinvalidfile"></a>Code d’erreur :  ParquetInvalidFile
+### <a name="error-code-parquetinvalidfile"></a>Code d’erreur : ParquetInvalidFile
 
 - **Message** : `File is not a valid Parquet file.`
 
@@ -688,7 +641,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez que l’entrée est un fichier Parquet valide.
 
 
-### <a name="error-code--parquetnotsupportedtype"></a>Code d’erreur :  ParquetNotSupportedType
+### <a name="error-code-parquetnotsupportedtype"></a>Code d’erreur : ParquetNotSupportedType
 
 - **Message** : `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
@@ -697,7 +650,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez les données sources en accédant à [Formats de fichier et codecs de compression pris en charge par l’activité de copie dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Code d’erreur :  ParquetMissedDecimalPrecisionScale
+### <a name="error-code-parquetmisseddecimalprecisionscale"></a>Code d’erreur : ParquetMissedDecimalPrecisionScale
 
 - **Message** : `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
@@ -706,7 +659,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  La source ne retourne pas les informations correctes de précision et d’échelle. Vérifiez les informations dans la colonne posant problème.
 
 
-### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Code d’erreur :  ParquetInvalidDecimalPrecisionScale
+### <a name="error-code-parquetinvaliddecimalprecisionscale"></a>Code d’erreur : ParquetInvalidDecimalPrecisionScale
 
 - **Message** : `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
@@ -715,7 +668,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez la précision et l’échelle de la colonne posant problème.
 
 
-### <a name="error-code--parquetcolumnnotfound"></a>Code d’erreur :  ParquetColumnNotFound
+### <a name="error-code-parquetcolumnnotfound"></a>Code d’erreur : ParquetColumnNotFound
 
 - **Message** : `Column %column; does not exist in Parquet file.`
 
@@ -724,7 +677,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez les mappages dans l’activité. Assurez-vous que la colonne source peut être mappée à la colonne du récepteur appropriée.
 
 
-### <a name="error-code--parquetinvaliddataformat"></a>Code d’erreur :  ParquetInvalidDataFormat
+### <a name="error-code-parquetinvaliddataformat"></a>Code d’erreur : ParquetInvalidDataFormat
 
 - **Message** : `Incorrect format of %srcValue; for converting to %dstType;.`
 
@@ -733,7 +686,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Revérifiez les données sources ou spécifiez le type de données approprié pour cette colonne dans le mappage des colonnes de l’activité de copie. Pour plus d’informations, consultez [Formats de fichier et codecs de compression pris en charge par l’activité de copie dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Code d’erreur :  ParquetDataCountNotMatchColumnCount
+### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>Code d’erreur : ParquetDataCountNotMatchColumnCount
 
 - **Message** : `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
@@ -742,7 +695,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Revérifiez que le nombre de colonnes sources est identique au nombre de colonnes du récepteur dans « mappage ».
 
 
-### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>Code d’erreur :  ParquetDataTypeNotMatchColumnType
+### <a name="error-code-parquetdatatypenotmatchcolumntype"></a>Code d’erreur : ParquetDataTypeNotMatchColumnType
 
 - **Message** : `The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.`
 
@@ -751,7 +704,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Spécifiez un type correct dans mappage.sink.
 
 
-### <a name="error-code--parquetbridgeinvaliddata"></a>Code d’erreur :  ParquetBridgeInvalidData
+### <a name="error-code-parquetbridgeinvaliddata"></a>Code d’erreur : ParquetBridgeInvalidData
 
 - **Message** : `%message;`
 
@@ -760,7 +713,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Retentez l’opération. Si le problème persiste, contactez-nous.
 
 
-### <a name="error-code--parquetunsupportedinterpretation"></a>Code d’erreur :  ParquetUnsupportedInterpretation
+### <a name="error-code-parquetunsupportedinterpretation"></a>Code d’erreur : ParquetUnsupportedInterpretation
 
 - **Message** : `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
@@ -769,7 +722,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  « ParquetInterpretFor » ne doit pas être « sparkSql ».
 
 
-### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Code d’erreur :  ParquetUnsupportFileLevelCompressionOption
+### <a name="error-code-parquetunsupportfilelevelcompressionoption"></a>Code d’erreur : ParquetUnsupportFileLevelCompressionOption
 
 - **Message** : `File level compression is not supported for Parquet.`
 
@@ -778,7 +731,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Supprimez « CompressionType » dans la charge utile.
 
 
-### <a name="error-code--usererrorjniexception"></a>Code d’erreur :  UserErrorJniException
+### <a name="error-code-usererrorjniexception"></a>Code d’erreur : UserErrorJniException
 
 - **Message** : `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
 
@@ -818,7 +771,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="rest"></a>REST
 
-### <a name="error-code--restsinkcallfailed"></a>Code d’erreur :  RestSinkCallFailed
+### <a name="error-code-restsinkcallfailed"></a>Code d’erreur : RestSinkCallFailed
 
 - **Message** : `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
@@ -850,7 +803,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="sftp"></a>SFTP
 
-#### <a name="error-code--sftpoperationfail"></a>Code d’erreur :  SftpOperationFail
+#### <a name="error-code-sftpoperationfail"></a>Code d’erreur : SftpOperationFail
 
 - **Message** : `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -859,7 +812,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Consultez les détails de l’erreur dans SFTP.
 
 
-### <a name="error-code--sftprenameoperationfail"></a>Code d’erreur :  SftpRenameOperationFail
+### <a name="error-code-sftprenameoperationfail"></a>Code d’erreur : SftpRenameOperationFail
 
 - **Message** : `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
@@ -868,7 +821,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Définissez « useTempFileRename » sur false dans le récepteur de copie pour désactiver le chargement dans le fichier temporaire.
 
 
-### <a name="error-code--sftpinvalidsftpcredential"></a>Code d’erreur :  SftpInvalidSftpCredential
+### <a name="error-code-sftpinvalidsftpcredential"></a>Code d’erreur : SftpInvalidSftpCredential
 
 - **Message** : `Invalid SFTP credential provided for '%type;' authentication type.`
 
@@ -932,11 +885,11 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Résolution** : Pour déterminer si la colonne « AccMngr » existe, vérifiez la configuration de votre jeu de données en mappant la colonne du jeu de données de destination.
 
 
-### <a name="error-code--sftpfailedtoconnecttosftpserver"></a>Code d’erreur :  SftpFailedToConnectToSftpServer
+### <a name="error-code-sftpfailedtoconnecttosftpserver"></a>Code d’erreur : SftpFailedToConnectToSftpServer
 
 - **Message** : `Failed to connect to SFTP server '%server;'.`
 
-- **Cause** : Si le message d’erreur contient la chaîne « L’opération de lecture de socket a expiré après 30000 millisecondes », il est possible que le type de service lié soit incorrect pour le serveur SFTP. Par exemple, vous utilisez peut-être le service lié FTP pour vous connecter au serveur SFTP.
+- **Cause** : Si le message d’erreur contient la chaîne « L’opération de lecture de socket a expiré après 30 000 millisecondes », il est possible que le type de service lié soit incorrect pour le serveur SFTP. Par exemple, vous utilisez peut-être le service lié FTP pour vous connecter au serveur SFTP.
 
 - **Recommandation** :  Vérifiez le port du serveur cible. Par défaut, SFTP utilise le port 22.
 
@@ -953,7 +906,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="sharepoint-online-list"></a>Liste SharePoint Online
 
-### <a name="error-code--sharepointonlineauthfailed"></a>Code d’erreur :  SharePointOnlineAuthFailed
+### <a name="error-code-sharepointonlineauthfailed"></a>Code d’erreur : SharePointOnlineAuthFailed
 
 - **Message** : `The access token generated failed, status code: %code;, error message: %message;.`
 
@@ -964,7 +917,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="xml-format"></a>Format XML
 
-### <a name="error-code--xmlsinknotsupported"></a>Code d’erreur :  XmlSinkNotSupported
+### <a name="error-code-xmlsinknotsupported"></a>Code d’erreur : XmlSinkNotSupported
 
 - **Message** : `Write data in XML format is not supported yet, choose a different format!`
 
@@ -973,7 +926,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Utilisez un jeu de données dans un format différent de celui du jeu de données récepteur.
 
 
-### <a name="error-code--xmlattributecolumnnameconflict"></a>Code d’erreur :  XmlAttributeColumnNameConflict
+### <a name="error-code-xmlattributecolumnnameconflict"></a>Code d’erreur : XmlAttributeColumnNameConflict
 
 - **Message** : `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
 
@@ -982,7 +935,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Définissez une valeur différente de la propriété « attributePrefix ».
 
 
-### <a name="error-code--xmlvaluecolumnnameconflict"></a>Code d’erreur :  XmlValueColumnNameConflict
+### <a name="error-code-xmlvaluecolumnnameconflict"></a>Code d’erreur : XmlValueColumnNameConflict
 
 - **Message** : `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
 
@@ -991,7 +944,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Définissez une valeur différente de la propriété « valueColumn ».
 
 
-### <a name="error-code--xmlinvalid"></a>Code d’erreur :  XmlInvalid
+### <a name="error-code-xmlinvalid"></a>Code d’erreur : XmlInvalid
 
 - **Message** : `Input XML file '%file;' is invalid with parsing error '%error;'.`
 
@@ -1002,7 +955,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 
 ## <a name="general-copy-activity-error"></a>Erreur générale de l’activité de copie
 
-### <a name="error-code--jrenotfound"></a>Code d’erreur :  JreNotFound
+### <a name="error-code-jrenotfound"></a>Code d’erreur : JreNotFound
 
 - **Message** : `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -1011,7 +964,7 @@ Cet article explore les façons courantes de résoudre les problèmes liés aux 
 - **Recommandation** :  Vérifiez votre environnement de runtime d’intégration, consultez [Utiliser un runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime).
 
 
-### <a name="error-code--wildcardpathsinknotsupported"></a>Code d’erreur :  WildcardPathSinkNotSupported
+### <a name="error-code-wildcardpathsinknotsupported"></a>Code d’erreur : WildcardPathSinkNotSupported
 
 - **Message** : `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 

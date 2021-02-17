@@ -1,24 +1,19 @@
 ---
 title: Résolution des problèmes liés à Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ed831e5f07eb29110b858dfb16b73f276926424f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388241"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -35,14 +30,15 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
 1. Lancez Azure PowerShell.
 2. Connectez-vous à votre compte Azure à l’aide de la commande suivante.
 
-    ```powershell
-    Connect-AzAccount
-    ```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. Exécutez la commande suivante pour enregistrer le fournisseur Azure Data Factory.
 
-    ```powershell        
-    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problème : Erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
@@ -67,7 +63,7 @@ Lancez le **Gestionnaire de configuration de la passerelle de gestion des donné
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problème : L’état des tranches d’entrée est En attente depuis longtemps
 Les tranches peuvent avoir l’état **En attente** pour diverses raisons. Une des raisons courantes est que la propriété **external** n’est pas définie sur **true**. Tout jeu de données généré en dehors de l’étendue d’Azure Data Factory doit être marqué avec la propriété **external** . Cette propriété indique que les données sont externes et qu’elles ne sont prises en charge par aucun pipeline dans la fabrique de données. Les tranches de données sont marquées comme prêtes ( **Ready** ) une fois que les données sont disponibles dans le magasin respectif.
 
-Consultez l’exemple suivant pour l’utilisation de la propriété **external** . Vous pouvez éventuellement spécifier **externalData** _ quand vous affectez à la propriété external la valeur true.
+Consultez l’exemple suivant pour l’utilisation de la propriété **external** . Vous pouvez éventuellement spécifier **externalData*** quand vous affectez à la propriété external la valeur true.
 
 Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour plus d’informations sur cette propriété.
 
@@ -97,7 +93,7 @@ Consultez l’article [Jeux de données](data-factory-create-datasets.md) pour p
 }
 ```
 
-Pour résoudre l’erreur, ajoutez la propriété *external* et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
+Pour résoudre l’erreur, ajoutez la propriété **external** et la section **externalData** facultative à la définition JSON de la table d’entrée, puis recréez la table.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problème : Échec de l’opération de copie hybride
 Consultez la page [Résolution des problèmes de passerelle](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) pour savoir comment résoudre les problèmes de copie depuis/vers un magasin de données local avec la passerelle de gestion des données.

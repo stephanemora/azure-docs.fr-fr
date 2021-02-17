@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539342"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523938"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gérer la console de gestion locale
 
@@ -415,7 +415,7 @@ La procédure suivante décrit la mise à jour de la version du logiciel de la c
 
 1. Sélectionnez le fichier que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Gérer les capteurs depuis la console de gestion](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

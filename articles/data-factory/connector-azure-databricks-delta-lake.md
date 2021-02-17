@@ -1,22 +1,18 @@
 ---
 title: Copier des données vers et depuis Azure Databricks Delta Lake
 description: Découvrez comment copier des données depuis et vers Azure Databricks Delta Lake à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: bdf71276d59dec9a19e29ae7f49cb92a0512c05a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221140"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364237"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copier des données vers et à partir d’Azure Databricks Delta Lake avec Azure Data Factory
 
@@ -151,8 +147,8 @@ Pour copier des données à partir d’Azure Databricks Delta Lake, les proprié
 | type                         | La propriété type de la source de l’activité de copie doit être définie sur **AzureDatabricksDeltaLakeSource**. | Oui      |
 | query          | Spécifier la requête SQL pour lire les données. Pour le contrôle du voyage dans le temps, suivez le modèle ci-dessous :<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Non       |
 | exportSettings | Paramètres avancés utilisés pour récupérer des données de la table Delta. | Non       |
-| ***Sous `exportSettings` :** _ |  |  |
-| type | Type de la commande d’exportation, définie sur _*AzureDatabricksDeltaLakeExportCommand**. | Oui |
+| ***Sous `exportSettings`:*** |  |  |
+| type | Type de la commande d’exportation, définie sur **AzureDatabricksDeltaLakeExportCommand**. | Oui |
 | dateFormat | Définissez le format du type date sur une chaîne avec un format de date. Les formats de date personnalisés suivent les formats du [modèle datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). En l’absence de spécification, la valeur par défaut est `yyyy-MM-dd`. | Non |
 | timestampFormat | Définissez le format du type timestamp sur une chaîne avec un format timestamp. Les formats de date personnalisés suivent les formats du [modèle datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). En l’absence de spécification, la valeur par défaut est `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | Non |
 
@@ -265,8 +261,8 @@ Pour copier des données vers Azure Databricks Delta Lake, les propriétés suiv
 | type          | Propriété type du récepteur de l’activité de copie, définie sur **AzureDatabricksDeltaLakeSink**. | Oui      |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans la table Delta Databricks à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer les données préchargées ou ajouter une instruction Tronquer la table ou Vider. | Non       |
 | importSettings | Paramètres avancés utilisés pour écrire des données dans la table Delta. | Non |
-| **_Sous `importSettings` :_* _ |                                                              |  |
-| type | Type de la commande d’importation, définie sur _*AzureDatabricksDeltaLakeImportCommand**. | Oui |
+| ***Sous `importSettings`:*** |                                                              |  |
+| type | Type de la commande d’importation, définie sur **AzureDatabricksDeltaLakeImportCommand**. | Oui |
 | dateFormat | Définissez le format de la chaîne sur un type date avec un format de date. Les formats de date personnalisés suivent les formats du [modèle datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). En l’absence de spécification, la valeur par défaut est `yyyy-MM-dd`. | Non |
 | timestampFormat | Définissez le format de la chaîne sur un type timestamp avec un format timestamp. Les formats de date personnalisés suivent les formats du [modèle datetime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). En l’absence de spécification, la valeur par défaut est `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]`. | Non |
 

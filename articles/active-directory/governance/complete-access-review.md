@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779540"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008197"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -48,35 +48,47 @@ Vous pouvez suivre la progression des révisions effectuées par les réviseurs.
 
     Pour afficher les futures instances d’une révision d’accès, accédez à la révision d’accès et sélectionnez Révisions planifiées.
 
-    Dans la page **Vue d’ensemble**, vous pouvez voir la progression. Aucun droit d’accès n’est modifié dans le répertoire avant que la révision ne soit terminée.
+    La page **Vue d’ensemble** affiche la progression de l’instance actuelle. Aucun droit d’accès n’est modifié dans le répertoire avant que la révision ne soit terminée.
 
-    ![Progression des révisions d’accès](./media/complete-access-review/overview-progress.png)
-    
-    Si vous affichez une révision d’accès qui révise l’accès invité dans les groupes Microsoft 365 (préversion), le panneau Vue d’ensemble répertorie chaque groupe dans la révision.  
+     ![Révision du groupe All Company](./media/complete-access-review/all-company-group.png)
 
-   ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    Les entrées sous Current ne sont visibles que pendant la durée de chaque instance de révision. 
 
-    Cliquez sur un groupe pour connaître l’état d’avancement de la révision sur ce groupe.
+    La page Results fournit des informations supplémentaires sur chaque utilisateur révisé dans l’instance, dont la possibilité d’arrêter, de réinitialiser et de télécharger les résultats.
+
+    ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/all-company-group-results.png)
+
+
+    Si vous affichez une révision d’accès qui révise l’accès invité dans les groupes Microsoft 365 (préversion), le panneau Vue d’ensemble répertorie chaque groupe dans la révision. 
+   
+    ![Réviser l’accès invité dans les groupes Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Cliquez sur un groupe pour connaître l’état d’avancement de la révision de ce groupe, ainsi que pour arrêter, réinitialiser, appliquer et supprimer la révision.
 
    ![Réviser l’accès invité dans les groupes Microsoft 365 en détail](./media/complete-access-review/progress-group-review.png)
 
 1. Si vous souhaitez arrêter une révision d’accès avant qu’elle ait atteint la date de fin planifiée, cliquez sur le bouton **Arrêter**.
 
-    Lorsque vous arrêtez la révision, les réviseurs ne peuvent plus donner de réponses. Vous ne pouvez pas redémarrer une révision ayant été arrêtée.
+    Lorsque vous arrêtez une révision, les réviseurs ne peuvent plus donner de réponses. Vous ne pouvez pas redémarrer une révision ayant été arrêtée.
 
 1. Si vous n’êtes plus intéressé par la révision d’accès, vous pouvez la supprimer en cliquant sur le bouton **Supprimer**.
 
 ## <a name="apply-the-changes"></a>Appliquer les modifications
 
-Si l’option **Appliquer automatiquement les résultats à la ressource** a été activée, et en fonction de vos sélections dans **Paramètres de saisie semi-automatique**, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez manuellement la révision.
+Si l’option **Appliquer automatiquement les résultats à la ressource** a été activée sur la base de vos sélections dans **Paramètres de saisie semi-automatique**, l’application automatique est exécutée après la date de fin de la révision ou lorsque vous arrêtez celle-ci manuellement.
 
-Si l’option **Appliquer automatiquement les résultats à la ressource** n’a pas été activée pour la révision, cliquez sur **Appliquer** pour appliquer manuellement les modifications. Si l’accès d’un utilisateur a été refusé dans la révision, lorsque vous cliquez sur **Appliquer**, Azure AD supprime l’appartenance de cet utilisateur ou son attribution à l’application.
+Si l’option **Appliquer automatiquement les résultats à la ressource** n’a pas été activée pour la révision, accédez **Historique des révisions** sous **Série** une fois la révision terminée ou arrêtée, puis cliquez sur l’instance de la révision que vous souhaitez appliquer.
 
 ![Appliquer des modifications à une révision d’accès](./media/complete-access-review/apply-changes.png)
 
+Cliquez sur **Appliquer** pour appliquer les modifications. Si l’accès d’un utilisateur a été refusé dans la révision, lorsque vous cliquez sur **Appliquer**, Azure AD supprime l’appartenance de cet utilisateur ou son attribution à l’application.
+
+![Bouton Appliquer les modifications de révision d’accès](./media/complete-access-review/apply-changes-button.png)
+
+
 La révision passe alors de l’état **Terminé** à divers états intermédiaires, comme **Application en cours**, pour arriver enfin à l’état **Résultat appliqué**. Les utilisateurs dont l’accès est refusé doivent normalement perdre leur appartenance au groupe ou leur affectation d’applications au bout de quelques minutes.
 
-Lorsque l’application automatique est configurée, l’option **Appliquer** n’aura pas d’effet sur un groupe provenant d’un répertoire local ou un groupe dynamique. Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
+L’application manuelle ou automatique des résultats est sans sur un groupe provenant d’un répertoire local ou un groupe dynamique. Si vous souhaitez modifier un groupe qui provient d’un répertoire local, téléchargez les résultats et appliquez ces modifications à la représentation du groupe dans ce répertoire.
 
 ## <a name="retrieve-the-results"></a>Récupérer les résultats
 

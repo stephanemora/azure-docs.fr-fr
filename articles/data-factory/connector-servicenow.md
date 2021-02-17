@@ -1,22 +1,18 @@
 ---
 title: Copier des données à partir de ServiceNow
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de ServiceNow vers des banques de données réceptrices prises en charge.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7ebc422a9fd8503c5a3b004e1d06cb5ebfb987
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415349"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378449"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -120,12 +116,11 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 
 Notez les points suivants au moment de spécifier le schéma et la colonne pour ServiceNow dans la requête, et **reportez-vous à la section [Conseils sur les performances](#performance-tips) pour en savoir plus sur l’implication des performances de copie**.
 
-- **Schéma :** spécifiez le schéma avec la valeur `Actual` ou `Display` dans la requête ServiceNow, ce que vous pouvez considérer comme le paramètre de `sysparm_display_value` avec la valeur true ou false quand vous appelez les [API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Schéma :** spécifiez le schéma avec la valeur `Actual` ou `Display` dans la requête ServiceNow, ce que vous pouvez considérer comme le paramètre de `sysparm_display_value` avec la valeur true ou false quand vous appelez les [API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Colonne :** le nom de la colonne pour une valeur réelle sous le schéma `Actual` est `[column name]_value`, tandis que pour la valeur d’affichage, sous le schéma `Display`, le nom est `[column name]_display_value`. Le nom de colonne doit correspondre au schéma utilisé dans la requête.
 
 **Exemple de requête :** 
-`SELECT col_value FROM Actual.alm_asset` OR 
-`SELECT col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` OU `SELECT col_display_value FROM Display.alm_asset`
 
 **Exemple :**
 

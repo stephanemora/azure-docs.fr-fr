@@ -1,22 +1,18 @@
 ---
 title: Cas d’utilisation - Profilage des utilisateurs
 description: Découvrez comment Azure Data Factory permet de créer un workflow piloté par les données (pipeline) pour définir le profil des clients de leurs jeux.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bb7f0fb6184a813dd9fd3c193bc5e3bda5628f2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495920"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376715"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.

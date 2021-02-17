@@ -3,12 +3,12 @@ title: Détecter les mouvements et enregistrer des vidéos sur Azure Media Servi
 description: Ce guide de démarrage rapide illustre l’utilisation de Live Video Analytics sur IoT Edge en vue de détecter des mouvements dans un flux vidéo en direct et d’enregistrer des extraits vidéo sur Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632722"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575532"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Démarrage rapide : Détecter les mouvements et enregistrer des vidéos sur Media Services
 
@@ -540,10 +540,15 @@ Le graphe multimédia que vous avez créé utilise le nœud de processeur de dé
 
 1. Ouvrez le volet Explorateur dans Visual Studio Code et recherchez Azure IoT Hub dans l’angle inférieur gauche.
 1. Développez le nœud Appareils
-1. Cliquez avec le bouton droit sur lva-sample-device et choisissez l’option « Démarrer la supervision de l’événement intégré »
+1. Cliquez avec le bouton droit sur lva-sample-device et choisissez l’option « Démarrer la supervision de l’événement intégré ».
 
     ![Démarrer la supervision de l'événement intégré](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > Vous pouvez être invité à fournir des informations sur le point de terminaison intégré pour le hub IoT. Pour obtenir ces informations, dans le portail Azure, accédez à votre hub IoT et recherchez l’option **Points de terminaison intégrés** dans le volet de navigation gauche. Cliquez et recherchez l’option **Point de terminaison compatible Event Hub** sous la section **Point de terminaison compatible Event Hub**. Copiez et utilisez le texte dans la zone. Le point de terminaison doit ressembler à ceci :  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     En quelques secondes, les messages suivants s’affichent dans la fenêtre SORTIE :
 
 ```

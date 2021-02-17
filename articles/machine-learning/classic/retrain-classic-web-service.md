@@ -3,22 +3,22 @@ title: 'ML Studio (classique) : réentraîner un service web classique – Azur
 description: Apprenez à réentraîner un modèle et à mettre à jour un service web classique pour utiliser le modèle réentraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325793"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517567"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
-**S’APPLIQUE À :**  ![Coche verte.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![X indiquant non. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**S’APPLIQUE À :**  ![Coche verte.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classique)   ![X indiquant non.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio (classique) classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio (classique), [consultez cet article pratique.](retrain-machine-learning-model.md)
@@ -62,10 +62,10 @@ Suivez ces étapes pour obtenir l’URL PATCH correcte à l’aide du portail we
 1. Cliquez sur le service web d’évaluation que vous utilisez (si vous n’avez pas modifié le nom par défaut du service web, il doit se terminer par « [Scoring Exp.] »).
 1. Cliquez sur **+NOUVEAU**.
 1. Après l’ajout du point de terminaison, cliquez sur le nom du point de terminaison.
-1. Sous **l’URL d’application de correctifs** , cliquez sur **Aide de l’API** pour ouvrir la page d’aide d’application de correctifs.
+1. Sous **l’URL d’application de correctifs**, cliquez sur **Aide de l’API** pour ouvrir la page d’aide d’application de correctifs.
 
 > [!NOTE]
-> Si vous avez ajouté le point de terminaison au service web de formation plutôt qu'au service web prédictif, lorsque vous cliquerez sur le lien **Mettre à jour la ressource** , vous recevrez un message d'erreur : signalant que cette fonctionnalité n'est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
+> Si vous avez ajouté le point de terminaison au service web de formation plutôt qu'au service web prédictif, lorsque vous cliquerez sur le lien **Mettre à jour la ressource**, vous recevrez un message d'erreur : signalant que cette fonctionnalité n'est pas prise en charge ou disponible dans ce contexte. Ce service web n’a aucune ressource actualisable. Veuillez nous excuser pour ce désagrément. Nous travaillons actuellement à l’amélioration de ce flux de travail.
 >
 
 La page d’aide d’application de correctifs contient l’URL d’application de correctifs que vous devez utiliser et fournit un exemple de code que vous pouvez utiliser pour l’appeler.
@@ -76,7 +76,7 @@ La page d’aide d’application de correctifs contient l’URL d’application 
 
 Vous pouvez maintenant utiliser le modèle entraîné pour mettre à jour le point de terminaison de notation que vous avez créé précédemment.
 
-L’exemple de code suivant montre comment utiliser les éléments *BaseLocation* , *RelativeLocation* , *SasBlobToken* et l’URL d’application de correctifs pour mettre à jour le point de terminaison.
+L’exemple de code suivant montre comment utiliser les éléments *BaseLocation*, *RelativeLocation*, *SasBlobToken* et l’URL d’application de correctifs pour mettre à jour le point de terminaison.
 
 ```csharp
 private async Task OverwriteModel()
@@ -118,7 +118,7 @@ private async Task OverwriteModel()
 }
 ```
 
-L’ *apiKey* et l’ *endpointUrl* pour l’appel sont figurent sur le tableau de bord du point de terminaison.
+L’*apiKey* et l’*endpointUrl* pour l’appel sont figurent sur le tableau de bord du point de terminaison.
 
 La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de ressource du modèle formé enregistré dans l’expérience prédictive. Pour obtenir le nom de la ressource :
 

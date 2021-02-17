@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064842"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583974"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Problèmes connus sur les navigateurs Internet Explorer (MSAL.js)
 
@@ -39,7 +39,7 @@ En effet, Internet Explorer ne prend pas en charge les promesses JavaScript en m
 Le déploiement de votre application en production (par exemple, dans les applications web Azure) doit fonctionner correctement, à condition que l’utilisateur final ait accepté les messages apparus dans les fenêtres contextuelles. Nous l’avons testé avec Internet Explorer 11.
 
 ### <a name="running-locally"></a>Exécution locale
-Si vous souhaitez exécuter et déboguer localement votre application en cours d’exécution dans Internet Explorer, vous devez savoir ce qui suit (en supposant que vous souhaitiez exécuter votre application en tant que *http://localhost:1234* ) :
+Si vous souhaitez exécuter et déboguer localement votre application en cours d’exécution dans Internet Explorer, vous devez savoir ce qui suit (en supposant que vous souhaitiez exécuter votre application en tant que *http://localhost:1234* ) :
 
 - Internet Explorer possède un mécanisme de sécurité nommé « mode protégé » qui empêche le bon fonctionnement de MSAL.js. Par exemple, après connexion, la page peut être redirigée vers http://localhost:1234/null.
 

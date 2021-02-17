@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Serveur SQL Server local - Azure'
 description: Utilisez les données d'une base de données SQL Server pour effectuer des analyses avancées avec Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8cdf1029371e0e11c38616e7800652ca9debbba7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325697"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517397"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Effectuer des analyses avec Azure Machine Learning Studio (classique) à l'aide d'une base de données SQL Server
 
@@ -83,7 +83,7 @@ La première étape consiste à créer et à configurer la passerelle pour accé
 3. Cliquez sur **NOUVELLE PASSERELLE DE DONNÉES** en bas de l’écran.
 
     ![Nouvelle passerelle de données](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-button.png)
-4. Dans la boîte de dialogue **Nouvelle passerelle de données** , entrez le **Nom de la passerelle** et ajoutez éventuellement une **Description**. Cliquez sur la flèche située dans l’angle inférieur droit pour accéder à l’étape suivante de la configuration.
+4. Dans la boîte de dialogue **Nouvelle passerelle de données**, entrez le **Nom de la passerelle** et ajoutez éventuellement une **Description**. Cliquez sur la flèche située dans l’angle inférieur droit pour accéder à l’étape suivante de la configuration.
 
     ![Entrez la description et le nom de la passerelle](./media/use-data-from-an-on-premises-sql-server/new-data-gateway-dialog-enter-name.png)
 5. Dans la boîte de dialogue Télécharger et inscrire une passerelle de données, copiez la CLÉ D’INSCRIPTION DE LA PASSERELLE dans le presse-papiers.
@@ -91,7 +91,7 @@ La première étape consiste à créer et à configurer la passerelle pour accé
     ![Téléchargez et enregistrez la passerelle de données](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
 6. <span id="note-1" class="anchor"></span>Si vous n’avez pas encore téléchargé et installé la passerelle de gestion des données de Microsoft, cliquez sur **Télécharger la passerelle de gestion des données**. Vous accéderez au Centre de téléchargement Microsoft, où vous pourrez sélectionner la version de la passerelle dont vous avez besoin, la télécharger et l’installer. Vous trouverez des informations détaillées sur les conditions préalables à l’installation, des étapes d’installation et des conseils de dépannage dans les sections du début de l’article [Déplacer des données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Une fois la passerelle installée, le Gestionnaire de configuration de la passerelle de gestion des données s’ouvre et la boîte de dialogue **Inscrire la passerelle** s’affiche. Collez la **Clé d’inscription de la passerelle** que vous avez copiée dans le presse-papiers et cliquez sur **Inscrire**.
-8. Si vous avez déjà installé une passerelle, exécutez le Gestionnaire de configuration de la passerelle de gestion des données. Cliquez sur **Modifier la clé** , collez la **Clé d’inscription de la passerelle** que vous avez copiée dans le Presse-papiers à l’étape précédente, puis cliquez sur **OK**.
+8. Si vous avez déjà installé une passerelle, exécutez le Gestionnaire de configuration de la passerelle de gestion des données. Cliquez sur **Modifier la clé**, collez la **Clé d’inscription de la passerelle** que vous avez copiée dans le Presse-papiers à l’étape précédente, puis cliquez sur **OK**.
 9. Une fois l’installation terminée, la boîte de dialogue **Inscrire la passerelle** du Gestionnaire de configuration de la passerelle de gestion des données de Microsoft s’affiche. Collez la CLÉ D’INSCRIPTION DE LA PASSERELLE que vous avez copiée dans le Presse-papiers lors d’une étape précédente et cliquez sur **Inscrire**.
 
     ![Inscrivez la passerelle](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -125,7 +125,7 @@ Vous pouvez créer et configurer plusieurs passerelles dans Studio (classique) p
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Étape 2 : Utiliser la passerelle pour lire des données à partir d’une source de données locale
 Après avoir configuré la passerelle, vous pouvez ajouter un module **Importer des données** à une expérience qui entre les données à partir de la base de données SQL Server.
 
-1. Dans Machine Learning Studio (classique), sélectionnez l’onglet **EXPÉRIENCES** , cliquez sur **+NOUVELLE** dans le coin inférieur gauche, puis sélectionnez **Expérience vide** (ou sélectionnez l’un des exemples d’expériences disponibles).
+1. Dans Machine Learning Studio (classique), sélectionnez l’onglet **EXPÉRIENCES**, cliquez sur **+NOUVELLE** dans le coin inférieur gauche, puis sélectionnez **Expérience vide** (ou sélectionnez l’un des exemples d’expériences disponibles).
 2. Recherchez et faites glisser le module **Importer des données** jusqu’à la zone de dessin de l’expérience.
 3. Cliquez sur **Enregistrer sous** sous le canevas. Entrez « Didacticiel SQL Server local Azure Machine Learning Studio (classique) » comme nom d’expérience, sélectionnez l’espace de travail, puis cochez la case **OK**.
 

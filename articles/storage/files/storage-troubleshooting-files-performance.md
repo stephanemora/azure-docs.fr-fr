@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632493"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393851"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Résoudre les problèmes de performances des partages de fichiers Azure
 
@@ -22,7 +22,7 @@ Cet article répertorie certains problèmes courants liés à des partages de fi
 
 ### <a name="cause-1-share-was-throttled"></a>Cause 1 : Le partage a été limité
 
-Les requêtes sont limitées lorsque les limites d’opérations d’E/S par seconde (IOPS) ou les limites d’entrée/de sortie d’un partage de fichiers sont atteintes. Pour comprendre les limites des partages de fichiers standard et Premium, consultez [Cibles de partage de fichiers et de mise à l’échelle des fichiers](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+Les requêtes sont limitées lorsque les limites d’opérations d’E/S par seconde (IOPS) ou les limites d’entrée/de sortie d’un partage de fichiers sont atteintes. Pour comprendre les limites des partages de fichiers standard et Premium, consultez [Cibles de partage de fichiers et de mise à l’échelle des fichiers](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques Azure et les utiliser dans le portail.
 
@@ -34,14 +34,28 @@ Pour vérifier si votre partage est limité, vous pouvez accéder aux métriques
 
 1. Sélectionnez **Transactions** comme métrique.
 
-1. Ajoutez un filtre pour le **Type de réponse**, puis vérifiez si des demandes comportent l’un des codes de réponse suivants :
-   * **SuccessWithThrottling** : pour SMB (Server Message Block)
-   * **ClientThrottlingError**: pour REST
+1. Ajoutez un filtre pour **Type de réponse**, puis vérifiez si des requêtes ont été limitées. 
 
-   ![Capture d’écran des options de métriques pour les partages de fichiers premium, montrant un filtre de propriété « Type de réponse ».](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    Pour les partages de fichiers standard, les types de réponse suivants sont consignés si une requête est limitée :
 
-   > [!NOTE]
-   > Pour recevoir une alerte, consultez la section [« Comment créer une alerte si un partage de fichiers est limité »](#how-to-create-an-alert-if-a-file-share-is-throttled), plus loin dans cet article.
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Pour les partages de fichiers premium, les types de réponse suivants sont consignés si une requête est limitée :
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Pour en savoir plus sur chaque type de réponse, consultez [Dimensions de mesures](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Capture d’écran des options de métriques pour les partages de fichiers premium, montrant un filtre de propriété « Type de réponse ».](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Pour recevoir une alerte, consultez la section [« Comment créer une alerte si un partage de fichiers est limité »](#how-to-create-an-alert-if-a-file-share-is-throttled), plus loin dans cet article.
 
 ### <a name="solution"></a>Solution
 
@@ -219,48 +233,63 @@ Pour vérifier cela, vous pouvez utiliser les métriques Azure dans le portail 
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Comment créer une alerte en cas de limitation d’un partage de fichiers
 
-1. Dans le portail Azure, accédez à votre compte de stockage.
-1. Dans la section **Supervision**, sélectionnez **Alertes**, puis **Nouvelle règle d’alerte**.
-1. Sélectionnez **Modifier une ressource**, le **Type de ressource fichier** pour le compte de stockage, puis **Terminé**. Par exemple, si le nom du compte de stockage est *contoso*, sélectionnez la ressource contoso/file.
-1. Choisissez **Sélectionner une condition** pour ajouter une condition.
-1. Dans la liste de signaux pris en charge pour le compte de stockage, sélectionnez la métrique **Transactions**.
-1. Dans le volet **Configurer la logique du signal**, dans la liste déroulante **Nom de la dimension**, sélectionnez **Type de réponse**.
-1. Dans la liste déroulante **Valeurs de dimension**, sélectionnez **SuccessWithThrottling** (pour SMB) ou **ClientThrottlingError** (pour REST).
+1. Accédez à votre **compte de stockage** dans le **portail Azure**.
+2. Dans la section **Supervision**, cliquez sur **Alertes**, puis sur **+ Nouvelle règle d’alerte**.
+3. Cliquez sur **Modifier une ressource**, sélectionnez le **type de ressource fichier** pour le compte de stockage, puis cliquez sur **Terminé**. Par exemple, si le nom du compte de stockage est `contoso`, sélectionnez la ressource `contoso/file`.
+4. Cliquez sur **Ajouter une condition** pour ajouter une condition.
+5. Vous verrez une liste de signaux pris en charge pour le compte de stockage ; sélectionnez la métrique **Transactions**.
+6. Dans le panneau **Configurer la logique de signal**, cliquez sur la liste déroulante **Nom de la dimension**, puis sélectionnez **Type de réponse**.
+7. Cliquez sur la liste déroulante **Valeurs de dimension** et sélectionnez les types de réponses appropriés pour votre partage de fichiers.
+
+    Pour les partages de fichiers standard, sélectionnez les types de réponse suivants :
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Pour les partages de fichiers premium, sélectionnez les types de réponse suivants :
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Si les valeurs de dimension **SuccessWithThrottling** et **ClientThrottlingError** ne figurent pas dans la liste, cela signifie que la ressource n’a pas été limitée. Pour ajouter la valeur de dimension, à côté de la liste déroulante **Valeurs de dimension**, sélectionnez **Ajouter une valeur personnalisée**, entrez **SuccessWithThrottling** ou **ClientThrottlingError**, sélectionnez **OK**, puis répétez l’étape 7.
+   > Si les types de réponse ne sont pas répertoriés dans la liste déroulante **Valeurs de dimension**, cela signifie que la ressource n’a pas été limitée. Pour ajouter les valeurs de dimension, à côté de la liste déroulante **Valeurs de dimension**, sélectionnez **Ajouter une valeur personnalisée**, entrez le type de réponse (par exemple, **SuccessWithThrottling**), sélectionnez **OK**, puis répétez ces étapes pour ajouter tous les types de réponses pertinents à votre partage de fichiers.
 
-1. Dans la liste déroulante **Nom de la dimension**, sélectionnez **Partage de fichiers**.
-1. Dans la liste déroulante **Valeurs de la dimension**, sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+8. Cliquez sur la liste déroulante **Nom de la dimension** et sélectionnez **Partage de fichiers**.
+9. Cliquez sur la liste déroulante **Valeurs de dimension**, puis sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+
 
    > [!NOTE]
-   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de la dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité, et elles n’identifient pas le partage de fichiers limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, nous vous recommandons d’utiliser un partage de fichiers par compte de stockage.
+   > Si le partage de fichiers est un partage de fichiers standard, sélectionnez **Toutes les valeurs actuelles et futures**. La liste déroulante des valeurs de dimension ne répertorie pas les partages de fichiers, car les métriques par partage ne sont pas disponibles pour les partages de fichiers standard. Les alertes de limitation pour les partages de fichiers standard sont déclenchées si un partage de fichiers au sein du compte de stockage est limité et l’alerte n’identifiera pas quel partage de fichiers a été limité. Étant donné que les métriques par partage ne sont pas disponibles pour les partages de fichiers standard, il est recommandé de disposer d’un partage de fichiers par compte de stockage.
 
-1. Définissez les paramètres d’alerte en entrant la **Valeur de seuil**, l’**Opérateur**, la **Granularité d’agrégation** et la **Fréquence d’évaluation**, puis sélectionnez **Terminé**.
+10. Définissez les **paramètres d’alerte** (valeur de seuil, opérateur, granularité d’agrégation et fréquence), puis cliquez sur **Terminé**.
 
     > [!TIP]
-    > Si vous utilisez un seuil statique, le graphique des métriques peut vous aider à déterminer une valeur seuil raisonnable si le partage de fichiers est actuellement limité. Si vous utilisez un seuil dynamique, le graphique de métrique affiche les seuils calculés en fonction des données récentes.
+    > Si vous utilisez un seuil statique, le graphique des métriques peut vous aider à déterminer une valeur seuil raisonnable si le partage de fichiers est actuellement limité. Si vous utilisez un seuil dynamique, le graphique des métriques affiche les seuils calculés en fonction des données récentes.
 
-1. Cliquez sur **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (par exemple, e-mail ou SMS) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en en créant un.
-1. Entrez les détails de l’alerte, tels que le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
-1. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
+11. Cliquez sur **Ajouter un groupe d’actions** pour ajouter un **groupe d’actions** (e-mail, SMS, etc.) à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+12. Renseignez les **Détails de l’alerte**, par exemple le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
+13. Cliquez sur **Créer une règle d’alerte** pour créer l’alerte.
 
 Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Comment créer des alertes si un partage de fichiers premium tend à être limité
 
 1. Dans le portail Azure, accédez à votre compte de stockage.
-1. Dans la section **Supervision**, sélectionnez **Alertes**, puis **Nouvelle règle d’alerte**.
-1. Sélectionnez **Modifier une ressource**, le **Type de ressource fichier** pour le compte de stockage, puis **Terminé**. Par exemple, si le nom du compte de stockage est *contoso*, sélectionnez la ressource contoso/file.
-1. Choisissez **Sélectionner une condition** pour ajouter une condition.
-1. Dans la liste de signaux pris en charge pour le compte de stockage, sélectionnez la métrique **Sortie**.
+2. Dans la section **Supervision**, sélectionnez **Alertes**, puis **Nouvelle règle d’alerte**.
+3. Sélectionnez **Modifier une ressource**, le **Type de ressource fichier** pour le compte de stockage, puis **Terminé**. Par exemple, si le nom du compte de stockage est *contoso*, sélectionnez la ressource contoso/file.
+4. Choisissez **Sélectionner une condition** pour ajouter une condition.
+5. Dans la liste de signaux pris en charge pour le compte de stockage, sélectionnez la métrique **Sortie**.
 
    > [!NOTE]
    > Vous devez créer trois alertes distinctes pour être alerté lorsque les valeurs d’entrée, de sortie ou de transaction dépassent les seuils que vous définissez. Cela est dû au fait qu’une alerte n’est déclenchée que si toutes les conditions sont réunies. Par exemple, si vous placez toutes les conditions dans une seule alerte, vous ne recevrez d’alerte que si les valeurs d’entrée, de sortie et transactions dépassent toutes leur seuil.
 
-1. Faites défiler vers le bas. Dans la liste déroulante **Nom de la dimension**, sélectionnez **Partage de fichiers**.
-1. Dans la liste déroulante **Valeurs de la dimension**, sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
-1. Définissez les paramètres d’alerte en sélectionnant des valeurs dans les listes déroulantes **Opérateur**, **Valeur de seuil**, **Granularité d’agrégation** et **Fréquence d’évaluation**, puis sélectionnez **Terminé**.
+6. Faites défiler vers le bas. Dans la liste déroulante **Nom de la dimension**, sélectionnez **Partage de fichiers**.
+7. Dans la liste déroulante **Valeurs de la dimension**, sélectionnez le ou les partages de fichiers pour lesquels vous souhaitez recevoir une alerte.
+8. Définissez les paramètres d’alerte en sélectionnant des valeurs dans les listes déroulantes **Opérateur**, **Valeur de seuil**, **Granularité d’agrégation** et **Fréquence d’évaluation**, puis sélectionnez **Terminé**.
 
    Les métriques de sortie, d’entrée et de transactions sont exprimées par minute, même si vous avez configuré la sortie, l’entrée et les E/S par seconde. Par exemple, si votre sortie configurée est de 90&nbsp;mébioctets par seconde (Mio/s) et que vous souhaitez que votre seuil soit à 80&nbsp;% de la sortie configurée, sélectionnez les paramètres d’alerte suivants : 
    - Pour **Valeur de seuil** : *75497472* 
@@ -271,9 +300,9 @@ Pour en savoir plus sur la configuration des alertes dans Azure Monitor, consult
    - Pour **Granularité d’agrégation** : *1 heure*
    - Pour **Fréquence d’évaluation** : *1 heure*
 
-1. Choisissez **Sélectionner un groupe d’actions**, puis ajoutez un groupe d’actions (par exemple, E-mail ou SMS) à l’alerte en sélectionnant un groupe d’actions existant ou en en créant un.
-1. Entrez les détails de l’alerte, tels que le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
-1. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
+9. Choisissez **Ajouter un groupe d’actions**, puis ajoutez un groupe d’actions (par exemple, E-mail ou SMS) à l’alerte en sélectionnant un groupe d’actions existant ou en en créant un.
+10. Entrez les détails de l’alerte, tels que le **Nom de la règle d’alerte**, la **Description** et la **Gravité**.
+11. Sélectionnez **Créer une règle d’alerte** pour créer l’alerte.
 
     > [!NOTE]
     > - Pour recevoir une notification quand votre partage de fichiers premium est sur le point d’être limité *en raison de l’entrée configurée*, suivez les instructions précédentes, mais avec la modification suivante :

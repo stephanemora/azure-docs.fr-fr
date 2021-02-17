@@ -1,22 +1,18 @@
 ---
 title: Migrer des données du cluster Hadoop local vers Stockage Azure
 description: Apprenez à utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638123"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367790"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure 
 
@@ -26,8 +22,8 @@ Azure Data Factory fournit un mécanisme performant, robuste et économique pour
 
 Data Factory propose deux approches de base pour la migration de données d'un système HDFS local vers Azure. Vous pouvez sélectionner l'approche en fonction de votre scénario. 
 
-- **Mode DistCp de Data Factory** (recommandé) : Dans Data Factory, vous pouvez utiliser le mode [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copie distribuée) pour copier des fichiers tels quels sur le service Stockage Blob Azure ( [copie intermédiaire](./copy-activity-performance.md#staged-copy) comprise) ou Azure Data Lake Store Gen2. Utilisez Data Factory intégré avec DistCp pour tirer parti d'un puissant cluster existant et obtenir le meilleur débit de copie. Vous bénéficiez également d'une planification flexible et d'une expérience de surveillance unifiée à partir de Data Factory. Selon la configuration de Data Factory, l'activité de copie construit automatiquement une commande DistCp, envoie les données à votre cluster Hadoop, puis surveille l'état de la copie. Nous recommandons le mode DistCp de Data Factory pour la migration de données d'un cluster Hadoop local vers Azure.
-- **Mode Runtime d'intégration native de Data Factory**  : DistCp ne s'applique pas à tous les scénarios. Par exemple, dans un environnement de Réseaux virtuels Azure, l'outil DistCp ne prend pas en charge le peering privé Azure ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. En outre, dans certains cas, il est préférable de ne pas utiliser votre cluster Hadoop existant comme moteur pour la migration des données afin de ne pas surcharger votre cluster, car cela pourrait nuire aux performances des travaux ETL existants. Utilisez plutôt la fonctionnalité native du runtime d'intégration de Data Factory comme moteur pour copier les données du système HDFS local vers Azure.
+- **Mode DistCp de Data Factory** (recommandé) : Dans Data Factory, vous pouvez utiliser le mode [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copie distribuée) pour copier des fichiers tels quels sur le service Stockage Blob Azure ([copie intermédiaire](./copy-activity-performance.md#staged-copy) comprise) ou Azure Data Lake Store Gen2. Utilisez Data Factory intégré avec DistCp pour tirer parti d'un puissant cluster existant et obtenir le meilleur débit de copie. Vous bénéficiez également d'une planification flexible et d'une expérience de surveillance unifiée à partir de Data Factory. Selon la configuration de Data Factory, l'activité de copie construit automatiquement une commande DistCp, envoie les données à votre cluster Hadoop, puis surveille l'état de la copie. Nous recommandons le mode DistCp de Data Factory pour la migration de données d'un cluster Hadoop local vers Azure.
+- **Mode Runtime d'intégration native de Data Factory** : DistCp ne s'applique pas à tous les scénarios. Par exemple, dans un environnement de Réseaux virtuels Azure, l'outil DistCp ne prend pas en charge le peering privé Azure ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. En outre, dans certains cas, il est préférable de ne pas utiliser votre cluster Hadoop existant comme moteur pour la migration des données afin de ne pas surcharger votre cluster, car cela pourrait nuire aux performances des travaux ETL existants. Utilisez plutôt la fonctionnalité native du runtime d'intégration de Data Factory comme moteur pour copier les données du système HDFS local vers Azure.
 
 Cet article fournit les informations suivantes sur les deux approches :
 > [!div class="checklist"]
@@ -112,7 +108,7 @@ En mode DistCp de Data Factory, vous pouvez utiliser le paramètre de ligne de c
 
 En mode d'intégration native de Data Factory, le moyen le plus efficace d'identifier les fichiers nouveaux ou modifiés à partir du système HDFS consiste à utiliser une convention d'affectation de noms partitionnée. Lorsque les données de votre système HDFS ont été partitionnées avec des informations de tranche temporelle dans le nom du fichier ou du dossier (par exemple, */aaaa/mm/jj/fichier.csv* ), votre pipeline peut facilement identifier les fichiers et dossiers à copier de façon incrémentielle.
 
-Sinon, si les données de votre système HDFS ne sont pas partitionnées, Data Factory peut identifier les fichiers nouveaux ou modifiés à l'aide de leur valeur **LastModifiedDate** . Data Factory analyse tous les fichiers du système HDFS et ne copie que les fichiers nouveaux et mis à jour dont l'horodatage correspondant à la dernière modification est supérieur à une valeur définie. 
+Sinon, si les données de votre système HDFS ne sont pas partitionnées, Data Factory peut identifier les fichiers nouveaux ou modifiés à l'aide de leur valeur **LastModifiedDate**. Data Factory analyse tous les fichiers du système HDFS et ne copie que les fichiers nouveaux et mis à jour dont l'horodatage correspondant à la dernière modification est supérieur à une valeur définie. 
 
 En présence d'un grand nombre de fichiers dans le système HDFS, l'analyse initiale des fichiers peut prendre beaucoup de temps, quel que soit le nombre de fichiers correspondant à la condition de filtre. Dans ce scénario, nous vous recommandons de commencer par partitionner les données avec la même partition que celle utilisée pour la migration initiale des instantanés. L'analyse des fichiers peut ensuite être effectuée en parallèle.
 

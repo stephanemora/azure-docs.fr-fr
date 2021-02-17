@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736219"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573362"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planifier et gérer les coûts pour Azure App Service
 
@@ -125,7 +125,7 @@ Si vous envisagez d’utiliser un nombre minimal connu d’instances de calcul p
 
 La tarification d’instance réservée s’applique aux instances applicables dans votre abonnement, jusqu’au nombre d’instances que vous réservez. Les instances réservées sont une question de facturation. Elles ne sont pas liées à des instances de calcul spécifiques. Si vous exécutez moins d’instances que vous n’en réservez à un moment donné de la période de réservation, vous payez toujours pour les instances réservées. Si vous exécutez plus d’instances que vous n’en réservez à un moment donné de la période de réservation, vous payez le coût cumulé normal pour les instances supplémentaires.
 
-Le niveau **Isolé** (environnement App Service) prend également en charge les réservations de 1 et 3 ans à tarif réduit. Pour plus d’informations, consultez [Comment les remises de réservation s’appliquent aux timbres Azure App Service Isolé](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+Le niveau **Isolé** (environnement App Service) prend également en charge les réservations de 1 et 3 ans à tarif réduit. Pour plus d’informations, consultez [Comment les remises de réservation s’appliquent à Azure App Service](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Superviser les coûts
 

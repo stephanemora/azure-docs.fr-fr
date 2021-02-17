@@ -1,22 +1,18 @@
 ---
 title: Transformer des données à l’aide de l’activité de procédure stockée
 description: Explique comment utiliser l’activité de procédure stockée SQL Server pour appeler une procédure stockée dans Azure SQL Database/Data Warehouse à partir d’un pipeline Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b9ba2f9de82522d4348fa341ad0b41d43c3eebcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387539"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375644"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

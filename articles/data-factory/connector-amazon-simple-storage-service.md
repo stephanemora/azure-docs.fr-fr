@@ -1,22 +1,18 @@
 ---
 title: Copier des données depuis Amazon Simple Storage Service (S3)
 description: Découvrez comment utiliser Azure Data Factory pour copier des données d’Amazon Simple Storage Service (S3) vers des banques de données réceptrices prises en charge.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/14/2021
-ms.openlocfilehash: 82871a09916b2b64f74e25088f5e75ac60a40678
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2680c930bfa8451eec7dd518d3c535e0d04046cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202502"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387884"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -182,14 +178,14 @@ Les propriétés suivantes sont prises en charge pour les objets Amazon S3 sous 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** sous `storeSettings` doit être définie sur **AmazonS3ReadSettings**. | Oui                                                         |
-| **_Rechercher les fichiers à copier :_* _ |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `_`. |  |
+| ***Recherchez les fichiers à copier :*** |  |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : Préfixe S3<br>- prefix | Préfixe pour le nom de la clé S3 sous le compartiment donné configuré dans un jeu de données pour filtrer les fichiers S3 sources. Les clé S3 dont le nom commence par `bucket_in_dataset/this_prefix` sont sélectionnées. Elles utilisent le filtre côté service de S3, qui offre de meilleures performances qu’un filtre de caractères génériques.<br/><br/>Quand vous utilisez le préfixe et que vous choisissez de copier le récepteur basé sur un fichier avec conservation de la hiérarchie, notez que le sous-chemin après le dernier signe « / » dans le préfixe est conservé. Par exemple, si vous avez la source `bucket/folder/subfolder/file.txt` et que vous configurez le préfixe sous la forme `folder/sub`, le chemin du fichier conservé est `subfolder/file.txt`. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 4 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Lorsque vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
-| ***Paramètres supplémentaires :** _ |  | |
-| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option _ *recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
+| ***Paramètres supplémentaires :*** |  | |
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
 | deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. <br>Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée à un fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur **NULL**, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                                          |

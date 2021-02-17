@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937878"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103190"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Application web qui connecte les utilisateurs : Inscription d'application
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces liens pour démarrer la création de votre application 
 > Le portail à utiliser est différent selon que votre application s’exécute dans le cloud public Microsoft Azure ou dans un cloud national ou souverain. Pour plus d’informations, voir [Clouds nationaux](./authentication-national-cloud.md#app-registration-endpoints)
 
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>. 
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.

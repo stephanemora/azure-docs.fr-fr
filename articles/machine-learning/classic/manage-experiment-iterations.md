@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Affichage et réexécution des expériences – 
 description: Gérez des exécutions d’expériences dans Azure Machine Learning Studio (classique). Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312869"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515952"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gérer des exécutions d’expériences dans Azure Machine Learning Studio (classique)
 
@@ -33,7 +33,7 @@ Vous pouvez consulter les précédentes exécutions de vos expériences à tout 
 ## <a name="view-the-prior-run"></a>Afficher l’exécution précédente
 Lorsqu'une expérience que vous avez exécutée au moins une fois est ouverte, vous pouvez afficher l'exécution précédente de l'expérience en cliquant sur **Exécution précédente** dans le volet Propriétés.
 
-Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience (11:55) et que vous cliquez sur **Exécution précédente** , la version que vous avez exécutée à 11:42 est ouverte.
+Supposons par exemple que vous créez une expérience et que vous exécutez des versions de celle-ci à 11:23, 11:42 et 11:55. Si vous ouvrez la dernière exécution de l'expérience (11:55) et que vous cliquez sur **Exécution précédente**, la version que vous avez exécutée à 11:42 est ouverte.
 
 ## <a name="view-the-run-history"></a>Afficher l’historique des exécutions
 Vous pouvez afficher toutes les précédentes exécutions d'une expérience en cliquant sur **Afficher l'historique d'exécution** d'une expérience ouverte.
@@ -47,7 +47,7 @@ Supposons par exemple que vous créez une expérience à l’aide du module [Ré
 | 0.4 |11/9/2014 16:28:36 |
 | 0.5 |11/9/2014 16:33:31 |
 
-Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** , une liste de toutes ces exécutions apparaîtra :
+Si vous cliquez sur **AFFICHER L'HISTORIQUE D'EXÉCUTION**, une liste de toutes ces exécutions apparaîtra :
 
 ![Exemple d'historique d'exécution](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -58,7 +58,7 @@ Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience
 > 
 > 
 
-La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio (classique) affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION** ), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l' **ÉTAT** est défini sur **Modifiable**.
+La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio (classique) affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
 
 ## <a name="run-a-previous-experiment"></a>Exécuter une expérience précédente
 Lorsque vous cliquez sur **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION** et que vous ouvrez une exécution précédente, vous pouvez afficher une expérience terminée en mode lecture seule.

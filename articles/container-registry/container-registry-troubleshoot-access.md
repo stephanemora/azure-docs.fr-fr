@@ -3,12 +3,12 @@ title: Résoudre des problèmes de réseau avec un registre
 description: Symptômes, causes et résolution de problèmes courants lors de l’accès à un registre de conteneurs Azure dans un réseau virtuel ou derrière un pare-feu
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052159"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525074"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Résoudre des problèmes de réseau avec un registre
 
@@ -105,20 +105,20 @@ Liens connexes :
 
 ### <a name="configure-service-access"></a>Configurer l’accès au service
 
-Actuellement, Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. En outre, les ressources des services suivants ne peuvent pas accéder à un registre de conteneurs avec des restrictions réseau :
+Actuellement, l’accès à un registre de conteneurs ayant des restrictions réseau n’est pas autorisé à partir de plusieurs services Azure :
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Tâches Azure Container Registry
+* Azure Security Center ne peut pas effectuer l’[analyse de vulnérabilité des images](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) dans un registre qui restreint l’accès aux points de terminaison privés, aux sous-réseaux sélectionnés ou aux adresses IP. 
+* Les ressources de certains services Azure ne peuvent pas accéder à un registre de conteneurs ayant des restrictions réseau, y compris Azure App Service et Azure Container Instances.
 
 Si l’accès ou l’intégration de ces services Azure à votre registre de conteneurs est nécessaire, supprimez la restriction réseau. Par exemple, supprimez les points de terminaison privés du registre, ou supprimez ou modifiez les règles d’accès publiques du registre.
+
+Depuis janvier 2021, vous pouvez configurer un registre dont l’accès réseau est restreint pour [autoriser l’accès](allow-access-trusted-services.md) à partir de certains services de confiance.
 
 Liens connexes :
 
 * [Analyse d’images Azure Container Registry par Security Center](../security-center/defender-for-container-registries-introduction.md)
 * Fournir des [commentaires](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configurer des règles de réseau IP public](container-registry-access-selected-networks.md)
-* [Connexion privée à un registre de conteneurs Azure à l’aide d’Azure Private Link](container-registry-private-link.md)
+* [Permettre à des services de confiance d’accéder en toute sécurité à un registre de conteneurs ayant un accès réseau restreint](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Dépannage avancé
@@ -140,5 +140,5 @@ Si vous ne résolvez pas votre problème ici, consultez les options suivantes.
   * [Résoudre les problèmes de connexion au registre](container-registry-troubleshoot-login.md) 
   * [Résoudre les problèmes de performances de registre](container-registry-troubleshoot-performance.md)
 * Options de [support de la communauté](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](/answers/products/)
+* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Ouvrir un ticket de support](https://azure.microsoft.com/support/create-ticket/)

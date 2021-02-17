@@ -1,23 +1,18 @@
 ---
 title: Outil de données pour copier de façon incrémentielle les fichiers nouveaux et mis à jour
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données afin de charger de nouveaux fichiers de façon incrémentielle sur la base de LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555411"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361143"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 

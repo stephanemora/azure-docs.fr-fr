@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2fb6aa7d7c655a1ba4b44dabc33e32ce04ae458f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b9c5053a2a49c942cc89bd50c65e13f3a2f8d9d7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489273"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625875"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Conteneuriser une application .NET pour Service Fabric Mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 Cet article vous montre comment ajouter la prise en charge de l’orchestration de conteneurs Service Fabric Mesh à une application .NET existante.
 

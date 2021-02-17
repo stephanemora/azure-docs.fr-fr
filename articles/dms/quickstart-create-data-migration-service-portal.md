@@ -11,25 +11,23 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 07/21/2020
-ms.openlocfilehash: ff9fc2baaf1563d4a02364db00344ffc0bc46a6a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.date: 01/29/2021
+ms.openlocfilehash: 6232c842514c10a5440e574621ca74e2f4867d86
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060263"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981622"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 
-Dans ce Démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service.  Une fois l’instance créée, vous pouvez l’utiliser pour migrer des données entre une instance de SQL Server et Azure SQL Database.
+Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service. Une fois l’instance créée, vous pouvez l’utiliser pour migrer des données de plusieurs sources de base de données vers des plateformes de données Azure, par exemple de SQL Server vers Azure SQL Database ou de SQL Server vers une instance Azure SQL Managed Instance.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Ouvrez votre navigateur web, accédez au [portail Microsoft Azure](https://portal.azure.com/), puis saisissez vos informations de connexion au portail.
-
-Il s’ouvre par défaut sur le tableau de bord des services.
+Ouvrez votre navigateur web, accédez au [portail Microsoft Azure](https://portal.azure.com/), puis saisissez vos informations de connexion au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
 > [!NOTE]
 > Vous pouvez créer jusqu’à 10 instances de DMS par abonnement par région. Si vous avez besoin d’un plus grand nombre d’instances, veuillez créer un ticket de support.
@@ -38,47 +36,60 @@ Il s’ouvre par défaut sur le tableau de bord des services.
 
 Avant de créer votre première instance Database Migration Service, vous devez inscrire le fournisseur de ressources Microsoft.DataMigration.
 
-1. Dans le portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
+1. Dans le portail Azure, recherchez et sélectionnez **Abonnements**.
+
+   ![Afficher les abonnements au portail](media/quickstart-create-data-migration-service-portal/portal-select-subscription.png)
 
 2. Sélectionnez l’abonnement dans lequel vous voulez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
 
-3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
+    ![Afficher les fournisseurs de ressources](media/quickstart-create-data-migration-service-portal/portal-select-resource-provider.png)
+
+3. Recherchez « migration », puis sélectionnez **Inscrire** pour **Microsoft.DataMigration**.
 
     ![S’inscrire auprès du fournisseur de ressources](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Créer une instance du service
 
-1. Sélectionnez +**Créer une ressource** pour créer une instance d’Azure Database Migration Service.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. Recherchez et sélectionnez **Azure Database Migration Service**.
 
-2. Recherchez « migration » sur la marketplace, sélectionnez **Azure Database Migration Service**, puis, dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
+    ![Place de marché Azure](media/quickstart-create-data-migration-service-portal/portal-marketplace.png)
 
-3. Sur l’écran **Créer un service de migration** :
+2. Dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
 
-    - Choisissez un **Nom de service** unique et facile à mémoriser pour identifier votre instance d’Azure Database Migration Service.
-    - Sélectionnez l’**abonnement** Azure dans lequel vous souhaitez créer l’instance.
-    - Sélectionnez un **Groupe de ressources** existant ou créez-en un.
-    - Choisissez **l’emplacement** le plus proche de votre serveur source ou cible.
-    - Sélectionnez un **réseau virtuel** existant ou créez-en un.
+    ![Créer une instance Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-create.png)
 
-        Le réseau virtuel fournit à Azure Database Migration Service un accès à la base de données source et à l’environnement cible.
+3. Sous l’onglet Informations de base de la page **Créer un service de migration** :
 
-        Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
+     - Sélectionnez l’abonnement.
+     - Créez un groupe de ressources ou sélectionnez-en un déjà existant.
+     - Spécifiez un nom pour l’instance d’Azure Database Migration Service.
+     - Sélectionnez l’emplacement dans lequel vous souhaitez créer l’instance Azure Database Migration Service.
+     - Choisissez **Azure** comme mode de service.
+     - Sélectionnez un niveau tarifaire. Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
+     
+    ![Configurer des paramètres de base pour l’instance Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-create-basics.png)
 
-    - Sélectionnez De base : 1 vCore pour le **Niveau tarifaire**.
+     - Sélectionnez Suivant : Réseau.
 
-        ![Créer un service de migration](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+4. Sous l’onglet Réseau de la page **Créer un service de migration** :
 
-4. Sélectionnez **Create** (Créer).
+    - Sélectionnez un réseau virtuel existant ou créez-en un. Le réseau virtuel fournit à Azure Database Migration Service un accès à la base de données source et à l’environnement cible. Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](../virtual-network/quick-create-portal.md).
 
-    Votre instance d’Azure Database Migration Service est créée et prête à l’emploi au bout de quelques instants. Database Migration Service s’affiche alors comme indiqué dans l’image suivante :
+    ![Configurer des paramètres réseau pour l’instance Azure Database Migration Service](media/quickstart-create-data-migration-service-portal/dms-network-settings.png)
+
+    - Sélectionnez **Vérifier + créer** pour créer le service. 
+    
+    - Après quelques instants, votre instance d’Azure Database Migration Service est créée et prête à être utilisée :
 
     ![Service de migration créé](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez nettoyer toutes les ressources créées au cours de ce démarrage rapide en supprimant le [Groupe de ressources Azure](../azure-resource-manager/management/overview.md). Pour supprimer le groupe de ressources, accédez à l’instance d’Azure Database Migration Service que vous avez créée. Sélectionnez le nom de **groupe de ressources**, puis sélectionnez **Supprimer le groupe de ressources**. Cette action supprime toutes les ressources du groupe, ainsi que le groupe lui-même.
+Vous pouvez nettoyer toutes les ressources créées au cours de ce démarrage rapide en supprimant le [groupe de ressources Azure](../azure-resource-manager/management/overview.md). Pour supprimer le groupe de ressources, accédez à l’instance d’Azure Database Migration Service que vous avez créée. Sélectionnez le nom de **groupe de ressources**, puis sélectionnez **Supprimer le groupe de ressources**. Cette action supprime toutes les ressources du groupe, ainsi que le groupe lui-même.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Migrer SQL Server vers Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+* [Migrer SQL Server vers Azure SQL Database hors connexion](tutorial-sql-server-to-azure-sql.md)
+* [Migrer SQL Server vers Azure SQL Database en ligne](tutorial-sql-server-azure-sql-online.md)
+* [Migrer SQL Server vers une instance Azure SQL Managed Instance hors connexion](tutorial-sql-server-to-managed-instance.md)
+* [Migrer SQL Server vers une instance Azure SQL Managed Instance en ligne](tutorial-sql-server-managed-instance-online.md)

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 317d75dae83e8529bda25897b77824d8cd36e72e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eea8cb61ce98b2394abff6995e5cc89f00a7cf46
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95553444"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628965"
 ---
 1. Dans la page de votre WAN virtuel, sélectionnez **Configurations de VPN utilisateur**.
-1. En haut de la page, sélectionnez **Télécharger une configuration de VPN utilisateur**. Quand vous téléchargez la configuration de niveau WAN, vous obtenez un profil VPN utilisateur basé sur Traffic Manager intégré. Pour plus d’informations sur les profils globaux ou un profil basé sur un hub, consultez [Profils hub](../articles/virtual-wan/global-hub-profile.md). Les scénarios de basculement sont simplifiés avec le profil global.
+1. Dans la page **Configurations de VPN utilisateur**, sélectionnez une configuration, puis sélectionnez **Télécharger le profil VPN utilisateur du WAN virtuel**. Quand vous téléchargez la configuration de niveau WAN, vous obtenez un profil VPN utilisateur basé sur Traffic Manager intégré. Pour plus d’informations sur les profils globaux ou un profil basé sur un hub, consultez [Profils hub](../articles/virtual-wan/global-hub-profile.md). Les scénarios de basculement sont simplifiés avec le profil global.
 
+   
    Si un hub n’est pas disponible pour une raison ou une autre, la gestion du trafic intégré fourni par le service garantit la connectivité (via un hub différent) aux ressources Azure pour les utilisateurs point à site. Vous pouvez toujours télécharger une configuration VPN propre à un hub en accédant au hub. Sous **VPN utilisateur (point à site)** , téléchargez le profil **VPN utilisateur** du hub virtuel.
-1. Une fois le fichier créé, vous pouvez le télécharger en sélectionnant le lien correspondant.
-1. Utilisez le fichier de profil pour configurer les clients VPN.
+1. Dans la page **Télécharger le profil VPN utilisateur du WAN virtuel**, sélectionnez le **type d’authentification**, puis sélectionnez **Générer et télécharger un profil**. Le package de profil sera généré et un fichier zip contenant les paramètres de configuration sera téléchargé.

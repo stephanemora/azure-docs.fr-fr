@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593703"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530550"
 ---
 # <a name="remote-rendering-sessions"></a>Sessions Remote Rendering
 
@@ -39,9 +39,9 @@ Chaque session se compose de plusieurs phases.
 
 ### <a name="session-startup"></a>Démarrage de la session
 
-Quand vous demandez à ARR de [créer une session](../how-tos/session-rest-api.md#create-a-session), il commence par retourner un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) de session. Cet UUID vous permet de demander des informations sur la session. L’UUID est conservé pendant 30 jours de même que certaines informations de base sur la session. Vous pouvez donc demander ces informations même après l’arrêt de la session. À ce stade, l’**état de la session** indiqué est **Démarrage**.
+Quand vous demandez à ARR de [créer une session](../how-tos/session-rest-api.md), il commence par retourner un [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) de session. Cet UUID vous permet de demander des informations sur la session. L’UUID est conservé pendant 30 jours de même que certaines informations de base sur la session. Vous pouvez donc demander ces informations même après l’arrêt de la session. À ce stade, l’**état de la session** indiqué est **Démarrage**.
 
-Ensuite, Azure Remote Rendering tente de trouver un serveur qui peut héberger votre session. Deux paramètres sont pris en compte pour cette recherche. Tout d’abord, ARR ne réserve que des serveurs de votre [région](../reference/regions.md). En effet, la latence du réseau entre régions peut être trop élevée pour garantir une expérience correcte. Le deuxième facteur est la *taille* souhaitée que vous avez spécifiée. Chaque région inclut un nombre limité de serveurs pouvant répondre à une demande de taille [*Standard*](../reference/vm-sizes.md) ou [*Premium*](../reference/vm-sizes.md). Ainsi, si tous les serveurs de la taille demandée sont en cours d’utilisation dans votre région, la création de la session échoue. Vous pouvez [demander](../how-tos/session-rest-api.md#get-sessions-properties) la raison de l’échec.
+Ensuite, Azure Remote Rendering tente de trouver un serveur qui peut héberger votre session. Deux paramètres sont pris en compte pour cette recherche. Tout d’abord, ARR ne réserve que des serveurs de votre [région](../reference/regions.md). En effet, la latence du réseau entre régions peut être trop élevée pour garantir une expérience correcte. Le deuxième facteur est la *taille* souhaitée que vous avez spécifiée. Chaque région inclut un nombre limité de serveurs pouvant répondre à une demande de taille [*Standard*](../reference/vm-sizes.md) ou [*Premium*](../reference/vm-sizes.md). Ainsi, si tous les serveurs de la taille demandée sont en cours d’utilisation dans votre région, la création de la session échoue. Vous pouvez [demander](../how-tos/session-rest-api.md) la raison de l’échec.
 
 > [!IMPORTANT]
 > Si vous demandez une taille de serveur *Standard* et que la demande échoue en raison d’une forte sollicitation, cela ne signifie pas qu’une demande de serveur *Premium* échouera également. Si vous disposez de cette option, vous pouvez donc essayer de revenir à un serveur *Premium*.
@@ -77,7 +77,7 @@ Dans tous les cas, la facturation prend fin dès lors qu’une session est arrê
 
 #### <a name="extend-a-sessions-lease-time"></a>Prolonger la durée du bail d’une session
 
-Vous pouvez [prolonger la durée du bail](../how-tos/session-rest-api.md#modify-and-query-session-properties) d’une session active si vous en avez besoin plus longtemps.
+Vous pouvez [prolonger la durée du bail](../how-tos/session-rest-api.md) d’une session active si vous en avez besoin plus longtemps.
 
 ## <a name="example-code"></a>Exemple de code
 

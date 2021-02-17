@@ -1,22 +1,17 @@
 ---
 title: Copier des données de Cassandra à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Cassandra vers des banques de données réceptrices prises en charge.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4b7fd2de0762de147ad3ceae0d562a1c78b33dc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3cd3c3ae28ae302e9469a71d00054152a9b5fb5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417470"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383702"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

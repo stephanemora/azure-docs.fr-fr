@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 47215070893c6fefd42554fdf4514e4aa8b45047
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491297"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103343"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -27,13 +27,13 @@ Le manifeste d’application contient une définition de tous les attributs d’
 Vous pouvez configurer les attributs d’une application via le portail Azure ou par programmation à l’aide de [l’API REST](/graph/api/resources/application) ou de [PowerShell](/powershell/module/azuread#applications). Toutefois, il existe des scénarios dans lesquels vous devez modifier le manifeste de l’application pour configurer un attribut de l’application. Ces scénarios sont les suivants :
 
 * Si vous avez inscrit l’application en tant que comptes Microsoft personnels et Azure AD multi-locataires, vous ne pouvez pas modifier les comptes Microsoft pris en charge dans l’interface utilisateur. À la place, vous devez utiliser l’éditeur de manifeste d’application pour changer le type de compte pris en charge.
-* Si vous avez besoin de définir les autorisations et les rôles que votre application prend en charge, vous devez modifier le manifeste de l’application.
+* Pour définir les autorisations et les rôles pris en charge par votre application, vous devez modifier le manifeste de l’application.
 
 ## <a name="configure-the-app-manifest"></a>Configurer le manifeste de l’application
 
 Pour configurer le manifeste de l’application :
 
-1. Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Recherchez et sélectionnez le service **Azure Active Directory**.
+1. Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>. Recherchez et sélectionnez le service **Azure Active Directory**.
 1. Sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez l’application à configurer.
 1. sélectionner la section **Manifeste** sur la **page de présentation** de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste depuis le portail. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** pour modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.
@@ -173,7 +173,8 @@ Configure la revendication `groups` émise dans un utilisateur ou un jeton d’a
 - `"None"`
 - `"SecurityGroup"` (pour les groupes de sécurité et les rôles Azure AD)
 - `"ApplicationGroup"` (cette option comprend uniquement les groupes attribués à l'application)
-- `"All"` (ceci permet d’obtenir tous les groupes de sécurité, groupes de distribution et rôles d’annuaire Azure AD dont l’utilisateur connecté est membre)
+- `"DirectoryRole"` (permet de récupérer les rôles d’annuaire Azure AD dont l’utilisateur est membre)
+- `"All"` (permet de récupérer tous les groupes de sécurité, groupes de distribution et rôles d’annuaire Azure AD dont l’utilisateur connecté est membre)
 
 Exemple :
 

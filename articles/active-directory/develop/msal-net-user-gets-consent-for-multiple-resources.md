@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: af9dbcbb6c32969b66cd446db634e83ce81f3c92
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d22b4109cdcdc965b1b2e03aba592022c58f773b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754731"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583788"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>L’utilisateur obtient le consentement pour plusieurs ressources à l’aide de MSAL.NET
 La plateforme d’identités Microsoft ne vous permet pas d’obtenir un jeton pour plusieurs ressources à la fois. Lorsque vous utilisez la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET), le paramètre d’étendue dans la méthode d’acquisition de jetons doit contenir uniquement les étendues pour une seule ressource. Toutefois, vous pouvez accorder un consentement préalable à plusieurs ressources en spécifiant les étendues supplémentaires à l’aide de la méthode de générateur `.WithExtraScopeToConsent`.
@@ -52,7 +52,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-Cela vous permet d’obtenir un jeton d’accès pour la première API web. Ensuite, lorsque vous avez besoin d’accéder à la deuxième API web, vous pouvez acquérir silencieusement le jeton à partir du cache du jeton :
+Cela vous permet d’obtenir un jeton d’accès pour la première API web. Ensuite, pour accéder à la deuxième API web, vous pouvez acquérir silencieusement le jeton à partir du cache de jetons :
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

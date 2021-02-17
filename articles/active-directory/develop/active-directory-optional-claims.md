@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756040"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104278"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procédure : Fournir des revendications facultatives à votre application
 
@@ -138,7 +138,7 @@ Cet objet OptionalClaims retourne au client le jeton d’ID pour y inclure une r
 
 Vous pouvez configurer des revendications facultatives pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
-1. Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
+1. Accédez au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>. 
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
@@ -246,7 +246,7 @@ Cette section couvre les options de configuration sous les revendications facult
 
 **Configuration de revendications facultatives de groupe par le biais de l’interface utilisateur :**
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
@@ -259,7 +259,7 @@ Cette section couvre les options de configuration sous les revendications facult
 
 **Configuration de revendications facultatives de groupe par le biais du manifeste de l’application :**
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
@@ -388,7 +388,7 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 
 **Configuration de l’interface utilisateur :**
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 
 1. Recherchez et sélectionnez **Azure Active Directory**.
@@ -411,7 +411,7 @@ Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Con
 
 **Configuration du manifeste :**
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Une fois que vous êtes authentifié, choisissez votre client Azure AD en le sélectionnant dans le coin supérieur droit de la page.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la liste, recherchez l’application pour laquelle vous souhaitez configurer des revendications facultatives, puis sélectionnez-la.

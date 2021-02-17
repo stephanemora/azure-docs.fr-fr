@@ -1,22 +1,17 @@
 ---
 title: Copier des données de Table web à l’aide d’Azure Data Factory
 description: Découvrez le connecteur Table web d’Azure Data Factory, qui vous permet de copier des données d’une Table web vers des banques de données prises en charge par Data Factory en tant que récepteurs.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410213"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367008"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

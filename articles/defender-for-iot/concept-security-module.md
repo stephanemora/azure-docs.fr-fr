@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: b33c456d47426a3721e8582f24ffd603db0429c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340031"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522918"
 ---
 # <a name="security-module"></a>Module de sécurité
 
@@ -40,7 +40,7 @@ Les propriétés de sécurité d’appareil sont conservées dans un jumeau de m
 
 Consultez [Créer un jumeau de module de sécurité](quickstart-create-security-twin.md) et [Configurer des agents de sécurité](how-to-agent-configuration.md) pour découvrir comment créer, personnaliser et configurer le jumeau. Consultez [Comprendre les jumeaux de module IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md) pour en savoir plus sur le concept des jumeaux de module dans IoT Hub.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble de Defender pour IoT](overview.md)
 - [Déployer des agents de sécurité](how-to-deploy-agent.md)

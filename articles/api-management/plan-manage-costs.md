@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725935"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581327"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planifier et gérer les coûts pour la gestion des API
 
@@ -89,10 +89,10 @@ Vous pouvez également [exporter vos données de coûts](../cost-management-bill
 
 ### <a name="choose-tier"></a>Choisir un niveau
 
-Passez en revue la [comparaison des fonctionnalités des niveaux de gestion des API Azure](api-management-features.md) pour vous aider à déterminer le niveau de service qui peut être adapté à vos scénarios. Les différents niveaux de service prennent en charge des combinaisons de fonctionnalités et de capacités conçues pour différents cas d’usage, avec des coûts différents. [Mettez à niveau](upgrade-and-scale.md) vers un autre niveau de service à tout moment.
+Passez en revue la [comparaison des fonctionnalités des niveaux de gestion des API Azure](api-management-features.md) pour vous aider à déterminer le niveau de service qui peut être adapté à vos scénarios. Les différents niveaux de service prennent en charge des combinaisons de fonctionnalités et de capacités conçues pour différents cas d’usage, avec des coûts différents. 
 
 * Le niveau de service **Consommation** fournit une option légère, serverless, qui n’implique aucun coût fixe. Vous êtes facturé en fonction du nombre d’appels d’API au service au-dessus d’un certain seuil. La capacité est également mise à l’échelle automatiquement en fonction de la charge sur le service.
-* Les autres niveaux de gestion des API entraînent des coûts mensuels et fournissent un débit et des ensembles de fonctionnalités plus riches pour les charges de travail d’évaluation et de production.
+* Les niveaux **Développeur**, **De base**, **Standard** et **Premium** de Gestion des API entraînent des coûts mensuels et fournissent un débit et des ensembles de fonctionnalités plus riches pour les charges de travail d’évaluation et de production. [Mettez à niveau](upgrade-and-scale.md) vers un autre niveau de service à tout moment.
 
 ### <a name="scale-using-capacity-units"></a>Mettre à l’échelle à l’aide d’unités de capacité
 

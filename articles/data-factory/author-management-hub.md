@@ -1,20 +1,17 @@
 ---
 title: Hub de gestion
 description: Gérez vos connexions, la configuration du contrôle de code source et les propriétés de création globales dans le hub de gestion d’Azure Data Factory
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.date: 02/01/2021
-ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b4b9ecef84f8ffcc82107299ad6603466380d1c0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428993"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371496"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gestion dans Azure Data Factory
 

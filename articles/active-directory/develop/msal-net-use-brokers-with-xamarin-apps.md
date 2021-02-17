@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063482"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583839"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le Portail d’entreprise Intune sur des applications Xamarin
 
@@ -91,7 +91,7 @@ Cette méthode est appelée à chaque démarrage de l’application. Elle permet
 
 ### <a name="step-4-set-uiviewcontroller"></a>Étape 4 : Définir UIViewController()
 
-Toujours dans le fichier *AppDelegate.cs*, vous devez définir une fenêtre d’objet. Vous n’avez généralement pas besoin de définir la fenêtre d’objet pour Xamarin iOS, mais vous avez besoin d’une fenêtre d’objet pour envoyer des réponses au répartiteur et recevoir des réponses.
+Toujours dans le fichier *AppDelegate.cs*, définissez une fenêtre d’objet. Vous n’avez généralement pas besoin de définir la fenêtre d’objet pour Xamarin iOS, mais vous avez besoin d’une fenêtre d’objet pour envoyer des réponses au répartiteur et recevoir des réponses.
 
 Pour configurer la fenêtre d’objet :
 
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Étape 4 : Ajouter un URI de redirection à l’inscription de votre application
 
-MSAL utilise des URL pour appeler le répartiteur, avant de retourner à votre application. Pour effectuer cet aller-retour, vous devez inscrire un **URI de redirection** pour votre application à l’aide du [portail Azure](https://portal.azure.com).
+MSAL utilise des URL pour appeler le répartiteur, avant de retourner à votre application. Pour effectuer cet aller-retour, inscrivez un **URI de redirection** pour votre application à l’aide du [portail Azure](https://portal.azure.com).
 
 Le format de l’URI de redirection pour votre application dépend du certificat utilisé pour signer l’APK. Par exemple :
 

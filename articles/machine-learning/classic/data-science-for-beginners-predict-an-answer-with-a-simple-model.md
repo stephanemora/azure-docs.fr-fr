@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Prédire les réponses avec des modèles de ré
 description: Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c6d78b10b98abe33744673459b3d31d8941aac89
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322819"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520406"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 
@@ -98,7 +98,7 @@ Pour répondre à notre question, nous visualisons 1,35 carat et dessinons une l
 ![Rechercher la réponse en utilisant le modèle](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Créer un intervalle de confiance
-Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance*  : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
+Il est normal de vous demander le degré de précision de cette prédiction. Il est utile de savoir si le prix du diamant de 1,35 carat est très proche de 10 000 $, ou largement supérieur ou inférieur. Pour le déterminer, nous allons dessiner une enveloppe autour de la ligne de régression qui inclut la plupart des points. Il s’agit de notre *intervalle de confiance* : nous sommes pratiquement certains que les prix se situent dans cet intervalle, car c’était le cas dans la plupart des cas dans le passé. Nous pouvons dessiner deux lignes horizontales supplémentaires où la ligne de 1,35 carat coupe le haut et le bas de l’intervalle.
 
 ![intervalle de confiance](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 

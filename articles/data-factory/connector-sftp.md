@@ -1,23 +1,18 @@
 ---
 title: Copier des données depuis et vers un serveur SFTP
 description: Découvrez comment copier des données depuis et vers un serveur SFTP à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: c1f49fffae091dd0d069c48cea75c3da40def645
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346076"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393460"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory
 
@@ -229,13 +224,13 @@ Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété *type* sous `storeSettings` doit être définie sur *SftpReadSettings*. | Oui                                           |
-| ***Rechercher les fichiers à copier** _ |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin de dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `_`. |  |
+| ***Rechercher les fichiers à copier*** |  |  |
+| OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin de dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont `*` (correspond à zéro, un ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement un caractère générique ou ce caractère d’échappement. <br>Pour d’autres exemples, consultez [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 2 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin folderPath/wildcardFolderPath spécifié pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou à un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.  Pour d’autres exemples, consultez [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 3 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers spécifié. Pointez sur un fichier texte qui contient une liste de fichiers que vous voulez copier (un fichier par ligne, avec le chemin relatif au chemin configuré dans le jeu de données).<br/>Lorsque vous utilisez cette option, ne spécifiez pas le nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
-| ***Paramètres supplémentaires** _ |  | |
-| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont _true* (par défaut) et *false*.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
+| ***Paramètres supplémentaires*** |  | |
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont *true* (par défaut) et *false*.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
 | deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut *Dernière modification*. <br>Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format *2018-12-01T05:00:00Z*. <br> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |

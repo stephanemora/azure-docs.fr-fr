@@ -3,12 +3,12 @@ title: Déplacer des machines virtuelles Azure vers un nouveau groupe d’abonne
 description: Utilisez Azure Resource Manager pour déplacer des machines virtuelles vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456326"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104907"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -58,7 +58,7 @@ Les machines virtuelles créées à partir de ressources Place de marché et aux
 
 Pour déplacer des machines virtuelles configurées avec le service Sauvegarde Azure, vous devez supprimer les points de restauration du coffre.
 
-Si la [suppression réversible](../../../backup/backup-azure-security-feature-cloud.md) est activée pour votre machine virtuelle, vous ne pouvez pas déplacer la machine virtuelle alors que ces points de restauration sont conservés. Vous pouvez [désactiver la suppression réversible](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou attendre 14 jours après la suppression des points de restauration.
+Si la [suppression réversible](../../../backup/soft-delete-virtual-machines.md) est activée pour votre machine virtuelle, vous ne pouvez pas déplacer la machine virtuelle alors que ces points de restauration sont conservés. Vous pouvez [désactiver la suppression réversible](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou attendre 14 jours après la suppression des points de restauration.
 
 ### <a name="portal"></a>Portail
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099344"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988890"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
@@ -94,6 +94,18 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 > [!TIP]
 > Le problème de blocage de certificat client décrit dans cet [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) peut se manifester de différentes manières, notamment par des demandes qui se figent, des demandes qui génèrent un code d’état `403 Forbidden` après une expiration du délai, `context.Request.Certificate` qui a la valeur `null`. Ce problème affecte généralement les demandes `POST` et `PUT` avec une longueur de contenu d’environ 60 Ko ou plus.
 > Pour éviter que ce problème ne se reproduise, activez le paramètre « Négocier le certificat client » pour les noms d’hôte souhaités dans le panneau « Domaines personnalisés », comme indiqué dans la première image de ce document. Cette fonctionnalité n’est pas disponible dans le niveau Consommation.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Validation de certificat dans une passerelle auto-hébergée
+
+L’image de [passerelle auto-hébergée](self-hosted-gateway-overview.md) de Gestion des API par défaut ne prend pas en charge la validation des certificats serveur et client à l’aide de [certificats racine d’autorité de certification](api-management-howto-ca-certificates.md) chargés sur une instance Gestion des API. Les clients présentant un certificat personnalisé à la passerelle auto-hébergée peuvent être confrontés à des réponses lentes, car la validation de la liste de révocation des certificats (CRL) peut prendre un certain temps à expirer sur la passerelle. 
+
+Pour contourner le problème lors de l’exécution de la passerelle, vous pouvez configurer l’adresse IP PKI de façon à ce qu’elle pointe vers l’adresse localhost (127.0.0.1) au lieu de l’instance Gestion des API. Cela cause l’échec rapide de la validation CRL lorsque la passerelle tente de valider le certificat client. Pour configurer la passerelle, ajoutez une entrée DNS pour l’instance Gestion des API afin de la résoudre sur localhost dans le fichier `/etc/hosts` du conteneur. Vous pouvez ajouter cette entrée pendant le déploiement de la passerelle :
+ 
+* Pour le déploiement Docker, ajoutez le paramètre `--add-host <hostname>:127.0.0.1` à la commande `docker run`. Pour plus d’informations, consultez [Ajouter des entrées à un fichier d’hôtes de conteneur](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* Pour le déploiement Kubernetes, ajoutez une spécification `hostAliases` au fichier de configuration `myGateway.yaml`. Pour plus d’informations, consultez [Ajout d’entrées à Pod /etc/hosts avec des alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/).
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

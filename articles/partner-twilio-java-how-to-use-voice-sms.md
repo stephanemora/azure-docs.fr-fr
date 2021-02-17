@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652872"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548724"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Java
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -76,7 +76,7 @@ Lorsque vous créez un compte Twilio, vous recevez un ID de compte et un jeton d
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Création d’une application Java
 1. Obtenez le JAR Twilio et ajoutez-le à votre chemin d'accès de build Java et à votre assembly de déploiement WAR. Sur [https://github.com/twilio/twilio-java][twilio_java], vous pouvez télécharger les sources GitHub et créer votre propre fichier JAR, ou télécharger un fichier JAR prédéfini (avec ou sans dépendances).
-2. Vérifiez que le keystore **cacerts** de votre JDK contient le certificat ESCA (Equifax Secure Certificate Authority) avec l'empreinte MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (le numéro de série est 35:DE:F4:CF et l'empreinte de SHA1 est D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Il s'agit du certificat d'autorité de certification du service [https://api.twilio.com][twilio_api_service], qui est appelé lorsque vous utilisez les API Twilio. Pour vérifier que le magasin de clés **cacerts** de votre JDK contient le certificat d'autorité de certification qui convient, consultez la rubrique [Ajout d'un certificat au magasin de certificats d'autorité de certification Java][add_ca_cert].
+2. Vérifiez que le keystore **cacerts** de votre JDK contient le certificat ESCA (Equifax Secure Certificate Authority) avec l'empreinte MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (le numéro de série est 35:DE:F4:CF et l'empreinte de SHA1 est D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Il s'agit du certificat d'autorité de certification du service [https://api.twilio.com][twilio_api_service], qui est appelé lorsque vous utilisez les API Twilio.
 
 Des instructions détaillées sur l'utilisation de la bibliothèque cliente Twilio pour Java sont disponibles dans la rubrique [Passer un appel téléphonique à l'aide de Twilio dans une application Java sur Azure][howto_phonecall_java].
 
@@ -217,7 +217,6 @@ Maintenant que vous avez appris les bases du service Twilio, consultez ces liens
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message

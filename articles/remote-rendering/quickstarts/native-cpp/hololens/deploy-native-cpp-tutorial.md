@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594025"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530584"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Démarrage rapide : Déployer l’exemple C++ natif sur HoloLens
 
@@ -81,7 +81,7 @@ Les informations d’identification du compte étant codées en dur dans le code
 Plus spécifiquement, modifiez les valeurs suivantes :
 * `init.AccountId`, `init.AccountKey` et `init.AccountDomain` pour utiliser les données de votre compte. Consultez le paragraphe sur la façon de [récupérer les informations du compte](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Spécifiez où créer la session de rendu à distance en modifiant la partie région de la chaîne `init.RemoteRenderingDomain` pour les régions autres que `westus2`, par exemple `"westeurope.mixedreality.azure.com"`.
-* Vous pouvez aussi remplacer `m_sessionOverride` par un ID de session existant. Des sessions peuvent être créées en dehors de cet exemple, en utilisant le [script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou l’[API REST de session](../../../how-tos/session-rest-api.md#create-a-session) directement.
+* Vous pouvez aussi remplacer `m_sessionOverride` par un ID de session existant. Des sessions peuvent être créées en dehors de cet exemple, en utilisant le [script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou l’[API REST de session](../../../how-tos/session-rest-api.md) directement.
 La création d’une session en dehors de l’exemple est recommandée quand celui-ci doit s’exécuter plusieurs fois. Si aucune session n’est transmise, l’exemple crée une nouvelle session à chaque démarrage, ce qui peut prendre plusieurs minutes.
 
 L’application peut maintenant être compilée.

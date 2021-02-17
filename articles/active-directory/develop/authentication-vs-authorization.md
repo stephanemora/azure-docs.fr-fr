@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5244a8e572abb56c00d87d0bdd7e8d1291af9b9e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755399"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581905"
 ---
 # <a name="authentication-vs-authorization"></a>Authentification ou autorisation
 

@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: a3da9cdea543894aa7aec66112e28658beac84b5
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 2607ff3a6c4bb7bf301818925990521572777ab9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99558185"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379185"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser
 
-Les erreurs de configuration de la sécurité sont à l’origine de la plupart des incidents. Security Center vous permet désormais de *prévenir* les erreurs de configurations des nouvelles ressources en ce qui concerne les recommandations spécifiques. 
+Les erreurs de configuration de la sécurité sont à l’origine de la plupart des incidents. Security Center vous permet désormais de *prévenir* les erreurs de configuration des nouvelles ressources en ce qui concerne les recommandations spécifiques. 
 
 Cette fonctionnalité peut vous aider à sécuriser vos charges de travail et à stabiliser votre degré de sécurisation.
 
@@ -62,40 +62,7 @@ Cette option est disponible en haut de la page des détails des ressources pour 
 
 Ces recommandations peuvent être utilisées avec l’option **Refuser** :
 
-- L’accès aux comptes de stockage avec configurations de pare-feu et de réseau virtuel doit être limité
-- Azure Cache pour Redis doit se trouver dans un réseau virtuel
-- Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
-- Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)
-- Azure Spring Cloud doit utiliser l’injection de réseau
-- Les comptes Cognitive Services doivent activer le chiffrement des données avec une clé gérée par le client (CMK)
-- Les limites de mémoire et du processeur du conteneur doivent être appliquées
-- Les images conteneur doivent être déployées à partir de registres approuvés uniquement
-- Les registres de conteneurs doivent être chiffrés avec une clé gérée par le client (CMK)
-- Tout conteneur avec une élévation des privilèges doit être évité
-- Éviter les conteneurs partageant des espaces de noms d’hôte sensibles
-- Les conteneurs doivent écouter uniquement sur les ports autorisés
-- Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs
-- Les clés Key Vault doivent avoir une date d’expiration
-- Les secrets Key Vault doivent avoir une date d’expiration
-- La protection contre la suppression définitive doit être activée sur les coffres de clés
-- La suppression réversible doit être activée sur les coffres de clés
-- Les fonctionnalités Linux à privilèges minimum doivent être appliquées pour les conteneurs
-- Seules les connexions sécurisées à votre cache Redis doivent être activées
-- Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être limité
-- Les conteneurs privilégiés doivent être évités
-- L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée
-- La sécurisation du transfert vers des comptes de stockage doit être activée
-- La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
-- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
-- Les services doivent écouter uniquement sur les ports autorisés
-- Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
-- Les comptes de stockage doivent utiliser des règles de réseau virtuel pour restreindre l’accès au réseau
-- L’utilisation du réseau hôte et des ports doit être limitée
-- L’utilisation de montages de volume HostPath de pod doit être limitée à une liste connue pour restreindre l’accès aux nœuds à partir de conteneurs compromis
-- La période de validité des certificats stockés dans Azure Key Vault ne doit pas dépasser 12 mois
-- Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
-- Le pare-feu d’applications web (WAF) doit être activé pour Application Gateway
-- Web Application Firewall (WAF) doit être activé pour le service Azure Front Door Service
+[!INCLUDE [azure-security-center-recommendations-deny](../../includes/asc/recommendations-with-deny.md)]
 
 Ces recommandations peuvent être utilisées avec l’option **Appliquer** :
 

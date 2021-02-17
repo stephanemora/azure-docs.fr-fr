@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058025"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626625"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager (préversion publique)
 
@@ -19,7 +19,7 @@ Découvrez comment intégrer le contrôle d’intégrité dans [Azure Deployment
 Dans le modèle de lancement utilisé dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md), vous avez utilisé une étape d’attente. Dans ce tutoriel, vous remplacez l’étape d’attente par une étape de contrôle d’intégrité.
 
 > [!IMPORTANT]
-> Si votre abonnement est marqué pour les Canaries pour les tests de nouvelles fonctionnalités Azure, vous pouvez utiliser Azure Deployment Manager uniquement en vue du déploiement dans la région des Canaries. 
+> Si votre abonnement est marqué pour les Canaries pour les tests de nouvelles fonctionnalités Azure, vous pouvez utiliser Azure Deployment Manager uniquement en vue du déploiement dans la région des Canaries.
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -35,26 +35,23 @@ Ce tutoriel décrit les tâches suivantes :
 
 Ressources supplémentaires :
 
-* Les [informations de référence de l’API REST Azure Deployment Manager](/rest/api/deploymentmanager/).
+* [Informations de référence sur l’API Azure Deployment Manager](/rest/api/deploymentmanager/).
 * [Un exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
-
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
+Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
+* Abonnement Azure. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Effectuez le tutoriel [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
 
 ## <a name="install-the-artifacts"></a>Installer les artefacts
 
-Téléchargez [les modèles et les artefacts ](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) et décompressez-les localement si ce n’est déjà fait. Exécutez ensuite le script PowerShell qui se trouve dans [Préparer les artefacts](./deployment-manager-tutorial.md#prepare-the-artifacts). Le script crée un groupe de ressources, crée un conteneur de stockage, crée un conteneur d’objets blob, charge les fichiers téléchargés, puis crée un jeton SAS.
+Si vous n’avez pas encore téléchargé les exemples utilisés dans le tutoriel des prérequis, vous pouvez télécharger [les modèles et les artefacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) et les décompresser localement. Ensuite, exécutez le script PowerShell qui figure dans la section [Préparer les artefacts](./deployment-manager-tutorial.md#prepare-the-artifacts) du tutoriel des prérequis. Le script crée un groupe de ressources, crée un conteneur de stockage, crée un conteneur d’objets blob, charge les fichiers téléchargés, puis crée un jeton SAS.
 
-Effectuez une copie de l’URL avec le jeton SAS. Cette URL est nécessaire pour remplir un champ dans les deux fichiers de paramètres, le fichier de paramètres de topologie et le fichier de paramètres de lancement.
-
-Ouvrez CreateADMServiceTopology.Parameters.json et mettez à jour les valeurs de **projectName** et d’**artifactSourceSASLocation**.
-
-Ouvrez CreateADMRollout.Parameters.json et mettez à jour les valeurs de **projectName** et d’**artifactSourceSASLocation**.
+* Effectuez une copie de l’URL avec le jeton SAS. Cette URL est nécessaire pour remplir un champ dans les deux fichiers de paramètres : le fichier de paramètres de topologie et le fichier de paramètres de lancement.
+* Ouvrez _CreateADMServiceTopology.Parameters.json_ et mettez à jour les valeurs de `projectName` et de `artifactSourceSASLocation`.
+* Ouvrez _CreateADMRollout.Parameters.json_ et mettez à jour les valeurs de `projectName` et de `artifactSourceSASLocation`.
 
 ## <a name="create-a-health-check-service-simulator"></a>Créer un simulateur de service de contrôle d’intégrité
 
@@ -65,29 +62,29 @@ Les deux fichiers suivants sont utilisés pour le déploiement de la fonction Az
 * Un modèle Resource Manager situé sur [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Vous déployez ce modèle pour créer une fonction Azure.
 * Un fichier zip contenant le code source de la fonction Azure, [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Ce fichier zip est appelé par le modèle Resource Manager.
 
-Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes.  Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
+Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud Shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes. Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Pour vérifier et tester la fonction Azure
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-1. Ouvrez le groupe de ressources.  Le nom par défaut est le nom du projet avec **rg** ajouté.
-1. Sélectionnez le service d’application dans le groupe de ressources.  Le nom par défaut du service d’application est le nom du projet avec **webapp** ajouté.
+1. Ouvrez le groupe de ressources. Le nom par défaut est le nom du projet avec **rg** ajouté.
+1. Sélectionnez le service d’application dans le groupe de ressources. Le nom par défaut du service d’application est le nom du projet avec **webapp** ajouté.
 1. Développez **Fonctions**, puis sélectionnez **HttpTrigger1**.
 
     ![Fonction Azure de contrôle d’intégrité Azure Deployment Manager](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
 1. Sélectionnez **&lt;/> Obtenir l’URL de la fonction**.
-1. Sélectionnez **Copier** pour copier l’URL dans le Presse-papiers.  L’URL ressemble à celle-ci :
+1. Sélectionnez **Copier** pour copier l’URL dans le Presse-papiers. L’URL ressemble à celle-ci :
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Remplacez `{healthStatus}` dans l’URL par un code d’état. Dans ce tutoriel, utilisez **unhealthy** pour tester le scénario non sain, et utilisez **healthy** ou **warning** pour tester le scénario sain. Créez deux URL, une avec un état non sain et l’autre avec un état sain. Exemples :
+    Remplacez `{healthStatus}` dans l’URL par un code d’état. Dans ce tutoriel, utilisez *unhealthy* pour tester le scénario non sain, et utilisez *healthy* ou *warning* pour tester le scénario sain. Créez deux URL, une avec un état *unhealthy* et l’autre avec un état *healthy*. Par exemple :
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -96,9 +93,9 @@ Pour vérifier et tester la fonction Azure
 
     Vous avez besoin des deux URL pour effectuer ce tutoriel.
 
-1. Pour tester le simulateur de supervision de l’intégrité, ouvrez les URL que vous avez créées à l’étape précédente.  Les résultats pour l’état non sain doivent ressembler à ceci :
+1. Pour tester le simulateur de supervision de l’intégrité, ouvrez les URL que vous avez créées à l’étape précédente. Les résultats pour l’état non sain doivent ressembler à ceci :
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -106,7 +103,7 @@ Pour vérifier et tester la fonction Azure
 
 L’objectif de cette section est de vous montrer comment inclure une étape de contrôle d’intégrité dans le modèle de lancement.
 
-1. Ouvrez **CreateADMRollout.json** que vous avez créé dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md). Ce fichier JSON fait partie du téléchargement.  Consultez les [Conditions préalables](#prerequisites).
+1. Ouvrez _CreateADMRollout.json_ que vous avez créé dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md). Ce fichier JSON fait partie du téléchargement.  Consultez les [Conditions préalables](#prerequisites).
 1. Ajoutez deux autres paramètres :
 
     ```json
@@ -175,7 +172,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
 
     En fonction de la définition, le lancement se poursuit si l’état d’intégrité est *healthy* ou *warning*.
 
-1. Mettez à jour le **dependsON** de la définition de lancement pour inclure l’étape de contrôle d’intégrité qui vient d’être définie :
+1. Mettez à jour `dependsOn` dans la définition de lancement pour inclure l’étape de contrôle d’intégrité qui vient d’être définie :
 
     ```json
     "dependsOn": [
@@ -184,7 +181,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
     ],
     ```
 
-1. Mettez à jour **stepGroups** pour inclure l’étape de contrôle d’intégrité. Le **healthCheckStep** est appelé dans **postDeploymentSteps** de **stepGroup2**. **stepGroup3** et **stepGroup4** sont déployés uniquement si l’état sain est *healthy* ou *warning*.
+1. Mettez à jour `stepGroups` pour inclure l’étape de contrôle d’intégrité. Le `healthCheckStep` est appelé dans `postDeploymentSteps` de `stepGroup2`. `stepGroup3` et `stepGroup4` sont déployés uniquement si l’état d’intégrité est *healthy* ou *warning*.
 
     ```json
     "stepGroups": [
@@ -222,7 +219,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
     ]
     ```
 
-    Si vous comparez la section **stepGroup3** avant et après sa révision, cette section dépend désormais de **stepGroup2**.  C’est nécessaire quand **stepGroup3** et les groupes d’étapes ultérieurs dépendent des résultats de la supervision de l’intégrité.
+    Si vous comparez la section `stepGroup3` avant et après sa révision, cette section dépend désormais de `stepGroup2`. C’est nécessaire quand `stepGroup3` et les groupes d’étapes ultérieurs dépendent des résultats de la supervision de l’intégrité.
 
     La capture d’écran suivante illustre les zones modifiées ainsi que le mode d’utilisation de l’étape de contrôle d’intégrité :
 
@@ -230,7 +227,7 @@ L’objectif de cette section est de vous montrer comment inclure une étape de 
 
 ## <a name="deploy-the-topology"></a>Déployer la topologie
 
-Exécutez le script PowerShell suivant pour déployer la topologie. Vous avez besoin des fichiers **CreateADMServiceTopology.json** et **CreateADMServiceTopology.Parameters.json** que vous avez utilisés dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
+Exécutez le script PowerShell suivant pour déployer la topologie. Vous avez besoin des fichiers _CreateADMServiceTopology.json_ et _CreateADMServiceTopology.Parameters.json_ que vous avez utilisés dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell
 # Create the service topology
@@ -248,7 +245,7 @@ L’option **Afficher les types masqués** doit être sélectionnée pour voir l
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>Déployer le lancement avec l’état non sain
 
-Utilisez l’URL d’état non sain créée dans [Créer un simulateur de service de contrôle d’intégrité](#create-a-health-check-service-simulator). Vous avez besoin du fichier **CreateADMServiceTopology.json** révisé et du fichier **CreateADMServiceTopology.Parameters.json** que vous avez utilisé dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
+Utilisez l’URL d’état non sain créée dans [Créer un simulateur de service de contrôle d’intégrité](#create-a-health-check-service-simulator). Vous avez besoin du fichier _CreateADMServiceTopology.json_ révisé et du fichier _CreateADMServiceTopology.Parameters.json_ que vous avez utilisé dans [Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -283,7 +280,7 @@ Get-AzDeploymentManagerRollout `
 
 L’exemple de sortie suivant montre que le déploiement a échoué en raison de l’état non sain :
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -344,28 +341,28 @@ Une fois le lancement terminé, vous verrez un groupe de ressources supplémenta
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>Déployer le lancement avec l’état sain
 
-Répétez cette section pour redéployer le lancement avec l’URL d’état sain.  Une fois le lancement terminé, vous verrez un groupe de ressources supplémentaire créé pour la région USA Est.
+Répétez cette section pour redéployer le lancement avec l’URL d’état sain. Une fois le lancement terminé, vous verrez un groupe de ressources supplémentaire créé pour la région USA Est.
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Accédez aux applications web nouvellement créées sous les nouveaux groupes de ressources créés par le déploiement du lancement.
-3. Ouvrez l’application web dans un navigateur web. Vérifiez l’emplacement et la version sur le fichier index.html.
+1. Accédez aux nouvelles applications web sous les nouveaux groupes de ressources créés par le déploiement du lancement.
+1. Ouvrez l’application web dans un navigateur web. Vérifiez l’emplacement et la version sur le fichier _index.html_.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
 
 1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
-2. Utilisez le champ **Filter by name** (Filtrer par nom) afin de réduire les groupes de ressources créés dans ce didacticiel. Il doivent être au nombre de 3-4 :
+1. Utilisez le champ **Filter by name** (Filtrer par nom) afin de réduire les groupes de ressources créés dans ce didacticiel.
 
     * **&lt;projectName>rg** : contient les ressources Deployment Manager.
     * **&lt;projectName>ServiceWUSrg** : contient les ressources définies par ServiceWUS.
     * **&lt;projectName>ServiceEUSrg** : contient les ressources définies par ServiceEUS.
     * Le groupe de ressources pour l’identité managée définie par l’utilisateur.
-3. Sélectionnez le nom du groupe de ressources.
-4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
-5. Répétez les deux dernières étapes pour supprimer d’autres groupes de ressources créés lors de ce didacticiel.
+1. Sélectionnez le nom du groupe de ressources.
+1. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
+1. Répétez les deux dernières étapes pour supprimer d’autres groupes de ressources créés lors de ce didacticiel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

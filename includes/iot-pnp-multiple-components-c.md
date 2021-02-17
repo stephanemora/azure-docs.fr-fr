@@ -4,14 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 190e2144e92ffd77c098b4bf9205de03e55af7df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 398f11c6e55cb62e0b29c148494cf3d590200b9d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511260"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834179"
 ---
 Ce tutoriel vous montre comment créer un exemple d'application d'appareil IoT Plug-and-Play avec des composants, comment le connecter à votre hub IoT, et comment utiliser l'outil Explorateur Azure IoT pour voir les informations qu'il envoie au hub. L’exemple d’application est écrit en C et est inclus dans le Azure IoT device SDK pour C. Un générateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir à afficher de code d’appareil.
+
+Dans ce tutoriel, vous allez :
+
+> [!div class="checklist"]
+> * Téléchargez l’exemple de code.
+> * Générez l’exemple de code.
+> * Exécutez l’exemple d’application d’appareil et vérifiez qu’il se connecte à votre hub IoT.
+> * Vérifiez le code source.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -282,5 +290,3 @@ iothubResult = IoTHubDeviceClient_LL_SendEventAsync(deviceClientLL, messageHandl
 ```
 
 Pour finir, la fonction `main` détruit les différents composants et ferme la connexion au hub.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896360"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834083"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
 > [!NOTE]
 > Ce tutoriel traite du Moniteur de connexion (classique). Essayez le nouveau [Moniteur de connexion](connection-monitor-overview.md), qui offre une meilleure expérience de la supervision de la connectivité.
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux moniteurs de connexion dans le Moniteur de connexion (classique), mais vous pourrez continuer à utiliser les moniteurs de connexion existants créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [effectuez la migration du Moniteur de connexion (classique) vers le nouveau Moniteur de connexion](migrate-to-connection-monitor-from-connection-monitor-classic.md) dans Azure Network Watcher avant le 29 février 2024.
 
 Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Dans ce tutoriel, vous allez apprendre à :
 

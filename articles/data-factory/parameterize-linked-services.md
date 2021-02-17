@@ -1,21 +1,17 @@
 ---
 title: Paramétrer les services liés dans Azure Data Factory
 description: Découvrez comment paramétrer des services liés dans Azure Data Factory et transmettre des valeurs dynamiques au moment de l’exécution.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: c3c126a96c0eb2214f63a56120d0966b9a97efed
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: fbb7cb6fd0041ab77e649b14712907d916eaa449
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895388"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372924"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 

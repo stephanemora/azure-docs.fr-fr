@@ -8,12 +8,12 @@ ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475724"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524303"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -206,12 +206,15 @@ La plupart des fonctions système utilisent des index. Voici une liste de certai
 - Gauche
 - Substring, mais uniquement si la première num_expr est 0
 
-Voici quelques fonctions système courantes qui n’utilisent pas l’index et doivent charger chaque document :
+Voici quelques fonctions système courantes qui n’utilisent pas l’index et doivent charger chaque document lorsqu’elles sont utilisées dans une clause `WHERE` :
 
 | **Fonction système**                     | **Idées pour l’optimisation**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Au lieu d’utiliser la fonction système pour normaliser les données pour les comparaisons, normalisez la casse lors de l’insertion. Une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Upper/Lower                         | Au lieu d’utiliser la fonction système pour normaliser les données pour les comparaisons, normalisez la casse lors de l’insertion. Une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calculez l’heure actuelle avant l’exécution de la requête et utilisez cette valeur de chaîne dans la clause `WHERE`. |
 | Fonctions mathématiques (non-agrégations) | Si vous devez calculer fréquemment une valeur dans votre requête, stockez cette valeur en tant que propriété dans votre document JSON. |
+
+Lorsqu’elles sont utilisées dans la clause `SELECT`, les fonctions système inefficaces n’ont pas d’impact sur la manière dont les requêtes peuvent utiliser des index.
 
 ### <a name="improve-string-system-function-execution"></a>Améliorer l’exécution des fonctions système de chaîne
 

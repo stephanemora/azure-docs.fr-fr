@@ -3,19 +3,16 @@ title: Copier et transformer des données dans Stockage Blob Azure
 description: Découvrez comment copier des données vers et depuis un stockage Blob, et comment transformer les données dans un stockage Blob en utilisant Data Factory.
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 63613307847ba2bf617d7a6a1018d083dc5db3fe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393120"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -375,14 +372,14 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété **type** sous `storeSettings` doit être définie sur **AzureBlobStorageReadSettings**. | Oui                                           |
-| **_Rechercher les fichiers à copier :_* _ |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du conteneur donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les blobs d’un conteneur ou d’un dossier, spécifiez en plus `wildcardFileName` comme `_`. |  |
+| ***Recherchez les fichiers à copier :*** |  |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du conteneur donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les blobs d’un conteneur ou d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe blob<br>- prefix | Préfixe du nom d’objet blob sous le conteneur donné configuré dans un jeu de données pour filtrer les objets blob sources. Les blobs dont le nom commence par `container_in_dataset/this_prefix` sont sélectionnés. Il utilise le filtre côté service pour le stockage d’objets blob, qui offre de meilleures performances qu’un filtre de caractères génériques.<br><br>Quand vous utilisez le préfixe et que vous choisissez de copier le récepteur basé sur un fichier avec conservation de la hiérarchie, notez que le sous-chemin après le dernier signe « / » dans le préfixe est conservé. Par exemple, si vous avez la source `container/folder/subfolder/file.txt` et que vous configurez le préfixe sous la forme `folder/sub`, le chemin du fichier conservé est `subfolder/file.txt`. | Non                                                          |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le conteneur donné configuré dans un jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient des caractères génériques ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le conteneur donné et chemin d’accès du dossier (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement. Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 4 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers donné. Pointez vers un fichier texte contenant la liste des fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données.<br/>Lorsque vous utilisez cette option, ne spécifiez pas de nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
-| ***Paramètres supplémentaires :** _ |  | |
-| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option _ *recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
+| ***Paramètres supplémentaires :*** |  | |
+| recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option **recursive** est définie sur **true** et que le récepteur est un magasin basé sur un fichier, un dossier ou un sous-dossier vide n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont **true** (par défaut) et **false**.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
 | deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut de dernière modification. <br>Les fichiers seront sélectionnés si l’heure de leur dernière modification d’inscrit dans l’intervalle de temps compris entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée à un fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent avoir la valeur **NULL**, ce qui a pour effet qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Quand `modifiedDatetimeStart` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeEnd` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur supérieure ou égale à la valeur de DateHeure sont sélectionnés.  Quand `modifiedDatetimeEnd` a une valeur de DateHeure, mais que la valeur de `modifiedDatetimeStart` est **NULL**, les fichiers dont l’attribut de dernière modification a une valeur inférieure à la valeur de DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |

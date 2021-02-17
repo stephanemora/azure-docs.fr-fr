@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222215"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581004"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importer des clés protégées par HSM dans Key Vault (BYOK)
 
@@ -71,10 +71,13 @@ Le tableau suivant répertorie les conditions préalables à l’utilisation de 
 
 ## <a name="supported-key-types"></a>Types de clés pris en charge
 
-|Nom de clé|Type de clé|Taille de la clé|Origine|Description|
+|Nom de clé|Type de clé|Taille de clé/Courbe|Origine|Description|
 |---|---|---|---|---|
 |Key Exchange Key (KEK)|RSA| 2 048 bits<br />3 072 bits<br />4 096 bits|HSM Azure Key Vault|Paire de clés RSA sauvegardée par HSM générée dans Azure Key Vault|
-|Clé cible|RSA|2 048 bits<br />3 072 bits<br />4 096 bits|HSM du fournisseur|Clé à transférer au HSM d’Azure Key Vault|
+|Clé cible|
+||RSA|2 048 bits<br />3 072 bits<br />4 096 bits|HSM du fournisseur|Clé à transférer au HSM d’Azure Key Vault|
+||EC|P-256<br />P-384<br />P-521|HSM du fournisseur|Clé à transférer au HSM d’Azure Key Vault|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>Générer et transférer votre clé vers le HSM du Key Vault
 
@@ -120,7 +123,7 @@ Reportez-vous à la documentation de votre fournisseur de HSM pour télécharger
 Transférez le fichier BYOK sur votre ordinateur connecté.
 
 > [!NOTE] 
-> L’importation de clés RSA 1 024 bits n’est pas prise en charge. Actuellement, l’importation d’une clé Elliptic Curve (EC) n’est pas prise en charge.
+> L’importation de clés RSA 1 024 bits n’est pas prise en charge. L’importation de clés à courbe elliptique de P-256K n’est pas prise en charge.
 > 
 > **Problème connu** : L’importation d’une clé cible RSA 4K à partir de modules HSM Luna est uniquement prise en charge avec le microprogramme 7.4.0 ou une version ultérieure.
 
@@ -128,8 +131,15 @@ Transférez le fichier BYOK sur votre ordinateur connecté.
 
 Pour terminer l’importation de la clé, transférez le package de transfert de clé (fichier BYOK) de votre ordinateur déconnecté vers l’ordinateur connecté à Internet. Pour charger le fichier BYOK dans le HSM de Key Vault, utilisez la commande [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import).
 
+Pour importer une clé RSA, utilisez la commande suivante. Le paramètre --kty est facultatif et prend par défaut la valeur « RSA-HSM ».
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+Pour importer une clé EC, vous devez spécifier le type de clé et le nom de la courbe.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 Si le chargement réussit, Azure CLI affiche les propriétés de la clé importée.

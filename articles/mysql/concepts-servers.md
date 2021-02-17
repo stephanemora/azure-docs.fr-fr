@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5477aa0c4eb2a66af816b287a8b6d7da8a53952f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534889"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517975"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concepts de serveur dans une base de données Azure pour MySQL
 
@@ -46,7 +46,7 @@ Les éléments suivants permettent de garantir un accès sécurisé à votre bas
 | **Pare-feu** | Pour aider à protéger vos données, une règle de pare-feu empêche tout accès à votre serveur de base de données tant que vous ne spécifiez pas les ordinateurs autorisés. Consultez la page [Règles de pare-feu d’un serveur de base de données Azure pour MySQL](./concepts-firewall-rules.md). |
 | **SSL** | Le service prend en charge l’application des connexions SSL entre vos applications et votre serveur de base de données.  Consultez la page [Configurer la connectivité SSL dans une application pour se connecter en toute sécurité à la base de données Azure pour MySQL](./howto-configure-ssl.md). |
 
-## <a name="stopstart-an-azure-database-for-mysql-preview"></a>Arrêter/Démarrer Azure Database pour MySQL (préversion)
+## <a name="stopstart-an-azure-database-for-mysql"></a>Arrêt/Démarrage d’Azure Database pour MySQL
 
 Azure Database pour MySQL vous donne la possibilité d’**arrêter** le serveur si vous ne l’utilisez pas, et de le **démarrer** lorsque vous reprenez l’activité. Cela permet essentiellement de réduire les coûts sur les serveurs de base de données et de payer uniquement la ressource en cours d’utilisation. Cela devient encore plus important pour les charges de travail de développement et de test, et lorsque vous utilisez uniquement le serveur pour une partie de la journée. Lorsque vous arrêtez le serveur, toutes les connexions actives sont supprimées. Plus tard, lorsque vous souhaiterez remettre le serveur en ligne, vous pourrez utiliser le [portail Azure](how-to-stop-start-server.md) ou l’interface [CLI](how-to-stop-start-server.md).
 

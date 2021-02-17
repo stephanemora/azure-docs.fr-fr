@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736086"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807850"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Base de référence de sécurité Azure pour App Service
 
@@ -1111,7 +1111,7 @@ En outre, marquez clairement les abonnements (par exemple, production, non-produ
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
-**Aide** : Exportez vos alertes et recommandations de Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Utilisez le connecteur de données de Security Center pour diffuser en continu les alertes Sentinel en fonction des besoins de l’entreprise.
+**Aide** : Exportez vos alertes et recommandations de Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Utilisez le connecteur de données de Security Center pour diffuser en continu les alertes à Azure Sentinel en fonction des besoins de l’entreprise.
 
 - [Comment configurer l’exportation continue](../security-center/continuous-export.md)
 

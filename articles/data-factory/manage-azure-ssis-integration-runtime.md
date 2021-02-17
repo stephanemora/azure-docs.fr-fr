@@ -1,22 +1,17 @@
 ---
 title: Reconfigurer le runtime d’intégration Azure-SSIS
 description: Découvrez comment reconfigurer le runtime d’intégration Azure-SSIS dans Azure Data Factory après l’avoir déjà configuré.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 724411dc12654aec1614230c943923062b334cd2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636270"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370680"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurer le runtime d’intégration Azure-SSIS
 
@@ -28,10 +23,10 @@ Cet article décrit comment reconfigurer un runtime d’intégration Azure-SSIS 
 Vous pouvez utiliser l’interface utilisateur de Data Factory pour arrêter, modifier/reconfigurer ou supprimer un runtime d’intégration Azure-SSIS. 
 
 1. Ouvrez l’interface utilisateur de Data Factory en sélectionnant la vignette **Créer et surveiller** dans la page d’accueil de votre fabrique de données.
-2. Sélectionnez le hub **Gérer** sous les hubs **Accueil** , **Modifier** et **Surveiller** pour afficher le volet **Connexions** .
+2. Sélectionnez le hub **Gérer** sous les hubs **Accueil**, **Modifier** et **Surveiller** pour afficher le volet **Connexions**.
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Pour reconfigurer un runtime d’intégration Azure-SSIS
-Dans le volet **Connexions** du hub **Gestion** , basculez sur la page **Runtimes d’intégration** et sélectionnez **Actualiser** . 
+Dans le volet **Connexions** du hub **Gestion**, basculez sur la page **Runtimes d’intégration** et sélectionnez **Actualiser**. 
 
    ![Volet Connexions](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 

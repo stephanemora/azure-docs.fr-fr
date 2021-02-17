@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537304"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097634"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Vue d’ensemble de la sécurité dans Recherche cognitive Azure
 
@@ -113,12 +113,6 @@ Dans Recherche cognitive Azure , Resource Manager est utilisé pour créer ou su
 
 > [!Note]
 > En utilisant des mécanismes à l’échelle d’Azure, vous pouvez verrouiller un abonnement ou une ressource pour empêcher la suppression accidentelle ou non autorisée de votre service de recherche par les utilisateurs disposant de droits d’administration. Pour plus d’informations, consultez [Verrouiller les ressources pour en empêcher la suppression](../azure-resource-manager/management/lock-resources.md).
-
-## <a name="threat-protection"></a>Protection contre les menaces
-
-L’accès au contenu sur un service de recherche s’effectue exclusivement via des requêtes. Si votre service de recherche est la cible d’une attaque par requêtes, le système supprime les requêtes quand il approche de la capacité maximale. 
-
-Le comportement de la limitation varie en fonction des API. Les API de requête (recherche/suggestion/saisie semi-automatique) et les API d’indexation se limitent dynamiquement en fonction de la charge du service. Les API d’index et les API d’opérations de service ont des limites de taux de requêtes statiques. Pour connaître les limites de taux de requêtes statiques, consultez [Limites de la limitation](search-limits-quotas-capacity.md#throttling-limits). Pour plus d’informations sur le comportement de limitation, consultez [Surveillance des demandes de requête](search-monitor-queries.md).
 
 <a name="encryption"></a>
 
