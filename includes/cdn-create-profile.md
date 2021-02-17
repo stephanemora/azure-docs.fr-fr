@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 9a003b5c42a6ef4c699a3768d15ae08f86d56e52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165907"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367286"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Créer un profil CDN
 
@@ -31,7 +31,7 @@ Un profil CDN est un conteneur pour les points de terminaison CDN, qui spécifie
    
     | Paramètre  | Valeur |
     | -------- | ----- |
-    | **Nom** | Entrez *cdn-profile-123* comme nom de profil. Ce nom doit être globalement unique. S’il est déjà utilisé, saisissez-en un autre. |
+    | **Nom** | Entrez *cdn-profile-123* comme nom de profil. |
     | **Abonnement** | Sélectionnez un abonnement Azure dans la liste déroulante. |
     | **Groupe de ressources** | Sélectionnez **Créer nouveau** et entrez *CDNQuickstart-rg* pour le nom de votre groupe de ressources, ou sélectionnez **Utiliser existant** et choisissez *CDNQuickstart-rg* si vous disposez déjà du groupe. | 
     | **Emplacement du groupe de ressources** | Sélectionnez un emplacement près de vous dans la liste déroulante. |
