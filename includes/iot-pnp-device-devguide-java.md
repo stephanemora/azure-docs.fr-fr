@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: b72bbe944a2709d639fdbc3ca467e6950a4c9fbf
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ea136069da73d88174d9d40fe9c60e84982909df
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511352"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616612"
 ---
 ## <a name="model-id-announcement"></a>Annonce de l’ID de modèle
 
@@ -25,6 +25,9 @@ La surcharge `ClientOptions` est disponible dans toutes les méthodes `DeviceCli
 
 > [!TIP]
 > Pour les modules et IoT Edge, utilisez `ModuleClient` à la place de `DeviceClient`.
+
+> [!TIP]
+> C’est la seule fois où un appareil peut définir l’ID de modèle : celui-ci ne peut pas être mis à jour après la connexion de l’appareil.
 
 ## <a name="dps-payload"></a>Charge utile DPS
 

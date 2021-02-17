@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226520"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547857"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -94,6 +94,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 ### <a name="device-registration"></a>Enregistrement de l’appareil
 
 **Q** : En quoi consiste l’inscription d’un appareil ?
+
 **R** : Votre organisation peut exiger que vous inscriviez l’appareil pour effectuer le suivi de l’accès à certaines ressources sécurisées, telles que des fichiers et des applications. Elle peut également activer l’accès conditionnel pour réduire le risque d’accès indésirable à ces ressources. Vous pouvez annuler l’inscription de votre appareil à partir du menu **Paramètres**, mais vous risquez de perdre l’accès à vos e-mails dans Outlook ainsi qu’à vos fichiers stockés dans OneDrive. De plus, vous risquez de ne plus pouvoir utiliser la connexion par téléphone.
 
 ### <a name="verification-codes-when-connected"></a>Codes de vérification lors de la connexion
@@ -208,7 +209,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 **Q** : Mon application complémentaire Apple Watch a planté. Puis-je envoyer vous mes journaux d’activité d’incident afin que vous puissiez l’examiner ?
 
-**R** : Vous devez d’abord vous assurer que vous avez choisi de partager votre analytique avec nous. Si vous êtes un utilisateur de TestFlight, vous êtes déjà inscrit. Sinon, accédez à **Paramètres > Confidentialité > Analytique** et sélectionnez les options **Partager l’analyse de l’iPhone et de Watch** et **Partager avec les développeurs d’applications**.<br>Une fois inscrit, vous pouvez essayer de reproduire l’incident pour que vos journaux d’activité d’incident nous soient automatiquement envoyés pour examen. Toutefois, si vous ne pouvez pas reproduire l’incident, vous pouvez copier manuellement vos fichiers journaux et nous les envoyer.<ol><li>Ouvrez l’application Watch sur votre téléphone, accédez à **Paramètres > Général**, puis cliquez sur **Copy Watch Analytics** (Copier l’analyse de Watch).</li><li>Recherchez l’incident correspondant sous **Paramètres > Confidentialité > Analyse > Données d’analyse**, puis copiez manuellement l’intégralité du texte.</li><li>Ouvrez Authenticator sur votre téléphone et collez le texte copié dans la zone  **Décrivez le problème que vous rencontrez** sous **Vous avez une difficulté ?** sur la page **Envoyer des commentaires**. </li></ol>
+**R** : Vous devez d’abord vous assurer que vous avez choisi de partager votre analytique avec nous. Si vous êtes un utilisateur de TestFlight, vous êtes déjà inscrit. Sinon, accédez à **Paramètres > Confidentialité > Analytique** et sélectionnez les options **Partager l’analyse de l’iPhone et de Watch** et **Partager avec les développeurs d’applications**.<br>Une fois inscrit, vous pouvez essayer de reproduire l’incident pour que vos journaux d’activité d’incident nous soient automatiquement envoyés pour examen. Toutefois, si vous ne pouvez pas reproduire l’incident, vous pouvez copier manuellement vos fichiers journaux et nous les envoyer.<ol><li>Ouvrez l’application Watch sur votre téléphone, accédez à **Paramètres > Général**, puis cliquez sur **Copy Watch Analytics** (Copier l’analyse de Watch).</li><li>Recherchez l’incident correspondant sous **Paramètres > Confidentialité > Analyse > Données d’analyse**, puis copiez manuellement l’intégralité du texte.</li><li>Ouvrez Authenticator sur votre téléphone et collez le texte copié dans la zone  **Décrivez le problème que vous rencontrez** sous **Vous avez une difficulté ?** sur la page  **Envoyer des commentaires**. </li></ol>
 
 ## <a name="autofill-with-authenticator"></a>Remplir automatiquement avec Authenticator
 

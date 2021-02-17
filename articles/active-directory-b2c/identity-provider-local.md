@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e6b520a32755379fce5326e25b90f135b0d67755
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98574240"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555235"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurer le fournisseur d’identité d’un compte local
 
@@ -150,5 +150,5 @@ Après avoir téléchargé le pack de démarrage
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter des fournisseurs d’identité externes](tutorial-add-identity-providers.md)
+- [Ajouter des fournisseurs d’identité externes](add-identity-provider.md)
 - [Créer un flux utilisateur](tutorial-create-user-flows.md)

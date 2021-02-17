@@ -3,19 +3,16 @@ title: Créer des pipelines de données prédictifs
 description: Découvrez la procédure de création d’un pipeline prédictif à l’aide d’Azure Machine Learning Studio (classique) - Activité d’exécution par lot dans Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637732"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375661"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Créer un pipeline prédictif à l’aide d’Azure Machine Learning Studio (classique) et Azure Data Factory
 
@@ -27,19 +24,19 @@ ms.locfileid: "92637732"
 
 [Azure Machine Learning Studio (classique)](https://azure.microsoft.com/documentation/services/machine-learning/) vous permet de générer, tester et déployer des solutions d’analyse prédictive. D’un point de vue très général, cela s’effectue en trois étapes :
 
-1. **Créez une expérience de formation** . Vous effectuez cette étape à l’aide d’Azure Machine Learning Studio (classique). Azure Machine Learning Studio (classique) est un environnement de développement visuel collaboratif qui vous permet d’entraîner et de tester un modèle d’analyse prédictive à l’aide de données d’entraînement.
-2. **Convertissez-la en une expérience prédictive** . Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
-3. **Déployez-la en tant que service web** . Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats du modèle.
+1. **Créez une expérience de formation**. Vous effectuez cette étape à l’aide d’Azure Machine Learning Studio (classique). Azure Machine Learning Studio (classique) est un environnement de développement visuel collaboratif qui vous permet d’entraîner et de tester un modèle d’analyse prédictive à l’aide de données d’entraînement.
+2. **Convertissez-la en une expérience prédictive**. Une fois que votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
+3. **Déployez-la en tant que service web**. Vous pouvez publier votre expérience de notation comme un service web Azure. Vous pouvez envoyer des données à votre modèle via ce point de terminaison de service web et recevoir des prédictions de résultats du modèle.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory et Azure Machine Learning Studio (classique) ensemble
-Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning Studio (classique)](https://azure.microsoft.com/documentation/services/machine-learning) publié pour l’analyse prédictive. À l’aide de l’ **activité d’exécution du lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure Machine Learning Studio (classique) pour effectuer des prédictions sur les données par lots.
+Azure Data Factory vous permet de créer facilement des pipelines qui utilisent un service web [Azure Machine Learning Studio (classique)](https://azure.microsoft.com/documentation/services/machine-learning) publié pour l’analyse prédictive. À l’aide de l’**activité d’exécution du lot** dans un pipeline Azure Data Factory, vous pouvez appeler un service web Azure Machine Learning Studio (classique) pour effectuer des prédictions sur les données par lots.
 
 Au fil du temps, les modèles prédictifs dans les expériences de scoring Azure Machine Learning Studio (classique) doivent être réentraînés à l’aide de nouveaux jeux de données d’entrée. Vous pouvez réentraîner un modèle à partir d’un pipeline Data Factory en effectuant les étapes suivantes :
 
 1. Publiez l’expérience de formation (et non l’expérience prédictive) comme un service web. Vous effectuez cette étape dans Azure Machine Learning Studio (classique) comme vous l’avez fait pour exposer l’expérience prédictive en tant que service web dans le scénario précédent.
 2. Utilisez l’activité d’exécution du lot Azure Machine Learning Studio (classique) pour appeler le service web pour l’expérience d’entraînement. En fait, vous pouvez utiliser l’activité d’exécution du lot Azure Machine Learning Studio (classique) pour appeler à la fois le service web d’entraînement et le service web de scoring.
 
-Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’ **activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](update-machine-learning-models.md) pour plus d’informations.
+Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’**activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](update-machine-learning-models.md) pour plus d’informations.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Service lié Azure Machine Learning Studio (classique)
 
@@ -68,7 +65,7 @@ Vous créez un service lié **Azure Machine Learning Studio (classique)** pour l
 
 Consultez l’article sur les [services liés de calcul](compute-linked-services.md) pour obtenir les descriptions des propriétés dans la définition JSON.
 
-Azure Machine Learning Studio (classique) prend à la fois en charge les services web classiques et les nouveaux services web pour votre expérience prédictive. Vous pouvez choisir celui qui vous convient à partir de Data Factory. Pour obtenir les informations requises afin de créer le service lié Azure Machine Learning Studio (classique), accédez à https://services.azureml.net, où tous vos (nouveaux) services web et les services web classiques sont répertoriés. Cliquez sur le service web auquel vous voulez accéder, puis cliquez sur la page **Consommer** . Copiez la **clé primaire** de la propriété **apiKey** , puis les **requêtes de lots** de la propriété **mlEndpoint** .
+Azure Machine Learning Studio (classique) prend à la fois en charge les services web classiques et les nouveaux services web pour votre expérience prédictive. Vous pouvez choisir celui qui vous convient à partir de Data Factory. Pour obtenir les informations requises afin de créer le service lié Azure Machine Learning Studio (classique), accédez à https://services.azureml.net, où tous vos (nouveaux) services web et les services web classiques sont répertoriés. Cliquez sur le service web auquel vous voulez accéder, puis cliquez sur la page **Consommer**. Copiez la **clé primaire** de la propriété **apiKey**, puis les **requêtes de lots** de la propriété **mlEndpoint**.
 
 ![Services web Azure Machine Learning Studio (classique)](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +127,7 @@ L’extrait de code JSON suivant définit une activité d’exécution par lot A
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nom de l’activité dans le pipeline     | Oui      |
 | description       | Texte décrivant l’activité.  | Non       |
-| type              | Pour l'activité U-SQL de Data Lake Analytics, le type d'activité est **AzureMLBatchExecution** . | Oui      |
+| type              | Pour l'activité U-SQL de Data Lake Analytics, le type d'activité est **AzureMLBatchExecution**. | Oui      |
 | linkedServiceName | Services liés au service lié Azure Machine Learning Studio (classique) Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | webServiceInputs  | Paires clé/valeur, caractérisant les noms des entrées du service web Azure Machine Learning Studio (classique). La clé doit correspondre aux paramètres d’entrée définis dans le service web Azure Machine Learning Studio (classique) publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob d’entrée. | Non       |
 | webServiceOutputs | Paires clé/valeur caractérisant les noms des sorties du service web Azure Machine Learning Studio (classique). La clé doit correspondre aux paramètres de sortie définis dans le service web Azure Machine Learning Studio (classique) publié. La valeur est une paire de propriétés FilePath de services liés de stockage Azure spécifiant les emplacements d’objets blob de sortie. | Non       |
@@ -213,7 +210,7 @@ Examinons un scénario d’utilisation de paramètres de service web. Vous avez 
 > [!NOTE]
 > Les paramètres de service web respectent la casse ; veillez donc à ce que les noms que vous indiquez dans le script JSON de l'activité correspondent à ceux exposés par le service web.
 
-Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’ **activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](update-machine-learning-models.md) pour plus d’informations.
+Une fois que vous avez fini le réentraînement, mettez à jour le service web de scoring (expérience prédictive exposée comme service web) avec le modèle qui vient d’être entraîné à l’aide de l’**activité des ressources de mise à jour Azure Machine Learning Studio (classique)** . Consultez l’article [Mise à jour des modèles à l’aide de l’activité des ressources de mise à jour](update-machine-learning-models.md) pour plus d’informations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants qui expliquent comment transformer des données par d’autres moyens :

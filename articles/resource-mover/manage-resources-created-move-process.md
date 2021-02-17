@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388479"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Gérer les ressources créées pour le déplacement d’une machine virtuelle
 
@@ -28,7 +28,7 @@ Supprimez manuellement la collection de déplacement et les ressources Site Reco
 2. Vérifiez que la machine virtuelle et toutes les autres ressources sources de la collection de déplacement ont été déplacées ou supprimées. Cette vérification permet de s’assurer qu’aucune ressource en attente ne les utilise.
 2. Supprimez ces ressources.
 
-    - Le nom de la collection de déplacement est ```movecollection-<sourceregion>-<target-region>```.
+    - Le nom de la collection de déplacement est ```movecollection-<sourceregion>-<target-region>-<metadata-region>```.
     - Le nom du compte de stockage de cache est ```resmovecache<guid>```.
     - Le nom du coffre est ```ResourceMove-<sourceregion>-<target-region>-GUID```.
 

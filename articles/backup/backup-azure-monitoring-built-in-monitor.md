@@ -4,18 +4,29 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174013"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550339"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
 Le service Sauvegarde Azure fournit plusieurs solutions de sauvegarde basées sur l’exigence en matière de sauvegarde et la topologie d’infrastructure (locale ou Azure). N’importe quel administrateur ou utilisateur de sauvegarde doit voir ce qu’il se passe au niveau de toutes les solutions et s’attendre à être informé dans les scénarios importants. Cet article décrit en détail les fonctionnalités de surveillance et de notification fournies par le service Sauvegarde Azure.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Éléments de sauvegarde dans le coffre Recovery Services
+
+Vous pouvez surveiller tous vos éléments de sauvegarde via un coffre Recovery Services. La navigation jusqu’à la section **Éléments de sauvegarde** dans le coffre ouvre une vue qui fournit le nombre d’éléments de sauvegarde de chaque type de charge de travail associé au coffre. En cliquant sur une ligne, vous obtenez une vue détaillée qui répertorie tous les éléments de sauvegarde du type de charge de travail donné, avec des informations sur le dernier état de sauvegarde pour chaque élément, le dernier point de restauration disponible, etc.
+
+![Éléments de sauvegarde du coffre RS](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> Pour les éléments sauvegardés dans Azure à l’aide de DPM, la liste affiche toutes les sources de données protégées (à la fois sur disque et en ligne) à l’aide du serveur DPM. Si la protection est arrêtée pour la source de données avec conservation des données de sauvegarde, la source de données sera toujours répertoriée dans le portail. Vous pouvez accéder aux détails de la source de données pour voir si les points de récupération sont présents sur le disque, en ligne ou les deux. En outre, les sources de données pour lesquelles la protection en ligne est arrêtée, mais les données sont conservées, la facturation des points de récupération en ligne continue jusqu’à ce que les données soient entièrement supprimées.
+>
+> La version de DPM doit être DPM 1807 (5.1.378.0) ou DPM 2019 (version 10.19.58.0 ou ultérieure) pour que les éléments de sauvegarde soient visibles dans le portail du coffre Recovery Services.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Travaux de sauvegarde dans le coffre Recovery Services
 
@@ -82,7 +93,7 @@ Dans le cadre des exceptions ci-dessus, il est entendu que le résultat de ces o
 Les alertes peuvent être définies selon trois types, en fonction de leur gravité :
 
 - **Critique** : En principe, tout échec de sauvegarde ou de récupération (planifiée ou déclenchée par l’utilisateur) conduit à la génération d’une alerte et s’affiche en tant qu’alerte critique, de même que les opérations destructrices telles que la suppression de sauvegarde.
-- **Avertissement**  : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ces derniers sont répertoriés sous forme d’alertes d’avertissement. Les alertes d’avertissement sont disponibles uniquement pour les sauvegardes d’Agent Sauvegarde Azure.
+- **Avertissement** : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ces derniers sont répertoriés sous forme d’alertes d’avertissement. Les alertes d’avertissement sont disponibles uniquement pour les sauvegardes d’Agent Sauvegarde Azure.
 - **Informations** : À ce jour, aucune alerte d’information n’est générée par le service Sauvegarde Azure.
 
 ## <a name="notification-for-backup-alerts"></a>Notification pour les alertes de sauvegarde
@@ -100,12 +111,12 @@ Si la fréquence était définie sur une synthèse horaire et qu’une alerte a 
 
 > [!NOTE]
 >
-> - Si une opération destructive comme l’ **arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont pas configurées pour le coffre Recovery Services.
+> - Si une opération destructive comme l’**arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont pas configurées pour le coffre Recovery Services.
 > - Pour configurer la notification pour les travaux réussis, utilisez [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Désactivation des alertes
 
-Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de sélectionner ce bouton change l’état de l’alerte en **Inactif** . Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver** .
+Pour désactiver/résoudre une alerte active, vous pouvez sélectionner l’élément de liste correspondant à l’alerte que vous souhaitez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton **Désactiver** en haut. Le fait de sélectionner ce bouton change l’état de l’alerte en **Inactif**. Vous pouvez également désactiver une alerte en cliquant avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant **Désactiver**.
 
 ![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

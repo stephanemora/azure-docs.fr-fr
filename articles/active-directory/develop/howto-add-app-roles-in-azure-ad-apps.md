@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013700"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104244"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Procédure : ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -49,7 +49,7 @@ Le nombre de rôles que vous ajoutez est compté pour les limites définies pour
 
 Pour créer un rôle d’application à l’aide de l’interface utilisateur du portail Azure :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Sélectionnez le filtre **répertoire + abonnement** dans le menu supérieur, puis choisissez l’abonné Azure Active Directory qui contient l’inscription de l’application à laquelle vous souhaitez ajouter un rôle d’application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application dans laquelle vous souhaitez définir des rôles d’application.
@@ -74,7 +74,7 @@ Pour créer un rôle d’application à l’aide de l’interface utilisateur du
 
 Pour ajouter des rôles en modifiant directement le manifeste :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Sélectionnez le filtre **répertoire + abonnement** dans le menu supérieur, puis choisissez l’abonné Azure Active Directory qui contient l’inscription de l’application à laquelle vous souhaitez ajouter un rôle d’application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications**, puis sélectionnez l’application dans laquelle vous souhaitez définir des rôles d’application.
@@ -136,7 +136,7 @@ Une fois que vous avez ajouté des rôles d’application à votre application, 
 
 Pour attribuer des rôles aux utilisateurs et aux groupes à l’aide du portail Azure :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Dans **Azure Active Directory**, sélectionnez **Applications d’entreprise** dans le menu de navigation de gauche.
 1. Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications. Si votre application n’apparaît pas dans la liste, utilisez les filtres présents en haut de la liste **Toutes les applications** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
 1. Sélectionnez l’application dans laquelle vous souhaitez assigner des utilisateurs ou un groupe de sécurité aux rôles.
@@ -158,7 +158,7 @@ Lorsque vous attribuez des rôles d’application à une application, vous crée
 
 Pour attribuer des rôles d’application à une application à l’aide du portail Azure :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Dans **Azure Active Directory**, sélectionnez **Inscriptions d'applications** dans le menu de navigation de gauche.
 1. Sélectionnez **Toutes les applications** pour afficher la liste complète de vos applications. Si votre application n’apparaît pas dans la liste, utilisez les filtres présents en haut de la liste **Toutes les applications** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
 1. Sélectionnez l’application à laquelle vous souhaitez attribuer un rôle d’application.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: bbcebfd69789eb6ec03e565b347d05533043781c
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232333"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102646"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutoriel : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -292,7 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-MSAL.NET utilise des méthodes asynchrones pour acquérir des jetons ou manipuler des comptes. Vous devez prendre en charge les actions d’interface utilisateur dans le thread d’interface utilisateur. C’est ce qui explique la raison de l’appel `Dispatcher.RunAsync` et des précautions à observer pour appeler `ConfigureAwait(false)`.
+MSAL.NET utilise des méthodes asynchrones pour acquérir des jetons ou manipuler des comptes. Vous devez donc prendre en charge les actions d’interface utilisateur dans le thread d’interface utilisateur. C’est ce qui explique la raison de l’appel `Dispatcher.RunAsync` et des précautions à observer pour appeler `ConfigureAwait(false)`.
 
 #### <a name="more-information-about-signing-out"></a>Informations supplémentaires sur la déconnexion<a name="more-information-on-sign-out"></a>
 
@@ -343,9 +343,9 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>Inscrivez votre application
 
-Vous devez maintenant inscrire votre application :
+À présent, inscrivez votre application :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 1. Recherchez et sélectionnez **Azure Active Directory**.
 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
@@ -356,8 +356,8 @@ Vous devez maintenant inscrire votre application :
 
 Configurez l’authentification pour votre application :
 
-1. De retour dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**, puis sélectionnez **Applications de bureau et mobiles**.
-1. Dans la section **URI de redirection**, cochez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. De retour dans le <a href="https://portal.azure.com/" target="_blank">portail Azure</a>, sous **Gérer**, sélectionnez **Authentification** > **Ajouter une plateforme**, puis sélectionnez **Applications de bureau et mobiles**.
+1. Dans la section **URI de redirection**, entrez `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 1. Sélectionnez **Configurer**.
 
 Configurez des autorisations d’API pour votre application :

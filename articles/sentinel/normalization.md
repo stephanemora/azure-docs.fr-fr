@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657021"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805088"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisation dans Azure Sentinel
 
@@ -105,11 +105,11 @@ Lors de l’enregistrement d’une fonction de requête, il peut être nécessai
 
 #### <a name="using-the-parsers"></a>Utilisation des analyseurs
 
-Une fois activé, vous pouvez utiliser l’analyseur de métadonnées pour interroger une vue unifiée sur tous les analyseurs actuellement activés. Pour ce faire, accédez à la page des journaux Sentinel et interrogez l’analyseur de métadonnées :
+Une fois activé, vous pouvez utiliser l’analyseur de métadonnées pour interroger une vue unifiée sur tous les analyseurs actuellement activés. Pour ce faire, accédez à la page des journaux Azure Sentinel et interrogez l’analyseur de métadonnées :
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="Interroger l’analyseur":::
  
-Vous pouvez également accéder à l’analyseur de métadonnées ou à des analyseurs individuels à l’aide de l’explorateur de requêtes de la page des journaux Sentinel, en cliquant sur Explorateur de requêtes :
+Vous pouvez également accéder à l’analyseur de métadonnées ou à des analyseurs individuels à l’aide de l’explorateur de requêtes de la page des journaux en cliquant sur « Explorateur de requêtes » :
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="Explorateur de requêtes":::
 

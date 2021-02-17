@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763040"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592787"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
+
+L’exemple d’appel web est une application web qui sert de procédure pas à pas pour les différentes fonctionnalités fournies par la bibliothèque de client d’appel web de Communication Services. 
+
+Cet exemple a été conçu pour les développeurs, et facilite la prise en main de Communication Services. Son interface utilisateur est divisée en plusieurs sections, chacune comportant un bouton « Show code » qui vous permet de copier du code directement à partir de votre navigateur afin de le coller dans votre propre application Communication Services.
+
+## <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Cet exemple est disponible sur Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-L’**exemple d’appel web** Azure Communication Services illustre comment la bibliothèque de client d’appel Communication Services peut être utilisée pour créer une expérience d’appel avec JavaScript.
-
-Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
-
-## <a name="overview"></a>Vue d'ensemble
-
-L’exemple d’appel web est une application web qui sert de procédure pas à pas pour les différentes fonctionnalités fournies par la bibliothèque de client d’appel web de Communication Services. 
-
-Cet exemple a été conçu pour les développeurs, et facilite la prise en main de Communication Services. Son interface utilisateur est divisée en plusieurs sections, chacune comportant un bouton « Show code » qui vous permet de copier du code directement à partir de votre navigateur afin de le coller dans votre propre application Communication Services.
-
-Lorsque l’[exemple d’appel web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) est exécuté sur votre ordinateur, la page d’arrivée suivante s’affiche :
+Suivez les indications de /Project/readme.md pour configurer le projet et l’exécuter localement sur votre ordinateur.
+Une fois que l’[exemple d’appel web](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) est en cours d’exécution sur votre ordinateur, la page d’arrivée suivante s’affiche :
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Tutoriel sur l’appel web 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Tutoriel sur l’appel web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>Provisionnement d’utilisateur et initialisation du kit SDK 
-
-Pour commencer à utiliser la démonstration, entrez la chaîne de connexion de votre [ressource Communication Services](../quickstarts/create-communication-resource.md) dans `config.json`. Elle servira à provisionner un [jeton d’accès utilisateur](../concepts/authentication.md) afin que votre kit SDK appelant puisse être initialisé.
-
-Entrez votre propre identificateur personnel dans User Identity. Si rien n’est spécifié ici, une identité utilisateur aléatoire est générée. 
 
 Cliquez sur « Provisioning user and initialize SDK » pour initialiser votre kit SDK à l’aide d’un jeton provisionné par le service de provisionnement de jetons back-end. Ce service back-end se trouve dans `/project/webpack.config.js`.
 

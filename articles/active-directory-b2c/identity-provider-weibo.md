@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26c4e154deec02b0642e6c131ced50acb02f9899
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: d69675d7ab07e4097556d269c97c3ecb66dc2fc6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98951521"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545832"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
@@ -32,19 +32,19 @@ ms.locfileid: "98951521"
 
 ## <a name="create-a-weibo-application"></a>Créer une application Weibo
 
-Pour autoriser la connexion des utilisateurs avec un compte Weibo dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le [portail des développeurs Weibo](https://open.weibo.com/). Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
+Pour autoriser la connexion des utilisateurs avec un compte Weibo dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans le portail des développeurs Weibo. Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
 
-1. Connectez-vous au [portail des développeurs Weibo](https://open.weibo.com/) avec les informations d’identification de votre compte Weibo.
+1. Connectez-vous au portail des développeurs Weibo avec les informations d’identification de votre compte Weibo.
 1. Une fois que vous êtes connecté, sélectionnez votre nom d’affichage dans le coin supérieur droit.
 1. Dans la liste déroulante, sélectionnez **编辑开发者信息** (Modifier les informations développeur).
 1. Entrez les informations requises et sélectionnez **提交** (Envoyer).
 1. Finalisez le processus de vérification d’e-mail.
-1. Accédez à la page de [vérification d’identité](https://open.weibo.com/developers/identity/edit).
+1. Accédez à la page de vérification d’identité.
 1. Entrez les informations requises et sélectionnez **提交** (Envoyer).
 
 ### <a name="register-a-weibo-application"></a>Inscrire une application Weibo
 
-1. Accédez à la [Page d’inscription de l’application Weibo](https://open.weibo.com/apps/new).
+1. Accédez à la Page d’inscription de l’application Weibo.
 1. Entrez les informations nécessaires relatives à l’application.
 1. Sélectionnez **创建** (Créer).
 1. Copiez les valeurs **Clé d’application** et **Secret d’application**. Vous avez besoin des deux pour ajouter le fournisseur d’identité à votre locataire.

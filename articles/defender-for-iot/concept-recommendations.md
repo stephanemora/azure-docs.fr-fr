@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: d11154e26e2ffe97a1ea102a11dddb746db9433a
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809267"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521864"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
 
@@ -60,7 +60,6 @@ Les alertes de recommandation offrent des insights et des suggestions d’action
 | Moyenne | La stratégie de filtre IP par défaut devrait être de refuser | IoT Hub | La configuration du filtre IP devrait comporter des règles concernant le trafic autorisé et, par défaut, refuser le reste du trafic. |
 | Moyenne | Grande plage d’adresses IP dans une règle de filtre IP | IoT Hub | La plage d’adresses IP source d’une des règles de filtre IP Autoriser est trop grande. Des règles trop permissives risquent d’exposer le hub IoT à des personnes malveillantes. |
 | Faible | Activer les journaux de diagnostic dans IoT Hub | IoT Hub | Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Le fait de conserver les journaux permet de recréer les pistes d’activités à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

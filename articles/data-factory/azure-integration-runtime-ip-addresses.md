@@ -1,22 +1,18 @@
 ---
 title: Adresses IP Azure Integration Runtime
 description: Découvrez les adresses IP à partir desquelles vous devez autoriser le trafic entrant, afin de configurer correctement les pare-feu pour sécuriser l’accès réseau aux magasins de données.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371394"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresses IP Azure Integration Runtime
 
@@ -31,7 +27,7 @@ Les adresses IP qu’Azure Integration Runtime utilise dépendent de la région
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Adresses IP d’Azure Integration Runtime : Régions spécifiques
 
-Autorisez le trafic provenant des adresses IP listées pour le runtime d’intégration Azure dans la région Azure spécifique où vos ressources sont situées. Vous pouvez récupérer une liste de plages d’adresses IP à partir du [lien de téléchargement de plage d’adresses IP des balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Par exemple, si la région Azure est **AustraliaEast** , vous pouvez obtenir une liste de plages d’adresses IP à partir de **DataFactory.AustraliaEast** .
+Autorisez le trafic provenant des adresses IP listées pour le runtime d’intégration Azure dans la région Azure spécifique où vos ressources sont situées. Vous pouvez récupérer une liste de plages d’adresses IP à partir du [lien de téléchargement de plage d’adresses IP des balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Par exemple, si la région Azure est **AustraliaEast**, vous pouvez obtenir une liste de plages d’adresses IP à partir de **DataFactory.AustraliaEast**.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problème connu avec le stockage Azure

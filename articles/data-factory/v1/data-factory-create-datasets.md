@@ -1,22 +1,18 @@
 ---
 title: Créer des jeux de données dans Azure Data Factory
 description: Apprenez à créer des jeux de données dans Azure Data Factory, en vous appuyant sur des exemples qui utilisent des propriétés de type offset et anchorDateTime.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9bf6ff2971de57338dc299d48e24f6ffebd4b6b5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495937"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376834"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Jeux de données dans Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

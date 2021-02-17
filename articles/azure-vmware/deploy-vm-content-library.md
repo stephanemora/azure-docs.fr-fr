@@ -2,13 +2,13 @@
 title: Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 description: Créez une bibliothèque de contenu pour déployer une machine virtuelle dans un cloud privé Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/21/2020
-ms.openlocfilehash: 57db8ac4da8eef826d85feb11680c9c87823ee36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 02/03/2021
+ms.openlocfilehash: 9e27529ee355ece62f12cc2e6de491dddb5d3f28
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461683"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550536"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution
 
@@ -34,7 +34,7 @@ Pour suivre ce tutoriel, un segment de commutateur logique NSX-T et un service D
 
    ![Spécifiez le nom et les notes de votre choix, puis sélectionnez Suivant.](./media/content-library/new-content-library-step1.png)
 
-1. Sélectionnez la **Bibliothèque de contenu locale** , puis **Suivant**.
+1. Sélectionnez la **Bibliothèque de contenu locale**, puis **Suivant**.
 
    ![Pour cet exemple, nous allons créer une bibliothèque de contenu locale, puis sélectionner Suivant.](./media/content-library/new-content-library-step2.png)
 
@@ -54,7 +54,7 @@ Maintenant que la bibliothèque de contenu a été créée, vous pouvez ajouter 
 
 1. Cliquez avec le bouton droit sur la bibliothèque de contenu que vous voulez utiliser pour la nouvelle image ISO, puis sélectionnez **Importer un élément**.
 
-1. Importez un élément de bibliothèque pour la source en procédant de l’une des façons suivantes, puis sélectionnez **Importer**  :
+1. Importez un élément de bibliothèque pour la source en procédant de l’une des façons suivantes, puis sélectionnez **Importer** :
    1. Sélectionnez « URL », puis fournissez une URL pour télécharger une image ISO.
 
    1. Sélectionnez **Fichier local** pour effectuer le chargement à partir de votre système local.
@@ -92,7 +92,10 @@ Maintenant que la bibliothèque de contenu a été créée, vous pouvez ajouter 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous envisagez d’utiliser VMware HCX pour migrer des charges de travail de machine virtuelle vers votre cloud privé, utilisez la procédure [Déployer et configurer VMware HCX](tutorial-deploy-vmware-hcx.md).
+Maintenant que vous savez comment créer une bibliothèque de contenu pour déployer des machines virtuelles dans Azure VMware Solution, vous souhaiterez peut-être en savoir plus sur les éléments suivants :
+
+- [Déploiement et configuration de VMware HCX](tutorial-deploy-vmware-hcx.md) pour migrer des charges de travail de machine virtuelle vers votre cloud privé.
+- [Gestion du cycle de vie des machines virtuelles Azure VMware Solution](lifecycle-management-of-azure-vmware-solution-vms.md).
 
 <!-- LINKS - external-->
 
