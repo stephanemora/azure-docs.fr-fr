@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd02ee8ab794858566aeafa96fa78919be3b85a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367620"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 >[!IMPORTANT]
 >Ce contenu s’applique à Windows Virtual Desktop avec des objets Windows Virtual Desktop Azure Resource Manager. Si vous utilisez la version Windows Virtual Desktop (classique) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 
-Cet article vous aide à résoudre des problèmes et erreurs rencontrés lors de l’utilisation de PowerShell avec Windows Virtual Desktop. Pour plus d’informations sur les Services Bureau à distance PowerShell, voir [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
+Cet article vous aide à résoudre des problèmes et erreurs rencontrés lors de l’utilisation de PowerShell avec Windows Virtual Desktop. Pour plus d’informations sur les Services Bureau à distance PowerShell, voir [Windows Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview).
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 

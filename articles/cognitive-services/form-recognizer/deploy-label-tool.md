@@ -2,19 +2,19 @@
 title: Guide pratique pour déployer l’outil d’étiquetage des exemples Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez les différentes façons de déployer l’outil d’étiquetage des exemples Form Recognizer pour faciliter l’apprentissage supervisé.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790425"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370020"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Déployer l’outil d’étiquetage des exemples
 
@@ -32,7 +32,7 @@ Le moyen le plus rapide de commencer à étiqueter des données consiste à exé
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Déployer avec Azure Container Instances (ACI)
 
-Avant de commencer, il est important de noter qu’il existe deux façons de déployer l’outil d’étiquetage des exemples sur Azure Container Instance (ACI). Les deux options sont utilisées pour exécuter l’outil d’étiquetage des exemples avec ACI : 
+Avant de commencer, il est important de noter qu’il existe deux façons de déployer l’outil d’étiquetage des exemples sur Azure Container Instance (ACI). Les deux options sont utilisées pour exécuter l’outil d’étiquetage des exemples avec ACI :
 
 * [À l’aide du portail Azure](#azure-portal)
 * [Utilisation de l’interface de ligne de commande Azure (CLI)](#azure-cli)
@@ -42,16 +42,16 @@ Avant de commencer, il est important de noter qu’il existe deux façons de dé
 Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure : 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/signin/index/).
-2. Sélectionnez **Créer une ressource**. 
-3. Ensuite, sélectionnez **Application web**. 
+2. Sélectionnez **Créer une ressource**.
+3. Ensuite, sélectionnez **Application web**.
 
    > [!div class="mx-imgBorder"]
-   > ![Sélectionner l’application web](./media/quickstarts/formre-create-web-app.png)
-   
-4. Tout d’abord, assurez-vous que l’onglet **De base** est sélectionné. À présent, vous allez avoir besoin de fournir des informations : 
+   > ![Sélectionner l’application web](./media/quickstarts/create-web-app.png)
+
+4. Tout d’abord, assurez-vous que l’onglet **De base** est sélectionné. À présent, vous allez avoir besoin de fournir des informations :
 
    > [!div class="mx-imgBorder"]
-   > ![Sélectionner De base](./media/quickstarts/formre-select-basics.png)
+   > ![Sélectionner De base](./media/quickstarts/select-basics.png)
    * Abonnement : sélectionnez un abonnement Azure existant
    * Groupe de ressources : vous pouvez réutiliser un groupe de ressources existant ou en créer un pour ce projet. Nous vous recommandons de créer un groupe de ressources.
    * Nom : donnez un nom à votre application web. 
@@ -61,44 +61,46 @@ Suivez ces étapes pour créer une nouvelle ressource à partir du portail Azure
    * Plan Linux : sélectionnez un niveau tarifaire/plan pour votre service d’application. 
 
    > [!div class="mx-imgBorder"]
-   > ![Configurer votre application web](./media/quickstarts/formre-select-docker-linux.png)
+   > ![Configurer votre application web](./media/quickstarts/select-docker.png)
 
-5. Ensuite, sélectionnez l’onglet **Docker**. 
+5. Ensuite, sélectionnez l’onglet **Docker**.
 
    > [!div class="mx-imgBorder"]
-   > ![Sélectionner Docker](./media/quickstarts/formre-select-docker.png)
+   > ![Sélectionner Docker](./media/quickstarts/select-docker.png)
 
 6. Nous allons maintenant configurer votre conteneur Docker. Sauf indication contraire, tous les champs sont obligatoires :
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)  
-   * Options : sélectionnez **Conteneur unique**
-   * Source d’image : sélectionnez **Registre privé** 
-   * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
-   * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
-   * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
-   * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
-   * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
+    # <a name="v20"></a>[v2.0](#tab/v2-0)
+
+* Options : sélectionnez **Conteneur unique**
+* Source d’image : sélectionnez **Registre privé** 
+* URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
+* Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
+* Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
+* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
+* Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
 
     # <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1) 
-   * Options : sélectionnez **Conteneur unique**
-   * Source d’image : sélectionnez **Registre privé** 
-   * URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
-   * Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
-   * Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
-   * Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
-   * Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
-   * Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
-    
+
+* Options : sélectionnez **Conteneur unique**
+* Source d’image : sélectionnez **Registre privé** 
+* URL du serveur : définissez cette valeur sur `https://mcr.microsoft.com`
+* Nom d’utilisateur (facultatif) : créez un nom d’utilisateur. 
+* Mot de passe (facultatif) : créez un mot de passe sécurisé dont vous vous souviendrez.
+* Image et étiquette : définissez cette valeur sur `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* Déploiement continu : définissez cette valeur sur **Activé** si vous souhaitez recevoir des mises à jour automatiques lorsque l’équipe de développement apporte des modifications à l’outil d’étiquetage des exemples.
+* Commande de démarrage : définissez cette option sur `./run.sh eula=accept`
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Configurer Docker](./media/quickstarts/formre-configure-docker.png)
+   > ![Configurer Docker](./media/quickstarts/configure-docker.png)
 
 7. Vous avez terminé. Ensuite, sélectionnez **Vérifier + créer**, puis **Créer** pour déployer votre application web. Lorsque vous avez terminé, vous pouvez accéder à votre application web à l’URL fournie dans la **Vue d’ensemble** de votre ressource.
 
 > [!NOTE]
-> Lorsque vous créez votre application web, vous pouvez également configurer l’autorisation/l’authentification. Cela n’est pas nécessaire au départ. 
+> Lorsque vous créez votre application web, vous pouvez également configurer l’autorisation/l’authentification. Cela n’est pas nécessaire au départ.
 
 > [!IMPORTANT]
 > Vous devrez peut-être activer TLS pour votre application web afin de l’afficher à son adresse `https`. Suivez les instructions figurant dans [Activer un point de terminaison TLS](../../container-instances/container-instances-container-group-ssl.md) pour configurer un conteneur sidecar qui active TLS/SSL pour votre application web.
@@ -114,10 +116,10 @@ Voici quelques éléments que vous devez savoir à propos de cette commande :
 * Vous devez spécifier l’emplacement auquel vous souhaitez créer la ressource. Remplacez `<region name>` par la région de votre choix pour l’application web. 
 * Cette commande accepte automatiquement le CLUF.
 
-À partir d’Azure CLI, exécutez cette commande pour créer une ressource d’application web pour l’outil d’étiquetage des exemples : 
+À partir d’Azure CLI, exécutez cette commande pour créer une ressource d’application web pour l’outil d’étiquetage des exemples :
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -131,8 +133,10 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[v2.1 (préversion)](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898009"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833097"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous ne pourrez pas non plus ajouter de nouveaux moniteurs de connexion dans le moniteur de connexion (classique). Vous pouvez continuer d’utiliser les tests et moniteurs de connexion créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) ou [depuis le moniteur de connexion (classique)](migrate-to-connection-monitor-from-connection-monitor-classic.md) vers le nouveau moniteur de connexion dans Azure Network Watcher avant le 29 février 2024.
 
 La fonctionnalité Moniteur de connexion permet une vérification unifiée et de bout en bout de la connectivité dans Azure Network Watcher. Elle prend en charge les déploiements hybrides et cloud Azure. Network Watcher fournit des outils pour surveiller, diagnostiquer et consulter les métriques de connectivité de vos déploiements Azure.
 
@@ -111,7 +114,7 @@ Le Moniteur de connexion inclut les entités suivantes :
 
  ![Diagramme illustrant un moniteur de connexion, avec définition de la relation entre les groupes de tests et les tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Vous pouvez créer un moniteur de connexion à l’aide du [portail Azure](./connection-monitor-create-using-portal.md) ou d’[ARMClient](./connection-monitor-create-using-template.md).
+Vous pouvez créer un moniteur de connexion à l’aide du [portail Azure](./connection-monitor-create-using-portal.md), d’[ARMClient](./connection-monitor-create-using-template.md) ou de [PowerShell](connection-monitor-create-using-powershell.md)
 
 Toutes les sources, destinations et configurations de test que vous ajoutez à un groupe de tests sont réparties en tests individuels. Voici un exemple de répartition des sources et des destinations :
 
@@ -273,10 +276,11 @@ Lorsque vous utilisez des métriques, définissez le type de ressource sur Micro
 
 | Métrique | Nom complet | Unité | Type d’agrégation | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % de sondes ayant échoué | Pourcentage | Average | Pourcentage de sondes de surveillance de connectivité ayant échoué | Aucune dimension |
-| AverageRoundtripMs | Avg. Durée aller-retour (ms) | Millisecondes | Average | Durée moyenne des boucles réseau pour les sondes de surveillance de la connectivité envoyées entre la source et la destination. |             Aucune dimension |
-| ChecksFailedPercent (préversion) | Pourcentage d’échecs de vérification (préversion) | Pourcentage | Average | Pourcentage de vérifications ayant échoué pour un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
-| RoundTripTimeMs (préversion) | Durée d’aller-retour (ms) (préversion) | Millisecondes | Average | Durée des boucles pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l'objet d'une moyenne. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
+| ProbesFailedPercent (classique) | % de sondes ayant échoué (classique) | Pourcentage | Average | Pourcentage de sondes de surveillance de connectivité ayant échoué | Aucune dimension |
+| AverageRoundtripMs (classique) | Avg. Durée d’aller-retour (ms) (classique) | Millisecondes | Average | Durée moyenne des boucles réseau pour les sondes de surveillance de la connectivité envoyées entre la source et la destination. |             Aucune dimension |
+| ChecksFailedPercent | % de vérifications ayant échoué | Pourcentage | Average | Pourcentage de vérifications ayant échoué pour un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
+| RoundTripTimeMs | Durée aller-retour (ms) | Millisecondes | Average | Durée des boucles pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l'objet d'une moyenne. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Région |
+| TestResult | Résultat de test | Count | Average | Résultat du test du moniteur de connexion | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertes basées sur des métriques pour le Moniteur de connexion
 

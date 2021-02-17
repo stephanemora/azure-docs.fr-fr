@@ -4,12 +4,12 @@ description: Quelle taille de machine virtuelle et quelle version de système d�
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897491"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576699"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -29,7 +29,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Série de la machine virtuelle  | Tailles prises en charge |
 |------------|---------|
 | De base A | Toutes les tailles *sauf* Basic_A0 (A0) |
-| Un | Toutes les tailles *sauf* Standard_A0 |
+| Un | Toutes les tailles *sauf* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Toutes les tailles |
 | B | Non pris en charge |
 | DC | Non pris en charge |

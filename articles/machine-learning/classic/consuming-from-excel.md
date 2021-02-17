@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Utiliser le service web dans Excel – Azure'
 description: Azure Machine Learning Studio (classique) permet d’appeler facilement des services web directement à partir de Microsoft Excel sans qu’il soit nécessaire d’écrire du code.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 9ec781a5110dd2e7027ca91fd195bbb796f31020
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e8e7404a2b643cf90866253e5a7453381b66f73e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322908"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517856"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Utilisation d’un service web Azure Machine Learning Studio (classique) depuis Excel
 

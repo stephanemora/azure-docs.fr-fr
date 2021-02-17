@@ -4,18 +4,17 @@ description: Découvrez comment activer la journalisation pour les services web 
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c9ce9b7b0d739301e76abd43b265fe28195ed302
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518281"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
 
@@ -52,9 +51,9 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
    1. Dans le [portail Azure](https://portal.azure.com), accédez au compte de stockage associé au service web.
 
-   2. Sous **Service Blob** , cliquez sur **Conteneurs**.
+   2. Sous **Service Blob**, cliquez sur **Conteneurs**.
 
-   3. Si le conteneur **ml-diagnostics** n’existe pas, cliquez sur **+Conteneur** , nommez le conteneur « ml-diagnostics », puis sélectionnez le **Type d’accès** « Blob ». Cliquez sur **OK**.
+   3. Si le conteneur **ml-diagnostics** n’existe pas, cliquez sur **+Conteneur**, nommez le conteneur « ml-diagnostics », puis sélectionnez le **Type d’accès** « Blob ». Cliquez sur **OK**.
 
       ![Créer un conteneur pour stocker vos journaux de diagnostic](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -66,7 +65,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 ## <a name="the-effects-of-enabling-logging"></a>Effets de l’activation de la journalisation
 Quand la journalisation est activée, les diagnostics et erreurs du point de terminaison de service web sont journalisés dans le conteneur d’objets blob **ml-diagnostics** dans le compte de Stockage Azure lié à l’espace de travail de l’utilisateur. Ce conteneur contient toutes les informations de diagnostic pour tous les points de terminaison de service web pour tous les espaces de travail associés à ce compte de stockage.
 
-Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs** , puis sur le conteneur **ml-diagnostics**.  
+Les journaux d’activité peuvent être consultés à l’aide de plusieurs outils servant à « explorer » un compte de Stockage Azure. Le plus simple peut être d’accéder au compte de stockage dans le portail Azure, de cliquer sur **Conteneurs**, puis sur le conteneur **ml-diagnostics**.  
 
 ## <a name="log-blob-detail-information"></a>Journaliser les informations détaillées sur l’objet blob
 Chaque objet blob dans le conteneur conserve les informations de diagnostic pour une et une seule des actions suivantes :

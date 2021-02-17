@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409890"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389448"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Prévention des entrées DNS non résolues et de l’acquisition de sous-domaine
 
 Cet article décrit la menace de sécurité courante que représente l’acquisition de sous-domaine et la procédure à suivre pour y remédier.
 
 
-## <a name="what-is-subdomain-takeover"></a>Qu’est-ce que l’acquisition de sous-domaine ?
+## <a name="what-is-a-subdomain-takeover"></a>Qu’est-ce qu’une acquisition de sous-domaine ?
 
 Les acquisitions de sous-domaines constituent une menace courante et de gravité élevée pour les organisations qui créent et suppriment régulièrement de nombreuses ressources. Une prise de contrôle de sous-domaine peut se produire quand un [enregistrement DNS](../../dns/dns-zones-records.md#dns-records) pointe vers une ressource Azure déprovisionnée. Ces enregistrements DNS sont également appelés entrées « DNS non résolues ». Les enregistrements CNAME sont particulièrement vulnérables à cette menace. Les prises de contrôle de sous-domaines permettent à des acteurs malveillants de rediriger le trafic destiné au domaine d’une organisation vers un site effectuant une activité malveillante.
 
@@ -119,7 +119,7 @@ Si vous êtes un administrateur général du locataire de votre organisation, é
 
 ### <a name="run-the-script"></a>Exécuter le script
 
-En savoir plus sur le script PowerShell, **Get-DanglingDnsRecords. ps1** , et le télécharger à partir de GitHub : https://aka.ms/DanglingDNSDomains.
+En savoir plus sur le script PowerShell, **Get-DanglingDnsRecords. ps1**, et le télécharger à partir de GitHub : https://aka.ms/Get-DanglingDnsRecords.
 
 ## <a name="remediate-dangling-dns-entries"></a>Corriger les entrées de DNS non-résolu 
 
@@ -144,6 +144,15 @@ Il est crucial, dans le cadre du programme de sécurité d’une organisation, d
 
 Certains services Azure offrent des fonctionnalités pour vous aider à mettre en place des mesures préventives. Ils sont détaillés ci-dessous. D’autres méthodes pour éviter ce problème doivent être établies par le biais des meilleures pratiques de votre organisation ou de procédures d’exploitation standard.
 
+### <a name="enable-azure-defender-for-app-service"></a>Activer Azure Defender pour App Service
+
+La plateforme de protection de charge de travail cloud intégrée de Security Center, Azure Defender, offre une série de plans pour protéger vos ressources et charges de travail Azure hybrides et multi-cloud.
+
+Le plan **Azure Defender pour App Service** comprend la détection de DNS non résolu. Avec ce plan activé, vous recevez des alertes de sécurité si vous désactivez un site web App Service, mais ne supprimez pas son domaine personnalisé de votre bureau d’enregistrement DNS.
+
+La protection de DNS non résolu d’Azure Defender est disponible pour les domaines gérés avec Azure DNS ou un bureau d’enregistrement de domaine externe. Elle s’applique à App Service tant sur Windows que sur Linux.
+
+Pour en savoir plus sur ce sujet et d’autres avantages de ce plan Azure Defender, consultez [Présentation d’Azure Defender pour App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### <a name="use-azure-dns-alias-records"></a>Enregistrements d’alias Azure DNS
 
@@ -201,6 +210,8 @@ Il incombe souvent aux développeurs et aux équipes d’exploitation d’exécu
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les services connexes et les fonctionnalités Azure que vous pouvez utiliser pour vous défendre contre l’acquisition de sous-domaine, consultez les pages suivantes.
+
+- [Activer Azure Defender pour App Service](../../security-center/defender-for-app-service-introduction.md) pour recevoir des alertes lorsque des entrées DNS non résolues sont détectées
 
 - [Empêcher les enregistrements DNS non résolus avec Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

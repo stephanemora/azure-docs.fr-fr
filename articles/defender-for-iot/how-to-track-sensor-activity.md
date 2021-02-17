@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835774"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523598"
 ---
 # <a name="track-sensor-activity"></a>Suivre l’activité d’un capteur
 
@@ -59,9 +59,9 @@ Pour filtrer la chronologie :
 
 2. Définissez les filtres d’événements comme suit :
 
-   - **Inclure l’adresse** : Affiche les appareils d’événements spécifiques.
+   - **Inclure l’adresse** : Affiche les événements pour des appareils spécifiques.
 
-   - **Exclure l’adresse** : Masque les appareils d’événements spécifiques.
+   - **Exclure l’adresse** : Masque les événements pour des appareils spécifiques.
 
    - **Inclure les types d’événements** : Affiche les types d’événements spécifiques.
 
@@ -87,8 +87,8 @@ Pour filtrer la chronologie :
 
     - Sélectionnez **Fichier PCAP** pour télécharger le fichier PCAP (s’il existe) qui contient une capture de paquets de l’ensemble du réseau à un moment précis. 
     
-      Le fichier PCAP contient des informations techniques qui peuvent aider les ingénieurs à déterminer l’emplacement exact de l’événement et ce qui s’y passe. Vous pouvez analyser le fichier PCAP avec un analyseur de protocole réseau tel que Wireshark, une application gratuite.
+      Le fichier PCAP contient des informations techniques qui peuvent aider les ingénieurs réseau à déterminer les paramètres exacts de l’événement. Vous pouvez analyser le fichier PCAP avec un analyseur de protocole réseau tel que Wireshark, une application open source.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Afficher les alertes](how-to-view-alerts.md)

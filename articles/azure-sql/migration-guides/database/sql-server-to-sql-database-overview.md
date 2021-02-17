@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357323"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368045"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Vue d’ensemble de la migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ La configuration manuelle des fonctionnalités de haute disponibilité SQL Serve
 Au-delà de l’architecture de haute disponibilité incluse dans Azure SQL Database, il y a aussi la fonctionnalité des [groupes de basculement automatique ](../../database/auto-failover-group-overview.md) qui vous permet de gérer la réplication et le basculement des bases de données d’une instance gérée vers une autre région. 
 
 #### <a name="sql-agent-jobs"></a>Travaux SQL Agent
-Les travaux SQL Agent ne sont pas directement pris en charge dans Azure SQL Database et doivent être déployés dans des [tâches de base de données élastique (préversion)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+Les travaux SQL Agent ne sont pas directement pris en charge dans Azure SQL Database et doivent être déployés dans des [tâches de base de données élastique (préversion)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Connexions et groupes
 Déplacez les connexions SQL de l’instance SQL Server source vers Azure SQL Database à l’aide de Database Migration Service (DMS) en mode hors connexion.  Utilisez le panneau **Connexions sélectionnées** dans l’**Assistant Migration** pour migrer les connexions vers votre instance SQL Database cible. 

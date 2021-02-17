@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346195"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831295"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application du centre de distribution numérique
-
-
 
 Ce didacticiel vous montre comment prendre en main le déploiement d’un modèle d’application du **centre de distribution numérique** IoT Central. Vous allez apprendre à déployer le modèle et découvrir les fonctionnalités prêtes à l’emploi incluses ainsi que les différentes possibilités qui s’offrent à vous.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes : 
-* créer une application pour un centre de distribution numérique 
-* examiner l’application 
+
+> [!div class="checklist"]
+> Créer une application de centre de distribution numérique et parcourir l’application 
 
 ## <a name="prerequisites"></a>Prérequis
 * Aucune configuration requise spécifique n’est requise pour déployer cette application
@@ -110,8 +109,8 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 > ![Capture d’écran montrant comment supprimer l’application lorsque vous n’en avez plus besoin](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur l’architecture de la solution du centre de distribution numérique 
+
+En savoir plus sur l’architecture de la solution du centre de distribution numérique :
+
 > [!div class="nextstepaction"]
 > [Concept du centre de distribution numérique](./architecture-digital-distribution-center.md)
-* En savoir plus sur d’autres [modèles de distribution IoT Central](./overview-iot-central-retail.md)
-* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../core/overview-iot-central.md)

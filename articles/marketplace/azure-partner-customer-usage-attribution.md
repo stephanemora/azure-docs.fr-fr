@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 99e1e77a37afbdc1ed54767700574316ed03fae3
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062203"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525243"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Place de marché commerciale - Attribution de partenaires et de l’utilisation de client
 
@@ -248,10 +248,8 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
 ## <a name="report"></a>Rapport
-
-Vous trouverez le rapport relatif à l’attribution de l’utilisation de client dans le tableau de bord de votre Espace partenaires ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Pour afficher le rapport, vous devez connecter à l’aide des informations d’identification de votre Espace partenaires. Si vous rencontrez des problèmes de rapport ou de connexion, créez une [demande de support](#get-support).
+La création de rapports sur le suivi de l’utilisation d’Azure par le biais de l’attribution de l’utilisation client n’est pas disponible aujourd’hui pour les partenaires ISV. L’ajout de rapports au programme du marketplace commercial dans Espace partenaires pour couvrir l’attribution de l’utilisation client est prévu pour le second semestre 2021.
 
 ## <a name="notify-your-customers"></a>Informer vos clients
 

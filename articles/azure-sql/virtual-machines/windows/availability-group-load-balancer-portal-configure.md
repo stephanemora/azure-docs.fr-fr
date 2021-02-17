@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359385"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096427"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurer un équilibreur de charge SQL Server AlwaysOn sur des machines virtuelles Azure
 
@@ -76,7 +76,7 @@ Créez d’abord l’équilibreur de charge.
    | **Réseau virtuel** |Sélectionnez le réseau virtuel contenant les instances de SQL Server. |
    | **Sous-réseau** |Sélectionnez le sous-réseau contenant les instances de SQL Server. |
    | **Affectation d’adresses IP** |**Statique** |
-   | **Adresse IP privée** |Spécifiez une adresse IP disponible à partir du sous-réseau. Vous allez l’utiliser pour créer un écouteur sur le cluster. Dans un script PowerShell plus loin dans cet article, vous utilisez cette adresse pour la variable `$ILBIP`. |
+   | **Adresse IP privée** |Spécifiez une adresse IP disponible à partir du sous-réseau. Vous allez l’utiliser pour créer un écouteur sur le cluster. Dans un script PowerShell plus loin dans cet article, vous utilisez cette adresse pour la variable `$ListenerILBIP`. |
    | **Abonnement** |Si vous avez plusieurs abonnements, ce champ doit normalement apparaître. Sélectionnez l’abonnement que vous voulez associer à cette ressource. Normalement, il s’agit du même abonnement que pour toutes les ressources du groupe de disponibilité. |
    | **Groupe de ressources** |Sélectionnez le groupe de ressources contenant les instances de SQL Server. |
    | **Lieu** |Sélectionnez l’emplacement Azure contenant les instances de SQL Server. |

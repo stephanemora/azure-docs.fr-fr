@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548883"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102238"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Base de référence d'Azure Defender pour IoT et vérifications personnalisées
 
@@ -35,9 +35,13 @@ Pour les vérifications personnalisées de référence, une liste personnalisée
 ## <a name="setting-baseline-properties"></a>Définition des propriétés de la base de référence
 
 1. Dans votre IoT Hub, recherchez et sélectionnez l’appareil que vous souhaitez modifier.
+
 1. Cliquez sur l’appareil, puis sur le module **azureiotsecurity**.
+
 1. Cliquez sur **Jumeau d’identité de module**.
+
 1. Chargez le fichier de **vérifications personnalisées de base de référence** sur l’appareil.
+
 1. Ajoutez des propriétés de base de référence au module de sécurité, puis cliquez sur **Enregistrer**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemple de fichier de vérifications personnalisées de base de référence

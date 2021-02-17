@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581752"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104210"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -75,7 +75,7 @@ Pour vérifier vos autorisations d’abonnement :
 
 Passons directement à la création de l’identité. Si vous rencontrez un problème, vérifiez que votre compte a les [autorisations nécessaires](#permissions-required-for-registering-an-app) pour créer l’identité.
 
-1. Connectez-vous à votre compte Azure via le <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Connectez-vous à votre compte Azure via le <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 1. Sélectionnez **Azure Active Directory**.
 1. Sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
@@ -181,7 +181,7 @@ Si vous choisissez de ne pas utiliser un certificat, vous pouvez créer un nouve
 ## <a name="configure-access-policies-on-resources"></a>Configurer des stratégies d’accès sur les ressources
 Gardez à l’esprit que vous devrez peut-être configurer des autorisations supplémentaires sur les ressources auxquelles votre application doit accéder. Par exemple, vous devez également [mettre à jour les stratégies d’accès d’un coffre de clés](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) pour permettre à votre application d’accéder aux clés, secrets ou certificats.
 
-1. Dans le <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, accédez à votre coffre de clés et sélectionnez **Accès partagé**.
+1. Dans le <a href="https://portal.azure.com/" target="_blank">portail Azure</a>, accédez à votre coffre de clés et sélectionnez **Accès partagé**.
 1. Sélectionnez **Ajouter une stratégie d’accès**, puis sélectionnez les autorisations de clé, de secret et de certificat que vous souhaitez accorder à votre application.  Sélectionnez le principal de service que vous avez créé précédemment.
 1. Sélectionnez **Ajouter** pour ajouter la stratégie d’accès, puis **Enregistrer** pour valider vos modifications.
     ![Ajouter une stratégie d’accès](./media/howto-create-service-principal-portal/add-access-policy.png)

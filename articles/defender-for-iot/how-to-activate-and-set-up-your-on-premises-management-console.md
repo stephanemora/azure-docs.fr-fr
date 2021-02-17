@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623752"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522578"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activer et configurer votre console de gestion locale 
 
@@ -316,6 +316,6 @@ Pour annuler l’attribution d’un capteur et le supprimer :
 
 3. Pour supprimer le capteur non attribué du site, sélectionnez le capteur dans la liste des capteurs non attribués, puis sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Résoudre les problèmes du capteur et de la console de gestion locale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

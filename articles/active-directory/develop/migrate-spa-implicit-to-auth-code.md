@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754950"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365938"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrer une application monopage JavaScript de l’octroi implicite vers le flux de code d’autorisation
 
@@ -41,7 +41,7 @@ Si vous souhaitez continuer à utiliser votre inscription d’application exista
 
 Effectuez ces étapes pour les inscriptions d’applications qui sont actuellement configurées avec des URI de redirection de plateforme **web** :
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> et sélectionnez votre locataire **Azure Active Directory**.
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a> et sélectionnez votre locataire **Azure Active Directory**.
 1. Dans **Inscriptions d’applications**, sélectionnez votre application, puis **Authentification**.
 1. Dans la vignette de plateforme **web** sous **URI de redirection**, sélectionnez la bannière d’avertissement indiquant que vous devez migrer vos URI.
 
@@ -95,5 +95,5 @@ Pour en savoir plus sur le flux de code d’autorisation, notamment les différe
 Si vous souhaitez approfondir le développement d’applications monopages JavaScript sur la plateforme d’identités Microsoft, la série en plusieurs parties [Scénario : Application monopage](scenario-spa-overview.md) peut vous aider à commencer.
 
 <!-- LINKS - external -->
-[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
+[msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal.useragentapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html

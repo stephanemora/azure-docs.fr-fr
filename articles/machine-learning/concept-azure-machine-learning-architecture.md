@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540193"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091667"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -46,19 +46,6 @@ Un espace de travail comprend d’autres ressources Azure utilisées par l’esp
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) : Stocke les secrets qui sont utilisés par les cibles de calcul, ainsi que d’autres informations sensibles dont a besoin l’espace de travail.
 
 Vous pouvez partager un espace de travail avec d’autres utilisateurs.
-
-### <a name="create-workspace"></a>Créer un espace de travail
-
-Le diagramme suivant montre le workflow de création d’un espace de travail.
-
-* Vous vous connectez à Azure AD à partir de l’un des clients Azure Machine Learning pris en charge (Azure CLI, SDK Python, portail Microsoft Azure) et demandez le jeton Azure Resource Manager approprié.
-* Vous appelez Azure Resource Manager pour créer l’espace de travail. 
-* Azure Resource Manager contacte le fournisseur de ressources Azure Machine Learning pour provisionner l’espace de travail.
-* Si vous ne spécifiez pas de ressources existantes, des ressources obligatoires supplémentaires sont créées dans votre abonnement.
-
-Vous pouvez également approvisionner d’autres cibles de calcul attachées à un espace de travail (comme Azure Kubernetes Service ou des machines virtuelles) le cas échéant.
-
-[![Créer un workflow d’espace de travail](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Calcul
 
@@ -126,10 +113,6 @@ Pour obtenir des exemples de configurations de série de tests, consultez [Confi
 [Espace de travail](#workspace) > [Expériences](#experiments) > [Exécution](#runs) > **Instantané**
 
 Lorsque vous envoyez une exécution, Azure Machine Learning compresse le répertoire qui contient le script dans un fichier zip, puis l’envoie à la cible de calcul. Le fichier zip est ensuite décompressé, et le script y est exécuté. Azure Machine Learning stocke également le fichier zip en tant qu’instantané dans l’enregistrement d’exécution. Toute personne ayant accès à l’espace de travail peut parcourir un enregistrement d’exécution et télécharger l’instantané.
-
-Le diagramme suivant montre le workflow de capture instantanée du code.
-
-[![Workflow de la capture instantanée de code](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Journalisation
 

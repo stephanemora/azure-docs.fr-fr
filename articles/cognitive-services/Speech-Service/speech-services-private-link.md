@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786840"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559652"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Utiliser Speech Services via un point de terminaison privé
 
@@ -268,8 +268,6 @@ Si vous envisagez d’accéder à la ressource en utilisant uniquement un point 
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Confirmez que l’adresse IP correspond à l’adresse IP de votre point de terminaison privé.
-
 > [!NOTE]
 > L’adresse IP résolue pointe vers un point de terminaison proxy de réseau virtuel qui est utilisé pour distribuer le trafic réseau vers le point de terminaison privé pour la ressource Cognitive Services. Le comportement est différent pour une ressource avec un nom de domaine personnalisé activé, mais *sans* point de terminaison privé. Consultez [cette section](#dns-configuration) pour plus d’informations.
 
@@ -293,7 +291,7 @@ La solution Speech Services fournit des API REST pour la [reconnaissance vocale]
 La reconnaissance vocale a deux API REST. Chaque API sert un objectif différent, utilise des points de terminaison différents et nécessite une approche différente quand vous l’utilisez dans un scénario avec des points de terminaison privés activés.
 
 Les API REST de reconnaissance vocale sont les suivantes :
-- L’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), qui est utilisée pour la [transcription Batch](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](./migrate-v2-to-v3.md)
+- L’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), qui est utilisée pour la [transcription Batch](batch-transcription.md) et [Custom Speech](custom-speech-overview.md). La version v3.0 [succède à la version v2.0](./migrate-v2-to-v3.md)
 - [L’API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), qui est utilisée pour la transcription en ligne 
 
 L’utilisation de l’API REST de reconnaissance vocale pour audio court et de l’API REST de synthèse vocale dans le scénario avec des points de terminaison privés est identique. Elle est équivalente au [cas d’usage du SDK Speech](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) décrit plus loin dans cet article. 
@@ -302,15 +300,19 @@ L’API REST de reconnaissance vocale v3.0 utilise un autre ensemble de points 
 
 Les sous-sections suivantes décrivent les deux cas.
 
-##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
+##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
 
-En général, les ressources Speech utilisent des [points de terminaison régionaux Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) pour communiquer avec l’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Ces ressources ont le format d’affectation des noms suivant : <p/>`{region}.api.cognitive.microsoft.com`.
+En général, les ressources Speech utilisent des [points de terminaison régionaux Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) pour communiquer avec l’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Ces ressources ont le format d’affectation des noms suivant : <p/>`{region}.api.cognitive.microsoft.com`.
 
 Voici un exemple d’URL de demande :
 
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Consultez [cet article](sovereign-clouds.md) pour les points de terminaison Azure Government et Azure Chine.
+
 Après l’activation d’un domaine personnalisé pour une ressource Speech (nécessaire pour les points de terminaison privés), cette ressource utilise le modèle de nom DNS suivant pour le point de terminaison d’API REST de base : <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 Cela signifie que, dans notre exemple, le nom du point de terminaison d’API REST sera : <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ L’[API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#
 - [points de terminaison régionaux Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) pour communiquer avec l’API REST Cognitive Services afin d’obtenir un jeton d’autorisation ;
 - points de terminaison spéciaux pour toutes les autres opérations.
 
-Les points de terminaison spéciaux ainsi que la façon dont leur URL doit être transformée pour une ressource Speech avec des points de terminaison privés activés sont décrits en détail dans [cette sous-section](#general-principles) sur l’utilisation avec le SDK Speech. Le principe décrit pour le SDK s’applique également à l’API REST de reconnaissance vocale (v1.0) et à l’API de synthèse vocale.
+> [!NOTE]
+> Consultez [cet article](sovereign-clouds.md) pour les points de terminaison Azure Government et Azure Chine.
+
+Les points de terminaison spéciaux ainsi que la façon dont leur URL doit être transformée pour une ressource Speech avec des points de terminaison privés activés sont décrits en détail dans [cette sous-section](#construct-endpoint-url) sur l’utilisation avec le SDK Speech. Le principe décrit pour le SDK s’applique également à l’API REST de reconnaissance vocale pour audio court et à l’API REST de synthèse vocale.
 
 Consultez la sous-section mentionnée dans le paragraphe précédent et examinez l’exemple suivant L’exemple décrit l’API REST de synthèse vocale. L’utilisation de l’API REST de reconnaissance vocale pour audio court est strictement équivalente.
 
 > [!NOTE]
-> Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court dans des scénarios avec des points de terminaison privés, utilisez un jeton d’autorisation qui est [passé via](rest-speech-to-text.md#request-headers) l’[en-tête](rest-speech-to-text.md#request-headers) `Authorization`. Le passage d’une clé d’abonnement Speech au point de terminaison spécial via l’en-tête `Ocp-Apim-Subscription-Key` ne fonctionne *pas* et génère l’erreur 401.
+> Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court et l’API REST de synthèse vocale dans des scénarios avec des points de terminaison privés, utilisez une clé d’abonnement transmise via l’en-tête `Ocp-Apim-Subscription-Key`. (Voir [API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#request-headers) et [API REST de synthèse vocale](rest-text-to-speech.md#request-headers) pour plus de détails)
+>
+> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Mise en réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
 
 **Exemple d’utilisation de l’API REST de synthèse vocale**
 
 Nous allons utiliser la région Europe Ouest comme exemple de région Azure et `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech (domaine personnalisé). Le nom de domaine personnalisé `my-private-link-speech.cognitiveservices.azure.com` dans notre exemple appartient à la ressource Speech créée dans la région Europe Ouest.
 
-Pour obtenir la liste des voix prises en charge dans la région, vous devez effectuer les deux opérations suivantes :
+Pour obtenir la liste des voix prises en charge dans la région, exécutez la requête suivante :
 
-- Obtenir un jeton d’autorisation :
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- À l’aide du jeton, obtenir la liste des voix :
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Pour plus d’informations sur les étapes précédentes, consultez la [documentation de l’API REST de synthèse vocale](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Pour plus d’informations, consultez la [documentation de l’API REST de synthèse vocale](rest-text-to-speech.md).
 
-Pour la ressource Speech avec des points de terminaison privés activés, les URL des points de terminaison pour la même séquence d’opérations doivent être modifiées. La même séquence ressemble à ce qui suit :
+Pour la ressource Speech avec des points de terminaison privés activés, l’URL des points de terminaison pour la même opération doit être modifiée. La même requête se présente comme suit :
 
-- Obtenir un jeton d’autorisation :
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Consultez l’explication détaillée dans la sous-section [API REST de reconnaissance vocale v3.0](#speech-to-text-rest-api-v30), plus haut dans cet article.
-
-- À l’aide du jeton obtenu, obtenir la liste des voix :
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Consultez une explication détaillée dans la sous-section [Principes généraux](#general-principles) pour le SDK Speech.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Consultez une explication détaillée dans la sous-section [Construire l’URL du point de terminaison](#construct-endpoint-url) pour le SDK Speech.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé : Utilisation avec le SDK Speech
 
@@ -377,9 +372,9 @@ L’utilisation du SDK Speech pour des ressources Speech avec des noms de domain
 
 Dans cette section, nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech (domaine personnalisé).
 
-##### <a name="general-principles"></a>Principes généraux
+##### <a name="construct-endpoint-url"></a>Construire l’URL du point de terminaison
 
-Généralement, dans les scénarios de SDK (ainsi que dans les scénarios d’API REST de synthèse vocale), les ressources Speech utilisent les points de terminaison régionaux dédiés pour différentes offres de service. Le format de nom DNS pour ces points de terminaison est le suivant :
+Généralement, dans les scénarios de SDK (ainsi que dans les scénarios d’API REST de reconnaissance vocale pour audio court et d’API REST de synthèse vocale), les ressources Speech utilisent les points de terminaison régionaux dédiés pour différentes offres de service. Le format de nom DNS pour ces points de terminaison est le suivant :
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,7 +382,7 @@ Voici un exemple de nom DNS :
 
 `westeurope.stt.speech.microsoft.com`
 
-Toutes les valeurs possibles pour la région (premier élément du nom DNS) sont listées dans [Régions prises en charge pour le service Speech](regions.md). Le tableau suivant présente les valeurs possibles pour l’offre Speech Services (deuxième élément du nom DNS) :
+Toutes les valeurs possibles pour la région (premier élément du nom DNS) sont listées dans [Régions prises en charge pour le service Speech](regions.md). (Consultez [cet article](sovereign-clouds.md) pour les points de terminaison Azure Government et Azure Chine.) Le tableau suivant présente les valeurs possibles pour l’offre Speech Services (deuxième élément du nom DNS) :
 
 | Valeur du nom DNS | Offre Speech Services                                    |
 |----------------|-------------------------------------------------------------|
@@ -459,7 +454,7 @@ Pour modifier votre code, procédez comme suit :
 
 2. Créez une instance de `SpeechConfig` en utilisant une URL de point de terminaison complète :
 
-   1. Modifiez le point de terminaison que vous venez de déterminer, comme cela est décrit dans la section [Principes généraux](#general-principles), plus haut dans cet article.
+   1. Modifiez le point de terminaison que vous venez de déterminer, comme cela est décrit dans la section [Construire l’URL du point de terminaison](#construct-endpoint-url), plus haut dans cet article.
 
    1. Modifiez la manière dont vous créez l’instance de `SpeechConfig`. Le plus souvent, votre application utilisera quelque chose ressemblant à ceci :
       ```csharp
@@ -531,76 +526,34 @@ Comparez-la avec la sortie de [cette section](#resolve-dns-from-other-networks).
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec les API REST
 
-##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
+##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
 
-L’utilisation de l’API REST de reconnaissance vocale v3.0 est strictement équivalente à celle des [ressources Speech avec des points de terminaison privés activés](#speech-to-text-rest-api-v30).
+L’utilisation de l’API REST de reconnaissance vocale v3.0 est strictement équivalente à celle des [ressources Speech avec des points de terminaison privés activés](#speech-to-text-rest-api-v30).
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de reconnaissance vocale pour audio court et API REST de synthèse vocale
 
-Dans ce cas, l’utilisation de l’API REST de reconnaissance vocale pour audio court et l’utilisation de l’API REST de synthèse vocale ne diffèrent pas du cas général, excepté pour l’API REST de reconnaissance vocale pour audio court. (Voir la remarque suivante.) Vous devez utiliser les deux API comme cela est décrit dans la documentation de l’[API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) et celle de l’[API REST de synthèse vocale](rest-text-to-speech.md).
+Dans ce cas, l’utilisation de l’API REST de reconnaissance vocale pour audio court et l’utilisation de l’API REST de synthèse vocale ne diffèrent pas du cas général, à une exception près. (Voir la remarque suivante.) Vous devez utiliser les deux API comme cela est décrit dans la documentation de l’[API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) et celle de l’[API REST de synthèse vocale](rest-text-to-speech.md).
 
 > [!NOTE]
-> Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court dans des scénarios avec des domaines personnalisés, utilisez un jeton d’autorisation qui est [passé via](rest-speech-to-text.md#request-headers) l’[en-tête](rest-speech-to-text.md#request-headers) `Authorization`. Le passage d’une clé d’abonnement Speech au point de terminaison spécial via l’en-tête `Ocp-Apim-Subscription-Key` ne fonctionne *pas* et génère l’erreur 401.
+> Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court et l’API REST de synthèse vocale dans des scénarios de domaine personnalisé, utilisez une clé d’abonnement transmise via l’en-tête `Ocp-Apim-Subscription-Key`. (Voir [API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#request-headers) et [API REST de synthèse vocale](rest-text-to-speech.md#request-headers) pour plus de détails)
+>
+> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Mise en réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec le SDK Speech
 
-L’utilisation du SDK Speech pour des ressources Speech avec des domaines personnalisés activés mais *sans* points de terminaison privés nécessite une revue et probablement des modifications de votre code d’application. Notez que ces modifications diffèrent de celles à apporter dans le cas d’une [ressource Speech avec des points de terminaison privés activés](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). Nous travaillons sur une prise en charge plus fluide des scénarios avec des points de terminaison privés et des domaines personnalisés.
+L’utilisation du SDK Speech avec des ressources Speech avec un domaine personnalisé activé *sans* points de terminaison privés équivaut au cas général, comme décrit dans la [documentation du SDK Speech](speech-sdk.md).
 
-Dans cette section, nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech (domaine personnalisé).
+Si vous avez modifié votre code pour l’utiliser avec une [ressource Speech avec des points de terminaison privés activés](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), tenez compte des éléments suivants.
 
 Dans la section sur les [ressources Speech avec des points de terminaison privés activés](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), nous avons expliqué comment déterminer l’URL de point de terminaison, comment la modifier et comment la rendre opérationnelle en initialisant l’instance de la classe `SpeechConfig` « à partir d’un point de terminaison »/« avec un point de terminaison ».
 
 Toutefois, si vous tentez d’exécuter la même application après avoir supprimé tous les points de terminaison privés (en attendant le temps nécessaire au reprovisionnement de l’enregistrement DNS correspondant), vous obtenez une erreur de service interne (404). La raison à cela est que l’[enregistrement DNS](#dns-configuration) pointe désormais vers le point de terminaison Cognitive Services régional au lieu du proxy de réseau virtuel, et que les chemins d’URL comme `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` y sont introuvables.
 
-Si vous restaurez votre application à l’instanciation standard de `SpeechConfig` dans le style du code suivant, votre application se termine avec l’erreur d’authentification (401) :
+Vous devez restaurer votre application à l’instanciation standard de `SpeechConfig` dans le style du code suivant :
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>Modification d’applications
-
-Pour permettre à votre application d’utiliser une ressource Speech avec un nom de domaine personnalisé et sans point de terminaison privé, procédez comme suit :
-
-1. Demandez un jeton d’autorisation à partir de l’API REST Cognitive Services. [Cet article](../authentication.md#authenticate-with-an-authentication-token) montre comment obtenir le jeton.
-
-   Utilisez votre nom de domaine personnalisé dans l’URL de point de terminaison. Dans notre exemple, cette URL est la suivante :
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Vous trouverez cette URL dans le portail Azure. Dans la page de la ressource Speech, sous le groupe **Gestion des ressources**, sélectionnez **Clés et point de terminaison**.
-
-1. Créez une instance de `SpeechConfig` en utilisant le jeton d’autorisation que vous avez obtenu dans la section précédente. Supposons que les variables suivantes sont définies :
-
-   - `token` : jeton d’autorisation obtenu dans la section précédente
-   - `azureRegion` : nom de la [région](regions.md) de la ressource Speech (exemple : `westeurope`)
-   - `outError` : (uniquement pour le cas [Objective C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror))
-
-   Créez une instance de `SpeechConfig` comme suit :
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> L’appelant doit s’assurer que le jeton d’autorisation est valide. Avant que le jeton d’autorisation expire, l’appelant doit l’actualiser en appelant cet méthode setter avec un nouveau jeton valide. Étant donné que les valeurs de configuration sont copiées au moment où vous créez un module de reconnaissance ou synthétiseur, la nouvelle valeur de jeton ne s’applique pas aux modules de reconnaissance ou synthétiseurs existants.
->
-> Pour ceux-ci, définissez le jeton d’autorisation du module de reconnaissance ou du synthétiseur correspondant pour actualiser le jeton. Si vous n’actualisez pas le jeton, le module de reconnaissance ou le synthétiseur rencontrera des erreurs lors de son fonctionnement.
-
-Après cette modification, votre application fonctionnera correctement avec des ressources Speech qui utilisent un nom de domaine personnalisé sans points de terminaison privés.
 
 ## <a name="pricing"></a>Tarifs
 

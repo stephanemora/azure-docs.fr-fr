@@ -1,26 +1,26 @@
 ---
-title: Agrégation des événements
+title: Agrégation d’événements classique du module de sécurité
 description: Découvrez l’agrégation d’événements Defender pour IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832367"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809216"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>Agrégation d’événements Defender pour IoT
+# <a name="security-module-classic-event-aggregation"></a>Agrégation d’événements classique du module de sécurité
 
 Les agents de sécurité Defender pour IoT recueillent des données et des événements système à partir de votre appareil local et envoient ces données au cloud Azure à des fins de traitement et d’analytique. L’agent de sécurité collecte de nombreux types d’événements d’appareil, notamment des événements relatifs aux nouveaux processus et aux nouvelles connexions. Des événements relatifs aux nouveaux processus et aux nouvelles connexions peuvent se produire fréquemment sur un appareil en une seconde, et ce, de façon légitime. Même si cette collecte d’événements est essentielle pour une sécurité robuste et complète, le nombre de messages que les agents de sécurité sont obligés d’envoyer peut rapidement atteindre ou dépasser vos limites de coût et votre quota IoT Hub. Toutefois, ces événements contiennent des informations de sécurité très précieuses qui sont essentielles à la protection de votre appareil.
 
@@ -45,7 +45,7 @@ Pour réduire l’empreinte mémoire de l’agent, chaque fois que l’agent col
 Les événements sont considérés comme identiques uniquement lorsque les conditions suivantes sont remplies :
 
 * Événements ProcessCreate : quand **commandLine**, **executable**, **username** et **userid** sont identiques
-* Événements ConnectionCreate : quand **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol et **destination port** sont identiques
+* Événements ConnectionCreate : quand **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol** et **destination port** sont identiques.
 * Événements ProcessTerminate : quand **executable** et **exit status** sont identiques
 
 ### <a name="working-with-aggregated-events"></a>Utilisation des événements agrégés
@@ -55,7 +55,7 @@ Pendant l’agrégation, les propriétés d’événement qui ne sont pas agrég
 * Événements ProcessCreate : **ProcessId** et **parentProcessId** sont définis sur 0
 * Événements ConnectionCreate : **ProcessId** et **source port** sont définis sur 0
 
-## <a name="event-aggregation-based-alerts"></a>Alertes basées sur une agrégation d’événements
+## <a name="event-aggregation-based-alerts"></a>Alertes basées sur l’agrégation d’événements
 
 Après analyse, Defender pour IoT crée des alertes de sécurité pour les événements agrégés suspects. Les alertes créées à partir d’événements agrégés apparaissent une seule fois pour chaque événement agrégé.
 

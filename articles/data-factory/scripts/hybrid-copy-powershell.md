@@ -1,21 +1,18 @@
 ---
 title: Copier des données locales vers Azure à l’aide de PowerShell
 description: Ce script PowerShell copie des données à partir d’une base de données SQL Server vers un autre stockage Blob Azure.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373383"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données de SQL Server sur Azure
 
@@ -27,9 +24,9 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **SQL Server** . Dans cet exemple, vous allez utiliser une base de données SQL Server comme magasin de données **source** .
-- **Compte Stockage Azure** . Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception** . Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
-- **Runtime d’intégration auto-hébergé** . Téléchargez le fichier MSI à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et exécutez-le pour installer un runtime d’intégration auto-hébergé sur votre ordinateur.  
+- **SQL Server**. Dans cet exemple, vous allez utiliser une base de données SQL Server comme magasin de données **source**.
+- **Compte Stockage Azure**. Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
+- **Runtime d’intégration auto-hébergé**. Téléchargez le fichier MSI à partir du [centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717) et exécutez-le pour installer un runtime d’intégration auto-hébergé sur votre ordinateur.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Créer un exemple de base de données dans SQL Server
 1. Dans la base de données SQL Server, créez une table nommée **emp** en utilisant le script SQL suivant :

@@ -27,8 +27,10 @@
     - name: 1 - Importer votre première API
       href: import-and-publish.md
     - name: 2 - Créer et publier un produit
+      displayName: 'Azure CLI, az apim product'
       href: api-management-howto-add-products.md
     - name: 3 - Simuler des réponses de l’API
+      displayName: 'Azure CLI, az apim api operation'
       href: mock-api-responses.md
     - name: 4 - Protéger votre API
       href: transform-api.md
@@ -37,8 +39,10 @@
     - name: 6 - Déboguer vos API
       href: api-management-howto-api-inspector.md
     - name: 7 - Ajouter des révisions
+      displayName: 'Azure CLI, az apim api release'
       href: api-management-get-started-revise-api.md
     - name: 8 - Ajouter plusieurs versions
+      displayName: 'Azure CLI, az apim api versionset'
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personnaliser le portail des développeurs
       href: api-management-howto-developer-portal-customize.md
@@ -225,6 +229,7 @@
         - name: Utilisation de services externes
           href: api-management-sample-send-request.md
         - name: Gérer les secrets en utilisant des valeurs nommées
+          displayName: 'Azure CLI, az apim nv'
           href: api-management-howto-properties.md
         - name: Stratégies de restriction des accès
           href: api-management-access-restriction-policies.md

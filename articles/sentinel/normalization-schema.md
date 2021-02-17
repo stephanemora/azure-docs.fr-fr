@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: eb1752ea66f2cbebf6a653705b5a760e8e268240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929905"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806933"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Référence de schéma de normalisation des données Azure Sentinel
 
 ## <a name="terminology"></a>Terminologie
 
-La terminologie suivante est utilisée dans les schémas de Sentinel :
+La terminologie suivante est utilisée dans les schémas Azure Sentinel :
 
 | Terme | Définition |
 | ---- | ---------- |
@@ -82,7 +82,7 @@ Voici le schéma de la table de sessions réseau, version 1.0.0
 | EventStartTime | Date/Heure | Consultez « types de données » | Heure à laquelle l’événement a été déclaré | événement |
 | TimeGenerated | Date/Heure | Consultez « types de données » | Heure à laquelle l’événement s’est produit, telle de rapportée par la source de création de rapport. | Champ personnalisé |
 | EventTimeIngested | Date/Heure | Consultez « types de données » | Heure à laquelle l’événement a été ingéré dans Azure Sentinel. Sera ajoutée par Azure Sentinel. | événement |
-| EventUid | Guid (chaîne) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificateur unique utilisé par Sentinel pour marquer une ligne. | événement |
+| EventUid | Guid (chaîne) | 516a64e3-8360-4f1e-a67c-d96b3d52df54 | Identificateur unique utilisé par Azure Sentinel pour marquer une ligne. | événement |
 | NetworkApplicationProtocol | String | HTTPS | Protocole de couche Application utilisé par la connexion ou la session. | Réseau |
 | DstBytes | int | 32455 | Nombre d’octets envoyés de la destination à la source pour la connexion ou la session. | Destination |
 | SrcBytes | int | 46536 | Nombre d’octets envoyés de la source à la destination pour la connexion ou la session. | Source |

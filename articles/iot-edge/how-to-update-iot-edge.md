@@ -9,12 +9,12 @@ ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a739736182713b35c3a5e9e25742aa39c5d1122
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 0adcbf49ff2128fdbe623121838058c5ed89dce2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633135"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378024"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
@@ -35,12 +35,6 @@ Vérifiez la version du démon de sécurité qui s’exécute sur votre appareil
 Sur des appareils Linux x64, utilisez apt-get ou votre gestionnaire de package approprié pour mettre à jour le démon de sécurité vers la dernière version.
 
 Procurez-vous la dernière configuration du référentiel auprès de Microsoft :
-
-* **Ubuntu Server 16.04** :
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
 
 * **Ubuntu Server 18.04** :
 
@@ -100,7 +94,7 @@ curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Avec IoT Edge pour Linux sur Windows, IoT Edge s’exécute sur une machine virtuelle Linux hébergée sur un appareil Windows. Cette machine virtuelle est préinstallée avec IoT Edge et gérée avec Microsoft Update pour maintenir les composants à jour. Aucune mise à jour n’est disponible actuellement.

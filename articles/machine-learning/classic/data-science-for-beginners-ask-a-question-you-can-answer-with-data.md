@@ -3,17 +3,17 @@ title: Poser une question à laquelle les données peuvent répondre – ML Stud
 description: Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: dbac7c8818300ffb09959969e6b79f949177f457
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ff440801db7ba8c5bfc1785fc7a399a1d773b73
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307678"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517023"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants

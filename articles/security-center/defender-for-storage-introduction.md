@@ -3,19 +3,18 @@ title: Azure Defender pour le stockage - avantages et fonctionnalités
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour le stockage.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916419"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558535"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Présentation d’Azure Defender pour le stockage
-
 
 **Azure Defender pour Stockage** est une couche de sécurité intelligente native Azure qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos comptes de stockage. Il utilise les fonctionnalités avancées de l’IA de sécurité et de [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) pour fournir des recommandations et des alertes de sécurité contextuelles.
 
@@ -68,7 +67,40 @@ Lorsqu’un fichier est supposé contenir un logiciel malveillant, Security Cent
 >
 > Vous pouvez activer **Azure Defender pour le stockage** au niveau de l’abonnement ou de la ressource.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Déclencher une alerte de test liée à Azure Defender pour le stockage
 
+Pour tester les alertes de sécurité depuis Azure Defender pour le stockage dans votre environnement, générez l’alerte « Accès à partir d’un nœud de sortie Tor dans un compte de stockage » en effectuant les actions suivantes :
+
+1. Ouvrez un compte de stockage bénéficiant de la protection Azure Defender pour le stockage activée.
+1. Dans la barre latérale, sélectionnez « Conteneurs », puis ouvrez un conteneur existant ou créez-en un nouveau.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Ouverture d’un conteneur d’objets blob à partir d’un compte de stockage Azure" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. Chargez un fichier dans ce conteneur.
+
+    > [!CAUTION]
+    > Ne chargez pas de fichier contenant des données sensibles.
+
+1. Utilisez le menu contextuel du fichier chargé pour sélectionner « Générer une signature d’accès partagé ».
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="L’option Générer une signature d’accès partagé d’un fichier dans un conteneur d’objets blob":::
+
+1. Laissez les options par défaut et sélectionnez **Générer une URL et un jeton SAS**.
+
+1. Copiez l’URL SAS générée.
+
+1. Sur votre machine locale, ouvrez le navigateur Tor.
+
+    > [!TIP]
+    > Vous pouvez télécharger Tor depuis le site du projet Tor [https://www.torproject.org/download/](https://www.torproject.org/download/).
+
+1. Dans le navigateur Tor, accédez à l’URL SAS.
+
+1. Téléchargez le fichier que vous avez chargé à l’étape 3.
+
+    En moins de deux heures, vous obtenez l’alerte de sécurité suivante à partir de Security Center :
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Alerte de sécurité concernant l’accès à partir d’un nœud de sortie Tor":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

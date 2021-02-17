@@ -4,12 +4,12 @@ description: Compréhension de la gestion des adresses IP et de la géolocalisat
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333305"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521915"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -241,7 +241,7 @@ requests
 
 Les adresses IP nouvellement collectées apparaîtront dans la colonne `customDimensions_client-ip`. Les quatre octets de la colonne `client-ip` par défaut auront toujours la valeur zéro. 
 
-Si vous testez localhost et que la valeur de `customDimensions_client-ip` est `::1`, cette valeur est le comportement attendu. `::1` représente l’adresse de bouclage dans IPv6. Elle est équivalente à `127.0.01` dans IPv4.
+Si vous testez localhost et que la valeur de `customDimensions_client-ip` est `::1`, cette valeur est le comportement attendu. `::1` représente l’adresse de bouclage dans IPv6. Elle est équivalente à `127.0.0.1` dans IPv4.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

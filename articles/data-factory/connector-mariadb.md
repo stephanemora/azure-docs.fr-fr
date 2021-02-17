@@ -1,22 +1,17 @@
 ---
 title: Copier des données de MariaDB avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie pour copier des données de MariaDB vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c2c036cc8538fbceb21da7c5166df52b3a04e12e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f515738ad2af6b7779495b55226c10fef9272b13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81414997"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385674"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copier des données de MariaDB avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -83,13 +78,13 @@ Les propriétés suivantes sont prises en charge pour le service lié MariaDB :
         "type": "MariaDB",
         "typeProperties": {
             "connectionString": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: 1a8ed80daa4406f32909a6622b8649f37ec48063
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064318"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805307"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Découvrir et explorer des données dans ADF avec Purview
 
@@ -47,7 +47,7 @@ Pour découvrir les données inscrites et analysées par Azure Purview, vous pou
 ### <a name="actions-that-you-can-perform-over-datasets-with-data-factory-resources"></a>Actions que vous pouvez effectuer sur des jeux de données avec des ressources Data Factory 
 Vous pouvez créer directement un service lié, un jeu de données ou un flux de données sur les données dans lesquelles vous recherchez via Azure Purview.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Capture d’écran d’opérations sur des jeux de données.":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Capture d’écran montrant comment vous pouvez créer directement un service lié, un jeu de données ou un dataflow sur les données dans lesquelles vous recherchez via Azure Purview.":::
 
 ##  <a name="nextsteps"></a>Étapes suivantes 
 

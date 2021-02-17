@@ -1,22 +1,18 @@
 ---
 title: Runtime d’intégration
 description: Découvrez l’infrastructure Integration Runtime dans Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636644"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389941"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory 
 
@@ -24,10 +20,10 @@ ms.locfileid: "92636644"
 
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
-- **Data Flow**  : exécutez un [Data Flow](concepts-data-flow-overview.md) dans un environnement de calcul Azure managé.  
-- **Déplacement des données**  : copie des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
-- **Répartition des activités**  :  Répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
-- **Exécution des packages SSIS**  : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure managé.
+- **Data Flow** : exécutez un [Data Flow](concepts-data-flow-overview.md) dans un environnement de calcul Azure managé.  
+- **Déplacement des données** : copie des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
+- **Répartition des activités** :  Répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
+- **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure managé.
 
 Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par l'activité ou le service lié, et fournit l'environnement Compute dans lequel l'activité s'exécute ou depuis lequel elle est envoyée. L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.
 
@@ -180,7 +176,7 @@ Le schéma suivant représente les paramètres d’emplacement de Data Factory e
 
 Dans le cas d’une activité de copie, les services liés source et récepteur doivent être indiqués pour définir la direction du flux de données. La logique suivante est utilisée pour déterminer l’instance de runtime d’intégration qui effectue la copie : 
 
-- **Copie entre deux sources de données cloud**  : lorsque les services liés source et récepteur utilisent tous deux Azure IR, ADF utilise le runtime d'intégration Azure IR régional (si vous l'avez spécifié), ou détermine automatiquement un emplacement Azure IR si vous avez choisi le runtime d'intégration à résolution automatique (par défaut), comme décrit à la section [Emplacement du runtime d'intégration](#integration-runtime-location).
+- **Copie entre deux sources de données cloud** : lorsque les services liés source et récepteur utilisent tous deux Azure IR, ADF utilise le runtime d'intégration Azure IR régional (si vous l'avez spécifié), ou détermine automatiquement un emplacement Azure IR si vous avez choisi le runtime d'intégration à résolution automatique (par défaut), comme décrit à la section [Emplacement du runtime d'intégration](#integration-runtime-location).
 - **Copie entre une source de données cloud et une source de données d’un réseau privé** : si le service lié source ou récepteur pointe vers un runtime d’intégration auto-hébergé, l’activité de copie est exécutée sur ce runtime d’intégration.
 - **Copie entre deux sources de données d’un réseau privé** : les services liés source et récepteur doivent tous deux pointer vers la même instance du runtime d’intégration. Ce runtime d’intégration est utilisé pour exécuter l’activité de copie.
 
