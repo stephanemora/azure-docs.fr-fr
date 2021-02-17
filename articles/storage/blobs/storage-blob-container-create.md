@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3035e0036e5d35729637e35ad8cb1412a0da959f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dac50d8e35080a083e42891732512e012fae8fbd
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091030"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576445"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Créer ou supprimer un conteneur dans le stockage Azure avec .NET
 
@@ -38,10 +38,10 @@ Pour créer un conteneur, utilisez l’une des méthodes suivantes :
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-- [Créer](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
-- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
-- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
+Ces méthodes lèvent une exception s’il existe un conteneur portant le même nom.
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -49,11 +49,12 @@ Pour créer un conteneur, utilisez l’une des méthodes suivantes :
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
----
 
 Les méthodes **Créer** et **CreateAsync** lèvent une exception si un conteneur portant le même nom existe déjà.
 
 Les méthodes **CreateIfNotExists** et **CreateIfNotExistsAsync** retournent une valeur booléenne indiquant si le conteneur a été créé. Si un conteneur portant le même nom existe déjà, ces méthodes retournent la mention **False** pour indiquer qu’un nouveau conteneur n’a pas été créé.
+
+---
 
 Les conteneurs sont créés immédiatement sous le compte de stockage. Il n’est pas possible d’imbriquer un conteneur sous un autre.
 

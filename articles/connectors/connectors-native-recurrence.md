@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 9565ad1efc5ae3dc03b94c78ce8ce52e8dd48c65
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3749a7080bf17c020b48ae3ebc3cff3aa998eeef
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382291"
 ---
 # <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-recurrence-trigger-in-azure-logic-apps"></a>Créer, planifier et exécuter des tâches et des flux de travail récurrents avec le déclencheur Récurrence dans Azure Logic Apps
 
@@ -59,12 +59,12 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Fenêt
    ||||||
 
    > [!IMPORTANT]
-   > Quand les récurrences ne spécifient pas d’options de planification avancées, les récurrences ultérieures sont basées sur l’heure de la dernière exécution.
-   > Les heures de début de ces récurrences peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. Pour vous assurer que votre application logique ne manque pas de récurrence, en particulier quand la fréquence est en jours ou plus, utilisez l’une des options suivantes :
+   > Si une périodicité ne spécifie pas [une date et une heure de début](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), la première périodicité s’exécute immédiatement lorsque vous enregistrez ou déployez l’application logique, en dépit de la configuration de la périodicité de votre déclencheur. Pour éviter ce comportement, indiquez la date et l’heure de début de l’exécution de la première périodicité.
+   >
+   > Si une périodicité ne spécifie pas d’autres options de planification avancées, telles que des heures spécifiques pour exécuter des périodicités futures, celles-ci sont basées sur l’heure de la dernière exécution. Par conséquent, les heures de début de ces périodicités peuvent dériver en raison de facteurs tels que la latence lors des appels de stockage. 
+   > Pour vous assurer que votre application logique ne manque pas une périodicité, en particulier quand la fréquence est définie en jours ou sur une valeur plus longue, essayez l’une des options suivantes :
    > 
-   > * Indiquez une heure de début pour la récurrence.
-   > 
-   > * Spécifiez les heures et les minutes d’exécution de la périodicité à l’aide des propriétés nommées **Aux heures indiquées** et **Aux minutes indiquées**.
+   > * Indiquez une date et une heure de début pour la périodicité, ainsi que les heures spécifiques d’exécution des périodicités suivantes à l’aide des propriétés nommées **Aux heures indiquées** et **Aux minutes indiquées**, qui sont disponibles uniquement pour les fréquences **Jour** et **Semaine**.
    > 
    > * Utilisez le [déclencheur de fenêtre glissante](../connectors/connectors-native-sliding-window.md) plutôt que le déclencheur de récurrence.
 

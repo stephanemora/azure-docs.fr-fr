@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e373556d189e9fffc0626d19250e79c09962a004
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062102"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806221"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutoriel : Analyser des données avec Azure Purview (préversion)
 
@@ -91,7 +91,9 @@ Avant d’exécuter les scripts PowerShell pour amorcer le catalogue, obtenez le
    1. Sélectionnez la section **Vue d’ensemble** et enregistrez le GUID de l’**ID d’abonnement**.
 
    > [!NOTE]
-   > Assurez-vous que vous utilisez le même abonnement que celui dans lequel vous avez créé le compte Azure Purview. Il s’agit du même abonnement que celui qui a été placé dans la liste verte.
+   > - Assurez-vous que vous utilisez le même abonnement que celui dans lequel vous avez créé le compte Azure Purview. Il s’agit du même abonnement que celui qui a été placé dans la liste verte.
+   > - La traçabilité des données peut parfois manquer dans Azure Purview après l’exécution du starter kit. Cela est dû au fait que la fabrique de données créée par le starter kit a des autorisations manquantes dans Purview. Sélectionnez [**ce lien de document**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections) pour vérifier que la fabrique de données est configurée correctement et que le rôle approprié lui est attribué dans Purview.
+
 
 * CatalogName : nom du compte Azure Purview que vous avez créé dans [Créer un compte Azure Purview](create-catalog-portal.md).
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704429"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560287"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetées à la main
 
@@ -166,6 +166,10 @@ Voici quelques exemples de normalisation effectuée automatiquement au niveau de
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
+
+### <a name="text-normalization-for-japanese"></a>Normalisation du texte pour le japonais
+
+En japonais (ja-JP), il y a une longueur maximale de 90 caractères pour chaque phrase. Les lignes dont les phrases sont plus longues seront ignorées. Pour ajouter du texte plus long, insérez un point entre deux segments de phrase.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

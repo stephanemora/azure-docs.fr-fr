@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063077"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581565"
 ---
 # <a name="co-sell-partner-engagement"></a>Engagement en tant que partenaire de co-vente
 
@@ -79,6 +79,9 @@ Vous pouvez vous lancer dans la co-vente directement à partir de l’Espace par
 
 1. Enregistrez le brouillon avant de continuer.
 1. Une fois que vous avez rempli toutes les sections requises de l’offre, vous pouvez l’envoyer pour révision et publication. Dans l’angle supérieur droit, sélectionnez **Vérifier et publier**. Passez en revue les détails de l’offre, puis sélectionnez **Publier**.
+
+> [!NOTE]
+> Vous n’avez plus besoin de nous contacter pour proposer votre offre en co-vente. Une fois que vous aurez rempli tous les champs obligatoires sur la page Co-vendre avec Microsoft et que vous aurez republié votre offre, nous l’examinerons pour déterminer si elle répond aux conditions requises de l’état de co-vente.
 
 ## <a name="see-your-offers-co-sell-status"></a>Voir l’état Co-vente de votre offre
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916131"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834389"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -44,7 +44,7 @@ En définissant des listes d’applications réputées sécurisées, et en gén�
 - Empêcher les logiciels spécifiques qui sont interdits par votre organisation
 - Améliorer la supervision des applications qui accèdent aux données sensibles
 
-
+Aucune option de mise en œuvre n’est disponible à l’heure actuelle. Les contrôles d’application adaptatifs sont destinés à fournir des alertes de sécurité si une application autre que celles que vous avez définies comme sécurisées s’exécute.
 
 ## <a name="availability"></a>Disponibilité
 
@@ -235,7 +235,12 @@ Voici certaines des fonctions disponibles à partir de l’API REST :
    > Supprimez les propriétés suivantes avant d’utiliser le JSON dans la requête Put : recommendationStatus, configurationStatus, issues, location et sourceSystem.
 
 
+## <a name="faq---adaptive-application-controls"></a>FAQ – Contrôles d’application adaptatifs
 
+### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Existe-t-il des options pour mettre en œuvre les contrôles d’application ?
+Aucune option de mise en œuvre n’est disponible à l’heure actuelle. Les contrôles d’application adaptatifs sont destinés à fournir des **alertes de sécurité** si une application autre que celles que vous avez définies comme sécurisées s’exécute. Ils offrent un large éventail d’avantages ([Quels sont les avantages des contrôles d’application adaptatifs ?](#what-are-the-benefits-of-adaptive-application-controls)) et sont extrêmement personnalisables, comme indiqué sur cette page.
+
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez découvert comment utiliser les contrôles d’application adaptatifs dans Azure Security Center pour définir des listes vertes des applications s’exécutant sur vos les machines Azure et non Azure. Pour en savoir plus sur certaines des autres fonctionnalités de protection de la charge de travail cloud de Security Center, consultez :

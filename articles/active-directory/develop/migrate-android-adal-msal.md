@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672285"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581038"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guide de migration ADAL vers MSAL pour Android
 
@@ -71,7 +71,7 @@ Dans votre inscription d’application dans le portail, vous voyez un onglet **A
 Avec ADAL et le point de terminaison Azure AD v1, le consentement de l’utilisateur pour les ressources qu’il possède a été donné lors de la première utilisation. Avec MSAL et la plateforme d’identités Microsoft, le consentement peut être demandé de manière incrémentielle. Le consentement incrémentiel s’avère utile pour les autorisations qu’un utilisateur peut considérer comme un privilège élevé ou mettre en doute si elles ne sont pas octroyées avec une explication claire de leur caractère obligatoire. Dans ADAL, ces autorisations peuvent entraîner l’abandon de la connexion à votre application par l’utilisateur.
 
 > [!TIP]
-> Nous vous recommandons d’utiliser le consentement incrémentiel dans les scénarios où vous avez besoin de fournir à votre utilisateur un contexte supplémentaire sur la raison pour laquelle votre application a besoin d’une autorisation.
+> Utilisez le consentement incrémentiel pour fournir à vos utilisateurs un contexte supplémentaire concernant la raison pour laquelle votre application a besoin d’une autorisation.
 
 ### <a name="admin-consent"></a>Consentement de l’administrateur
 

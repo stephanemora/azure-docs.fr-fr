@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 734fad7d3f4fb7a2a816d9ad10fb6b15e2faf9e2
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754068"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820401"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Python à l’aide de l’identité de l’application
 
 Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application Python peut obtenir un jeton d’accès à l’aide de l’identité de l’application pour appeler l’API Microsoft Graph et afficher une [liste des utilisateurs](/graph/api/user-list) dans l’annuaire. L’exemple de code montre comment un travail sans assistance ou un service Windows peut s’exécuter avec l’identité d’une application, au lieu de l’identité d’un utilisateur. 
 
 > [!div renderon="docs"]
-> ![Montre le fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![Montre le fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-python-daemon/python-console-daemon.svg)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,7 +42,7 @@ Pour exécuter cet exemple, vous avec besoin de ce qui suit :
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
-> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Accédez à l’expérience de démarrage rapide <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Portail Azure - Inscriptions d’applications</a>.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 >
@@ -52,7 +52,7 @@ Pour exécuter cet exemple, vous avec besoin de ce qui suit :
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
-> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
 > 1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Répertoire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu du haut pour sélectionner le locataire dans lequel vous voulez inscrire une application.
 > 1. Recherchez et sélectionnez **Azure Active Directory**.
 > 1. Sous **Gérer**, sélectionnez **Inscriptions d’applications** > **Nouvelle inscription**.
@@ -65,17 +65,17 @@ Pour exécuter cet exemple, vous avec besoin de ce qui suit :
 > 1. Sous le nœud **Utilisateur**, sélectionnez **User.Read.All**, puis sélectionnez **Ajouter des autorisations**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Télécharger et configurer votre application de démarrage rapide
+> ### <a name="download-and-configure-the-quickstart-app"></a>Télécharger et configurer l’application de démarrage rapide
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Pour que l’exemple de code fonctionne dans ce guide de démarrage rapide, vous devez créer un secret client et ajouter l’autorisation d’application **User.Read.All** de l’API Graph.
+> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, créez un secret client et ajoutez l’autorisation d’application **User.Read.All** de l’API Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-netcore-daemon/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-your-python-project"></a>Étape 2 : Télécharger votre projet Python
+#### <a name="step-2-download-the-python-project"></a>Étape 2 : Télécharger le projet Python
 
 > [!div renderon="docs"]
 > [Télécharger le projet de démon Python](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
@@ -89,7 +89,7 @@ Pour exécuter cet exemple, vous avec besoin de ce qui suit :
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-python-project"></a>Étape 3 : Configurer votre projet Python
+> #### <a name="step-3-configure-the-python-project"></a>Étape 3 : Configurer le projet Python
 >
 > 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
 > 1. Accédez au sous-dossier **1-Call-MsGraph-WithSecret**.
@@ -119,16 +119,16 @@ Si vous essayez d’exécuter l’application à ce stade, vous recevez l’erre
 ##### <a name="global-tenant-administrator"></a>Administrateur de locataires général
 
 > [!div renderon="docs"]
-> Si vous avez le rôle d’administrateur de locataires général, accédez à la page **Autorisations de l’API** dans Inscriptions d’applications (préversion) sur le portail Azure et sélectionnez **Accorder le consentement de l’administrateur pour {nom du locataire}** (où {nom du locataire} correspond au nom de votre annuaire).
+> Si vous avez le rôle d’administrateur de locataires général, accédez à la page **Autorisations de l’API** dans **Inscriptions d’applications** sur le portail Azure et sélectionnez **Accorder le consentement administrateur pour {nom du locataire}** (où {nom du locataire} correspond au nom de votre annuaire).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Si vous êtes administrateur général, accédez à la page **Autorisations de l’API** et sélectionnez **Accorder le consentement de l’administrateur pour Entrer_le_nom_du_locataire_ici**
+> Si vous êtes administrateur général, accédez à la page **Autorisations de l’API** et sélectionnez **Accorder le consentement administrateur pour Entrer_le_nom_du_locataire_ici**.
 > > [!div id="apipermissionspage"]
 > > [Accéder à la page Autorisations de l’API]()
 
 ##### <a name="standard-user"></a>Utilisateur standard
 
-Si vous êtes un utilisateur standard de votre locataire, vous devez demander à un administrateur général de vous accorder son consentement pour votre application. Pour ce faire, donnez l’URL suivante à votre administrateur :
+Si vous êtes un utilisateur standard de votre locataire, demandez à un administrateur général de vous accorder le consentement administrateur pour votre application. Pour ce faire, donnez l’URL suivante à votre administrateur :
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -145,7 +145,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!div renderon="docs"]
 > #### <a name="step-5-run-the-application"></a>Étape 5 : Exécution de l'application
 
-Vous devez installer les dépendances de cet exemple une seule fois
+Vous devez installer les dépendances de cet exemple une seule fois.
 
 ```console
 pip install -r requirements.txt
@@ -160,7 +160,7 @@ python confidential_client_secret_sample.py parameters.json
 Vous devriez voir sur la console sortie un fragment Json représentant une liste d’utilisateurs dans votre annuaire Azure Active Directory.
 
 > [!IMPORTANT]
-> Cette application de démarrage rapide utilise un secret client pour s’identifier en tant que client confidentiel. Le secret client étant ajouté en texte brut à vos fichiers projet, il est recommandé, pour des raisons de sécurité, d’utiliser un certificat au lieu d’un secret client avant de considérer l’application comme application de production. Pour plus d’informations sur la façon d’utiliser un certificat, voir [ces instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) dans le dépôt GitHub pour cet exemple, mais dans le second dossier **2-Call-MsGraph-WithCertificate**
+> Cette application de démarrage rapide utilise un secret client pour s’identifier en tant que client confidentiel. Le secret client étant ajouté en texte brut à vos fichiers projet, il est recommandé, pour des raisons de sécurité, d’utiliser un certificat au lieu d’un secret client avant de considérer l’application comme application de production. Pour plus d’informations sur la façon d’utiliser un certificat, consultez [ces instructions](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) dans le dépôt GitHub dédié à cet exemple, mais dans le second dossier **2-Call-MsGraph-WithCertificate**.
 
 ## <a name="more-information"></a>Informations complémentaires
 
@@ -196,7 +196,7 @@ app = msal.ConfidentialClientApplication(
 > | `config["client_id"]` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
 > | `config["authority"]`    | Point de terminaison STS pour l’utilisateur à authentifier. Généralement `https://login.microsoftonline.com/{tenant}` pour un cloud public, où {tenant} est le nom ou l’ID de votre locataire.|
 
-Pour plus d’informations, consultez la [documentation de référence sur `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
+Pour plus d’informations, consultez la [documentation de référence sur `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication).
 
 ### <a name="requesting-tokens"></a>Demande de jetons
 
@@ -213,15 +213,15 @@ if not result:
 
 > |Où :| Description |
 > |---------|---------|
-> | `config["scope"]` | Contient les étendues demandées. Pour les clients confidentiels, utilisez un format similaire à `{Application ID URI}/.default`. Ce format indique que les étendues demandées sont celles qui sont définies de manière statique dans l’objet application défini dans le portail Azure (pour Microsoft Graph, `{Application ID URI}` pointe vers `https://graph.microsoft.com`). Pour les API web personnalisées, `{Application ID URI}` est défini sous la section **Exposer une API** dans Inscription de l’application (préversion) sur le portail Azure. |
+> | `config["scope"]` | Contient les étendues demandées. Pour les clients confidentiels, utilisez un format similaire à `{Application ID URI}/.default`. Ce format indique que les étendues demandées sont celles qui sont définies de manière statique dans l’objet application défini dans le portail Azure (pour Microsoft Graph, `{Application ID URI}` pointe vers `https://graph.microsoft.com`). Pour les API web personnalisées, `{Application ID URI}` est défini sous la section **Exposer une API** dans **Inscription d’applications** sur le portail Azure.|
 
-Pour plus d’informations, consultez la [documentation de référence sur `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
+Pour plus d’informations, consultez la [documentation de référence sur `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les applications démon, consultez la page de destination du scénario
+Pour en savoir plus sur les applications démon, consultez la page de destination du scénario.
 
 > [!div class="nextstepaction"]
 > [Application démon qui appelle des API web](scenario-daemon-overview.md)

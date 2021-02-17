@@ -1,22 +1,17 @@
 ---
 title: Copier des données d’Impala à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie pour copier des données d’Impala vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline de fabrique de données.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810ee757b70550c9dbeea708266b3fec48669571
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418216"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378568"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copier des données d’Impala à l’aide d’Azure Data Factory
 

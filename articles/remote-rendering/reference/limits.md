@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593944"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530244"
 ---
 # <a name="limitations"></a>Limites
 
@@ -36,7 +36,7 @@ Les limitations suivantes s’appliquent à l’API front-end (C++ et C#) :
 
 ### <a name="overall-number-of-polygons"></a>Nombre total de polygones
 
-Le nombre autorisé de polygones pour tous les modèles chargés dépend de la taille de la machine virtuelle transmise à l’[API REST de gestion des sessions](../how-tos/session-rest-api.md#create-a-session) :
+Le nombre autorisé de polygones pour tous les modèles chargés dépend de la taille de la machine virtuelle transmise à l’[API REST de gestion des sessions](../how-tos/session-rest-api.md) :
 
 | Taille du serveur | Nombre maximal de polygones |
 |:--------|:------------------|

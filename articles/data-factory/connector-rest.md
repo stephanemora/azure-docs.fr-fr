@@ -1,22 +1,17 @@
 ---
 title: Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’une source REST locale ou dans le cloud vers des banques de données réceptrices prises en charge, ou d’une banque de données source prise en charge vers un récepteur REST.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223090"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369881"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -385,7 +380,7 @@ Les **règles de pagination** sont définies en tant que dictionnaire dans un je
 
 **Exemple :**
 
-L’API Graph Facebook retourne une réponse dans la structure suivante. Dans ce cas, l’URL de la page suivante est représentée dans **_paging.next_* _ :
+L’API Graph Facebook retourne une réponse dans la structure suivante. Dans ce cas, l’URL de la page suivante est représentée dans ***paging.next*** :
 
 ```json
 {
@@ -440,7 +435,7 @@ Cette section décrit comment utiliser un modèle de solution pour copier des do
 ### <a name="about-the-solution-template"></a>À propos du modèle de solution
 
 Le modèle comporte deux activités :
-- L’activité _ *Web** récupère le jeton du porteur, puis le transmet à l’activité Copy suivante en tant qu’autorisation.
+- L’activité **Web** récupère le jeton du porteur, puis le transmet à l’activité de copie suivante en tant qu’autorisation.
 - L’activité **Copier** copie les données de REST vers Azure Data Lake Storage.
 
 Le modèle définit deux paramètres :

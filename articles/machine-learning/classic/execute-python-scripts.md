@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Exécution de scripts Python – Azure'
 description: Découvrez comment utiliser le module Exécuter le script Python pour utiliser du code Python dans des expériences Machine Learning Studio (classique) et des services web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: devx-track-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 822bb43aaeb3cc1cf5914bb1600ef754441c4206
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 374589212b230e6b3ce0abcadbad8aa3eb7271fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519981"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
 
@@ -81,7 +81,7 @@ Ensuite, nous créons un fichier Hello.zip contenant Hello.py :
 
 ![Fichier zip contenant le code Python défini par l'utilisateur](./media/execute-python-scripts/figure5.png)
 
-Chargez le fichier zip en tant que jeu de données dans Studio (classique). Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python** , comme illustré dans l’image suivante.
+Chargez le fichier zip en tant que jeu de données dans Studio (classique). Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python**, comme illustré dans l’image suivante.
 
 ![Exemple d’expérience avec Hello.zip comme entrée d’un module Exécuter le script Python](./media/execute-python-scripts/figure6a.png)
 

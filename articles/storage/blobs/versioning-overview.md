@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001879"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980201"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
@@ -37,6 +37,10 @@ Pour savoir comment activer le contrôle de version des objets blob, consultez [
 La version capture l’état de l’objet blob à un moment donné. Lorsque le contrôle de version des objets blob est activé sur un compte de stockage, le stockage Azure crée automatiquement une nouvelle version de l’objet blob chaque fois que cet objet blob est modifié ou supprimé.
 
 Lorsque vous créez un objet blob et que le contrôle de version est activé, le nouvel objet blob est la version actuelle de l’objet blob (ou l’objet blob de base). Si vous modifiez par la suite cet objet blob, le stockage Azure crée une version qui capture l’état de l’objet blob avant sa modification. L’objet blob modifié devient la nouvelle version actuelle. Une nouvelle version est créée chaque fois que vous modifiez l’objet blob.
+
+Le diagramme suivant montre comment les versions sont créées lors des opérations d’écriture et de suppression, et comment une version précédente peut être promue en version actuelle :
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagramme montrant le fonctionnement du contrôle de version des objets blob":::
 
 Le fait de disposer d’un grand nombre de versions par blob peut augmenter la latence des opérations de listage des blobs. Microsoft recommande de conserver moins de 1000 versions par blob. Vous pouvez utiliser la gestion de cycle de vie pour supprimer automatiquement les anciennes versions. Pour plus d’informations sur la gestion de cycle de vie, consultez [Optimiser les coûts en automatisant les niveaux d’accès de Stockage Blob Azure](storage-lifecycle-management-concepts.md).
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359079"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537405"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
 
@@ -86,6 +86,7 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
    - Utiliser une sonde de port TCP propre à l’adresse IP.
    - Avoir une règle d’équilibrage de charge propre à SQL Server dans la même région.  
    - Être un équilibreur de charge Standard si les machines virtuelles dans le pool de back-ends ne font pas partie d’un groupe à haute disponibilité ni d’un groupe de machines virtuelles identiques. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md).
+   - Être une instance Standard Load Balancer si les deux réseaux virtuels dans deux régions différentes sont appairés sur l’appairage de réseaux virtuels mondial. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels Azure](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 1. [Ajoutez la fonction de Clustering avec basculement au nouveau serveur SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 

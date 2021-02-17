@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Infrastructures et outils de Deep Learning disponibles sur Azure Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309029"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519488"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Infrastructures de Deep learning et d’intelligence artificielle pour Azure Data Science Virtual Machine
 Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) sont répertoriées ci-dessous.
@@ -110,7 +109,7 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 | Éditions DSVM prises en charge      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | Pour quoi faire ? | Outil NVIDIA pour interroger l’activité du GPU |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | `nvidia-smi` se trouve sur le chemin système. |
-| Comment l’exécuter      | Sur une machine virtuelle **comprenant des GPU** , ouvrez une invite de commandes (sur Windows) ou un terminal (sur Linux), puis exécutez `nvidia-smi`. |
+| Comment l’exécuter      | Sur une machine virtuelle **comprenant des GPU**, ouvrez une invite de commandes (sur Windows) ou un terminal (sur Linux), puis exécutez `nvidia-smi`. |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +145,5 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.0.3 |
 | Éditions DSVM prises en charge      | Ubuntu 16.04 |
-| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  |Theano est installé dans les environnements Python 2.7 ( _root_ ) et Python 3.5 ( _py35_ ). |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  |Theano est installé dans les environnements Python 2.7 (_root_) et Python 3.5 (_py35_). |
 | Comment l’exécuter      |  Terminal : Activez la version de Python souhaitée (root ou py35), exécutez Python, puis importez Theano.<br/>* Jupyter : Sélectionnez le noyau Python 2.7 ou 3.5, puis importez Theano.  <br/>Pour contourner un bogue récent MKL (Math Kernel Library), vous devez d’abord définir la couche de threads MKL comme suit :<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/03/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835757"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523581"
 ---
 # <a name="view-information-in-alerts"></a>Afficher des informations dans les alertes
 
@@ -90,7 +90,7 @@ Pour télécharger un fichier PCAP, sélectionnez l’:::image type="content" so
 
 La zone **Recommandation** d’une alerte affiche des informations qui peuvent vous aider à mieux comprendre un événement. Passez en revue ces informations avant de gérer l’événement d’alerte ou d’entreprendre une action sur l’appareil ou le réseau.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
 

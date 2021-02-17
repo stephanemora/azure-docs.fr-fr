@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624682"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522391"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Contrôler quel trafic est surveillé
 
@@ -295,7 +295,7 @@ Pour afficher les résultats de l’analyse :
 
 1. Une fois l’analyse terminée, dans le volet **Actions**, sélectionnez **Afficher les résultats de l’analyse**. Le fichier CSV contenant les résultats de l’analyse est téléchargé sur votre ordinateur.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [Examiner les détections de capteur dans un inventaire des appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 [Examiner les détections de capteur dans la carte des appareils](how-to-work-with-the-sensor-device-map.md)

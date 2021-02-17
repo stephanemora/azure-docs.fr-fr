@@ -1,21 +1,17 @@
 ---
 title: Approvisionner Enterprise Edition pour le runtime d’intégration Azure-SSIS
 description: Cet article décrit les fonctionnalités de la version Enterprise Edition du runtime d’intégration Azure SSIS, ainsi que la manière de l’approvisionner.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: be49d56d301c23791777f4d89e8c6c6fd35d7035
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f700729c2d059648b1c3a7e451526aefcb436818
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636304"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387544"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Approvisionner Enterprise Edition pour le runtime d’intégration Azure-SSIS
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621310"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526508"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -534,24 +534,23 @@ Passez en revue cette liste avant le déploiement à l’échelle du site :
 
 | **#** | **Tâche ou activité** | **État** | **Commentaires** |
 |--|--|--|--|
-| 1 | Fournir des services globaux. | ☐ |  |
-| 3 | Commander des appliances. | ☐ |  |
-| 4 | Préparer une liste de sous-réseaux dans le réseau. | ☐ |  |
-| 5 | Fournir une liste de VLAN des réseaux de production. | ☐ |  |
-| 6 | Fournir une liste de modèles de commutateur dans le réseau. | ☐ |  |
-| 7 | Fournir une liste des fournisseurs et des protocoles de l’équipement industriel. | ☐ |  |
-| 8 | Fournir les détails du réseau pour les capteurs (adresse IP, sous-réseau, D-GW, DNS). | ☐ |  |
-| 9 | Créer les règles de pare-feu nécessaires et la liste d’accès. | ☐ |  |
-| 10 | Créer des ports SPAN sur des commutateurs pour la surveillance des ports, ou configurer les TAP de réseau selon les besoins. | ☐ |  |
-| 11 | Préparer l’espace rack pour les appliances de détection. | ☐ |  |
-| 12 | Préparer une station de travail pour le personnel. | ☐ |  |
-| 13 | Fournir un clavier, un moniteur et une souris pour les appareils racks Defender pour IoT. | ☐ |  |
-| 14 | Installer le rack et les câbles des appliances. | ☐ |  |
-| 15 | Allouer les ressources du site pour prendre en charge le déploiement. | ☐ |  |
-| 16 | Créer des groupes Active Directory ou des utilisateurs locaux. | ☐ |  |
-| 17 | Configurer l’entraînement (auto-apprentissage). | ☐ |  |
-| 18 | Prêt ou non prêt. | ☐ |  |
-| 19 | Planifier la date de déploiement. | ☐ |  |
+| 1 | Commander des appliances. | ☐ |  |
+| 2 | Préparer une liste de sous-réseaux dans le réseau. | ☐ |  |
+| 3 | Fournir une liste de VLAN des réseaux de production. | ☐ |  |
+| 4 | Fournir une liste de modèles de commutateur dans le réseau. | ☐ |  |
+| 5 | Fournir une liste des fournisseurs et des protocoles de l’équipement industriel. | ☐ |  |
+| 6 | Fournir les détails du réseau pour les capteurs (adresse IP, sous-réseau, D-GW, DNS). | ☐ |  |
+| 7 | Créer les règles de pare-feu nécessaires et la liste d’accès. | ☐ |  |
+| 8 | Créer des ports SPAN sur des commutateurs pour la surveillance des ports, ou configurer les TAP de réseau selon les besoins. | ☐ |  |
+| 9 | Préparer l’espace rack pour les appliances de détection. | ☐ |  |
+| 10 | Préparer une station de travail pour le personnel. | ☐ |  |
+| 11 | Fournir un clavier, un moniteur et une souris pour les appareils racks Defender pour IoT. | ☐ |  |
+| 12 | Installer le rack et les câbles des appliances. | ☐ |  |
+| 13 | Allouer les ressources du site pour prendre en charge le déploiement. | ☐ |  |
+| 14 | Créer des groupes Active Directory ou des utilisateurs locaux. | ☐ |  |
+| 15 | Configurer l’entraînement (auto-apprentissage). | ☐ |  |
+| 16 | Prêt ou non prêt. | ☐ |  |
+| 17 | Planifier la date de déploiement. | ☐ |  |
 
 
 | **Date** | **Remarque** | **Date du déploiement** | **Remarque** |

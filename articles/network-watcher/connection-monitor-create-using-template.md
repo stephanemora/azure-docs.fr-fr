@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 46d569eae768178815a933d9a857e19bacdaaeb9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 46bdaf932d4224bf97b46e7713d49d815ca1bcdd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013224"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832995"
 ---
 # <a name="create-a-connection-monitor-using-the-arm-template"></a>Créer un Moniteur de connexion à l’aide du modèle ARM
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2021, vous ne pourrez plus ajouter de nouveaux tests dans un espace de travail existant ni activer un nouvel espace de travail dans Network Performance Monitor. Vous ne pourrez pas non plus ajouter de nouveaux moniteurs de connexion dans le moniteur de connexion (classique). Vous pouvez continuer d’utiliser les tests et moniteurs de connexion créés avant le 1er juillet 2021. Pour réduire l’interruption de service de vos charges de travail actuelles, [migrez vos tests de Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) ou [depuis le moniteur de connexion (classique)](migrate-to-connection-monitor-from-connection-monitor-classic.md) vers le nouveau moniteur de connexion dans Azure Network Watcher avant le 29 février 2024.
 
 Découvrez comment créer un Moniteur de connexion pour surveiller la communication entre vos ressources à l’aide de l’ARMClient. Elle prend en charge les déploiements cloud hybrides et Azure.
 

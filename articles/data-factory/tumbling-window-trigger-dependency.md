@@ -1,22 +1,18 @@
 ---
 title: Créer des dépendances de déclencheur de fenêtre bascule
 description: Découvrez comment créer une dépendance envers un déclencheur de fenêtre bascule dans Azure Data Factory.
-services: data-factory
 ms.author: chez
 author: chez-charlie
-manager: weetok
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
-ms.openlocfilehash: 221f8bd7908613812a728d420a68b747051e095b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f969c06a3419a8017cfc5ebc0de19caa67c8dc68
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361466"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

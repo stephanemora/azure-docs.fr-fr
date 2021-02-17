@@ -1,22 +1,17 @@
 ---
 title: Copier des données de Concur avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Concur vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030796"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383668"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copier des données de Concur avec Azure Data Factory (préversion)
 
@@ -53,7 +48,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Concur :
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Concur** | Oui |
 | connectionProperties | Un groupe de propriétés qui définit la façon de se connecter à Concur. | Oui |
-| **_Sous `connectionProperties`:_* _ | | |
+| ***Sous `connectionProperties`:*** | | |
 | authenticationType | Les valeurs autorisées sont `OAuth_2.0_Bearer` et `OAuth_2.0` (héritées). L’option d’authentification OAuth 2.0 fonctionne avec l’ancienne API Concur, dépréciée depuis février 2017. | Oui |
 | host | Point de terminaison du serveur Concur, par exemple `implementation.concursolutions.com`.  | Oui |
 | baseUrl | URL de base de l’URL d’autorisation de Concur. | Oui pour l’authentification `OAuth_2.0_Bearer` |
@@ -65,7 +60,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Concur :
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion TLS. La valeur par défaut est true.  | Non |
 
-_ *Exemple :* *
+**Exemple :**
 
 ```json
 { 

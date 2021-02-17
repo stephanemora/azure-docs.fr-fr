@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072402"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806407"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Sauvegarde Azure
 
@@ -697,7 +697,7 @@ Pour restaurer la machine virtuelle dans son intégralité, procédez comme suit
 
    1. Sur le portail Azure, sélectionnez **+ Créer une ressource**, puis recherchez et sélectionnez **Compte de stockage**.
     
-      ![Page d'ajout d'un compte de stockage](./media/oracle-backup-recovery/storage-1.png)
+      ![Capture d’écran montrant où créer une ressource.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. Sur la page Créer un compte de stockage, choisissez votre groupe de ressources existant (**rg-oracle**), nommez votre compte de stockage **oracrestore** et sélectionnez **Stockage v2 (generalpurpose v2)** sous Type de compte. Remplacez la réplication par **Stockage localement redondant (LRS)** et définissez Performances sur **Standard**. Assurez-vous que l'Emplacement est défini sur la même région que toutes les autres ressources du groupe de ressources. 
@@ -877,7 +877,7 @@ Une fois la machine virtuelle restaurée, vous devez réattribuer l'adresse IP 
 
 5.  Vous devez maintenant détacher la carte réseau qui a été créée avec l'opération de restauration de la machine virtuelle, car elle est configurée en tant qu'interface principale. Cliquez sur **Détacher l'interface réseau** et choisissez la nouvelle carte réseau de type **vmoracle19c-NIC-XXXXXXXXXXXX**, puis cliquez sur **OK**.
 
-    ![Valeur d’adresse IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Capture d'écran montrant où sélectionner l’interface réseau Détacher.](./media/oracle-backup-recovery/create-ip-05.png)
     
     La machine virtuelle recréée disposera alors de la carte réseau d'origine, qui est associée à l'adresse IP et aux règles de groupe de sécurité réseau d'origine.
     

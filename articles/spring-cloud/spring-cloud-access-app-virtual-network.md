@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887084"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576529"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Accéder à votre application sur un réseau privé
 
 Ce document explique comment accéder à un point de terminaison pour votre application dans un réseau privé.  Pour obtenir l’accès, vous devez créer une **zone DNS privée Azure** dans votre abonnement afin de traduire/résoudre le nom de domaine complet privé en son adresse IP.
 
-Lorsque **Affecter un point de terminaison** pour les applications dans une instance de service Azure Spring Cloud est déployé dans votre réseau virtuel, le point de terminaison est un nom de domaine complet privé. Le domaine est uniquement accessible dans le réseau privé. Les applications et les services utilisent le point de terminaison d’application. Ils comprennent le **point de terminaison de test** décrit dans [Vérifier le déploiement intermédiaire](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). La **diffusion en continu des journaux**, décrite dans [Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel](spring-cloud-howto-log-streaming.md), ne fonctionne que dans le réseau privé.
+Lorsque **Affecter un point de terminaison** pour les applications dans une instance de service Azure Spring Cloud est déployé dans votre réseau virtuel, le point de terminaison est un nom de domaine complet privé. Le domaine est uniquement accessible dans le réseau privé. Les applications et les services utilisent le point de terminaison d’application. Ils comprennent le **point de terminaison de test** décrit dans [Affichage des applications et des déploiements](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). La **diffusion en continu des journaux**, décrite dans [Envoyer en streaming les journaux d’application Azure Spring Cloud en temps réel](spring-cloud-howto-log-streaming.md), ne fonctionne que dans le réseau privé.
 
 ## <a name="create-a-private-dns-zone"></a>Créer une zone DNS privée
 

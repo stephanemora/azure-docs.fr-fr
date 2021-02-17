@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845254"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523139"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Utiliser les commandes CLI Defender pour IoT
 
@@ -290,6 +290,6 @@ Lorsque vous utilisez l’outil :
 
 - Vérifiez auprès du service informatique le domaine de l’appliance (tel qu’il apparaît dans le certificat) avec votre serveur DNS et l’adresse IP correspondante. 
     
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
 [API de capteur et de console de gestion Defender pour IoT](references-work-with-defender-for-iot-apis.md)

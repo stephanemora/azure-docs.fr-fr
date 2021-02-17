@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 725f15d72694534da1fd924b3b6ffe223722fd3d
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052411"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104465"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
@@ -140,4 +140,4 @@ Suivez les instructions de [Configurer un client NFS pour Azure NetApp Files](co
 ## <a name="next-steps"></a>Étapes suivantes  
 
 * [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md)
-* [Résoudre les problèmes des volumes à deux protocoles](troubleshoot-dual-protocol-volumes.md)
+* [Résoudre les problèmes des volumes SMB ou à deux protocoles](troubleshoot-dual-protocol-volumes.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 9106e00fe2146978f97b480e3afd3b7ed58c9130
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb2b7810c0829859f4a104c62b6df2ca0495bac7
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929932"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809199"
 ---
 # <a name="configure-and-customize-security-module-for-azure-rtos-preview"></a>Configurer et personnaliser le module de sécurité pour Azure RTOS (préversion)
 
@@ -73,7 +73,7 @@ Le module de sécurité pour Azure RTOS prend en charge des alertes de sécurit�
 
 ## <a name="log-analytics-optional"></a>Analytique des journaux d'activité (facultatif)
 
-Bien que facultatives et non obligatoires, l’activation et la configuration de l’analytique des journaux d’activité peuvent être utiles lorsque vous souhaitez en savoir plus sur les événements et activités des appareils. Découvrez comment configurer et utiliser [l’analytique des journaux d'activité avec le service Defender pour IoT](how-to-security-data-access.md#log-analytics). 
+Bien que facultatives et non obligatoires, l’activation et la configuration de l’analytique des journaux d’activité peuvent être utiles lorsque vous souhaitez en savoir plus sur les événements et activités des appareils. Pour plus d’informations, découvrez comment configurer et utiliser [Log Analytics avec le service Defender pour IoT](how-to-security-data-access.md#log-analytics). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 10bb0364bf7c54cd07d6dfa5725b3a626622d390
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2ad6f5bf18d362f846e12720e00584b854729366
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097790"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515663"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Collecter les données de télémétrie pour l’analyse du trafic de recherche
 
@@ -168,7 +168,7 @@ Chaque fois qu’une requête de recherche est émise par un utilisateur, vous d
 + **ScoringProfile** : (string) nom du profil de scoring utilisé, le cas échéant
 
 > [!NOTE]
-> Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Pour en savoir plus, consultez la section relative à la [recherche de documents (REST)](/rest/api/searchservice/search-documents#counttrue--false).
+> Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Pour en savoir plus, consultez la section relative à la [recherche de documents (REST)](/rest/api/searchservice/search-documents#query-parameters).
 >
 
 **Utiliser C#**

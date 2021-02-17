@@ -1,21 +1,17 @@
 ---
 title: Configurer les performances pour Azure-SSIS Integration Runtime
 description: Découvrez comment configurer les propriétés d’Azure-SSIS Integration Runtime pour de hautes performances
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635318"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364390"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -118,11 +114,11 @@ L’axe des Y est le nombre de packages dont l’exécution s’est terminée en
 
 ## <a name="azuressisnodenumber"></a>AzureSSISNodeNumber
 
-**AzureSSISNodeNumber** ajuste l’évolutivité du runtime d’intégration. Le débit du runtime d’intégration est proportionnel au **AzureSSISNodeNumber** . Définir le **AzureSSISNodeNumber** une petite valeur dans un premier temps, surveiller le débit du runtime d’intégration, puis modifiez la valeur pour votre scénario. Pour reconfigurer le nœud du rôle de travail, consultez [Gérer Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
+**AzureSSISNodeNumber** ajuste l’évolutivité du runtime d’intégration. Le débit du runtime d’intégration est proportionnel au **AzureSSISNodeNumber**. Définir le **AzureSSISNodeNumber** une petite valeur dans un premier temps, surveiller le débit du runtime d’intégration, puis modifiez la valeur pour votre scénario. Pour reconfigurer le nœud du rôle de travail, consultez [Gérer Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Si vous souhaitez augmenter la valeur maximale, vous devez utiliser Azure PowerShell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode** . Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/sizes-general.md).
+Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Si vous souhaitez augmenter la valeur maximale, vous devez utiliser Azure PowerShell pour mettre à jour **AzureSSISMaxParallelExecutionsPerNode**. Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/sizes-general.md).
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -145,7 +141,7 @@ Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécute
 | Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96 x 500                       | 8 / 16 000                                      |
 | Standard\_E64\_v3| 64   | 432         | 1 600                   | 96000 / 1000 / 500                                         | 32/192 x 500                      | 8 / 30000                                      |
 
-Voici les instructions à suivre pour définir la valeur correcte pour la propriété **AzureSSISMaxParallelExecutionsPerNode**  : 
+Voici les instructions à suivre pour définir la valeur correcte pour la propriété **AzureSSISMaxParallelExecutionsPerNode** : 
 
 1. Commencez par définir une petite valeur.
 2. Augmentez-la par petites quantités pour vérifier si le débit global est amélioré.

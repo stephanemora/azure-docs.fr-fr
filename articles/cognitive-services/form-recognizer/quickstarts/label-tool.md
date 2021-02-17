@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364787"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -228,7 +228,7 @@ Effectuez les étapes ci-dessus pour étiqueter au moins cinq de vos formulaires
 Si vous le souhaitez, vous pouvez définir le type de données attendu pour chaque étiquette. Ouvrez le menu contextuel à droite d’une étiquette et sélectionnez un type dans le menu. Cette fonctionnalité permet à l’algorithme de détection d’effectuer certaines hypothèses qui amélioreront la justesse de la détection de texte. Elle garantit également que les valeurs détectées sont retournées dans un format normalisé dans la sortie JSON finale. Les informations sur le type de valeur sont enregistrées dans le fichier *fields.json* sous le même chemin que vos fichiers d’étiquette.
 
 > [!div class="mx-imgBorder"]
-> ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/formre-value-type.png)
+> ![Sélection d'un type valeur avec l'outil d'étiquetage des exemples](../media/whats-new/value-type.png)
 
 Les types et variantes de valeurs suivants sont actuellement pris en charge :
 * `string`

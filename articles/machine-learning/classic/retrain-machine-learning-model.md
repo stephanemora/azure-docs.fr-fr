@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : reformer un service web – Azure'
 description: Apprenez à mettre à jour un service web de façon à utiliser un modèle Machine Learning récemment entraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325821"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517584"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Recycler et déployer un modèle Machine Learning
 
@@ -35,13 +35,13 @@ Pour recycler et déployer un nouveau service web Machine Learning, vous allez s
 
 ## <a name="deploy-the-retraining-web-service"></a>Déployez le service web de reformation
 
-Un service web de recyclage permet de recycler un modèle avec un nouvel ensemble de paramètres, par exemple de nouvelles données, et de l’enregistrer pour plus tard. Lorsqu’une **Sortie de service web** est connectée à un module **Effectuer l’apprentissage du modèle** , l’expérience de formation génère un nouveau modèle utilisable.
+Un service web de recyclage permet de recycler un modèle avec un nouvel ensemble de paramètres, par exemple de nouvelles données, et de l’enregistrer pour plus tard. Lorsqu’une **Sortie de service web** est connectée à un module **Effectuer l’apprentissage du modèle**, l’expérience de formation génère un nouveau modèle utilisable.
 
 Suivez les étapes ci-dessous pour déployer un service web de recyclage :
 
 1. Connectez un module **Entrée de service web** à votre entrée de données. En règle générale, vous souhaitez vous assurer que vos données d’entrée sont traitées de la même manière que vos données de formation d’origine.
 1. Connectez un module **Sortie de service web** à la sortie de votre module **Effectuer l’apprentissage du modèle**.
-1. Si vous disposez d’un module **Évaluer le modèle** , vous pouvez connecter un module **Sortie de service web** pour obtenir les résultats de l’évaluation en sortie.
+1. Si vous disposez d’un module **Évaluer le modèle**, vous pouvez connecter un module **Sortie de service web** pour obtenir les résultats de l’évaluation en sortie.
 1. Exécutez votre expérience.
 
     Après exécution de l’expérience, le workflow obtenu devrait se présenter ainsi :
@@ -65,7 +65,7 @@ Suivez les étapes ci-dessous pour appeler les API de recyclage :
 1. Connectez-vous au portail des services web Azure Machine Learning.
 1. Cliquez sur le service web que vous utilisez.
 1. Cliquez sur **Consommer**.
-1. En bas de la page **Utiliser** , dans la section **Exemple de code** , cliquez sur **Lot**.
+1. En bas de la page **Utiliser**, dans la section **Exemple de code**, cliquez sur **Lot**.
 1. Copiez l’exemple de code C# pour l’exécution par lot et collez-le dans le fichier Program.cs. Assurez-vous que l’espace de noms reste intact.
 
 Ajoutez le package NuGet Microsoft.AspNet.WebApi.Client comme indiqué dans les commentaires. Pour ajouter la référence à Microsoft.WindowsAzure.Storage.dll, il peut se révéler nécessaire d’installer la [bibliothèque de client pour les services de Stockage Azure](https://www.nuget.org/packages/WindowsAzure.Storage).
@@ -76,27 +76,27 @@ La capture d’écran suivante montre la page **Consommer** du portail des servi
 
 ### <a name="update-the-apikey-declaration"></a>Mettre à jour la déclaration apiKey
 
-Localisez la déclaration **apikey** :
+Localisez la déclaration **apikey**:
 
 ```csharp
 const string apiKey = "abc123"; // Replace this with the API key for the web service
 ```
 
-Dans la section **Informations de base sur la consommation** de la page **Consommer** , recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
+Dans la section **Informations de base sur la consommation** de la page **Consommer**, recherchez la clé primaire et copiez-la dans la déclaration **apiKey**.
 
 ### <a name="update-the-azure-storage-information"></a>Mettre à jour les informations Azure Storage
 
 L’exemple de code BES charge un fichier d’un lecteur local (par exemple, « C:\temp\CensusInput.csv ») vers le Stockage Azure, le traite et réécrit les résultats dans le Stockage Azure.
 
 1. Se connecter au portail Azure
-1. Dans la colonne de navigation de gauche, cliquez sur **Autres services** , recherchez **Comptes de stockage** et sélectionnez-le.
+1. Dans la colonne de navigation de gauche, cliquez sur **Autres services**, recherchez **Comptes de stockage** et sélectionnez-le.
 1. Dans la liste des comptes de stockage, sélectionnez-en un pour stocker le modèle reformé.
 1. Dans la colonne de navigation de gauche, cliquez sur **Clés d’accès**.
 1. Copiez et enregistrez la **Clé d’accès primaire**.
 1. Dans la colonne de navigation de gauche, cliquez sur **Blobs**.
 1. Sélectionnez un conteneur existant ou créez-en un et enregistrez le nom.
 
-Localisez les déclarations *StorageAccountName* , *StorageAccountKey* et *StorageContainerName* , puis mettez à jour les valeurs que vous avez enregistrées à partir du portail.
+Localisez les déclarations *StorageAccountName*, *StorageAccountKey* et *StorageContainerName*, puis mettez à jour les valeurs que vous avez enregistrées à partir du portail.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Voici un exemple de sortie de recyclage :
 
 Lorsque vous exécutez l’application, la sortie inclut l’URL et le jeton de signature d’accès partagé (SAP) nécessaires pour accéder aux résultats de l’évaluation.
 
-Pour consulter les résultats des performances du modèle recyclé, combinez *BaseLocation* , *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* et collez l’URL complète dans la barre d’adresse du navigateur.
+Pour consulter les résultats des performances du modèle recyclé, combinez *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie de *output2* et collez l’URL complète dans la barre d’adresse du navigateur.
 
 Examinez les résultats pour déterminer si le nouveau modèle entraîné est plus performant que l’actuel.
 
-Enregistrez *BaseLocation* , *RelativeLocation* et *SasBlobToken* dans les résultats de sortie.
+Enregistrez *BaseLocation*, *RelativeLocation* et *SasBlobToken* dans les résultats de sortie.
 
 ## <a name="update-the-predictive-experiment"></a>Mettre à jour l’expérience prédictive
 
