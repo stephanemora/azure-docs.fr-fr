@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577387"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369728"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Comment les remises de réservation s’appliquent aux instances Azure App Service Premium v3 et aux Timbres isolés
 
@@ -40,10 +40,6 @@ La remise de réservation Azure est appliquée aux instances Premium v3 en cours
 4.  Pour l’heure 4, l’instance 1 s’exécute pendant 0,5 heure tandis que l’instance 2 s’exécute pendant 1 heure. L’instance 1 est entièrement couverte par la réservation, et la durée de 0,5 heure de l’instance 2 est couverte. Vous êtes facturé au tarif du paiement à l’utilisation pour cette durée de 0,5 heure restante.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports d’utilisation pour la facturation, voir [Comprendre l’utilisation des réservations](understand-reserved-instance-usage-ea.md).
-
-### <a name="discount-can-apply-to-different-sizes"></a>La remise peut s'appliquer à différentes tailles
-
-Quand vous achetez une instance réservée Premium v3 et sélectionnez **Optimisé pour la flexibilité de la taille d’instance**, la remise s’applique à la taille d’instance Premium v3 que vous sélectionnez. Elle peut également s’appliquer à d’autres tailles d’instance appartenant au même groupe de flexibilité de taille d’instance de série.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>Comment les remises de réservation s’appliquent aux timbres isolés
 
