@@ -7,12 +7,12 @@ keywords: modification, suivi, suivi des modifications, change tracking, invento
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587928"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure
 
@@ -54,7 +54,7 @@ Pour ce tutoriel, vous devez d’abord activer Change Tracking and Inventory. Si
 
     ![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Choisissez l’espace de travail [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+3. Choisissez l’espace de travail [Log Analytics](../azure-monitor/logs/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
 
@@ -198,7 +198,7 @@ L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir
 
     ![Configurer la logique du signal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Sélectionnez **Créer** sous **Groupes d’action**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
+10. Sélectionnez **Créer** sous **Groupes d’action**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/alerts/action-groups.md).
 
 11. Sous **Détails de l’alerte**, entrez un nom et une description pour l’alerte. 
 

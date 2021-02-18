@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379900"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582506"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Référence : Schéma du journal de ressource de Gestion des API
 
-Cet article fournit des informations de référence de schéma pour le journal de ressource GatewayLogs de Gestion des API Azure. Les entrées de journal incluent également des champs dans le [schéma commun de niveau supérieur](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
+Cet article fournit des informations de référence de schéma pour le journal de ressource GatewayLogs de Gestion des API Azure. Les entrées de journal incluent également des champs dans le [schéma commun de niveau supérieur](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Pour activer la collecte du journal de ressource dans Gestion des API, consultez [Surveiller les API publiées](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -49,5 +49,5 @@ Les propriétés suivantes sont journalisées pour chaque demande d’API.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur la supervision des API dans Gestion des API, consultez [Surveiller les API publiées](api-management-howto-use-azure-monitor.md).
-* Découvrez en plus sur les [schémas communs et spécifiques de services pour les journaux de ressources Azure](../azure-monitor/platform/resource-logs-schema.md).
+* Découvrez en plus sur les [schémas communs et spécifiques de services pour les journaux de ressources Azure](../azure-monitor/essentials/resource-logs-schema.md).
 

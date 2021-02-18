@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a169b93b20df14e536d8764b5fb4c889d645a1fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570417"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Démarrage rapide : Intégrer Azure Sentinel
 
@@ -32,7 +32,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
 - Activez l’abonnement Azure, et si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Espace de travail Log Analytics. Découvrez comment [créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md). Pour plus d’informations sur les espaces de travail Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](../azure-monitor/platform/design-logs-deployment.md).
+- Espace de travail Log Analytics. Découvrez comment [créer un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md). Pour plus d’informations sur les espaces de travail Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](../azure-monitor/logs/design-logs-deployment.md).
 
 - Pour activer Azure Sentinel, vous avez besoin des autorisations des contributeurs concernant l’abonnement dans lequel réside l’espace de travail Azure Sentinel. 
 - Pour utiliser Azure Sentinel, vous avez besoin des autorisations des contributeurs ou des lecteurs sur le groupe de ressources auquel appartient l’espace de travail.
@@ -47,7 +47,7 @@ Après avoir connecté vos sources de données, opérez votre choix dans une gal
 
     | Zone géographique de l’espace de travail | Zone géographique des données générées par Azure Sentinel |
     | --- | --- |
-    | États-Unis<br>Inde<br>Brésil<br>Afrique<br>Corée du Sud | États-Unis |
+    | États-Unis<br>Inde<br>Brésil<br>Afrique<br>Corée du Sud<br>Émirats arabes unis | États-Unis |
     | Europe<br>France<br>Suisse | Europe |
     | Australie | Australie |
     | Royaume-Uni | Royaume-Uni |

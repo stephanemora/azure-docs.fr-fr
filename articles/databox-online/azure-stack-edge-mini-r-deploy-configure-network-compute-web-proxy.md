@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594449"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546769"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>Tutoriel : Configurer le réseau pour Azure Stack Edge Mini R
 
@@ -50,7 +50,7 @@ Procédez comme suit pour configurer le réseau de votre appareil.
 
 2. Si une mise à jour est nécessaire, vous pouvez la faire ici en configurant un port de données avec une connexion câblée. Pour plus d’informations sur la manière de configurer une connexion câblée pour cet appareil, consultez [Raccordement de l’appareil](azure-stack-edge-mini-r-deploy-install.md#cable-the-device). Une fois la mise à jour terminée, vous pouvez supprimer la connexion câblée.
 
-3. Créez des certificats pour le Wi-Fi et la chaîne de signature. La chaîne de signature et les certificats Wi-Fi doivent être au format DER avec une extension de fichier *.cer*. Pour obtenir des instructions, consultez [Créer des certificats](azure-stack-edge-j-series-manage-certificates.md).
+3. Créez des certificats pour le Wi-Fi et la chaîne de signature. La chaîne de signature et les certificats Wi-Fi doivent être au format DER avec une extension de fichier *.cer*. Pour obtenir des instructions, consultez [Créer des certificats](azure-stack-edge-gpu-manage-certificates.md).
 
 4. Dans l’interface utilisateur web locale, accédez à **Démarrer**. Dans la vignette **Sécurité**, sélectionnez **Certificats**, puis **Configurer**. 
 
