@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: cc44c7121cfc03b78ff820f6c50a88f646d599e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579002"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -121,7 +121,7 @@ Vous avez besoin des informations de la page **Gestion des agents** pour ajouter
 
 Lorsque vous avez terminé, **Microsoft Monitoring Agent** apparaît dans le **Panneau de configuration**. Vous pouvez vérifier votre configuration et vous assurer que l’agent est connecté.
 
-Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des machines Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+Pour plus d’informations sur l’installation et la configuration de l’agent, consultez la page [Connecter des machines Windows](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard).
 
 ::: zone-end
 
