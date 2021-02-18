@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/18/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: a22d710f9e18dc98e9fe068abedd57152f4c755c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 095eb8c20830b9bfe27e26453567d3c25230f2ef
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463976"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548112"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-r"></a>Tutoriel : Configurer les paramètres d’appareil pour Azure Stack Edge Pro R
 
@@ -82,7 +82,7 @@ Procédez comme suit pour configurer les paramètres liés aux appareils :
         ![Page « Mettre à jour le serveur » de l’interface utilisateur web locale 2](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > Si un serveur Windows Update distinct est configuré et si vous choisissez de vous connecter via *https* (au lieu de *http*), les certificats de chaîne de signature requis pour se connecter au serveur de mise à jour sont nécessaires. Pour plus d’informations sur la façon de créer et télécharger des certificats, consultez [Gérer les certificats](azure-stack-edge-j-series-manage-certificates.md).         
+        > Si un serveur Windows Update distinct est configuré et si vous choisissez de vous connecter via *https* (au lieu de *http*), les certificats de chaîne de signature requis pour se connecter au serveur de mise à jour sont nécessaires. Pour plus d’informations sur la façon de créer et télécharger des certificats, consultez [Gérer les certificats](azure-stack-edge-gpu-manage-certificates.md).         
         > Pour travailler en mode déconnecté, comme votre hiérarchisation des appareils Azure Stack Edge vers Modular Data Center, activez l’option WSUS. Pendant l’activation, l’appareil recherche des mises à jour et, si le serveur n’est pas configuré, alors l’activation échoue. 
 
 

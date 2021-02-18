@@ -3,12 +3,12 @@ title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution pour déployer et gérer des charges de travail VMware dans Azure.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534651"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579300"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Présentation d’Azure VMware Solution
 
@@ -48,12 +48,12 @@ Après le déploiement d’Azure VMware Solution dans votre abonnement, les [jou
 
 Dans votre cloud privé, vous pouvez :
 - Collecter les journaux sur chacune de vos machines virtuelles
-- [Télécharger et installer l’agent MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) sur les machines virtuelles Linux et Windows
-- Activer l’[extension de diagnostic Azure](../azure-monitor/platform/diagnostics-extension-overview.md)
-- [Créer et exécuter de nouvelles requêtes](../azure-monitor/platform/data-platform-logs.md#log-queries)
+- [Télécharger et installer l’agent MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options) sur les machines virtuelles Linux et Windows
+- Activer l’[extension de diagnostic Azure](../azure-monitor/agents/diagnostics-extension-overview.md)
+- [Créer et exécuter de nouvelles requêtes](../azure-monitor/logs/data-platform-logs.md#log-queries)
 - Exécuter les mêmes requêtes que celles que vous exécutez habituellement sur vos machines virtuelles
 
-Dans Azure VMware Solution, les modèles de supervision sont similaires à ceux des machines virtuelles Azure sur la plateforme IaaS. Pour obtenir des informations supplémentaires et des procédures, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Dans Azure VMware Solution, les modèles de supervision sont similaires à ceux des machines virtuelles Azure sur la plateforme IaaS. Pour obtenir des informations supplémentaires et des procédures, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

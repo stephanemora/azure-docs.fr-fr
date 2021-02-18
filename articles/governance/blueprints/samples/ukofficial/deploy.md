@@ -3,12 +3,12 @@ title: Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 description: Étapes de déploiement des exemples de blueprint UK OFFICIAL et UK NHS, y compris les détails du paramètre d’artefact blueprint.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: fc41e7d9d3867123286f970d7c54f5e6fff2d276
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578030"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -93,9 +93,9 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|Initiative de blueprint pour UK OFFICIAL ou UK NHS|Affectation de rôle |Types de ressources utilisés pour auditer les journaux de diagnostic (Stratégie : Initiative de blueprint pour UK OFFICIAL ou UK NHS) |Liste des types de ressources à auditer si le paramètre de journal de diagnostic n’est pas activé.  Pour connaître les valeurs acceptables, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
-|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Initiative de blueprint pour UK OFFICIAL ou UK NHS|Affectation de rôle |Types de ressources utilisés pour auditer les journaux de diagnostic (Stratégie : Initiative de blueprint pour UK OFFICIAL ou UK NHS) |Liste des types de ressources à auditer si le paramètre de journal de diagnostic n’est pas activé.  Pour connaître les valeurs acceptables, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../../azure-monitor/essentials/resource-logs-schema.md). |
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue (Policy: \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows) |(Facultatif) La valeur par défaut est _none_. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

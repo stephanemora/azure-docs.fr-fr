@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631157"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571027"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
@@ -99,7 +99,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 ## <a name="may-2020"></a>Mai 2020
 
-* [Utilisateurs de stratégie de sauvegarde](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (préversion)
+* [Utilisateurs de stratégie de sauvegarde](create-active-directory-connections.md) (préversion)
 
     Azure NetApp Files vous permet d’inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files. La fonctionnalité Utilisateurs de stratégie de sauvegarde est actuellement en préversion.
 
