@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855450"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590855"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Déployer des applications ASP.NET Core dans Azure Kubernetes Service avec Azure DevOps Starter
 
@@ -24,7 +24,7 @@ De plus, DevOps Starter :
 * Crée automatiquement des ressources Azure, telles qu’Azure Kubernetes Service (AKS)
 * Crée et configure un pipeline de mise en production dans Azure DevOps qui définit un pipeline de build et de mise en production pour CI/CD.
 * Crée une ressource Azure Application Insights pour la supervision
-* Permet à [Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-overview.md) de superviser les performances des charges de travail de conteneur sur le cluster AKS
+* Permet à [Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md) de superviser les performances des charges de travail de conteneur sur le cluster AKS
 
 Ce didacticiel présente les procédures suivantes :
 
