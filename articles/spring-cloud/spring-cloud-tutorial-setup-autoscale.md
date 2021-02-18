@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d59d5de0d98380be215747c7daa33721fcebf33c
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: dccb99c43e53231c15fbf158411c87e91bc96f84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533823"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576744"
 ---
 # <a name="set-up-autoscale-for-microservice-applications"></a>Configurer la mise à l’échelle automatique pour les applications de microservice
 
@@ -70,5 +70,5 @@ Si vous êtes au niveau De base et limité par une ou plusieurs de ces restricti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Vue d’ensemble de la mise à l’échelle automatique dans Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md)
 * [Supervision de la mise à l’échelle automatique avec l’interface Azure CLI](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

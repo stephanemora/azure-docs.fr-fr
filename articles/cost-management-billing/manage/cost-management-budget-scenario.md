@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593390"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
 La maîtrise des coûts représente un composant essentiel dans l’optimisation de la valeur de votre investissement dans le cloud. Il existe plusieurs scénarios où la visibilité des coûts, le reporting et l’orchestration basée sur les coûts sont cruciaux pour la continuité de l’activité commerciale. Les [API de gestion des coûts Azure](/rest/api/consumption/) proposent un ensemble d’API permettant de prendre en charge chacun de ces scénarios. Ces API fournissent des détails précis sur l’utilisation, ce qui vous permet de voir les coûts affinés au niveau des instances.
 
-Les budgets font souvent partie intégrante du contrôle des coûts. Les budgets peuvent être délimités dans Azure. Par exemple, vous pouvez réduire votre prévision budgétaire en fonction de l’abonnement, des groupes de ressources ou d’une collection de ressources. En plus de l’utilisation des API de budgets qui vous informent par e-mail qu’un seuil de budget est atteint, vous pouvez utiliser des [groupes d’actions Azure Monitor](../../azure-monitor/platform/action-groups.md) pour déclencher un ensemble d’actions orchestré résultant d’un événement de budget.
+Les budgets font souvent partie intégrante du contrôle des coûts. Les budgets peuvent être délimités dans Azure. Par exemple, vous pouvez réduire votre prévision budgétaire en fonction de l’abonnement, des groupes de ressources ou d’une collection de ressources. En plus de l’utilisation des API de budgets qui vous informent par e-mail qu’un seuil de budget est atteint, vous pouvez utiliser des [groupes d’actions Azure Monitor](../../azure-monitor/alerts/action-groups.md) pour déclencher un ensemble d’actions orchestré résultant d’un événement de budget.
 
 Un client exécutant une charge de travail non critique peut recourir à un scénario de budget courant quand il souhaite gérer son utilisation en fonction d’un budget et obtenir un coût prévisible sur sa facture mensuelle. Ce scénario nécessite une orchestration qui s’appuie sur les coûts des ressources faisant partie de l’environnement Azure. Dans ce scénario, un budget mensuel de 1 000 dollars US est défini pour l’abonnement. Des seuils de notification sont également définis pour le déclenchement de certaines orchestrations. Ce scénario débute avec un seuil à 80 % du coût, qui interrompra toutes les machines virtuelles dans le groupe de ressources **Facultatif**. Puis, au seuil de 100 % du coût, toutes les instances de machines virtuelles seront arrêtées.
 
