@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570850"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -137,7 +137,7 @@ Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuve
 2. Cliquez sur **Sélectionner une cible**, puis sélectionnez les ressources que vous souhaitez cibler. Sélectionnez l’**abonnement** et définissez le **type de ressource** pour déterminer la surveillance de connexion que vous voulez utiliser.
 
     ![écran d’alerte avec la cible sélectionnée](./media/connection-monitor/set-alert-rule.png)
-1. Une fois que vous avez sélectionné une ressource à cibler, sélectionnez **Ajouter des critères**. Network Watcher dispose de [métriques à partir desquelles vous pouvez créer des alertes](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Attribuez des **signaux disponibles** aux paramètres ProbesFailedPercent et AverageRoundtripMs des métriques :
+1. Une fois que vous avez sélectionné une ressource à cibler, sélectionnez **Ajouter des critères**. Network Watcher dispose de [métriques à partir desquelles vous pouvez créer des alertes](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Attribuez des **signaux disponibles** aux paramètres ProbesFailedPercent et AverageRoundtripMs des métriques :
 
     ![page d’alerte avec les signaux sélectionnés](./media/connection-monitor/set-alert-signals.png)
 1. Renseignez les détails de l’alerte, comme le nom de règle d’alerte, la description et la gravité. Vous pouvez également ajouter un groupe d’actions à l’alerte afin d’automatiser et de personnaliser la réponse à l’alerte.

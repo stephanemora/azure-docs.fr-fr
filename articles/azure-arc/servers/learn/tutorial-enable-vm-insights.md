@@ -3,16 +3,16 @@ title: 'Tutoriel : Superviser une machine hybride avec Azure Monitor pour machi
 description: Découvrez comment collecter et analyser les données d’une machine hybride dans Azure Monitor.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738082"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587703"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>Tutoriel : Superviser une machine hybride avec Azure Monitor pour machines virtuelles
 
-[Azure Monitor](../overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Serveurs avec Azure Arc a récemment introduit la prise en charge de l’installation des [extensions de machine virtuelle](../manage-vm-extensions.md) des agents Log Analytics et Dependency pour Windows et Linux, ce qui permet à Azure Monitor de collecter les données de vos machines virtuelles non Azure.
+[Azure Monitor](../overview.md) est capable de collecter directement les données de vos machines hybrides, et les afficher dans un espace de travail Log Analytics en vue d’une analyse et d’une mise en corrélation détaillées. En général, cela implique l’installation de l’[agent Log Analytics](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent) sur la machine à l’aide d’un script, manuellement ou d’une méthode automatisée, selon vos normes de gestion de la configuration. Serveurs avec Azure Arc a récemment introduit la prise en charge de l’installation des [extensions de machine virtuelle](../manage-vm-extensions.md) des agents Log Analytics et Dependency pour Windows et Linux, ce qui permet à Azure Monitor de collecter les données de vos machines virtuelles non Azure.
 
 Ce tutoriel vous montre comment configurer et collecter les données de vos machines Linux ou Windows, en activant Azure Monitor pour machines virtuelles à l’aide d’un ensemble d’étapes simplifié avec, à la clé, un gain de temps.  
 
@@ -22,9 +22,9 @@ Ce tutoriel vous montre comment configurer et collecter les données de vos mach
 
 * La fonctionnalité d’extension de machine virtuelle n’est disponible que dans la liste des [régions prises en charge](../overview.md#supported-regions).
 
-* Consultez [Systèmes d’exploitation pris en charge](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pour vérifier que le système d’exploitation des serveurs que vous activez est pris en charge par Azure Monitor pour machines virtuelles.
+* Consultez [Systèmes d’exploitation pris en charge](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) pour vérifier que le système d’exploitation des serveurs que vous activez est pris en charge par Azure Monitor pour machines virtuelles.
 
-* Examinez la configuration requise du pare-feu pour l’agent Log Analytics dans [Présentation de l’agent Log Analytics](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports.
+* Examinez la configuration requise du pare-feu pour l’agent Log Analytics dans [Présentation de l’agent Log Analytics](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). L’agent Map Dependency Agent Azure Monitor pour machines virtuelles ne transmet pas de données par lui-même et ne requiert pas de modifications des pare-feu ni des ports.
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 
