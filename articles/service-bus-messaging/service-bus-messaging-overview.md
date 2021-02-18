@@ -2,13 +2,13 @@
 title: Présentation de la messagerie Azure Service Bus | Microsoft Docs
 description: Cet article offre une vue d’ensemble d’Azure Service Bus, le répartiteur de messages Intégration Entreprise complètement managé.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570464"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 Microsoft Azure Service Bus est un répartiteur de messages d’entreprise complètement managé, avec des files d’attente de messages et des rubriques de publication/abonnement. Service Bus est utilisé pour découpler les applications et les services les uns des autres pour offrir les avantages suivants :
@@ -118,11 +118,10 @@ Le traitement par lot côté client permet à un client de file d’attente ou d
 Une transaction regroupe deux ou plusieurs opérations dans une *étendue d’exécution*. Service Bus vous permet de grouper les opérations par rapport à plusieurs entités de messagerie dans l’étendue d’une seule transaction. Une entité de message peut être une file d’attente, une rubrique ou un abonnement. Si vous souhaitez en savoir plus, veuillez consulter l’article [Vue d’ensemble du traitement des transactions Service Bus](service-bus-transactions.md).
 
 ### <a name="autodelete-on-idle"></a>Suppression automatique en cas d’inactivité
-
-La fonctionnalité de suppression automatique en cas d’inactivité vous permet de spécifier un intervalle d’inactivité à l’issue duquel une file d’attente ou un abonnement à une rubrique est automatiquement supprimé. La durée minimale est de 5 minutes. Si vous souhaitez en savoir plus, veuillez consulter l’article [Propriété QueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+La fonctionnalité de suppression automatique en cas d’inactivité vous permet de spécifier un intervalle d’inactivité à l’issue duquel une file d’attente ou un abonnement à une rubrique est automatiquement supprimé. La durée minimale est de 5 minutes. 
 
 ### <a name="duplicate-detection"></a>Détection des doublons
-La fonctionnalité de détection des doublons permet à l’expéditeur de renvoyer le même message une nouvelle fois, et au répartiteur d’éliminer un doublon potentiel. La détection des doublons est basée sur le suivi de la propriété `message-id` d’un message, ce qui signifie que l’application doit veiller à utiliser la même valeur lors du renvoi du message, qui peut peut-être dérivé directement d’un contexte propre à l’application. Pour en savoir plus, consultez [Détection des doublons](duplicate-detection.md).
+La fonctionnalité de détection des doublons permet à l’expéditeur de renvoyer le même message une nouvelle fois, et au répartiteur d’éliminer un doublon potentiel. Pour en savoir plus, consultez [Détection des doublons](duplicate-detection.md).
 
 ### <a name="geo-disaster-recovery"></a>Géorécupération d’urgence
 

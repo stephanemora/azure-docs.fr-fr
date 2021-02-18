@@ -3,12 +3,12 @@ title: Exemple de blueprint DoD Impact Level 4
 description: Étapes de déploiement pour l’exemple de blueprint DoD Impact Level 4 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033759"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594800"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Déployer l’exemple de blueprint DoD Impact Level 4
 
@@ -109,7 +109,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : \[\]|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|Membres à inclure dans le groupe local Administrateurs|Liste séparée par des points-virgules des membres qui doivent être exclus du groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|Membres qui doivent être exclus du groupe local Administrateurs|Liste séparée par des points-virgules des membres qui doivent être inclus dans le groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|
-|\[Préversion\] : DoD Impact Level 4|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Préversion\] : DoD Impact Level 4|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|ID de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées|Il s’agit de l’ID (GUID) de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées.|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|La sauvegarde géoredondante à long terme doit être activée pour les bases de données Azure SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|
 |\[Préversion\] : DoD Impact Level 4|Affectation de rôle|L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL|Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md).|

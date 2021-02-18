@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207561"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593782"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Détecter les logiciels installés sur vos machines virtuelles
 
@@ -48,7 +48,7 @@ Pour ce didacticiel, vous devez d’abord activer le suivi des modifications et 
 
 1. Accédez à votre compte Automation et sélectionnez **Inventory** ou **Change Tracking** sous **Gestion de la configuration**.
 
-2. Choisissez l’espace de travail [Log Analytics](../azure-monitor/log-query/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
+2. Choisissez l’espace de travail [Log Analytics](../azure-monitor/logs/log-query-overview.md). Cet espace de travail collecte les données qui sont générées par des fonctionnalités, telles que Change Tracking and Inventory. L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ Dès la fonctionnalité activée, des informations sur les logiciels installés 
 
 Si vous voulez activer des machines non-Azure pour la fonctionnalité :
 
-1. Installez l’[agent Log Analytics pour Windows](../azure-monitor/platform/agent-windows.md) ou l’[agent Log Analytics pour Linux](automation-linux-hrw-install.md) selon votre système d’exploitation. 
+1. Installez l’[agent Log Analytics pour Windows](../azure-monitor/agents/agent-windows.md) ou l’[agent Log Analytics pour Linux](automation-linux-hrw-install.md) selon votre système d’exploitation. 
 
 2. Affichez votre compte Automation et accédez à **Inventory** ou à **Change Tracking** sous **Gestion de la configuration**. 
 
@@ -122,7 +122,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="see-the-software-inventory-for-a-single-machine"></a>Afficher l’inventaire des logiciels d’une seule machine
 
