@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183198"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586279"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutoriel : Résoudre les problèmes d’une application App Service avec Azure Monitor
 
@@ -78,7 +78,7 @@ Les paramètres de diagnostic permettent de collecter des métriques pour certai
 Exécutez les commandes suivantes pour créer des paramètres de diagnostic pour AppServiceConsoleLogs (sorties/erreurs standard) et AppServiceHTTPLogs (journaux de serveur web). Remplacez _\<app-name>_ et _\<workspace-name>_ par vos valeurs. 
 
 > [!NOTE]
-> Les deux premières commandes, `resourceID` et `workspaceID`, sont des variables à utiliser dans la commande `az monitor diagnostic-settings create`. Pour plus d’informations sur cette commande, consultez [Créer des paramètres de diagnostic à l’aide d’Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli).
+> Les deux premières commandes, `resourceID` et `workspaceID`, sont des variables à utiliser dans la commande `az monitor diagnostic-settings create`. Pour plus d’informations sur cette commande, consultez [Créer des paramètres de diagnostic à l’aide d’Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli).
 >
 
 ```bash
@@ -129,7 +129,7 @@ Dans le portail Azure, sélectionnez votre espace de travail Log Analytics.
 
 ### <a name="log-queries"></a>Requêtes dans les journaux
 
-Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Vous utilisez des requêtes de journal pour identifier les journaux dans AppServiceHTTPLogs et AppServiceConsoleLogs. Pour plus d’informations sur les requêtes de journal, consultez la [vue d’ensemble des requêtes de journal](../azure-monitor/log-query/log-query-overview.md).
+Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les journaux Azure Monitor. Vous utilisez des requêtes de journal pour identifier les journaux dans AppServiceHTTPLogs et AppServiceConsoleLogs. Pour plus d’informations sur les requêtes de journal, consultez la [vue d’ensemble des requêtes de journal](../azure-monitor/logs/log-query-overview.md).
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualiser AppServiceHTTPLogs en utilisant une requête de journal
 
@@ -269,6 +269,6 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Utiliser des requêtes de journal pour identifier et corriger les erreurs d’application web.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Étapes suivantes
-* [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyse des journaux d’activité d’application dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

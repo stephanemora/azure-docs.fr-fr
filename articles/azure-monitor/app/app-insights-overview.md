@@ -4,12 +4,12 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: f00eea37c43fba10e0a89498dd81366630852db7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91371376"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575701"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -49,15 +49,15 @@ Il existe de nombreuses manières d’explorer vos données. Consultez les artic
 
 |  |  |
 | --- | --- |
-| [**Détection intelligente et alertes manuelles**](./proactive-diagnostics.md)<br/>Configurez des alertes automatiques qui s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent quand un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](../platform/alerts-log.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
+| [**Détection intelligente et alertes manuelles**](./proactive-diagnostics.md)<br/>Configurez des alertes automatiques qui s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent quand un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](../alerts/alerts-log.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Mise en correspondance d’applications**](./app-map.md)<br/>Explorez les composants de votre application, avec des alertes et des métriques clés. |![Mise en correspondance d’applications](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profileur**](./profiler.md)<br/>Examinez les profils d’exécution des requêtes échantillonnées. |![La capture d’écran montre les profils d’exécution des requêtes échantillonnées.](./media/app-insights-overview/profiler.png) |
 | [**Analyse de l’utilisation**](./usage-overview.md)<br/>Analysez la rétention et la segmentation ds utilisateurs.|![Outil de rétention](./media/app-insights-overview/retention.png) |
 | [**Recherche de diagnostic pour les données d’instance**](./diagnostic-search.md)<br/>Cherchez et filtrez les événements, comme les requêtes, les exceptions, les appels de dépendance, les suivis de journaux et les affichages de pages.  |![Télémétrie de recherche](./media/app-insights-overview/search-tn.png) |
-| [**Metrics Explorer pour les données agrégées**](../platform/metrics-charts.md)<br/>Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages. |![Mesures](./media/app-insights-overview/metrics-tn.png) |
+| [**Metrics Explorer pour les données agrégées**](../essentials/metrics-charts.md)<br/>Explorez, filtrez et segmentez des données agrégées, comme les taux de demandes, d’échecs et d’exceptions, les temps de réponse et les durées de chargement des pages. |![Mesures](./media/app-insights-overview/metrics-tn.png) |
 | [**Tableaux de bord**](./overview-dashboard.md)<br/>Combinez des données de plusieurs sources et partagez-les avec d’autres. Idéal pour les applications à composants multiples et pour un affichage en continu dans la salle de l’équipe. |![Exemple de tableaux de bord](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](./live-stream.md)<br/>Lorsque vous déployez une nouvelle version, observez ces indicateurs de performance quasiment en temps réel pour vous assurer que tout fonctionne comme prévu. |![Exemple de métriques temps réel](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](../log-query/log-query-overview.md)<br/>Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant. |![Exemple d’analyse](./media/app-insights-overview/analytics-tn.png) |
+| [**Analytics**](../logs/log-query-overview.md)<br/>Répondez à des questions difficiles sur les performances et l’utilisation de votre application avec ce langage de requêtes puissant. |![Exemple d’analyse](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](./visual-studio.md)<br/>Consultez les données de performances dans le code. Accédez au code à partir de l’arborescence des appels de procédure.|![La capture d’écran montre les détails de l’exception dans Visual Studio et un exemple d’accès au code à partir des traces de la pile.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Débogueur de capture instantanée**](./snapshot-debugger.md)<br/>Déboguez les captures instantanées échantillonnées à partir des opérations en direct, avec des valeurs de paramètre.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Intégrez des mesures d’utilisation à d’autres données décisionnelles.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -105,7 +105,7 @@ Il existe plusieurs façons de démarrer avec Application Insights. Commencez pa
   * [Python](./opencensus-python.md)
   * [autres plateformes](./platforms.md)
 * **[Instrumentez vos pages web](./javascript.md)** pour l’affichage de page, AJAX et d’autres données de télémétrie côté client.
-* **[Analysez l’utilisation des applications mobiles](../learn/mobile-center-quickstart.md)** en effectuant l’intégration avec Visual Studio App Center.
+* **[Analysez l’utilisation des applications mobiles](../app/mobile-center-quickstart.md)** en effectuant l’intégration avec Visual Studio App Center.
 * **[Tests de disponibilité](./monitor-web-app-availability.md)** : effectuez régulièrement un test ping sur votre site web à partir de nos serveurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -137,12 +137,12 @@ Prise en main pendant le développement avec :
 
 <!--Link references-->
 
-[android]: ../learn/mobile-center-quickstart.md
+[android]: ../app/mobile-center-quickstart.md
 [azure]: ../../insights-perf-analytics.md
 [client]: ./javascript.md
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
-[ios]: ../learn/mobile-center-quickstart.md
+[ios]: ../app/mobile-center-quickstart.md
 [java]: ./java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md

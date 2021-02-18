@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787157"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635572"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutoriel : Trier les alertes de sécurité, les examiner et y répondre
 Security Center analyse continuellement vos charges de travail de cloud hybride à l’aide de l’analytique avancée et du renseignement sur les menaces, afin de vous avertir des activités potentiellement malveillantes détectées sur vos ressources cloud. Vous pouvez également intégrer à Security Center des alertes provenant d’autres produits et services de sécurité. Lorsqu’une alerte est déclenchée, vous devez agir rapidement pour examiner et résoudre le problème de sécurité potentiel. 
@@ -40,9 +40,9 @@ Pour parcourir les fonctionnalités couvertes dans ce tutoriel, vous devez avoir
 ## <a name="triage-security-alerts"></a>Trier les alertes de sécurité
 Security Center fournit une vue unifiée de toutes les alertes de sécurité. Les alertes de sécurité sont classées en fonction de la gravité de l’activité détectée. 
 
-Triez vos alertes à partir de la page **Alertes de sécurité**  :
+Triez vos alertes à partir de la page **Alertes de sécurité** :
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Page de la liste des alertes de sécurité" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Liste d’alertes de sécurité d’Azure Security Center":::
 
 Utilisez cette page pour examiner les alertes de sécurité actives dans votre environnement pour décider de l’alerte à examiner en premier.
 
@@ -82,7 +82,7 @@ Après avoir examiné une alerte de sécurité et compris son étendue, vous pou
 
     :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Onglet Entreprendre une action pour les alertes de sécurité" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
-1.  Consultez la section **Atténuer la menace** , qui indique les étapes d’investigation manuelle nécessaires à l’atténuation du problème.
+1.  Consultez la section **Atténuer la menace**, qui indique les étapes d’investigation manuelle nécessaires à l’atténuation du problème.
 1.  Pour renforcer vos ressources et empêcher les futures attaques de ce genre, appliquez les recommandations de sécurité indiquées dans la section **Empêcher les attaques futures**.
 1.  Pour déclencher une application logique avec des étapes de réponse automatisée, utilisez la section **Déclencher une réponse automatisée**.
 1.  Si l’activité détectée *n’est pas* malveillante, vous pouvez supprimer les alertes futures de ce genre à l’aide de la section **Supprimer les alertes similaires**.

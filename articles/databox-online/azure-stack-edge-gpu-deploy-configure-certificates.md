@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7854aff0b4194efae7c4df653dee18e2676fdd41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d21f9eea0258175195529c4d8b72ee9085dc77
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446327"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546973"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Configurer des certificats pour votre appareil Azure Stack Edge Pro avec GPU
 
@@ -35,10 +35,10 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge Pro avec GPU,
 
 * Vous avez installé l’appareil physique, comme indiqué dans [Installer Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 * Si vous envisagez d’apporter vos propres certificats :
-    - Vos certificats doivent être prêts au format approprié, y compris le certificat de chaîne de signature. Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-j-series-manage-certificates.md).
+    - Vos certificats doivent être prêts au format approprié, y compris le certificat de chaîne de signature. Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-gpu-manage-certificates.md).
 
 <!--    - If your device is deployed in Azure Government or Azure Government Secret or Azure Government top secret cloud and not deployed in Azure public cloud, a signing chain certificate is required before you can activate your device. 
-    For details on certificate, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+    For details on certificate, go to [Manage certificates](azure-stack-edge-gpu-manage-certificates.md).-->
 
 
 ## <a name="configure-certificates-for-device"></a>Configurer des certificats pour un appareil
@@ -120,13 +120,13 @@ Procédez comme suit pour régénérer et télécharger les certificats d’appa
 
 Vous devrez installer ces certificats sur le système client que vous utilisez pour accéder aux points de terminaison sur l’appareil ASE. Ces certificats établissent une relation de confiance entre le client et l’appareil.
 
-Pour importer et installer ces certificats sur le client que vous utilisez pour accéder à l’appareil, suivez les étapes décrites dans [Importer des certificats sur les clients accédant à votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
+Pour importer et installer ces certificats sur le client que vous utilisez pour accéder à l’appareil, suivez les étapes décrites dans [Importer des certificats sur les clients accédant à votre appareil Azure Stack Edge Pro](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device). 
 
 Si vous utilisez l’Explorateur Stockage Azure, vous devez installer des certificats sur votre client au format PEM et vous devrez convertir les certificats générés par l’appareil au format PEM. 
 
 > [!IMPORTANT]
 > - Le lien de téléchargement est uniquement disponible pour les certificats générés par l’appareil et non si vous apportez vos propres certificats.
-> - Vous pouvez décider d’avoir une combinaison de certificats générés par l’appareil et de certificats que vous apportez tant que les autres exigences du certificat sont remplies. Pour plus d'informations, consultez [Exigences des certificats](azure-stack-edge-j-series-certificate-requirements.md).
+> - Vous pouvez décider d’avoir une combinaison de certificats générés par l’appareil et de certificats que vous apportez tant que les autres exigences du certificat sont remplies. Pour plus d'informations, consultez [Exigences des certificats](azure-stack-edge-gpu-certificate-requirements.md).
     
 
 ### <a name="bring-your-own-certificates"></a>Apportez vos propres certificats
