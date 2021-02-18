@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dbd2d6dc3034ff64ef6b5d4d36d836ce8462b154
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888791"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591404"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 Un groupe de machines virtuelles identiques Azure peut augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle qui exécutent votre application. Ce comportement élastique et automatisé réduit la charge de gestion pour analyser et optimiser les performances de votre application. Vous créez des règles qui définissent les performances acceptables pour une expérience utilisateur positive. Lorsque les seuils définis sont respectés, les règles de mise à l’échelle automatique prennent des mesures pour ajuster la capacité de votre groupe identique. Vous pouvez également planifier des événements qui augmentent ou diminuent automatiquement la capacité de votre groupe identique à des moments donnés. Cet article fournit une vue d’ensemble des mesures de performance disponibles et des actions réalisables par la mise à l’échelle automatique.
@@ -142,4 +142,4 @@ Cette présentation vous a appris à utiliser des règles de mise à l’échell
 
 Pour plus d’informations sur la gestion de vos instances de machine virtuelle, voir [Gérer les groupes de machines virtuelles identiques avec Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Pour découvrir comment générer des alertes lorsque vos règles de mise à l’échelle automatique déclenchent, voir [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Vous pouvez également [Utiliser des journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
+Pour découvrir comment générer des alertes lorsque vos règles de mise à l’échelle automatique déclenchent, voir [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). Vous pouvez également [Utiliser des journaux d’audit pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).

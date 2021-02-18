@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 72b1bd4d46b0b04364b25a8460361d6a008d42a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250128"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650442"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site VuePress dans Azure Static Web Apps en préversion
 
@@ -100,7 +100,7 @@ Vous devez avoir un référentiel sur GitHub pour vous connecter à Azure Static
 1. Transmettez votre référentiel local à GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>Déployez votre application web
@@ -127,7 +127,7 @@ Les étapes suivantes vous montrent comment créer une nouvelle application Stat
 
 1. Pour _SKU_, sélectionnez **Free** (Gratuit).
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Création d’une application Static Web Apps (préversion) dans le portail":::
+   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="Champs renseignés":::
 
 1. Cliquez sur le bouton **Sign in with GitHub** (Se connecter avec GitHub).
 
@@ -135,9 +135,9 @@ Les étapes suivantes vous montrent comment créer une nouvelle application Stat
 
 1. Sélectionnez **vuepress-static-app** comme _référentiel_ .
 
-1. Pour _Branche_, sélectionnez **maître**.
+1. Comme _Branche_, sélectionnez **main**.
 
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Création d’une application Static Web Apps (préversion) dans le portail":::
+   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="Champs GitHub renseignés":::
 
 ### <a name="build"></a>Build
 
@@ -151,7 +151,7 @@ Vous ajoutez ensuite les paramètres de configuration utilisés par le processus
 
 Il n’est pas nécessaire de fournir une valeur pour _Emplacement de l’API_ puisque vous ne déployez pas d’API pour le moment.
 
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Création d’une application Static Web Apps (préversion) dans le portail":::
+   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="Paramètres de génération":::
 
 ### <a name="review-and-create"></a>Examiner et créer
 
@@ -163,7 +163,7 @@ Il n’est pas nécessaire de fournir une valeur pour _Emplacement de l’API_ p
 
 1. Sur l’écran de la ressource, cliquez sur le lien _URL_ pour ouvrir l’application que vous avez déployée. Vous devrez peut-être patienter une ou deux minutes, le temps que l’action GitHub soit terminée.
 
-   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Création d’une application Static Web Apps (préversion) dans le portail":::
+   :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Application déployée":::
 
 ### <a name="clean-up-resources"></a>Nettoyer les ressources
 
