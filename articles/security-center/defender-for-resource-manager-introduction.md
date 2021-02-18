@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 922189909da21aac65d1e2e898df58598868b929
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797751"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590473"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Présentation d’Azure Defender pour Resource Manager
 
@@ -48,7 +48,7 @@ La liste complète des alertes fournies par Azure Defender pour Resource Manager
 
 Les alertes de sécurité à partir d’Azure Defender pour Resource Manager sont basées sur les menaces détectées par la supervision des opérations Azure Resource Manager. Azure Defender utilise les sources de journaux internes d’Azure Resource Manager ainsi que le journal d’activité Azure, un journal de plateforme dans Azure qui fournit des insights sur les événements de niveau abonnement.
 
-Découvrez-en plus sur le [Journal d’activité Azure](../azure-monitor/platform/activity-log.md).
+Découvrez-en plus sur le [Journal d’activité Azure](../azure-monitor/essentials/activity-log.md).
 
 Pour examiner les alertes de sécurité depuis Azure Defender pour Resource Manager :
 

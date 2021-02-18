@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dff83159511c6e8a08e8f212c01244e923ad1f5b
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4f741c1317f70079755b61f7ad94a415cd039865
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376942"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578890"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.
@@ -57,7 +57,7 @@ Les groupes identiques n’entraînent aucun coût supplémentaire. Vous payez u
 
 ## <a name="how-to-monitor-your-scale-sets"></a>Comment superviser vos groupes identiques
 
-Utilisez [Azure Monitor pour machines virtuelles](../azure-monitor/insights/vminsights-overview.md), dont le processus d’intégration est simple et automatise la collecte des données à partir des compteurs importants du processeur, de la mémoire, des disques et des performances réseau sur les machines virtuelles de votre groupe identique. Il comprend également des fonctionnalités de supervision supplémentaires et des visualisations prédéfinies qui vous permettent de vous concentrer sur la disponibilité et les performances de vos groupes identiques.
+Utilisez [Azure Monitor pour machines virtuelles](../azure-monitor/vm/vminsights-overview.md), dont le processus d’intégration est simple et automatise la collecte des données à partir des compteurs importants du processeur, de la mémoire, des disques et des performances réseau sur les machines virtuelles de votre groupe identique. Il comprend également des fonctionnalités de supervision supplémentaires et des visualisations prédéfinies qui vous permettent de vous concentrer sur la disponibilité et les performances de vos groupes identiques.
 
 Activez la supervision de votre [application de groupe de machines virtuelles identiques](../azure-monitor/app/azure-vm-vmss-apps.md) avec Application Insights afin de collecter des informations détaillées sur votre application, notamment les vues de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](../azure-monitor/app/monitor-web-app-availability.md) pour simuler le trafic utilisateur.
 

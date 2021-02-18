@@ -9,13 +9,13 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: acs-js-csharp-java-python-swift
+ms.openlocfilehash: 97b9644b3d075a0d65826cbd38747ff0e45d51a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379654"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Démarrage rapide : Ajouter un système de conversation à votre application
 
@@ -39,9 +39,13 @@ Commencez avec Azure Communication Services en utilisant la bibliothèque de cli
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
+::: zone-end
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Découvrez-en plus sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
+Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées. Apprenez-en davantage sur le [nettoyage des ressources](../create-communication-resource.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,22 +3,19 @@ title: Créer un pipeline CI/CD pour une application web progressive (PWA) avec 
 description: Apprenez à créer une application web progressive (PWA, progressive web app) NodeJS en utilisant GatsbyJS et l’expérience de création Azure DevOps Starter simplifiée.
 ms.prod: devops
 ms.technology: devops-cicd
-services: vsts
 documentationcenter: vs-devops-build
-author: arob98
-manager: angrobe
+author: mijacobs
+ms.author: mijacobs
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6d8a10dffa3801fe343b3b479265fac5612b021
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856209"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556560"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Créer un pipeline CI/CD dans Azure Pipelines pour Node.js avec Azure DevOps Starter
 
@@ -73,7 +70,7 @@ DevOps Starter crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer 
 
     ![Tableau de bord Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. À partir de votre projet Azure DevOps, vous pouvez inviter des membres de l’équipe à collaborer et établir un tableau Kanban pour débuter le suivi de votre travail. Vous pourrez trouver plus d’informations [ici](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+1. À partir de votre projet Azure DevOps, vous pouvez inviter des membres de l’équipe à collaborer et établir un tableau Kanban pour débuter le suivi de votre travail. Vous pourrez trouver plus d’informations [ici](/azure/devops/user-guide/what-is-azure-devops).
 
 ![Vue d’ensemble d’Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -195,4 +192,4 @@ Si vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et les 
 Quand vous configurez votre processus CI/CD, les pipelines de build et de mise en production sont créés automatiquement. Vous pouvez modifier ces pipelines en fonction des exigences de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
-> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personnaliser le processus CD](/azure/devops/pipelines/release/define-multistage-release-process)
