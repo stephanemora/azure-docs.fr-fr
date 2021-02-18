@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d712dc0ebe91ea8815adf235e02b8945e0dea84
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912822"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518859"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Démarrage rapide : Analyser des données avec Databricks
 
@@ -76,7 +76,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
 4. Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
-Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="create-notebook"></a>Créer un notebook
 
@@ -149,7 +149,7 @@ Effectuez les tâches suivantes pour exécuter une tâche SQL Spark sur les donn
 
     Une fois la commande terminée, vous avez toutes les données du fichier JSON sous forme de table dans le cluster Databricks.
 
-    La commande magic `%sql` vous permet d’exécuter du code SQL à partir du notebook, même si celui-ci est d’un autre type. Pour plus d’informations, consultez [Mélange de langages dans un notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+    La commande magic `%sql` vous permet d’exécuter du code SQL à partir du notebook, même si celui-ci est d’un autre type. Pour plus d’informations, consultez [Mélange de langages dans un notebook](/azure/databricks/notebooks/notebooks-use#mix-languages).
 
 2. Examinons un instantané des données JSON pour mieux comprendre la requête que vous exécutez. Collez l’extrait de code suivant dans une cellule de code, puis appuyez sur **Maj+Entrée**.
 
@@ -200,6 +200,6 @@ Passez à l’article suivant pour savoir comment effectuer une opération ETL (
 > [!div class="nextstepaction"]
 >[Extraire, transformer et charger des données à l’aide d’Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
-- Pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks, consultez [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- Pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks, consultez [Sources de données Spark](/azure/databricks/data/data-sources/).
 
-- Pour plus d’informations sur les autres méthodes d’accès à Azure Data Lake Storage Gen2 à partir d’un espace de travail Azure Databricks, consultez [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- Pour plus d’informations sur les autres méthodes d’accès à Azure Data Lake Storage Gen2 à partir d’un espace de travail Azure Databricks, consultez [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).

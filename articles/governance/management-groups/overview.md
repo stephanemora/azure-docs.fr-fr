@@ -4,12 +4,12 @@ description: Découvrez les groupes d’administration, le fonctionnement des au
 ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9843b824c62e0f9919d7a71a717d9aad03dcbd9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736320"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590835"
 ---
 # <a name="what-are-azure-management-groups"></a>Présentation des groupes d’administration Azure
 
@@ -184,7 +184,7 @@ Pour déplacer un groupe d’administration ou un abonnement de sorte qu’il de
 Pour effectuer le déplacement, vous devez avoir : 
 
 - Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
-  - Un rôle intégré, par exemple, **Propriétaire**
+  - Exemple de rôle intégré **Propriétaire**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
   - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
 - L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.
@@ -196,7 +196,7 @@ Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administrat
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 
-Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md). Vous pouvez rechercher dans tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure. Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
+Les groupes d’administration sont pris en charge dans le [journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md). Vous pouvez rechercher dans tous les événements qui se produisent dans un groupe d’administration au même emplacement central, tout comme d’autres ressources Azure. Par exemple, vous pouvez voir tous les changements d’attributions de rôles ou de stratégie apportés à un groupe d’administration spécifique.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Capture d’écran du journal d’activité et des opérations associées au groupe d’administration sélectionné." border="false":::
 
