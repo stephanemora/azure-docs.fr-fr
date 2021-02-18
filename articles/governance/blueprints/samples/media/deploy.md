@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint Media
 description: Étapes de déploiement pour l’exemple de blueprint Media et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5dc3720ceb1bdd8e50ab220288cef64c73e304ff
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 13d50c2a791a72c58d8ebef7a46c592efd0cb9a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035000"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577304"
 ---
 # <a name="deploy-the-media-blueprint-sample"></a>Déployer l’exemple de blueprint Media
 
@@ -93,12 +93,12 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Espace de travail Log Analytics pour les machines virtuelles Linux |Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Espace de travail Log Analytics pour les machines virtuelles Linux |Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue |Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : `[]` |
 |\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue |Un tableau vide peut être utilisé pour indiquer l’absence de paramètres facultatifs : `[]` |
-|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Espace de travail Log Analytics pour les machines virtuelles Windows |Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Affectation de rôle |Espace de travail Log Analytics pour les machines virtuelles Windows |Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Préversion\] : Auditer les contrôles Media et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |ID de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées |Il s’agit de l’ID (GUID) de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées. |
-|\[Préversion\] : Auditer les contrôles Media et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des types de ressources devant avoir les journaux de diagnostic activés |Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Préversion\] : Auditer les contrôles Media et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des types de ressources devant avoir les journaux de diagnostic activés |Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Préversion\] : Auditer les contrôles Media et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Groupe d’administrateurs |Groupe. Exemple : `Administrator; myUser1; myUser2` |
 |\[Préversion\] : Auditer les contrôles Media et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit |Affectation de rôle |Liste des utilisateurs qui doivent être inclus dans le groupe Administrateurs de machines virtuelles Windows |Liste séparée par des points-virgules des membres qui doivent être inclus dans le groupe Administrateurs local. Exemple : `Administrator; myUser1; myUser2` |
 |Déployer Advanced Threat Protection sur les comptes de stockage |Affectation de rôle |Résultat |Vous trouverez des informations sur les effets de la stratégie dans [Comprendre les effets d’Azure Policy](../../../policy/concepts/effects.md). |
