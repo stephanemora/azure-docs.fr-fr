@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986477"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577028"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
 Azure Private Link vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel.
@@ -70,7 +70,7 @@ Le service Liaison privée Azure offre les avantages suivants :
 | Azure Automation  | Toutes les régions publiques<br/> Toutes les régions administratives |  | PRÉVERSION </br> [Découvrez comment créer un point de terminaison privé pour Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Toutes les régions publiques    |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | USA EST, USA CENTRE SUD,<br/>USA OUEST 2, Toutes les régions de Chine      |  | PRÉVERSION   <br/> [Découvrez comment créer un point de terminaison privé pour Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics & Application Insights) | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | Toutes les régions publiques sauf : Allemagne CENTRE, Allemagne NORD-EST <br/> Toutes les régions administratives  | | GA <br/> [Découvrez comment créer un point de terminaison privé pour Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine    | Les informations d’identification doivent être stockées dans un coffre de clés Azure| GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Disques managés Azure | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine    | [Cliquez ici pour connaître les limitations connues](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Disques managés Azure.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

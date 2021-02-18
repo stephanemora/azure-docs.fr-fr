@@ -3,12 +3,12 @@ title: Déployer un exemple de blueprint FedRAMP Moderate
 description: Étapes de déploiement pour l’exemple de blueprint FedRAMP Moderate et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: a0e391b20ec662d2bb7bc5b22a7f33c056a9378e
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 9fa92bebf6ef5829796c45e0e83070a85395caf8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034830"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594678"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Déployer l’exemple de blueprint FedRAMP Moderate
 
@@ -94,7 +94,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
 |\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d'audit|Affectation de rôle|ID de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées|Il s’agit de l’ID (GUID) de l’espace de travail Log Analytics pour lequel les machines virtuelles doivent être configurées.|
-|\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d'audit|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d'audit|Affectation de rôle|Liste des types de ressources devant avoir les journaux de diagnostic activés|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d'audit|Affectation de rôle|Liste des utilisateurs qui doivent être exclus du groupe Administrateurs de machines virtuelles Windows|Liste séparée par des points-virgules des membres qui doivent être exclus du groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|
 |\[Préversion\] : Auditer les contrôles FedRAMP Moderate et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d'audit|Affectation de rôle|Liste des utilisateurs qui doivent être inclus dans le groupe Administrateurs de machines virtuelles Windows|Liste séparée par des points-virgules des membres qui doivent être inclus dans le groupe Administrateurs local. Exemple : Administrator; myUser1; myUser2|
 |\[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Espace de travail Log Analytics pour Linux VM Scale Sets (VMSS)|Si cet espace de travail se trouve en dehors de l’étendue de l’affectation, vous devez accorder manuellement des autorisations de « Contributeur Log Analytics » (ou similaires) à l’ID du principal de l’affectation de stratégie.|

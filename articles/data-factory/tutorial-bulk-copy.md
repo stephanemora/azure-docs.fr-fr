@@ -1,22 +1,18 @@
 ---
 title: Copier des données en bloc avec PowerShell
 description: Utilisez Azure Data Factory et l’activité de copie pour copier en bloc les données d’un magasin de données source dans un magasin de données de destination.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bbd0a98ad14aeef31232aa2557860989e39273aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510432"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375117"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory avec PowerShell
 

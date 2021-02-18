@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953935"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546786"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Démarrage rapide : Bien démarrer avec Azure Stack Edge Pro avec GPU 
 
@@ -64,7 +64,7 @@ Avant de procéder au déploiement, vérifiez que les prérequis suivants sont e
 10. **Configuration des certificats** : si vous avez changé le nom de l’appareil et/ou le domaine DNS, vous devez générer des certificats ou ajouter des certificats pour activer l’appareil. 
 
     - Pour tester des charges de travail de non-production, utilisez l’[option Générer des certificats](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates). 
-    - Si vous apportez vos propres certificats comprenant la ou les chaînes de signature, [ajoutez les certificats](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) au format approprié. Veillez à charger d’abord la chaîne de signature. Consultez [Créer des certificats](azure-stack-edge-j-series-create-certificates-tool.md) et [Charger des certificats par le biais de l’interface utilisateur locale](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
+    - Si vous apportez vos propres certificats comprenant la ou les chaînes de signature, [ajoutez les certificats](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) au format approprié. Veillez à charger d’abord la chaîne de signature. Consultez [Créer des certificats](azure-stack-edge-gpu-create-certificates-tool.md) et [Charger des certificats par le biais de l’interface utilisateur locale](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates).
 
 11. **Activer** : Pour obtenir la clé d’activation 
 
@@ -73,7 +73,7 @@ Avant de procéder au déploiement, vérifiez que les prérequis suivants sont e
 
 12. **Configuration du calcul** : dans le portail Azure, accédez à **Vue d’ensemble > Appareil**. Vérifiez que l’appareil est **En ligne**. Dans le volet gauche, accédez à **Computing en périphérie > Bien démarrer > Configurer le computing en périphérie > Calcul**. Fournissez un service IoT Hub existant ou nouveau et attendez environ 20 minutes que le calcul soit configuré. Pour plus d’informations, consultez [Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-Vous êtes prêt à déployer des charges de travail de calcul sur votre appareil via [IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [Kubernetes avec Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) ! Si vous rencontrez des problèmes lors de l’installation, découvrez comment [résoudre les problèmes d’appareil](), les [problèmes de commande](azure-stack-edge-gpu-troubleshoot.md), les [problèmes de certificat](azure-stack-edge-j-series-certificate-troubleshooting.md) ou les problèmes liés à Kubernetes. 
+Vous êtes prêt à déployer des charges de travail de calcul sur votre appareil via [IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [Kubernetes avec Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) ! Si vous rencontrez des problèmes lors de l’installation, découvrez comment [résoudre les problèmes d’appareil](), les [problèmes de commande](azure-stack-edge-gpu-troubleshoot.md), les [problèmes de certificat](azure-stack-edge-gpu-certificate-troubleshooting.md) ou les problèmes liés à Kubernetes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

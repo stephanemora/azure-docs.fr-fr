@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188579"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570580"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
@@ -52,7 +52,7 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 ## <a name="use-built-in-workbooks"></a>Utiliser des classeurs intégrés<a name="dashboards"></a>
 
-Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent Azure AD, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/platform/workbooks-overview.md).
+Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent Azure AD, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/visualize/workbooks-overview.md).
 
 1. Sous **Paramètres**, sélectionnez **Classeurs**. Sous **Installés**, vous pouvez voir tous vos classeurs installés. Sous **Tous**, vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
 2. Recherchez un classeur spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces classeurs propose. 
@@ -66,14 +66,14 @@ Les classeurs intégrés fournissent des données intégrées provenant de vos s
       ![Tableau de bord Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Vous pouvez personnaliser les classeurs en modifiant la requête principale ![bouton modification de requête](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![Bouton Log Analytics](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et y modifier la requête](../azure-monitor/log-query/log-analytics-tutorial.md). Vous pouvez sélectionner les points de suspension (...), puis **Personnaliser les données de la vignette** pour modifier le filtre de temps principal ou supprimer les vignettes spécifiques du classeur.
+Vous pouvez personnaliser les classeurs en modifiant la requête principale ![bouton modification de requête](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![Bouton Log Analytics](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et y modifier la requête](../azure-monitor/logs/log-analytics-tutorial.md). Vous pouvez sélectionner les points de suspension (...), puis **Personnaliser les données de la vignette** pour modifier le filtre de temps principal ou supprimer les vignettes spécifiques du classeur.
 
-Pour plus d’informations sur l’utilisation des requêtes, consultez [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Pour plus d’informations sur l’utilisation des requêtes, consultez [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Ajouter une nouvelle vignette
 
 Si vous souhaitez ajouter une nouvelle vignette, vous pouvez l’ajouter à un classeur existant, qu’il s’agisse d’un classeur que vous créez ou d’un classeur intégré d’Azure Sentinel. 
-1. Dans Log Analytics, créez une vignette selon les instructions figurant dans [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. Dans Log Analytics, créez une vignette selon les instructions figurant dans [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Une fois la vignette créée, sous **Épingler**, sélectionnez le classeur dans lequel vous voulez que la vignette apparaisse.
 
 ## <a name="create-new-workbooks"></a>Créer des classeurs

@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez découvrir comment c
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611328"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583450"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Démarrage rapide : Commencez à superviser votre site web avec Azure Monitor Application Insights
 
@@ -137,5 +137,5 @@ Si vous souhaitez continuer à utiliser d’autres guides de démarrage rapide o
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rechercher et diagnostiquer des problèmes de performances](../log-query/log-query-overview.md)
+> [Rechercher et diagnostiquer des problèmes de performances](../logs/log-query-overview.md)
 

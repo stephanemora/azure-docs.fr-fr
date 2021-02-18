@@ -2,19 +2,19 @@
 title: Vue d’ensemble de Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/15/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 7e48ebf98f12e79cb154fb50d8e6dbdfaea1cd95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 54b439d73ed5dfb0709d33dea1f588b8bdf4489f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371305"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560274"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Qu’est-ce que Kubernetes avec Azure Arc (préversion) ?
 
@@ -60,22 +60,6 @@ Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions :
 
 * USA Est 
 * Europe Ouest
-
-## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
-
-* Quelle est la différence entre Azure Arc enabled Kubernetes et Azure Kubernetes Service (AKS) ?
-
-    Azure Kubernetes Service (AKS) est l’offre de Kubernetes managé fournie par Azure. AKS simplifie le déploiement d’un cluster Kubernetes managé dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. Les maîtres Kubernetes sont gérés par Azure. Vous gérez uniquement les nœuds de l’agent.
-
-    Azure Arc enabled Kubernetes vous permet de connecter des clusters Kubernetes à Azure pour étendre les fonctionnalités de gestion d’Azure telles qu’Azure Monitor et Azure Policy. C’est vous qui effectuez la maintenance du cluster Kubernetes sous-jacent.
-
-* Ai-je besoin de connecter à Azure Arc mes clusters Azure Kubernetes Service qui s’exécutent sur Azure ?
-
-    Non. Toutes les fonctionnalités d’Azure Arc enabled Kubernetes comme Azure Monitor et Azure Policy (Gatekeeper) sont disponibles en mode natif avec AKS, qui a déjà une représentation des ressources dans Azure.
-    
-* Dois-je connecter à Azure Arc mon cluster AKS exécuté sur Azure Stack HCI ? Qu’en est-il des clusters Kubernetes exécutés sur Azure Stack Hub ou Azure Stack Edge ?
-
-    Oui, car la connexion de ces clusters à Azure Arc présente des avantages. Cela permet d’avoir une représentation des ressources pour ces clusters Kubernetes dans Azure Resource Manager. Grâce à cette représentation des ressources, des fonctionnalités telles que Cluster Configuration, Azure Monitor et Azure Policy (Gatekeeper) peuvent être étendues à ces clusters Kubernetes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
