@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3210829b3281aa862cdf0dbdc9c915249a55e423
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592984"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -73,7 +73,7 @@ Activer la gestion des mises à jour pour votre machine virtuelle :
 Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle.
 La validation inclut la vérification de l’existence d’un espace de travail Log Analytics et d’un compte Automation lié, et si la solution est dans l’espace de travail.
 
-Un espace de travail [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour.
+Un espace de travail [Log Analytics](../../azure-monitor/logs/log-query-overview.md) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme la gestion des mises à jour.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 Pour effectuer une action supplémentaire sur les machines virtuelles qui nécessitent des mises à jour, Azure Automation vous permet d’exécuter des runbooks sur les machines virtuelles, par exemple télécharger et appliquer des mises à jour.
 
@@ -83,7 +83,7 @@ Choisissez l’espace de travail Log Analytics et le compte Automation, puis cli
 
 Si l’intégration n’identifie pas l’un des prérequis suivants, il est automatiquement ajouté :
 
-* Espace de travail [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+* Espace de travail [Log Analytics](../../azure-monitor/logs/log-query-overview.md)
 * [Compte Automation](../../automation/index.yml)
 * Un [worker runbook hybride](../../automation/automation-hybrid-runbook-worker.md) est activé sur la machine virtuelle
 
@@ -112,7 +112,7 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
 | Groupes à mettre à jour |Pour des machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les machines non-Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines non-Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](../../automation/update-management/configure-groups.md)|
-| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/platform/computer-groups.md). |
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/logs/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
 |Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|

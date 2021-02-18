@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4cc8130d34b5f51728fb2e7fb47c1fb0717d2138
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595118"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -37,10 +37,10 @@ Dans le cas d’un environnement Azure activé sur un abonnement Azure, Azure Se
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Security Center dépend de l’[agent Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Vérifiez que vos machines exécutent l’un des systèmes d’exploitation pris en charge pour cet agent, comme décrit dans les pages suivantes :
+Security Center dépend de l’[agent Log Analytics](../azure-monitor/agents/agents-overview.md#log-analytics-agent). Vérifiez que vos machines exécutent l’un des systèmes d’exploitation pris en charge pour cet agent, comme décrit dans les pages suivantes :
 
-* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Agent Log Analytics pour les systèmes d’exploitation pris en charge par Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Vérifiez également que votre agent Log Analytics est [correctement configuré pour envoyer des données à Security Center](security-center-enable-data-collection.md#manual-agent).
 

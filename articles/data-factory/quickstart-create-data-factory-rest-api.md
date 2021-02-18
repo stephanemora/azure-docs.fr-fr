@@ -1,24 +1,18 @@
 ---
 title: Créer une fabrique de données Azure en utilisant l’API REST
 description: Créez un pipeline Azure Data Factory pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 527f8d63f2a2fd5c44e187c00c0651300eb4ad9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569468"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373723"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Démarrage rapide : Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST
 
@@ -410,7 +404,7 @@ Voici l'exemple de sortie :
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
