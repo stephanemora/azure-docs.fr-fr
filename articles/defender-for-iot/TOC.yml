@@ -66,12 +66,12 @@
         - name: Agrégation d’événements (préversion)
           displayName: 'process events, network connection'
           href: concept-event-aggregation.md
-        - name: Alertes de sécurité
+        - name: Alertes intégrées pour IoT Hub
           displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
           href: concept-security-alerts.md
-        - name: Alertes de sécurité personnalisées
+        - name: Alertes de sécurité personnalisées pour IoT Hub
           href: concept-customizable-security-alerts.md
-        - name: Recommandations de sécurité
+        - name: Recommandations de sécurité pour IoT Hub
           href: concept-recommendations.md
         - name: Classique
           items:
@@ -94,6 +94,12 @@
             - name: Agrégation d’événements classique du module de sécurité
               displayName: 'twin, default, configuration, alerts'
               href: event-aggregation.md
+            - name: Alertes de sécurité basées sur des agents
+              href: agent-based-security-alerts.md
+            - name: Alertes de sécurité personnalisées basées sur des agents
+              href: agent-based-security-custom-alerts.md
+            - name: Recommandations basées sur des agents
+              href: agent-based-recommendations.md
 - name: Guides pratiques
   items:
     - name: Solution sans agent pour les organisations
@@ -286,7 +292,7 @@
             - name: Investiguer un appareil
               displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
-- name: Résolution des problèmes
+- name: Dépannage
   items:
     - name: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
       displayName: 'service status, review logs'

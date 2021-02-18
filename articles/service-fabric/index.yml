@@ -7,12 +7,12 @@ metadata:
   author: erikadoyle
   ms.author: edoyle
   ms.date: 07/31/2020
-  ms.openlocfilehash: 2f9b7264fe8199cb25772b0598354e474196ca93
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+  ms.openlocfilehash: e850855a4f794e5e90abe9c86d6ddedd0af26a6b
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96499796"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100634836"
 landingContent:
 - title: Essayer les clusters managés Service Fabric (préversion)
   linkLists:
@@ -24,8 +24,6 @@ landingContent:
       url: quickstart-managed-cluster-template.md
   - linkListType: tutorial
     links:
-    - text: Créer un cluster managé (préversion)
-      url: tutorial-managed-cluster-deploy.md
     - text: Effectuer le scale-out d’un type de nœud de cluster managé (préversion)
       url: tutorial-managed-cluster-scale.md
     - text: Ajouter et supprimer des types de nœuds de clusters managés (préversion)
@@ -34,6 +32,8 @@ landingContent:
       url: tutorial-managed-cluster-deploy-app.md
     - text: Ajouter une extension de groupe de machines virtuelles identiques à un type de nœud de cluster managé (préversion)
       url: how-to-managed-cluster-vmss-extension.md
+    - text: Activer le chiffrement de disque pour des nœuds de cluster managés
+      url: how-to-enable-managed-cluster-disk-encryption.md
   - linkListType: whats-new
     links:
     - text: FAQ sur les clusters managés Service Fabric
