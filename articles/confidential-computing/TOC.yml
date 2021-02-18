@@ -27,7 +27,7 @@
 - name: Concepts
   expanded: true
   items:
-    - name: Ordinateurs virtuels
+    - name: Machines virtuelles
       items:
         - name: Machines virtuelles reconnaissant les enclaves
           href: confidential-computing-enclaves.md
@@ -38,7 +38,7 @@
     - name: Compute conteneur
       expanded: true
       items:
-        - name: Conteneurs confidentiels (lift & shift)
+        - name: Conteneurs confidentiels
           items:
             - name: Prise en main
               href: confidential-containers.md
@@ -58,7 +58,7 @@
       href: how-to-fortanix-enclave-manager.md
 - name: Références
   items:
-    - name: Fonctionnalité d’assistance aux citations SGX
+    - name: Fonctionnalité d’assistance SGX Quote
       href: confidential-nodes-out-of-proc-attestation.md
 - name: Ressources
   items:
