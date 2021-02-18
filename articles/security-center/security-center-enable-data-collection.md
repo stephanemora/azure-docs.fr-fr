@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596163"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Provisionnement automatique d’agents et d’extensions à partir d’Azure Security Center
 
@@ -83,7 +83,7 @@ Pour activer le provisionnement automatique de l’agent Log Analytics :
 
     - **Connecter les machines virtuelles Azure à un autre espace de travail** – Dans la liste déroulante, sélectionnez l’espace de travail où stocker les données collectées. La liste déroulante comprend tous les espaces de travail de tous vos abonnements. Vous pouvez utiliser cette option pour collecter les données de machines virtuelles qui s’exécutent dans différents abonnements et les stocker dans l’espace de travail que vous avez sélectionné.  
 
-        Si vous disposez déjà d’un espace de travail Log Analytics existant, vous souhaiterez peut-être utiliser le même espace de travail (des autorisations en lecture et écriture sur l’espace de travail sont requises). Cette option est utile si vous utilisez un espace de travail centralisé dans votre organisation et que vous souhaitez l’utiliser pour la collecte de données de sécurité. Apprenez-en davantage dans [Gérer l’accès aux données de journal et aux espaces de travail dans Azure Monitor](../azure-monitor/platform/manage-access.md).
+        Si vous disposez déjà d’un espace de travail Log Analytics existant, vous souhaiterez peut-être utiliser le même espace de travail (des autorisations en lecture et écriture sur l’espace de travail sont requises). Cette option est utile si vous utilisez un espace de travail centralisé dans votre organisation et que vous souhaitez l’utiliser pour la collecte de données de sécurité. Apprenez-en davantage dans [Gérer l’accès aux données de journal et aux espaces de travail dans Azure Monitor](../azure-monitor/logs/manage-access.md).
 
         Si l’espace de travail sélectionné a déjà une solution Security ou SecurityCenterFree activée, la tarification sera définie automatiquement. Dans le cas contraire, installez une solution Security Center sur l’espace de travail :
 
@@ -218,7 +218,7 @@ Pour installer manuellement l’agent Log Analytics :
    - [Installer l’agent Log Analytics pour Windows](../virtual-machines/extensions/oms-windows.md)
    - [Installer l’agent Log Analytics pour Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. Pour déployer des agents sur vos machines virtuelles existantes, suivez les instructions fournies dans [Collecter des données sur les machines virtuelles Azure](../azure-monitor/learn/quick-collect-azurevm.md) (la section **Collecter les données d’événements et de performances** est facultative).
+1. Pour déployer des agents sur vos machines virtuelles existantes, suivez les instructions fournies dans [Collecter des données sur les machines virtuelles Azure](../azure-monitor/vm/quick-collect-azurevm.md) (la section **Collecter les données d’événements et de performances** est facultative).
 
 1. Pour utiliser PowerShell afin de déployer les agents, suivez les instructions de la documentation relative aux machines virtuelles :
 

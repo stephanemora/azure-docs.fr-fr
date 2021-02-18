@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577391"
 ---
 # <a name="communication-services-notifications"></a>Notifications Communication Services
 
@@ -91,7 +91,7 @@ Quand vous ne voyez pas de notifications Push sur votre appareil, il existe troi
 
 Le premier emplacement où une notification peut être supprimée (Azure Notification Hubs n’a pas accepté les notifications d’Azure Communication Services) est décrit ci-dessous. Pour les deux autres emplacements, consultez [Diagnostiquer les problèmes de perte des notifications dans Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-fixer.md).
 
-Pour savoir si votre ressource Communication Services envoie des notifications à Azure Notification Hubs, examinez la métrique `incoming messages` dans les [métriques Azure Notification Hub](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) liées.
+Pour savoir si votre ressource Communication Services envoie des notifications à Azure Notification Hubs, examinez la métrique `incoming messages` dans les [métriques Azure Notification Hub](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs) liées.
 
 Voici quelques erreurs de configuration courantes qui peuvent constituer la raison pour laquelle Azure Notification Hub n’accepte pas les notifications de votre ressource Communication Services.
 

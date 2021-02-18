@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581092"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Automation à l’aide d’un modèle ARM
 
@@ -80,11 +80,11 @@ Le modèle JSON spécifie une valeur par défaut pour les autres paramètres sus
 
 Si vous ne connaissez pas encore Azure Automation et Azure vous devez bien comprendre les détails de configuration suivants. Ils peuvent vous aider à éviter des erreurs quand vous essayez de créer, de configurer et d’utiliser un espace de travail Log Analytics lié à votre nouveau compte Automation.
 
-* Examinez les [détails supplémentaires](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité.
+* Examinez les [détails supplémentaires](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) pour comprendre pleinement les options de configuration de l’espace de travail, telles que le mode de contrôle d’accès, le niveau tarifaire, la conservation des données et le niveau de réservation de capacité.
 
 * Passez en revue les [mappages d’espace de travail](how-to/region-mappings.md) pour spécifier les régions prises en charge incluses ou figurant dans un fichier de paramètres. Seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation dans votre abonnement.
 
-* Si vous ne connaissez pas les journaux Azure Monitor et n’avez pas encore déployé un espace de travail, vous devez consulter les [conseils pour la conception de l’espace de travail](../azure-monitor/platform/design-logs-deployment.md). Ils vous aideront à vous familiariser avec le contrôle d’accès et à comprendre les stratégies d’implémentation de conception que nous recommandons pour votre organisation.
+* Si vous ne connaissez pas les journaux Azure Monitor et n’avez pas encore déployé un espace de travail, vous devez consulter les [conseils pour la conception de l’espace de travail](../azure-monitor/logs/design-logs-deployment.md). Ils vous aideront à vous familiariser avec le contrôle d’accès et à comprendre les stratégies d’implémentation de conception que nous recommandons pour votre organisation.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

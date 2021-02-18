@@ -4,12 +4,12 @@ description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630217"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594960"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Démarrage rapide : Créer des alertes de journal d’activité sur les notifications de service à l’aide d’un modèle Resource Manager
 
@@ -17,7 +17,7 @@ Cet article vous indique comment configurer des alertes de journal d’activité
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Les notifications sur l’intégrité du service sont stockées dans le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md). Dans la mesure où le volume d’informations stockées dans le journal d’activité peut être important, il existe une interface utilisateur distincte permettant de faciliter l’affichage et la configuration d’alertes sur ces notifications.
+Les notifications sur l’intégrité du service sont stockées dans le [journal d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md). Dans la mesure où le volume d’informations stockées dans le journal d’activité peut être important, il existe une interface utilisateur distincte permettant de faciliter l’affichage et la configuration d’alertes sur ces notifications.
 
 Vous pouvez recevoir une alerte lorsqu’Azure envoie des notifications sur l’état du service sur votre abonnement Azure. Vous pouvez configurer l’alerte en fonction des éléments suivants :
 
@@ -34,7 +34,7 @@ Vous pouvez également configurer à qui l’alerte doit être envoyée :
 - sélectionner un groupe d’actions existant ;
 - créer un nouveau groupe d’actions (qui peut être utilisé pour les alertes futures).
 
-Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
+Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Découvrez comment [configurer des notifications Push mobiles pour Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
 - En savoir plus sur les [notifications sur l’intégrité du service](service-notifications.md).
-- En savoir plus sur la [limitation du débit des notifications](../azure-monitor/platform/alerts-rate-limiting.md).
-- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Obtenir une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/platform/alerts-overview.md) et découvrir comment recevoir des alertes.
-- En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).
+- En savoir plus sur la [limitation du débit des notifications](../azure-monitor/alerts/alerts-rate-limiting.md).
+- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Obtenir une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/alerts/alerts-overview.md) et découvrir comment recevoir des alertes.
+- En savoir plus sur les [groupes d’actions](../azure-monitor/alerts/action-groups.md).
