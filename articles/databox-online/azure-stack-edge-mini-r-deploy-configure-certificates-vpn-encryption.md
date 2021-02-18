@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e81ab61b04f9cca6aff57de1736eac25a871c97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c3a09242b895234c96c64d9e23449d980e47e387
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464285"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546735"
 ---
 # <a name="tutorial-configure-certificates-vpn-encryption-for-your-azure-stack-edge-mini-r"></a>Tutoriel : Configurer des certificats, un VPN et un chiffrement pour votre appareil Azure Stack Edge Mini R
 
@@ -38,10 +38,10 @@ Avant de configurer et d’activer votre appareil Azure Stack Edge Mini R, vér
 * Vous avez installé l’appareil physique, comme indiqué dans [Installer Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-install.md).
 
 * Si vous envisagez d’apporter vos propres certificats :
-    - Vos certificats doivent être prêts au format approprié, y compris le certificat de chaîne de signature. Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-j-series-manage-certificates.md).
+    - Vos certificats doivent être prêts au format approprié, y compris le certificat de chaîne de signature. Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-gpu-manage-certificates.md).
 
     - Si votre appareil est déployé sur Azure Government, Azure Government Secret ou le cloud top secret Azure Government et pas sur le cloud public Azure, un certificat de chaîne de signature est nécessaire pour pouvoir activer votre appareil. 
-    Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-j-series-manage-certificates.md).
+    Pour plus d’informations sur les certificats, accédez à [Gérer des certificats](azure-stack-edge-gpu-manage-certificates.md).
 
 
 ## <a name="configure-certificates-for-device"></a>Configurer des certificats pour un appareil
