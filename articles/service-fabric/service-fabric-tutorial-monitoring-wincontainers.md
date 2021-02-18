@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous configurez les journaux Azure Monitor pour l
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840674"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588231"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutoriel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
@@ -230,6 +230,6 @@ Dans ce didacticiel, vous avez appris à :
 Maintenant que vous avez configuré la supervision de votre application en conteneur, essayez les opérations suivantes :
 
 * Configurez les journaux Azure Monitor pour un cluster Linux en suivant les mêmes étapes que ce tutoriel. Référencez [ce modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) pour apporter des modifications à votre modèle Resource Manager.
-* Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../azure-monitor/platform/alerts-overview.md) afin de faciliter la détection et les diagnostics.
+* Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../azure-monitor/alerts/alerts-overview.md) afin de faciliter la détection et les diagnostics.
 * Explorez la liste Service Fabric de [compteurs de performances recommandés](service-fabric-diagnostics-event-generation-perf.md) à configurer pour vos clusters.
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par les journaux Azure Monitor.
+* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../azure-monitor/logs/log-query-overview.md) proposées par les journaux Azure Monitor.

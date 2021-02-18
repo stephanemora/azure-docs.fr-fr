@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: eff73888a449de20b2b460d519b36c0f03c4ea77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcef40dad9c67e9e2c6d6c4a051045999487027
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690974"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531691"
 ---
 Quand vous exécutez le graphe multimédia, les résultats du nœud processeur de détection de mouvement passe par le nœud récepteur IoT Hub pour atteindre le hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** de Visual Studio Code contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -61,21 +61,12 @@ Voici un exemple de ce message :
         }  
       }  
     ]  
-  },  
-  "applicationProperties": {  
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
-    "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",
-    "dataVersion": "1.0"  
-  }  
+  } 
 }  
 ```
 
 Dans cet exemple : 
 
-* Dans `applicationProperties`, `subject` fait référence au nœud présent dans le graphe multimédia à partir duquel le message a été généré. Dans ce cas, le message provient du nœud processeur de détection de mouvement.
-* Dans `applicationProperties`, `eventType` indique que cet événement est un événement d’analytique.
 * La valeur `eventTime` correspond à l’heure à laquelle l’événement s’est produit.
 * La valeur `body` correspond aux données relatives à l’événement d’analytique. Dans ce cas, l’événement est un événement d’inférence. Par conséquent, le corps contient des données `timestamp` et `inferences`.
 * Les données de `inferences` indiquent que le `type` est `motion`. Elles contiennent des données supplémentaires sur cet événement `motion`.
