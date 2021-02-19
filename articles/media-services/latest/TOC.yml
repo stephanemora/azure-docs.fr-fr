@@ -327,6 +327,8 @@
           href: how-to-create-transform.md
         - name: Créer une transformation audio simple avec REST
           href: how-to-create-basic-audio-transform.md
+        - name: Créer des sprites miniatures
+          href: how-to-create-thumbnail-sprites.md
         - name: Créer une transformation copyAllBitrateNonInterleaved avec REST
           href: how-to-create-copyallbitratenoninterleaved-transform.md
         - name: Copier des vidéos sans encodage avec REST
@@ -503,5 +505,3 @@
       href: azure-clouds-regions.md
     - name: Points de terminaison et noms de code régionaux
       href: azure-regions-code-names.md
-    - name: Mises à jour de la documentation
-      href: docs-release-notes.md

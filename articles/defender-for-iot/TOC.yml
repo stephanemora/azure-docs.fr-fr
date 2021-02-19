@@ -292,7 +292,7 @@
             - name: Investiguer un appareil
               displayName: 'access, data, kql, ports, logins, process'
               href: how-to-investigate-device.md
-- name: Dépannage
+- name: Résolution des problèmes
   items:
     - name: Résolution des problèmes du micro-agent Defender pour IoT (préversion)
       displayName: 'service status, review logs'
@@ -349,5 +349,7 @@
           href: 'https://azure.microsoft.com/regions/services/'
         - name: Tarifs
           href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
+        - name: Politiques de support pour Azure Defender pour IoT
+          href: support-policies.md
         - name: Vidéos
           href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
