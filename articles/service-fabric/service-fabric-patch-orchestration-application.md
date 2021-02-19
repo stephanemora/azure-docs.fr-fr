@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791221"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390638"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
-> 
 > [!IMPORTANT]
-> Depuis le 30 avril 2019, la version de Patch Orchestration Application (application d’orchestration des correctifs) 1.2.* n’est plus prise en charge. Veillez à mettre à niveau vers la dernière version.
+> Depuis le 30 avril 2019, la version de Patch Orchestration Application (application d’orchestration des correctifs) 1.2.* n’est plus prise en charge. Veillez à mettre à niveau vers la dernière version. Les mises à niveau de machines virtuelles où « Windows Update » applique les correctifs du système d'exploitation sans remplacer le disque du système d'exploitation ne sont pas prises en charge. 
 
 > [!NOTE]
-> L’obtention de [mises à niveau d’images de système d’exploitation automatiques sur votre groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) est la meilleure façon d’assurer la mise à jour corrective de votre système d’exploitation dans Azure. Le groupe de machines virtuelles identiques basé sur des mises à niveau d’images de système d’exploitation automatiques nécessitent une durabilité Silver ou supérieure sur un groupe identique.
->
+> L’obtention de [mises à niveau d’images de système d’exploitation automatiques sur votre groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) est la meilleure façon d’assurer la mise à jour corrective de votre système d’exploitation dans Azure. Le groupe de machines virtuelles identiques basé sur des mises à niveau d’images de système d’exploitation automatiques nécessitent une durabilité Silver ou supérieure sur un groupe identique. Sur les types de nœuds correspondant au niveau de durabilité Bronze, cela n'est pas pris en charge. Dans ce cas, utilisez l'application d'orchestration des correctifs.
 
- Patch Orchestration Application (POA) est un wrapper autour du service Gestionnaire des réparations Azure Service Fabric, qui permet la planification des correctifs de système d’exploitation basés sur la configuration pour les clusters non hébergés dans Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par le domaine de mise à jour est nécessaire pour corriger les hôtes du cluster Service Fabric sans temps d’arrêt.
+Patch Orchestration Application (POA) est un wrapper autour du service Gestionnaire des réparations Azure Service Fabric, qui permet la planification des correctifs de système d’exploitation basés sur la configuration pour les clusters non hébergés dans Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par le domaine de mise à jour est nécessaire pour corriger les hôtes du cluster Service Fabric sans temps d’arrêt.
 
 POA est une application Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt.
 

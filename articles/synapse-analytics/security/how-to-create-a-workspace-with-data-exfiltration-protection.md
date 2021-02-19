@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590558"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384484"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Créer un espace de travail avec la protection contre l’exfiltration de données activée
 Cet article explique comment créer un espace de travail avec la protection contre l’exfiltration des données activée et comment gérer les locataires Azure AD approuvés pour cet espace de travail.
@@ -49,6 +49,9 @@ Vous pouvez créer des points de terminaison privés managés pour vous connecte
 >[!IMPORTANT]
 >Les ressources dans les locataires autres que le locataire de l’espace de travail ne doivent pas avoir de règles de pare-feu bloquantes pour que les pools SQL puissent s’y connecter. Les ressources au sein du réseau virtuel managé de l’espace de travail, comme les clusters Spark, peuvent se connecter via des liaisons privées managées aux ressources protégées par un pare-feu.
 
+## <a name="known-limitations"></a>Limitations connues
+Les utilisateurs peuvent fournir un fichier de configuration d'environnement pour installer des packages Python à partir de référentiels publics tels que PyPI. Dans les espaces de travail protégés contre l'exfiltration de données, les connexions aux référentiels sortants sont bloquées. En conséquence, les bibliothèques Python installées à partir de référentiels publics comme PyPI ne sont pas prises en charge. 
+  
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur la [protection contre l’exfiltration des données dans les espaces de travail Synapse](./workspace-data-exfiltration-protection.md)

@@ -1,21 +1,17 @@
 ---
 title: Environnements de calcul pris en charge par Azure Data Factory
 description: Environnements Compute pouvant être utilisés avec les pipelines Azure Data Factory (tels qu'Azure HDInsight) pour transformer ou traiter des données.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606213"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368521"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 
@@ -130,7 +126,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 | connectVia                   | Runtime d’intégration à utiliser pour répartir les activités à ce service lié HDInsight. Pour le service lié HDInsight à la demande, il prend uniquement en charge un runtime d’intégration Azure. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non       |
 | clusterUserName                   | Nom d’utilisateur pour accéder au cluster. | Non       |
 | clusterPassword                   | Mot de passe sous forme de chaîne sécurisée pour accéder au cluster. | Non       |
-| clusterSshUserName         | Nom d’utilisateur SSH pour se connecter à distance au nœud du cluster (pour Linux). | Non       |
+| clusterSshUserName         | Nom d'utilisateur SSH pour se connecter à distance au nœud du cluster (pour Linux). | Non       |
 | clusterSshPassword         | Mot de passe sous forme de chaîne sécurisée pour établir une connexion SSH à distance au nœud du cluster (pour Linux). | Non       |
 | scriptActions | Spécifiez un script pour les [personnalisations de cluster HDInsight](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md) lors de la création d'un cluster à la demande. <br />Actuellement, l'outil de création d'interface utilisateur d'Azure Data Factory prend en charge la spécification d'une seule action de script, mais vous pouvez contourner cette limitation dans le JSON (spécifiez plusieurs actions de script dans le JSON). | Non |
 
@@ -397,7 +393,7 @@ Vous créez un service lié Azure Machine Learning Studio (classique) pour inscr
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | La propriété de type doit être définie sur : **AzureML**. | Oui                                      |
 | mlEndpoint             | L'URL de la notation par lot.                   | Oui                                      |
-| apiKey                 | L'API du modèle d'espace de travail publié.     | Oui                                      |
+| apiKey                 | API du modèle d'espace de travail publié.     | Oui                                      |
 | updateResourceEndpoint | URL des ressources de mise à jour pour un point de terminaison du service web Azure Machine Learning Studio (classique) utilisé pour mettre à jour le service web prédictif avec le fichier de modèle entraîné | Non                                       |
 | servicePrincipalId     | Spécifiez l’ID client de l’application.     | Obligatoire si updateResourceEndpoint est spécifié |
 | servicePrincipalKey    | Spécifiez la clé de l’application.           | Obligatoire si updateResourceEndpoint est spécifié |
@@ -547,12 +543,12 @@ Vous pouvez créer un **service lié Azure Databricks** pour inscrire l’espace
 | name                 | Nom du service lié               | Oui   |
 | type                 | La propriété de type doit être définie sur : **Azure Databricks**. | Oui                                      |
 | domaine               | Spécifiez la région Azure en fonction de la région de l’espace de travail Databricks. Exemple : https://eastus.azuredatabricks.net | Oui                                 |
-| accessToken          | Un jeton d’accès est requis pour que la fabrique de données s’authentifie auprès d’Azure Databricks. Un jeton d’accès doit être généré à partir de l’espace de travail Databricks. Des étapes plus détaillées pour rechercher le jeton d’accès sont disponibles [ici](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Non                                       |
+| accessToken          | Un jeton d’accès est requis pour que la fabrique de données s’authentifie auprès d’Azure Databricks. Un jeton d’accès doit être généré à partir de l’espace de travail Databricks. Des étapes plus détaillées pour rechercher le jeton d’accès sont disponibles [ici](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | Non                                       |
 | MSI          | Utilisez l’identité managée de Data Factory (attribuée par le système) pour vous authentifier auprès d’Azure Databricks. Vous n’avez pas besoin d’un jeton d’accès quand vous utilisez l’authentification « MSI »  | Non                                       |
 | existingClusterId    | ID de cluster d’un cluster existant pour exécuter tous les travaux dessus. Il doit s’agit d’un cluster interactif déjà créé. Vous devrez peut-être redémarrer manuellement le cluster s’il ne répond pas. Databricks suggère d’exécuter des travaux sur les nouveaux clusters pour une plus grande fiabilité. Vous pouvez trouver l’ID de cluster d’un cluster interactif sur l’espace de travail Databricks -> Clusters -> Nom du cluster interactif -> Configuration -> Balises. [En savoir plus](https://docs.databricks.com/user-guide/clusters/tags.html) | Non 
 | instancePoolId    | ID d’un pool d’instances existant dans l’espace de travail Databricks.  | Non  |
 | newClusterVersion    | La version Spark du cluster. Cela crée un cluster de travail dans Databricks. | Non  |
-| newClusterNumOfWorker| Nombre de nœuds de travail que ce cluster doit avoir. Un cluster dispose d’un pilote de Spark et num_workers exécuteurs pour un total de num_workers + 1 nœuds Spark. Une chaîne au format Int32, telle que « 1 » signifie que numOfWorker est égal à 1 ou « 1:10 » signifie que la mise à l’échelle automatique à partir de 1 comme minimum et 10 comme maximum.  | Non                |
+| newClusterNumOfWorker| Nombre de nœuds de travail que ce cluster doit avoir. Un cluster dispose d’un pilote de Spark et num_workers exécuteurs pour un total de num_workers + 1 nœuds Spark. Une chaîne au format Int32, telle que « 1 », signifie que numOfWorker est égal à 1, ou « 1:10 » désigne une mise à l'échelle automatique à partir de 1 comme minimum et 10 comme maximum.  | Non                |
 | newClusterNodeType   | Ce champ code, via une seule valeur, les ressources disponibles pour chacun des nœuds Spark de ce cluster. Par exemple, les nœuds Spark peuvent être configurés et optimisés pour des charges de travail gourmandes en mémoire ou en calcul. Ce champ est obligatoire pour les nouveaux clusters                | Non               |
 | newClusterSparkConf  | un ensemble de paires clé-valeur de configuration Spark spécifiées par l’utilisateur et facultatives. Les utilisateurs peuvent également transmettre une chaîne d’options JVM supplémentaires au pilote et aux exécuteurs, respectivement via spark.driver.extraJavaOptions et spark.executor.extraJavaOptions. | Non  |
 | newClusterInitScripts| un ensemble de scripts d’initialisation facultatifs définis par l’utilisateur pour le nouveau cluster. Spécification du chemin d'accès DBFS aux scripts init. | Non  |

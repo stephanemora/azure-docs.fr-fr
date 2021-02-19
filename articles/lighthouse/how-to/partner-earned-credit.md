@@ -1,32 +1,30 @@
 ---
 title: Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées
 description: Découvrez comment associer votre ID de partenaire pour utiliser le crédit Partenaires sur des ressources de clients que vous gérez par le biais d’Azure Lighthouse.
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985969"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372091"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées 
 
 Si vous êtes membre du [Microsoft Partner Network](https://partner.microsoft.com/), vous pouvez lier votre ID de partenaire à des informations d’identification utilisées pour gérer des ressources de clients déléguées, ce qui permet à Microsoft d’identifier et de reconnaître des partenaires qui contribuent à la réussite de clients Azure. Ce lien permet également aux partenaires [CSP (fournisseur de solutions Cloud)](/partner-center/csp-overview) de recevoir un [crédit pour les services gérés (PEC)](/partner-center/partner-earned-credit) pour les clients qui ont [signé Contrat client Microsoft (MCA)](/partner-center/confirm-customer-agreement) et sont [sous le plan Azure](/partner-center/azure-plan-get-started).
 
-Si vous [intégrez des clients à des offres de service gérés dans la Place de marché Azure](publish-managed-services-offers.md), ce lien se produit automatiquement en utilisant l’ID MPN associé au compte Espace partenaires utilisé pour publier les offres. Aucune action supplémentaire n’est nécessaire pour suivre votre impact sur ces clients.
-
-Si vous [intégrez des clients à l’aide de modèles Azure Resource Management](onboard-customer.md), vous devez prendre des mesures pour créer ce lien. Pour cela, [liez votre ID MPN](../../cost-management-billing/manage/link-partner-id.md) avec au moins un compte d’utilisateur dans votre locataire qui a accès à chacun de vos abonnements intégrés.
+Pour que les activités Azure Lighthouse soient reconnues, vous devez [lier votre ID MPN](../../cost-management-billing/manage/link-partner-id.md) à au moins un compte d'utilisateur dans votre locataire de gestion et vous assurer que le compte lié a accès à chacun de vos abonnements intégrés.
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associer votre ID de partenaire lors de l’intégration de nouveaux clients
 
-Lorsque vous intégrez des clients à l’aide de modèles Azure Resource Manager (modèles ARM), utilisez la procédure suivante pour lier votre ID partenaire et activer le crédit Partenaires (si applicable). Vous devez connaître votre [ID de partenaire MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) pour effectuer ces étapes. Vous devez utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.
+Procédez comme suit pour lier votre ID partenaire (et activer le crédit Partenaire, le cas échéant). Vous devez connaître votre [ID de partenaire MPN](/partner-center/partner-center-account-setup#locate-your-mpn-id) pour effectuer ces étapes. Vous devez utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.
 
 Pour simplifier, nous vous recommandons de créer un compte de principal du service dans votre locataire en l’associant à votre **ID MPN**, puis d’accorder à chaque client que vous intégrez un accès à ce compte avec un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec).
 
-1. [Créez un compte de principal de service](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) dans votre locataire gérant. Pour cet exemple, nous allons utiliser le nom *Compte Automation de fournisseur* pour ce principal du service.
+1. [Créez un compte utilisateur de principal de service](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) dans votre locataire de gestion. Pour cet exemple, nous allons utiliser le nom *Compte Automation de fournisseur* pour ce compte de principal de service.
 1. En utilisant ce compte de principal du service, [établissez un lien avec votre ID MPN](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) dans votre locataire gérant. Cette opération est unique.
-1. Lorsque vous [intégrez un client à l’aide de modèles ARM](onboard-customer.md), veillez à inclure une autorisation qui inclut le Compte Automation de fournisseur en tant qu’utilisateur disposant d’un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec).
+1. Lorsque vous intégrez un client [à l'aide de modèles ARM](onboard-customer.md) ou d'[offres Service géré](publish-managed-services-offers.md), veillez à inclure une autorisation qui englobe le Compte Automation de fournisseur en tant qu'utilisateur disposant d'un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec).
 
 En suivant ces étapes, chaque locataire de client que vous gérez est associé à votre ID de partenaire. Le Compte Automation de fournisseur n’a pas besoin de s’authentifier ni d’effectuer des actions dans le locataire du client.
 

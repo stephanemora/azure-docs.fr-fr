@@ -1,7 +1,7 @@
 ---
 title: Présentation des utilitaires Microsoft Spark
 description: 'Tutoriel : MSSparkUtils dans les notebooks Azure Synapse Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954291"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368657"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Présentation des utilitaires Microsoft Spark
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) est un package intégré qui vous perme
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configurer l’accès à Azure Data Lake Storage Gen2 
 
-Les notebooks Synapse utilisent le Pass-through Azure Active Directory (Azure AD) pour accéder aux comptes ADLS Gen2. Vous devez être un **Contributeur à Stockage Blob** pour accéder au compte (ou au dossier) ADLS Gen2. 
+Les notebooks Synapse utilisent le Pass-through Azure Active Directory (Azure AD) pour accéder aux comptes ADLS Gen2. Vous devez être **Contributeur aux données de Stockage Blob** pour accéder au compte (ou au dossier) ADLS Gen2. 
 
-Les pipelines Synapse utilisent l’identité de l’espace de travail (MSI) pour accéder aux comptes de stockage. Pour utiliser MSSparkUtils dans vos activités de pipeline, l’identité de votre espace de travail doit être un **Contributeur au Stockage Blob** pour accéder au compte (ou au dossier) ADLS Gen2.
+Les pipelines Synapse utilisent l’identité de l’espace de travail (MSI) pour accéder aux comptes de stockage. Pour utiliser MSSparkUtils dans vos activités de pipeline, l'identité de votre espace de travail doit être un **Contributeur aux données de Stockage Blob** pour accéder au compte (ou au dossier) ADLS Gen2.
 
 Procédez comme suit pour vous assurer que votre compte Azure AD et votre espace de travail MSI ont accès au compte ADLS Gen2 :
 1. Ouvrez le [portail Azure](https://portal.azure.com/) et le compte de stockage auquel vous souhaitez accéder. Vous pouvez accéder au conteneur spécifique auquel vous souhaitez accéder.

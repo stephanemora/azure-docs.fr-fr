@@ -7,13 +7,13 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390859"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enrichissement incrémentiel et mise en cache dans Recherche cognitive Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "90971634"
 
 *L’enrichissement incrémentiel* est une fonctionnalité qui cible des [ensembles de compétences](cognitive-search-working-with-skillsets.md). Elle tire parti du Stockage Azure pour enregistrer la sortie de traitement émise par un pipeline d’enrichissement en vue d’une réutilisation dans de futures exécutions de l’indexeur. Dans la mesure du possible, l’indexeur réutilise toute sortie mise en cache qui est toujours valide. 
 
-L’enrichissement incrémentiel permet non seulement de préserver votre investissement financier dans le traitement (en particulier la reconnaissance optique des caractères et le traitement des images), mais aussi d’améliorer l’efficacité d’un système. Quand des structures et du content sont mis en cache, un indexeur peut déterminer les compétences qui ont changé et exécuter uniquement celles qui ont été modifiées, ainsi que toutes les compétences dépendantes en aval. 
+L’enrichissement incrémentiel permet non seulement de préserver votre investissement financier dans le traitement (en particulier la reconnaissance optique des caractères et le traitement des images), mais aussi d’améliorer l’efficacité d’un système. 
 
 Un flux de travail qui utilise une mise en cache incrémentielle comprend les étapes suivantes :
 
@@ -95,7 +95,7 @@ Ce paramètre garantit que seules les mises à jour de la définition de l’ens
 L’exemple suivant illustre une requête de mise à jour de l’ensemble de compétences avec le paramètre :
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>Ignorer les vérifications de validation de la source de données
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 La plupart des modifications apportées à la définition de source de données invalident le cache. Toutefois, dans les scénarios où vous savez qu’une modification ne doit pas invalider le cache, par exemple, la modification d’une chaîne de connexion ou la rotation de la clé sur le compte de stockage, ajoutez le paramètre `ignoreResetRequirement` à la mise à jour de la source de données. La définition de ce paramètre sur `true` permet à la validation se poursuivre sans déclencher de réinitialisation qui entraînerait la reconstruction de tous les objets et leur remplissage complet.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>Forcer l’évaluation des ensembles de compétences
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 L’objectif du cache est d’éviter les traitements inutiles, mais supposons que vous apportiez une modification à une compétence que l’indexeur ne détecte pas (par exemple, en modifiant un texte dans du code externe, par exemple une compétence personnalisée).
 
 Dans ce cas, vous pouvez utiliser les [compétences de réinitialisation](/rest/api/searchservice/preview-api/reset-skills) pour forcer le retraitement d’une compétence en particulier, y compris les compétences en aval qui dépendent du résultat de cette compétence. Cette API accepte la requête POST avec une liste de compétences qui doit être invalidée et marquée pour retraitement. Après avoir réinitialisé les compétences, exécutez l’indexeur pour appeler le pipeline.
+
+### <a name="reset-documents"></a>Réinitialiser les documents
+
+La [réinitialisation d'un indexeur](/rest/api/searchservice/reset-indexer) entraîne le retraitement de tous les documents du corpus de recherche. Dans les scénarios où seuls quelques documents doivent être retraités et où la source de données ne peut pas être mise à jour, utilisez [Réinitialiser les documents (préversion)](/rest/api/searchservice/preview-api/reset-documents) pour forcer le retraitement de documents spécifiques. Lorsqu'un document est réinitialisé, l'indexeur invalide le cache de ce document et le document est retraité en le lisant à partir de la source de données. Pour plus d'informations, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
 
 ## <a name="change-detection"></a>Détection des changements
 

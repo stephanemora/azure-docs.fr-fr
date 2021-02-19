@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299763"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367994"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -29,7 +29,7 @@ Cet article répond aux questions fréquemment posées sur Azure Active Director
 ## <a name="general-questions"></a>Questions générales
 **Q : Je gère plusieurs annuaires Azure AD. Comment basculer sur le locataire associé à Azure Active Directory Premium ?**
 
-Pour basculer entre les différents locataires Azure AD, sélectionnez le **nom d’utilisateur** actuellement connecté dans l’angle supérieur droit, puis choisissez le compte approprié. Si le compte n’est pas répertorié, sélectionnez **Se déconnecter**, puis connectez-vous avec les informations d’identification d’administrateur général de l’annuaire Azure Active Directory Premium auquel il est possible de se connecter.
+Pour basculer entre les différents locataires Azure AD, sélectionnez le **nom d’utilisateur** actuellement connecté dans l’angle supérieur droit, puis choisissez le compte approprié. Si le compte n'est pas répertorié, sélectionnez **Se déconnecter**, puis connectez-vous avec les informations d'identification d'administrateur général de l'annuaire Azure Active Directory Premium (P1 ou P2) auquel il est possible de se connecter.
 
 **Q : Quelles versions des rôles d’identité sont prises en charge par Azure AD Connect Health ?**
 
@@ -47,8 +47,8 @@ Notez que les fonctionnalités proposées par le service peuvent varier selon le
 
 **Q : De combien de licences ai-je besoin pour surveiller mon infrastructure ?**
 
-* Le premier agent Connect Health nécessite au moins une licence Azure AD Premium.
-* Chaque nouvel agent inscrit nécessite 25 licences Azure AD Premium supplémentaires.
+* Le premier agent Connect Health requiert au moins une licence Azure AD Premium (P1 ou P2).
+* Chaque nouvel agent inscrit requiert 25 licences Azure AD Premium (P1 ou P2) supplémentaires.
 * Le nombre d’agents est équivalent au nombre total d’agents inscrits auprès de tous les rôles surveillés (AD FS, Azure AD Connect et/ou AD DS).
 * Avec les licences AAD Connect Health, il n’est pas nécessaire d’attribuer chaque licence à des utilisateurs spécifiques. Vous devez simplement disposer du nombre de licences valides requis.
 

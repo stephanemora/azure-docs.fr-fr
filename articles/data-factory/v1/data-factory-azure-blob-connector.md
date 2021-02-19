@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données vers et à partir de Stockage Blob Azure
 description: 'Découvrez comment copier des données d’objets blob dans Azure Data Factory. Utilisez notre exemple : Guide pratique pour copier des données vers et à partir de Stockage Blob Azure et Azure SQL Database.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa6e19fd9759d6e489d0945b5521a2e0ae3881e0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f1343f900e12bff09c0436ca52d8b091fe48a181
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462647"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393545"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -77,7 +72,7 @@ Pour spécifier un jeu de données afin de représenter les données d’entrée
 
 Pour obtenir une liste complète des sections et propriétés JSON disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md). Les sections comme la structure, la disponibilité et la stratégie d'un jeu de données JSON sont similaires pour tous les types de jeux de données (SQL Azure, Azure Blob, Azure Table, etc.).
 
-La fabrique de données prend en charge les valeurs de type .NET conformes CLS suivantes pour fournir des informations de type dans la section « structure » du schéma dans les sources de données de lecture telles qu’un objet blob Azure : Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory effectue automatiquement les conversions de type lorsque vous déplacez des données d’un magasin de données source vers un magasin de données récepteur.
+La fabrique de données prend en charge les valeurs de type .NET conformes CLS suivantes afin de fournir des informations de type dans la section « structure » du schéma pour les sources de données de lecture telles qu'un objet blob Azure : Int16, Int32, Int64, Single, Double, Decimal, Byte[], Bool, String, Guid, Datetime, Datetimeoffset, Timespan. Data Factory effectue automatiquement les conversions de type lorsque vous déplacez des données d’un magasin de données source vers un magasin de données récepteur.
 
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l'emplacement, le format, etc. des données dans le magasin de données. La section typeProperties pour le jeu de données de type **AzureBlob** a les propriétés suivantes :
 
@@ -187,7 +182,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource** en haut à gauche, cliquez sur **Intelligence + analyse**, puis sur **Data Factory**.
 3. Dans le volet **Nouvelle fabrique de données** :  
-    1. Entrez **ADFBlobConnectorDF** comme **nom**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur `*Data factory name “ADFBlobConnectorDF” is not available` s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+    1. Entrez **ADFBlobConnectorDF** comme **nom**. Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur `*Data factory name "ADFBlobConnectorDF" is not available` s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez la rubrique [Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
     2. Sélectionnez votre **abonnement** Azure.
     3. Pour le groupe de ressources, sélectionnez **Utiliser l’existant** pour sélectionner un groupe de ressources existant (ou) sélectionnez **Créer un nouveau** pour entrer le nom d’un groupe de ressources.
     4. Sélectionnez un **emplacement** pour la fabrique de données.
@@ -508,7 +503,7 @@ Azure Data Factory prend en charge deux types de service lié Stockage Azure : 
 
 **Jeu de données d'entrée d'objet Blob Azure :**
 
-Les données sont récupérées à partir d’un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de début et le nom de fichier utilise l’heure de début. Le paramètre « external » : « true » informe Data Factory que la table est externe à la Data Factory et non produite par une activité dans la Data Factory.
+Les données sont récupérées à partir d’un nouvel objet blob toutes les heures (fréquence : heure, intervalle : 1). Le nom du chemin d'accès et du fichier de dossier pour l'objet blob sont évalués dynamiquement en fonction de l'heure de début du segment en cours de traitement. Le chemin d’accès du dossier utilise l’année, le mois et le jour de début et le nom de fichier utilise l’heure de début. Le paramètre « external » : « true » informe Data Factory que la table est externe à la fabrique de données et non produite par une activité de la fabrique de données.
 
 ```json
 {
@@ -656,9 +651,9 @@ Azure Data Factory prend en charge deux types de service lié Stockage Azure : 
 
 **Jeu de données d'entrée SQL Azure :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+L'exemple part du principe que vous avez créé une table « MyTable » dans SQL Azure et qu'elle contient une colonne appelée « timestampcolumn » pour les données de séries chronologiques.
 
-La définition de external sur true informe le service Data Factory que la table est externe à la Data Factory et non produite par une activité dans la Data Factory.
+La définition de « external » sur « true » informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité de la fabrique de données.
 
 ```json
 {

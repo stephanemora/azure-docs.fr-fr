@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879273"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371938"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Comment planifier une offre Service géré pour le marketplace commercial de Microsoft
 
 Cet article présente la configuration requise pour la publication d’une offre Service géré sur le marketplace commercial de Microsoft via Espace partenaires.
 
-Les services gérés sont des offres de Place de marché Azure qui permettent une gestion multi-locataire et interlocataire avec Azure Lighthouse. Pour en savoir plus, consultez [Présentation d’Azure Lighthouse](../lighthouse/overview.md). Lorsqu’un client achète une offre Service géré, il peut déléguer un ou plusieurs abonnements ou groupes de ressources.
+Les services gérés sont des offres de Place de marché Azure qui permettent une gestion multi-locataire et interlocataire avec Azure Lighthouse. Pour en savoir plus, consultez [Présentation d’Azure Lighthouse](../lighthouse/overview.md). Lorsqu'un client achète une offre Service géré, il peut déléguer un ou plusieurs abonnements ou groupes de ressources. Vous pouvez ensuite travailler sur ces ressources à l'aide des fonctionnalités de [gestion déléguée des ressources Azure](../lighthouse/concepts/azure-delegated-resource-management.md) d'Azure Lighthouse.
 
 ## <a name="eligibility-requirements"></a>Conditions d’éligibilité
 
-Pour publier un service géré, vous devez avoir acquis une compétence Microsoft Gold ou Silver dans la plateforme cloud. Cette compétence démontre votre expertise aux clients. Pour plus d’informations, consultez [Compétences Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
+Pour publier une offre de service managé, vous devez avoir acquis une compétence Microsoft Gold ou Silver dans la plateforme cloud. Cette compétence démontre votre expertise aux clients. Pour plus d’informations, consultez [Compétences Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
 Les offres doivent satisfaire à toutes les [stratégies de certification du marketplace commercial](/legal/marketplace/certification-policies) en vigueur pour être publiées sur Place de marché Azure.
 

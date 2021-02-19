@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8a61586acd888301350277d924f3d4fe176b4c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 91dc6ba0bcd455aefe9de2efdff2feb20938152d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148225"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376381"
 ---
 ### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Étape 1 : Accès à la passerelle de réseau virtuel
 
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à **Toutes les ressources**. 
-2. Pour ouvrir le page Passerelle de réseau virtuel, accédez à la passerelle de réseau virtuel que vous souhaitez supprimer et cliquez dessus.
+2. Pour ouvrir le page Passerelle de réseau virtuel, accédez à la passerelle de réseau virtuel et cliquez pour la sélectionner. 
 
 ### <a name="step-2-delete-connections"></a>Étape 2 : Suppression des connexions
 

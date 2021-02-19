@@ -2,13 +2,13 @@
 title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390672"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -75,24 +75,27 @@ La section suivante présente une vue d’ensemble du processus de basculement e
 Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. 
 
 1. Créez l’espace de noms principal.
-1. Créez l’espace de noms secondaire dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
+1. Créez l'espace de noms secondaire dans l'abonnement et le groupe de ressources qui contiennent l'espace de noms principal, mais dans une région différente. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
 1. Dans le portail Azure, accédez à votre espace de noms principal.
 1. Sélectionnez **Géo-récupération** dans le menu de gauche, puis **Lancer le jumelage** dans la barre d’outils. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Lancer le jumelage à partir de l’espace de noms principal":::    
-1. Dans la page **Lancer le jumelage**, sélectionnez un espace de noms secondaire existant ou créez-en un dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal. Sélectionnez ensuite **Create** (Créer). Dans l’exemple suivant, un espace de noms secondaire existant est sélectionné. 
+1. Sur la page **Lancer le jumelage**, procédez comme suit :
+    1. Sélectionnez un espace de noms secondaire existant ou créez-en un dans l'abonnement et le groupe de ressources qui contiennent l'espace de noms principal. Dans cet exemple, un espace de noms existant est sélectionné.  
+    1. Dans le champ **Alias**, entrez un alias pour le jumelage de géo-reprise d'activité après sinistre. 
+    1. Sélectionnez ensuite **Create** (Créer). 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Sélectionner l’espace de noms secondaire":::        
-1. Désormais, lorsque vous sélectionnez **Géo-récupération** pour l’espace de noms principal, la page **Alias de géo-récupération après sinistre** doit s’afficher et ressembler à l’image suivante :
+1. La page **Alias de géo-reprise d'activité après sinistre** doit s'afficher. Vous pouvez également accéder à cette page à partir de l'espace de noms principal en sélectionnant **Géo-reprise** dans le menu de gauche.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Page d’alias de géo-récupération après sinistre":::    
+1. Sur la page **Alias de géo-reprise d'activité après sinistre**, sélectionnez **Stratégies d'accès partagé** dans le menu de gauche pour accéder à la chaîne de connexion principale de l'alias. Utilisez cette chaîne de connexion au lieu d’utiliser la chaîne de connexion directe à l’espace de noms principal/secondaire. 
 1. Dans cette page **Vue d’ensemble**, vous pouvez effectuer les actions suivantes : 
     1. Arrêter le jumelage entre les espaces de noms principal et secondaire. Sélectionnez **Arrêter le jumelage** dans la barre d’outils. 
     1. Basculer manuellement vers l’espace de noms secondaire. Sélectionnez **Basculement** dans la barre d’outils. 
     
         > [!WARNING]
         > Le basculement active l’espace de noms secondaire et supprime l’espace de noms principal du jumelage de géo-reprise d’activité après sinistre. Créer un autre espace de noms pour avoir une nouvelle paire de géo-reprise d’activité après sinistre. 
-1. Dans la page **Alias de géo-récupération après sinistre**, sélectionnez **Stratégies d’accès partagé** pour accéder à la chaîne de connexion principale de l’alias. Utilisez cette chaîne de connexion au lieu d’utiliser la chaîne de connexion directe à l’espace de noms principal/secondaire. 
 
 Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi des basculements automatiques sont rarement possibles, dans la mesure où, souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
 
@@ -133,9 +136,9 @@ Tenez compte des points suivants :
 
 1. De par sa conception, la géo-reprise d'activité après sinistre Event Hubs ne réplique pas les données, et vous ne pouvez donc pas réutiliser l'ancienne valeur de décalage de votre hub d'événements principal sur votre hub d'événements secondaire. Nous vous recommandons de redémarrer votre récepteur d’événements avec l’une des méthodes suivantes :
 
-- *EventPosition.FromStart()*  : pour lire toutes les données sur votre hub d'événements secondaire.
-- *EventPosition.FromEnd()*  : pour lire toutes les nouvelles données à partir de la connexion à votre hub d'événements secondaire.
-- *EventPosition.FromEnqueuedTime(dateTime)*  : pour lire toutes les données reçues dans votre hub d'événements secondaire depuis une date et une heure précises.
+   - *EventPosition.FromStart()*  : pour lire toutes les données sur votre hub d'événements secondaire.
+   - *EventPosition.FromEnd()*  : pour lire toutes les nouvelles données à partir de la connexion à votre hub d'événements secondaire.
+   - *EventPosition.FromEnqueuedTime(dateTime)*  : pour lire toutes les données reçues dans votre hub d'événements secondaire depuis une date et une heure précises.
 
 2. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
  
@@ -153,6 +156,8 @@ La référence SKU Event Hubs Standard prend en charge les [zones de disponibili
 > Pour Azure Event Hubs Standard, la prise en charge des zones de disponibilité s'applique uniquement aux [régions Azure](../availability-zones/az-region.md) où des zones de disponibilité sont déjà présentes.
 
 Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms uniquement, à l’aide du portail Azure. Event Hubs ne prend pas en charge la migration des espaces de noms existants. Vous ne pouvez pas désactiver la redondance de zone après l’avoir activée sur votre espace de noms.
+
+Lorsque vous utilisez des zones de disponibilité, les métadonnées et les données (événements) sont répliquées dans les centres de données de la zone de disponibilité. 
 
 ![3][]
 
