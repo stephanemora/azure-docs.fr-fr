@@ -9,18 +9,41 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: f416fe8ef4f6e89d07e6065d4c9435642d9bacb9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef9cb083c9bbe6eae5c34cd3799debde771231b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179637"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558197"
 ---
-# <a name="correct-misspelled-words-with-bing-search-resource"></a>Corriger les mots mal orthographiés avec une ressource Recherche Bing
+# <a name="correct-misspelled-words-with-bing-resource"></a>Corriger les mots mal orthographiés à l’aide d’une ressource Bing
 
-Vous pouvez intégrer [Recherche Bing](https://ms.portal.azure.com/#create/Microsoft.BingSearch) à votre application LUIS pour corriger les mots mal orthographiés dans les énoncés avant que LUIS prédise le score et les entités de l’énoncé.
+L’API de prédiction v3 prend désormais en charge l’[API de vérification orthographique Bing](https://docs.microsoft.com/bing/search-apis/bing-spell-check/overview). Ajoutez la vérification orthographique à votre application en incluant la clé de votre ressource Recherche Bing dans l’en-tête de vos requêtes. Vous pouvez utiliser une ressource Bing existante si vous en possédez déjà une, ou [en créer une](https://portal.azure.com/#create/Microsoft.BingSearch) pour utiliser cette fonctionnalité. 
 
-## <a name="create-endpoint-key"></a>Créer une clé de point de terminaison
+Exemple de sortie de prédiction pour une requête mal orthographiée :
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
+
+Les corrections orthographiques sont effectuées avant la prédiction d’énoncé utilisateur LUIS. Vous pouvez voir toutes les modifications apportées à l’énoncé d’origine, y compris en lien avec l’orthographe, dans la réponse.
+
+## <a name="create-bing-search-resource"></a>Créer une ressource Recherche Bing
 
 Pour créer une ressource Recherche Bing dans le portail Azure, suivez ces instructions :
 
@@ -32,7 +55,8 @@ Pour créer une ressource Recherche Bing dans le portail Azure, suivez ces instr
 
 4. Un panneau d’informations apparaît à droite, avec notamment les mentions légales. Sélectionnez **Créer** pour commencer le processus de création d’abonnement.
 
-    :::image type="content" source="./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png" alt-text="Ressource sur l’API Vérification orthographique Bing V7":::
+> [!div class="mx-imgBorder"]
+> ![Ressource sur l’API Vérification orthographique Bing V7](./media/luis-tutorial-bing-spellcheck/bing-search-resource-portal.png)
 
 5. Dans le panneau suivant, entrez les paramètres du service. Attendez la fin du processus de création de service.
 
@@ -40,15 +64,23 @@ Pour créer une ressource Recherche Bing dans le portail Azure, suivez ces instr
 
 7. Copiez l’une des clés à ajouter à l’en-tête de votre demande de prédiction. Vous aurez seulement besoin d’une des deux clés.
 
-8. Ajoutez la clé à `mkt-bing-spell-check-key` dans l’en-tête de la demande de prédiction.
-
 <!--
 ## Using the key in LUIS test panel
 There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
 -->
+## <a name="enable-spell-check-from-ui"></a>Activer la vérification orthographique depuis l’IU 
+Vous pouvez activer la vérification orthographique pour votre exemple de requête à l’aide du [portail Luis](https://www.luis.ai). Sélectionnez **Gérer** en haut de l’écran, puis **Ressources Azure** dans le volet de navigation de gauche. Une fois que vous avez associé une ressource de prédiction à votre application, sélectionnez **Changer les paramètres de la requête** au bas de la page, puis collez la clé de ressource dans le champ **Activer la vérification orthographique**.
+    
+   > [!div class="mx-imgBorder"]
+   > ![Activer la vérification orthographique](./media/luis-tutorial-bing-spellcheck/spellcheck-query-params.png)
+
+
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Ajout de la clé à l’URL de point de terminaison
 Pour chaque requête à laquelle vous souhaitez appliquer la correction orthographique, la requête de point de terminaison a besoin de la clé de la ressource de vérification orthographique Bing transmise dans le paramètre de chaîne de requête. Vous pouvez avoir un chatbot qui appelle LUIS, ou vous pouvez appeler l’API de point de terminaison LUIS directement. Quelle que soit la façon dont le point de terminaison est appelé, chaque appel doit inclure les informations requises dans la demande de l’en-tête pour que les corrections orthographiques fonctionnent correctement. Vous devez définir la valeur **mkt-bing-spell-check-key** sur la valeur de la clé.
 
+|Clé d’en-tête|Valeur de l’en-tête|
+|--|--|
+|`mkt-bing-spell-check-key`|Clés disponibles dans le panneau **Clés et point de terminaison** de la ressource|
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Envoyer un énoncé mal orthographié à LUIS
 1. Ajoutez un énoncé mal orthographié à la requête de prédiction à envoyer, par exemple « À quelle distance se trouve la montagnne ? ». En anglais, `mountain`, avec un `n`, est l’orthographe correcte.

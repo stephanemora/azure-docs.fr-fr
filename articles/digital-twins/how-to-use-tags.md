@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a1a55bdf21b74116450ca32f66d891f1aa206d3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045408"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555151"
 ---
 # <a name="add-tags-to-digital-twins"></a>Ajouter des étiquettes à des jumeaux numériques 
 
@@ -91,7 +91,7 @@ Voici une requête permettant d’obtenir toutes les entités qui sont de petite
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus d’informations sur la conception et la gestion de modèles de jumeaux numériques :
-* [*Guide pratique : Gérer des modèles personnalisés*](how-to-manage-model.md)
+* [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
 
 Découvrez plus d’informations sur l’interrogation du graphe de jumeaux :
 * [*Guide pratique : Interroger le graphe de jumeaux*](how-to-query-graph.md)

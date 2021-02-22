@@ -1,22 +1,22 @@
 ---
-title: Modèles personnalisés
+title: Modèles DTDL
 titleSuffix: Azure Digital Twins
-description: Découvrez comment Azure Digital Twins utilise des modèles définis par l’utilisateur pour décrire des entités dans votre environnement.
+description: Découvrez comment Azure Digital Twins utilise des modèles personnalisés pour décrire les entités de votre environnement.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131387"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558145"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
-L’une des principales caractéristiques d’Azure Digital Twins est la possibilité de définir votre propre vocabulaire et à créer votre graphique de jumeau dans les termes définis par votre entreprise. Cette fonctionnalité est fournie par le biais de **modèles** définis par l’utilisateur. Vous pouvez considérer les modèles comme des noms dans une description de votre monde. 
+L’une des principales caractéristiques d’Azure Digital Twins est la possibilité de définir votre propre vocabulaire et à créer votre graphique de jumeau dans les termes définis par votre entreprise. Cette fonctionnalité est fournie via les **modèles** spécifiés par l’utilisateur. Vous pouvez considérer les modèles comme des noms dans une description de votre monde. 
 
 Un modèle est comparable à une **classe** dans un langage de programmation orienté objet, définissant une forme de données pour un concept particulier dans votre environnement de travail réel. Les modèles ont des noms (par exemple, *Room* ou *TemperatureSensor*) et contiennent des éléments tels que des propriétés, de la télémétrie ou des événements, ainsi que des commandes décrivant ce que peut faire ce type d’entité dans votre environnement. Plus tard, vous utiliserez ces modèles pour créer des [**jumeaux numériques**](concepts-twins-graph.md) représentant des entités spécifiques répondant à une description de ce type.
 
@@ -136,23 +136,31 @@ Lors de la conception de modèles pour refléter les entités dans votre environ
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>Intégration à des modèles aux normes du secteur
+## <a name="tools-for-models"></a>Outils pour modèles 
 
-L’utilisation de modèles basés sur des normes du secteur ou d’une représentation d’ontologie standard, comme RDF ou OWL, constitue un point de départ intéressant quand vous concevez vos modèles Azure Digital Twins. L’utilisation de modèles sectoriels facilite également la normalisation et le partage d’informations.
+Il existe plusieurs exemples qui permettent de simplifier grandement la gestion des modèles et des ontologies. Ils sont situés dans le dépôt suivant : [Outils pour le langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-tools).
 
-Pour être utilisé avec Azure Digital Twins, un modèle doit être représenté à l’aide du [**langage DTDL (Digital Twins Definition Language)**](concepts-models.md) basé sur JSON-LD. Par conséquent, pour utiliser un modèle standard, vous devez d’abord le convertir en DTDL afin qu’Azure Digital Twins puisse l’utiliser. Le modèle DTDL sert alors de source de vérité pour le modèle dans Azure Digital Twins.
+Cette section décrit plus en détail l’ensemble actuel d’échantillons.
 
-Deux démarches existent pour intégrer des modèles aux normes du secteur avec DTDL, selon votre situation :
-* Si vous n’avez pas encore créé vos modèles, vous pouvez les concevoir autour d’**ontologies DTDL de démarrage existantes** qui contiennent la langue propre à votre secteur d’activité.
-* Si vous avez déjà des modèles existants basés sur une norme du secteur, vous devez **les convertir en DTDL** afin de les intégrer à Azure Digital Twins.
+### <a name="model-uploader"></a>Chargeur de modèles 
 
-Pour plus d’informations sur ces deux processus, consultez [*Guide pratique : Intégrer des modèles standard du secteur*](how-to-integrate-models.md).
+_**Pour le chargement de modèles vers Azure Digital Twins**_
+
+Une fois que vous avez fini de créer, d’étendre ou de sélectionner vos modèles, vous pouvez les charger vers votre instance d’Azure Digital Twins pour les rendre accessibles dans votre solution. Pour ce faire, utilisez les [API Azure Digital Twins](how-to-use-apis-sdks.md), comme indiqué dans le [*Guide pratique pour Gérer les modèles DTDL*](how-to-manage-model.md#upload-models).
+
+Toutefois, si vous avez de nombreux modèles à charger, ou s’ils ont de nombreuses interdépendances qui compliquent le tri des chargements individuels, vous pouvez utiliser cet exemple pour charger plusieurs modèles à la fois : [**Chargeur de modèles Azure Digital Twins**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Suivez les instructions fournies avec l’exemple pour configurer et utiliser ce projet afin de charger des modèles vers votre propre instance.
+
+### <a name="model-visualizer"></a>Visualiseur de modèles 
+
+_**Pour la visualisation des modèles**_
+
+Une fois que vous avez chargé des modèles dans votre instance d’Azure Digital Twins, vous pouvez les voir dans cette dernière. Vous pouvez voir notamment les relations d’héritage et les relations entre modèles à l’aide de l’application [**ADT Model Visualizer**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer). Cet exemple est à l’état de brouillon. Nous encourageons la communauté de développement de jumeaux numériques à étendre cet exemple, et à y contribuer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment gérer les modèles avec les API de DigitalTwinModels :
-* [*Guide pratique : Gérer des modèles personnalisés*](how-to-manage-model.md)
+* Découvrez plus en détail la création de modèles basés sur des ontologies conformes aux standards du secteur : [*Concepts : Qu’est-ce qu’une ontologie ?* ](concepts-ontologies.md)
 
-Vous pouvez également découvrir comment des jumeaux numériques sont créés à partir de modèles :
-* [*Concepts : Jumeaux numériques et graphe de jumeaux*](concepts-twins-graph.md)
+* Explorez plus en détail la gestion des modèles à l’aide des opérations d’API : [*Guide pratique : Gérer les modèles DTDL*](how-to-manage-model.md)
+
+* Découvrez comment les modèles permettent de créer des jumeaux numériques : [*Concepts : Jumeaux numériques et graphe de jumeaux*](concepts-twins-graph.md)
 

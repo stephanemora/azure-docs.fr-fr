@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ce0d3a06846cbc3aa37ab836564150e6f2c34ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499184"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362809"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 
 > [!NOTE]
 > Cette page suppose que vous avez lu [Préparer des données de test pour Custom Speech](./how-to-custom-speech-test-and-train.md) et que vous avez chargé un jeu de données pour l’inspecter.
 
-Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du [portail Custom Speech](https://speech.microsoft.com/customspeech), vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct. Cet outil vous permet d’inspecter la qualité du modèle de reconnaissance vocale de base de Microsoft, d’inspecter un modèle personnalisé entraîné ou de comparer la transcription selon deux modèles.
+Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir de [Speech Studio](https://speech.microsoft.com/customspeech), vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé pour la reconnaissance est correct. Cet outil vous permet d’inspecter la qualité du modèle de reconnaissance vocale de base de Microsoft, d’inspecter un modèle personnalisé entraîné ou de comparer la transcription selon deux modèles.
 
 Dans ce document, vous allez apprendre à inspecter visuellement la qualité du modèle de reconnaissance vocale de référence de Microsoft et/ou de modèles personnalisés que vous avez formés. Vous allez également apprendre à utiliser l’éditeur de transcription en ligne pour créer et affiner les jeux de données audio étiquetés.
 
@@ -30,7 +30,7 @@ Dans ce document, vous allez apprendre à inspecter visuellement la qualité du 
 
 Pour créer un test, suivez ces instructions :
 
-1. Connectez-vous au [portail Custom Speech](https://speech.microsoft.com/customspeech).
+1. Connectez-vous à [Speech Studio](https://speech.microsoft.com/customspeech).
 2. Accédez à **Synthèse vocale > Custom Speech > [nom du projet] > Test en cours**.
 3. Cliquez sur **Add Test** (Ajouter un test).
 4. Sélectionnez **Inspect quality (Audio-only data)** [Inspecter la qualité (données audio uniquement)]. Nommez et décrivez le test et sélectionnez votre jeu de données audio.

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585039"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546004"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
@@ -115,7 +115,12 @@ Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON incl
 
 ### <a name="sample-json-output"></a>Exemple de sortir JSON
 
-Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud documentResults contient les valeurs spécifiques à la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le prénom, le nom, le nom de la société, etc.
+
+La réponse à l’opération d’obtention du résultat de l’analyse du ticket de caisse va correspondre à la représentation structurée du ticket de caisse avec toutes les informations extraites.  Consultez ici un [exemple de fichier de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) et sa sortie structurée dans l’[exemple de sortie de ticket de caisse](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+
+Voici un exemple de réponse JSON correcte :
+* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. 
+* Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des paires clé/valeur utiles comme le prénom, le nom, le nom de la société, etc.
 
 ```json
 { 

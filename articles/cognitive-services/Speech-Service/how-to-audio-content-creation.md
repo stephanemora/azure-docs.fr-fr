@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024957"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388581"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -125,7 +125,7 @@ Une fois que vous avez vérifié la sortie audio et que vous êtes satisfait de 
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Comment ajouter/supprimer des utilisateurs dans Création de contenu audio ?
 
-Si plusieurs utilisateurs souhaitent utiliser Création de contenu audio, vous pouvez soit partager votre compte et votre mot de passe Azure avec l’utilisateur, soit accorder à l’utilisateur l’accès à l’abonnement Azure et à la ressource Speech. Si vous ajoutez un utilisateur à un abonnement Azure, l’utilisateur peut accéder à toutes les ressources sous l’abonnement Azure. Toutefois, si vous ajoutez uniquement un utilisateur à une ressource Speech, l’utilisateur n’aura accès qu’à la ressource Speech et ne pourra pas accéder aux autres ressources sous cet abonnement Azure. Un utilisateur ayant accès à la ressource Speech peut utiliser Création de contenu audio.
+Si plusieurs utilisateurs souhaitent utiliser l’outil Création de contenu audio, vous pouvez leur octroyer l’accès à l’abonnement Azure et à la ressource Speech. Si vous ajoutez un utilisateur à un abonnement Azure, l’utilisateur peut accéder à toutes les ressources sous l’abonnement Azure. Toutefois, si vous ajoutez uniquement un utilisateur à une ressource Speech, l’utilisateur n’aura accès qu’à la ressource Speech et ne pourra pas accéder aux autres ressources sous cet abonnement Azure. Un utilisateur ayant accès à la ressource Speech peut utiliser Création de contenu audio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Ajouter des utilisateurs à une ressource Speech
 

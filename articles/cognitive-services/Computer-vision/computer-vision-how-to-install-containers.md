@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008585"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391766"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
@@ -41,7 +41,7 @@ Le conteneur d’OCR Read 3.2-preview offre ce qui suit :
 * Scores de confiance.
 * Prise en charge des documents contenant à la fois du texte imprimé et du texte manuscrit.
 * Possibilité d'extraire le texte de la page ou des pages sélectionnées dans un document.
-* Choix de l’ordre de sortie des lignes de texte, de l’ordre par défaut à un ordre de lecture plus naturel.
+* Choix de l’ordre de sortie des lignes de texte, de l’ordre par défaut à un ordre de lecture plus naturel pour les langues latines uniquement.
 * Classification des lignes de texte comme style manuscrit ou non pour les langues latines uniquement.
 
 Si vous utilisez actuellement des conteneurs Read 2.0, consultez le [guide de migration](read-container-migration-guide.md) pour en savoir plus sur les modifications apportées aux nouvelles versions.

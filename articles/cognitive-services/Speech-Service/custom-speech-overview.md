@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.custom: contperf-fy21q2; references_regions
+ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854891"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388649"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -26,25 +26,26 @@ ms.locfileid: "97854891"
 
 Pour pouvoir tirer parti de Custom Speech, vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Une fois que vous disposez d’un compte, vous pouvez préparer vos données, effectuer l’apprentissage de vos modèles et les tester, inspecter la qualité de la reconnaissance, évaluer l’exactitude et en dernier lieu déployer et utiliser le modèle de reconnaissance vocale personnalisé.
 
-Ce diagramme présente les différents éléments qui composent le [portail Custom Speech](https://aka.ms/customspeech). Utilisez les liens ci-dessous pour en savoir plus sur chaque étape.
+Ce diagramme met en évidence les éléments qui composent la [zone Custom Speech de Speech Studio](https://aka.ms/customspeech). Utilisez les liens ci-dessous pour en savoir plus sur chaque étape.
 
-![Diagramme présentant les composants qui constituent le portail Custom Speech.](./media/custom-speech/custom-speech-overview.png)
+![Diagramme qui met en évidence les composants de la zone Custom Speech de Speech Studio.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Abonnez-vous et créez un projet](#set-up-your-azure-account). Créez un compte Azure et abonnez-vous au service Speech. Cet abonnement unifié vous donne accès à la reconnaissance vocale, à la synthèse vocale, à la traduction vocale et au [portail Custom Speech](https://speech.microsoft.com/customspeech). Ensuite, servez-vous de votre abonnement au service Speech pour créer votre premier projet Custom Speech.
+1. [Abonnez-vous et créez un projet](#set-up-your-azure-account). Créez un compte Azure et abonnez-vous au service Speech. Cet abonnement unifié vous donne accès à la conversion de parole en texte, à la conversion de texte par synthèse vocale, à la traduction vocale et à [Speech Studio](https://speech.microsoft.com/customspeech). Ensuite, servez-vous de votre abonnement au service Speech pour créer votre premier projet Custom Speech.
 
 1. [Charger des données de test](./how-to-custom-speech-test-and-train.md). Chargez des données de test (fichiers audio) pour évaluer l’offre de reconnaissance vocale de Microsoft pour vos applications, outils et produits.
 
-1. [Inspecter la qualité de la reconnaissance](how-to-custom-speech-inspect-data.md). Utilisez le [portail Custom Speech](https://speech.microsoft.com/customspeech) pour lire le contenu audio chargé et inspecter la qualité de la reconnaissance vocale de vos données de test. Pour effectuer des mesures quantitatives, consultez [Inspecter des données](how-to-custom-speech-inspect-data.md).
+1. [Inspecter la qualité de la reconnaissance](how-to-custom-speech-inspect-data.md). Utilisez [Speech Studio](https://speech.microsoft.com/customspeech) pour lire le contenu audio chargé et inspecter la qualité de la reconnaissance vocale de vos données de test. Pour effectuer des mesures quantitatives, consultez [Inspecter des données](how-to-custom-speech-inspect-data.md).
 
-1. [Évaluer et améliorer l’exactitude](how-to-custom-speech-evaluate-data.md). Évaluez et améliorez l’exactitude du modèle de reconnaissance vocale. Le [portail Custom Speech](https://speech.microsoft.com/customspeech) indique un *taux d’erreur de mots*, qui permet de déterminer si un entraînement supplémentaire est nécessaire. Si le résultat vous paraît suffisamment juste, vous pouvez directement utiliser les API du service Speech. Si vous souhaitez améliorer l’exactitude de 5 à 20 % en moyenne relative, utilisez l’onglet **Formation** du portail pour charger des données d’entraînement supplémentaires, comme des transcriptions étiquetées à la main et le texte associé.
+1. [Évaluer et améliorer l’exactitude](how-to-custom-speech-evaluate-data.md). Évaluez et améliorez l’exactitude du modèle de reconnaissance vocale. [Speech Studio](https://speech.microsoft.com/customspeech) indique un *taux d’erreur de mots*, qui vous permet de déterminer si un entraînement supplémentaire est nécessaire. Si le résultat vous paraît suffisamment juste, vous pouvez directement utiliser les API du service Speech. Si vous souhaitez améliorer l’exactitude de 5 à 20 % en moyenne relative, utilisez l’onglet **Formation** du portail pour charger des données d’entraînement supplémentaires, comme des transcriptions étiquetées à la main et le texte associé.
 
 1. [Effectuer l’apprentissage d’un modèle et le déployer](how-to-custom-speech-train-model.md). Améliorez l’exactitude de votre modèle de reconnaissance vocale en joignant des transcriptions écrites (entre 10 et 1 000 heures) et un texte associé (< 200 Mo) à vos données de test audio. Ces données vous aident à entraîner le modèle de reconnaissance vocale. Après l’apprentissage, retestez. Si vous êtes satisfait du résultat, vous pouvez déployer votre modèle sur un point de terminaison personnalisé.
 
 ## <a name="set-up-your-azure-account"></a>Configurer votre compte Azure
 
-Vous avez besoin d’un compte Azure et d’un abonnement au service Speech afin de pouvoir utiliser le [portail Custom Speech](https://speech.microsoft.com/customspeech) pour créer un modèle personnalisé. Si vous n’avez pas de compte et d’abonnement, [essayez le service Speech gratuitement](overview.md#try-the-speech-service-for-free).
+Vous avez besoin d’un compte Azure et d’un abonnement au service Speech pour pouvoir créer un modèle personnalisé à partir de [Speech Studio](https://speech.microsoft.com/customspeech). Si vous n’avez pas de compte et d’abonnement, [essayez le service Speech gratuitement](overview.md#try-the-speech-service-for-free).
 
-Si vous envisagez d’effectuer l’apprentissage d’un modèle personnalisé avec des données audio, choisissez l’une des régions suivantes qui disposent d’un matériel dédié disponible pour la formation. Cela permet de réduire le temps nécessaire pour effectuer l’apprentissage d’un modèle.
+> [!NOTE]
+> Si vous comptez effectuer l’entraînement d’un modèle personnalisé avec des **données audio**, choisissez l’une des régions suivantes. Elles disposent d’un matériel dédié à l’entraînement. Cela permet de réduire le temps nécessaire pour effectuer l’apprentissage d’un modèle.
 
 * Australie Est
 * Centre du Canada
@@ -64,20 +65,20 @@ Si vous envisagez d’effectuer l’apprentissage d’un modèle personnalisé a
 > [!NOTE]
 > Veillez à créer un abonnement standard (S0). Les abonnements gratuits (F0) ne sont pas pris en charge.
 
-Une fois que vous avez créé un compte Azure et un abonnement au service Speech, vous devez vous connecter au [portail Custom Speech](https://speech.microsoft.com/customspeech) et connecter votre abonnement.
+Une fois que vous avez créé un compte Azure et un abonnement au service Speech, vous devez vous connecter à [Speech Studio](https://speech.microsoft.com/customspeech) et connecter votre abonnement.
 
-1. Connectez-vous au [portail Custom Speech](https://aka.ms/custom-speech).
+1. Connectez-vous à [Speech Studio](https://aka.ms/custom-speech).
 1. Sélectionnez l’abonnement dans lequel vous devez travailler, puis créez un projet Speech.
 1. Si vous souhaitez modifier votre abonnement, sélectionnez le bouton en forme de rouage dans le menu supérieur.
 
 ## <a name="how-to-create-a-project"></a>Comment créer un projet
 
-Les contenus tels que des données, modèles, tests et autres points de terminaison sont organisés en *projets* sur le [portail Custom Speech](https://speech.microsoft.com/customspeech). Chaque projet est propre à un domaine et à un pays/langue. Par exemple, vous pourriez créer un projet pour des centres d’appel utilisant l’anglais aux États-Unis.
+Les contenus tels que les données, les modèles, les tests et les points de terminaison sont organisés en *projets* dans [Speech Studio](https://speech.microsoft.com/customspeech). Chaque projet est propre à un domaine et à un pays/langue. Par exemple, vous pourriez créer un projet pour des centres d’appel utilisant l’anglais aux États-Unis.
 
 Pour créer votre premier projet, sélectionnez **Speech-to-text/Custom speech**, puis **Nouveau projet**. Suivez les instructions fournies par l’Assistant pour créer votre projet. Une fois le projet créé, vous devriez voir quatre onglets : **Data**, **Testing**, **Training** et **Deployment**. Utilisez les liens fournis dans [Étapes suivantes](#next-steps) pour savoir comment utiliser chaque onglet.
 
 > [!IMPORTANT]
-> Le [portail Custom Speech](https://aka.ms/custom-speech) a été récemment mis à jour. Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
+> [Speech Studio](https://aka.ms/custom-speech), qui s’appelait « portail Custom Speech », a été récemment mis à jour ! Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
 
 ## <a name="model-lifecycle"></a>Cycle de vie du modèle
 
@@ -106,7 +107,7 @@ Au fur et à mesure que de nouveaux modèles et de nouvelles fonctionnalités de
 * Décodage : disponible pendant deux ans après la création du modèle. Vous pouvez ainsi utiliser le modèle personnalisé pendant deux ans (traitement par lots/temps réel/tests) après sa création. Après deux ans, *vous devez réeffectuer l’apprentissage de votre modèle*, car le modèle de base est généralement déconseillé pour l’adaptation.  
 * Points de terminaison : disponibles sur la même chronologie que le décodage.
 
-Quand un modèle de base ou un modèle personnalisé expire, il revient toujours à la *version la plus récente du modèle de base*. Ainsi, votre implémentation ne sera jamais interrompue mais pourrait devenir moins précise pour *vos données spécifiques* si les modèles personnalisés arrivent à expiration. Vous pouvez voir les détails relatifs à l’expiration d’un modèle aux emplacements suivants dans le portail Custom Speech :
+Quand un modèle de base ou un modèle personnalisé expire, il revient toujours à la *version la plus récente du modèle de base*. Ainsi, votre implémentation ne sera jamais interrompue mais pourrait devenir moins précise pour *vos données spécifiques* si les modèles personnalisés arrivent à expiration. Vous pouvez voir les détails relatifs à l’expiration d’un modèle aux emplacements suivants dans la zone Custom Speech de Speech Studio :
 
 * Récapitulatif de l’entraînement du modèle
 * Détail de l’entraînement du modèle
@@ -115,7 +116,7 @@ Quand un modèle de base ou un modèle personnalisé expire, il revient toujours
 
 Vous pouvez également vérifier les dates d’expiration via les API [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) et [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) de Custom Speech sous la propriété `deprecationDates` dans la réponse JSON.
 
-Notez que vous pouvez mettre à niveau le modèle sur un point de terminaison Custom Speech sans temps d’arrêt en changeant le modèle utilisé par le point de terminaison dans la section de déploiement du portail Custom Speech ou via l’API Custom Speech.
+Notez que vous pouvez mettre à niveau le modèle sur un point de terminaison Custom Speech sans temps d’arrêt en changeant le modèle utilisé par le point de terminaison dans la section de déploiement de Speech Studio ou via l’API Custom Speech.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

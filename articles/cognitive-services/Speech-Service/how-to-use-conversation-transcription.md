@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: ae3d7b329c55ce0be101cee73e1fc7674a2d75aa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 48cd4c7996eabad7293aa2429c76b8943e0ab3da
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026537"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368470"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Bien démarrer avec la transcription de conversation en temps réel
 
@@ -25,7 +25,7 @@ L’API **ConversationTranscriber** du SDK Speech vous permet de transcrire des 
 ## <a name="limitations"></a>Limites
 
 * Disponible uniquement dans les régions d’abonnement suivantes : `centralus`, `eastasia`, `eastus`, `westeurope`
-* Nécessite un réseau circulaire de sept microphones avec un flux de référence de lecture. Le réseau de microphones doit respecter [nos spécifications](./speech-devices-sdk-microphone.md).
+* Nécessite un groupe de 7 microphones disposés en cercle. Le réseau de microphones doit respecter [nos spécifications](./speech-devices-sdk-microphone.md).
 * Le [SDK Speech Devices](speech-devices-sdk.md) fournit des appareils appropriés et un exemple d’application illustrant la transcription de conversation.
 
 ## <a name="prerequisites"></a>Prérequis

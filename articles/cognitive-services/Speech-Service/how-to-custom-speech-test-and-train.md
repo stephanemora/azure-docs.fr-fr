@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702200"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367977"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -57,9 +57,17 @@ Les fichiers doivent être regroupées par type dans un jeu de données et charg
 > [!TIP]
 > Pour commencer rapidement, vous pouvez utiliser des exemples de données. Consultez ce dépôt GitHub pour un <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">exemple de données Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
-## <a name="upload-data"></a>Télécharger des données
+> [!NOTE]
+> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 
-Pour télécharger vos données, accédez au <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Dans le portail, cliquez sur **Upload data** (Charger des données) pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
+> [!NOTE]
+> Si vous changez le modèle de base utilisé pour l’entraînement et si vous avez du contenu audio dans le jeu de données d’entraînement, vérifiez *toujours* si le nouveau modèle de base sélectionné [prend en charge l’entraînement avec des données audio](language-support.md#speech-to-text). Si le modèle de base utilisé jusqu’à maintenant ne prend pas en charge l’entraînement avec des données audio, et si le jeu de données d’entraînement contient de l’audio, le temps d’entraînement du nouveau modèle de base va **considérablement** augmenter. Il peut facilement passer de plusieurs heures à plusieurs jours, voire davantage. Cela est particulièrement vrai si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
+>
+> Si vous êtes confronté au problème décrit dans le paragraphe ci-dessus, vous pouvez rapidement faire baisser le temps d’entraînement en réduisant la quantité du contenu audio dans le jeu de données, ou en supprimant complètement le contenu audio pour ne garder que le texte. Cette dernière option est fortement recommandée si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
+
+## <a name="upload-data"></a>Charger des données
+
+Pour charger vos données, accédez à <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Dans le portail, cliquez sur **Upload data** (Charger des données) pour lancer l’Assistant et créer votre premier jeu de données. Vous êtes alors invité à sélectionner un type de données vocales pour votre jeu de données avant d’être autorisé à charger vos données.
 
 ![Capture d’écran mettant en évidence l’option Chargement audio dans le portail Speech.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -84,7 +92,7 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 | Longueur maximale par fichier audio | 2 heures               |
 | Format d’échantillonnage            | PCM, 16 bits           |
 | Format d’archive           | .zip                  |
-| Taille d’archive maximale     | 2 Go                  |
+| Taille d’archive maximale     | 2 Go                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -112,7 +120,7 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 | Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
 | Format d’échantillonnage            | PCM, 16 bits                         |
 | Format d’archive           | .zip                                |
-| Taille maximale de zip         | 2 Go                                |
+| Taille maximale de zip         | 2 Go                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -136,14 +144,14 @@ speech03.wav    the lazy dog was not amused
 
 Les transcriptions doivent être en texte normalisé pour pouvoir être traitées par le système. Une normalisation importante doit cependant être effectuée par l’utilisateur avant de charger les données dans le Studio Speech. Pour savoir quelle langue utiliser pour la préparation de vos transcriptions, consultez [Guide pratique pour créer une transcription étiquetée à la main](how-to-custom-speech-human-labeled-transcriptions.md).
 
-Une fois que vous avez collecté vos fichiers audio et les transcriptions correspondantes, vous devez les packager dans un seul fichier .zip avant de charger ce dernier sur le <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
+Une fois que vous avez regroupé vos fichiers audio et les transcriptions correspondantes, vous devez les packager dans un seul fichier .zip avant de charger ce dernier vers <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Voici un exemple de jeu de données constitué de trois fichiers audio et d’un fichier de transcriptions étiquetées à la main :
 
 > [!div class="mx-imgBorder"]
 > ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 Consultez [Configurer votre compte Azure](custom-speech-overview.md#set-up-your-azure-account) pour obtenir la liste des régions recommandées pour vos abonnements au service Speech. La configuration des abonnements Speech dans une de ces régions permet de réduire le temps nécessaire à la formation du modèle. Dans ces régions, l’apprentissage peut traiter environ 10 heures d’audio par jour, contre 1 heure par jour dans d’autres régions. Si l’apprentissage du modèle ne peut pas être effectué en une semaine, le modèle est marqué comme ayant échoué.
 
-Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé.
+Tous les modèles de base ne prennent pas en charge les données audio. Si le modèle de base ne les prend pas en charge, le service ignore l’audio et effectue simplement un apprentissage avec le texte des transcriptions. Dans ce cas, l’apprentissage est le même que celui avec du texte associé. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 
 ## <a name="related-text-data-for-training"></a>Données texte associées pour l’entraînement
 
@@ -154,7 +162,7 @@ Les noms de produits ou les fonctionnalités uniques doivent inclure des donnée
 | Phrases (énoncés) | Améliorent la précision de la reconnaissance des noms de produits ou du vocabulaire d’un domaine spécifique dans le contexte d’une phrase. |
 | Prononciations | Améliorent la prononciation des termes peu courants, des acronymes ou d’autres mots dont la prononciation n’est pas définie. |
 
-Les phrases peuvent être fournies dans un ou plusieurs fichiers texte. Pour améliorer la précision, utilisez des données texte plus proches des énoncés prononcés attendus. Les prononciations doivent être fournies sous forme de fichier texte unique. L’ensemble peut être packagé en un seul fichier zip et chargé sur le <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Les phrases peuvent être fournies dans un ou plusieurs fichiers texte. Pour améliorer la précision, utilisez des données texte plus proches des énoncés prononcés attendus. Les prononciations doivent être fournies sous forme de fichier texte unique. Vous pouvez tout packager dans un seul fichier zip et le charger vers <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 L’apprentissage avec du texte associé se termine généralement en quelques minutes.
 
