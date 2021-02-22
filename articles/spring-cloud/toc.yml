@@ -59,7 +59,7 @@
   items:
     - name: Développer
       items:
-        - name: Préparer une application Java Spring pour le déploiement
+        - name: Préparer une application pour le déploiement
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configurer un serveur de configuration
           href: spring-cloud-tutorial-config-server.md
