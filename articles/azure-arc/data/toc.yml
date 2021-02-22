@@ -1,6 +1,6 @@
 - name: "Documentation relative aux services de données avec Azure\_Arc"
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Présentation des services de données avec Azure\_Arc"
       href: overview.md
@@ -96,7 +96,7 @@
       items:
         - name: Présentation de PostgreSQL Hyperscale avec Azure Arc
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
-        - name: Limitations
+        - name: Limites
           href: limitations-postgresql-hyperscale.md
     - name: Démarrages rapides
       items:
@@ -230,6 +230,8 @@
           href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-sql
           href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql-endpoint
+          href: /sql/azdata/reference/reference-azdata-arc-sql-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-sql-mi
           href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: arc-sql-mi-config

@@ -4,17 +4,17 @@ summary: Découvrir comment gérer les clusters Kubernetes avec Azure Arc
 metadata:
   title: Kubernetes avec Azure Arc
   description: Découvrir plus d’informations sur la gestion des machines locales dans Azure
-  author: 
+  author: shashankbarsin
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
-  ms.author: 
-  ms.openlocfilehash: 9eeddfefe451eb524484df8a1986c7ec736c4c0f
-  ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+  ms.date: 02/15/2021
+  ms.author: shasb
+  ms.openlocfilehash: 97343e8c23e202e70ec30bb0a522105889ea08b3
+  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97674370"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100560238"
 landingContent:
 - title: Connecter des clusters Kubernetes à Azure à l’aide d’Azure Arc
   linkLists:
@@ -22,10 +22,22 @@ landingContent:
     links:
     - text: Qu’est-ce que Kubernetes avec Azure Arc ?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: Architecture d’agent
+      url: conceptual-agent-architecture.md
+    - text: Configurations et GitOps
+      url: conceptual-configurations.md
+    - text: Forum Aux Questions (FAQ)
+      url: faq.md
+- title: Commencer
+  linkLists:
   - linkListType: quickstart
     links:
     - text: Connecter un cluster
       url: connect-cluster.md
+- title: Configurer, administrer et superviser des clusters
+  linkLists:
   - linkListType: how-to-guide
     links:
     - text: Déployer des configurations avec GitOps

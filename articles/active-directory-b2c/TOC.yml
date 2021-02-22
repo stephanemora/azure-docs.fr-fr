@@ -26,11 +26,7 @@
       href: tutorial-register-applications.md
     - name: 3 - Créer des flux d’utilisateur
       href: tutorial-create-user-flows.md
-    - name: Ajout de fournisseurs d'identité
-      href: tutorial-add-identity-providers.md
-    - name: Personnaliser l’interface utilisateur
-      href: tutorial-customize-ui.md
-    - name: Authentification des utilisateurs
+    - name: 4 - Authentifier les utilisateurs
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: Accorder un accès à l’API
+    - name: 5 - Accorder l’accès à une API
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -434,20 +430,20 @@
     - name: Sécuriser l’API Gestion des API
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
-    - name: MFA sécurisée basée sur les téléphones
-      href: phone-based-mfa.md
-      displayName: 'multi-factor authentication, Azure Monitor, Log Analytics'
     - name: Journaux et supervision
       items:
         - name: Journaux d’audit
           href: view-audit-logs.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting'
         - name: Azure Monitor
           href: azure-monitor.md
-          displayName: 'log, logs, logging, usage, events'
+          displayName: 'log, logs, logging, usage, events, reports, reporting, dashboard'
         - name: Analyse de l'utilisation
           href: analytics-with-application-insights.md
-          displayName: 'application insights, app insights'
+          displayName: 'application insights, app insights, reports, reporting'
+        - name: MFA sécurisée basée sur les téléphones
+          href: phone-based-mfa.md
+          displayName: 'multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard'
     - name: Conformité
       items:
         - name: Accès utilisateur

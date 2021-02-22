@@ -1,6 +1,6 @@
 - name: Documentation sur la messagerie Service Bus
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la messagerie Service Bus\_?"
       href: service-bus-messaging-overview.md
@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Sécurité du réseau
           href: network-security.md
+    - name: Intégration à d’autres services
+      items:
+        - name: Intégration d’Azure Service Bus et d’Azure Event Grid
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Guides pratiques
   items:
     - name: Passer d’une région à l’autre
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Expiration des messages (durée de vie)
               href: message-expiration.md
-            - name: Gestion des messages à l’aide d’Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Actions et filtres de rubrique
           href: topic-filters.md
         - name: Migrer des espaces de noms Standard vers Premium

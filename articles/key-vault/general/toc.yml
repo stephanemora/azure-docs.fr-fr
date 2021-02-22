@@ -1,6 +1,6 @@
 - name: Général
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Key Vault
       href: overview.md
@@ -43,11 +43,11 @@
   items:
     - name: Concepts de base
       href: basic-concepts.md
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       href: best-practices.md
     - name: Sécurité
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: security-overview.md
         - name: Sécuriser l’accès à un coffre de clés
           href: secure-your-key-vault.md
@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Portail
               href: assign-access-policy-portal.md
-        - name: "Utiliser un rôle\_RBAC Azure pour gérer l’accès aux clés, aux secrets et aux certificats (préversion)"
-          href: rbac-guide.md
-        - name: Guide de migration des stratégies d’accès du coffre vers Azure RBAC
-          href: rbac-migration.md
+        - name: Modèle d’autorisation RBAC Azure
+          items:
+            - name: "Utiliser un rôle\_RBAC Azure pour gérer l’accès aux clés, aux secrets et aux certificats"
+              href: rbac-guide.md
+            - name: Guide de migration des stratégies d’accès du coffre vers Azure RBAC
+              href: rbac-migration.md
         - name: Résoudre les problèmes d’accès
           href: troubleshooting-access-issues.md
     - name: Développer

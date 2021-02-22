@@ -14,7 +14,21 @@
 - name: Exemples
   items:
     - name: Azure PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Exemples de scripts
+          href: powershell-samples.md
+        - name: Créer une passerelle VPN
+          href: scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md
+        - name: Passerelle VPN + P2S RADIUS
+          href: scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md
+        - name: Passerelle VPN + Authentification par certificat P2S
+          href: scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md
+        - name: Passerelle VPN + Site à site
+          href: scripts/vpn-gateway-sample-site-to-site-powershell.md
+        - name: Connexion entre deux réseaux virtuels
+          href: scripts/vpn-gateway-sample-vnet-vnet-powershell.md
+        - name: Télécharger un modèle d’appareil VPN
+          href: scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md
 - name: Concepts
   items:
     - name: Travailler à distance
@@ -101,8 +115,6 @@
           href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: VPN sur peering privé
           href: site-to-site-vpn-private-peering.md
-    - name: Connexion de site à site entre Azure et AWS
-      href: create-vpn-azure-aws-managed-solutions.md
     - name: Connexions de réseau virtuel à réseau virtuel
       items:
         - name: Configurer des connexions de réseau virtuel à réseau virtuel

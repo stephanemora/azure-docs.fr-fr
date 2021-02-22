@@ -978,10 +978,14 @@
               href: app/sharepoint.md
             - name: Ordinateurs Windows
               href: app/windows-desktop.md
-        - name: Autres outils
-          items:
-            - name: Changer d’analyse
-              href: app/change-analysis.md
+    - name: Analyse des changements
+      items:
+        - name: Vue d’ensemble
+          href: app/change-analysis.md
+        - name: Visualisations
+          href: app/change-analysis-visualizations.md
+        - name: Dépanner
+          href: app/change-analysis-troubleshoot.md
     - name: Azure Monitor pour machines virtuelles
       items:
         - name: Vue d’ensemble

@@ -10,7 +10,7 @@
   items:
     - name: Modèles d’achat
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database/purchasing-models.md
         - name: Vue d’ensemble du modèle vCore
           href: database/service-tiers-vcore.md
@@ -20,7 +20,7 @@
           href: database/reserved-capacity-overview.md
     - name: Capacité de calcul et stockage
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database/service-tiers-general-purpose-business-critical.md
           displayName: provisioned compute tier
         - name: Usage général / Standard
@@ -45,7 +45,7 @@
           href: database/elastic-transactions-overview.md
         - name: Sécurité
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: database/security-overview.md
               displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
             - name: Meilleures pratiques
@@ -143,8 +143,10 @@
       items:
         - name: Demander des augmentations de quota
           href: database/quota-increase-request.md
-        - name: Automatisation de travaux
+        - name: Automatisation des travaux avec des travaux élastiques
           href: database/job-automation-overview.md
+        - name: Automatisation des travaux avec SQL Agent
+          href: database/job-automation-managed-instances.md
         - name: Continuité de l’activité
           items:
             - name: Configurer le groupe de basculement
@@ -674,7 +676,7 @@
   items:
     - name: Documentation
       href: managed-instance/index.yml
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: "Qu’est-ce que SQL Managed Instance\_?"
           href: managed-instance/sql-managed-instance-paas-overview.md
@@ -1005,7 +1007,7 @@
       href: virtual-machines/index.yml
     - name: Windows
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           items:
             - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md

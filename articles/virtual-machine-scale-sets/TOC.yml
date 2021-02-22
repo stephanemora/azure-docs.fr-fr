@@ -165,8 +165,13 @@
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: Maintenance et mises à jour
-      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
-      maintainContext: true
+      items:
+        - name: Vue d'ensemble
+          href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+          maintainContext: true
+        - name: Mise à niveau automatique des extensions (préversion)
+          href: ../virtual-machines/automatic-extension-upgrade.md
+          maintainContext: true
     - name: Stockage sur disque
       items:
         - name: Disques managés

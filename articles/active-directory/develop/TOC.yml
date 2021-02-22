@@ -1,6 +1,6 @@
 - name: Documentation sur la plateforme d’identités Microsoft
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Présentation de la plateforme d’identités Microsoft
@@ -237,7 +237,7 @@
               href: scenario-desktop-production.md
         - name: Application démon
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: scenario-daemon-overview.md
             - name: Inscription d'application
               href: scenario-daemon-app-registration.md
@@ -475,6 +475,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Gérer les changements de cookie SameSite dans Chrome
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Prendre en charge l’authentification sans mot de passe
+      items:
+        - name: "Prendre en charge l’authentification\_FIDO2"
+          href: support-fido2-authentication.md
     - name: Authentifier les applications et les services
       items:
         - name: Créer un principal de service avec Azure PowerShell

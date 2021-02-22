@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
-ms.date: 02/01/2021
+ms.date: 02/08/2020
 ms.topic: sample
-ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: c64bc02c1dea4e2c53d4ff195add2ac7fa57874f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225139"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370952"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -19,8 +19,9 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | Exemple | Description |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/index.md) | Fournit des garde-fous pour la conformité à la norme Australian Government ISM PROTECTED. |
-| [Azure Security Benchmark v1](./azure-security-benchmark.md) | Propose des garde-fous pour la conformité au [benchmark de sécurité Azure v1](../../../security/benchmarks/overview.md). |
-| [PBMM fédéral du Canada](./canada-federal-pbmm/index.md) | Propose des garde-fous pour la conformité au Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
+| [Benchmark de sécurité Azure](./azure-security-benchmark.md) | Propose des garde-fous pour la conformité au [benchmark de sécurité Azure](../../../security/benchmarks/overview.md). |
+| [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Déploie et configure Azure Security Benchmark Foundation. |
+| [PBMM fédéral du Canada](./canada-federal-pbmm/index.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1-1-0.md)| Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à DoD Impact Level 5. |
