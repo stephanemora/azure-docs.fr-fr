@@ -36,7 +36,7 @@
           href: quickstart-v2-aspnet-core-webapp.md
         - name: ASP.NET Core (appeler Microsoft Graph)
           href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-        - name: Node.js - MSAL | Préversion
+        - name: Node.js - MSAL
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: Node.js - Passport.js
           displayName: 'OIDC, express'
@@ -62,12 +62,16 @@
           href: quickstart-v2-uwp.md
         - name: Windows Desktop .NET
           href: quickstart-v2-windows-desktop.md
+        - name: Node.js Electron
+          href: quickstart-v2-nodejs-desktop.md
     - name: Démon ou service back-end
       items:
         - name: Console .NET Core (démon)
           href: quickstart-v2-netcore-daemon.md
         - name: Démon de console Python
           href: quickstart-v2-python-daemon.md
+        - name: Démon de console Node.js
+          href: quickstart-v2-nodejs-console.md
         - name: Démon de console Java
           href: quickstart-v2-java-daemon.md
 - name: Tutoriels
@@ -88,6 +92,8 @@
           href: tutorial-v2-asp-webapp.md
         - name: Serveur Blazor
           href: tutorial-blazor-server.md
+        - name: Tutoriel d’application web Node.js
+          href: tutorial-v2-nodejs-webapp-msal.md
     - name: Mobile et bureau
       items:
         - name: Android
@@ -101,10 +107,14 @@
           href: tutorial-v2-windows-desktop.md
         - name: Utiliser le mode d’appareil partagé dans votre application Android
           href: tutorial-v2-shared-device-mode.md
+        - name: Application de bureau Electron
+          href: tutorial-v2-nodejs-desktop.md
     - name: Démon ou service back-end
       items:
         - name: Application web démon ASP.NET
           href: tutorial-v2-aspnet-daemon-web-app.md
+        - name: Démon de console Node.js
+          href: tutorial-v2-nodejs-console.md
 - name: Exemples
   href: sample-v2-code.md
 - name: Concepts
@@ -237,7 +247,7 @@
               href: scenario-desktop-production.md
         - name: Application démon
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: scenario-daemon-overview.md
             - name: Inscription d'application
               href: scenario-daemon-app-registration.md
