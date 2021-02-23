@@ -4,12 +4,12 @@ description: Empêchez les utilisateurs de mettre à jour ou de supprimer des re
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428315"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369473"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues
 
@@ -32,7 +32,7 @@ Les verrous Resource Manager s'appliquent uniquement aux opérations qui se prod
 
 Si vous appliquez des verrous, il se peut que vous obteniez des résultats inattendus, car certaines opérations qui, en apparence, ne modifient pas la ressource nécessitent en réalité des actions qui sont bloquées par ce verrou. Les verrous empêchent toutes les opérations impliquant une demande POST à l’API Azure Resource Manager. Voici quelques exemples courants d’opérations bloquées par un verrou :
 
-* Un verrou en lecture seule appliqué à un **compte de stockage** empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
+* Un verrou en lecture seule appliqué à un **compte de stockage** empêche les utilisateurs de répertorier les clés du compte. L’opération Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) est gérée par le biais d’une requête POST pour protéger l’accès aux clés de compte, qui fournissent un accès complet aux données du compte de stockage. Lorsqu’un verrou en lecture seule est configuré pour un compte de stockage, les utilisateurs qui ne possèdent pas les clés de compte doivent utiliser des informations d’identification Azure AD pour accéder aux données de blob ou de file d’attente. Un verrou en lecture seule empêche également l’attribution de rôles Azure RBAC étendus au compte de stockage ou à un conteneur de données (conteneur de blobs ou file d’attente).
 
 * Un verrou en lecture seule sur une ressource **App Service** empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
 

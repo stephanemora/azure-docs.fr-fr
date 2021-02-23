@@ -1,22 +1,18 @@
 ---
 title: Déplacer des données à partir d’une source HTTP – Azure
 description: Découvrez comment déplacer des données à partir d’une source HTTP locale ou cloud à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 653a53d6bb5c69cd95fd5e9a2483b51de8293b40
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ce29b5a112d70575a721b0b527947fd95868da80
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608576"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382920"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 

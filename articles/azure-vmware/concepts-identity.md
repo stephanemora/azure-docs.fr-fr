@@ -3,12 +3,12 @@ title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 0f58cbdaa641af24cef53c3cfd9604cf1b0c1c3b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364883"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
@@ -49,7 +49,7 @@ Le tableau suivant répertorie les privilèges **CloudAdmin** et **CloudGlobalAd
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Identité et accès du gestionnaire NSX-T
 
-Utilisez le compte « administrateur » pour accéder au gestionnaire NSX-T. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des routeurs T1, des commutateurs logiques et tous les services. Les privilèges vous permettent d’accéder au routeur NSX-T T0. Une modification apportée au routeur T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le Portail Azure pour demander des modifications apportées à votre routeur NSX-T T0.
+Utilisez le compte *administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
   
 ## <a name="next-steps"></a>Étapes suivantes
 

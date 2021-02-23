@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993740"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095837"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Activer et gérer le contrôle de version des objets blob
 
-Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet.  Lorsque le contrôle de version est activé, vous pouvez restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
+Vous pouvez activer le contrôle de version du stockage d’objets blob pour gérer automatiquement les versions précédentes d’un objet blob lorsqu’il est modifié ou supprimé. Lorsque le contrôle de version est activé, vous pouvez alors restaurer une version antérieure d’un objet blob pour récupérer vos données si celles-ci ont été modifiées ou supprimées par erreur.
 
 Cet article explique comment activer ou désactiver le contrôle de version des blobs pour le compte de stockage à l’aide du portail Azure ou d’un modèle de Resource Manager. Pour en savoir plus sur le contrôle de version des blobs, consultez [Contrôle de version des objets blob](versioning-overview.md).
 
@@ -29,13 +29,39 @@ Cet article explique comment activer ou désactiver le contrôle de version des 
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Pour activer le contrôle de version des objets blob dans le Portail Azure :
+Pour activer le contrôle de version des objets blob d’un compte de stockage dans le portail Azure :
 
 1. Accédez à votre compte de stockage dans le portail.
 1. Sous **Service BLOB**, choisissez **Protection des données**.
 1. Dans la section **Gestion de version**, sélectionnez **Activée**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Capture d’écran représentant l’activation du contrôle de version des objets blob dans le Portail Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour activer le contrôle de version des objets blob d’un compte de stockage avec PowerShell, commencez par installer le module [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) version 2.3.0 ou une version ultérieure. Appelez ensuite la commande [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) pour activer le contrôle de version, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour activer le contrôle de version des objets blob d’un compte de stockage avec Azure CLI, commencez par installer Azure CLI version 2.2.0 ou une version ultérieure. Appelez ensuite la commande [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) pour activer le contrôle de version, comme illustré dans l’exemple suivant. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[Modèle](#tab/template)
 

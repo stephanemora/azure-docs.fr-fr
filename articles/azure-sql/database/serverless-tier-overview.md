@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687400"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393239"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ Pour plus de détails sur les coûts, consultez [Facturation](serverless-tier-ov
 
 Serverless constitue un rapport prix/performance optimisé pour les bases de données uniques avec des modèles d’utilisation intermittents imprévisibles pouvant supporter un délai dans le préchauffage du calcul après des périodes d’inactivité. Par opposition, le niveau de calcul provisionné présente un rapport prix/performance optimisé pour une base de données unique ou plusieurs bases de données dans des pools élastiques avec une utilisation moyenne plus élevée qui ne tolèrent aucun délai lors du préchauffage du calcul.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>Scénarios adaptés au calcul serverless
+### <a name="scenarios-well-suited-for-serverless-compute"></a>Scénarios adaptés à l’informatique serverless
 
 - Les bases de données uniques avec des modèles d’utilisation intermittente et imprévisible entrecoupée de périodes d’inactivité, et une utilisation du calcul moyenne moins élevée dans le temps.
 - Les bases de données uniques dans le niveau de calcul provisionné qui sont souvent mises à l’échelle et les clients qui préfèrent déléguer la mise à l’échelle du calcul au service.
@@ -57,7 +57,7 @@ Serverless constitue un rapport prix/performance optimisé pour les bases de don
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Scénarios adaptés au calcul provisionné
 
 - Les bases de données uniques avec des modèles d’utilisation plus régulière et prévisible, et une utilisation du calcul moyenne plus élevée dans le temps.
-- Les bases de données qui ne peuvent pas tolérer de compromis sur les performances résultant d’insuffisances de mémoire plus fréquentes ou de délais dans la reprise automatique après un état de mise en pause.
+- Les bases de données qui ne peuvent pas tolérer de compromis sur les performances résultant d’insuffisances de mémoire plus fréquentes ou de délais dans la reprise après un état de mise en pause.
 - Plusieurs bases de données avec des modèles d’utilisation intermittente et imprévisible qui peuvent être regroupées dans des pools élastiques pour un rapport prix/performances optimisé.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Comparaison avec le niveau de calcul provisionné
@@ -93,28 +93,28 @@ Contrairement aux bases de données de calcul provisionné, la mémoire du cache
 - L’utilisation du cache actif est considérée comme faible quand la taille totale des dernières entrées du cache utilisées tombe sous un certain seuil pendant une période donnée.
 - Quand la récupération du cache est déclenchée, la taille de cache cible est réduite de façon incrémentielle à une fraction de sa taille précédente, et la récupération continue uniquement si l’utilisation reste faible.
 - S’il y a une récupération du cache, la stratégie de sélection des entrées du cache à supprimer est la même que celle utilisée pour les bases de données de calcul provisionné quand la mémoire est fortement sollicitée.
-- La taille du cache n’est jamais réduite en deçà de la limite de mémoire minimale telle que définie par le nombre minimal de vCores configuré, le cas échéant.
+- La taille du cache n’est jamais réduite en deçà de la limite de mémoire minimale telle que définie par le nombre minimal de vCores, qui peut être configuré.
 
 Dans les bases de données de niveaux de calcul serverless et provisionné, des entrées de cache peuvent être supprimées si toute la mémoire disponible est utilisée.
 
-Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir un délai supplémentaire après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan périodiques répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression et les tâches de nettoyage QDS génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage des éléments fantômes n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
+Notez que lorsque l’utilisation du processeur est faible, l’utilisation du cache actif peut rester élevée en fonction du modèle d’utilisation et empêcher la récupération de la mémoire.  En outre, il peut y avoir des délais supplémentaires après l’arrêt de l’activité de l’utilisateur avant la récupération de la mémoire en raison des processus d’arrière-plan réguliers répondant à l’activité utilisateur précédente.  Par exemple, les opérations de suppression et les tâches de nettoyage QDS génèrent des enregistrements fantômes marqués pour suppression, mais ne sont pas physiquement supprimés tant que le processus de nettoyage des éléments fantômes n’est pas exécuté, ce qui peut impliquer la lecture de pages de données dans le cache.
 
 #### <a name="cache-hydration"></a>Alimentation du cache
 
 La taille du cache SQL augmente à mesure que des données sont extraites du disque, de la même manière et au même rythme que pour des bases de données provisionnées. Quand la base de données est occupée, le cache est autorisé à grossir sans contrainte jusqu’à la limite de mémoire maximale.
 
-## <a name="autopausing-and-autoresuming"></a>Mise en pause automatique et reprise automatique
+## <a name="auto-pause-and-auto-resume"></a>Mise en pause automatique et reprise automatique
 
-### <a name="autopausing"></a>Mise en pause automatique
+### <a name="auto-pause"></a>Mise en pause automatique
 
-Une mise en pause automatique est déclenchée si toutes les conditions suivantes sont remplies pendant la durée du délai de mise en pause automatique :
+Une mise en pause automatique est déclenchée si toutes les conditions suivantes sont remplies pendant la durée du délai de la mise en pause automatique :
 
 - Nombre de sessions = 0
 - Processeur = 0 pour la charge de travail utilisateur exécutée dans le pool d’utilisateurs
 
 Une option permet de désactiver la mise en pause automatique si vous le souhaitez.
 
-Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l'une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données reste en ligne quelle que soit sa durée de l'inactivité :
+Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.  Si l’une des fonctionnalités suivantes est utilisée, la mise en pause automatique doit être désactivée et la base de données reste en ligne quelle que soit sa durée de l’inactivité :
 
 - Géoréplication (géoréplication active et groupes de basculement automatique).
 - Conservation de sauvegardes à long terme (LTR).
@@ -124,7 +124,7 @@ Les fonctionnalités suivantes ne prennent pas en charge la mise en pause automa
 
 La mise en pause automatique est temporairement indisponible durant le déploiement de certaines mises à jour de service pour lesquelles la base de données doit être en ligne.  Dans ce cas, la mise en pause automatique est réactivée dès que la mise à jour du service est terminée.
 
-### <a name="autoresuming"></a>Reprise automatique
+### <a name="auto-resuming"></a>Reprise automatique
 
 La reprise automatique est déclenchée si l’une des conditions suivantes est remplie à un moment donné :
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Déplacer une base de données du niveau de calcul provisionné vers le niveau de calcul serverless
 
@@ -241,7 +241,7 @@ ALTER DATABASE testdb
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Pour plus d’informations, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Pour plus d’informations, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Déplacer une base de données du niveau de calcul serverless vers le niveau de calcul provisionné
 

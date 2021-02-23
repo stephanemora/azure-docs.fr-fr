@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538500"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369966"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modèle de ressource pour la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé (préversion)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ Le modèle de ressource du compte de base de données est mis à jour avec quelq
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-Une nouvelle propriété dans la stratégie de sauvegarde au niveau du compte nommée « Type » sous le paramètre « backuppolicy » active les fonctionnalités de sauvegarde continue et de restauration à un instant dans le passé. Ce mode est appelé « **sauvegarde continue** ». Dans la préversion publique, vous ne pouvez définir ce mode que lors de la création du compte. Une fois qu’il est activé, les fonctionnalités de sauvegarde continue et de restauration à un instant dans le passé seront activées par défaut sur tous les conteneurs et toutes les bases de données créés dans ce compte.
+Une nouvelle propriété dans la stratégie de sauvegarde au niveau du compte nommée `Type` sous le paramètre `backuppolicy` active les fonctionnalités de sauvegarde continue et de restauration à un instant dans le passé. Ce mode est appelé « **sauvegarde continue** ». Dans la préversion publique, vous ne pouvez définir ce mode que lors de la création du compte. Une fois qu’il est activé, les fonctionnalités de sauvegarde continue et de restauration à un instant dans le passé seront activées par défaut sur tous les conteneurs et toutes les bases de données créés dans ce compte.
 
 > [!NOTE]
 > Actuellement, la fonctionnalité de restauration à un instant dans le passé est accessible en préversion publique et disponible pour l’API Azure Cosmos DB pour MongoDB et les comptes SQL. Après avoir créé un compte en mode continu, vous ne pouvez pas le basculer en mode périodique.
 
 ### <a name="createmode"></a>CreateMode
 
-Cette propriété indique la façon dont le compte a été créé. Les valeurs possibles sont « Default » et « Restore ». Pour effectuer une restauration, définissez cette valeur sur « Restore » et fournissez les valeurs appropriées dans la propriété `RestoreParameters`.
+Cette propriété indique la façon dont le compte a été créé. Les valeurs possibles sont *Default* et *Restore*. Pour effectuer une restauration, définissez cette valeur sur *Restore* et fournissez les valeurs appropriées dans la propriété `RestoreParameters`.
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ La ressource `RestoreParameters` contient les détails de l’opération de rest
 
 |Nom de la propriété |Description  |
 |---------|---------|
-|restoreMode  | Le mode de restauration doit être « PointInTime ». |
+|restoreMode  | Le mode de restauration doit être *PointInTime*. |
 |restoreSource   |  L’instanceId du compte source à partir duquel la restauration sera initiée.       |
 |restoreTimestampInUtc  | L’instant dans le passé en UTC auquel le compte doit être restauré. |
 |databasesToRestore   | Liste d’objets `DatabaseRestoreSource` pour spécifier les bases de données et les conteneurs qui doivent être restaurés. Si cette valeur est vide, le compte entier est restauré.   |

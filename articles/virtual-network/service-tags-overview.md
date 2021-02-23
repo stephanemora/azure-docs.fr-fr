@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475182"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389737"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -153,6 +153,7 @@ Les plages d’adresses IP de ces fichiers sont en notation CIDR.
 ### <a name="tips"></a>Conseils 
 - Vous pouvez détecter les mises à jour d’une publication à l’autre en notant les valeurs *changeNumber* augmentées dans le fichier JSON. Chaque sous-section (par exemple, **Storage.WestUS**) a sa propre valeur *changeNumber* qui est incrémentée au fur et à mesure que des modifications sont effectuées. Le niveau supérieur de la valeur *changeNumber* du fichier est incrémenté lorsque l’une des sous-sections est modifiée.
 - Pour obtenir des exemples d’analyse des informations de balise de service (par exemple, obtenir toutes les plages d’adresses pour le stockage dans la région WestUS), reportez-vous à la documentation relative à l’[API Service Tag Discovery PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Lorsque de nouvelles adresses IP sont ajoutées aux balises de service, elles ne sont pas utilisées dans Azure pendant au moins une semaine. Cela vous donne le temps de mettre à jour les systèmes qui peuvent avoir besoin d’effectuer le suivi des adresses IP associées aux balises de service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [créer des groupes de sécurité réseau](tutorial-filter-network-traffic.md).

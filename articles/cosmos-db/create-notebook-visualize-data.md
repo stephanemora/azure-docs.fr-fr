@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e16a738264e64e37cfa42722832dac7e34fee899
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: beb58922172a045242f4f9bcaf647b3cfc8b5551
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339493"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380795"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutoriel : Créer un notebook dans Azure Cosmos DB pour analyser et visualiser les données
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Cet article explique comment utiliser les notebooks Jupyter intégrés pour impo
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Activer la prise en charge des notebooks lors de la création du compte Azure Cosmos](enable-notebooks.md)
+* [Activer les notebooks sur un compte Azure Cosmos](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Créer les ressources et importer des données
  
@@ -30,7 +30,7 @@ Dans cette section, vous allez créer la base de données Azure Cosmos et le con
 
 1. Accédez à votre compte Azure Cosmos et ouvrez le volet **Data Explorer** (Explorateur de données).
 
-1. Accédez à l’onglet **Notebooks** , sélectionnez `…` en regard de **My Notebooks** et créez un notebook ( **New Notebook** ). Sélectionnez **Python 3** comme noyau par défaut.
+1. Accédez à l’onglet **Notebooks**, sélectionnez `…` en regard de **My Notebooks** et créez un notebook (**New Notebook**). Sélectionnez **Python 3** comme noyau par défaut.
 
    :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Créer un notebook":::
 
@@ -143,7 +143,7 @@ df_cosmos.head(10)
 
 Dans cette section, vous allez exécuter des requêtes sur les données récupérées.
 
-* **Requête 1**  : exécutez une requête Group by sur le DataFrame pour obtenir la somme des chiffres d’affaires pour chaque pays/région et afficher cinq éléments des résultats. Dans une nouvelle cellule de notebook, exécutez le code suivant :
+* **Requête 1** : exécutez une requête Group by sur le DataFrame pour obtenir la somme des chiffres d’affaires pour chaque pays/région et afficher cinq éléments des résultats. Dans une nouvelle cellule de notebook, exécutez le code suivant :
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()

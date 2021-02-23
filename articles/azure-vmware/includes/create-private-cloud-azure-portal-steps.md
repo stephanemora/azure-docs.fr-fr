@@ -1,14 +1,14 @@
 ---
-title: Déployer Azure VMware Solution
-description: Étapes de déploiement d’Azure VMware Solution à l’aide du portail Azure.
+title: Créer un cloud privé Azure VMware Solution
+description: Étapes de création d’un cloud privé Azure VMware Solution à l’aide du portail Azure.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578311"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653129"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -40,4 +40,4 @@ ms.locfileid: "91578311"
 
 1. Vérifiez que déploiement a réussi. Accédez au groupe de ressources que vous avez créé et sélectionnez votre cloud privé.  Quand le déploiement est terminé, vous voyez l’état **Réussi**. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Sous l’onglet De base, entrez des valeurs pour les champs." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Vérifiez que déploiement a réussi." border="true":::

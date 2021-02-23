@@ -1,14 +1,14 @@
 ---
 title: Présentation de l’agent Connected Machine Windows
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626306"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558508"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -32,6 +32,30 @@ Le package d’agent Azure Connected Machine contient plusieurs composants logiq
     * Les attributions sont supprimées au bout de 14 jours et ne sont pas réattribuées à l’ordinateur après la période de 14 jours.
 
 * L’agent Extension gère les extensions de machine virtuelle, notamment l’installation, la désinstallation et la mise à niveau. Les extensions sont téléchargées à partir d’Azure et copiées dans le dossier `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` sur Windows et `/opt/GC_Ext/downloads` pour Linux. Sur Windows, l’extension est installée dans le chemin suivant `%SystemDrive%\Packages\Plugins\<extension>` et sur Linux, l’extension est installée dans `/var/lib/waagent/<extension>`.
+
+## <a name="instance-metadata"></a>Métadonnées d’instance
+
+Les informations de métadonnées sur l’ordinateur connecté sont collectées une fois que l’agent de l’ordinateur connecté s’est inscrit auprès des serveurs Arc. Plus précisément :
+
+* Nom, type et version du système d’exploitation
+* Nom de l'ordinateur
+* Nom de domaine complet (FQDN) de l’ordinateur
+* Version de l’agent Machine connectée
+* Nom de domaine complet (FQDN) Active Directory et DNS
+* UUID (ID BIOS)
+* Pulsation de l'agent Connected Machine
+* Version de l’agent Machine connectée
+* Clé publique pour l’identité managée
+* État de conformité de la stratégie et détails (si vous utilisez des stratégies de configuration invitées Azure Policy)
+
+Les informations de métadonnées suivantes sont demandées par l’agent à partir d’Azure :
+
+* Emplacement de la ressource (ressource)
+* ID de machine virtuelle
+* Balises
+* Certificat Managed Identity Azure Active Directory
+* Affectations de la stratégie de configuration invitée
+* Demandes d’extension : installation, mise à jour et suppression.
 
 ## <a name="download-agents"></a>Télécharger les agents
 

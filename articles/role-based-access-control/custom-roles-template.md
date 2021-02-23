@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 96915fe5cc7bc7b2f88e0cbd8619c10a6433dd71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557475"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’un modèle ARM
 
@@ -207,5 +207,5 @@ Pour supprimer le rôle personnalisé, procédez comme suit.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre les définitions de rôles Azure](role-definitions.md)
-- [Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle Azure Resource Manager](quickstart-role-assignments-template.md)
+- [Démarrage rapide : Attribuer un rôle Azure en utilisant un modèle Azure Resource Manager](quickstart-role-assignments-template.md)
 - [Documentation sur les modèles ARM](../azure-resource-manager/templates/index.yml)

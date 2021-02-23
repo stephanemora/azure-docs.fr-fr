@@ -1,23 +1,18 @@
 ---
 title: Fonctionnalités d’optimisation des performances de l’activité de copie
 description: Découvrez les fonctionnalités clés qui vous aident à optimiser les performances de l’activité de copie dans Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
-ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324329"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387799"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Fonctionnalités d’optimisation des performances de l’activité de copie
 
@@ -126,7 +121,7 @@ Lorsque vous spécifiez une valeur pour la propriété `parallelCopies`, prenez 
 
 Lorsque vous copiez des données entre un magasin de données source et un magasin de données récepteur, vous pouvez choisir d’utiliser le service Stockage Blob Azure ou Azure Data Lake Storage Gen2 comme magasin intermédiaire. La fonctionnalité intermédiaire est particulièrement utile dans les cas suivants :
 
-- **Vous souhaitez ingérer des données de divers magasins de données dans Azure Synapse Analytics (anciennement SQL Data Warehouse) via PolyBase, copier des données à partir de/vers Snowflake, ou ingérer des données à partir d’Amazon redshift/HDFS efficacement.** Pour plus de détails, consultez :
+- **Vous souhaitez ingérer des données de divers magasins de données dans Azure Synapse Analytics via PolyBase, copier des données à partir de/vers Snowflake, ou ingérer des données à partir d’Amazon redshift/HDFS efficacement.** Pour plus de détails, consultez :
   - [Utiliser PolyBase pour charger des données dans Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)
   - [Connecteur Snowflake](connector-snowflake.md)
   - [Connecteur Amazon Redshift](connector-amazon-redshift.md)

@@ -1,24 +1,28 @@
 ---
-title: Configurer la géoréplication pour Azure Cache pour Redis | Microsoft Docs
-description: Découvrez comment répliquer vos instances Cache Azure pour Redis dans des régions géographiques.
+title: Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
+description: Découvrez comment répliquer vos instances Azure Cache pour Redis Premium dans des régions Azure
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536876"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386870"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configurer la géoréplication pour Azure Cache pour Redis
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Configurer la géoréplication pour les instances Azure Cache pour Redis Premium
 
-La géoréplication fournit un mécanisme permettant de lier deux instances de Cache Azure pour Redis de niveau Premium. Un cache est choisi comme cache lié principal et l'autre comme cache lié secondaire. Le cache lié secondaire est en lecture seule et les données écrites dans le cache principal sont répliquées vers le cache lié secondaire. Le transfert de données entre les instances de cache principal et secondaire est sécurisé par TLS. La géoréplication peut être utilisée pour configurer un cache qui s’étend sur deux régions Azure. Cet article fournit un guide de configuration de la géoréplication pour vos instances Azure Cache pour Redis de niveau Premium.
+Dans cet article, vous allez apprendre à configurer un cache Azure géorépliqué à l’aide du portail Azure.
+
+La géoréplication relie deux instances Azure Cache pour Redis Premium et crée une relation de réplication des données. Ces instances de cache se trouvent généralement dans des régions Azure différentes, même si cela n’est pas nécessaire. Une instance joue le rôle d’instance principale et l’autre d’instance secondaire. L’instance principale gère les demandes de lecture et d’écriture et propage les modifications à l’instance secondaire. Ce processus se poursuit jusqu’à ce que le lien entre les deux instances soit supprimé.
 
 > [!NOTE]
-> La géoréplication a été conçue comme une solution de reprise d’activité. Par défaut, votre application écrit et lit dans la région primaire. Elle peut éventuellement être configurée pour lire dans la région secondaire. La géoréplication n’assure pas de basculement automatique en raison de problèmes liés à l’ajout de latence réseau entre les régions si le reste de votre application reste dans la région primaire. Vous devrez gérer et lancer le basculement en dissociant le cache secondaire. Celui-ci sera alors promu en devenant la nouvelle instance principale.
+> La géoréplication a été conçue comme une solution de reprise d’activité.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>Conditions préalables à la géoréplication
 
@@ -51,11 +55,11 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="add-a-geo-replication-link"></a>Ajouter un lien de géoréplication
 
-1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Cliquez ensuite sur **Ajouter une liaison de réplication de cache** dans le panneau **Géoréplication** .
+1. Pour lier deux caches à des fins de géoréplication, cliquez d'abord sur **Géoréplication** dans le menu Ressources du cache que vous souhaitez utiliser comme cache lié principal. Cliquez ensuite sur **Ajouter une liaison de réplication de cache** dans le panneau **Géoréplication**.
 
     ![Ajouter un lien](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Dans la liste **Caches compatibles** , cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, cliquez sur la région à partir de la carte afin de n'afficher que les caches figurant dans la liste **Caches compatibles** .
+2. Dans la liste **Caches compatibles**, cliquez sur le nom du cache secondaire souhaité. Si le cache secondaire ne figure pas dans la liste, vérifiez que les [conditions préalables à la géoréplication](#geo-replication-prerequisites) du cache secondaire sont remplies. Pour filtrer les caches par région, cliquez sur la région à partir de la carte afin de n'afficher que les caches figurant dans la liste **Caches compatibles**.
 
     ![Caches compatibles avec la géoréplication](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -67,7 +71,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
     ![Lier des caches](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Vous pouvez voir la progression du processus de réplication sur le panneau **Géoréplication** .
+4. Vous pouvez voir la progression du processus de réplication sur le panneau **Géoréplication**.
 
     ![État du lien](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +79,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
     ![Capture d’écran montrant comment afficher l’état de liaison pour les caches principal et secondaire.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Une fois le processus de réplication terminé, l’ **État du lien** devient **Réussi** .
+    Une fois le processus de réplication terminé, l’**État du lien** devient **Réussi**.
 
     ![État du cache](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -83,7 +87,7 @@ Une fois la géoréplication configurée, les restrictions suivantes s’appliqu
 
 ## <a name="remove-a-geo-replication-link"></a>Supprimer un lien de géoréplication
 
-1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication** .
+1. Pour supprimer le lien entre deux caches et arrêter la géoréplication, cliquez sur **Dissocier les caches** dans le panneau **Géoréplication**.
     
     ![Dissocier les caches](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 

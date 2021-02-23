@@ -5,12 +5,12 @@ description: Découvrir comment mettre à jour ou réinitialiser les information
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427511"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389006"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Mettre à jour ou faire tourner les informations d’identification pour Azure Kubernetes Service (AKS)
 
@@ -48,6 +48,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 
 Pour mettre à jour les informations d’identification du principal de service existant, obtenez l’ID du principal de service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable nommée *SP_ID* pour être utilisé dans d’autres commandes. Ces commandes utilisent la syntaxe Bash.
 
+> [!WARNING]
+> Lorsque vous réinitialisez vos informations d’identification de cluster sur un cluster AKS qui utilise Azure Virtual Machine Scale Sets, une [mise à niveau d’image de nœud][node-image-upgrade] est effectuée pour mettre à jour vos nœuds avec les nouvelles informations d’identification.
+
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
@@ -82,7 +85,7 @@ Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeu
 }
 ```
 
-Définissez maintenant des variables pour l’ID du principal de service et la clé secrète client à l’aide de la sortie de votre propre commande [az ad sp create-for-rbac][az-ad-sp-create], comme indiqué dans l’exemple suivant. *SP_ID* correspond à votre *appId* , et *SP_SECRET* à votre *mot de passe* :
+Définissez maintenant des variables pour l’ID du principal de service et la clé secrète client à l’aide de la sortie de votre propre commande [az ad sp create-for-rbac][az-ad-sp-create], comme indiqué dans l’exemple suivant. *SP_ID* correspond à votre *appId*, et *SP_SECRET* à votre *mot de passe* :
 
 ```console
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -138,3 +141,4 @@ Dans cet article, le principal de service du cluster AKS lui-même et les applic
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

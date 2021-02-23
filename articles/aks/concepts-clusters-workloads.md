@@ -3,13 +3,13 @@ title: Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 description: Découvrez les composants de charge de travail et de cluster de base de Kubernetes et leur lien avec les fonctionnalités d’AKS (Azure Kubernetes Service)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674924"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373230"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -31,8 +31,8 @@ AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit
 
 Un cluster Kubernetes comprend deux composants :
 
-- Les nœuds de *plan de contrôle* fournissent les services Kubernetes de base et l’orchestration des charges de travail d’applications.
-- Les *nœuds* exécutent vos charges de travail d’applications.
+- Le *plan de contrôle* fournit les services Kubernetes de base et l’orchestration des charges de travail d’applications.
+- *Nœuds* qui exécutent vos charges de travail d’applications.
 
 ![Plan de contrôle et composants de nœud Kubernetes](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 

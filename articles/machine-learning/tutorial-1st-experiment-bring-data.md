@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622793"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377995"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutoriel : Utiliser vos propres données (partie 4 sur 4)
 
@@ -82,21 +82,8 @@ optimizer = optim.SGD(
 
 Votre script accepte à présent _data path_ (chemin d’accès aux données) en tant qu’argument. Pour commencer, effectuez un test en local. Ajoutez à la structure de répertoires de votre tutoriel un dossier appelé `data`. La structure de votre répertoire doit ressembler à ce qui suit :
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="La structure de répertoires affiche les sous-répertoires .azureml, data et src":::
+
 
 Si vous n’avez pas exécuté `train.py` localement dans le tutoriel précédent, vous n’avez pas le répertoire `data/`. Dans ce cas, exécutez la méthode `torchvision.datasets.CIFAR10` en local avec `download=True` dans votre script `train.py`.
 

@@ -2,13 +2,13 @@
 title: Métriques d’Azure Service Bus dans Azure Monitor | Microsoft Docs
 description: Cet article explique comment utiliser Azure Monitor pour surveiller les entités Service Bus (files d'attente, rubriques et abonnements).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519097"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métriques Azure Service Bus dans Azure Monitor
 
@@ -74,7 +74,7 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Messages entrants|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
+|Messages entrants|Le nombre d’événements ou de messages envoyés à Service Bus sur une période spécifiée. Cette métrique n’inclut pas les messages qui sont transférés automatiquement.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 |Messages sortants|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : Nom de l’entité|
 | Messages| Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Dimension : Nom de l’entité |
 | Messages actifs| Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Count <br/> Type d’agrégation : Average <br/> Dimension : Nom de l’entité |

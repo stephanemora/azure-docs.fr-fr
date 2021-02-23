@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787296"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522663"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Afficher et configurer la télémétrie de la protection DDoS
 
@@ -39,7 +39,6 @@ Les [mesures](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpub
 
 | Métrique | Nom d’affichage de la métrique | Unité | Type d’agrégation | Description |
 | --- | --- | --- | --- | --- |
-| ByteCount | Nombre d’octets | Count | Total | Nombre total d’octets transmis dans une période de temps |
 | BytesDroppedDDoS | Octets entrants supprimés DDoS | BytesPerSecond | Maximale | Octets entrants supprimés DDoS| 
 | BytesForwardedDDoS | Octets entrants transférés DDoS | BytesPerSecond | Maximale | Octets entrants transférés DDoS |
 | BytesInDDoS | Octets entrants DDoS | BytesPerSecond | Maximale | Octets entrants DDoS |
@@ -47,11 +46,9 @@ Les [mesures](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpub
 | DDoSTriggerTCPPackets | Paquets TCP entrants pour déclencher l’atténuation DDoS | CountPerSecond | Maximale | Paquets TCP entrants pour déclencher l’atténuation DDoS |
 | DDoSTriggerUDPPackets | Paquets UDP entrants pour déclencher l’atténuation DDoS | CountPerSecond | Maximale | Paquets UDP entrants pour déclencher l’atténuation DDoS |
 | IfUnderDDoSAttack | Sous attaque DDoS ou non | Count | Maximale | Sous attaque DDoS ou non |
-| PacketCount | Nombre de paquets | Count | Total | Nombre total de paquets transmis dans une période de temps |
 | PacketsDroppedDDoS | Paquets entrants ignorés DDoS | CountPerSecond | Maximale | Paquets entrants ignorés DDoS |
 | PacketsForwardedDDoS | Paquets entrants transférés DDoS | CountPerSecond | Maximale | Paquets entrants transférés DDoS |
 | PacketsInDDoS | Paquets entrants DDoS | CountPerSecond | Maximale | Paquets entrants DDoS |
-| SynCount | Nombre de SYN | Count | Total | Nombre total de paquets SYN transmis dans une période de temps |
 | TCPBytesDroppedDDoS | Octets TCP entrants supprimés DDoS | BytesPerSecond | Maximale | Octets TCP entrants supprimés DDoS |
 | TCPBytesForwardedDDoS | Octets TCP entrants transférés DDoS | BytesPerSecond | Maximale | Octets TCP entrants transférés DDoS |
 | TCPBytesInDDoS | Octets TCP entrants DDoS | BytesPerSecond | Maximale | Octets TCP entrants DDoS |
@@ -64,7 +61,6 @@ Les [mesures](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpub
 | UDPPacketsDroppedDDoS | Paquets UDP entrants ignorés DDoS | CountPerSecond | Maximale | Paquets UDP entrants ignorés DDoS |
 | UDPPacketsForwardedDDoS | Paquets UDP entrants transférés DDoS | CountPerSecond | Maximale | Paquets UDP entrants transférés DDoS |
 | UDPPacketsInDDoS | Paquets UDP entrants DDoS | CountPerSecond | Maximale | Paquets UDP entrants DDoS |
-| VipAvailability | Disponibilité du chemin d’accès aux données | Count | Average | Disponibilité d’adresse IP moyenne par durée |
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,7 +70,7 @@ Les [mesures](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpub
 
 ## <a name="view-ddos-protection-telemetry"></a>Afficher la télémétrie de la protection DDoS
 
-Les données de télémétrie pour une attaque sont fournies par le biais d’Azure Monitor en temps réel. Les données de télémétrie ne sont disponibles que pendant l’atténuation dont fait l’objet une adresse IP publique. Vous ne les voyez pas avant ou après l’atténuation d’une attaque.
+Les données de télémétrie pour une attaque sont fournies par le biais d’Azure Monitor en temps réel. Les données de télémétrie ne sont disponibles que quand une adresse IP publique a été atténuée. 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) et accédez à votre plan de protection DDoS.
 2. Sous **Supervision**, sélectionnez **Métriques**.

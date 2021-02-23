@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547761"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365631"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Bonnes pratiques relatives à Azure Active Directory B2B
 Cet article contient des recommandations et des meilleures pratiques pour la collaboration interentreprises (B2B) dans Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **À compter de mars 2021**, Microsoft ne prendra plus en charge l’utilisation d’invitations effectuée en créant des locataires et des comptes Azure AD non gérés (« viraux » ou « juste-à-temps ») pour les scénarios B2B Collaboration. La fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera alors activée pour tous les locataires existants et activée par défaut pour les nouveaux locataires. Il s’agit en effet d’une méthode d’authentification de secours transparente pour les utilisateurs invités. Vous aurez toutefois la possibilité de désactiver cette fonctionnalité si vous choisissez de ne pas l’utiliser. Pour plus d’informations, consultez [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md).
+   > **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés (« viraux » ou « juste-à-temps ») pour les scénarios de collaboration B2B. La fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera alors activée pour tous les locataires existants et activée par défaut pour les nouveaux locataires. Il s’agit en effet d’une méthode d’authentification de secours transparente pour les utilisateurs invités. Vous aurez toutefois la possibilité de désactiver cette fonctionnalité si vous choisissez de ne pas l’utiliser. Pour plus d’informations, consultez [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md).
 
 
 ## <a name="b2b-recommendations"></a>Recommandations B2B

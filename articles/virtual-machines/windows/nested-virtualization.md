@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074245"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091344"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -24,7 +24,7 @@ Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure e
 
 Créer une machine virtuelle Azure Windows Server 2016. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](../acu.md).
 
-Veillez à choisir une taille de machine virtuelle suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D3_v3. 
+Veillez à choisir une taille de machine virtuelle suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D4_v3. 
 
 Vous pouvez afficher la disponibilité régionale de machines virtuelles des séries Dv3 et Ev3 [ici](https://azure.microsoft.com/regions/services/).
 
@@ -94,8 +94,8 @@ Créez une nouvelle carte réseau virtuelle pour la machine virtuelle invitée e
 4. Créez une adresse IP pour la passerelle NAT.
     
 Pour configurer la passerelle, vous avez besoin d’informations sur votre réseau :    
-  * Adresse IP : l’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser comme adresse de passerelle par défaut pour le sous-réseau du réseau virtuel. La forme générique est a.b.c.1 (par exemple, « 192.168.0.1 »). Si la dernière position n’a pas à être.1, c’est généralement le cas (sur la base de la longueur de préfixe). En général, vous devez utiliser un espace d’adressage de réseau privé RFC 1918. 
-  * PrefixLength : la longueur de préfixe de sous-réseau définit la taille du sous-réseau local (masque de sous-réseau). La longueur de préfixe de sous-réseau sera une valeur entière comprise entre 0 et 32. 0 mappe la totalité d’Internet, 32 n’autorise qu’une adresse IP mappée. Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP devant être attachées à NAT. Une valeur PrefixLength courante est 24 : il s’agit d’un masque de sous-réseau 255.255.255.0.
+  * Adresse IP : L’adresse IP de la passerelle NAT spécifie l’adresse IPv4 ou IPv6 à utiliser en tant qu’adresse de passerelle par défaut pour le sous-réseau du réseau virtuel. La forme générique est a.b.c.1 (par exemple, « 192.168.0.1 »). Si la dernière position n’a pas à être.1, c’est généralement le cas (sur la base de la longueur de préfixe). En général, vous devez utiliser un espace d’adressage de réseau privé RFC 1918. 
+  * PrefixLength : La longueur de préfixe de sous-réseau définit la taille du sous-réseau local (masque de sous-réseau). La longueur de préfixe de sous-réseau sera une valeur entière comprise entre 0 et 32. 0 mappe la totalité d’Internet, 32 n’autorise qu’une adresse IP mappée. Les valeurs courantes sont comprises entre 24 et 12 en fonction du nombre d’adresses IP devant être attachées à NAT. Une valeur PrefixLength courante est 24 : il s’agit d’un masque de sous-réseau 255.255.255.0.
   * InterfaceIndex : **ifIndex** est l’index d’interface du commutateur virtuel créé à l’étape précédente. 
 
     ```powershell

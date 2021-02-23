@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784726"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530720"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Activer l'Analyse comportementale des utilisateurs et des entités dans Azure Sentinel 
 
 > [!IMPORTANT]
 >
-> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_* _ les régions et zones géographiques Azure Sentinel.
+> - Les fonctionnalités UEBA et Entity Pages sont désormais en **disponibilité générale** dans **_toutes_** les régions et zones géographiques Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,13 +33,16 @@ Pour activer ou désactiver cette fonctionnalité (ces conditions préalables ne
 
 - Votre utilisateur doit être membre de l’annuaire Azure Active Directory de votre organisation et non un utilisateur invité.
 
-- Les rôles _ *Administrateur général** ou **Administrateur de sécurité** doivent être attribués à votre utilisateur dans Azure AD.
+- Les rôles **Administrateur général** ou **Administrateur de sécurité** doivent être attribués à votre utilisateur dans Azure AD.
 
 - Vous devez attribuer au moins l’un des **rôles Azure** suivants à votre utilisateur ([en savoir plus sur Azure RBAC](roles.md)) :
     - **Contributeur Azure Sentinel** au niveau de l’espace de travail ou du groupe de ressources.
     - **Contributeur Log Analytics** au niveau du groupe de ressources ou de l’abonnement.
 
 - Aucun verrou de ressource Azure ne doit être appliqué à votre espace de travail. [Apprenez-en davantage sur le verrouillage des ressources Azure](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> Aucune licence spéciale n’est nécessaire pour ajouter la fonctionnalité UEBA à Azure Sentinel. Cependant, des **frais supplémentaires** peuvent s’appliquer.
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Activer l'Analyse comportementale des utilisateurs et des entités
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874081"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547840"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
@@ -347,7 +347,7 @@ Exprimé sous forme de chaîne, le format `TimeSpan` est `hh:mm:ss` lorsque la v
 
 ## <a name="scale-out"></a>Montée en charge
 
-Si une application de fonction augmente la taille de plusieurs instances, une seule instance de fonction déclenchée par minuteur est exécutée sur toutes les instances.
+Si une application de fonction augmente la taille de plusieurs instances, une seule instance de fonction déclenchée par minuteur est exécutée sur toutes les instances. Elle ne se déclenchera plus si un appel en attente est toujours en cours d’exécution.
 
 ## <a name="function-apps-sharing-storage"></a>Applications de fonction qui partagent du stockage
 

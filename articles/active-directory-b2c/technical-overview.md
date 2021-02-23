@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108381"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556821"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ Dans la page d’inscription ou de connexion, Azure AD B2C affiche une liste de 
 
 ![Exemple de connexion sur un appareil mobile avec un compte de réseau social (Facebook)](media/technical-overview/external-idp.png)
 
-Pour savoir comment ajouter des fournisseurs d’identité dans Azure AD B2C, consultez le [Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C](tutorial-add-identity-providers.md).
+Pour voir comment ajouter des fournisseurs d’identité dans Azure AD B2C, consultez [Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C](add-identity-provider.md).
 
 ## <a name="identity-experiences-user-flows-or-custom-policies"></a>Expériences d’identité : flux utilisateur ou stratégies personnalisées
 

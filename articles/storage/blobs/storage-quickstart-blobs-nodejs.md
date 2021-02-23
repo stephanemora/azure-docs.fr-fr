@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2884df3a9b5cb3954c1c5e57d923eff97809a745
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012763"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382172"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v12 en Node.js
 
@@ -276,7 +276,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 Cette application crée une chaîne de texte et la charge dans le stockage blob. L’exemple répertorie ensuite le ou les blobs dans le conteneur, télécharge le blob et affiche les données téléchargées.
 
-À partir de l’invite de console, accédez au répertoire contenant le fichier *blob-quickstart-v12.py*, puis exécutez la commande `node` suivante pour exécuter l’application.
+À partir d’une invite de console, accédez au répertoire contenant le fichier *blob-quickstart-v12.js*, puis exécutez la commande `node` suivante pour exécuter l’application.
 
 ```console
 node blob-quickstart-v12.js

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460994"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558128"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -63,7 +63,7 @@ Pour créer une attribution de rôle pour l’identité managée de la ressource
 1. Sous *Sélectionner*, saisissez le nom de votre ressource Azure Data Share.
 1. Cliquez sur *Enregistrer*.
 
-Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Si vous partagez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Ajouter ou supprimer des attributions de rôles Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
+Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md). Si vous partagez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Attribuer des rôles Azure à l’aide du portail Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Pour les sources basées sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader*. Vous trouverez un exemple de script avec d’autres prérequis pour le partage basé sur SQL dans le tutoriel [Partager à partir d’Azure SQL Database ou Azure Synapse Analytics](how-to-share-from-sql.md). 
 
@@ -83,7 +83,7 @@ Pour créer une attribution de rôle pour l’identité managée de la ressource
 1. Sous *Sélectionner*, saisissez le nom de votre ressource Azure Data Share.
 1. Cliquez sur *Enregistrer*.
 
-Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Ajouter ou supprimer des attributions de rôle Azure à l’aide du Portail Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Si vous recevez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Ajouter ou supprimer des attributions de rôles Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
+Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md). Si vous recevez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Attribuer des rôles Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Pour les cibles basées sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader, db_datawriter, db_ddladmin*. Vous trouverez un exemple de script avec d’autres prérequis pour le partage basé sur SQL dans le tutoriel [Partager à partir d’Azure SQL Database ou Azure Synapse Analytics](how-to-share-from-sql.md). 
 
@@ -107,4 +107,4 @@ Pour en savoir plus sur les fournisseurs de ressources, reportez-vous à [Fourni
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les rôles dans Azure : [Comprendre les définitions de rôles](../role-based-access-control/role-definitions.md)
+- En savoir plus sur les rôles dans Azure : [Comprendre les définitions de rôles Azure](../role-based-access-control/role-definitions.md)

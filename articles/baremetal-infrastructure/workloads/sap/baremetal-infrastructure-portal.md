@@ -2,13 +2,13 @@
 title: Unités d’instance BareMetal dans Azure
 description: Découvrez comment identifier et interagir avec les unités d’instance BareMetal par le biais du portail Azure.
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/17/2021
+ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733261"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548163"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gérer des instances nues via le portail Azure
  
@@ -17,25 +17,9 @@ Cet article montre comment le [portail Azure](https://portal.azure.com/) affiche
 ## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 Un fournisseur de ressources Azure pour les instances BareMetal fournit la visibilité des instances dans le portail Azure, actuellement en version préliminaire publique. Par défaut, l’abonnement Azure que vous utilisez pour les déploiements d’instance BareMetal inscrit le fournisseur de ressources *BareMetalInfrastructure*. Si vous ne voyez pas vos unités d’instance BareMetal déployées, vous devez inscrire le fournisseur de ressources auprès de votre abonnement. 
 
-Il existe deux façons d’inscrire le fournisseur de ressources d’instance BareMetal :
- 
-* [Azure CLI](#azure-cli)
- 
-* [Azure portal](#azure-portal)
- 
-### <a name="azure-cli"></a>Azure CLI
- 
-Connectez-vous à l’abonnement Azure que vous utilisez pour le déploiement de l’instance BareMetal via Azure CLI. Vous pouvez inscrire le fournisseur de ressources BareMetalInfrastructure avec :
+Vous pouvez inscrire le fournisseur de ressources d’instance BareMetal à l’aide du portail Azure ou d’Azure CLI.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.BareMetalInfrastructure
-```
- 
-Pour plus d’informations, consultez l’article [Fournisseurs et types de ressources Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell).
- 
-### <a name="azure-portal"></a>Portail Azure
- 
-Vous pouvez inscrire le fournisseur de ressources BareMetalInfrastructure via le portail Azure.
+### <a name="portal"></a>[Portail](#tab/azure-portal)
  
 Vous devez afficher, dans le portail Azure, votre abonnement qui a été utilisé pour déployer votre ou vos unités d’instance BareMetal, puis double-cliquer dessus.
  
@@ -53,12 +37,32 @@ Vous devez afficher, dans le portail Azure, votre abonnement qui a été utilis�
 >Si le fournisseur de ressources n’est pas inscrit, sélectionnez **Inscrire**.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Capture d’écran montrant l’unité d’instance BareMetal inscrite":::
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour commencer à utiliser Azure CLI :
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Connectez-vous à l’abonnement Azure que vous utilisez pour le déploiement de l’instance BareMetal via Azure CLI. Inscrivez le fournisseur de ressources `BareMetalInfrastructure` à l’aide de la commande [az provider register](/cli/azure/provider#az_provider_register) :
+
+```azurecli
+az provider register --namespace Microsoft.BareMetalInfrastructure
+```
+
+Vous pouvez utiliser la commande [az provider list](/cli/azure/provider#az_provider_list) pour afficher tous les fournisseurs disponibles.
+
+---
+
+Pour plus d’informations sur les fournisseurs de ressources, consultez [Fournisseurs et types de ressources Azure](../../../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Unités d’instance BareMetal dans le portail Azure
  
 Lorsque vous envoyez une demande de déploiement d’instance BareMetal, vous spécifiez l’abonnement Azure auquel vous vous connectez aux instances BareMetal. Utilisez le même abonnement que celui utilisé pour déployer la couche d’application qui fonctionne sur les unités d’instance BareMetal.
  
 Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressources Azure](../../../azure-resource-manager/management/manage-resources-portal.md) est créé dans l’abonnement Azure que vous avez utilisé dans la requête de déploiement. Ce nouveau groupe de ressources répertorie toutes les unités d’instance BareMetal que vous avez déployées dans l’abonnement spécifique.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans l’abonnement BareMetal, dans le portail Azure, sélectionnez **Groupes de ressources**.
  
@@ -75,10 +79,27 @@ Lors du déploiement de vos instances BareMetal, un nouveau [groupe de ressource
    
    >[!NOTE]
    >Si vous avez déployé plusieurs locataires d’instance BareMetal dans le même abonnement Azure, plusieurs groupes de ressources Azure devraient être affichés.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour afficher toutes vos instances BareMetal, exécutez la commande [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) pour votre groupe de ressources :
+
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
+
+> [!TIP]
+> Le paramètre `--output` est un paramètre global, disponible pour toutes les commandes. La valeur **table** présente la sortie dans un format convivial. Pour plus d’informations, consultez [Formats de sortie pour les commandes Azure CLI](/cli/azure/format-output-azure-cli).
+
+---
+
 ## <a name="view-the-attributes-of-a-single-instance"></a>Afficher les attributs d’une instance unique
- 
-Vous pouvez afficher les détails d’une seule unité. Dans la liste d’instances BareMetal, sélectionnez l’instance unique que vous souhaitez afficher.
+
+Vous pouvez afficher les détails d’une seule unité.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Dans la liste d’instances BareMetal, sélectionnez l’instance unique que vous souhaitez afficher.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="Capture d’écran montrant les attributs d’unité d’instance BareMetal d’une instance unique" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
@@ -101,6 +122,18 @@ En outre, sur le côté droit, vous trouverez le [Nom du groupe de placement de 
  
 >[!TIP]
 >Pour trouver la couche application dans le même centre de données Azure que Révision 4.x, consultez [Groupes de placement de proximité Azure pour une latence réseau optimale](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour afficher les détails d’une instance BareMetal, exécutez la commande [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) :
+
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
+
+Si vous n’êtes pas sûr du nom de l’instance, exécutez la commande `az baremetalinstance list` décrite ci-dessus.
+
+---
  
 ## <a name="check-activities-of-a-single-instance"></a>Vérifier les activités d’une instance unique
  
@@ -113,11 +146,31 @@ Les modifications apportées aux métadonnées de l’unité dans Azure sont ég
 Une autre activité qui est enregistrée est lorsque vous ajoutez ou supprimez une [étiquette](../../../azure-resource-manager/management/tag-resources.md) à une instance.
  
 ## <a name="add-and-delete-an-azure-tag-to-an-instance"></a>Ajouter et supprimer une étiquette Azure dans une instance
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
  
 Vous pouvez ajouter des étiquettes Azure à une unité d’instance BareMetal ou les supprimer. La façon dont les étiquettes sont attribuées ne diffère pas de l’attribution d’étiquettes aux machines virtuelles. Comme pour les machines virtuelles, les étiquettes existent dans les métadonnées Azure et, pour les instances BareMetal, ont les mêmes restrictions que les étiquettes pour les machines virtuelles.
  
 La suppression d’étiquettes fonctionne de la même façon qu’avec les machines virtuelles. L’application et la suppression d’une étiquette sont répertoriées dans le journal d’activité de l’unité d’instance BareMetal.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+L’affectation de balises à des instances BareMetal fonctionne de la même façon que pour les machines virtuelles. Les balises existent dans les métadonnées Azure et, pour les instances BareMetal, ont les mêmes restrictions que les balises pour les machines virtuelles.
+
+Pour ajouter des balises à une unité d’instance BareMetal, exécutez la commande [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) :
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+```
+
+Utilisez la même commande pour supprimer une balise :
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+```
+
+---
+
 ## <a name="check-properties-of-an-instance"></a>Vérifier les propriétés d’une instance
  
 Lorsque vous acquérez les instances, vous pouvez accéder à la section Propriétés pour afficher les données collectées sur les instances. Les données collectées incluent la connectivité Azure, le serveur principal de stockage, l’ID de circuit ExpressRoute, l’ID de ressource unique et l’ID d’abonnement. Vous utiliserez ces informations dans les demandes de support ou lors de la configuration d’une capture instantanée de stockage.
@@ -127,15 +180,29 @@ Vous verrez également un élément d’information critique sur l’adresse IP 
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="Capture d’écran montrant les paramètres de propriété d’instance BareMetal" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## <a name="restart-a-unit-through-the-azure-portal"></a>Redémarrage d’une unité par le biais du portail Azure
- 
-Il existe plusieurs situations où le système d’exploitation ne termine pas un redémarrage, ce qui nécessite un redémarrage physique de l’unité d’instance BareMetal. Vous pouvez effectuer un redémarrage physique de l’unité directement à partir du portail Azure :
+
+Il existe plusieurs situations où le système d’exploitation ne termine pas un redémarrage, ce qui nécessite un redémarrage physique de l’unité d’instance BareMetal.
+
+### <a name="portal"></a>[Portail](#tab/azure-portal)
+
+Vous pouvez effectuer un redémarrage physique de l’unité directement à partir du portail Azure :
  
 Sélectionnez **Redémarrer**, puis **Oui** pour confirmer le redémarrage de l’unité.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="Capture d’écran montrant comment redémarrer l’unité d’instance BareMetal":::
  
 Lorsque vous redémarrez une unité d’instance BareMetal, vous remarquerez un délai. Pendant ce laps de temps, l’état d’alimentation passe de **Démarrage en cours** à **Démarré**, ce qui signifie que le système d’exploitation a démarré complètement. Par conséquent, après un redémarrage, vous ne pouvez pas vous connecter à l’unité dès que l’état passe à **Démarré**.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour redémarrer une unité d’instance BareMetal, utilisez la commande [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) :
+
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
+
+---
+
 >[!IMPORTANT]
 >En fonction de la quantité de mémoire présente dans votre unité d’instance BareMetal, un redémarrage du matériel et du système d’exploitation peut prendre jusqu’à une heure.
  

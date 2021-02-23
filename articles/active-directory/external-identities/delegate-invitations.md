@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546169"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365546"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -45,8 +45,6 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 
 4. Sous **Restrictions d’accès de l’utilisateur invité (préversion)** , choisissez le niveau d’accès que les utilisateurs invités doivent avoir :
   
-    ![Paramètres de restrictions d’accès des utilisateurs invités](./media/delegate-invitations/guest-user-access.png)
-
    - **Les utilisateurs invités ont le même accès que les membres (le plus inclusif)**  : Cette option donne aux invités le même accès aux ressources Azure AD et aux données d’annuaire que les utilisateurs membres.
 
    - **Les utilisateurs invités ont un accès limité aux propriétés et aux appartenances des objets d’annuaire** : Ce paramètre empêche les invités d’effectuer certaines tâches d’annuaire, telles que l’énumération d’utilisateurs, de groupes ou d’autres ressources de répertoire. Les invités peuvent voir l’appartenance de tous les groupes non masqués.
@@ -69,13 +67,11 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 
 6. Sous **Envoi d’un code secret à usage unique par e-mail pour les invités**, choisissez les paramètres appropriés (pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail](one-time-passcode.md)) :
 
-   ![Paramètres d’envoi d’un code secret à usage unique par e-mail](./media/delegate-invitations/email-otp-settings.png)
+   - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en octobre 2021** (Par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
 
-   - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en mars 2021**. (par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en mars 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
+   - **Activer dès maintenant l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
 
-   - **Activer le code à usage unique par e-mail pour les invités dès maintenant**. cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
-
-   - **Désactivez le code à usage unique par e-mail pour les invités**. cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en mars 2021.
+   - **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en octobre 2021.
 
    > [!NOTE]
    > Au lieu des options ci-dessus, vous verrez le bouton bascule suivant si vous avez activé ou désactivé cette fonctionnalité, ou si vous avez déjà choisi la préversion :

@@ -1,22 +1,17 @@
 ---
 title: Copier de façon incrémentielle des données avec la capture des changements de données
 description: Dans ce tutoriel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle les données delta d’une table de base de données Azure SQL Managed Instance vers le Stockage Azure.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555914"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391267"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Charger de façon incrémentielle des données d’Azure SQL Managed Instance sur le Stockage Azure à l’aide de la capture des changements de données
 
@@ -90,10 +85,10 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +108,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 
-    *Le nom de fabrique de données « ADFTutorialDataFactory » n’est pas disponible*.
+    *Le nom de fabrique de données « ADFTutorialDataFactory » n’est pas disponible.*
 3. Sélectionnez **V2** pour la **version**.
 4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 5. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :

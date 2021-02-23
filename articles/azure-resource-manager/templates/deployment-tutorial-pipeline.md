@@ -1,15 +1,15 @@
 ---
 title: Intégration continue avec Azure Pipelines
 description: Découvrez comment générer, tester et déployer en continu des modèles Azure Resource Manager (modèles ARM).
-ms.date: 08/24/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701710"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560900"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles ARM avec Azure Pipelines
 
@@ -83,8 +83,8 @@ Le modèle est stocké dans le dossier _CreateWebApp_. La commande `pwd` affiche
 
 Au lieu de créer les modèles, vous pouvez les télécharger et les enregistrer dans le dossier _CreateWebApp_.
 
-* Modèle principal : https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* Modèle lié : https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* Modèle principal : https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
+* Modèle lié : https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
 
 Le nom du dossier et les noms des fichiers sont utilisés tels quels dans le pipeline. Si vous modifiez ces noms, vous devez mettre à jour les noms utilisés dans le pipeline.
 
@@ -105,7 +105,7 @@ Le fichier _azuredeploy.json_ a été ajouté au dépôt local. Ensuite, vous ch
 
     Vous pouvez obtenir un avertissement sur LF. Vous pouvez ignorer cet avertissement. **main** est la branche primaire.  Généralement, il faut créer une branche pour chaque mise à jour. Pour simplifier ce tutoriel, nous utilisons directement la branche primaire.
 
-1. Accédez à votre référentiel GitHub à partir d’un navigateur. L’URL est `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Vous devez voir le dossier _CreateWebApp_ et les trois fichiers à l’intérieur du dossier.
+1. Accédez à votre référentiel GitHub à partir d’un navigateur. L’URL est `https://github.com/[YourAccountName]/[YourGitHubRepository]`. Vous devez voir le dossier _CreateWebApp_ et les deux fichiers à l’intérieur du dossier.
 1. Sélectionnez _linkedStorageAccount.json_ pour ouvrir le modèle.
 1. Sélectionnez le bouton **Raw**. L’URL commence par `https://raw.githubusercontent.com`.
 1. Copiez l’URL. Vous devrez fournir cette valeur lors de la configuration du pipeline ultérieurement dans le tutoriel.
@@ -134,7 +134,7 @@ Pour créer une connexion de service qui servira à déployer des projets vers A
 
 1. En bas du menu situé à gauche, sélectionnez **Project settings** (Paramètres du projet).
 1. Sous **Pipelines**, sélectionnez **Service connections** (Connexions au service).
-1. Sélectionnez **Nouvelle connexion de service**, **Azure Resource Manager**, puis **Suivant**.
+1. Sélectionnez **Créer une connexion de service**, **Azure Resource Manager**, puis **Suivant**.
 1. Sélectionnez **Principal du service**, puis **Suivant**.
 1. Saisissez les valeurs suivantes :
 
@@ -155,7 +155,7 @@ Pour le moment, vous avez mené à bien les tâches suivantes :  Si vous avez i
 Pour créer un pipeline avec une étape pour déployer un modèle :
 
 1. Dans le menu situé à gauche, sélectionnez **Pipelines**.
-1. Sélectionnez **Nouveau pipeline**.
+1. Sélectionnez **Créer un pipeline**.
 1. Sous l’onglet **Connect** (Connexion), sélectionnez **GitHub**. Si le système vous y invite, entrez vos informations d’identification de GitHub, puis suivez les instructions. Si vous voyez l’écran suivant, sélectionnez **Only select repositories** (Sélectionner uniquement les référentiels), puis vérifiez que votre référentiel se trouve dans la liste avant de sélectionner **Approve & Install** (Valider et installer).
 
     ![Azure Resource Manager, Azure DevOps, Azure Pipelines, sélectionner uniquement les référentiels](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)

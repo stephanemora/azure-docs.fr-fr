@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356208"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529714"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -56,13 +56,19 @@ ms.locfileid: "96356208"
 | Durée maximale d’exécution de requête | 10 minutes | Consultez [Délais d’expiration](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) pour plus d’informations.  |
 | Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur Azure AD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
 
+**Connecteur des journaux Azure Monitor**
+| Category | Limite | Commentaires |
+|:---|:---|:---|
+| Nombre maximal d’enregistrements | 500 000 | |
+| Délai d’expiration maximal des requêtes | 110 secondes | |
+| Graphiques | | La visualisation dans la page Journaux et le connecteur utilisent des bibliothèques graphiques différentes, et certaines fonctionnalités ne sont actuellement pas disponibles dans le connecteur. |
+
 **Limites d’espace de travail général**
 
 | Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
-| Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
 
 **<a name="data-ingestion-volume-rate">Débit d’ingestion de données</a>**
 

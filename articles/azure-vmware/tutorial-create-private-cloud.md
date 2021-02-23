@@ -1,18 +1,18 @@
 ---
-title: 'Tutoriel : Déployer un cluster vSphere dans Azure'
-description: Découvrez comment déployer un cluster vSphere dans Azure en utilisant Azure VMware Solution
+title: Tutoriel – Créer et déployer un cloud privé Azure VMware Solution
+description: Découvrez comment créer et déployer un cloud privé Azure VMware Solution
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093945"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653128"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution dans Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Créer un cloud privé Azure VMware Solution
 
-Azure VMware Solution vous donne la possibilité de déployer un cluster vSphere dans Azure. Le déploiement initial minimal est de trois hôtes. Des hôtes supplémentaires peuvent être ajoutés un à la fois, jusqu’à un maximum de 16 hôtes par cluster. 
+Dans ce tutoriel, vous allez découvrir comment créer et déployer un cloud privé Azure VMware Solution. Le déploiement initial minimal est de trois hôtes. Des hôtes supplémentaires peuvent être ajoutés un à la fois, jusqu’à un maximum de 16 hôtes par cluster. 
 
 Comme Azure VMware Solution ne vous permet pas de gérer votre cloud privé avec votre vCenter local au lancement, vous devez effectuer une configuration supplémentaire. Ces procédures et les prérequis associés sont traités dans ce tutoriel.
 
@@ -25,13 +25,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Droits d’administration appropriés et autorisation de créer un cloud privé.
+- Droits d’administration appropriés et autorisation de créer un cloud privé. Vous devez avoir un niveau de contributeur minimal dans l’abonnement.
+- Suivez les informations que vous avez rassemblées dans l’article sur la [planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution.
 - Vérifiez que vous disposez d’un réseau approprié configuré comme décrit dans [Tutoriel : Check-list du réseau](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- Les hôtes ont été provisionnés et le fournisseur de ressources Microsoft.AVS inscrit comme cela est décrit dans l’article qui explique comment [demander les hôtes et activer le fournisseur de ressources Microsoft.AVS](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Créer un cloud privé
 

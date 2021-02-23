@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820600"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516836"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Examiner un appareil IoT suspect
 
@@ -39,12 +39,12 @@ Pour rechercher votre espace de travail Log Analytics pour le stockage des donn�
 1. Ouvrez votre hub IoT.
 1. Sous **Security** (Sécurité), sélectionnez **Settings** (Paramètres), puis **Data Collection** (Collection de données).
 1. Changez les détails de la configuration de votre espace de travail Log Analytics.
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 Une fois la configuration effectuée, procédez comme suit pour accéder aux données stockées dans votre espace de travail Log Analytics :
 
 1. Dans votre hub IoT, sélectionnez une alerte Defender pour IoT et cliquez dessus.
-1. Cliquez sur **Investigation poussée**.
+1. Sélectionnez **Investigation poussée**.
 1. Sélectionnez **Pour voir quels sont les appareils qui ont cette alerte, cliquez ici et consultez la colonne DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Étapes de l’examen des appareils IoT suspects
@@ -55,7 +55,7 @@ Consultez les exemples de requêtes kql ci-dessous pour commencer à examiner le
 
 ### <a name="related-alerts"></a>Alertes associées
 
-Pour savoir si d’autres alertes ont été déclenchées à peu près au même moment, utilisez la requête kql suivante :
+Vous pouvez savoir si d’autres alertes ont été déclenchées à peu près au même moment à l’aide de la requête kql suivante :
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -144,7 +144,7 @@ Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la r
 Les résultats de la requête répondent aux questions suivantes :
 
 - Quels sont les utilisateurs qui se sont connectés à l’appareil ?
-- Les utilisateurs qui se sont connectés sont-ils censés le faire ?
+- Les utilisateurs qui se sont connectés sont-ils censés se connecter ?
 - Ces utilisateurs se sont-ils connectés à partir d’adresses IP attendues ou inattendues ?
 
 ### <a name="process-list"></a>Liste de processus

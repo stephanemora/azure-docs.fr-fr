@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/12/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: add0d392f39ab476c6d75f704d5b2e2e0faaa77c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aed23bf5008f850b19a1e5a8c7b0ff21f329eb3a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004340"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560482"
 ---
 ## <a name="prepare-your-repository"></a>Préparer votre dépôt
 
-Pour obtenir les builds automatiques à partir du serveur de builds Kudu d’Azure App Service, assurez-vous que la racine du référentiel contient les fichiers appropriés de votre projet.
+Pour obtenir les builds automatiques auprès du serveur de builds Azure App Service, vérifiez que la racine de votre référentiel contient les fichiers appropriés de votre projet.
 
 | Runtime | Fichiers du répertoire racine |
 |-|-|
@@ -34,6 +34,6 @@ Pour obtenir les builds automatiques à partir du serveur de builds Kudu d’Azu
 Pour personnaliser votre déploiement, vous pouvez inclure un fichier *.deployment* dans la racine du dépôt. Pour plus d’informations, consultez [Personnaliser les déploiements](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) et [Personnaliser un script de déploiement](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Si vous développez dans Visual Studio, laissez [Visual Studio créer un dépôt pour vous](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). Le projet est immédiatement prêt à être déployé à l’aide de Git.
+> Si vous développez dans Visual Studio, laissez [Visual Studio créer un dépôt pour vous](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio&preserve-view=true). Le projet est immédiatement prêt à être déployé à l’aide de Git.
 >
 

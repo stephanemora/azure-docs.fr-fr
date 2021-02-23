@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 30c7e6b1412373cf3bfe1c511206aa4b916bf1ee
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557500"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -80,7 +80,7 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
 1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
 
-    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](role-assignments-portal.md). Si vous utilisez Privileged Identity Management, consultez [Découvrir les ressources Azure à gérer](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Pour obtenir des informations sur l’attribution de rôles, consultez [Attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md). Si vous utilisez Privileged Identity Management, consultez [Découvrir les ressources Azure à gérer](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Attribuer des rôles de ressources Azure](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. Procédez de la manière décrite dans la section suivante pour supprimer votre accès avec élévation de privilèges.
 
@@ -149,7 +149,7 @@ Pour supprimer l’attribution de rôle Administrateur de l’accès utilisateur
 
 Pour élever l’accès d’un administrateur général à l’aide de l’Azure CLI, effectuez les étapes de base suivantes.
 
-1. Utilisez la commande [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) pour appeler le point de terminaison `elevateAccess`, qui vous accorde le rôle Administrateur de l’accès utilisateur au niveau de l’étendue racine (`/`).
+1. Utilisez la commande [az rest](/cli/azure/reference-index#az_rest) pour appeler le point de terminaison `elevateAccess`, qui vous accorde le rôle Administrateur de l’accès utilisateur au niveau de l’étendue racine (`/`).
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -157,7 +157,7 @@ Pour élever l’accès d’un administrateur général à l’aide de l’Azure
 
 1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
 
-    Pour obtenir des informations sur l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md).
+    Pour obtenir des informations sur l’attribution de rôles, consultez [Attribuer des rôles Azure à l’aide d’Azure CLI](role-assignments-cli.md).
 
 1. Procédez de la manière décrite dans une section ultérieure pour supprimer votre accès avec élévation de privilèges.
 
@@ -213,7 +213,7 @@ Pour élever l’accès d’un administrateur général à l’aide de l’API R
 
 1. Apportez les modifications nécessaires via un accès avec élévation de privilèges.
 
-    Pour obtenir des informations sur la l’attribution de rôles, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md).
+    Pour obtenir des informations sur l’attribution de rôles, consultez [Attribuer des rôles Azure à l’aide de l’API REST](role-assignments-rest.md).
 
 1. Procédez de la manière décrite dans une section ultérieure pour supprimer votre accès avec élévation de privilèges.
 
@@ -330,4 +330,4 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md)
+- [Attribuer des rôles Azure à l’aide de l’API REST](role-assignments-rest.md)

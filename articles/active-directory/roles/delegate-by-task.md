@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742928"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380302"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -109,7 +109,7 @@ Afficher les métriques et les alertes de service de synchronisation | Lecteur (
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Gérer des domaines | Administrateur général | 
+Gérer des domaines | Administrateur de nom de domaine | 
 Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Services de domaine
@@ -216,9 +216,9 @@ Lire les journaux d’activité de connexion | Lecteur de rapports | Lecteur Sé
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Supprimer tous les mots de passe d’application existants qui ont été générés par les utilisateurs sélectionnés | Administrateur général | 
-Désactiver MFA | Administrateur général | 
-Activer la MFA | Administrateur général | 
-Gérer les paramètres du service MFA | Administrateur général | 
+Désactiver MFA | Administrateur d’authentification (par le biais de PowerShell) | Administrateur d’authentification privilégié (par le biais de PowerShell)
+Activer la MFA | Administrateur d’authentification (par le biais de PowerShell) | Administrateur d’authentification privilégié (par le biais de PowerShell) 
+Gérer les paramètres du service MFA | Administrateur de la stratégie d’authentification | 
 Demander aux utilisateurs sélectionnés de fournir à nouveau des méthodes de contact | Administrateur d’authentification | 
 Restaurer l’authentification multifacteur pour tous les appareils mémorisés  | Administrateur d’authentification | 
 
@@ -226,15 +226,15 @@ Restaurer l’authentification multifacteur pour tous les appareils mémorisés 
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Blocage/déblocage des utilisateurs | Administrateur général | 
-Configurer le verrouillage de compte | Administrateur général | 
-Configurer les règles de mise en cache | Administrateur général | 
-Configurer l’alerte de fraude | Administrateur général
-Configurer les notifications | Administrateur général | 
-Configurer un contournement à usage unique | Administrateur général | 
-Configurer les paramètres d’appel téléphonique | Administrateur général | 
-Configurer des fournisseurs | Administrateur général | 
-Configurez les paramètres du serveur | Administrateur général | 
+Blocage/déblocage des utilisateurs | Administrateur de la stratégie d’authentification | 
+Configurer le verrouillage de compte | Administrateur de la stratégie d’authentification | 
+Configurer les règles de mise en cache | Administrateur de la stratégie d’authentification | 
+Configurer l’alerte de fraude | Administrateur de la stratégie d’authentification
+Configurer les notifications | Administrateur de la stratégie d’authentification | 
+Configurer un contournement à usage unique | Administrateur de la stratégie d’authentification | 
+Configurer les paramètres d’appel téléphonique | Administrateur de la stratégie d’authentification | 
+Configurer des fournisseurs | Administrateur de la stratégie d’authentification | 
+Configurez les paramètres du serveur | Administrateur de la stratégie d’authentification | 
 Lire un rapport d’activité | Lecteur général | 
 Lire toute la configuration | Lecteur général | 
 Lire l’état du serveur | Lecteur général |  

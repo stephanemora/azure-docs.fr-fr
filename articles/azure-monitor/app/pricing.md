@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556135"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384501"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -286,15 +286,18 @@ Pour désactiver les e-mails de limite de volume quotidienne, accédez à la sec
 
 Pour les utilisateurs initiaux d’Azure Application Insights, il existe toujours deux niveaux tarifaires possibles : De base et Entreprise. Le niveau tarifaire De base est identique à celui décrit ci-dessus ; il s’agit du niveau par défaut. Il inclut toutes les fonctionnalités du niveau Entreprise, sans frais supplémentaires. La facturation du niveau De base repose essentiellement sur le volume de données ingérées.
 
-> [!NOTE]
-> Ces niveaux tarifaires existants ont été renommés. Le niveau tarifaire Entreprise et le niveau tarifaire De base sont désormais nommés **Par nœud** et **Par Go**, respectivement. Ces deux niveaux sont désignés sous leur nouveau nom ci-après et dans le portail Azure.  
+Ces niveaux tarifaires existants ont été renommés. Le niveau tarifaire Entreprise et le niveau tarifaire De base sont désormais nommés **Par nœud** et **Par Go**, respectivement. Ces deux niveaux sont désignés sous leur nouveau nom ci-après et dans le portail Azure.  
 
-Le niveau Par nœud (anciennement Entreprise) donne lieu à une facturation pour chaque nœud, chaque nœud recevant une allocation de données quotidienne. Dans le niveau tarifaire Par nœud, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le niveau Par nœud.
+Le niveau Par nœud (anciennement Entreprise) donne lieu à une facturation pour chaque nœud, chaque nœud recevant une allocation de données quotidienne. Dans le niveau tarifaire Par nœud, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le niveau Par nœud. En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle de tarification](../platform/usage-estimated-costs.md).
 
 Pour connaître les prix actuels dans votre devise et pour votre région, consultez la page [Tarification Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle tarifaire](../platform/usage-estimated-costs.md), sur [l’évaluation de l’impact du passage à ce modèle](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) en fonction de vos modèles d’utilisation et sur [l’adoption du nouveau modèle](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Comprendre l’utilisation facturée au niveau Entreprise (par nœud) hérité 
+
+Comme décrit plus en détail ci-dessous, le niveau Entreprise (par nœud) hérité combine l’utilisation de toutes les ressources Application Insights dans un abonnement pour calculer le nombre de nœuds et le dépassement de données. En raison de ce processus de combinaison, **l’utilisation de toutes les ressources Application Insights dans un abonnement est signalée par rapport à une seule des ressources**.  Cela permet de concilier l'[utilisation facturée](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) avec l’utilisation que vous observez pour chaque ressource Application Insights très compliquée. 
+
+> [!WARNING]
+> En raison de la complexité du suivi et de la compréhension de l’utilisation des ressources Application Insights au niveau Entreprise (par nœud) hérité, nous vous recommandons vivement d’utiliser le niveau tarifaire actuel du paiement à l’utilisation. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Niveau tarifaire Par nœud et droits d’abonnement à Operations Management Suite
 
@@ -347,4 +350,3 @@ Vous pouvez utiliser le service Azure Resource Management pour écrire un script
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

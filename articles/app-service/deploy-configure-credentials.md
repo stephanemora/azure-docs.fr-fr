@@ -2,28 +2,26 @@
 title: configurer les informations d’identification de déploiement
 description: Découvrez les types d’informations d’identification de déploiement dans Azure App Service et comment les configurer et les utiliser.
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560421"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurer les informations d’identification de déploiement pour Azure App Service
-[Azure App Service](./overview.md) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
+Pour sécuriser le déploiement d’applications à partir d’un ordinateur local, [Azure App Service](./overview.md) prend en charge deux types d’informations d’identification pour le [déploiement Git local](deploy-local-git.md) et le [déploiement FTP/S](deploy-ftp.md). Ces informations d’identification ne sont pas les mêmes que les informations d’identification de votre abonnement Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
-## <a name="configure-user-level-credentials"></a><a name="userscope"></a>Configurer des informations d’identification au niveau de l’utilisateur
+## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configurer les informations d’identification de portée utilisateur
 
-Vous pouvez configurer vos informations d’identification au niveau de l’utilisateur dans la [page Ressources](../azure-resource-manager/management/manage-resources-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications et à tous les abonnements de votre compte Azure. 
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-### <a name="in-the-cloud-shell"></a>Dans Cloud Shell
-
-Pour configurer l’utilisateur de déploiement dans [Cloud Shell](https://shell.azure.com), exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
+Exécutez la commande [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set). Remplacez \<username> et \<password> par un nom d’utilisateur et un mot de passe de déploiement. 
 
 - Le nom d’utilisateur doit être unique dans Azure et, pour les push Git locaux, ne doit pas contenir le symbole « @ ». 
 - Le mot de passe doit comporter au moins huit caractères et inclure deux des trois éléments suivants : lettres, chiffres et symboles. 
@@ -32,21 +30,23 @@ Pour configurer l’utilisateur de déploiement dans [Cloud Shell](https://shell
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-La sortie JSON affiche le mot de passe comme étant `null`. Si vous obtenez une erreur `'Conflict'. Details: 409`, modifiez le nom d’utilisateur. Si vous obtenez une erreur `'Bad Request'. Details: 400`, utilisez un mot de passe plus fort. 
+La sortie JSON affiche le mot de passe comme étant `null`.
 
-### <a name="in-the-portal"></a>Sur le portail
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Sur le portail Azure, vous devez disposer d’au moins une application avant de pouvoir accéder à la page Informations d’identification de déploiement. Pour configurer les informations d’identification au niveau de l’utilisateur :
+Vous ne pouvez pas configurer les informations d’identification de portée utilisateur avec Azure PowerShell. Utilisez une autre méthode ou envisagez d’[utiliser des informations d’identification de portée application](#appscope). 
 
-1. Sur le [portail Azure](https://portal.azure.com), dans le menu de gauche, sélectionnez **App Services** >  **\<any_app>**  > **Centre de déploiement** > **FTP** > **Tableau de bord**.
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+Vous pouvez configurer vos informations d’identification de portée utilisateur sur la [page Ressource](../azure-resource-manager/management/manage-resources-portal.md#manage-resources) d’une application. Quelle que soit l’application dans laquelle vous configurez ces informations d’identification, ces dernières s’appliquent à toutes les applications de tous les abonnements de votre compte Azure. 
+
+Sur le [portail Azure](https://portal.azure.com), vous devez disposer d’au moins une application avant de pouvoir accéder à la page Informations d’identification de déploiement. Pour configurer les informations d’identification de portée utilisateur :
+
+1. Dans le menu gauche de votre application, sélectionnez **Centre de déploiement** > **Informations d’identification FTPS** ou **Informations d’identification Git/FTPS locales**.
 
     ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Ou bien, si vous avez déjà configuré le déploiement Git, sélectionnez **App Services** >  **&lt;une_application>**  > **Centre de déploiement** > **FTP/Informations d’identification**.
-
-    ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services pour votre déploiement de Git configuré.](./media/app-service-deployment-credentials/access-with-git.png)
-
-2. Sélectionnez **Informations d’identification de l’utilisateur**, configurez le nom d’utilisateur et le mot de passe, puis sélectionnez **Enregistrer les informations d’identification**.
+2. Faites défiler jusqu’à **Étendue d'utilisateur**, configurez le **nom d' utilisateur** et le **mot de passe**, puis sélectionnez **Enregistrer**.
 
 Une fois que vous avez défini vos informations d’identification de déploiement, vous trouverez le nom d’utilisateur du déploiement *Git* dans la page **Vue d’ensemble** de votre application.
 
@@ -55,24 +55,79 @@ Une fois que vous avez défini vos informations d’identification de déploieme
 Si le déploiement Git est configuré, la page présente un **Nom d’utilisateur Git/Déploiement** ; sinon, un **Nom d’utilisateur FTP/Déploiement** est affiché.
 
 > [!NOTE]
-> Azure n’affiche pas votre mot de passe du déploiement au niveau de l’utilisateur. Si vous oubliez le mot de passe, vous pouvez réinitialiser vos informations d’identification en suivant les étapes décrites dans cette section.
+> Azure n’affiche pas votre mot de passe du déploiement de portée utilisateur. Si vous oubliez le mot de passe, vous pouvez réinitialiser vos informations d’identification en suivant les étapes décrites dans cette section.
 >
 > 
 
-## <a name="use-user-level-credentials-with-ftpftps"></a>Utiliser les informations d’identification de niveau utilisateur avec FTP/FTPS
+-----
 
-L’authentification auprès d’un point de terminaison FTP/FTPS à l’aide d’informations d’identification de niveau utilisateur nécessite un nom d’utilisateur au format suivant : `<app-name>\<user-name>`
+## <a name="use-user-scope-credentials-with-ftpftps"></a>Utiliser les informations d’identification de portée utilisateur avec FTP/FTPS
 
-Dans la mesure où les informations d’identification au niveau utilisateur sont liées à l’utilisateur et non à une ressource spécifique, le nom d’utilisateur doit respecter ce format pour que l’action de connexion soit dirigée vers le point de terminaison d’application approprié.
+L’authentification auprès d’un point de terminaison FTP/FTPS à l’aide d’informations d’identification de portée utilisateur nécessite un nom d’utilisateur au format suivant : `<app-name>\<user-name>`
 
-## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtenir et réinitialiser les informations d’identification au niveau de l’application
-Pour obtenir les informations d’identification au niveau de l’application :
+Dans la mesure où les informations d’identification de portée utilisateur sont liées à l’utilisateur et non à une ressource spécifique, le nom d’utilisateur doit respecter ce format pour que l’action de connexion soit dirigée vers le point de terminaison d’application approprié.
 
-1. Sur le [portail Azure](https://portal.azure.com), dans le menu de gauche, sélectionnez **App Services** >  **&lt;une_application>**  > **Centre de déploiement** > **FTP/Informations d’identification**.
+## <a name="get-application-scope-credentials"></a><a name="appscope"></a>Obtenir des informations d’identification de portée application
 
-2. Sélectionnez **Informations d’identification de l’application**, puis cliquez sur le lien **Copier** pour copier le nom d’utilisateur ou le mot de passe.
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Pour réinitialiser les informations d’identification de niveau application, sélectionnez **Réinitialiser les informations d’identification** dans la même boîte de dialogue.
+Récupérez les informations d’identification de portée application à l’aide de la commande [az webapp deployment list-publishing-profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles). Par exemple :
+
+```azurecli-interactive
+az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
+```
+
+Pour le [déploiement Git local](deploy-local-git.md), vous pouvez également utiliser la commande [az webapp deployment list-publishing-credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) pour obtenir un URI distant Git pour votre application, avec les informations d’identification de portée application déjà incorporées. Par exemple :
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Récupérez les informations d’identification de portée application à l’aide de la commande [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile). Par exemple :
+
+```azurepowershell-interactive
+Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+1. Dans le menu gauche de votre application, sélectionnez **Centre de déploiement** > **Informations d’identification FTPS** ou **Informations d’identification Git/FTPS locales**.
+
+    ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Dans la section **Étendue de l'application**, sélectionnez le lien **Copier** pour copier le nom d’utilisateur ou le mot de passe.
+
+-----
+
+## <a name="reset-application-scope-credentials"></a>Réinitialiser des informations d’identification de portée application
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+
+Réinitialisez les informations d’identification de portée application à l’aide de la commande [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action) :
+
+```azurecli-interactive
+az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Réinitialisez les informations d’identification de portée application à l’aide de la commande [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) :
+
+```azurepowershell-interactive
+Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+1. Dans le menu gauche de votre application, sélectionnez **Centre de déploiement** > **Informations d’identification FTPS** ou **Informations d’identification Git/FTPS locales**.
+
+    ![Montre comment vous pouvez sélectionner le tableau de bord FTP à partir du Centre de déploiement dans Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Dans la section **Portée de l'application**, sélectionnez **Réinitialiser**.
+
+-----
 
 ## <a name="disable-basic-authentication"></a>Désactiver l’authentification de base
 
@@ -82,7 +137,7 @@ Certaines organisations doivent répondre aux exigences de sécurité et préfè
 
 Pour désactiver l’accès FTP au site, exécutez la commande CLI suivante. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre site. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
@@ -92,7 +147,7 @@ Pour confirmer que l’accès FTP est bloqué, vous pouvez essayer de vous authe
 
 Pour désactiver l’accès d’authentification de base au port WebDeploy et au site SCM, exécutez la commande CLI suivante. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre site. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 

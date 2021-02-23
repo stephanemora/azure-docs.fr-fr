@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b6125252c22163306a79f5682a3a5fc4f0b55d4c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: cc64e314a8acb035736df0521987cb78a7297326
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556925"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Répertorier les attributions de rôle Azure à l’aide d’Azure CLI
 
@@ -187,4 +187,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md)
+- [Attribuer des rôles Azure à l’aide d’Azure CLI](role-assignments-cli.md)

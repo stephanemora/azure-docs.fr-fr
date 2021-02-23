@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le programme de mise à l’échelle au
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223140"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373247"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automatique sur un cluster existant, vous pouvez le réactiver à l’aide de la commande [az aks nodepool][az-aks-nodepool-update], en spécifiant les paramètres `--enable-cluster-autoscaler`, `--min-count` et `--max-count`.
+
+> [!NOTE]
+> Si vous envisagez d’utiliser la mise à l’échelle automatique de cluster avec des pools de nœuds qui s’étendent sur plusieurs zones et tirez parti des fonctionnalités de planification liées aux zones, telles que la planification topologique des volumes, il est recommandé d’avoir un pool de nœuds par zone et d’activer le `--balance-similar-node-groups` via le profil de mise à l’échelle automatique. Cela permet de s’assurer que la mise à l’échelle automatique est correctement montée en puissance et que les tailles des pools de nœuds sont équilibrées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1012dad1b7e0a314687a38e420ff9ad4780051da
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e2aab537c2235fe3e008fa619c96a3098cfa7a27
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97110956"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361211"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
@@ -181,7 +181,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Ajouter des langues personnalisées
 
-Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions de toutes les chaînes du flux utilisateur. Les codes de langues et de paramètres régionaux se limitent à ceux de la norme ISO 639-1.
+Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions de toutes les chaînes du flux utilisateur. Les codes de langues et de paramètres régionaux se limitent à ceux de la norme ISO 639-1. Le format de code des paramètres régionaux doit être « ISO_639-1_code »-« CountryCode ». Par exemple : en-GB. Pour plus d’informations sur les formats d’ID des paramètres régionaux, consultez https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a.
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 2. Sélectionnez le flux utilisateur dans lequel vous souhaitez ajouter des langues personnalisées, puis cliquez sur **Langues**.

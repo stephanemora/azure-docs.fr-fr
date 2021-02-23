@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807969"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374488"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Ce que signifie le passage au quota inconditionnel de volume pour votre service Azure NetApp Files
 
 Depuis le début du service, Azure NetApp Files utilise un mécanisme d’approvisionnement et de croissance automatique des pools de capacité. Les volumes Azure NetApp Files sont approvisionnés de façon dynamique sur un pool de capacité sous-jacent, approvisionné par le client, d’un niveau et d’une taille sélectionnés. Les tailles de volume (quotas) sont utilisées pour fournir le niveau de performance et la capacité, et les quotas peuvent être ajustés à la volée à tout moment. Ce comportement signifie que, actuellement, le quota de volume est un levier du niveau de performance utilisé pour contrôler la bande passante sur le volume. Actuellement, les pools de capacité sous-jacents augmentent automatiquement lorsque la capacité est pleine.   
 
 > [!IMPORTANT] 
-> Le comportement d’Azure NetApp Files en matière d’approvisionnement de volumes et de pools de capacité va changer pour un mécanisme *manuel* et *contrôlable*. **À partir du 15 mars 2021, les tailles de volume (quota) géreront le niveau de performance de la bande passante ainsi que la capacité approvisionnée, et les pools de capacité sous-jacents n’augmenteront plus automatiquement.** 
+> Le comportement d’Azure NetApp Files en matière d’approvisionnement de volumes et de pools de capacité va changer pour un mécanisme *manuel* et *contrôlable*. **À partir du 1er avril 2021, les tailles de volume (quota) géreront le niveau de performance de la bande passante ainsi que la capacité approvisionnée, et les pools de capacité sous-jacents n’augmenteront plus automatiquement.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Raisons du passage au quota inconditionnel de volume
 

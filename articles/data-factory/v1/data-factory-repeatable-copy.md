@@ -1,23 +1,18 @@
 ---
 title: Copie répétable dans Azure Data Factory
 description: Découvrez comment éviter les doublons, même si une tranche qui copie des données est exécutée plusieurs fois.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c427cd90412121e896738ca43f4c66dd24b096dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456825"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387085"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copie répétable dans Azure Data Factory
 
@@ -59,7 +54,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Supposons que vous trouviez des erreurs dans le fichier source et mettiez à jour la quantité de Down Tube, la faisant passer de 2 à 4. Si vous réexécutez manuellement la tranche de données pour cette période, vous trouvez deux nouveaux enregistrements ajoutés à la base de données SQL Azure/SQL Server. Cet exemple suppose qu’aucune des colonnes de la table ne présente de contrainte de clé primaire.
+Supposons que vous trouviez des erreurs dans le fichier source et mettiez à jour la quantité de Down Tube, la faisant passer de 2 à 4. Si vous réexécutez manuellement la tranche de données pour cette période, vous trouvez deux nouveaux enregistrements ajoutés à la base de données Azure SQL/SQL Server. Cet exemple suppose qu’aucune des colonnes de la table ne présente de contrainte de clé primaire.
 
 ```
 ID    Product        Quantity    ModifiedDate

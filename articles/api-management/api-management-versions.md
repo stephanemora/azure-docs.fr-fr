@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87094152"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547194"
 ---
 # <a name="versions-in-azure-api-management"></a>Versions dans Gestion des API Azure
 
@@ -64,9 +64,13 @@ Si vous ajoutez une version à une API sans version, une version `Original` est 
 
 ## <a name="how-versions-are-represented"></a>Représentation des versions
 
-Gestion des API Azure gère une ressource appelée *jeu de versions*, qui représente un ensemble de versions pour une API logique unique. Lorsque vous utilisez le portail Azure pour gérer les versions, vous ne voyez pas le jeu de versions, mais, si vous interagissez avec votre service Gestion des API en utilisant PowerShell, des modèles Resource Manager ou l’API Azure Resource Manager, vous pouvez consulter et gérer les jeux de versions directement. Un jeu de versions contient le nom complet de l’API avec version, ainsi que le [schéma de contrôle de version utilisé](#versioning-schemes) pour diriger les demandes vers les versions spécifiées.
+Gestion des API Azure gère une ressource appelée *jeu de versions*, qui représente un ensemble de versions pour une API logique unique. Un jeu de versions contient le nom complet de l’API avec version, ainsi que le [schéma de contrôle de version utilisé](#versioning-schemes) pour diriger les requêtes vers les versions spécifiées.
 
-Chaque version d’une API est gérée comme sa propre ressource d’API, qui est ensuite associée à un jeu de versions. Un jeu de versions peut contenir des API avec des opérations ou des stratégies très différentes, ce qui reflète le fait que vous pouvez apporter des modifications importantes entre les versions de votre API.
+Chaque version d’une API est gérée comme sa propre ressource d’API, qui est ensuite associée à un jeu de versions. Un jeu de versions peut contenir des API avec différentes opérations ou stratégies. Vous pouvez apporter des modifications significatives entre les versions d’un jeu.
+
+Le portail Azure crée des jeux de versions pour vous. Vous pouvez modifier le nom et la description d’un jeu de versions dans le portail Azure.
+
+Vous pouvez afficher et gérer les jeux de versions directement à l’aide d’[Azure CLI](/cli/azure/apim/api/versionset), d’[Azure PowerShell](/powershell/module/az.apimanagement/#api-management), des [modèles Resource Manager](/azure/templates/microsoft.apimanagement/service/apiversionsets) ou de l’[API Azure Resource Manager](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migration d’une API sans version vers une API avec version
 

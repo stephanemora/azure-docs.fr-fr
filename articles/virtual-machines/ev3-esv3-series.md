@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 537a301ef2c3ba1bb5ed34d92c8784655c79d97f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9d2c245cdc8b1aba644171089ed95bad2ab730a4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097470"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558613"
 ---
 # <a name="ev3-and-esv3-series"></a>Séries Ev3 et Esv3
 
@@ -32,7 +32,7 @@ Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
@@ -64,7 +64,7 @@ Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d�
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 

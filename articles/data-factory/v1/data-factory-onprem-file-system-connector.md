@@ -1,23 +1,18 @@
 ---
 title: Copier des données vers ou à partir d’un système de fichiers avec Azure Data Factory
 description: Apprenez à copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9acd2adb68347978bb123d2239eedbb3e5595bc3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847594"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387391"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copier des données vers et à partir d’un système de fichiers local à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -73,7 +68,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
-| host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |Oui |
+| host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Consultez la section [Exemples de définitions de jeux de données et de service liés](#sample-linked-service-and-dataset-definitions) pour obtenir des exemples. |Oui |
 | userid |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | mot de passe |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
 | encryptedCredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant la cmdlet New-AzDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
@@ -475,9 +470,9 @@ Nous vous recommandons d’utiliser la propriété **encryptedCredential** plut�
 
 **Jeu de données d'entrée SQL Azure :**
 
-L’exemple suppose que vous avez créé une table « MyTable » dans SQL Azure et qu’elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+L’exemple suppose que vous avez créé une table « MyTable » dans Azure SQL et qu’elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
 
-La définition de ``“external”: ”true”`` informe Data Factory que le jeu de données est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de ``"external": "true"`` informe Data Factory que le jeu de données est externe à la Data Factory et non produit par une activité dans la Data Factory.
 
 ```JSON
 {

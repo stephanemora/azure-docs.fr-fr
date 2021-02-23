@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550227"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526862"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Résoudre les problèmes liés à vos connexions dans Azure Purview
 
@@ -53,7 +53,10 @@ Vérifiez que les autorisations appropriées ont été configurées pour que l�
 Pour cela, procédez comme suit :
 
 1. Accédez à votre coffre de clés et à la section **Stratégies d’accès**.
-1. Vérifiez que votre identité managée Purview s’affiche sous la section *Stratégies d’accès actuelles* avec au minimum des autorisations **get** sur les secrets.
+
+1. Vérifiez que votre identité managée Purview s’affiche sous la section *Stratégies d’accès actuelles* avec au minimum des autorisations **Get** et **List** sur les secrets.
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Image représentant la liste déroulante des options pour les autorisations Get et List":::
 
 Si vous ne voyez pas votre identité managée Purview dans la liste, suivez les étapes décrites dans [Créer et gérer des informations d’identification pour les analyses](manage-credentials.md) afin de pouvoir l’ajouter. 
 

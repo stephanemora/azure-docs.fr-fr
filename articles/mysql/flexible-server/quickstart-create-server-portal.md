@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 864152d1f1d0074305cbba448946bc05888b4f3b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566756"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521966"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Démarrage rapide : Utiliser le portail Azure pour créer un serveur flexible Azure Database pour MySQL
 
@@ -85,17 +85,35 @@ Par défaut, ces bases de données sont créées sous votre serveur : informati
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>Se connecter au serveur à l’aide de mysql.exe
 
-Si vous avez créé votre serveur flexible à l’aide d’un accès privé (intégration au réseau virtuel), vous devez vous connecter à votre serveur à partir d’une ressource figurant au sein du même réseau virtuel que votre serveur. Vous pouvez créer une machine virtuelle et l’ajouter au réseau virtuel créé avec votre serveur flexible.
+Si vous avez créé votre serveur flexible à l’aide d’un accès privé (intégration au réseau virtuel), vous devez vous connecter à votre serveur à partir d’une ressource figurant au sein du même réseau virtuel que votre serveur. Vous pouvez créer une machine virtuelle et l’ajouter au réseau virtuel créé avec votre serveur flexible. Pour plus d’informations, reportez-vous à la [documentation de la configuration des accès privés](how-to-manage-virtual-network-portal.md).
 
-Si vous avez créé votre serveur flexible en utilisant un accès public (adresses IP autorisées), vous pouvez ajouter votre adresse IP locale à la liste des règles de pare-feu sur votre serveur.
+Si vous avez créé votre serveur flexible en utilisant un accès public (adresses IP autorisées), vous pouvez ajouter votre adresse IP locale à la liste des règles de pare-feu sur votre serveur. Pour obtenir des instructions pas à pas, consultez la [documentation sur la création ou la gestion de règles de pare-feu](how-to-manage-firewall-portal.md).
 
 Vous pouvez utiliser [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [MySQL Workbench](./connect-workbench.md) pour vous connecter au serveur à partir de votre environnement local. 
 
-Si vous utilisez mysql.exe, connectez-vous à l’aide de la commande suivante. Utilisez le nom du serveur, le nom d’utilisateur et le mot de passe dans la commande. 
-
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
+Si vous avez provisionné votre serveur flexible en utilisant un **accès public**, vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com/bash) pour vous connecter à votre serveur flexible en utilisant le client MySQL préinstallé, comme indiqué ci-dessous :
+
+Pour pouvoir utiliser Azure Cloud Shell pour vous connecter à votre serveur flexible, vous devez autoriser l’accès réseau depuis Azure Cloud Shell vers votre serveur flexible. Pour ce faire, vous pouvez accéder au panneau **Mise en réseau** sur le portail Azure pour votre serveur flexible MySQL et cocher la case sous la section **Pare-feu** qui indique « Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur », puis cliquer sur Enregistrer pour enregistrer le paramètre.
+
+> [!NOTE]
+> Cocher la case **Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur** doit être utilisé seulement à des fins de développement ou de test. Elle configure le pare-feu pour autoriser les connexions à partir d’adresses IP allouées à n’importe quel service ou ressource Azure, y compris les connexions depuis les abonnements d’autres clients.
+
+Cliquez sur **Essayer** pour lancer Azure Cloud Shell, puis utilisez les commandes suivantes pour vous connecter à votre serveur flexible. Utilisez le nom du serveur, le nom d’utilisateur et le mot de passe dans la commande. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+
+Si le message d’erreur suivant s’affiche lors de la connexion à votre serveur flexible à la suite de la commande précédente, c’est que vous n’avez pas défini la règle de pare-feu en utilisant l’option « Autoriser l’accès public à partir de n’importe quel service Azure dans Azure à ce serveur » mentionnée précédemment ou que cette option n’est pas enregistrée. Reconfigurez le pare-feu, puis réessayez.
+
+ERREUR 2002 (HY000) : Connexion impossible au serveur MySQL sur <servername> (115)
+
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Vous venez de créer un serveur flexible Azure Database pour MySQL dans un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources ou en supprimant simplement le serveur MySQL. Pour supprimer le groupe de ressources, effectuez ces étapes :
 

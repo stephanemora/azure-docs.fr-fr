@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 42d388aed618a5a92212152166573719c9e973c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704167"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371020"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -52,6 +52,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Azure SQL Database|[Transparent Data Encryption avec prise en charge Bring Your Own Key pour Azure SQL Database et Azure Synapse Analytics](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current).|
 |Stockage Azure|[Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Chiffrement de données dans Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) avec une clé gérée par le client.|
+|Azure Synapse Analytics|[Chiffrement des données à l’aide de clés gérées par le client dans Azure Key Vault](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[Service d'analyse rapide, simple et collaboratif basé sur Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Gestion des API Azure|[Déployer des certificats pour un domaine personnalisé à partir de Key Vault à l’aide de MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Récupérer les informations d’identification du magasin de données dans Key Vault à partir de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

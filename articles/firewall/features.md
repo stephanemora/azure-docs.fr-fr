@@ -5,37 +5,38 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788228"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544831"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
-Le [Pare-feu Azure](overview.md) est un service de sécurité réseau informatique managé qui protège vos ressources de réseau virtuel Azure.
+Le [Pare-feu Azure](overview.md) est un service de sécurité réseau cloud managé qui protège vos ressources de réseau virtuel Azure.
 
 ![Présentation du pare-feu](media/overview/firewall-threat.png)
 
 Le pare-feu Azure inclut les fonctionnalités suivantes :
 
-- [Haute disponibilité intégrée](#built-in-high-availability)
-- [Zones de disponibilité](#availability-zones)
-- [Extensibilité du cloud sans limites](#unrestricted-cloud-scalability)
-- [Règles de filtrage des noms de domaine complets de l’application](#application-fqdn-filtering-rules)
-- [Règles de filtrage du trafic réseau](#network-traffic-filtering-rules)
-- [Balises FQDN](#fqdn-tags)
-- [Balises de service](#service-tags)
-- [Renseignement sur les menaces](#threat-intelligence)
-- [Prise en charge du mode SNAT sortant](#outbound-snat-support)
-- [Prise en charge du trafic DNAT entrant](#inbound-dnat-support)
-- [Adresses IP publiques multiples](#multiple-public-ip-addresses)
-- [Journalisation d’Azure Monitor](#azure-monitor-logging)
-- [Tunneling forcé](#forced-tunneling)
-- [Certifications](#certifications)
+- Haute disponibilité intégrée
+- Zones de disponibilité
+- Extensibilité du cloud sans limites
+- Règles de filtrage des noms de domaine complets de l’application
+- Règles de filtrage du trafic réseau
+- Balises FQDN
+- Balises de service
+- Informations sur les menaces
+- Prise en charge du mode SNAT sortant
+- Prise en charge du trafic DNAT entrant
+- Adresses IP publiques multiples
+- Journalisation d’Azure Monitor
+- Tunneling forcé
+- Catégories web (préversion)
+- Certifications
 
 ## <a name="built-in-high-availability"></a>Haute disponibilité intégrée
 
@@ -47,7 +48,7 @@ Le Pare-feu Azure peut être configuré pendant le déploiement pour couvrir plu
 
 Vous pouvez également associer le Pare-feu Azure à une zone spécifique uniquement pour des raisons de proximité, en utilisant le contrat de niveau de service standard garantissant un taux de disponibilité de 99,95 %.
 
-Il n’existe aucun coût supplémentaire pour un pare-feu déployé dans une Zone de disponibilité. Toutefois, il existe des coûts supplémentaires pour les transferts de données entrants et sortants associés aux Zones de disponibilité Azure. Pour plus d’informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
+Il n’existe aucun coût supplémentaire pour un pare-feu déployé dans une Zone de disponibilité. Par contre, il existe des coûts supplémentaires pour les transferts de données entrants et sortants associés aux Zones de disponibilité Azure. Pour plus d’informations, consultez [Détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Les Zones de disponibilité de Pare-feu Azure sont disponibles dans les régions prenant en charge les Zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité dans Azure](../availability-zones/az-region.md).
 
@@ -110,6 +111,24 @@ Le classeur Pare-feu Azure constitue un canevas flexible pour l’analyse de don
 ## <a name="forced-tunneling"></a>Tunneling forcé
 
 Vous pouvez configurer le pare-feu Azure pour router tout le trafic Internet vers un tronçon suivant désigné au lieu d’accéder directement à Internet. Par exemple, vous pouvez disposer d’un pare-feu de périphérie local ou d’une autre appliance virtuelle réseau (NVA) pour traiter le trafic réseau avant qu’il ne soit dirigé vers Internet. Pour plus d’informations, consultez la page [Tunneling forcé du Pare-feu Azure](forced-tunneling.md).
+
+## <a name="web-categories-preview"></a>Catégories web (préversion)
+
+Les catégories web permettent aux administrateurs d’autoriser ou de refuser aux utilisateurs l’accès aux catégories de sites web telles que les sites web de jeux d’argent, les sites web de réseaux sociaux, etc. Les catégories web sont incluses dans le Pare-feu Azure Standard, mais elles sont plus précises dans la préversion du Pare-feu Azure Premium. Contrairement à la fonctionnalité de catégories web de la référence SKU Standard qui correspond à la catégorie basée sur un nom de domaine complet, la référence SKU Premium correspond à la catégorie en fonction de l’URL complète pour le trafic HTTP et HTTPS. Pour plus d’informations sur la préversion du Pare-feu Azure Premium, consultez [Fonctionnalités de la préversion du Pare-feu Azure Premium](premium-features.md).
+
+Par exemple, si le Pare-feu Azure intercepte une requête HTTPS pour `www.google.com/news`, vous devriez avoir la catégorisation suivante : 
+
+- Pare-feu Standard : seule la partie du nom de domaine complet étant examinée, `www.google.com` est classé en tant que *Moteur de recherche*. 
+
+- Pare-feu Premium : l’URL complète étant examinée, `www.google.com/news` est classée en tant qu’*Actualités*.
+
+Les catégories sont organisées en fonction de leur gravité sous **Responsabilité**, **Bande passante élevée**, **Utilisation métier**, **Perte de productivité**, **Navigation générale** et **Sans catégorie**.
+
+### <a name="category-exceptions"></a>Exceptions de catégorie
+
+Vous pouvez créer des exceptions à vos règles de catégorie web. Créez une collection de règles d’autorisation ou de refus distinct avec une priorité plus élevée au sein du groupe de collections de règles. Par exemple, vous pouvez configurer une collection de règles qui autorise `www.linkedin.com` avec la priorité 100, avec une collection de règles qui refuse **Réseaux sociaux** avec la priorité 200. Cette opération crée l’exception pour la catégorie web **Réseaux sociaux** prédéfinie.
+
+
 
 ## <a name="certifications"></a>Certifications
 

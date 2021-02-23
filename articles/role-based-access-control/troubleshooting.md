@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184261"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555880"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problèmes liés aux attributions de rôle Azure
 
-- Si vous ne pouvez pas ajouter d’attribution de rôle dans le portail Azure sur **Contrôle d’accès (IAM)** car l’option **Ajouter** > **Ajouter une attribution de rôle** est désactivée, ou parce que vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action », vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) dans l’étendue sur laquelle vous essayez d’attribuer le rôle.
+- Si vous ne pouvez pas attribuer de rôle dans le portail Azure sur **Contrôle d’accès (IAM)** , car l’option **Ajouter** > **Ajouter une attribution de rôle** est désactivée, ou parce que vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action », vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator), dans l’étendue à laquelle vous essayez d’attribuer le rôle.
 - Si vous utilisez un principal de service pour attribuer des rôles, il se peut que le message d’erreur « Privilèges insuffisants pour effectuer l’opération » s’affiche. Supposons, par exemple, que vous avez un principal de service auquel le rôle Propriétaire a été attribué et que vous tentez de créer l’attribution de rôle suivante en tant que principal de service à l’aide d’Azure CLI :
 
     ```azurecli
@@ -63,7 +63,7 @@ $ras.Count
 
     Il existe deux façons de résoudre cette erreur. La première consiste à attribuer au principal de service le rôle [Lecteurs de répertoire](../active-directory/roles/permissions-reference.md#directory-readers) afin qu’il puisse lire les données dans l’annuaire.
 
-    La deuxième consiste à créer l’attribution de rôle à l’aide du paramètre `--assignee-object-id` au lieu de `--assignee`. En utilisant `--assignee-object-id`, Azure CLI ignorera la recherche Azure AD. Vous devez obtenir l’ID d’objet de l’utilisateur, du groupe ou de l’application auquel vous souhaitez attribuer le rôle. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
+    La deuxième consiste à créer l’attribution de rôle à l’aide du paramètre `--assignee-object-id` au lieu de `--assignee`. En utilisant `--assignee-object-id`, Azure CLI ignorera la recherche Azure AD. Vous devez obtenir l’ID d’objet de l’utilisateur, du groupe ou de l’application auquel vous souhaitez attribuer le rôle. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -151,7 +151,7 @@ De même, si vous répertoriez cette attribution de rôle à l’aide d’Azure 
 }
 ```
 
-Il n’est pas un problème de conserver ces attributions de rôle pour lesquelles le principal de sécurité a été supprimé. Si vous le souhaitez, vous pouvez supprimer ces attributions de rôle en utilisant les étapes similaires aux autres attributions de rôle. Pour plus d’informations sur la suppression des attributions de rôles, consultez [Portail Azure](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment) ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Il n’est pas un problème de conserver ces attributions de rôle pour lesquelles le principal de sécurité a été supprimé. Si vous le souhaitez, vous pouvez supprimer ces attributions de rôle en utilisant les étapes similaires aux autres attributions de rôle. Pour plus d’informations sur la procédure de suppression d’attributions de rôle, consultez [Supprimer des attributions de rôle](role-assignments-remove.md).
 
 Dans PowerShell, si vous essayez de supprimer les attributions de rôles à l’aide de l’ID d’objet et du nom de définition de rôle alors que plusieurs attributions de rôle correspondent à vos paramètres, le message d’erreur suivant s’affiche : « Les informations fournies ne correspondent pas à une attribution de rôle ». Voici un exemple du message d’erreur :
 
@@ -174,7 +174,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## <a name="role-assignment-changes-are-not-being-detected"></a>Les changements d’attribution de rôle ne sont pas détectés
 
-Azure Resource Manager met parfois en cache des données et des configurations pour améliorer les performances. Lorsque vous ajoutez ou supprimez des attributions de rôle, un délai de 30 minutes maximum peut être nécessaire avant que les modifications soient prises en compte. Si vous utilisez le portail Azure, Azure PowerShell ou Azure CLI, vous pouvez forcer une actualisation de vos modifications d’attribution de rôle en vous déconnectant et en vous reconnectant. Si vous apportez des modifications d’attribution de rôle à l’aide d’appels d’API REST, vous pouvez forcer une actualisation en actualisant votre jeton d’accès.
+Azure Resource Manager met parfois en cache des données et des configurations pour améliorer les performances. Lorsque vous attribuez des rôles ou supprimez des attributions de rôle, un délai de 30 minutes maximum peut être nécessaire avant que les modifications soient prises en compte. Si vous utilisez le portail Azure, Azure PowerShell ou Azure CLI, vous pouvez forcer une actualisation de vos modifications d’attribution de rôle en vous déconnectant et en vous reconnectant. Si vous apportez des modifications d’attribution de rôle à l’aide d’appels d’API REST, vous pouvez forcer une actualisation en actualisant votre jeton d’accès.
 
 Si vous ajoutez ou supprimez une attribution de rôle au niveau de l’étendue du groupe d’administration et que le rôle est doté de `DataActions`, l’accès au plan de données peut ne pas être mis à jour pendant plusieurs heures. Cela s’applique uniquement à l’étendue du groupe d’administration et au plan de données.
 
@@ -249,5 +249,5 @@ Un lecteur peut cliquer sur l’onglet **Fonctionnalités de plateforme**, puis 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Résolution des problèmes pour les utilisateurs invités](role-assignments-external-users.md#troubleshoot)
-- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md)
 - [Afficher les journaux d’activité pour voir les changements RBAC Azure](change-history-report.md)

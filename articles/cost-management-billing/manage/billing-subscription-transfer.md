@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979427"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367195"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -91,9 +91,12 @@ Si vous éprouvez des difficultés à transférer des abonnements, utilisez les 
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Le propriétaire d’origine de la facturation de l’abonnement Azure quitte votre organisation
 
-Il se peut que le propriétaire d’origine de la facturation qui a créé un compte Azure et un abonnement Azure quitte votre organisation. Si cette situation se produit, son identité d’utilisateur ne figure plus dans l’annuaire Azure Active Directory de l’organisation. L’abonnement Azure n’a donc plus de propriétaire de facturation. Cette situation empêche quiconque d’effectuer des opérations de facturation sur le compte, notamment de voir et de payer les factures. L’abonnement peut passer à l’état impayé et, par la suite, être désactivé en raison du non-paiement. L’abonnement peut finalement être supprimé, ce qui affectera tous les services qui s’y exécutent.
+> [!Note]
+> Cette section s’applique spécifiquement à un compte de facturation pour un contrat client Microsoft. Vérifiez que vous avez accès à un [contrat client Microsoft](mca-request-billing-ownership.md#check-for-access).
 
-Quand un abonnement ne dispose plus d’un propriétaire de facturation valide, Azure envoie un e-mail à d’autres propriétaires de facturation, aux administrateurs de service, aux coadministrateurs et aux propriétaires d’abonnement les informant de la situation et leur fournit un lien pour accepter la propriété de facturation de l’abonnement. Tout utilisateur peut sélectionner le lien pour accepter la propriété de facturation. Pour plus d’informations sur les rôles de facturation, consultez les pages sur les [rôles de facturation](understand-mca-roles.md) et les [rôles d’abonnement classique et RBAC Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Il est possible que le propriétaire du compte de facturation d’origine qui a créé un compte Azure et un abonnement Azure quitte votre organisation. Si cette situation se produit, son identité d’utilisateur ne figure plus dans l’annuaire Azure Active Directory de l’organisation. L’abonnement Azure n’a donc plus de propriétaire de facturation. Cette situation empêche quiconque d’effectuer des opérations de facturation sur le compte, notamment de voir et de payer les factures. L’abonnement peut passer à l’état impayé et, par la suite, être désactivé en raison du non-paiement. L’abonnement peut finalement être supprimé, ce qui affectera tous les services qui s’y exécutent.
+
+Quand un abonnement n’a plus de propriétaire de compte de facturation valide, Azure envoie un e-mail à d’autres propriétaires de compte de facturation, aux administrateurs de service (s’il y en a), aux coadministrateurs (s’il y en a) et aux propriétaires d’abonnement les informant de la situation, et leur fournit un lien pour accepter la propriété de la facturation de l’abonnement. Tout utilisateur peut sélectionner le lien pour accepter la propriété de facturation. Pour plus d’informations sur les rôles de facturation, consultez les pages sur les [rôles de facturation](understand-mca-roles.md) et les [rôles d’abonnement classique et RBAC Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 L’exemple suivant montre à quoi ressemble l’e-mail.
 

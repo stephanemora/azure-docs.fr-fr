@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cac17bbac96d44d8d9bfce2e168de4ea6d4c5c08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781054"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364951"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,13 +73,13 @@ Une requête élastique peut être utilisée pour mettre les données situées d
 > Vous devez posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE. Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 >
 
-**Données de référence**  : la topologie est utilisée pour la gestion des données de référence. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
+**Données de référence** : la topologie est utilisée pour la gestion des données de référence. Dans la figure ci-dessous, deux tables (T1 et T2) avec des données de référence sont conservées dans une base de données dédiée. Avec une requête élastique, vous pouvez désormais accéder aux tables T1 et T2 à distance depuis d’autres bases de données, comme indiqué dans la figure. Utilisez Topologie 1 si les tables de référence sont des requêtes de petite taille ou distantes se trouvant dans la table de référence et ayant des prédicats sélectifs.
 
 **Figure 2** Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence
 
 ![Partitionnement vertical -Utilisation d’une requête élastique pour interroger des données de référence][3]
 
-**Interrogation de plusieurs bases de données**  : les requêtes élastiques autorisent les cas d’usage qui nécessitent l’interrogation de plusieurs bases de données dans SQL Database. La figure 3 présente quatre bases de données différentes : CRM, Inventaire, Ressources humaines et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
+**Interrogation de plusieurs bases de données** : les requêtes élastiques autorisent les cas d’usage qui nécessitent l’interrogation de plusieurs bases de données dans SQL Database. La figure 3 présente quatre bases de données différentes : CRM, Inventaire, Ressources humaines et Produits. Les requêtes exécutées dans une des bases de données doivent également accéder à une ou à toutes les autres bases de données. Avec une requête élastique, vous pouvez configurer votre base de données pour ce cas en exécutant plusieurs instructions DDL simples sur chacune des quatre bases de données. Après cette configuration à usage unique, l’accès à une table distante se fait simplement en faisant référence à une table locale à partir de vos requêtes T-SQL ou de vos outils d’analyse décisionnelle. Cette approche est recommandée si les requêtes distantes ne renvoient pas de résultats volumineux.
 
 **Figure 3** Partitionnement vertical - Utilisation de requête élastique pour l’interrogation de plusieurs bases de données
 
@@ -114,13 +114,13 @@ Les étapes suivantes configurent des requêtes de base de données élastiques 
 * [CREATE/DROP EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) mydatasource de type **SHARD_MAP_MANAGER**
 * [CREATE/DROP EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) mytable
 
-Une fois que vous avez effectué ces opérations, vous pouvez accéder à la table partitionnée horizontalement « mytable » comme s’il s’agissait d’une table locale. Azure SQL Database ouvre automatiquement plusieurs connexions parallèles aux bases de données distantes dans laquelle dans lesquelles les tables sont stockées physiquement, traite les requêtes sur les bases de données distantes et retourne les résultats.
+Une fois que vous avez effectué ces opérations, vous pouvez accéder à la table « mytable » partitionnée horizontalement comme s’il s’agissait d’une table locale. Azure SQL Database ouvre automatiquement plusieurs connexions parallèles aux bases de données distantes dans laquelle dans lesquelles les tables sont stockées physiquement, traite les requêtes sur les bases de données distantes et retourne les résultats.
 Vous trouverez d’autres informations sur les opérations requises pour le scénario de partitionnement horizontal dans [Requête élastique pour le partitionnement horizontal](elastic-query-horizontal-partitioning.md).
 
 Pour commencer le codage, voir [Prise en main d’une requête élastique pour le partitionnement horizontal (partitionnement)](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> La réussite d’exécution d’une requête élastique sur un grand ensemble de bases de données repose essentiellement sur la disponibilité de chacune des bases de données lors de l’exécution de la requête. Si l’une des bases de données n’est pas disponible, la requête entière échoue. Si vous envisagez d’interroger des centaines ou des milliers de bases de données en même temps, assurez-vous que votre application cliente a une logique incorporée de nouvelle tentative ou envisagez de tirer parti des [tâches de base de données élastique](./job-automation-overview.md#elastic-database-jobs-preview) (préversion) et d’interroger de plus petits sous-ensembles de bases de données, en consolidant les résultats de chaque interrogation en une seule destination.
+> La réussite d’exécution d’une requête élastique sur un grand ensemble de bases de données repose essentiellement sur la disponibilité de chacune des bases de données lors de l’exécution de la requête. Si l’une des bases de données n’est pas disponible, la requête entière échoue. Si vous envisagez d’interroger des centaines ou des milliers de bases de données en même temps, assurez-vous que votre application cliente a une logique incorporée de nouvelle tentative ou envisagez de tirer parti des [tâches de base de données élastique](./job-automation-overview.md) (préversion) et d’interroger de plus petits sous-ensembles de bases de données, en consolidant les résultats de chaque interrogation en une seule destination.
 
 ## <a name="t-sql-querying"></a>Requêtes T-SQL
 

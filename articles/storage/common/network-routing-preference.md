@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362741"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurer une préférence de routage réseau pour le service Stockage Azure (préversion)
 
 Vous pouvez configurer une [préférence de routage](../../virtual-network/routing-preference-overview.md) réseau (préversion) pour votre compte de stockage Azure afin de spécifier comment le trafic réseau est acheminé vers votre compte à partir de clients sur Internet. Par défaut, le trafic provenant d’Internet est routé vers le point de terminaison public de votre compte de stockage sur le [réseau Microsoft mondial](../../networking/microsoft-global-network.md). Le stockage Azure fournit des options supplémentaires pour configurer la façon dont le trafic est acheminé vers votre compte de stockage.
 
 La configuration d’une préférence de routage vous offre la possibilité d’optimiser votre trafic pour obtenir des performances réseau d’exception ou un coût plus avantageux. Lorsque vous configurez une préférence de routage, vous spécifiez la manière dont le trafic est acheminé vers le point de terminaison public de votre compte de stockage par défaut. Vous pouvez également publier des points de terminaison spécifiques d’un itinéraire pour votre compte de stockage.
+
+> [!NOTE]
+> Cette fonctionnalité n’est pas prise en charge dans les comptes de stockage configurés pour utiliser le niveau de performance Premium ou le stockage redondant interzone (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Réseau Microsoft mondial et routage Internet
 

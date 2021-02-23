@@ -1,14 +1,14 @@
 ---
 title: Supprimer l’accès à une délégation
 description: Découvrez comment supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services pour Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791354"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555781"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
 
@@ -21,7 +21,7 @@ La suppression d’une délégation peut être effectuée par un utilisateur dan
 
 ## <a name="customers"></a>Clients
 
-Les utilisateurs du locataire du client qui disposent du [rôle intégré Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour un abonnement peuvent supprimer l’accès du fournisseur de services à cet abonnement (ou aux groupes de ressources de cet abonnement). Pour ce faire, un utilisateur du locataire du client peut accéder à la [page des fournisseurs de services](view-manage-service-providers.md#add-or-remove-service-provider-offers) du Portail Azure, rechercher l’offre sur l’écran des **offres du fournisseur de services**, puis sélectionner l’icône de la corbeille sur la ligne de cette offre.
+Les utilisateurs du locataire du client qui disposent d’un rôle ayant l’autorisation `Microsoft.Authorization/roleAssignments/write`, comme [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), peuvent supprimer l’accès du fournisseur de services à cet abonnement (ou aux groupes de ressources de cet abonnement). Pour ce faire, les utilisateurs peuvent accéder à la [page Fournisseurs de services](view-manage-service-providers.md#add-or-remove-service-provider-offers) du portail Azure, rechercher l’offre sur l’écran **Offres du fournisseur de services**, puis sélectionner l’icône de la corbeille sur la ligne de cette offre.
 
 Une fois la suppression confirmée, aucun utilisateur du locataire du fournisseur de services ne pourra accéder aux ressources précédemment déléguées.
 

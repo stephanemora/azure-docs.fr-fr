@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673374"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527120"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutoriel : Configurer CybSafe pour l’attribution automatique d’utilisateurs
 
@@ -121,6 +121,10 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |locale|String|
    |timezone|String|
    |userType|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec CybSafe**.
 
@@ -153,6 +157,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Journal des modifications
+
+* 15/02/2021 : les attributs d’extension d’entreprise pour l’utilisateur **department**, **division** et **organization** ont été ajoutés.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

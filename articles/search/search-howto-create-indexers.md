@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509382"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360956"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Création d’indexeurs dans Recherche cognitive Azure
 
@@ -142,6 +142,20 @@ Le traitement planifié coïncide généralement avec un besoin d’indexation i
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>Détection des modifications et état de l’indexeur
+
+Les indexeurs peuvent détecter les modifications apportées aux données sous-jacentes et traiter uniquement les documents nouveaux ou mis à jour à chaque exécution d’indexeur. Par exemple, si l’état de l’indexeur indique qu’une exécution a réussi avec `0/0` documents traités, cela signifie que l’indexeur n’a pas trouvé de lignes ou de blobs nouveaux ou modifiés dans la source de données sous-jacente.
+
+La façon dont un indexeur prend en charge la détection des modifications varie selon la source de données :
+
++ Stockage Blob Azure, Stockage Table Azure et Azure Data Lake Storage Gen2 estampillent chaque mise à jour de blob ou de ligne avec la date et l’heure. Les différents indexeurs utilisent ces informations pour déterminer les documents à mettre à jour dans l’index. La détection intégrée des modifications signifie qu’un indexeur peut reconnaître des documents nouveaux et mis à jour, sans qu’aucune configuration supplémentaire ne soit requise de votre part.
+
++ Azure SQL et Cosmos DB fournissent des fonctionnalités de détection des modifications dans leurs plateformes. Vous pouvez spécifier la stratégie de détection des modifications dans la définition de votre source de données.
+
+Pour les charges d’indexation volumineuses, un indexeur effectue également le suivi du dernier document traité par le bais d’une « limite supérieure » interne. Le marqueur n’est jamais exposé dans l’API, mais en interne, l’indexeur garde une trace de l’endroit où il s’est arrêté. Lorsque l’indexation reprend, par le biais d’une exécution planifiée ou d’un appel à la demande, l’indexeur fait référence à la limite supérieure afin de pouvoir reprendre là où il s’était arrêté.
+
+Si vous devez effacer la limite supérieure pour réindexer entièrement, vous pouvez utiliser l’option [Réinitialiser l’indexeur](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Pour une réindexation plus sélective, utilisez [Réinitialiser les compétences](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) ou [Réinitialiser les documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Grâce aux API de réinitialisation, vous pouvez effacer l’état interne, ainsi que vider le cache si vous avez activé l’[enrichissement incrémentiel](search-howto-incremental-index.md). Pour plus d’informations et une comparaison de chaque option de réinitialisation, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Connaître vos données
 

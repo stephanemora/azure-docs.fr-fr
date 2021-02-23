@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762977"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090596"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -83,10 +83,6 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
     - Les groupes dynamiques *ne sont pas pris en charge* pour le lancement intermédiaire.
     - Les objets contact du groupe bloquent l’ajout du groupe.
 
-- Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Passer de la fédération à la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md) et [Passer de la fédération à l’authentification directe](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - Lorsque vous ajoutez pour la première fois un groupe de sécurité au lancement intermédiaire, vous êtes limité à 200 utilisateurs pour éviter que l’expérience utilisateur n’expire. Une fois que vous avez ajouté le groupe, vous pouvez y ajouter directement d’autres utilisateurs, selon les besoins.
 
 - Lorsque les utilisateurs sont dans Lancement intermédiaire, quand EnforceCloudPasswordPolicyForPasswordSyncedUsers est activé, la stratégie d’expiration du mot de passe est définie sur 90 jours sans option pour la personnaliser. 
@@ -95,7 +91,9 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 - Acquisition du jeton d’actualisation principal de jonction Azure AD ou de jonction hybride pour Windows 10 pour toutes les versions lorsque l’UPN local de l’utilisateur n’est pas routable. Ce scénario revient au point de terminaison WS-Trust en mode de déploiement par étapes, mais il cesse de fonctionner lorsque la migration par étapes est terminée et que l’authentification de l’utilisateur ne dépend plus du serveur de fédération.
 
-
+  >[!NOTE]
+  >Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Passer de la fédération à la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) et [Passer de la fédération à l’authentification directe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## <a name="get-started-with-staged-rollout"></a>Prise en main du lancement intermédiaire
 
 Pour tester la connexion de *synchronisation de hachage de mot de passe* à l’aide du lancement intermédiaire, suivez les instructions de travail préalable de la section suivante.
@@ -257,3 +255,5 @@ A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Changer la méthode de connexion pour la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Changer la méthode de connexion pour l’authentification directe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

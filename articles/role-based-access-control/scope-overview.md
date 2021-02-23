@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856146"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555923"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Comprendre l’étendue d’Azure RBAC
 
@@ -32,7 +32,7 @@ Les groupes d’administration sont un niveau d’étendue situé au-dessus des 
 
 ## <a name="scope-format"></a>Format de l’étendue
 
-Si vous ajoutez des attributions de rôles à l’aide de la ligne de commande, vous devez spécifier l’étendue. Pour les outils en ligne de commande, l’étendue est une chaîne potentiellement longue qui identifie la portée exacte de l’attribution de rôle. Dans le portail Azure, cette étendue est généralement listée en tant qu’*ID de la ressource*.
+Si vous attribuez des rôles à l’aide de la ligne de commande, vous devez spécifier l’étendue. Pour les outils en ligne de commande, l’étendue est une chaîne potentiellement longue qui identifie la portée exacte de l’attribution de rôle. Dans le portail Azure, cette étendue est généralement listée en tant qu’*ID de la ressource*.
 
 L’étendue se compose d’une série d’identificateurs séparés par une barre oblique (« / »). Vous pouvez considérer cette chaîne comme exprimant la hiérarchie suivante, où les expressions sans espaces réservés (`{}`) sont des identificateurs fixes :
 
@@ -122,6 +122,6 @@ Il est assez simple de déterminer l’étendue d’un groupe d’administration
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Étapes pour ajouter une attribution de rôle](role-assignments-steps.md)
+- [Procédure d’attribution d’un rôle Azure](role-assignments-steps.md)
 - [Fournisseurs de ressources pour les services Azure](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Présentation des groupes d’administration Azure](../governance/management-groups/overview.md)

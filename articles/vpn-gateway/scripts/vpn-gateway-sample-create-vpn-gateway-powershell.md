@@ -1,58 +1,69 @@
 ---
-title: Exemple de script Azure PowerShell - Création d’une passerelle VPN | Microsoft Docs
+title: Exemple de script Azure PowerShell – Créer une passerelle VPN
+titleSuffix: Azure VPN Gateway
 description: Découvrez comment utiliser un script PowerShell pour créer un réseau virtuel, un sous-réseau réseau et une passerelle VPN basée sur un itinéraire.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 01/09/2020
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: a17cd1dcf9bca52936a8b10fa45045ff88df1b01
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d41ec492f1f694a8b39f16a7932c4476d9614a1a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660744"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385878"
 ---
-# <a name="create-a-vpn-gateway-with-powershell"></a>Créer une passerelle VPN avec PowerShell
+# <a name="create-a-vpn-gateway---powershell-script-sample"></a>Créer une passerelle VPN – Exemple de script PowerShell
 
-Ce script crée une passerelle VPN basée sur un itinéraire.
+Ce script PowerShell permet de créer une passerelle VPN basée sur le routage.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-
 ```azurepowershell-interactive
+# Declare variables
+  $RG = "TestRG1"
+  $Location = "East US"
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $VNetPrefix1 = "10.1.0.0/16"
+  $FESubPrefix = "10.1.0.0/24"
+  $GWSubPrefix = "10.1.255.0/27"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWIP"
+
 # Create a resource group
-New-AzResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name $RG -Location $Location
 # Create a virtual network
 $virtualNetwork = New-AzVirtualNetwork `
-  -ResourceGroupName TestRG1 `
-  -Location EastUS `
-  -Name VNet1 `
-  -AddressPrefix 10.1.0.0/16
+  -ResourceGroupName $RG `
+  -Location $Location `
+  -Name $VNetName `
+  -AddressPrefix $VNetPrefix1
 # Create a subnet configuration
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name Frontend `
-  -AddressPrefix 10.1.0.0/24 `
+  -Name $FESubName `
+  -AddressPrefix $FESubPrefix `
   -VirtualNetwork $virtualNetwork
 # Set the subnet configuration for the virtual network
 $virtualNetwork | Set-AzVirtualNetwork
 # Add a gateway subnet
-$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
-Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $RG -Name $VNetName
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix $GWSubPrefix -VirtualNetwork $vnet
 # Set the subnet configuration for the virtual network
 $vnet | Set-AzVirtualNetwork
 # Request a public IP address
-$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 # Create the gateway IP address configuration
-$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 # Create the VPN gateway
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
--Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+-Location $Location -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
@@ -71,7 +82,7 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 | Commande | Notes |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Ajoute une configuration de sous-réseau. Cette configuration est utilisée avec le processus de création du réseau virtuel. |
-| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtient les détails d’un réseau virtuel. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Obtient les détails du réseau virtuel. |
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Crée une configuration de sous-réseau. Cette configuration est utilisée avec le processus de création du réseau virtuel. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Créer un réseau virtuel. |

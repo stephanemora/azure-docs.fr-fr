@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475250"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099946"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Windows Virtual Desktop
 
 L’Agent Windows Virtual Desktop peut occasionner des problèmes de connexion en raison de plusieurs facteurs :
    - erreur sur le répartiteur conduisant l’agent à arrêter le service ;
    - problèmes liés aux mises à jour ;
-   - problèmes liés à l’installation de l’agent, qui interrompt la connexion à l’hôte de la session.
+   - problèmes liés à l’installation de l’agent qui interrompt la connexion à l’hôte de la session.
 
 Cet article vous guide dans les solutions de ces scénarios courants et explique comment résoudre les problèmes de connexion.
 
@@ -184,7 +184,7 @@ Pour résoudre ce problème, modifiez le seuil de pulsation :
 1. Ouvrez une invite de commandes en tant qu’administrateur.
 2. Entrez la commande **qwinsta** et exécutez-la.
 3. Deux composants de pile doivent s’afficher : **rdp-tcp** et **rdp-sxs**. 
-   - Selon la version du système d’exploitation que vous utilisez, **rdp-sxs** peut être suivi du numéro de build, comme dans la capture d’écran suivante. Si c’est le cas, veillez à noter ce numéro pour plus tard.
+   - Selon la version du système d’exploitation que vous utilisez, **rdp-sxs** peut être suivi du numéro de build. Si c’est le cas, veillez à noter ce numéro pour plus tard.
 4. Ouvrez l’Éditeur du Registre.
 5. Accédez à **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
 6. Sous **WinStations**, il se peut que vous voyiez plusieurs dossiers pour différentes versions de la pile. Sélectionnez le dossier correspondant au numéro de version de l’étape 3.
@@ -207,7 +207,7 @@ Pour résoudre ce problème, libérez de l’espace sur votre disque en procéda
 Ouvrez une fenêtre PowerShell en tant qu’administrateur, puis exécutez la cmdlet suivante :
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Si l’état indiqué pour l’hôte ou les hôtes de session dans votre pool d’hôtes indique toujours **Indisponible** ou **Mise à niveau**, il se peut que l’installation de l’agent ou de la pile ait échoué.

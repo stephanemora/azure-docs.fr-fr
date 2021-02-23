@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366358"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364577"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
@@ -42,6 +42,9 @@ Les options suivantes sont disponibles pour l’inclusion lors de la création d
    - Utilisateurs et groupes
       - Permet le ciblage d’ensembles spécifiques d’utilisateurs. Par exemple, les organisations peuvent sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés. La stratégie sera appliquée aux utilisateurs et groupes imbriqués.
 
+> [!IMPORTANT]
+> Lorsque vous sélectionnez les utilisateurs et les groupes inclus dans une stratégie d’accès conditionnel, il existe une limite au nombre d’utilisateurs individuels qui peuvent être ajoutés directement à une stratégie d’accès conditionnel. Si le nombre d’utilisateurs individuels qui doivent être ajoutés directement à une stratégie d’accès conditionnel est important, nous vous recommandons de placer les utilisateurs dans un groupe et d’attribuer le groupe à la stratégie d’accès conditionnel à la place.
+
 > [!WARNING]
 > Si des utilisateurs ou des groupes sont membres de plus de 2 048 groupes, leur accès peut être bloqué. Cette limite s’applique à l’appartenance de groupe directe et imbriquée.
 
@@ -66,7 +69,7 @@ Les options suivantes sont disponibles pour l’exclusion lors de la création d
 
 ### <a name="preventing-administrator-lockout"></a>Empêcher le verrouillage de l’administrateur
 
-Pour empêcher qu’un administrateur ne se verrouille hors de son répertoire lors de la création d’une stratégie appliquée à **tous les utilisateurs** et **toutes les applications** , l’avertissement suivant s’affiche.
+Pour empêcher qu’un administrateur ne se verrouille hors de son répertoire lors de la création d’une stratégie appliquée à **tous les utilisateurs** et **toutes les applications**, l’avertissement suivant s’affiche.
 
 > Ne vous enfermez pas dehors ! Nous vous recommandons d’appliquer d’abord une stratégie à un petit ensemble d’utilisateurs pour vérifier qu’elle fonctionne comme prévu. Nous vous recommandons également d’exclure au moins un administrateur de cette stratégie. Cette opération garantit que vous disposez toujours d’un accès et que vous pouvez mettre à jour une stratégie si une modification est nécessaire. Vérifiez les utilisateurs et les applications concernés.
 

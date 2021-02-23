@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293065"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520457"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -59,11 +59,11 @@ Commencez par lire la section **[Avant de commencer](#before-you-start)** pour c
 
 Pour arrêter la protection et supprimer les données de sauvegarde, effectuez les étapes suivantes :
 
-1. À partir du portail, accédez à **Coffre Recovery Services**, puis à **Éléments de sauvegarde**. Ensuite, choisissez les éléments protégés dans le cloud (par exemple, machines virtuelles Azure, Stockage Azure [service Azure Files] ou SQL Server sur les machines virtuelles Azure).
+1. À partir du portail, accédez à **Coffre Recovery Services**, puis à **Éléments de sauvegarde**. Ensuite, dans la liste **Type de gestion de sauvegarde**, sélectionnez les éléments protégés dans le cloud (par exemple, machines virtuelles Azure, Stockage Azure [service Azure Files] ou SQL Server sur les machines virtuelles Azure).
 
     ![Sélectionnez le type de sauvegarde.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Cliquez avec le bouton droit pour sélectionner l’élément de sauvegarde. Selon que l’élément de sauvegarde est protégé ou non, le menu présente soit le volet **Arrêter la sauvegarde**, soit le volet **Supprimer les données de sauvegarde**.
+2. Vous verrez une liste de tous les éléments de la catégorie. Cliquez avec le bouton droit pour sélectionner l’élément de sauvegarde. Selon que l’élément de sauvegarde est protégé ou non, le menu présente soit le volet **Arrêter la sauvegarde**, soit le volet **Supprimer les données de sauvegarde**.
 
     - Si le volet **Arrêter la sauvegarde** s’affiche, sélectionnez **Supprimer les données de sauvegarde** dans le menu déroulant. Entrez le nom de l’élément de sauvegarde (ce champ respecte la casse), puis sélectionnez une raison dans le menu déroulant. Entrez vos commentaires, le cas échéant. Ensuite, sélectionnez **Arrêter la sauvegarde**.
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835738"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526321"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Utiliser les alertes dans la console de gestion locale 
 
@@ -119,13 +119,34 @@ Pour afficher les appareils dans une carte de zone :
 
 ## <a name="manage-alert-events"></a>Gérer les événements d’alerte
 
-Vous pouvez gérer les événements d’alerte détectés par les capteurs organisationnels comme suit :
+Plusieurs options sont disponibles pour la gestion des événements d’alerte à partir de la console de gestion locale.
 
 - Découvrir ou accuser réception des événements d’alerte. Sélectionnez **Découvrir et accuser réception** pour découvrir tous les événements d’alerte qui peuvent être autorisés et pour accuser réception de tous les événements d’alerte qui ne sont pas acquittés actuellement.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Sélectionnez En savoir Découvrir et accuser réception pour tout découvrir.":::
 
 - Coupez ou réactivez les événements d’alerte.
+
+Pour en savoir plus sur l’apprentissage, l’accusé de réception et la désactivation des événements d’alerte, consultez l’article [Gérer les événements d’alerte](how-to-manage-the-alert-event.md).
+
+## <a name="export-alert-information"></a>Envoyer des informations d’alerte
+
+Exportez les informations d’alerte dans un fichier .csv. Vous pouvez exporter les informations de toutes les alertes détectées ou exporter des informations en fonction de la vue filtrée. Les informations suivantes sont exportées :
+
+- Adresse de la source
+- Destination Address
+- Titre de l’alerte
+- Gravité de l’alerte
+- Message d’alerte
+- Informations supplémentaires
+- État de l’accusé de réception
+- Disponibilité de PCAP
+
+Pour exporter :
+
+1. Sélectionnez Alertes dans le menu latéral.
+1. Sélectionnez Exporter.
+1. Sélectionnez Exporter les alertes étendues pour exporter les informations d’alerte dans des lignes distinctes pour chaque alerte qui couvre plusieurs appareils. Lorsque l’option Exporter les alertes étendues est sélectionnée, le fichier .csv crée une ligne dupliquée de l’alerte avec les éléments uniques de chaque ligne. Grâce à cette option, il est plus facile d’examiner les événements d’alerte exportés.  
 
 ## <a name="create-alert-exclusion-rules"></a>Créer des règles d’exclusion d’alerte
 

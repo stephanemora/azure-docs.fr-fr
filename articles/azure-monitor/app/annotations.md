@@ -3,12 +3,12 @@ title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386031"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
@@ -81,7 +81,7 @@ Créez une clé API distincte pour chacun de vos modèles de mise en production 
 
 Désormais, lorsque vous utilisez le modèle de mise en production pour déployer une nouvelle publication, une annotation est envoyée à Application Insights. Les annotations peuvent être affichées aux emplacements suivants :
 
-Volet d’utilisation, où vous pouvez également créer manuellement des annotations de version :
+Volet **Utilisation**, où vous pouvez également créer manuellement des annotations de version :
 
 ![Capture d’écran du graphique à barres, avec le nombre de visites d’utilisateurs affiché sur une période de quelques heures. Les annotations de version s’affichent sous la forme de coches vertes au-dessus du graphique et indiquent quand une mise en production a eu lieu.](./media/annotations/usage-pane.png)
 

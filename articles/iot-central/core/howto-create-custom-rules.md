@@ -1,20 +1,20 @@
 ---
 title: Étendre Azure IoT Central avec des notifications et des règles personnalisées | Microsoft Docs
 description: En tant que développeur de solutions, configurez une application IoT Central afin d’envoyer des notifications par e-mail lorsqu’un appareil cesse d’envoyer des données de télémétrie. Cette solution utilise Azure Stream Analytics, Azure Functions et SendGrid.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 824308b66803d2dfa05383ff06ce97c48626619d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220263"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557582"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid
 
@@ -97,22 +97,18 @@ Utilisez le [portail Azure pour créer une application de fonction](https://port
 | Pile d’exécution | .NET |
 | Stockage | Création |
 
-### <a name="sendgrid-account"></a>Compte SendGrid
+### <a name="sendgrid-account-and-api-keys"></a>Compte SendGrid et clés API
 
-Utilisez le [portail Azure pour créer un compte SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) avec les paramètres suivants :
+Si vous n’avez pas de compte Sendgrid, [créez-en un gratuitement](https://app.sendgrid.com/) avant de commencer.
 
-| Paramètre | Valeur |
-| ------- | ----- |
-| Name    | Choisissez le nom de votre compte SendGrid |
-| Mot de passe | Créez un mot de passe |
-| Subscription | Votre abonnement |
-| Resource group | DetectStoppedDevices |
-| Niveau tarifaire | F1 Gratuit |
-| Informations de contact | Remplissez les informations requises |
+1. Dans les paramètres du tableau de bord Sendgrid, dans le menu de gauche, sélectionnez **Clés API**.
+1. Cliquez sur **Créer une clé API**.
+1. Nommez la nouvelle clé API **AzureFunctionAccess.** .
+1. Cliquez sur **Créer et afficher**.
 
-Une fois que vous avez créé toutes les ressources nécessaires, votre groupe de ressources **DetectStoppedDevices** doit ressembler à la capture d’écran suivante :
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Capture d’écran de la clé API Créer SendGrid":::.
 
-![Détecter le groupe de ressources des appareils arrêtés](media/howto-create-custom-rules/resource-group.png)
+Vous recevez ensuite une clé API. Enregistrez cette chaîne à des fins d’utilisation ultérieure.
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
@@ -121,59 +117,32 @@ Vous pouvez configurer une application IoT Central pour exporter en continu des 
 1. Dans le portail Azure, accédez à votre espace de noms Event Hubs et sélectionnez **+ Event Hub**.
 1. Nommez votre Event Hub **centralexport**, puis sélectionnez **Créer**.
 
-Votre espace de noms Event Hubs se présente comme la capture d’écran suivante :
+Votre espace de noms Event Hubs se présente comme la capture d’écran suivante : 
 
-![Espace de noms Event Hubs](media/howto-create-custom-rules/event-hubs-namespace.png)
+```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
-## <a name="get-sendgrid-api-key"></a>Obtenir un clé API SendGrid
+## Define the function
 
-Votre application de fonction a besoin d’une clé API SendGrid pour envoyer des e-mails. Pour Créer une clé API SendGrid, procédez comme suit :
+This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
-1. Dans le portail Azure, accédez à votre compte SendGrid. Choisissez ensuite **Gérer** pour accéder à votre compte SendGrid.
-1. Dans votre compte SendGrid, choisissez **Paramètres**, puis **Clés API**. Sélectionnez **Créer une clé API** :
+1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
+1. Select **+** to create a new function.
+1. Select **HTTP Trigger**.
+1. Select **Add**.
 
-    ![Créer une clé API SendGrid](media/howto-create-custom-rules/sendgrid-api-keys.png)
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
-1. Sur la page **Créer une clé API**, créez une clé nommée **AzureFunctionAccess** disposant des autorisations **Accès total**.
-1. Notez la clé API, car vous en aurez besoin lorsque vous configurerez votre application de fonction.
+## Edit code for HTTP Trigger
 
-## <a name="define-the-function"></a>Définir la fonction
+The portal creates a default function called **HttpTrigger1**:
 
-Cette solution utilise une application Azure Functions pour envoyer une notification par e-mail lorsque le travail Stream Analytics détecte un appareil arrêté. Pour créer une application de fonction, procédez comme suit :
+```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-1. Dans le portail Azure, accédez à l’instance **App Service** d’instance dans le groupe de ressources **DetectStoppedDevices**.
-1. Sélectionnez **+** pour créer une fonction.
-1. Sur la page **CHOISIR UN ENVIRONNEMENT DE DÉVELOPPEMENT**, choisissez **Dans le portail** , puis sélectionnez **Continuer**.
-1. Sur la page **CRÉER UNE FONCTION**, choisissez **Webhook + API** , puis sélectionnez **Créer**.
-
-Le portail crée une fonction par défaut intitulée **HttpTrigger1** :
-
-![Fonction de déclencheur HTTP par défaut](media/howto-create-custom-rules/default-function.png)
-
-### <a name="configure-function-bindings"></a>Configurer les liaisons de fonction
-
-Pour envoyer des e-mails avec SendGrid, vous devez configurer les liaisons de votre fonction comme suit :
-
-1. Sélectionnez **Intégrer**, puis choisissez la sortie **HTTP ($return)** cliquez sur **Supprimer**.
-1. Choisissez **+ Nouvelle sortie**, puis **SendGrid** et enfin **Sélectionner**. Choisissez **Installer** pour installer l’extension SendGrid.
-1. Une fois l’installation terminée, sélectionnez **Utiliser la valeur renvoyée de la fonction**. Ajouter une **adresse de destination** valide pour recevoir des notifications par e-mail.  Ajouter une **adresse d’expédition** valide à utiliser comme expéditeur de l’e-mail.
-1. Sélectionnez **nouveau** en regard du **paramètre d’application de la clé API SendGrid**. Entrez **SendGridAPIKey** pour la clé, puis saisissez la clé API SendGrid que vous avez notée précédemment comme valeur. Sélectionnez ensuite **Créer**.
-1. Choisissez **Enregistrer** pour enregistrer les liaisons SendGrid pour votre fonction.
-
-Les paramètres intégrés doivent ressembler à ceux de la capture d’écran suivante :
-
-![Intégrations d’applications de fonction](media/howto-create-custom-rules/function-integrate.png)
-
-### <a name="add-the-function-code"></a>Ajouter le code de fonction
-
-Pour implémenter votre fonction, ajoutez le code en C# afin d’analyser la requête HTTP entrante et d’envoyer les e-mails comme suit :
-
-1. Choisissez la fonction **HttpTrigger1** dans votre application de fonction et remplacez le code en C# par le code suivant :
+1. Replace the C# code with the following code:
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "..\bin\SendGrid.dll"
-
+    #r "SendGrid"
     using System;
     using SendGrid.Helpers.Mail;
     using Microsoft.Azure.WebJobs.Host;
@@ -196,7 +165,7 @@ Pour implémenter votre fonction, ajoutez le code en C# afin d’analyser la req
             content += $"<tr><td>{notification.deviceid}</td><td>{notification.time}</td></tr>";
         }
         content += "</table>";
-        message.AddContent("text/html", content);
+        message.AddContent("text/html", content);  
 
         return message;
     }
@@ -208,13 +177,50 @@ Pour implémenter votre fonction, ajoutez le code en C# afin d’analyser la req
     }
     ```
 
-    Jusqu’à ce que vous enregistriez le nouveau code, le message d’erreur suivant peut s’afficher.
+    You may see an error message until you save the new code.
+1. Select **Save** to save the function.
 
-1. Sélectionnez **Enregistrer** pour enregistrer la fonction.
+## Add SendGrid Key
 
-### <a name="test-the-function-works"></a>Tester la fonction pour vérifier qu’elle fonctionne
+To add your SendGrid API Key, you need to add it to your **Function Keys** as follows:
 
-Pour tester la fonction dans le portail, commencez par sélectionner **Journaux** en bas de l’éditeur de code. Choisissez ensuite **Tester** à droite de l’éditeur de code. Dans le champ **Corps de la demande**, utilisez le JSON suivant :
+1. Select **Function Keys**.
+1. Choose **+ New Function Key**.
+1. Enter the *Name* and *Value* of the API Key you created before.
+1. Click **OK.**
+
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
+
+
+## Configure HttpTrigger function to use SendGrid
+
+To send emails with SendGrid, you need to configure the bindings for your function as follows:
+
+1. Select **Integrate**.
+1. Choose **Add Output** under **HTTP ($return)**.
+1. Select **Delete.**
+1. Choose **+ New Output**.
+1. For Binding Type, then choose **SendGrid**.
+1. For SendGrid API Key Setting Type, click New.
+1. Enter the *Name* and *Value* of your SendGrid API key.
+1. Add the following information:
+
+| Setting | Value |
+| ------- | ----- |
+| Message parameter name | Choose your name |
+| To address | Choose the name of your To Address |
+| From address | Choose the name of your From Address |
+| Message subject | Enter your subject header |
+| Message text | Enter the message from your integration |
+
+1. Select **OK**.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
+
+
+### Test the function works
+
+To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -222,9 +228,9 @@ Pour tester la fonction dans le portail, commencez par sélectionner **Journaux*
 
 Les messages du journal de la fonction s’affichent dans le panneau **Journaux** :
 
-![Sortie du journal de la fonction](media/howto-create-custom-rules/function-app-logs.png)
+```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
-Après quelques minutes, l’adresse de **destination** recevra un e-mail avec le contenu suivant :
+After a few minutes, the **To** email address receives an email with the following content:
 
 ```txt
 The following device(s) have stopped sending telemetry:
@@ -303,26 +309,26 @@ La solution utilise une requête Stream Analytics pour détecter le moment où u
 1. Sélectionnez **Enregistrer**.
 1. Pour lancer le travail Stream Analytics, choisissez **Vue d’ensemble**, **Démarrer**, puis **Maintenant** et enfin **Démarrer** :
 
-    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Capture d’écran de Stream Analytics":::.
 
-## <a name="configure-export-in-iot-central"></a>Configurer l’exportation dans IoT Central
+## <a name="configure-export-in-iot-central"></a>Configurer l’exportation dans IoT Central 
 
-Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
+Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée.
+
+Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
 
 1. Accédez à la page **Exportation de données**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
-1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** :
+1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** : 
 
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom d’affichage | Exporter vers Event Hubs |
     | activé | Il en va |
-    | Espace de noms Event Hubs | Le nom de votre espace de noms Event Hubs |
-    | Event Hub | centralexport |
-    | Mesures | Il en va |
-    | Appareils | Off |
-    | Modèles d’appareil | Off |
+    | Type de données à exporter | Télémétrie |
+    | Enrichissements | Entrez la clé/valeur correspondant à la manière dont vous souhaitez organiser les données exportées | 
+    | Destination | Créer et entrer des informations pour l’emplacement où les données seront exportées |
 
-![Configuration de l’exportation de données continue](media/howto-create-custom-rules/cde-configuration.png)
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="Capture d’écran de l’exportation de données":::.
 
 Attendez que l’état de l’exportation soit **En cours d’exécution** avant de continuer.
 

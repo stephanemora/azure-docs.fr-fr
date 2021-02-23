@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 17ef0cb7efcd2a76b46a6bb0dbc82268895dae00
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366583"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importer des clés protégées par HSM dans un coffre de clés
 
@@ -38,9 +38,10 @@ Le transfert de clés protégées par HSM vers un coffre de clés est pris en ch
 |Fortanix|Fabricant,<br/>HSM en tant que service|<ul><li>SDKMS (Self-Defending Key Management Service)</li><li>Equinix SmartKey</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Marvell|Fabricant|Tous les modules HSM LiquidSecurity avec<ul><li>Version 2.0.4 ou ultérieure du microprogramme</li><li>Version 3.2 ou ultérieure du microprogramme</li></ul>|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Pour plus d'informations, consultez le [site de Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
-|Securosys SA|Fabricant, HSM en tant que service|Famille HSM de Primus, HSM Clouds de Securosys|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
+|Securosys SA|Fabricant,<br/>HSM en tant que service|Famille HSM de Primus, HSM Clouds de Securosys|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Pour plus d’informations, consultez le [site StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
-|IBM|Fabricant|IBM 476x, CryptoExpress|Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
+|IBM|Fabricant|IBM 476x, CryptoExpress|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
+|Utimaco|Fabricant,<br/>HSM en tant que service|u.trust Anchor, CryptoServer|[Utiliser la nouvelle méthode BYOK](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Étapes suivantes

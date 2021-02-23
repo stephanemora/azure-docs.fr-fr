@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004147"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095042"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
 
@@ -27,6 +27,11 @@ Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web 
 
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](../manage-apps/index.yml).
+>
+> Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+>
+>   - https://myapplications.microsoft.com?tenantId=*votre_nom_de_domaine*
+>   - https://myapplications.microsoft.com?tenant=*votre_ID_locataire*
 
 ## <a name="view-your-groups-information"></a>Afficher les informations relatives à vos groupes
 
@@ -40,7 +45,11 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com. Si vous vous connectez avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+
+   - https://myapplications.microsoft.com?tenantId=*votre_nom_de_domaine*
+   - https://myapplications.microsoft.com?tenant=*votre_ID_locataire*
+
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 

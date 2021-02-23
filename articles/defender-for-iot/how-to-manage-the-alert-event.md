@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508741"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526899"
 ---
 # <a name="manage-alert-events"></a>Gérer les événements d’alerte
 
@@ -23,7 +23,8 @@ Les options suivantes sont disponibles pour gérer les événements d’alerte 
  | **Learn** | Autoriser l’événement détecté. Pour plus d’informations, consultez la section [Apprendre et désapprendre des événements](#about-learning-and-unlearning-events). |
  | **Reconnaître** | Masquer l’alerte une seule fois pour l’événement détecté. L’alerte sera de nouveau déclenchée si l’événement est de nouveau détecté. Pour plus d’informations, consultez la section [Reconnaitre et cesser de reconnaître des événements](#about-acknowledging-and-unacknowledging-events). |
  | **Désactiver le son** | Ignorer continuellement l’activité avec des appareils identiques et un trafic comparable. Pour plus d’informations, consultez la section [Désactiver et réactiver des événements](#about-muting-and-unmuting-events). |
-
+ 
+Vous pouvez également exporter des informations sur l’alerte.
 ## <a name="about-learning-and-unlearning-events"></a>Apprendre et désapprendre des événements
 
 Les événements qui indiquent des écarts du réseau appris peuvent refléter des modifications valides du réseau. Il peut s’agir, par exemple, d’un nouvel appareil autorisé ayant rejoint le réseau ou d’une mise à jour de microprogramme autorisée.
@@ -68,9 +69,9 @@ Dans ces situations, l’apprentissage n’est pas disponible. Lorsqu’il n’e
 > [!NOTE] 
 > Vous ne pouvez pas désactiver les événements pour lesquels un appareil Internet est défini comme source ou destination.
 
-### <a name="what-traffic-is-muted"></a>Quel type de trafic est désactivé ?
+### <a name="what-alert-activity-is-muted"></a>Pour quelle activité d’alerte le son a-t-il été coupé ?
 
-Un scénario de désactivation inclut les appareils réseau et le trafic détecté pour un événement. Le titre de l’alerte décrit le trafic en cours de désactivation.
+Un scénario de désactivation inclut les appareils réseau et le trafic détectés pour un événement. Le titre de l’alerte décrit le trafic en cours de désactivation.
 
 Le ou les appareils en cours de désactivation apparaissent sous forme d’images dans l’alerte. Si deux appareils apparaissent, le trafic d’alerte spécifique entre eux est désactivé.
 
@@ -105,6 +106,25 @@ Lorsqu’un événement est désactivé, il est ignoré chaque fois que la sourc
 1. Sélectionnez l’option **Reconnues** dans l’écran principal des **alertes**.
 
 2. Pointez sur une alerte pour voir si elle est désactivée.  
+
+## <a name="export-alert-information"></a>Envoyer des informations d’alerte
+
+Exportez les informations d’alerte dans un fichier .csv. Vous pouvez exporter les informations de toutes les alertes détectées ou exporter des informations en fonction de la vue filtrée. Les informations suivantes sont exportées :
+
+- Adresse source
+- Adresse de destination
+- Titre de l’alerte
+- Gravité de l’alerte
+- Message d’alerte
+- Informations supplémentaires
+- État de l’accusé de réception
+- Disponibilité de PCAP
+
+Pour exporter :
+
+1. Sélectionnez Alertes dans le menu latéral.
+1. Sélectionnez Exporter.
+1. Sélectionnez Exporter les alertes étendues pour exporter les informations d’alerte dans des lignes distinctes pour chaque alerte qui couvre plusieurs appareils. Lorsque l’option Exporter les alertes étendues est sélectionnée, le fichier .csv crée une ligne dupliquée de l’événement d’alerte avec les éléments uniques de chaque ligne. Grâce à cette option, il est plus facile d’examiner les événements d’alerte exportés.
 
 ## <a name="see-also"></a>Voir aussi
 

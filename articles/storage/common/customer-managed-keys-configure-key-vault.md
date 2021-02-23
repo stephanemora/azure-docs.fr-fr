@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843381"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558175"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurer le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault
 
@@ -175,10 +175,11 @@ Le stockage Azure peut automatiquement mettre à jour la clé gérée par le cli
 Pour configurer les clés gérées par le client avec une mise à jour automatique de la version de la clé dans le Portail Azure, procédez comme suit :
 
 1. Accédez à votre compte de stockage.
-1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Sélectionnez l’option **Clés gérées par le client**, comme illustré dans l’image suivante.
+1. Sur le panneau **Paramètres** du compte de stockage, cliquez sur **Chiffrement**. Par défaut, la gestion des clés est définie sur **Clés gérées par Microsoft**, comme illustré dans l’image suivante.
 
     ![Capture d’écran du portail affichant l’option de chiffrement](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. Sélectionnez l’option **Clés gérées par le client**.
 1. Choisissez l’option **Sélectionner dans le coffre de clés**.
 1. Sélectionnez **Sélectionner un coffre de clés et une clé**.
 1. Sélectionnez le coffre de clés contenant la clé que vous souhaitez utiliser.

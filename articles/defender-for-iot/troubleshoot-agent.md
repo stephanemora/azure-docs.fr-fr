@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e9904e9157a560e2a4853a1a9cd37977defe73ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929869"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522951"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guide de résolution des problèmes liés à l’agent de sécurité (Linux)
 
@@ -108,10 +108,4 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire la [vue d’ensemble](overview.md) du service Defender pour IoT
-- Découvrir plus en détail l’[architecture](architecture.md) de Defender pour IoT
-- Activer la [service](quickstart-onboard-iot-hub.md) Defender pour IoT
-- Lire la [FAQ](resources-frequently-asked-questions.md) du service Defender pour IoT
-- Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md)
-- Comprendre les [recommandations](concept-recommendations.md)
-- Comprendre les [alertes de sécurité](concept-security-alerts.md)
+Lire la [vue d’ensemble](overview.md) du service Defender pour IoT En savoir plus sur l’[architecture](architecture.md) Defender pour IoT Activer le [service](quickstart-onboard-iot-hub.md) Defender pour IoT Lire la [FAQ](resources-frequently-asked-questions.md) du service Defender pour IoT Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md) Comprendre les [recommandations](concept-recommendations.md) Comprendre les [alertes](concept-security-alerts.md) de sécurité

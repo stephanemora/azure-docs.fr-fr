@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0583846fcd847e92a6f001dae828d31d9d11cb00
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: b10c47a31bf1be10c278d4d9e0dce633bc7bff6c
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567808"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530635"
 ---
 # <a name="connect-your-juniper-srx-firewall-to-azure-sentinel"></a>Connecter votre pare-feu Juniper SRX à Azure Sentinel
 
@@ -53,7 +53,7 @@ Configurez Juniper SRX pour transférer les messages Syslog à votre espace de t
 
     1. Configurer les journaux à collecter
 
-        - Sélectionnez les installations et les gravités dans la configuration des paramètres avancés de l’espace de travail
+        - Sélectionnez les installations et les gravités dans la configuration des agents de l’espace de travail.
 
     1. Configurer et connecter Juniper SRX
 

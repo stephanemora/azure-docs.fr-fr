@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144708"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369643"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : Présentation technique approfondie
 
@@ -67,6 +67,10 @@ Le flux de connexion dans un navigateur web est le suivant :
 6. Active Directory localise le compte d’ordinateur et retourne un ticket Kerberos au navigateur chiffré avec le secret du compte d’ordinateur.
 7. Le navigateur transfère le ticket Kerberos reçu de la part d’Active Directory à Azure AD.
 8. Azure AD déchiffre le ticket Kerberos, qui comprend l’identité de l’utilisateur connecté à l’appareil d’entreprise, en utilisant la clé partagée précédemment.
+
+   >[!NOTE]
+   >Azure AD tentera de faire correspondre l’UPN de l’utilisateur du ticket Kerberos à un objet utilisateur Azure AD qui a une valeur correspondante dans l’attribut userPrincipalName. Si cela ne réussit pas, Azure AD se rabattra sur la mise en correspondance du samAccountName du ticket Kerberos et d’un objet utilisateur Azure AD qui a une valeur correspondante dans l’attribut onPremisesSamAccountName.
+   
 9. À l’issue de l’évaluation, Azure AD retourne un jeton à l’application ou bien demande à l’utilisateur de fournir des preuves supplémentaires, telles qu’une authentification multifacteur.
 10. Si l’utilisateur parvient à se connecter, il peut accéder à l’application.
 
@@ -99,6 +103,6 @@ Le schéma suivant illustre tous les composants et les étapes impliquées dans 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
-- [**Questions fréquentes (FAQ)** ](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

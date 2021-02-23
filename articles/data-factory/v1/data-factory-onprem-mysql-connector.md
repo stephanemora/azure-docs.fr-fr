@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis une base de données MySQL à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c39435d2249981a45798ffe0717054fa7b0717
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872100"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387323"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -151,9 +146,9 @@ Dans un premier temps, configurez la passerelle de gestion des données. Les ins
 
 **Jeu de données d’entrée MySQL :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans MySQL et qu'elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
+L’exemple suppose que vous avez créé une table « MyTable » dans MySQL et qu’elle contient une colonne appelée « timestampcolumn » pour les données de série chronologique.
 
-La définition de « external » : « true » sur informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de « external » sur « true » informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité de la fabrique de données.
 
 ```JSON
     {

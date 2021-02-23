@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576670"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383889"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Sources de données et types de fichiers pris en charge dans Azure Purview
 
@@ -70,6 +71,28 @@ Dans Purview, un dossier ou un groupe de fichiers de partition est détecté en 
 - **Autres types de fichiers structurés (JSON, XML, TXT)** - 1 fichier sur 100 est échantillonné (analyse L3) dans un dossier ou groupe de fichiers de partition considérés comme « ensemble de ressources »
 - **Objets SQL et entités CosmosDB** - chaque fichier est soumis à une analyse L3.
 - **Types de fichiers de document** - chaque fichier est soumis à un analyse L3. Les modèles d’ensembles de ressources ne s’appliquent pas à ces types de fichiers.
+
+## <a name="scan-regions"></a>Analyser des régions
+Voici une liste de toutes les régions de la source de données Azure (centre de données) sur lesquelles l’analyseur Purview s’exécute. Si votre source de données Azure se trouve dans une région qui ne figure pas dans cette liste, l’analyseur s’exécutera dans la région de votre instance de Purview.
+ 
+### <a name="purview-scanner-regions"></a>Régions de l’analyseur Purview
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- AsieSudEst
+- WestEurope
+- NorthEurope
+- UkSouth
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JaponEst
+- SouthAfricaNorth
+- FranceCentral
 
 ## <a name="classification"></a>classification ;
 

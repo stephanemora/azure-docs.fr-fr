@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492108"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554736"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -96,9 +96,10 @@ La bibliothèque de client d’appel de Communication Services prend en charge l
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 vidéo + 1 partage d’écran | 1 vidéo |
-|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 vidéo + 1 partage d’écran| 6 vidéos + 1 partage d’écran |
+|**Nombre de flux sortants qui peuvent être envoyés simultanément** |1 audio/vidéo ou 1 audio/partage d’écran | 1 audio/vidéo | 
+|**Nombre de flux entrants qui peuvent être restitués simultanément** |1 audio/vidéo ou 1 audio/partage d’écran| 6 audio/vidéo ou 1 partage d’écran |
 
+Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour prendre en charge tous les participants audio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -106,6 +107,6 @@ La bibliothèque de client d’appel de Communication Services prend en charge l
 > [Bien démarrer avec les appels](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Pour plus d’informations, consultez les articles suivants :
-- Se familiariser avec les [flux d’appels](../call-flows.md) généraux
+- Se familiariser avec les [flux d’appels](../call-flows.md) généraux 
 - Découvrir les [types d’appels](../voice-video-calling/about-call-types.md)
 - [Planifier votre solution RTPC](../telephony-sms/plan-solution.md)

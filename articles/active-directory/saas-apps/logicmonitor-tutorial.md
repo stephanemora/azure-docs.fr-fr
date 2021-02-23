@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ab2aa1df0719b685800529f32e36674bf85e57ee
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c330ce9b9eec693d7dabda55ad65d297ca78ca01
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625312"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653864"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Didacticiel : Intégration d’Azure Active Directory à LogicMonitor
 
@@ -80,7 +80,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.logicmonitor.com`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.logicmonitor.com`
-
+    
+    c. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL au format suivant : `https://companyname.logicmonitor.com/santaba/saml/SSO/` 
+  
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client LogicMonitor](https://www.logicmonitor.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 02/10/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: b9e036df91eecadc701664a19905a92c142b7585
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 126ece1327fa92c9b92c587922f1b8d9335d1a01
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591886"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559285"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec le SDK Node.js et Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -66,104 +66,117 @@ Nous allons maintenant cloner une application API Cassandra à partir de GitHub,
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
     ```
 
+1. Installez les dépendances Node.js avec npm.
+
+    ```bash
+    npm install
+    ```
+
 ## <a name="review-the-code"></a>Vérifier le code
 
 Cette étape est facultative. Si vous voulez savoir comment le code crée les ressources de base de données, vous pouvez consulter les extraits de code suivants. Les extraits de code sont tous tirés du fichier `uprofile.js` dans le dossier `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started`. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-* Les valeurs de nom d’utilisateur et de mot de passe ont été définies en utilisant la page de chaîne de connexion du portail Azure. `path\to\cert` fournit le chemin d’un certificat X509. 
+* Les valeurs de nom d’utilisateur et de mot de passe ont été définies en utilisant la page de chaîne de connexion du portail Azure. 
 
    ```javascript
-   var ssl_option = {
-        cert : fs.readFileSync("path\to\cert"),
-        rejectUnauthorized : true,
-        secureProtocol: 'TLSv1_2_method'
-        };
-   const authProviderLocalCassandra = new cassandra.auth.PlainTextAuthProvider(config.username, config.password);
+    let authProvider = new cassandra.auth.PlainTextAuthProvider(
+        config.username,
+        config.password
+    );
    ```
 
 * Le `client` est initialisé avec les informations contactPoint. Le contactPoint est récupéré à partir du portail Azure.
 
     ```javascript
-    const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
+    let client = new cassandra.Client({
+        contactPoints: [`${config.contactPoint}:10350`],
+        authProvider: authProvider,
+        localDataCenter: config.localDataCenter,
+        sslOptions: {
+            secureProtocol: "TLSv1_2_method"
+        },
+    });
     ```
 
 * Le `client` se connecte à l’API Cassandra Azure Cosmos DB.
 
     ```javascript
-    client.connect(next);
+    client.connect();
     ```
 
 * Un espace de clés est créé.
 
     ```javascript
-    function createKeyspace(next) {
-        var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
-        client.execute(query, next);
-        console.log("created keyspace");    
+    var query =
+        `CREATE KEYSPACE IF NOT EXISTS ${config.keySpace} WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter' : '1' }`;
+    await client.execute(query);
   }
     ```
 
 * Une table est créée.
 
    ```javascript
-   function createTable(next) {
-       var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
-        client.execute(query, next);
-        console.log("created table");
+    query =
+        `CREATE TABLE IF NOT EXISTS ${config.keySpace}.user (user_id int PRIMARY KEY, user_name text, user_bcity text)`;
+    await client.execute(query);
    },
    ```
 
 * Des entités clé/valeur sont insérées.
 
     ```javascript
-        function insert(next) {
-            console.log("\insert");
-            const arr = ['INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (1, \'AdrianaS\', \'Seattle\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (2, \'JiriK\', \'Toronto\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (3, \'IvanH\', \'Mumbai\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (4, \'IvanH\', \'Seattle\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (5, \'IvanaV\', \'Belgaum\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (6, \'LiliyaB\', \'Seattle\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (7, \'JindrichH\', \'Buenos Aires\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (8, \'AdrianaS\', \'Seattle\')',
-                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (9, \'JozefM\', \'Seattle\')'];
-            arr.forEach(element => {
-            client.execute(element);
-            });
-            next();
-        },
+    const arr = [
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (1, 'AdrianaS', 'Seattle')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (2, 'JiriK', 'Toronto')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (3, 'IvanH', 'Mumbai')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (4, 'IvanH', 'Seattle')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (5, 'IvanaV', 'Belgaum')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (6, 'LiliyaB', 'Seattle')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (7, 'JindrichH', 'Buenos Aires')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (8, 'AdrianaS', 'Seattle')`,
+        `INSERT INTO  ${config.keySpace}.user (user_id, user_name , user_bcity) VALUES (9, 'JozefM', 'Seattle')`,
+    ];
+    for (const element of arr) {
+        await client.execute(element);
+    }
     ```
 
 * Requête pour obtenir toutes les valeurs de clé.
 
     ```javascript
-        function selectAll(next) {
-            console.log("\Select ALL");
-            var query = 'SELECT * FROM uprofile.user';
-            client.execute(query, function (err, result) {
-            if (err) return next(err);
-            result.rows.forEach(function(row) {
-                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-            }, this);
-            next();
-            });
-        },
+    query = `SELECT * FROM ${config.keySpace}.user`;
+    const resultSelect = await client.execute(query);
+
+    for (const row of resultSelect.rows) {
+        console.log(
+            "Obtained row: %d | %s | %s ",
+            row.user_id,
+            row.user_name,
+            row.user_bcity
+        );
+    }
     ```  
 
 * Requête pour obtenir une paire clé-valeur.
 
     ```javascript
-        function selectById(next) {
-            console.log("\Getting by id");
-            var query = 'SELECT * FROM uprofile.user where user_id=1';
-            client.execute(query, function (err, result) {
-            if (err) return next(err);
-            result.rows.forEach(function(row) {
-                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-            }, this);
-            next();
-            });
-        }
+    query = `SELECT * FROM ${config.keySpace}.user where user_id=1`;
+    const resultSelectWhere = await client.execute(query);
+
+    for (const row of resultSelectWhere.rows) {
+        console.log(
+            "Obtained row: %d | %s | %s ",
+            row.user_id,
+            row.user_name,
+            row.user_bcity
+        );
+    }
+    ```  
+
+* Fermez la connexion. 
+
+    ```javascript
+    client.shutdown();
     ```  
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
@@ -178,63 +191,42 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Ouvrez le fichier `config.js` . 
 
-1. Collez la valeur POINT DE CONTACT à partir du portail sur `<FillMEIN>` à la ligne 4.
+1. Collez la valeur POINT DE CONTACT à partir du portail sur `'CONTACT-POINT` à la ligne 9.
 
-    La ligne 4 doit maintenant ressembler à 
+    La ligne 9 doit maintenant se présenter comme ceci : 
 
-    `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
+    `contactPoint: "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com",`
 
 1. Copiez la valeur NOM D’UTILISATEUR à partir du portail et collez-la sur `<FillMEIN>` à la ligne 2.
 
     La ligne 2 doit maintenant ressembler à 
 
-    `config.username = 'cosmos-db-quickstart';`
+    `username: 'cosmos-db-quickstart',`
 
-1. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `<FillMEIN>` à la ligne 3.
+1. Copiez la valeur MOT DE PASSE à partir du portail et collez-la sur `USERNAME` à la ligne 8.
 
-    La ligne 3 doit maintenant ressembler à
+    La ligne 8 doit maintenant ressembler à
 
-    `config.password = '2Ggkr662ifxz2Mg==';`
+    `password: '2Ggkr662ifxz2Mg==',`
+
+1. Remplacez REGION par la région Azure où vous avez créé cette ressource.
 
 1. Enregistrez le fichier `config.js`.
 
-## <a name="use-the-x509-certificate"></a>Utiliser le certificat X509
-
-1. Téléchargez le certificat racine Baltimore CyberTrust localement à partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Renommez le fichier avec l’extension de fichier `.cer`.
-
-   Le certificat a le numéro de série `02:00:00:b9` et l’empreinte digitale SHA1 `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
-
-2. Ouvrez `uprofile.js` et changez le `path\to\cert` pour pointer vers votre nouveau certificat.
-
-3. Enregistrez `uprofile.js`.
-
-> [!NOTE]
-> Si vous rencontrez une erreur liée au certificat dans les étapes ultérieures et que vous êtes sur une machine Windows, assurez-vous d’avoir suivi le processus approprié pour convertir un fichier .crt au format .cer de Microsoft ci-dessous.
-> 
-> Double-cliquez sur le fichier .crt pour l’ouvrir dans la page du certificat. 
->
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="Capture d’écran montrant la fenêtre Certificat":::
->
-> Dans l’Assistant Certificat, appuyez sur Suivant. Sélectionnez X.509 encodé en base 64 (.cer), puis Suivant.
->
-> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="Capture d’écran montrant l’option X.509 encodé en base 64 (.cer)":::
->
-> Sélectionnez Parcourir (pour rechercher une destination) et tapez un nom de fichier.
-> Sélectionnez Suivant, puis Terminé.
->
-> Vous devez maintenant avoir un fichier .cer au bon format. Vérifiez que le chemin dans `uprofile.js` pointe vers ce fichier.
 
 ## <a name="run-the-nodejs-app"></a>Exécuter l’application Node.js
 
-1. Dans la fenêtre de terminal git, vérifiez que vous êtes bien dans l’exemple de répertoire que vous avez cloné précédemment :
+1. Dans la fenêtre de terminal, vérifiez que vous êtes bien dans l’exemple de répertoire que vous avez cloné précédemment :
 
     ```bash
     cd azure-cosmos-db-cassandra-nodejs-getting-started
     ```
 
-2. Exécutez `npm install` pour installer les modules npm requis.
+1. Exécutez votre application Node :
 
-3. Exécutez `node uprofile.js` pour démarrer votre application Node.
+    ```bash
+    npm start
+    ```
 
 4. Vérifiez que les résultats sont corrects à partir de la ligne de commande.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247543"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099232"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
@@ -38,7 +38,11 @@ Ce tableau présente les options de référencement disponibles pour chaque type
 
 &#42; L’option de référencement Obtenir maintenant inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
 
-### <a name="free-trial"></a>Version d’évaluation gratuite
+## <a name="changing-offer-type"></a>Modification du type d’offre
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## <a name="free-trial"></a>Version d’évaluation gratuite
 
 Utilisez la place de marché pour améliorer la détectabilité et automatiser l’approvisionnement de l’expérience d’essai de votre solution. Cela permet aux clients potentiels d’utiliser votre SaaS, IaaS ou expérience dans l’application Microsoft gratuitement pendant une période de 30 jours à six mois, en fonction du type d’offre.
 
@@ -46,18 +50,18 @@ Les clients utilisent le bouton _Essai gratuit_ dans la page de référencement 
 
 Pour les offres de machines virtuelles, les clients sont facturés aux coûts d’infrastructure Azure pour l’utilisation de l’offre pendant une période d’évaluation gratuite. À l’expiration de la période d’évaluation, les clients sont facturés automatiquement pour le dernier plan qu’ils ont essayé en fonction des tarifs standard, sauf s’ils annulent avant la fin de la période d’évaluation.
 
-### <a name="test-drive"></a>Version d’évaluation
+## <a name="test-drive"></a>Version d’évaluation
 
 Les clients utilisent le bouton _Version d’évaluation_ sur la page de référencement de votre offre pour accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md).
 
 > [!TIP]
 > Une version d’évaluation n’est pas un essai gratuit. Vous pouvez proposer une version d’évaluation, un essai gratuit ou les deux. Dans les deux cas, vos clients disposent de votre solution pendant une période fixe. Cependant, une version d’évaluation propose en outre une visite autoguidée concrète des principales fonctionnalités de votre produit, ainsi qu’une démonstration des avantages de celui-ci au travers d’un scénario d’implémentation réel.
 
-### <a name="contact-me"></a>Me contacter
+## <a name="contact-me"></a>Me contacter
 
 Référencement simple de votre application ou service. Les clients utilisent le bouton _Me contacter_ sur la page de référencement de votre offre pour vous demander de les contacter à propos de votre offre.
 
-### <a name="get-it-now"></a>Obtenir maintenant
+## <a name="get-it-now"></a>Obtenir maintenant
 
 Cette option de référencement inclut les offres pouvant faire l’objet d’une transaction (abonnements et tarifications basées sur l’utilisation), les offres BYOL et les offres Obtenir maintenant (gratuit). Les offres pouvant faire l’objet d’une transaction sont vendues via la place de marché commerciale. Microsoft est responsable de la facturation et des regroupements. Les clients utilisent le _bouton Obtenir maintenant_ pour obtenir l’offre.
 
@@ -92,28 +96,28 @@ Ce tableau indique les types d’offres qui prennent en charge les options de ta
 
 <sup>2</sup> Tarification horaire et facturation mensuelle.
 
-#### <a name="get-it-now-free"></a>Obtenir maintenant (gratuit)
+### <a name="get-it-now-free"></a>Obtenir maintenant (gratuit)
 
 Utilisez cette option de référencement pour offrir votre application gratuitement. Les clients utilisent le bouton _Obtenir maintenant_ pour obtenir votre offre gratuite.
 
 > [!NOTE]
 > Les offres Obtenir maintenant (gratuit) ne sont pas éligibles aux avantages Récompenses de la place de marché destinés aux offres payantes. Étant donné qu’il n’y a pas de transaction dans la vitrine, elles sont classées dans la catégorie « Évaluation gratuite ». Voir [Récompenses de la place de marché](#marketplace-rewards) ci-dessous.
 
-#### <a name="bring-your-own-license-byol"></a>BYOL (apportez votre propre licence)
+### <a name="bring-your-own-license-byol"></a>BYOL (apportez votre propre licence)
 
 Utilisez cette option pour permettre aux clients de déployer votre offre à l’aide d’une licence achetée en dehors du marketplace commercial. Cette option est idéale pour les migrations local vers cloud. Les clients utilisent le bouton _Obtenir maintenant_ pour acquérir votre offre en utilisant une licence qu’ils vous ont achetée au préalable.
 
 > [!NOTE]
 > Les offres BYOL ne sont pas éligibles aux avantages Récompenses de la place de marché destinés aux offres payantes. Parce qu’elles nécessitent que le client acquière la licence auprès du partenaire et qu’il n’y a pas de transaction par la vitrine du marketplace commercial, elles sont classées dans la catégorie « Liste ». Voir [Récompenses de la place de marché](#marketplace-rewards) ci-dessous.
 
-#### <a name="subscription"></a>Abonnement
+### <a name="subscription"></a>Abonnement
 
 Vous pouvez demander un coût forfaitaire pour ces types d’offres :
 
 - Les offres Azure Application (application gérée) prennent en charge les abonnements mensuels.
 - Les offres SaaS prennent en charge les abonnements mensuels et annuels.
 
-#### <a name="usage-based-pricing"></a>Tarification basée sur l’utilisation
+### <a name="usage-based-pricing"></a>Tarification basée sur l’utilisation
 
 Les types d’offres suivants prennent en charge la tarification basée sur l’utilisation :
 

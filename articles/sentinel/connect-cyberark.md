@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: c375595951eb760d5341db424c5572719b97046a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102664"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530499"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Connecter CyberArk Enterprise Password Vault (EPV) à Azure Sentinel
 
@@ -36,15 +36,15 @@ Le connecteur CyberArk Syslog vous permet de connecter facilement les journaux d
 
 Les journaux CyberArk EPV sont envoyés de Vault à un serveur de transfert de journaux basés sur Linux (exécutant rsyslog ou syslog-ng) sur lequel l’agent Log Analytics est installé, qui exporte les journaux vers Azure Sentinel. Si vous n’avez pas de serveur de transfert de journaux de ce type, consultez [ces instructions](connect-cef-agent.md) pour en obtenir un.
 
-1. Dans le portail Azure Sentinel, cliquez sur **Connecteurs de données** , sélectionnez **CyberArk Enterprise Password Vault (EPV) Events (Preview)** , puis **Ouvrir la page du connecteur**.
+1. Dans le portail Azure Sentinel, cliquez sur **Connecteurs de données**, sélectionnez **CyberArk Enterprise Password Vault (EPV) Events (Preview)** , puis **Ouvrir la page du connecteur**.
 
-1. Suivez les instructions CyberArk EPV pour configurer l’envoi de données syslog au serveur de transfert de journaux.
+1. Suivez les [instructions CyberArk EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) pour configurer l’envoi de données syslog au serveur de transfert de journaux.
 
 1. Validez votre connexion et vérifiez l’ingestion des données à l’aide de [ces instructions](connect-cef-verify.md). Environ 20 minutes peuvent être nécessaires avant que vos journaux commencent à apparaître dans Log Analytics.
 
 ## <a name="find-your-data"></a>Recherche de données
 
-Après l’établissement d’une connexion réussie, les données s’affichent dans **Journaux** , sous la section **Azure Sentinel** dans le tableau *CommonSecurityLog*.
+Après l’établissement d’une connexion réussie, les données s’affichent dans **Journaux**, sous la section **Azure Sentinel** dans le tableau *CommonSecurityLog*.
 
 Pour interroger les journaux CyberArk EPV dans Log Analytics, entrez `CommonSecurityLog` en haut de la fenêtre de requête.
 

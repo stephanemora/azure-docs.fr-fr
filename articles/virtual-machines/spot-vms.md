@@ -1,30 +1,30 @@
 ---
 title: Utiliser des machines virtuelles Azure Spot
 description: Découvrez comment utiliser des machines virtuelles Azure Spot pour réaliser des économies sur les coûts.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 460529ab6e3227a998ac04c4819171274307ff9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202128"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557826"
 ---
-# <a name="use-spot-vms-in-azure"></a>Utiliser des machines virtuelles Spot dans Azure
+# <a name="use-azure-spot-virtual-machines"></a>Utiliser des machines virtuelles Azure Spot 
 
-L’utilisation de machines virtuelles Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
+L’utilisation de machines virtuelles Azure Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les machines virtuelles Azure Spot. Les machines virtuelles Azure Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
-La capacité disponible dépend de divers facteurs, tels que la taille, la région, l’heure, etc. Quand vous déployez des machines virtuelles Spot, Azure alloue la capacité disponible aux machines virtuelles, le cas échéant. Sachez toutefois qu’il n’y a pas de contrat SLA pour ces machines virtuelles. Une machine virtuelle Spot n’offre aucune garantie de haute disponibilité. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot avec un préavis de 30 secondes. 
+La capacité disponible dépend de divers facteurs, tels que la taille, la région, l’heure, etc. Lorsque vous déployez des machines virtuelles Azure Spot, Azure alloue la capacité disponible aux machines virtuelles, le cas échéant. Sachez toutefois qu’il n’y a pas de contrat SLA pour ces machines virtuelles. Une machine virtuelle Azure Spot n’offre aucune garantie de haute disponibilité. Dès qu’Azure aura besoin de récupérer la capacité, l’infrastructure Azure supprimera les machines virtuelles Azure Spot avec un préavis de 30 secondes. 
 
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
-Les machines virtuelles peuvent être supprimées en fonction de la capacité ou du prix maximal que vous avez défini. Quand vous créez une VM spot, vous pouvez affecter à la stratégie d’éviction la valeur *Libérer* (par défaut) ou *Supprimer*. 
+Les machines virtuelles peuvent être supprimées en fonction de la capacité ou du prix maximal que vous avez défini. Lorsque vous créez une machine virtuelle Azure Spot, vous pouvez affecter à la stratégie d’éviction la valeur *Libérer* (par défaut) ou *Supprimer*. 
 
 La stratégie *Libérer* attribue à votre machine virtuelle l’état « arrêté-libéré », ce qui vous permet de la redéployer par la suite. Toutefois, la réussite de l’allocation n’est pas garantie. Les machines virtuelles libérées sont comptabilisées dans votre quota, et les disques sous-jacents engendrent des frais de stockage. 
 
@@ -47,25 +47,25 @@ Vous pouvez vous abonner pour recevoir des notifications dans la machine virtuel
 
 ## <a name="limitations"></a>Limites
 
-Les tailles de machine virtuelle suivantes ne sont pas prises en charge pour les machines virtuelles Spot :
+Les tailles de machine virtuelle suivantes ne sont pas prises en charge pour les machines virtuelles Azure Spot :
  - Série B
  - Versions promotionnelles de toutes les tailles (Dv2, NV, NC, H, etc.)
 
-Les machines virtuelles Spot peuvent être déployées sur n’importe quelle région, à l’exception de Microsoft Azure Chine 21Vianet.
+Les machines virtuelles Azure Spot peuvent être déployées dans n’importe quelle région, à l’exception de Microsoft Azure China 21Vianet.
 
 <a name="channel"></a>
 
 Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/) suivants sont pris en charge :
 
 -   Contrat Entreprise
--   Paiement à l’utilisation
+-   Code de l’offre de paiement à l’utilisation 003P
 -   Sponsorisé
 - Pour le fournisseur de services cloud (CSP), contactez votre partenaire.
 
 
 ## <a name="pricing"></a>Tarifs
 
-Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Les tarifs des machines virtuelles Azure Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 Vous pouvez également interroger les informations de tarification actuelles à l’aide de l’[API des prix de vente au détail d’Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) pour demander plus d’informations sur la tarification Spot. Les `meterName` et `skuName` contiennent tous les deux `Spot`.
 
@@ -87,24 +87,24 @@ Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille 
 
 ##  <a name="frequently-asked-questions"></a>Forum aux questions
 
-**Q :** Une fois créée, la machine virtuelle Spot est-elle identique à la machine virtuelle standard habituelle ?
+**Q :** Une fois créée, la machine virtuelle Azure Spot est-elle identique à la machine virtuelle standard habituelle ?
 
-**R :** Oui, sauf qu’il n’existe aucun contrat SLA pour les machines virtuelles Spot et qu’elles peuvent être supprimées à tout moment.
+**R :** Oui, sauf qu’il n’existe aucun contrat SLA pour les machines virtuelles Azure Spot et qu’elles peuvent être supprimées à tout moment.
 
 
 **Q :** Que faire quand votre machine virtuelle est supprimée alors que vous avez encore besoin de capacité ?
 
-**R :** Nous vous recommandons d’utiliser des machines virtuelles standard au lieu de machines virtuelles Spot si vous avez besoin de capacité immédiatement.
+**R :** Nous vous recommandons d’utiliser des machines virtuelles standard au lieu de machines virtuelles Azure Spot si vous avez besoin de capacité immédiatement.
 
 
-**Q :** Comment le quota de Machines virtuelles Spot est-il géré ?
+**Q :** Comment est géré le quota pour les machines virtuelles Azure Spot ?
 
-**R :** Les machines virtuelles Spot auront un pool de quotas distinct. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**R :** Les machines virtuelles Azure Spot disposent d’un pool de quotas distinct. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
-**Q :** Puis-je demander une augmentation de mon quota pour Spot ?
+**Q :** Puis-je demander un quota supplémentaire pour les machines virtuelles Azure spot ?
 
-**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot via la [procédure de demande de quota standard](../azure-portal/supportability/per-vm-quota-requests.md).
+**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Azure Spot via la [procédure de demande de quota standard](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q :** Où puis-je poster des questions ?
@@ -117,8 +117,8 @@ Vous pouvez voir l’historique des tarifs et des taux d’éviction par taille 
 **R :** Vous devez libérer la machine virtuelle pour modifier le prix maximal. Vous pouvez ensuite modifier le prix maximal dans le portail, dans la section **Configuration** pour la machine virtuelle. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Utilisez l’[interface CLI](./linux/spot-cli.md), le [portail](spot-portal.md), le [modèle Resource Manager](./linux/spot-template.md) ou [PowerShell](./windows/spot-powershell.md) pour déployer des machines virtuelles Spot.
+Utilisez l’[interface CLI](./linux/spot-cli.md), le [portail](spot-portal.md), le [modèle ARM](./linux/spot-template.md) ou [PowerShell](./windows/spot-powershell.md) pour déployer des machines virtuelles Azure Spot.
 
-Vous pouvez également déployer un [groupe identique avec des instances de machine virtuelle Spot](../virtual-machine-scale-sets/use-spot.md).
+Vous pouvez également déployer un [groupe identique avec les instances de machines virtuelles Azure Spot](../virtual-machine-scale-sets/use-spot.md).
 
 Si vous rencontrez une erreur, consultez [Codes d’erreur](./error-codes-spot.md).

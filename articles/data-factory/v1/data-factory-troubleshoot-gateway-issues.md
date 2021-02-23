@@ -1,22 +1,18 @@
 ---
 title: Résoudre les problèmes des passerelles de gestion des données
 description: Fournit des conseils pour résoudre les problèmes liés à la passerelle de gestion des données.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388343"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.
@@ -99,7 +95,7 @@ Si la configuration est à jour/correspond à la dernière version et que la pas
 ### <a name="6-problem"></a>6. Problème
 Le message d’erreur suivant peut s’afficher lors de l’inscription d’une passerelle.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![La clé de passerelle n’est pas valide ou est vide.](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -107,7 +103,7 @@ Le message d’erreur suivant peut s’afficher lors de l’inscription d’une 
 Cette erreur peut se produire si la passerelle a été supprimée ou la clé de passerelle associée a été régénérée.
 
 #### <a name="resolution"></a>Résolution
-Si la passerelle a été supprimée, recréez-la à partir du portail, cliquez sur **Inscrire** , copiez la clé dans le portail, collez-la et essayez d’inscrire la passerelle.
+Si la passerelle a été supprimée, recréez-la à partir du portail, cliquez sur **Inscrire**, copiez la clé dans le portail, collez-la et essayez d’inscrire la passerelle.
 
 Si la passerelle existe encore, mais que sa clé a été régénérée, utilisez la nouvelle clé pour inscrire la passerelle. Si vous n’avez pas la clé, régénérez-la sur le portail.
 
@@ -233,7 +229,7 @@ Si vous obtenez des erreurs liées à la connexion à la banque de données ou a
 
 1. Lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ordinateur de la passerelle.
 2. Basculez vers l’onglet **Diagnostics** .
-3. Dans **Tester la connexion** , ajoutez les valeurs de groupe de la passerelle.
+3. Dans **Tester la connexion**, ajoutez les valeurs de groupe de la passerelle.
 4. Cliquez sur **Tester la connexion** pour vérifier si vous pouvez vous connecter à la source de données locale à partir de l’ordinateur de la passerelle en utilisant les informations de connexion et d’identification. Si le test de connexion échoue encore après l'installation d'un pilote, redémarrez la passerelle pour récupérer les dernières modifications.
 
 ![Tester la connexion dans l’onglet Diagnostics](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -256,7 +252,7 @@ Lorsque vous contactez le Support Microsoft pour résoudre des problèmes de pas
 6. Une fois l’opération terminée, la boîte de dialogue illustrée dans la capture d’écran suivante s’affiche.
 
     ![État de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Notez l’ **ID du rapport** et communiquez-le au Support Microsoft. L’ID du rapport permet de localiser les journaux d’activité de la passerelle que vous avez chargés pour la résolution des problèmes.  L’ID du rapport est également enregistré dans l’Observateur d’événements.  Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
+7. Notez l’**ID du rapport** et communiquez-le au Support Microsoft. L’ID du rapport permet de localiser les journaux d’activité de la passerelle que vous avez chargés pour la résolution des problèmes.  L’ID du rapport est également enregistré dans l’Observateur d’événements.  Vous pouvez le trouver en recherchant l’ID d’événement « 25 » et en vérifiant la date et l’heure.
 
     ![ID du rapport de l’opération Envoyer des journaux d’activité pour la passerelle de gestion des données](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
@@ -278,7 +274,7 @@ Cliquez sur le lien **Archiver les journaux d’activité de la passerelle** pou
 ### <a name="locate-gateway-logs"></a>Rechercher dans les journaux d’activité de la passerelle
 Vous pouvez accéder à des informations détaillées sur les journaux d’activité de la passerelle dans les journaux d’événements Windows.
 
-1. Démarrez l’ **Observateur d’événements** Windows.
+1. Démarrez l’**Observateur d’événements** Windows.
 2. Localisez les journaux d’activité dans le dossier **Journaux des applications et services** > **Passerelle de gestion des données**.
 
    Lors de la résolution de problèmes liés à la passerelle, recherchez les événements de niveau Erreur dans l’Observateur d’événements.

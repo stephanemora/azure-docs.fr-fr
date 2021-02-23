@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes liés aux volumes à deux protocoles pour Azure NetApp Files | Microsoft Docs
-description: Décrit les messages d’erreur et les résolutions qui peuvent vous aider à résoudre les problèmes de double protocole pour Azure NetApp Files.
+title: Résolution des problèmes liés aux volumes SMB ou double protocole pour Azure NetApp Files | Microsoft Docs
+description: Décrit les messages d’erreur et les résolutions qui peuvent aider à résoudre les problèmes de protocole SMB et de double protocole pour Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,30 +12,40 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/22/2021
+ms.date: 02/02/2021
 ms.author: b-juche
-ms.openlocfilehash: fb4233a87231dddb1e3cb2777ac2ef53a61f833e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 237fb514229f370fcba79133232e80a6a655048f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726613"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104414"
 ---
-# <a name="troubleshoot-dual-protocol-volumes"></a>Résoudre les problèmes des volumes à deux protocoles
+# <a name="troubleshoot-smb-or-dual-protocol-volumes"></a>Résoudre les problèmes des volumes SMB ou à deux protocoles
 
 Cet article décrit les résolutions des conditions d’erreur que vous pouvez rencontrer lors de la création ou de la gestion de volumes à deux protocoles.
 
-## <a name="error-conditions-and-resolutions"></a>Conditions d’erreur et résolutions
+## <a name="errors-for-dual-protocol-volumes"></a>Erreurs pour les volumes double protocole
 
-|     Conditions d’erreur    |     Résolution    |
+|     Conditions d’erreur    |     Résolutions    |
 |-|-|
 | Le protocole LDAP sur TLS est activé et la création d’un volume à deux protocoles échoue avec l’erreur `This Active Directory has no Server root CA Certificate`.    |     Si cette erreur se produit lorsque vous créez un volume à deux protocoles, assurez-vous que le certificat racine de l’autorité de certification est chargé dans votre compte NetApp.    |
-| La création d’un volume à deux protocoles échoue avec l’erreur `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  L’enregistrement du pointeur (PTR) de l’ordinateur hôte AD est peut-être manquant sur le serveur DNS. Vous devez créer une zone de recherche inversée sur le serveur DNS, puis ajouter un enregistrement PTR de l’ordinateur hôte AD dans cette zone de recherche inversée. <br> Par exemple, supposons que l’adresse IP de l’ordinateur AD est `1.1.1.1`, le nom d’hôte de l’ordinateur AD (trouvé à l’aide de la commande `hostname`) est `AD1` et le nom de domaine est `contoso.com`.  L’enregistrement PTR ajouté à la zone de recherche inversée doit être `1.1.1.1` -> `contoso.com`.   |
-| La création d’un volume à deux protocoles échoue avec l’erreur `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 1.1.1.1, port 88 using TCP\\n**[ 950] FAILURE`. |  Cette erreur indique que le mot de passe AD est incorrect lorsqu’Active Directory est joint au compte NetApp. Mettez à jour la connexion AD avec le mot de passe correct, puis réessayez. |
+| La création d’un volume à deux protocoles échoue avec l’erreur `Failed to validate LDAP configuration, try again after correcting LDAP configuration`.    |  L’enregistrement du pointeur (PTR) de l’ordinateur hôte AD est peut-être manquant sur le serveur DNS. Vous devez créer une zone de recherche inversée sur le serveur DNS, puis ajouter un enregistrement PTR de l’ordinateur hôte AD dans cette zone de recherche inversée. <br> Par exemple, supposons que l’adresse IP de l’ordinateur AD est `10.X.X.X`, le nom d’hôte de l’ordinateur AD (trouvé à l’aide de la commande `hostname`) est `AD1` et le nom de domaine est `contoso.com`.  L’enregistrement PTR ajouté à la zone de recherche inversée doit être `10.X.X.X` -> `contoso.com`.   |
+| La création d’un volume à deux protocoles échoue avec l’erreur `Failed to create the Active Directory machine account \\\"TESTAD-C8DD\\\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\\n [ 434] Loaded the preliminary configuration.\\n [ 537] Successfully connected to ip 10.X.X.X, port 88 using TCP\\n**[ 950] FAILURE`. |     Cette erreur indique que le mot de passe AD est incorrect lorsqu’Active Directory est joint au compte NetApp. Mettez à jour la connexion AD avec le mot de passe correct, puis réessayez. |
 | La création d’un volume à deux protocoles échoue avec l’erreur `Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available`. |   Cette erreur indique que DNS n’est pas accessible. Cela peut être dû au fait que l’adresse IP DNS est incorrecte ou qu’il y a un problème réseau. Vérifiez l’adresse IP DNS entrée dans la connexion AD et assurez-vous que l’adresse IP est correcte. <br> En outre, assurez-vous que l’instance AD et le volume se trouvent dans la même région et dans le même réseau virtuel. S’ils se trouvent dans des réseaux virtuels différents, assurez-vous que l’appairage de réseaux virtuels est établi entre les deux réseaux virtuels.|
 | Erreur « Autorisation refusée » lors du montage d’un volume à deux protocoles. | Un volume à double protocoles prend en charge les protocoles NFS et SMB.  Lorsque vous tentez d’accéder au volume monté sur le système UNIX, celui-ci tente de mapper l’utilisateur UNIX que vous utilisez à un utilisateur Windows. Si aucun mappage n’est trouvé, l’erreur « Autorisation refusée » se produit. <br> Cette situation s’applique également lorsque vous utilisez l’utilisateur « racine » pour l’accès. <br> Pour éviter l’erreur « Autorisation refusée », assurez-vous que Windows Active Directory inclut `pcuser` avant d’accéder au point de montage. Si vous ajoutez `pcuser` après avoir rencontré l’erreur « Autorisation refusée », patientez 24 heures jusqu’à ce que l’entrée du cache s’efface avant de réessayer d’accéder. |
 
+## <a name="common-errors-for-smb-and-dual-protocol-volumes"></a>Erreurs courantes pour les volumes SMB et double protocole
+
+|     Conditions d’erreur    |     Résolutions    |
+|-|-|
+| La création du volume SMB ou double protocole échoue avec l’erreur suivante : <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available."}]}` | Cette erreur indique que le DNS n’est pas accessible. <br> Envisagez les solutions suivantes : <ul><li>Vérifiez si AD DS et le volume sont déployés dans la même région.</li> <li>Vérifiez si AD DS et le volume utilisent le même réseau virtuel. S’ils utilisent des réseaux virtuels différents, assurez-vous que ceux-ci sont appairés. Consultez [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md). </li> <li>Des groupes de sécurité réseau (NSG) peuvent être appliqués au serveur DNS.  Celui-ci n’autorise alors pas le trafic à circuler. Dans ce cas, ouvrez les groupes NSG sur le service DNS ou AD pour vous connecter à différents ports. Pour connaître les exigences liées aux ports, consultez [Prérequis des connexions Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). </li></ul> <br>Les mêmes solutions s’appliquent à Azure AD DS. Azure AD DS doit être déployé dans la même région. Le réseau virtuel doit se trouver dans la même région ou être appairé avec le réseau virtuel utilisé par le volume. | 
+| La création du volume SMB ou double protocole échoue avec l’erreur suivante : <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-C1C8\". Reason: Kerberos Error: Invalid credentials were given Details: Error: Machine account creation procedure failed\n [ 563] Loaded the preliminary configuration.\n**[ 670] FAILURE: Could not authenticate as 'test@contoso.com':\n** Unknown user (KRB5KDC_ERR_C_PRINCIPAL_UNKNOWN)\n. "}]}`  |  <ul><li>Vérifiez que le nom d’utilisateur entré est correct. </li> <li>Vérifiez que l’utilisateur fait partie du groupe Administrateurs qui dispose du privilège de créer des comptes d’ordinateur. </li> <li> Si vous utilisez Azure AD DS, vérifiez que l’utilisateur fait partie du groupe Azure AD `Azure AD DC Administrators`. </li></ul> | 
+| La création du volume SMB ou double protocole échoue avec l’erreur suivante : <br> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError", "message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-A452\". Reason: Kerberos Error: Pre-authentication information was invalid Details: Error: Machine account creation procedure failed\n [ 567] Loaded the preliminary configuration.\n [ 671] Successfully connected to ip 10.X.X.X, port 88 using TCP\n**[ 1099] FAILURE: Could not authenticate as\n** 'user@contoso.com': CIFS server account password does\n** not match password stored in Active Directory\n** (KRB5KDC_ERR_PREAUTH_FAILED)\n. "}]}` | Vérifiez que le mot de passe entré pour rejoindre la connexion AD est correct. |
+| La création du volume SMB ou double protocole échoue avec l’erreur suivante : `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.","details":[{"code":"InternalServerError","message":"Error when creating - Failed to create the Active Directory machine account \"SMBTESTAD-D9A2\". Reason: SecD Error: ou not found Details: Error: Machine account creation procedure failed\n [ 561] Loaded the preliminary configuration.\n [ 665] Successfully connected to ip 10.X.X.X, port 88 using TCP\n [ 1039] Successfully connected to ip 10.x.x.x, port 389 using TCP\n**[ 1147] FAILURE: Specifed OU 'OU=AADDC Com' does not exist in\n** contoso.com\n. "}]}` | Vérifiez que le chemin d’UO spécifié pour rejoindre la connexion AD est correct. Si vous utilisez Azure AD DS, assurez-vous que le chemin de l’unité d’organisation est `OU=AADDC Computers`. |
+
 ## <a name="next-steps"></a>Étapes suivantes  
 
+* [Créer un volume SMB](azure-netapp-files-create-volumes-smb.md)
 * [Créer un volume à deux protocoles](create-volumes-dual-protocol.md)
 * [Configurer un client NFS pour Azure NetApp Files](configure-nfs-clients.md)

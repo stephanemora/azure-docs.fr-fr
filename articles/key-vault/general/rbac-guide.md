@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936241"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527021"
 ---
-# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)
+# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
 > [!NOTE]
 > Le fournisseur de ressources Key Vault prend en charge deux types de ressources : les **coffres** et les **HSM managés**. Le contrôle d’accès décrit dans cet article s’applique uniquement aux **coffres**. Pour en savoir plus sur le contrôle d’accès pour le HSM managé, consultez [Contrôle d’accès HSM managé](../managed-hsm/access-control.md).
@@ -44,20 +44,20 @@ Pour des instructions sur la gestion d’Azure Key Vault, consultez :
 - [Présentation de la sécurité Azure Key Vault](security-overview.md)
 - [Limites du service Azure Key Vault](service-limits.md)
 
-## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Rôles intégrés Azure pour les opérations de plan de données d’Azure Key Vault (préversion)
+## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Rôles intégrés Azure pour les opérations de plan de données d’Azure Key Vault
 > [!NOTE]
 > Le rôle `Key Vault Contributor` permet aux opérations de plan de gestion de gérer les coffres de clés. Il n’autorise pas l’accès aux clés, aux secrets et aux certificats.
 
 | Rôle intégré | Description | id |
 | --- | --- | --- |
-| Administrateur de Key Vault (préversion) | Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, y compris les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Responsable des certificats de Key Vault (préversion) | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Responsable du chiffrement de Key Vault (préversion)| Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Service de chiffrement de Key Vault (préversion) | Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Utilisateur de chiffrement de Key Vault (préversion) | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Lecteur de Key Vault (préversion)| Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Responsable des secrets de Key Vault (préversion)| Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Utilisateur de secrets de Key Vault (préversion)| Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Administrateur Key Vault| Permet d’effectuer toutes les opérations du plan de données sur un coffre de clés et tous les objets qu’il contient, y compris les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Agent des certificats Key Vault | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Agent de chiffrement Key Vault | Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Utilisateur du service de chiffrement de Key Vault | Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Utilisateur de chiffrement Key Vault  | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Lecteur Key Vault | Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Agent des secrets Key Vault| Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Utilisateur des secrets Key Vault | Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Pour plus d’informations sur les définitions de rôles intégrés Azure, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -74,8 +74,8 @@ Pour ajouter des attributions de rôles, vous devez disposer :
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Activer les autorisations de RBAC Azure sur Key Vault
 
-> [!IMPORTANT]
-> La définition d’un modèle d’autorisation de RBAC Azure invalide toutes les autorisations des stratégies d’accès. Cela peut entraîner des interruptions lorsque des rôles Azure équivalents ne sont pas attribués.
+> [!NOTE]
+> La modification du modèle d’autorisation nécessite l’autorisation « Microsoft.Authorization/roleAssignments/write », qui fait partie des rôles [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) et [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Les rôles Administrateur d’abonnement classiques tels que « Administrateur de service » et « Coadministrateur » ne sont pas pris en charge.
 
 1.  Activer des autorisations de RBAC Azure sur un nouveau coffre de clés :
 
@@ -85,10 +85,13 @@ Pour ajouter des attributions de rôles, vous devez disposer :
 
     ![Activer des autorisations Azure RBAC – Coffre existant](../media/rbac/image-2.png)
 
+> [!IMPORTANT]
+> La définition d’un modèle d’autorisation de RBAC Azure invalide toutes les autorisations des stratégies d’accès. Cela peut entraîner des interruptions lorsque des rôles Azure équivalents ne sont pas attribués.
+
 ### <a name="assign-role"></a>Affecter le rôle
 
 > [!Note]
-> Il est recommandé d’utiliser l’ID de rôle unique à la place du nom de rôle dans les scripts. Par conséquent, si un rôle est renommé, vos scripts continuent de fonctionner. Lors de la période de préversion, chaque rôle portera le suffixe « (préversion) », qui sera supprimé par la suite. Dans ce document, le nom de rôle est utilisé uniquement à des fins de lisibilité.
+> Il est recommandé d’utiliser l’ID de rôle unique à la place du nom de rôle dans les scripts. Par conséquent, si un rôle est renommé, vos scripts continuent de fonctionner. Dans ce document, le nom de rôle est utilisé uniquement à des fins de lisibilité.
 
 Commande Azure CLI pour créer une attribution de rôle :
 
@@ -107,13 +110,13 @@ Dans le portail Azure, l’écran Attribution de rôle Azure est disponible pour
 
 2.  Cliquez sur Contrôle d’accès (IAM) \> Ajouter une attribution de rôle \> Ajouter.
 
-3.  Créez le rôle « Lecteur de Key Vault (préversion) » pour l’utilisateur actuel.
+3.  Créez le rôle « Lecteur de Key Vault » pour l’utilisateur actuel.
 
     ![Ajouter un rôle – Groupe de ressources](../media/rbac/image-5.png)
 
 Azure CLI :
 ```azurecli
-az role assignment create --role "Key Vault Reader (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 
 L’attribution de rôle ci-dessus permet de répertorier les objets figurant dans le coffre de clés.
@@ -124,14 +127,14 @@ L’attribution de rôle ci-dessus permet de répertorier les objets figurant da
 
 2. Cliquez sur Ajouter une attribution de rôle \> Ajouter.
 
-3. Créez le rôle « Responsable des secrets de Key Vault (préversion) » pour l’utilisateur actuel.
+3. Créez le rôle « Responsable des secrets de Key Vault » pour l’utilisateur actuel.
 
     ![Attribution de rôle – Coffre de clés](../media/rbac/image-6.png)
 
  Azure CLI :
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
 Après avoir créé l’attribution de rôle ci-dessus, vous pouvez créer/mettre à jour/supprimer des secrets.
@@ -142,18 +145,18 @@ Après avoir créé l’attribution de rôle ci-dessus, vous pouvez créer/mettr
 
 ### <a name="secret-scope-role-assignment"></a>Attribution de rôle d’étendue de secret
 
-1. Ouvrez l’un des secrets créés précédemment. Repérez Vue d’ensemble et Contrôle d’accès (IAM) (préversion).
+1. Ouvrez l’un des secrets créés précédemment. Repérez Vue d’ensemble et Contrôle d’accès (IAM). 
 
-2. Cliquez sur l’onglet Contrôle d’accès (IAM) (préversion).
+2. Cliquez sur l’onglet Contrôle d’accès (IAM).
 
     ![Attribution de rôle – Secret](../media/rbac/image-8.png)
 
-3. Créez le rôle « Responsable des secrets de Key Vault (préversion) » pour l’utilisateur actuel, comme ci-dessus pour le coffre de clés.
+3. Créez le rôle « Responsable des secrets de Key Vault » pour l’utilisateur actuel, comme ci-dessus pour le coffre de clés.
 
 Azure CLI :
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer (preview)" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
 ### <a name="test-and-verify"></a>Tester et vérifier
@@ -164,7 +167,7 @@ az role assignment create --role "Key Vault Secrets Officer (preview)" --assigne
 
 1. Validez l’ajout du nouveau secret sans le rôle « Responsable des secrets de Key Vault » au niveau du coffre de clés.
 
-Accédez à l’onglet Contrôle d’accès (IAM) du coffre de clés, puis supprimez l’attribution de rôle « Responsable des secrets de Key Vault (préversion) » pour cette ressource.
+Accédez à l’onglet Contrôle d’accès (IAM) du coffre de clés, puis supprimez l’attribution de rôle « Responsable des secrets de Key Vault » pour cette ressource.
 
 ![Supprimer une attribution – Coffre de clés](../media/rbac/image-9.png)
 
@@ -178,7 +181,7 @@ La page Créer un secret (Secrets \> +Générer/Importer) doit afficher l’erre
 
 2.  Validez la modification du secret sans le rôle « Responsable des secrets de Key Vault » au niveau du secret.
 
--   Accédez à l’onglet Contrôle d’accès (IAM) du secret créé précédemment, puis supprimez l’attribution de rôle « Responsable des secrets de Key Vault (préversion) » pour cette ressource.
+-   Accédez à l’onglet Contrôle d’accès (IAM) du secret créé, puis supprimez l’attribution de rôle « Responsable des secrets de Key Vault » pour cette ressource.
 
 -   Accédez au secret créé précédemment. Vous pouvez voir les propriétés du secret.
 
@@ -186,7 +189,7 @@ La page Créer un secret (Secrets \> +Générer/Importer) doit afficher l’erre
 
 3. Valider les secrets lus sans le rôle de lecteur au niveau du coffre de clés.
 
--   Accédez à l’onglet Contrôle d’accès (IAM) du groupe de ressources, puis supprimez l’attribution de rôle « Lecteur de Key Vault (préversion) ».
+-   Accédez à l’onglet Contrôle d’accès (IAM) du groupe de ressources, puis supprimez l’attribution de rôle « Lecteur de Key Vault ».
 
 -   La navigation vers l’onglet Secrets du coffre de clés doit afficher l’erreur suivante :
 

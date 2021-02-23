@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324129"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559589"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 
@@ -33,7 +33,7 @@ Cette modification touchera toutes les règles de détection intelligente, à l�
 
 Pour que les notifications par e-mail de la détection intelligente soient envoyées aux utilisateurs concernés, ces derniers doivent être assignés aux rôles [Lecteur de supervision](../../role-based-access-control/built-in-roles.md#monitoring-reader) ou [Contributeur de supervision](../../role-based-access-control/built-in-roles.md#monitoring-contributor) de l’abonnement.
 
-Pour attribuer le rôle Lecteur de monitoring ou Contributeur de monitoring à des utilisateurs sur le Portail Azure, suivez les étapes de l’article [Ajouter une attribution de rôle](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Veillez à sélectionner le rôle _Lecteur de monitoring_ ou _Contributeur de monitoring_ pour l’attribuer aux utilisateurs.
+Pour attribuer le rôle Lecteur de monitoring ou Contributeur de monitoring à des utilisateurs sur le Portail Azure, suivez les étapes de l’article [Attribuer des rôles Azure](../../role-based-access-control/role-assignments-portal.md). Veillez à sélectionner le rôle _Lecteur de monitoring_ ou _Contributeur de monitoring_ pour l’attribuer aux utilisateurs.
 
 > [!NOTE]
 > Les destinataires spécifiques des notifications de la détection intelligente, configurés avec l’option _Autres destinataires des e-mails_ dans les paramètres des règles, ne seront pas concernés par cette modification. Ils continueront de recevoir les notifications par e-mail.

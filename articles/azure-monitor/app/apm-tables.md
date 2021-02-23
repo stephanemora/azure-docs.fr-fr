@@ -3,14 +3,14 @@ title: Schéma de ressource Azure Monitor Application Insights basé sur un espa
 description: Découvrez la nouvelle structure des tableaux et le nouveau schéma des ressources basées sur l'espace de travail Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931051"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385963"
 ---
-# <a name="workspace-based-resource-changes-preview"></a>Modifications des ressources basées sur un espace de travail (préversion)
+# <a name="workspace-based-resource-changes"></a>Modifications des ressources basées sur un espace de travail
 
 Avant l’introduction de [ressources d’Application Insights basées sur un espace de travail](create-workspace-resource.md), les données Application Insights étaient stockées séparément des autres données de journal dans Azure Monitor. Ces deux services sont basés sur Azure Data Explorer et utilisent le même langage de requête Kusto (KQL). Cela est décrit dans [les journaux de Azure Monitor](../platform/data-platform-logs.md).
 

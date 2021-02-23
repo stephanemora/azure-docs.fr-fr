@@ -1,22 +1,18 @@
 ---
 title: Surveiller par programmation une fabrique de données Azure
 description: Découvrez comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK).
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556560"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379894"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Surveiller par programmation une fabrique de données Azure
 
@@ -28,12 +24,23 @@ Cet article explique comment surveiller un pipeline dans une fabrique de donnée
 
 ## <a name="data-range"></a>Plage de données
 
-La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Lorsque vous interrogez par programme les données sur les exécutions du pipeline de la fabrique de données, par exemple, avec la commande PowerShell `Get-AzDataFactoryV2PipelineRun`, il n’existe aucune date maximale pour les paramètres `LastUpdatedAfter` et `LastUpdatedBefore` facultatifs. Mais si vous interrogez les données de l’année précédente, par exemple, la requête ne retourne pas d’erreur, mais renvoie uniquement des données d’exécution de pipeline des 45 derniers jours.
+La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Lorsque vous interrogez par programme les données sur les exécutions du pipeline de la fabrique de données, par exemple, avec la commande PowerShell `Get-AzDataFactoryV2PipelineRun`, il n’existe aucune date maximale pour les paramètres `LastUpdatedAfter` et `LastUpdatedBefore` facultatifs. Cependant, si vous interrogez les données de l’année précédente, par exemple, vous n’obtiendrez pas d’erreur, mais seulement les données d’exécution de pipeline des 45 derniers jours.
 
-Si vous souhaitez conserver les données d’exécution du pipeline pendant plus de 45 jours, configurez la journalisation de votre propre diagnostics avec [Azure Monitor](monitor-using-azure-monitor.md).
+Si vous souhaitez conserver les données d’exécution de pipeline pendant plus de 45 jours, configurez votre propre journalisation des diagnostics avec [Azure Monitor](monitor-using-azure-monitor.md).
+
+## <a name="pipeline-run-information"></a>Informations sur l’exécution de pipeline
+
+Pour les propriétés d’exécution de pipeline, consultez la [référence de l’API PipelineRun](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Une exécution de pipeline a différents états pendant son cycle de vie. Les valeurs possibles de l’état d’exécution sont répertoriées ci-dessous :
+
+* Mis en file d'attente.
+* InProgress
+* Opération réussie
+* Échec
+* Canceling
+* Opération annulée
 
 ## <a name="net"></a>.NET
-Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide du kit de développement logiciel .NET, consultez [Créer une fabrique de données et un pipeline avec .NET](quickstart-create-data-factory-dot-net.md).
+Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide du Kit de développement logiciel (SDK) .NET, consultez [Créer une fabrique de données et un pipeline avec .NET](quickstart-create-data-factory-dot-net.md).
 
 1. Ajoutez le code suivant afin de vérifier en permanence l’état de l’exécution du pipeline jusqu’à la fin de la copie des données.
 
@@ -45,7 +52,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
     {
         pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
+        if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
             System.Threading.Thread.Sleep(15000);
         else
             break;
@@ -71,7 +78,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
 Pour une documentation complète sur le SDK .NET, consultez la [référence au SDK .NET de Data Factory](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
-Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide du kit de développement logiciel Python, consultez [Créer une fabrique de données et un pipeline à l’aide de Python](quickstart-create-data-factory-python.md).
+Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide du Kit de développement logiciel (SDK) Python, consultez [Créer une fabrique de données et un pipeline à l’aide de Python](quickstart-create-data-factory-python.md).
 
 Pour surveiller l’exécution du pipeline, ajoutez le code suivant :
 
@@ -89,7 +96,7 @@ print_activity_run_details(activity_runs_paged[0])
 Pour une documentation complète sur le SDK Python, consultez la [référence au SDK Python de Data Factory](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API REST
-Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide d’une API REST, consultez [Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST](quickstart-create-data-factory-rest-api.md).
+Pour obtenir une description complète de la création et de la surveillance d’un pipeline à l’aide d’une API REST, consultez [Créer une fabrique de données et un pipeline à l’aide de l’API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Exécutez le script suivant afin de vérifier en permanence l’état de l’exécution du pipeline jusqu’à la fin de la copie des données.
 
@@ -99,7 +106,7 @@ Pour obtenir une description complète de la création et de la surveillance d�
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
@@ -128,12 +135,12 @@ Pour obtenir une description complète de la création et de la surveillance d�
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
-            if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            if ( ($run.Status -ne "InProgress") -and ($run.Status -ne "Queued") ) {
+                Write-Output ("Pipeline run finished. The status is: " +  $run.Status)
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output ("Pipeline is running...status: " + $run.Status)
         }
 
         Start-Sleep -Seconds 30

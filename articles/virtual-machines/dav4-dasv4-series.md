@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e5ce9597802f88bacbe03cffac77fdfbee3a9357
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c78bcfe316f543cd6408c24a9ed140b60daad22d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558082"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 et Dasv4
 
@@ -26,8 +26,8 @@ Les séries Dav4 et Dasv4 sont de nouvelles tailles qui utilisent le processeur 
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d'exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
 Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, optez pour les tailles Dasv4. Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Dav4.
@@ -51,8 +51,8 @@ Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</s
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d'exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
 Les tailles de la série Dasv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production.

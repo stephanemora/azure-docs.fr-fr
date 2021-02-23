@@ -1,35 +1,27 @@
 ---
 title: Déployer et configurer Azure VMware Solution
-description: Découvrez comment utiliser les informations collectées au cours de la phase de planification pour déployer le cloud privé de Azure VMware Solution.
+description: Découvrez comment utiliser les informations collectées au cours de la phase de planification pour déployer et configurer le cloud privé Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760886"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652732"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Déployer et configurer Azure VMware Solution
 
-Dans cet article, vous allez utiliser les informations de la [section de planification](production-ready-deployment-steps.md) pour déployer Azure VMware Solution. 
+Dans cet article, vous allez utiliser les informations de la [section de planification](production-ready-deployment-steps.md) pour déployer et configurer Azure VMware Solution. 
 
 >[!IMPORTANT]
 >Si vous n’avez pas encore défini ces informations, revenez à la [section de planification](production-ready-deployment-steps.md) avant de continuer.
 
-## <a name="register-the-resource-provider"></a>Inscrire le fournisseur de ressources
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Créer un cloud privé Azure VMware Solution
 
-
-## <a name="deploy-azure-vmware-solution"></a>Déployer Azure VMware Solution
-
-Utilisez les informations que vous avez rassemblées dans l’article [Planification du déploiement d’Azure VMware Solution](production-ready-deployment-steps.md) :
-
->[!NOTE]
->Pour déployer Azure VMware Solution, vous devez avoir un niveau de contributeur minimal dans l’abonnement.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Respectez les conditions préalables et suivez les étapes du tutoriel [Créer un cloud privé Azure VMware Solution](tutorial-create-private-cloud.md). Vous pouvez créer un cloud privé Azure VMware Solution en utilisant le [portail Azure](tutorial-create-private-cloud.md#azure-portal) ou [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Pour une vue d’ensemble de bout en bout de cette étape, consultez la vidéo [Azure VMware Solution : Déploiement](https://www.youtube.com/embed/gng7JjxgayI).
@@ -60,7 +52,7 @@ Si vous n’avez pas défini de réseau virtuel à l’étape de déploiement et
 
 Le serveur de rebond se trouve dans le réseau virtuel où Azure VMware Solution se connecte via son circuit ExpressRoute.  Dans Azure, accédez à l’interface réseau du serveur de rebond et [affichez les itinéraires effectifs](../virtual-network/manage-route-table.md#view-effective-routes).
 
-Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [`/22` réseau que vous avez défini](production-ready-deployment-steps.md#ip-address-segment) au cours de l’[étape de déploiement](#deploy-azure-vmware-solution) plus haut dans cet article.
+Dans la liste des itinéraires effectifs, vous devriez voir les réseaux créés dans le cadre du déploiement d’Azure VMware Solution. Vous verrez plusieurs réseaux dérivés du [réseau `/22` que vous avez défini](production-ready-deployment-steps.md#ip-address-segment) lors de la [création d’un cloud privé](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Vérifiez les itinéraires réseau publiés à partir de Azure VMware Solution sur un réseau virtuel Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -68,13 +60,13 @@ Dans cet exemple, le réseau 10.74.72.0/22 entré pendant le déploiement dériv
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Connectez-vous à vCenter et à NSX-T
 
-Connectez-vous au serveur de rebond que vous avez créé à l’étape précédente. Une fois que vous êtes connecté, ouvrez un navigateur web et connectez-vous à vCenter et à la console d’administration NSX-T.  
+Connectez-vous au serveur de rebond que vous avez créé à l’étape précédente. Une fois que vous êtes connecté, ouvrez un navigateur web et connectez-vous à vCenter et à NSX-T Manager.  
 
-Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console d’administration NSX-T dans le Portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
+Vous pouvez identifier les adresses IP et les informations d’identification de vCenter et de la console NSX-T Manager dans le portail Azure.  Sélectionnez votre cloud privé puis, dans la vue **Vue d’ensemble**, sélectionnez **Identité > Par défaut**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Créez un segment réseau dans Azure VMware Solution
 
-Vous utilisez NSX-T pour créer des segments réseau dans votre environnement Azure VMware Solution.  Vous avez défini les réseaux que vous souhaitez créer dans la [section de planification](production-ready-deployment-steps.md).  Si vous ne les avez pas définis, revenez à la [Section de planification](production-ready-deployment-steps.md) avant de continuer.
+Vous utilisez NSX-T Manager pour créer des segments réseau dans votre environnement Azure VMware Solution.  Vous avez défini les réseaux que vous souhaitez créer dans la [section de planification](production-ready-deployment-steps.md).  Si vous ne les avez pas définis, revenez à la [Section de planification](production-ready-deployment-steps.md) avant de continuer.
 
 >[!IMPORTANT]
 >Assurez-vous que le bloc d’adresses réseau CIDR que vous avez défini n’empiète sur rien dans vos environnements Azure ou locaux.  

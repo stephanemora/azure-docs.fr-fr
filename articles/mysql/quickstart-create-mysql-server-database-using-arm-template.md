@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 983bda94af9b8595bfb3ce24b7437a35db70efe8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3da3b1694a16507203d7f1f1f6cb5df58dd54423
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098552"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366175"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour MySQL à l’aide d’un modèle ARM
 
@@ -187,15 +187,24 @@ Vous pouvez [exporter un modèle ARM](../azure-resource-manager/templates/export
 - [Exporter à partir d’un groupe de ressources ou d’une ressource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Cette option génère un nouveau modèle à partir de ressources existantes. Le modèle exporté est un « instantané » de l’état actuel du groupe de ressources. Vous pouvez exporter un groupe de ressources complet ou des ressources spécifiques au sein de ce groupe de ressources.
 - [Exporter avant le déploiement ou à partir de l’historique](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Cette option récupère une copie exacte d’un modèle utilisé pour le déploiement.
 
-Quand vous exportez le modèle, vous remarquez, dans la section ```"parameters":{ }``` du modèle, que les paramètres ```administratorLogin``` et ```administratorLoginPassword``` ne sont pas inclus pour des raisons de sécurité. Vous **DEVEZ** ajouter ces paramètres à votre modèle avant son déploiement. Sinon, le modèle échouera.
+Quand vous exportez le modèle, notez que dans la section ```"properties":{ }``` des ressources du serveur MySQL, ```administratorLogin``` et ```administratorLoginPassword``` ne sont pas inclus pour des raisons de sécurité. Vous **DEVEZ** ajouter ces paramètres à votre modèle avant son déploiement. Sinon, le modèle échouera.
 
-```json
-"administratorLogin": {
-      "type": "String"
-    },
-"administratorLoginPassword": {
-      "type": "SecureString"
-    },  
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
 ```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

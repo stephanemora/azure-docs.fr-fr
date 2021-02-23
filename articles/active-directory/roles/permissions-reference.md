@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ac3b9ac5f7a10226e8dc7197fdf60dc0a84e3b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627614"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518825"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -67,21 +67,6 @@ Ce rôle permet également de _donner son consentement_ pour des permissions dé
 
 Les utilisateurs dans ce rôle peuvent créer des inscriptions d’application quand le paramètre « Les utilisateurs peuvent inscrire des applications » est défini sur Non. Ce rôle octroie aussi l’autorisation de donner son consentement en son propre nom lorsque le paramètre « Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom » est défini sur Non. Les utilisateurs affectés à ce rôle sont ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
-### <a name="authentication-administrator"></a>[Administrateur d’authentification](#authentication-administrator-permissions)
-
-Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification sans mot de passe pour certains utilisateurs et peuvent mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil**, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Le rôle attribué à un utilisateur détermine si un administrateur d’authentification peut réinitialiser le mot de passe de l’utilisateur. Pour obtenir la liste des rôles pour lesquels un administrateur d’authentification peut réinitialiser les mots de passe, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
-
-Le rôle [Administrateur d’authentification privilégié](#privileged-authentication-administrator) a l’autorisation de forcer la réinscription et l’authentification multifacteur pour tous les utilisateurs.
-
-> [!IMPORTANT]
-> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
->
->* Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs d’authentification. Par ce biais, un administrateur d’authentification peut être en mesure d’assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
->* Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
->* Propriétaires de groupe de sécurité et de groupe Microsoft 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
->* Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
->* Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
-
 ### <a name="attack-payload-author"></a>[Auteur de charge utile d'attaque](#attack-payload-author-permissions)
 
 Les utilisateurs disposant de ce rôle peuvent créer des charges utiles d'attaque, mais pas les lancer ou les programmer. Les charges utiles d'attaque sont ensuite à la disposition de tous les administrateurs du locataire, qui peuvent les utiliser pour créer une simulation.
@@ -89,6 +74,51 @@ Les utilisateurs disposant de ce rôle peuvent créer des charges utiles d'attaq
 ### <a name="attack-simulation-administrator"></a>[Administrateur de simulation d'attaque](#attack-simulation-administrator-permissions)
 
 Les utilisateurs disposant de ce rôle peuvent créer et gérer tous les aspects de la création d'une simulation d'attaque, du lancement ou de la planification d'une simulation, et de l'examen des résultats d'une simulation. Les membres de ce rôle ont accès à toutes les simulations du locataire.
+
+### <a name="authentication-administrator"></a>[Administrateur d’authentification](#authentication-administrator-permissions)
+
+Les utilisateurs disposant de ce rôle peuvent définir ou réinitialiser toute méthode d’authentification (y compris les mots de passe) pour les non-administrateurs et certains rôles. Les administrateurs d’authentification peuvent obliger les utilisateurs qui ne sont pas administrateurs ou sont attribués à certains rôles à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et peuvent également révoquer la **mémorisation de l’authentification multifacteur sur l’appareil**, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion. Pour obtenir la liste des rôles pour lesquels un administrateur d’authentification peut lire ou mettre à jour des méthodes d’authentification, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
+
+Le rôle [Administrateur d’authentification privilégié](#privileged-authentication-administrator) a l’autorisation de forcer la réinscription et l’authentification multifacteur pour tous les utilisateurs.
+
+Le rôle d’[administrateur de la stratégie d’authentification](#authentication-policy-administrator) dispose des autorisations nécessaires pour définir la stratégie de méthode d’authentification du locataire qui détermine les méthodes que chaque utilisateur peut inscrire et utiliser.
+
+| Role | Gérer les méthodes d’authentification de l’utilisateur | Activer l’authentification multifacteur par utilisateur | Gérer les paramètres de l’authentification multifacteur | Gérer la stratégie de méthode d’authentification | Gérer la stratégie de protection par mot de passe |
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Administrateur d’authentification | Oui pour certains utilisateurs (voir ci-dessus) | Oui pour certains utilisateurs (voir ci-dessus) | Non | Non | Non | 
+| Administrateur d’authentification privilégié| Oui pour tous les utilisateurs | Oui pour tous les utilisateurs | Non | Non | Non | 
+| Administrateur de la stratégie d’authentification | Non |Non | Oui | Oui | Oui | 
+
+> [!IMPORTANT]
+> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
+>
+>* Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs d’authentification. Par ce biais, un administrateur d’authentification peut assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
+>* Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
+>* Propriétaires de groupe de sécurité et de groupe Microsoft 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
+>* Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
+>* Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
+
+> [!IMPORTANT]
+> Ce rôle ne peut actuellement pas gérer l’authentification multifacteur par utilisateur dans le portail de gestion d’authentification multifacteur hérité. Les mêmes fonctions peuvent être effectuées à l’aide du module Azure AD Powershell de l’applet de commande [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser).
+
+### <a name="authentication-policy-administrator"></a>[Administrateur de la stratégie d’authentification](#authentication-policy-administrator-permissions)
+
+Les utilisateurs disposant de ce rôle peuvent configurer la stratégie de méthodes d’authentification, les paramètres d’authentification multifacteur à l’ensemble du locataire et la stratégie de protection par mot de passe. Ce rôle accorde l’autorisation de gérer les paramètres de protection par mot de passe : les configurations de verrouillage intelligent et la mise à jour de la liste des mots de passe interdits personnalisés. 
+
+Les rôles d’[administrateur d’authentification](#authentication-administrator) et d’[administrateur d’authentification privilégié](#privileged-authentication-administrator) ont l’autorisation de gérer les méthodes d’authentification inscrites sur les utilisateurs et peuvent forcer la réinscription et l’authentification multifacteur pour tous les utilisateurs. 
+
+| Role | Gérer les méthodes d’authentification de l’utilisateur | Activer l’authentification multifacteur par utilisateur | Gérer les paramètres de l’authentification multifacteur | Gérer la stratégie de méthode d’authentification | Gérer la stratégie de protection par mot de passe |
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Administrateur d’authentification | Oui pour certains utilisateurs (voir ci-dessus) | Oui pour certains utilisateurs (voir ci-dessus) | Non | Non | Non | 
+| Administrateur d’authentification privilégié| Oui pour tous les utilisateurs | Oui pour tous les utilisateurs | Non | Non | Non | 
+| Administrateur de la stratégie d’authentification | Non | Non | Oui | Oui | Oui | 
+
+> [!IMPORTANT]
+> Ce rôle ne peut actuellement pas gérer les paramètres d’authentification multifacteur dans le portail de gestion d’authentification multifacteur hérité.
+
+### <a name="azure-ad-joined-device-local-administrator"></a>[Administrateur local de l’appareil joint Azure AD](#azure-ad-joined-device-local-administrator-permissions)
+
+Ce rôle peut uniquement être attribué comme administrateur local supplémentaire dans [Paramètres de l’appareil](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory.
 
 ### <a name="azure-devops-administrator"></a>[Administrateur Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -164,12 +194,7 @@ Gère les [requêtes Customer Lockbox](/office365/admin/manage/customer-lockbox-
 
 ### <a name="desktop-analytics-administrator"></a>[Administrateur Desktop Analytics](#desktop-analytics-administrator-permissions)
 
-
 Les utilisateurs avec ce rôle peuvent gérer Desktop Analytics et les services de stratégie et de personnalisation Office. Pour Desktop Analytics, cela inclut la possibilité d’afficher l’inventaire des biens, de créer des plans de déploiement, d’afficher l’état du déploiement et de l’intégrité. Pour le service de stratégie et personnalisation Office, ce rôle permet aux utilisateurs de gérer les stratégies Office.
-
-### <a name="device-administrators"></a>[Administrateurs d’appareils](#device-administrators-permissions)
-
-Ce rôle peut uniquement être attribué comme administrateur local supplémentaire dans [Paramètres de l’appareil](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Les utilisateurs dotés de ce rôle deviennent des administrateurs de l'ordinateur local pour tous les appareils Windows 10 qui sont joints à Azure Active Directory. Ils ne peuvent pas gérer des objets appareil dans Azure Active Directory.
 
 ### <a name="directory-readers"></a>[Lecteurs de répertoire](#directory-readers-permissions)
 
@@ -186,14 +211,18 @@ Ne pas utiliser. Ce rôle est automatiquement attribué au service Azure AD Conn
 ### <a name="directory-writers"></a>[Enregistreurs de répertoire](#directory-writers-permissions)
 Les utilisateurs de ce rôle peuvent lire et mettre à jour les informations de base des utilisateurs, des groupes et des principaux de service. Attribuez ce rôle uniquement aux applications qui ne prennent pas en charge [l’infrastructure de consentement](../develop/quickstart-register-app.md). Vous ne devez pas l’affecter à tous les utilisateurs.
 
-### <a name="dynamics-365-administrator--crm-administrator"></a>[Administrateur Dynamics 365/Administrateur CRM](#crm-service-administrator-permissions)
+### <a name="domain-name-administrator"></a>[Administrateur de nom de domaine](#domain-name-administrator-permissions)
+
+Les utilisateurs disposant de ce rôle peuvent gérer (lire, ajouter, vérifier, mettre à jour et supprimer) des noms de domaine. Ils peuvent également lire les informations du répertoire sur les utilisateurs, les groupes et les applications, car ces objets possèdent des dépendances de domaine. Pour les environnements locaux, les utilisateurs disposant de ce rôle peuvent configurer des noms de domaine pour la fédération afin que les utilisateurs associés soient toujours authentifiés localement. Ces utilisateurs peuvent ensuite se connecter à des services Azure AD avec leurs mots de passe locaux par le biais de l’authentification unique. Les paramètres de fédération doivent être synchronisés via Azure AD Connect, afin que les utilisateurs disposent également des autorisations nécessaires pour gérer Azure AD Connect.
+
+### <a name="dynamics-365-administrator"></a>[Administrateur Dynamics 365](#dynamics-365-administrator-permissions)
 
 Les utilisateurs auxquels ce rôle est assigné disposent d’autorisations générales dans Microsoft Dynamics 365 Online, lorsque le service est présent. Ils ont aussi la possibilité de gérer les tickets de support et de surveiller l’intégrité du service. Pour plus d’informations, consultez la page [Utiliser le rôle d’administrateur de service pour gérer votre organisation Azure AD](/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
 > Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Dynamics 365 ». Il est appelé « Administrateur Dynamics 365 » dans le [portail Azure](https://portal.azure.com).
 
-### <a name="exchange-administrator"></a>[Administrateur Exchange](#exchange-service-administrator-permissions)
+### <a name="exchange-administrator"></a>[Administrateur Exchange](#exchange-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Exchange Online, quand le service est présent. Ils ont aussi la possibilité de créer et de gérer tous les groupes Microsoft 365, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Plus d’informations sur les [Rôles d’administrateur dans Microsoft 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -213,7 +242,7 @@ Les utilisateurs ayant ce rôle peuvent ajouter ou supprimer des attributs perso
 
 Cet administrateur gère la fédération entre les organisations Azure AD et les fournisseurs d’identité externes.  Avec ce rôle, les utilisateurs peuvent ajouter de nouveaux fournisseurs d’identité et configurer tous les paramètres disponibles (par exemple, chemin d’authentification, ID de service, conteneurs de clés attribués).  Cet utilisateur peut permettre à l’organisation d’approuver des authentifications de fournisseurs d’identité externes.  L’impact produit sur les expériences d’utilisateur final varie selon le type d’organisation :
 
-* Organisations Azure AD pour les employés et les partenaires : L’ajout d’une fédération (par exemple, avec Gmail) impacte immédiatement toutes les invitations d’invités qui ne sont pas encore utilisées. Consultez [Ajout de Google comme fournisseur d’identité pour les utilisateurs invités B2B](../external-identities/google-federation.md).
+* Organisations Azure AD pour les employés et les partenaires : L’ajout d’une fédération (par exemple, avec Gmail) impacte immédiatement toutes les invitations d’invités qui ne sont pas encore utilisées. Consultez [Ajout de Google comme fournisseur d’identité pour les utilisateurs invités B2B](../external-identities/google-federation.md).
 * Organisations Azure Active Directory B2C : L’ajout d’une fédération (par exemple, avec Facebook ou une autre organisation Azure AD) n’impacte pas immédiatement les flux d’utilisateurs finaux tant que le fournisseur d’identité n’est pas ajouté comme option dans un flux d’utilisateurs (aussi appelé stratégie intégrée). Consultez [Configuration d’un compte Microsoft comme fournisseur d’identité](../../active-directory-b2c/identity-provider-microsoft-account.md) pour obtenir un exemple.  Pour modifier des flux d’utilisateurs, le rôle limité d’« administrateur de flux d’utilisateurs B2C » est nécessaire.
 
 ### <a name="global-administrator"></a>[Administrateur général](#global-administrator-permissions)
@@ -264,7 +293,7 @@ Ce rôle était auparavant appelé « administrateur de mot de passe » dans l
 
 ### <a name="hybrid-identity-administrator"></a>[Administrateur d’identité hybride](#hybrid-identity-administrator-permissions)
 
-Les utilisateurs de ce rôle peuvent créer, gérer et déployer la configuration du provisionnement d’AD vers Azure AD à l’aide du provisionnement cloud, ainsi que gérer les paramètres de fédération. Les utilisateurs peuvent également dépanner et superviser les journaux à l’aide de ce rôle.  
+Les utilisateurs de ce rôle peuvent créer, gérer et déployer la configuration du provisionnement d’AD vers Azure AD à l’aide du provisionnement cloud, ainsi que gérer les paramètres de fédération. Les utilisateurs peuvent également dépanner et superviser les journaux à l’aide de ce rôle.
 
 ### <a name="insights-administrator"></a>[Administrateur Insights](#insights-administrator-permissions)
 Les utilisateurs ayant ce rôle peuvent accéder à l’ensemble des fonctionnalités d’administration de l’[application M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ce rôle permet de lire les informations d’annuaire, de superviser l’intégrité du service, de soumettre des tickets de support et d’accéder aux paramètres d’administration Insights.
@@ -272,7 +301,7 @@ Les utilisateurs ayant ce rôle peuvent accéder à l’ensemble des fonctionnal
 ### <a name="insights-business-leader"></a>[Leader d’entreprise Insights](#insights-business-leader-permissions)
 Les utilisateurs ayant ce rôle peuvent accéder à un ensemble de tableaux de bord et d’insights par le biais de l’[application M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Ceci inclut l’accès total à tous les tableaux de bord et aux insights présentés et la fonctionnalité d’exploration de données. Les utilisateurs ayant ce rôle n’ont pas accès aux paramètres de configuration du produit. Cet accès est réservé au rôle Administrateur Insights.
 
-### <a name="intune-administrator"></a>[Administrateur Intune](#intune-service-administrator-permissions)
+### <a name="intune-administrator"></a>[Administrateur Intune](#intune-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Intune Online, quand le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle (RBAC) avec Microsoft Intune](/intune/role-based-access-control).
 
@@ -307,10 +336,10 @@ Les utilisateurs ayant le rôle Utilisateur de Commerce moderne disposent géné
 
 **Quand le rôle Utilisateur de Commerce moderne est-il attribué ?**
 
-* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
+* **Achat en libre-service dans le Centre d’administration Microsoft 365** : l’achat en libre-service permet aux utilisateurs de tester de nouveaux produits en les achetant ou en s’y inscrivant eux-mêmes. Ces produits sont gérés dans le Centre d’administration. Les utilisateurs qui effectuent un achat en libre-service se voient attribuer un rôle dans le système Commerce et le rôle Utilisateur de Commerce moderne afin de pouvoir gérer leurs achats dans le centre d’administration. Les administrateurs peuvent bloquer les achats en libre-service (pour Power BI, Power Apps, Power automate) via [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Pour plus d’informations, consultez [FAQ sur l’achat en libre-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
 * **Achats sur la Place de marché commerciale de Microsoft** : comme pour l’achat en libre-service, quand un utilisateur achète un produit ou un service sur Microsoft AppSource ou la Place de Marché Azure, le rôle Utilisateur de Commerce moderne lui est attribué s’il n’a pas le rôle Administrateur général ou Administrateur de facturation. Dans certains cas, il peut arriver que des utilisateurs soient empêchés d’effectuer ces achats. Pour plus d’informations, consultez [Place de marché commerciale de Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
 * **Propositions de Microsoft** : une proposition est une offre formelle de Microsoft à votre organisation pour l’achat de produits et services Microsoft. Quand la personne qui accepte la proposition n’a pas de rôle Administrateur général ou Administrateur de facturation dans Azure AD, elle se voit attribuer un rôle spécifique du commerce pour compléter la proposition et le rôle Utilisateur de Commerce moderne pour accéder au centre d’administration. Quand elle accède au Centre d’administration, elle ne peut utiliser que des fonctionnalités autorisées par son rôle spécifique du commerce.
-* **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas Administrateur général ou Administrateur de facturation, il obtient le rôle Utilisateur de Commerce moderne qui lui permet d’accéder au centre d’administration.  
+* **Rôles spécifiques du commerce** : certains utilisateurs se voient attribuer des rôles spécifiques du commerce. Si un utilisateur n’est pas Administrateur général ou Administrateur de facturation, il obtient le rôle Utilisateur de Commerce moderne qui lui permet d’accéder au centre d’administration.
 
 En cas de suppression de l’attribution du rôle Utilisateur de Commerce moderne à un utilisateur, celui-ci perd son accès au centre d’administration Microsoft 365. S’il gérait des produits pour lui-même ou pour votre organisation, ils ne peut plus les gérer. Cette gestion peut inclure l’attribution de licences, la modification de modes de paiement, le paiement de factures ou d’autres tâches d’administration des abonnements.
 
@@ -333,7 +362,7 @@ Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’
 
 Les utilisateurs disposant de ce rôle ont une capacité limitée à gérer les mots de passe. Ce rôle n’accorde pas la possibilité de gérer les demandes de service ou de surveiller l’intégrité du service. Le rôle attribué à un utilisateur détermine si un administrateur de mot de passe peut réinitialiser le mot de passe de l’utilisateur. Pour obtenir la liste des rôles pour lesquels un administrateur de mot de passe peut réinitialiser les mots de passe, consultez [Autorisations de réinitialisation de mot de passe](#password-reset-permissions).
 
-### <a name="power-bi-administrator"></a>[Administrateur Power BI](#power-bi-service-administrator-permissions)
+### <a name="power-bi-administrator"></a>[Administrateur Power BI](#power-bi-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Power BI, quand le service est présent, et peuvent gérer les tickets de support et superviser l’intégrité du service. Pour plus d’informations, consultez la page [Présentation du rôle d’administrateur Power BI](/power-bi/service-admin-role).
 
@@ -354,7 +383,30 @@ Les utilisateurs ayant ce rôle peuvent inscrire des imprimantes et gérer leur 
 
 ### <a name="privileged-authentication-administrator"></a>[Administrateur d’authentification privilégié](#privileged-authentication-administrator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification de tous les utilisateurs, y compris des administrateurs généraux, et mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui a pour effet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs.
+Les utilisateurs disposant de ce rôle peuvent définir ou réinitialiser toute méthode d’authentification (y compris les mots de passe) pour n’importe quel utilisateur, y compris les administrateurs généraux. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui a pour effet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs. 
+
+Le rôle d' [administrateur d’authentification](#authentication-administrator) a l’autorisation de forcer la réinscription et l’authentification multifacteur pour les utilisateurs standard et les utilisateurs avec des rôles d’administrateur.
+
+Le rôle d’[administrateur de la stratégie d’authentification](#authentication-policy-administrator) dispose des autorisations nécessaires pour définir la stratégie de méthode d’authentification du locataire qui détermine les méthodes que chaque utilisateur peut inscrire et utiliser.
+
+| Role | Gérer les méthodes d’authentification de l’utilisateur | Gérer l’authentification multifacteur par utilisateur | Gérer les paramètres de l’authentification multifacteur | Gérer la stratégie de méthode d’authentification | Gérer la stratégie de protection par mot de passe |
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| Administrateur d’authentification | Oui pour certains utilisateurs (voir ci-dessus) | Oui pour certains utilisateurs (voir ci-dessus) | Non | Non | Non | 
+| Administrateur d’authentification privilégié| Oui pour tous les utilisateurs | Oui pour tous les utilisateurs | Non | Non | Non | 
+| Administrateur de la stratégie d’authentification | Non | Non | Oui | Oui | Oui | 
+
+> [!IMPORTANT]
+> Les utilisateurs auxquels ce rôle est assigné peuvent changer les informations d’identification des personnes susceptibles d’avoir accès à des informations sensibles ou privées ou à des configurations critiques à l’intérieur et à l’extérieur d’Azure Active Directory. Changer les informations d’identification d’un utilisateur peut signifier la capacité d’assumer l’identité et les autorisations de cet utilisateur. Par exemple :
+>
+>* Les propriétaires d’inscription d’application et d’application d’entreprise, qui peuvent gérer les informations d’identification des applications qu’ils possèdent. Ces applications peuvent disposer d’autorisations privilégiées dans Azure AD et ailleurs qui ne sont pas accordées aux administrateurs d’authentification. Par ce biais, un administrateur d’authentification peut assumer l’identité d’un propriétaire d’application, puis d’assumer l’identité d’une application privilégiée en mettant à jour les identifiants de celle-ci.
+>* Propriétaires d’abonnement Azure, qui peuvent avoir accès à des informations confidentielles ou privées ou à une configuration critique dans Azure.
+>* Propriétaires de groupe de sécurité et de groupe Microsoft 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
+>* Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
+>* Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
+
+
+> [!IMPORTANT]
+> Ce rôle ne peut actuellement pas gérer l’authentification multifacteur par utilisateur dans le portail de gestion d’authentification multifacteur hérité. Les mêmes fonctions peuvent être effectuées à l’aide du module Azure AD Powershell de l’applet de commande [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser).
 
 ### <a name="privileged-role-administrator"></a>[Administrateur de rôle privilégié](#privileged-role-administrator-permissions)
 
@@ -432,7 +484,7 @@ Les utilisateurs titulaires de ce rôle peuvent ouvrir des demandes de support a
 > [!NOTE]
 > Auparavant, ce rôle était nommé « Administrateur de services » dans [Portail Azure](https://portal.azure.com) et le [Centre d’administration Microsoft 365](https://admin.microsoft.com). Nous l’avons renommé « Administrateur de support de service » pour l’aligner sur le nom existant dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell.
 
-### <a name="sharepoint-administrator"></a>[Administrateur SharePoint](#sharepoint-service-administrator-permissions)
+### <a name="sharepoint-administrator"></a>[Administrateur SharePoint](#sharepoint-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft SharePoint Online, quand le service est présent. Ils peuvent également créer et gérer tous les groupes Microsoft 365, gérer les tickets de support et superviser l’intégrité des services. Plus d’informations sur les [Rôles d’administrateur](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -442,12 +494,16 @@ Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft 
 > [!NOTE]
 > Ce rôle accorde également des autorisations délimitées à l’API Microsoft Graph pour Microsoft Intune, d’où la possibilité de gérer et de configurer des stratégies liées aux ressources SharePoint et Onedrive.
 
-### <a name="skype-for-business--lync-administrator"></a>[Administrateur Skype Entreprise ou Administrateur Lync](#lync-service-administrator-permissions)
+### <a name="skype-for-business-administrator"></a>[Administrateur Skype Entreprise](#skype-for-business-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Skype Entreprise, quand le service est présent. Ils peuvent également gérer les attributs utilisateur propres à Skype dans Azure Active Directory. En outre, ce rôle permet de gérer les tickets de support et de surveiller l’intégrité des services, ainsi que d’accéder au Centre d’administration Teams et Skype Entreprise. Le compte doit également disposer d’une licence Teams ; dans le cas contraire, il ne pourra pas exécuter les applets de commande PowerShell Teams. Pour plus d’informations, consultez la page [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) (À propos du rôle d’administrateur Skype Entreprise) ; pour plus d’informations sur les licences Teams, consultez l’article [Licences de compléments pour Skype Entreprise et Microsoft Teams](/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
 
 > [!NOTE]
 > Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service SharePoint ». Il est appelé « Administrateur Skype Entreprise » dans le [portail Azure](https://portal.azure.com/).
+
+### <a name="teams-administrator"></a>[Administrateur Teams](#teams-administrator-permissions)
+
+Les utilisateurs dans ce rôle peuvent gérer tous les aspects de la charge de travail Microsoft Teams via le centre d’administration Microsoft Teams et Skype Entreprise et les modules PowerShell respectifs. Cela inclut notamment tous les outils de gestion liés à la téléphonie, à la messagerie, aux réunions et aux équipes proprement dites. En outre, ce rôle permet de créer et de gérer tous les groupes Microsoft 365, de gérer les tickets de support et de surveiller l’état d’intégrité des services.
 
 ### <a name="teams-communications-administrator"></a>[Administrateur des communications Teams](#teams-communications-administrator-permissions)
 
@@ -464,10 +520,6 @@ Les utilisateurs dans ce rôle peuvent résoudre les problèmes de communication
 ### <a name="teams-devices-administrator"></a>[Administrateur d’appareils Teams](#teams-devices-administrator-permissions)
 
 Les utilisateurs titulaires de ce rôle peuvent gérer des [appareils certifiés par Teams](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) à partir du Centre d’administration Teams. Ce rôle permet d’afficher tous les appareils en un seul coup d’œil, avec la possibilité de rechercher et de filtrer les appareils. L’utilisateur peut vérifier les détails de chaque appareil, notamment le compte de connexion, la marque et le modèle de l’appareil. L’utilisateur peut modifier les paramètres sur l’appareil et mettre à jour les versions des logiciels. Ce rôle n’accorde pas d’autorisations pour vérifier l’activité Teams et la qualité d’appel de l’appareil. 
-
-### <a name="teams-service-administrator"></a>[Administrateur du service Teams](#teams-service-administrator-permissions)
-
-Les utilisateurs dans ce rôle peuvent gérer tous les aspects de la charge de travail Microsoft Teams via le centre d’administration Microsoft Teams et Skype Entreprise et les modules PowerShell respectifs. Cela inclut notamment tous les outils de gestion liés à la téléphonie, à la messagerie, aux réunions et aux équipes proprement dites. En outre, ce rôle permet de créer et de gérer tous les groupes Microsoft 365, de gérer les tickets de support et de surveiller l’état d’intégrité des services.
 
 ### <a name="usage-summary-reports-reader"></a>[Lecteur de rapports de synthèse sur l'utilisation](#usage-summary-reports-reader-permissions)
 
@@ -566,22 +618,6 @@ Peut créer des inscriptions d’applications indépendamment du paramètre « 
 > | microsoft.directory/oAuth2PermissionGrants/createAsOwner | Créez des octrois d’autorisation OAuth2 dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
 > | microsoft.directory/servicePrincipals/createAsOwner | Créez des principaux de service dans Azure Active Directory. Le créateur est ajouté comme premier propriétaire, et l’objet créé compte dans le quota de 250 objets créés du créateur. |
 
-### <a name="authentication-administrator-permissions"></a>Autorisations d’administrateur d’authentification
-
-Permet d’afficher, de définir et de réinitialiser les informations de méthode d’authentification pour tout utilisateur non administrateur.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory. |
-> | microsoft.directory/users/strongAuthentication/update | Mettez à jour les propriétés d’authentification forte comme les informations d’identification MFA. |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-> | microsoft.directory/users/password/update | Mettez à jour les mots de passe de tous les utilisateurs de l’organisation Microsoft 365. Pour plus d’informations, consultez la documentation en ligne. |
-
 ### <a name="attack-payload-author-permissions"></a>Autorisations de l'auteur d'une charge utile d'attaque
 
 Peut créer des charges utiles d'attaque qu'un administrateur pourra ultérieurement déployer.
@@ -603,13 +639,55 @@ Peut créer et gérer tous les aspects des campagnes de simulation d'attaque.
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Lisez les rapports de simulation d'attaque, les réponses et la formation associée. |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Créez et gérez des modèles de simulation d'attaque dans Attack Simulator. |
 
+### <a name="authentication-administrator-permissions"></a>Autorisations d’administrateur d’authentification
+
+Permet d’afficher, de définir et de réinitialiser les informations de méthode d’authentification pour tout utilisateur non administrateur.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/users/invalidateAllRefreshTokens | Invalidez tous les jetons d’actualisation utilisateur dans Azure Active Directory. |
+> | microsoft.directory/users/strongAuthentication/update | Mettez à jour les propriétés d’authentification forte comme les informations d’identification MFA. |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+> | microsoft.directory/users/password/update | Mettez à jour les mots de passe de tous les utilisateurs de l’organisation Microsoft 365. Pour plus d’informations, consultez la documentation en ligne. |
+
+### <a name="authentication-policy-administrator-permissions"></a>Autorisations d’administrateur d’authentification de stratégie
+
+Autorisé à afficher et définir la stratégie des méthodes d’authentification, la stratégie de protection par mot de passe et les paramètres d’authentification multifacteur à l’ensemble du locataire.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/organization/strongAuthentication/update | Mettez à jour les propriétés d’authentification forte d’une organisation dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/create | Créez des stratégies d’informations d’identification pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/delete | Supprimez les stratégies d’informations d’identification pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/standard/read | Lisez les propriétés standard des stratégies d’informations d’identification pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/owners/read | Lisez les propriétaires des stratégies d’informations d’identification pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/policyAppliedTo/read | Lisez le lien de navigation policy.appliesTo dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/basic/update | Mettez à jour les stratégies de base pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/owners/update | Mettez à jour les propriétaires des stratégies d’informations d’identification pour les utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/userCredentialPolicies/tenantDefault/update | Mettez à jour la propriété policy.isOrganizationDefault dans Azure Active Directory. |
+
+### <a name="azure-ad-joined-device-local-administrator-permissions"></a>Autorisations de l’aministrateur local de l’appareil joint Azure AD
+
+Les utilisateurs dotés de ce rôle sont ajoutés au groupe d’administrateurs locaux sur des appareils joints à AD Azure.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/groupSettings/basic/read | Lisez des propriétés de base sur des paramètres de groupes dans Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Lisez des propriétés de base sur des modèles de paramètres de groupes dans Azure Active Directory. |
+
 ### <a name="azure-devops-administrator-permissions"></a>Autorisations de l’administrateur Azure DevOps
 
 Peut gérer la stratégie et les paramètres de l’organisation Azure DevOps.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la [description des rôles](#azure-devops-administrator) ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -622,7 +700,6 @@ Peut gérer tous les aspects du service Azure Information Protection.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la [description des rôles](#) ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -658,7 +735,6 @@ Peut effectuer des tâches de facturation courantes, comme la mise à jour des i
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -734,86 +810,12 @@ Accès total pour gérer des appareils dans Azure AD.
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 
-### <a name="global-administrator-permissions"></a>Autorisations d’administrateur général
-
-Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisent des identités Azure AD.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.cloudAppSecurity. |
-> | microsoft.directory/administrativeUnits/allProperties/allTasks | Créez et supprimez des unités administratives (administrativeUnits), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/applications/allProperties/allTasks | Créez et supprimez des applications, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/appRoleAssignments/allProperties/allTasks | Créez et supprimez des attributions de rôles d’applications (appRoleAssignments), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
-> | microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
-> | microsoft.directory/contacts/allProperties/allTasks | Créez et supprimez des contacts, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/contracts/allProperties/allTasks | Créez et supprimez des contrats, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/devices/allProperties/allTasks | Créez et supprimez des appareils, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/directoryRoles/allProperties/allTasks | Créez et supprimez des rôles d’annuaire (directoryRoles), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Créez et supprimez des modèles de rôles d’annuaire (DirectoryRoleTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/domains/allProperties/allTasks | Créez et supprimez des domaines, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/entitlementManagement/allProperties/allTasks | Créez et supprimez des ressources, et lisez et mettez à jour toutes les propriétés dans la fonctionnalité de gestion des droits d'utilisation Azure AD. |
-> | microsoft.directory/groups/allProperties/allTasks | Créez et supprimez des groupes, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Mettez à jour les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
-> | microsoft.directory/groupsAssignableToRoles/create | Créez des groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
-> | microsoft.directory/groupsAssignableToRoles/delete | Supprimez les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
-> | microsoft.directory/groupSettings/allProperties/allTasks | Créez et supprimez des paramètres de groupes (groupSettings), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Créez et supprimez des modèles de paramètres de groupes (groupSettingTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/loginTenantBranding/allProperties/allTasks | Créez et supprimez une personnalisations de client de connexion (loginTenantBranding), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Créez et supprimez des octrois d’autorisation OAuth2 (oAuth2PermissionGrants), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/organization/allProperties/allTasks | Créez et supprimez des organisations, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/policies/allProperties/allTasks | Créez et supprimez des stratégies, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/provisioningLogs/allProperties/read | Lisez toutes les propriétés des journaux d'approvisionnement. |
-> | microsoft.directory/roleAssignments/allProperties/allTasks | Créez et supprimez des attributions de rôles (roleAssignments), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/roleDefinitions/allProperties/allTasks | Créez et supprimez des définitions de rôles (roleDefinitions), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Créez et supprimez des appartenances à un rôle étendu (scopedRoleMemberships), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/serviceAction/activateService | Peut effectuer l’action de service Activateservice dans Azure Active Directory |
-> | microsoft.directory/serviceAction/disableDirectoryFeature | Peut effectuer l’action de service Disabledirectoryfeature dans Azure Active Directory |
-> | microsoft.directory/serviceAction/enableDirectoryFeature | Peut effectuer l’action de service Enabledirectoryfeature dans Azure Active Directory |
-> | microsoft.directory/serviceAction/getAvailableExtentionProperties | Peut effectuer l’action de service Getavailableextentionproperties dans Azure Active Directory |
-> | microsoft.directory/servicePrincipals/allProperties/allTasks | Créez et supprimez des principaux de service (servicePrincipals), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
-> | microsoft.directory/subscribedSkus/allProperties/allTasks | Créez et supprimez des références SKU souscrites, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directory/users/allProperties/allTasks | Créez et supprimez des utilisateurs, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
-> | microsoft.directorySync/allEntities/allTasks | Exécutez toutes les actions dans Azure AD Connect. |
-> | microsoft.aad.directorySync/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.identityProtection. |
-> | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lisez toutes les ressources dans microsoft.aad.privilegedIdentityManagement. |
-> | microsoft.azure.advancedThreatProtection/allEntities/read | Lisez toutes les ressources dans microsoft.azure.advancedThreatProtection. |
-> | microsoft.azure.informationProtection/allEntities/allTasks | Gérez tous les aspects d’Azure Information Protection. |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
-> | microsoft.commerce.billing/allEntities/allTasks | Gérez tous les aspects de la facturation. |
-> | microsoft.intune/allEntities/allTasks | Gérez tous les aspects d’Intune. |
-> | microsoft.office365.complianceManager/allEntities/allTasks | Gérez tous les aspects d’Office 365 Compliance Manager |
-> | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gérez tous les aspects de Desktop Analytics. |
-> | microsoft.office365.exchange/allEntities/allTasks | Gérez tous les aspects d’Exchange Online. |
-> | microsoft.office365.lockbox/allEntities/allTasks | Gérez tous les aspects d’Office 365 Customer Lockbox. |
-> | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
-> | microsoft.office365.messageCenter/securityMessages/read | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
-> | microsoft.office365.protectionCenter/allEntities/allTasks | Gérez tous les aspects du Centre de protection Office 365. |
-> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.office365.securityComplianceCenter. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.office365.sharepoint/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.office365.sharepoint. |
-> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gérez tous les aspects de Skype Entreprise Online. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-> | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.powerApps.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365. |
-> | microsoft.powerApps.powerBI/allEntities/allTasks | Gérez tous les aspects de Power BI. |
-> | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lisez toutes les ressources dans microsoft.windows.defenderAdvancedThreatProtection. |
-
 ### <a name="compliance-administrator-permissions"></a>Autorisations d’administrateur de conformité
 
 Peut lire et gérer la configuration de la conformité et les rapports dans Azure AD et Microsoft 365.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -832,7 +834,6 @@ Crée et gère le contenu de conformité.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -862,31 +863,12 @@ Peut gérer les fonctionnalités d’accès conditionnel.
 > | microsoft.directory/policies/conditionalAccess/policiesAppliedTo/read | Lisez la propriété policies.conditionalAccess dans Azure Active Directory. |
 > | microsoft.directory/policies/conditionalAccess/tenantDefault/update | Mettez à jour la propriété policies.conditionalAccess dans Azure Active Directory. |
 
-### <a name="crm-service-administrator-permissions"></a>Autorisations d’administrateur de service CRM
-
-Peut gérer tous les aspects du produit Dynamics 365.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
-> | microsoft.powerApps.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-
 ### <a name="customer-lockbox-access-approver-permissions"></a>Autorisations d’approbateur d’accès Customer Lockbox
 
 Peut approuver les demandes de support Microsoft pour accéder aux données organisationnelles du client.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -901,7 +883,6 @@ Peut gérer Desktop Analytics et les services de stratégie et de personnalisati
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -911,16 +892,6 @@ Peut gérer Desktop Analytics et les services de stratégie et de personnalisati
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gérez tous les aspects de Desktop Analytics. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-
-### <a name="device-administrators-permissions"></a>Autorisations des administrateurs d’appareils
-
-Les utilisateurs dotés de ce rôle sont ajoutés au groupe d’administrateurs locaux sur des appareils joints à AD Azure.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.directory/groupSettings/basic/read | Lisez des propriétés de base sur des paramètres de groupes dans Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/basic/read | Lisez des propriétés de base sur des modèles de paramètres de groupes dans Azure Active Directory. |
 
 ### <a name="directory-readers-permissions"></a>Autorisations des lecteurs de répertoire
 Peut lire les informations d’annuaire de base. Pour accorder l’accès aux applications, non destiné aux utilisateurs.
@@ -1021,7 +992,7 @@ Peut lire et écrire des informations d’annuaire de base. Pour accorder l’ac
 > | --- | --- |
 > | microsoft.directory/groups/appRoleAssignments/update | Mettez à jour la propriété groups.appRoleAssignments dans Azure Active Directory. |
 > | microsoft.directory/groups/assignLicense | Gérez les licences des groupes dans Azure Active Directory. |
-> | microsoft.directory/groups/basic/update | Mettez à jour des propriétés de base sur des groupes dans Azure Active Directory.  |
+> | microsoft.directory/groups/basic/update | Mettez à jour des propriétés de base sur des groupes dans Azure Active Directory. |
 > | microsoft.directory/groups/classification/update | Mettez à jour la propriété de classification du groupe dans Azure Active Directory. |
 > | microsoft.directory/groups/create | Créez des groupes dans Azure Active Directory. |
 > | microsoft.directory/groups/groupType/update | Mettez à jour la propriété groupType d’un groupe dans Azure Active Directory. |
@@ -1050,13 +1021,39 @@ Peut lire et écrire des informations d’annuaire de base. Pour accorder l’ac
 > | microsoft.directory/users/reprocessLicenseAssignment | Traitez à nouveau l’attribution des licences pour un utilisateur dans Azure Active Directory. |
 > | microsoft.directory/users/userPrincipalName /update | Mettez à jour la propriété users.userPrincipalName dans Azure Active Directory. |
 
-### <a name="exchange-service-administrator-permissions"></a>Autorisations d’administrateur de service Exchange
+### <a name="domain-name-administrator-permissions"></a>Autorisations d’administrateur de nom de domaine
+
+Peut gérer les noms de domaine dans le cloud et localement.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/domains/allProperties/allTasks | Créez et supprimez des domaines, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="dynamics-365-administrator-permissions"></a>Autorisations d’administrateur Dynamics 365
+
+Peut gérer tous les aspects du produit Dynamics 365.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
+> | microsoft.powerApps.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="exchange-administrator-permissions"></a>Autorisations d’administrateur Exchange
 
 Peut gérer tous les aspects du produit Exchange.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1104,81 +1101,154 @@ Configurez des fournisseurs d’identité pour une utilisation dans une fédéra
 > | --- | --- |
 > | microsoft.aad.b2c/identityProviders/allTasks | Lisez et configurez les fournisseurs d’identité dans Azure Active Directory B2C. |
 
+### <a name="global-administrator-permissions"></a>Autorisations d’administrateur général
+
+Peut gérer tous les aspects d’Azure AD et des services Microsoft qui utilisent des identités Azure AD.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.aad.cloudAppSecurity/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.cloudAppSecurity. |
+> | microsoft.directory/administrativeUnits/allProperties/allTasks | Créez et supprimez des unités administratives (administrativeUnits), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/applications/allProperties/allTasks | Créez et supprimez des applications, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/appRoleAssignments/allProperties/allTasks | Créez et supprimez des attributions de rôles d’applications (appRoleAssignments), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/auditLogs/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur auditLogs dans Azure Active Directory. |
+> | microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
+> | microsoft.directory/contacts/allProperties/allTasks | Créez et supprimez des contacts, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/contracts/allProperties/allTasks | Créez et supprimez des contrats, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/devices/allProperties/allTasks | Créez et supprimez des appareils, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/directoryRoles/allProperties/allTasks | Créez et supprimez des rôles d’annuaire (directoryRoles), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Créez et supprimez des modèles de rôles d’annuaire (DirectoryRoleTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/domains/allProperties/allTasks | Créez et supprimez des domaines, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/entitlementManagement/allProperties/allTasks | Créez et supprimez des ressources, et lisez et mettez à jour toutes les propriétés dans la fonctionnalité de gestion des droits d'utilisation Azure AD. |
+> | microsoft.directory/groups/allProperties/allTasks | Créez et supprimez des groupes, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Mettez à jour les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+> | microsoft.directory/groupsAssignableToRoles/create | Créez des groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+> | microsoft.directory/groupsAssignableToRoles/delete | Supprimez les groupes dont la propriété isAssignableToRole est définie sur true dans Azure Active Directory. |
+> | microsoft.directory/groupSettings/allProperties/allTasks | Créez et supprimez des paramètres de groupes (groupSettings), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Créez et supprimez des modèles de paramètres de groupes (groupSettingTemplates), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/loginTenantBranding/allProperties/allTasks | Créez et supprimez une personnalisations de client de connexion (loginTenantBranding), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Créez et supprimez des octrois d’autorisation OAuth2 (oAuth2PermissionGrants), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/organization/allProperties/allTasks | Créez et supprimez des organisations, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/policies/allProperties/allTasks | Créez et supprimez des stratégies, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/provisioningLogs/allProperties/read | Lisez toutes les propriétés des journaux d'approvisionnement. |
+> | microsoft.directory/roleAssignments/allProperties/allTasks | Créez et supprimez des attributions de rôles (roleAssignments), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/roleDefinitions/allProperties/allTasks | Créez et supprimez des définitions de rôles (roleDefinitions), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Créez et supprimez des appartenances à un rôle étendu (scopedRoleMemberships), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/serviceAction/activateService | Peut effectuer l’action de service Activateservice dans Azure Active Directory |
+> | microsoft.directory/serviceAction/disableDirectoryFeature | Peut effectuer l’action de service Disabledirectoryfeature dans Azure Active Directory |
+> | microsoft.directory/serviceAction/enableDirectoryFeature | Peut effectuer l’action de service Enabledirectoryfeature dans Azure Active Directory |
+> | microsoft.directory/serviceAction/getAvailableExtentionProperties | Peut effectuer l’action de service Getavailableextentionproperties dans Azure Active Directory |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Créez et supprimez des principaux de service (servicePrincipals), et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
+> | microsoft.directory/subscribedSkus/allProperties/allTasks | Créez et supprimez des références SKU souscrites, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directory/users/allProperties/allTasks | Créez et supprimez des utilisateurs, et lisez et mettez à jour toutes les propriétés dans Azure Active Directory. |
+> | microsoft.directorySync/allEntities/allTasks | Exécutez toutes les actions dans Azure AD Connect. |
+> | microsoft.aad.directorySync/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.aad.identityProtection. |
+> | microsoft.aad.privilegedIdentityManagement/allEntities/read | Lisez toutes les ressources dans microsoft.aad.privilegedIdentityManagement. |
+> | microsoft.azure.advancedThreatProtection/allEntities/read | Lisez toutes les ressources dans microsoft.azure.advancedThreatProtection. |
+> | microsoft.azure.informationProtection/allEntities/allTasks | Gérez tous les aspects d’Azure Information Protection. |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
+> | microsoft.commerce.billing/allEntities/allTasks | Gérez tous les aspects de la facturation. |
+> | microsoft.intune/allEntities/allTasks | Gérez tous les aspects d’Intune. |
+> | microsoft.office365.complianceManager/allEntities/allTasks | Gérez tous les aspects d’Office 365 Compliance Manager |
+> | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gérez tous les aspects de Desktop Analytics. |
+> | microsoft.office365.exchange/allEntities/allTasks | Gérez tous les aspects d’Exchange Online. |
+> | microsoft.office365.lockbox/allEntities/allTasks | Gérez tous les aspects d’Office 365 Customer Lockbox. |
+> | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+> | microsoft.office365.messageCenter/securityMessages/read | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
+> | microsoft.office365.protectionCenter/allEntities/allTasks | Gérez tous les aspects du Centre de protection Office 365. |
+> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.office365.securityComplianceCenter. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.office365.sharepoint/allEntities/allTasks | Créez et supprimez toutes les ressources, et lisez et mettez à jour des propriétés standard dans microsoft.office365.sharepoint. |
+> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gérez tous les aspects de Skype Entreprise Online. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+> | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.powerApps.dynamics365/allEntities/allTasks | Gérez tous les aspects de Dynamics 365. |
+> | microsoft.powerApps.powerBI/allEntities/allTasks | Gérez tous les aspects de Power BI. |
+> | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lisez toutes les ressources dans microsoft.windows.defenderAdvancedThreatProtection. |
+
 ### <a name="global-reader-permissions"></a>Autorisations du lecteur général
+
 Peut lire tous les éléments qu’un administrateur général peut lire, mais ne peut pas les modifier.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la [description des rôles](#global-reader) ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.commerce.billing/allEntities/read    | Lisez tous les aspects de la facturation. |
-> | microsoft.directory/administrativeUnits/basic/read    | Lisez des propriétés de base sur des unités administratives dans Azure Active Directory. |
-> | microsoft.directory/administrativeUnits/members/read    | Lisez la propriété administrativeUnits.members dans Azure Active Directory. |
-> | microsoft.directory/applications/basic/read    | Lisez des propriétés de base sur des applications dans Azure Active Directory. |
-> | microsoft.directory/applications/owners/read    | Lisez la propriété applications.owners dans Azure Active Directory. |
-> | microsoft.directory/applications/policies/read    | Lisez la propriété applications.policies dans Azure Active Directory. |
+> | microsoft.commerce.billing/allEntities/read | Lisez tous les aspects de la facturation. |
+> | microsoft.directory/administrativeUnits/basic/read | Lisez des propriétés de base sur des unités administratives dans Azure Active Directory. |
+> | microsoft.directory/administrativeUnits/members/read | Lisez la propriété administrativeUnits.members dans Azure Active Directory. |
+> | microsoft.directory/applications/basic/read | Lisez des propriétés de base sur des applications dans Azure Active Directory. |
+> | microsoft.directory/applications/owners/read | Lisez la propriété applications.owners dans Azure Active Directory. |
+> | microsoft.directory/applications/policies/read | Lisez la propriété applications.policies dans Azure Active Directory. |
 > | microsoft.directory/bitlockerKeys/key/read | Lisez les objets et les propriétés des clés BitLocker (y compris la clé de récupération) dans Azure Active Directory. |
-> | microsoft.directory/contacts/basic/read    | Lisez des propriétés de base sur des contacts dans Azure Active Directory. |
-> | microsoft.directory/contacts/memberOf/read    | Lisez la propriété contacts.memberOf dans Azure Active Directory. |
-> | microsoft.directory/contracts/basic/read    | Lisez des propriétés de base sur des contrats dans Azure Active Directory. |
-> | microsoft.directory/devices/basic/read    | Lisez des propriétés de base sur des appareils dans Azure Active Directory. |
-> | microsoft.directory/devices/memberOf/read    | Lisez la propriété devices.memberOf dans Azure Active Directory. |
-> | microsoft.directory/devices/registeredOwners/read    | Lisez la propriété devices.registeredOwners dans Azure Active Directory. |
-> | microsoft.directory/devices/registeredUsers/read    | Lisez la propriété devices.registeredUsers dans Azure Active Directory. |
-> | microsoft.directory/directoryRoles/basic/read    | Lisez des propriétés de base sur des rôles d’annuaire dans Azure Active Directory. |
-> | microsoft.directory/directoryRoles/eligibleMembers/read    | Lisez la propriété directoryRoles.eligibleMembers dans Azure Active Directory. |
-> | microsoft.directory/directoryRoles/members/read    | Lisez la propriété directoryRoles.members dans Azure Active Directory. |
-> | microsoft.directory/domains/basic/read    | Lisez des propriétés de base sur des domaines dans Azure Active Directory. |
+> | microsoft.directory/contacts/basic/read | Lisez des propriétés de base sur des contacts dans Azure Active Directory. |
+> | microsoft.directory/contacts/memberOf/read | Lisez la propriété contacts.memberOf dans Azure Active Directory. |
+> | microsoft.directory/contracts/basic/read | Lisez des propriétés de base sur des contrats dans Azure Active Directory. |
+> | microsoft.directory/devices/basic/read | Lisez des propriétés de base sur des appareils dans Azure Active Directory. |
+> | microsoft.directory/devices/memberOf/read | Lisez la propriété devices.memberOf dans Azure Active Directory. |
+> | microsoft.directory/devices/registeredOwners/read | Lisez la propriété devices.registeredOwners dans Azure Active Directory. |
+> | microsoft.directory/devices/registeredUsers/read | Lisez la propriété devices.registeredUsers dans Azure Active Directory. |
+> | microsoft.directory/directoryRoles/basic/read | Lisez des propriétés de base sur des rôles d’annuaire dans Azure Active Directory. |
+> | microsoft.directory/directoryRoles/eligibleMembers/read | Lisez la propriété directoryRoles.eligibleMembers dans Azure Active Directory. |
+> | microsoft.directory/directoryRoles/members/read | Lisez la propriété directoryRoles.members dans Azure Active Directory. |
+> | microsoft.directory/domains/basic/read | Lisez des propriétés de base sur des domaines dans Azure Active Directory. |
 > | microsoft.directory/entitlementManagement/allProperties/read | Lisez toutes les propriétés dans la fonctionnalité de gestion des droits d'utilisation Azure AD. |
-> | microsoft.directory/groups/appRoleAssignments/read    | Lisez la propriété groups.appRoleAssignments dans Azure Active Directory. |
-> | microsoft.directory/groups/basic/read    | Lisez des propriétés de base sur des groupes dans Azure Active Directory. |
-> | microsoft.directory/groups/hiddenMembers/read    | Lisez la propriété groups.hiddenMembers dans Azure Active Directory. |
-> | microsoft.directory/groups/memberOf/read    | Lisez la propriété groups.memberOf dans Azure Active Directory. |
-> | microsoft.directory/groups/members/read    | Lisez la propriété groups.members dans Azure Active Directory. |
-> | microsoft.directory/groups/owners/read    | Lisez la propriété groups.owners dans Azure Active Directory. |
-> | microsoft.directory/groups/settings/read    | Lisez la propriété groups.settings dans Azure Active Directory. |
-> | microsoft.directory/groupSettings/basic/read    | Lisez des propriétés de base sur des paramètres de groupes dans Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/basic/read    | Lisez des propriétés de base sur des modèles de paramètres de groupes dans Azure Active Directory. |
-> | microsoft.directory/oAuth2PermissionGrants/basic/read    | Lisez des propriétés de base sur des octrois d’autorisation OAuth2 dans Azure Active Directory. |
-> | microsoft.directory/organization/basic/read    | Lisez des propriétés de base sur une organisation dans Azure Active Directory. |
-> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read    | Lisez la propriété organization.trustedCAsForPasswordlessAuth dans Azure Active Directory. |
-> | microsoft.directory/policies/standard/read    | Lisez les stratégies standard dans Azure Active Directory. |
+> | microsoft.directory/groups/appRoleAssignments/read | Lisez la propriété groups.appRoleAssignments dans Azure Active Directory. |
+> | microsoft.directory/groups/basic/read | Lisez des propriétés de base sur des groupes dans Azure Active Directory. |
+> | microsoft.directory/groups/hiddenMembers/read | Lisez la propriété groups.hiddenMembers dans Azure Active Directory. |
+> | microsoft.directory/groups/memberOf/read | Lisez la propriété groups.memberOf dans Azure Active Directory. |
+> | microsoft.directory/groups/members/read | Lisez la propriété groups.members dans Azure Active Directory. |
+> | microsoft.directory/groups/owners/read | Lisez la propriété groups.owners dans Azure Active Directory. |
+> | microsoft.directory/groups/settings/read | Lisez la propriété groups.settings dans Azure Active Directory. |
+> | microsoft.directory/groupSettings/basic/read | Lisez des propriétés de base sur des paramètres de groupes dans Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Lisez des propriétés de base sur des modèles de paramètres de groupes dans Azure Active Directory. |
+> | microsoft.directory/oAuth2PermissionGrants/basic/read | Lisez des propriétés de base sur des octrois d’autorisation OAuth2 dans Azure Active Directory. |
+> | microsoft.directory/organization/basic/read | Lisez des propriétés de base sur une organisation dans Azure Active Directory. |
+> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read | Lisez la propriété organization.trustedCAsForPasswordlessAuth dans Azure Active Directory. |
+> | microsoft.directory/policies/standard/read | Lisez les stratégies standard dans Azure Active Directory. |
 > | microsoft.directory/provisioningLogs/allProperties/read | Lisez toutes les propriétés des journaux d'approvisionnement. |
-> | microsoft.directory/roleAssignments/basic/read    | Lisez des propriétés de base sur roleAssignments dans Azure Active Directory. |
-> | microsoft.directory/roleDefinitions/basic/read    | Lisez des propriétés de base sur roleDefinitions dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read    | Lisez la propriété servicePrincipals.appRoleAssignedTo dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/appRoleAssignments/read    | Lisez la propriété servicePrincipals.appRoleAssignments dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/basic/read    | Lisez des propriétés de base sur des principaux de service dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/memberOf/read    | Lisez la propriété servicePrincipals.memberOf dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read    | Lisez la propriété servicePrincipals.oAuth2PermissionGrants dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/ownedObjects/read    | Lisez la propriété servicePrincipals.ownedObjects dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/owners/read    | Lisez la propriété servicePrincipals.owners dans Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/policies/read    | Lisez la propriété servicePrincipals.policies dans Azure Active Directory. |
-> | microsoft.directory/signInReports/allProperties/read    | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
-> | microsoft.directory/subscribedSkus/basic/read    | Lisez des propriétés de base sur des références SKU souscrites dans Azure Active Directory. |
-> | microsoft.directory/users/appRoleAssignments/read    | Lisez la propriété users.appRoleAssignments dans Azure Active Directory. |
-> | microsoft.directory/users/basic/read    | Lisez des propriétés de base sur des utilisateurs dans Azure Active Directory. |
-> | microsoft.directory/users/directReports/read    | Lisez la propriété users.directReports dans Azure Active Directory. |
-> | microsoft.directory/users/manager/read    | Lisez la propriété users.manager dans Azure Active Directory. |
-> | microsoft.directory/users/memberOf/read    | Lisez la propriété users.memberOf dans Azure Active Directory. |
-> | microsoft.directory/users/oAuth2PermissionGrants/basic/read    | Lisez la propriété users.oAuth2PermissionGrants dans Azure Active Directory. |
-> | microsoft.directory/users/ownedDevices/read    | Lisez la propriété users.ownedDevices dans Azure Active Directory. |
-> | microsoft.directory/users/ownedObjects/read    | Lisez la propriété users.ownedObjects dans Azure Active Directory. |
-> | microsoft.directory/users/registeredDevices/read    | Lisez la propriété users.registeredDevices dans Azure Active Directory. |
-> | microsoft.directory/users/strongAuthentication/read    | Lisez les propriétés d’authentification forte comme les informations d’identification MFA. |
-> | microsoft.office365.exchange/allEntities/read    | Lisez tous les aspects d’Exchange Online. |
-> | microsoft.office365.messageCenter/messages/read    | Lisez les messages dans microsoft.office365.messageCenter. |
-> | microsoft.office365.messageCenter/securityMessages/read    | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
+> | microsoft.directory/roleAssignments/basic/read | Lisez des propriétés de base sur roleAssignments dans Azure Active Directory. |
+> | microsoft.directory/roleDefinitions/basic/read | Lisez des propriétés de base sur roleDefinitions dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Lisez la propriété servicePrincipals.appRoleAssignedTo dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | Lisez la propriété servicePrincipals.appRoleAssignments dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/basic/read | Lisez des propriétés de base sur des principaux de service dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/memberOf/read | Lisez la propriété servicePrincipals.memberOf dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Lisez la propriété servicePrincipals.oAuth2PermissionGrants dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/ownedObjects/read | Lisez la propriété servicePrincipals.ownedObjects dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/owners/read | Lisez la propriété servicePrincipals.owners dans Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/policies/read | Lisez la propriété servicePrincipals.policies dans Azure Active Directory. |
+> | microsoft.directory/signInReports/allProperties/read | Lisez toutes les propriétés (y compris les propriétés privilégiées) sur signInReports dans Azure Active Directory. |
+> | microsoft.directory/subscribedSkus/basic/read | Lisez des propriétés de base sur des références SKU souscrites dans Azure Active Directory. |
+> | microsoft.directory/users/appRoleAssignments/read | Lisez la propriété users.appRoleAssignments dans Azure Active Directory. |
+> | microsoft.directory/users/basic/read | Lisez des propriétés de base sur des utilisateurs dans Azure Active Directory. |
+> | microsoft.directory/users/directReports/read | Lisez la propriété users.directReports dans Azure Active Directory. |
+> | microsoft.directory/users/manager/read | Lisez la propriété users.manager dans Azure Active Directory. |
+> | microsoft.directory/users/memberOf/read | Lisez la propriété users.memberOf dans Azure Active Directory. |
+> | microsoft.directory/users/oAuth2PermissionGrants/basic/read | Lisez la propriété users.oAuth2PermissionGrants dans Azure Active Directory. |
+> | microsoft.directory/users/ownedDevices/read | Lisez la propriété users.ownedDevices dans Azure Active Directory. |
+> | microsoft.directory/users/ownedObjects/read | Lisez la propriété users.ownedObjects dans Azure Active Directory. |
+> | microsoft.directory/users/registeredDevices/read | Lisez la propriété users.registeredDevices dans Azure Active Directory. |
+> | microsoft.directory/users/strongAuthentication/read | Lisez les propriétés d’authentification forte comme les informations d’identification MFA. |
+> | microsoft.office365.exchange/allEntities/read | Lisez tous les aspects d’Exchange Online. |
+> | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
+> | microsoft.office365.messageCenter/securityMessages/read | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
 > | microsoft.office365.network/performance/allProperties/read | Lisez les pages sur les performances réseau dans le Centre d’administration Microsoft 365. |
-> | microsoft.office365.protectionCenter/allEntities/read    | Lisez tous les aspects du Centre de protection Office 365. |
-> | microsoft.office365.securityComplianceCenter/allEntities/read    | Lisez toutes les propriétés standard dans microsoft.365.securityComplianceCenter. |
-> | microsoft.office365.usageReports/allEntities/read    | Lisez des rapports d’utilisation Office 365. |
-> | microsoft.office365.webPortal/allEntities/standard/read    | Lisez les propriétés standard sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.protectionCenter/allEntities/read | Lisez tous les aspects du Centre de protection Office 365. |
+> | microsoft.office365.securityComplianceCenter/allEntities/read | Lisez toutes les propriétés standard dans microsoft.365.securityComplianceCenter. |
+> | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
+> | microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés standard sur toutes les ressources dans microsoft.office365.webPortal. |
 
 ### <a name="groups-administrator-permissions"></a>Autorisations d’administrateur de groupes
+
 Peut gérer tous les aspects des groupes et des paramètres de groupe comme les stratégies d’expiration et de nommage.
 
 > [!div class="mx-tableFixed"]
@@ -1201,6 +1271,7 @@ Peut gérer tous les aspects des groupes et des paramètres de groupe comme les 
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
 ### <a name="guest-inviter-permissions"></a>Autorisations de l’inviteur d’invités
+
 Peut inviter des utilisateurs invités indépendamment du paramètre « Les membres peuvent inviter des invités ».
 
 > [!div class="mx-tableFixed"]
@@ -1242,8 +1313,8 @@ Peut gérer les paramètres d'approvisionnement et de fédération du cloud AD v
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
-> | microsoft.directory/applications/audience/update  | Mettez à jour la propriété applications.audience dans Azure Active Directory. |
-> | microsoft.directory/applications/authentication/update | Mettez à jour la propriété applications.authentication dans Azure Active Directory.  |
+> | microsoft.directory/applications/audience/update | Mettez à jour la propriété applications.audience dans Azure Active Directory. |
+> | microsoft.directory/applications/authentication/update | Mettez à jour la propriété applications.authentication dans Azure Active Directory. |
 > | microsoft.directory/applications/basic/update | Mettez à jour des propriétés de base sur des applications dans Azure Active Directory. |
 > | microsoft.directory/applications/create | Créez des applications dans Azure Active Directory. |
 > | microsoft.directory/applications/credentials/update | Mettez à jour la propriété applications.credentials dans Azure Active Directory. |
@@ -1300,13 +1371,12 @@ Peut voir et partager des tableaux de bord et des insights par le biais de l’a
 > | microsoft.insights/reports/read | Visualisez des rapports et le tableau de bord dans l’application Insights. |
 > | microsoft.insights/programs/update | Déployez et gérez des programmes dans l’application Insights. |
 
-### <a name="intune-service-administrator-permissions"></a>Autorisations d’administrateur de services Intune
+### <a name="intune-administrator-permissions"></a>Autorisations d’administrateur Intune
 
 Peut gérer tous les aspects du produit Intune.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1349,7 +1419,6 @@ Peut gérer les paramètres de Microsoft Kaizala.
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1370,33 +1439,12 @@ Peut gérer les licences de produit pour les utilisateurs et les groupes.
 > | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 
-### <a name="lync-service-administrator-permissions"></a>Autorisations d’administrateur des services Lync
-
-Peut gérer tous les aspects du produit Skype Entreprise.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gérez tous les aspects de Skype Entreprise Online. |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-> | microsoft.office365.usageReports/allEntities/read    | Lisez des rapports d’utilisation Office 365. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-
-
 ### <a name="message-center-privacy-reader-permissions"></a>Autorisations de lecteur de confidentialité du Centre de messages
 
 Peut lire les billets du Centre de messages, les messages de confidentialité des données, les groupes, les domaines et les abonnements.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1406,11 +1454,11 @@ Peut lire les billets du Centre de messages, les messages de confidentialité de
 > | microsoft.office365.messageCenter/securityMessages/read | Lisez les messages securityMessages dans microsoft.office365.messageCenter. |
 
 ### <a name="message-center-reader-permissions"></a>Autorisations de lecteur du Centre de messages
+
 Peut lire les messages et les mises à jour de son organisation dans le Centre de messages uniquement. 
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1419,11 +1467,11 @@ Peut lire les messages et les mises à jour de son organisation dans le Centre d
 > | microsoft.office365.messageCenter/messages/read | Lisez les messages dans microsoft.office365.messageCenter. |
 
 ### <a name="modern-commerce-user-permissions"></a>Autorisations du rôle Utilisateur de Commerce moderne
+
 Peut gérer les achats commerciaux d’une société, d’un service ou d’une équipe. 
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1433,26 +1481,25 @@ Peut gérer les achats commerciaux d’une société, d’un service ou d’une 
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et consultez vos propres tickets de support Office 365. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
-
 ### <a name="network-administrator-permissions"></a>Autorisations d’administrateur réseau
+
 Peut gérer les emplacements réseau et passer en revue les insights sur la conception réseau de l’entreprise pour les applications Software as a Service Microsoft 365.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.office365.network/performance/allProperties/read | Lisez les pages sur les performances réseau dans le Centre d’administration M365.  |
+> | microsoft.office365.network/performance/allProperties/read | Lisez les pages sur les performances réseau dans le Centre d’administration M365. |
 > | microsoft.office365.network/locations/allProperties/allTasks | Lisez et configurez les propriétés des emplacements réseau pour chaque emplacement. |
 
 ### <a name="office-apps-administrator-permissions"></a>Autorisations d’Administrateur des applications Office
+
 Peut gérer les services cloud des applications Office, notamment la gestion des stratégies et des paramètres, et gérer la possibilité de sélectionner, de désélectionner et de publier le contenu de la fonctionnalité « Nouveautés » sur les appareils de l’utilisateur final.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1471,7 +1518,6 @@ Ne pas utiliser - non destiné à une utilisation générale.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1517,7 +1563,6 @@ Ne pas utiliser - non destiné à une utilisation générale.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1573,7 +1618,7 @@ Peut réinitialiser les mots de passe pour les utilisateurs non administrateurs 
 > | microsoft.directory/users/password/update | Mettez à jour des mots de passe pour tous les utilisateurs dans Azure Active Directory. Pour plus d’informations, consultez la documentation en ligne. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
-### <a name="power-bi-service-administrator-permissions"></a>Autorisations d’administrateur de service Power BI
+### <a name="power-bi-administrator-permissions"></a>Autorisations d’administrateur Power BI
 
 Peut gérer tous les aspects du produit Power BI.
 
@@ -1589,7 +1634,6 @@ Peut gérer tous les aspects du produit Power BI.
 > | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
-
 
 ### <a name="power-platform-administrator-permissions"></a>Autorisations de l’administrateur de plateforme Power
 
@@ -1661,7 +1705,6 @@ Peut gérer les attributions de rôles dans Azure AD et tous les aspects de Pri
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1682,7 +1725,6 @@ Peut lire les rapports d’audit et sur les connexions.
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1698,7 +1740,6 @@ Peut créer et gérer tous les aspects des paramètres de Recherche Microsoft.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1716,7 +1757,6 @@ Peut créer et gérer le contenu éditorial comme les signets, les questions et 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1729,7 +1769,6 @@ Peut lire des rapports et des informations de sécurité, ainsi que gérer la co
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1764,7 +1803,6 @@ Crée et gère les événements de sécurité.
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1779,14 +1817,12 @@ Crée et gère les événements de sécurité.
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Lisez et configurez Windows Defender Advanced Threat Protection. |
 
-
 ### <a name="security-reader-permissions"></a>Autorisations de lecteur de sécurité
 
 Peut lire des rapports et des informations de sécurité dans Azure AD et Microsoft 365.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1811,7 +1847,6 @@ Peut lire des informations sur l’intégrité du service et gérer les tickets 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
 
-
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
@@ -1821,13 +1856,12 @@ Peut lire des informations sur l’intégrité du service et gérer les tickets 
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
-### <a name="sharepoint-service-administrator-permissions"></a>Autorisations d’administrateur de service SharePoint
+### <a name="sharepoint-administrator-permissions"></a>Autorisations d'administrateur SharePoint
 
 Peut gérer tous les aspects du service SharePoint.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1847,80 +1881,30 @@ Peut gérer tous les aspects du service SharePoint.
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Lisez des rapports d’utilisation Office 365. |
 > | microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 
-### <a name="teams-communications-administrator-permissions"></a>Autorisations d’administrateur des communications Teams
+### <a name="skype-for-business-administrator-permissions"></a>Autorisations d’administrateur Skype Entreprise
 
-Peut gérer les fonctionnalités d’appel et de réunion au sein du service Microsoft Teams.
+Peut gérer tous les aspects du produit Skype Entreprise.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez les tickets de support Azure. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gérez tous les aspects de Skype Entreprise Online. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 > | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
-> | microsoft.teams/meetings/allProperties/allTasks | Gérez les réunions, notamment les stratégies de réunion, les configurations et les passerelles de conférence. |
-> | microsoft.teams/voice/allProperties/allTasks | Gérez la voix, notamment les stratégies d’appel, l’inventaire et l’attribution des numéros de téléphone. |
-> | microsoft.teams/callQuality/allProperties/read | Lisez toutes les données du Tableau de bord Qualité de l’appel (CQD). |
-
-### <a name="teams-communications-support-engineer-permissions"></a>Autorisations d’ingénieur de support des communications Teams
-
-Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils avancés.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.teams/callQuality/allProperties/read | Lisez toutes les données du Tableau de bord Qualité de l’appel (CQD). |
 
-### <a name="teams-communications-support-specialist-permissions"></a>Autorisations de spécialiste du support des communications Teams
-
-Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils de base.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
-> | microsoft.teams/callQuality/basic/read | Lisez les données de base du Tableau de bord Qualité de l’appel (CQD). |
-
-### <a name="teams-devices-administrator-permissions"></a>Autorisations d’administrateur d’appareil Teams
-
-Peut effectuer des tâches d’administration sur des appareils certifiés Teams.
-
-> [!NOTE]
-> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
-> | microsoft.teams/devices/basic/read | Gérez tous les aspects des appareils certifiés Teams, notamment les stratégies de configuration. |
-
-### <a name="teams-service-administrator-permissions"></a>Autorisations d’administrateur de service Teams
+### <a name="teams-administrator-permissions"></a>Autorisations d'administrateur Teams
 
 Peut gérer le service Microsoft Teams.
 
 > [!NOTE]
 > Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
-
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1944,7 +1928,71 @@ Peut gérer le service Microsoft Teams.
 > | microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 > | microsoft.teams/allEntities/allProperties/allTasks | Gérez toutes les ressources dans Teams. |
 
+### <a name="teams-communications-administrator-permissions"></a>Autorisations d’administrateur des communications Teams
+
+Peut gérer les fonctionnalités d’appel et de réunion au sein du service Microsoft Teams.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Azure pour les services au niveau de l’annuaire. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+> | microsoft.office365.usageReports/allEntities/read | Lisez des rapports d’utilisation Office 365. |
+> | microsoft.teams/meetings/allProperties/allTasks | Gérez les réunions, notamment les stratégies de réunion, les configurations et les passerelles de conférence. |
+> | microsoft.teams/voice/allProperties/allTasks | Gérez la voix, notamment les stratégies d’appel, l’inventaire et l’attribution des numéros de téléphone. |
+> | microsoft.teams/callQuality/allProperties/read | Lisez toutes les données du Tableau de bord Qualité de l’appel (CQD). |
+
+### <a name="teams-communications-support-engineer-permissions"></a>Autorisations d’ingénieur de support des communications Teams
+
+Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils avancés.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.teams/callQuality/allProperties/read | Lisez toutes les données du Tableau de bord Qualité de l’appel (CQD). |
+
+### <a name="teams-communications-support-specialist-permissions"></a>Autorisations de spécialiste du support des communications Teams
+
+Peut résoudre les problèmes de communication au sein de Teams à l’aide d’outils de base.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Lisez et configurez Azure Service Health. |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Microsoft 365 Service Health. |
+> | microsoft.teams/callQuality/basic/read | Lisez les données de base du Tableau de bord Qualité de l’appel (CQD). |
+
+### <a name="teams-devices-administrator-permissions"></a>Autorisations d’administrateur d’appareil Teams
+
+Peut effectuer des tâches d’administration sur des appareils certifiés Teams.
+
+> [!NOTE]
+> Ce rôle dispose d’autorisations supplémentaires en dehors d’Azure Active Directory. Pour plus d’informations, consultez la description des rôles ci-dessus.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+> | microsoft.teams/devices/basic/read | Gérez tous les aspects des appareils certifiés Teams, notamment les stratégies de configuration. |
+
 ### <a name="usage-summary-reports-reader-permissions"></a>Autorisations du lecteur des rapports de synthèse sur l'utilisation
+
 Ne peut voir que les agrégats au niveau locataire dans les rapports Analyse de l'utilisation et Score de productivité de M365.
 
 > [!div class="mx-tableFixed"]
@@ -1954,6 +2002,7 @@ Ne peut voir que les agrégats au niveau locataire dans les rapports Analyse de 
 > | microsoft.office365.webPortal/allEntities/standard/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal.|
 
 ### <a name="user-administrator-permissions"></a>Autorisations d’administrateur d’utilisateurs
+
 Peut gérer tous les aspects des utilisateurs et groupes, notamment la réinitialisation des mots de passe pour les administrateurs limités.
 
 > [!div class="mx-tableFixed"]
@@ -2001,6 +2050,7 @@ DisplayName Graph | Nom d’affichage du portail Azure | directoryRoleTemplateId
 Administrateur d’application | Administrateur d’application | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Développeur d’applications | Développeur d’applications | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrateur d’authentification | Administrateur d’authentification | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrateur de la stratégie d’authentification | Administrateur de la stratégie d’authentification | 0526716b-113d-4c15-b2c8-68e3c22b9f80
 Auteur de charge utile d'attaque | Auteur de charge utile d'attaque | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Administrateur de simulation d'attaque | Administrateur de simulation d'attaque | c430b396-e693-46cc-96f3-db01bf8bb62a
 Administrateur local de l’appareil joint Azure AD | Administrateur local de l’appareil joint Azure AD | 9f06204d-73c1-4d4c-880a-6edb90606fd8
@@ -2022,6 +2072,7 @@ Utilisateurs d’appareils | Déprécié | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Lecteurs de répertoires | Lecteurs d’annuaires | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | d29b2b05-8046-44ba-8758-1e26182fcf32
 Enregistreurs de répertoire | Enregistreurs de répertoire | 9360feb5-f418-4baa-8175-e2a00bac4301
+Administrateur de nom de domaine | Administrateur de nom de domaine | 8329153b-31d0-4727-b945-745eb3bc5f31
 Administrateur Dynamics 365 | Administrateur Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Administrateur Exchange | Administrateur Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administrateur de flux d’utilisateurs ID externe | Administrateur de flux d’utilisateurs ID externe | 6e591065-9bad-43ed-90f3-e9424366d2f0
@@ -2061,11 +2112,11 @@ Lecteur de sécurité | Lecteur de sécurité | 5d6b6bb7-de71-4623-b4af-96380a35
 Administrateur de support de service | Administrateur de support de service | f023fd81-a637-4b56-95fd-791ac0226033
 Administrateur SharePoint | Administrateur SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Administrateur Skype Entreprise | Administrateur Skype Entreprise | 75941009-915a-4869-abe7-691bff18279e
+Administrateur Teams | Administrateur Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Administrateur des communications Teams | Administrateur des communications Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Ingénieur de support des communications Teams | Ingénieur de support des communications Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Spécialiste du support des communications Teams | Spécialiste du support des communications Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrateur d’appareils Teams | Administrateur d’appareils Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Administrateur du service Teams | Administrateur du service Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Lecteur de rapports de synthèse sur l'utilisation | Lecteur de rapports de synthèse sur l'utilisation | 75934031-6c7e-415a-99d7-48dbd49e875e
 Utilisateur | Non affiché, car il ne peut pas être utilisé | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrateur d'utilisateurs | Administrateur d’utilisateurs | fe930be7-5e62-47db-91af-98c3a49a38b1
@@ -2093,7 +2144,7 @@ Jonction d’appareils | Déprécié | [Documentation sur les rôles déconseill
 Gestionnaires d’appareils | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
 Utilisateurs d’appareils | Déprécié | [Documentation sur les rôles déconseillés](permissions-reference.md#deprecated-roles)
 Comptes de synchronisation d’annuaires | Non affiché, car il ne doit pas être utilisé | [Documentation sur les comptes de synchronisation d’annuaires](permissions-reference.md#directory-synchronization-accounts)
-Utilisateur invité | Non affiché, car il ne peut pas être utilisé  | N/D
+Utilisateur invité | Non affiché, car il ne peut pas être utilisé | N/D
 Support de niveau 1 partenaire | Non affiché, car il ne doit pas être utilisé | [Documentation sur la prise en charge du niveau 1 de partenaire](permissions-reference.md#partner-tier1-support)
 Support de niveau 2 partenaire | Non affiché, car il ne doit pas être utilisé | [Documentation sur la prise en charge du niveau 2 de partenaire](permissions-reference.md#partner-tier2-support)
 Utilisateur invité restreint | Non affiché, car il ne peut pas être utilisé | N/D
@@ -2110,7 +2161,6 @@ Administrateur d’authentification | &nbsp; | &nbsp; | :heavy_check_mark: | &nb
 Lecteurs de répertoires | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Administrateur général | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
 Administrateur de groupes | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Invité | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Inviteur | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Administrateur du support technique | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Lecteur du Centre de messages | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
@@ -2118,7 +2168,6 @@ Administrateur de mot de passe | :heavy_check_mark: | :heavy_check_mark: | :heav
 Administrateur d’authentification privilégié | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Administrateur de rôle privilégié | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Lecteur de rapports | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Invité restreint | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Utilisateur (aucun rôle d’administrateur) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 User Admin | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Lecteur de rapports de synthèse sur l'utilisation | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:

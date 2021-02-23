@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937447"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517125"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gestion de l’accès réseau public pour votre hub IoT
 
@@ -28,7 +28,13 @@ Pour limiter l’accès au seul [point de terminaison privé pour votre hub IoT 
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Image qui montre le portail Azure où désactiver l’accès au réseau public" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-Pour activer l’accès au réseau public, sélectionnez **Activé**, puis **Enregistrer**.
+Pour activer l’accès au réseau public, sélectionnez **Tous les réseaux**, puis **Enregistrer**.
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Point de terminaison IoT Hub, adresse IP et ports après la désactivation de l’accès au réseau public
+
+IoT Hub étant une plateforme PaaS (Platform as a service) multilocataire, différents clients partagent le même pool de ressources matérielles de calcul, de réseau et de stockage. Les noms d’hôtes d’IoT Hub sont mappés à un point de terminaison public avec une adresse IP de routage public sur Internet. Différents clients partagent ce point de terminaison public IoT Hub, et tous les appareils IoT qui se trouvent sur des réseaux étendus et sur des réseaux locaux peuvent y accéder. 
+
+La désactivation de l’accès au réseau public est appliquée à une ressource IoT Hub spécifique, garantissant ainsi l’isolation. Afin que le service demeure actif pour d’autres ressources client à l’aide du chemin public, son point de terminaison public peut toujours être résolu, les adresses IP sont détectables et les ports restent ouverts. Cela n’est pas une source de préoccupation, car Microsoft intègre plusieurs couches de sécurité pour garantir un isolement complet entre les locataires. Pour plus d’informations, consultez [Isolation dans le cloud public Azure](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
 ## <a name="ip-filter"></a>Filtre IP 
 

@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/14/2020
-ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/11/2021
+ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382189"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Création d’un serveur Azure Database pour PostgreSQL à l’aide d’un modèle ARM – Serveur unique
 
@@ -68,32 +68,32 @@ Sélectionnez le lien suivant pour déployer le modèle de serveur Azure Databas
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Déployer sur Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-Sur la page **Déployer Azure Database pour PostgreSQL avec un réseau virtuel**  :
+Sur la page **Déployer Azure Database pour PostgreSQL avec un réseau virtuel** :
 
-1. Pour **Groupe de ressources** , sélectionnez **Créer** , entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
+1. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis sélectionnez **OK**.
 
 2. Si vous avez créé un groupe de ressources, sélectionnez une **Localisation** pour le groupe de ressources et le nouveau serveur.
 
-3. Entrez un **Nom de serveur** , une **Connexion de l’administrateur** et un **Mot de passe de connexion de l’administrateur**.
+3. Entrez un **Nom de serveur**, une **Connexion de l’administrateur** et un **Mot de passe de connexion de l’administrateur**.
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Fenêtre Déployer Azure Database pour PostgreSQL avec un réseau virtuel, modèle de démarrage rapide Azure, Portail Azure":::
 
 4. Changez les autres paramètres par défaut si vous le souhaitez :
 
-    * **Abonnement**  : sélectionnez l’abonnement Azure que vous souhaitez utiliser pour le serveur.
-    * **Capacité de la référence**  : capacité vCore, qui peut être *2* (valeur par défaut), *4* , *8* , *16* , *32* ou *64*.
-    * **Nom de la référence**  : préfixe du niveau de référence, famille de références et capacité de référence, joints par des traits de soulignement, par exemple, *B_Gen5_1* , *GP_Gen5_2* (valeur par défaut) ou *MO_Gen5_32*.
-    * **Taille de la référence SKU (Mo)**  : taille de stockage, en mégaoctets, du serveur Azure Database pour PostgreSQL (par défaut, *51200* ).
-    * **Niveau de référence SKU**  : niveau de déploiement, tel que *Basic* , *GeneralPurpose* (valeur par défaut) ou *MemoryOptimized*.
-    * **Famille de références**  : *Gen4* ou *Gen5* (valeur par défaut), qui indique la génération du matériel pour le déploiement du serveur.
-    * **Version de PostgreSQL**  : version du serveur PostgreSQL à déployer, par exemple *9.5* , *9.6* , *10* ou *11* (par défaut).
-    * **Nombre de jours de conservation de la sauvegarde**  : période souhaitée pour la conservation des sauvegardes géoredondantes, en jours (par défaut, *7* ).
-    * **Sauvegarde géoredondante**  : *Activé* ou *Désactivé* (valeur par défaut), en fonction des exigences de géo-reprise d’activité après sinistre.
-    * **Nom du réseau virtuel**  : nom du réseau virtuel (par défaut, *azure_postgresql_vnet* ).
-    * **Nom du sous-réseau**  : nom du sous-réseau (par défaut, *azure_postgresql_subnet* ).
-    * **Nom de la règle de réseau virtuel**  : nom de la règle de réseau virtuel autorisant le sous-réseau (par défaut, *AllowSubnet* ).
-    * **Préfixe d’adresse de réseau virtuel**  : préfixe d’adresse du réseau virtuel (par défaut, *10.0.0.0/16* ).
-    * **Préfixe de sous-réseau**  : préfixe de l’adresse du sous-réseau (par défaut, *10.0.0.0/16* ).
+    * **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser pour le serveur.
+    * **Capacité de la référence** : capacité vCore, qui peut être *2* (valeur par défaut), *4*, *8*, *16*, *32* ou *64*.
+    * **Nom de la référence** : préfixe du niveau de référence, famille de références et capacité de référence, joints par des traits de soulignement, par exemple, *B_Gen5_1*, *GP_Gen5_2* (valeur par défaut) ou *MO_Gen5_32*.
+    * **Taille de la référence SKU (Mo)**  : taille de stockage, en mégaoctets, du serveur Azure Database pour PostgreSQL (par défaut, *51200*).
+    * **Niveau de référence SKU** : niveau de déploiement, tel que *Basic*, *GeneralPurpose* (valeur par défaut) ou *MemoryOptimized*.
+    * **Famille de références** : *Gen4* ou *Gen5* (valeur par défaut), qui indique la génération du matériel pour le déploiement du serveur.
+    * **Version de PostgreSQL** : version du serveur PostgreSQL à déployer, par exemple *9.5*, *9.6*, *10* ou *11* (par défaut).
+    * **Nombre de jours de conservation de la sauvegarde** : période souhaitée pour la conservation des sauvegardes géoredondantes, en jours (par défaut, *7*).
+    * **Sauvegarde géoredondante** : *Activé* ou *Désactivé* (valeur par défaut), en fonction des exigences de géo-reprise d’activité après sinistre.
+    * **Nom du réseau virtuel** : nom du réseau virtuel (par défaut, *azure_postgresql_vnet*).
+    * **Nom du sous-réseau** : nom du sous-réseau (par défaut, *azure_postgresql_subnet*).
+    * **Nom de la règle de réseau virtuel** : nom de la règle de réseau virtuel autorisant le sous-réseau (par défaut, *AllowSubnet*).
+    * **Préfixe d’adresse de réseau virtuel** : préfixe d’adresse du réseau virtuel (par défaut, *10.0.0.0/16*).
+    * **Préfixe de sous-réseau** : préfixe de l’adresse du sous-réseau (par défaut, *10.0.0.0/16*).
 
 5. Lisez les conditions générales, puis cochez la case **J’accepte les conditions générales mentionnées ci-dessus**.
 
@@ -174,6 +174,34 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>Exportation d’un modèle ARM à partir du portail
+Vous pouvez [exporter un modèle ARM](../azure-resource-manager/templates/export-template-portal.md) à partir du portail Azure. Il existe deux façons d’exporter un modèle :
+
+- [Exporter à partir d’un groupe de ressources ou d’une ressource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Cette option génère un nouveau modèle à partir de ressources existantes. Le modèle exporté est un « instantané » de l’état actuel du groupe de ressources. Vous pouvez exporter un groupe de ressources complet ou des ressources spécifiques au sein de ce groupe de ressources.
+- [Exporter avant le déploiement ou à partir de l’historique](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Cette option récupère une copie exacte d’un modèle utilisé pour le déploiement.
+
+Quand vous exportez le modèle, notez que dans la section ```"properties":{ }``` des ressources du serveur PostgreSQL, ```administratorLogin``` et ```administratorLoginPassword``` ne sont pas inclus pour des raisons de sécurité. Vous **DEVEZ** ajouter ces paramètres à votre modèle avant son déploiement. Sinon, le modèle échouera.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

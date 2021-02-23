@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678821"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391981"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Authentifier un appareil en aval auprès d’Azure IoT Hub
 
@@ -68,6 +68,11 @@ Lorsque vous créez une identité d’appareil, fournissez les informations suiv
 * Sélectionnez **Définir un appareil parent**, puis sélectionnez l’appareil de passerelle IoT Edge via lequel cet appareil en aval doit se connecter. Vous pourrez toujours changer de parent par la suite.
 
    ![Créer un ID d’appareil avec une authentification par clé symétrique dans le portail](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >La définition de l’appareil parent était auparavant une étape facultative pour les appareils en aval utilisant l’authentification par clé symétrique. Toutefois, à compter d’IoT Edge version 1.1.0, chaque appareil en aval doit être affecté à un appareil parent.
+   >
+   >Si vous souhaitez que le hub IoT Edge revienne au comportement précédent, affectez à la variable d’environnement **AuthenticationMode** la valeur **CloudAndScope**.
 
 Vous pouvez également utiliser l’[extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) afin d’effectuer la même opération. L’exemple suivant utilise la commande [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) pour créer un appareil IoT avec authentification par clé symétrique et affecter un appareil parent :
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/17/2019
+ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 84b0a761b52baca4ae1ab81b3c67f18f6b14db92
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: b8e471c3fe4e39a8a30c9442b5459f35d5e7e108
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608831"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559712"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Tutoriel : Intégrer SAP Analytics Cloud à Azure Active Directory
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous découvrez comment intégrer SAP Analytics Cloud à Azure
 * Contrôler dans Azure AD qui a accès à SAP Analytics Cloud.
 * Permettre à vos utilisateurs de se connecter automatiquement à SAP Analytics Cloud avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,51 +37,50 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* SAP Analytics Cloud prend en charge l’authentification unique lancée par le **fournisseur de services**
+* SAP Analytics Cloud prend en charge l’authentification unique lancée par le **fournisseur de services**.
 
-## <a name="adding-sap-analytics-cloud-from-the-gallery"></a>Ajout de SAP Analytics Cloud à partir de la galerie
+## <a name="add-sap-analytics-cloud-from-the-gallery"></a>Ajouter SAP Analytics Cloud à partir de la galerie
 
 Pour configurer l’intégration de SAP Analytics Cloud à Azure AD, vous devez ajouter SAP Analytics Cloud depuis la galerie à votre liste d’applications SaaS gérées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **SAP Analytics Cloud** dans la zone de recherche.
 1. Sélectionnez **SAP Analytics Cloud** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-sap-analytics-cloud"></a>Configurer et tester l’authentification unique Azure AD pour SAP Analytics Cloud
 
 Configurez et testez l’authentification unique Azure AD avec SAP Analytics Cloud avec un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SAP Analytics Cloud associé.
 
-Pour configurer et tester l’authentification unique (SSO) Azure AD avec SAP Analytics Cloud, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD auprès de SAP Analytics Cloud, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique SAP Analytics Cloud](#configure-sap-analytics-cloud-sso)**  : pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test SAP Analytics Cloud](#create-sap-analytics-cloud-test-user)**  : pour avoir un équivalent de B.Simon dans SAP Analytics Cloud lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique SAP Analytics Cloud](#configure-sap-analytics-cloud-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test SAP Analytics Cloud](#create-sap-analytics-cloud-test-user)**  : pour avoir un équivalent de B.Simon dans SAP Analytics Cloud lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SAP Analytics Cloud**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **SAP Analytics Cloud**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
 
     - `https://<sub-domain>.sapanalytics.cloud/`
     - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant un des modèles suivants :
 
     - `<sub-domain>.sapbusinessobjects.cloud`
     - `<sub-domain>.sapanalytics.cloud`
@@ -98,42 +95,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 6. Dans la section **Configurer SAP Analytics Cloud**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-### <a name="configure-sap-analytics-cloud-sso"></a>Configurer l’authentification unique SAP Analytics Cloud
-
-1. Dans une autre fenêtre du navigateur web, ouvrez une session sur votre site d’entreprise SAP Analytics Cloud en tant qu’administrateur.
-
-2. Sélectionnez **Menu** > **Système** > **Administration**.
-    
-    ![Sélectionner Menu, puis Système et Administration](./media/sapboc-tutorial/config1.png)
-
-3. Sous l’onglet **Sécurité**, sélectionnez l’icône (stylet) **Modifier**.
-    
-    ![Sous l’onglet Sécurité, sélectionner l’icône Modifier](./media/sapboc-tutorial/config2.png)  
-
-4. Sélectionnez **Méthode d’authentification unique SAML (SSO)** comme **Méthode d’authentification**.
-
-    ![Sélectionner Authentification unique SAML comme méthode d’authentification](./media/sapboc-tutorial/config3.png)  
-
-5. Pour télécharger les métadonnées du fournisseur de services (étape 1), sélectionnez **Télécharger**. Dans le fichier de métadonnées, recherchez et copiez la valeur **entityID**. Dans le portail Azure, dans la boîte de dialogue **Configuration SAML de base**, collez la valeur dans la zone **Identificateur**.
-
-    ![Copier et coller la valeur entityID](./media/sapboc-tutorial/config4.png)  
-
-6. Pour télécharger les métadonnées du fournisseur de services (étape 2) dans le fichier que vous avez téléchargé depuis le portail Azure, sous **Charger les métadonnées du fournisseur d’identité**, sélectionnez **Charger**.  
-
-    ![Sous Charger les métadonnées du fournisseur d’identité, sélectionnez Charger](./media/sapboc-tutorial/config5.png)
-
-7. Dans la liste **Attribut utilisateur**, sélectionnez l’attribut utilisateur (étape 3) que vous souhaitez utiliser pour votre mise en œuvre. Cet attribut utilisateur est mappé au fournisseur d’identité. Pour entrer un attribut personnalisé sur la page de l’utilisateur, utilisez l’option **Mappage SAML personnalisé**. Ou bien, vous pouvez sélectionner **E-mail** ou **ID UTILISATEUR** en tant qu’attribut utilisateur. Dans notre exemple, nous avons sélectionné **E-mail**, car nous avons mappé la revendication de l’identificateur d’utilisateur avec l’attribut **userprincipalname** dans la section **Attributs utilisateur et revendications** dans le portail Azure. Ceci fournit un e-mail de l’utilisateur unique, qui est envoyé à l’application SAP Analytics Cloud dans chaque réponse SAML correcte.
-
-    ![Sélectionner un attribut utilisateur](./media/sapboc-tutorial/config6.png)
-
-8. Pour vérifier le compte avec le fournisseur d’identité (étape 4), dans la boîte **Informations d’identification de connexion (e-mail)** , entrez l’adresse e-mail de l’utilisateur. Ensuite, sélectionnez **Vérifier le compte**. Le système ajoute les informations d’identification de connexion au compte utilisateur.
-
-    ![Entrer l’e-mail et sélectionner Vérifier le compte](./media/sapboc-tutorial/config7.png)
-
-9. Sélectionnez l’icône **Enregistrer**.
-
-    ![Icône Enregistrer](./media/sapboc-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -154,16 +115,46 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SAP Analytics Cloud**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-sap-analytics-cloud-sso"></a>Configurer l’authentification unique SAP Analytics Cloud
+
+1. Dans une autre fenêtre du navigateur web, ouvrez une session sur votre site d’entreprise SAP Analytics Cloud en tant qu’administrateur.
+
+2. Sélectionnez **Menu** > **Système** > **Administration**.
+    
+    ![Sélectionner Menu, puis Système et Administration](./media/sapboc-tutorial/configure-1.png)
+
+3. Sous l’onglet **Sécurité**, sélectionnez l’icône (stylet) **Modifier**.
+    
+    ![Sous l’onglet Sécurité, sélectionner l’icône Modifier](./media/sapboc-tutorial/configure-2.png)  
+
+4. Sélectionnez **Méthode d’authentification unique SAML (SSO)** comme **Méthode d’authentification**.
+
+    ![Sélectionner Authentification unique SAML comme méthode d’authentification](./media/sapboc-tutorial/configure-3.png)  
+
+5. Pour télécharger les métadonnées du fournisseur de services (étape 1), sélectionnez **Télécharger**. Dans le fichier de métadonnées, recherchez et copiez la valeur **entityID**. Dans le portail Azure, dans la boîte de dialogue **Configuration SAML de base**, collez la valeur dans la zone **Identificateur**.
+
+    ![Copier et coller la valeur entityID](./media/sapboc-tutorial/configure-4.png)  
+
+6. Pour télécharger les métadonnées du fournisseur de services (étape 2) dans le fichier que vous avez téléchargé depuis le portail Azure, sous **Charger les métadonnées du fournisseur d’identité**, sélectionnez **Charger**.  
+
+    ![Sous Charger les métadonnées du fournisseur d’identité, sélectionnez Charger](./media/sapboc-tutorial/configure-5.png)
+
+7. Dans la liste **Attribut utilisateur**, sélectionnez l’attribut utilisateur (étape 3) que vous souhaitez utiliser pour votre mise en œuvre. Cet attribut utilisateur est mappé au fournisseur d’identité. Pour entrer un attribut personnalisé sur la page de l’utilisateur, utilisez l’option **Mappage SAML personnalisé**. Ou bien, vous pouvez sélectionner **E-mail** ou **ID UTILISATEUR** en tant qu’attribut utilisateur. Dans notre exemple, nous avons sélectionné **E-mail**, car nous avons mappé la revendication de l’identificateur d’utilisateur avec l’attribut **userprincipalname** dans la section **Attributs utilisateur et revendications** dans le portail Azure. Ceci fournit un e-mail de l’utilisateur unique, qui est envoyé à l’application SAP Analytics Cloud dans chaque réponse SAML correcte.
+
+    ![Sélectionner un attribut utilisateur](./media/sapboc-tutorial/configure-6.png)
+
+8. Pour vérifier le compte avec le fournisseur d’identité (étape 4), dans la boîte **Informations d’identification de connexion (e-mail)**, entrez l’adresse e-mail de l’utilisateur. Ensuite, sélectionnez **Vérifier le compte**. Le système ajoute les informations d’identification de connexion au compte utilisateur.
+
+    ![Entrer l’e-mail et sélectionner Vérifier le compte](./media/sapboc-tutorial/configure-7.png)
+
+9. Sélectionnez l’icône **Enregistrer**.
+
+    ![Icône Enregistrer](./media/sapboc-tutorial/save.png)
 
 ### <a name="create-sap-analytics-cloud-test-user"></a>Créer un utilisateur de test SAP Analytics Cloud
 
@@ -175,11 +166,11 @@ Pour approvisionner un compte d’utilisateur :
 
 2. Sélectionnez **Menu** > **Sécurité** > **Utilisateurs**.
 
-    ![Ajouter un employé](./media/sapboc-tutorial/user1.png)
+    ![Ajouter un employé](./media/sapboc-tutorial/user-1.png)
 
-3. Sur la page **Utilisateurs**, pour ajouter de nouvelles informations de l’utilisateur, sélectionnez **+** . 
+3. Sur la page **Utilisateurs**, pour ajouter de nouvelles informations de l’utilisateur, sélectionnez **+**. 
 
-    ![Page Ajouter des utilisateurs](./media/sapboc-tutorial/user4.png)
+    ![Page Ajouter des utilisateurs](./media/sapboc-tutorial/user-4.png)
 
     Effectuez ensuite les tâches suivantes :
 
@@ -195,20 +186,20 @@ Pour approvisionner un compte d’utilisateur :
 
     1. Dans la page **Sélectionner des rôles**, sélectionnez le rôle approprié pour l’utilisateur, puis **OK**.
 
-        ![Sélectionner un rôle](./media/sapboc-tutorial/user3.png)
+        ![Sélectionner un rôle](./media/sapboc-tutorial/user-3.png)
 
     1. Sélectionnez l’icône **Enregistrer**.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Lorsque vous cliquez sur la vignette SAP Analytics Cloud dans le volet d’accès, vous devez être connecté automatiquement à l’application SAP Analytics Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion à SAP Analytics Cloud, d’où vous pouvez lancer le flux de connexion. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Accédez directement à l’URL de connexion SAP Analytics Cloud pour lancer le flux de connexion.
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette SAP Analytics Cloud dans Mes applications vous redirige vers l’URL de connexion SAP Analytics Cloud. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+Après avoir configuré SAP Analytics Cloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

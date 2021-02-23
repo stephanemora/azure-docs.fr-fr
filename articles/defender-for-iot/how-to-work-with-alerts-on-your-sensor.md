@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835737"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523547"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>Utiliser des alertes sur votre capteur
 
@@ -68,9 +68,9 @@ Par exemple :
 
   - Les événements de programmes malveillants détectés sur les périphériques réseau sont signalés dans les rapports d’évaluation des risques. Quand les alertes relatives aux événements de programmes malveillants ont le *micro désactivé*, les appareils affectés ne sont pas calculés dans le rapport d’évaluation des risques.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
-- [Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
-- [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
+[Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+[Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
+[Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
+[Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)

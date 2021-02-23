@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559343"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -38,7 +38,7 @@ Voici quelques exemples de ce que vous pouvez faire avec le contrôle RBAC Azure
 
 ## <a name="how-azure-rbac-works"></a>Fonctionnement du contrôle RBAC Azure
 
-Les attributions de rôles vous permettent de contrôler l’accès aux ressources à l’aide du contrôle RBAC Azure. Il s’agit d’un concept clé dont la compréhension est essentielle, à savoir la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
+Les attributions de rôles Azure vous permettent de contrôler l’accès aux ressources avec RBAC Azure. Il s’agit d’un concept clé dont la compréhension est essentielle, à savoir la façon dont les autorisations sont appliquées. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
 
 ### <a name="security-principal"></a>Principal de sécurité
 
@@ -80,9 +80,9 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 
 ![Attribution de rôle pour contrôler les accès](./media/overview/rbac-overview.png)
 
-Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST.
+Vous pouvez attribuer des rôles en utilisant le portail Azure, Azure PowerShell, Azure CLI, des SDK Azure ou des API REST.
 
-Pour plus d’informations, consultez [Étapes pour ajouter une attribution de rôle](role-assignments-steps.md).
+Pour plus d’informations, consultez [Étapes pour attribuer un rôle Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Attributions de rôles multiples
 
@@ -122,6 +122,6 @@ Voici les principales étapes suivies par le contrôle RBAC Azure pour détermin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md)
 - [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
 - [Framework d’adoption du cloud : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

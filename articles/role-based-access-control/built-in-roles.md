@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/01/2021
+ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: 384d00ee41f2b6bfc2e91815bfcf54819c7d9ab2
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: d9a2667907108cfb4c8d7a2a2c9b1558e02a9110
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809372"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535125"
 ---
 # <a name="azure-built-in-roles"></a>Rôles intégrés Azure
 
@@ -176,15 +176,15 @@ Le tableau ci-après fournit une brève description et l'ID unique de chaque rô
 > | [Contributeur Azure Sentinel](#azure-sentinel-contributor) | Contributeur Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Lecteur Azure Sentinel](#azure-sentinel-reader) | Lecteur Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Répondeur Azure Sentinel](#azure-sentinel-responder) | Répondeur Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Administrateur Key Vault (préversion)](#key-vault-administrator-preview) | Permet d’effectuer toutes les opération du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-> | [Responsable des certificats Key Vault (préversion)](#key-vault-certificates-officer-preview) | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Administrateur Key Vault](#key-vault-administrator) | Permet d’effectuer toutes les opération du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Agent des certificats Key Vault](#key-vault-certificates-officer) | Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer les coffres de clés, mais ne vous permet pas d’attribuer des rôles dans Azure RBAC ni d’accéder à des secrets, des clés ou des certificats. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Responsable du chiffrement de Key Vault (préversion)](#key-vault-crypto-officer-preview) | Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Utilisateur du service de chiffrement de Key Vault (préversion)](#key-vault-crypto-service-encryption-user-preview) | Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-> | [Utilisateur de chiffrement de Key Vault (préversion)](#key-vault-crypto-user-preview) | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Lecteur de Key Vault (préversion)](#key-vault-reader-preview) | Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
-> | [Responsable des secrets de Key Vault (préversion)](#key-vault-secrets-officer-preview) | Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-> | [Utilisateur de secrets Key Vault (préversion)](#key-vault-secrets-user-preview) | Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Agent de chiffrement Key Vault](#key-vault-crypto-officer) | Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Utilisateur du service de chiffrement de Key Vault](#key-vault-crypto-service-encryption-user) | Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Utilisateur de chiffrement Key Vault](#key-vault-crypto-user) | Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Lecteur Key Vault](#key-vault-reader) | Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Agent des secrets Key Vault](#key-vault-secrets-officer) | Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Utilisateur des secrets Key Vault](#key-vault-secrets-user) | Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ». | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Contributeur HSM managé](#managed-hsm-contributor) | Vous permet de gérer des pools HSM managés, mais pas d’y accéder. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Administrateur de la sécurité](#security-admin) | Autorisations d’affichage et de mise à jour pour Security Center. Dispose des mêmes autorisations que le rôle Lecteur de sécurité et peut également modifier la stratégie de sécurité et ignorer les alertes et les recommandations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Contributeur d'évaluation de la sécurité](#security-assessment-contributor) | Vous permet d’envoyer (push) les évaluations à Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
@@ -2175,8 +2175,9 @@ Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour
 > | **DataActions** |  |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/delete | Supprimer un objet blob. |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Retourner un objet blob ou une liste d'objets blob. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/move/action | Déplace l'objet blob d'un chemin à un autre |
 > | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/write | Écrire dans un objet blob. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/move/action | Déplace l'objet blob d'un chemin à un autre |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/add/action | Retourner le résultat de l’ajout de contenu d’objet blob |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
@@ -2200,8 +2201,9 @@ Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
       ],
       "notDataActions": []
     }
@@ -4399,6 +4401,8 @@ Permet de gérer les stratégies de sécurité des serveurs et bases de données
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/read | Retourne la liste des instances gérées ou obtient les propriétés de l’instance gérée spécifiée. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/administrators/read | Obtient la liste des administrateurs de l’instance gérée. |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/administrators/read | Obtient un objet d’administrateur Azure Active Directory spécifique |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -4461,7 +4465,9 @@ Permet de gérer les stratégies de sécurité des serveurs et bases de données
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
         "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
-        "Microsoft.Security/sqlVulnerabilityAssessments/*"
+        "Microsoft.Security/sqlVulnerabilityAssessments/*",
+        "Microsoft.Sql/managedInstances/administrators/read",
+        "Microsoft.Sql/servers/administrators/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -7562,7 +7568,7 @@ Répondeur Azure Sentinel [En savoir plus](../sentinel/roles.md)
 }
 ```
 
-### <a name="key-vault-administrator-preview"></a>Administrateur de Key Vault (préversion)
+### <a name="key-vault-administrator"></a>Administrateur Key Vault
 
 Permet d’effectuer toutes les opération du plan de données sur un coffre de clés et tous les objets qu’il contient, notamment les certificats, les clés et les secrets. Ne peut pas gérer les ressources du coffre de clés ni gérer les attributions de rôles. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7615,13 +7621,13 @@ Permet d’effectuer toutes les opération du plan de données sur un coffre de 
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Administrator (preview)",
+  "roleName": "Key Vault Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-certificates-officer-preview"></a>Responsable des certificats de Key Vault (préversion)
+### <a name="key-vault-certificates-officer"></a>Agent des certificats Key Vault
 
 Permet d’effectuer une action sur les certificats d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7676,7 +7682,7 @@ Permet d’effectuer une action sur les certificats d’un coffre de clés, à l
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleName": "Key Vault Certificates Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7737,7 +7743,7 @@ Permet de gérer les coffres de clés, mais ne vous permet pas d’attribuer des
 }
 ```
 
-### <a name="key-vault-crypto-officer-preview"></a>Responsable du chiffrement de Key Vault (préversion)
+### <a name="key-vault-crypto-officer"></a>Agent de chiffrement Key Vault
 
 Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7790,13 +7796,13 @@ Permet d’effectuer une action sur les clés d’un coffre de clés, à l’exc
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleName": "Key Vault Crypto Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-user-preview"></a>Utilisateur du service de chiffrement de Key Vault (préversion)
+### <a name="key-vault-crypto-service-encryption-user"></a>Utilisateur du service de chiffrement de Key Vault
 
 Permet de lire les métadonnées des clés et d’effectuer des opérations visant à envelopper/désenvelopper. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7839,13 +7845,13 @@ Permet de lire les métadonnées des clés et d’effectuer des opérations visa
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption User (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-crypto-user-preview"></a>Utilisateur de chiffrement de Key Vault (préversion)
+### <a name="key-vault-crypto-user"></a>Utilisateur de chiffrement Key Vault
 
 Permet d’effectuer des opérations de chiffrement à l’aide de clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7894,13 +7900,13 @@ Permet d’effectuer des opérations de chiffrement à l’aide de clés. Foncti
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto User (preview)",
+  "roleName": "Key Vault Crypto User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-reader-preview"></a>Lecteur de Key Vault (préversion)
+### <a name="key-vault-reader"></a>Lecteur Key Vault
 
 Permet de lire les métadonnées de coffres de clés et de leurs certificats, clés et secrets. Ne peut pas lire les valeurs sensibles, telles que les contenus secrets ou les documents clés. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -7955,13 +7961,13 @@ Permet de lire les métadonnées de coffres de clés et de leurs certificats, cl
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Reader (preview)",
+  "roleName": "Key Vault Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-officer-preview"></a>Responsable des secrets de Key Vault (préversion)
+### <a name="key-vault-secrets-officer"></a>Agent des secrets Key Vault
 
 Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’exception des autorisations de gestion. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -8014,13 +8020,13 @@ Permet d’effectuer une action sur les secrets d’un coffre de clés, à l’e
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleName": "Key Vault Secrets Officer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### <a name="key-vault-secrets-user-preview"></a>Utilisateur de secrets de Key Vault (préversion)
+### <a name="key-vault-secrets-user"></a>Utilisateur des secrets Key Vault
 
 Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de clés qui utilisent le modèle d’autorisation « Contrôle d’accès en fonction du rôle Azure ».
 
@@ -8055,7 +8061,7 @@ Permet de lire le contenu du secret. Fonctionne uniquement pour les coffres de c
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Secrets User (preview)",
+  "roleName": "Key Vault Secrets User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

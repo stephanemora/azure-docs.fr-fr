@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966188"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382852"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Configurations logicielles, de haute disponibilité et réseau requises pour StorSimple 8000 Series
 
@@ -41,7 +41,7 @@ La configuration logicielle suivante est requise pour les clients de stockage qu
 
 | Systèmes d’exploitation pris en charge | Version requise | Conditions/remarques supplémentaires |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>Seuls les initiateurs logiciels iSCSI présents en mode natif dans le système d’exploitation sont pris en charge. Les initiateurs matériels iSCSI ne sont pas pris en charge.<br></br>L’allocation dynamique Windows Server 2012 et 2016 les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Les volumes iSCSI StorSimple sont pris en charge uniquement sur les types de disques Windows suivants :<ul><li>Volume simple sur disque de base</li><li>Volume simple et en miroir sur disque dynamique</li></ul>Seuls les initiateurs logiciels iSCSI présents en mode natif dans le système d’exploitation sont pris en charge. Les initiateurs matériels iSCSI ne sont pas pris en charge.<br></br>L’allocation dynamique Windows Server 2012 et 2016 les fonctionnalités ODX sont prises en charge si vous utilisez un volume iSCSI StorSimple.<br><br>StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne permet pas de créer des volumes entièrement ou partiellement alloués.<br><br>Le reformatage d’un volume alloué dynamiquement peut prendre beaucoup de temps. Nous vous recommandons de supprimer le volume, puis d’en créer un nouveau plutôt que de le reformater. Si vous préférez toutefois reformater un volume :<ul><li>Exécutez la commande suivante avant le reformatage pour éviter les retards de récupération d’espace : <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Une fois le formatage terminé, utilisez la commande suivante pour réactiver une récupération de l’espace :<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Appliquez le correctif Windows Server 2012, comme décrit dans l’article [KB 2878635](https://support.microsoft.com/kb/2870270) sur votre ordinateur Windows Server.</li></ul></li></ul></ul> Si vous configurez le Gestionnaire d’instantanés StorSimple ou l’adaptateur StorSimple pour SharePoint, consultez [Configuration logicielle requise pour les composants facultatifs](#software-requirements-for-optional-components). <br> Si votre client Windows Server utilise le protocole SMB pour accéder à l’appareil StorSimple, accédez à [réglage des performances pour les serveurs de fichiers SMB](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) pour obtenir de l’aide sur l’amélioration du traitement parallèle.|
 | VMWare ESX |5.5 et 6.0 |Pris en charge avec VMware vSphere en tant que client iSCSI. La fonctionnalité VAAI-block est prise en charge avec VMware vSphere sur les appareils StorSimple. |
 | Linux RHEL/CentOS |5, 6 et 7 |Prise en charge des clients Linux iSCSI avec initiateur Open-iSCSI versions 5, 6 et 7. |
 | Linux |SUSE Linux 11 | |
@@ -157,7 +157,7 @@ L’algorithme de métrique de routage utilisé pour la mise à jour 2 et versi
 * Une alerte est également émise sur votre appareil StorSimple en cas d’échec de l’adresse IP virtuelle. Pour plus d'informations, consultez la page [alerte aide-mémoire](storsimple-8000-manage-alerts.md).
 * En ce qui concerne les nouvelles tentatives, iSCSI a priorité sur le cloud.
   
-    Prenons l’exemple suivant : un appareil StorSimple a deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
+    Prenez l'exemple suivant : un appareil StorSimple possède deux interfaces réseau activées, Data 0 et Data 1. Data 0 est activée pour le cloud tandis que Data 1 est à la fois activée pour le cloud et compatible iSCSI. Aucune autre interface réseau sur cet appareil n’est activée pour le cloud ou compatible iSCSI.
   
     Si Data 1 échoue, étant donné qu'il s’agit de la dernière interface réseau iSCSI, cela entraîne un basculement de contrôleur vers Data 1 sur l'autre contrôleur.
 

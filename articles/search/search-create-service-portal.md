@@ -7,31 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/15/2021
+ms.openlocfilehash: 8a61ad1599a2d4d1aeaf8b36d2f92d95ec1896a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746694"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573047"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
 [Recherche cognitive Azure](search-what-is-azure-search.md) est une ressource Azure qui permet d’ajouter une expérience de recherche en texte intégral à des applications personnalisées. Vous pouvez facilement l’intégrer à d’autres services Azure qui fournissent des données ou un traitement supplémentaire, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 
-Dans cet article, vous allez découvrir comment créer un service de recherche dans le [portail Azure](https://portal.azure.com/).
+Vous pouvez créer un service de recherche en utilisant le [portail Azure](https://portal.azure.com/), ce qui est expliqué dans cet article. Vous pouvez aussi utiliser [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search) ou un [modèle de service Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![GIF animé](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-Vous préférez PowerShell ? Utilisez le [modèle de service](https://azure.microsoft.com/resources/templates/101-azure-search-create/) Azure Resource Manager. Pour obtenir de l’aide et bien démarrer, consultez [Gérer la Recherche cognitive Azure avec PowerShell](search-manage-powershell.md).
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 Les propriétés de service suivantes sont fixes pendant la durée de vie du service et leur modification nécessite un nouveau service. Dans la mesure où elles sont fixes, songez aux implications quand vous remplissez chaque propriété :
 
-* Le nom du service fait désormais partie du point de terminaison de l’URL ([Passez en revue ces conseils](#name-the-service) pour des noms de service explicites).
-* Le [niveau de service](search-sku-tier.md) affecte la facturation et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
-* La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez créer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
++ Le nom du service fait désormais partie du point de terminaison de l’URL ([Passez en revue ces conseils](#name-the-service) pour des noms de service explicites).
++ Le [niveau de service](search-sku-tier.md) affecte la facturation et définit une limite supérieure sur la capacité. Certaines fonctionnalités ne sont pas disponibles sur le niveau gratuit.
++ La région du service peut déterminer la disponibilité de certains scénarios. Si vous avez besoin de [fonctionnalités de haute sécurité](search-security-overview.md) ou d’[enrichissement par IA](cognitive-search-concept-intro.md), vous devez créer Recherche cognitive Azure dans la même région que les autres services ou dans des régions qui fournissent la fonctionnalité en question. 
 
 ## <a name="subscribe-free-or-paid"></a>S’abonner (payant ou gratuit)
 
@@ -74,33 +72,30 @@ Dans Détails de l’instance, indiquez un nom de service dans le champ **URL**.
 
 Configuration requise du nom du service :
 
-* il doit être unique dans l’espace de noms search.windows.net ;
-* Il doit comprendre entre 2 et 60 caractères
-* Vous devez utiliser des lettres minuscules, des chiffres ou des tirets (« - »)
-* N’utilisez pas de tirets (« - ») pour les 2 premiers caractères ou le dernier
-* Vous ne pouvez pas utiliser de tirets consécutifs (« -- »)
++ il doit être unique dans l’espace de noms search.windows.net ;
++ Il doit comprendre entre 2 et 60 caractères
++ Vous devez utiliser des lettres minuscules, des chiffres ou des tirets (« - »)
++ N’utilisez pas de tirets (« - ») pour les 2 premiers caractères ou le dernier
++ Vous ne pouvez pas utiliser de tirets consécutifs (« -- »)
 
 > [!TIP]
 > Si vous pensez utiliser plusieurs services, nous vous recommandons d’inclure la région (ou l’emplacement) dans le nom du service comme convention d’affectation de noms. Les services d’une même région peuvent échanger des données gratuitement. Ainsi, si la Recherche cognitive Azure est située dans la région USA Ouest et si vous disposez d’autres services également dans cette région, un nom tel que `mysearchservice-westus` peut vous éviter de passer par la page de propriétés quand vous décidez de la façon d’associer ou d’attacher des ressources.
 
 ## <a name="choose-a-location"></a>Choisir un emplacement
 
-La Recherche cognitive Azure est disponible dans la plupart des régions. Vous trouverez la liste des régions prises en charge dans la [page de tarification](https://azure.microsoft.com/pricing/details/search/).
+Recherche cognitive Azure est disponible dans la plupart des régions, comme indiqué dans [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search). En général, si vous utilisez plusieurs services Azure, choisissez une région qui héberge aussi votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
 
-> [!Note]
-> Les régions Inde Centre et Émirats arabes unis Nord sont actuellement indisponibles pour les nouveaux services. Pour les services déjà présents dans ces régions, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. Les restrictions sont temporaires et ne concernent que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
->
-> Le double chiffrement est disponible seulement dans certaines régions. Pour plus d’informations, consultez [Double chiffrement](search-security-overview.md#double-encryption).
++ [L’enrichissement par IA](cognitive-search-concept-intro.md) nécessite que Cognitive Services se trouve dans la même région physique que Recherche cognitive Azure. Par conséquent, certaines régions ne fournissent pas les deux fonctionnalités. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=search) indique une double disponibilité en montrant deux coches empilées. Pour une combinaison non disponible, il n’y a pas de coche :
 
-### <a name="requirements"></a>Spécifications
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Disponibilité régionale" border="true":::
 
- Si vous utilisez des enrichissements par IA, créez votre service de recherche dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
++ Les exigences en matière de continuité d’activité et de reprise d’activité (BCDR) doivent être satisfaites en créant plusieurs services de recherche dans des [paires de régions](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si vous opérez en Amérique du Nord, vous pouvez choisir USA Est et USA Ouest, ou USA Centre Nord et USA Centre Sud, pour chaque service de recherche.
 
- Les clients ayant des exigences en matière de continuité d’activité et reprise d’activité (BCDR) doivent créer leurs services dans des [paires régionales](../best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si vous opérez en Amérique du Nord, vous pouvez choisir USA Est et USA Ouest, ou USA Centre Nord et USA Centre Sud, pour chaque service.
+Certaines fonctionnalités ont une disponibilité limitée en fonction des régions. Les restrictions sont mises en évidence dans la documentation des fonctionnalités :
 
-### <a name="recommendations"></a>Recommandations
++ [Double chiffrement](search-security-overview.md#double-encryption)
 
-Si vous utilisez plusieurs services Azure, choisissez une région qui héberge également votre service de données ou d’application. Cela réduit au minimum voire évite les frais de bande passante pour les données sortantes. Il n’y a aucuns frais liés aux données sortantes lorsque les services se trouvent dans la même région.
++ [« Zones de disponibilité » dans Mettre à l’échelle pour les performances](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Sélectionnez un niveau tarifaire
 
@@ -126,7 +121,7 @@ Si vous n’utilisez pas le portail, l’accès programmatique à votre nouveau 
 
 1. Dans la page **Vue d’ensemble**, recherchez et copiez le point de terminaison d’URL sur le côté droit de la page.
 
-2. Dans la page **Clés**, copiez l’une des clés d’administration (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service. Les clés de requête, quant à elles, fournissent un accès en lecture seule au contenu indexé.
+1. Dans la page **Clés**, copiez l’une des clés d’administration (elles sont équivalentes). Les clés d’API d’administrateur sont nécessaires pour la création, la mise à jour et la suppression d’objets sur votre service. Les clés de requête, quant à elles, fournissent un accès en lecture seule au contenu indexé.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Page Vue d’ensemble du service avec le point de terminaison d’URL" border="false":::
 
@@ -136,9 +131,9 @@ Un point de terminaison et une clé ne sont pas nécessaires pour les tâches ef
 
 Une fois votre service approvisionné, vous pouvez le mettre à l’échelle en fonction de vos besoins. Si vous avez choisi le niveau Standard pour votre service Recherche cognitive Azure, vous pouvez le mettre à l’échelle dans deux dimensions : réplicas et partitions. Si vous choisissez le niveau De base, vous pouvez uniquement ajouter des réplicas. Si vous configurez le service gratuit, la mise à l’échelle n’est pas disponible.
 
-Les **_partitions_* _ permettent à votre service de stocker plus de documents et d’effectuer des recherches dans un plus grand nombre de documents.
+Les ***partitions*** permettent à votre service de stocker plus de documents et d’effectuer des recherches dans un plus grand nombre de documents.
 
-Les _*_réplicas_*_ permettent à votre service de gérer une charge supérieure de requêtes de recherche.
+Les ***réplicas*** permettent à votre service de gérer une charge supérieure de requêtes de recherche.
 
 L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) peut vous aider à comprendre les conséquences de l’ajout de ressources pour la facturation. N’oubliez pas que vous pouvez ajuster les ressources en fonction de la charge. Par exemple, vous pouvez augmenter les ressources pour créer un index initial complet, puis les réduire ultérieurement à un niveau plus approprié pour l’indexation incrémentielle.
 
@@ -146,8 +141,8 @@ L’ajout de ressources augmente votre facture mensuelle. Le [calculatrice de pr
 > Un service doit avoir [2 réplicas pour SLA en lecture seule et 3 réplicas pour SLA en lecture/écriture](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Accédez à la page du service de recherche dans le portail Azure.
-2. Dans le volet de navigation de gauche, sélectionnez _ *Paramètres** >**Mise à l’échelle**.
-3. Utilisez le curseur pour ajouter des ressources de chaque type.
+1. Dans le volet de navigation de gauche, sélectionnez **Paramètres** > **Mise à l’échelle**.
+1. Utilisez le curseur pour ajouter des ressources de chaque type.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Ajouter de la capacité via des réplicas et des partitions" border="false":::
 

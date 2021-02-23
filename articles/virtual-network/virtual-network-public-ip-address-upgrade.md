@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493717"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522884"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Mettre à niveau des adresses IP publiques
 
@@ -36,7 +36,7 @@ Les scénarios abordés dans cet article sont les suivants :
 Pour pouvoir mettre à niveau une adresse IP publique, celle-ci ne doit être associée à aucune ressource (consultez [cette page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) pour en savoir plus sur la façon de dissocier les adresses IP publiques).
 
 >[!IMPORTANT]
->Les adresses IP publiques mises à niveau d’une référence SKU De base à Standard n’ont toujours aucune [zone de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Cela signifie qu’elles ne peuvent pas être associées à une ressource Azure redondante interzone ou liée à une zone prédéfinie dans les régions où cela est proposé.
+>Les adresses IP publiques dont la référence SKU a été mise à niveau de De base vers Standard n’ont toujours aucune [zone de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) garantie.  Gardez cela à l’esprit lorsque vous choisissez les ressources auxquelles associer l’adresse IP.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**De base à Standard - PowerShell**](#tab/option-upgrade-powershell)

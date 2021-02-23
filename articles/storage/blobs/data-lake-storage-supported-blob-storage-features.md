@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 02/11/2021
 ms.author: normesta
-ms.reviewer: stewu
-ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879307"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516276"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -45,18 +44,19 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Stockage non modifiable|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Stocker des données blob critiques pour l’entreprise avec un stockage immuable](storage-blob-immutable-storage.md)|
 |Suppression réversible de conteneur|PRÉVERSION|PRÉVERSION|[Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md)|
 |Inventaire du Stockage Azure|PRÉVERSION|PRÉVERSION|[Gestion des données d’objets blob avec l’inventaire du Stockage Azure (préversion)](blob-inventory.md)|
+|Domaines personnalisés|PRÉVERSION<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|PRÉVERSION<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Mapper un domaine personnalisé à un point de terminaison Stockage Blob Azure](storage-custom-domain-name.md)|
 |Suppression réversible de blob|Pas encore pris en charge|Pas encore pris en charge|[Suppression réversible pour les objets blob](./soft-delete-blob-overview.md)|
 |Blobfuse|Mise à la disposition générale|Mise à la disposition générale|[Comment monter le stockage Blob en tant que système de fichiers avec blobfuse](storage-how-to-mount-container-linux.md)|
 |Accès public anonyme |Mise à la disposition générale|Mise à la disposition générale| Consultez [Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob](anonymous-read-access-configure.md).|
 |Basculement de compte géré par le client|Pas encore pris en charge|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Clés fournies par le client|Pas encore pris en charge|Pas encore pris en charge|[Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](encryption-customer-provided-keys.md)|
-|Domaines personnalisés|Pas encore pris en charge|Pas encore pris en charge|[Mapper un domaine personnalisé à un point de terminaison Stockage Blob Azure](storage-custom-domain-name.md)|
 |Étendues de chiffrement|Pas encore pris en charge|Pas encore pris en charge|[Créer et gérer des étendues de chiffrement (version préliminaire)](encryption-scope-manage.md)|
 |Modifier le flux|Pas encore pris en charge|Pas encore pris en charge|[Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)|
 |Réplication d’objets|Pas encore pris en charge|Pas encore pris en charge|[Configurer la réplication d’objets pour des objets blob de blocs](object-replication-configure.md)|
 |Gestion des versions des objets blob|Pas encore pris en charge|Pas encore pris en charge|[Activer et gérer le contrôle de version des objets blob](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup> Pour utiliser des instantanés, un stockage immuable ou des sites web statiques avec Data Lake Storage Gen2, vous devez vous inscrire à la préversion en remplissant ce <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulaire</a>.  </div>
+<div id="preview-form-2"><sup>2</sup>Un nom de domaine personnalisé peut être mappé uniquement au service blob ou au point de terminaison de site web statique. Le point de terminaison de stockage Data Lake n’est pas pris en charge.</a>.  </div>
 
 ## <a name="see-also"></a>Voir aussi
 

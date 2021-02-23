@@ -3,17 +3,17 @@ title: Diagnostiquer et résoudre les problèmes de disponibilité des Kits de d
 description: Découvrez tout ce qu’il y a à savoir sur le comportement de disponibilité du Kit de développement logiciel (SDK) Azure Cosmos lors de son utilisation dans des environnements multirégionaux.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/16/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097887"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559699"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostiquer et résoudre les problèmes de disponibilité des Kits de développement logiciel (SDK) Azure Cosmos dans les environnements multirégionaux
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Lorsque vous définissez la préférence régionale, le client se connecte à un
 | Région d’écriture unique | Région recommandée | Région primaire  |
 | Régions d’écriture multiples | Région recommandée | Région recommandée  |
 
-Si vous **ne définissez pas de région préférée** , le client du Kit de développement logiciel (SDK) se connecte par défaut à la région primaire :
+Si vous **ne définissez pas de région préférée**, le client du Kit de développement logiciel (SDK) se connecte par défaut à la région primaire :
 
 |Type de compte |Lectures |Écritures |
 |------------------------|--|--|
@@ -83,9 +83,9 @@ Lorsque vous utilisez la [cohérence de session](consistency-levels.md#guarantee
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problèmes de connectivité temporaires sur le protocole TCP
 
-Dans les scénarios où le client SDK Azure Cosmos est configuré pour utiliser le protocole TCP, pour une requête donnée, il peut y avoir des situations où les conditions réseau empêchent temporairement la communication avec un point de terminaison particulier. Ces conditions réseau temporaires peuvent se manifester sous la forme d’expirations du délais TCP. Le client retentera la requête localement sur le même point de terminaison pendant quelques secondes.
+Dans les scénarios où le client SDK Azure Cosmos est configuré pour utiliser le protocole TCP, pour une requête donnée, il peut y avoir des situations où les conditions réseau empêchent temporairement la communication avec un point de terminaison particulier. Ces conditions réseau temporaires peuvent apparaître comme des délais d’attente TCP et des erreurs de service non disponible (HTTP 503). Le client retentera la requête localement sur le même point de terminaison pendant quelques secondes avant que l’erreur se représente.
 
-Si l’utilisateur a configuré une liste de régions par défaut avec plusieurs régions, que le compte Azure Cosmos dispose de plusieurs régions d’écriture ou d’une seule région d’écriture et que l’opération est une demande de lecture, le client retente cette opération unique dans la région suivante de la liste de préférences.
+Si l’utilisateur a configuré une liste de régions par défaut avec plusieurs régions, que le compte Azure Cosmos dispose de plusieurs régions d’écriture ou d’une seule région d’écriture et que l’opération est une demande de lecture, le client détecte l’échec local et retente cette opération unique dans la région suivante de la liste de préférences.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,14 +1,14 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Découvrez comment utiliser efficacement les journaux Azure Monitor de manière scalable sur les locataires de clients que vous gérez.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575904"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379231"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -65,7 +65,6 @@ alertsmanagementresources
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Essayez le classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sur GitHub.
 - Explorez cet [exemple de classeur créé par MVP](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), qui assure le suivi des rapports de conformité des correctifs en [interrogeant les journaux Update Management](../../automation/update-management/query-logs.md) dans plusieurs espaces de travail Log Analytics. 
-- Découvrez [Azure Monitor](../../azure-monitor/index.yml).
-- Découvrez les [journaux Azure Monitor](../../azure-monitor/platform/data-platform-logs.md).
-- Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).
+- Découvrez d’autres [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).

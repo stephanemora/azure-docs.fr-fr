@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378296"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -19,7 +19,7 @@ Les paramètres d’une application de fonction contiennent les options de confi
 Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
 > [!NOTE]  
-> Vous pouvez utiliser des paramètres d’application pour remplacer les valeurs de paramètres host.json sans avoir à modifier le fichier host.json proprement dit. C’est utile dans des scénarios où vous devez configurer ou modifier des paramètres host.json spécifiques pour un environnement spécifique. Cela vous permet également de modifier les paramètres host.json sans avoir à republier votre projet. Pour plus d’informations, consultez l’[article de référence host.json](functions-host-json.md#override-hostjson-values).  
+> Vous pouvez utiliser des paramètres d’application pour remplacer les valeurs de paramètres host.json sans avoir à modifier le fichier host.json proprement dit. C’est utile dans des scénarios où vous devez configurer ou modifier des paramètres host.json spécifiques pour un environnement spécifique. Cela vous permet également de modifier les paramètres host.json sans avoir à republier votre projet. Pour plus d’informations, consultez l’[article de référence host.json](functions-host-json.md#override-hostjson-values). Les changements apportés aux paramètres d’application de fonction nécessitent le redémarrage de votre application de fonction.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -213,7 +213,7 @@ La valeur de ce paramètre indique une URL d’index des packages personnalisée
 
 Pour en savoir plus, consultez [Dépendances personnalisées](functions-reference-python.md#remote-build-with-extra-index-url) dans les informations de référence pour les développeurs Python.
 
-## <a name="scale_controller_logging_enable"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLE
+## <a name="scale_controller_logging_enabled"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
 _Ce paramètre est actuellement en préversion._  
 
@@ -221,7 +221,7 @@ Ce paramètre contrôle la journalisation à partir du contrôleur d’échelle 
 
 |Clé|Exemple de valeur|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
 
 La valeur de cette clé est fournie au format `<DESTINATION>:<VERBOSITY>`, qui est défini comme suit :
 
@@ -235,7 +235,7 @@ Chaîne de connexion du compte de stockage dans lequel la configuration et le co
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-Utilisé uniquement lors du déploiement vers un plan Consommation ou Premium s’exécutant sous Windows. Non pris en charge pour Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
+Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>WEBSITE\_CONTENTOVERVNET
 
@@ -253,7 +253,7 @@ Chemin d’accès au code de l’application et à la configuration de la foncti
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Utilisé uniquement par les applications de fonction sur un plan Consommation ou Premium s’exécutant sur Windows. Non pris en charge pour Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+Utilisé uniquement lors du déploiement vers un plan Premium ou vers un plan Consommation s’exécutant sur Windows. Non pris en charge pour les plans Consommation s’exécutant sous Linux. La modification ou la suppression de ce paramètre peut empêcher le démarrage de votre application de fonction. Pour plus d’informations, consultez [cet article de résolution des problèmes](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 Lorsque vous utilisez Azure Resource Manager pour créer une application de fonction pendant le déploiement, n'incluez pas WEBSITE_CONTENTSHARE dans le modèle. Ce paramètre d’application est généré au cours du déploiement. Pour en savoir plus, consultez [Automatiser le déploiement de ressources pour votre application de fonction](functions-infrastructure-as-code.md#windows).   
 

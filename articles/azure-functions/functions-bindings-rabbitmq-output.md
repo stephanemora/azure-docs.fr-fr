@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746454"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097311"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de sortie RabbitMQ pour Azure Functions
 
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-L’exemple suivant montre une fonction Java qui envoie un message à une file d’attente RabbitMQ quand elle est déclenchée par un TimerTrigger toutes les 5 minutes.
+La fonction Java suivante utilise l’annotation `@RabbitMQOutput` des [types RabbitMQ Java](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) pour décrire la configuration d’une liaison de sortie de file d’attente RabbitMQ. La fonction envoie un message à la file d’attente RabbitMQ quand elle est déclenchée par un TimerTrigger toutes les 5 minutes.
 
 ```java
 @FunctionName("RabbitMQOutputExample")
@@ -272,11 +272,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur « out ». |
 |**name** | n/a | Nom de la variable qui représente la file d’attente dans le code de la fonction. |
 |**queueName**|**QueueName**| Nom de la file d’attente à laquelle envoyer les messages. |
-|**hostName**|**HostName**|(ignoré si vous utilisez ConnectStringSetting) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
-|**userName**|**UserName**|(ignoré si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application contenant le nom d’utilisateur pour accéder à la file d’attente. Exemple : UserNameSetting : « < UserNameFromSettings > »|
-|**mot de passe**|**Mot de passe**|(ignoré si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application contenant le mot de passe pour accéder à la file d’attente. Exemple : UserNameSetting : « < UserNameFromSettings > »|
+|**hostName**|**HostName**|(ignorée si vous utilisez ConnectStringSetting) <br>Nom d’hôte de la file d’attente (par exemple : 10.26.45.210)|
+|**userName**|**UserName**|(ignoré si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application qui contient le nom d’utilisateur permettant d’accéder à la file d’attente. Exemple : UserNameSetting : « < UserNameFromSettings > »|
+|**mot de passe**|**Mot de passe**|(ignoré si vous utilisez ConnectionStringSetting) <br>Nom du paramètre d’application qui contient le mot de passe permettant d’accéder à la file d’attente. Exemple : UserNameSetting : « < UserNameFromSettings > »|
 |**connectionStringSetting**|**ConnectionStringSetting**|Nom du paramètre d’application qui contient la chaîne de connexion de la file d’attente de messages RabbitMQ. Notez que si vous spécifiez la chaîne de connexion directement et non par le biais d’un paramètre d’application dans local.settings.json, le déclencheur ne fonctionnera pas. (exemple : dans *function.json* : connectionStringSetting: "rabbitMQConnection" <br> Dans *local.settings.json* : "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignoré en cas d’utilisation de ConnectionStringSetting) Obtient ou définit le port utilisé. La valeur par défaut est 0, soit le paramètre de port par défaut du client rabbitmq : 5672.|
+|**port**|**Port**|(ignorée si vous utilisez ConnectionStringSetting) Obtient ou définit le port utilisé. La valeur par défaut est 0. Elle pointe vers le paramètre de port par défaut du client rabbitmq : 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -308,11 +308,11 @@ Quand vous utilisez des fonctions de script C# :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le message de file d’attente est disponible via context.bindings.<NAME> où <NAME> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
+Le message en file d’attente est disponible via context.bindings.<NAME> où <NAME> correspond au nom défini dans function.json. Si la charge utile est JSON, la valeur est désérialisée en objet.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Reportez-vous à l’[exemple](#example) Python.
+Consultez l’[exemple](#example) en Python.
 
 # <a name="java"></a>[Java](#tab/java)
 

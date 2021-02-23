@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint FedRAMP Moderate
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034796"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594703"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate
 
@@ -283,8 +283,8 @@ Ce blueprint vous aide à superviser votre système en auditant et en appliquant
 Vous venez de passer en revue la mise en correspondance des contrôles du blueprint FedRAMP Moderate. Consultez à présent les articles suivants pour en savoir plus sur le blueprint et découvrir comment déployer cet exemple :
 
 > [!div class="nextstepaction"]
-> [Blueprint FedRAMP Moderate - Vue d’ensemble](./index.md)
-> [Blueprint FedRAMP Moderate - Étapes de déploiement](./deploy.md)
+> [Blueprint FedRAMP Moderate – Vue d’ensemble](./index.md)
+> [Blueprint FedRAMP Moderate – Étapes de déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

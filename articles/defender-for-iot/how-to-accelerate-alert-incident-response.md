@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835513"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526287"
 ---
 # <a name="accelerate-alert-workflows"></a>Accélérer les workflows d’alerte
 
@@ -70,11 +70,11 @@ Le groupe d’alertes approprié apparaît dans les solutions de sortie des part
 
 Le groupe d’alertes s’affiche dans les solutions de partenaires prises en charge avec les préfixes suivants :
 
-  - **cat** pour QRadar, ArcSight, Syslog CEF, Syslog LEEF
+- **cat** pour QRadar, ArcSight, Syslog CEF, Syslog LEEF
 
-  - **Groupe d’alertes** pour les SMS Syslog
+- **Groupe d’alertes** pour les SMS Syslog
 
-  - **alert_group** pour les objets Syslog
+- **alert_group** pour les objets Syslog
 
 Ces champs doivent être configurés dans la solution du partenaire pour afficher le nom du groupe d’alertes. Si aucune alerte n’est associée à un groupe d’alertes, le champ de la solution du partenaire affichera **s.o.** .
 
@@ -92,11 +92,29 @@ Les groupes d’alertes suivants sont définis automatiquement :
 | Échecs de commande | Problèmes de fonctionnement |  |
 | Modifications de configuration | Programmation |  |
 
-Les groupes d’alertes sont prédéfinis. Pour plus d’informations sur les alertes associées aux groupes d’alertes et sur la création de groupes d’alertes personnalisés, contactez [Support Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+Les groupes d’alertes sont prédéfinis. Pour plus d’informations sur les alertes associées aux groupes d’alertes et sur la création de groupes d’alertes personnalisés, contactez [Support Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## <a name="customize-alert-rules"></a>Personnaliser des règles d’alerte
 
-Vous pouvez ajouter des règles d’alerte personnalisées en fonction des informations détectées par les capteurs individuels. Par exemple, définissez une règle qui demande à un capteur de déclencher une alerte basée sur une adresse IP source, une adresse IP de destination ou une commande (dans un protocole). Quand le capteur détecte le trafic défini dans la règle, une alerte ou un événement est généré.
+Utilisez des règles d’alerte personnalisées pour identifier plus précisément l’activité qui vous intéresse. 
+
+Vous pouvez ajouter des règles d’alerte personnalisées en fonction des éléments suivants :
+
+- Une catégorie, par exemple un protocole, un port ou un fichier.
+- Des adresses source et destination
+- Une condition basée sur la catégorie choisie, par exemple une fonction associée à un protocole, un nom de fichier, un port ou un numéro de transport.
+- Une condition basée sur la référence de date et d’heure, par exemple si une détection a été effectuée à un jour spécifique ou à une certaine partie de la journée.
+
+Si le capteur détecte l’activité décrite dans la règle, l’alerte est envoyée.
+informations détectées par les capteurs individuels. Par exemple, définissez une règle qui demande à un capteur de déclencher une alerte basée sur une adresse IP source, une adresse IP de destination ou une commande (dans un protocole). Quand le capteur détecte le trafic défini dans la règle, une alerte ou un événement est généré.
+
+Vous pouvez également utiliser des actions de règle d’alerte pour indiquer à Defender pour IoT d’effectuer les opérations suivantes :
+
+- Autoriser les utilisateurs à accéder au fichier PCAP à partir de l’alerte.
+- Attribuer une gravité d’alerte.
+- Générer un événement plutôt qu’une alerte. Les informations détectées s’affichent dans la chronologie des événements.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Capture d’écran montrant une règle définie par l’utilisateur.":::
 
 Le message d’alerte indique qu’une règle définie par l’utilisateur a déclenché l’alerte.
 
@@ -106,16 +124,16 @@ Pour créer une règle d’alerte personnalisée :
 
 1. Sélectionnez **Alertes personnalisées** dans le menu latéral d’un capteur.
 1. Sélectionnez le signe plus ( **+** ) pour créer une règle.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Capture d’écran montrant une règle définie par l’utilisateur.":::
-
 1. Définissez un nom de règle.
 1. Sélectionnez une catégorie ou un protocole dans le volet **Catégories**.
 1. Définissez une adresse (IP ou MAC) source et de destination spécifique, ou choisissez n’importe quelle adresse.
-1. Ajoutez une condition. La liste des conditions et de leurs propriétés est unique pour chaque catégorie. Vous pouvez sélectionner plusieurs conditions pour chaque alerte.
-1. Indiquez si la règle déclenche une **alarme** ou un **événement**.
-1. Attribuez un niveau de gravité à l’alerte.
-1. Indiquez si l’alerte doit inclure un fichier PCAP.
+1. Définissez une ou plusieurs conditions de règle. Deux catégories de conditions peuvent être créées :
+    - Des conditions basées sur des valeurs uniques associées à la catégorie sélectionnée. Sélectionnez Ajouter et définissez les valeurs.
+    - Des conditions basées sur le moment où l’activité a été détectée. Dans la section Détections, sélectionnez une période et un jour au cours desquels la détection doit être effectuée pour pouvoir envoyer l’alerte. Vous pouvez choisir d’envoyer l’alerte si l’activité est détectée à tout moment, pendant ou après les heures de travail. Utilisez l’option Définir les heures de travail afin d’indiquer à Defender pour IoT les heures de travail de votre organisation.
+1. Définissez des actions de règle : 
+    - Indiquez si la règle déclenche une **alarme** ou un **événement**.
+    - Attribuez un niveau de gravité à l’alerte.
+    - Indiquez si l’alerte doit inclure un fichier PCAP.
 1. Sélectionnez **Enregistrer**.
 
 La règle est ajoutée à la liste **Règles d’alertes personnalisées**, dans laquelle vous pouvez examiner les paramètres de règle de base, la dernière fois que la règle a été déclenchée, et bien plus encore. Vous pouvez également activer et désactiver la règle dans la liste.

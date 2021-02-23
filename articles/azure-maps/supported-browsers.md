@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601157"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384467"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navigateurs pris en charge pour le kit SDK web
 
@@ -72,6 +72,8 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 </iframe>
 
 Vous trouverez des exemples de code supplémentaires utilisant Azure Maps dans Leaflet [ici](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
+
+[Voici](open-source-projects.md#third-part-map-control-plugins) quelques contrôles de carte open source populaires pour lesquels l’équipe Azure Maps a créé des plug-ins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

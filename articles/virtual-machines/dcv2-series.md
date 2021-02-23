@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095854"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557903"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -21,15 +21,15 @@ La série DCsv2 permet de protéger la confidentialité et l’intégrité de v
 
 Les exemples de cas d’usage incluent le partage de données pluripartites confidentielles, la détection des fraudes, le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le machine learning confidentiel.
 
-[Stockage Premium](premium-storage-performance.md) : Pris en charge*<br>
-[Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
-[Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
-[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
-[Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris en charge *<br>
+[Mise en cache du Stockage Premium](premium-storage-performance.md) : Prise en charge<br>
+[Migration dynamique](maintenance-and-updates.md) : Prise en charge<br>
+[Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non prises en charge<br>
+[Prise en charge de la génération de machine virtuelle](generation-2.md) : Génération 2<br>
+[Mise en réseau accélérée](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (* requiert un minimum de 4 processeurs virtuels*) <br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 
-*Sauf pour Standard_DC8_v2
+*Sauf pour Standard_DC8_v2 <br>
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

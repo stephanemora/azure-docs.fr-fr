@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 12/14/2020
-ms.openlocfilehash: 289f22230a38ef8dd6e369573091c5b30dd4a5c7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: f1171bdd087d6ca72a09a2e3efb7f4767a575d21
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706998"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517788"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
@@ -90,6 +90,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Recherche mise en cache](https://www.youtube.com/watch?v=HqCn42FaRJs)
 
 [Contexte de ligne via la transformation de fenêtre](http://youtu.be/jqt1gmX2XUg)
+
+[Transformation d’analyse](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
 ## <a name="source-and-sink"></a>Source et récepteur
 

@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131931"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368827"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Créer un agent de travail élastique à l’aide de PowerShell (préversion)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Les [travaux élastiques (préversion)](job-automation-overview.md#elastic-database-jobs-preview) permettent l’exécution d’un ou plusieurs scripts Transact-SQL (T-SQL) en parallèle sur plusieurs bases de données.
+Les [travaux élastiques (préversion)](job-automation-overview.md) permettent l’exécution d’un ou plusieurs scripts Transact-SQL (T-SQL) en parallèle sur plusieurs bases de données.
 
 Dans ce tutoriel, vous découvrez les étapes requises pour exécuter une requête sur plusieurs bases de données :
 
@@ -63,7 +63,7 @@ En plus du module **Az.Sql**, ce tutoriel nécessite le module PowerShell *SqlSe
 
 ## <a name="create-required-resources"></a>Créer les ressources nécessaires
 
-La création d’un agent de travail élastique requiert une base de données (S0 ou une version ultérieure) pour une utilisation en tant que [Base de données des travaux](job-automation-overview.md#job-database).
+La création d’un agent de travail élastique requiert une base de données (S0 ou une version ultérieure) pour une utilisation en tant que [Base de données des travaux](job-automation-overview.md#elastic-job-database).
 
 Le script ci-dessous crée un groupe de ressources, un serveur et une base de données à utiliser comme base de données de travaux. Le deuxième script crée un deuxième serveur avec deux bases de données vides sur lesquelles exécuter les travaux.
 
@@ -271,7 +271,7 @@ Le tableau suivant répertorie les états d’exécution de travail possibles :
 |:---|:---|
 |**Créé le** | L’exécution du travail vient d’être créée et n’est pas encore en cours d’exécution.|
 |**InProgress** | L’exécution du travail est en cours.|
-|**WaitingForRetry** | L’exécution du travail n’a pas été en mesure de terminer son action et est en attente de nouvelle tentative.|
+|**WaitingForRetry** | L’exécution du travail n’a pas été en mesure de terminer son action et est en attente d’une nouvelle tentative.|
 |**Réussi** | L’exécution du travail a réussi.|
 |**SucceededWithSkipped** | L’exécution de la tâche s’est terminée avec succès, mais certains de ses enfants ont été ignorés.|
 |**Échec** | L’exécution du travail a échoué et a épuisé ses nouvelles tentatives.|

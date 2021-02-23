@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: de42854f512a69b7b70a15a10fe8499ca1d0bf8b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017727"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391488"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données Blob
 
@@ -28,6 +28,9 @@ Vous pouvez attribuer des autorisations sur les données Blob à un principal de
 Les extensions Stockage Azure sont prises en charge pour les opérations sur les données Blob. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à PowerShell. Les autorisations sur les conteneurs Stockage Azure sont attribuées via Azure RBAC. Par exemple, si le rôle **Lecteur des données Blob** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur. Si le rôle **Contributeur aux données Blob** vous a été attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou les données qu’il contient.
 
 Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur, consultez [Appeler des opérations de stockage avec des jetons OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+
+> [!IMPORTANT]
+> Quand un compte de stockage est verrouillé à l’aide d’un verrou **ReadOnly** Azure Resource Manager, l’opération [Répertorier les clés](/rest/api/storagerp/storageaccounts/listkeys) n’est pas autorisée pour ce compte de stockage. **Répertorier les clés** est une opération POST, et toutes les opérations POST sont empêchées lorsqu’un verrou **ReadOnly** est configuré pour le compte. Pour cette raison, lorsque le compte est verrouillé avec un verrou **ReadOnly**, les utilisateurs qui ne détiennent pas déjà les clés de compte doivent utiliser des informations d’identification Azure AD pour accéder aux données d’objets blob. Dans PowerShell, ajoutez le paramètre `-UseConnectedAccount` pour créer un objet **AzureStorageContext** à l’aide de vos informations d’identification Azure AD.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Appeler des commandes PowerShell à l’aide des informations d’identification Azure AD
 

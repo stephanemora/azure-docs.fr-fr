@@ -2,13 +2,13 @@
 title: Protéger les applications Azure Service Bus contre les pannes et les sinistres
 description: Cet article présente des techniques permettant de protéger les applications contre une éventuelle défaillance d'Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065622"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374590"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -23,11 +23,13 @@ Les concepts liés à la haute disponibilité et à la reprise d’activité son
 
 ### <a name="geo-disaster-recovery"></a>Géo-reprise d’activité après sinistre
 
-Service Bus Premium prend en charge la géo-reprise d’activité après sinistre au niveau de l’espace de noms. Pour plus d’informations, consultez [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md). La fonctionnalité de récupération d’urgence, disponible pour la [référence SKU Premium](service-bus-premium-messaging.md) uniquement, implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire.
+Service Bus Premium prend en charge la géo-reprise d’activité après sinistre au niveau de l’espace de noms. Pour plus d’informations, consultez [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md). La fonctionnalité de récupération d’urgence, disponible pour la [référence SKU Premium](service-bus-premium-messaging.md) uniquement, implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Avec la géo-reprise d’activité après sinistre, seules les métadonnées des entités sont répliquées entre les espaces de noms principal et secondaire.  
 
 ### <a name="availability-zones"></a>Zones de disponibilité
 
 La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure. Service Bus gère trois copies de la banque de messagerie (1 copie principale et 2 secondaires). Service Bus synchronise les opérations relatives aux données et à la gestion sur les trois copies. Si la copie principale échoue, l’une des copies secondaires devient la copie principale, sans temps d’arrêt ressenti. Si les applications constatent des déconnexions temporaires de Service Bus, la logique de nouvelle tentative dans le SDK se reconnectera automatiquement à Service Bus. 
+
+Lorsque vous utilisez des zones de disponibilité, les métadonnées et les données (messages) sont répliquées dans les centres de données de la zone de disponibilité. 
 
 > [!NOTE]
 > Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-region.md) qui comprennent déjà des zones de disponibilité.

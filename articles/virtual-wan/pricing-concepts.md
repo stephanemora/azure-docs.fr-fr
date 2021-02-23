@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905534"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517686"
 ---
 # <a name="about-virtual-wan-pricing"></a>À propos de la tarification Virtual WAN
 
@@ -23,8 +23,7 @@ Azure Virtual WAN propose plusieurs services de réseau et de sécurité réunis
 Chaque service dans Virtual WAN est facturé. Par conséquent, il n’est pas possible d’appliquer un prix unique à Virtual WAN. La [calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) propose un mécanisme permettant de déduire le coût, basé sur les services approvisionnés dans un réseau Virtual WAN. Cet article aborde les questions fréquemment posées sur la tarification des réseaux Virtual WAN.
 
 >[!NOTE]
->Pour connaître les informations de tarification actuelles, consultez la page [Tarification de Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/).
->
+>Pour connaître les informations de tarification actuelles, consultez la page [Tarification de Virtual WAN](https://azure.microsoft.com/pricing/details/virtual-wan/). Les frais inter-hub (hub vers hub) ne s’affichent pas dans la page de tarification Virtual WAN en raison des [frais de transfert de données Azure](https://azure.microsoft.com/pricing/details/bandwidth/) entre régions (intra/inter continentaux).
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>Questions courantes sur la tarification
 

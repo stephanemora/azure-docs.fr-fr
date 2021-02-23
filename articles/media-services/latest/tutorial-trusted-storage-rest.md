@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100891"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590652"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Tutoriel : Stockage approuvé Media Services
 
@@ -23,6 +23,9 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > - Comment autoriser Azure Services à accéder à un compte de stockage lors de l’utilisation d’un contrôle d’accès réseau tel qu’un pare-feu ou un VPN.
 
 Avec l’API 2020-05-01, vous pouvez activer le stockage approuvé en associant une identité managée à un compte Media Services.
+
+>[!NOTE]
+>Le stockage approuvé est uniquement disponible dans l’API et n’est actuellement pas activé dans le portail Azure.
 
 Media Services peut accéder automatiquement à votre compte de stockage à l’aide de l’authentification système. Media Services vérifie que le compte Media Services et le compte de stockage se trouvent dans le même abonnement. Il vérifie également que l’utilisateur qui ajoute l’association a accès au compte de stockage avec Azure Resource Manager RBAC.
 

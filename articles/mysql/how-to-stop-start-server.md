@@ -6,17 +6,17 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: d297d215d4b0edfdd67b603ba4707bf02057ad78
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241155"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516870"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Arrêt/Démarrage d’Azure Database pour MySQL
 
 > [!IMPORTANT]
-> La fonctionnalité Arrêt/Démarrage d’Azure Database pour MySQL est actuellement en préversion publique.
+>  Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’**arrêter** de nouveau si vous n’utilisez pas le serveur.
 
 Cet article indique la procédure pas-à-pas à suivre pour arrêter et démarrer le serveur unique.
 
@@ -35,7 +35,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez votre serveur MySQL à arrêter.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Arrêter** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Arrêter** dans la barre d’outils.
 
     :::image type="content" source="./media/howto-stop-start-server/mysql-stop-server.png" alt-text="Arrêter le serveur Azure Database pour MySQL":::
 
@@ -46,7 +46,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur unique à démarrer.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Démarrer** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Démarrer** dans la barre d’outils.
 
     :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Démarrer le serveur Azure Database pour MySQL":::
 
@@ -59,7 +59,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez votre serveur MySQL à arrêter.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Arrêter** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Arrêter** dans la barre d’outils.
 
     ```azurecli-interactive
     az mysql server stop --name <server-name> -g <resource-group-name>
@@ -71,7 +71,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur unique à démarrer.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Démarrer** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Démarrer** dans la barre d’outils.
 
     ```azurecli-interactive
     az mysql server start --name <server-name> -g <resource-group-name>

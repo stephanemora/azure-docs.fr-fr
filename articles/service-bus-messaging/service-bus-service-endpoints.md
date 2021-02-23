@@ -2,14 +2,14 @@
 title: Configurer des points de terminaison de service de réseau virtuel pour Azure Service Bus
 description: Cet article fournit des informations sur l’ajout d’un point de terminaison de service Microsoft.ServiceBus à un réseau virtuel.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559572"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir de réseaux virtuels spécifiques
 L’intégration de Service Bus à des [points de terminaison de service de réseau virtuel (VNet)][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités.
@@ -18,15 +18,16 @@ Une fois configuré pour être lié à au moins un point de terminaison de servi
 
 Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Service Bus respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique.
 
->[!WARNING]
-> L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Service Bus. En guise d’exception, vous pouvez autoriser l’accès aux ressources Service Bus à partir de certains services approuvés, même lorsque les points de terminaison de service réseau sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
->
-> Les services Microsoft suivants doivent se trouver sur un réseau virtuel
-> - Azure App Service
-> - Azure Functions
+L’implémentation de l’intégration de réseaux virtuels peut empêcher d’autres services Azure d’interagir avec Service Bus. En guise d’exception, vous pouvez autoriser l’accès aux ressources Service Bus à partir de certains services approuvés, même lorsque les points de terminaison de service réseau sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
+
+Les services Microsoft suivants doivent se trouver sur un réseau virtuel
+- Azure App Service
+- Azure Functions
+
+Les réseaux virtuels sont pris en charge uniquement dans les espaces de noms du [niveau Premium](service-bus-premium-messaging.md) de Service Bus. Quand vous utilisez des points de terminaison de service de réseau virtuel avec Service Bus, vous ne devez pas activer ces points de terminaison dans les applications qui combinent des espaces de noms Service Bus de niveau Standard et Premium. Étant donné que le niveau Standard ne prend pas en charge les réseaux virtuels, le point de terminaison est limité aux espaces de noms du niveau Premium uniquement.
 
 > [!IMPORTANT]
-> Les réseaux virtuels sont pris en charge uniquement dans les espaces de noms du [niveau Premium](service-bus-premium-messaging.md) de Service Bus. Quand vous utilisez des points de terminaison de service de réseau virtuel avec Service Bus, vous ne devez pas activer ces points de terminaison dans les applications qui combinent des espaces de noms Service Bus de niveau Standard et Premium. Étant donné que le niveau Standard ne prend pas en charge les réseaux virtuels, le point de terminaison est limité aux espaces de noms du niveau Premium uniquement.
+> Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 
@@ -57,8 +58,6 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
     > [!NOTE]
     > L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **Premium**.  
     
-    Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).
-
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Page Mise en réseau – Par défaut" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
     Si vous sélectionnez l’option **Tous les réseaux**, votre espace de noms Service Bus accepte les connexions à partir de n’importe quelle adresse IP. Ce paramètre par défaut est équivalent à une règle qui accepte la plage d’adresses IP 0.0.0.0/0. 
@@ -68,6 +67,9 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 1. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant**. 
 
     ![ajouter un réseau virtuel existant](./media/service-endpoints/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Si vous sélectionnez l’option **Réseaux sélectionnés** et n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).
 3. Sélectionnez le réseau virtuel dans la liste des réseaux virtuels, puis choisissez le **sous-réseau**. Vous devez activer le point de terminaison de service avant d’ajouter le réseau virtuel à la liste. Si le point de terminaison de service n’est pas activé, le portail vous invite à l’activer.
    
    ![sélectionner un sous-réseau](./media/service-endpoints/select-subnet.png)
@@ -88,26 +90,11 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
-Le modèle Resource Manager suivant permet d’ajouter une règle de réseau virtuel à un espace de noms Service Bus.
+Le modèle Resource Manager suivant ajoute une règle de réseau virtuel à un espace de noms Service Bus. Pour la règle de réseau, elle spécifie l’ID d’un sous-réseau dans un réseau virtuel. 
 
-Paramètres du modèle :
+L’ID est un chemin d’accès complet Resource Manager pour le sous-réseau de réseau virtuel. Par exemple, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
 
-* **namespaceName** : espace de noms Service Bus.
-* **virtualNetworkingSubnetId** : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
-
-> [!NOTE]
-> Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
-> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier **_defaultAction_**
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Lorsque vous ajoutez des règles de réseau virtuel ou de pare-feu, affectez la valeur `defaultAction` à `Deny`.
 
 Modèle :
 
@@ -211,6 +198,9 @@ Modèle :
 ```
 
 Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> S’il n’existe aucune règle d’adresse IP et de réseau virtuel, tout le trafic transite dans l’espace de noms, même si vous définissez `defaultAction` sur `deny`.  L’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

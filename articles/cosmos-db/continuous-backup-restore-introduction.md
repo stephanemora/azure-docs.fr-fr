@@ -8,12 +8,12 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538843"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393137"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Sauvegarde continue avec la fonctionnalité de limite de restauration dans le temps (préversion) dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans conso
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Sauvegarde des données Azure Cosmos DB dans Stockage Blob Azure." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-La fenêtre de temps disponible pour la restauration (également appelée période de conservation) est la valeur inférieure parmi les deux éléments suivants : « 30 jours auparavant à partir de maintenant » ou « Jusqu’à l’heure de création de la ressource ». La limite de restauration dans le temps peut correspondre à n’importe quel horodatage durant la période de conservation.
+La fenêtre de temps disponible pour la restauration (également appelée période de conservation) est la valeur inférieure parmi les deux éléments suivants :  *30 jours auparavant à partir de maintenant* ou *Jusqu’à l’heure de création de la ressource*. La limite de restauration dans le temps peut correspondre à n’importe quel horodatage durant la période de conservation.
 
 En préversion publique, vous pouvez restaurer le contenu d’un compte Azure Cosmos DB pour API SQL ou MongoDB à un instant dans le passé vers un autre compte à l’aide du [portail Azure](continuous-backup-restore-portal.md), de l’[interface de ligne de commande Azure](continuous-backup-restore-command-line.md) (Azure CLI), d’[Azure PowerShell](continuous-backup-restore-powershell.md)ou d’[Azure Resource Manager](continuous-backup-restore-template.md).
 
@@ -59,17 +59,18 @@ Vous pouvez ajouter ces configurations au compte restauré une fois la restaurat
 
 ## <a name="restore-scenarios"></a>Scénarios de restauration
 
-Voici quelques-uns des principaux scénarios qui sont traités par la fonctionnalité de limite de restauration dans le temps. Les scénarios [a] à [c] montrent comment déclencher une restauration si l’horodatage de la restauration est connu au préalable. Toutefois, il existe des scénarios dans lesquels vous ne connaissez pas l’heure exacte de la suppression ou de l’altération accidentelle des données. Les scénarios [d] et [e] montrent comment _découvrir_ l’horodatage de la restauration à l’aide des nouvelles API de flux d’événements sur la base de données ou les conteneurs pouvant être restaurés.
+Voici quelques-uns des principaux scénarios qui sont traités par la fonctionnalité de limite de restauration dans le temps. Les scénarios [a] à [c] montrent comment déclencher une restauration si l’horodatage de la restauration est connu au préalable.
+Toutefois, il existe des scénarios dans lesquels vous ne connaissez pas l’heure exacte de la suppression ou de l’altération accidentelle des données. Les scénarios [d] et [e] montrent comment _découvrir_ l’horodatage de la restauration à l’aide des nouvelles API de flux d’événements sur la base de données ou les conteneurs pouvant être restaurés.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Événements de cycle de vie avec horodatages pour un compte pouvant être restauré." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Restaurer le compte supprimé** : tous les comptes supprimés que vous pouvez restaurer sont visibles dans le volet **Restaurer**. Par exemple, si le « Compte A » est supprimé à l’horodatage T3. Dans ce cas, l’horodatage juste avant T3, l’emplacement, le nom du compte cible, le groupe de ressources et le nom du compte cible sont suffisants pour effectuer une restauration à partir du [portail Azure](continuous-backup-restore-portal.md#restore-deleted-account), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’interface [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
+a. **Restaurer le compte supprimé** : tous les comptes supprimés que vous pouvez restaurer sont visibles dans le volet **Restaurer**. Par exemple, si le *Compte A* est supprimé à l’horodatage T3. Dans ce cas, l’horodatage juste avant T3, l’emplacement, le nom du compte cible, le groupe de ressources et le nom du compte cible sont suffisants pour effectuer une restauration à partir du [portail Azure](continuous-backup-restore-portal.md#restore-deleted-account), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’interface [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Événements de cycle de vie avec horodatages pour une base de données et un conteneur pouvant être restaurés." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Restaurez les données d’un compte dans une région particulière** : par exemple, si le « Compte A » existe dans deux régions « USA Est » et « USA Ouest » à l’horodatage T3. Si vous avez besoin d’une copie du compte A dans « USA Ouest », vous pouvez effectuer une restauration à un instant dans le passé à partir du [portail Azure](continuous-backup-restore-portal.md), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’interface [CLI](continuous-backup-restore-command-line.md#trigger-restore) avec USA Ouest comme emplacement cible.
+b. **Restaurez les données d’un compte dans une région particulière** : par exemple, si le *Compte A »* existe dans deux régions *USA Est* et *USA Ouest* à l’horodatage T3. Si vous avez besoin d’une copie du compte A dans *USA Ouest*, vous pouvez effectuer une restauration à un instant dans le passé à partir du [portail Azure](continuous-backup-restore-portal.md), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’[interface CLI](continuous-backup-restore-command-line.md#trigger-restore) avec USA Ouest comme localisation cible.
 
-c. **Récupérer à partir d’une opération d’écriture ou de suppression accidentelle dans un conteneur avec un horodatage de restauration connu** : par exemple, si vous **savez** que le contenu du « Conteneur 1 » dans la « Base de données 1 » a été modifié accidentellement à l’horodatage T3. Vous pouvez effectuer une restauration à un instant dans le passé à partir du [portail Azure](continuous-backup-restore-portal.md#restore-live-account), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’interface [CLI](continuous-backup-restore-command-line.md#trigger-restore) dans un autre compte à l’horodatage T3 pour récupérer l’état souhaité du conteneur.
+c. **Récupérer à partir d’une opération d’écriture ou de suppression accidentelle dans un conteneur avec un horodatage de restauration connu** : par exemple, si vous **savez** que le contenu du *Conteneur 1* dans la *Base de données 1* a été modifié accidentellement à l’horodatage T3. Vous pouvez effectuer une restauration à un instant dans le passé à partir du [portail Azure](continuous-backup-restore-portal.md#restore-live-account), de [PowerShell](continuous-backup-restore-powershell.md#trigger-restore) ou de l’interface [CLI](continuous-backup-restore-command-line.md#trigger-restore) dans un autre compte à l’horodatage T3 pour récupérer l’état souhaité du conteneur.
 
 d. **Restaurer un compte à un instant dans le passé avant la suppression accidentelle de la base de données** : dans le [portail Azure](continuous-backup-restore-portal.md#restore-live-account), vous pouvez utiliser le volet de flux d’événements pour déterminer quand une base de données a été supprimée et rechercher l’heure de la restauration. Avec l’interface [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) et [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), vous pouvez également découvrir l’événement de suppression de la base de données en énumérant le flux des événements de la base de données, puis déclencher la commande de restauration avec les paramètres requis.
 
@@ -81,7 +82,7 @@ Azure Cosmos DB vous permet d’isoler et de restreindre les autorisations de r
 
 ## <a name="pricing"></a><a id="continuous-backup-pricing"></a>Tarifs
 
-Les comptes Azure Cosmos DB pour lesquels la sauvegarde en continu est activée entraînent des frais mensuels supplémentaires pour « stocker la sauvegarde » et « restaurer vos données ». Le coût de restauration est ajouté chaque fois que l’opération de restauration est lancée. Si vous configurez un compte avec la sauvegarde continue, mais que vous ne restaurez pas les données, seul le coût de stockage de la sauvegarde est facturé.
+Les comptes Azure Cosmos DB pour lesquels la sauvegarde en continu est activée entraînent des frais mensuels supplémentaires pour *stocker la sauvegarde* et *restaurer vos données*. Le coût de restauration est ajouté chaque fois que l’opération de restauration est lancée. Si vous configurez un compte avec la sauvegarde continue, mais que vous ne restaurez pas les données, seul le coût de stockage de la sauvegarde est facturé.
 
 L’exemple suivant se base sur le prix d’un compte Azure Cosmos déployé dans une région non gouvernementale aux États-Unis. Le tarif et le calcul varient en fonction de la région. Pour connaître les dernières informations tarifaires, consultez la [page des tarifs Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 

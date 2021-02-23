@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833977"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094965"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Résoudre les problèmes avec le portail Mes applications
 
@@ -31,9 +31,9 @@ Si vous n’arrivez pas à installer l’extension de connexion sécurisée à M
 
     - **Microsoft Edge.** Sur Windows 10 Édition anniversaire ou version ultérieure.
 
-    - **Google Chrome.** Sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
+    - **Google Chrome.** Sur Windows 7 ou version ultérieure, et sur macOS X ou version ultérieure.
 
-    - **Mozilla Firefox 26.0 ou version ultérieure.** Sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
+    - **Mozilla Firefox 26.0 ou version ultérieure.** Sur Windows XP SP2 ou version ultérieure, et sur macOS X 10.6 ou version ultérieure.
 
     - **Internet Explorer 11.** Sur Windows 7 ou version ultérieure (prise en charge limitée).
 
@@ -46,6 +46,11 @@ Si vous n’arrivez pas à installer l’extension de connexion sécurisée à M
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Je n’arrive pas à me connecter au portail **Mes applications**
 
 Si vous ne parvenez pas à vous connecter au portail **Mes applications**, vous pouvez essayer ce qui suit :
+
+- Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+
+   - https://myapplications.microsoft.com?tenantId=*votre_nom_de_domaine*
+   - https://myapplications.microsoft.com?tenant=*votre_ID_de_locataire*
 
 - Vérifiez que vous utilisez la bonne URL. Il doit s’agir de https://myapps.microsoft.com ou d’une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
 

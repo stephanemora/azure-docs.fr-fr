@@ -3,12 +3,12 @@ title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538922"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391386"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -25,7 +25,7 @@ Cet article décrit tous ces concepts.
 
 ## <a name="private-clouds"></a>Clouds privés
 
-Les clouds privés contiennent des clusters vSAN créés avec des hôtes Azure nus dédiés. Chaque cloud privé peut avoir plusieurs clusters gérés par les mêmes serveur vCenter et gestionnaire NSX-T. Vous pouvez déployer et gérer des clouds privés dans le portail, l’interface CLI ou PowerShell. 
+Les clouds privés contiennent des clusters vSAN créés avec des hôtes Azure nus dédiés. Chaque cloud privé peut avoir plusieurs clusters gérés par les mêmes serveur vCenter et NSX-T Manager. Vous pouvez déployer et gérer des clouds privés dans le portail, l’interface CLI ou PowerShell. 
 
 Comme avec d’autres ressources, les clouds privés sont installés et gérés à partir d’un abonnement Azure. Le nombre de clouds privés au sein d’un abonnement est évolutif. Au départ, il existe une limite d’un cloud privé par abonnement.
 
@@ -73,6 +73,7 @@ Maintenant que vous avez abordé les concepts de cloud privé d’Azure VMware S
 - [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
+[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838

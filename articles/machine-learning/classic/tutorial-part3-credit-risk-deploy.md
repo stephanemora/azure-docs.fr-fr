@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503904"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517380"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio (classique)
 
@@ -48,12 +48,12 @@ Effectuez la [deuxième partie du tutoriel](tutorial-part2-credit-risk-train.md)
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 Pour que d’autres personnes puissent utiliser le modèle prédictif que vous avez développé dans ce tutoriel, vous pouvez le déployer en tant que service web sur Azure.
 
-Jusqu’à présent, vous avez testé l’expérience de l’entraînement de votre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience ***d’entraînement** _ en expérience _*_prédictive_*_ 
+Jusqu’à présent, vous avez testé l’expérience de l’entraînement de votre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience d’***entraînement** _ en expérience _ *_prédictive_**. 
 
 La préparation pour le déploiement est un processus en trois étapes :  
 
 1. Supprimer l’un des modèles
-1. Convertir l’_expérience d’entraînement* que vous avez créée en *expérience prédictive*
+1. Convertir l’*expérience d’entraînement* que vous avez créée en *expérience prédictive*
 1. Déploiement de l’expérience prédictive sous la forme d’un service web
 
 ### <a name="remove-one-of-the-models"></a>Supprimer l’un des modèles

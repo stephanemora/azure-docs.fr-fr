@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les services d’app
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186369"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547229"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -75,7 +75,8 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Les versions suivantes d’ASP.NET Core sont prises en charge : ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0 et ASP.NET Core 3.1.
+> [!IMPORTANT]
+> Les versions suivantes d’ASP.NET Core sont prises en charge : ASP.NET Core 2.1 et 3.1. Les versions 2.0, 2.2 et 3.0 ont été supprimées et ne sont plus prises en charge. Effectuez une mise à niveau vers une [version prise en charge](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core pour que l’instrumentation automatique fonctionne.
 
 Le ciblage de l’infrastructure complète à partir d’ASP.NET Core, le déploiement autonome et les applications basées sur Linux ne sont actuellement **pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](./asp-net-core.md) avec le code peut être utilisée dans tous les scénarios précédents.)
 
@@ -90,7 +91,7 @@ Le ciblage de l’infrastructure complète à partir d’ASP.NET Core, le déplo
 
      ![Instrumenter votre application web](./media/azure-web-apps/create-resource-01.png)
 
-2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. ASP.NET Core propose les niveaux de collecte **Recommandé** ou **Désactivé** pour ASP.NET Core 2.1, 2.2, 3.0 et 3.1.
+2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. ASP.NET Core propose les niveaux de collecte **Recommandé** ou **Désactivé** pour ASP.NET Core 2.1 et 3.1.
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -419,6 +420,12 @@ Si vous souhaitez tester le monitoring côté client et côté serveur sans code
 ### <a name="connection-string-and-instrumentation-key"></a>Chaîne de connexion et clé d’instrumentation
 
 Lorsque l’analyse sans code est utilisée, seule la chaîne de connexion est requise. Toutefois, nous vous recommandons quand même de définir la clé d’instrumentation pour préserver la compatibilité descendante avec les versions antérieures du SDK lorsque l’instrumentation manuelle est exécutée.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Quelles sont les différence entre les métriques standard d’Application Insights et les métriques d’Azure App Service ?
+
+Application Insights collecte des données de télémétrie pour les requêtes qui les ont transmises à l’application. Si la défaillance s’est produite dans les applications WebApps/IIS et si la requête n’a pas atteint l’application utilisateur, Application Insights n’aura pas de télémétrie à son sujet.
+
+La durée de `serverresponsetime` calculée par Application Insights ne correspond pas nécessairement au temps de réponse du serveur observé par Web Apps. Cela est dû au fait qu’Application Insights compte uniquement la durée pendant laquelle la requête réelle atteint l’application utilisateur. Si la requête est bloquée/mise en file d’attente dans IIS, le temps d’attente sera inclus dans les métriques de WebApps, mais pas dans les métriques d’Application Insights.
 
 ## <a name="release-notes"></a>Notes de publication
 

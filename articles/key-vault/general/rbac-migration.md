@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288272"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526950"
 ---
-# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrer d’une stratégie d’accès de coffre vers un modèle d’autorisation de type contrôle d’accès en fonction du rôle Azure (préversion)
+# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>Migrer d’une stratégie d’accès de coffre vers un modèle d’autorisation de type contrôle d’accès en fonction du rôle Azure
 
 Le modèle de stratégie d’accès du coffre est un système d’autorisation existant intégré à Key Vault pour fournir l’accès aux clés, aux secrets et aux certificats. Vous pouvez contrôler l’accès en affectant des autorisations individuelles au principal de sécurité (utilisateur, groupe, principal du service, identité gérée) à l’échelle de Key Vault. 
 
-Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure. Azure RBAC pour la gestion des accès aux clés, secrets et certificats Key Vault est actuellement en préversion publique. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : principal de sécurité, définition de rôle (jeu prédéfini d’autorisations) et étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+Le contrôle d’accès en fonction du rôle (RBAC Azure) est un système d’autorisation basé sur [Azure Resource Manager](../../azure-resource-manager/management/overview.md), qui permet une gestion précise des accès des ressources Azure. Avec Azure RBAC, vous contrôlez l’accès aux ressources en créant des attributions de rôles, qui se composent de trois éléments : principal de sécurité, définition de rôle (jeu prédéfini d’autorisations) et étendue (groupe de ressources ou ressource individuelle). Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
 Avant de migrer vers Azure RBAC, il est important de comprendre ses avantages et ses limitations.
 
@@ -39,13 +39,14 @@ Inconvénients d’Azure RBAC :
 Azure RBAC a plusieurs rôles intégrés Azure que vous pouvez affecter aux utilisateurs, groupes, principaux de service et identités managées. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
 
 Rôles intégrés de Key Vault pour la gestion de l’accès aux clés, certificats et secrets :
-- Administrateur de Key Vault (préversion)
-- Lecteur de Key Vault (préversion)
-- Responsable de certificat de Key Vault (préversion)
-- Responsable du chiffrement de Key Vault (préversion)
-- Utilisateur de chiffrement de Key Vault (préversion)
-- Responsable des secrets de Key Vault (préversion)
-- Utilisateur de secrets de Key Vault (préversion)
+- Administrateur Key Vault
+- Lecteur Key Vault
+- Responsable de certificat de Key Vault
+- Agent de chiffrement Key Vault
+- Utilisateur de chiffrement Key Vault
+- Utilisateur du service de chiffrement de Key Vault
+- Agent des secrets Key Vault
+- Utilisateur des secrets Key Vault
 
 Pour plus d’informations sur les rôles intégrés existants, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md)
 
@@ -68,17 +69,17 @@ Modèles d’autorisation prédéfinis pour les stratégies d’accès :
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Mappage des modèles de stratégie d’accès aux rôles Azure
 | Modèle de stratégie d’accès | Operations | Rôle Azure |
 | --- | --- | --- |
-| Gestion des clés, des secrets et des certificats | Clés : toutes les opérations <br>Certificats : toutes les opérations<br>Secrets : toutes les opérations | Administrateur de Key Vault (préversion) |
-| Gestion des clés et des secrets | Clés : toutes les opérations <br>Secrets : toutes les opérations| Responsable du chiffrement de Key Vault (préversion)<br> Responsable des secrets de Key Vault (préversion)|
-| Gestion des secrets et des certificats | Certificats : toutes les opérations <br>Secrets : toutes les opérations| Responsable des certificats de Key Vault (préversion)<br> Responsable des secrets de Key Vault (préversion)|
-| Gestion de clés | Clés : toutes les opérations| Responsable du chiffrement de Key Vault (préversion)|
-| Gestion des secrets | Secrets : toutes les opérations| Responsable des secrets de Key Vault (préversion)|
-| Gestion de certificats | Certificats : toutes les opérations | Responsable des certificats de Key Vault (préversion)|
-| connecteur SQL Server | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Service de chiffrement de Key Vault (préversion)|
+| Gestion des clés, des secrets et des certificats | Clés : toutes les opérations <br>Certificats : toutes les opérations<br>Secrets : toutes les opérations | Administrateur Key Vault |
+| Gestion des clés et des secrets | Clés : toutes les opérations <br>Secrets : toutes les opérations| Agent de chiffrement Key Vault <br> Agent des secrets Key Vault |
+| Gestion des secrets et des certificats | Certificats : toutes les opérations <br>Secrets : toutes les opérations| Agent des certificats Key Vault <br> Agent des secrets Key Vault|
+| Gestion de clés | Clés : toutes les opérations| Agent de chiffrement Key Vault|
+| Gestion des secrets | Secrets : toutes les opérations| Agent des secrets Key Vault|
+| Gestion de certificats | Certificats : toutes les opérations | Agent des certificats Key Vault|
+| connecteur SQL Server | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
 | Azure Data Lake Storage ou Stockage Azure | Clés : obtenir, lister, désenvelopper la clé | N/A<br> Rôle personnalisé requis|
 | Sauvegarde Azure | Clés : obtenir, lister, sauvegarder<br> Certificat : obtenir, lister, sauvegarder | N/A<br> Rôle personnalisé requis|
-| Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Service de chiffrement de Key Vault (préversion)|
-| Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Service de chiffrement de Key Vault (préversion)|
+| Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
+| Clé client Exchange Online | Clés : obtenir, lister, inclure la clé, ne pas inclure la clé | Utilisateur du service de chiffrement de Key Vault|
 | Azure Information BYOK | Clés : obtenir, déchiffrer, signer | N/A<br>Rôle personnalisé requis|
 
 
@@ -102,10 +103,13 @@ En général, il est recommandé de disposer d’un coffre de clés par applicat
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Étapes de migration de stratégie d’accès du coffre vers Azure RBAC
 Il existe de nombreuses différences entre le modèle d’autorisation Azure RBAC et la stratégie d’accès du coffre. Pour éviter les pannes au cours de la migration, il est recommandé de suivre les étapes ci-dessous.
  
-1. **Identifiez et attribuez les rôles** : identifiez les rôles intégrés en fonction du tableau de mappage ci-dessus et créez des rôles personnalisés si nécessaire. Affectez des rôles aux étendues, en fonction des recommandations de mappage des étendues. Pour plus d’informations sur la façon d’attribuer des rôles à un coffre de clés, consultez [Fournir l’accès à Key Vault avec un contrôle d’accès en fonction du rôle Azure (préversion)](rbac-guide.md)
+1. **Identifiez et attribuez les rôles** : identifiez les rôles intégrés en fonction du tableau de mappage ci-dessus et créez des rôles personnalisés si nécessaire. Affectez des rôles aux étendues, en fonction des recommandations de mappage des étendues. Pour plus d’informations sur la façon d’attribuer des rôles à un coffre de clés, consultez [Fournir l’accès à Key Vault avec un contrôle d’accès en fonction du rôle Azure](rbac-guide.md)
 1. **Validez l’attribution des rôles** : la propagation des attributions de rôles dans Azure RBAC peut prendre plusieurs minutes. Pour savoir comment vérifier les attributions de rôles, consultez [Répertorier les affectations de rôles dans l’étendue](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
 1. **Configurez la surveillance et les alertes sur le coffre de clés** : il est important d’activer la journalisation et les alertes de configuration pour les exceptions de refus d’accès. Pour plus d’informations, consultez [Surveillance et alertes Azure Key Vault](./alert.md)
 1. **Définissez le modèle d’autorisation de contrôle d’accès en fonction du rôle Azure sur Key Vault** : l’activation du modèle d’autorisation Azure RBAC invalidera toutes les stratégies d’accès existantes. En cas d’erreur, le modèle d’autorisation peut être rétabli avec toutes les stratégies d’accès existantes inchangées.
+
+> [!NOTE]
+> La modification du modèle d’autorisation nécessite l’autorisation « Microsoft.Authorization/roleAssignments/write », qui fait partie des rôles [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) et [Administrateur de l'accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Les rôles Administrateur d’abonnement classiques tels que « Administrateur de service » et « Coadministrateur » ne sont pas pris en charge.
 
 > [!NOTE]
 > Lorsque le modèle d’autorisation RBAC Azure est activé, tous les scripts qui tentent de mettre à jour les stratégies d’accès échouent. Il est important de mettre à jour ces scripts pour utiliser Azure RBAC.

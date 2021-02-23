@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/24/2020
+ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 2af63997f9ea74dfce184639d2fedb42d354fb39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5d61c2a1a0f5d7b26809621af6dfa88cf5080320
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077573"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518179"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Connexion SSH à une machine virtuelle Linux à l'aide d'Azure Bastion
 
@@ -49,37 +49,57 @@ Pour vous connecter à la machine virtuelle Linux par le biais du protocole SSH,
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 
-   ![Capture d’écran montrant la vue d’ensemble d’une machine virtuelle dans le Portail Azure avec l’option Se connecter sélectionnée.](./media/bastion-connect-vm-ssh/connect.png)
-1. Quand vous cliquez sur Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Capture d’écran montrant la vue d’ensemble d’une machine virtuelle dans le Portail Azure avec l’option Se connecter sélectionnée":::
+1. Quand vous sélectionnez Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
 
-   ![Capture d’écran montrant la boîte de dialogue Se connecter à une machine virtuelle avec l’option BASTION sélectionnée.](./media/bastion-connect-vm-ssh/bastion.png)
+   :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="Capture d’écran montrant la boîte de dialogue Se connecter à une machine virtuelle avec l’option BASTION sélectionnée":::
 1. Entrez le nom d’utilisateur et le mot de passe pour le protocole SSH vers votre machine virtuelle.
-1. Cliquez sur le bouton **Se connecter** après avoir entré la clé.
+1. Sélectionnez le bouton **Se connecter** après avoir entré la clé.
 
 ## <a name="connect-manually-enter-a-private-key"></a><a name="privatekey"></a>Connexion : Entrez manuellement une clé privée
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 
-   ![Capture d’écran montrant la vue d’ensemble d’une machine virtuelle dans le Portail Azure avec l’option Se connecter sélectionnée.](./media/bastion-connect-vm-ssh/connect.png)
-1. Quand vous cliquez sur Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Capture d’écran montrant la vue d’ensemble d’une machine virtuelle dans le Portail Azure avec l’option Se connecter sélectionnée":::
+1. Quand vous sélectionnez Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
 
-   ![Capture d’écran montrant la boîte de dialogue Se connecter à une machine virtuelle avec l’option BASTION sélectionnée.](./media/bastion-connect-vm-ssh/bastion.png)
+   :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="Boîte de dialogue Se connecter à une machine virtuelle avec l’option BASTION sélectionnée.":::
 1. Entrez le nom d’utilisateur, puis sélectionnez **Clé privée SSH**.
 1. Entrez votre clé privée dans la zone de texte **Clé privée SSH** (ou collez-la directement).
-1. Cliquez sur le bouton **Se connecter** après avoir entré la clé.
+1. Sélectionnez le bouton **Se connecter** après avoir entré la clé.
 
 ## <a name="connect-using-a-private-key-file"></a><a name="ssh"></a>Connexion : Utilisation d’un fichier de clé privée
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
 
-   ![Capture d’écran montrant la vue d’ensemble d’une machine virtuelle dans le Portail Azure avec l’option Se connecter sélectionnée.](./media/bastion-connect-vm-ssh/connect.png)
-1. Quand vous cliquez sur Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
+   :::image type="content" source="./media/bastion-connect-vm-ssh/connect.png" alt-text="Se connecter sélectionnée":::
+1. Quand vous sélectionnez Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](./tutorial-create-host-portal.md).
 
-   ![Capture d’écran montrant la boîte de dialogue Se connecter à une machine virtuelle avec l’option BASTION sélectionnée.](./media/bastion-connect-vm-ssh/bastion.png)
+   :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="BASTION sélectionnée.":::
 1. Entrez le nom d’utilisateur, puis sélectionnez **SSH Private Key from Local File (Clé privée SSH provenant du fichier local)** .
-1. Cliquez sur le bouton **Parcourir** (icône de dossier dans le fichier local).
-1. Recherchez le fichier, puis cliquez sur **Ouvrir**.
-1. Cliquez sur **Se connecter** pour vous connecter à la machine virtuelle. Une fois que vous avez cliqué sur Se connecter, le protocole SSH vers cette machine virtuelle s’ouvre directement dans le portail Azure. La connexion s’effectue au moyen du protocole HTML5 sur le port 443 du service Bastion, sur l’adresse IP privée de votre machine virtuelle.
+1. Sélectionnez bouton **Parcourir** (icône de dossier dans le fichier local).
+1. Recherchez le fichier, puis sélectionnez **Ouvrir**.
+1. Sélectionnez **Se connecter** pour vous connecter à la machine virtuelle. Une fois que vous avez cliqué sur Se connecter, le protocole SSH vers cette machine virtuelle s’ouvre directement dans le portail Azure. La connexion s’effectue au moyen du protocole HTML5 sur le port 443 du service Bastion, sur l’adresse IP privée de votre machine virtuelle.
+
+## <a name="connect-using-a-private-key-stored-in-azure-key-vault"></a><a name="akv"></a>Connexion : utilisation d’une clé privée stockée dans Azure Key Vault
+
+>[!NOTE]
+>La mise à jour du portail pour cette fonctionnalité est en cours de déploiement dans les régions.
+>
+
+1. Ouvrez le [portail Azure](https://portal.azure.com). Accédez à la machine virtuelle à laquelle vous souhaitez vous connecter, puis cliquez sur **Se connecter** et sélectionnez **Bastion** dans la liste déroulante.
+1. Quand vous sélectionnez Bastion, une barre latérale s’affiche avec trois onglets : RDP, SSH et Bastion. Si le service Bastion a été approvisionné pour le réseau virtuel, l’onglet Bastion est actif par défaut. Si vous n’avez pas configuré Bastion pour le réseau virtuel, consultez [Configure Bastion (Configurer Bastion)](bastion-create-host-portal.md).
+
+   :::image type="content" source="./media/bastion-connect-vm-ssh/bastion.png" alt-text="Onglet Bastion":::
+1. Entrez le nom d’utilisateur, puis sélectionnez **SSH Private Key from Azure Key Vault (Clé privée SSH provenant d’Azure Key Vault)** .
+1. Sélectionnez la liste déroulante **Azure Key Vault**, puis la ressource dans laquelle vous avez stocké votre clé privée SSH. Si vous n’avez pas configuré de ressource Azure Key Vault, consultez [Création d’un coffre de clés](../key-vault/general/quick-create-portal.md), puis stockez votre clé privée SSH comme valeur d’un nouveau secret Key Vault.
+
+   :::image type="content" source="./media/bastion-connect-vm-ssh/key-vault.png" alt-text="Azure Key Vault":::
+
+Assurez-vous que vous disposez des accès **List** et **Get** aux secrets stockés dans la ressource Key Vault. Pour affecter et modifier des stratégies d’accès pour votre ressource Key Vault, consultez [Attribuer une stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md).
+
+1. Sélectionnez la liste déroulante **Secret Azure Key Vault**, puis le secret Key Vault contenant la valeur de votre clé privée SSH.
+1. Sélectionnez **Se connecter** pour vous connecter à la machine virtuelle. Une fois que vous avez cliqué sur Se connecter, le protocole SSH vers cette machine virtuelle s’ouvre directement dans le portail Azure. La connexion s’effectue au moyen du protocole HTML5 sur le port 443 du service Bastion, sur l’adresse IP privée de votre machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

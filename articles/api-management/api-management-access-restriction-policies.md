@@ -7,14 +7,14 @@ author: vladvino
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.topic: article
-ms.date: 11/23/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 0b18a73d0357b5dd90b329ba55c6601e60df5bbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683447"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367569"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -22,7 +22,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ## <a name="access-restriction-policies"></a><a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès
 
--   [Check HTTP header](#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
+-   [Check HTTP header](#CheckHTTPHeader) : applique l’existence et/ou la valeur d’un en-tête HTTP.
 -   [Limit call rate by subscription](#LimitCallRate) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par abonnement.
 -   [Limit call rate by key](#LimitCallRateByKey) : empêche les pics d’utilisation de l’API en limitant le débit d’appels par clé.
 -   [Restrict caller IPs](#RestrictCallerIPs) : filtre (autorise/rejette) les appels de certaines adresses IP spécifiques et/ou de certaines plages d’adresses.
@@ -80,7 +80,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a> Limit call rate by subscription
 
-La stratégie `rate-limit` évite les pics d’utilisation des API par abonnement en limitant le débit d’appels à un nombre spécifié pour une période donnée. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.
+La stratégie `rate-limit` évite les pics d’utilisation des API par abonnement en limitant le débit d’appels à un nombre spécifié pour une période donnée. Lorsque le débit d’appels est atteint, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.
 
 > [!IMPORTANT]
 > Cette stratégie ne peut être utilisée qu’une seule fois par document de stratégie.
@@ -98,18 +98,25 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
     <api name="API name" id="API id" calls="number" renewal-period="seconds" />
-        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
+        retry-after-header-name="header name" 
+        retry-after-variable-name="policy expression variable name"
+        remaining-calls-header-name="header name"  
+        remaining-calls-variable-name="policy expression variable name"
+        total-calls-header-name="header name"/>
     </api>
 </rate-limit>
 ```
 
 ### <a name="example"></a>Exemple
 
+Dans l’exemple suivant, la limite de débit par abonnement est de 20 appels par 90 secondes. Après chaque exécution de stratégie, les appels restants autorisés durant la période sont stockés dans la variable `remainingCallsPerSubscription`.
+
 ```xml
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="20" renewal-period="90" />
+        <rate-limit calls="20" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription"/>
     </inbound>
     <outbound>
         <base />
@@ -131,7 +138,12 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nom de l’API à laquelle la limite de débit s’applique.                                                | Oui      | N/A     |
 | calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
-| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                              | Oui      | N/A     |
+| renewal-period | Période en secondes après laquelle le débit est réinitialisé.                                              | Oui      | N/A     |
+| retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
+| retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
+| remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
+| remaining-calls-variable-name    | Nom d’une variable d’expression de stratégie qui, après l’exécution de chaque stratégie, stocke le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
+| total-calls-header-name    | Nom d’un en-tête de réponse dont la valeur est la valeur spécifiée dans `calls`. |  Non | N/A  |
 
 ### <a name="usage"></a>Usage
 
@@ -146,7 +158,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** du service Gestion des API.
 
-La stratégie `rate-limit-by-key` évite les pics d’utilisation des API par clé en limitant le débit d’appels à un nombre spécifié pour une période donnée. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans la limite. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.
+La stratégie `rate-limit-by-key` évite les pics d’utilisation des API par clé en limitant le débit d’appels à un nombre spécifié pour une période donnée. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans la limite. Lorsque ce débit d’appels est dépassé, l’appelant reçoit le code d’état de réponse `429 Too Many Requests`.
 
 Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](./api-management-sample-flexible-throttling.md).
 
@@ -162,13 +174,16 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez la pa
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
-                   counter-key="key value" />
+                   counter-key="key value" 
+                   retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
+                   remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
+                   total-calls-header-name="header name"/> 
 
 ```
 
 ### <a name="example"></a>Exemple
 
-Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de l’appelant.
+Dans l’exemple suivant, la limite de débit de 10 appels par 60 secondes est indexée par l’adresse IP de l’appelant. Après chaque exécution de stratégie, les appels restants autorisés durant la période sont stockés dans la variable `remainingCallsPerIP`.
 
 ```xml
 <policies>
@@ -177,7 +192,8 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
         <rate-limit-by-key  calls="10"
               renewal-period="60"
               increment-condition="@(context.Response.StatusCode == 200)"
-              counter-key="@(context.Request.IpAddress)"/>
+              counter-key="@(context.Request.IpAddress)"
+              remaining-calls-variable-name="remainingCallsPerIP"/>
     </inbound>
     <outbound>
         <base />
@@ -197,8 +213,13 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
 | counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | Oui      | N/A     |
-| increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).        | Non       | N/A     |
-| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                              | Oui      | N/A     |
+| increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le débit (`true`).        | Non       | N/A     |
+| renewal-period      | Période en secondes après laquelle le débit est réinitialisé.                                              | Oui      | N/A     |
+| retry-after-header-name    | Nom d’un en-tête de réponse dont la valeur est l’intervalle de tentative recommandé en secondes après dépassement du débit d’appels spécifié. |  Non | N/A  |
+| retry-after-variable-name    | Nom d’une variable d’expression de stratégie qui stocke l’intervalle de tentative recommandé, en secondes, après dépassement du débit d’appels spécifié. |  Non | N/A  |
+| remaining-calls-header-name    | Le nom d’un en-tête de réponse dont la valeur après chaque exécution de stratégie est le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
+| remaining-calls-variable-name    | Nom d’une variable d’expression de stratégie qui, après l’exécution de chaque stratégie, stocke le nombre d’appels restants autorisés pour l’intervalle de temps spécifié dans le `renewal-period`. |  Non | N/A  |
+| total-calls-header-name    | Nom d’un en-tête de réponse dont la valeur est la valeur spécifiée dans `calls`. |  Non | N/A  |
 
 ### <a name="usage"></a>Usage
 
@@ -319,7 +340,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 > [!IMPORTANT]
 > Cette fonctionnalité n’est pas disponible dans le niveau **Consommation** du service Gestion des API.
 
-La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota. Si plusieurs stratégies incrémentent la même valeur de clé, celle-ci est incrémentée une seule fois par demande. Quand la limite d’appels est atteinte, l’appelant reçoit le code d’état de réponse `403 Forbidden`.
+La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota. Si plusieurs stratégies incrémentent la même valeur de clé, celle-ci est incrémentée une seule fois par demande. Lorsque le débit d’appels est atteint, l’appelant reçoit le code d’état de réponse `403 Forbidden`.
 
 Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](./api-management-sample-flexible-throttling.md).
 

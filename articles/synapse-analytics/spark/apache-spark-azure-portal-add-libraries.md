@@ -2,29 +2,29 @@
 title: Gérer des bibliothèques pour Apache Spark
 description: Découvrez comment ajouter et gérer des bibliothèques utilisées par Apache Spark dans Azure Synapse Analytics.
 services: synapse-analytics
-author: euangMS
+author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0458fb8b140166b7bdf0fc0df41dbb207fdce3c9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458816"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518519"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 
-Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. Pour que vos applications disposent d’un code tiers ou généré en local, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
+Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. Pour que vos applications disposent d’un code tiers ou généré localement, vous pouvez installer une bibliothèque sur l’un de vos pools Apache Spark serverless. Une fois qu’une bibliothèque est installée pour un pool Spark, elle est disponible pour toutes les sessions utilisant le même pool. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 - Pour installer et mettre à jour des bibliothèques, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.
   
 ## <a name="default-installation"></a>Installation par défaut
-Apache Spark dans Azure Synapse Analytics propose une installation complète d’Anacondas, ainsi que de bibliothèques supplémentaires. Pour la liste complète des bibliothèques, consultez la [prise en charge des versions d’Apache Spark](apache-spark-version-support.md). 
+Apache Spark dans Azure Synapse Analytics propose une installation complète d’Anacondas, ainsi que des bibliothèques supplémentaires. Pour la liste complète des bibliothèques, consultez la [prise en charge des versions d’Apache Spark](apache-spark-version-support.md). 
 
 Lors du démarrage d’une instance Spark, ces bibliothèques sont automatiquement incluses. Vous pouvez ajouter des packages Python et des packages personnalisés supplémentaires au niveau du pool Spark.
 
@@ -32,13 +32,15 @@ Lors du démarrage d’une instance Spark, ces bibliothèques sont automatiqueme
 ## <a name="manage-python-packages"></a>Gérer les packages Python
 Une fois que vous avez identifié les bibliothèques que vous souhaitez utiliser pour votre application Spark, vous pouvez les installer dans un pool Spark. 
 
- Un fichier *requirements.txt* (sortie de la commande `pip freeze`) permet de mettre à niveau l’environnement virtuel. Les packages répertoriés dans ce fichier pour l’installation ou la mise à niveau sont téléchargés à partir de PyPi au moment du démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark.
+ Un fichier *requirements.txt* (sortie de la commande `pip freeze`) permet de mettre à niveau l’environnement virtuel. Les packages qui sont listés dans ce fichier pour l’installation ou la mise à niveau sont téléchargés à partir de PyPI au moment du démarrage du pool. Ce fichier de configuration requise est utilisé chaque fois qu’une instance Spark est créée à partir de ce pool Spark.
 
 > [!IMPORTANT]
 > - Si le package que vous installez est volumineux ou si son installation prend beaucoup de temps, cela affecte le temps de démarrage de l’instance Spark.
 > - Les packages qui requièrent une prise en charge par le compilateur au moment de l’installation, tels que GCC, ne sont pas pris en charge.
 > - Il n’est pas possible de ramener les packages à une version antérieure, mais uniquement de les ajouter ou de les mettre à niveau.
-> - Pour installer des bibliothèques, vous devez disposer des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Synapse.
+> - La modification de la version de PySpark, Python, Scala/Java, .NET ou Spark n’est pas prise en charge.
+> - L’installation de packages à partir de PyPI n’est pas prise en charge dans les espaces de travail DEP.
+
 
 ### <a name="requirements-format"></a>Format de la configuration requise
 
@@ -53,6 +55,9 @@ alabaster==0.7.10
 ### <a name="install-python-packages"></a>Installer des packages Python
 Lorsque vous développez votre application Spark, vous pouvez être amené à mettre à jour des bibliothèques existantes ou à en installer. Les bibliothèques peuvent être mises à jour pendant ou après la création du pool.
 
+> [!IMPORTANT]
+> Pour installer des bibliothèques, vous devez disposer des autorisations Contributeur aux données Blob du stockage ou Propriétaire des données Blob du stockage sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Synapse.
+
 #### <a name="install-packages-during-pool-creation"></a>Installer des packages lors de la création du pool
 Pour installer des bibliothèques dans un pool Spark pendant la création du pool :
    
@@ -66,7 +71,7 @@ Pour installer des bibliothèques dans un pool Spark pendant la création du poo
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Installer des packages à partir de l’espace de travail Synapse
-Pour mettre à jour ou ajouter des bibliothèques supplémentaires à un pool Spark à partir du portail Azure Synapse Analytics :
+Pour mettre à jour ou ajouter des bibliothèques à un pool Spark à partir du portail Azure Synapse Analytics :
 
 1.  Accédez à votre espace de travail Azure Synapse Analytics à partir du portail Azure.
    
@@ -101,7 +106,7 @@ for d in pkg_resources.working_set:
      print(d)
 ```
 ### <a name="update-python-packages"></a>Mettre à jour les packages Python
-Les packages peuvent être ajoutés ou modifiés à tout moment entre les sessions. Lors du chargement d’un nouveau fichier de configuration de package, les packages et versions existants sont remplacés.  
+Les packages peuvent être ajoutés ou modifiés à tout moment entre les sessions. Un nouveau fichier de configuration de package remplacera les packages et versions existants.  
 
 Pour mettre à jour ou désinstaller une bibliothèque :
 1. Accédez à votre espace de travail Azure Synapse Analytics. 
@@ -131,6 +136,8 @@ Les fichiers doivent être téléchargés vers le chemin d’accès suivant dans
 ```
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
+
+Vous devrez peut-être ajouter le dossier ```python``` dans le dossier ```libraries``` s’il ne s’y trouve pas déjà.
 
 >[!IMPORTANT]
 >Des packages personnalisés peuvent être ajoutés ou modifiés entre les sessions. Toutefois, vous devrez attendre le redémarrage du pool et de la session pour voir le package mis à jour.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104357"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381526"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de Stockage Blob Azure pour Azure Functions
 
@@ -34,6 +34,13 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 | Script C#, Java, JavaScript, Python, PowerShell | L’inscription du [bundle d’extensions]          | Il est recommandé d’utiliser l’[extension Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) avec Visual Studio Code. |
 | Script C# (en ligne uniquement dans le portail Azure)         | Ajout d’une liaison                            | Pour mettre à jour des extensions de liaison existantes sans avoir à republier votre application de fonction, voir [Mettre à jour vos extensions]. |
 
+#### <a name="storage-extension-5x-and-higher"></a>Extension Stockage 5.x et ultérieur
+
+Une nouvelle version de l’extension de liaisons de Stockage est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](./functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez effectuer une liaison, en remplaçant les types de `WindowsAzure.Storage` et `Microsoft.Azure.Storage` par des types plus récents de [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs).
+
+> [!NOTE]
+> Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].
+
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
 [Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
@@ -45,6 +52,28 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 Les applications Functions 1.x ont automatiquement une référence au package NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 2.x.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+## <a name="hostjson-settings"></a>Paramètres host.json
+
+> [!NOTE]
+> Cette section ne s’applique pas lors de l’utilisation de versions d’extension antérieures à 5.0.0. Pour ces versions, il n’existe aucun paramètre de configuration global pour les blobs.
+
+Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison lors de l’utilisation des [extensions versions 5.0.0 et ultérieures](#storage-extension-5x-and-higher). L’exemple de fichier *host.json* ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions de Functions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "blobs": {
+            "maxDegreeOfParallelism": "4"
+        }
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------|
+|maxDegreeOfParallelism|8 * (nombre de mémoires à tores magnétiques)|Nombre entier d’appels simultanés autorisés pour chaque fonction déclenchée par un objet blob. La valeur minimale autorisée est de 1.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

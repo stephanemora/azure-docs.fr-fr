@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165142"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365818"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -299,6 +299,11 @@ Les modifications d’UPN sont prises en charge avec la mise à jour Windows 10
 - Pour les appareils Azure AD inscrits sur Windows 10, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. L’inscription de l’appareil est par profil utilisateur sur Windows 10.
 - Pour iOS et Android, vous pouvez utiliser l’application Microsoft Authenticator et aller dans **Paramètres** > **Inscription de l’appareil** et sélectionnez **Désinscrire l’appareil**.
 - Pour macOS, vous pouvez utiliser l’application Portail d’entreprise Microsoft Intune pour annuler l’inscription de l’appareil à partir de la gestion et supprimer toute inscription. 
+
+Pour les appareils Windows 10, ce processus peut être automatisé à l’aide de l’[outil de suppression Workplace Join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip).
+
+> [!NOTE]
+> Cet outil supprime tous les comptes d’authentification unique sur l’appareil. Après cette opération, toutes les applications perdent l’état SSO et l’appareil est désinscrit des outils de gestion (MDM) et désinscrit du cloud. La prochaine fois qu’une application tentera de se connecter, les utilisateurs seront invités à rajouter le compte.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>Q : Comment empêcher les utilisateurs d’ajouter des comptes professionnels supplémentaires (inscrits auprès d’Azure AD) sur mes appareils Windows 10 d’entreprise ?

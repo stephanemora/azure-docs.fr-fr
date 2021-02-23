@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557843"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -27,9 +27,9 @@ Cet article décrit l’inscription d’application, les objets application et l
 ## <a name="application-registration"></a>Inscription de l’application
 Afin de pouvoir déléguer les fonctions de gestion des identités et des accès, une application doit être inscrite auprès d’un [client](developer-glossary.md#tenant) Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous créez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer avec Azure AD. Quand vous inscrivez une application dans le [portail Azure][AZURE-Portal], vous choisissez s’il s’agit d’une application monolocataire (accessible uniquement dans votre locataire) ou multilocataire (accessible dans d’autres locataires). De plus, vous pouvez éventuellement définir un URI de redirection (auquel le jeton d’accès est envoyé).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Capture d’écran du volet Enregistrer une application du Portail Azure":::
+Pour obtenir des instructions pas à pas sur l’inscription d’une application, consultez le [guide de démarrage rapide relatif à l’inscription des applications](quickstart-register-app.md).
 
-Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application (objet application) qui réside dans votre locataire ou annuaire de base.  Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client).  Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
+Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application ([objet application](#application-object)) qui réside dans votre locataire ou annuaire de base.  Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client).  Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
 
 Si vous inscrivez une application dans le portail, un objet application et un objet principal de service sont automatiquement créés dans votre locataire de base.  Si vous inscrivez/créez une application à l’aide des API Microsoft Graph, la création de l’objet principal de service est une étape distincte.
 

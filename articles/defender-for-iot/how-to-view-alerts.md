@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509066"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523666"
 ---
 # <a name="view-alerts"></a>Afficher les alertes
 
@@ -24,7 +24,7 @@ Vous pouvez également consulter les alertes à partir du tableau de bord du cap
 
 Pour examiner les alertes :
 
-- Sélectionnez **Alertes** dans le menu latéral. La fenêtre **Alertes** affiche les alertes détectées par votre capteur.
+- Sélectionnez **Alertes** dans le menu latéral. La fenêtre Alertes affiche les alertes détectées par votre capteur.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Affichage de l’écran Alertes.":::
 
@@ -42,21 +42,21 @@ Vous pouvez afficher les alertes selon différentes catégories à partir de la 
 
 ## <a name="search-for-alerts-of-interest"></a>Rechercher des alertes d’intérêt
 
-La vue principale **Alertes** fournit diverses fonctionnalités de recherche pour vous aider à trouver les alertes qui vous intéressent.
+La vue principale Alertes fournit diverses fonctionnalités de recherche pour vous aider à trouver les alertes qui vous intéressent.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Capture d’écran des alertes en mode apprentissage.":::
 
-### <a name="text-search"></a>Recherche de texte 
+### <a name="text-search"></a>Recherche de texte
 
-Utilisez l’option **Recherche libre** pour rechercher des alertes par texte, chiffres ou caractères.
+Utilisez l’option Recherche libre pour rechercher des alertes par texte, chiffres ou caractères.
 
 Pour rechercher :
 
-- Saisissez le texte requis dans le champ **Recherche libre** et appuyez sur la touche Entrée.
+- Saisissez le texte requis dans le champ Recherche libre et appuyez sur la touche Entrée.
 
 Pour effacer la recherche :
 
-- Supprimez le texte dans le champ **Recherche libre** et appuyez sur la touche Entrée.
+- Supprimez le texte dans le champ Recherche libre et appuyez sur la touche Entrée.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Recherche un groupe d’appareils ou une adresse IP d’appareil
 
@@ -100,7 +100,7 @@ Les messages d’alerte incluent les actions suivantes :
 
 - Sélectionnez :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: pour apprendre et accuser réception de toutes les alertes.
 
-- Sélectionnez :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: pour exporter la liste d’alertes dans un fichier CSV et sélectionnez l’option d’exportation. Choisissez l’option **Exportation d’alertes** pour l’exportation normale vers un fichier CSV. Vous pouvez aussi choisir **Exportation étendue d’alertes** afin de pouvoir ajouter des lignes distinctes pour obtenir des informations supplémentaires sur une alerte dans le fichier CSV.
+- Sélectionnez :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: pour exporter les informations d’alerte dans un fichier .csv. Utilisez l’option **Exportation d’étendue d’alertes** pour exporter les informations d’alerte dans des lignes distinctes pour chaque alerte qui couvre plusieurs appareils.
 
 ## <a name="alert-pop-up-window-options"></a>Options de la fenêtre contextuelle d’alerte
 

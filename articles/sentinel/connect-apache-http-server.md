@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 59ef34f9d6d42277d8e83bf4e0ebb8ee29096f52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566574"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096852"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Connecter votre serveur Apache HTTP Server à Azure Sentinel
 
@@ -37,7 +37,7 @@ Cet article explique comment connecter votre serveur Apache HTTP Server à Azure
 
 ## <a name="configure-and-integrate-apache-http-server-logs-via-log-analytics-agent"></a>Configurer et intégrer les journaux Apache HTTP Server via l’agent Log Analytics
 
-Configurer l’emplacement des fichier journaux Apache HTTP Server de manière à transférer les données vers votre espace de travail Azure via l’agent Log Analytics.
+Configurez Apache HTTP Server de manière à envoyer des fichier journaux vers votre espace de travail Azure via l’agent Log Analytics.
 Configurez l’agent Log Analytics de manière à lire les fichiers journaux Apache HTTP Server.
 
 1. Suivez les instructions figurant dans https://httpd.apache.org/docs/2.4/logs.html pour configurer l’emplacement des fichiers journaux dans Apache HTTP Server.

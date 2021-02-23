@@ -4,12 +4,12 @@ description: En savoir plus sur la gestion des certificats dans un cluster Servi
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901264"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099504"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestion des certificats dans des clusters Service Fabric
 
@@ -427,6 +427,7 @@ L’extension de machine virtuelle de KeyVault, en tant qu’agent d’approvisi
 Vous avez peut-être remarqué l’indicateur « linkOnRenewal » de l’extension de machine virtuelle de KeyVault, et le fait qu’il est défini sur false. Nous abordons ici en profondeur le comportement contrôlé par cet indicateur et ses conséquences sur le fonctionnement d’un cluster. Notez que ce comportement est spécifique de Windows.
 
 En fonction de sa [définition](../virtual-machines/extensions/key-vault-windows.md#extension-schema) :
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```

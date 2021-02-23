@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805088"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390808"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalisation dans Azure Sentinel
 
@@ -70,6 +70,9 @@ La référence de schéma comprend également la normalisation de la valeur et d
 
 ## <a name="parsers"></a>Analyseurs
 
+- [Qu’est-ce que l’analyse ?](#what-is-parsing)
+- [Utilisation des analyseurs au moment de la requête](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>Qu’est-ce que l’analyse ?
 
 Avec un ensemble de base de tables normalisées définies, vous devrez transformer (analyser/mapper) vos données dans ces tables. Autrement dit, vous allez extraire des données et les faire passer de leur forme brute vers des colonnes connues dans le schéma normalisé. L’analyse dans Azure Sentinel se produit au **moment de la requête**. Les parseurs sont créés en tant que fonction utilisateurs Log Analytics (à l’aide du langage de requête Kusto-KQL) qui transforment les données dans les tables existantes (telles que CommonSecurityLog, les tables de journaux personnalisées, syslog) dans le schéma des tables normalisées.
@@ -77,6 +80,10 @@ Avec un ensemble de base de tables normalisées définies, vous devrez transform
 L’autre type d’analyse, qui n’est pas encore prise en charge dans Azure Sentinel, est au **moment de l’ingestion**, ce qui permet de collecter des données directement dans la ou les tables normalisées lorsqu’elles sont ingérées à partir de ses sources de données. L’analyse au moment de l’ingestion améliore les performances, car le modèle de données est interrogé directement, sans qu’il soit nécessaire d’utiliser des fonctions.
 
 ### <a name="using-query-time-parsers"></a>Utilisation des analyseurs au moment de la requête
+
+- [Installation d’un analyseur](#installing-a-parser)
+- [Utilisation des analyseurs](#using-the-parsers)
+- [Personnalisation des analyseurs](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Installation d’un analyseur
 
@@ -119,6 +126,12 @@ Dans le volet de droite, développez la section « Requêtes enregistrées » 
 
 Vous pouvez cliquer sur chaque analyseur et voir la fonction sous-jacente qu’il utilise, puis l’exécuter (ou y accéder directement par son alias, comme décrit ci-dessus). Notez que certains analyseurs peuvent conserver les champs d’origine en parallèle des champs normalisés pour des raisons pratiques. Ceci peut être facilement modifié dans la requête de l’analyseur.
 
+> [!TIP]
+> Vous pouvez utiliser vos fonctions enregistrées à la place des tables Azure Sentinel dans toutes les requêtes, y compris les requêtes de chasse et de détection. Pour plus d'informations, consultez les pages suivantes :
+>
+> - [Normalisation des données dans Azure Sentinel](normalization.md#parsers)
+> - [Analyser le texte dans les journaux d’activité Azure Monitor](/azure/azure-monitor/log-query/parse-text)
+>
 #### <a name="customizing-parsers"></a>Personnalisation des analyseurs
 
 Vous pouvez répéter les étapes ci-dessus (recherche de l’analyseur dans l’explorateur de requêtes), cliquer sur l’analyseur approprié et voir son implémentation de la fonction.
@@ -131,6 +144,8 @@ Une fois la fonction modifiée, cliquez à nouveau sur Enregistrer et utilisez l
 :::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Confirmez-vous cette action ?":::
 
 #### <a name="additional-information"></a>Informations supplémentaires
+
+JSON, XML et CSV sont particulièrement pratiques pour l’analyse au moment de la requête. Azure Sentinel offre des fonctions d’analyse intégrées pour JSON, XML et CSV, ainsi qu’un outil d’analyse JSON.  Pour plus d’informations, consultez [Utilisation de champs JSON dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
 En savoir plus sur les [requêtes enregistrées](../azure-monitor/log-query/example-queries.md) (implémentation de l’analyseur de temps de requête) dans Log Analytics.
 

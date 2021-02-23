@@ -1,22 +1,17 @@
 ---
 title: Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données vers et à partir de magasins de données ODBC.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
-ms.openlocfilehash: c92428666f0766f78475be16416027cdc6e71f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b73e10b0ed539879e9a32d3961b6375828cc153
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85506529"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389618"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -57,7 +52,7 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Odbc** | Oui |
-| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la `password` configuration de la chaîne de connexion. Pour plus d’informations, consultez la section  [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) .| Oui |
+| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md).| Oui |
 | authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | Oui |
 | userName | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non |
 | mot de passe | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
@@ -197,12 +192,12 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du récepteur d’activité de copie doit être définie sur : **OdbcSink** | Oui |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (la valeur par défaut est 0, détectée automatiquement) |
 | preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans la banque de données à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
 
 > [!NOTE]
-> Pour la valeur de « writeBatchSize », si celle-ci n’est pas définie (détectée automatiquement), l’activité de copie détecte d’abord si le pilote prend en charge les opérations par lot, puis définit la valeur sur 10 000 si c’est le cas, ou sur 1 dans le cas contraire. Si vous définissez explicitement une valeur différente de 0, l’activité de copie respecte la valeur et le runtime échoue si le pilote ne prend pas en charge les opérations par lot.
+> Pour la valeur de « writeBatchSize », si celle-ci n’est pas définie (détectée automatiquement), l’activité de copie détecte d’abord si le pilote prend en charge les opérations par lot, puis définit la valeur sur 10000 si c’est le cas, ou sur 1 dans le cas contraire. Si vous définissez explicitement une valeur différente de 0, l’activité de copie respecte la valeur et le runtime échoue si le pilote ne prend pas en charge les opérations par lot.
 
 **Exemple :**
 

@@ -1,23 +1,18 @@
 ---
 title: Déplacement de données – Passerelle de gestion des données
 description: Mettez en place une passerelle de données pour déplacer vos données entre un emplacement local et le cloud. Utilisez la passerelle de gestion des données dans Azure Data Factory pour déplacer vos données.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019682"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380285"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -236,7 +231,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
             }
         }
     }     
-    ```     
+    ```       
    Notez les points suivants :
 
    * Le **type** est défini sur **SqlServerTable**.
@@ -384,7 +379,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
     Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les jeux de données, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).  Vous pouvez double-cliquer sur un objet (jeu de données d’entrée/de sortie) pour afficher ses propriétés.
 
 ## <a name="monitor-pipeline"></a>Surveillance d’un pipeline
-Dans cette étape, vous utilisez le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](data-factory-monitor-manage-pipelines.md).
+Dans cette étape, vous utilisez le portail Azure pour superviser ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](data-factory-monitor-manage-pipelines.md).
 
 1. Dans le diagramme, double-cliquez sur **EmpOnPremSQLTable**.  
 

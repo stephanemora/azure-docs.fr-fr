@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331819"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518417"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Stratégie de contrôle de version Azure Database pour PostgreSQL
 
@@ -28,7 +28,7 @@ Azure Database pour PostgreSQL prend en charge les versions de base de données 
 | PostgreSQL 11 | X | X |
 | PostgreSQL 10 | X |  |
 | PostgreSQL 9.6 | X |  |
-| PostgreSQL 9.5 | X |  |
+| *PostgreSQL 9.5 (retiré)* | X |  |
 
 ## <a name="major-version-support"></a>Prise en charge de la version principale
 Chaque version principale de PostgreSQL est prise en charge par Azure Database pour PostgreSQL à partir de la date du début de la prise en charge de la version par Azure et jusqu’à ce que la version soit supprimée par la communauté PostgreSQL, comme indiqué dans la [stratégie de contrôle de version de la communauté PostgreSQL](https://www.postgresql.org/support/versioning/).
@@ -41,7 +41,7 @@ Le tableau ci-dessous fournit les détails relatifs au retrait des versions prin
 
 | Version | Nouveautés | Date de début de la prise en charge d’Azure | Date de mise hors service|
 | ----- | ----- | ------ | ----- |
-| PostgreSQL 9.5| [Caractéristiques](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 avril 2018    | 11 février 2021
+| [PostgreSQL 9.5 (retiré)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [Caractéristiques](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 18 avril 2018   | 11 février 2021
 | [PostgreSQL 9.6](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [Caractéristiques](https://wiki.postgresql.org/wiki/NewIn96) | 18 avril 2018  | 11 novembre 2021
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Caractéristiques](https://wiki.postgresql.org/wiki/New_in_postgres_10) | 4 juin 2018  | 10 novembre 2022
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Caractéristiques](https://www.postgresql.org/docs/11/release-11.html) | 24 juillet 2019  | 9 novembre 2023
@@ -49,7 +49,7 @@ Le tableau ci-dessous fournit les détails relatifs au retrait des versions prin
 
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versions de moteur PostgreSQL supprimées non prises en charge dans Azure Database pour PostgreSQL
 
-Après la date de suppression pour chaque version de base de données PostgreSQL, si vous continuez d’exécuter la version supprimée, tenez compte des restrictions suivantes :
+Vous pouvez continuer à exécuter la version supprimée dans Azure Database pour PostgreSQL. Toutefois, notez les restrictions suivantes après la date de suppression pour chaque version de la base de données PostgreSQL :
 - Dans la mesure où la communauté ne publie plus de correctifs de bogues ou de correctifs de sécurité, Azure Database pour PostgreSQL n’effectue pas de mise à jour corrective sur le moteur de base de données supprimé pour la résolution de bogues ou de problèmes de sécurité. Il n’y aura pas non plus de mesures de sécurité concernant le moteur de base de données supprimé. Vous pouvez dès lors être confronté à des failles de sécurité ou à d’autres problèmes. Toutefois, Azure continuera à effectuer des opérations de maintenance et de mise à jour périodiques pour l’hôte, le système d’exploitation, les conteneurs et tout autre composant lié aux services.
 - Si un problème de prise en charge rencontré est lié à la base de données PostgreSQL, il est possible que nous ne puissions pas vous venir en aide. Dans ce cas, vous devrez mettre à niveau votre base de données afin que nous puissions intervenir.
 - Vous ne serez plus en mesure de créer des serveurs de base de données pour la version supprimée. Toutefois, vous pouvez effectuer des récupérations à un instant dans le passé et créer des réplicas de lecture pour vos serveurs existants.

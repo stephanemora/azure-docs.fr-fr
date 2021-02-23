@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962108"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363047"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transférer des abonnements Azure entre des abonnés et des CSP
 
@@ -36,6 +36,7 @@ Lorsque la demande est approuvée, le CSP peut alors fournir une facture combin�
 
 Pour transférer tout autre abonnement Azure à un partenaire CSP, l’abonné doit déplacer les ressources des abonnements sources vers les abonnements CSP. Respectez les instructions suivantes pour déplacer des ressources entre des abonnements.
 
+1. Établissez une [relation de revendeur](/partner-center/request-a-relationship-with-a-customer) avec le client. Passez en revue la [vue d’ensemble des autorisations régionales CSP](/partner-center/regional-authorization-overview) pour vérifier que le locataire du client et le locataire du partenaire se trouvent dans les mêmes régions autorisées.
 1. Collaborez avec votre partenaire CSP pour créer des abonnements Azure CSP cibles.
 1. Vérifiez que les abonnements CSP sources et cibles sont dans le même locataire Azure Active Directory (Azure AD).  
     Vous ne pouvez pas changer le locataire Azure AD d’un abonnement Azure CSP. Au lieu de cela, vous devez ajouter ou associer l’abonnement source au locataire CSP Azure AD. Pour plus d’informations, consultez [Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

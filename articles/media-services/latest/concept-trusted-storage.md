@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428586"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098076"
 ---
 # <a name="trusted-storage-for-media-services"></a>Stockage approuvé pour la plateforme Media Services
 
@@ -22,7 +22,11 @@ Lorsque vous créez un compte Media Services, vous devez l’associer à un comp
 
 ## <a name="trusted-storage-with-a-firewall"></a>Stockage approuvé avec un pare-feu
 
-Toutefois, si vous souhaitez utiliser un pare-feu pour sécuriser votre compte de stockage et activer le stockage approuvé, l’authentification par [identités managées](concept-managed-identities.md) est l’option recommandée. Celle-ci permet à la plateforme Media Services d’accéder au compte de stockage configuré avec un pare-feu ou une restriction de réseau virtuel via un accès à un stockage approuvé. Celle-ci permet à la plateforme Media Services d’accéder au compte de stockage configuré avec un pare-feu ou une restriction de réseau virtuel via un accès à un stockage approuvé.
+Toutefois, si vous souhaitez utiliser un pare-feu pour sécuriser votre compte de stockage et activer le stockage approuvé, l’authentification par [identités managées](concept-managed-identities.md) est l’option recommandée. Celle-ci permet à la plateforme Media Services d’accéder au compte de stockage configuré avec un pare-feu ou une restriction de réseau virtuel via un accès à un stockage approuvé.
+
+## <a name="tutorial"></a>Didacticiel
+
+Vous pouvez en savoir plus sur l’activation du stockage approuvé à l’aide du tutoriel [Stockage approuvé Media Services](tutorial-trusted-storage-rest.md).
 
 > [!NOTE]
 > Vous devez accorder l’accès Contributeur aux données blob de stockage avec identités managées AMS afin que la plateforme Media Services soit en mesure de lire et d’écrire dans le compte de stockage.  L’octroi du rôle Contributeur générique ne fonctionne pas, car il n’active pas les autorisations appropriées sur le plan de données.

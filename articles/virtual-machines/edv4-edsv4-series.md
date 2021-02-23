@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: fc410ef903ac7eca2457516df2c71260a4b19b89
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 656b2e44ec4a4e9de0d594301cb3e4c1b9a33b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097487"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558629"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
 
@@ -30,7 +30,7 @@ Les tailles de la série Edv4 s’exécutent sur les processeurs Intel &reg;​
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d'exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 <br>
 
@@ -58,7 +58,7 @@ Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;�
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
-[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
+[Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Prise en charge (*requiert un minimum de 4 processeurs virtuels*)<br>
 [Disques de système d'exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 

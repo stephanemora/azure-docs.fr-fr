@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389108"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutoriel : Migrer une application web à partir de Bing Cartes
 
@@ -33,9 +33,9 @@ Les applications web qui utilisent Bing Cartes utilisent souvent le kit SDK Java
 
 Si vous migrez une application Web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte Open source telle que Cesium, Leaflet et OpenLayers. Si c’est le cas et que vous préférez continuer à utiliser cette bibliothèque, vous pouvez la connecter aux services de mosaïques Azure Maps ([mosaïques routières](/rest/api/maps/render/getmaptile) \| [mosaïques satellites](/rest/api/maps/render/getmapimagerytile)). Les liens ci-dessous fournissent des détails sur l’utilisation d’Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
 
-* Cesium : contrôle carte 3D pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [de l’exemple de code](https://cesiumjs.org/)
-* Leaflet : contrôle de carte 2D léger pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [de l’exemple de code](https://leafletjs.com/)
-* OpenLayers : contrôle de carte 2D pour le Web qui prend en charge les projections. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [de l’exemple de code](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) – Contrôle de carte 3D pour le web. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Référentiel de plug-ins]()
+* [Leaflet](https://leafletjs.com/) – Contrôle de carte 2D léger pour le web. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Référentiel de plug-ins]()
+* [OpenLayers](https://openlayers.org/) – Contrôle de carte 2D pour le web qui prend en charge les projections. [Exemples de code](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Référentiel de plug-ins]()
 
 Si vous développez à l’aide d’un framework JavaScript, l’un des projets open source suivants peut être utile :
 
@@ -64,7 +64,7 @@ Le tableau suivant liste les principales fonctionnalités de l’API du SDK Java
 | Couches de mosaïques              | ✓                                                                                      |
 | Couche KML                | ✓                                                                                      |
 | Couche de contour            | [Exemples](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Couche de compartimentage des données       | [Exemples](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Couche de compartimentage des données       | Inclus dans le [module de source de données en grille](https://github.com/Azure-Samples/azure-maps-gridded-data-source) Azure Maps open source       |
 | Couche de mosaïque animée      | Incluse dans le [module d’animation](https://github.com/Azure-Samples/azure-maps-animations) open source Azure Maps |
 | Outils de dessin            | ✓                                                                                      |
 | Service de geocoder         | ✓                                                                                      |
@@ -72,10 +72,10 @@ Le tableau suivant liste les principales fonctionnalités de l’API du SDK Java
 | Service Matrice des distances  | ✓                                                                                      |
 | Service de données spatiales     | N/A                                                                                    |
 | Imagerie aérienne/satellite | ✓                                                                                      |
-| Imagerie Vue aérienne         | Prévu                                                                                |
-| Image Streetside       | Prévu                                                                                |
+| Imagerie Vue aérienne         | N/A                                                                                |
+| Image Streetside       | N/A                                                                                |
 | Prise en charge de GeoJSON          | ✓                                                                                      |
-| Prise en charge de GeoXML           | ✓                                                                                      |
+| Prise en charge de GeoXML           | ✓ [Module d’E/S spatiales](how-to-use-spatial-io-module.md)                                                                                     |
 | Prise en charge de Well-Known Text  | ✓                                                                                      |
 | Styles de carte personnalisés        | Partial                                                                                |
 

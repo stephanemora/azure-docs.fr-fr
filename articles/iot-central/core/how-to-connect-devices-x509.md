@@ -8,18 +8,25 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cf0db71600c9350b4d70e6375f509a6e88709f70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944627"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378330"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Comment connecter des appareils avec des certificats X.509 à l’aide du kit de développement logiciel (SDK) d’appareil Node.js pour une application IoT Central
 
 Pour sécuriser la communication entre un appareil et votre application, IoT Central prend en charge les signatures d’accès partagé (SAP) et les certificats X.509. Le didacticiel [Créer et connecter une application cliente à votre application Azure IoT Central](./tutorial-connect-device.md) utilise SAS. Dans cet article, vous allez apprendre à modifier l’exemple de code pour utiliser X.509.  Les certificats X.509 sont recommandés dans les environnements de production. Pour plus d’informations, consultez [Se connecter à Azure IoT Central](./concepts-get-connected.md).
 
 Cet article montre deux façons d’utiliser X.509 : les [inscriptions de groupe](how-to-connect-devices-x509.md#use-a-group-enrollment), généralement utilisées dans un environnement de production, et les [inscriptions individuelles](how-to-connect-devices-x509.md#use-an-individual-enrollment), utiles pour les tests.
+
+Les extraits de code de cet article utilisent JavaScript. Pour obtenir des exemples de code dans d’autres langages, consultez :
+
+- [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_ll_client_x509_sample)
+- [C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/X509DeviceCertWithChainSample)
+- [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+- [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
 
 ## <a name="prerequisites"></a>Prérequis
 

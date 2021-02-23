@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731401"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526423"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Tutoriel : Configurer Parsable pour le provisionnement automatique d’utilisateurs
 
@@ -32,6 +32,7 @@ Ce tutoriel décrit les étapes à suivre à la fois dans Parsable et Azure Acti
 > * Création d’utilisateurs dans Parsable
 > * Suppression d’utilisateurs dans Parsable quand ils n’ont plus besoin d’accès
 > * Maintien de la synchronisation des attributs utilisateur entre Azure AD et Parsable
+> * Attribuer des groupes et des appartenances aux groupes dans Parsable
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -107,17 +108,25 @@ Cette section vous guide tout au long des étapes de configuration du service d�
    |userName|String|&check;|
    |displayName|String|
 
-10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Parsable**.
 
-11. Pour activer le service de provisionnement Azure AD pour Parsable, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans la section **Paramètres**.
+11. Dans la section **Mappages des attributs**, vérifiez les attributs de groupes qui sont synchronisés d’Azure AD vers Parsable. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour établir une correspondance avec les groupes dans Parsable en vue de mises à jour ultérieures. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+
+      |Attribut|Type|Pris en charge pour le filtrage|
+      |---|---|---|
+      |displayName|String|&check;|
+      |membres|Informations de référence|
+12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Pour activer le service de provisionnement Azure AD pour Parsable, affectez la valeur **Activé** au paramètre **État de l’approvisionnement** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs et/ou les groupes que vous souhaitez provisionner sur Parsable en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+14. Définissez les utilisateurs et/ou les groupes que vous souhaitez provisionner sur Parsable en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-13. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+15. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 1. Utilisez les [journaux d’approvisionnement](../reports-monitoring/concept-provisioning-logs.md) pour déterminer quels utilisateurs ont été configurés avec succès ou échoué.
 2. Consultez la [barre de progression](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) pour afficher l’état du cycle d’approvisionnement et quand il se termine
 3. Si la configuration de l’approvisionnement semble se trouver dans un état non sain, l’application passe en quarantaine. Pour en savoir plus sur les états de quarantaine, cliquez [ici](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Journal des modifications
+
+* 15/02/2021 : l’approvisionnement du groupe a été activé.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

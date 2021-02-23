@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a9edd93aa265622732be4a7582cce9900959bf6d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374981"
 ---
 # <a name="smb-multichannel-performance"></a>Performances de SMB Multichannel
 
@@ -110,7 +110,7 @@ La charge a été généré par rapport à un seul fichier de 128 Gio. Avec SMB
 
 - Sur une seule carte réseau avec une plus grande taille d’e/s moyenne (supérieure à 16 Ko), des améliorations significatives ont été apportées aux lectures et écritures.
 - Pour les plus petites tailles d’e/s, il existait un léger impact d’environ 10 % sur les performances lors de l’activation de SMB Multichannel. Cela peut être atténué en répartissant la charge sur plusieurs fichiers ou en désactivant la fonctionnalité.
-- Les performances sont toujours liées par  [des limites de fichiers uniques](storage-files-scale-targets.md#file-level-limits).
+- Les performances sont toujours liées par [des limites de fichiers uniques](storage-files-scale-targets.md#file-scale-targets).
 
 ## <a name="optimizing-performance"></a>Optimisation des performances
 

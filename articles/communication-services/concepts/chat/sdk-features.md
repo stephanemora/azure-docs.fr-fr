@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625262"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364832"
 ---
 # <a name="chat-client-library-overview"></a>Vue d’ensemble de la bibliothèque de client Chat
 
@@ -44,7 +44,7 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Envoyer et recevoir des notifications de saisie lorsqu’un membre est en train de taper un message dans un fil de conversation <br/> *Non disponible lorsqu’il y a plus de 20 membres dans un fil de conversation*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Obtenir tous les messages d’un fil de conversation <br/> *Emojis Unicode pris en charge*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Envoyer des emojis dans le contenu d’un message                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Signalement en temps réel (activé pour chaque package de signalisation propriétaire)| Recevoir une notification lorsqu’un utilisateur reçoit un nouveau message dans un fil de conversation dont il est membre                                     | ✔️   | ❌    | ❌  | ❌  |
+|Signalisation en temps réel (activé pour chaque package de signalisation propriétaire**)| Recevoir une notification lorsqu’un utilisateur reçoit un nouveau message dans un fil de conversation dont il est membre                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Recevoir une notification quand un message a été modifié par un autre membre dans un fil de conversation dont il est membre                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Recevoir une notification quand un message a été supprimé par un autre membre dans un fil de conversation dont il est membre                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Recevoir une notification lorsqu’un autre membre du fil de conversation est en train de taper                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 | Surveillance        | Superviser l’utilisation (nombre de messages envoyés)                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Superviser la qualité et l’état des requêtes d’API envoyées par votre application et configurer des alertes via le portail                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Fonctionnalités supplémentaires | Utilisez les [API Cognitive Services](../../../cognitive-services/index.yml) avec la bibliothèque de client Chat pour activer les fonctionnalités intelligentes : *traduction et analyse des sentiments du message entrant sur un client, conversion de la parole en texte pour composer un message pendant que le membre parle, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+**Le package de signalisation propriétaire est implémenté en utilisant des sockets web. Il passe à l’interrogation longue si les sockets web ne sont pas pris en charge.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque de client de conversation JavaScript par système d’exploitation et navigateur
 

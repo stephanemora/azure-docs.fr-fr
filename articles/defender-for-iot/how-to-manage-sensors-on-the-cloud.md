@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562707"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526856"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Intégrer et gérer des capteurs dans le portail Defender pour IoT
 
@@ -52,12 +52,10 @@ Pour télécharger un fichier d’activation :
 
 ## <a name="view-onboarded-sensors"></a>Afficher les capteurs intégrés
 
-Sur le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), vous pouvez visualiser des informations de base sur les capteurs intégrés. 
+Sur le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), vous pouvez visualiser des informations de base sur les capteurs intégrés.
 
 1. Sélectionnez **Sites et capteurs**.
-1. Sur la page **Sites et capteurs**, utilisez les outils de filtre et de recherche pour trouver les informations de capteur dont vous avez besoin.
-
-Les informations disponibles incluent :
+1. Utilisez les outils de filtre et de recherche pour trouver des informations sur les capteurs et les menaces dont vous avez besoin.
 
 - Le nombre de capteurs intégrés
 - Le nombre de capteurs connectés au cloud et gérés localement
@@ -68,32 +66,40 @@ Les informations disponibles incluent :
 
 Vous utilisez le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) pour les tâches de gestion relatives aux capteurs.
 
-### <a name="export"></a>Exporter
+Les capteurs intégrés peuvent être affichés sur la page **Sites et capteurs**. Vous pouvez également modifier les informations d’un capteur depuis cette page.
+
+### <a name="export-sensor-details"></a>Exporter les détails d’un capteur
 
 Pour exporter des informations relatives aux capteurs intégrés, sélectionnez l’icône **Exporter** en haut de la page **Sites et capteurs**.
 
-### <a name="edit"></a>Modifier
+### <a name="edit-sensor-zone-details"></a>Modifier les détails de la zone d’un capteur
 
-Utilisez les outils de modification de **Sites et capteurs** pour ajouter et modifier le nom du site, la zone et les étiquettes.
+Utilisez les options d’édition **Sites et capteurs** pour modifier le nom et la zone d’un capteur.
 
-### <a name="delete"></a>DELETE
+Pour apporter des modifications :
+
+1. Cliquez avec le bouton droit sur le bouton de sélection ( **...** ) du capteur que vous souhaitez modifier.
+1. Sélectionnez Modifier.
+1. Mettez à jour la zone du capteur, ou créez-en une.
+
+### <a name="delete-a-sensor"></a>Supprimer un capteur
 
 Si vous supprimez un capteur connecté au cloud, les informations ne seront pas envoyées au hub IoT. Supprimez les capteurs connectés localement quand vous ne les utilisez plus.
 
 Pour supprimer un capteur :
 
-1. Sélectionnez le bouton de sélection ( **…** ) du capteur que vous souhaitez supprimer. 
+1. Sélectionnez le bouton de sélection ( **…** ) du capteur que vous souhaitez supprimer.
 1. Confirmez la suppression.
 
-### <a name="reactivate"></a>Réactiver
+### <a name="reactivate-a-sensor"></a>Réactiver un capteur 
 
-Vous souhaiterez peut-être mettre à jour le mode d’administration de votre capteur. Par exemple :
+Vous devrez peut-être réactiver votre capteur car vous souhaitez :
 
-- **Travailler en mode connecté au cloud plutôt qu’en mode géré localement** : Pour ce faire, mettez à jour le fichier d’activation de votre capteur connecté localement avec un fichier d’activation pour un capteur connecté au cloud. Après la réactivation, les détections du capteur sont affichées à la fois dans le capteur et dans le [portail Defender pour IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Une fois le fichier de réactivation chargé, les informations d’alerte nouvellement détectées sont envoyées à Azure.
+- **Travailler en mode connecté au cloud plutôt qu’en mode géré localement** : Après la réactivation, les détections apparaissent dans le capteur, et les informations d’alerte récemment détectées sont transmises via l’IoT Hub. Ces informations peuvent être partagées avec d’autres services Azure, par exemple Azure Sentinel.
 
-- **Travailler en mode connecté localement plutôt qu’en mode connecté au cloud** : Pour ce faire, mettez à jour le fichier d’activation d’un capteur connecté au cloud avec un fichier d’activation pour un capteur géré localement. Après la réactivation, les informations de détection de capteur sont affichées uniquement dans le capteur.
+- **Travailler en mode généré localement plutôt qu’en mode connecté** : Après la réactivation, les informations de détection de capteur sont affichées uniquement dans le capteur.
 
-- **Associer le capteur à un nouveau hub IoT** :  Pour ce faire, réinscrivez le capteur, puis téléchargez un nouveau fichier d’activation.
+- **Associer le capteur à un nouveau hub IoT** :  Pour ce faire, réinscrivez le capteur avec un nouveau hub, puis téléchargez un nouveau fichier d’activation.
 
 Pour réactiver un capteur :
 
@@ -103,19 +109,19 @@ Pour réactiver un capteur :
 
 3. Supprimez le capteur.
 
-4. Intégrez à nouveau le capteur à partir de la page **Intégration** dans le nouveau mode ou avec un nouveau hub IoT.
+4. Intégrez à nouveau le capteur dans le nouveau mode ou avec un nouveau IoT Hub en sélectionnant **Intégrer un capteur** à partir de la page Prise en main.
 
-5. Téléchargez le fichier d’activation à partir de la page **Télécharger le fichier d’activation**.
+5. Télécharger le fichier d’activation.
 
-6. Connectez-vous à la console de capteur Defender pour IoT.
+1. Connectez-vous à la console de capteur Defender pour IoT.
 
 7. Dans la console du capteur, sélectionnez **Paramètres système** puis **Réactivation**.
 
    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Chargez votre fichier d’activation pour réactiver le capteur.":::
 
-8. Sélectionnez **Télécharger** et sélectionnez le fichier que vous avez enregistré.
+8. Sélectionnez **Télécharger** et sélectionnez le fichier que vous avez enregistré à partir de la page Intégrer un capteur.
 
-9. Sélectionnez **Activer**. 
+9. Sélectionnez **Activer**.
 
 ## <a name="see-also"></a>Voir aussi
 

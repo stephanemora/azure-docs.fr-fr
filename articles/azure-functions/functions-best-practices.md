@@ -5,35 +5,32 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 5783f8092a6435b43ab8720df18cc5200e390d46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428298"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378245"
 ---
-# <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
+# <a name="best-practices-for-performance-and-reliability-of-azure-functions"></a>Meilleures pratiques pour optimiser les performances et la fiabilité d’Azure Functions
 
 Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [sans serveur](https://azure.microsoft.com/solutions/serverless/).  
 
-## <a name="general-best-practices"></a>Bonnes pratiques générales
-
 Voici les bonnes pratiques liées à la création et à l’élaboration de vos solutions serverless à l’aide d’Azure Functions.
 
-### <a name="avoid-long-running-functions"></a>Évitez les fonctions dont l’exécution prend beaucoup de longtemps
+## <a name="avoid-long-running-functions"></a>Évitez les fonctions dont l’exécution prend beaucoup de longtemps
 
-Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Pour en savoir plus sur les délais d’attente pour un plan d’hébergement donné, consultez [Durée du délai d’attente de l’application de fonction](functions-scale.md#timeout). 
+Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Pour en savoir plus sur les délais d’attente pour un plan d’hébergement donné, consultez [Durée du délai d’attente de l’application de fonction](functions-scale.md#timeout).
 
-Une fonction peut devenir volumineuse en raison des nombreuses dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires. 
+Une fonction peut devenir volumineuse en raison des nombreuses dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires.
 
 Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui fonctionnent ensemble et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Il est courant que des webhooks demandent une réponse immédiate. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate.
 
-
-### <a name="cross-function-communication"></a>Communication entre fonctions
+## <a name="cross-function-communication"></a>Communication entre fonctions
 
 Les [Fonctions durables](durable/durable-functions-overview.md) et le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) sont conçus pour gérer les transitions d’état et la communication entre plusieurs fonctions.
 
-Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste à utiliser des files d’attente de stockage pour la communication entre les fonctions. La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer que les autres options de stockage. 
+Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste à utiliser des files d’attente de stockage pour la communication entre les fonctions. La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer que les autres options de stockage.
 
 La taille de chaque message d’une file d’attente de stockage est limitée à 64 Ko. Pour transmettre des messages plus volumineux entre les fonctions, vous pouvez utiliser une file d’attente Azure Service Bus, qui prend en charge des tailles de message allant jusqu’à 256 Ko pour le niveau Standard, 1 Mo pour le niveau Premium.
 
@@ -41,28 +38,26 @@ Les rubriques Service Bus sont utiles si vous avez besoin de filtrer les message
 
 Les hubs d’événements sont utiles pour prendre en charge les communications de volume élevé.
 
+## <a name="write-functions-to-be-stateless"></a>Écrire des fonctions sans état
 
-### <a name="write-functions-to-be-stateless"></a>Écrire des fonctions sans état 
-
-Les fonctions doivent être sans état et idempotentes si possible. Associez toutes les informations d’état requises à vos données. Par exemple, une commande en cours de traitement aurait probablement un membre `state` associé. Une fonction peut traiter une commande suivant cet état, tandis que la fonction elle-même reste sans état. 
+Les fonctions doivent être sans état et idempotentes si possible. Associez toutes les informations d’état requises à vos données. Par exemple, une commande en cours de traitement aurait probablement un membre `state` associé. Une fonction peut traiter une commande suivant cet état, tandis que la fonction elle-même reste sans état.
 
 Les fonctions idempotentes sont particulièrement recommandées avec les déclencheurs à minuterie. Par exemple, si une tâche doit absolument s’exécuter une fois par jour, écrivez-la de façon à ce qu’elle puisse s’exécuter à n’importe quel moment de la journée avec les mêmes résultats. La fonction peut s’arrêter si aucun travail ne doit être effectué au cours d’un jour donné. En outre, si une exécution précédente a été interrompue, la prochaine exécution doit reprendre au point d’interruption.
 
-
-### <a name="write-defensive-functions"></a>Écrire des fonctions défensives
+## <a name="write-defensive-functions"></a>Écrire des fonctions défensives
 
 Supposons que votre fonction peut être confrontée à une exception à tout moment. Concevez vos fonctions de façon à ce qu’elles puissent reprendre à un point d’échec précédent la prochaine fois qu’elles s’exécutent. Imaginez un scénario qui nécessite les actions suivantes :
 
 1. Récupérer 10 000 lignes d’une base de données.
 2. Créer un message de file d’attente pour chacune de ces lignes en vue de leur traitement.
- 
+
 Selon la complexité de votre système, il est possible que des services impliqués en aval se comportent de manière incorrecte, que des pannes réseau se produisent, que des limites de quota soient atteintes, etc. Tous ces facteurs peuvent affecter votre fonction à tout moment. Vous devez concevoir vos fonctions en conséquence.
 
 Comment votre code réagit-il si une défaillance se produit après l’insertion de 5 000 de ces éléments dans une file d’attente en vue de leur traitement ? Suivez les éléments dans un jeu que vous avez terminé. Sinon, vous pouvez les réinsérer la prochaine fois. Cette double insertion peut avoir un impact sérieux sur votre flux de travail, veillez donc à [rendre vos fonctions idempotent](functions-idempotent.md). 
 
 Si un élément de file d’attente a déjà été traité, permettez à votre fonction d’être une absence d’opération.
 
-Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation relative aux [liaisons et déclencheurs de file d’attente de stockage Azure](functions-bindings-storage-queue-trigger.md#poison-messages). 
+Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation relative aux [liaisons et déclencheurs de file d’attente de stockage Azure](functions-bindings-storage-queue-trigger.md#poison-messages).
 
 ## <a name="function-organization-best-practices"></a>Bonnes pratiques pour l’organisation des fonctions
 
@@ -85,7 +80,7 @@ Les applications de fonction ont un fichier `host.json`, qui est utilisé pour c
 
 Toutes les fonctions de votre projet local sont déployées ensemble sous la forme d’un ensemble de fichiers sur votre application de fonction dans Azure. Vous devrez peut-être déployer des fonctions individuelles séparément ou utiliser des fonctionnalités telles que les [emplacements de déploiement](./functions-deployment-slots.md) pour certaines fonctions et pas pour d’autres. Dans ces cas, vous devez déployer ces fonctions (dans des projets de code distincts) sur différentes applications de fonction.
 
-### <a name="organize-functions-by-privilege"></a>Organiser les fonctions par privilège 
+### <a name="organize-functions-by-privilege"></a>Organiser les fonctions par privilège
 
 Les chaînes de connexion et d’autres informations d’identification stockées dans les paramètres d’application donnent à toutes les fonctions de l’application de fonction le même ensemble d’autorisations dans la ressource associée. Envisagez de réduire le nombre de fonctions ayant accès à des informations d’identification spécifiques en déplaçant des fonctions qui n’utilisent pas lesdites informations d’identification vers une application de fonction distincte. Vous pouvez toujours utiliser des techniques telles que [le chaînage de fonctions](/learn/modules/chain-azure-functions-data-using-bindings/) pour passer des données entre des fonctions dans différentes applications de fonction.  
 
@@ -99,7 +94,7 @@ Réutilisez les connexions à des ressources externes chaque fois que possible. 
 
 ### <a name="avoid-sharing-storage-accounts"></a>Éviter le partage des comptes de stockage
 
-Lorsque vous créez une application de fonction, vous devez l’associer à un compte de stockage. La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+Lorsque vous créez une application de fonction, vous devez l’associer à un compte de stockage. La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage).
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
@@ -123,9 +118,9 @@ En C#, évitez toujours de référencer la propriété `Result` ou d’appeler l
 
 ### <a name="use-multiple-worker-processes"></a>Utiliser plusieurs processus Worker
 
-Par défaut, les instances d’hôte des fonctions utilisent un seul processus Worker. Pour améliorer les performances, en particulier avec les runtimes à thread unique comme Python, utilisez [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) pour augmenter le nombre de processus Worker par hôte (10 maximum). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers. 
+Par défaut, les instances d’hôte des fonctions utilisent un seul processus Worker. Pour améliorer les performances, en particulier avec les runtimes à thread unique comme Python, utilisez [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) pour augmenter le nombre de processus Worker par hôte (10 maximum). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers.
 
-FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande. 
+FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande.
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Recevoir des messages par lots chaque fois que possible
 

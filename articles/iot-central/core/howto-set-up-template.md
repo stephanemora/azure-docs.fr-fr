@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202961"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363200"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -31,9 +31,9 @@ Par exemple, un concepteur peut créer un modèle d’appareil pour un ventilate
 - Envoie l’état de fonctionnement du ventilateur
 - Fournit une propriété de vitesse du ventilateur inscriptible
 - Fournit une commande pour redémarrer l’appareil
-- Vous donne une vision globale de l’appareil par le biais d’un tableau de bord
+- Vous donne une vision globale de l’appareil à l’aide d’un affichage
 
-À partir de ce modèle d’appareil, un opérateur peut créer et connecter des appareils qui sont des ventilateurs réels. Tous ces ventilateurs ont des mesures, des propriétés et des commandes que les opérateurs utilisent pour les superviser et les gérer. Les opérateurs utilisent les [tableaux de bord et les formulaires des appareils](#add-dashboards) pour interagir avec les ventilateurs. Un développeur d’appareils utilise le modèle pour comprendre comment l’appareil interagit avec l’application. Pour en savoir plus, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md).
+À partir de ce modèle d’appareil, un opérateur peut créer et connecter des appareils qui sont des ventilateurs réels. Tous ces ventilateurs ont des mesures, des propriétés et des commandes que les opérateurs utilisent pour les superviser et les gérer. Les opérateurs utilisent les formulaires et les [affichages des appareils](#add-views) pour interagir avec les ventilateurs. Un développeur d’appareils utilise le modèle pour comprendre comment l’appareil interagit avec l’application. Pour en savoir plus, consultez [Charges utiles de télémétrie, de propriétés et de commandes](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Seuls les concepteurs et les administrateurs peuvent créer, modifier et supprimer des modèles d’appareils. Tous les utilisateurs peuvent créer des appareils sur la page **Appareils** à partir de modèles d’appareils existants.
@@ -46,8 +46,8 @@ Dans une application IoT Central, un modèle d’appareil utilise un modèle d�
 > IoT Central requiert le modèle complet avec toutes les interfaces référencées dans le même fichier, lorsque vous importez un modèle à partir du référentiel de modèles, utilisez le mot clé « expanded » (étendu) pour obtenir la version complète.
 Par exemple, https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
 
-- Créez un modèle d’appareil à l’aide de la [version 2 du langage DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code dispose d’une extension prenant en charge la création de modèles DTDL. Pour plus d’informations, consultez [Installer et utiliser les outils de création DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Publiez ensuite le modèle dans le référentiel de modèles public. Pour plus d’informations, consultez [Référentiel de modèles d’appareil](../../iot-pnp/concepts-model-repository.md). Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central. IoT Central recherche et importe pour vous le modèle d’appareil à partir du référentiel public et génère un modèle d’appareil. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des tableaux de bord dont votre application IoT Central a besoin pour le modèle d’appareil.
-- Créez un modèle d’appareil à l’aide du langage DTDL. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle de capacité d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les tableaux de bord nécessaires à votre application IoT Central.
+- Créez un modèle d’appareil à l’aide de la [version 2 du langage DTDL (Digital Twin Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code dispose d’une extension prenant en charge la création de modèles DTDL. Pour plus d’informations, consultez [Installer et utiliser les outils de création DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Publiez ensuite le modèle dans le référentiel de modèles public. Pour plus d’informations, consultez [Référentiel de modèles d’appareil](../../iot-pnp/concepts-model-repository.md). Implémentez votre code d’appareil à partir du modèle et connectez votre appareil réel à votre application IoT Central. IoT Central recherche et importe pour vous le modèle d’appareil à partir du référentiel public et génère un modèle d’appareil. Vous pouvez ensuite ajouter des propriétés de cloud, des personnalisations et des affichages dont votre application IoT Central a besoin pour le modèle d’appareil.
+- Créez un modèle d’appareil à l’aide du langage DTDL. Implémentez votre code d’appareil à partir du modèle. Importez manuellement le modèle d’appareil dans votre application IoT Central, puis ajoutez les propriétés cloud, les personnalisations et les affichages nécessaires à votre application IoT Central.
 
 > [!TIP]
 > IoT Central requiert le modèle complet avec toutes les interfaces référencées dans le même fichier. Lorsque vous importez un modèle à partir du référentiel de modèles, utilisez le mot clé *expanded* (étendu) pour obtenir la version complète.
@@ -72,8 +72,8 @@ Un modèle d’appareil contient :
 
 - Un _modèle d’appareil_ qui spécifie les données de télémétrie, les propriétés et les commandes implémentées par l’appareil. Ces capacités de l'appareil sont organisées en une ou plusieurs composants.
 - Des _propriétés de cloud_ qui définissent les informations sur vos appareils stockées par votre application IOT Central. Par exemple, une propriété de cloud peut enregistrer la date de la dernière maintenance d’un appareil. Ces informations ne sont jamais partagées avec l’appareil.
-- Les _personnalisations_ permettent au concepteur de remplacer certaines des définitions du modèle d’appareil. Par exemple, le concepteur peut remplacer le nom d’une propriété de l’appareil. Les noms de propriétés s’affichent dans les tableaux de bord et les formulaires IoT Central.
-- _Les tableaux de bord et les formulaires_ permettent au concepteur de créer une interface utilisateur qui permet aux opérateurs de surveiller et de gérer les appareils connectés à votre application.
+- Les _personnalisations_ permettent au concepteur de remplacer certaines des définitions du modèle d’appareil. Par exemple, le concepteur peut remplacer le nom d’une propriété de l’appareil. Les noms de propriété apparaissent dans les affichages et les formulaires IoT Central.
+- _Les affichages et les formulaires_ permettent au générateur de créer une interface utilisateur qui permet aux opérateurs de surveiller et de gérer les appareils connectés à votre application.
 
 Pour créer un modèle d’appareil dans IoT Central :
 
@@ -129,7 +129,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 | Champ | Description |
 | ----- | ----------- |
-| Nom d’affichage | Nom complet de la valeur des données de télémétrie utilisée sur les tableaux de bord et les formulaires. |
+| Nom d’affichage | Nom complet de la valeur de télémétrie utilisée sur les affichages et les formulaires. |
 | Nom | Nom du champ dans le message de données de télémétrie. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. |
 | Type de fonctionnalité | Données de télémétrie. |
 | Type sémantique | Type sémantique des données de télémétrie, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible. |
@@ -137,7 +137,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | severity | Disponible uniquement pour le type sémantique d’événement. Les gravités sont **Erreur**, **Information** ou **Avertissement**. |
 | Valeurs d’état | Disponible uniquement pour le type sémantique d’état. Définissez les valeurs d’état possibles, chacune ayant un nom d’affichage, un nom, un type d’énumération et une valeur. |
 | Unité | Unité pour la valeur des données de télémétrie, telles que **mph**, **%** ou **&deg;C**. |
-| Unités d'affichage | Unité d’affichage à utiliser sur les tableaux de bord et les formulaires. |
+| Unités d'affichage | Unité d’affichage à utiliser sur les affichages et les formulaires. |
 | Commentaire | Commentaires sur la fonctionnalité de données de télémétrie. |
 | Description | Description de la fonctionnalité de données de télémétrie. |
 
@@ -149,7 +149,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 | Champ | Description |
 | ----- | ----------- |
-| Nom d’affichage | Nom complet de la valeur de propriété utilisée sur les tableaux de bord et les formulaires. |
+| Nom d’affichage | Nom complet de la valeur de propriété utilisée sur les affichages et les formulaires. |
 | Nom | Nom de la propriété. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. |
 | Type de fonctionnalité | Propriété. |
 | Type sémantique | Type sémantique de la propriété, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible. |
@@ -158,7 +158,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | severity | Disponible uniquement pour le type sémantique d’événement. Les gravités sont **Erreur**, **Information** ou **Avertissement**. |
 | Valeurs d’état | Disponible uniquement pour le type sémantique d’état. Définissez les valeurs d’état possibles, chacune ayant un nom d’affichage, un nom, un type d’énumération et une valeur. |
 | Unité | Unité pour la valeur des propriétés, telles que **mph**, **%** ou **&deg;C**. |
-| Unités d'affichage | Unité d’affichage à utiliser sur les tableaux de bord et les formulaires. |
+| Unités d'affichage | Unité d’affichage à utiliser sur les affichages et les formulaires. |
 | Commentaire | Commentaires sur la fonctionnalité de propriété. |
 | Description | Description de la fonctionnalité de propriété. |
 
@@ -170,7 +170,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 
 | Champ | Description |
 | ----- | ----------- |
-| Nom d’affichage | Nom d’affichage de la commande utilisée sur les tableaux de bord et les formulaires. |
+| Nom d’affichage | Nom complet de la commande utilisée sur les affichages et les formulaires. |
 | Nom | Nom de la commande. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. Ce champ doit être alphanumérique. |
 | Type de fonctionnalité | Commande. |
 | Commentaire | Commentaires sur la fonctionnalité de commande. |
@@ -209,7 +209,7 @@ Le tableau suivant illustre les paramètres de configuration d’une propriété
 
 | Champ | Description |
 | ----- | ----------- |
-| Nom d’affichage | Nom complet de la valeur de propriété de cloud utilisée sur les tableaux de bord et les formulaires. |
+| Nom d’affichage | Nom complet de la valeur de propriété cloud utilisée sur les affichages et les formulaires. |
 | Nom | Nom de la propriété de cloud. IoT Central génère une valeur pour ce champ à partir du nom d’affichage, mais vous pouvez choisir votre propre valeur si nécessaire. |
 | Type sémantique | Type sémantique de la propriété, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible. |
 | schéma | Type de données de propriété de cloud, tel que double, chaîne ou vecteur. Les options disponibles sont déterminées par le type sémantique. |
@@ -234,24 +234,24 @@ La génération de vues par défaut permet de visualiser rapidement les informat
 
 Une fois que vous avez sélectionné **Générer des vues par défaut**, elles sont ajoutées automatiquement sous la section **Vues** de votre modèle d’appareil.
 
-## <a name="add-dashboards"></a>Ajouter des tableaux de bord
+## <a name="add-views"></a>Ajout de vues
 
-Ajoutez des tableaux de bord à un modèle d’appareil pour permettre aux opérateurs de visualiser un appareil à l’aide de graphiques et de métriques. Vous pouvez avoir plusieurs tableaux de bord pour un modèle d’appareil.
+Ajoutez des affichages à un modèle d’appareil pour permettre aux opérateurs de visualiser un appareil à l’aide de graphiques et de métriques. Vous pouvez avoir plusieurs affichages pour un modèle d’appareil.
 
-Pour ajouter un tableau de bord à un modèle d’appareil :
+Pour ajouter un affichage au modèle d’appareil :
 
 1. Accédez à votre modèle d’appareil et sélectionnez **Vues**.
 1. Choisissez **Visualisation de l’appareil**.
-1. Entrez un nom pour votre tableau de bord dans **Nom du tableau de bord**.
-1. Ajoutez des vignettes à votre tableau de bord à partir de la liste des vignettes statiques, des propriétés, des propriétés de cloud, des données de télémétrie et des commandes. Faites glisser et déplacez les vignettes que vous souhaitez ajouter à votre tableau de bord.
+1. Entrez un nom pour votre affichage dans **Nom de l’affichage**.
+1. Ajoutez des vignettes à votre affichage à partir de la liste des vignettes statiques, des propriétés, des propriétés cloud, des données de télémétrie et des commandes. Glissez-déplacez les vignettes que vous souhaitez ajouter à votre affichage.
 1. Pour tracer plusieurs valeurs de données de télémétrie sur une seule vignette de graphique, sélectionnez les valeurs de données de télémétrie, puis sélectionnez **Combiner**.
 1. Configurez chaque vignette que vous ajoutez pour personnaliser le mode d’affichage des données. Accédez à cette option en sélectionnant l’icône d’engrenage ou **Changer la configuration** sur la vignette de votre graphique.
-1. Réorganisez et redimensionnez les vignettes sur votre tableau de bord.
+1. Réorganisez et redimensionnez les vignettes sur votre affichage.
 1. Enregistrez les modifications.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Configurer l’aperçu de l’appareil pour afficher le tableau de bord
+### <a name="configure-preview-device-to-view"></a>Configurer l’aperçu de l’appareil à afficher
 
-Pour afficher et tester votre tableau de bord, sélectionnez **Configurer l’appareil en préversion**. Cette fonctionnalité vous permet de voir le tableau de bord tel que le voit votre opérateur une fois qu’il a été publié. Utilisez cette fonctionnalité pour vérifier que vos vues affichent les données qui conviennent. Vous pouvez choisir parmi les options suivantes :
+Pour consulter et tester votre affichage, sélectionnez **Configurer l’aperçu de l’appareil**. Cette fonctionnalité vous permet de voir l’affichage tel que le voit votre opérateur une fois qu’il a été publié. Utilisez cette fonctionnalité pour vérifier que vos vues affichent les données qui conviennent. Vous pouvez choisir parmi les options suivantes :
 
 - Aucun appareil en préversion
 - Le véritable appareil de test que vous avez configuré pour votre modèle d’appareil

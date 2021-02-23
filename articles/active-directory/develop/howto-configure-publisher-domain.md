@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013632"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104176"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Procédure : Configurer un domaine d’éditeur d’application
 
@@ -48,18 +48,12 @@ Si votre application a été inscrite avant le 21 mai 2019, l’invite de consen
 
 Pour définir le domaine d’éditeur de votre application, procédez comme suit.
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> avec un compte professionnel ou scolaire ou avec un compte Microsoft personnel.
-
-1. Si votre compte est présent dans plusieurs locataires Azure AD :
-   1. Sélectionnez votre profil dans le menu en haut à droite de la page, puis **changez de répertoire**.
-   1. Modifiez votre session sur le locataire Azure AD où vous voulez créer votre application.
-
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>.
+1. Si vous avez accès à plusieurs locataires, utilisez le filtre **Annuaire + abonnement** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: dans le menu supérieur pour sélectionner le locataire dans lequel l’application est inscrite.
 1. Accédez à [Azure Active Directory > Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) pour rechercher et sélectionner l’application que vous souhaitez configurer.
 
    Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
-
-1. Dans la page **Vue d’ensemble** de l’application, sélectionner la section **Personnalisation**.
-
+1. Sous **Gérer**, sélectionnez **Personnalisation**.
 1. Recherchez le champ **Domaine d’éditeur** et sélectionnez une des options suivantes :
 
    - Sélectionnez **Configurer un domaine** si vous n’avez pas déjà configuré de domaine.

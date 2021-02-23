@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210118"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104805"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -142,11 +142,15 @@ Lorsque vous attribuez des définitions qui commencent par _Configurer_, vous de
 
 Les définitions de stratégie Audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**. Toutes les machines intégrées à [Azure Arc pour serveurs](../../../azure-arc/servers/overview.md) qui relèvent du champ d’application de l’attribution de stratégies sont automatiquement incluses.
 
+## <a name="troubleshooting-guest-configuration"></a>Résolution des problèmes de configuration invité
+
+Pour plus d’informations sur la résolution des problèmes de configuration invité, consultez [Résolution des problèmes Azure Policy](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Affectations multiples
 
 Actuellement, les définitions de stratégie Guest Configuration prennent en charge l’attribution d’une seule affectation d’invité par machine, même si l’attribution de stratégie utilise des paramètres différents.
 
-## <a name="client-log-files"></a>Fichiers journaux du client
+### <a name="client-log-files"></a>Fichiers journaux du client
 
 L’extension de configuration d’invité écrit les fichiers journaux aux emplacements suivants :
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>Fichiers client
+
+Le client de configuration invité télécharge des packages de contenu sur un ordinateur et extrait le contenu.
+Pour vérifier quel contenu a été téléchargé et stocké, consultez les emplacements de dossier indiqués ci-dessous.
+
+Windows : `c:\programdata\guestconfig\configurations`
+
+Linux : `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Exemples de la configuration d’invité
 

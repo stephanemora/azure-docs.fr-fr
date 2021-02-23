@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032930"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388207"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
@@ -192,7 +192,7 @@ explained_variance|La variance expliquée évalue dans quelle mesure un modèle 
 mean_absolute_error|L’erreur d’absolue moyenne est la valeur attendue de la valeur absolue de la différence entre la cible et la prédiction.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br><br> Types : <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error` est la valeur mean_absolute_error divisée par la plage des données. | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|L’erreur de pourcentage absolue moyenne (MAPE) mesure la différence moyenne entre une valeur prédite et la valeur réelle.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) ||
 median_absolute_error|L’erreur absolue médiane est la médiane de toutes les différences absolues entre la cible et la prédiction. Cette perte est robuste pour les valeurs hors norme.<br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types : <br> `median_absolute_error`<br> `normalized_median_absolute_error` est la valeur median_absolute_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** (-inf, 1]|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. <br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1] <br><br> Remarque : R2 a souvent la plage (-inf, 1], mais le Machine Learning automatisé fixe les valeurs négatives pour les modèles très mauvais à la valeur -1.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |L’erreur quadratique moyenne racine (RMSE) est la racine carrée de la différence quadratique attendue entre la cible et la prédiction. Pour un estimateur non biaisé, la valeur RMSE est égale à l’écart type.<br> <br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)<br><br>Types :<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error` est la valeur root_mean_squared_error divisée par la plage des données. |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue.<br><br>**Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf) <br> <br>Types : <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error` est la valeur root_mean_squared_log_error divisée par la plage des données.  |[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| La corrélation de Spearman est une mesure non paramétrique de la monotonie de la relation entre deux jeux de données. Contrairement à la corrélation de Pearson, la corrélation de Spearman ne suppose pas que les deux jeux de données sont normalement distribués. Comme d’autres coefficients de corrélation, la corrélation de Spearman varie entre -1 et 1, 0 impliquant l’absence de corrélation. Les corrélations de -1 ou 1 impliquent une relation monotone exacte. <br><br> La corrélation de Spearman est une métrique de corrélation de l’ordre de classement, ce qui signifie que les modifications apportées aux valeurs prédites ou réelles ne changeront pas le résultat Spearman si elles ne modifient pas l’ordre de classement des valeurs prédites ou réelles.<br> <br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]|[Calcul](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|
@@ -234,10 +234,7 @@ Dans cet exemple, notez que le meilleur modèle comporte une ligne de prédictio
 
 Bien que les métriques et les graphiques d’évaluation des modèles conviennent parfaitement pour mesurer la qualité générale d’un modèle, il est essentiel d’inspecter les fonctionnalités du jeu de données qu’un modèle utilisé pour faire ses prédictions lorsque vous souhaitez mettre en place des pratiques IA responsables. C’est la raison pour laquelle ML automatisé fournit un tableau de bord d’interprétation des modèles permettant de mesurer et de signaler les contributions relatives des fonctionnalités du jeu de données.
 
-![Importances des fonctionnalités](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 Pour afficher le tableau de bord d’interprétation dans le studio :
-
 1. [Connectez-vous au studio](https://ml.azure.com/) et accédez à votre espace de travail
 2. Dans le menu de gauche, sélectionnez **Expériences**
 3. Sélectionnez votre expérience dans la liste des expériences
@@ -246,10 +243,11 @@ Pour afficher le tableau de bord d’interprétation dans le studio :
 6. Dans l’onglet **Explications**, vous pouvez voir qu’une explication a déjà été créée si le modèle était le meilleur
 7. Pour créer une nouvelle explication, sélectionnez **Expliquer le modèle**, puis choisissez le calcul distant avec lequel vous allez calculer les explications
 
+[Découvrez-en plus sur les explications de modèle dans le Machine Learning automatisé](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > Le modèle ForecastTCN n’est actuellement pas pris en charge par les explications ML automatisé, et les autres modèles de prévision peuvent avoir un accès limité aux outils d’interprétation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Testez les exemples de notebooks disponibles dans l’[explication du modèle de Machine Learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
-* En savoir plus sur les [offres avec IA responsable dans ML automatisé](how-to-machine-learning-interpretability-automl.md).
 * Pour les questions spécifiques à ML automatisé, contactez askautomatedml@microsoft.com.

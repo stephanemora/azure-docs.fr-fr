@@ -3,12 +3,12 @@ title: Informations détaillées sur la structure d’attribution des stratégie
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558451"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -98,7 +98,7 @@ Pour définir un message personnalisé décrivant la raison pour laquelle une re
 ]
 ```
 
-Si l’affectation concerne une initiative, différents messages peuvent être configurés pour chaque définition de stratégie de l’initiative. Les messages utilisent la valeur `policyDefinitionReferenceId` configurée dans la définition de l’initiative. Pour plus d’informations, consultez [Propriétés des définitions de propriétés](./initiative-definition-structure.md#policy-definition-properties).
+Si l’affectation concerne une initiative, différents messages peuvent être configurés pour chaque définition de stratégie de l’initiative. Les messages utilisent la valeur `policyDefinitionReferenceId` configurée dans la définition de l’initiative. Pour plus d’informations, consultez [Propriétés des définitions des stratégies](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

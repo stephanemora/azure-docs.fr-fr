@@ -1,28 +1,24 @@
 ---
 title: Mappage de colonnes de jeux de données dans Azure Data Factory
 description: Découvrez comment mapper des colonnes source sur des colonnes de destination.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318873"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371122"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapper des colonnes d’un jeu de données source sur des colonnes d’un jeu de données de destination
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. 
 
-Le mappage de colonnes peut être utilisé pour spécifier la façon dont les colonnes spécifiées dans la « structure » de la table source sont mappées vers les colonnes spécifiées dans la « structure » de la table du récepteur. La propriété **columnMapping** est disponible dans la section **typeProperties** de l’activité de copie.
+Le mappage de colonnes peut être utilisé pour définir la façon dont les colonnes spécifiées dans la « structure » de la table source sont mappées aux colonnes spécifiées dans la « structure » de la table du récepteur. La propriété **columnMapping** est disponible dans la section **typeProperties** de l’activité de copie.
 
 Le mappage de colonnes prend en charge les scénarios suivants :
 
@@ -140,7 +136,7 @@ Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes d
 ![Flux du mappage de colonnes](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Exemple 2 : mappage de colonnes à l’aide d’une requête SQL depuis SQL Azure vers un objet blob Azure
-Dans cet exemple, une requête SQL est utilisée pour extraire des données de SQL Azure au lieu de simplement spécifier le nom de la table et le nom des colonnes dans la section « structure ». 
+Dans cet exemple, une requête SQL est utilisée pour extraire des données d’Azure SQL au lieu de simplement spécifier le nom de la table et le nom des colonnes dans la section « structure ». 
 
 ```json
 {
@@ -172,7 +168,7 @@ Dans cet exemple, une requête SQL est utilisée pour extraire des données de 
         }
 }
 ```
-Dans ce cas, les résultats de la requête sont d’abord mappés vers les colonnes spécifiées dans la « structure » de la source. Ensuite, les colonnes de la « structure » de la source sont mappées vers les colonnes de la « structure » du récepteur avec les règles spécifiées dans columnMappings.  Supposons que la requête retourne cinq colonnes, c’est-à-dire deux colonnes de plus que celles spécifiées dans la « structure » de la source.
+Dans ce cas, les résultats de la requête sont d’abord mappés aux colonnes spécifiées dans la « structure » de la source. Ensuite, les colonnes de la « structure » de la source sont mappées aux colonnes de la « structure » du récepteur avec les règles spécifiées dans columnMappings.  Supposons que la requête retourne cinq colonnes, c’est-à-dire deux colonnes de plus que celles spécifiées dans la « structure » de la source.
 
 **Flux du mappage de colonnes**
 

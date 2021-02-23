@@ -3,12 +3,12 @@ title: Sécurisation d’Azure Functions
 description: Découvrez comment exécuter votre code de fonction dans Azure à partir d’attaques courantes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491322"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368487"
 ---
 # <a name="securing-azure-functions"></a>Sécurisation d’Azure Functions
 
@@ -107,6 +107,8 @@ Les chaînes de connexion et d’autres informations d’identification stockée
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+Les identités managées peuvent être utilisées à la place des secrets pour les connexions à partir de certains déclencheurs et de certaines liaisons. Consultez [Connexions basées sur l’identité](#identity-based-connections).
+
 Pour plus d’informations, consultez [Guide pratique pour utiliser des identités managées avec App Service et Azure Functions](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json).
 
 #### <a name="restrict-cors-access"></a>Restreindre l’accès CORS
@@ -136,6 +138,14 @@ Vous pouvez également chiffrer les paramètres par défaut dans le fichier loca
 Même si les paramètres d’application sont suffisants pour la plupart des fonctions, vous pouvez souhaiter partager les mêmes secrets entre plusieurs services. Dans ce cas, le stockage redondant des secrets entraîne plus de vulnérabilités potentielles. Une approche plus sécurisée consiste à utiliser un service de stockage secret central et à utiliser des références à ce service au lieu des secrets eux-mêmes.      
 
 [Azure Key Vault](../key-vault/general/overview.md) est un service qui fournit une gestion centralisée des secrets, avec un contrôle total sur les stratégies d’accès et l’historique d’audit. Vous pouvez utiliser une référence Key Vault à place d’une chaîne de connexion ou d’une clé dans vos paramètre d’application. Pour en savoir plus, consultez [Utiliser des références Key Vault pour App Service et Azure Functions](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### <a name="identity-based-connections"></a>Connexions basées sur l’identité
+
+Les identités peuvent être utilisées à la place de secrets pour la connexion à certaines ressources. Cela présente l’avantage de ne pas nécessiter la gestion d’un secret et fournit un contrôle d’accès et un audit plus précis. 
+
+Lorsque vous écrivez du code qui crée la connexion aux [services Azure qui prennent en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), vous pouvez choisir d’utiliser une identité au lieu d’une clé secrète ou d’une chaîne de connexion. Pour plus d’informations sur les deux méthodes de connexion, reportez-vous à la documentation de chaque service.
+
+Certaines extensions de déclencheur et de liaison Azure Functions peuvent être configurées à l’aide d’une connexion basée sur l’identité. Aujourd’hui, cela comprend les extensions [Azure Blob](./functions-bindings-storage-blob.md) et de [file d’attente Azure](./functions-bindings-storage-queue.md). Pour plus d’informations sur la configuration de ces extensions pour utiliser une identité, consultez [Utilisation de connexions basées sur l’identité dans Azure Functions](./functions-reference.md#configure-an-identity-based-connection).
 
 ### <a name="set-usage-quotas"></a>Configurer un quota d’utilisation
 

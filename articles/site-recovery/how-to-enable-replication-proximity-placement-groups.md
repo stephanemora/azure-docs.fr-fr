@@ -4,13 +4,13 @@ description: Découvrez comment répliquer des machines virtuelles Azure exécut
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745581"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380730"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Répliquer des machines virtuelles Azure exécutées dans des groupes de placement de proximité dans une autre région
 
@@ -25,21 +25,72 @@ Dans un scénario classique, vous pouvez faire en sorte que vos machines virtuel
 ## <a name="considerations"></a>Considérations
 
 - Le mieux à faire est de basculer/restaurer les machines virtuelles dans un groupe de placement de proximité. Toutefois, si la machine virtuelle ne peut pas être réactivée dans le placement de proximité pendant le basculement/la restauration automatique, alors le basculement/la restauration automatique aura quand même lieu, et les machines virtuelles seront créées en dehors d’un groupe de placement de proximité.
--  Si un groupe à haute disponibilité est épinglé à un groupe de placement de proximité et que pendant le basculement/la restauration automatique les machines virtuelles dans ce groupe à haute disponibilité ont une contrainte d’allocation, alors elles seront créées en dehors de groupe à haute disponibilité et du groupe de placement de proximité.
--  Site Recovery pour les groupes de placement de proximité n’est pas pris en charge pour les disques non managés.
+- Si un groupe à haute disponibilité est épinglé à un groupe de placement de proximité et que pendant le basculement/la restauration automatique les machines virtuelles dans ce groupe à haute disponibilité ont une contrainte d’allocation, alors elles seront créées en dehors de groupe à haute disponibilité et du groupe de placement de proximité.
+- Site Recovery pour les groupes de placement de proximité n’est pas pris en charge pour les disques non managés.
 
 > [!NOTE]
 > Azure Site Recovery ne prend pas en charge la restauration automatique à partir de disques managés dans les scénarios Hyper-V vers Azure. Par conséquent, la restauration automatique d'un groupe de placement de proximité Azure vers Hyper-V n'est pas prise en charge.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>Configurer la reprise d’activité pour les machines virtuelles appartenant à des groupes de placement de proximité via le portail
+
+### <a name="azure-to-azure-via-portal"></a>Azure vers Azure via le portail
+
+Vous pouvez choisir d’activer la réplication pour une machine virtuelle par le biais de la page de reprise d’activité de la machine virtuelle. Vous pouvez également procéder en accédant à un coffre précréé et en activant la réplication dans la section Site Recovery. Voyons comment configurer Site Recovery pour les machines virtuelles qui appartiennent à un groupe de placement de proximité avec ces deux approches :
+
+- Comment sélectionner un groupe de placement de proximité dans la région de reprise d’activité lorsque vous activez la réplication via le panneau de reprise d’activité de la machine virtuelle IaaS :
+  1. Accédez à la machine virtuelle. Dans le panneau de gauche, sous « Opérations », sélectionnez « Reprise d’activité ».
+  2. Sous l’onglet « Paramètres de base », choisissez la région de reprise d’activité vers laquelle vous souhaitez répliquer la machine virtuelle. Accédez à « Paramètres avancés ».
+  3. Ici, vous pouvez voir le groupe de placement de proximité de votre machine virtuelle, ainsi que l’option permettant de sélectionner un groupe de placement de proximité dans la région de reprise d’activité. Site Recovery vous donne également la possibilité d’utiliser un groupe de placement de proximité qu’il crée pour vous si vous choisissez d’utiliser cette option par défaut. Après avoir sélectionné le groupe de placement de proximité de votre choix, accédez à « Réviser + lancer la réplication », puis activez la réplication.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Activez la réplication.":::
+
+- Comment sélectionner un groupe de placement de proximité dans la région de reprise d’activité lorsque vous activez la réplication via le panneau Coffre :
+  1. Accédez à votre coffre Recovery Services, puis à l’onglet Site Recovery.
+  2. Cliquez sur « + Activer Site Recovery », puis sélectionnez «1 : Activer la réplication » sous Machines virtuelles Azure (puisque vous cherchez à répliquer une machine virtuelle Azure).
+  3. Renseignez les champs obligatoires de l’onglet « Source », puis cliquez sur « Suivant ».
+  4. Sous l’onglet « Machines virtuelles », sélectionnez la liste des machines virtuelles pour lesquelles vous souhaitez activer la réplication, puis cliquez sur « Suivant ».
+  5. Vous verrez l’option permettant de sélectionner un groupe de placement de proximité dans la région de reprise d’activité. Site Recovery vous donne également la possibilité d’utiliser un groupe de placement de proximité qu’il crée pour vous si vous choisissez d’utiliser cette option par défaut. Sélectionnez le groupe de placement de proximité de votre choix, puis activez la réplication.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Activer la réplication via le coffre.":::
+
+Notez qu’il est facile de mettre à jour le groupe de placement de proximité dans la région de reprise d’activité une fois que la réplication a été activée pour la machine virtuelle.
+
+1. Accédez à la machine virtuelle, puis, dans le panneau de gauche, sous « Opérations », sélectionnez « Reprise d’activité ».
+2. Accédez au panneau « Calcul et réseau », puis cliquez sur « Modifier » en haut de la page.
+3. Vous pouvez voir les options permettant de modifier plusieurs paramètres cibles, y compris les groupes de placement de proximité cibles. Sélectionnez le groupe de placement de proximité vers lequel vous souhaitez faire basculer la machine virtuelle, puis cliquez sur « Enregistrer ».
+
+### <a name="vmware-to-azure-via-portal"></a>VMware vers Azure via le portail
+
+Vous pouvez configurer le groupe de placement de proximité de la machine virtuelle cible après avoir activé la réplication pour la machine virtuelle. Veillez à créer le groupe de placement de proximité séparément dans la région cible, conformément à vos exigences. Ensuite, vous pourrez facilement mettre à jour le groupe de placement de proximité dans la région de reprise d’activité une fois que la réplication aura été activée pour la machine virtuelle.
+
+1. Sélectionnez la machine virtuelle dans le coffre, puis, dans le panneau de gauche, sous « Opérations », sélectionnez « Reprise d’activité ».
+2. Accédez au panneau « Calcul et réseau », puis cliquez sur « Modifier » en haut de la page.
+3. Vous pouvez voir les options permettant de modifier plusieurs paramètres cibles, y compris les groupes de placement de proximité cibles. Sélectionnez le groupe de placement de proximité vers lequel vous souhaitez faire basculer la machine virtuelle, puis cliquez sur « Enregistrer ».
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Mettre à jour le groupe de placement de proximité V2A":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>Hyper-V vers Azure via le portail
+
+Vous pouvez configurer le groupe de placement de proximité de la machine virtuelle cible après avoir activé la réplication pour la machine virtuelle. Veillez à créer le groupe de placement de proximité séparément dans la région cible, conformément à vos exigences. Ensuite, vous pourrez facilement mettre à jour le groupe de placement de proximité dans la région de reprise d’activité une fois que la réplication aura été activée pour la machine virtuelle.
+
+1. Sélectionnez la machine virtuelle dans le coffre, puis, dans le panneau de gauche, sous « Opérations », sélectionnez « Reprise d’activité ».
+2. Accédez au panneau « Calcul et réseau », puis cliquez sur « Modifier » en haut de la page.
+3. Vous pouvez voir les options permettant de modifier plusieurs paramètres cibles, y compris les groupes de placement de proximité cibles. Sélectionnez le groupe de placement de proximité vers lequel vous souhaitez faire basculer la machine virtuelle, puis cliquez sur « Enregistrer ».
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Mettre à jour le groupe de placement de proximité H2A":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>Configurer la reprise d’activité pour les machines virtuelles appartenant à des groupes de placement de proximité via PowerShell
+
+### <a name="prerequisites"></a>Prérequis 
 
 1. Assurez-vous que vous disposez du module Azure PowerShell Az. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 2. La version Azure PowerShell Az minimale doit être 4.1.0. Pour vérifier la version actuelle, utilisez la commande ci-dessous :
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurer Site Recovery pour Machines virtuelles Microsoft Azure dans le groupe de placement de proximité
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurer Site Recovery pour Machines virtuelles Microsoft Azure dans le groupe de placement de proximité
 
 > [!NOTE]
 > Vérifiez que vous avez l’ID unique du groupe de placement de proximité cible sous la main. Si vous créez un groupe de placement de proximité, vérifiez la commande [ici](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) et, si vous utilisez un groupe de placement de proximité existant, utilisez la commande que vous trouverez [ici](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. Pour désactiver la réplication, suivez [ces étapes](./azure-to-azure-powershell.md#disable-replication).
 
-### <a name="vmware-to-azure"></a>VMware vers Azure
+### <a name="vmware-to-azure-via-powershell"></a>VMware vers Azure via PowerShell
 
 1. Assurez-vous de [préparer vos serveurs VMware locaux](./vmware-azure-tutorial-prepare-on-premises.md) pour la récupération d’urgence vers Azure.
 2. Connectez-vous à votre compte Azure et sélectionnez votre abonnement comme spécifié [ici](./vmware-azure-disaster-recovery-powershell.md#log-into-azure).
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. [Exécutez](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) un basculement test.
 11. Basculez vers Azure à l’aide de [ces](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) étapes.
 
-### <a name="hyper-v-to-azure"></a>Hyper-V vers Azure
+### <a name="hyper-v-to-azure-via-powershell"></a>Hyper-V vers Azure via PowerShell
 
 1. Assurez-vous de [préparer vos serveurs Hyper-V locaux](./hyper-v-prepare-on-premises-tutorial.md) pour la récupération d’urgence vers Azure.
 2. [Connectez-vous](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) à Azure.

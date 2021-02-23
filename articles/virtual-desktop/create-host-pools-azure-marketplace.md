@@ -3,15 +3,16 @@ title: Pool d’hôtes Windows Virtual Desktop Portail Azure - Azure
 description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide du portail Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735179"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651457"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutoriel : Créer un pool d’hôtes avec le portail Azure
 
@@ -67,6 +68,9 @@ Pour commencer à créer votre nouveau pool d’hôtes
 
      > [!div class="mx-imgBorder"]
      > ![Capture d’écran du portail Azure montrant le champ Emplacement avec l’emplacement USA Est sélectionné. En regard du champ figure le texte « Les métadonnées seront stockées dans USA Est ».](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Si vous souhaitez créer votre pool d’hôtes dans [une région prise en charge](data-locations.md) en dehors des États-Unis, vous devez réinscrire le fournisseur de ressources. Après la réinscription, les autres régions doivent figurer dans la liste déroulante où est sélectionné l’emplacement. Découvrez comment vous réinscrire dans notre article de résolution des problèmes de [création de pools d’hôtes](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects).
 
 8. Sous Type de pool d’hôtes, indiquez si votre pool d’hôtes sera **Personnel** ou **Groupé**.
 

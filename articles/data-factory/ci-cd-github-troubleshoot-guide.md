@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556305"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393749"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -78,14 +77,14 @@ Le pipeline de mise en production CI/CD échoue avec l’erreur suivante :
 
 #### <a name="cause"></a>Cause
 
-Cela est dû à un runtime d'intégration portant le même nom dans la fabrique cible, mais avec un type différent. Le runtime d'intégration doit être du même type lors du déploiement.
+Cela est dû à un runtime d’intégration portant le même nom dans la fabrique cible, mais avec un type différent. Le runtime d'intégration doit être du même type lors du déploiement.
 
 #### <a name="recommendation"></a>Recommandation
 
 - Reportez-vous aux meilleures pratiques ci-dessous pour CI/CD :
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si le nom, les types et les propriétés diffèrent, assurez-vous qu’ils correspondent à la configuration IR source et cible, puis déployez le pipeline de mise en production.
+- Les runtimes d’intégration ne changent pas souvent et sont similaires dans toutes les phases de CI/CD. Ainsi, Data Factory s’attend à ce que vous ayez le même nom et le même type de runtime d’intégration dans toutes les phases de CI/CD. Si le nom, les types et les propriétés diffèrent, assurez-vous qu’ils correspondent à la configuration du runtime d’intégration source et cible, puis déployez le pipeline de mise en production.
 - Si vous voulez partager les runtimes d’intégration dans toutes les phases, envisagez d’utiliser une fabrique ternaire qui contiendra uniquement les runtimes d’intégration partagés. Vous pouvez utiliser cette fabrique partagée dans tous vos environnements en tant que type de runtime d’intégration lié.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>Échec de la création ou de la mise à jour du document en raison d’une référence non valide
@@ -150,6 +149,34 @@ Vous avez créé un rôle client en tant qu’utilisateur et il n’a pas l’au
 #### <a name="resolution"></a>Résolution
 
 Pour résoudre le problème, vous devez ajouter l’autorisation suivante à votre rôle : *Microsoft.DataFactory/factories/queryFeaturesValue/action*. Cette autorisation doit être incluse par défaut dans le rôle « Contributeur de fabrique de données ».
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publication automatique pour CI/CD sans cliquer sur le bouton Publier  
+
+#### <a name="issue"></a>Problème
+
+La publication manuelle avec un clic de bouton dans le portail ADF n’active pas l’opération CI/CD automatique.
+
+#### <a name="cause"></a>Cause
+
+Jusqu’à récemment, la seule manière de publier un pipeline ADF pour les déploiements consistait à utiliser le bouton du portail ADF. À présent, vous pouvez rendre le processus automatique. 
+
+#### <a name="resolution"></a>Résolution
+
+Le processus CI/CD a été amélioré. La fonctionnalité **Publication automatisée** prend, valide et exporte toutes les fonctionnalités de modèle Azure Resource Manager (ARM) de l’expérience utilisateur d’ADF. Elle rend la logique consommable par le biais d’un package npm disponible publiquement [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). Cela vous permet de déclencher ces actions par programmation au lieu de devoir accéder à l’interface utilisateur d’ADF et de cliquer sur un bouton. Cela donne à vos pipelines de CI/CD une **véritable** expérience d’intégration continue. Pour plus d’informations, suivez les [améliorations apportées au processus de publication pour CI/CD ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements). 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Publication impossible en raison d’une limite de 4 Mo pour le modèle ARM  
+
+#### <a name="issue"></a>Problème
+
+Vous ne pouvez pas effectuer de déploiement, car vous avez atteint la limite Azure Resource Manager de 4 Mo pour la taille du modèle. Vous avez besoin d’une solution pour que le déploiement puisse avoir lieu une fois la limite franchie. 
+
+#### <a name="cause"></a>Cause
+
+Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. Toutefois, vous avez franchi la limite. 
+
+#### <a name="resolution"></a>Résolution
+
+Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Suivez les bonnes pratiques indiquées à la page [Utilisation de modèles liés et imbriqués](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

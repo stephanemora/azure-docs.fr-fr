@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936367"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526236"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -111,7 +111,7 @@ Ensuite, exposez l’API en ajoutant une étendue :
 Ensuite, spécifiez que l’application doit être traitée comme un client public :
 
 1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
-1. Sous **Paramètres avancés**, activez **Considérer l’application comme un client public** (sélectionnez **Oui**). Assurez-vous que **« allowPublicClient » : true** est défini dans le manifeste de l’application. 
+1. Sous **Paramètres avancés**, dans la section **Autoriser les flux de clients publics**, définissez **Activer les flux mobiles et de bureau suivants** sur **Oui**. Assurez-vous que **« allowPublicClient » : true** est défini dans le manifeste de l’application. 
 1. Sélectionnez **Enregistrer**.
 
 Maintenant, accordez des autorisations à l’étendue de l’API que vous avez exposée précédemment dans l’inscription  *IdentityExperienceFramework* :

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538839"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381866"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configurer et gérer la sauvegarde en continu et la restauration à un instant dans le passé (préversion) – Portail Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Par exemple, si vous souhaitez effectuer une restauration au point précédant l
 Vous pouvez utiliser Portail Azure pour restaurer complètement un compte supprimé dans les 30 jours suivant sa suppression. Pour restaurer un compte supprimé, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Recherchez les ressources « Azure Cosmos DB » dans la barre de recherche globale. Elle répertorie tous vos comptes existants.
+1. Recherchez les ressources *Azure Cosmos DB* dans la barre de recherche globale. Elle répertorie tous vos comptes existants.
 1. Sélectionnez ensuite le bouton **Restaurer**. Le volet Restaurer affiche la liste des comptes supprimés qui peuvent être restaurés pendant la période de rétention, qui est de 30 jours à partir de la date de suppression.
 1. Choisissez le compte que vous souhaitez restaurer.
 
@@ -95,7 +95,7 @@ Vous pouvez utiliser Portail Azure pour restaurer complètement un compte suppri
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>Suivre l’état de l’opération de restauration
 
-Après avoir lancé une opération de restauration, sélectionnez l’icône **Notification** en forme de cloche dans le coin supérieur droit du portail. Elle donne un lien qui affiche l’état du compte en cours de restauration. Pendant que la restauration est en cours, l’état du compte est « En cours de création » ; une fois l’opération de restauration terminée, l’état du compte devient « En ligne ».
+Après avoir lancé une opération de restauration, sélectionnez l’icône **Notification** en forme de cloche dans le coin supérieur droit du portail. Elle donne un lien qui affiche l’état du compte en cours de restauration. Pendant que la restauration est en cours, l’état du compte est *En cours de création* ; une fois l’opération de restauration terminée, l’état du compte devient *En ligne*.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="L’état du compte restauré passe d’En cours de création à En ligne lorsque l’opération est terminée." border="true":::
 

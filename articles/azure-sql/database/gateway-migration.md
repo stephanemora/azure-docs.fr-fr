@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575158"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517822"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,10 +29,26 @@ Les informations les plus récentes seront conservées dans la table [Adresses I
 ## <a name="status-updates"></a>Mises à jour d’état
 
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
+## <a name="march-2021"></a>Mars 2021
+Les passerelles SQL suivantes dans plusieurs régions sont en cours de désactivation :
+
+- Brésil Sud : 104.41.11.5
+- Asie Est : 191.234.2.139
+- USA Est : 191.238.6.43
+- Japon Est : 191.237.240.43
+- Japon Ouest : 191.238.68.11
+- Europe Nord : 191.235.193.75
+- USA Centre Sud : 23.98.162.75
+- Asie Sud-Est : 23.100.117.95
+- Europe Ouest : 191.237.232.75
+- USA Ouest : 23.99.34.75
+
+Aucun impact sur le client n’est attendu, car ces passerelles (exécutées sur un matériel plus ancien) n’acheminent pas le trafic des clients. Les adresses IP de ces passerelles seront désactivées le 15 mars 2021.
+
 ## <a name="february-2021"></a>Février 2021
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 
-- USA Centre : 13.89.169.20
+- USA Centre : 13.89.169.20
 
 Ces passerelles SQL devraient commencer à accepter le trafic client le 28 février 2021.
 
@@ -40,12 +56,12 @@ Ces passerelles SQL devraient commencer à accepter le trafic client le 28 fév
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 
 - Australie Centre : 20.36.104.6, 20.36.104.7 
-- Australie Centre 2 : 20.36.112.6 
+- Australie Centre 2 :  20.36.112.6 
 - Brésil Sud : 191.234.144.16, 191.234.152.3 
-- Canada Est : 40.69.105.9, 40.69.105.10
+- Canada Est : 40.69.105.9, 40.69.105.10
 - Inde Centre : 104.211.86.30, 104.211.86.31 
-- Asie Est : 13.75.32.14 
-- France Centre : 40.79.137.8, 40.79.145.12 
+- Asie Est : 13.75.32.14 
+- France Centre : 40.79.137.8, 40.79.145.12 
 - France Sud : 40.79.177.10, 40.79.177.12
 - Corée Centre : 52.231.17.22, 52.231.17.23
 - Inde Ouest : 104.211.144.4
@@ -66,32 +82,32 @@ Ces passerelles SQL devraient commencer à accepter le trafic client le 12 octo
 ### <a name="september-2020"></a>Septembre 2020
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le **15 septembre 2020** :
 
-- Australie Sud-Est : 13.77.48.10
-- Canada Est : 40.86.226.166, 52.242.30.154
-- Royaume-Uni Sud : 51.140.184.11, 51.105.64.0
+- Australie Sud-Est : 13.77.48.10
+- Canada Est : 40.86.226.166, 52.242.30.154
+- Royaume-Uni Sud : 51.140.184.11, 51.105.64.0
 
 Les passerelles SQL existantes commenceront à accepter le trafic dans les régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le **15 septembre 2020** :
 
-- Australie Sud-Est : 191.239.192.109 et 13.73.109.251
-- USA Centre : 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 et 104.208.21.1
-- Asie Est : 191.234.2.139, 52.175.33.150 et 13.75.32.4
+- Australie Sud-Est : 191.239.192.109 et 13.73.109.251
+- USA Centre : 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 et 104.208.21.1
+- Asie Est : 191.234.2.139, 52.175.33.150 et 13.75.32.4
 - USA Est : 40.121.158.30, 40.79.153.12, 191.238.6.43 et 40.78.225.32
-- USA Est 2 : 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 et 104.208.150.3
-- France Centre : 40.79.137.0 et 40.79.129.1
+- USA Est 2 : 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 et 104.208.150.3
+- France Centre : 40.79.137.0 et 40.79.129.1
 - Japon Ouest : 104.214.148.156, 40.74.100.192, 191.238.68.11 et 40.74.97.10
-- USA Centre Nord : 23.96.178.199, 23.98.55.75 et 52.162.104.33
-- Asie Sud-Est : 104.43.15.0, 23.100.117.95 et 40.78.232.3
+- USA Centre Nord : 23.96.178.199, 23.98.55.75 et 52.162.104.33
+- Asie Sud-Est : 104.43.15.0, 23.100.117.95 et 40.78.232.3
 - USA Ouest : 104.42.238.205, 23.99.34.75 et 13.86.216.196
 
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le **10 septembre 2020** :
 
 - USA Centre-Ouest : 13.78.248.43 
-- Afrique du Sud Nord 102.133.120.2  
+- Afrique du Sud Nord : 102.133.120.2  
 
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes : Ces passerelles SQL devraient commencer à accepter le trafic client le **1er septembre 2020** :
 
 - Europe Nord : 13.74.104.113 
-- USA Ouest 2 : 40.78.248.10 
+- USA Ouest 2 : 40.78.248.10 
 - Europe Ouest : 52.236.184.163 
 - USA Centre Sud : 20.45.121.1, 20.49.88.1 
 
@@ -105,7 +121,7 @@ De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 
 - Australie Est : 13.70.112.9
 - Canada Centre : 52.246.152.0, 20.38.144.1 
-- USA Ouest 2 : 40.78.240.8
+- USA Ouest 2 : 40.78.240.8
 
 Ces passerelles SQL devraient commencer à accepter le trafic client le 10 août 2020. 
 

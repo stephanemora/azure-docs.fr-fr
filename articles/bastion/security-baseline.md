@@ -4,15 +4,15 @@ description: La base de référence de sécurité Azure Bastion propose des inst
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723929"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392372"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Base de référence de sécurité Azure pour Azure Bastion
 
@@ -69,7 +69,11 @@ La connectivité au gestionnaire de passerelle et à l’étiquette de service A
 
 **Conseils** : Azure Bastion est compatible avec Azure Active Directory (Azure AD), le service de gestion des identités et des accès par défaut d’Azure. Les utilisateurs peuvent accéder au Portail Azure à l’aide de l’authentification Azure AD pour gérer le service Azure Bastion (créer, mettre à jour et supprimer des ressources Bastion).
 
-La connexion à des machines virtuelles à l’aide d’Azure Bastion repose sur une clé SSH ou un nom d’utilisateur/mot de passe, et ne prend pas en charge à l’heure actuelle l’utilisation d’informations d’identification Azure AD.
+La connexion à des machines virtuelles à l’aide d’Azure Bastion repose sur une clé SSH ou un nom d’utilisateur/mot de passe, et ne prend pas en charge à l’heure actuelle l’utilisation d’informations d’identification Azure AD. 
+
+Vous pouvez stocker vos clés SSH en tant que secrets Azure Key Vault et utiliser ces secrets pour vous connecter à vos machines virtuelles à l’aide d’Azure Bastion. Vous pouvez contrôler l’accès des utilisateurs à ces secrets en [attribuant des stratégies d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md) à des utilisateurs individuels ou à des groupes Azure AD. Vos utilisateurs ont besoin des autorisations suivantes pour utiliser cette méthode afin de se connecter à une machine virtuelle :
+- **Obtenir** l’accès aux secrets stockés dans le coffre de clés Azure choisi
+- **Lister** l’accès aux secrets stockés dans le coffre de clés Azure choisi
 
 En plus d’une clé SSH ou d’un nom d’utilisateur/mot de passe, votre utilisateur a besoin des attributions de rôles suivantes lorsqu’il se connecte à des machines virtuelles à l’aide d’Azure Bastion :
 - Rôle de lecteur sur la machine virtuelle cible
@@ -106,7 +110,8 @@ Pour plus d’informations, consultez les références suivantes :
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4 : Utiliser des contrôles d’authentification renforcés pour tous les accès basés sur Azure Active Directory
 
-**Conseils** : Azure Bastion est compatible avec Azure Active Directory (Azure AD) pour l’accès au service et sa gestion. Configurez Azure Multi-Factor Authentication pour votre locataire Azure AD. Azure AD prend en charge des contrôles d’authentification renforcés via l’authentification multifacteur (MFA) et des méthodes de mot de passe fort.  
+**Conseils** : Azure Bastion est compatible avec Azure Active Directory (Azure AD) pour l’accès au service et sa gestion. Configurez Azure Active Directory Multi-Factor Authentication pour votre locataire Azure AD. Azure AD prend en charge des contrôles d’authentification renforcés via l’authentification multifacteur (MFA) et des méthodes de mot de passe fort.
+  
 - Authentification multifacteur : Activez Azure AD MFA et suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center pour votre configuration MFA. L’authentification multifacteur peut être appliquée à tous les utilisateurs, seulement certains utilisateurs ou au niveau de chaque utilisateur en fonction des conditions de connexion et des facteurs de risque. 
 
 - Authentification sans mot de passe : Trois options d’authentification sans mot de passe sont proposées : Windows Hello Entreprise, l’application Microsoft Authenticator et les méthodes d’authentification locales, comme les cartes à puce. 

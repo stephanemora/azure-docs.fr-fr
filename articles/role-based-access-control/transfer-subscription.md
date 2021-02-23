@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185884"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555894"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -307,9 +307,9 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>Créer des attributions de rôles
+### <a name="assign-roles"></a>Attribuer des rôles
 
-- Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les utilisateurs, les groupes et les principaux de service. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôles à l'aide du RBAC Azure et d’Azure CLI](role-assignments-cli.md).
+- Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour attribuer des rôles aux utilisateurs, groupes et principaux de service. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -325,7 +325,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
     | Groupes identiques de machines virtuelles | [Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Autres services | [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les identités managées affectées par le système. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour attribuer des rôles aux identités managées affectées par le système. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -341,7 +341,7 @@ Dans cette étape, vous transférez l’abonnement de l’annuaire source vers l
     | Groupes identiques de machines virtuelles | [Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Autres services | [Services prenant en charge les identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour créer les attributions de rôle pour les identités managées affectées par l’utilisateur. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Utilisez [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour attribuer des rôles aux identités managées affectées par l’utilisateur. Pour plus d’informations, consultez [Affecter à une identité managée l’accès à une ressource à l’aide d’Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
