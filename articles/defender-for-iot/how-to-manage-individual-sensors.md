@@ -418,7 +418,7 @@ Vous pouvez configurer l’heure et la région du capteur afin que tous les util
 |--|--|
 | Fuseau horaire | Définition du fuseau horaire pour :<br />- les alertes<br />- les widgets de tendances et de statistiques<br />- les rapports d’exploration de données<br />   \- les rapports d’évaluation des risques<br />- les vecteurs d’attaque |
 | Format de la date | Sélectionnez l’une des options de format suivantes :<br />- jj/MM/aaaa HH:mm:ss<br />- MM/jj/aaaa HH:mm:ss<br />- aaaa/mm/jj HH:mm:ss |
-| Date et heure | Affiche la date et l’heure locale actuelles au format que vous avez sélectionné.<br />Par exemple, si votre emplacement réel est Amérique et plus précisément New York, mais que le fuseau horaire est défini sur Europe et Berlin, l’heure est affichée en fonction de l’heure locale de Berlin. |
+| Date et heure | Affiche la date et l’heure locale actuelles au format que vous avez sélectionné.<br />Par exemple, si votre emplacement réel est États-Unis et plus précisément New York, mais que le fuseau horaire est défini sur Europe et Berlin, l’heure est affichée en fonction de l’heure locale de Berlin. |
 
 Pour configurer l’heure du capteur :
 

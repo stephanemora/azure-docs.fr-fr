@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379010"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634258"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -35,11 +35,29 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 
 Les mises à jour de février sont les suivantes :
 
+- [Nouvelle page d’alertes de sécurité dans le portail Azure en disponibilité générale (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Les recommandations en matière de protection des charges de travail Kubernetes sont en disponibilité générale](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Lien direct vers la stratégie dans la page des détails de la recommandation](#direct-link-to-policy-from-recommendation-details-page)
 - [La recommandation de classification des données SQL n’a plus d’incidence sur votre niveau de sécurité](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [Les automatisations de workflow peuvent être déclenchées par des modifications apportées aux évaluations de conformité réglementaire (préversion)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [Améliorations de la page d’inventaire des ressources](#asset-inventory-page-enhancements)
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nouvelle page d’alertes de sécurité dans le portail Azure en disponibilité générale (GA)
+
+La page des alertes de sécurité d’Azure Security Center a été repensée pour fournir les éléments suivants :
+
+- **Expérience de triage améliorée des alertes** – favorise la réduction d’un trop grand nombre d’alertes et permet de se concentrer plus facilement sur les menaces les plus pertinentes. La liste comprend des filtres personnalisables et des options de regroupement.
+- **Plus d’informations dans la liste des alertes** – telles que les tactiques MITRE ATT&ACK.
+- **Bouton pour créer des exemples d’alerte** - pour évaluer les fonctionnalités d’Azure Defender et tester la configuration de vos alertes (pour l’intégration SIEM, les notifications par e-mail et les automatisations de workflow), vous pouvez créer des exemples d’alertes à partir de tous les plans Azure Defender.
+- **Alignement avec l’expérience d’incident d’Azure Sentinel** – pour les clients qui utilisent les deux produits, il est maintenant plus simple de passer de l’un à l’autre et il est facile d’apprendre l’un de l’autre.
+- **Amélioration des performances** pour les grandes listes d’alertes.
+- **Navigation au clavier** dans la liste des alertes.
+- **Alertes à partir d’Azure Resource Graph** – vous pouvez effectuer des requêtes sur des alertes dans Azure Resource Graph, l’API de type Kusto pour toutes vos ressources. Cela est également utile si vous créez vos propres tableaux de bord d’alertes. [Apprenez-en davantage sur Azure Resource Graph](../governance/resource-graph/index.yml).
+- **Créer une fonctionnalité d’exemples d’alerte** - Pour créer des exemples d’alertes à partir de la nouvelle expérience Alertes, consultez [Générer des exemples d’alertes Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Liste d’alertes de sécurité d’Azure Security Center":::
+
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Les recommandations en matière de protection des charges de travail Kubernetes sont en disponibilité générale
 

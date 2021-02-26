@@ -24,7 +24,7 @@ Video Indexer prend en charge la détection de marques dans les messages vocaux 
 Un modèle de marques personnalisé vous permet d’effectuer les opérations suivantes :
 
 - Sélectionnez cette option si vous souhaitez que Video Indexer détecte des marques dans la base de données des marques Bing.
-- Sélectionnez cette option si vous souhaitez que Video Indexer empêche certaines marques d’être détectées (en créant essentiellement une liste noire de marques).
+- Sélectionnez cette option si vous souhaitez que Video Indexer empêche certaines marques d’être détectées (en créant essentiellement une liste rouge de marques).
 - Sélectionnez cette option si vous souhaitez que Video Indexer inclue les marques qui doivent faire partie de votre modèle qui ne se trouvent pas nécessairement dans la base de données des marques de Bing (en créant essentiellement une liste verte de marques).
 
 Pour un aperçu détaillé, consultez cette [Vue d’ensemble](customize-brands-model-overview.md).

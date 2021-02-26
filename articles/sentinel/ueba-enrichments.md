@@ -155,7 +155,7 @@ Les deux premiers tableaux, **Insights sur les utilisateurs** et **Insights sur 
 | --- | --- | --- | --- |
 | **Action effectuée pour la dernière fois par l’utilisateur**<br>*(LastTimeUserPerformedAction)* | 180 | Dernière fois que l’utilisateur a effectué la même action. | <Timestamp> |
 | **Une action similaire n’a pas été effectuée dans le passé**<br>*(SimilarActionWasn’tPerformedInThePast)* | 30 | Aucune action dans le même fournisseur de ressources n’a été effectuée par l’utilisateur. | True, False |
-| **Emplacement IP source**<br>*(SourceIPLocation)* | *N/A* | Pays résolu à partir de l’adresse IP source de l’action. | [Surrey, Angleterre] |
+| **Emplacement IP source**<br>*(SourceIPLocation)* | *N/A* | Pays résolu à partir de l’adresse IP source de l’action. | [Surrey, Royaume-Uni] |
 | **Volume d’opérations inhabituellement élevé**<br>*(UncommonHighVolumeOfOperations)* | 7 | Un utilisateur a effectué une rafale d’opérations similaires au sein du même fournisseur. | True, False |
 | **Nombre inhabituel d’échecs de l’accès conditionnel Azure AD**<br>*(UnusualNumberOfAADConditionalAccessFailures)* | 5 | Un nombre inhabituel d’utilisateurs n’a pas pu s’authentifier en raison de l’accès conditionnel | True, False |
 | **Nombre inhabituel d’appareils ajoutés**<br>*(UnusualNumberOfDevicesAdded)* | 5 | Un utilisateur a ajouté un nombre inhabituel d’appareils. | True, False |

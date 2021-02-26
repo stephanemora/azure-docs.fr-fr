@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554736"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650930"
 ---
 # <a name="calling-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente d’appel
 
@@ -109,4 +109,4 @@ Notez que dans les scénarios de groupe, un flux audio mixte est utilisé pour p
 Pour plus d’informations, consultez les articles suivants :
 - Se familiariser avec les [flux d’appels](../call-flows.md) généraux 
 - Découvrir les [types d’appels](../voice-video-calling/about-call-types.md)
-- [Planifier votre solution RTPC](../telephony-sms/plan-solution.md)
+- Découvrir les [types de numéro de téléphone](../telephony-sms/plan-solution.md)
