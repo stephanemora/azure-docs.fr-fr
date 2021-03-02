@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 7fdd23aea5e435c94493a0cbe86b6ffcdb0d2e10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.custom: references_regions
+ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
+ms.sourcegitcommit: 8c93b05c27c7e8a5ba62a4d6fc6fc4d0c3980a21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539068"
+ms.lasthandoff: 02/26/2021
+ms.locfileid: "101577498"
 ---
-# <a name="what-is-routing-preference-preview"></a>Qu’est-ce qu’une préférence de routage (préversion) ?
+# <a name="what-is-routing-preference"></a>Qu’est-ce qu’une préférence de routage ?
 
 Une préférence de routage Azure vous permet de choisir le mode d’acheminement de votre trafic entre Azure et Internet. Vous pouvez choisir de router le trafic via le réseau Microsoft ou le réseau du fournisseur de services Internet (Internet public). Ces options sont également appelées respectivement *routage de patate froide* et *routage de patate chaude*. Le prix du transfert de données de sortie varie en fonction de la sélection du routage. Vous pouvez choisir l’option de routage lors de la création d’une adresse IP publique. L’adresse IP publique peut être associée à des ressources telles qu’une machine virtuelle, un groupe de machines virtuelles identiques, un équilibreur de charge accessible via Internet, etc. Vous pouvez également définir la préférence de routage pour des ressources de stockage Azure telles que des objets blob, des fichiers, le web et Azure Data Lake. Par défaut, le trafic est acheminé via le réseau Microsoft mondial pour tous les services Azure.
-
-> [!IMPORTANT]
-> La préférence de routage est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="routing-via-microsoft-global-network"></a>Routage via le réseau Microsoft mondial
 
@@ -70,13 +67,13 @@ Pour le stockage, les points de terminaison principaux utilisent toujours le **r
 * Azure Data Lake
 
 ## <a name="pricing"></a>Tarifs
-La différence de prix entre les deux options est reflétée dans la tarification du transfert de données de sortie Internet. Le prix du transfert de données via le **réseau Microsoft mondial** est identique au prix de sortie Internet actuel. Pour accéder aux dernières informations sur la tarification, visitez la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/). 
+La différence de prix entre les deux options est reflétée dans la tarification du transfert de données de sortie Internet. Le prix du transfert de données via le **réseau Microsoft mondial** est identique au prix de sortie Internet actuel. Pour accéder aux dernières informations sur la tarification, visitez la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="limitations"></a>Limites
 
+* Actuellement, la préférence de routage n’est pas prise en charge dans les régions Australie Centre, Australie Centre2, Canada Est, Brésil Sud, Corée Centre et Corée Sud.
 * La préférence de routage est compatible uniquement avec la référence (SKU) standard redondante interzone d’IP publique. La référence (SKU) de base d’adresse IP publique n’est pas prise en charge.
 * La préférence de routage ne prend actuellement en charge que les adresses IP publiques IPv4. Les adresses IP publiques IPv6 ne sont pas prises en charge.
-* Les machines virtuelles avec plusieurs cartes réseau ne peuvent avoir qu’un seul type de préférence de routage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
