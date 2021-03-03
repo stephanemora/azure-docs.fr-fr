@@ -3,12 +3,12 @@ title: Activer l’extension de machine virtuelle à l’aide du modèle Azure R
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs avec Azure Arc s’exécutant dans des environnements cloud hybrides à l’aide d’un modèle Azure Resource Manager.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555096"
+ms.locfileid: "100580924"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Activer les extensions de machine virtuelle Azure à l’aide d’un modèle ARM
 
@@ -545,7 +545,7 @@ Pour utiliser l’extension DSC PowerShell, l’exemple suivant est fourni pour 
 
 ## <a name="deploy-the-dependency-agent-extension"></a>Déployer l’extension de l’agent Dependency
 
-Pour utiliser l’extension d’Azure Monitor Dependency Agent, l’exemple suivant est fourni pour s’exécuter sur Windows et Linux. Si vous ne connaissez pas bien Dependency Agent, consultez [Vue d’ensemble des agents Azure Monitor](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+Pour utiliser l’extension d’Azure Monitor Dependency Agent, l’exemple suivant est fourni pour s’exécuter sur Windows et Linux. Si vous ne connaissez pas bien Dependency Agent, consultez [Vue d’ensemble des agents Azure Monitor](../../azure-monitor/agents/agents-overview.md#dependency-agent).
 
 ### <a name="template-file-for-linux"></a>Fichier de modèle pour Linux
 

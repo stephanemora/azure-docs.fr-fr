@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4cf623ed960fd2efe6fdf506751858796008cef4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8e86679e7531bb70d6d4f1a27718c2fc8f0e8a9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202026"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578549"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de référence de sécurité Azure pour Azure Kubernetes Service
 
@@ -196,9 +196,9 @@ Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modificati
 
 Utilisez les journaux Azure Monitor pour activer et interroger les journaux des principaux composants d’AKS, kube-apiserver et kube-controller-manager. Créez et gérez les nœuds qui exécutent le kubelet et le runtime de conteneurs, et déployez leurs applications par le biais du serveur d’API de Kubernetes managé. 
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](view-master-logs.md)
 
@@ -240,9 +240,9 @@ Activez ces données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Passez en revue le schéma de journal, y compris les rôles de journal, ici](view-master-logs.md)
 
-- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-overview.md)
+- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md)
 
-- [Procédure d’activation d’Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-onboard.md)
+- [Procédure d’activation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-onboard.md)
 
 - [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](view-master-logs.md)
 
@@ -294,7 +294,7 @@ La collecte de données est requise pour fournir une visibilité des mises à jo
 
 **Conseils** : Intégrez vos instances Azure Kubernetes Service (AKS) à Azure Monitor et définissez la période de rétention de l’espace de travail Azure Log Analytics correspondante en fonction des exigences de conformité de votre organisation. 
 
-- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -312,7 +312,7 @@ Affichez les journaux générés par les principaux composants d’AKS (kube-api
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -422,7 +422,7 @@ Créez des stratégies et des procédures concernant l’utilisation de comptes 
 
 **Conseils** : Utilisez l’authentification unique pour l’authentification intégrée d’Azure Kubernetes Service (AKS) avec Azure Active Directory (Azure AD) pour un cluster AKS.
 
-- [Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel](../azure-monitor/insights/container-insights-livedata-overview.md)
+- [Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -518,7 +518,7 @@ Tenez compte des rôles utilisés à des fins de support ou de résolution des p
 **Conseils** : Intégrez l’authentification utilisateur pour Azure Kubernetes Service (AKS) avec Azure Active Directory (Azure AD). Créez des paramètres de diagnostic pour Azure AD en envoyant les journaux d’audit et de connexion à un espace de travail Azure Log Analytics. Configurez les alertes souhaitées (par exemple, lorsqu’un compte désactivé tente de se connecter) au sein d’un espace de travail Azure Log Analytics.
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Guide pratique pour créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Guide pratique pour créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -673,11 +673,11 @@ Configurez des alertes pour recevoir une notification proactive ou créer un jou
 
 Utilisez le journal d’activité Azure pour surveiller vos clusters AKS et les ressources associées à un niveau élevé. Bénéficier d’une intégration à Prometheus pour afficher les métriques d’application et de charge de travail qu’il collecte à partir des nœuds et Kubernetes à l’aide de requêtes pour créer des alertes personnalisées, des tableaux de bord et une analyse détaillée des performances.
 
-- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/insights/container-insights-overview.md)
+- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md)
 
-- [Procédure d’activation d’Azure Monitor pour les conteneurs](../azure-monitor/insights/container-insights-onboard.md)
+- [Procédure d’activation d’Azure Monitor pour les conteneurs](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Supervision Azure Security Center** : Oui
 

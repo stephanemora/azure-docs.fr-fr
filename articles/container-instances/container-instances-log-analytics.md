@@ -3,12 +3,12 @@ title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148645"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579330"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
@@ -27,7 +27,7 @@ Les sections suivantes décrivent comment créer un groupe de conteneurs dans le
 
 Pour activer la journalisation dans vos instances de conteneur, vous avez besoin des éléments suivants :
 
-* [Espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli) (ou [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obtenir les informations d’identification de Log Analytics
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Pour plus d’informations sur l’interrogation des journaux d’activité et la configuration d’alertes dans les journaux d’activité Azure Monitor, consultez :
 
-* [Présentation des recherches dans les journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Alertes unifiées dans Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+* [Présentation des recherches dans les journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Alertes unifiées dans Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Surveiller le processeur et la mémoire du conteneur

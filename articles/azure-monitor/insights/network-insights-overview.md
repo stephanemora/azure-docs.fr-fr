@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734143"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573536"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor pour réseaux
 
-Azure Monitor pour réseaux fournit une vue complète de l’[intégrité](../../service-health/resource-health-checks-resource-types.md) et des [métriques](../platform/metrics-supported.md) pour toutes les ressources réseau déployées, sans nécessiter aucune configuration. Il permet également d’accéder à toutes les capacités de surveillance du réseau, comme [Moniteur de connexion](../../network-watcher/connection-monitor-overview.md), la [journalisation des flux pour les groupes de sécurité réseau (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) et [Traffic Analytics](../../network-watcher/traffic-analytics.md). En outre, il fournit d’autres fonctionnalités de [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) du réseau.
+Azure Monitor pour réseaux fournit une vue complète de l’[intégrité](../../service-health/resource-health-checks-resource-types.md) et des [métriques](../essentials/metrics-supported.md) pour toutes les ressources réseau déployées, sans nécessiter aucune configuration. Il permet également d’accéder à toutes les capacités de surveillance du réseau, comme [Moniteur de connexion](../../network-watcher/connection-monitor-overview.md), la [journalisation des flux pour les groupes de sécurité réseau (NSG)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) et [Traffic Analytics](../../network-watcher/traffic-analytics.md). En outre, il fournit d’autres fonctionnalités de [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) du réseau.
 
 Azure Monitor pour réseaux est structuré autour de ces principaux composants de surveillance :
 - [Intégrité de réseau et métriques](#networkhealth)
@@ -149,4 +149,4 @@ Vous pouvez modifier le classeur que vous voyez dans n’importe quel panneau la
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur l’analyse des réseaux : [Présentation d’Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-- Découvrez les scénarios pour lesquels les classeurs sont conçus, la manière de créer des rapports et de personnaliser les rapports existants, et bien plus encore : [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md)
+- Découvrez les scénarios pour lesquels les classeurs sont conçus, la manière de créer des rapports et de personnaliser les rapports existants, et bien plus encore : [Créer des rapports interactifs avec les classeurs Azure Monitor](../visualize/workbooks-overview.md)

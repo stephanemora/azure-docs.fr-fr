@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808509"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580388"
 ---
 ![Graphique présentant les spécifications Dsv3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ Dans ce cas, l’application qui s’exécute sur cette machine virtuelle Standa
 - Étant donné que les trois disques qui utilisent la mise en cache de l’hôte se trouvent dans les limites de 16 000, ces demandes sont correctement honorées. Aucune limitation des performances de stockage ne se produit.
 - Étant donné que les deux disques qui n’utilisent pas la mise en cache de l’hôte se trouvent dans les limites de non-mise en cache de 12 800, ces requêtes sont également effectuées correctement. Aucune limitation ne se produit.
 
-## <a name="disk-performance-metrics"></a>Mesures de performances de disque
-
-Nous disposons de métriques sur Azure qui fournissent des informations sur les performances de vos machines virtuelles et disques. Ces métriques peuvent être visualisées dans le portail Azure. Vous pouvez également les récupérer via un appel d’API. Les métriques sont calculées sur des intervalles d’une minute. Les métriques suivantes sont disponibles pour obtenir des informations sur les E/S des machines virtuelles et des disques ainsi que les performances de débit :
-
-- **Longueur de file d’attente du disque du système d’exploitation** : Le nombre de requêtes d’E/S en attente de lecture ou d’écriture sur le disque du système d’exploitation.
-- **Octets lus/s sur disque du système d’exploitation** : Le nombre d’octets lus en une seconde à partir du disque du système d’exploitation.
-- **Opérations de lecture/s sur disque du système d’exploitation** : Le nombre d’opérations d’entrée lues en une seconde à partir du disque du système d’exploitation.
-- **Octets/s écrits sur disque du système d’exploitation** : Le nombre d’octets écrits en une seconde à partir du disque du système d’exploitation.
-- **Opérations d’écriture/s sur disque du système d’exploitation** : Le nombre d’opérations de sortie écrites en une seconde à partir du disque du système d’exploitation.
-- **Longueur de file d’attente du disque de données** : Le nombre de requêtes d’E/S en attente de lecture ou d’écriture sur les disques de données.
-- **Octets lus/s sur disque de données** : Le nombre d’octets lus en une seconde à partir du disque des disques de données.
-- **Opérations de lecture/s sur disque de données** : Le nombre d’opérations d’entrée lues en une seconde à partir des disques de données.
-- **Octets écrits/s sur disque de données** : Le nombre d’octets écrits en une seconde à partir du disque des disques de données.
-- **Opérations d’écriture/s sur disque de données** : Le nombre d’opérations de sorties écrites en une seconde à partir du disque des disques de données.
-- **Disk Read Bytes/Sec** : Le nombre total d’octets lus en une seconde à partir de tous les disques attachés à une machine virtuelle.
-- **Disk Read Operations/Sec** : Le nombre d’opérations d’entrée lues en une seconde à partir de tous les disques attachés à une machine virtuelle.
-- **Disk Write Bytes/Sec** : Le nombre d’octets écrits en une seconde à partir de tous les disques attachés à une machine virtuelle.
-- **Disk Write Operations/Sec** : Le nombre d’opérations de sortie écrites en une seconde à partir de tous les disques attachés à une machine virtuelle.
-
-## <a name="storage-io-utilization-metrics"></a>Métriques d’utilisation des E/S de stockage
-Les métriques suivantes aident à diagnostiquer les goulots d’étranglement dans votre combinaison Machine virtuelle et Disque. Ces métriques ne sont disponibles que lors de l’utilisation d’une machine virtuelle Premium. Ces métriques sont disponibles pour tous les types de disques, sauf le type Ultra. 
-
-Mesures permettant de diagnostiquer les limitations des E/S disque :
-
-- **Pourcentage d’IOPS du disque de données consommées** : Le pourcentage calculé en divisant les opérations d’IOPS de disque de données terminées par les IOPS de disque de données approvisionnées. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS de votre disque de données.
-- **Pourcentage de bande passante du disque de données consommée** : Le pourcentage calculé par la bande passante consommée par rapport à la bande passante de disque de données approvisionnée. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de données.
-- **Pourcentage d’IOPS du disque de système d’exploitation consommées** : Le pourcentage calculé en divisant les opérations d’IOPS de disque de système d’exploitation terminées par les IOPS de disque du système d’exploitation approvisionnées. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS de votre disque de système d’exploitation.
-- **Pourcentage de bande passante du disque de système d’exploitation consommée** : Le pourcentage calculé par le débit du disque du système d’exploitation consommé par rapport au débit de disque du système d’exploitation approvisionné. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante de votre disque de système d’exploitation.
-
-Métriques permettant de diagnostiquer les limitations des E/S de machine virtuelle :
-
-- **Pourcentage d’IOPS en cache de machine virtuelle consommées** : Le pourcentage calculé en divisant le total des opérations d’IOPS terminées par le nombre maximal d’IOPS en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS en cache de votre machine virtuelle.
-- **Pourcentage de bande passante en cache consommée par la machine virtuelle** : Le pourcentage calculé en divisant la bande passante de disque totale terminée par le débit maximal en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante en cache de votre machine virtuelle.
-- **Pourcentage d’IOPS non mises en cache de machine virtuelle consommées** : Le pourcentage calculé en divisant le total des opérations d’IOPS terminées sur une machine virtuelle par la limite d’IOPS non mises en cache de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par les IOPS non mises en cache de votre machine virtuelle.
-- **Pourcentage de bande passante non mise en cache consommée par la machine virtuelle** : Le pourcentage calculé en divisant la bande passante de disque totale terminée sur une machine virtuelle par le débit maximal approvisionné de la machine virtuelle. Si cette valeur est de 100 %, votre application en cours d’exécution sera limitée par la bande passante non mise en cache de votre machine virtuelle.
-
-## <a name="storage-io-utilization-metrics-example"></a>Exemples de métriques d’utilisation des E/S de stockage
-
-Examinons un exemple d’utilisation de ces nouvelles métriques d’utilisation des E/S de stockage pour nous aider à localiser un goulot d’étranglement dans notre système. La configuration système est identique à l’exemple précédent, sauf que cette fois, le disque de système d’exploitation attaché n’est *pas* mis en cache.
-
-**Configuration** :
-
-- Standard_D8s_v3
-  - E/S par seconde mises en cache : 16 000
-  - E/S par seconde non mises en cache : 12 800
-- Disque de système d’exploitation P30
-  - IOPS : 5 000
-  - Mise en cache de l’hôte : **Désactivé**
-- Deux disques de données P30 x 2
-  - IOPS : 5 000
-  - Mise en cache de l’hôte : **Lecture/écriture**
-- Deux disques de données P30 x 2
-  - IOPS : 5 000
-  - Mise en cache de l’hôte : **Désactivé**

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99592544d97793f82db36e1d2cb33ba8c6af1c9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498608"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586963"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modification des noms et de la terminologie d’Azure Monitor
 Des modifications significatives ont récemment été apportées à Azure Monitor, différents services étant en cours de consolidation afin de simplifier la surveillance pour les clients Azure. Cet article décrit les dernières évolutions des noms et de la terminologie de la documentation d’Azure Monitor.
@@ -23,12 +23,12 @@ Les « journaux de diagnostic » ont été renommés en « journaux de ressou
 Après la consolidation de différents services sous Azure Monitor, nous passons à la vitesse supérieure en modifiant la terminologie dans notre documentation de façon à mieux décrire le service Azure Monitor et ses différents composants. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Les données de journal d’activité Azure Monitor sont toujours stockées dans un espace de travail Log Analytics et collectées et analysées par le même service Log Analytics, mais nous sommes en train de remplacer le terme _Log Analytics_ par _journaux d’activité Azure Monitor_ en de nombreux endroits. Ce terme reflète mieux son rôle dans Azure Monitor et renforce la cohérence des [métriques dans Azure Monitor](platform/data-platform-metrics.md).
+Les données de journal d’activité Azure Monitor sont toujours stockées dans un espace de travail Log Analytics et collectées et analysées par le même service Log Analytics, mais nous sommes en train de remplacer le terme _Log Analytics_ par _journaux d’activité Azure Monitor_ en de nombreux endroits. Ce terme reflète mieux son rôle dans Azure Monitor et renforce la cohérence des [métriques dans Azure Monitor](essentials/data-platform-metrics.md).
 
-Le terme _analytique des journaux d’activité_ s’applique maintenant principalement à la page du Portail Azure servant à écrire et exécuter des requêtes et à analyser les données de journal d’activité. C’est l’équivalent fonctionnel de [Metrics Explorer](platform/metrics-charts.md), la page du Portail Azure utilisée pour analyser les données des métriques.
+Le terme _analytique des journaux d’activité_ s’applique maintenant principalement à la page du Portail Azure servant à écrire et exécuter des requêtes et à analyser les données de journal d’activité. C’est l’équivalent fonctionnel de [Metrics Explorer](essentials/metrics-charts.md), la page du Portail Azure utilisée pour analyser les données des métriques.
 
 ### <a name="log-analytics-workspaces"></a>Espaces de travail Log Analytics
-Les [espaces de travail](platform/manage-access.md) qui contiennent des données de journal dans Azure Monitor sont toujours appelés espaces de travail Log Analytics. Le menu **Log Analytics** du Portail Azure a été renommé **Espaces de travail Log Analytics** ; c’est ici que l’on [crée des espaces de travail](learn/quick-create-workspace.md) et que l’on configure des sources de données. Analysez vos journaux d’activité et d’autres données de monitoring dans **Azure Monitor** et configurez votre espace de travail dans les **espaces de travail Log Analytics**.
+Les [espaces de travail](logs/manage-access.md) qui contiennent des données de journal dans Azure Monitor sont toujours appelés espaces de travail Log Analytics. Le menu **Log Analytics** du Portail Azure a été renommé **Espaces de travail Log Analytics** ; c’est ici que l’on [crée des espaces de travail](logs/quick-create-workspace.md) et que l’on configure des sources de données. Analysez vos journaux d’activité et d’autres données de monitoring dans **Azure Monitor** et configurez votre espace de travail dans les **espaces de travail Log Analytics**.
 
 ### <a name="management-solutions"></a>Liste des solutions de gestion
 Les [solutions de gestion](insights/solutions.md) ont été renommées _Solutions de monitoring_, ce qui décrit mieux leur fonction.
@@ -59,4 +59,4 @@ Operations Management Suite (OMS) était un regroupement des services de gestion
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez la [vue d’ensemble d’Azure Monitor](overview.md), qui décrit ses différents composants et fonctionnalités.
-- En savoir plus sur la [transition du portail OMS](./platform/oms-portal-transition.md).
+- En savoir plus sur la [transition du portail OMS](./logs/oms-portal-transition.md).

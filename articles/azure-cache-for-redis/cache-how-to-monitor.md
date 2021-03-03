@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389703"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584629"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Surveillance d’Azure Cache pour Redis
 
@@ -52,13 +52,13 @@ Pour afficher les mesures Redis et créer des graphiques personnalisés à l’a
 
 ![Dans le volet de navigation de gauche de contoso55, Mesures est une option sous Supervision, et elle est mise en surbrillance. La zone Mesures affiche une liste de mesures. Les options Accès au cache et Absences dans le cache sont sélectionnées.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure Monitor, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure Monitor, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exporter les mesures de cache
 
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/platform/data-platform-metrics.md), puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../azure-monitor/essentials/data-platform-metrics.md), puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
 
 Pour configurer un compte de stockage pour vos mesures de cache :
 
@@ -74,10 +74,10 @@ Pour configurer un compte de stockage pour vos mesures de cache :
 ![Diagnostics Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers les journaux d’activité Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers les journaux d’activité Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
-Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans le portail Azure.  
@@ -129,7 +129,7 @@ Pour configurer les Règles d’alerte de votre cache, cliquez sur **Règles d�
 
 ![Surveillance](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../azure-monitor/platform/alerts-classic-portal.md).
+Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../azure-monitor/alerts/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Journaux d’activité
 Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances de cache Azure pour Redis. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux d’activité des opérations ». À l’aide des journaux d’activité, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos instances de cache Azure pour Redis. 
@@ -140,4 +140,4 @@ Les journaux d’activité fournissent des insights sur les opérations qui ont 
 
 Pour afficher les journaux d’activité de votre cache, cliquez sur **Journaux d’activité** depuis le **menu Ressource**.
 
-Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
+Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).

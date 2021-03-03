@@ -3,12 +3,12 @@ title: Améliorer la fiabilité d’une application avec Advisor
 description: Utilisez Azure Advisor pour garantir et améliorer la fiabilité de vos déploiements Azure vitaux pour l’entreprise.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078032"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579966"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Améliorer la fiabilité d’une application à l’aide d’Azure Advisor
 
@@ -68,7 +68,7 @@ Pour assurer la redondance de votre application, nous vous recommandons de regro
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Assurer la tolérance de panne d’un groupe à haute disponibilité (temporairement désactivée)
 
-Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle. Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure. Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
+Pour assurer la redondance de votre application, nous vous recommandons de regrouper au moins deux machines virtuelles dans un groupe à haute disponibilité. Advisor identifie les groupes à haute disponibilité contenant une seule machine virtuelle et recommande d’y ajouter au moins une machine virtuelle.  Cette configuration garantit que lors d’une maintenance planifiée ou non, au moins une machine virtuelle est disponible et répond au SLA de machine virtuelle Azure.  Vous pouvez créer une machine virtuelle ou ajouter une machine virtuelle existante au groupe à haute disponibilité.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Utiliser des disques managés pour améliorer la fiabilité des données (temporairement désactivé)
 
@@ -76,7 +76,7 @@ Les machines virtuelles situées dans un groupe à haute disponibilité avec des
 
 ## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
 
-Azure Advisor détecte les règles d’alerte de journal dont la section des conditions contient des requêtes non valides. Les règles d’alerte Azure Monitor exécutent des requêtes à la fréquence spécifiée et déclenchent des alertes en fonction des résultats. Les requêtes peuvent devenir non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor recommande des corrections pour les requêtes d’alerte afin d’éviter que les règles soient automatiquement désactivées et de garantir la couverture de la surveillance. Pour plus d’informations, consultez [Résolution des problèmes liés aux règles d’alerte](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
+Azure Advisor détecte les règles d’alerte de journal dont la section des conditions contient des requêtes non valides. Les règles d’alerte Azure Monitor exécutent des requêtes à la fréquence spécifiée et déclenchent des alertes en fonction des résultats. Les requêtes peuvent devenir non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor recommande des corrections pour les requêtes d’alerte afin d’éviter que les règles soient automatiquement désactivées et de garantir la couverture de la surveillance. Pour plus d’informations, consultez [Résolution des problèmes liés aux règles d’alerte](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurer le mode d’indexation cohérent sur une collection Azure Cosmos DB
 

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362397"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577755"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -47,7 +47,7 @@ Avec la supervision Azure AD, vous pouvez router les journaux vers :
 * Un hub d’événements Azure, dans lequel vous pouvez intégrer vos outils SIEM existants tels que Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux d’activité dans Azure Monitor](../../azure-monitor/platform/data-platform.md). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](../../azure-monitor/terminology.md).
+Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux d’activité dans Azure Monitor](../../azure-monitor/data-platform.md). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](../../azure-monitor/terminology.md).
 
 [En savoir plus sur nos stratégies de conservation des rapports](./reference-reports-data-retention.md)
 
@@ -101,11 +101,11 @@ La création de rapports et la supervision permettent de répondre aux besoins d
 
 |Domaine |Description |
 |-|-|
-|Rétention| **Conservation des journaux pendant plus de 30 jours** . ‎En raison des exigences juridiques ou métier, il est nécessaire de stocker les journaux d’audit et les journaux des connexions Azure AD pendant plus de 30 jours. |
-|Analytics| **Les journaux doivent pouvoir faire l’objet de recherches** . ‎Les journaux stockés doivent pouvoir faire l’objet de recherches à l’aide des outils d’analytique. |
-| Operational Insights| **Insights pour les différentes équipes** . Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
-| Insights sur la sécurité| **Insights pour les différentes équipes** . Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
-| Intégration aux systèmes SIEM      | **Intégration SIEM** . ‎Nécessité de diffuser en streaming des journaux de connexion et des journaux d’audit Azure AD vers les systèmes SIEM existants et de les y intégrer. |
+|Rétention| **Conservation des journaux pendant plus de 30 jours**. ‎En raison des exigences juridiques ou métier, il est nécessaire de stocker les journaux d’audit et les journaux des connexions Azure AD pendant plus de 30 jours. |
+|Analytics| **Les journaux doivent pouvoir faire l’objet de recherches**. ‎Les journaux stockés doivent pouvoir faire l’objet de recherches à l’aide des outils d’analytique. |
+| Operational Insights| **Insights pour les différentes équipes**. Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
+| Insights sur la sécurité| **Insights pour les différentes équipes**. Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
+| Intégration aux systèmes SIEM      | **Intégration SIEM**. ‎Nécessité de diffuser en streaming des journaux de connexion et des journaux d’audit Azure AD vers les systèmes SIEM existants et de les y intégrer. |
 
 ### <a name="choose-a-monitoring-solution-architecture"></a>Choisir une architecture de solution de supervision
 
@@ -121,7 +121,7 @@ Découvrez comment [acheminer les données vers votre compte de stockage](./quic
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux d’activité aux journaux d’activité Azure Monitor
 
-Les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) consolident les données de supervision provenant de différentes sources. Ils fournissent un langage de requête et un moteur d’analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et l’utilisation de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Utilisez cette méthode si vous n’avez pas de solution SIEM existante à laquelle envoyer vos données directement, mais souhaitez effectuer des requêtes et des analyses. Une fois que vos données se trouvent dans les journaux Azure Monitor, vous pouvez les envoyer au hub d’événements, puis au système SIEM de votre choix.
+Les [journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md) consolident les données de supervision provenant de différentes sources. Ils fournissent un langage de requête et un moteur d’analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et l’utilisation de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Utilisez cette méthode si vous n’avez pas de solution SIEM existante à laquelle envoyer vos données directement, mais souhaitez effectuer des requêtes et des analyses. Une fois que vos données se trouvent dans les journaux Azure Monitor, vous pouvez les envoyer au hub d’événements, puis au système SIEM de votre choix.
 
 Découvrez comment [envoyer des données aux journaux d’activité Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 
@@ -153,7 +153,7 @@ Les rôles suivants peuvent lire les rapports Azure AD :
 
 En savoir plus sur les [rôles d’administration d’Azure AD](../roles/permissions-reference.md).
 
-*Appliquez toujours le principe des privilèges minimum pour réduire le risque de compromission des comptes* . Envisagez d’implémenter [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour renforcer la sécurité de votre organisation.
+*Appliquez toujours le principe des privilèges minimum pour réduire le risque de compromission des comptes*. Envisagez d’implémenter [Privileged Identity Management](../privileged-identity-management/pim-configure.md) pour renforcer la sécurité de votre organisation.
 
 ##  
 

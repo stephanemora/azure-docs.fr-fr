@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210373"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573467"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Explorer Azure Monitor pour Azure Cache pour Redis
 
@@ -186,6 +186,6 @@ Pour obtenir des conseils sur la résolution des problèmes, consultez l’[arti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Configurez les [alertes de métriques](../platform/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications-portal.md) pour configurer des alertes automatisées qui facilitent la détection des problèmes.
+* Configurez les [alertes de métriques](../alerts/alerts-metric.md) et les [notifications d’intégrité du service](../../service-health/alerts-activity-log-service-notifications-portal.md) pour configurer des alertes automatisées qui facilitent la détection des problèmes.
 
-* Découvrez les scénarios que les classeurs prennent en charge, comment créer ou personnaliser des rapports, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../platform/workbooks-overview.md).
+* Découvrez les scénarios que les classeurs prennent en charge, comment créer ou personnaliser des rapports, et bien plus encore en consultant la rubrique [Créer des rapports interactifs avec les classeurs Azure Monitor](../visualize/workbooks-overview.md).

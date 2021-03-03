@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f885416c5e9cb656d01a65b9c503f8897d2f9f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83743752"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593895"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Activer Start/Stop VMs during off-hours
 
@@ -48,7 +48,7 @@ Une fois la ressource créée, la page Ajouter une solution s’affiche. Vous ê
 
 2. Si vous ne disposez pas d’espace de travail, sélectionnez **Créer un espace de travail**. Sur la page Espace de travail Log Analytics, suivez les étapes suivantes :
 
-   - Spécifiez un nom pour le nouvel espace de travail Log Analytics, comme**ContosoLAWorkspace**.
+   - Spécifiez un nom pour le nouvel espace de travail Log Analytics, comme **ContosoLAWorkspace**.
    - Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    - Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
    - Sélectionnez un **emplacement**.
@@ -82,7 +82,7 @@ Après avoir cliqué sur **OK**, les options de configuration sont validées et 
   
 4. Utilisez le champ **Planifier** pour sélectionner une planification de la gestion des machines virtuelles par la fonctionnalité. Sélectionnez une date et une heure de début pour votre planification, afin de créer une planification quotidienne récurrente qui commence à l’heure choisie. La sélection d’une autre région n’est pas possible. Pour configurer la planification sur votre propre fuseau horaire après la configuration de la fonctionnalité, consultez [Modifier les planifications de démarrage et d’arrêt](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Pour recevoir des notifications par e-mail de la part d’un [groupe d’actions](../azure-monitor/platform/action-groups.md), acceptez la valeur par défaut **Oui** dans le champ **Notifications par e-mail**, puis fournissez une adresse e-mail valide. Si vous sélectionnez **Non**, mais décidez ultérieurement de recevoir les notifications par e-mail, vous pouvez mettre à jour le groupe d’actions créé en y ajoutant des adresses e-mail valides, séparées par des virgules. 
+5. Pour recevoir des notifications par e-mail de la part d’un [groupe d’actions](../azure-monitor/alerts/action-groups.md), acceptez la valeur par défaut **Oui** dans le champ **Notifications par e-mail**, puis fournissez une adresse e-mail valide. Si vous sélectionnez **Non**, mais décidez ultérieurement de recevoir les notifications par e-mail, vous pouvez mettre à jour le groupe d’actions créé en y ajoutant des adresses e-mail valides, séparées par des virgules. 
 
 6. Activez les règles d’alerte suivantes :
 
@@ -92,7 +92,7 @@ Après avoir cliqué sur **OK**, les options de configuration sont validées et 
 
 ## <a name="create-alerts"></a>Créez des alertes
 
-Start/Stop VMs during off-hours n’inclut aucun ensemble prédéfini d’alertes. Consultez [Créer des alertes de journal avec Azure Monitor](../azure-monitor/platform/alerts-log.md) pour apprendre à créer des alertes d’échec de tâche afin d’assister vos procédures et processus opérationnels ou DevOps.
+Start/Stop VMs during off-hours n’inclut aucun ensemble prédéfini d’alertes. Consultez [Créer des alertes de journal avec Azure Monitor](../azure-monitor/alerts/alerts-log.md) pour apprendre à créer des alertes d’échec de tâche afin d’assister vos procédures et processus opérationnels ou DevOps.
 
 ## <a name="deploy-the-feature"></a>Déployer la fonctionnalité
 

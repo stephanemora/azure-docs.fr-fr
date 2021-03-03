@@ -3,12 +3,12 @@ title: Activer l’extension de machine virtuelle à partir du portail Azure
 description: Cet article explique comment déployer des extensions de machine virtuelle sur des serveurs Azure Arc exécutés dans des environnements cloud hybrides à partir du portail Azure.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587665"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Activer les extensions de machine virtuelle Azure à partir du portail Azure
 
@@ -33,7 +33,7 @@ Les extensions de machine virtuelle peuvent être appliquées pour une machine m
 
     ![Installer l’extension de machine virtuelle Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Pour mener à bien l’installation, il vous est demandé de fournir l’ID et la clé primaire de l’espace de travail. Si vous ne savez pas comment vous procurer ces informations, consultez [Obtenir l’ID et la clé d’espace de travail](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+    Pour mener à bien l’installation, il vous est demandé de fournir l’ID et la clé primaire de l’espace de travail. Si vous ne savez pas comment vous procurer ces informations, consultez [Obtenir l’ID et la clé d’espace de travail](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 4. Après avoir confirmé les informations nécessaires que vous avez fournies, sélectionnez **Créer**. Dans le résumé du déploiement qui s’affiche, examinez l’état du déploiement.
 

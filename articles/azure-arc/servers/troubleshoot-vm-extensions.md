@@ -3,12 +3,12 @@ title: Résoudre les problèmes d'extensions de machine virtuelle liés aux serv
 description: Cet article explique comment détecter et résoudre les problèmes d'extensions de machine virtuelle Azure qui surviennent avec les serveurs Azure Arc.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ffd7db5ff7da3d7f60762117f80d7b9b5af6f646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91339052"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584669"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Résoudre les problèmes d'extensions de machine virtuelle liés aux serveurs Azure Arc
 
@@ -38,7 +38,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 - L'agent Log Analytics version 1.13.9 (dont la version d'extension correspondante est 1.13.15) ne marque pas correctement les données chargées avec l'ID de ressource du serveur Azure Arc. Les journaux sont envoyés au service, mais lorsque vous essayez d'afficher les données du serveur activé sélectionné après avoir sélectionné **Journaux** ou **Insights**, aucune donnée n'est renvoyée. Vous pouvez consulter ses données en exécutant des requêtes à partir des journaux Azure Monitor ou à partir d'Azure Monitor pour les machines virtuelles ; celles-ci sont étendues à l'espace de travail.
 
-- Certaines distributions ne sont actuellement pas prises en charge par l'agent Log Analytics pour Linux. L'agent requiert l'installation de dépendances supplémentaires, dont Python 2. Reportez-vous à la matrice de prise en charge et aux prérequis, disponibles [ici](../../azure-monitor/platform/agents-overview.md#supported-operating-systems).
+- Certaines distributions ne sont actuellement pas prises en charge par l'agent Log Analytics pour Linux. L'agent requiert l'installation de dépendances supplémentaires, dont Python 2. Reportez-vous à la matrice de prise en charge et aux prérequis, disponibles [ici](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
 
 - Le code d'erreur 52 qui apparaît dans le message d'état indique qu'il manque une dépendance. Pour plus d'informations sur la dépendance manquante, consultez la sortie et les journaux.
 

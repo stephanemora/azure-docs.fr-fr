@@ -3,12 +3,12 @@ title: Azure NetApp Files avec Azure VMware Solution
 description: Utilisez Azure NetApp Files avec des machines virtuelles Azure VMware Solution pour migrer et synchroniser des données entre des serveurs locaux, des machines virtuelles Azure VMware Solution et des infrastructures cloud.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: db7d8eb05e5bd70f6a2397b3017924093218e78e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2f2e8fdeb777e7e4b2b4e89c1bb36b51c3083257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575436"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files avec Azure VMware Solution
 
@@ -21,7 +21,7 @@ Dans cet article, nous allons parcourir les étapes de l’intégration d’Azur
 ### <a name="features"></a>Fonctionnalités
 (Services où les Azure NetApp Files sont utilisés.)
 
-- **Connexions Active Directory** : Azure NetApp Files prend en charge [Active Directory Domain Services (ADDS) et Azure Active Directory Domain Services (AADDS)](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#decide-which-domain-services-to-use).
+- **Connexions Active Directory** : Azure NetApp Files prend en charge [Active Directory Domain Services (ADDS) et Azure Active Directory Domain Services (AADDS)](../azure-netapp-files/create-active-directory-connections.md#decide-which-domain-services-to-use).
 
 - **Protocole de partage** : Azure NetApp Files prend en charge les protocoles SMB (Server Message Block) et NFS (Network File System). Cette prise en charge signifie que les volumes peuvent être montés sur le client Linux et peuvent être mappés sur le client Windows.
 

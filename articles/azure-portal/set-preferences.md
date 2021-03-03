@@ -4,12 +4,12 @@ description: Vous pouvez changer les paramètres par défaut du portail Azure po
 keywords: paramètres, délai d’expiration, langue, région
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094108"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588801"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gérer les paramètres et les préférences du portail Azure
 
@@ -71,7 +71,7 @@ Pour lire toutes les notifications reçues pendant votre session active, sélect
 
 ![Capture d’écran montrant l’en-tête global du portail Azure avec mise en évidence des notifications](./media/set-preferences/read-notifications.png)
 
-Si vous souhaitez lire les notifications liées à des sessions antérieures, recherchez les événements dans le journal d’activité. Pour plus d’informations, consultez [Voir le journal d’activité](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+Si vous souhaitez lire les notifications liées à des sessions antérieures, recherchez les événements dans le journal d’activité. Pour plus d’informations, consultez [Voir le journal d’activité](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>Modifier le paramètre de délai d’inactivité
 

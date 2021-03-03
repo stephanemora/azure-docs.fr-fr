@@ -9,16 +9,19 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098076"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585399"
 ---
 # <a name="trusted-storage-for-media-services"></a>Stockage approuvé pour la plateforme Media Services
 
 Lorsque vous créez un compte Media Services, vous devez l’associer à un compte de stockage. La plateforme Media Services peut accéder à ce compte de stockage à l’aide d’une authentification système ou d’une authentification par identité managée. Media Services vérifie que le compte Media Services et le compte de stockage se trouvent dans le même abonnement, et que l’utilisateur qui ajoute l’association a accès au compte de stockage avec le RBAC Azure Resource Manager.
+
+>[!NOTE]
+>Le stockage approuvé est uniquement disponible dans l’API et n’est actuellement pas activé dans le portail Azure.
 
 ## <a name="trusted-storage-with-a-firewall"></a>Stockage approuvé avec un pare-feu
 

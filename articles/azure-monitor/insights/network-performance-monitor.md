@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573431"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -76,7 +76,7 @@ La liste des régions prises en charge pour le Moniteur ExpressRoute est disponi
 
 ### <a name="install-and-configure-agents"></a>Installer et configurer des agents 
 
-Utilisez les procédures de base d’installation des agents décrites dans [Connecter des ordinateurs Windows à Azure Monitor](../platform/agent-windows.md), [Connecter des ordinateurs Linux à Azure Monitor (préversion)](../../virtual-machines/extensions/oms-linux.md) et [Connecter Operations Manager à Azure Monitor](../platform/om-agents.md).
+Utilisez les procédures de base d’installation des agents décrites dans [Connecter des ordinateurs Windows à Azure Monitor](../agents/agent-windows.md), [Connecter des ordinateurs Linux à Azure Monitor (préversion)](../../virtual-machines/extensions/oms-linux.md) et [Connecter Operations Manager à Azure Monitor](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Où installer les agents 
 
@@ -266,13 +266,13 @@ La topologie affichée sur la carte est celle du calque 3 et elle ne contient p
 
 ## <a name="log-queries-in-azure-monitor"></a>Requêtes de journal dans Azure Monitor
 
-Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans les [requêtes de journal](../log-query/log-query-overview.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
+Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans les [requêtes de journal](../logs/log-query-overview.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
 
 ## <a name="alerts"></a>Alertes
 
-Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure Monitor](../platform/alerts-overview.md).
+Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure Monitor](../alerts/alerts-overview.md).
 
-Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](../platform/action-groups.md).  
+Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](../alerts/action-groups.md).  
 
 Si vous êtes un utilisateur NPM créant une alerte via Log Analytics : 
 1. Un lien permettant de vous rediriger vers le portail Azure s’affiche. Cliquez dessus pour accéder au portail.
@@ -282,8 +282,8 @@ Si vous êtes un utilisateur NPM créant une alerte via Log Analytics :
 
 Si vous êtes un utilisateur NPM créant une alerte via le portail Azure :  
 1. Vous pouvez choisir d’entrer votre adresse e-mail directement ou vous pouvez choisir de créer des alertes via des groupes d’actions.
-2. Si vous choisissez d’entrer votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé et l’ID de l’e-mail y est ajouté.
-3. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour découvrir comment créer un groupe d’actions, cliquez [ici](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal). 
+2. Si vous choisissez d’entrer votre adresse e-mail directement, un groupe d’actions nommé **NPM Email ActionGroup** est créé auquel l’ID d’e-mail est ajouté.
+3. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour découvrir comment créer un groupe d’actions, cliquez [ici](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal). 
 4. Une fois que l’alerte a été créée, vous pouvez utiliser le lien de gestion des alertes pour la gérer. 
 
 Chaque fois que vous créez une alerte, NPM crée une règle d’alerte de journal basée sur des requêtes dans Azure Monitor. Cette requête est déclenchée toutes les 5 minutes par défaut. Azure Monitor ne facture pas les 250 premières règles d’alerte de journal créées. Toute alerte dépassant la limite des 250 règles d’alerte de journal est facturée sur la base des [prix des alertes indiqués dans la page des tarifs d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

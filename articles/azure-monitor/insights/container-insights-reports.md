@@ -3,15 +3,15 @@ title: Rapports d’Azure Monitor pour conteneurs
 description: Décrit les rapports qui permettent d’analyser les données collectées par Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907388"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582311"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>Rapports d’Azure Monitor pour conteneurs
-Les rapports d’Azure Monitor pour conteneurs sont les [classeurs Azure](../platform/workbooks-overview.md) prêts à l’emploi que nous recommandons. Cet article décrit les différents rapports disponibles et explique comment y accéder.
+Les rapports d’Azure Monitor pour conteneurs sont les [classeurs Azure](../visualize/workbooks-overview.md) prêts à l’emploi que nous recommandons. Cet article décrit les différents rapports disponibles et explique comment y accéder.
 
 ## <a name="viewing-reports"></a>Affichage de rapports
 À partir du menu **Azure Monitor** du portail Azure, sélectionnez **Conteneurs**. Sélectionnez **Insights** dans la section **Supervision**, choisissez un cluster, puis sélectionnez la page **Rapports (préversion)** . 
@@ -19,7 +19,7 @@ Les rapports d’Azure Monitor pour conteneurs sont les [classeurs Azure](../pla
 [![Page Rapports](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Créer un classeur personnalisé
-Pour créer un classeur personnalisé basé sur l’un de ces classeurs, sélectionnez la liste déroulante **Voir les classeurs**, puis sélectionnez **Accéder à la galerie AKS** en bas de la liste déroulante. Pour plus d’informations sur les classeurs et sur l’utilisation des modèles de classeur, consultez [Classeurs Azure Monitor](../platform/workbooks-overview.md).
+Pour créer un classeur personnalisé basé sur l’un de ces classeurs, sélectionnez la liste déroulante **Voir les classeurs**, puis sélectionnez **Accéder à la galerie AKS** en bas de la liste déroulante. Pour plus d’informations sur les classeurs et sur l’utilisation des modèles de classeur, consultez [Classeurs Azure Monitor](../visualize/workbooks-overview.md).
 
 [![Galerie AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Pour créer un classeur personnalisé basé sur l’un de ces classeurs, sélect
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les classeurs dans Azure Monitor, consultez [Classeurs Azure Monitor](../platform/workbooks-overview.md).
+- Pour plus d’informations sur les classeurs dans Azure Monitor, consultez [Classeurs Azure Monitor](../visualize/workbooks-overview.md).

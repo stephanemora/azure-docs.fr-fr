@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562614"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581400"
 ---
 # <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
@@ -80,10 +80,10 @@ L’activation de l’[accès conditionnel](../active-directory/conditional-acce
 
 L’activation de la collecte des journaux d’audit vous permet d’afficher l’activité des utilisateurs et des administrateurs en rapport avec Windows Virtual Desktop. Voici quelques exemples de journaux d’audit clés :
 
--   [Journal d'activité Azure](../azure-monitor/platform/activity-log.md)
+-   [Journal d'activité Azure](../azure-monitor/essentials/activity-log.md)
 -   [Journal d’activité Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Hôtes de session](../azure-monitor/platform/agent-windows.md)
+-   [Hôtes de session](../azure-monitor/agents/agent-windows.md)
 -   [Journal de diagnostic Windows Virtual Desktop](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Journaux d’activité Key Vault](../key-vault/general/logging.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580459"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 ## <a name="overview"></a>Vue d’ensemble
@@ -81,12 +81,12 @@ Application Insights crée des graphiques et tableaux présentant, par exemple, 
 En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous envoie des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application. Application Insights devient donc un outil de sécurité précieux, car il apporte la « disponibilité » dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/platform/platform-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/platform/platform-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
+[Azure Monitor](/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/essentials/platform-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/essentials/platform-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 [Journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) fournit une solution de gestion informatique aussi bien pour les infrastructures en local que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données issues d’Azure Monitor peuvent être acheminées directement dans Journaux Azure Monitor, afin que vous puissiez voir les métriques et les journaux pour l’ensemble de votre environnement en un seul endroit.
 
-La solution Journaux Azure Monitor peut se révéler un outil utile dans l’analyse d’investigation et dans les autres analyses de la sécurité, car il vous permet d’effectuer rapidement des recherches dans de grandes quantités d’entrées liées à la sécurité, avec une approche de type requête flexible. Par ailleurs, des [journaux de pare-feu et proxy locaux peuvent être exportés dans Azure, et mis à disposition pour analyse avec Journaux Azure Monitor](../../azure-monitor/platform/agent-windows.md).
+La solution Journaux Azure Monitor peut se révéler un outil utile dans l’analyse d’investigation et dans les autres analyses de la sécurité, car il vous permet d’effectuer rapidement des recherches dans de grandes quantités d’entrées liées à la sécurité, avec une approche de type requête flexible. Par ailleurs, des [journaux de pare-feu et proxy locaux peuvent être exportés dans Azure, et mis à disposition pour analyse avec Journaux Azure Monitor](../../azure-monitor/agents/agent-windows.md).
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../../advisor/index.yml) est un conseiller personnalisé basé dans le cloud qui vous aide à optimiser vos déploiements Azure. Il analyse les données de télémétrie d’utilisation et la configuration de vos ressources. Il recommande ensuite des solutions pour améliorer les [performances](../../advisor/advisor-performance-recommendations.md), la [sécurité](../../advisor/advisor-security-recommendations.md) et la [haute disponibilité](../../advisor/advisor-high-availability-recommendations.md) de vos ressources tout en [réduisant vos dépenses Azure globales](../../advisor/advisor-cost-recommendations.md). Azure Advisor fournit des recommandations en termes de sécurité, qui peuvent améliorer sensiblement votre sécurité globale pour les solutions que vous déployez dans Azure. Ces recommandations sont tirées de l’analyse de la sécurité effectuée par [Azure Security Center](../../security-center/security-center-introduction.md).

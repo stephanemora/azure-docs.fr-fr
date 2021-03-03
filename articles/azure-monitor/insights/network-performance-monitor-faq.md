@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833012"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587276"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -43,7 +43,7 @@ La fonctionnalité de surveillance des réseaux utilisant des nœuds basés sur 
 Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n’êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance s’il utilise plus de 5 % de l’UC.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Pour utiliser NPM, dois-je connecter mes nœuds en tant qu’agents directs ou via System Center Operations Manager ?
-Les fonctionnalités Analyseur de performances et Moniteur de connectivité de service prennent en charge les nœuds [connectés en tant qu’agents directs](../platform/agent-windows.md) et [connectés via Operations Manager](../platform/om-agents.md).
+Les fonctionnalités Analyseur de performances et Moniteur de connectivité de service prennent en charge les nœuds [connectés en tant qu’agents directs](../agents/agent-windows.md) et [connectés via Operations Manager](../agents/om-agents.md).
 
 Pour la fonctionnalité Moniteur ExpressRoute, les nœuds Azure doivent être connectés en tant qu’agents directs uniquement. Les nœuds Azure connectés via Operations Manager ne sont pas pris en charge. Pour les nœuds locaux, les nœuds connectés en tant qu’agents directs et via Operations Manager sont pris en charge à des fins de surveillance d’un circuit ExpressRoute.
 
@@ -98,7 +98,7 @@ Si un tronçon est rouge, cela signifie qu’il fait partie d'au moins un chemin
 NPM utilise un mécanisme probabiliste pour attribuer des probabilités d'erreur à chaque chemin d'accès réseau, segment réseau, tronçon réseau qui les composent selon le nombre de chemins d'accès non sains dont ils font partie. Si les segments et tronçons réseau font partie d'un nombre plus important de chemins d'accès non sains, la probabilité d'erreurs augmente. Cet algorithme fonctionne mieux en présence de nombreux nœuds avec des agents connectés les uns aux autres, car cela augmente les points de données pour calculer les probabilités d'erreurs.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Comment puis-je créer des alertes dans NPM ?
-Actuellement, la création d’alertes à partir de l’interface utilisateur NPM échoue en raison d’un problème connu. Veuillez [créer des alertes manuellement](../platform/alerts-log.md).
+Actuellement, la création d’alertes à partir de l’interface utilisateur NPM échoue en raison d’un problème connu. Veuillez [créer des alertes manuellement](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quelles sont les requêtes Log Analytics par défaut pour les alertes ?
 Requête de l’analyseur de performances

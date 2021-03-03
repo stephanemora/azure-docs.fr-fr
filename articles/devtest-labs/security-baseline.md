@@ -3,12 +3,12 @@ title: Base de sécurité Azure pour Azure DevTest Labs
 description: Base de sécurité Azure pour Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c192f881dd4a8544b9c833eece56fb3765cd07f8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789902"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582026"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de sécurité Azure pour Azure DevTest Labs
 
@@ -34,7 +34,7 @@ Pour en savoir plus sur la configuration de la synchronisation temporelle des re
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 **Conseils :** activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des informations concernant les opérations effectuées sur vos instances Azure DevTest Labs au niveau du plan de gestion. À l’aide des données du journal d’activité Azure, vous pouvez déterminer le « quoi, qui et quand » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de gestion pour vos instances DevTest Labs.
 
-Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/platform/diagnostic-settings.md).
+Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Surveillance d’Azure Security Center :** actuellement non disponible
 
@@ -43,7 +43,7 @@ Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 **Conseils :** activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des informations concernant les opérations effectuées sur vos instances Azure DevTest Labs au niveau du plan de gestion. À l’aide des données du journal d’activité Azure, vous pouvez déterminer le « quoi, qui et quand » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de gestion pour vos instances DevTest Labs.
 
-Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/platform/diagnostic-settings.md).
+Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 **Surveillance d’Azure Security Center :** actuellement non disponible
 
@@ -54,7 +54,7 @@ Pour plus d’informations, consultez [Créer des paramètres de diagnostic pour
 
 Pour plus d’informations, consultez les articles suivants : 
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 - [Présentation de la collecte de données Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
 **Surveillance d’Azure Security Center :** Oui
@@ -62,9 +62,9 @@ Pour plus d’informations, consultez les articles suivants :
 **Responsabilité :** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
-**_Conseils :_* Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure DevTest Labs conformément aux réglementations de conformité de votre organisation.
+***Conseils :** Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure DevTest Labs conformément aux réglementations de conformité de votre organisation.
 
-Pour plus d’informations, consultez l’article suivant : [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+Pour plus d’informations, consultez l’article suivant : [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Surveillance d’Azure Security Center :** Non applicable
 
@@ -75,8 +75,8 @@ Pour plus d’informations, consultez l’article suivant : [Guide pratique pou
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/diagnostic-settings.md)
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/diagnostic-settings.md)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
 
@@ -85,7 +85,7 @@ Pour plus d’informations, consultez les articles suivants :
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7 : Activer des alertes en cas d’activité anormale
 **Conseils :** Utilisez l’espace de travail Azure Log Analytics pour surveiller les activités anormales dans les événements et les journaux de sécurité liés à votre Azure DevTest Labs, et alerter à leur sujet.
 
-Pour plus d’informations, consultez l’article suivant : [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+Pour plus d’informations, consultez l’article suivant : [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Surveillance d’Azure Security Center :** actuellement non disponible
 
@@ -109,8 +109,8 @@ Pour plus d’informations, consultez l’article suivant : [Guide pratique pou
 **Conseils :** Azure DevTest Labs crée des machines Azure Compute qui sont détenues et gérées par le client. Utilisez Microsoft Monitoring Agent sur toutes les machines virtuelles Windows Azure prises en charge pour journaliser l’événement de création de processus et le champ `CommandLine`. En ce qui concerne les machines virtuelles Linux Azure prises en charge, vous pouvez configurer manuellement la journalisation de la console au niveau de chaque nœud et utiliser Syslog pour stocker les données. Exploitez également l’espace de travail Log Analytics d’Azure Monitor pour examiner les journaux et exécuter des requêtes sur les données journalisées à partir de machines virtuelles Azure.
 
 - [Collecte de données dans Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
-- [Guide pratique pour exécuter des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-- [Sources de données Syslog dans Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)
+- [Guide pratique pour exécuter des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+- [Sources de données Syslog dans Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)
 
 **Surveillance d’Azure Security Center :** Oui
 
@@ -175,9 +175,9 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 - [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Surveillance d’Azure Security Center :** _ Oui
+**Surveillance d’Azure Security Center :** * Oui
 
-_ *Responsabilité :* * Client
+**Responsabilité :** Customer
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
@@ -353,7 +353,7 @@ Par défaut, tous les disques de données et de système d’exploitation Lab so
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 **Conseils :** Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées aux instances DevTest Labs ainsi qu’à d’autres ressources critiques ou connexes.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité DevTest](create-alerts.md)
 
 **Surveillance d’Azure Security Center :** Non applicable
@@ -387,16 +387,16 @@ Microsoft assure la gestion des vulnérabilités sur les ressources sous-jacents
 **Responsabilité :** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3 : Déployer une solution de gestion de correctif logiciel tiers automatisée
-**_Conseils :_* _ En tant qu’administrateur de laboratoire, vous pouvez utiliser des [artefacts DevTest Labs](add-artifact-vm.md) pour automatiser les mises à jour des images personnalisées du labo, notamment des correctifs de sécurité et d’autres mises à jour. 
+***Conseils :*** En tant qu’administrateur de laboratoire, vous pouvez utiliser des [artefacts DevTest Labs](add-artifact-vm.md) pour automatiser les mises à jour des images personnalisées du labo, notamment des correctifs de sécurité et d’autres mises à jour. 
 
 Apprenez-en davantage sur la [Fabrique d’images DevTest Labs](image-factory-create.md), solution de configuration en tant que code qui crée et distribue automatiquement des images à intervalles réguliers avec toutes les configurations souhaitées. 
 
 En tant qu’administrateur d’abonnements, vous pouvez également utiliser la solution Azure Update Management pour gérer les mises à jour et les correctifs pour les machines virtuelles DevTest Labs. Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Des outils comme System Center Updates Publisher (Updates Publisher) permettent de publier des mises à jour personnalisées dans Windows Server Update Services (WSUS). Ce scénario permet à Update Management de corriger des machines qui utilisent Configuration Manager comme référentiel de mise à jour avec des logiciels tiers.
 
 - [Solution Update Management dans Azure](../automation/update-management/overview.md)
-- [Gérer les mises à jour et les correctifs de vos machines virtuelles](../automation/update-management/overview.md)
+- [Gestion des mises à jour et des correctifs des machines virtuelles](../automation/update-management/overview.md)
 
-_ *Surveillance d’Azure Security Center :* * Non applicable
+**Surveillance d’Azure Security Center :** Non applicable
 
 **Responsabilité :** Customer
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807748"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587298"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -118,7 +118,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 - Analysez les activités d’administrateur pour effectuer le suivi des modifications de configuration ou d’opérations de privilèges élevés.
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
-- Effectuez un dépannage opérationnel à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
+- Effectuez un dépannage opérationnel à l’aide des [requêtes dans les journaux](../logs/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
 
 
 ## <a name="uninstall"></a>Désinstaller l’interface
@@ -473,6 +473,6 @@ Le tableau suivant fournit des exemples de requêtes dans les journaux d’enreg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
-* [Créez vos propres tableaux de bord](../learn/tutorial-logs-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
-* [Créez des alertes](../platform/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.  
+* Utilisez les [requêtes de journaux dans Azure Monitor](../logs/log-query-overview.md) pour afficher des données détaillées sur les mises à jour.
+* [Créez vos propres tableaux de bord](../visualize/tutorial-logs-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
+* [Créez des alertes](../alerts/alerts-overview.md) pour être informé de façon proactive des activités importantes Office 365.  

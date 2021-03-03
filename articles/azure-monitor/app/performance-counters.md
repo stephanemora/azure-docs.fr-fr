@@ -4,12 +4,12 @@ description: Surveillez les compteurs de performances système et .NET personnal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937388"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583892"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Compteurs de performances dans Analytics
-Vous pouvez rechercher et afficher des rapports de compteur de performances dans [Analytics](../log-query/log-query-overview.md).
+Vous pouvez rechercher et afficher des rapports de compteur de performances dans [Analytics](../logs/log-query-overview.md).
 
 Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance.  Dans les données de télémétrie de chaque application, vous voyez uniquement les compteurs de cette application. Par exemple, pour voir les compteurs disponibles : 
 
@@ -148,7 +148,7 @@ La prise en charge des compteurs de performances dans ASP.Net Core est limitée�
 * Les versions 2.8.0 et ultérieures du kit de développement logiciel (SDK) prennent en charge le compteur processeur/mémoire dans Linux. Aucun autre compteur n’est pris en charge dans Linux. La méthode recommandée pour obtenir les compteurs système dans Linux (et dans d’autres environnements non-Windows) consiste à utiliser [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertes
-Comme d’autres mesures, vous pouvez [définir une alerte](../platform/alerts-log.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
+Comme d’autres mesures, vous pouvez [définir une alerte](../alerts/alerts-log.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
 ## <a name="next-steps"></a><a name="next"></a>Étapes suivantes
 

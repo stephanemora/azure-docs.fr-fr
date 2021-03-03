@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587525"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Informations de référence sur l’API de l’agent Azure Monitor Application Insights
 
@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Étapes suivantes
 
   Affichez vos données de télémétrie :
- - [Explorez les métriques](../platform/metrics-charts.md) pour surveiller les performances et l’utilisation.
+ - [Explorez les métriques](../essentials/metrics-charts.md) pour surveiller les performances et l’utilisation.
 - [Effectuez des recherches dans les événements et les journaux](./diagnostic-search.md) pour diagnostiquer les problèmes.
-- Utilisez la fonctionnalité [Analytics](../log-query/log-query-overview.md) pour des requêtes plus élaborées.
+- Utilisez la fonctionnalité [Analytics](../logs/log-query-overview.md) pour des requêtes plus élaborées.
 - [Créez des tableaux de bord](./overview-dashboard.md).
  
  Ajoutez des données de télémétrie :

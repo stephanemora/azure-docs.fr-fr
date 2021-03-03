@@ -3,12 +3,12 @@ title: Créer une ressource Azure Monitor Application Insights basée sur un esp
 description: En savoir plus sur les étapes requises pour activer les nouvelles ressources Azure Monitor Application Insights basées sur un espace de travail.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063364"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578343"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -23,10 +23,10 @@ Cela permet également de disposer d’un contrôle d’accès en fonction du r�
 
 Les Application Insights basées sur l’espace de travail vous permettent de tirer profit des dernières fonctionnalités d’Azure Monitor et Log Analytics, y compris :
 
-* [Les clés gérées par le client (CMK)](../platform/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
-* [Azure Private Link](../platform/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
+* [Les clés gérées par le client (CMK)](../logs/customer-managed-keys.md) fournissent un chiffrement au repos pour vos données avec des clés de chiffrement auxquelles vous seul avez accès.
+* [Azure Private Link](../logs/private-link-security.md) vous permet de lier en toute sécurité les services PaaS Azure à votre réseau virtuel à l’aide de points de terminaison privés.
 * [BYOS (apportez votre propre stockage) pour Profiler et Débogueur de capture instantanée](./profiler-bring-your-own-storage.md) vous offre un contrôle total sur la stratégie de chiffrement au repos, la stratégie de gestion de la durée de vie et l’accès réseau pour toutes les données associées à Application Insights Profiler et Débogueur de capture instantanée. 
-* Les [niveaux de réservation de capacité](../platform/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
+* Les [niveaux de réservation de capacité](../logs/manage-cost-storage.md#pricing-model) vous permettent d’économiser jusqu’à 25 % par rapport au tarif du paiement à l’utilisation. 
 * Ingestion plus rapide des données via l’ingestion de diffusion en continu Log Analytics.
 
 ## <a name="create-workspace-based-resource"></a>Créer une ressource basée sur un espace de travail
@@ -36,7 +36,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
 > [!div class="mx-imgBorder"]
 > ![Ressource Application Insights basée sur un espace de travail](./media/create-workspace-resource/create-workspace-based.png)
 
-Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../learn/quick-create-workspace.md).
+Si vous ne disposez pas déjà d’un espace de travail Log Analytics, [consultez la documentation relative à la création d’un espace de travail Log Analytics](../logs/quick-create-workspace.md).
 
 **Les ressources basées sur l’espace de travail sont actuellement disponibles dans toutes les régions commerciales et Azure Government**
 
@@ -212,5 +212,5 @@ La fonctionnalité héritée d’exportation continue n’est pas prise en charg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Exploration des mesures](../platform/metrics-charts.md)
-* [Écriture de requêtes Analytics](../log-query/log-query-overview.md)
+* [Exploration des mesures](../essentials/metrics-charts.md)
+* [Écriture de requêtes Analytics](../logs/log-query-overview.md)

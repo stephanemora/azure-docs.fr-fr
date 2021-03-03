@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cd8c6ca67a1e475279cba8ccc3f4cb8cc7412d66
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954984"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590767"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Surveiller les métriques et journaux de diagnostic Media Services via Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et les journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux : métriques et journaux. Vous pouvez surveiller les journaux de diagnostic Media Services et créer des alertes et notifications pour les métriques et les journaux collectés. Vous pouvez visualiser et analyser les métriques à l’aide [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer les journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), les exporter vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/) ou utiliser des services tiers.
+[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et les journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux : métriques et journaux. Vous pouvez surveiller les journaux de diagnostic Media Services et créer des alertes et notifications pour les métriques et les journaux collectés. Vous pouvez visualiser et analyser les métriques à l’aide [Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). Vous pouvez envoyer les journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), les exporter vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/) ou utiliser des services tiers.
 
-Pour plus un aperçu détaillé, voir [Métriques Azure Monitor](../../azure-monitor/platform/data-platform.md) et [Journaux de diagnostic Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).
+Pour plus un aperçu détaillé, voir [Métriques Azure Monitor](../../azure-monitor/data-platform.md) et [Journaux de diagnostic Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Cette rubrique traite des [métriques Media Services](#media-services-metrics) et des [Journaux de diagnostic Media Services](#media-services-diagnostic-logs) pris en charge.
 
 ## <a name="media-services-metrics"></a>Métriques Media Services
 
-Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple. Pour plus d’informations sur la création d’alertes de métrique, voir [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple. Pour plus d’informations sur la création d’alertes de métrique, voir [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 Media Services prend en charge les métriques de surveillance pour les ressources suivantes :
 
@@ -89,7 +89,7 @@ Consultez [Surveiller les métriques Media Services](media-services-metrics-howt
 
 ## <a name="media-services-diagnostic-logs"></a>Journaux de diagnostic Media Services
 
-Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services prend en charge les journaux de diagnostic suivants :
 
@@ -116,7 +116,7 @@ Consultez [Comment surveiller les journaux de diagnostic Media Services](media-s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Comment collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/alerts/alerts-metric.md)
 * [Surveiller les métriques Media Services](media-services-metrics-howto.md)
 * [Surveillez les journaux de diagnostic de Media Services](media-services-diagnostic-logs-howto.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc31cd4f492a4e95ce8232a8df28f07206e23b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450391"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587175"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -33,7 +33,7 @@ Utilisez les informations suivantes pour installer et configurer la solution.
 vSphere ESXi Host 5.5, 6.0 et 6.5
 
 #### <a name="prepare-a-linux-server"></a>Préparer un serveur Linux
-Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../learn/quick-collect-linux-computer.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux d’activité à un seul serveur Linux, comme dans l’exemple suivant.
+Créez une machine virtuelle de système d’exploitation Linux pour recevoir toutes les données Syslog des hôtes ESXi. [L’agent Log Analytics Linux](../vm/quick-collect-linux-computer.md) est le point de regroupement de toutes les données syslog de l’hôte ESXi. Vous pouvez utiliser plusieurs hôtes ESXi pour transférer des journaux d’activité à un seul serveur Linux, comme dans l’exemple suivant.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -122,7 +122,7 @@ Dans l’affichage du tableau de bord **VMware**, les panneaux sont organisés p
 
 Cliquez sur n’importe quel panneau pour ouvrir le volet de recherche de Log Analytics qui affiche des informations détaillées spécifiques pour le panneau.
 
-À ce stade, vous pouvez modifier la requête de journal pour l’adapter à un aspect spécifique. Pour plus d’informations sur la création de requêtes de journal, consultez [Rechercher des données à l’aide de requêtes de journal dans Azure Monitor](../log-query/log-query-overview.md).
+À ce stade, vous pouvez modifier la requête de journal pour l’adapter à un aspect spécifique. Pour plus d’informations sur la création de requêtes de journal, consultez [Rechercher des données à l’aide de requêtes de journal dans Azure Monitor](../logs/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Rechercher des événements de l’hôte ESXi
 Un seul hôte ESXi génère plusieurs journaux d’activité basés sur leurs processus. La solution de supervision VMware les centralise et résume les nombres d’événements. Cette vue centralisée vous permet de comprendre quel hôte ESXi a un volume élevé d’événements ainsi que les événements qui se produisent le plus fréquemment dans votre environnement.
@@ -151,12 +151,12 @@ La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer 
 
 
 #### <a name="save-queries"></a>Enregistrer des requêtes
-L’enregistrement de requêtes de journal est une fonctionnalité standard dans Azure Monitor ; elle peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](../learn/tutorial-logs-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.
+L’enregistrement de requêtes de journal est une fonctionnalité standard dans Azure Monitor ; elle peut vous aider à conserver toutes les requêtes que vous avez trouvées utiles. Après avoir créé une requête que vous trouvez utile, enregistrez-la en cliquant sur **Favorites**. Vous pouvez réutiliser facilement une requête enregistrée à partir de la page [Mon tableau de bord](../visualize/tutorial-logs-dashboards.md) dans laquelle vous pouvez créer vos propres tableaux de bord personnalisés.
 
 ![La capture d’écran montre une partie d’un tableau de bord personnalisé nommé Recherche dans les journaux avec des icônes pour les options Annuler, Exporter, Alertes, Enregistrer, Favoris et Historique.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
-Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
+Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../alerts/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Que dois-je faire avec les paramètres d’hôte ESXi ? Quel sera l’impact sur mon environnement actuel ?
@@ -197,7 +197,7 @@ Il peut y avoir plusieurs raisons :
      d. Si le fichier n’existe pas ou que les paramètres de groupe et d’utilisateur sont incorrects, prenez une mesure corrective en [Préparant un serveur Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utiliser des [requêtes de journal](../log-query/log-query-overview.md) dans Log Analytics pour afficher des données détaillées sur l’hôte VMware.
-* [Créer vos propres tableaux de bord](../learn/tutorial-logs-dashboards.md) affichant des données de l’hôte VMware.
-* [Créer des alertes](../platform/alerts-overview.md) lorsque des événements d’hôte VMware spécifiques se produisent.
+* Utiliser des [requêtes de journal](../logs/log-query-overview.md) dans Log Analytics pour afficher des données détaillées sur l’hôte VMware.
+* [Créer vos propres tableaux de bord](../visualize/tutorial-logs-dashboards.md) affichant des données de l’hôte VMware.
+* [Créer des alertes](../alerts/alerts-overview.md) lorsque des événements d’hôte VMware spécifiques se produisent.
 

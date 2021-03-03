@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895221"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579237"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -126,7 +126,7 @@ Oui.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Puis-je utiliser un espace de travail existant ?
 
-Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a été migré vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau l’espace de travail, vous devez en créer un autre. Pour plus d’informations sur le nouveau langage de requête, consultez [Mise à niveau des journaux d’activité Azure Monitor vers la nouvelle recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md).
+Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a été migré vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau l’espace de travail, vous devez en créer un autre. Pour plus d’informations sur le nouveau langage de requête, consultez [Mise à niveau des journaux d’activité Azure Monitor vers la nouvelle recherche dans les journaux](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Mon compte Stockage Azure peut-il être dans un abonnement spécifique et mon espace de travail Log Analytics dans un autre abonnement ?
 
@@ -262,7 +262,7 @@ Traffic Analytics n’a pas de prise en charge intégrée des alertes. Cependant
 - Vous pouvez utiliser le lien court vers Log Analytics dans Traffic Analytics. 
 - Utilisez le [schéma documenté ici](traffic-analytics-schema.md) pour écrire vos requêtes 
 - Cliquez sur + Nouvelle règle d’alerte pour créer une alerte
-- Reportez-vous à la [documentation des alertes de journal](../azure-monitor/platform/alerts-log.md) pour créer l’alerte
+- Reportez-vous à la [documentation des alertes de journal](../azure-monitor/alerts/alerts-log.md) pour créer l’alerte
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Comment déterminer quelles machines virtuelles reçoivent le plus de trafic local ?
 
@@ -403,4 +403,4 @@ La page de la topologie des sous-réseaux virtuels contient deux sections princi
 - Si vous sélectionnez l’un de ces nœuds, vous pouvez appuyer sur la touche `Shift+Left arrow` pour visiter chacune de ses connexions. Le focus passe à la **boîte à outils Informations** de cette connexion. Vous pouvez à tout moment réappuyer sur `Shift+Right arrow` pour faire revenir le focus sur le nœud.
 
 ## <a name="are-classic-nsgs-supported"></a>Les groupes de sécurité réseau classiques sont-ils pris en charge ?
-Non, Traffic Analytics ne prend pas en charge les groupes de sécurité réseau classiques. Nous vous recommandons de migrer les ressources IaaS du niveau classique à Azure Resource Manager en tant que ressources classiques [déconseillées](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation). Consultez cet article pour en savoir plus sur la [migration](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview).
+Non, Traffic Analytics ne prend pas en charge les groupes de sécurité réseau classiques. Nous vous recommandons de migrer les ressources IaaS du niveau classique à Azure Resource Manager en tant que ressources classiques [déconseillées](../virtual-machines/classic-vm-deprecation.md). Consultez cet article pour en savoir plus sur la [migration](../virtual-machines/migration-classic-resource-manager-overview.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573402"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -136,4 +136,5 @@ Pour la région US Gov Virginia, seules les URL DOD sont intégrées dans NPM. L
 | MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Rechercher dans les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+[Rechercher dans les journaux d’activité](../logs/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+

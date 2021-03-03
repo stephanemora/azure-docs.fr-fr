@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657020"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581554"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -178,7 +178,7 @@ Query_store.staging_data_reset() retourne void
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-Azure Database pour PostgreSQL est intégré aux [paramètres de diagnostic d’Azure Monitor](../azure-monitor/platform/diagnostic-settings.md). Les paramètres de diagnostic vous permettent d’envoyer vos journaux Postgres au format JSON aux [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) à des fins d’analytique et d’alerte, à Event Hubs pour la diffusion en continu et à Stockage Azure pour l’archivage.
+Azure Database pour PostgreSQL est intégré aux [paramètres de diagnostic d’Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md). Les paramètres de diagnostic vous permettent d’envoyer vos journaux Postgres au format JSON aux [journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md) à des fins d’analytique et d’alerte, à Event Hubs pour la diffusion en continu et à Stockage Azure pour l’archivage.
 
 >[!IMPORTANT]
 > Cette fonctionnalité de diagnostic n’est disponible que dans les niveaux tarifaires Usage général et Mémoire optimisée.
@@ -195,7 +195,7 @@ Pour activer les journaux de ressources à l’aide du portail Azure :
 5. Sélectionnez les types de journaux **QueryStoreRuntimeStatistics** et **QueryStoreWaitStatistics**.
 6. Enregistrez votre paramètre.
 
-Pour activer ce paramètre à l’aide de PowerShell, de l’interface CLI ou de l’API REST, consultez l’[article sur les paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md).
+Pour activer ce paramètre à l’aide de PowerShell, de l’interface CLI ou de l’API REST, consultez l’[article sur les paramètres de diagnostic](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="json-log-format"></a>Format de journal JSON
 Les tableaux suivants décrivent les champs pour les deux types de journaux. En fonction du point de terminaison de sortie choisi, les champs et l’ordre dans lequel ils apparaissent peuvent varier.

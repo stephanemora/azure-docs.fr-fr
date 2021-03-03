@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805476"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582643"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Base de référence de sécurité Azure pour Service Fabric
 
@@ -178,9 +178,9 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Aide** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à vos déploiements Azure Service Fabric. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -224,7 +224,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 * [Comment déployer l’agent Log Analytics sur vos nœuds](./service-fabric-diagnostics-oms-agent.md)
 
-* [Recherches de journal Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Recherches de journal Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -240,7 +240,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 * [Comment déployer l’agent Log Analytics sur vos nœuds](./service-fabric-diagnostics-oms-agent.md)
 
-* [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -256,7 +256,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 * [Comment déployer l’agent Log Analytics sur vos nœuds](./service-fabric-diagnostics-oms-agent.md)
 
-* [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -266,7 +266,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Aide** : Utilisez des requêtes d’espace de travail Log Analytics pour interroger des journaux Azure Service Fabric.
 
-* [Recherches de journal Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [Recherches de journal Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Supervision d’Azure Security Center** : actuellement non disponible
 
@@ -278,7 +278,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 * [Guide pratique pour gérer les alertes dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -586,7 +586,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 **Aide** : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des ressources Azure critiques.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 

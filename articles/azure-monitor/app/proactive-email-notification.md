@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559589"
+ms.locfileid: "100585637"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 
@@ -27,7 +27,7 @@ Cette modification touchera toutes les règles de détection intelligente, à l�
 
 * les règles de détection intelligente marquées comme étant en préversion, qui à l’heure actuelle ne prennent pas en charge les notifications par e-mail ;
 
-* la règle Anomalies de défaillance, qui commencera à cibler les nouveaux rôles par défaut une fois migrée d’une alerte classique à la plateforme d’alertes unifiée (pour plus d’informations, cliquez [ici](../platform/monitoring-classic-retirement.md)).
+* la règle Anomalies de défaillance, qui commencera à cibler les nouveaux rôles par défaut une fois migrée d’une alerte classique à la plateforme d’alertes unifiée (pour plus d’informations, cliquez [ici](../alerts/monitoring-classic-retirement.md)).
 
 ## <a name="how-to-prepare-for-this-change"></a>Préparation à cette modification
 

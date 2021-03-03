@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577868"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiver les journaux et créer des rapports sur la gestion des droits d’utilisation Azure AD dans Azure Monitor
 
@@ -59,7 +59,7 @@ L’archivage des journaux d’audit Azure AD vous demande d’avoir Azure Moni
 
 ## <a name="view-events-for-an-access-package"></a>Visualiser les événements pour un package d’accès  
 
-Pour voir les événements d’un package d’accès, vous devez avoir accès à l’espace de travail Azure Monitor sous-jacent (pour plus d’informations, consultez [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions)) et dans un des rôles suivants : 
+Pour voir les événements d’un package d’accès, vous devez avoir accès à l’espace de travail Azure Monitor sous-jacent (pour plus d’informations, consultez [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions)) et dans un des rôles suivants : 
 
 - Administrateur général  
 - Administrateur de sécurité  
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes :
-- [Créer des rapports interactifs avec les classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Créer des rapports interactifs avec les classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)

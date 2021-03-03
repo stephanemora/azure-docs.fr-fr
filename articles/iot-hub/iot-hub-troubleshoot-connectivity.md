@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446411"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579265"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Analyser et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -82,7 +82,7 @@ La métrique [*Appareils connectés (préversion)*](monitor-iot-hub-reference.md
 
 Vous pouvez utiliser des règles d’alerte de métrique pour surveiller les anomalies de déconnexion d’appareil à grande échelle. Autrement dit, lorsqu’un nombre significatif d’appareils se déconnectent de façon inattendue. Quand une telle occurrence est détectée, vous pouvez consulter les journaux pour vous aider à résoudre le problème. Toutefois, vous devez utiliser Event Grid pour surveiller les déconnexions par appareil et les déconnexions d’appareils critiques. Event Grid offre également une meilleure expérience en temps réel que les métriques Azure.
 
-Pour en savoir plus sur les alertes avec IoT Hub, consultez [Alertes dans Superviser IoT Hub](monitor-iot-hub.md#alerts). Pour obtenir une procédure pas à pas de création d’alertes dans IoT Hub, consultez le tutoriel [Utiliser les métriques et les journaux](tutorial-use-metrics-and-diags.md). Pour obtenir une vue d’ensemble plus détaillée des alertes, consultez [vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/platform/alerts-overview.md) dans la documentation Azure Monitor.
+Pour en savoir plus sur les alertes avec IoT Hub, consultez [Alertes dans Superviser IoT Hub](monitor-iot-hub.md#alerts). Pour obtenir une procédure pas à pas de création d’alertes dans IoT Hub, consultez le tutoriel [Utiliser les métriques et les journaux](tutorial-use-metrics-and-diags.md). Pour obtenir une vue d’ensemble plus détaillée des alertes, consultez [vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) dans la documentation Azure Monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor : utiliser les journaux pour résoudre les erreurs de connectivité
 

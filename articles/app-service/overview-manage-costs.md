@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573362"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593982"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planifier et gérer les coûts pour Azure App Service
 
@@ -38,7 +38,7 @@ Selon la fonctionnalité que vous utilisez dans App Service, vous pouvez créer 
 - **Plan App Service**  Requis pour héberger une application App Service.
 - **Niveau isolé**  Un [réseau virtuel](../virtual-network/index.yml) est requis pour un environnement App Service.
 - **Sauvegarde**  Un [Compte de stockage](../storage/index.yml) est requis pour effectuer des sauvegardes.
-- **Journaux de diagnostic**  Vous pouvez sélectionner [Compte de stockage](../storage/index.yml) comme option de journalisation ou opérer une intégration avec [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Journaux de diagnostic**  Vous pouvez sélectionner [Compte de stockage](../storage/index.yml) comme option de journalisation ou opérer une intégration avec [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **Certificats App Service**  Les certificats que vous achetez dans Azure doivent être conservés dans [Azure Key Vault](../key-vault/index.yml).
 
 Les autres ressources coûteuses pour App Service sont (voir [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/) pour plus d’informations).
@@ -114,7 +114,7 @@ Les charges de travail de production sont fournies avec la recommandation du niv
 > [!NOTE]
 > Le niveau **Premium v3** prend en charge les conteneurs Windows et Linux. 
 
-Une fois que vous avez choisi le niveau tarifaire souhaité, vous devez réduire au minimum les instances inactives. Dans un déploiement avec montée en puissance parallèle, vous risquez de gaspiller de l’argent pour des instances de calcul sous-utilisées. Vous devez [configurer une mise à l’échelle automatique](../azure-monitor/platform/autoscale-get-started.md), disponible aux niveaux **Standard** et supérieurs. En créant des planifications de montée en puissance parallèle, ainsi que des règles de montée en puissance parallèle basées sur des métriques, vous payez uniquement pour les instances dont vous avez vraiment besoin à un moment donné.
+Une fois que vous avez choisi le niveau tarifaire souhaité, vous devez réduire au minimum les instances inactives. Dans un déploiement avec montée en puissance parallèle, vous risquez de gaspiller de l’argent pour des instances de calcul sous-utilisées. Vous devez [configurer une mise à l’échelle automatique](../azure-monitor/autoscale/autoscale-get-started.md), disponible aux niveaux **Standard** et supérieurs. En créant des planifications de montée en puissance parallèle, ainsi que des règles de montée en puissance parallèle basées sur des métriques, vous payez uniquement pour les instances dont vous avez vraiment besoin à un moment donné.
 
 ### <a name="azure-reservations"></a>Réservations Azure
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588599"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
@@ -57,7 +57,7 @@ Activez les paramètres de diagnostic pour démarrer la collecte des journaux su
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux réapparaissent dans la cible configurée sur la page **Paramètres de diagnostic** de votre instance. 
 
-Pour plus d’informations sur les paramètres de diagnostic et leurs options de configuration, vous pouvez consulter [*Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations*](../azure-monitor/platform/diagnostic-settings.md).
+Pour plus d’informations sur les paramètres de diagnostic et leurs options de configuration, vous pouvez consulter [*Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations*](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## <a name="log-categories"></a>Catégories de journal
 
@@ -255,10 +255,10 @@ Voici comment interroger les journaux de votre instance.
     - L’onglet *Requêtes* contient les exemples de requêtes que vous pouvez charger dans l’éditeur.
     - L’onglet *Filtre* vous permet de personnaliser une vue filtrée des données retournées par la requête.
 
-Pour plus d’informations sur les requêtes de journal et sur la façon de les écrire, vous pouvez consulter [*Vue d’ensemble des requêtes de journal dans Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
+Pour plus d’informations sur les requêtes de journal et sur la façon de les écrire, vous pouvez consulter [*Vue d’ensemble des requêtes de journal dans Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la configuration des diagnostics, consultez [*Collecter et utiliser des données de journaux à partir de vos ressources Azure*](../azure-monitor/platform/platform-logs-overview.md).
+* Pour en savoir plus sur la configuration des diagnostics, consultez [*Collecter et utiliser des données de journaux à partir de vos ressources Azure*](../azure-monitor/essentials/platform-logs-overview.md).
 * Pour plus d’informations sur les métriques d’Azure Digital Twins, consultez [*Dépannage : Afficher les métriques avec Azure Monitor*](troubleshoot-metrics.md).
 * Pour savoir comment activer les alertes pour vos métriques, consultez [*Résolution des problèmes : Configurer des alertes*](troubleshoot-alerts.md).

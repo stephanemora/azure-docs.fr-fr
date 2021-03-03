@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016707"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587955"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -71,15 +71,15 @@ Oui. Pour plus d’informations, consultez le [document relatif aux zones des gr
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quelles sont les meilleures pratiques pour la mise à l’échelle automatique d’Azure ?
 
-Pour connaître les meilleures pratiques pour la mise à l’échelle automatique, consultez [Meilleures pratiques pour la mise à l’échelle automatique des machines virtuelles](../azure-monitor/platform/autoscale-best-practices.md).
+Pour connaître les meilleures pratiques pour la mise à l’échelle automatique, consultez [Meilleures pratiques pour la mise à l’échelle automatique des machines virtuelles](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Où trouver les noms des métriques pour la mise à l’échelle automatique utilisant des métriques basées sur les hôtes ?
 
-Pour obtenir les noms des métriques pour la mise à l’échelle automatique utilisant des métriques basées sur les hôtes, consultez [Métriques prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Pour obtenir les noms des métriques pour la mise à l’échelle automatique utilisant des métriques basées sur les hôtes, consultez [Métriques prises en charge avec Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Existe-t-il des exemples de mise à l’échelle automatique basée sur une rubrique Azure Service Bus et une longueur de file d’attente ?
 
-Oui. Pour obtenir des exemples de mise à l’échelle automatique basée sur une rubrique Azure Service Bus et une longueur de file d’attente, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Oui. Pour obtenir des exemples de mise à l’échelle automatique basée sur une rubrique Azure Service Bus et une longueur de file d’attente, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 Pour une file d’attente Service Bus, utilisez le JSON suivant :
 
@@ -104,9 +104,9 @@ Remplacez les exemples de valeurs par les URI (Uniform Resource Identifiers) de 
 
 Vous pouvez créer un paramètre de mise à l’échelle automatique sur une machine virtuelle pour utiliser les métriques au niveau de l’hôte ou les métriques basées sur le système d’exploitation invité.
 
-Pour obtenir la liste des métriques prises en charge, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Pour obtenir la liste des métriques prises en charge, consultez [Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
-Pour obtenir un exemple complet pour les groupes de machines virtuelles identiques, consultez [Configuration avancée de la mise à l’échelle automatique à l’aide de modèles Resource Manager pour les groupes de machines virtuelles identiques](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
+Pour obtenir un exemple complet pour les groupes de machines virtuelles identiques, consultez [Configuration avancée de la mise à l’échelle automatique à l’aide de modèles Resource Manager pour les groupes de machines virtuelles identiques](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md).
 
 L’exemple utilise la métrique du processeur au niveau de l’hôte et une métrique de comptage de messages.
 
@@ -114,13 +114,13 @@ L’exemple utilise la métrique du processeur au niveau de l’hôte et une mé
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Comment définir des règles d’alerte sur un groupe de machines virtuelles identiques ?
 
-Vous pouvez créer des alertes sur des métriques pour les groupes de machines virtuelles identiques via PowerShell ou l’interface CLI Azure. Pour plus d’informations, consultez [Exemples de démarrage rapide Azure Monitor PowerShell](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) et [Exemples de démarrage rapide de l’interface CLI multiplateforme pour Azure Monitor](../azure-monitor/samples/cli-samples.md#work-with-alerts).
+Vous pouvez créer des alertes sur des métriques pour les groupes de machines virtuelles identiques via PowerShell ou l’interface CLI Azure. Pour plus d’informations, consultez [Exemples de démarrage rapide Azure Monitor PowerShell](../azure-monitor/powershell-samples.md#create-metric-alerts) et [Exemples de démarrage rapide de l’interface CLI multiplateforme pour Azure Monitor](../azure-monitor/cli-samples.md#work-with-alerts).
 
 La valeur TargetResourceId du groupe de machines virtuelles identiques ressemble à ceci :
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Vous pouvez choisir n’importe quel compteur de performances de machine virtuelle en tant que métrique sur laquelle définir une alerte. Pour plus d’informations, consultez [Métriques du système d’exploitation invité pour les machines virtuelles Windows Resource Manager](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) et [Métriques du système d’exploitation invité pour les machines virtuelles Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) dans l’article[Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Vous pouvez choisir n’importe quel compteur de performances de machine virtuelle en tant que métrique sur laquelle définir une alerte. Pour plus d’informations, consultez [Métriques du système d’exploitation invité pour les machines virtuelles Windows Resource Manager](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) et [Métriques du système d’exploitation invité pour les machines virtuelles Linux](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-linux-vms) dans l’article[Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Comment configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell ?
 

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 944d867ef888e70faa659adcc0e2d4c02f003c97
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 40afa1d743b8d074fa46dde46163f6479ebf87c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567405"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589066"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -150,9 +150,9 @@ Les différences entre la visualisation sans agent et la visualisation basée su
 **Prérequis** | **Sans agent** | **Basé sur un agent**
 --- | --- | ---
 Support | Cette option est en préversion et est disponible uniquement pour les machines virtuelles VMware. [Vérifiez](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) quels sont les systèmes d’exploitation pris en charge. | En disponibilité générale.
-Agent | Inutile d’installer des agents sur les machines qui doivent faire l’objet d’une vérification croisée. | Agents à installer sur chaque machine locale à analyser : [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md) et l’[Agent de dépendances](../azure-monitor/platform/agents-overview.md#dependency-agent). 
+Agent | Inutile d’installer des agents sur les machines qui doivent faire l’objet d’une vérification croisée. | Agents à installer sur chaque machine locale à analyser : [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md) et l’[Agent de dépendances](../azure-monitor/agents/agents-overview.md#dependency-agent). 
 Prérequis | [Passez en revue](concepts-dependency-visualization.md#agentless-analysis) les prérequis et la configuration requise pour le déploiement. | [Passez en revue](concepts-dependency-visualization.md#agent-based-analysis) les prérequis et la configuration requise pour le déploiement.
-Log Analytics | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/insights/service-map.md) dans [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md) pour la visualisation des dépendances. [Plus d’informations](concepts-dependency-visualization.md#agent-based-analysis)
+Log Analytics | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/vm/service-map.md) dans [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md) pour la visualisation des dépendances. [Plus d’informations](concepts-dependency-visualization.md#agent-based-analysis)
 Fonctionnement | Capture les données de connexion TCP sur les ordinateurs activés pour la visualisation des dépendances. Après la découverte, il collecte des données toutes les cinq minutes. | Les agents Service Map installés sur un ordinateur collectent des données sur les processus TCP et sur les connexions entrantes/sortantes pour chaque processus.
 Données | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port. | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port.<br/><br/> Le nombre de connexions, la latence et les informations de transfert de données sont collectés et mis à la disposition des requêtes Log Analytics. 
 Visualisation | La carte des dépendances d’un serveur unique peut être affichée sur une durée allant d’une heure à 30 jours. | Carte des dépendances d’un serveur unique.<br/><br/> La carte peut être affichée pendant une heure uniquement.<br/><br/> Carte des dépendances d’un groupe de serveurs.<br/><br/> Ajoutez et supprimez des serveurs dans un groupe à partir de la vue cartographique.
@@ -171,8 +171,8 @@ Non. Apprenez-en davantage sur la [tarification Azure Migrate](https://azure.mic
 
 Pour utiliser la visualisation des dépendances basée sur les agents, téléchargez et installez des agents sur chaque machine locale que vous souhaitez évaluer :
 
-- [Microsoft Monitoring Agent (MMA)](../azure-monitor/platform/agent-windows.md)
-- [Agent de dépendances](../azure-monitor/platform/agents-overview.md#dependency-agent)
+- [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md)
+- [Agent de dépendances](../azure-monitor/agents/agents-overview.md#dependency-agent)
 - Si certaines de vos machines sont dépourvues de connexion Internet, téléchargez et installez la passerelle Log Analytics sur ces machines.
 
 Vous avez besoin de ces agents uniquement si vous utilisez la visualisation des dépendances basée sur les agents.
@@ -189,14 +189,14 @@ Non, le rapport de visualisation des dépendances dans la visualisation basée s
 
 Pour la visualisation des dépendances basée sur les agents :
 
-- Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- Pour MMA, [utilisez la ligne de commande ou l’automatisation](../azure-monitor/platform/log-analytics-agent.md#installation-options), ou utilisez un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- Utilisez un [script pour installer l’agent de dépendances](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
+- Pour MMA, [utilisez la ligne de commande ou l’automatisation](../azure-monitor/agents/log-analytics-agent.md#installation-options), ou utilisez un [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - En plus des scripts, vous pouvez utiliser des outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/intigua-for-azure-migration) pour déployer les agents.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?
 
-- Consultez la liste des [systèmes d’exploitation Windows pris en charge par MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
-- Consultez la liste des [systèmes d’exploitation Linux pris en charge par MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- Consultez la liste des [systèmes d’exploitation Windows pris en charge par MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options).
+- Consultez la liste des [systèmes d’exploitation Linux pris en charge par MMA](../azure-monitor/agents/log-analytics-agent.md#installation-options).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>Puis-je visualiser des dépendances durant plus d’une heure ?
 

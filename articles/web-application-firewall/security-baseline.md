@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807867"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581243"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Base de référence de sécurité pour Azure Web Application Firewall
 
@@ -111,9 +111,9 @@ Choisissez Azure PowerShell ou Azure CLI pour rechercher des ressources ou effec
 
 **Conseils** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les changements apportés aux paramètres et ressources réseau liés à vos déploiements d’Azure Web Application Firewall (WAF). Créez des alertes dans Azure Monitor qui se déclenchent lorsque des modifications sont apportées à des paramètres ou ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -153,9 +153,9 @@ Azure Sentinel possède un classeur Azure WAF intégré qui fournit une vue d’
 
 - [Vue d’ensemble de la journalisation](ag/ag-overview.md#logging)
 
-- [Vue d’ensemble de la requête de journal Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Vue d’ensemble de la requête de journal Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Vue d’ensemble des journaux de plateforme Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -192,9 +192,9 @@ Azure Sentinel possède un classeur d’événements WAF, de pare-feu, intégré
 
 **Conseils** : Activez les paramètres de diagnostic du journal d’activité Azure pour votre Azure WAF et envoyez les journaux dans un espace de travail Log Analytics. Effectuez des requêtes dans Log Analytics pour rechercher des termes, identifier des tendances, analyser des modèles et fournir de nombreux autres insights basés sur les données collectées. Créez des alertes d’activité anormale en fonction des mesures WAF. Par exemple, si le nombre de requêtes bloquées dépasse « X », faire « Y ».
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Guide pratique pour créer des alertes dans Azure](../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour créer des alertes dans Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

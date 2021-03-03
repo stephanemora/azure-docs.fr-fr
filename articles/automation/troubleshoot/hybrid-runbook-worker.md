@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580986"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
 
@@ -128,7 +128,7 @@ Les causes possibles sont les suivantes :
 #### <a name="resolution"></a>Résolution
 
 ##### <a name="mistyped-workspace-id-or-key"></a>ID/clé d’espace de travail mal orthographié(e)
-Pour vérifier si l’ID ou la clé d’espace de travail de l’agent est mal orthographié(e), consultez [Ajout ou suppression d’un espace de travail - Agent Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) pour l’agent Windows ou [Ajout ou suppression d’un espace de travail - Agent Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) pour l’agent Linux. Veillez à sélectionner la chaîne complète à partir du Portail Azure, puis à la copier et à la coller soigneusement.
+Pour vérifier si l’ID ou la clé d’espace de travail de l’agent est mal orthographié(e), consultez [Ajout ou suppression d’un espace de travail - Agent Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) pour l’agent Windows ou [Ajout ou suppression d’un espace de travail - Agent Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) pour l’agent Linux. Veillez à sélectionner la chaîne complète à partir du Portail Azure, puis à la copier et à la coller soigneusement.
 
 ##### <a name="configuration-not-downloaded"></a>Configuration non téléchargée
 
@@ -169,7 +169,7 @@ Placez ce fichier dans le même dossier que le fichier exécutable `Orchestrator
 
 ## <a name="linux"></a>Linux
 
-Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du Worker échoue, voici les causes possibles de l’erreur :
+Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Linux](../../azure-monitor/agents/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du Worker échoue, voici les causes possibles de l’erreur :
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Scénario : Le Runbook Worker hybride Linux reçoit une invite de mot de passe lors de la signature d’un runbook
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du Worker échoue, cette section présente certaines raisons possibles.
+Le Runbook Worker hybride Linux dépend de l’[agent Log Analytics pour Windows](../../azure-monitor/agents/log-analytics-agent.md) pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du Worker échoue, cette section présente certaines raisons possibles.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Scénario : L’agent Log Analytics pour Windows n’est pas en cours d’exécution
 
@@ -253,7 +253,7 @@ Une cause possible de ce problème est que votre proxy ou votre pare-feu réseau
 
 #### <a name="resolution"></a>Résolution
 
-Les journaux d’activité sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des événements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager**. Ces journaux indiquent un problème de connectivité ou autre qui affecte l’activation du rôle pour Azure Automation, ou un problème rencontré dans le cadre d’opérations normales. Pour obtenir de l’aide supplémentaire concernant la résolution des problèmes liés à l’agent Log Analytics, consultez [Résoudre les problèmes liés à l’agent Log Analytics Windows](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Les journaux d’activité sont stockés localement sur chaque Worker hybride à l’emplacement C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Vous pouvez vérifier s’il existe des événements d’avertissement ou d’erreur dans les journaux des événements **Journaux des applications et des services\Microsoft-SMA\Operations** et **Journaux des applications et des services\Operations Manager**. Ces journaux indiquent un problème de connectivité ou autre qui affecte l’activation du rôle pour Azure Automation, ou un problème rencontré dans le cadre d’opérations normales. Pour obtenir de l’aide supplémentaire concernant la résolution des problèmes liés à l’agent Log Analytics, consultez [Résoudre les problèmes liés à l’agent Log Analytics Windows](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Les Workers hybrides envoient une [sortie et des messages de runbook](../automation-runbook-output-and-messages.md) à Azure Automation de la même façon que les travaux Runbook qui s’exécutent dans le cloud envoient une sortie et des messages. Vous pouvez activer les flux détaillés et de progression de la même façon que pour les runbooks.
 
