@@ -3,12 +3,12 @@ title: Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance OpsGenie.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8867d442d0c7fe563f6429fc1ff4edb212737c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86529095"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594589"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks
 
@@ -25,7 +25,7 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
     ![Bouton Intégrité du service Azure dans OpsGenie](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-1.  **Nommez** votre alerte et remplissez le champ **Assigné à l’équipe** .
+1.  **Nommez** votre alerte et remplissez le champ **Assigné à l’équipe**.
 
 1.  Remplissez les autres champs, tels que **Destinataires**, **Activé**, et **Supprimer les notifications**.
 
@@ -43,7 +43,7 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
+    b. **Détails :****URL d’intégration** OpsGenie précédemment enregistrée.
 
     c. **Nom :** nom, alias ou identificateur du webhook.
 
@@ -60,14 +60,14 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
+    b. **Détails :****URL d’intégration** OpsGenie précédemment enregistrée.
 
     c. **Nom :** nom, alias ou identificateur du webhook.
 
 1. Quand vous avez terminé, sélectionnez **Enregistrer** pour mettre à jour le groupe d’actions.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration à Webhook via une demande HTTP POST
-1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Créez une requête HTTP POST comme suit :
 
@@ -84,6 +84,6 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
-- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - En savoir plus sur les [notifications sur l’intégrité du service](./service-notifications.md).
-- En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).
+- En savoir plus sur les [groupes d’actions](../azure-monitor/alerts/action-groups.md).

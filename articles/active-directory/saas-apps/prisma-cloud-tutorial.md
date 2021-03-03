@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: jeedes
-ms.openlocfilehash: a7a9a997ede1ecf64412ac18d8b159e9647fe812
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d92ca345b0800523d86ce7b42220209a1f237103
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381152"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651409"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prisma-cloud-sso"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Prisma Cloud SSO
 
@@ -130,8 +130,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Un clic sur Tester cette application dans le portail Azure doit vous connecter automatiquement à l’instance de Prisma Cloud SSO pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Prisma Cloud SSO dans Mes applications doit vous connecter automatiquement à l’application Prisma Cloud SSO pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Prisma Cloud SSO dans Mes applications doit vous connecter automatiquement à l’application Prisma Cloud SSO pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Prisma Cloud SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Prisma Cloud SSO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

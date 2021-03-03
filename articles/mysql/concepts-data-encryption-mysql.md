@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518802"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596324"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
@@ -118,7 +118,7 @@ Pour surveiller l'état de la base de données et activer les alertes liées à 
 * [Azure Resource Health](../service-health/resource-health-overview.md) : une base de données inaccessible qui a perdu l'accès à la clé client apparaît comme « Inaccessible » après le refus de la première connexion à la base de données.
 * [Journal d’activité](../service-health/alerts-activity-log-service-notifications-portal.md) : lorsque l'accès à la clé client dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au journal d'activité. La création d'alertes pour ces événements vous permettra de rétablir l'accès dès que possible.
 
-* [Groupes d'actions](../azure-monitor/platform/action-groups.md) : définissez ces groupes pour qu'ils vous envoient des notifications et des alertes basées sur vos préférences.
+* [Groupes d'actions](../azure-monitor/alerts/action-groups.md) : définissez ces groupes pour qu'ils vous envoient des notifications et des alertes basées sur vos préférences.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurer et répliquer à l'aide d'une clé gérée par un client dans Key Vault
 

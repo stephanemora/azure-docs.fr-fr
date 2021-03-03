@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 4a099a9850289a046435b4e1763d7f54a702c0d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 632aae766e6fd1328dc6e0135a88a942d7ad0910
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545087"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595780"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Utiliser le portail Azure pour configurer des alertes sur des métriques pour Azure Database pour MySQL - Serveur flexible 
 
@@ -28,36 +28,36 @@ Vous pouvez configurer une alerte pour effectuer les actions suivantes lors de s
 * Appeler un webhook
 
 Vous pouvez configurer et obtenir des informations sur les règles d’alerte à l’aide des ressources suivantes :
-* [Azure portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Créer une règle d’alerte sur une métrique à partir du portail Azure
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez le serveur flexible Azure Database pour MySQL à superviser.
-2. Sous la section **Supervision** de la barre latérale, sélectionnez **Alertes** .
-3. Sélectionnez **+ Nouvelle règle d’alerte** .
+2. Sous la section **Supervision** de la barre latérale, sélectionnez **Alertes**.
+3. Sélectionnez **+ Nouvelle règle d’alerte**.
 4. La page **Créer une règle** s’ouvre. Entrez les informations obligatoires :
-5. Dans la section **Condition** , choisissez **Sélectionner la condition** .
+5. Dans la section **Condition**, choisissez **Sélectionner la condition**.
 6. Vous voyez alors la liste des signaux pris en charge. Sélectionnez la métrique sur laquelle vous voulez créer une alerte. Dans cet exemple, sélectionnez « Pourcentage de stockage ».
 7. Vous verrez un graphique de la métrique pendant les six dernières heures. Utilisez la liste déroulante **Période du graphique** pour voir un historique plus long de la métrique.
-8. Sélectionnez le **type de seuil** (par exemple, « Statique » ou « Dynamique »), l’ **opérateur** (par exemple, « Supérieur à ») et le **type d’agrégation** (par exemple, moyenne). Cela permet de déterminer la logique que la règle d’alerte de métrique évaluera.
-    - Si vous utilisez un seuil **Statique** , définissez une **Valeur du seuil** (par exemple, 85 pour cent). Le graphique de métrique peut aider à déterminer un seuil raisonnable.
-    - Si vous utilisez un seuil **Dynamique** , définissez la **Sensibilité du seuil** . Le graphique de métriques affiche les seuils calculés en fonction des données récentes. [Découvrez-en plus sur le type de condition des seuils dynamiques et les options de sensibilité](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
+8. Sélectionnez le **type de seuil** (par exemple, « Statique » ou « Dynamique »), l’**opérateur** (par exemple, « Supérieur à ») et le **type d’agrégation** (par exemple, moyenne). Cela permet de déterminer la logique que la règle d’alerte de métrique évaluera.
+    - Si vous utilisez un seuil **Statique**, définissez une **Valeur du seuil** (par exemple, 85 pour cent). Le graphique de métrique peut aider à déterminer un seuil raisonnable.
+    - Si vous utilisez un seuil **Dynamique**, définissez la **Sensibilité du seuil**. Le graphique de métriques affiche les seuils calculés en fonction des données récentes. [Découvrez-en plus sur le type de condition des seuils dynamiques et les options de sensibilité](../../azure-monitor/alerts/alerts-dynamic-thresholds.md).
 9. Affinez la condition en réglant l’intervalle **Précision d’agrégation (période)** sur lequel les points de données sont regroupés à l’aide de la fonction de type d’agrégation (par exemple, « 30 minutes ») et la **fréquence** (par exemple, « Toutes les 15 minutes »).
-10. Cliquez sur **Done** .
-11. Ajoutez un groupe d’actions. Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Dans la section **Groupes d’actions** , choisissez **Sélectionner un groupe d’actions** pour sélectionner un groupe d’actions existant à associer à la règle d’alerte.
-12. Vous pouvez aussi créer un groupe d’actions pour recevoir des notifications sur l’alerte. Pour plus d’informations, consultez [Créer et gérer un groupe d’actions](../../azure-monitor/platform/action-groups.md).
-13. Pour créer un groupe d’actions, choisissez **+ Créer un groupe d’actions** . Renseignez le formulaire « Créer un groupe d’actions » avec un **abonnement** , un **groupe de ressources** , un **nom de groupe d’actions** et un **nom d’affichage** .
+10. Cliquez sur **Done**.
+11. Ajoutez un groupe d’actions. Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Dans la section **Groupes d’actions**, choisissez **Sélectionner un groupe d’actions** pour sélectionner un groupe d’actions existant à associer à la règle d’alerte.
+12. Vous pouvez aussi créer un groupe d’actions pour recevoir des notifications sur l’alerte. Pour plus d’informations, consultez [Créer et gérer un groupe d’actions](../../azure-monitor/alerts/action-groups.md).
+13. Pour créer un groupe d’actions, choisissez **+ Créer un groupe d’actions**. Renseignez le formulaire « Créer un groupe d’actions » avec un **abonnement**, un **groupe de ressources**, un **nom de groupe d’actions** et un **nom d’affichage**.
 14. Configurez des **notifications** pour le groupe d’actions.
     
-    Dans **Type de notification** , choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l’abonnement, les contributeurs et les lecteurs qui recevront les notifications. Choisissez le **rôle Azure Resource Manager** pour envoyer l’e-mail.
+    Dans **Type de notification**, choisissez « Envoyer un e-mail au rôle Azure Resource Manager » pour sélectionner les propriétaires de l’abonnement, les contributeurs et les lecteurs qui recevront les notifications. Choisissez le **rôle Azure Resource Manager** pour envoyer l’e-mail.
     Vous pouvez également choisir **E-mail/SMS/Push/Message vocal** pour envoyer des notifications à des destinataires spécifiques.
 
     Indiquez le **nom** du type de notification et sélectionnez **Vérifier + créer** quand vous avez terminé.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. Renseignez les **détails de la règle d’alerte** comme le **nom de la règle d’alerte** , la **description** , l’option **Enregistrer la règle d’alerte dans le groupe de ressources** et la **gravité** .
+15. Renseignez les **détails de la règle d’alerte** comme le **nom de la règle d’alerte**, la **description**, l’option **Enregistrer la règle d’alerte dans le groupe de ressources** et la **gravité**.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 
@@ -72,6 +72,6 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et exécu
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur la [définition d’une alerte sur des métriques](../../azure-monitor/platform/alerts-metric.md).
+- En savoir plus sur la [définition d’une alerte sur des métriques](../../azure-monitor/alerts/alerts-metric.md).
 - En savoir plus sur les [métriques disponibles sur le serveur flexible Azure Database pour MySQL](./concepts-monitoring.md).
-- [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
+- [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)

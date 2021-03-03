@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150336"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594238"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -222,7 +222,7 @@ Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux
 
 ## <a name="monitor-a-swap"></a>Superviser un échange
 
-Si l’exécution de l’[opération d’échange](#AboutConfiguration) prend beaucoup de temps, vous pouvez obtenir des informations au sujet de cette opération dans le [journal d’activité](../azure-monitor/platform/platform-logs-overview.md).
+Si l’exécution de l’[opération d’échange](#AboutConfiguration) prend beaucoup de temps, vous pouvez obtenir des informations au sujet de cette opération dans le [journal d’activité](../azure-monitor/essentials/platform-logs-overview.md).
 
 Sur le portail, dans la page des ressources de votre application, sélectionnez **Journal d’activité** dans le volet de gauche.
 

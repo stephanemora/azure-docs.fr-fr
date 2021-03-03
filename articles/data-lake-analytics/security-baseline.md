@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 56a04a7f689846fc8688d9a3144882fff3a809ad
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 48df40d6f1e3030435a7ac1236d3dcda298920ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201312"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596907"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de référence de la sécurité Azure pour Data Lake Analytics
 
@@ -144,9 +144,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -158,9 +158,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Activer les paramètres de diagnostic pour Data Lake Analytics afin d’accéder aux journaux d’audit et de requêtes. Ils incluent des données, telles que la source de l’événement, la date, l’utilisateur, le timestamp et d’autres éléments utiles.
 
-* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -178,7 +178,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Conseils** : Dans Azure Monitor, définissez la période de rétention de votre espace de travail Log Analytics en fonction des réglementations de conformité de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme et l’archivage.
 
-* [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -192,9 +192,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [En savoir plus sur l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [En savoir plus sur l’espace de travail Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -206,7 +206,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 * [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 
@@ -488,7 +488,7 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Aide** : Utilisez Azure Monitor avec le Journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des instances des ressources Azure Data Lake Analytics.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 

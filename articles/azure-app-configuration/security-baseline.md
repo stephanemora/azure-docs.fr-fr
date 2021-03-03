@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b160f6641cced1e4ea6af1eac225d92abe26a631
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b68e22e69bf2d4a1655883b249f883f98f565a7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380268"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091242"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Base de référence de sécurité Azure pour Azure App Configuration
 
@@ -385,7 +385,7 @@ App Configuration prend en charge le stockage de la configuration de plusieurs a
 
 - [Présentation du contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md)
 
-- [Configurer le contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/role-assignments-portal.md)
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md)
 
@@ -602,9 +602,9 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Conseils** : Les journaux d’activité, disponibles automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) des ressources App Configuration, et non les opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource. Pour App Configuration, les journaux d’activité ne sont disponibles que dans le plan de contrôle. Ils sont exposés par Azure Resource Manager (ARM). La journalisation du plan de données côté client pour App Configuration n’est pas prise en charge actuellement. Les journaux de ressources Azure ne sont pas non plus configurables.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -618,7 +618,7 @@ Veillez à intégrer les journaux d’activité Azure dans votre journalisation 
 
 En outre, activez et intégrez les données dans Azure Sentinel ou une solution SIEM tierce. De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les données « chaudes » qui sont utilisées fréquemment et Stockage Azure pour les données « froides » qui sont utilisées moins fréquemment.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -632,9 +632,9 @@ En outre, activez et intégrez les données dans Azure Sentinel ou une solution 
 
 Dans Azure Monitor, vous pouvez définir la période de rétention de votre espace de travail Log Analytics en fonction des règles de conformité de votre organisation.
 
-- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Stockage des journaux des ressources dans un compte de stockage Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Stockage des journaux des ressources dans un compte de stockage Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Supervision d’Azure Security Center** : Non applicable
 

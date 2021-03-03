@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534974"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595946"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -53,7 +53,7 @@ Une rotation des journaux d’activité s’effectue toutes les 24 heures ou un
 > La rétention du journal ci-dessus ne s’applique pas aux journaux qui sont acheminés à l’aide des journaux de diagnostic Azure Monitor. Vous pouvez modifier la période de rétention pour les récepteurs de données émises (par exemple, Stockage Azure).
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour MySQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MySQL, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, Event Hubs ou le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database pour MySQL est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MySQL, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, Event Hubs ou le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/essentials/platform-logs-overview.md).
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 

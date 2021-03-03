@@ -4,22 +4,22 @@ description: Attribution et utilisation du rôle d’administrateur de cluster A
 services: container-service
 author: mjudeikis
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: f8b84461cc96c64ce2f97a8b4bb69246f5a0dccc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4fc57ebe39a2169ea91423b295f4bc436746b29
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221177"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636236"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Rôle d'administrateur de client Azure Red Hat OpenShift
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 sera mis hors service le 30 juin 2022. La prise en charge de la création de nouveaux clusters Azure Red Hat OpenShift 3.11 se poursuit jusqu’au 30 novembre 2020. Après la mise hors service, les clusters Azure Red Hat OpenShift 3.11 restants seront arrêtés pour éviter des failles de sécurité.
+> Azure Red Hat OpenShift 3.11 sera mis hors service le 30 juin 2022. La prise en charge de la création de nouveaux clusters Azure Red Hat OpenShift 3.11 se poursuit jusqu’au 30 novembre 2020. Après la mise hors service, les clusters Azure Red Hat OpenShift 3.11 restants seront arrêtés pour éviter des failles de sécurité.
 > 
-> Suivez ce guide pour [créer un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
+> Suivez ce guide pour [créer un cluster Azure Red Hat OpenShift 4](tutorial-create-cluster.md).
 > Si vous avez des questions spécifiques, n’hésitez pas à [nous contacter](mailto:arofeedback@microsoft.com).
 
 Vous êtes l’administrateur d’un cluster Azure Red Hat OpenShift. Votre compte dispose de plus en plus d’autorisations et d’un accès à tous les projets créés par l’utilisateur.

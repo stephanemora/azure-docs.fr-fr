@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
-ms.openlocfilehash: 129cde198e430966b89e0750c3842131b7902289
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0098d28d2b211ad9e4bbe60a44c5de4058f2b96b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416357"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651412"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-parkalot---car-park-management"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Parkalot - Car park management
 
@@ -174,11 +174,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Parkalot - Car park management pour lancer le processus de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Parkalot - Car park Management dans Mes applications redirige vers l’URL de connexion à Parkalot - Car park management. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Parkalot - Car park Management dans Mes applications redirige vers l’URL de connexion à Parkalot - Car park management. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Parkalot - Car park management, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré Parkalot - Car park management, vous pouvez appliquer le contrôle de session, qui protège en temps réel contre l’exfiltration et l’infiltration des données sensibles de votre organisation. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

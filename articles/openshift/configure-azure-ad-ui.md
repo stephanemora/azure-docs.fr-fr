@@ -1,19 +1,19 @@
 ---
 title: Azure Red Hat OpenShift exécutant OpenShift 4 - Configurer l’authentification Azure Active Directory à l’aide du portail Azure et de la console web OpenShift
 description: Découvrez comment configurer l’authentification Azure Active Directory pour un cluster Azure Red Hat OpenShift exécutant OpenShift 4 à l’aide du portail Azure et de la console web OpenShift
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7f01404f63a32e3a23413b8eaca64f679f7036d8
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748077"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635160"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurer l’authentification Azure Active Directory pour un cluster Azure Red Hat OpenShift 4 (portail)
 
@@ -21,7 +21,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Construisez l’ **URL de rappel OAuth** du cluster et notez-la. Veillez à remplacer **aro-rg** par le nom de votre groupe de ressources et **aro-cluster** par le nom de votre cluster.
+Construisez l’**URL de rappel OAuth** du cluster et notez-la. Veillez à remplacer **aro-rg** par le nom de votre groupe de ressources et **aro-cluster** par le nom de votre cluster.
 
 > [!NOTE]
 > La section `AAD` de l’URL de rappel OAuth doit correspondre au nom du fournisseur d’identité OAuth que vous allez configurer ultérieurement.
@@ -36,15 +36,15 @@ echo "OAuth callback URL: https://oauth-openshift.apps.$domain.$location.aroapp.
 
 Connectez-vous au portail Azure et accédez au [panneau Inscriptions d’applications](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), puis cliquez sur **Nouvelle inscription** pour créer une application.
 
-Fournissez un nom pour l’application, par exemple **aro-azuread-auth** et renseignez l’ **URI de redirection** à l’aide de la valeur de l’URL de rappel OAuth que vous avez récupérée.
+Fournissez un nom pour l’application, par exemple **aro-azuread-auth** et renseignez l’**URI de redirection** à l’aide de la valeur de l’URL de rappel OAuth que vous avez récupérée.
 
 ![Nouvelle inscription d’application](media/aro4-ad-registerapp.png)
 
-Accédez à **Certificats et secrets** , puis cliquez sur **Nouveau secret client** et renseignez les détails. Notez la valeur de la clé, car vous l’utiliserez dans une étape ultérieure. Vous ne pourrez plus la récupérer une nouvelle fois.
+Accédez à **Certificats et secrets**, puis cliquez sur **Nouveau secret client** et renseignez les détails. Notez la valeur de la clé, car vous l’utiliserez dans une étape ultérieure. Vous ne pourrez plus la récupérer une nouvelle fois.
 
 ![Créer un secret](media/aro4-ad-clientsecret.png)
 
-Accédez à la **vue d’ensemble** et notez l’ **ID d’application (client)** et l’ **ID de l’annuaire (locataire)** . Vous en aurez besoin à une phase ultérieure.
+Accédez à la **vue d’ensemble** et notez l’**ID d’application (client)** et l’**ID de l’annuaire (locataire)** . Vous en aurez besoin à une phase ultérieure.
 
 ![Récupérer les ID d’application (client) et d’annuaire (locataire)](media/aro4-ad-ids.png)
 
@@ -60,7 +60,7 @@ Vous pouvez utiliser des revendications facultatives pour :
 
 Nous allons configurer OpenShift pour qu’il utilise la revendication `email` et revenir à `upn` pour définir le nom d’utilisateur par défaut en ajoutant l’`upn` dans le cadre du jeton d’ID retourné par Azure Active Directory.
 
-Accédez à **Configuration du jeton (préversion)** puis cliquez sur **Ajouter une revendication facultative** . Sélectionnez **ID** , puis vérifiez les revendications **email** et **upn** .
+Accédez à **Configuration du jeton (préversion)** puis cliquez sur **Ajouter une revendication facultative**. Sélectionnez **ID**, puis vérifiez les revendications **email** et **upn**.
 
 ![Capture d’écran montrant les revendications email et upn qui ont été ajoutées.](media/aro4-ad-tokens.png)
 
@@ -100,21 +100,21 @@ Vous trouverez l’URL de la console de cluster en exécutant la commande suivan
 
 Lancez l’URL de la console dans un navigateur et connectez-vous à l’aide des informations d’identification `kubeadmin`.
 
-Accédez à **Administration** , cliquez sur **Paramètres de cluster** , puis sélectionnez l’onglet **Configuration globale** . Faites défiler pour sélectionner **OAuth** .
+Accédez à **Administration**, cliquez sur **Paramètres de cluster**, puis sélectionnez l’onglet **Configuration globale**. Faites défiler pour sélectionner **OAuth**.
 
-Faites défiler vers le bas jusqu’à la section **Fournisseurs d’identité** , sélectionnez **Ajouter** , puis sélectionnez **OpenID Connect** .
+Faites défiler vers le bas jusqu’à la section **Fournisseurs d’identité**, sélectionnez **Ajouter**, puis sélectionnez **OpenID Connect**.
 ![Sélectionner OpenID Connect dans la liste déroulante Fournisseurs d’identité](media/aro4-oauth-idpdrop.png)
 
-Renseignez le nom en indiquant **AAD** , l’ **ID client** en indiquant l’ **ID d’application** et le **Secret client** . L’ **URL de l’émetteur** se présente sous la forme suivante : `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Remplacez l’espace réservé par l’ID de locataire que vous avez récupéré.
+Renseignez le nom en indiquant **AAD**, l’**ID client** en indiquant l’**ID d’application** et le **Secret client**. L’**URL de l’émetteur** se présente sous la forme suivante : `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Remplacez l’espace réservé par l’ID de locataire que vous avez récupéré.
 
 ![Renseigner les détails OAuth](media/aro4-oauth-idp-1.png)
 
-Faites défiler vers le bas jusqu’à la section **Revendications** et mettez à jour le **Nom d’utilisateur par défaut** pour utiliser la valeur de la revendication **upn** .
+Faites défiler vers le bas jusqu’à la section **Revendications** et mettez à jour le **Nom d’utilisateur par défaut** pour utiliser la valeur de la revendication **upn**.
 
 ![Renseigner les détails des revendications](media/aro4-oauth-idp-2.png)
 
 ## <a name="verify-login-through-azure-active-directory"></a>Vérifier la connexion via Azure Active Directory
 
-Si vous vous déconnectez maintenant de la console web OpenShift et que vous tentez de vous reconnecter, une nouvelle option s’affiche pour vous permettre de vous connecter avec **AAD** . Vous devrez peut-être patienter quelques minutes.
+Si vous vous déconnectez maintenant de la console web OpenShift et que vous tentez de vous reconnecter, une nouvelle option s’affiche pour vous permettre de vous connecter avec **AAD**. Vous devrez peut-être patienter quelques minutes.
 
 ![Écran de connexion avec l’option Azure Active Directory](media/aro4-login-2.png)

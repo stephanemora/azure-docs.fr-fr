@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221644"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670909"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurer la préférence de routage pour une machine virtuelle à l’aide du portail Azure
 
@@ -25,13 +25,9 @@ Cet article explique comment configurer la préférence de routage pour une mach
 
 Cet article explique comment créer une machine virtuelle avec une adresse IP publique définie pour acheminer le trafic via le réseau du fournisseur de services Internet à l’aide du portail Azure.
 
-> [!IMPORTANT]
-> La préférence de routage est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
@@ -39,7 +35,7 @@ Connectez-vous au [portail Azure](https://preview.portal.azure.com/).
 2. Sélectionnez **Calculer**, puis **Machine virtuelle Windows Server 2016** ou le système d’exploitation de votre choix.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVM|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|

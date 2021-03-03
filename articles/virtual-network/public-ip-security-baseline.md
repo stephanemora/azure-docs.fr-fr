@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596500"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Base de référence de sécurité Azure pour les adresses IP publiques Azure
 
@@ -52,7 +52,7 @@ Une adresse IP publique fournit des outils permettant de surveiller, de diagnost
 
 À la place, vous pouvez activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ Une adresse IP publique fournit des outils permettant de surveiller, de diagnost
 
 **Aide** : Utilisez le journal d’activité Azure pour surveiller les configurations et détecter les changements apportés à vos instances d’adresses IP publiques. À part le plan de contrôle (par exemple, le portail Azure), une adresse IP publique ne génère pas elle-même de journaux d’audit. Une adresse IP publique fournit des outils permettant de surveiller, de diagnostiquer et d’afficher des métriques, ainsi que d’activer et de désactiver les journaux des ressources se trouvant dans un réseau virtuel Azure.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Supervision Azure Security Center** : Oui
 
@@ -74,7 +74,7 @@ Une adresse IP publique fournit des outils permettant de surveiller, de diagnost
 
 **Aide** : Utilisez Azure Monitor pour définir la période de conservation des journaux pour les espaces de travail Log Analytics associés à des instances d’adresses IP publiques, conformément aux obligations de conformité de votre organisation.
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -88,7 +88,7 @@ Utilisez le journal d’activité Azure pour surveiller les configurations et d�
 
 Une adresse IP publique ne génère pas elle-même de journaux liés au trafic réseau, autres qu’au niveau du plan de contrôle (par exemple, le portail Azure).
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -118,7 +118,7 @@ Des rôles intégrés Azure prédéfinis, inventoriés ou interrogés, existent 
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -142,7 +142,7 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -152,9 +152,9 @@ Accès juste-à-temps activé à l’aide d’Azure Active Directory (Azure AD) 
 
 - [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -168,7 +168,7 @@ Utilisez et passez en revue les détections de risque Azure AD pour bénéficie
 
 - [Présentation des détections de risques Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -178,7 +178,7 @@ Utilisez et passez en revue les détections de risque Azure AD pour bénéficie
 
 - [Guide pratique pour configurer des emplacements nommés dans Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -226,7 +226,7 @@ Simplifiez ce processus en créant des paramètres de diagnostic pour les compte
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -246,7 +246,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -256,7 +256,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -275,7 +275,7 @@ En outre, utilisez Azure Policy pour appliquer des restrictions quant au type de
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -304,7 +304,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -314,7 +314,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -342,7 +342,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -354,7 +354,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Documentation Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -376,7 +376,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -410,7 +410,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -420,7 +420,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Reportez-vous à la publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -442,7 +442,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -452,7 +452,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Comment configurer l’automatisation des workflows et Logic Apps](../security-center/workflow-automation.md)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -468,7 +468,7 @@ En outre, marquez clairement les abonnements (par ex. production, non production
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Partagé
 

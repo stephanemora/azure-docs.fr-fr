@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0155ed4df9ee2c22d1461633ac9efe225b53f9ca
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 627c6bcd01a11356d1f207aa079c75d4b6194c59
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530508"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093262"
 ---
 # <a name="azure-security-baseline-for-cost-management"></a>Base de référence de la sécurité Azure pour Cost Management
 
@@ -174,7 +174,7 @@ Azure Cost Management offre des rôles intégrés, des lecteurs et des contribut
 
 Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ? ../role-based-access-control/overview.md 
 
-- [Guide pratique pour configurer le contrôle RBAC dans Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md)
 

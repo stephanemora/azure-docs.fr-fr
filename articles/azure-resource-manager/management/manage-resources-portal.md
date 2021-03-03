@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12d704b0a3d92aa0585fb120f969000def282396
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894030"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092191"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gérer des ressources Azure à l’aide du portail Azure
 
@@ -34,7 +34,7 @@ Les ressources Azure sont organisées par les services Azure et groupes de resso
 Pour ouvrir une ressource par le type de service :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans le volet gauche, sélectionnez le service Azure. Dans ce cas, **Comptes de stockage**.  Si vous ne voyez pas le service répertorié, sélectionnez **Tous les services** , puis le type de service.
+2. Dans le volet gauche, sélectionnez le service Azure. Dans ce cas, **Comptes de stockage**.  Si vous ne voyez pas le service répertorié, sélectionnez **Tous les services**, puis le type de service.
 
     ![ouvrir une ressource azure dans le portail](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
@@ -88,7 +88,7 @@ Le verrouillage empêche d’autres utilisateurs de votre organisation de suppri
 2. Sélectionnez **Verrouiller**. La capture d’écran suivante montre les options de gestion pour un compte de stockage.
 
     ![verrouiller une ressource azure](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Sélectionnez **Ajouter** , puis spécifiez les propriétés de verrou.
+3. Sélectionnez **Ajouter**, puis spécifiez les propriétés de verrou.
 
 Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](lock-resources.md).
 
@@ -114,7 +114,7 @@ Vous pouvez sélectionner l’icône d’épingle dans l’angle supérieur droi
 
 ## <a name="manage-access-to-resources"></a>Gérer l’accès aux ressources
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
+Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md) vous permet de gérer l’accès aux ressources dans Azure. Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant le portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

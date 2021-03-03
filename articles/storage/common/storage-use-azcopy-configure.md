@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881042"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596945"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -183,7 +183,7 @@ Lorsque vous reprenez un travail, AzCopy examine le fichier de plan de travail. 
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>Changer l’emplacement des fichiers journaux et de plan
 
-Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux. Vous pouvez changer cet emplacement.
+Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME/.azcopy` sur Mac et Linux. Vous pouvez changer cet emplacement.
 
 ### <a name="change-the-location-of-plan-files"></a>Changer l’emplacement des fichiers de plan
 

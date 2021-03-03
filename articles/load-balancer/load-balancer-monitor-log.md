@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785818"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596804"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Journaux Azure Monitor pour Azure Standard Load Balancer
 
@@ -63,7 +63,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
      5. Dans la liste déroulante **Sélectionner le nom de stratégie Event Hub**, sélectionnez le nom.
      6. Sélectionnez **OK**.
 
-   * **Envoyer à Log Analytics**. Vous devez avoir un espace de travail Log Analytics déjà créé et configuré pour ce processus. Pour créer un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md).
+   * **Envoyer à Log Analytics**. Vous devez avoir un espace de travail Log Analytics déjà créé et configuré pour ce processus. Pour créer un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/logs/quick-create-workspace.md).
      1. Cochez la case **Envoyer à Log Analytics**.
      2. Dans la liste déroulante **Abonnement**, sélectionnez l’abonnement où figure votre espace de travail Log Analytics.
      3. Dans la liste déroulante **Espace de travail Log Analytics**, sélectionnez l’espace de travail.
@@ -100,10 +100,10 @@ Si vous exportez vers le stockage, connectez-vous à votre compte de stockage et
 > Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Diffuser vers un hub d’événements
-Quand les informations de diagnostic sont envoyées en streaming vers un hub d’événements, elles peuvent être utilisées pour une analyse centralisée des journaux dans un outil SIEM partenaire avec intégration à Azure Monitor. Pour plus d’informations, consultez [Transmettre en continu des données de surveillance Azure à un hub d’événements](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+Quand les informations de diagnostic sont envoyées en streaming vers un hub d’événements, elles peuvent être utilisées pour une analyse centralisée des journaux dans un outil SIEM partenaire avec intégration à Azure Monitor. Pour plus d’informations, consultez [Transmettre en continu des données de surveillance Azure à un hub d’événements](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Envoyer à Log Analytics
-Vous pouvez envoyer des informations de diagnostic pour les ressources figurant dans Azure directement à un espace de travail Log Analytics. Dans cet espace de travail, vous pouvez exécuter des requêtes complexes sur les informations en vue d’un dépannage et d’une analyse. Pour plus d’informations, consultez [Collecter les journaux de ressources Azure dans un espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Vous pouvez envoyer des informations de diagnostic pour les ressources figurant dans Azure directement à un espace de travail Log Analytics. Dans cet espace de travail, vous pouvez exécuter des requêtes complexes sur les informations en vue d’un dépannage et d’une analyse. Pour plus d’informations, consultez [Collecter les journaux de ressources Azure dans un espace de travail Log Analytics dans Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limites
 La fonctionnalité d’exportation des métriques sous forme de journaux pour Azure Load Balancer présente les limitations suivantes :

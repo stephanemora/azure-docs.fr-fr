@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a8cb997337d26a166b4c73d33965820da5ae2a86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807222"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596311"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
@@ -98,4 +98,4 @@ Vous disposez d’une gamme d’options pour l’affichage de vos alertes en deh
 
 Cet article vous a présenté les différents types d’alertes disponibles dans Azure Security Center. Pour plus d'informations, consultez les pages suivantes :
 
-- [Alertes de sécurité dans le journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) : en plus d’être disponibles sur le Portail Azure ou programmatiquement, les alertes et les incidents de sécurité sont audités en tant qu’événements dans le **Journal d’activité Azure**. Pour plus d’informations sur le schéma d’événement, consultez [Alertes de sécurité dans le journal d’activité Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
+- [Alertes de sécurité dans le journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) : en plus d’être disponibles sur le Portail Azure ou programmatiquement, les alertes et les incidents de sécurité sont audités en tant qu’événements dans le **Journal d’activité Azure**. Pour plus d’informations sur le schéma d’événement, consultez [Alertes de sécurité dans le journal d’activité Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
