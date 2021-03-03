@@ -10,12 +10,12 @@ metadata:
   author: JBCook
   ms.author: jencook
   ms.date: 09/22/2020
-  ms.openlocfilehash: 4e35449f5dd34d366d0d6095830002690940e6ae
-  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.openlocfilehash: d41addbcf1c7e5bf673ba0082e5eaa216b5f946d
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/08/2021
-  ms.locfileid: "99831465"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100652630"
 landingContent:
 - title: À propos de l’informatique confidentielle Azure
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: Nœuds d’informatique confidentielle Azure Kubernetes Service (AKS) (préversion)
+    - text: Nœuds d’informatique confidentielle sur AKS (Azure Kubernetes Service)
       url: confidential-nodes-aks-overview.md
   - linkListType: concept
     links:
@@ -105,7 +105,7 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Démonstration de santé confidentielle sur AKS
+    - text: Démo de la santé confidentielle sur AKS
       url: https://github.com/Azure-Samples/confidential-container-samples
     - text: Mutual TLS attesté avec Open Enclave sur AKS
       url: https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/confidential-computing/enclave-aware-containers.md

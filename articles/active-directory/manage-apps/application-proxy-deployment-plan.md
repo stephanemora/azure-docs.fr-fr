@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580062"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -302,7 +302,7 @@ Les connecteurs et le service se chargent de toutes les tâches de haut niveau d
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Journaux des événements Windows et compteurs de performances
 
-Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](./application-proxy-connectors.md#under-the-hood). Suivez ce [tutoriel pour configurer les sources de données de journaux des événements dans Azure Monitor](../../azure-monitor/platform/data-sources-windows-events.md).
+Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](./application-proxy-connectors.md#under-the-hood). Suivez ce [tutoriel pour configurer les sources de données de journaux des événements dans Azure Monitor](../../azure-monitor/agents/data-sources-windows-events.md).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guide de résolution des problèmes
 

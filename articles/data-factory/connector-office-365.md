@@ -1,22 +1,17 @@
 ---
 title: Copier des données depuis Office 365 avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 365896fec555340c3932192aa82086d140d4db0c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632989"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393001"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,7 +44,7 @@ Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les 
 
 ## <a name="approving-new-data-access-requests"></a>Approbation de nouvelles demandes d’accès aux données
 
-Si c’est la première fois que vous demandez des données pour ce contexte (une combinaison de la table de données consultée, du compte de destination dans lequel les données sont chargées et de l’identité de l’utilisateur à l’origine de la demande d’accès aux données), vous voyez l’activité de copie avec l’état « En cours d’exécution », et l’état ne devient « RequestingConsent » que quand vous cliquez sur le [lien « Détails » sous Actions](copy-activity-overview.md#monitoring).  Un membre du groupe d’approbateurs pour l’accès aux données doit approuver la requête dans Privileged Access Management pour permettre l’extraction de données.
+Si c’est la première fois que vous demandez des données pour ce contexte (une combinaison de la table de données consultée, du compte de destination dans lequel les données sont chargées et de l’identité de l’utilisateur à l’origine de la demande d’accès aux données), vous voyez l’activité de copie avec l’état « En cours d’exécution », et l’état ne devient « RequestingConsent » que quand vous cliquez sur le [lien « Détails » sous Actions](copy-activity-overview.md#monitoring).  Un membre du groupe d’approbateurs pour l’accès aux données doit approuver la requête dans Privileged Access Management pour permettre l’extraction de données.
 
 Cliquez [ici](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) pour obtenir des informations sur la façon dont l’approbateur peut approuver les demandes d’accès aux données et cliquez [ici](/graph/data-connect-pam) pour obtenir une explication sur l’intégration globale à Privileged Access Management, notamment comment configurer le groupe d’approbateurs d’accès aux données.
 
@@ -87,7 +82,7 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 | connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 >[!NOTE]
-> La différence entre **office365TenantId** et **servicePrincipalTenantId** , et la valeur correspondante à fournir :
+> La différence entre **office365TenantId** et **servicePrincipalTenantId**, et la valeur correspondante à fournir :
 >- Si vous êtes développeur en entreprise et que vous développez une application avec des données Office 365 pour l’utiliser au sein de votre propre organisation, vous devez fournir le même ID de locataire pour les deux propriétés, qui est l’ID de locataire AAD de votre organisation.
 >- Si vous êtes développeur chez un éditeur de logiciels indépendant et que vous développez une application pour vos clients, office365TenantId est l’ID de locataire AAD (programme d’installation de l’application) de votre client et servicePrincipalTenantId est l’ID de locataire AAD de votre entreprise.
 

@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681385"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672753"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Monitor](../..
 
 Monitor vous apporte une visibilité sur les performances et l’intégrité de vos charges de travail Azure. Le type de données d’analyse le plus important de Monitor est la métrique, également appelée compteur de performances. Des métriques sont émises par la plupart des ressources Azure. Monitor propose plusieurs façons de configurer et d’utiliser ces métriques à des fins d’analyse et de résolution des problèmes.
 
-Pour accéder à ces métriques, suivez les instructions fournies dans [Plateforme de données Azure Monitor](../../azure-monitor/platform/data-platform.md).
+Pour accéder à ces métriques, suivez les instructions fournies dans [Plateforme de données Azure Monitor](../../azure-monitor/data-platform.md).
 
 ### <a name="workspace-level-metrics"></a>Métriques au niveau de l’espace de travail
 
@@ -75,10 +75,10 @@ Voici quelques-unes des métriques émises par les pools Apache Spark :
 
 | **Mesure**                           | **Catégorie de métrique, nom d’affichage**                  | **Unité** | **Types d’agrégation** | **Description**                |
 |--------------------------------------|------------------------------------------|----------|----------------------|--------------------------------|
-| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Nombre | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
+| BigDataPoolApplicationsEnded  | Applications Apache Spark terminées  | Count | Sum (default) | Nombre d’applications de pool Apache Spark terminées |
 | BigDataPoolAllocatedCores     | Nombre de vCores alloués au pool Apache Spark                 | Nombre | Max (default), Min, Avg | VCores alloués pour un pool Apache Spark |
 | BigDataPoolAllocatedMemory    | Quantité de mémoire (Go) allouée au pool Apache Spark            | Nombre | Max (default), Min, Avg | Mémoire allouée au pool Apache Spark (Go) |
-| BigDataPoolApplicationsActive | Applications Apache Spark actives | Nombre | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
+| BigDataPoolApplicationsActive | Applications Apache Spark actives | Count | Max (default), Min, Avg | Nombre d’applications actives du pool Apache Spark |
 
 ## <a name="alerts"></a>Alertes
 
@@ -121,11 +121,11 @@ Voici les journaux émis par les pools SQL dédiés :
 | SynapseSqlPoolWaits         | Attend        | Informations sur les états d’attente rencontrés lors de l’exécution d’une demande/requête SQL dans un pool SQL dédié Azure Synapse, y compris les verrous et les attentes sur les files d’attente de transmission.
 
 Pour plus d’informations sur ces journaux, voir les informations suivantes :
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="apache-spark-pool-log"></a>Journal du pool Apache Spark
 
@@ -171,7 +171,7 @@ Créez ou ajoutez des paramètres de diagnostic pour votre espace de travail, un
 1. Nommez votre paramètre, sélectionnez **Envoyer à Log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Limitations connues de Log Analytics](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Limitations connues de Log Analytics](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Sélectionnez **Enregistrer**.
 

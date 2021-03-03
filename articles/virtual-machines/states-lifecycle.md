@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f91d5eebfae990f60b47f2c98f364046bafbf04
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963293"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594354"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Cycle de vie et états des machines virtuelles
 
@@ -428,4 +428,4 @@ Pour récupérer l’état d’alimentation de toutes les machines virtuelles de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la surveillance de votre machine virtuelle, consultez [Surveillance des machines virtuelles dans Azure](../azure-monitor/insights/monitor-vm-azure.md).
+Pour en savoir plus sur la surveillance de votre machine virtuelle, consultez [Surveillance des machines virtuelles dans Azure](../azure-monitor/vm/monitor-vm-azure.md).

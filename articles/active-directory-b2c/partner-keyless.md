@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090364"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644253"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Keyless avec Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 
-- Un [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Le locataire doit être lié à votre abonnement Azure.
+- Un [locataire Azure AD B2C](./tutorial-create-tenant.md). Le locataire doit être lié à votre abonnement Azure.
 
 - En tant que client cloud Keyless, obtenez un [compte d’essai](https://keyless.io/go) gratuit.
 
@@ -83,7 +83,7 @@ Pour configurer un fournisseur d'identité, procédez comme suit :
 1. Sélectionnez **Type de fournisseur d’identité** > **OpenID Connect (préversion)** .
 2. Remplissez le formulaire pour configurer le fournisseur d’identité :
 
-   |Propriété | Valeur |
+   |Propriété | Value |
    |:-----| :-----------|
    | Nom   | Keyless |
    | URL de métadonnées | Insérez l’URI de l’application hébergée d’authentification de Keyless, suivi du chemin d’accès spécifique, tel que https://keyless.auth/.well-known/openid-configuration. |
@@ -157,6 +157,6 @@ Vous devriez maintenant voir Keyless répertorié comme nouveau fournisseur d’
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

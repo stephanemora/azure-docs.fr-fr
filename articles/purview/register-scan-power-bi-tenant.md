@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807544"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518077"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Inscrire et analyser un locataire Power BI (préversion)
 
@@ -23,7 +23,7 @@ Cet article explique comment inscrire et analyser un locataire Power BI à l’a
 
 ## <a name="create-a-security-group-for-permissions"></a>Créer un groupe de sécurité pour les autorisations
 
-Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-y l’identité managée du catalogue.
+Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-y l’identité managée Purview.
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez **Azure Active Directory**.
 1. Créez un groupe de sécurité dans votre annuaire Azure Active Directory, en suivant les instructions fournies dans [Créer un groupe de base et ajouter des membres avec Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -35,11 +35,11 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Type de groupe de sécurité":::
 
-1. Ajoutez l’identité managée de votre catalogue à ce groupe de sécurité. Sélectionnez **Membres**, puis **+ Ajouter des membres**.
+1. Ajoutez l’identité managée Purview à ce groupe de sécurité. Sélectionnez **Membres**, puis **+ Ajouter des membres**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Ajoutez l’instance managée du catalogue au groupe.":::
 
-1. Recherchez votre catalogue et sélectionnez-le.
+1. Recherchez votre identité managée Purview et sélectionnez-la.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Ajouter un catalogue en le recherchant":::
 
@@ -61,14 +61,14 @@ Pour configurer l’authentification, créez un groupe de sécurité et ajoutez-
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Image illustrant comment permettre aux principaux de service d’obtenir des autorisations d’API d’administration Power BI en lecture seule":::
 
     > [!Caution]
-    > Quand vous autorisez le groupe de sécurité que vous avez créé (dont l’identité managée de votre catalogue de données est membre) à utiliser des API d’administration Power BI en lecture seule, vous l’autorisez également à accéder aux métadonnées (telles que le tableau de bord et les noms de rapports, les propriétaires, les descriptions) pour tous vos artefacts Power BI dans ce locataire Une fois que les métadonnées ont été extraites dans Azure Purview, les autorisations de Purview, et non celles de Power BI, déterminent qui peut voir ces métadonnées.
+    > Lorsque vous autorisez le groupe de sécurité que vous avez créé (dont l’identité managée Purview est membre) à utiliser des API d’administration Power BI en lecture seule, vous l’autorisez également à accéder aux métadonnées (telles que le tableau de bord et les noms de rapports, les propriétaires, les descriptions) pour tous vos artefacts Power BI dans ce locataire. Une fois que les métadonnées ont été extraites dans Azure Purview, les autorisations de Purview, et non celles de Power BI, déterminent qui peut voir ces métadonnées.
 
     > [!Note]
     > Vous pouvez supprimer le groupe de sécurité de vos paramètres de développeur, mais les métadonnées précédemment extraites ne seront pas supprimées du compte Purview. Vous pouvez les supprimer séparément, si vous le souhaitez.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Inscrire votre locataire Power BI et configurer une analyse
 
-Maintenant que vous avez accordé au catalogue les autorisations nécessaires pour se connecter à l’API d’administration de votre locataire Power BI, vous pouvez configurer votre analyse à partir du portail du catalogue.
+Maintenant que vous avez accordé à l’identité managée Purview les autorisations nécessaires pour se connecter à l’API d’administration de votre locataire Power BI, vous pouvez configurer votre analyse à partir du Azure Purview Studio.
 
 Tout d’abord, ajoutez un indicateur de fonctionnalité spécial à votre URL Purview. 
 

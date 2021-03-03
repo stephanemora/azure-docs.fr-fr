@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007395"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390400"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -26,7 +26,7 @@ Découvrir les nouveautés du service. Ces éléments peuvent être des notes de
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Préversion publique de l’API Lire v3.2 avec prise en charge de la reconnaissance optique de caractères (OCR) pour 73 langues
 La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponible en tant que service cloud et conteneur Docker, comprend les mises à jour suivantes :
 * [OCR pour 73 langues](./language-support.md#optical-character-recognition-ocr) y compris le chinois simplifié, le chinois traditionnel, le japonais, le coréen et le latin.
-* Ordre de lecture naturel pour la sortie des lignes de texte.
+* Ordre de lecture naturel pour la sortie des lignes de texte (langues latines uniquement)
 * Classification du style d’écriture manuscrite pour les lignes de texte avec un score de confiance (langues latines uniquement).
 * Extrayez uniquement le texte des pages sélectionnées pour un document multipage.
 * Disponible en tant que [conteneur Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) pour un déploiement local.

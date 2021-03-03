@@ -1,22 +1,23 @@
 ---
 title: Planification de migration de ressources Classic vers Azure Resource Manager
-description: Dans cet article, apprenez à planifier la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager dans Linux.
-services: virtual-machines-linux
+description: Dans cet article, apprenez à planifier la migration des ressources IaaS de la version classique vers Azure Resource Manager.
+services: virtual-machines
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 271a20c5c9b6e157343246afb79f40894fe8a097
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 30a02a79e5e6e063c3d21e6626ed1a75c0f61133
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904621"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676106"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager dans Linux
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 
 > [!IMPORTANT]
 > Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [En savoir plus]( https://aka.ms/classicvmretirement) sur cette dépréciation et [la façon dont elle vous concerne](classic-vm-deprecation.md#how-does-this-affect-me).

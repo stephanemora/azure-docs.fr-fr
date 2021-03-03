@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786037"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526632"
 ---
 # <a name="about-azure-key-vault-secrets"></a>À propos des secrets Azure Key Vault
 
@@ -74,7 +74,7 @@ Guides pratiques pour contrôler l’accès dans Key Vault :
 - [Attribuer une stratégie d’accès Key Vault à l’aide de l’interface CLI](../general/assign-access-policy-cli.md)
 - [Attribuer une stratégie d’accès Key Vault à l’aide de PowerShell](../general/assign-access-policy-powershell.md)
 - [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](../general/assign-access-policy-portal.md)
-- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)](../general/rbac-guide.md)
+- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Balises de secret  
 Vous pouvez spécifier des métadonnées spécifiques à l’application supplémentaires sous la forme de balises. Key Vault prend en charge jusqu’à 15 balises, chacune d’entre elles pouvant avoir un nom de 256 caractères et une valeur de 256 caractères.  
@@ -124,7 +124,7 @@ Guides pratiques pour contrôler l’accès dans Key Vault :
 - [Attribuer une stratégie d’accès Key Vault à l’aide de l’interface CLI](../general/assign-access-policy-cli.md)
 - [Attribuer une stratégie d’accès Key Vault à l’aide de PowerShell](../general/assign-access-policy-powershell.md)
 - [Attribuer une stratégie d’accès Key Vault à l’aide du portail Azure](../general/assign-access-policy-portal.md)
-- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure (préversion)](../general/rbac-guide.md)
+- [Donnez accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

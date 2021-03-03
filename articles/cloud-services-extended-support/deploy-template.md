@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881820"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548775"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
@@ -134,7 +134,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ```
  
 
-4. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer Key Vault pour les autorisations appropriées afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés en tant que secrets à partir de Key Vault. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
+4. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer Key Vault pour les autorisations appropriées afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés en tant que secrets à partir de Key Vault. Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -441,14 +441,15 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
  
-8. Déployez le modèle et créez le déploiement du service cloud (support étendu). 
+8. Déployez le fichier de modèle et de paramètres (définition des paramètres dans le fichier de modèle) pour créer le déploiement de service cloud (prise en charge étendue). Veuillez vous reporter à ces [exemples de modèles](https://github.com/Azure-Samples/cloud-services-extended-support) si nécessaire.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
     ```
  
 ## <a name="next-steps"></a>Étapes suivantes 

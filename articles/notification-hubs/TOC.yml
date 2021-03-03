@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Envoyer des notifications Push à toutes les inscriptions (SDK version 1.0.0-preview1)
+            - name: Envoyer des notifications Push à toutes les inscriptions (SDK actuel)
               href: android-sdk.md
-            - name: "Envoyer des notifications Push à toutes les inscriptions (SDK version\_0.6)"
+            - name: Envoyer des notifications Push à toutes les inscriptions (SDK hérité)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Envoyer des notifications Push à des appareils spécifiques
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Prérequis pour les tutoriels iOS
               href: ios-sdk-get-started.md
-            - name: Objective-C (version 3.0.0-preview1)
-              href: ios-sdk-300.md
-            - name: "Objective-C (version\_2.0.4)"
-              href: ios-sdk-204.md
+            - name: Objective-C (SDK actuel)
+              href: ios-sdk-current.md
+            - name: Objective-C (SDK hérité)
+              href: ios-sdk-legacy.md
         - name: Envoyer des notifications Push à des appareils spécifiques
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Envoyer des notifications Push à des utilisateurs spécifiques
@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Utiliser APNS VoIP par le biais de Notification Hubs
       href: voip-apns.md
+    - name: Activer les journaux de diagnostic pour Notification Hubs
+      href: notification-hubs-diagnostic-logs.md
 - name: Informations de référence
   items:
     - name: .NET

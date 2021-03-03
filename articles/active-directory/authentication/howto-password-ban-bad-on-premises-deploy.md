@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220284"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091038"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planifiez et déployez localement la protection par mot de passe Azure Active Directory
 
@@ -85,7 +85,8 @@ Les principales exigences suivantes s’appliquent :
 * Le runtime C universel doit être installé sur toutes les machines, y compris les contrôleurs de domaine, sur lesquelles les composants de protection par mot de passe Azure AD sont installés.
     * Vous pouvez obtenir le runtime en vous assurant que vous disposez de toutes les mises à jour à partir de Windows Update. Ou vous pouvez l’obtenir dans un package de mise à jour spécifique au système d’exploitation. Pour plus d’informations, consultez [Mise à jour du runtime C universel sous Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Vous avez besoin d’un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
-* Le service de distribution de clés doit être activé sur tous les contrôleurs de domaine figurant dans le domaine qui exécutent Windows Server 2012. Par défaut, ce service est activé par le début du déclencheur manuel.
+* Le service de distribution de clés doit être activé sur tous les contrôleurs de domaine figurant dans le domaine qui exécutent Windows Server 2012 et versions ultérieures. Par défaut, ce service est activé par le début du déclencheur manuel.
+
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service proxy pour la protection par mot de passe Azure AD. Cette connectivité doit autoriser le contrôleur de domaine à accéder au port 135 du mappeur de point de terminaison RPC et au port du serveur RPC sur le service proxy.
     * Par défaut, le port du serveur RPC est un port RPC dynamique, mais il peut être configuré pour [utiliser un port statique](#static).
 * Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent disposer d’un accès réseau aux points de terminaison suivants :

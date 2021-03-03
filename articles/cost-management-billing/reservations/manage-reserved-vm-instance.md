@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 02/09/2021
 ms.author: banders
-ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562971"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392270"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -35,7 +35,7 @@ Pour afficher un ordre de réservation, accédez à la section **Réservations**
 
 ![Exemple de détails d’ordre de réservation indiquant l’ID d’ordre de réservation ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-Une réservation hérite des autorisations de son ordre de réservation.
+Une réservation hérite des autorisations de son ordre de réservation. Pour échanger ou rembourser une réservation, l’utilisateur doit être ajouté à l’ordre de réservation.
 
 ## <a name="change-the-reservation-scope"></a>Modifier l’étendue de réservation
 
@@ -58,7 +58,7 @@ L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou
 Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations :
 
 - La personne qui achète une réservation et l’administrateur de compte de l’abonnement de facturation utilisé pour acheter la réservation sont ajoutés à l’ordre de réservation.
-- Les administrateurs de facturation Contrat Entreprise et Contrat client Microsoft.
+- Les administrateurs de facturation de l’Accord Entreprise et du Contrat client Microsoft.
 
 Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
 

@@ -3,17 +3,17 @@ title: Crée un point de terminaison privé pour une connexion sécurisée
 titleSuffix: Azure Cognitive Search
 description: Configurez un point de terminaison privé dans un réseau virtuel pour établir une connexion sécurisée à un service Recherche cognitive Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779938"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545528"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Créer un point de terminaison privé pour une connexion sécurisée à Recherche cognitive Azure
 
@@ -21,8 +21,10 @@ Dans cet article, vous allez utiliser le Portail Microsoft Azure pour créer une
 
 Les points de terminaison privés sont fournis par [Azure Private Link](../private-link/private-link-overview.md), en tant que service distinct. Pour plus d’informations sur les coûts, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/private-link/).
 
-> [!Important]
-> La prise en charge des points de terminaison privés pour Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/). Lorsque le point de terminaison de service est privé, certaines fonctionnalités du portail sont désactivées. Vous pouvez voir et gérer les informations au niveau du service, mais l'accès du portail aux données d'index et aux divers composants de ce service, comme les définitions d'index, d'indexeur et d'ensemble de compétences, est limité pour des raisons de sécurité. Comme alternative au portail, vous pouvez utiliser l’[extension VS Code](https://aka.ms/vscode-search) pour interagir avec les différents composants du service.
+Vous pouvez définir un point de terminaison privé dans le portail Azure, comme décrit dans cet article. Vous pouvez également utiliser l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search) ou [Azure CLI](/cli/azure/search).
+
+> [!NOTE]
+> Lorsque le point de terminaison de service est privé, certaines fonctionnalités du portail sont désactivées. Vous pouvez afficher et gérer des informations relatives aux services, toutefois, les informations relatives aux index, aux indexeurs et aux ensembles de compétences sont masquées pour des raisons de sécurité. Comme alternative au portail, vous pouvez utiliser l’[extension VS Code](https://aka.ms/vscode-search) pour interagir avec les différents composants du service.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Pourquoi utiliser un point de terminaison privé pour sécuriser l’accès ?
 

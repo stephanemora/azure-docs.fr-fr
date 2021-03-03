@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021586"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571060"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -191,7 +191,7 @@ Le fichier *« Cloud Foundry.omsview »* est une préversion du modèle de vue O
 
 ### <a name="2-create-alert-rules"></a>2. Créer des règles d'alerte
 
-Vous pouvez [créer des alertes](../azure-monitor/platform/alerts-overview.md) et personnaliser les requêtes et les valeurs de seuil, si nécessaire. Voici les alertes recommandées :
+Vous pouvez [créer des alertes](../azure-monitor/alerts/alerts-overview.md) et personnaliser les requêtes et les valeurs de seuil, si nécessaire. Voici les alertes recommandées :
 
 | Requête de recherche                                                                  | Générer l’alerte selon | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |

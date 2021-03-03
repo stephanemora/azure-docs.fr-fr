@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740089"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095135"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utiliser des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)
 
@@ -28,7 +28,7 @@ Examinez cet exemple : Contoso a recruté des personnes pour toutes les zones g
 
 ## <a name="how-this-feature-works"></a>Principe de la fonctionnalité
 
-Créez un nouveau groupe Microsoft 365 ou un groupe de sécurité dont la propriété « isAssignableToRole » a la valeur « true ». Vous pouvez également activer cette propriété lors de la création d’un groupe dans le portail Azure en activant l’option **Des rôles Azure AD peuvent être attribués au groupe**. Dans les deux cas, vous pouvez affecter le groupe à un ou plusieurs rôles Azure AD de la même façon que vous attribuez des rôles aux utilisateurs. Un maximum de 200 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
+Créez un nouveau groupe Microsoft 365 ou un groupe de sécurité dont la propriété « isAssignableToRole » a la valeur « true ». Vous pouvez également activer cette propriété lors de la création d’un groupe dans le portail Azure en activant l’option **Des rôles Azure AD peuvent être attribués au groupe**. Dans les deux cas, vous pouvez affecter le groupe à un ou plusieurs rôles Azure AD de la même façon que vous attribuez des rôles aux utilisateurs. Un maximum de 250 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
 
 Si vous ne souhaitez pas que les membres du groupe disposent d’un accès permanent au rôle, vous pouvez utiliser Azure AD Privileged Identity Management. Assignez un groupe comme membre éligible d’un rôle Azure AD. Chaque membre du groupe peut alors faire activer son affectation pour le rôle auquel le groupe est assigné. Il peut ensuite activer son attribution de rôle pour une durée déterminée.
 

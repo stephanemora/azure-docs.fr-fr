@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557540"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -71,7 +71,7 @@ Les utilisateurs invités qui ont été affectés au rôle de coadministrateur p
 
 Vous vous attendiez sans doute à ce que l’utilisateur B puisse tout gérer. La raison de cette différence est que le compte Microsoft est ajouté à l’abonnement en tant qu’invité utilisateur et non en tant qu’utilisateur membre. Les utilisateurs invités disposent d’autorisations par défaut différentes dans Azure AD par rapport aux utilisateurs membres. Par exemple, les utilisateurs membres peuvent voir les autres utilisateurs dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités. Les utilisateurs membres peuvent inscrire de nouveaux principaux de service dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités.
 
-Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter les rôles Azure AD spécifiques dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/roles/permissions-reference.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/roles/permissions-reference.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md). Pour plus d’informations sur l’octroi de l’accès pour les utilisateurs invités, consultez [Ajouter ou supprimer des attributions de rôle Azure pour les utilisateurs invités externes à l’aide du portail Azure](role-assignments-external-users.md).
+Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter les rôles Azure AD spécifiques dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/roles/permissions-reference.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/roles/permissions-reference.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md). Pour plus d’informations sur l’octroi de l’accès pour les utilisateurs invités, consultez [Attribuer des rôles Azure aux utilisateurs invités externes à l’aide du portail Azure](role-assignments-external-users.md).
 
 Notez que les [rôles intégrés Azure](../role-based-access-control/built-in-roles.md) sont différents des [rôles Azure AD](../active-directory/roles/permissions-reference.md). Les rôles intégrés n’accordent aucun accès à Azure AD. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -151,5 +151,5 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md)
+* [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md)
 * [Ajouter ou changer des administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

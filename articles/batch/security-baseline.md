@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737233"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593312"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Base de référence de sécurité Azure pour Batch
 
@@ -142,7 +142,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -200,7 +200,7 @@ Si nécessaire, vous devrez vous connecter à vos nœuds de pool individuels par
 
 - [Guide pratique pour configurer la supervision et la journalisation dans Azure Batch](monitoring-overview.md)
 
-- [Guide pratique pour configurer la période de rétention dans un espace de travail Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Guide pratique pour configurer la période de rétention dans un espace de travail Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -514,7 +514,7 @@ Vous pouvez utiliser le chiffrement de disque Azure pour protéger et préserver
 
 Configurez les paramètres de diagnostic des comptes de stockage associés à des pools Azure Batch pour superviser et journaliser toutes les opérations CRUD sur les données de pool.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Guide pratique pour activer une journalisation/un audit supplémentaires pour un compte Stockage Azure](../storage/common/storage-monitor-storage-account.md)
 

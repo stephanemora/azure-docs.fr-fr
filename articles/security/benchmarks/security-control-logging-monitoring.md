@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8492e986b378ea19f8c3c4cb7f94fcb0f155b427
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cfa2548abb28fa6f84178a1fb5716d0c03b163f1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487845"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570720"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Contrôle de sécurité : Journalisation et supervision
 
@@ -42,9 +42,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -56,9 +56,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 Activez les paramètres de diagnostic sur les ressources Azure pour accéder aux journaux d’audit, de sécurité et de diagnostic. Les journaux d’activité, automatiquement disponibles, incluent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="24-collect-security-logs-from-operating-systems"></a>2.4 : Collecter les journaux de sécurité des systèmes d’exploitation
 
@@ -68,7 +68,7 @@ Activez les paramètres de diagnostic sur les ressources Azure pour accéder aux
 
 Si la ressource de calcul appartient à Microsoft, alors Microsoft est responsable de sa supervision. Si la ressource de calcul appartient à votre organisation, il vous incombe de la superviser. Vous pouvez utiliser Azure Security Center pour superviser le système d’exploitation. Les données collectées par Security Center auprès du système d’exploitation incluent le type et la version du système d’exploitation, le système d’exploitation (journaux des événements Windows), les processus en cours d’exécution, le nom de l’ordinateur, les adresses IP et l’utilisateur connecté. L’agent Log Analytics collecte également les fichiers de vidage sur incident.
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Présentation de la collecte de données Azure Security Center](../../security-center/security-center-enable-data-collection.md)
 
@@ -80,7 +80,7 @@ Si la ressource de calcul appartient à Microsoft, alors Microsoft est responsab
 
 Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme/d’archivage.
 
-- [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modification de la période de conservation des données dans Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Présentation de l’espace de travail Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Présentation de l’espace de travail Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 ## <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -114,7 +114,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 ## <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
@@ -148,9 +148,9 @@ Utilisez Microsoft Monitoring Agent sur toutes les machines virtuelles Windows A
 
 - [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
-- [Sources de données Syslog dans Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md)
+- [Sources de données Syslog dans Azure Monitor](../../azure-monitor/agents/data-sources-syslog.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

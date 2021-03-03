@@ -3,12 +3,12 @@ title: Analyse de l’usage avec Azure Application Insights | Microsoft Docs
 description: Comprenez vos utilisateurs et ce qu’ils font avec votre application.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0888b6743a10c9934ab85a6f2b3b637b857f643a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583398"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analyse de l'utilisation avec Application Insights
 
@@ -38,7 +38,7 @@ La meilleure expérience est obtenue en installant Application Insights à la fo
 
     Pour en savoir plus les configurations plus complexes pour la supervision des sites web, consultez l’[article de référence du SDK JavaScript](./javascript.md).
 
-3. **Code de l’application mobile :** utilisez le SDK App Center pour collecter les événements à partir de votre application, puis envoyer des copies de ces événements à Application Insights pour analyse en [suivant ce guide](../learn/mobile-center-quickstart.md).
+3. **Code de l’application mobile :** utilisez le SDK App Center pour collecter les événements à partir de votre application, puis envoyer des copies de ces événements à Application Insights pour analyse en [suivant ce guide](../app/mobile-center-quickstart.md).
 
 4. **Obtenir la télémétrie :** exécutez votre projet en mode débogage pendant quelques minutes, puis examinez les résultats dans le panneau Vue d’ensemble dans Application Insights.
 
@@ -179,6 +179,6 @@ Tous les nouveaux TelemetryClients ajoutent automatiquement la valeur de propri�
    - [Entonnoirs](usage-funnels.md)
    - [Rétention](usage-retention.md)
    - [Flux d’utilisateurs](usage-flows.md)
-   - [Classeurs](../platform/workbooks-overview.md)
+   - [Classeurs](../visualize/workbooks-overview.md)
    - [Ajouter du contexte utilisateur](usage-send-user-context.md)
 

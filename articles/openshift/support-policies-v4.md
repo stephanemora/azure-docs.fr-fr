@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521136"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093163"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Stratégie de prise en charge d’Azure Red Hat OpenShift
 
@@ -26,6 +26,7 @@ Certaines configurations pour les clusters Azure Red Hat OpenShift 4 peuvent aff
 * Le cluster doit avoir au moins deux nœuds Worker. Ne réduisez pas les nœuds Worker du cluster à la valeur zéro, ou tentez un arrêt normal du cluster.
 * Ne supprimez pas ou ne modifiez pas les services Prometheus et AlertManager du cluster.
 * Ne supprimez pas les règles AlertManager du service.
+* Vous ne devez pas supprimer ni modifier les groupes de sécurité réseau.
 * Ne supprimez pas ou ne modifiez pas la journalisation du service Azure Red Hat OpenShift (pods MDSD).
 * Ne supprimez pas ou ne modifiez pas le secret d’extraction de cluster « arosvc.azurecr.io ».
 * Toutes les machines virtuelles du cluster doivent disposer d’un accès Internet sortant direct, du moins aux points de terminaison Azure Resource Manager (ARM), et de la journalisation des services (Geneva).  Aucune forme de proxy HTTPS n’est prise en charge.

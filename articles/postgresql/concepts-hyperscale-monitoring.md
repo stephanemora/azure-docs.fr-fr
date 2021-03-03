@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 30be9cbba7fe702d12285fe13794290c4820fd53
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 544f871f62481243cda2409db24b0d067df28c32
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580583"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -22,7 +22,7 @@ La surveillance des données relatives à vos serveurs vous aide à résoudre le
 
 Hyperscale (Citus) fournit des mesures pour chaque nœud dans un groupe de serveurs. Les mesures permettent de mieux comprendre le comportement des ressources de prise en charge. Chaque métrique est émise selon une fréquence d’une minute et est conservée jusqu’à 30 jours dans l’historique.
 
-Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Outre l’affichage des graphiques des mesures, vous pouvez configurer des alertes. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-hyperscale-alert-on-metric.md).  Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 

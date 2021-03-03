@@ -2,13 +2,13 @@
 title: Azure NetApp Files avec Azure VMware Solution
 description: Utilisez Azure NetApp Files avec des machines virtuelles Azure VMware Solution pour migrer et synchroniser des données entre des serveurs locaux, des machines virtuelles Azure VMware Solution et des infrastructures cloud.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: 69d4e3a99de28d55b2fd95b1fc05c04c2ae0a37b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 2f2e8fdeb777e7e4b2b4e89c1bb36b51c3083257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575436"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files avec Azure VMware Solution
 
@@ -16,12 +16,12 @@ Dans cet article, nous allons parcourir les étapes de l’intégration d’Azur
 
 ## <a name="azure-netapp-files-overview"></a>Présentation d’Azure NetApp Files
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) est un service Azure pour la migration et l’exécution des charges de travail de fichier d’entreprise les plus exigeantes dans le cloud. Il inclut des bases de données, SAP et des applications informatiques hautes performances, sans modification du code.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) est un service Azure dédié à la migration et à l'exécution des charges de travail de fichiers d'entreprise les plus exigeantes dans le cloud : bases de données, SAP et applications informatiques hautes performances, sans aucune modification du code.
 
 ### <a name="features"></a>Fonctionnalités
 (Services où les Azure NetApp Files sont utilisés.)
 
-- **Connexions Active Directory** : Azure NetApp Files prend en charge [Active Directory Domain Services (ADDS) et Azure Active Directory Domain Services (AADDS)](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#decide-which-domain-services-to-use).
+- **Connexions Active Directory** : Azure NetApp Files prend en charge [Active Directory Domain Services (ADDS) et Azure Active Directory Domain Services (AADDS)](../azure-netapp-files/create-active-directory-connections.md#decide-which-domain-services-to-use).
 
 - **Protocole de partage** : Azure NetApp Files prend en charge les protocoles SMB (Server Message Block) et NFS (Network File System). Cette prise en charge signifie que les volumes peuvent être montés sur le client Linux et peuvent être mappés sur le client Windows.
 
@@ -31,7 +31,7 @@ Azure NetApp Files est disponible dans de nombreuses régions Azure et prend en 
 
 ## <a name="reference-architecture"></a>Architecture de référence
 
-Le diagramme suivant illustre une connexion via Azure ExpressRoute à un cloud privé Azure VMware Solution. L’environnement Azure VMware Solution accède au partage Azure NetApp Files qui est monté sur des machines virtuelles Azure VMware Solution.
+Le diagramme suivant illustre une connexion via Azure ExpressRoute à un cloud privé Azure VMware Solution. L'environnement Azure VMware Solution accède au partage Azure NetApp Files monté sur des machines virtuelles Azure VMware Solution.
 
 ![Diagramme représentant NetApp Files pour l’architecture Azure VMware Solution.](media/net-app-files/net-app-files-topology.png)
 
@@ -83,11 +83,13 @@ Les étapes suivantes comprennent la vérification des volumes Azure NetApp File
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="Capture d’écran montrant les détails de configuration d’un volume.":::
 
-    Vous pouvez voir que le volume anfvolume a une taille de 200 Gio et qu’il se trouve dans le pool de capacité anfpool1.  Il est exporté en tant que partage de fichiers NFS via 10.22.3.4:/ANFVOLUME. Une adresse IP privée du réseau virtuel Azure (VNet) a été créée pour Azure NetApp Files et le chemin NFS à monter sur la machine virtuelle. Pour découvrir les performances de volume Azure NetApp Files par taille ou « quota », consultez [Considérations sur les performances pour Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
+    Vous pouvez voir que la taille du volume anfvolume est de 200 Gio et qu'il se trouve dans le pool de capacité anfpool1. Il est exporté en tant que partage de fichiers NFS via 10.22.3.4:/ANFVOLUME. Une adresse IP privée du réseau virtuel Azure (VNet) a été créée pour Azure NetApp Files et le chemin NFS à monter sur la machine virtuelle.
+
+    Pour découvrir les performances de volume Azure NetApp Files par taille ou « quota », consultez [Considérations sur les performances pour Azure NetApp Files](../azure-netapp-files/azure-netapp-files-performance-considerations.md). 
 
 ## <a name="verify-pre-configured-azure-vmware-solution-vm-share-mapping"></a>Vérifier le mappage préconfiguré du partage de la machine virtuelle Azure VMware Solution
 
-Pour rendre un partage Azure NetApp Files accessible à une machine virtuelle Azure VMware Solution, il est important de comprendre le mappage de partage SMB et NFS. Une fois les volumes SMB ou NFS configurés, ils peuvent être montés comme indiqué ici.
+Pour rendre votre partage Azure NetApp Files accessible à votre machine virtuelle Azure VMware Solution, vous devez comprendre le mappage de partages SMB et NFS. Une fois les volumes SMB ou NFS configurés, vous pouvez les monter comme indiqué ici.
 
 - Partage SMB : Créez une connexion Active Directory avant de déployer un volume SMB. Les contrôleurs de domaine spécifiés doivent être accessibles par le sous-réseau délégué d’Azure NetApp Files pour une connexion réussie. Une fois Active Directory configuré dans le compte Azure NetApp Files, il apparaît comme élément sélectionnable lors de la création de volumes SMB.
 

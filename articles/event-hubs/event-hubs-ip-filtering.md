@@ -2,13 +2,13 @@
 title: Règles de pare-feu dans Azure Event Hubs | Microsoft Docs
 description: Utilisez les règles de pare-feu pour autoriser les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: e07f863bf8b7d5f64ec0ba04bf16fba12f4a785d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: ca5995c3e1b9923d925ddc4deae299c28261d18a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560844"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -18,6 +18,10 @@ Cette fonctionnalité est utile dans les scénarios où Azure Event Hubs ne doit
 >[!WARNING]
 > L’activation de règles de pare-feu pour vos demandes entrantes par défaut de blocs d’espace de noms Event Hubs, sauf si les demandes proviennent d’un service opérant à partir d’adresses IP publiques autorisées. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services Microsoft approuvés](#trusted-microsoft-services).
 
+> [!IMPORTANT]
+> Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
+
+
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
@@ -26,8 +30,9 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
 
 1. Accédez à votre **espace de noms Event Hubs** sur le [Portail Azure](https://portal.azure.com).
 4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**. L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **standard** ou **dédiés**. 
-    > [!NOTE]
-    > Par défaut, l’option **Réseaux sélectionnés** est sélectionnée, comme indiqué dans l’image suivante. Si vous ne spécifiez pas de règle de pare-feu IP ou n’ajoutez pas de réseau virtuel sur cette page, l’espace de noms est accessible via l’**Internet public** (à l’aide de la clé d’accès).  
+    
+    > [!WARNING]
+    > Si vous sélectionnez l’option **Réseaux sélectionnés** et n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’**Internet public** (à l’aide de la clé d’accès).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -37,7 +42,10 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
 1. Pour restreindre l’accès à des adresses IP spécifiques, vérifiez que l’option **Réseaux sélectionnés** est sélectionnée. Dans la section **Pare-feu**, suivez ces étapes :
     1. Sélectionnez l’option **Ajouter l’adresse IP de votre client** pour permettre à l’adresse IP de votre client actuel d’accéder à l’espace de noms. 
     2. Dans **Plage d’adresses**, entrez une adresse IPv4 ou une plage d’adresses IPv4 spécifique en notation CIDR. 
-3. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. Pour plus d’informations, consultez [Services Microsoft approuvés](#trusted-microsoft-services). 
+
+    >[!WARNING]
+    > Si vous sélectionnez l’option **Réseaux sélectionnés** et n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).
+1. Spécifiez si vous voulez **Autoriser les services Microsoft approuvés à contourner ce pare-feu**. Pour plus d’informations, consultez [Services Microsoft approuvés](#trusted-microsoft-services). 
 
       ![Option Pare-feu – Tous les réseaux sélectionnée](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Sélectionnez **Enregistrer** dans la barre d’outils pour enregistrer les paramètres. Patientez quelques minutes jusqu’à ce que la confirmation s’affiche dans les notifications du portail.
@@ -55,23 +63,9 @@ Cette section montre comment utiliser le Portail Azure afin de créer des règle
 
 Le modèle Resource Manager suivant permet d’ajouter une règle de filtre IP à un espace de noms Event Hubs.
 
-Paramètres du modèle :
+**ipMask** dans le modèle est une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 70.37.104.0/24 représente les 256 adresses IPv4 comprises entre 70.37.104.0 et 70.37.104.255, 24 indiquant le nombre de bits de préfixe significatifs pour la plage.
 
-- **ipMask** est une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 70.37.104.0/24 représente les 256 adresses IPv4 comprises entre 70.37.104.0 et 70.37.104.255, 24 indiquant le nombre de bits de préfixe significatifs pour la plage.
-
-> [!NOTE]
-> Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
-> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier **_defaultAction_**
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Lorsque vous ajoutez des règles de réseau virtuel ou de pare-feu, affectez la valeur `defaultAction` à `Deny`.
 
 ```json
 {
@@ -136,6 +130,9 @@ Paramètres du modèle :
 ```
 
 Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> S’il n’existe aucune règle d’adresse IP et de réseau virtuel, tout le trafic transite dans l’espace de noms, même si vous définissez `defaultAction` sur `deny`.  L’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

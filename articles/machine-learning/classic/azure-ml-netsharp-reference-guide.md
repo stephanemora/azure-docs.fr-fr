@@ -3,18 +3,18 @@ title: 'ML Studio (classique) : Réseaux neuronaux personnalisés - Azure'
 description: Guide de la syntaxe du langage de spécification des réseaux neuronaux Net#. Découvrez comment créer des modèles de réseau neuronal personnalisés dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302792"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519250"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Machine Learning Studio (classique)
 
@@ -266,9 +266,9 @@ La normalisation de réponse permet de contribuer à la généralisation dans le
 
 Les faisceaux de normalisation de réponse prennent en charge tous les attributs convolutionnels, hormis **Sharing**, **MapCount** et **Weights**.
 
-+ Si le noyau contient des neurones de la même signature que **_x_ *_, le schéma de normalisation est appelé _* normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
++ Si le noyau contient des neurones de la même signature que ***x** _, le schéma de normalisation est appelé _*normalisation de même signature**. Pour définir une normalisation de ce type, la première coordonnée de **InputShape** doit avoir la valeur 1.
 
-+ Si le noyau contient des neurones dans la même position spatiale que **_x_ *_, mais situés dans d’autres signatures, le schéma de normalisation est appelé _* normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.
++ Si le noyau contient des neurones dans la même position spatiale que ***x** _, mais situés dans d’autres signatures, le schéma de normalisation est appelé _*normalisation intersignature**. Ce type de normalisation de réponse implémente une forme d'inhibition latérale inspirée par le type trouvé dans les vrais neurones et qui crée une compétition pour des niveaux d'activation élevés entre les sorties neuronales calculées sur différentes signatures. Pour définir une normalisation intersignature, la première coordonnée doit être un entier supérieur à 1 et inférieur ou égal au nombre de signatures. Les coordonnées restantes doivent avoir la valeur 1.
 
 Les faisceaux de normalisation de réponse appliquant une fonction prédéfinie aux valeurs de nœud source pour déterminer la valeur du nœud de destination, ils n’ont pas d’état entraînable (poids ou biais).
 

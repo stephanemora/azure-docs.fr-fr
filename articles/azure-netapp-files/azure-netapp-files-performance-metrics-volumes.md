@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184465"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593403"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recommandations sur les tests de performances pour Azure NetApp Files
 
@@ -113,7 +113,7 @@ Dans Azure Monitor, vous pouvez également créer un tableau de bord pour Azure 
 
 ### <a name="azure-monitor-api-access"></a>Accès à l’API Azure Monitor
 
-Vous pouvez accéder aux compteurs Azure NetApp Files via des appels à l’API REST. Voir [Métriques prises en charge avec Azure Monitor : Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) pour accéder aux compteurs portant sur les volumes et les pools de capacité.
+Vous pouvez accéder aux compteurs Azure NetApp Files via des appels à l’API REST. Voir [Métriques prises en charge avec Azure Monitor : Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) pour accéder aux compteurs portant sur les volumes et les pools de capacité.
 
 L’exemple suivant montre une adresse URL GET permettant d’afficher la taille des volumes logiques :
 

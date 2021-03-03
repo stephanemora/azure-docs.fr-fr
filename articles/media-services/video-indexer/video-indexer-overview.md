@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783799"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530227"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Qu’est-ce qu’Azure Media Services Video Indexer ?
 
@@ -84,7 +84,7 @@ La liste suivante présente les insights que vous pouvez récupérer à partir d
 * **Énumération de l’orateur** : Mappe et comprend quel orateur a prononcé tels mots et à quel moment. Seize intervenants peuvent être détectés dans un seul fichier audio.
 * **Statistiques de l’orateur** : Fournit des statistiques concernant les ratios de parole des orateurs.
 * **Modération du contenu textuel** : Détecte le texte explicite dans la transcription audio.
-* **Effets audio** : Identifie les effets audio tels que les applaudissements, la parole et le silence.
+* **Effets audio** (préversion publique) : Détecte les effets audio suivants dans les segments non vocaux du contenu : Coup de feu, Verre brisé, Alarme, Sirène, Explosion, Aboiement, Cri, Rire, Réactions de foule (encouragements, applaudissements et huées) et Silence. Remarque : Le jeu complet d’événements est disponible uniquement lorsque vous choisissez « Analyse audio avancée » dans les préréglages de chargement. Si ce n’est pas le cas, seules les options « Silence » et « Réactions de foule » seront disponibles.
 * **Détection d’émotions** : Identifie des émotions en fonction de la voix (ce qui est dit) et de la tonalité (la façon de parler). L’émotion peut être le bonheur, la tristesse, la colère ou la peur.
 * **Traduction** : Crée des traductions de la transcription audio en 54 langues différentes.
 

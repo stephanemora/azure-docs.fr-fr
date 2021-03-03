@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ccc2b6baba0e97320a5352013dbecfc121188457
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833097"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361024"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
@@ -74,11 +74,24 @@ Les règles d'un groupe de sécurité réseau (NSG) ou d'un pare-feu peuvent emp
 
 ### <a name="agents-for-on-premises-machines"></a>Agents pour machines locales
 
-Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines. Puis activez la solution Network Performance Monitor. Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
+Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines.  Puis activez la solution Network Performance Monitor. Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
 
 Pour installer l'agent Log Analytics pour machines Windows, consultez [Extension de machine virtuelle Azure Monitor pour Windows](../virtual-machines/extensions/oms-windows.md).
 
 Si le chemin inclut des pare-feu ou des appliances virtuelles réseau (NVA), assurez-vous que la destination est accessible.
+
+Pour les ordinateurs Windows, pour ouvrir le port, exécutez le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sans paramètre dans une fenêtre PowerShell avec des privilèges Administrateur.
+
+Pour les ordinateurs Linux, les numéros de port à utiliser doivent être modifiés manuellement. 
+* Suivez ce chemin : /var/opt/microsoft/omsagent/npm_state. 
+* Ouvrez le fichier : npmdregistry.
+* Modifiez la valeur du numéro de port ```“PortNumber:<port of your choice>”```.
+
+ Notez que les numéros de port utilisés doivent être identiques pour tous les agents utilisés dans un espace de travail. 
+
+Le script crée des clés de Registre requises par la solution. Il crée également des règles de pare-feu Windows pour autoriser les agents à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux d’activité de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés sont définies automatiquement par le script. Ne modifiez pas manuellement ces clés. Le port ouvert par défaut est 8084. Vous pouvez utiliser un port personnalisé en ajoutant le paramètre portNumber au script. Utilisez le même port sur tous les ordinateurs exécutant le script. [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements) sur la configuration réseau requise pour les agents Log Analytics.
+
+Le script configure uniquement le pare-feu Windows en local. Si vous avez un pare-feu réseau, assurez-vous qu’il autorise le trafic destiné au port TCP que Network Performance Monitor utilise.
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Activer Network Watcher dans votre abonnement
 

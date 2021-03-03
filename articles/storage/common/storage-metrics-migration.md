@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ff4c3c5ae8629879fca6e9e683a9c77d0e2f144b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596102"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transition vers les métriques dans Azure Monitor
 
-Au **31 août 2023** , les métriques Storage Analytics, également appelées *métriques classiques* seront retirées. Pour plus d’informations, consultez l’[annonce officielle](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si vous utilisez des métriques classiques, veillez à passer aux métriques dans Azure Monitor avant cette date. Cet article vous aide à effectuer la transition. 
+Au **31 août 2023**, les métriques Storage Analytics, également appelées *métriques classiques* seront retirées. Pour plus d’informations, consultez l’[annonce officielle](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Si vous utilisez des métriques classiques, veillez à passer aux métriques dans Azure Monitor avant cette date. Cet article vous aide à effectuer la transition. 
 
 ## <a name="steps-to-complete-the-transition"></a>Étapes pour effectuer la transition
 
@@ -35,7 +35,7 @@ Pour effectuer la transition vers les métriques dans Azure Monitor, nous vous r
    > [!NOTE]
    > Les métriques dans Azure Monitor sont activées par défaut. Vous n’avez donc rien à faire pour commencer à capturer des métriques. Vous devez cependant créer des graphiques ou des tableaux de bord pour voir ces métriques. 
  
-5. Si vous avez créé des règles d’alerte basées sur des métriques de stockage classiques, [créez des règles d’alerte](../../azure-monitor/platform/alerts-overview.md) basées sur les métriques dans Azure Monitor. 
+5. Si vous avez créé des règles d’alerte basées sur des métriques de stockage classiques, [créez des règles d’alerte](../../azure-monitor/alerts/alerts-overview.md) basées sur les métriques dans Azure Monitor. 
 
 6. Une fois que vous pouvez voir toutes vos métriques dans Azure Monitor, vous pouvez désactiver la journalisation classique. 
 
@@ -53,7 +53,7 @@ En ce qui concerne la prise en charge des métriques, les métriques classiques 
 
 Si l’activité de votre compte ne déclenche pas de métrique, les métriques classiques affichent la valeur zéro (0) pour cette métrique. Dans Azure Monitor, les métriques ignorent totalement les données, ce qui génère des rapports plus propres. Par exemple, avec les métriques classiques, si aucune erreur de délai d’attente du serveur n’est signalée, la valeur `ServerTimeoutError` dans la table de métriques est définie sur 0. Azure Monitor ne retourne aucune donnée lorsque vous interrogez la valeur de la métrique `Transactions` avec la dimension `ResponseType` égale à `ServerTimeoutError`. 
 
-Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Pour en savoir plus sur les métriques dans Azure Monitor, consultez [Métriques dans Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

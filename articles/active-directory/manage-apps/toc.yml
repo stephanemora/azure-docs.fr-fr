@@ -212,8 +212,10 @@
               href: application-proxy-integrate-with-microsoft-cloud-application-security.md
             - name: Intégrer au Bureau à distance
               href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: Intégrer à SharePoint
+            - name: Intégrer à SharePoint (Kerberos)
               href: application-proxy-integrate-with-sharepoint-server.md
+            - name: Intégrer à SharePoint (SAML)
+              href: application-proxy-integrate-with-sharepoint-server-saml.md
             - name: Intégrer à Teams
               href: application-proxy-integrate-with-teams.md
             - name: Intégrer à Tableau

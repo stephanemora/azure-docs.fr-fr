@@ -2,43 +2,38 @@
 title: Vue d’ensemble de Kubernetes avec Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/19/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: Cet article offre une vue d’ensemble de Kubernetes avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, conteneurs
 ms.custom: references_regions
-ms.openlocfilehash: 54b439d73ed5dfb0709d33dea1f588b8bdf4489f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 42a04bb349b2acbd68c7088bc0348deda1ee09e1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652266"
 ---
-# <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Qu’est-ce que Kubernetes avec Azure Arc (préversion) ?
+# <a name="what-is-azure-arc-enabled-kubernetes"></a>Qu’est-ce que Kubernetes avec Azure Arc ?
 
-Vous pouvez attacher et configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure en utilisant Kubernetes avec Azure Arc (préversion). Quand un cluster Kubernetes est attaché à Azure Arc, il s’affiche dans le portail Azure. Il reçoit alors un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure. 
+Grâce à Kubernetes avec Azure Arc, vous pouvez attacher et configurer des clusters Kubernetes situés à l’intérieur ou à l’extérieur d’Azure. Quand vous connectez un cluster Kubernetes à Azure Arc :
+* Il apparaît dans le portail Azure avec un ID Azure Resource Manager et une identité managée. 
+* Il est placé dans un abonnement et un groupe de ressources Azure.
+* Il reçoit des étiquettes comme n’importe quelle autre ressource Azure. 
 
-Pour connecter un cluster Kubernetes à Azure, l’administrateur du cluster doit déployer des agents. Ces agents s’exécutent dans un espace de noms Kubernetes nommé `azure-arc` et représentent des déploiements Kubernetes standard. Les agents sont responsables de la connectivité à Azure, de la collecte des journaux et des métriques Azure Arc, et de la surveillance des demandes de configuration. 
+Pour connecter un cluster Kubernetes à Azure, l’administrateur du cluster doit déployer des agents. Ces agents :
+* S’exécutent dans l’`azure-arc`espace de noms Kubernetes en tant que déploiements Kubernetes standard.
+* Gèrent la connectivité à Azure.
+* Collectent les journaux et métriques Azure Arc.
+* Surveillent les demandes de configuration. 
 
 Kubernetes avec Azure Arc prend en charge le protocole SSL standard pour sécuriser les données en transit. Par ailleurs, les données sont chiffrées au repos dans une base de données Azure Cosmos DB pour garantir leur confidentialité.
- 
-> [!NOTE]
-> Kubernetes avec Azure Arc est en préversion. Nous ne la recommandons pas pour les charges de travail de production.
 
 ## <a name="supported-kubernetes-distributions"></a>Distributions Kubernetes prises en charge
 
-Kubernetes avec Azure Arc est compatible avec n’importe quel cluster certifié CNCF (Cloud Native Computing Foundation) comme AKS-engine sur Azure, AKS-engine sur Azure Stack Hub, GKE, EKS et le cluster VMware vSphere.
-
-Les fonctionnalités de Kubernetes avec Azure Arc ont été testées par l’équipe Arc sur les distributions suivantes :
-* RedHat OpenShift 4.3
-* Rancher RKE 1.0.8
-* Canonical Charmed Kubernetes 1.18
-* Moteur AKS
-* Moteur AKS sur Azure Stack Hub
-* AKS sur Azure Stack HCI
-* Cluster API Provider Azure
+Kubernetes avec Azure Arc fonctionne pour tous les clusters Kubernetes certifiés CNCF (Cloud Native Computing Foundation). L’équipe d’Azure Arc s’est associée à [des partenaires clés du secteur pour valider la conformité](./validation-program.md) des distributions Kubernetes avec Azure Arc.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge 
 
@@ -48,7 +43,7 @@ Kubernetes avec Azure Arc prend en charge les scénarios suivants :
 
 * Déployer des applications et appliquer une configuration à l’aide de la gestion de la configuration basée sur GitOps. 
 
-* Utiliser Azure Monitor pour conteneurs pour voir et superviser vos clusters. 
+* Voir et superviser vos clusters à l’aide d’Azure Monitor pour les conteneurs. 
 
 * Appliquer des stratégies à l’aide d’Azure Policy pour Kubernetes. 
 
@@ -58,9 +53,17 @@ Kubernetes avec Azure Arc prend en charge les scénarios suivants :
 
 Kubernetes avec Azure Arc est actuellement pris en charge dans ces régions : 
 
-* USA Est 
+* USA Est
 * Europe Ouest
+* Centre-USA Ouest
+* États-Unis - partie centrale méridionale
+* Asie Sud-Est
+* Sud du Royaume-Uni
+* USA Ouest 2
+* Australie Est
+* USA Est 2
+* Europe Nord
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Connecter un cluster](./connect-cluster.md)
+* [Connecter un cluster à Azure Arc](./quickstart-connect-cluster.md)

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543015"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579185"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Journaux des requêtes lentes dans le serveur flexible Azure Database pour MySQL (préversion)
 
@@ -39,7 +39,7 @@ Consultez [la documentation MySQL consacrée au journal des requêtes lentes](ht
 
 ## <a name="access-slow-query-logs"></a>Accéder aux journaux des requêtes lentes
 
-Les journaux des requêtes lentes sont intégrés aux paramètres de diagnostic d’Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur flexible MySQL, vous pouvez les transmettre aux journaux Azure Monitor, à Event Hubs ou au Stockage Azure. Pour en savoir plus sur les paramètres de diagnostic, consultez la [Documentation des journaux de diagnostic](../../azure-monitor/platform/platform-logs-overview.md). Pour en savoir plus sur l’activation des paramètres de diagnostic dans le portail Azure, consultez l’[article du portail sur le journal des requêtes lentes](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Les journaux des requêtes lentes sont intégrés aux paramètres de diagnostic d’Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur flexible MySQL, vous pouvez les transmettre aux journaux Azure Monitor, à Event Hubs ou au Stockage Azure. Pour en savoir plus sur les paramètres de diagnostic, consultez la [Documentation des journaux de diagnostic](../../azure-monitor/essentials/platform-logs-overview.md). Pour en savoir plus sur l’activation des paramètres de diagnostic dans le portail Azure, consultez l’[article du portail sur le journal des requêtes lentes](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 Le tableau suivant décrit la sortie du journal des requêtes lentes. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 

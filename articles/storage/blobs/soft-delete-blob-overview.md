@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979287"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390355"
 ---
 # <a name="soft-delete-for-blobs"></a>Suppression réversible pour les objets blob
 
@@ -83,7 +83,7 @@ Lors de l’appel de la commande **Delete Blob** sur un objet blob de base (tout
 > [!NOTE]  
 > Quand un objet blob supprimé de manière réversible est remplacé, un instantané d’objet blob supprimé de manière réversible reflétant l’état de l’objet blob avant l’opération d’écriture est généré automatiquement. Le nouvel objet blob hérite le niveau de l’objet blob remplacé.
 
-La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement des métadonnées et des propriétés d’objet blob. Pour protéger un compte de stockage contre la suppression, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour plus d’informations, consultez l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement des métadonnées et des propriétés d’objet blob. Pour protéger un compte de stockage contre la suppression, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour plus d’informations, consultez l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).  Pour protéger les conteneurs contre les suppressions accidentelles, configurez la suppression réversible de conteneur pour le compte de stockage. Pour plus d’informations, consultez [Suppression réversible pour les conteneurs (préversion)](soft-delete-container-overview.md).
 
 Le tableau suivant indique le comportement attendu quand la suppression réversible est activée :
 

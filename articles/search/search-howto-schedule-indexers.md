@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063211"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097974"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Comment planifier des indexeurs dans la Recherche cognitive Azure
 
 Un indexeur s’exécute normalement une fois, immédiatement après sa création. Ensuite, vous pouvez le réexécuter à la demande à l’aide du portail Azure, de l’[indexeur d’exécution (REST)](/rest/api/searchservice/run-indexer) ou d’un Kit de développement logiciel (SDK) Azure. Vous pouvez également configurer un indexeur pour qu’il s’exécute selon une planification. Voici des situations où la planification d’un indexeur est utile :
 
-* Les données sources changent au fil du temps, et vous souhaitez que l’indexeur de recherche traite automatiquement les données modifiées.
-* Les données sources sont très volumineuses et vous souhaitez étaler le traitement de l’indexeur dans le temps. Pour plus d’informations sur l’indexation de grands volumes de données, consultez [Comment indexer des grands volumes de données dans la Recherche cognitive Azure](search-howto-large-index.md).
+* Les données sources changent au fur et à mesure, et vous souhaitez que l’indexeur de recherche traite automatiquement les différences.
+
+* Les données sources sont très volumineuses et vous souhaitez étaler le traitement de l’indexeur dans le temps. Les tâches de l’indexeur sont soumises à une durée d’exécution maximale de 24 heures pour les sources de données normales, et à 2 heures pour les indexeurs avec ensembles de compétences. Si l’indexation ne peut pas se terminer dans l’intervalle maximal, vous pouvez configurer une planification qui s’exécute toutes les 2 heures. Les indexeurs peuvent reprendre automatiquement là où ils se sont arrêtés, comme le prouve la présence d’une borne haute interne marquant l’emplacement où la dernière indexation s’est terminée. L’exécution d’un indexeur lors d’une planification récurrente de 2 heures lui permet de traiter un jeu de données très volumineux (plusieurs millions de documents) au-delà de l’intervalle autorisé pour une même tâche. Pour plus d’informations sur l’indexation de grands volumes de données, consultez [Comment indexer des grands volumes de données dans la Recherche cognitive Azure](search-howto-large-index.md).
+
 * Un index de recherche est généré à partir de plusieurs sources de données et vous souhaitez que les indexeurs s’exécutent à des moments différents afin de réduire les conflits.
 
 Visuellement, une planification peut se présenter comme suit : exécution à partir du 1er janvier, toutes les 50 minutes.

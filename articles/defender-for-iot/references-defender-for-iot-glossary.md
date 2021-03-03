@@ -7,16 +7,19 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 8007f11cb37063cef46ac7f3ac51e23bdfaae11a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d983369db3fbd03c41c248439a5c1aabec14ea55
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226452"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535363"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossaire de Defender pour IoT
 
 Ce glossaire fournit une brève description des termes et concepts importants pour la plateforme Azure Defender pour IoT. Sélectionnez les liens **En savoir plus** pour accéder aux termes associés dans le glossaire. Cela vous permettra d’apprendre et d’utiliser plus rapidement les outils de produit.
+
+> [!Note]
+> Tout terme avec un `(DB)` listé dans son nom est un terme du générateur d’appareils basé sur un agent. 
 
 <a name="glossary-a"></a>
 
@@ -58,6 +61,7 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 | **Inventaire des appareils – capteur** | L’inventaire des appareils affiche un large éventail d’attributs d’appareil détectés par Defender pour IoT. Des options sont disponibles pour :<br /><br />- Filtrer les informations affichées.<br /><br />- Exporter ces informations dans un fichier CSV.<br /><br />- Importer les détails du Registre Windows. | **[Groupe](#g)** <br /><br />**[Inventaire des appareils – console de gestion locale](#d)** |
 | **Inventaire des appareils – console de gestion locale** | Les informations d’appareil obtenues à partir des capteurs connectés peuvent être consultées à partir de la console de gestion locale dans l’inventaire des appareils. Les utilisateurs de la console de gestion locale disposent ainsi d’une vue complète de toutes les informations réseau. | **[Inventaire des appareils – Capteur](#d)<br /><br />[Inventaire des appareils – intégrateur de données](#d)** |
 | **Inventaire des appareils – intégrateur de données** | Les fonctionnalités d’intégration de données de la console de gestion locale vous permettent d’améliorer les données de l’inventaire des appareils avec des informations provenant d’autres ressources de l’entreprise. Des exemples de ces ressources sont les CMDB, DNS, pare-feu et API web. | **[Inventaire des appareils – console de gestion locale](#d)** |
+| **Jumeaux d’appareil** `(DB)` | Les jumeaux d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). | [Jumeau de module](#m) <br /> <br />[Jumeau de module de sécurité](#s) |
 
 ## <a name="e"></a>E
 
@@ -90,6 +94,7 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 
 | Terme | Description | En savoir plus |
 |--|--|--|
+| **IoT Hub** `(DB)` | Service managé, hébergé dans le cloud, qui agit en tant que concentrateur de messages central pour la communication bidirectionnelle entre votre application IoT et les appareils qu’il gère.  |   |
 | **Intégrations** | Développez les fonctionnalités de Defender pour IoT en partageant les informations des appareils avec des systèmes partenaires. Les organisations peuvent relier des solutions de gestion des appareils, de sécurité, de gestion des incidents et de sécurité précédemment en isolées afin d’accélérer les réponses au niveau du système et d’atténuer les risques plus rapidement. | **[Règle de transfert](#f)** |
 | **Sous-réseau interne** | Configurations de sous-réseau définies par Defender pour IoT. Dans certains cas, par exemple pour les environnements qui utilisent des plages publiques comme plages internes, vous pouvez demander à Defender pour IoT de résoudre tous les sous-réseaux en tant que sous-réseaux internes. Les sous-réseaux s’affichent dans la carte et dans différents rapports de Defender pour IoT. | **[Sous-réseaux](#s)** |
 
@@ -103,8 +108,11 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 
 ## <a name="m"></a>M
 
+
 | Terme | Description | En savoir plus |
 |--|--|--|
+| **Micro-agent** `(DB)` | Fournit des fonctionnalités de sécurité approfondies pour les appareils IoT, y compris l’état de la sécurité et la détection des menaces. | |
+| **Jumeau de module** `(DB)` | Les jumeaux de module sont des documents JSON qui stockent des informations sur l’état des modules, telles que les métadonnées, configurations et conditions. | [Jumeau d’appareil](#d) <br /> <br />[Jumeau de module de sécurité](#s) |
 | **Désactiver les événements d’alerte** | Demandez à Defender pour IoT d’ignorer continuellement l’activité avec des appareils identiques et un trafic comparable. | **[Alerte](#glossary-a)<br /><br />[Règle d’exclusion](#e)<br /><br />[Accuser réception d’un événement d’alerte](#glossary-a)<br /><br />[Découvrir un événement d’alerte](#l)** |
 
 ## <a name="n"></a>N
@@ -140,6 +148,7 @@ Ce glossaire fournit une brève description des termes et concepts importants po
 | Terme | Description | En savoir plus |
 |--|--|--|
 | **Alerte de sécurité** | Alertes qui concernent des problèmes de sécurité, comme des tentatives de connexion SMB excessives ou des détections de programmes malveillants. | **[Alerte](#glossary-a)<br /><br />[Alerte opérationnelle](#o)** |
+| **Jumeau de module de sécurité** `(DB)` | Le jumeau de module de sécurité contient toutes les informations relatives à la sécurité des appareils pour chaque appareil spécifique de votre solution. | [Jumeau d’appareil](#d) <br /> <br />[Jumeau de module](#m)  |
 | **Détection sélective** | Defender pour IoT inspecte passivement le trafic informatique et OT et détecte les informations pertinentes sur les appareils, leurs attributs, leur comportement et bien plus encore. Dans certains cas, il est possible que certaines informations ne soient pas visibles dans les analyses réseau passives.<br /><br />Dans ce cas, vous pouvez utiliser les outils de détection granulaires sûrs dans Defender pour IoT pour découvrir des informations importantes sur les appareils précédemment inaccessibles. | - |
 | **Capteur** | Machine physique ou virtuel sur laquelle la plateforme Defender pour IoT est installée. | **[Console de gestion locale](#o)** |
 | **Site** | Emplacement d’une usine ou d’une autre entité. Le site doit contenir une ou plusieurs zones dans lesquelles un capteur est installé. | **[Zone](#z)** |

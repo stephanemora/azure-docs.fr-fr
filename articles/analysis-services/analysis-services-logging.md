@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d5537079341823275ba521c9d44139a0e0305286
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2bee856adef1208aabbe65ecd5fd11235579bb82
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014934"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582710"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Azure Analysis Services est intégré à Azure Monitor. Grâce aux [journaux de ressources Azure Monitor](../azure-monitor/platform/platform-logs-overview.md), vous pouvez superviser et envoyer des journaux à [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/overview.md).
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Azure Analysis Services est intégré à Azure Monitor. Grâce aux [journaux de ressources Azure Monitor](../azure-monitor/essentials/platform-logs-overview.md), vous pouvez superviser et envoyer des journaux à [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/overview.md).
 
 ![Journalisation des ressources dans Stockage, Event Hubs ou les journaux d’activité Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -82,7 +82,7 @@ La catégorie Métriques consigne les mêmes [métriques de serveur](analysis-se
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Voir [Créer un compte de stockage](../storage/common/storage-account-create.md). Suivez les instructions pour créer un compte Resource Manager à usage général, puis sélectionnez votre compte de stockage en retournant sur cette page du portail. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour plus d’informations, consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
-    * **Envoyer à Azure Monitor (espace de travail Log Analytics)** . Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
+    * **Envoyer à Azure Monitor (espace de travail Log Analytics)** . Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/logs/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
 
     * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de ressources. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
     * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de ressources. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
@@ -90,7 +90,7 @@ La catégorie Métriques consigne les mêmes [métriques de serveur](analysis-se
 
 3. Cliquez sur **Enregistrer**.
 
-    Si vous recevez un message d’erreur du genre « Échec de mise à jour des diagnostics pour \<workspace name>. L’abonnement \<subscription id> n’est pas inscrit pour utiliser microsoft.insights. » suivez les instructions de la page [Résoudre les problèmes de Diagnostics Azure](../azure-monitor/platform/resource-logs.md) pour inscrire le compte, puis recommencez cette procédure.
+    Si vous recevez un message d’erreur du genre « Échec de mise à jour des diagnostics pour \<workspace name>. L’abonnement \<subscription id> n’est pas inscrit pour utiliser microsoft.insights. » suivez les instructions de la page [Résoudre les problèmes de Diagnostics Azure](../azure-monitor/essentials/resource-logs.md) pour inscrire le compte, puis recommencez cette procédure.
 
     Si vous souhaitez modifier la façon dont vos journaux de ressources seront enregistrés à l’avenir, vous pouvez revenir à cette page à tout moment et modifier les paramètres.
 
@@ -140,13 +140,13 @@ Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’AP
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/samples/resource-manager-diagnostic-settings.md). 
+Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/essentials/resource-manager-diagnostic-settings.md). 
 
 ## <a name="manage-your-logs"></a>Gérer vos journaux d’activité
 
 En règle générale, les journaux d’activité sont disponibles deux heures après la configuration de la journalisation. C’est à vous de gérer vos journaux d’activité dans votre compte de stockage :
 
-* Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
+* Utilisez les méthodes de contrôle d’accès Azure standard pour sécuriser vos journaux en limitant qui y a accès.
 * Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 * Veillez à définir une période de rétention qui supprime les très anciens journaux d’activité de votre compte de stockage.
 
@@ -208,7 +208,7 @@ window
 | order by TimeGenerated asc 
 ```
 
-Il existe des centaines de requêtes que vous pouvez utiliser. Pour plus d’informations sur les requêtes, voir [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Il existe des centaines de requêtes que vous pouvez utiliser. Pour plus d’informations sur les requêtes, voir [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Activer la journalisation à l’aide de PowerShell
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [journalisation des ressources Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
+En savoir plus sur la [journalisation des ressources Azure Monitor](../azure-monitor/essentials/platform-logs-overview.md).
 
 Consultez la section [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.

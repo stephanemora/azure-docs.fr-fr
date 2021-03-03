@@ -9,19 +9,19 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 217a804b0155d7886a068283f8669ace0bc81856
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: f1d254eecc41ebef690b4fc9f8294bee5a368ae4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218517"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570030"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
 Storage Analytics enregistre des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
 > [!NOTE]
-> Nous vous recommandons d'utiliser les journaux de stockage Azure disponibles dans Azure Monitor au lieu des journaux Storage Analytics. Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Pour plus d'informations, consultez l'un des articles suivants :
+> Nous vous recommandons d'utiliser les journaux de stockage Azure disponibles dans Azure Monitor au lieu des journaux Storage Analytics. Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Pour plus d’informations, consultez l’un des articles suivants :
 >
 > - [Supervision du Stockage Blob Azure](../blobs/monitor-blob-storage.md)
 > - [Supervision d’Azure Files](../files/storage-files-monitoring.md)
@@ -76,7 +76,7 @@ La plupart des outils de navigation du stockage vous permettent d’afficher les
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
  Where-Object {  
-     $_.Name -match 'table/2014/05/21/05' -and   
+     $_.Name -match 'blob/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
  ForEach-Object {  

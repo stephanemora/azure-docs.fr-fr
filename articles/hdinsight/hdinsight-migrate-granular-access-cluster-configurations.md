@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555814"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -182,7 +182,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Vous pouvez également utiliser le portail Azure pour ajouter l’attribution du rôle Opérateur de cluster HDInsight à un utilisateur. Consultez la documentation [Ajouter ou supprimer des attributions de rôles Azure à l’aide du portail Azure - Ajouter une attribution de rôle](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment).
+Vous pouvez également utiliser le portail Azure pour ajouter l’attribution du rôle Opérateur de cluster HDInsight à un utilisateur. Consultez la documentation, [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579807"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Automation
 
@@ -34,7 +34,7 @@ Grâce à Azure Private Link, vous pouvez :
 - vous connecter en privé à l’espace de travail Log Analytics Azure Monitor sans ouvrir d’accès au réseau public.
 
     >[!NOTE]
-    >Un point de terminaison privé distinct pour votre espace de travail Log Analytics est obligatoire si votre compte Automation est lié à un espace de travail Log Analytics pour transférer des données de tâche et quand vous avez activé des fonctionnalités telles que Update Management, Suivi des modifications et inventaire, State Configuration ou Start/Stop VMs during off-hours. Pour plus d’informations sur la liaison privée pour Azure Monitor, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](../../azure-monitor/platform/private-link-security.md).
+    >Un point de terminaison privé distinct pour votre espace de travail Log Analytics est obligatoire si votre compte Automation est lié à un espace de travail Log Analytics pour transférer des données de tâche et quand vous avez activé des fonctionnalités telles que Update Management, Suivi des modifications et inventaire, State Configuration ou Start/Stop VMs during off-hours. Pour plus d’informations sur la liaison privée pour Azure Monitor, consultez [Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor](../../azure-monitor/logs/private-link-security.md).
 
 - Vérifiez que vos données Automation sont accessibles uniquement par le biais de réseaux privés autorisés.
 - Empêchez l’exfiltration de données à partir de vos réseaux privés en définissant vos ressources Azure Automation qui se connectent via votre point de terminaison privé
@@ -46,8 +46,8 @@ Pour plus d’informations, consultez [Principaux avantages d’Azure Private Li
 ## <a name="limitations"></a>Limites
 
 - Dans l’implémentation actuelle de Private Link, les tâches cloud liées au compte Automation ne peuvent pas accéder aux ressources Azure qui sont sécurisées à l’aide d’un point de terminaison privé. Par exemple, Azure Key Vault, Azure SQL, compte de stockage Azure, etc. Pour contourner ce problème, utilisez à la place un [Runbook Worker hybride](../automation-hybrid-runbook-worker.md).
-- Vous devez utiliser la dernière version de l’[agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) pour Windows ou Linux.
-- La [passerelle Log Analytics](../../azure-monitor/platform/gateway.md) ne prend pas en charge Private Link.
+- Vous devez utiliser la dernière version de l’[agent Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) pour Windows ou Linux.
+- La [passerelle Log Analytics](../../azure-monitor/agents/gateway.md) ne prend pas en charge Private Link.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -76,7 +76,7 @@ Pour comprendre et configurer Update Management, consultez [Vue d’ensemble d�
 
 Si vous souhaitez que vos machines configurées pour Update Management se connectent à Automation et à l’espace de travail Log Analytics de manière sécurisée via un canal Private Link, vous devez activer Private Link pour l’espace de travail Log Analytics lié au compte Automation configuré avec Private Link.
 
-Vous pouvez contrôler la façon dont un espace de travail Log Analytics peut être atteint en dehors des étendues Private Link en suivant les étapes décrites dans [Configurer Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail.
+Vous pouvez contrôler la façon dont un espace de travail Log Analytics peut être atteint en dehors des étendues Private Link en suivant les étapes décrites dans [Configurer Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Si vous définissez **Autoriser l’accès au réseau public pour l’ingestion** sur **Non**, les machines en dehors des étendues connectées ne peuvent pas charger de données dans cet espace de travail. Si vous définissez **Autoriser l’accès au réseau public pour les requêtes** sur **Non**, les machines en dehors des étendues ne peuvent pas accéder aux données de cet espace de travail.
 
 Utilisez la sous-ressource cible **DSCAndHybridWorker** afin d’activer Private Link pour les Workers hybrides système et utilisateur.
 

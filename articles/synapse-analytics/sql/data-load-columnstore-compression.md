@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f98d00477b7dc8fbbbe7d17705e398a708ce2af
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 18350dc39fceaf6f4c50f8e1053a2972bbce7f44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120935"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676624"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Optimiser la qualité du rowgroup pour améliorer le niveau de performance de l’index columnstore
 
@@ -26,7 +26,7 @@ La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup
 
 Dans la mesure où un index columnstore analyse une table en examinant les segments de colonne des rowgroups, l’optimisation du nombre de lignes dans chaque rowgroup améliore les performances de requête. Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
 
-Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Pour plus d’informations sur les rowgroups, voir [Description des index columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="target-size-for-rowgroups"></a>Taille cible des rowgroups
 
@@ -38,11 +38,11 @@ Pendant un chargement en masse ou une reconstruction d’index columnstore, la m
 
 Quand la mémoire est insuffisante pour compresser au moins 10 000 lignes dans chaque rowgroup, une erreur est générée.
 
-Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
+Pour plus d’informations sur le chargement en masse, voir [Chargement de données d’index columnstore](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?view=azure-sqldw-latest#bulk&preserve-view=true).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
 
-La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contient la définition de vue correspondant à SQL DB) expose des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage, le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
+La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?view=azure-sqldw-latest&preserve-view=true) contient la définition de vue correspondant à SQL DB) expose des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage, le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -142,5 +142,5 @@ La taille de DWU et la classe de ressources utilisateur déterminent ensemble la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir d’autres façons d’améliorer les performances dans SQL Synapse, consultez [Vue d’ensemble des performances](../overview-terminology.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
+Pour découvrir d’autres façons d’améliorer les performances dans SQL Synapse, consultez [Vue d’ensemble des performances](../overview-terminology.md).
 

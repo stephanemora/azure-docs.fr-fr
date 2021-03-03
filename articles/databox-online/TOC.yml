@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Déployer une application sans état via GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Déployer un contrôleur de données Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurer Azure Resource Manager (préversion)
           items:
             - name: Se connecter via Azure PowerShell
@@ -383,6 +385,8 @@
           href: azure-stack-edge-return-device.md
         - name: Remplacer l’appareil
           href: azure-stack-edge-replace-device.md
+        - name: Migrer vers un appareil GPU
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Notes de publication
       items:
         - name: 2101 - Actuel

@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentation sur le développement d’applications et d’appareils IoT
+summary: Explorez la documentation Azure IoT pour développer des appareils embarqués et créer des applications cloud compatibles avec les appareils.
+metadata:
+  title: Développement d’applications et d’appareils IoT
+  description: Découvrez comment utiliser Azure IoT pour développer des appareils embarqués et créer des applications cloud compatibles avec les appareils.
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 01/11/2021
+  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100656271"
+landingContent:
+- title: À propos du développement d’applications et d’appareils IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le développement d’applications et d’appareils Azure IoT ?
+      url: about-iot-develop.md
+    - text: Quel kit SDK utiliser ?
+      url: about-iot-sdks.md
+- title: Bien démarrer avec le développement d’applications et d’appareils
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Envoyer la télémétrie des appareils à IoT Central
+      url: quickstart-send-telemetry-python.md
+    - text: Envoyer la télémétrie des appareils à IoT Hub
+      url: quickstart-send-telemetry-cli-python.md
+- title: Bien démarrer avec le développement d’appareils embarqués
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Bien démarrer avec le développement d’appareils embarqués
+      url: quickstart-device-development.md

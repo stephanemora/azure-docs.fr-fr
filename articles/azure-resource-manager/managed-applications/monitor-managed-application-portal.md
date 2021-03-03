@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02062edd1a940bcc6588ab53457e0af91fedd9a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75649593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578279"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Surveiller une instance déployée d’une application managée
 
@@ -22,7 +22,7 @@ Une fois que vous avez déployé une application managée sur votre abonnement A
 
    ![Sélectionner une application managée](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. Sélectionner **Resource Health**.
+1. Sélectionnez **Intégrité des ressources**.
 
    ![Sélectionner l’intégrité des ressources](./media/monitor-managed-application-portal/select-resource-health.png)
 
@@ -44,7 +44,7 @@ Une fois que vous avez déployé une application managée sur votre abonnement A
 
    ![Créer une alerte](./media/monitor-managed-application-portal/create-new-alert.png)
 
-Vous pouvez créer des alertes pour votre instance d’application managée ou les ressources dans l’application managée. Pour plus d’informations sur la création d’alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Vous pouvez créer des alertes pour votre instance d’application managée ou les ressources dans l’application managée. Pour plus d’informations sur la création d’alertes, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

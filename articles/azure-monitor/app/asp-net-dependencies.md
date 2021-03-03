@@ -4,12 +4,12 @@ description: Supervisez les appels de dépendances entre Application Insights et
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263927"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652001"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -109,9 +109,10 @@ Pour les applications ASP.NET, la requête SQL complète est collectée à l’a
 En plus des étapes spécifiques à la plateforme ci-dessus, vous **devez également choisir explicitement d’activer la collecte de commandes SQL** en modifiant le fichier applicationInsights.config avec les éléments suivants :
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 Dans les cas ci-dessus, la bonne pratique pour vérifier que ce moteur d’instrumentation est correctement installé est de vous assurer que la version du SDK du `DependencyTelemetry` collecté est « rddp ». « rdddsd » ou « rddf » indique que les dépendances sont collectées par le biais de rappels de DiagnosticSource ou d’EventSource. La requête SQL complète n’est donc pas capturée.

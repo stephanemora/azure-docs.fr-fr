@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42c1d06051c283f0e911c4cd166884ddd060f45
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633272"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -78,4 +78,4 @@ L’élément **BuildingBlocks** contient les éléments suivants qui doivent ê
 
 - [Localization](localization.md) : vous permet de prendre en charge plusieurs langues. La prise en charge de la localisation dans les stratégies vous permet de configurer la liste des langues prises en charge dans une stratégie et de choisir une langue par défaut. Les collections et les chaînes propres à une langue sont également prises en charge.
 
-- [DisplayControls](display-controls.md) : définit les contrôles à afficher sur une page. Les contrôles d’affichage ont des fonctionnalités spéciales et interagissent avec les profils techniques de validation de serveur principal. Les contrôles d’affichage sont actuellement en **préversion**.
+- [DisplayControls](display-controls.md) : définit les contrôles à afficher sur une page. Les contrôles d’affichage ont des fonctionnalités spéciales et interagissent avec les profils techniques de validation de serveur principal. 

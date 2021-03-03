@@ -2,25 +2,25 @@
 title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
-ms.date: 01/04/2021
-ms.openlocfilehash: b25fd1befded253c79267b1b016cef979005d01e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 02/10/2021
+ms.openlocfilehash: 86d35465e5b31514f4d215095932b857ce7dcb35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676453"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384300"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
 La résilience contre les pannes désastreuses des ressources de traitement des données constitue une exigence pour de nombreuses entreprises. Dans certains cas, elle est même requise par les réglementations sectorielles. 
 
-Azure Service Bus répartit déjà le risque de défaillances catastrophiques d’ordinateurs individuels ou même de racks complets sur différents clusters couvrant plusieurs domaines d’échec au sein d’un centre de données. Le service implémente des mécanismes transparents de détection des défaillances et de basculement. Il continue ainsi de fonctionner selon les niveaux de service garantis et, en général, sans interruptions perceptibles en cas de défaillance. Si un espace de noms Service Bus a été créé avec l’option [Zones de disponibilité](../availability-zones/az-overview.md) activée, le risque de panne est davantage réparti sur trois sites physiquement séparés. Le service dispose par ailleurs de réserves de capacité suffisantes pour faire face instantanément à la perte complète et irrémédiable d’un site complet. 
+Azure Service Bus répartit déjà le risque de défaillances catastrophiques d’ordinateurs individuels ou même de racks complets sur différents clusters couvrant plusieurs domaines d’échec au sein d’un centre de données. Le service implémente des mécanismes transparents de détection des défaillances et de basculement. Il continue ainsi de fonctionner selon les niveaux de service garantis et, en général, sans interruptions perceptibles lorsque de telles défaillances se produisent. Si un espace de noms Service Bus a été créé avec l’option [Zones de disponibilité](../availability-zones/az-overview.md) activée, le risque de panne est davantage réparti sur trois sites physiquement séparés. Le service dispose par ailleurs de réserves de capacité suffisantes pour faire face instantanément à la perte complète et irrémédiable d’un site complet. 
 
-Le modèle de cluster Azure Service Bus tout actif avec prise en charge des zones de disponibilité est supérieur à tous les produits de type répartiteurs de messages locaux en termes de résilience face à des défaillances matérielles graves, voire à une perte catastrophique de sites de centres de données entiers. Il peut néanmoins se produire des situations graves impliquant une destruction physique généralisée, dans lesquelles même ces mesures ne suffisent pas. 
+Le modèle de cluster Azure Service Bus tout actif avec prise en charge des zones de disponibilité est supérieur à tous les produits de type répartiteurs de messages locaux en termes de résilience face à des défaillances matérielles graves, voire à une perte catastrophique de sites de centres de données entiers. Il peut néanmoins se produire des situations graves impliquant une destruction physique généralisée contre laquelle même ces mesures ne suffisent pas. 
 
 La fonctionnalité de géo-reprise d’activité après sinistre de Service Bus est conçue pour faciliter la récupération après un sinistre de cette ampleur et l’abandon définitif d’une région Azure défaillante, sans qu’il soit nécessaire de modifier la configuration des applications. L’abandon d’une région Azure implique généralement plusieurs services. Cette fonctionnalité vise principalement à préserver l’intégrité de la configuration des applications composites. La fonctionnalité est disponible de manière globale pour la référence SKU Premium Service Bus. 
 
-La fonctionnalité de géo-reprise d’activité après sinistre garantit que la totalité de la configuration d’un espace de noms (files d’attente, rubriques, abonnements et filtres) est répliquée en continu d’un espace de noms principal vers un espace de noms secondaire quand ils sont couplés. Elle permet également de lancer à tout moment un basculement ponctuel vers l’espace de noms secondaire. L’action de basculement fait pointer le nom d’alias choisi pour l’espace de noms vers l’espace de noms secondaire, puis arrête le couplage. Le basculement est presque instantané une fois lancé. 
+La fonctionnalité de géo-reprise d’activité après sinistre garantit que la totalité de la configuration d’un espace de noms (files d’attente, rubriques, abonnements et filtres) est répliquée en continu d’un espace de noms principal vers un espace de noms secondaire quand ils sont couplés. Elle permet également de lancer à tout moment un basculement ponctuel vers l’espace de noms secondaire. L’action de basculement fait pointer le nom d’alias choisi pour l’espace de noms vers l’espace de noms secondaire, puis arrête le jumelage. Le basculement est presque instantané une fois lancé. 
 
 > [!IMPORTANT]
 > La fonctionnalité permet une continuité instantanée des opérations avec la même configuration, mais **ne réplique pas les messages conservés dans les files d’attente, les abonnements aux rubriques ni les files d’attente de lettres mortes**. Pour préserver la sémantique des files d’attente, une telle réplication impose non seulement la réplication des données de message, mais aussi de chacun des changements d’état dans le répartiteur. Pour la plupart des espaces de noms Service Bus, le trafic de réplication requis dépasserait de beaucoup le trafic d’application. Par ailleurs, avec des files d’attente à débit élevé, la plupart des messages seraient toujours répliqués sur l’espace de noms secondaire alors qu’ils seraient déjà en cours de suppression de l’espace de noms principal. En résulterait un trafic inutile excessif. Dans le cas des itinéraires de réplication à latence élevée, qui s’appliquent à de nombreux couplages possibles pour la géo-reprise d’activité après sinistre, il peut également se révéler impossible que le trafic de réplication suive le trafic d’application en raison des effets de limitation induits par la latence.
@@ -32,7 +32,7 @@ La fonctionnalité de géo-reprise d’activité après sinistre garantit que la
 
 Il est important de noter la différence entre « panne » et « sinistre ». 
 
-Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne. Certaines pannes sont uniquement dues à une courte perte de la connexion en raison de problèmes réseau ou de soucis temporaires. 
+Une *panne* se définit comme l’indisponibilité temporaire d’Azure Service Bus. La panne impacte certains composants du service, comme une banque de messages, ou le centre de données entier. Toutefois, une fois le problème résolu, Service Bus redevient disponible. En règle générale, une panne ne provoque aucune perte de messages ou d’autres données. Une coupure de courant dans le centre de données est un exemple de panne. Certaines pannes sont uniquement dues à une courte perte de connexion résultant de problèmes de réseau ou d’autres perturbations temporaires. 
 
 Un *sinistre* se définit comme une perte définitive ou à long terme d’un cluster Service Bus, d’une région Azure ou d’un centre de données. La région ou le centre de données peut redevenir disponible ou pas, et rester arrêté(e) pendant plusieurs heures ou jours. Les incendies, les inondations ou les tremblements de terre sont des exemples de sinistres. Un sinistre qui devient permanent peut entraîner la perte de certains messages, événements ou d’autres données. Toutefois, dans la plupart des cas, il ne doit y avoir aucune perte de données et les messages peuvent être récupérés une fois que le centre de données est sauvegardé.
 
@@ -40,7 +40,7 @@ La fonctionnalité de géorécupération d’urgence d’Azure Service Bus est u
 
 ## <a name="basic-concepts-and-terms"></a>Concepts et terminologie de base
 
-La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Notez que la fonctionnalité de géorécupération d’urgence est disponible uniquement pour la [référence SKU Premium](service-bus-premium-messaging.md). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
+La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. La fonctionnalité de géo-reprise d’activité après sinistre est disponible uniquement pour le [niveau tarifaire Premium](service-bus-premium-messaging.md). Vous n’avez pas besoin de modifier de chaîne de connexion, car la connexion est établie à l’aide d’un alias.
 
 Cet article emploie les termes suivants :
 
@@ -50,7 +50,7 @@ Cet article emploie les termes suivants :
 
     > [!IMPORTANT]
     > La fonctionnalité de géo-reprise d’activité après sinistre nécessite que l’abonnement et le groupe de ressources soient identiques pour les espaces de noms principal et secondaire.
--  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués.
+-  *Métadonnées* : entités telles que les files d'attentes, les rubriques et les abonnements ; incluent également leurs propriétés sur le service associé à l'espace de noms. Seules les entités et leurs paramètres sont automatiquement répliqués. Les messages ne sont pas répliqués.
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
@@ -60,28 +60,48 @@ La section suivante est une présentation de l’association de deux espaces de 
 
 ![1][]
 
-Le processus est le suivant :
+Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. 
 
-1. Provisionnez un espace de noms ***Principal** _ Service Bus Premium.
+1. Créez l’espace de noms principal.
+1. Créez l’espace de noms secondaire dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal, mais dans une région différente. Cette étape est facultative. Vous pouvez créer l’espace de noms secondaire lors de la création du jumelage à l’étape suivante. 
+1. Dans le portail Azure, accédez à votre espace de noms principal.
+1. Sélectionnez **Géo-récupération** dans le menu de gauche, puis **Lancer le jumelage** dans la barre d’outils. 
 
-2. Provisionnez un espace de noms _*_Secondaire_*_ Service Bus Premium dans une région _différente de celle dans laquelle est provisionné l’espace de noms principal*. Vous obtiendrez ainsi un isolement des pannes dans toutes les régions du centre de données.
+    :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Lancer le jumelage à partir de l’espace de noms principal":::    
+1. Sur la page **Lancer le jumelage**, procédez comme suit :
+    1. Sélectionnez un espace de noms secondaire existant ou créez-en un dans l’abonnement et le groupe de ressources qui contiennent l’espace de noms principal. Dans cet exemple, un espace de noms existant est utilisé comme espace de noms secondaire.  
+    1. Dans le champ **Alias**, entrez un alias pour le jumelage de géo-reprise d’activité après sinistre. 
+    1. Sélectionnez ensuite **Create** (Créer). 
 
-3. Créez un couplage entre l’espace de noms principal et l’espace de noms secondaire pour obtenir ***l’alias** _.
+        :::image type="content" source="./media/service-bus-geo-dr/initiate-pairing-page.png" alt-text="Sélectionner l’espace de noms secondaire":::        
+1. Vous devez voir la page **Alias de géo-reprise d’activité après sinistre Service Bus**, comme indiqué dans l’image suivante. Vous pouvez également accéder à la page **Alias de géo-reprise d’activité après sinistre** à partir de la page de l’espace de noms principal en sélectionnant **Géo-reprise** dans le menu de gauche. 
 
-    >[!NOTE] 
-    > Si vous avez [migré votre espace de noms Azure Service Bus Standard vers Azure Service Bus Premium](service-bus-migrate-standard-premium.md), vous devez utiliser l’alias préexistant (c’est-à-dire la chaîne de connexion de l’espace de noms Service Bus Standard) pour créer la configuration de récupération d’urgence avec _ *PS/CLI** ou **l’API REST**.
-    >
-    >
-    > Cela tient au fait que lors de la migration, le nom DNS/la chaîne de connexion de l’espace de noms Azure Service Bus Standard devient un alias pour l’espace de noms Azure Service Bus Premium.
-    >
-    > Vos applications clientes doivent utiliser cet alias (par exemple, la chaîne de connexion de l’espace de noms Azure Service Bus Standard) pour se connecter à l’espace de noms Premium là où le couplage de récupération d’urgence a été configuré.
-    >
-    > Si vous utilisez le portail pour la configuration de la récupération d’urgence, le portail extrait cette notification pour vous.
+    :::image type="content" source="./media/service-bus-geo-dr/service-bus-geo-dr-alias-page.png" alt-text="Page Alias de géo-reprise d’activité après sinistre Service Bus":::
+1. Sur la page **Alias de géo-reprise d’activité après sinistre**, sélectionnez **Stratégies d’accès partagé** dans le menu de gauche pour accéder à la chaîne de connexion principale de l’alias. Utilisez cette chaîne de connexion au lieu d’utiliser la chaîne de connexion directe à l’espace de noms principal/secondaire. Initialement, l’alias pointe vers l’espace de noms principal.
+1. Basculez vers la page **Vue d’ensemble**. Vous pouvez effectuer les actions suivantes : 
+    1. Arrêter le jumelage entre les espaces de noms principal et secondaire. Sélectionnez **Arrêter le jumelage** dans la barre d’outils. 
+    1. Basculer manuellement sur l’espace de noms secondaire. 
+        1. Sélectionnez **Basculement** dans la barre d’outils. 
+        1. Confirmez que vous souhaitez basculer sur l’espace de noms secondaire en saisissant votre alias. 
+        1. Activez l’option de **basculement sécurisé** pour basculer en toute sécurité sur l’espace de noms secondaire. Cette fonctionnalité permet de s’assurer que les réplications de géo-reprise d’activité après sinistre sont terminées avant de basculer sur l’espace de noms secondaire. 
+        1. Sélectionnez ensuite **Basculement**. 
+        
+            :::image type="content" source="./media/service-bus-geo-dr/failover-page.png" alt-text="{alt-text}":::
+    
+            > [!IMPORTANT]
+            > Le basculement active l’espace de noms secondaire et supprime l’espace de noms principal du jumelage de géo-reprise d’activité après sinistre. Créer un autre espace de noms pour avoir une nouvelle paire de géo-reprise d’activité après sinistre. 
 
+1. Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi des basculements automatiques sont rarement possibles, dans la mesure où, souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
 
-4. Utilisez *_l’alias_* _ obtenu à l’étape 3 pour connecter vos applications clientes à l’espace de noms principal sur lequel est activée la géo-reprise d’activité après sinistre. Initialement, l’alias pointe vers l’espace de noms principal.
+### <a name="service-bus-standard-to-premium"></a>De Service Bus Standard à Premium
+Si vous avez [migré votre espace de noms Azure Service Bus Standard vers Azure Service Bus Premium](service-bus-migrate-standard-premium.md), vous devez utiliser l’alias préexistant (c’est-à-dire la chaîne de connexion de l’espace de noms Service Bus Standard) pour créer la configuration de récupération d’urgence avec **PS/CLI** ou **l’API REST**.
 
-5. [Facultatif] Ajoutez un système de supervision pour détecter si un basculement est nécessaire.
+Cela tient au fait que, lors de la migration, le nom DNS/la chaîne de connexion de l’espace de noms Azure Service Bus Standard devient un alias pour l’espace de noms Azure Service Bus Premium.
+
+Vos applications clientes doivent utiliser cet alias (c’est-à-dire la chaîne de connexion de l’espace de noms Azure Service Bus Standard) pour se connecter à l’espace de noms Premium là où le jumelage de récupération d’urgence a été configuré.
+
+Si vous utilisez le portail pour la configuration de la récupération d’urgence, le portail extrait cette notification pour vous.
+
 
 ## <a name="failover-flow"></a>Flux de basculement
 
@@ -91,7 +111,7 @@ Le basculement est déclenché manuellement par le client (soit explicitement à
 
 Après le déclenchement du basculement :
 
-1. La chaîne de connexion _*_alias_*_ est mise à jour de façon à pointer vers l’espace de noms secondaire Premium.
+1. La chaîne de connexion ***alias*** est mise à jour pour pointer vers l’espace de noms secondaire Premium.
 
 2. Les clients (expéditeurs et destinataires) se connectent automatiquement à l’espace de noms secondaire.
 
@@ -99,9 +119,9 @@ Après le déclenchement du basculement :
 
 Après le lancement du basculement :
 
-1. Vous voulez être sûr de pouvoir refaire un basculement en cas de nouvelle panne. Pour cela, configurez un autre espace de noms passif et mettez à jour l’association. 
+1. Vous voulez être sûr de pouvoir refaire un basculement en cas de nouvelle panne. Pour cela, configurez un autre espace de noms passif et mettez à jour le jumelage. 
 
-2. Tirez (pull) les messages à partir de l’ancien espace de noms principal une fois qu’il est de nouveau disponible. Après cela, utilisez cet espace de noms pour les messages réguliers en dehors de votre configuration de géorécupération ou supprimez l’ancien espace de noms principal.
+2. Extrayez des messages de l’ancien espace de noms principal dès qu’il est de nouveau disponible. Après cela, utilisez cet espace de noms pour les messages réguliers en dehors de votre configuration de géorécupération ou supprimez l’ancien espace de noms principal.
 
 > [!NOTE]
 > Seule la sémantique de transfert du basculement est prise en charge. Dans ce scénario, vous basculez puis effectuez un nouveau couplage avec un nouvel espace de noms. La restauration automatique n’est pas prise en charge ; par exemple, dans un cluster SQL. 
@@ -116,13 +136,13 @@ Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises rég
 
 ## <a name="use-existing-namespace-as-alias"></a>Utiliser l’espace de noms existant en tant qu’alias
 
-Si vous avez un scénario dans lequel vous ne pouvez pas modifier les connexions des producteurs et des consommateurs, vous pouvez réutiliser le nom de votre espace de noms en tant que nom d’alias. Voir l’[exemple de code sur GitHub ici](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
+Si vous avez un scénario dans lequel vous ne pouvez pas modifier les connexions des producteurs et des consommateurs, vous pouvez réutiliser le nom de votre espace de noms comme nom d’alias. Voir l’[exemple de code sur GitHub ici](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR_existing_namespace_name).
 
 ## <a name="samples"></a>Exemples
 
 Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) montrent comment configurer et lancer un basculement. Ces exemples illustrent les concepts suivants :
 
-- Un exemple .NET et des paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus afin d’installer et d’activer la géo-reprise d'activité après sinistre.
+- Un exemple .NET et les paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus afin de configurer et d’activer la géo-reprise d’activité après sinistre.
 - Étapes requises pour exécuter l’exemple de code.
 - Comment utiliser un espace de noms existant en tant qu’alias.
 - Exécuter pas à pas pour activer de façon alternative la géorécupération d’urgence via PowerShell ou CLI.
@@ -140,9 +160,11 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités.
 
-## <a name="availability-zones"></a>Zones de disponibilité
+### <a name="availability-zones"></a>Zones de disponibilité
 
-La référence SKU de Service Bus Premium prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure.
+La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure. Service Bus gère trois copies de la banque de messagerie (1 copie principale et 2 secondaires). Service Bus synchronise les opérations relatives aux données et à la gestion sur les trois copies. Si la copie principale échoue, l’une des copies secondaires devient la copie principale, sans temps d’arrêt ressenti. Si les applications constatent des déconnexions temporaires de Service Bus, la logique de nouvelle tentative dans le SDK se reconnectera automatiquement à Service Bus. 
+
+Lorsque vous utilisez des zones de disponibilité, les métadonnées et les données (messages) sont répliquées dans les centres de données de la zone de disponibilité. 
 
 > [!NOTE]
 > Dans Azure Service Bus Premium, la prise en charge des zones de disponibilité est fournie uniquement pour les [régions Azure](../availability-zones/az-region.md) qui comprennent déjà des zones de disponibilité.
@@ -181,7 +203,7 @@ Supposons que vous disposiez de deux réseaux virtuels, VNET-1 et VNET-2, et d�
 
 L’avantage de cette approche est que le basculement peut se produire au niveau de la couche Application, indépendamment de l’espace de noms Service Bus. Examinez les scénarios suivants : 
 
-_ *Basculement de l’application uniquement :* * Ici, l’application n’existera pas dans VNET-1, mais sera transmise à VNET-2. Comme les deux points de terminaison privés sont configurés sur VNET-1 et VNET-2 pour les espaces de noms principal et secondaire, l’application fonctionnera normalement. 
+**Basculement uniquement d’application :** Ici, l’application n’existera pas dans le VNET-1, mais passera à VNET-2. Comme les deux points de terminaison privés sont configurés sur VNET-1 et VNET-2 pour les espaces de noms principal et secondaire, l’application fonctionnera normalement. 
 
 **Basculement de l’espace de noms Service Bus uniquement :** Ici encore, étant donné que les deux points de terminaison privés sont configurés sur les deux réseaux virtuels pour les espaces de noms principal et secondaire, l’application fonctionnera normalement. 
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109010"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556492"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Créer un flux utilisateur dans Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Vous pouvez créer des [flux utilisateur](user-flow-overview.md) de types diffé
 ## <a name="before-you-begin"></a>Avant de commencer
 
 - **Inscrivez l’application** que vous souhaitez utiliser pour tester le nouveau flux utilisateur. Pour obtenir un exemple, consultez le [Tutoriel : Inscrire une application web dans Azure AD B2C](tutorial-register-applications.md).
-- **Ajoutez des fournisseurs d’identité externes** si vous souhaitez permettre aux utilisateurs de se connecter avec les fournisseurs que sont Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Pour obtenir un exemple, consultez [Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure AD B2C](tutorial-add-identity-providers.md).
+- **Ajoutez des fournisseurs d’identité externes** si vous souhaitez permettre aux utilisateurs de se connecter avec les fournisseurs que sont Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Consultez [Ajouter des fournisseurs d’identité à vos applications dans Azure AD B2C](add-identity-provider.md).
 - **Configurez le fournisseur d’identité de compte local** pour spécifier les types d’identité (e-mail, nom d’utilisateur, numéro de téléphone) que vous souhaitez prendre en charge pour les comptes locaux dans votre locataire. Vous pouvez ensuite choisir parmi ces types d’identité pris en charge quand vous créez des flux utilisateur individuels. Quand un utilisateur suit le flux utilisateur, un compte local est créé dans votre annuaire Azure AD B2C, puis votre fournisseur d’identité **Compte local** authentifie les informations de l’utilisateur. Configurez le fournisseur d’identité de compte local de votre locataire en procédant comme suit :
 
    1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
@@ -66,7 +66,7 @@ Vous pouvez créer des [flux utilisateur](user-flow-overview.md) de types diffé
 
    - **Compte local**. Si vous souhaitez autoriser les utilisateurs à créer des comptes locaux dans votre locataire Azure AD B2C, sélectionnez le type d’identificateur qu’ils doivent utiliser (par exemple, e-mail, identifiant utilisateur ou téléphone). Seuls les types d’identité configurés dans les paramètres de votre [fournisseur d’identité de compte local](#before-you-begin) sont listés.
 
-   - **Fournisseurs d’identité sociale**. Si vous souhaitez autoriser les utilisateurs à se connecter avec les [fournisseurs d’identité sociale que vous avez ajoutés](tutorial-add-identity-providers.md), comme Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, sélectionnez les fournisseurs dans la liste.
+   - **Fournisseurs d’identité sociale**. Si vous souhaitez autoriser les utilisateurs à se connecter avec les [fournisseurs d’identité sociale que vous avez ajoutés](add-identity-provider.md), comme Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, sélectionnez les fournisseurs dans la liste.
 
 9. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Sélectionnez **Afficher plus**. Sélectionnez les attributs et les revendications, puis sélectionnez **OK**.
 

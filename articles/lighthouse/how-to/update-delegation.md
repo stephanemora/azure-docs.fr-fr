@@ -1,14 +1,14 @@
 ---
 title: Mettre à jour une délégation
 description: Découvrez comment mettre à jour une délégation pour un client précédemment intégré à Azure Lighthouse.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791337"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555760"
 ---
 # <a name="update-a-delegation"></a>Mettre à jour une délégation
 
@@ -48,7 +48,7 @@ Si vous mettez à jour l’offre pour ajuster les autorisations uniquement et qu
 La suppression de l’accès à la délégation peut être effectuée par n’importe quel utilisateur du locataire gestionnaire qui a reçu le rôle [Suppression de l’attribution d’inscription de services gérés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) dans la délégation d’origine. Si aucun utilisateur de votre locataire gestionnaire n’a ce rôle, vous pouvez demander au client de [supprimer l’accès à l’offre dans le portail Azure](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 > [!TIP]
-> Si vous avez supprimé la délégation précédente en suivant les étapes ci-dessus et que vous ne parvenez toujours pas à déployer le nouveau modèle ARM, vous devrez peut-être [supprimer complètement la définition d’inscription](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Cela peut être effectué par tout utilisateur ayant le rôle de propriétaire dans le locataire client.  
+> Si vous avez supprimé la délégation précédente en suivant les étapes ci-dessus et que vous ne parvenez toujours pas à déployer le nouveau modèle ARM, vous devrez peut-être [supprimer complètement la définition d’inscription](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Tout utilisateur disposant d’un rôle ayant l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), dans le locataire client peut le faire.  
 
 ## <a name="deploy-the-arm-template"></a>Déployer le modèle ARM
 

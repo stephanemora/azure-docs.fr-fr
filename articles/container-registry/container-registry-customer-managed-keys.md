@@ -4,12 +4,12 @@ description: Apprenez-en davantage sur le chiffrement au repos de votre registre
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062726"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526440"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Chiffrer un registre à l’aide d’une clé gérée par le client
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (préversion) pour attribuer des autorisations à l’identité afin d’accéder au coffre de clés. Par exemple, attribuez le rôle Service de chiffrement de Key Vault à l’identité à l’aide de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
+Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) pour attribuer des autorisations à l’identité afin d’accéder au coffre de clés. Par exemple, attribuez le rôle Service de chiffrement de Key Vault à l’identité à l’aide de la commande [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ Configurez une stratégie pour le coffre de clés afin que l’identité puisse 
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Créer une stratégie d’accès au coffre de clés":::
 
-Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) (préversion) pour attribuer des autorisations à l’identité afin d’accéder au coffre de clés. Par exemple, attribuez le rôle Service de chiffrement de Key Vault à l’identité.
+Vous pouvez également utiliser [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md) pour attribuer des autorisations à l’identité afin d’accéder au coffre de clés. Par exemple, attribuez le rôle Service de chiffrement de Key Vault à l’identité.
 
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Contrôle d’accès (IAM)**  >  **+Ajouter** > **Ajouter une attribution de rôle**.
 1. Dans la fenêtre **Ajouter une attribution de rôle** :
-    1. Sélectionnez le rôle **Service de chiffrement de Key Vault (préversion)** . 
+    1. Sélectionnez le rôle **Utilisateur du service de chiffrement de Key Vault**. 
     1. Accordez l’accès à **Identité managée affectée par l’utilisateur**.
     1. Sélectionnez le nom de ressource de votre identité managée affectée par l’utilisateur, puis sélectionnez **Enregistrer**.
 

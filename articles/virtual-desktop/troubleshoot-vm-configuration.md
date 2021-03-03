@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: f1f2caa194972bb870dc58cfa0bd6ccb2f8db053
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539732"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099912"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -193,7 +193,7 @@ La sortie de **qwinsta** indique **rdp-sxs** si la pile côte à côte est insta
 > [!div class="mx-imgBorder"]
 > ![Pile côte à côte installée ou activée avec qwinsta indiquée par rdp-sxs dans la sortie.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leurs valeurs correspondent. En cas de clés de registre manquantes ou de valeurs incompatibles, suivez les instructions contenues dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour savoir comment réinstaller la pile côte à côte.
+Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leurs valeurs correspondent. Si des clés de Registre sont manquantes ou si les valeurs ne correspondent pas, vérifiez que vous exécutez un [système d’exploitation pris en charge](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os). Si c’est le cas, suivez les instructions contenues dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour savoir comment réinstaller la pile côte à côte.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal

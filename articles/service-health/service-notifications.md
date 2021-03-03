@@ -3,16 +3,16 @@ title: Afficher les notifications Service Health dans le portail Azure
 description: Afficher vos notifications Service Health dans le portail Azure. Les notifications Service Health sont publiées par l’infrastructure Azure dans le journal d’activité Azure.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f9f3e7b10d9aa0014e4e00e7bfa72c9dc66e142
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588001"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
-Les notifications Service Health sont publiées par l’infrastructure Azure dans le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).  Elles contiennent des informations sur les ressources de votre abonnement. Dans la mesure où le volume d’informations stockées dans le journal d’activité peut être important, il existe une interface utilisateur distincte permettant de faciliter l’affichage et la configuration d’alertes sur ces notifications. 
+Les notifications Service Health sont publiées par l’infrastructure Azure dans le [journal d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).  Elles contiennent des informations sur les ressources de votre abonnement. Dans la mesure où le volume d’informations stockées dans le journal d’activité peut être important, il existe une interface utilisateur distincte permettant de faciliter l’affichage et la configuration d’alertes sur ces notifications. 
 
 Selon leur classe, les notifications Service Health peuvent être fournies à titre d’information ou nécessiter une action de votre part.
 
@@ -34,4 +34,4 @@ Pour plus d’informations sur les différentes classes de notifications Service
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail les [alertes du journal d’activité](../azure-monitor/platform/activity-log-alerts.md).
+* Découvrez plus en détail les [alertes du journal d’activité](../azure-monitor/alerts/activity-log-alerts.md).

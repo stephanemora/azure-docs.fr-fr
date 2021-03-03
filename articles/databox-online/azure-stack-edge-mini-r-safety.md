@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: eb42a9a77927d8577dfec3c9167294eb8f809fec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981014"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382620"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Instructions de sécurité pour Azure Stack Edge Mini R
 
@@ -161,7 +161,6 @@ Le fonctionnement sur la bande 5 150 – 5 250 MHz est réservée à l’usa
 
 ![Avertissement relatif aux informations réglementaires - usage intérieur](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
 
-
 Les utilisateurs sont informés que des radars de grande capacité sont alloués en tant qu’utilisateurs principaux (utilisateurs prioritaires) des bandes 5 250 – 5 350 MHz et 5 650 – 5 850 MHz, et que ces radars peuvent générer des interférences et/ou des dégâts sur les appareils LE-LAN.
 
 Cet appareil génère, utilise et peut émettre une énergie de fréquence radio. S’il n’est pas installé et utilisé conformément aux instructions, il peut être source d’interférences nuisibles pour les communications radio. Toutefois, il n’y a aucune garantie que les interférences ne se produiront pas dans une installation particulière.
@@ -205,11 +204,13 @@ Une table avec un débit d’absorption spécifique (DAS) dont la moyenne est ca
 
 #### <a name="european-union"></a>UNION EUROPÉENNE :
 
-Demandez une copie de la déclaration de conformité UE pour cet équipement.
+Demandez une copie de la déclaration de conformité UE pour cet équipement. Envoyez un e-mail à [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
 
 L’adaptateur USB Wi-Fi Netgear A6150 fourni avec cet équipement est conforme à la directive 2014/53/UE et peut également être fourni à la demande.
 
-> ![Icône d’avertissement 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) Il s’agit d’un produit de classe A. Dans un environnement domestique, ce produit peut provoquer des interférences radio, auquel cas l’utilisateur peut être tenu de prendre les mesures adéquates.
+![Icône Avertissement 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)  **AVERTISSEMENT :**
+
+Cet appareil est un produit de classe A. Dans un environnement domestique, ce produit peut provoquer des interférences radio, auquel cas l’utilisateur peut être tenu de prendre les mesures adéquates.
 
 Élimination de batteries usagées et d’équipements électriques et électroniques :
 

@@ -3,12 +3,12 @@ title: Journaux de diagnostics Azure Service Bus | Microsoft Docs
 description: Cet article fournit une vue d’ensemble de tous les journaux de diagnostics et d’opérations disponibles pour Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064432"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585270"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Activer les journaux de diagnostics pour Service Bus
 
@@ -101,7 +101,7 @@ Les journaux des opérations sont désactivés par défaut. Pour activer les jou
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Les journaux d’activité s’affichent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostics**.
 
-Pour plus d’informations sur la configuration des paramètres de diagnostics, consultez [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/platform-logs-overview.md).
+Pour plus d’informations sur la configuration des paramètres de diagnostics, consultez [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

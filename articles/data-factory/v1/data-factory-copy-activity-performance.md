@@ -1,23 +1,18 @@
 ---
 title: Guide sur les performances et le réglage de l’activité de copie
 description: En savoir plus sur les facteurs clés ayant des répercussions sur les performances du déplacement de données dans Azure Data Factory lorsque vous utilisez l’activité de copie.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5910b94dba03f105197a94cf1ea1805f45249f3f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451345"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377208"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -371,7 +366,7 @@ Faites attention au nombre de jeux de données et d’activités de copie néces
 
 **Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 
-**Analyse des performances et réglage** : pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
+**Analyse des performances et réglage** : Pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
 
 1. **Lecture des données** : la passerelle ouvre la connexion à SQL Server et envoie la requête. SQL Server répond en envoyant le flux de données à la passerelle via l’intranet.
 2. **Sérialiser et compresser les données** : la passerelle sérialise le flux de données au format CSV, et compresse les données dans un flux bzip2.

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f4d77cc3b2f2182b02d47f047070b819daa5f3c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589023"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -48,7 +48,7 @@ Si vous utilisez EventFlow pour agréger des événements, veillez à importer l
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
@@ -65,13 +65,13 @@ Si vous effectuez un développement dans .NET, que vous utiliserez probablement 
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Accès à la ressource Application Insights dans le portail Azure
 
-Une fois que vous avez configuré Application Insights comme sortie pour vos événements et journaux d’activité, les informations doivent commencer à s’afficher dans votre ressource Application Insights au bout de quelques minutes. Accédez à la ressource Application Insights, qui vous permettra d’accéder au tableau de bord des ressources Application Insights. Sélectionnez _ *Rechercher* * dans la barre des tâches Application Insights pour voir les dernières traces reçues et pour pouvoir les filtrer.
+Une fois que vous avez configuré Application Insights comme sortie pour vos événements et journaux d’activité, les informations doivent commencer à s’afficher dans votre ressource Application Insights au bout de quelques minutes. Accédez à la ressource Application Insights, qui vous permettra d’accéder au tableau de bord des ressources Application Insights. Sélectionnez **Rechercher** dans la barre des tâches Application Insights pour voir les dernières traces reçues et pour pouvoir les filtrer.
 
-*Metrics Explorer* est un outil utile pour la création de tableaux de bord personnalisés basés sur les indicateurs de performance que vos applications, vos services et votre cluster peuvent signaler. Consultez [Exploration des indicateurs de performance dans Application Insights](../azure-monitor/platform/metrics-charts.md) pour configurer vous-mêmes quelques graphiques basés sur les données que vous collectez.
+*Metrics Explorer* est un outil utile pour la création de tableaux de bord personnalisés basés sur les indicateurs de performance que vos applications, vos services et votre cluster peuvent signaler. Consultez [Exploration des indicateurs de performance dans Application Insights](../azure-monitor/essentials/metrics-charts.md) pour configurer vous-mêmes quelques graphiques basés sur les données que vous collectez.
 
-Si vous cliquez sur **Analyse** , vous accédez au portail Application Insights Analytics, où vous pouvez interroger des événements et des traces avec une plus grande étendue et plus de choix. Vous pouvez en apprendre plus à ce sujet dans [Analytics dans Application Insights](../azure-monitor/log-query/log-query-overview.md).
+Si vous cliquez sur **Analyse**, vous accédez au portail Application Insights Analytics, où vous pouvez interroger des événements et des traces avec une plus grande étendue et plus de choix. Vous pouvez en apprendre plus à ce sujet dans [Analytics dans Application Insights](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des alertes dans AI](../azure-monitor/platform/alerts-log.md) pour être averti des changements de performances ou d’utilisation
+* [Configurer des alertes dans AI](../azure-monitor/alerts/alerts-log.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à Application Insights pour vous avertir d’éventuels problèmes de performances

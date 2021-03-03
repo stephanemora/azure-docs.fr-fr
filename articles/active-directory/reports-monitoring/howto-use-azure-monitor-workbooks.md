@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126632"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588044"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -42,13 +42,13 @@ Vous voulez...
 
 - Acquérez une meilleure compréhension des requêtes de journal de connexion, le classeur signalant le nombre d’utilisateurs auxquels l’accès a été accordé ou refusé, ainsi que le nombre d’utilisateurs ayant contourné les stratégies d’accès conditionnel lors de l’accès aux ressources.
 
-- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
+- Pour vous aider à résoudre ces problèmes, Azure Active Directory fournit des classeurs à des fins de supervision. Les [classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) regroupent du texte, des requêtes Analytics, des mesures et des paramètres sous la forme de rapports interactifs riches en contenu.
 
 
 
 Cet article :
 
-- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) et
+- suppose que vous êtes familiarisé avec la procédure de [création de rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) et
 
 - explique comment utiliser les classeurs Azure Monitor pour comprendre l’impact de vos stratégies d’accès conditionnel, pour résoudre les échecs de connexion et pour identifier les authentifications héritées.
  
@@ -60,9 +60,9 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
 
 - Un locataire Azure Active Directory avec une licence Premium (P1 ou P2). Découvrez comment [obtenir une licence premium](../fundamentals/active-directory-get-started-premium.md).
 
-- Un [espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+- Un [espace de travail Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 
-- [Accéder](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
+- [Accéder](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
 - Rôles suivants dans Azure Active Directory (si vous accédez à Log Analytics via le portail Azure Active Directory)
     - Administrateur de sécurité
     - Lecteur de sécurité
@@ -70,7 +70,7 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
     - Administrateur général
 
 ## <a name="roles"></a>Rôles
-Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
+Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :
 -   Administrateur général
 -   Administrateur de sécurité
 -   Lecteur de sécurité
@@ -159,7 +159,7 @@ Pour chaque tendance, vous obtenez une répartition par application et par proto
 ## <a name="sign-ins-by-conditional-access"></a>Connexions par accès conditionnel 
 
 
-Pour accéder au classeur afin d’identifier les connexions via des [stratégies d’accès conditionnel](../conditional-access/overview.md), accédez à la section **Accès conditionnel** , puis sélectionnez **Sign-ins by Conditional Access** (Connexions par accès conditionnel). 
+Pour accéder au classeur afin d’identifier les connexions via des [stratégies d’accès conditionnel](../conditional-access/overview.md), accédez à la section **Accès conditionnel**, puis sélectionnez **Sign-ins by Conditional Access** (Connexions par accès conditionnel). 
 
 Ce classeur affiche les tendances relatives aux connexions désactivées. Vous pouvez filtrer chaque tendance selon les catégories suivantes :
 
@@ -217,7 +217,7 @@ Vous pouvez également examiner des connexions individuelles, filtrées par les 
 
 ## <a name="sign-ins-by-grant-controls"></a>Connexions par contrôles d’octroi
 
-Pour accéder au classeur afin d’identifier les connexions via des [contrôles d’octroi](../conditional-access/controls.md), accédez à la section **Accès conditionnel** , puis sélectionnez **Sign-ins by Grant Control** (Connexions par contrôle d’octroi). 
+Pour accéder au classeur afin d’identifier les connexions via des [contrôles d’octroi](../conditional-access/controls.md), accédez à la section **Accès conditionnel**, puis sélectionnez **Sign-ins by Grant Control** (Connexions par contrôle d’octroi). 
 
 Ce classeur montre les tendances suivantes concernant les connexions désactivées :
 
@@ -257,7 +257,7 @@ Utilisez le classeur **Analyse des échecs de connexion** pour résoudre les err
 - Authentification héritée 
 
 
-Pour accéder aux données relatives aux connexions via l’accès conditionnel, accédez à la session **Résoudre les problèmes** , puis sélectionnez **Sign-ins using Legacy Authentication** (Connexions à l’aide d’une authentification héritée). 
+Pour accéder aux données relatives aux connexions via l’accès conditionnel, accédez à la session **Résoudre les problèmes**, puis sélectionnez **Sign-ins using Legacy Authentication** (Connexions à l’aide d’une authentification héritée). 
 
 Ce classeur montre les tendances suivantes en matière de connexion :
 
@@ -298,4 +298,4 @@ Pour vous aider à résoudre les problèmes de connexion, Azure Monitor vous fou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).
+[Créer des rapports interactifs à l’aide de classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).

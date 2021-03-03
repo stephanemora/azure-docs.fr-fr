@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583923"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546344"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -170,7 +170,7 @@ Pour acquérir des jetons pour une application acceptant les jetons v1.0 (par ex
 Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l’URI de l’ID d’application est `ResourceId`, vous devez utiliser :
 
 ```csharp
-var scopes = new [] {  ResourceId+"/user_impersonation"};
+var scopes = new [] { ResourceId+"/user_impersonation" };
 ```
 
 Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API Microsoft Graph (https://graph.microsoft.com/) ), vous devez créer la liste des étendues, comme dans l’extrait de code suivant :
@@ -205,7 +205,7 @@ Par exemple, si vous voulez acquérir un jeton pour toutes les étendues statiqu
 
 ```csharp
 ResourceId = "someAppIDURI";
-var scopes = new [] {  ResourceId+"/.default"};
+var scopes = new [] { ResourceId+"/.default" };
 ```
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>Étendues à demander en cas de flux d’informations d’identification du client/application de démon

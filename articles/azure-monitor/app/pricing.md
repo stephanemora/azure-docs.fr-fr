@@ -5,19 +5,19 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556135"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573744"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
 > [!NOTE]
-> Cet article explique en quoi consistent vos coûts pour Application Insights et comment les contrôler.  Un article associé, [Surveiller l’utilisation et l’estimation des coûts](../platform/usage-estimated-costs.md), explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles tarifaires.
+> Cet article explique en quoi consistent vos coûts pour Application Insights et comment les contrôler.  Un article associé, [Surveiller l’utilisation et l’estimation des coûts](..//usage-estimated-costs.md), explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles tarifaires.
 
 Application Insights est conçu pour vous fournir tout ce dont vous avez besoin pour surveiller la disponibilité, les performances et l’utilisation de vos applications web, qu’elles soit hébergées dans Azure ou localement. Application Insights prend en charge les langages et les infrastructures courants, tels que .NET, Java et Node.js, et s’intègre aux processus et outils DevOps tels qu’Azure DevOps, Jira et PagerDuty. Il est important de comprendre ce qui détermine les coûts de surveillance de vos applications. Dans cet article, nous allons examiner les coûts de surveillance des applications et la façon dont vous pouvez les surveiller et les contrôler de manière proactive.
 
@@ -33,7 +33,7 @@ L’option Application Insights [Activation des alertes sur les dimensions de m�
 
 ### <a name="workspace-based-application-insights"></a>Application Insights basé sur l’espace de travail
 
-Pour les ressources Application Insights qui envoient leurs données à un espace de travail Log Analytics, appelé [ressources Application Insights basées sur l’espace de travail](create-workspace-resource.md), la facturation de l’ingestion et de la conservation des données est effectuée par l’espace de travail où se trouvent les données d’ Application Insights. Cela permet aux clients de tirer parti de toutes les options du [modèle de tarification](../platform/manage-cost-storage.md#pricing-model) Log Analytics qui incluent des réservations de capacité en plus du paiement à l’utilisation. Log Analytics dispose également de plus d’options pour la conservation des données, notamment la [rétention par type de données](../platform/manage-cost-storage.md#retention-by-data-type). Les types de données Application Insights dans l’espace de travail reçoivent 90 jours de rétention sans frais. L’utilisation des tests Web et l’activation des alertes sur les dimensions métriques personnalisées sont toujours signalées par le biais d’Application Insights. Découvrez comment suivre les coûts d’ingestion et de conservation des données dans Log Analytics à l’aide [des coûts d’utilisation et des coûts estimés](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + facturation](../platform/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) et [les requêtes log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
+Pour les ressources Application Insights qui envoient leurs données à un espace de travail Log Analytics, appelé [ressources Application Insights basées sur l’espace de travail](create-workspace-resource.md), la facturation de l’ingestion et de la conservation des données est effectuée par l’espace de travail où se trouvent les données d’ Application Insights. Cela permet aux clients de tirer parti de toutes les options du [modèle de tarification](../logs/manage-cost-storage.md#pricing-model) Log Analytics qui incluent des réservations de capacité en plus du paiement à l’utilisation. Log Analytics dispose également de plus d’options pour la conservation des données, notamment la [rétention par type de données](../logs/manage-cost-storage.md#retention-by-data-type). Les types de données Application Insights dans l’espace de travail reçoivent 90 jours de rétention sans frais. L’utilisation des tests Web et l’activation des alertes sur les dimensions métriques personnalisées sont toujours signalées par le biais d’Application Insights. Découvrez comment suivre les coûts d’ingestion et de conservation des données dans Log Analytics à l’aide [des coûts d’utilisation et des coûts estimés](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + facturation](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) et [les requêtes log Analytics](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimation des coûts de gestion de votre application
 
@@ -106,7 +106,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Notez que cette requête peut être utilisée dans une [alerte de journal Azure](../platform/alerts-unified-log.md) pour configurer des alertes sur des volumes de données.  
+Notez que cette requête peut être utilisée dans une [alerte de journal Azure](../alerts/alerts-unified-log.md) pour configurer des alertes sur des volumes de données.  
 
 Pour en savoir plus sur les changements de vos données de télémétrie, nous obtenons le nombre d’événements par type à l’aide de la requête :
 
@@ -224,7 +224,7 @@ Pour [modifier la limite quotidienne via Azure Resource Manager](./powershell.md
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Créer des alertes pour la limite quotidienne
 
-La limite quotidienne d’Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le plafond quotidien.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](../platform/alerts-activity-log.md#create-with-the-azure-portal). Les noms de signal de ces événements sont :
+La limite quotidienne d’Application Insights crée un événement dans le journal d’activité Azure quand les volumes de données ingérées atteignent le niveau d’avertissement ou le plafond quotidien.  Vous pouvez [créer une alerte en fonction de ces événements du journal d’activité](../alerts/alerts-activity-log.md#create-with-the-azure-portal). Les noms de signal de ces événements sont :
 
 * Seuil d’avertissement de la limite quotidienne du composant Application Insights atteint
 
@@ -248,7 +248,7 @@ Pour définir l’échantillonnage d’ingestion, accédez au volet **Tarificati
 > Le volet **Échantillonnage des données** contrôle uniquement la valeur d’échantillonnage de l’ingestion. Il ne reflète pas le taux d’échantillonnage qui est appliqué par le SDK Application Insights dans votre application. Si les données de télémétrie entrantes ont déjà été échantillonnées dans le SDK, l’échantillonnage d’ingestion n’est pas appliqué.
 >
 
-Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endroit où il a été appliqué, utilisez une [requête Analytics](../log-query/log-query-overview.md). La requête ressemble à ceci :
+Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endroit où il a été appliqué, utilisez une [requête Analytics](../logs/log-query-overview.md). La requête ressemble à ceci :
 
 ```kusto
 requests | where timestamp > ago(1d)
@@ -286,15 +286,18 @@ Pour désactiver les e-mails de limite de volume quotidienne, accédez à la sec
 
 Pour les utilisateurs initiaux d’Azure Application Insights, il existe toujours deux niveaux tarifaires possibles : De base et Entreprise. Le niveau tarifaire De base est identique à celui décrit ci-dessus ; il s’agit du niveau par défaut. Il inclut toutes les fonctionnalités du niveau Entreprise, sans frais supplémentaires. La facturation du niveau De base repose essentiellement sur le volume de données ingérées.
 
-> [!NOTE]
-> Ces niveaux tarifaires existants ont été renommés. Le niveau tarifaire Entreprise et le niveau tarifaire De base sont désormais nommés **Par nœud** et **Par Go**, respectivement. Ces deux niveaux sont désignés sous leur nouveau nom ci-après et dans le portail Azure.  
+Ces niveaux tarifaires existants ont été renommés. Le niveau tarifaire Entreprise et le niveau tarifaire De base sont désormais nommés **Par nœud** et **Par Go**, respectivement. Ces deux niveaux sont désignés sous leur nouveau nom ci-après et dans le portail Azure.  
 
-Le niveau Par nœud (anciennement Entreprise) donne lieu à une facturation pour chaque nœud, chaque nœud recevant une allocation de données quotidienne. Dans le niveau tarifaire Par nœud, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le niveau Par nœud.
+Le niveau Par nœud (anciennement Entreprise) donne lieu à une facturation pour chaque nœud, chaque nœud recevant une allocation de données quotidienne. Dans le niveau tarifaire Par nœud, vous êtes facturé pour les données ingérées au-delà de l’allocation incluse. Si vous utilisez Operations Management Suite, vous devez choisir le niveau Par nœud. En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle de tarification](..//usage-estimated-costs.md).
 
 Pour connaître les prix actuels dans votre devise et pour votre région, consultez la page [Tarification Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
 
-> [!NOTE]
-> En avril 2018, nous [introduisons](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nouveau modèle tarifaire pour la surveillance Azure. Ce modèle adopte un modèle de « paiement à l’utilisation » simple sur le portefeuille complet de services de surveillance. En savoir plus sur le [nouveau modèle tarifaire](../platform/usage-estimated-costs.md), sur [l’évaluation de l’impact du passage à ce modèle](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) en fonction de vos modèles d’utilisation et sur [l’adoption du nouveau modèle](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Comprendre l’utilisation facturée au niveau Entreprise (par nœud) hérité 
+
+Comme décrit plus en détail ci-dessous, le niveau Entreprise (par nœud) hérité combine l’utilisation de toutes les ressources Application Insights dans un abonnement pour calculer le nombre de nœuds et le dépassement de données. En raison de ce processus de combinaison, **l’utilisation de toutes les ressources Application Insights dans un abonnement est signalée par rapport à une seule des ressources**.  Cela permet de concilier l'[utilisation facturée](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) avec l’utilisation que vous observez pour chaque ressource Application Insights très compliquée. 
+
+> [!WARNING]
+> En raison de la complexité du suivi et de la compréhension de l’utilisation des ressources Application Insights au niveau Entreprise (par nœud) hérité, nous vous recommandons vivement d’utiliser le niveau tarifaire actuel du paiement à l’utilisation. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Niveau tarifaire Par nœud et droits d’abonnement à Operations Management Suite
 
@@ -347,4 +350,3 @@ Vous pouvez utiliser le service Azure Resource Management pour écrire un script
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

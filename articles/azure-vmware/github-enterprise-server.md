@@ -2,17 +2,17 @@
 title: Configurer GitHub Enterprise Server sur votre cloud privé Azure VMware Solution
 description: Découvrez comment configurer GitHub Enterprise Server sur votre cloud privé Azure VMware Solution.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.date: 02/11/2021
+ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549100"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382019"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurer GitHub Enterprise Server sur votre cloud privé Azure VMware Solution
 
-Dans cet article, nous allons suivre les étapes de configuration de GitHub Enterprise Server, la version « locale » de [GitHub.com](https://github.com/), sur votre cloud privé Azure VMware Solution. Le scénario abordé dans cette procédure pas à pas est destiné à une instance GitHub Enterprise Server pouvant servir jusqu’à 3 000 développeurs exécutant jusqu’à 25 travaux par minute sur GitHub Actions. Il comprend l’installation (au moment de la rédaction de cet article) des *fonctionnalités d’évaluation*, telles que GitHub Actions. Pour personnaliser la configuration en fonction de vos besoins spécifiques, consultez la configuration requise indiquée dans [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations) (Installation de GitHub Enterprise Server sur VMware).
+Dans cet article, nous allons suivre les étapes de configuration de GitHub Enterprise Server, la version « locale » de [GitHub.com](https://github.com/), sur votre cloud privé Azure VMware Solution. Le scénario que nous aborderons concerne une instance GitHub Enterprise Server pouvant servir jusqu’à 3 000 développeurs exécutant jusqu’à 25 travaux par minute sur GitHub Actions. Il comprend l’installation (au moment de la rédaction de cet article) des *fonctionnalités d’évaluation*, telles que GitHub Actions. Pour personnaliser la configuration en fonction de vos besoins spécifiques, consultez la configuration requise indiquée dans [Installing GitHub Enterprise Server on VMware](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations) (Installation de GitHub Enterprise Server sur VMware).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -59,7 +59,7 @@ Appliquez vos paramètres.  Pendant le redémarrage de l’instance, vous pouvez
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="Créer votre compte administrateur.":::
 
-Une fois l’instance redémarrée, créez un nouveau compte administrateur sur l’instance. Veillez à noter également le mot de passe de cet utilisateur.
+Une fois l’instance redémarrée, vous pouvez créer un nouveau compte administrateur sur l’instance. Veillez à noter également le mot de passe de cet utilisateur.
 
 ### <a name="other-configuration-steps"></a>Autres étapes de configuration
 
@@ -178,7 +178,7 @@ Pour mettre cet exécuteur à la disposition des organisations de votre entrepri
 
 :::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Modifier l’accès de l’exécuteur.":::
 
-Nous le mettrons ici à la disposition de toutes les organisations, mais vous pouvez également limiter l’accès à un sous-ensemble d’organisations, voire à des référentiels spécifiques.
+Nous le mettrons ici à la disposition de toutes les organisations, mais vous pouvez limiter l’accès à un sous-ensemble d’organisations, voire à des référentiels spécifiques.
 
 ## <a name="optional-configuring-github-connect"></a>(Facultatif) Configuration de GitHub Connect
 

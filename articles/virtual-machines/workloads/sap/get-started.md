@@ -1,7 +1,8 @@
 ---
 title: Bien démarrer avec SAP sur des machines virtuelles Azure | Microsoft Docs
 description: Découvrir les solutions SAP qui s’exécutent sur des machines virtuelles dans Microsoft Azure
-services: virtual-machines-linux
+services: virtual-machines-sap
+ms.service: virtual-machines-sap
 documentationcenter: ''
 author: msjuergent
 manager: bburns
@@ -9,20 +10,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
-ms.service: virtual-machines-linux
-ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 0d759ad0ebb1aa4f1b6a5f404812ab8149ed69e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549386"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671849"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -84,6 +83,7 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 11/02/2021 : Modifications apportées à la [haute disponibilité d’IBM Db2 LUW sur des machines virtuelles Azure sur Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) pour modifier les commandes de cluster de stimulateur pour RHEL 8.x
 - 02/03/2021: Modification de [Configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) pour mettre à jour pcmk_host_map dans la commande stonith create
 - 02/03/2021: Modification de [Configuration de Pacemaker sur SLES dans Azure](./high-availability-guide-suse-pacemaker.md) pour ajouter pcmk_host_map dans la commande stonith create 
 - 02/03/2021: Informations supplémentaires sur les paramètres du planificateur d’E/S pour SUSE dans l’article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md)

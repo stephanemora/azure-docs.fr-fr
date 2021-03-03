@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5b5c78ffec736f29a481aa95426ff663199613b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342227"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595655"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
@@ -97,4 +97,4 @@ Les [données juste-à-temps](security-center-just-in-time.md) sont considérée
 Les [données d’alerte](security-center-managing-and-responding-alerts.md) sont considérées comme des données de sécurité et sont conservées pendant deux ans.
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
-Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
+Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).

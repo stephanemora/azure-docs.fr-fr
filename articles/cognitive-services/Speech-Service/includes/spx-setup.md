@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99579710"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515032"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -39,6 +39,16 @@ Si la sortie est effectuée dans un fichier, un éditeur de texte tel que le Blo
 
 #### <a name="linux-install"></a>[Installation Linux](#tab/linuxinstall)
 
+Les distributions Linux suivantes sont prises en charge pour les architectures x64 à l’aide de l’interface CLI de Speech :
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Des architectures supplémentaires sont prises en charge par le kit SDK Speech (mais pas par l’interface CLI de Speech). Pour plus d’informations, consultez [À propos du kit SDK Speech](../speech-sdk.md).
+
 Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un processeur x64 :
 
 1. Installez [.NET Core 3.1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Procédez ainsi pour installer l’interface CLI Speech sur Linux, sur un proces
 Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 
 > [!NOTE]
-> En guise d’alternative à NuGet, vous pouvez télécharger les fichiers binaires de l’[archive zip](https://aka.ms/speech/spx-zips.zip), les extraire `spx-netcore-30-linux-x64` dans un nouveau répertoire `~/spx`, taper `sudo chmod +r+x spx` sur le fichier binaire, puis ajouter le chemin `~/spx` à votre variable système PATH.
+> En guise d’alternative à NuGet, vous pouvez télécharger les fichiers binaires de l’[archive zip](https://aka.ms/speech/spx-zips.zip), les extraire `spx-netcore-30-linux-x64.zip` dans un nouveau répertoire `~/spx`, taper `sudo chmod +r+x spx` sur le fichier binaire, puis ajouter le chemin `~/spx` à votre variable système PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installation de Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Pour utiliser la commande `spx` installée dans un conteneur, entrez toujours la
 Par exemple, sur Windows, cette commande définit votre clé :
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Pour obtenir une interaction plus étendue avec l’outil en ligne de commande, vous pouvez démarrer un conteneur avec un interpréteur de commandes bash interactif en ajoutant un paramètre EntryPoint.
@@ -160,8 +170,8 @@ Pour pouvoir utiliser l’interface CLI Speech, vous devez entrer votre clé d�
 Une fois que vous avez récupéré votre clé d’abonnement et votre identificateur de la région (par exemple, `eastus`, `westus`), exécutez les commandes suivantes.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 L’authentification de votre abonnement est maintenant stockée pour les futures demandes SPX. Si vous devez supprimer l’une de ces valeurs stockées, exécutez `spx config @region --clear` ou `spx config @key --clear`.

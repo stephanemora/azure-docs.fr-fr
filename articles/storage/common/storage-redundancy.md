@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094907"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556445"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -186,13 +186,21 @@ Le tableau suivant montre la durabilité et la disponibilité de vos données da
 
 <sup>1</sup> Un basculement de compte est nécessaire pour restaurer la disponibilité en écriture si la région primaire devient indisponible. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage](storage-disaster-recovery-guidance.md).
 
+### <a name="supported-azure-storage-services"></a>Services Stockage Azure pris en charge
+
+Le tableau suivant indique quelles options de redondance sont prises en charge pour chaque service de Stockage Azure.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br />Disques managés Azure | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br /> | Stockage d'objets blob<br />Stockage de files d'attente<br />Stockage de tables<br />Azure Files<br /> |
+
 ### <a name="supported-storage-account-types"></a>Types de compte de stockage pris en charge
 
 Le tableau suivant indique quelles options de redondance sont prises en charge pour chaque type de compte de stockage. Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](storage-account-overview.md).
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Usage général v2<br /> Usage général v1<br /> Stockage d’objets blob de blocs<br /> Stockage d'objets blob<br /> Stockage Fichier | Usage général v2<br /> Stockage d’objets blob de blocs<br /> Stockage Fichier | Usage général v2<br /> Usage général v1<br /> Stockage d'objets blob | Usage général v2 |
+| Usage général v2<br /> Usage général v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Usage général v2<br /> BlockBlobStorage<br /> FileStorage | Usage général v2<br /> Usage général v1<br /> BlobStorage | Usage général v2 |
 
 Toutes les données de tous les comptes de stockage sont copiées en fonction de l’option de redondance définie pour le compte de stockage. Des objets, dont des objets blob de blocs, les objets blob d’ajout, des objets blob de pages, des files d’attente, des tables et des fichiers sont copiés. Les données de tous les niveaux, y compris le niveau d’archive, sont copiées. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 

@@ -3,15 +3,15 @@ title: Aperçu du portail d’attachement d’application MSIX Windows Virtual D
 description: Comment configurer l’attachement d’application MSIX pour Windows Virtual Desktop à l’aide du portail Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185952"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373468"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurer l’attachement d’application MSIX avec le portail Azure
 
@@ -65,7 +65,7 @@ Ensuite, vous devez télécharger et configurer l’interface de gestion de l’
 
 Pour configurer l’interface de gestion :
 
-1. [Ouvrez le portail en préversion](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Ouvrez le portail Azure](https://portal.azure.com).
 2. Si vous recevez une invite vous demandant si vous jugez l’extension digne de confiance, sélectionnez **Autoriser**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ Pour publier les applications :
 ## <a name="assign-a-user-to-an-app-group"></a>Affecter un utilisateur à un groupe d’applications
 
 Après avoir attribué des applications MSIX à un groupe d’applications, vous devez autoriser les utilisateurs à y accéder. Vous pouvez attribuer l’accès en ajoutant des utilisateurs ou des groupes d’utilisateurs à un groupe d’applications avec des applications MSIX publiées. Suivez les instructions décrites dans [Gérer des groupes d’applications avec le portail Azure](manage-app-groups.md) pour affecter vos utilisateurs à un groupe d’applications.
+
+>[!NOTE]
+>Les applications distantes avec attachement d’application MSIX peuvent disparaître du flux lorsque vous testez des applications distantes dans la préversion publique. Les applications ne s’affichent pas, car le pool d’hôtes que vous utilisez dans l’environnement d’évaluation est pris en charge par un service Broker pour les connexions Bureau à distance dans l’environnement de production. Dans la mesure où le service Broker pour les connexions Bureau à distance de l’environnement de production n’enregistre pas la présence des applications distantes avec attachement d’application MSIX, les applications ne figureront pas dans le flux.
 
 ## <a name="change-msix-package-state"></a>Modifier l’état du package MSIX
 

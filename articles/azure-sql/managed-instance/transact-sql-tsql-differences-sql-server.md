@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626272"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378619"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-data
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - L’activation et la désactivation de SQL Server Agent ne sont actuellement pas prises en charge dans SQL Managed Instance. L’Agent SQL est toujours en cours d’exécution.
+- Le déclencheur de planification de travail basé sur un processeur inactif n’est pas pris en charge.
 - Les paramètres de SQL Server Agent sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans SQL Managed Instance. 
 - travaux
   - Les étapes de travail T-SQL sont prises en charge.
@@ -306,13 +307,7 @@ Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
 - L’utilisateur doit être directement mappé au principal de serveur Azure AD (connexion) pour pouvoir créer, modifier ou exécuter des travaux SQL Agent. Les utilisateurs qui ne sont pas directement mappés, par exemple les utilisateurs membres d’un groupe Azure AD qui dispose des droits de création, de modification ou d’exécution des travaux SQL Agent, ne peuvent pas effectuer efficacement ces actions. Cela est dû à l’emprunt d’identité Managed Instance et aux [limitations d’EXECUTE AS](#logins-and-users).
-
-Les fonctionnalités suivantes de l’agent SQL ne sont pas prises en charge actuellement :
-
-- Proxies
-- Planification de travaux sur une UC inactive
-- Activation ou désactivation d’un Agent
-- Alertes
+- La fonctionnalité d’administration multiserveur pour les travaux maître/cible (MSX/TSX) n’est pas prise en charge.
 
 Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: 69f43b626bb50171ceaca1b7a8761bec040d1dd6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6e0e582ed37230ba3f379f193a229cfec06f066c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897226"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648031"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Démarrage rapide : Activer l’Autogestion Azure pour machines virtuelles dans le portail Azure
 
@@ -28,34 +28,47 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 > Les comptes associés à un essai gratuit n’ont pas accès aux machines virtuelles utilisées dans ce tutoriel. Veuillez passer à un abonnement avec paiement à l’utilisation.
 
 > [!IMPORTANT]
-> Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôle de **Propriétaire** , ou rôle de **Contributeur** associé au rôle d’ **Administrateur de l’accès utilisateur** sur votre abonnement.
+> Vous devez disposer du rôle **Contributeur** sur le groupe de ressources contenant vos machines virtuelles pour activer Automanage à l’aide d’un compte Automanage existant. Si vous activez Automanage avec un nouveau compte Automanage, vous devez disposer des autorisations suivantes : Rôle de **Propriétaire**, ou rôle de **Contributeur** associé au rôle d’**Administrateur de l’accès utilisateur** sur votre abonnement.
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://aka.ms/AutomanagePortal-Ignite21).
 
+## <a name="enable-automanage-for-a-single-vm"></a>Activer Automanage pour une seule machine virtuelle
 
-## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Activer l’Autogestion pour machines virtuelles sur une machine virtuelle existante
+1. Recherchez la machine virtuelle pour laquelle vous souhaitez effectuer l’activation.
 
-1. Dans la barre de recherche, recherchez puis sélectionnez **Autogestion – Bonnes pratiques pour les machines virtuelles**.
+2. Cliquez sur l’entrée **Automanage (préversion)** dans la table des matières sous **Opérations**.
+
+3. Sélectionnez **Prise en main**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="Démarrer pour une seule machine virtuelle.":::
+
+4. Choisissez vos paramètres Automanage (environnement, préférences, compte Automanage), puis cliquez sur **Activer**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Activer sur une seule machine virtuelle.":::
+
+## <a name="enable-automanage-for-multiple-vms"></a>Activer Automanage pour plusieurs machines virtuelles
+
+1. Dans la barre de recherche, recherchez et sélectionnez **Automanage - Azure machine best practices** (Automanage - Bonnes pratiques pour les machines virtuelles Azure).
 
 2. Sélectionnez l’option **Activer sur la machine virtuelle existante**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Activation sur la machine virtuelle existante":::
 
-3. Dans le panneau **Sélectionner les machines**  :
+3. Dans le panneau **Sélectionner les machines** :
     1. Filtrez la liste des machines virtuelles selon votre **abonnement** et votre **groupe de ressources**.
     1. Cochez la case des machines virtuelles que vous souhaitez intégrer.
     1. Cliquez sur le bouton **Sélectionner**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
-4. Sous **Profil de configuration** , cliquez sur **Parcourir et modifier les profils et les préférences**.
+4. Sous **Profil de configuration**, cliquez sur **Parcourir et modifier les profils et les préférences**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Parcourir et modifier les profils et les préférences":::
 
-5. Dans le panneau **Sélectionner le profil de configuration + préférences**  :
+5. Dans le panneau **Sélectionner le profil de configuration + préférences** :
     1. Sélectionnez un profil sur la gauche : *Dev/Test* à des fins de test, *Prod* pour la production.
     1. Cliquez sur le bouton **Sélectionner**.
 
@@ -64,31 +77,29 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 6. Cliquez sur le bouton **Activer**.
 
 
-## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Activer l’Autogestion pour machines virtuelles sur une nouvelle machine virtuelle
+## <a name="enable-automanage-for-a-new-vm"></a>Activer Automanage pour une nouvelle machine virtuelle
 
-Connectez-vous au portail Azure à partir d'[ici](https://aka.ms/automanageportalnextstep) pour créer une nouvelle machine virtuelle et activer Automanage.
+Connectez-vous au portail Azure à partir d'[ici](https://aka.ms/AutomanagePortal-Ignite21) pour créer une nouvelle machine virtuelle et activer Automanage.
 
-1. Effectuez les étapes de création fournies dans [Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure](..\virtual-machines\windows\quick-create-portal.md).
+1. Choisissez **Créer une ressource** en haut à gauche du Portail Azure.
 
-2. Une fois votre machine virtuelle déployée, vous verrez la page d’état du déploiement au bas de laquelle se trouvent les **Étapes suivantes** qu’il est recommandé d’effectuer.
+2. Dans la zone de recherche située au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez l'image que vous souhaitez utiliser, puis choisissez **Créer**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Section Étapes suivantes, située au bas de la page de déploiement":::
+> [!NOTE]
+> Vérifiez les [distributions Linux](automanage-linux.md#supported-linux-distributions-and-versions) et [versions de Windows Server](automanage-windows-server.md#supported-windows-server-versions) prises en charge par Automanage.
 
-3. Sous **Étapes suivantes** , sélectionnez **Activer l’Autogestion pour les machines virtuelles – Bonnes pratiques**.
+3. Indiquez sous l’onglet **De base** les détails de votre machine virtuelle.
 
-4. Dans la page **Autogestion – Bonnes pratiques pour les machines virtuelles** , la machine virtuelle nouvellement créée sera automatiquement ajoutée à la section **Machines**.
+> [!NOTE]
+> Vérifiez les [régions prises en charge](automanage-virtual-machines#supported-regions) par Automanage.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="La machine virtuelle nouvellement créée s’affichera comme la machine sélectionnée":::
+4. Accédez à l’onglet **Gestion**, puis choisissez votre **environnement Automanage**.
 
-5. Sous **Profil de configuration** , cliquez sur **Parcourir et modifier les profils et les préférences**.
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="Activer Automanage sous l’onglet Gestion.":::
 
-6. Dans le panneau **Sélectionner le profil de configuration + préférences**  :
-    1. Sélectionnez un profil sur la gauche : *Dev/Test* à des fins de test, *Prod* pour la production.
-    1. Cliquez sur le bouton **Sélectionner**.
+5. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Parcourir le profil de configuration de production":::
-
-7. Cliquez sur le bouton **Activer**.
+6. Lorsque vous voyez le message indiquant que la validation a réussi, sélectionnez **Créer**.
 
 ## <a name="disable-automanage-for-vms"></a>Désactiver l’Autogestion pour machines virtuelles
 
@@ -115,9 +126,9 @@ L’Autogestion Azure crée des groupes de ressources par défaut dans lesquels 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez activé l’Autogestion Azure pour machines virtuelles. 
+Dans ce guide de démarrage rapide, vous avez activé l’Autogestion Azure pour machines virtuelles.
 
-Découvrez comment vous pouvez créer et appliquer des préférences personnalisées lors de l’activation de l’Autogestion sur votre machine virtuelle. 
+Découvrez comment vous pouvez créer et appliquer des préférences personnalisées lors de l’activation de l’Autogestion sur votre machine virtuelle.
 
 > [!div class="nextstepaction"]
-> [Autogestion Azure pour machines virtuelles - Profil de configuration personnalisé](virtual-machines-custom-preferences.md)
+> [Azure Automanage pour les machines virtuelles - Profil de configuration personnalisé](virtual-machines-custom-preferences.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256879"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574184"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Découvrez comment l’approvisionnement s’intègre aux journaux Azure Monitor
 
@@ -24,7 +24,7 @@ L’approvisionnement s’intègre aux journaux Azure Monitor et à Log Analytic
 
 ## <a name="enabling-provisioning-logs"></a>Activation des journaux d’approvisionnement
 
-Vous devez déjà avoir une connaissance de Log Analytics et de l’analyse Azure. Si ce n’est pas le cas, apprenez-en plus sur le sujet, puis revenez sur cette page pour découvrir les journaux d’approvisionnement d’application. Pour en savoir plus sur l’analyse Azure, consultez [Vue d’ensemble d’Azure Monitor](../../azure-monitor/overview.md). Pour en savoir plus sur les journaux Azure Monitor et Log Analytics, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Vous devez déjà avoir une connaissance de Log Analytics et de l’analyse Azure. Si ce n’est pas le cas, apprenez-en plus sur le sujet, puis revenez sur cette page pour découvrir les journaux d’approvisionnement d’application. Pour en savoir plus sur l’analyse Azure, consultez [Vue d’ensemble d’Azure Monitor](../../azure-monitor/overview.md). Pour en savoir plus sur les journaux Azure Monitor et Log Analytics, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Une fois que vous avez configuré l’analyse Azure, vous pouvez activer les journaux pour l’approvisionnement des applications. L’option se trouve sur la page **Paramètres de diagnostic**.
 
@@ -47,7 +47,7 @@ Le flux de données sous-jacent que l’approvisionnement envoie aux visionneuse
 
 ## <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
-Les classeurs Azure Monitor fournissent un canevas flexible pour l’analyse des données. Ils permettent également de créer des rapports visuels enrichis au sein du Portail Azure. Pour plus d’informations, consultez [Vue d’ensemble des classeurs Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).
+Les classeurs Azure Monitor fournissent un canevas flexible pour l’analyse des données. Ils permettent également de créer des rapports visuels enrichis au sein du Portail Azure. Pour plus d’informations, consultez [Vue d’ensemble des classeurs Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md).
 
 L’approvisionnement d’applications est fourni avec un ensemble de classeurs prédéfinis. Vous pouvez les trouver dans la page Classeurs. Pour afficher les données, vous devez vous assurer que tous les filtres (timeRange, jobID, appName) sont remplis. Vous devez également vous assurer que vous avez configuré une application, sinon aucune donnée n’est disponible dans les journaux.
 
@@ -57,7 +57,7 @@ L’approvisionnement d’applications est fourni avec un ensemble de classeurs 
 
 ## <a name="custom-queries"></a>Requêtes personnalisées
 
-Vous pouvez créer des requêtes personnalisées et afficher les données dans des tableaux de bord Azure. Pour savoir comment procéder, consultez [Créer et partager des tableaux de bord de données Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Veillez également à consulter [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Vous pouvez créer des requêtes personnalisées et afficher les données dans des tableaux de bord Azure. Pour savoir comment procéder, consultez [Créer et partager des tableaux de bord de données Log Analytics](../../azure-monitor/logs/get-started-queries.md). Veillez également à consulter [Vue d’ensemble des requêtes de journal dans Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Voici quelques exemples pour prendre en main l’approvisionnement d’applications.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor vous permet de configurer des alertes personnalisées afin de recevoir des notifications sur les principaux événements liés à l’approvisionnement. Par exemple, vous souhaiterez peut-être recevoir une alerte en cas de défaillance. Ou peut-être en cas de pics de désactivation ou de suppression. Un autre exemple d’alerte que vous pourriez vouloir recevoir est l’absence d’approvisionnement, qui indique un problème.
 
-Pour en savoir plus sur les alertes, consultez [Répondre aux événements avec les alertes Azure Monitor](../../azure-monitor/learn/tutorial-response.md).
+Pour en savoir plus sur les alertes, consultez [Répondre aux événements avec les alertes Azure Monitor](../../azure-monitor/alerts/tutorial-response.md).
 
 Alerte en cas de pic de défaillances. Remplacez jobID par le jobID de votre application.
 
@@ -118,7 +118,7 @@ Nous adoptons une approche open source et basée sur la communauté pour les req
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Analytique des journaux d'activité](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Bien démarrer avec les requêtes de journal d’activité Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-- [Créer et gérer des groupes d’alertes dans le portail Azure](../../azure-monitor/platform/action-groups.md)
+- [Bien démarrer avec les requêtes de journal d’activité Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+- [Créer et gérer des groupes d’alertes dans le portail Azure](../../azure-monitor/alerts/action-groups.md)
 - [Installer et utiliser les vues Log Analytics pour Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [API de journaux de provisionnement](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

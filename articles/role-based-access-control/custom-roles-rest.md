@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790185"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557522"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide de l’API REST
 
@@ -341,5 +341,5 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Rôle personnalisés Azure](custom-roles.md)
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md)
+- [Attribuer des rôles Azure à l’aide de l’API REST](role-assignments-rest.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)

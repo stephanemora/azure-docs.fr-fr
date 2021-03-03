@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913722"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535278"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 
@@ -35,7 +35,7 @@ Commencez par créer un équilibreur de charge Standard public en utilisant le p
 1. Dans la zone de recherche, tapez **équilibreur de charge**. Sous **Place de marché** dans les résultats de la recherche, choisissez **Équilibreur de charge**.
 1. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre                 | Value   |
+    | Paramètre                 | Valeur   |
     | ---| ---|
     | Abonnement  | Sélectionnez votre abonnement.    |    
     | Resource group | Sélectionnez **Créer**, puis entrez *myVMSSResourceGroup* dans la zone de texte.|
@@ -57,7 +57,7 @@ Commencez par créer un équilibreur de charge Standard public en utilisant le p
 Vous pouvez déployer un groupe identique avec une image Windows Server ou une image Linux, comme RHEL, CentOS, Ubuntu ou SLES.
 
 1. Tapez **Groupe identique** dans la zone de recherche. Dans les résultats, sous **Place de marché**, sélectionnez **Groupes de machines virtuelles identiques**. Sélectionnez **Créer** dans la page **Groupes de machines virtuelles identiques** pour ouvrir la page **Créer un groupe de machines virtuelles identiques**. 
-1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myVMSSResourceGroup* pour le nom, puis sélectionnez **OK**. 
+1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement correct est sélectionné, puis sélectionnez *myVMSSResourceGroup* dans la liste des groupes de ressources. 
 1. Tapez *myScaleSet* comme nom de votre groupe identique.
 1. Dans **Région**, sélectionnez une région proche de vous.
 1. Sélectionnez une image de la place de marché pour **Image**. Dans cet exemple, nous avons choisi *Ubuntu Server 18.04 LTS*.

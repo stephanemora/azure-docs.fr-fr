@@ -1,22 +1,18 @@
 ---
 title: Migrer des données d’Amazon S3 vers Azure Data Lake Storage Gen2
 description: Découvrez comment utiliser un modèle de solution pour migrer des données d’Amazon S3 à l’aide d’une table de contrôle externe pour stocker une liste de partitions sur AWS S3 avec Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398218"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361981"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrer des données d’Amazon S3 vers Azure Data Lake Storage Gen2
 
@@ -119,7 +115,7 @@ Le modèle contient deux paramètres :
 
     ![Capture d’écran montrant les deux pipelines et trois jeux de données créés à l’aide du modèle.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
+6. Accédez au pipeline « BulkCopyFromS3 » et sélectionnez **Déboguer**, puis entrez les **paramètres**. Ensuite, sélectionnez **Finish**.
 
     ![Capture d’écran montrant où sélectionner Déboguer et entrer les paramètres avant de sélectionner Terminer.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -182,7 +178,7 @@ Le modèle contient deux paramètres :
 
     ![Passer en revue le pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
+6.  Accédez au pipeline « DeltaCopyFromS3 » et sélectionnez **Déboguer**, puis entrez les **paramètres**. Ensuite, sélectionnez **Finish**.
 
     ![Cliquez sur **Déboguer**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

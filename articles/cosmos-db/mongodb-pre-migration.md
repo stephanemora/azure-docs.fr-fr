@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349416"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656956"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -71,7 +71,7 @@ Cette commande génère un document JSON semblable au suivant :
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).  
+Vous pouvez également utiliser [les paramètres de diagnostic](cosmosdb-monitor-resource-logs.md) pour comprendre la fréquence et les modèles des requêtes exécutées sur Azure Cosmos DB. Les résultats des journaux de diagnostic peuvent être envoyés à un compte de stockage, à une instance EventHub ou à [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Choisir votre clé de partition
 Le partitionnement est un point clé à prendre en compte avant de migrer des données. Azure Cosmos DB utilise un partitionnement complètement managé pour augmenter la capacité d’une base de données à répondre aux exigences de stockage et de débit. Cette fonctionnalité n’a pas besoin de l’hébergement ni de la configuration des serveurs de routage.   
@@ -80,7 +80,7 @@ D’une façon similaire, la fonctionnalité de partitionnement ajoute automatiq
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexer vos données
 
-L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6 indexe automatiquement uniquement le champ `_id`. Ce champ ne peut pas être supprimé. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Pour indexer des champs supplémentaires, appliquez les commandes de gestion d’index MongoDB. Cette stratégie d’indexation par défaut est différente de celle de l’API SQL Azure Cosmos DB, qui indexe tous les champs par défaut.
+L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6 et ultérieure indexe automatiquement seulement le champ `_id`. Ce champ ne peut pas être supprimé. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Pour indexer des champs supplémentaires, vous appliquez les [commandes de gestion d’index MongoDB](mongodb-indexing.md). Cette stratégie d’indexation par défaut est différente de celle de l’API SQL Azure Cosmos DB, qui indexe tous les champs par défaut.
 
 Les capacités d’indexation fournies par Azure Cosmos DB incluent l’ajout d’index composites, d’index uniques et d’index de durée de vie (index TTL). L’interface de gestion d’index est mappée à la commande `createIndex()`. Pour en savoir plus, consultez [Indexation dans l’API Azure Cosmos DB pour MongoDB](mongodb-indexing.md).
 

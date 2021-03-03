@@ -9,20 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 8b216fafad5cd2f7406320dce3ec28b8830015d7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655983"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673761"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec clustering de basculement Windows Server et disque partagé Azure
 
@@ -36,8 +35,8 @@ Cet article explique comment passer d'une installation ASCS/SCS unique à une co
 Vous pouvez actuellement utiliser des disques SSD Premium Azure en tant que disque partagé Azure pour l'instance SAP ASCS/SCS. Les limitations suivantes s'appliquent :
 
 -  Le [disque Ultra Azure](../../disks-types.md#ultra-disk) n'est pas pris en charge en tant que disque partagé Azure pour les charges de travail SAP. Il est actuellement impossible de placer des machines virtuelles Azure dans un groupe à haute disponibilité à l'aide d'un disque Ultra Azure.
--  Le [disque partagé Azure](../../disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de Zones de disponibilité. 
--  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, vous configurez deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
+-  Le [disque partagé Azure](../../disks-shared.md) avec disques SSD Premium n'est pris en charge qu'avec les machines virtuelles d'un groupe à haute disponibilité. Il n'est pas pris en charge dans le cadre d'un déploiement de zones de disponibilité. 
+-  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, on configure deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
 -  Toutes les machines virtuelles en cluster SAP ASCS/SCS doivent être déployées dans le même [groupe de placement de proximité Azure](../../windows/proximity-placement-groups.md).   
    Bien qu'il soit possible de déployer des machines virtuelles en cluster Windows dans un groupe à haute disponibilité avec un disque partagé Azure sans groupe de placement de proximité, le groupe de placement de proximité garantira une proximité physique étroite des disques partagés Azure et des machines virtuelles en cluster, réduisant ainsi la latence entre les machines virtuelles et la couche de stockage.    
 
@@ -59,8 +58,8 @@ Windows Server 2016 et Windows Server 2019 sont tous deux pris en charge (util
 
 Nous vous recommandons vivement d'utiliser **Windows Server 2019 Datacenter**, car :
 - Le service de cluster de basculement Windows 2019 est compatible avec Azure.
-- L'intégration et la sensibilisation à la maintenance de l'hôte Azure sont renforcées, et l'expérience est améliorée grâce à la surveillance des événements de planification Azure.
-- Il est possible d'utiliser le nom du réseau distribué (il s'agit de l'option par défaut). Il n'est donc pas nécessaire d'avoir une adresse IP dédiée pour le nom réseau du cluster. En outre, il n'est pas nécessaire de configurer cette adresse IP sur l'équilibreur de charge interne Azure. 
+- L'intégration et la compatibilité de la maintenance de l'hôte Azure sont renforcées, et l'expérience est améliorée grâce à la supervision des événements de planification Azure.
+- Il est possible d'utiliser le nom de réseau distribué (option par défaut). Il n'est donc pas nécessaire de disposer d’une adresse IP dédiée pour le nom réseau du cluster. En outre, il n'est pas nécessaire de configurer cette adresse IP sur l'équilibreur de charge interne Azure. 
 
 ## <a name="architecture"></a>Architecture
 
@@ -275,15 +274,15 @@ Choisissez le disque partagé nouvellement créé.
 
 ### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a>Modifier le profil SAP de l'instance ASCS/SCS
 
-Si vous exécutez Enqueue Replication Server 1, ajoutez le paramètre de profil SAP `enque/encni/set_so_keepalive`, comme décrit ci-dessous. Ce paramètre de profil empêche les connexions entre les processus de travail SAP et le serveur de mise en file d’attente de se fermer lorsqu’elles sont inactives pendant trop longtemps. Le paramètre SAP n'est pas nécessaire pour ERS2. 
+Si vous exécutez Enqueue Replication Server 1, ajoutez le paramètre de profil SAP `enque/encni/set_so_keepalive`, comme décrit ci-dessous. Ce paramètre de profil empêche les connexions entre les processus de travail SAP et le serveur de mise en file d’attente de se fermer lorsqu’elles sont inactives pendant trop longtemps. Le paramètre SAP n’est pas nécessaire pour ERS2. 
 
-1. Si vous utilisez ERS1, ajoutez ce paramètre de profil au profil de l'instance SAP ASCS/SCS.
+1. Si vous utilisez ERS1, ajoutez ce paramètre de profil au profil de l’instance SAP ASCS/SCS.
 
    ```
    enque/encni/set_so_keepalive = true
    ```
    
-   Pour ERS1 et ERS2, assurez-vous que les paramètres de système d'exploitation `keepalive` sont définis comme décrit dans la note SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
+   Pour ERS1 et ERS2, assurez-vous que les paramètres de système d’exploitation `keepalive` sont définis comme décrit dans la note SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
 
 2. Pour appliquer les changements de paramètres du profil SAP, redémarrez l'instance SAP ASCS/SCS.
 
@@ -291,7 +290,7 @@ Si vous exécutez Enqueue Replication Server 1, ajoutez le paramètre de profil 
 
 Utilisez la fonctionnalité de sondage de l’équilibrage de charge interne pour que la configuration de cluster entière fonctionne avec Azure Load Balancer. Généralement, l’équilibrage de charge interne Azure répartit équitablement la charge de travail entrante entre les machines virtuelles participantes.
 
-Toutefois, cela ne fonctionne pas dans certaines configurations de cluster, car une seule instance est active. L’autre instance est passive et ne peut accepter aucune partie de la charge de travail. La fonctionnalité de sondage est utile lorsque l'équilibreur de charge interne Azure détecte quelle instance est active, et ne cible que l'instance active.  
+Toutefois, cela ne fonctionne pas dans certaines configurations de cluster, car une seule instance est active. L’autre instance est passive et ne peut accepter aucune partie de la charge de travail. La fonctionnalité de sondage est utile quand l’équilibreur de charge interne Azure détecte quelle instance est active, et ne cible que l’instance active.  
 
 > [!IMPORTANT]
 > Dans cet exemple de configuration, le paramètre **ProbePort** est défini sur 620 **Nr**. Pour l'instance SAP ASCS portant le numéro **02**, il est défini sur 620 **02**.

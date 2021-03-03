@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.openlocfilehash: e69781bf6d33c176d27c16a7f3cf38539ec28f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.subservice: image-builder
+ms.collection: linux
+ms.openlocfilehash: cd5027ca6e0ce3dc02da14b7dd6afd6e00e3f92d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678236"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669432"
 ---
 # <a name="azure-image-builder-service-networking-options"></a>Options de mise en réseau du service Azure Image Builder
 
@@ -89,4 +90,4 @@ Le service Liaison privée requiert une adresse IP du réseau virtuel et du sous
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [Vue d’ensemble d’Azure Image Builder](../image-builder-overview.md).
+Pour plus d’informations, consultez [Vue d’ensemble d’Azure VM Image Builder](../image-builder-overview.md).

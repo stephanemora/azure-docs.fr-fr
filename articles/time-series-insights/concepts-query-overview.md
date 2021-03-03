@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736749"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374131"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Interrogation des données à partir d’Azure Time Series Insights Gen2
 
@@ -54,13 +54,12 @@ La plupart de ces API prennent en charge l’opération d’exécution par lot p
 
 ## <a name="time-series-query-tsq-apis"></a>API de requête de série chronologique (TSQ)
 
-Ces API sont disponibles dans les deux magasins (chaud et froid) de notre solution de stockage multicouche. Les paramètres URL de requête permettent de spécifier le [type de stockage](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) sur lequel la requête doit s’exécuter :
+Ces API sont disponibles dans les deux magasins (chaud et froid) de notre solution de stockage multicouche. 
 
 * [API Obtenir les événements](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) : permet l’interrogation et l’extraction d’événements bruts et des timestamps d’événements associés tels qu’ils sont enregistrés dans Azure Time Series Insights Gen2 à partir du fournisseur de source. Cette API permet de récupérer des événements bruts pour un ID Time Series donné et une étendue de recherche. Cette API prend en charge la pagination pour récupérer le jeu de données de réponse complet pour l’entrée sélectionnée.
 
   > [!IMPORTANT]
-
-  > * Dans le cadre des [modifications à venir des règles de mise à plat et d’échappement au format JSON](./ingestion-rules-update.md), les tableaux sont stockés sous le type **Dynamique**. Les propriétés de charge utile stockées sous ce type sont **accessibles UNIQUEMENT par le biais de l’API d’extraction d’événements**.
+  > Dans le cadre des [modifications à venir des règles de mise à plat et d’échappement au format JSON](./ingestion-rules-update.md), les tableaux sont stockés sous le type **Dynamique**. Les propriétés de charge utile stockées sous ce type sont **accessibles UNIQUEMENT par le biais de l’API d’extraction d’événements**.
 
 * [API Obtenir les séries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) : Active l’interrogation et la récupération des valeurs calculées et des timestamps d’événements associés en appliquant des calculs définis par des variables sur des événements bruts. Ces variables peuvent être définies dans le modèle Time Series ou fournies inline dans la requête. Cette API prend en charge la pagination pour récupérer le jeu de données de réponse complet pour l’entrée sélectionnée.
 
@@ -69,6 +68,16 @@ Ces API sont disponibles dans les deux magasins (chaud et froid) de notre soluti
   Pour une étendue de recherche et un intervalle spécifiés, cette API renvoie une réponse agrégée par intervalle et par variable pour un ID de série chronologique. Le nombre d’intervalles dans le jeu de données de réponse est calculé en comptant les cycles d’époque (le nombre de millisecondes qui se sont écoulées depuis l’époque UNIX - 1er janvier 1970) et en divisant les cycles par la taille de l’intervalle de temps spécifiée dans la requête.
 
   Les timestamps retournés dans le jeu de réponses sont des limites de l’intervalle gauche, et non des événements échantillonnés à partir de l’intervalle.
+
+
+### <a name="selecting-store-type"></a>Sélection du type de magasin
+
+Les API ci-dessus ne peuvent s’exécuter que sur l’un des deux types de stockage (froid ou chaud) dans un seul appel. Les paramètres URL de requête permettent de spécifier le [type de stockage](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) sur lequel la requête doit s’exécuter. 
+
+Si aucun paramètre n’est spécifié, la requête est exécutée dans le stockage froid par défaut. Si une requête s’étend sur une plage de temps qui chevauche à la fois le stockage froid et le stockage chaud, il est recommandé de router la requête vers le stockage froid pour une expérience optimale, puisque le stockage chaud contient uniquement des données partielles. 
+
+L’[Explorateur Time Series Insights](./concepts-ux-panels.md) et le [connecteur Power BI](./how-to-connect-power-bi.md) effectuent des appels aux API ci-dessus et sélectionnent automatiquement le paramètre storeType approprié, si besoin. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

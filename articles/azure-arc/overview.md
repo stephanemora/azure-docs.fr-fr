@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble d’Azure Arc
 description: Découvrez ce qu’est le service Azure Arc et comment il permet aux clients d’activer la gestion et la gouvernance de leurs ressources hybrides avec d’autres services et fonctionnalités Azure.
-ms.date: 09/23/2020
+ms.date: 03/02/2021
 ms.topic: overview
-ms.openlocfilehash: 8f39dff16037b5f52a050b7d07193b0ad7cab93d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 33c9d6ca87c3d8d2d8920ff429902f5876bbdc59
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672684"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650190"
 ---
 # <a name="azure-arc-overview"></a>Vue d’ensemble d’Azure Arc
 
-Aujourd’hui, les entreprises éprouvent des difficultés à contrôler et à gérer un environnement qui devient de plus en plus complexe. Ces environnements s’étendent aux centres de données, à plusieurs clouds et à la périphérie. Chaque environnement et chaque cloud a son propre ensemble d’outils de gestion différents que vous devez découvrir et utiliser.
+Aujourd’hui, les entreprises éprouvent des difficultés à contrôler et à gérer des environnements de plus en plus complexes. Ces environnements s’étendent aux centres de données, à plusieurs clouds et à la périphérie. Chaque environnement et chaque cloud a son propre ensemble d’outils de gestion dont vous devez apprendre à vous servir.
 
 En parallèle, il est difficile d’implémenter de nouveaux modèles opérationnels DevOps et ITOps, car les outils existants ne prennent pas en charge les nouveaux modèles cloud natifs.
 
@@ -36,11 +36,11 @@ Les fonctionnalités clés d’Azure Arc sont les suivantes :
 
 * Gérer et régir les clusters Kubernetes à grande échelle.
 
-* Utiliser la configuration basée sur GitOps comme gestion du code pour déployer les applications et la configuration sur un ou plusieurs clusters directement à partir du contrôle de code source, comme GitHub.
+* Utilisez GitOps pour déployer la configuration sur un ou plusieurs clusters à partir de dépôts Git.
 
-* Conformité et configuration sans intervention pour vos clusters Kubernetes à l’aide d’Azure Policy.
+*  Conformité et configuration sans intervention pour vos clusters Kubernetes à l’aide d’Azure Policy.
 
-* Exécuter les services de données Azure sur n’importe quel environnement Kubernetes, en particulier Azure SQL Managed Instance et Azure Database pour PostgreSQL Hyperscale, avec des avantages tels que les mises à niveau/mises à jour, la sécurité et la supervision, comme s’ils s’exécutaient dans Azure. Tirer parti de la mise à l’échelle élastique, appliquer des mises à jour sans temps d’arrêt minimal de l’application, même si elle ne dispose pas d’une connexion continue à Azure.
+* Exécuter les services de données Azure sur n’importe quel environnement Kubernetes comme s’ils s’exécutaient dans Azure (en particulier Azure SQL Managed Instance et Azure Database pour PostgreSQL Hyperscale, avec des avantages tels que les mises à niveau et mises à jour, la sécurité et la supervision). Utiliser la mise à l’échelle élastique, appliquer des mises à jour sans temps d’arrêt de l’application, même sans connexion continue à Azure
 
 * Une expérience unifiée de l’affichage de vos ressources Azure Arc activées, que vous utilisiez le portail Azure, l’interface Azure CLI, Azure PowerShell ou l’API REST Azure.
 
@@ -50,7 +50,7 @@ Voici les détails du tarif des fonctionnalités disponibles aujourd’hui avec 
 
 ### <a name="arc-enabled-servers"></a>Serveurs avec Arc
 
-La fonctionnalité de plan de contrôle Azure Arc est proposée sans coût supplémentaire. notamment :
+Les fonctionnalités suivantes du plan de contrôle Azure Arc sont proposées sans coût supplémentaire :
 
 * Organisation des ressources avec les groupes d'administration et les étiquettes Azure
 
@@ -62,11 +62,11 @@ La fonctionnalité de plan de contrôle Azure Arc est proposée sans coût suppl
 
 * Gestion des mises à jour
 
-Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/).
+Tout service Azure utilisé sur des serveurs avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Kubernetes avec Azure Arc
 
-Dans la phase de préversion actuelle, Kubernetes avec Azure Arc est proposé sans frais supplémentaires.
+Tout service Azure qui est utilisé sur Kubernetes avec Arc, par exemple Azure Security Center ou Azure Monitor, sera facturé sur la base des tarifs de ce service. Pour plus d’informations sur les tarifs des configurations Kubernetes avec Azure Arc, consultez la [page des tarifs Azure](https://azure.microsoft.com/pricing/).
 
 ### <a name="azure-arc-enabled-data-services"></a>Services de données avec Azure Arc
 

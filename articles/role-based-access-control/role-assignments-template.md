@@ -1,25 +1,29 @@
 ---
-title: Ajouter des attributions de rôle Azure avec des modèles Azure Resource Manager - Azure RBAC
+title: Attribuer des rôles Azure avec des modèles Azure Resource Manager - Azure RBAC
 description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide des modèles Azure Resource Manager et du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 023aa086cdafc3ab1459c2f748b2181575c14191
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556015"
 ---
-# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Ajouter des attributions de rôle Azure à l’aide de modèles Azure Resource Manager
+# <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Attribuer des rôles Azure avec des modèles Azure Resource Manager
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] En plus d’utiliser Azure PowerShell ou l’interface Azure CLI, vous pouvez attribuer des rôles à l’aide des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article explique comment attribuer des rôles à l’aide de modèles.
+
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="get-object-ids"></a>Récupérer des ID d’objet
 
@@ -73,13 +77,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
+## <a name="assign-an-azure-role"></a>Affecter un rôle Azure
 
-Dans Azure RBAC, vous ajoutez une attribution de rôle pour accorder l’accès.
+Dans Azure RBAC, vous attribuez un rôle pour accorder un accès.
 
 ### <a name="resource-group-scope-without-parameters"></a>Étendue du groupe de ressources (sans paramètres)
 
-Le modèle suivant montre comment ajouter de façon très simple une attribution de rôle. Certaines valeurs sont spécifiées dans le modèle. Le modèle suivant montre comment :
+Le modèle suivant illustre une façon très simple d’attribuer un rôle. Certaines valeurs sont spécifiées dans le modèle. Le modèle suivant montre comment :
 
 -  Attribuer un rôle [lecteur](built-in-roles.md#reader) à un utilisateur, un groupe ou une application dans une étendue de groupe de ressources
 
@@ -206,7 +210,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### <a name="resource-scope"></a>Étendue des ressources
 
-Si vous avez besoin d’ajouter une attribution de rôle au niveau d’une ressource, définissez la propriété `scope` de l’attribution de rôle à l’aide du nom de la ressource.
+Si vous avez besoin d’attribuer un rôle au niveau d’une ressource, définissez la propriété `scope` de l’attribution de rôle sur le nom de la ressource.
 
 Le modèle suivant montre comment :
 
@@ -369,15 +373,6 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 L’exemple suivant illustre l’attribution du rôle contributeur à un nouveau principal de service d’identité managée après le déploiement du modèle.
 
 ![Attribution de rôle pour un nouveau principal de service d’identité managée](./media/role-assignments-template/role-assignment-template-msi.png)
-
-## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
-
-Dans Azure RBAC, vous devez supprimer l’attribution de rôle pour supprimer l’accès à une ressource Azure. Il n’existe aucun moyen de supprimer une attribution de rôle à l’aide d’un modèle. Pour supprimer une attribution de rôle, vous devez utiliser d’autres outils tels que :
-
-- [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
-- [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

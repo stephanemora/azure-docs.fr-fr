@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546746"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583722"
 ---
 # <a name="troubleshooting"></a>Dépannage
 
@@ -62,7 +62,7 @@ Vérifiez la configuration des alertes classiques pour confirmer que votre adres
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Je n’ai pas reçu la notification webhook.
 
-Vérifiez que l’application qui reçoit la notification webhook est disponible et traite correctement les requêtes webhook. Pour plus d’informations, consultez [ceci](../platform/alerts-log-webhook.md).
+Vérifiez que l’application qui reçoit la notification webhook est disponible et traite correctement les requêtes webhook. Pour plus d’informations, consultez [ceci](../alerts/alerts-log-webhook.md).
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Je reçois des erreurs 403 Interdit. Qu’est-ce que cela signifie ?
 
@@ -113,7 +113,7 @@ Non pris en charge actuellement.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
 
-Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et la nouvelle expérience d'alerte, reportez-vous à l'[article de présentation des alertes](../platform/alerts-overview.md). Pour contrôler la notification des alertes dans la nouvelle expérience d'alerte, utilisez des [groupes d'actions](../platform/action-groups.md).
+Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../alerts/alerts-classic.overview.md) et la nouvelle expérience d'alerte, reportez-vous à l'[article de présentation des alertes](../alerts/alerts-overview.md). Pour contrôler la notification des alertes dans la nouvelle expérience d'alerte, utilisez des [groupes d'actions](../alerts/action-groups.md).
 
 * Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes classiques.
 
@@ -124,7 +124,7 @@ Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimise
 > [!NOTE]
 > Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
 
-Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d'actions](../platform/action-groups.md), vous pouvez configurer des notifications par e-mail à l'intention des utilisateurs dotés du rôle de contributeur, de propriétaire ou de lecteur (rôles non combinés en une même option).
+Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d'actions](../alerts/action-groups.md), vous pouvez configurer des notifications par e-mail à l'intention des utilisateurs dotés du rôle de contributeur, de propriétaire ou de lecteur (rôles non combinés en une même option).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,22 +1,17 @@
 ---
 title: Superviser une activité de copie
 description: Découvrez comment surveiller l’activité de copie dans Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440607"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388292"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 
@@ -67,7 +62,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | throughput | Taux de transfert de données. | Nombre à virgule flottante, en Kbits/s |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int32 (aucune unité) |
 | sinkPeakConnections| Nombre maximal de connexions simultanées établies vers le magasin de données récepteur lors de l’exécution de l’activité de copie.| Valeur Int32 (aucune unité) |
-| sqlDwPolyBase | Indique si PolyBase est utilisé lorsque les données sont copiées dans Azure Synapse Analytics (anciennement SQL Data Warehouse). | Boolean |
+| sqlDwPolyBase | Indique si PolyBase est utilisé lorsque les données sont copiées dans Azure Synapse Analytics. | Boolean |
 | redshiftUnload | Indique si UNLOAD est utilisé lorsque les données sont copiées à partir de Redshift. | Boolean |
 | hdfsDistcp | Indique si DistCp est utilisé lorsque les données sont copiées à partir de HDFS. | Boolean |
 | effectiveIntegrationRuntime | Runtime d’intégration (IR) ou runtimes utilisés pour alimenter l’exécution de l’activité, au format `<IR name> (<region if it's Azure IR>)`. | Texte (chaîne) |

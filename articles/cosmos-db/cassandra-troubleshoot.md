@@ -5,14 +5,14 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 6d9a74729768a326379b5efddb864a4fee02fa59
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f9b6e586879b8697660ced7aa6f1e75083e3ee29
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493212"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658569"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Résoudre des problèmes courants dans l’API Cassandra dans Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -32,7 +32,7 @@ Voici quelques causes et solutions populaires :
 Le message d’erreur suivant peut s’afficher : `Cannot connect to any host, scheduling retry in 600000 milliseconds`. 
 
 ### <a name="solution"></a>Solution
-Il peut s’agir de l’épuisement des ressources SNAT côté client. Pour écarter ce problème, suivez les étapes indiquées dans [SNAT pour les connexions sortantes](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections). Il peut également s’agir d’un problème de délai d’inactivité où l’équilibreur de charge Azure dispose d’un délai d’inactivité de quatre minutes par défaut. Consultez la documentation à la rubrique [Délai d’inactivité de l’équilibreur de charge](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Activez tcp-keep alive à partir des paramètres du pilote (voir [ci-dessous](#enable-keep-alive-for-java-driver)) et définissez l’intervalle `keepAlive` sur le système d’exploitation sur une valeur inférieure à quatre minutes.
+Il peut s’agir de l’épuisement des ressources SNAT côté client. Pour écarter ce problème, suivez les étapes indiquées dans [SNAT pour les connexions sortantes](../load-balancer/load-balancer-outbound-connections.md). Il peut également s’agir d’un problème de délai d’inactivité où l’équilibreur de charge Azure dispose d’un délai d’inactivité de quatre minutes par défaut. Consultez la documentation à la rubrique [Délai d’inactivité de l’équilibreur de charge](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). Activez tcp-keep alive à partir des paramètres du pilote (voir [ci-dessous](#enable-keep-alive-for-java-driver)) et définissez l’intervalle `keepAlive` sur le système d’exploitation sur une valeur inférieure à quatre minutes.
 
  
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782992"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580761"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer Azure SQL Database ou basculer vers une base de données secondaire
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ L'opération de récupération a un impact sur l'application. Elle requiert la m
 
 Selon la tolérance de votre application aux temps d’arrêt et la mise en cause potentielle de la responsabilité de votre entreprise, vous pouvez envisager les options de récupération suivantes.
 
-Utilisez [Obtenir une base de données récupérable](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* ) pour obtenir le dernier point de restauration avec réplication géographique.
+Utilisez [Obtenir une base de données récupérable](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) pour obtenir le dernier point de restauration avec réplication géographique.
 
 ## <a name="wait-for-service-recovery"></a>Attendre le rétablissement du service
 
@@ -109,7 +109,7 @@ Vous devez vous assurer que tous les identifiants de connexion utilisés par vot
 
 Vous devez vous assurer que vos paramètres de règles d’alerte existants sont mis à jour de manière à mapper à la base de données restaurée et à l’autre serveur.
 
-Pour en savoir plus, voir [Réception de notifications d’alerte](../../azure-monitor/platform/alerts-overview.md) et [Suivi de l’intégrité du service](../../service-health/service-notifications.md).
+Pour en savoir plus, voir [Réception de notifications d’alerte](../../azure-monitor/alerts/alerts-overview.md) et [Suivi de l’intégrité du service](../../service-health/service-notifications.md).
 
 ### <a name="enable-auditing"></a>Activer la fonction d’audit
 

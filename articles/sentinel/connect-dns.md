@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590229"
 ---
 # <a name="connect-your-domain-name-server"></a>Connecter votre serveur de noms de domaine
 
@@ -43,10 +43,10 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | **Source connectée** | **Support** | **Description** |
 | --- | --- | --- |
-| [Agents Windows](../azure-monitor/platform/agent-windows.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
-| [Agents Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
-| [Compte Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’est pas utilisé par la solution. |
+| [Agents Windows](../azure-monitor/agents/agent-windows.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
+| [Agents Linux](../azure-monitor/vm/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../azure-monitor/agents/om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| [Compte Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | Non | Le stockage Azure n’est pas utilisé par la solution. |
 
 ### <a name="data-collection-details"></a>Détails sur la collecte de données
 

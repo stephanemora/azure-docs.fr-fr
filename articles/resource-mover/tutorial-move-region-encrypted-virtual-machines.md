@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981873"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361007"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Tutoriel : Déplacer des machines virtuelles Azure chiffrées d’une région à une autre
 
@@ -54,26 +54,49 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 **Frais de la région cible** | Vérifiez le tarif et les frais associés à la région cible vers laquelle vous déplacez des machines virtuelles. Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour vous aider.
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>Vérifier les autorisations du coffre de clés (Azure Disk Encryption)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Vérifier les autorisations utilisateur sur le coffre de clés pour les machines virtuelles à l’aide d’Azure Disk Encryption (ADE)
 
-Si vous déplacez des machines virtuelles sur lesquelles Azure Disk Encryption est activé, dans les coffres de clés dans les régions source et de destination, vérifiez/définissez les autorisations pour être certain que le déplacement des machines virtuelles chiffrées fonctionnera comme prévu. 
+Si vous déplacez des machines virtuelles sur lesquelles Azure Disk Encryption est activé, vous devez exécuter un script comme indiqué [ci-dessous](#copy-the-keys-to-the-destination-key-vault) pour lequel l’utilisateur qui exécute le script doit disposer des autorisations appropriées. Reportez-vous au tableau ci-dessous pour en savoir plus sur les autorisations nécessaires. Les options permettant de modifier les autorisations sont accessibles en accédant au coffre de clés dans le portail Azure. Sous **Paramètres**, sélectionnez **Stratégies d’accès**.
 
-1. Dans le portail Azure, ouvrez le coffre de clés dans la région source.
-2. Sous **Paramètres**, sélectionnez **Stratégies d’accès**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Bouton permettant d’ouvrir les stratégies d’accès au coffre de clés." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Bouton permettant d’ouvrir les stratégies d’accès au coffre de clés." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+S’il n’y a pas d’autorisations utilisateur, sélectionnez **Ajouter une stratégie d’accès** et spécifiez les autorisations. Si le compte d’utilisateur a déjà une stratégie, sous **Utilisateur**, définissez les autorisations selon le tableau ci-dessous.
 
-3. S’il n’y a pas d’autorisations utilisateur, sélectionnez **Ajouter une stratégie d’accès** et spécifiez les autorisations. Si le compte d’utilisateur a déjà une stratégie, sous **Utilisateur**, définissez les autorisations.
+Les machines virtuelles Azure utilisant ADE peuvent présenter les variations suivantes et les autorisations doivent être définies en conséquence pour les composants appropriés.
+- Option par défaut avec laquelle le disque est chiffré à l’aide de secrets uniquement
+- Sécurité accrue avec la [clé de chiffrement principale](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - Si Azure Disk Encryption est activé pour les machines virtuelles que vous souhaitez déplacer, dans **Autorisations de clés** > **Opérations de gestion des clés**, sélectionnez **Obtenir** et **Lister** si ces autorisations ne sont pas sélectionnées.
-    - Si vous utilisez des clés gérées par le client (clés CMK) pour chiffrer les clés de chiffrement de disque utilisées pour le chiffrement au repos (chiffrement côté serveur), dans **Autorisations de clés** > **Opérations de gestion des clés**, sélectionnez **Obtenir** et **Lister**. De plus, dans **Opérations de chiffrement**, sélectionnez **Déchiffrer** et **Chiffrer.**
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Liste déroulante pour sélectionner les autorisations du coffre de clés." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>Coffre de clés de la région source
 
-4. Dans **Autorisations du secret**, **Opérations de gestion des secrets**, sélectionnez **Obtenir**, **Lister** et **Définir**. 
-5. Si vous affectez des autorisations à un nouveau compte d’utilisateur, dans **Sélectionner le principal**, sélectionnez l’utilisateur auquel vous affectez des autorisations.
-6. Dans **Stratégies d’accès**, vérifiez que **Azure Disk Encryption pour chiffrer des volumes** est activé.
-7. Répétez la procédure pour le coffre de clés dans la région de destination.
+Les autorisations ci-dessous doivent être définies pour l’utilisateur qui exécute le script 
+
+**Composant** | **Autorisation requise**
+--- | ---
+Secrets|  Autorisation Get <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Get** 
+Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get et Decrypt <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get**. Dans **Opérations de chiffrement**, sélectionnez **Decrypt**.
+
+### <a name="destination-region-keyvault"></a>Coffre de clés de la région de destination
+
+Dans **Stratégies d’accès**, vérifiez que **Azure Disk Encryption pour chiffrer des volumes** est activé. 
+
+Les autorisations ci-dessous doivent être définies pour l’utilisateur qui exécute le script 
+
+**Composant** | **Autorisation requise**
+--- | ---
+Secrets|  Autorisation Set <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Set** 
+Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get, Create et Encrypt <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get** et **Create**. Dans **Opérations de chiffrement**, sélectionnez **Encrypt**.
+
+Outre les autorisations ci-dessus, dans le coffre de clés de destination, vous devez ajouter des autorisations pour l’identité [Managed Service Identity](./common-questions.md#how-is-managed-identity-used-in-resource-mover) utilisée par Resource Mover pour accéder aux ressources Azure en votre nom. 
+
+1. Sous **Paramètres**, sélectionnez **Ajouter des stratégies d’accès**. 
+2. Dans **Sélectionner le principal**, recherchez l’identité MSI. Le nom MSI est ```movecollection-<sourceregion>-<target-region>-<metadata-region>```. 
+3. Ajoutez les autorisations ci-dessous pour l’identité MSI
+
+**Composant** | **Autorisation requise**
+--- | ---
+Secrets|  Autorisations Get et List <br> </br> Dans **Autorisations de secret**>  **Opérations de gestion des secrets**, sélectionnez **Get** et **List** 
+Keys <br> </br> Si vous utilisez la clé de chiffrement principale, vous avez besoin de cette autorisation en plus des secrets| Autorisations Get, List <br> </br> Dans **Autorisations de clé** > **Opérations de gestion des clés**, sélectionnez **Get** et **List**
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copier les clés dans le coffre de clés de destination

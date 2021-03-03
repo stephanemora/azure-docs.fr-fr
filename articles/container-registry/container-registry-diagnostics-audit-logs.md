@@ -3,16 +3,16 @@ title: Collecter et analyser les journaux de ressources
 description: Enregistrez et analysez les événements des journaux des ressources pour Azure Container Registry tels que l’authentification, l’envoi (push) d’images et le tirage (pull) d’images.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 8b05d34e6c50fea3760e30d28f59e55d8c5f211a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 952f239e94df6b3b21317985f56d3d7a999813fe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348583"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571997"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics
 
-Cet article explique comment collecter des données de journal pour un registre de conteneurs Azure à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte les [journaux de ressources](../azure-monitor/platform/platform-logs-overview.md) (anciennement appelés *journaux de diagnostic*) pour les événements pilotés par l’utilisateur dans votre registre. Collectez et utilisez ces données pour répondre à des besoins tels que :
+Cet article explique comment collecter des données de journal pour un registre de conteneurs Azure à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte les [journaux de ressources](../azure-monitor/essentials/platform-logs-overview.md) (anciennement appelés *journaux de diagnostic*) pour les événements pilotés par l’utilisateur dans votre registre. Collectez et utilisez ces données pour répondre à des besoins tels que :
 
 * Auditer les événements d’authentification du registre pour garantir la sécurité et la conformité 
 
@@ -39,21 +39,21 @@ Les journaux de ressource contiennent des informations émises par des ressource
 
 * **ContainerRegistryLoginEvents** - Événements et état d’authentification du registre, y compris l’identité entrante et l’adresse IP
 * **ContainerRegistryRepositoryEvents** - Opérations telles que « push and pull » (envoyer et tirer) pour les images et autres artefacts dans les référentiels de registre
-* **AzureMetrics** - [Métriques du registre des conteneurs](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries), tels que le nombre agrégé d’opérations d’envoi (push) et de tirage (pull).
+* **AzureMetrics** - [Métriques du registre des conteneurs](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerregistryregistries), tels que le nombre agrégé d’opérations d’envoi (push) et de tirage (pull).
 
 Pour les opérations, les données de journal incluent :
   * L’état de réussite ou d’échec
   * Les horodatages de début et de fin
 
-Outre les journaux de ressources, Azure fournit un [journal d’activité](../azure-monitor/platform/platform-logs-overview.md), un enregistrement unique d’événements de gestion Azure au niveau de l’abonnement, tels que la création ou la suppression d’un registre de conteneurs.
+Outre les journaux de ressources, Azure fournit un [journal d’activité](../azure-monitor/essentials/platform-logs-overview.md), un enregistrement unique d’événements de gestion Azure au niveau de l’abonnement, tels que la création ou la suppression d’un registre de conteneurs.
 
 ## <a name="enable-collection-of-resource-logs"></a>Permet la collecte des journaux de ressources
 
-La collecte des journaux de ressources pour un registre de conteneurs n’est pas activée par défaut. Activez explicitement les paramètres de diagnostic pour chaque registre à surveiller. Pour les options permettant d’activer les paramètre de diagnostic, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../azure-monitor/platform/diagnostic-settings.md).
+La collecte des journaux de ressources pour un registre de conteneurs n’est pas activée par défaut. Activez explicitement les paramètres de diagnostic pour chaque registre à surveiller. Pour les options permettant d’activer les paramètre de diagnostic, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../azure-monitor/essentials/diagnostic-settings.md).
 
 Par exemple, pour afficher les journaux et les métriques d’un registre de conteneurs quasiment en temps réel dans Azure Monitor, collectez les journaux des ressources dans un espace de travail Log Analytics. Pour activer ce paramètre de diagnostic à l’aide du Portail Azure :
 
-1. Si vous n’avez pas encore d’espace de travail, créez-en un à l’aide du [Portail Azure](../azure-monitor/learn/quick-create-workspace.md). Pour réduire la latence lors de la collecte de données, assurez-vous que l’espace de travail se trouve dans la **même région** que votre registre de conteneurs.
+1. Si vous n’avez pas encore d’espace de travail, créez-en un à l’aide du [Portail Azure](../azure-monitor/logs/quick-create-workspace.md). Pour réduire la latence lors de la collecte de données, assurez-vous que l’espace de travail se trouve dans la **même région** que votre registre de conteneurs.
 1. Dans le portail, sélectionnez le registre, puis sélectionnez **Surveillance > Paramètres de diagnostic > Ajouter un paramètre de diagnostic**.
 1. Entrez un nom pour le paramètre, puis sélectionnez **Envoyer à Log Analytics**.
 1. Sélectionnez l’espace de travail pour les journaux de diagnostic du registre.
@@ -81,9 +81,9 @@ L’image suivante présente un exemple de sortie :
 
 ![Interroger des données de journal](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
-Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le Portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), ou essayez l’[Environnement de démonstration](https://portal.loganalytics.io/demo) Log Analytics. 
+Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le Portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md), ou essayez l’[Environnement de démonstration](https://portal.loganalytics.io/demo) Log Analytics. 
 
-Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour plus d’informations sur les requêtes de journal, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="query-examples"></a>Exemples de requêtes
 
@@ -146,5 +146,5 @@ Vous pouvez également diffuser en continu les événements du journal de diagno
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) et la création de [requêtes de journal](../azure-monitor/log-query/get-started-queries.md).
-* Consultez [vue d’ensemble des journaux de plateforme Azure](../azure-monitor/platform/platform-logs-overview.md) pour en savoir plus sur les journaux de plateforme disponibles dans différentes couches d’Azure.
+* En savoir plus sur l’utilisation de [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) et la création de [requêtes de journal](../azure-monitor/logs/get-started-queries.md).
+* Consultez [vue d’ensemble des journaux de plateforme Azure](../azure-monitor/essentials/platform-logs-overview.md) pour en savoir plus sur les journaux de plateforme disponibles dans différentes couches d’Azure.

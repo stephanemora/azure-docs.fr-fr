@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 00aa24f0ff8c918c645239ca36888c6a214062c8
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 515921c4e69b7c2cff8e1055182503b5ce89971c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028758"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657143"
 ---
 # <a name="voice-and-video-concepts"></a>Concepts vocaux et vidéo
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Vous pouvez utiliser Azure Communication Services pour effectuer ou recevoir des appels un à un ou des appels vocaux et vidéos de groupe. Vos appels peuvent être dirigés vers d’autres appareils connectés à Internet et vers des téléphones traditionnels. Vous pouvez utiliser les bibliothèques de client JavaScript, Android ou iOS de Communication Services pour créer des applications qui permettent à vos utilisateurs de parler entre eux dans le cadre de conversations privées ou de discussions de groupe. Azure Communication Services prend en charge les appels vers et depuis des services ou des bots.
 
@@ -26,7 +24,7 @@ Vous pouvez utiliser Azure Communication Services pour effectuer ou recevoir des
 
 Plusieurs types d’appels peuvent être effectués dans Azure Communication Services. Le type d’appels que vous effectuez détermine votre schéma de signalisation, les flux de trafic de contenu multimédia et le modèle tarifaire.
 
-### <a name="voice-over-ip-voip"></a>Voix sur IP (VoIP) 
+### <a name="voice-over-ip-voip"></a>Voix sur IP (VoIP)
 
 Lorsqu’un utilisateur de votre application appelle un autre utilisateur de votre application via une connexion Internet ou une connexion de données, l’appel est effectué par le bais de la voix sur IP (VoIP). Dans ce cas, la signalisation et le contenu multimédia transitent par Internet.
 
@@ -43,14 +41,14 @@ Un appel un-à-un sur Azure Communication Services se produit lorsque l’un de 
 Un appel de groupe sur Azure Communication Services se produit lorsque trois participants ou plus se connectent les uns aux autres. Toute combinaison d’utilisateurs connectés par VoIP et RTPC peut être présente dans le cadre d’un appel de groupe. Un appel un-à-un peut être converti en appel de groupe par l’ajout de participants à l’appel. L’un de ces participants peut être un bot.
 
 ### <a name="supported-video-standards"></a>Normes vidéo prises en charge
-Nous prenons en charge H.264 (MPEG-4) 
+Nous prenons en charge H.264 (MPEG-4)
 
 ### <a name="video-quality"></a>Qualité vidéo
-Nous prenons en charge la norme Full HD 1080p sur les kits SDK natifs (iOS, Android). Pour le kit SDK Web (JS), nous prenons en charge la norme HD 720p. La qualité dépend de la bande passante disponible.  
+Nous prenons en charge la norme Full HD 1080p sur les kits SDK natifs (iOS, Android). Pour le kit SDK Web (JS), nous prenons en charge la norme HD 720p. La qualité dépend de la bande passante disponible.
 
 ### <a name="rooms-concept"></a>Concept des salles
 Les salles correspondent à un ensemble d’API et de kits SDK qui vous permettent d’ajouter facilement des interactions audio, vidéo, de partage d’écran, RTPC et SMS à votre site web ou application native.
-Dans cette préversion, vous pouvez utiliser l’ID de groupe pour rejoindre la même conversation. Vous pouvez créer autant d’ID de groupe que nécessaire et séparer les utilisateurs en « salles ». À l’avenir, plus de contrôles seront introduits autour des « salles ». 
+Dans cette préversion, vous pouvez utiliser l’ID de groupe pour rejoindre la même conversation. Vous pouvez créer autant d’ID de groupe que nécessaire et séparer les utilisateurs en « salles ». À l’avenir, plus de contrôles seront introduits autour des « salles ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -59,5 +57,5 @@ Dans cette préversion, vous pouvez utiliser l’ID de groupe pour rejoindre la 
 
 Pour plus d’informations, consultez les articles suivants :
 - Se familiariser avec les [flux d’appels](../call-flows.md) généraux
-- [Planifier votre solution RTPC](../telephony-sms/plan-solution.md)
+- [Types de numéro de téléphone](../telephony-sms/plan-solution.md)
 - Découvrir les [fonctionnalités des bibliothèques de client d’appel](../voice-video-calling/calling-sdk-features.md)

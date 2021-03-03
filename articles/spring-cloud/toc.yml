@@ -1,7 +1,7 @@
 - name: Documentation sur Azure Spring Cloud
   href: index.yml
   displayName: Azure Spring Cloud
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Spring Cloud\_?"
       href: spring-cloud-overview.md
@@ -59,7 +59,7 @@
   items:
     - name: Développer
       items:
-        - name: Préparer une application Java Spring pour le déploiement
+        - name: Préparer une application pour le déploiement
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configurer un serveur de configuration
           href: spring-cloud-tutorial-config-server.md
@@ -157,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
+  items:
+    - name: Architecture de référence
+      href: spring-cloud-reference-architecture.md
 - name: Déploiement DevOps
   items:
     - name: CI/CD avec Azure DevOps
@@ -177,7 +181,7 @@
       href: /powershell/module/az.springcloud
     - name: Ressources
       href: spring-cloud-resources.md
-    - name: Forum Aux Questions (FAQ)
+    - name: Forum aux questions
       href: spring-cloud-faq.md
     - name: Référence d’API REST
       href: /rest/api/azurespringcloud/

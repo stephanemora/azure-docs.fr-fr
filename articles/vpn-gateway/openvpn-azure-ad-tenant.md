@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3055c9dd1294af81c6c52603dd60bb5aa6075abd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390162"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Créer un locataire Azure Active Directory pour les connexions de protocole OpenVPN P2S
 
@@ -46,7 +46,7 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
 
 1. Copiez l'ID du répertoire.
 
-1. Connectez-vous au portail Azure en tant qu'utilisateur doté du rôle d' **Administrateur général**.
+1. Connectez-vous au portail Azure en tant qu'utilisateur doté du rôle d'**Administrateur général**.
 
 1. Octroyez ensuite le consentement administrateur. Copiez et collez l'URL correspondant à votre emplacement de déploiement sur la barre d'adresse de votre navigateur :
 
@@ -78,13 +78,13 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
    > Si vous utilisez un compte d’administrateur général qui n’est pas natif pour le locataire Azure AD pour fournir un consentement, remplacez « Common » par l’ID d’annuaire Azure AD dans l’URL. Dans d’autres cas, vous devrez peut-être également remplacer « Common » par votre ID d’annuaire.
    >
 
-1. Si vous y êtes invité, sélectionnez le compte d' **Administrateur général**.
+1. Si vous y êtes invité, sélectionnez le compte d'**Administrateur général**.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Choisir un compte" border="false":::
 1. Lorsque vous y êtes invité, sélectionnez **Accepter**.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Capture d’écran montrant le message Autorisations demandées - Accepter pour votre organisation avec les détails et l’option d’acceptation." border="false":::
-1. Sous votre instance d'Azure AD, dans **Applications d'entreprise** , vous pouvez voir que **VPN Azure** apparaît dans la liste.
+1. Sous votre instance d'Azure AD, dans **Applications d'entreprise**, vous pouvez voir que **VPN Azure** apparaît dans la liste.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Capture d'écran représentant la page Toutes les applications." lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. Si vous ne disposez pas d’un environnement de point à site opérationnel, suivez les instructions de création. Pour créer et configurer une passerelle VPN de point à site, consultez [Créer un réseau VPN de point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
@@ -92,13 +92,13 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
     > [!IMPORTANT]
     > La référence De base n’est pas prise en charge pour OpenVPN.
 
-1. Activez l’authentification Azure AD sur la passerelle VPN en accédant à **Configuration point à site** et en choisissant **OpenVPN (SSL)** comme **Type de tunnel**. Sélectionnez **Azure Active Directory** comme **Type d'authentification** , puis renseignez la section **Azure Active Directory**.
+1. Activez l’authentification Azure AD sur la passerelle VPN en accédant à **Configuration point à site** et en choisissant **OpenVPN (SSL)** comme **Type de tunnel**. Sélectionnez **Azure Active Directory** comme **Type d'authentification**, puis renseignez la section **Azure Active Directory**.
 
    * **Locataire :** TenantID du locataire Azure AD ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
    * **Audience** : ApplicationID de l'application d'entreprise Azure AD « Azure VPN » ```{AppID of the "Azure VPN" AD Enterprise app}```
 
-   * **Émetteur**  : URL de Secure Token Service (Service d'émission de jeton de sécurité - STS) ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Émetteur** : URL de Secure Token Service (Service d'émission de jeton de sécurité - STS) ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="VPN SAzure" border="false":::
@@ -117,4 +117,4 @@ Suivez les étapes décrites dans [Ajouter ou supprimer des utilisateurs - Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour vous connecter à votre réseau virtuel, vous devez créer et configurer un profil de client VPN. Consultez [Configurer un client VPN pour les connexions VPN P2S](openvpn-azure-ad-client.md).
+Créez et configurez un profil client VPN. Consultez [Configurer un client VPN pour les connexions VPN P2S](openvpn-azure-ad-client.md).

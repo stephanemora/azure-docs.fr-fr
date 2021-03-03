@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c017ae8044c14a579190f5f1e76cfb1a73e3ce66
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 24a834c87fe34d90dec5961bb3f8d376c6e5e62d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896189"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373213"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Démarrage rapide : Créer une carte de recherche interactive avec Azure Maps
 
@@ -23,6 +23,8 @@ Cet article explique comment utiliser Azure Maps pour créer une carte offrant a
 * Créer votre propre compte Azure Maps.
 * Obtenir votre clé principale à utiliser dans l’application web de démonstration.
 * Téléchargez et ouvrez l’application de carte de démonstration.
+
+Ce guide de démarrage rapide utilise le SDK Azure Maps Web, mais les services Azure Maps peuvent être utilisés avec n’importe quel contrôle de carte. [Voici](open-source-projects.md#third-part-map-control-plugins) quelques contrôles de carte open source répandus pour lesquels l’équipe Azure Maps a créé des plug-ins.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,16 +38,16 @@ Cet article explique comment utiliser Azure Maps pour créer une carte offrant a
 
 Créez un compte Azure Maps en effectuant les étapes suivantes :
 
-1. En haut à gauche du [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource** .
-2. Dans la zone *Rechercher dans la Place de marché* , tapez **Azure Maps** .
-3. Dans les *Résultats* , sélectionnez **Azure Maps** . Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
-4. Sur la page **Créer un compte Maps** , entrez les valeurs suivantes :
+1. En haut à gauche du [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource**.
+2. Dans la zone *Rechercher dans la Place de marché*, tapez **Azure Maps**.
+3. Dans les *Résultats*, sélectionnez **Azure Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
+4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
     * *L’Abonnement* à utiliser pour ce compte.
-    * Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant* .
+    * Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
     * Le *Nom* de votre nouveau compte.
     * Le *niveau tarifaire* pour ce compte.
-    * Lisez la *Licence* et la *Déclaration de confidentialité* , puis cochez la case pour accepter les conditions.
-    * Cliquez sur le bouton **Créer** .
+    * Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions.
+    * Cliquez sur le bouton **Créer**.
 
     :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Créer un compte Maps sur le portail":::
 
@@ -56,29 +58,29 @@ Créez un compte Azure Maps en effectuant les étapes suivantes :
 Une fois le compte Maps créé, récupérez la clé principale qui vous permet d’interroger les API Maps.
 
 1. Ouvrez votre compte Maps dans le portail.
-2. Dans la section des paramètres, sélectionnez **Authentification** .
+2. Dans la section des paramètres, sélectionnez **Authentification**.
 3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
 >[!NOTE]
 > Si vous utilisez la clé d’abonnement au lieu de la clé principale, votre mappage ne s’affiche pas correctement. En outre, pour des raisons de sécurité, il est recommandé de permuter vos clés principale et secondaire. Pour permuter les clés, mettez à jour votre application pour utiliser la clé secondaire, déployez, puis appuyez sur le bouton cycle/actualiser en regard de la clé principale pour générer une nouvelle clé principale. L’ancienne clé principale est désactivée. Pour plus d’informations sur la permutation des clés, consultez [Configurer Azure Key Vault avec la permutation des clés et l’audit](../key-vault/secrets/tutorial-rotation-dual.md)
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Créer un compte Maps sur le portail":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Obtenir la clé primaire Azure Maps dans le portail Azure":::
 
 ## <a name="download-the-demo-application"></a>Télécharger l’application de démonstration
 
 1. Accédez à [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copiez le contenu du fichier.
-2. Enregistrez le contenu de ce fichier localement sous le nom **AzureMapDemo.html** . Ouvrez le fichier dans un éditeur de texte.
+2. Enregistrez le contenu de ce fichier localement sous le nom **AzureMapDemo.html**. Ouvrez le fichier dans un éditeur de texte.
 3. Recherchez la chaîne `<Your Azure Maps Key>`. Remplacez-la par la valeur de **clé primaire** obtenue dans la section précédente.
 
 ## <a name="open-the-demo-application"></a>Ouvrir l’application de démonstration
 
 1. Ouvrez le fichier **AzureMapDemo.html** dans le navigateur de votre choix.
 2. Observez la carte de la ville de Los Angeles. Effectuez un zoom avant et arrière : la carte affiche automatiquement plus ou moins d’informations selon le niveau de zoom.
-3. Modifiez le centre par défaut de la carte. Dans le fichier **AzureMapDemo.html** , recherchez la variable nommée **center** . Remplacez la paire de valeurs longitude, latitude de cette variable par les nouvelles valeurs : **[-74.0060, 40.7128]** . Enregistrez le fichier et actualisez votre navigateur.
-4. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants** .
+3. Modifiez le centre par défaut de la carte. Dans le fichier **AzureMapDemo.html**, recherchez la variable nommée **center**. Remplacez la paire de valeurs longitude, latitude de cette variable par les nouvelles valeurs : **[-74.0060, 40.7128]** . Enregistrez le fichier et actualisez votre navigateur.
+4. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants**.
 5. Déplacez votre souris sur la liste des adresses et emplacements qui s’affichent sous la zone de recherche. Le repère correspondant sur la carte affiche des informations à propos de cet emplacement. Pour des raisons de confidentialité des entreprises privées, des adresses et des noms fictifs sont présentés.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Créer un compte Maps sur le portail":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Application web de recherche interactive sur une carte":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
@@ -88,9 +90,9 @@ Une fois le compte Maps créé, récupérez la clé principale qui vous permet d
 
 Sinon, effectuez ces étapes pour nettoyer les ressources :
 
-1. Fermez le navigateur qui exécute l’application web **AzureMapDemo.html** .
-2. Accédez à la page du portail Azure. Sélectionnez **Toutes les ressources** dans la page principale du portail. Ou cliquez sur l’icône de menu dans le coin supérieur gauche. Sélectionnez **Toutes les ressources** .
-3. Cliquez sur votre compte Azure Maps. En haut de la page, cliquez sur **Supprimer** .
+1. Fermez le navigateur qui exécute l’application web **AzureMapDemo.html**.
+2. Accédez à la page du portail Azure. Sélectionnez **Toutes les ressources** dans la page principale du portail. Ou cliquez sur l’icône de menu dans le coin supérieur gauche. Sélectionnez **Toutes les ressources**.
+3. Cliquez sur votre compte Azure Maps. En haut de la page, cliquez sur **Supprimer**.
 
 Pour obtenir d’autres exemples de code et bénéficier d’une expérience de codage interactive, consultez ces guides :
 

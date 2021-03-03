@@ -6,12 +6,12 @@ ms.author: tefa
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/03/2020
-ms.openlocfilehash: 97386b18360e22b457dbcdda53c4f81e7d4ed272
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 597b69c1180ea1fb2a6812d648f8b8ad37707d66
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797384"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092604"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-azure-signalr-service"></a>Authentifier une application avec Azure Active Directory pour accéder à Azure SignalR Service
 Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (Azure AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure SignalR Service est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource à utiliser pour demander un jeton est `https://signalr.azure.com/`. Azure AD authentifie le principal de sécurité (une application, un groupe de ressources ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application. Cette dernière peut ensuite utiliser le jeton d’accès pour autoriser les demandes d’accès aux ressources Azure SignalR Service.
@@ -55,8 +55,8 @@ Vous pouvez également charger une certification au lieu de créer un secret cli
 
 ![Charger une certification](./media/authenticate/certification.png)
 
-## <a name="add-rbac-roles-using-the-azure-portal"></a>Ajouter des rôles RBAC à l’aide du portail Azure  
-Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide de RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Attribuer des rôles Azure à l’aide du portail Azure  
+Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide d’Azure RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
 
 Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
-ms.openlocfilehash: ab783d6cb20f1c2fe31e8556dc57999df20d5637
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: efbae71162bdd0c126287191f7ad35cf903db138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629808"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378075"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Installation et désinstallation d’Azure IoT Edge pour Linux
 
@@ -32,7 +32,7 @@ Cet article présente la procédure à suivre pour installer le runtime Azure Io
 
 * Un appareil Linux
 
-  Vous devez avoir un appareil Linux x64, ARM32 ou ARM64. Microsoft fournit des packages d’installation pour les systèmes d’exploitation Ubuntu Server 16.04, Ubuntu Server 18.04 et Raspberry Pi OS Stretch.
+  Vous devez avoir un appareil Linux x64, ARM32 ou ARM64. Microsoft fournit des packages d’installation pour les systèmes d’exploitation Ubuntu Server 18.04 et Raspberry Pi OS Stretch.
 
   Pour obtenir les informations les plus récentes sur les systèmes d’exploitation actuellement pris en charge pour les scénarios de production, consultez [Systèmes pris en charge par Azure IoT Edge](support.md#operating-systems).
 
@@ -42,12 +42,6 @@ Cet article présente la procédure à suivre pour installer le runtime Azure Io
 * Préparez votre appareil pour accéder aux packages d’installation de Microsoft.
 
   Installez la configuration du référentiel qui correspond au système d’exploitation de votre appareil.
-
-  * **Ubuntu Server 16.04** :
-
-    ```bash
-    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-    ```
 
   * **Ubuntu Server 18.04** :
 
@@ -136,12 +130,12 @@ Si la version que vous souhaitez installer ne figure pas dans la liste, suivez l
 
 ## <a name="provision-the-device-with-its-cloud-identity"></a>Provisionnement de l’appareil avec son identité cloud
 
-Maintenant que le moteur de conteneur et le runtime IoT Edge sont installés sur votre appareil, vous pouvez passer à l’étape suivante, à savoir configurer l’appareil avec ses informations d’identité et d’authentification cloud.
+Maintenant que le moteur de conteneur et le runtime d’IoT Edge sont installés sur votre appareil, vous pouvez passer à l’étape suivante, à savoir configurer l’appareil avec ses informations d’identité et d’authentification cloud.
 
 Choisissez la section suivante en fonction du type d’authentification que vous souhaitez utiliser :
 
 * [Option n°1 : Authentification avec des clés symétriques](#option-1-authenticate-with-symmetric-keys)
-* [Option n°2 : Inscription avec des certificats X.509](#option-2-authenticate-with-x509-certificates)
+* [Option n°2 : Authentification avec des certificats X.509](#option-2-authenticate-with-x509-certificates)
 
 ### <a name="option-1-authenticate-with-symmetric-keys"></a>Option 1 : Authentification avec des clés symétriques
 
@@ -183,7 +177,7 @@ Après avoir entré les informations de provisionnement dans le fichier de confi
 
 Le runtime IoT Edge est maintenant installé sur votre appareil Linux. Vous devez provisionner l’appareil avec ses informations d’identité et d’authentification cloud.
 
-Cette section décrit la procédure à suivre pour provisionner un appareil avec une authentification par certificat X.509. Vous devez avoir inscrit votre appareil dans IoT Hub, en indiquant les empreintes numériques correspondant au certificat et à la clé privée situés sur votre appareil IoT Edge. Si ce n’est pas le cas, suivez la procédure décrite dans [Inscription d’un appareil IoT Edge dans IoT Hub](how-to-register-device.md).
+Cette section décrit la procédure à suivre pour provisionner un appareil avec une authentification par certificat X.509. Vous devez avoir inscrit votre appareil dans IoT Hub, en indiquant les empreintes correspondant au certificat et à la clé privée situés sur votre appareil IoT Edge. Si ce n’est pas le cas, suivez la procédure décrite dans [Inscription d’un appareil IoT Edge dans IoT Hub](how-to-register-device.md).
 
 Sur l’appareil IoT Edge, ouvrez le fichier de configuration.
 

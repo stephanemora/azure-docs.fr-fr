@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196620"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595752"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Base de référence de sécurité Azure pour Azure Private Link
 
@@ -28,9 +28,9 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 Créez des alertes dans Azure Monitor, qui se déclenchent en cas de modification des ressources critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -50,7 +50,7 @@ Activez également les données et intégrez-les à Azure Sentinel ou à une sol
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Journalisation et surveillance pour Azure Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Activez également les données et intégrez-les à Azure Sentinel ou à une sol
 
 **Aide** : Activez les journaux d’activité d’Azure Monitor, qui consignent les opérations effectuées sur les ressources Azure Private Link en recueillant des informations telles que la personne qui les déclenche, le moment auquel elles ont eu lieu, leur état et d’autres informations d’audit utiles. 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Affichage et récupération des événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Affichage et récupération des événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Journalisation et surveillance pour Azure Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -80,7 +80,7 @@ Activez également les données et intégrez-les à Azure Sentinel ou à une sol
 
 **Aide** : Pour les journaux relatifs à Azure Private Link, définissez dans Azure Monitor la période de rétention de votre espace de travail Log Analytics en fonction des réglementations de conformité de votre organisation. Utilisez des comptes de stockage Azure pour le stockage à long terme et l’archivage des journaux.
 
-- [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Une autre option consiste à activer les données et à les intégrer à Azure S
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Présentation de l’espace de travail Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Présentation de l’espace de travail Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -114,7 +114,7 @@ Activez les données et intégrez-les à Azure Sentinel ou à une solution SIEM 
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -156,7 +156,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -192,7 +192,7 @@ En outre, activez JAT (Juste-à-temps)/JEA (Just-Enough-Access) à l’aide des 
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](../azure-monitor/platform/action-groups.md)
+- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](../azure-monitor/alerts/action-groups.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -318,7 +318,7 @@ Rendez votre service privé pour la consommation à partir de vos autres réseau
 
 - [Journalisation des diagnostics pour un groupe de sécurité réseau](private-link-overview.md#logging-and-monitoring)
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 

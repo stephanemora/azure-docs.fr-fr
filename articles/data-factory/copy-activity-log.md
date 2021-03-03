@@ -1,22 +1,17 @@
 ---
 title: Journal de session dans l’activité de copie
 description: Découvrez comment activer le journal de session dans l’activité de copie d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385266"
 ---
 #  <a name="session-log-in-copy-activity"></a>Journal de session dans l’activité de copie
 
@@ -101,6 +96,9 @@ Une fois l’exécution de l’activité de copie terminée, vous pouvez voir le
         }
 
 ```
+
+> [!NOTE]
+> Quand la propriété `enableCopyActivityLog` est définie sur `Enabled`, les noms des fichiers journaux sont générés par le système.
 
 ### <a name="the-schema-of-the-log-file"></a>Schéma du fichier journal
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567528"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581579"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
@@ -117,7 +117,7 @@ Pour surveiller l'état de la base de données et activer les alertes liées à 
 * [Azure Resource Health](../service-health/resource-health-overview.md) : une base de données inaccessible qui a perdu l'accès à la clé client apparaît comme « Inaccessible » après le refus de la première connexion à la base de données.
 * [Journal d’activité](../service-health/alerts-activity-log-service-notifications-portal.md) : lorsque l'accès à la clé client dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au journal d'activité. La création d'alertes pour ces événements vous permettra de rétablir l'accès dès que possible.
 
-* [Groupes d'actions](../azure-monitor/platform/action-groups.md) : définissez ces groupes pour qu'ils vous envoient des notifications et des alertes basées sur vos préférences.
+* [Groupes d'actions](../azure-monitor/alerts/action-groups.md) : définissez ces groupes pour qu'ils vous envoient des notifications et des alertes basées sur vos préférences.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurer et répliquer à l'aide d'une clé gérée par un client dans Key Vault
 

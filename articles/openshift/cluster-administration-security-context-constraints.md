@@ -4,15 +4,15 @@ description: Contraintes de contexte de sécurité pour les administrateurs de c
 services: container-service
 author: troy0820
 ms.author: b-trconn
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: eb5c568f056a99187a0e7a78a6f89b206f2d8dec
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 977504c1faec9bd8134646a8cbe31f9eea665edd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220242"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636201"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenShift
 
@@ -43,7 +43,7 @@ restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs 
 
 ## <a name="examine-an-object-for-security-context-constraints"></a>Examiner les contraintes de contexte de sécurité dans un objet
 
-Pour examiner une contrainte de contexte de sécurité particulière, utilisez `oc get`, `oc describe` ou `oc edit`.  Par exemple, pour examiner la contrainte de contexte de sécurité **restricted** , utilisez cette commande :
+Pour examiner une contrainte de contexte de sécurité particulière, utilisez `oc get`, `oc describe` ou `oc edit`.  Par exemple, pour examiner la contrainte de contexte de sécurité **restricted**, utilisez cette commande :
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184575"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576679"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -347,7 +347,7 @@ Azure Resource Manager exige que tous les groupes de ressources spécifient un e
 
 L’état de surveillance en cours de chaque point de terminaison, en plus du profil global s’affichent dans le portail Azure. Ces informations sont également disponibles via [l’API REST](/rest/api/trafficmanager/), [les applets de commande PowerShell](/powershell/module/az.trafficmanager) et [l’interface de ligne de commande Azure multiplateforme](/cli/azure/install-classic-cli) de Traffic Monitor.
 
-Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](../azure-monitor/platform/data-platform.md).
+Vous pouvez également utiliser Azure Monitor pour suivre l’intégrité de vos points de terminaison et en voir une représentation visuelle. Pour plus d’informations sur l’utilisation d’Azure Monitor, consultez la [documentation sur la surveillance Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Puis-je surveiller les points de terminaison HTTPS ?
 
@@ -458,7 +458,7 @@ Le nombre de contrôles d’intégrité de Traffic Manager qui atteignent votre 
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Comment être informé si l’un de mes points de terminaison tombe en panne ?
 
-Une des métriques fournies par Traffic Manager est l’état d’intégrité des points de terminaison d’un profil. Vous pouvez voir cela comme un agrégat de tous les points de terminaison à l’intérieur d’un profil (par exemple, 75 % de vos points de terminaison sont sains), ou par niveau de point de terminaison. Les métriques de Traffic Manager sont indiquées par Azure Monitor, dont vous pouvez utiliser les [fonctionnalités d’alerte](../azure-monitor/platform/alerts-metric.md) pour être informé en cas de modification de l’état d’intégrité de votre point de terminaison. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).  
+Une des métriques fournies par Traffic Manager est l’état d’intégrité des points de terminaison d’un profil. Vous pouvez voir cela comme un agrégat de tous les points de terminaison à l’intérieur d’un profil (par exemple, 75 % de vos points de terminaison sont sains), ou par niveau de point de terminaison. Les métriques de Traffic Manager sont indiquées par Azure Monitor, dont vous pouvez utiliser les [fonctionnalités d’alerte](../azure-monitor/alerts/alerts-metric.md) pour être informé en cas de modification de l’état d’intégrité de votre point de terminaison. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profils Traffic Manager imbriqués
 

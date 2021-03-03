@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/22/2021
-ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735238"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518043"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,14 +42,14 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|0,75-6|1,0-8|
 |Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|2,25-18|3,00-24|
 |Délai minimal-maximal de pause automatique (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
-|Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
+|Prise en charge de ColumnStore|Oui*|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|512|1 024|1 024|1 024|1536|
 |Taille maximale du journal (Go)|154|307|307|307|461|
 |Taille maximale des données TempDB (Go)|32|64|128|192|256|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|320|640|1 280|1920|2560|
+|Nombre maximal d’IOPS de données \*\*|320|640|1 280|1920|2560|
 |Taux de journalisation maximal (Mbits/s)|4.5|9|18|27|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
@@ -58,7 +58,8 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
+\* Les objectifs de service avec des configurations VCore max plus petites peuvent avoir une mémoire insuffisante pour la création et l’utilisation d’index de banque de colonnes.  Si vous rencontrez des problèmes de performances avec la banque de colonnes, augmentez la configuration VCore max pour augmenter la mémoire maximale disponible.  
+\*\* La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 ### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
@@ -212,7 +213,7 @@ Le [niveau de calcul serverless](serverless-tier-overview.md) est actuellement d
 |Taille maximale du journal (To)|Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |Illimité |
 |Taille maximale des données TempDB (Go)|512|576|640|768|1 024|1 280|2560|
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
-|Nbre max. d’IOPS de disque SSD local*|64 000 |72 000 |80000 |96 000 |160 000 |192 000 |204800 |
+|Nbre max. d’IOPS de disque SSD local*|64 000 |72 000 |80000 |96 000 |128000 |160 000 |204800 |
 |Taux de journalisation maximal (Mbits/s)|100 |100 |100 |100 |100 |100 |100 |
 |Latence d’E/S (approximative)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|

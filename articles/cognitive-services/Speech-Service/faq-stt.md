@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226554"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388615"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -140,7 +140,7 @@ Consultez [Quotas et limites des services Speech](speech-services-quotas-and-lim
 
 Pour obtenir des résultats plus rapides, utilisez l’une des [régions](custom-speech-overview.md#set-up-your-azure-account) dans lesquelles du matériel dédié est disponible pour l’apprentissage. En général, le service traite environ 10 heures de données audio par jour dans les régions avec ce type de matériel. Il peut uniquement traiter environ 1 heure de données audio par jour dans d’autres régions. Vous pouvez copier le modèle entièrement entraîné dans une autre région à l’aide de [l’API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). L’apprentissage sur du simple texte est beaucoup plus rapide : il se termine généralement au bout de quelques minutes.
 
-Certains modèles de base ne sont pas personnalisables avec des données audio. Dans ce cas, le service utilise simplement le texte de la transcription pour l’apprentissage et ignore les données audio. L’apprentissage se révèlera alors beaucoup plus rapide. Les résultats seront les mêmes que pour l’apprentissage sur du simple texte.
+Certains modèles de base ne sont pas personnalisables avec des données audio. Dans ce cas, le service utilise simplement le texte de la transcription pour l’apprentissage et ignore les données audio. L’apprentissage se révèlera alors beaucoup plus rapide. Les résultats seront les mêmes que pour l’apprentissage sur du simple texte. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
 
 ## <a name="accuracy-testing"></a>Tests de précision
 

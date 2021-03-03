@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742588"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578218"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services (classique) : Forum Aux Questions (FAQ)
 
@@ -240,9 +240,9 @@ La mise à l’échelle automatique en fonction des métriques de la mémoire po
 
 Pour contourner ce problème, vous pouvez utiliser Application Insights. La mise à l’échelle automatique prend en charge Application Insights en tant que source de métriques et peut mettre à l’échelle le nombre d’instances de rôle en fonction d’une métrique invitée telle que « Mémoire ».  Vous devez configurer Application Insights dans votre fichier de package de projet de service cloud (*.cspkg) et activer l’extension Diagnostics Azure sur le service pour implémenter cette fonction.
 
-Pour plus d’informations sur la façon d’utiliser une métrique personnalisée par le biais d’Application Insights afin de configurer la mise à l’échelle automatique sur les services cloud, consultez [Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure](../azure-monitor/platform/autoscale-custom-metric.md).
+Pour plus d’informations sur la façon d’utiliser une métrique personnalisée par le biais d’Application Insights afin de configurer la mise à l’échelle automatique sur les services cloud, consultez [Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure](../azure-monitor/autoscale/autoscale-custom-metric.md).
 
-Pour plus d’informations sur la façon d’intégrer Diagnostics Azure à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Pour plus d’informations sur la façon d’intégrer Diagnostics Azure à Application Insights pour les services cloud, consultez [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md).
 
 Pour plus d’informations sur la façon d’activer Application Insights pour les services cloud, consultez [Application Insights pour Services cloud Azure](../azure-monitor/app/cloudservices.md).
 

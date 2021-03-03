@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538542"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381832"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Configurer et gérer la sauvegarde continue et la restauration à un instant dans le passé (préversion) à l’aide d’Azure PowerShell
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -50,7 +50,7 @@ Cet article explique comment approvisionner un compte avec sauvegarde continue e
 
 Pour approvisionner un compte avec sauvegarde continue, ajoutez un argument `-BackupPolicyType Continuous` à la commande d’approvisionnement standard.
 
-La cmdlet suivante est un exemple de compte d’écriture à région unique nommé `pitracct2` avec une stratégie de sauvegarde continue créée dans la région « USA Ouest » sous le groupe de ressources « myrg » :
+L’applet de commande suivante est un exemple de compte d’écriture monorégion nommé `pitracct2` avec une stratégie de sauvegarde continue créée dans la région *USA Ouest* sous le groupe de ressources *myrg* :
 
 ```azurepowershell
 
@@ -65,7 +65,7 @@ New-AzCosmosDBAccount `
 
 ## <a name="provision-a-mongodb-api-account-with-continuous-backup"></a><a id="provision-mongodb-api"></a>Approvisionner un compte d’API MongoDB avec sauvegarde continue
 
-La cmdlet suivante est un exemple de compte de sauvegarde continue « pitracct2 » créé dans la région « USA Ouest » sous le groupe de ressources « myrg » :
+L’applet de commande suivante est un exemple de compte de sauvegarde continue *pitracct2* créé dans la région *USA Ouest* sous le groupe de ressources *myrg* :
 
 ```azurepowershell
 
@@ -162,13 +162,13 @@ La réponse comprend tous les comptes de base de données (à la fois actifs et 
   },
 ```
 
-À l’instar de « CreationTime » ou « DeletionTime » pour le compte, il existe également un « CreationTime » ou un « DeletionTime » pour la région. Ces heures vous permettent de choisir la bonne région et une plage horaire valide pour restaurer dans cette région.
+À l’instar de l’heure `CreationTime` ou `DeletionTime` pour le compte, il y a également une heure `CreationTime` ou `DeletionTime` pour la région. Ces heures vous permettent de choisir la bonne région et une plage horaire valide pour restaurer dans cette région.
 
 **Répertorier toutes les versions des bases de données SQL dans un compte de base de données actif**
 
 La liste de toutes les versions de bases de données vous permet de choisir la base de données appropriée dans un scénario où le moment réel de l'existence de la base de données est inconnu.
 
-Exécutez la commande PowerShell suivante pour répertorier toutes les versions des bases de données. Cette commande fonctionne uniquement avec des comptes actifs. Les paramètres « DatabaseAccountInstanceId » et « LocationName » sont obtenus à partir des propriétés « name » et « location » dans la réponse de la cmdlet `Get-AzCosmosDBRestorableDatabaseAccount`. L’attribut « DatabaseAccountInstanceId » fait référence à la propriété « instanceId » du compte de base de données source en cours de restauration :
+Exécutez la commande PowerShell suivante pour répertorier toutes les versions des bases de données. Cette commande fonctionne uniquement avec des comptes actifs. Les paramètres `DatabaseAccountInstanceId` et `LocationName` sont obtenus à partir des propriétés `name` et `location` dans la réponse de l’applet de commande `Get-AzCosmosDBRestorableDatabaseAccount`. L’attribut `DatabaseAccountInstanceId` fait référence à la propriété `instanceId` du compte de base de données source en cours de restauration :
 
 
 ```azurepowershell
@@ -181,7 +181,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **Répertorier toutes les versions des conteneurs SQL d’une base de données dans un compte de base de données actif.**
 
-Utilisez la commande suivante pour répertorier toutes les versions des conteneurs SQL. Cette commande fonctionne uniquement avec des comptes actifs. Le paramètre « DatabaseRid » correspond au « ResourceId » de la base de données que vous souhaitez restaurer. Il s’agit de la valeur de l’attribut « ownerResourceid » trouvé dans la réponse de la cmdlet `Get-AzCosmosdbSqlRestorableDatabase`. La réponse inclut également la liste des opérations effectuées sur tous les conteneurs de cette base de données.
+Utilisez la commande suivante pour répertorier toutes les versions des conteneurs SQL. Cette commande fonctionne uniquement avec des comptes actifs. Le paramètre `DatabaseRid` est le `ResourceId` de la base de données que vous souhaitez restaurer. Il s’agit de la valeur de l’attribut `ownerResourceid` trouvé dans la réponse de l’applet de commande `Get-AzCosmosdbSqlRestorableDatabase`. La réponse inclut également la liste des opérations effectuées sur tous les conteneurs de cette base de données.
 
 ```azurepowershell
 
@@ -208,7 +208,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a name="enumerate-restorable-resources-for-mongodb"></a><a id="enumerate-mongodb-api"></a>Énumérer les ressources restaurables pour MongoDB
 
-Les commandes d’énumération décrites ci-dessous vous aident à découvrir les ressources disponibles pour la restauration à différents moments. En outre, elles fournissent également un flux d’événements clés sur les ressources du compte, des bases de données et des conteneurs restaurables. Ces commandes ne fonctionnent que pour les comptes actifs et sont similaires aux commandes de l’API SQL, mais avec « MongoDB » dans le nom de la commande au lieu de « sql ».
+Les commandes d’énumération décrites ci-dessous vous aident à découvrir les ressources disponibles pour la restauration à différents moments. En outre, elles fournissent également un flux d’événements clés sur les ressources du compte, des bases de données et des conteneurs restaurables. Ces commandes ne fonctionnent que pour les comptes actifs et sont similaires aux commandes de l’API SQL, mais avec `MongoDB` dans le nom de la commande au lieu de `sql`.
 
 **Répertorier toutes les versions des bases de données MongoDB dans un compte de base de données actif**
 

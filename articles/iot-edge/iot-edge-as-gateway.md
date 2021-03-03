@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536436"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371094"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -37,7 +37,7 @@ Tous les modèles de passerelles fournissent les avantages suivants :
 
 * **Analytique en périphérie** : utilisez les services IA localement pour traiter les données provenant des appareils en aval, sans envoyer de données de télémétrie haute fidélité au cloud. Recherchez des insights localement, réagissez-y, et envoyez uniquement un sous-ensemble de données à IoT Hub.
 * **Isolation d’appareil en aval** : l’appareil de passerelle peut protéger tous les appareils en aval contre une exposition sur Internet. Il peut être placé entre un réseau de technologies opérationnelles (OT) qui n’a pas de connectivité et un réseau de technologies de l’information (IT) qui fournit l’accès au web. De même, les appareils qui n’ont pas la capacité de se connecter à IoT Hub eux-mêmes peuvent se connecter à un appareil de passerelle à la place.
-* **Multiplexage des connexions** : tous les appareils qui se connectent à IoT Hub via une passerelle IoT Edge utilisent la même connexion sous-jacente.
+* **Multiplexage des connexions** : tous les appareils qui se connectent à IoT Hub via une passerelle IoT Edge peuvent utiliser la même connexion sous-jacente. Cette capacité de multiplexage requiert que la passerelle IoT Edge utilise AMQP comme protocole en amont.
 * **Lissage du trafic** : l’appareil IoT Edge implémente automatiquement une interruption exponentielle si IoT Hub limite le trafic, tout en assurant une conservation locale des messages. Cet avantage rend votre solution résiliente face aux pics de trafic.
 * **Prise en charge hors connexion** : l’appareil de passerelle stocke les messages et les mises à jour du jumeau qui ne peuvent pas être remis à IoT Hub.
 
@@ -45,7 +45,9 @@ Tous les modèles de passerelles fournissent les avantages suivants :
 
 Dans le modèle de passerelle transparente, les appareils qui, en théorie, peuvent se connecter à IoT Hub peuvent se connecter à un appareil de passerelle à la place. Les appareils situés en aval ont leurs propres identités IoT Hub et se connectent à l’aide des protocoles MQTT ou AMQP. La passerelle se contente de transférer les communications entre les appareils et IoT Hub. Les appareils et les utilisateurs qui interagissent avec eux par le biais d’IoT Hub ne savent pas qu’une passerelle effectue la médiation de leurs communications. Cette ignorance signifie que la passerelle est considérée comme *transparente*.
 
-<!-- 1.0.10 -->
+Pour plus d’informations sur la façon dont le hub IoT Edge gère la communication entre les appareils en aval et le cloud, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Les appareils IoT Edge ne peuvent pas se trouver en aval d’une passerelle IoT Edge.
@@ -72,6 +74,11 @@ La relation parent-enfant est établie en trois points dans la configuration de 
 #### <a name="cloud-identities"></a>Identités cloud
 
 Tous les appareils d’un scénario de passerelle transparente ont besoin d’identités cloud pour pouvoir s’authentifier auprès d’IoT Hub. Lorsque vous créez ou mettez à jour une identité d’appareil, vous pouvez définir les appareils parent ou enfant de l’appareil. Cette configuration autorise l’appareil de passerelle parent à gérer l’authentification pour ses appareils enfants.
+
+>[!NOTE]
+>La définition de l’appareil parent dans IoT Hub était auparavant une étape facultative pour les appareils en aval utilisant l’authentification par clé symétrique. Toutefois, à compter de la version 1.1.0, chaque appareil en aval doit être affecté à un appareil parent.
+>
+>Si vous souhaitez que le hub IoT Edge revienne au comportement précédent, attribuez à la variable d’environnement **AuthenticationMode** la valeur **CloudAndScope**.
 
 Les appareils enfants ne peuvent avoir qu’un seul parent. Chaque parent peut avoir jusqu’à 100 enfants.
 
@@ -106,7 +113,7 @@ Toutes les primitives IoT Hub qui fonctionnent avec le pipeline de messagerie d�
 
 Utilisez le tableau suivant pour voir comment différentes capacités IoT Hub sont prises en charge par les appareils, par rapport aux appareils qui se trouvent derrière les passerelles.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Fonctionnalité | Appareil IoT | IoT derrière une passerelle |

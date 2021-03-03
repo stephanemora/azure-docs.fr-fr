@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220573"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558591"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel
 
@@ -81,7 +81,7 @@ Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure
     | Paramètre | Description |
     | --- | --- |
     | **Plage d’adresses** | Si aucune ressource n’a été déployée dans le sous-réseau, vous pouvez changer la plage d’adresses. Si des ressources existent déjà dans le sous-réseau, vous devez soit déplacer les ressources vers un autre sous-réseau, soit les supprimer d’abord du sous-réseau. La procédure à suivre pour supprimer ou déplacer une ressource varie en fonction de celle-ci. Pour savoir comment supprimer ou déplacer des ressources dans des sous-réseaux, lisez la documentation relative à chaque type de ressource. Consultez les contraintes pour la **plage d’adresses** à l’étape 4 de la section [Ajouter un sous-réseau](#add-a-subnet). |
-    | **Utilisateurs** | Vous pouvez contrôler l’accès au sous-réseau en utilisant des rôles intégrés ou vos propres rôles personnalisés. Pour en savoir plus sur l’attribution de rôles et d’utilisateurs pour l’accès au sous-réseau, consultez [Ajouter une attribution de rôle](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Utilisateurs** | Vous pouvez contrôler l’accès au sous-réseau en utilisant des rôles intégrés ou vos propres rôles personnalisés. Pour en savoir plus sur l’attribution de rôles et d’utilisateurs pour l’accès au sous-réseau, consultez [Affecter un rôle Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). |
     | **Groupe de sécurité réseau** et **Table de routage** | Consultez l’étape 4 de la section [Ajouter un sous-réseau](#add-a-subnet). |
     | **Points de terminaison de service** | <p>Consultez les points de terminaison de service à l’étape 4 de la section [Ajouter un sous-réseau](#add-a-subnet). Quand vous activez un point de terminaison de service pour un sous-réseau existant, assurez-vous qu’aucune tâche critique n’est en cours d’exécution sur l’une des ressources du sous-réseau. Les points de terminaison de service changent d’itinéraire sur chaque interface réseau dans le sous-réseau. L’itinéraire par défaut avec l’adresse de préfixe *0.0.0.0/0* et le type de tronçon suivant *Internet* sont remplacés par un nouvel itinéraire avec les préfixes d’adresse du service et le type de tronçon suivant *VirtualNetworkServiceEndpoint*.</p><p>Le changement de routage peut entraîner l’arrêt des connexions TCP ouvertes. Le point de terminaison de service est activé après que les flux de trafic vers le service sur toutes les interfaces réseau ont été mis à jour avec le nouvel itinéraire. Pour en savoir plus sur le routage, consultez [Routage du trafic de réseau virtuel](virtual-networks-udr-overview.md).</p> |
     | **Délégation de sous-réseau** | Consultez les points de terminaison de service à l’étape 4 de la section [Ajouter un sous-réseau](#add-a-subnet). Vous pouvez modifier la délégation de sous-réseau pour qu’elle ait zéro ou plusieurs délégations activées. Si une ressource pour un service est déjà déployée dans le sous-réseau, la délégation de sous-réseau ne peut être ni ajoutée ni supprimée tant que toutes les ressources pour le service ne sont pas supprimées. Pour déléguer à un autre service, sélectionnez le service souhaité dans la liste **Services**. |

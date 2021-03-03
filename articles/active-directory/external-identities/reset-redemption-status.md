@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365410"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Réinitialisation de l’état d’acceptation d’un utilisateur invité
 
@@ -26,7 +26,7 @@ Il peut arriver, une fois qu’un utilisateur invité a accepté votre invitatio
 - L’utilisateur se trouve maintenant dans une autre société, mais il a toujours besoin du même accès à vos ressources.
 - Les responsabilités de l’utilisateur ont été transmises à un autre utilisateur.
 
-Pour gérer ces scénarios, il fallait auparavant supprimer manuellement du répertoire le compte de l’utilisateur invité et réinviter ce dernier. Vous pouvez maintenant utiliser PowerShell ou l’API d’invitation Microsoft Graph pour réinitialiser l’état d’acceptation de l’utilisateur et le réinviter tout en conservant son ID objet, ses appartenances aux groupes et ses affectations d’applications. Lorsque l’utilisateur accepte la nouvelle invitation, la nouvelle adresse e-mail devient son nom UPN. L’utilisateur peut ensuite se connecter avec la nouvelle adresse e-mail ou une adresse e-mail que vous avez ajoutée à la propriété `otherMails` de l’objet utilisateur.
+Pour gérer ces scénarios, il fallait auparavant supprimer manuellement du répertoire le compte de l’utilisateur invité et réinviter ce dernier. Vous pouvez maintenant utiliser PowerShell ou l’API d’invitation Microsoft Graph pour réinitialiser l’état d’acceptation de l’utilisateur et le réinviter tout en conservant son ID objet, ses appartenances aux groupes et ses affectations d’applications. Lorsque l’utilisateur accepte la nouvelle invitation, l’UPN de l’utilisateur ne change pas, mais le nom de connexion de l’utilisateur change pour devenir la nouvelle adresse e-mail. L’utilisateur peut ensuite se connecter avec la nouvelle adresse e-mail ou une adresse e-mail que vous avez ajoutée à la propriété `otherMails` de l’objet utilisateur.
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>Réinitialisation de l’état d’acceptation avec PowerShell
 

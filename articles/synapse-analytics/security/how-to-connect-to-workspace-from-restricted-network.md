@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384518"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Se connecter aux ressources de l’espace de travail à partir d’un réseau restreint
 
@@ -146,7 +146,8 @@ Une fois le lien de réseau virtuel ajouté, vous devez ajouter le jeu d’enreg
 
 * Pour **Nom**, entrez les chaînes de noms dédiées pour différents points de terminaison privés : 
   * **web** s’applique au point de terminaison privé pour l’accès à la passerelle Azure Synapse Analytics Studio.
-  * « ***YourWorkSpaceName**_ » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool SQL, ainsi qu’au point de terminaison privé pour l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio. _ «***  YourWorkSpaceName*-ondemand** » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool intégré.
+  * « ***YourWorkSpaceName*** » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool SQL, ainsi qu’au point de terminaison privé pour l’accès aux autres ressources dans les espaces de travail Azure Synapse Analytics Studio.
+  * « ***YourWorkSpaceName*-ondemand** » s’applique au point de terminaison privé pour l’exécution d’une requête SQL dans le pool intégré.
 * Pour **Type**, sélectionnez le type d’enregistrement DNS **A** uniquement. 
 * Pour **Adresse IP**, entrez l’adresse IP correspondante de chaque point de terminaison privé. Vous pouvez récupérer l’adresse IP dans **Interface réseau** à partir de la vue d’ensemble de votre point de terminaison privé.
 

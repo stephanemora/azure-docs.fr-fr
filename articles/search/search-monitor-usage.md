@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935005"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592366"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Superviser les opérations et l’activité de Recherche cognitive Azure
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser les API suivantes pour récupérer les mêmes informations 
 
 ### <a name="activity-logs-and-service-health"></a>Journaux d’activité et intégrité du service
 
-La page [**Journal d’activité**](../azure-monitor/platform/activity-log.md#view-the-activity-log) du portail collecte des informations auprès d’Azure Resource Manager et signale les changements de l’intégrité du service. Vous pouvez superviser les conditions critiques, d’erreur et d’avertissement relatives à l’intégrité du service dans le journal d’activité.
+La page [**Journal d’activité**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) du portail collecte des informations auprès d’Azure Resource Manager et signale les changements de l’intégrité du service. Vous pouvez superviser les conditions critiques, d’erreur et d’avertissement relatives à l’intégrité du service dans le journal d’activité.
 
 Parmi les entrées courantes figurent les références à des clés API, à savoir des notifications d’information génériques comme *Obtenir une clé d’administration* et *Obtenir des clés de requête*. Ces activités indiquent les demandes effectuées à l’aide de la clé d’administration (créer ou supprimer des objets) ou d’une clé de requête, mais n’affichent pas la demande proprement dite. Pour plus d’informations de ce fragment, vous devez configurer la journalisation des diagnostics.
 
@@ -90,7 +90,7 @@ Azure Monitor propose plusieurs options de stockage ; votre choix détermine la 
 * Choisissez le Stockage Blob Azure si vous souhaitez [visualiser les données de journal](search-monitor-logs-powerbi.md) dans un rapport Power BI.
 * Choisissez Log Analytics si vous souhaitez explorer les données au moyen de requêtes Kusto.
 
-Azure Monitor possède sa propre structure de facturation ; les journaux de diagnostic mentionnés dans cette section présentent un coût. Pour plus d’informations, consultez [Utilisation et coûts estimés dans Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor possède sa propre structure de facturation ; les journaux de diagnostic mentionnés dans cette section présentent un coût. Pour plus d’informations, consultez [Utilisation et coûts estimés dans Azure Monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## <a name="monitor-user-access"></a>Superviser l’accès des utilisateurs
 
@@ -107,4 +107,4 @@ Il n’existe aucun moyen de consigner ces informations séparément de la chaî
 Une bonne maîtrise d’Azure Monitor est essentielle pour la surveillance de tout service Azure, dont des ressources comme Recherche cognitive Azure. Si vous n’êtes pas familiarisé avec Azure Monitor, prenez le temps de consulter les articles relatifs aux ressources. En plus des tutoriels, l’article suivant est un bon point de départ.
 
 > [!div class="nextstepaction"]
-> [Supervision de ressources Azure avec Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Supervision de ressources Azure avec Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)

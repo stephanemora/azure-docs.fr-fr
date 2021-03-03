@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498467"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570398"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -91,7 +91,7 @@ Le tableau suivant récapitule les rôles et les actions autorisées dans Azure 
 
 - En plus d’utiliser des rôles intégrés Azure, ou au lieu d’en utiliser, vous pouvez créer des rôles personnalisés Azure pour Azure Sentinel. Les rôles personnalisés Azure pour Azure Sentinel sont créés de la même façon que les autres [rôles personnalisés Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), c'est-à-dire en fonction des [autorisations spécifiques à Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) et aux [ressources Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure avancé Log Analytics sur les données de votre espace de travail Azure Sentinel. Cela comprend à la fois le contrôle Azure RBAC basé sur le type de données et le contrôle Azure RBAC centré sur les ressources. Pour plus d'informations sur les rôles Log Analytics, consultez [Gérer les données du journal et les espaces de travail dans Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure avancé Log Analytics sur les données de votre espace de travail Azure Sentinel. Cela comprend à la fois le contrôle Azure RBAC basé sur le type de données et le contrôle Azure RBAC centré sur les ressources. Pour plus d'informations sur les rôles Log Analytics, consultez [Gérer les données du journal et les espaces de travail dans Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

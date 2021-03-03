@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e1a0f4f22411e506cab3b54e955a4cdc16986fe2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682968"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667495"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless dans Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ La sécurité peut être appliquée à l’aide des éléments suivants :
 
 T-SQL pris en charge :
 
-- L’intégralité de la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) est prise en charge, y compris la majorité des fonctions SQL
+- L’intégralité de la surface d’exposition [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) est prise en charge, y compris la majorité des fonctions SQL
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - Instructions DDL relatives aux vues et à la sécurité uniquement
 
@@ -89,7 +89,7 @@ Le pool SQL serverless n’a pas de stockage local : seuls les objets de métad
 
 ### <a name="extensions"></a>Extensions
 
-Pour faciliter l’interrogation sur place des données qui se trouvent dans des fichiers du lac de données, le pool SQL serverless étend la fonction [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) existante en y ajoutant les fonctionnalités suivantes :
+Pour faciliter l’interrogation sur place des données qui se trouvent dans des fichiers du lac de données, le pool SQL serverless étend la fonction [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=azure-sqldw-latest&preserve-view=true) existante en y ajoutant les fonctionnalités suivantes :
 
 [Interrogation de plusieurs fichiers ou dossiers](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -113,7 +113,7 @@ Le pool SQL serverless offre des mécanismes permettant de sécuriser l’accès
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Intégration d’Azure Active Directory et authentification multifacteur
 
-Le pool SQL serverless vous permet de gérer de manière centralisée les identités des utilisateurs de bases de données et d’autres services Microsoft avec l’[intégration d’Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory (Azure AD) prend en charge l’[authentification multifacteur](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
+Le pool SQL serverless vous permet de gérer de manière centralisée les identités des utilisateurs de bases de données et d’autres services Microsoft avec l’[intégration d’Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md). Cette fonctionnalité simplifie la gestion des autorisations et améliore la sécurité. Azure Active Directory (Azure AD) prend en charge l’[authentification multifacteur](../../azure-sql/database/authentication-mfa-ssms-configure.md) (MFA) pour augmenter la sécurité des données et des applications, ainsi qu’un processus d’authentification unique.
 
 #### <a name="authentication"></a>Authentification
 
@@ -125,7 +125,7 @@ L’authentification du pool SQL serverless fait référence à la façon dont l
 
 - **Authentification Azure Active Directory** :
 
-  Cette méthode d’authentification utilise les identités managées par Azure Active Directory. Pour les utilisateurs Azure AD, l’authentification multifacteur peut être activée. Utilisez l’authentification Active Directory (sécurité intégrée) [dans la mesure du possible](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+  Cette méthode d’authentification utilise les identités managées par Azure Active Directory. Pour les utilisateurs Azure AD, l’authentification multifacteur peut être activée. Utilisez l’authentification Active Directory (sécurité intégrée) [dans la mesure du possible](/sql/relational-databases/security/choose-an-authentication-mode?view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="authorization"></a>Autorisation
 

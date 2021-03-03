@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091930"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651935"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Vue d’ensemble du provisionnement des journaux sur le Portail Azure Active Directory (préversion)
 
@@ -60,8 +60,8 @@ Il faut qu’une licence Azure AD Premium soit associée à votre locataire pou
 Les clients peuvent interagir avec les journaux de provisionnement de quatre manières :
 
 - Accès aux journaux à partir du Portail Azure (cf. section suivante)
-- Diffusion en continu des journaux de provisionnement dans [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), méthode qui permet une conservation étendue des données et la création de tableaux de bord, d’alertes et de requêtes personnalisés
-- Interrogation de l’[API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) pour obtenir les journaux de provisionnement.
+- Diffusion en continu des journaux de provisionnement dans [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md), méthode qui permet une conservation étendue des données et la création de tableaux de bord, d’alertes et de requêtes personnalisés
+- Interrogation de l’[API Microsoft Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) pour obtenir les journaux de provisionnement.
 - Téléchargement des journaux de provisionnement sous la forme d’un fichier CSV ou JSON
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Accéder aux journaux à partir du portail Azure
@@ -207,7 +207,7 @@ Le fichier JSON est téléchargé dans un format minimisé afin de réduire la t
 
 Voici quelques exemples de commandes à utiliser sur le fichier JSON avec PowerShell. Vous pouvez faire appel à n’importe quel langage de programmation que vous connaissez.  
 
-Tout d’abord, [lisez le fichier JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) en exécutant cette commande :
+Tout d’abord, [lisez le fichier JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) en exécutant cette commande :
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

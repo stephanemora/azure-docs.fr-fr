@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832128"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390468"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application Centre de microtraitement
 
-Dans ce tutoriel, vous utilisez le modèle d’application de centre de microtraitement Azure IoT Central pour générer une solution de vente au détail. Vous allez apprendre à déployer le modèle et découvrir les fonctionnalités fournies dans le modèle ainsi que les différentes possibilités qui s’offrent à vous.
+Dans ce tutoriel, vous utilisez le modèle d’application de centre de microtraitement Azure IoT Central pour générer une solution de vente au détail.
+
+Dans ce tutoriel, vous allez voir comment :
+
+> [!div class="checklist"]
+> * Déployer le modèle d’application
+> * Utiliser le modèle d’application
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre cette série de tutoriels, vous avez besoin d’un abonnement Azure. Vous pouvez éventuellement utiliser une version d’évaluation gratuite de 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).

@@ -4,16 +4,16 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524303"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559976"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ Voici quelques fonctions système courantes qui n’utilisent pas l’index et d
 | Upper/Lower                         | Au lieu d’utiliser la fonction système pour normaliser les données pour les comparaisons, normalisez la casse lors de l’insertion. Une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient ```SELECT * FROM c WHERE c.name = 'BOB'```. |
 | GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calculez l’heure actuelle avant l’exécution de la requête et utilisez cette valeur de chaîne dans la clause `WHERE`. |
 | Fonctions mathématiques (non-agrégations) | Si vous devez calculer fréquemment une valeur dans votre requête, stockez cette valeur en tant que propriété dans votre document JSON. |
+
+Ces fonctions système peuvent utiliser des index, sauf en cas d’utilisation dans les requêtes avec des agrégats :
+
+| **Fonction système**                     | **Idées pour l’optimisation**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Fonctions système spatiales                        | Stocker le résultat de la requête dans une vue matérialisée en temps réel |
 
 Lorsqu’elles sont utilisées dans la clause `SELECT`, les fonctions système inefficaces n’ont pas d’impact sur la manière dont les requêtes peuvent utiliser des index.
 

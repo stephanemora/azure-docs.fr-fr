@@ -575,7 +575,7 @@
           href: 'https://azure.microsoft.com/pricing/details/storage/page-blobs/'
         - name: Calculatrice de prix Azure
           href: 'https://azure.microsoft.com/pricing/calculator/'
-        - name: Videos
+        - name: Vidéos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
         - name: Packages NuGet (.NET)
           items:
@@ -635,20 +635,16 @@
       items:
         - name: Présentation de Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Démarrages rapides
-      items:
-        - name: Analyser des données avec Databricks
-          href: data-lake-storage-quickstart-create-databricks-account.md
     - name: Tutoriels
       items:
-        - name: 'Extraire, transformer et charger des données à l’aide d’Azure Databricks'
-          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Accéder aux données Data Lake Storage avec Databricks à l’aide de Spark
+        - name: Utiliser avec Databricks et Spark
           href: data-lake-storage-use-databricks-spark.md
-        - name: 'Extraire, transformer et charger des données avec Apache Hive sur Azure HDInsight'
+        - name: Utiliser avec Apache Hive et HDInsight
           href: data-lake-storage-tutorial-extract-transform-load-hive.md
-        - name: Insérer des données dans des tables Databricks Delta à l’aide d’Event Grid
+        - name: Utiliser avec Databricks Delta et Event Grid
           href: data-lake-storage-events.md
+        - name: Utiliser avec d’autres services Azure
+          href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Concepts
       items:
         - name: traitement du Big Data
@@ -705,7 +701,7 @@
       items:
         - name: Créez un compte de stockage.
           href: create-data-lake-storage-account.md
-        - name: Migrer
+        - name: Migrer des comptes et des magasins de données
           items:
             - name: Migrer depuis Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
@@ -713,31 +709,7 @@
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
             - name: Migrer un magasin HDFS en ligne
               href: migrate-gen2-wandisco-live-data-platform.md
-        - name: Gérer
-          items:
-            - name: .NET
-              href: data-lake-storage-directory-file-acl-dotnet.md
-            - name: Java
-              href: data-lake-storage-directory-file-acl-java.md
-            - name: Python
-              href: data-lake-storage-directory-file-acl-python.md
-            - name: JavaScript
-              href: data-lake-storage-directory-file-acl-javascript.md
-            - name: PowerShell
-              href: data-lake-storage-directory-file-acl-powershell.md
-            - name: Interface de ligne de commande
-              href: data-lake-storage-directory-file-acl-cli.md
-            - name: Explorateur Stockage
-              href: data-lake-storage-explorer.md
-            - name: Interface CLI de système de fichiers Hadoop
-              href: data-lake-storage-use-hdfs-data-lake-storage.md
-            - name: Définir des listes de contrôle d’accès de façon récursive
-              href: recursive-access-control-lists.md
-        - name: Requête
-          items:
-            - name: Filtrer les données avec l’accélération des requêtes
-              href: data-lake-storage-query-acceleration-how-to.md
-        - name: Transférer
+        - name: Transfert de données
           items:
             - name: AzCopy
               items:
@@ -761,9 +733,47 @@
               href: data-lake-storage-use-distcp.md
             - name: Transférer des données avec la bibliothèque de déplacement de données
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimiser
+        - name: Gérer le contrôle d’accès
           items:
-            - name: Optimiser les performances
+            - name: Explorateur Stockage
+              href: data-lake-storage-explorer-acl.md
+            - name: PowerShell
+              href: data-lake-storage-acl-powershell.md
+            - name: Interface de ligne de commande
+              href: data-lake-storage-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-acl-java.md
+            - name: Python
+              href: data-lake-storage-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-acl-javascript.md
+        - name: Utilisation des données
+          items:
+            - name: Explorateur Stockage
+              href: data-lake-storage-explorer.md
+            - name: PowerShell
+              href: data-lake-storage-directory-file-acl-powershell.md
+            - name: Interface de ligne de commande
+              href: data-lake-storage-directory-file-acl-cli.md
+            - name: .NET
+              href: data-lake-storage-directory-file-acl-dotnet.md
+            - name: Java
+              href: data-lake-storage-directory-file-acl-java.md
+            - name: Python
+              href: data-lake-storage-directory-file-acl-python.md
+            - name: JavaScript
+              href: data-lake-storage-directory-file-acl-javascript.md
+            - name: Accélération des requêtes
+              href: data-lake-storage-query-acceleration-how-to.md
+            - name: Interface CLI de système de fichiers Hadoop
+              href: data-lake-storage-use-hdfs-data-lake-storage.md
+        - name: Utiliser avec les services Azure
+          href: data-lake-storage-integrate-with-services-tutorials.md
+        - name: Optimiser les performances
+          items:
+            - name: Vue d’ensemble de l’optimisation des performances
               href: data-lake-storage-performance-tuning-guidance.md
             - name: Optimiser Spark sur HDInsight
               href: data-lake-storage-performance-tuning-spark.md
@@ -871,5 +881,5 @@
           href: 'https://azure.microsoft.com/updates/?product=storage'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
-        - name: Videos
+        - name: Vidéos
           href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'

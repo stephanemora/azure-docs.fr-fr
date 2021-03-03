@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cbafa7997d203cf06a3e91965355258f0088d77e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043379"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589891"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -24,7 +24,7 @@ Les alertes sont maintenant activées automatiquement par défaut, mais afin de 
 ![Créer l’expérience](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Avec les [nouvelles alertes unifiées](../platform/alerts-overview.md), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](../platform/action-groups.md) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement.
+>  Avec les [nouvelles alertes unifiées](../alerts/alerts-overview.md), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](../alerts/action-groups.md) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement.
 
 1. Après avoir enregistré le test de disponibilité, sous l’onglet des détails, cliquez sur les points de suspension à côté du test que vous venez de faire. Cliquez sur « Modifier l’alerte ».
 
@@ -39,7 +39,7 @@ Les alertes sont maintenant activées automatiquement par défaut, mais afin de 
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>L’alerte sur les emplacements de X en dehors de Y signalant des échecs
 
-La règle d’alerte pour les emplacements de X en dehors de Y est activée par défaut dans l’[expérience des nouvelles alertes unifiées](../platform/alerts-overview.md) lorsque vous créez un nouveau test de disponibilité. Vous pouvez décliner en sélectionnant l'option « classique » ou en choisissant de désactiver la règle d'alerte.
+La règle d’alerte pour les emplacements de X en dehors de Y est activée par défaut dans l’[expérience des nouvelles alertes unifiées](../alerts/alerts-overview.md) lorsque vous créez un nouveau test de disponibilité. Vous pouvez décliner en sélectionnant l'option « classique » ou en choisissant de désactiver la règle d'alerte.
 
 > [!NOTE]
 > Configurez les groupes d’actions pour recevoir des notifications lorsque l’alerte se déclenche en suivant les étapes ci-dessus. Sans cette étape, vous recevrez les notifications dans le portail uniquement lorsque la règle se déclenche.
@@ -47,7 +47,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ### <a name="alert-on-availability-metrics"></a>Créer une alerte sur les mesures de disponibilité
 
-À l’aide des [nouvelles alertes unifiées](../platform/alerts-overview.md), vous pouvez créer une alerte sur les mesures de disponibilité des agrégats segmentés et sur la durée des tests :
+À l’aide des [nouvelles alertes unifiées](../alerts/alerts-overview.md), vous pouvez créer une alerte sur les mesures de disponibilité des agrégats segmentés et sur la durée des tests :
 
 1. Sélectionnez une ressource Application Insights dans l’expérience Mesures, puis sélectionnez une mesure de disponibilité :
 
@@ -57,7 +57,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ### <a name="alert-on-custom-analytics-queries"></a>Créer des alertes sur les requêtes d’analytique personnalisées
 
-À l’aide des [nouvelles alertes unifiées](../platform/alerts-overview.md), vous pouvez créer des alertes sur les [requêtes dans les journaux personnalisées](../platform/alerts-unified-log.md). Avec des requêtes personnalisées, vous pouvez créer des alertes sur une condition arbitraire qui peut vous aider à obtenir le signal le plus fiable pour des problèmes de disponibilité. Cela s’applique également si vous envoyez les résultats de disponibilité personnalisés à l’aide du Kit de développement logiciel (SDK) TrackAvailability.
+À l’aide des [nouvelles alertes unifiées](../alerts/alerts-overview.md), vous pouvez créer des alertes sur les [requêtes dans les journaux personnalisées](../alerts/alerts-unified-log.md). Avec des requêtes personnalisées, vous pouvez créer des alertes sur une condition arbitraire qui peut vous aider à obtenir le signal le plus fiable pour des problèmes de disponibilité. Cela s’applique également si vous envoyez les résultats de disponibilité personnalisés à l’aide du Kit de développement logiciel (SDK) TrackAvailability.
 
 > [!Tip]
 > Les mesures sur les données de disponibilité incluent tous les résultats de disponibilité personnalisés que vous pouvez soumettre en appelant notre Kit de développement logiciel (SDK) TrackAvailability. Vous pouvez utiliser la prise en charge de la création d’alertes sur les mesures pour créer des alertes sur les résultats de disponibilité personnalisés.
@@ -65,7 +65,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 ## <a name="automate-alerts"></a>Automatiser les alertes
 
-Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="troubleshooting"></a>Dépannage
 

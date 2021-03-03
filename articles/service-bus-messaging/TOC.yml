@@ -1,13 +1,13 @@
 - name: Documentation sur la messagerie Service Bus
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la messagerie Service Bus\_?"
       href: service-bus-messaging-overview.md
     - name: Comparer les services de messagerie
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: "Utiliser Service Bus avec Java Message Service (JMS)\_2.0 (préversion)"
+    - name: "Utiliser Service Bus avec Java Message Service (JMS)\_2.0"
       href: how-to-use-java-message-service-20.md
 - name: Démarrages rapides
   items:
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Concepts
   items:
+    - name: 'Files d’attente, rubriques et abonnements'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Actions et filtres de rubrique
+      href: topic-filters.md
     - name: Premium-Messaging
       href: service-bus-premium-messaging.md
     - name: Comparer les files d’attente Azure et Service Bus
@@ -144,6 +148,10 @@
           href: ./security-controls-policy.md
         - name: Sécurité du réseau
           href: network-security.md
+    - name: Intégration à d’autres services
+      items:
+        - name: Intégration d’Azure Service Bus et d’Azure Event Grid
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Guides pratiques
   items:
     - name: Passer d’une région à l’autre
@@ -154,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Développer
       items:
+        - name: Définir des filtres et actions d’abonnement
+          href: service-bus-filter-examples.md
         - name: Gestion des messages
           items:
             - name: 'Files d’attente, rubriques et abonnements'
               href: service-bus-queues-topics-subscriptions.md
-            - name: "Entités Java message service (JMS)\_2.0 (préversion)"
+            - name: "Entités Java message service (JMS)\_2.0"
               href: java-message-service-20-entities.md
+            - name: Java Message Service (JMS) Developer guide.md
+              href: jms-developer-guide.md
             - name: 'Messages, charges utiles et sérialisation'
               href: service-bus-messages-payloads.md
             - name: 'Transferts, verrouillages et règlement des messages'
@@ -168,10 +180,6 @@
               href: message-sequencing.md
             - name: Expiration des messages (durée de vie)
               href: message-expiration.md
-            - name: Gestion des messages à l’aide d’Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
-        - name: Actions et filtres de rubrique
-          href: topic-filters.md
         - name: Migrer des espaces de noms Standard vers Premium
           href: service-bus-migrate-standard-premium.md
         - name: Files d’attente et rubriques partitionnées

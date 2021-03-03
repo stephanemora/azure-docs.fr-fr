@@ -4,12 +4,12 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263910"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579578"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -120,7 +120,7 @@ Oui, certains canaux de télémétrie conservent les données localement si un p
 
 Les canaux de télémétrie qui utilisent le stockage local créent des fichiers temporaires dans les répertoires TEMP ou APPDATA, qui sont limités au compte exécutant votre application. Cela se produit lorsqu’un point de terminaison a été temporairement indisponible ou lorsque vous avez atteint la limite de bande passante. Une fois ce problème résolu, le canal de télémétrie reprend l’envoi de toutes les données nouvelles et conservées.
 
-Ces données persistantes ne sont pas chiffrées en local. Si cela pose problème, passez en revue les données et limitez la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+Ces données persistantes ne sont pas chiffrées en local. Si cela pose problème, passez en revue les données et limitez la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 Si un client a besoin de configurer ce répertoire avec des exigences de sécurité spécifiques, il peut être configuré par infrastructure. Vérifiez que le processus exécutant votre application a accès en écriture à ce répertoire, mais veillez également à que ce répertoire soit protégé pour éviter la lecture des données de télémétrie par des utilisateurs non autorisés.
 
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Données personnelles stockées dans Application Insights
 
-Notre [article Données personnelles Application Insights](../platform/personal-data-mgmt.md) traite de ce problème en profondeur.
+Notre [article Données personnelles Application Insights](../logs/personal-data-mgmt.md) traite de ce problème en profondeur.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Mes utilisateurs peuvent-ils désactiver Application Insights ?
 Pas directement. Il n’existe pas de commutateur que vos utilisateurs peuvent utiliser pour désactiver Application Insights.
@@ -293,7 +293,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
 
 > [!NOTE]
-> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](./ip-collection.md) vous présentera vos options.
+> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../logs/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](./ip-collection.md) vous présentera vos options.
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [https://www.maxmind.com](https://www.maxmind.com).

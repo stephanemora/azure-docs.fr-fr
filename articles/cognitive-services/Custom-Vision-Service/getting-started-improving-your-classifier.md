@@ -1,28 +1,28 @@
 ---
-title: 'Améliorer votre classifieur : Service Vision personnalisée'
+title: Amélioration de votre modèle - Service Custom Vision
 titleSuffix: Azure Cognitive Services
-description: Dans cet article, vous allez découvrir comment la quantité, la qualité et la variété des données peuvent améliorer la qualité de votre classifieur dans le service Custom Vision.
+description: Dans cet article, vous allez découvrir comment la quantité, la qualité et la variété des données peuvent améliorer la qualité de votre modèle dans le service Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a77d3d5c1225fdd85e27db20cdae23e0c77a5e28
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271356"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096529"
 ---
-# <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
+# <a name="how-to-improve-your-custom-vision-model"></a>Guide pratique pour améliorer votre modèle Custom Vision
 
-Dans ce guide, vous allez découvrir comment améliorer la qualité de votre classifieur Custom Vision. La qualité d’un classifieur dépend de la quantité, de la qualité et de la variété des données étiquetées fournies, ainsi que de l’équilibre du jeu de données global. Un bon classifieur comporte un jeu de données d’entraînement équilibré et représentatif de ce qui lui sera soumis. Le processus de création d’un tel classifieur est itératif ; il est normal de pratiquer plusieurs cycles d’entraînement pour atteindre les résultats escomptés.
+Dans ce guide, vous allez découvrir comment améliorer la qualité de votre modèle pour le service Custom Vision. La qualité de votre [classifieur](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ou [détecteur d’objet](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) dépend de la quantité, de la qualité et de la variété des données étiquetées fournies ainsi que de l’équilibre de l’ensemble du jeu de données. Un bon modèle comporte un jeu de données d’entraînement équilibré, qui est représentatif de ce qui lui sera soumis. Le processus de création d’un tel modèle est itératif ; il est courant d’effectuer plusieurs cycles d’entraînement pour atteindre les résultats attendus.
 
-Voici un modèle général pour vous aider à créer un classifieur plus précis :
+Voici un modèle général pour vous aider à entraîner un modèle plus précis :
 
 1. Effectuer le premier cycle d’apprentissage.
 1. Ajouter d’autres images et équilibrer les données ; réentraîner
@@ -32,15 +32,15 @@ Voici un modèle général pour vous aider à créer un classifieur plus précis
 
 ## <a name="prevent-overfitting"></a>Empêcher le surajustement
 
-Un classifieur va parfois apprendre à faire des prédictions en fonction de caractéristiques arbitraires que vos images ont en commun. Par exemple, si vous créez un classifieur pommes/agrumes et que vous avez utilisé des images de pommes tenues dans des mains et des images d’agrumes posés dans des assiettes blanches, le classifieur risque de donner une trop grande importance à la distinction mains/assiettes, plutôt qu’à la distinction pommes/agrumes.
+Parfois, un modèle apprend à faire des prédictions en fonction de caractéristiques arbitraires que vos images ont en commun. Par exemple, si vous créez un classifieur pommes/agrumes et que vous avez utilisé des images de pommes tenues dans des mains et des images d’agrumes posés dans des assiettes blanches, le classifieur risque de donner une trop grande importance à la distinction mains/assiettes, plutôt qu’à la distinction pommes/agrumes.
 
 ![Image de classification inattendue](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Pour corriger ce problème, suivez les instructions ci-après afin d’effectuer l’entraînement avec des images plus variées : fournissez des images prises selon différents angles, arrière-plans, tailles d’objet, groupes et autres variantes.
+Pour corriger ce problème, fournissez des images avec différents angles, arrière-plans, tailles d’objet, groupes et autres variations. Les sections suivantes développent ces concepts.
 
 ## <a name="data-quantity"></a>Quantité de données
 
-Le nombre d’images d’entraînement est le facteur le plus important. Nous recommandons d’utiliser au moins 50 images par étiquette pour commencer. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
+Le nombre d’images d’entraînement est le facteur le plus important pour votre jeu de données. Nous recommandons d’utiliser au moins 50 images par étiquette pour commencer. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
 
 ## <a name="data-balance"></a>Équilibre des données
 
@@ -48,11 +48,11 @@ Il est également essentiel de prendre en compte les quantités relatives de vos
 
 ## <a name="data-variety"></a>Variété des données
 
-Veillez à utiliser des images représentatives de ce qui va être soumis au classifieur en utilisation normale. Sinon, votre classifieur risque d’apprendre à faire des prédictions en fonction de caractéristiques arbitraires que vos images ont en commun. Par exemple, si vous créez un classifieur pommes/agrumes et que vous avez utilisé des images de pommes tenues dans des mains et des images d’agrumes posés dans des assiettes blanches, le classifieur risque de donner une trop grande importance à la distinction mains/assiettes, plutôt qu’à la distinction pommes/agrumes.
+Veillez à utiliser des images représentatives de ce qui va être soumis au classifieur en utilisation normale. Sinon, votre modèle risque d’apprendre à faire des prédictions en fonction de caractéristiques arbitraires que vos images ont en commun. Par exemple, si vous créez un classifieur pommes/agrumes et que vous avez utilisé des images de pommes tenues dans des mains et des images d’agrumes posés dans des assiettes blanches, le classifieur risque de donner une trop grande importance à la distinction mains/assiettes, plutôt qu’à la distinction pommes/agrumes.
 
 ![Image de classification inattendue](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Pour corriger ce problème, incluez des images très diverses pour garantir une correcte généralisation par votre classifieur. Voici quelques moyens de rendre un jeu d’apprentissage plus varié :
+Pour corriger ce problème, incluez des images très diverses afin d’avoir la certitude que votre modèle effectue correctement la généralisation. Voici quelques moyens de rendre un jeu d’apprentissage plus varié :
 
 * __Contexte__ : Fournissez des images de votre objet devant différents arrière-plans. Les photos prises dans des contextes naturels sont plus performantes que celles dont l’arrière-plan est neutre, car elles apportent davantage d’informations au classifieur.
 
@@ -74,30 +74,39 @@ Pour corriger ce problème, incluez des images très diverses pour garantir une 
 
     ![Exemples d’images (style)](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Images négatives
+## <a name="negative-images-classifiers-only"></a>Images négatives (classifieurs uniquement)
 
-À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
+Si vous utilisez un classifieur d’images, vous devrez peut-être ajouter des _échantillons négatifs_ pour rendre votre classifieur plus précis. Les échantillons négatifs sont des images qui ne correspondent à aucune des autres étiquettes. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
+
+Les détecteurs d’objets prennent en charge automatiquement les échantillons négatifs, car les zones d’image en dehors des cadres englobants dessinés sont considérées comme négatives.
 
 > [!NOTE]
 > Le service Vision personnalisée prend en charge un traitement automatique des images négatives. Par exemple, si vous générez un classifieur raisins/bananes et que vous soumettez une image de chaussure à la prédiction, il devra lui donner un score proche de 0 % aussi bien pour les raisins que pour les bananes.
 > 
 > À l’inverse, dans les cas où les images négatives représentent simplement une variante des images utilisées pour l’apprentissage, il est probable que le modèle les catégorise comme une classe étiquetée en raison des grandes similitudes qu’elles présentent. Par exemple, si vous avez un classifieur oranges/pamplemousses et que vous fournissez une image de clémentine, il est possible qu’il l’évalue comme étant une orange car la clémentine présente des caractéristiques similaires à l'orange. Si vos images négatives sont de cette nature, nous vous conseillons de créer une ou plusieurs balises supplémentaires (comme **Autre**) et d’étiqueter ainsi les images négatives pendant l’apprentissage pour permettre au modèle de mieux faire la distinction entre ces classes.
 
+## <a name="consider-occlusion-and-truncation-object-detectors-only"></a>Prendre en compte l’occlusion et la troncation (détecteurs d’objets uniquement)
+
+Si vous souhaitez que votre détecteur d’objet détecte les objets tronqués (objets partiellement coupés dans l’image) ou les objets occlus (objets partiellement occultés par d’autres objets dans l’image), vous devez inclure des images d’entraînement qui couvrent ces cas de figure.
+
+> [!NOTE]
+> Ne confondez pas le problème des objets occultés par d’autres objets avec le **seuil de chevauchement**, un paramètre qui permet d’évaluer les performances du modèle. Le curseur du **seuil de chevauchement** sur le [site web Custom Vision](https://customvision.ai) indique dans quelle mesure un cadre englobant prédit doit chevaucher le véritable cadre englobant pour être considéré comme correct.
+
 ## <a name="use-prediction-images-for-further-training"></a>Utiliser des images de prédiction à des fins de réentraînement
 
-Quand vous utilisez ou testez le classifieur d’images en soumettant des images au point de terminaison de prédiction, le service Custom Vision stocke ces images. Vous pouvez alors les utiliser pour améliorer le modèle.
+Quand vous utilisez ou testez le modèle en soumettant des images au point de terminaison de prédiction, le service Custom Vision stocke ces images. Vous pouvez alors les utiliser pour améliorer le modèle.
 
-1. Pour voir les images soumises au classifieur, ouvrez la [page web Custom Vision](https://customvision.ai), accédez à votre projet et sélectionnez l’onglet __Prédictions__. La vue par défaut montre des images à partir de l’itération active. Vous pouvez utiliser le menu déroulant __Iteration__ pour voir les images envoyées au cours des précédentes itérations.
+1. Pour voir les images soumises au modèle, ouvrez la [page web Custom Vision](https://customvision.ai), accédez à votre projet, puis sélectionnez l’onglet __Prédictions__. La vue par défaut montre des images à partir de l’itération active. Vous pouvez utiliser le menu déroulant __Iteration__ pour voir les images envoyées au cours des précédentes itérations.
 
     ![Capture d’écran de l’onglet des prédictions, avec des images dans la vue](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Pointez sur une image pour lire les mots clés qui ont été prédits par le classifieur. Les images sont triées de sorte à ce que celles susceptibles d’apporter le plus d’améliorations au classifieur soient listées en premier. Pour utiliser une autre méthode de tri, effectuez une sélection dans la section __Sort__. 
+2. Pointez sur une image pour voir les étiquettes prédites par le modèle. Les images sont triées pour permettre à celles qui peuvent apporter le plus d’améliorations au modèle d’être listées en premier. Pour utiliser une autre méthode de tri, effectuez une sélection dans la section __Sort__. 
 
     Pour ajouter une image à vos données d’entraînement existantes, sélectionnez-la, sélectionnez les étiquettes correspondantes et cliquez sur __Save and close__. L’image est supprimée de __Prédictions__ et ajoutée à l’ensemble d’images d’entraînement. Vous pouvez la voir en sélectionnant l’onglet __Training Images__ (Images d’entraînement).
 
     ![Image de la page d’étiquetage](./media/getting-started-improving-your-classifier/tag.png)
 
-3. Utilisez ensuite le bouton __Train__ (Entraîner) pour réentraîner le classifieur.
+3. Utilisez ensuite le bouton __Train__ (Entraîner) pour réentraîner le modèle.
 
 ## <a name="visually-inspect-predictions"></a>Inspecter visuellement les prédictions
 
@@ -109,7 +118,7 @@ Parfois, un examen visuel permet d’identifier des modèles pouvant être recti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez découvert plusieurs techniques permettant de rendre plus précis votre modèle de classification d’images personnalisé. Découvrez ensuite comment tester des images programmatiquement en les soumettant à l’API de prédiction.
+Dans ce guide, vous avez découvert plusieurs techniques permettant de rendre votre modèle de classification d’images personnalisé ou votre modèle de détecteur d’objet plus précis. Découvrez ensuite comment tester des images programmatiquement en les soumettant à l’API de prédiction.
 
 > [!div class="nextstepaction"]
 > [Utiliser l’API de prédiction](use-prediction-api.md)

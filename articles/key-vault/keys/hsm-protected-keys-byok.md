@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1e7ea0dc929fdbb4ca306405e6ed8993ed2e4afe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581004"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386099"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importer des clés protégées par HSM dans Key Vault (BYOK)
 
@@ -52,7 +52,7 @@ Le tableau suivant répertorie les conditions préalables à l’utilisation de 
 | Abonnement Azure |Pour créer un coffre de clés dans Azure Key Vault, vous avez besoin d’un abonnement Azure. [Inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/). |
 | SKU Premium Key Vault pour l’importation de clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités d’Azure Key Vault, voir [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | HSM figurant dans la liste des HSM pris en charge, avec un outil BYOK et des instructions fournies par votre fournisseur de HSM | Vous devez disposer d’autorisations pour un HSM et d’une connaissance de base de l’utilisation de votre HSM. Consultez [Modules HSM pris en charge](#supported-hsms). |
-| Azure CLI version 2.1.0 ou ultérieure | Voir [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).|
+| Azure CLI version 2.1.0 ou ultérieure | Voir [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).|
 
 ## <a name="supported-hsms"></a>Modules HSM pris en charge
 
@@ -63,9 +63,10 @@ Le tableau suivant répertorie les conditions préalables à l’utilisation de 
 |Fortanix|Fabricant,<br/>HSM en tant que service|<ul><li>SDKMS (Self-Defending Key Management Service)</li><li>Equinix SmartKey</li></ul>|[Exportation de clés SDKMS vers des fournisseurs cloud pour BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Fabricant|Tous les modules HSM LiquidSecurity avec<ul><li>Version 2.0.4 ou ultérieure du microprogramme</li><li>Version 3.2 ou ultérieure du microprogramme</li></ul>|[Outil et documentation BYOK Marvell](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Pour plus d’informations, consultez le [site de Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Outil et documentation BYOK Cryptomathic](https://www.cryptomathic.com/azurebyok)|
-|Securosys SA|Fabricant, HSM en tant que service|Famille HSM de Primus, HSM Clouds de Securosys|[Outil et documentation BYOK Primus](https://www.securosys.com/primus-azure-byok)|
+|Securosys SA|Fabricant,<br/>HSM en tant que service|Famille HSM de Primus, HSM Clouds de Securosys|[Outil et documentation BYOK Primus](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (système de gestion de clés sécurisé)|Plusieurs marques et modèles de modules HSM, dont<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Pour plus d’informations, consultez le [site StorMagic](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS et BYOK d’Azure Key Vault](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |IBM|Fabricant|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Utimaco|Fabricant,<br/>HSM en tant que service|u.trust Anchor, CryptoServer|[Guide d’intégration et outil BYOK Utimaco](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
@@ -100,7 +101,7 @@ La clé KEK doit être :
 > [!NOTE]
 > La clé KEK doit avoir « Importer » comme seule opération de clé autorisée. « Importer » est incompatible avec toutes les autres opérations de clé.
 
-Pour créer une clé KEK avec les opérations de clé définies sur `import`, utilisez la commande [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create). Enregistrez l’identificateur de clé (`kid`) qui est retourné par la commande suivante. (Vous allez utiliser la valeur `kid` à l’[étape 3](#step-3-generate-and-prepare-your-key-for-transfer).)
+Pour créer une clé KEK avec les opérations de clé définies sur `import`, utilisez la commande [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create). Enregistrez l’identificateur de clé (`kid`) qui est retourné par la commande suivante. (Vous allez utiliser la valeur `kid` à l’[étape 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -108,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>Étape 2 : Télécharger la clé publique KEK
 
-Utilisez la commande [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download) pour télécharger la clé publique KEK dans un fichier .pem. La clé cible que vous importez est chiffrée à l’aide de la clé publique KEK.
+Utilisez la commande [az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) pour télécharger la clé publique KEK dans un fichier .pem. La clé cible que vous importez est chiffrée à l’aide de la clé publique KEK.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -129,7 +130,7 @@ Transférez le fichier BYOK sur votre ordinateur connecté.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Étape 4 : Transférer votre clé vers Azure Key Vault
 
-Pour terminer l’importation de la clé, transférez le package de transfert de clé (fichier BYOK) de votre ordinateur déconnecté vers l’ordinateur connecté à Internet. Pour charger le fichier BYOK dans le HSM de Key Vault, utilisez la commande [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import).
+Pour terminer l’importation de la clé, transférez le package de transfert de clé (fichier BYOK) de votre ordinateur déconnecté vers l’ordinateur connecté à Internet. Pour charger le fichier BYOK dans le HSM de Key Vault, utilisez la commande [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import).
 
 Pour importer une clé RSA, utilisez la commande suivante. Le paramètre --kty est facultatif et prend par défaut la valeur « RSA-HSM ».
 ```azurecli

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710071"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519386"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -71,7 +71,7 @@ Le stockage que vous approvisionnez est la quantité de stockage disponible pour
 
 Le stockage est disponible dans les tailles fixes suivantes :
 
-| Taille du disque | E/S par seconde |
+| Taille du disque | IOPS |
 |:---|:---|
 | 32 Gio | Alloué 120, jusqu’à 3 500 |
 | 64 Gio | Alloué 240, jusqu’à 3 500 |
@@ -151,7 +151,10 @@ Lorsqu’elles sont marquées d’un \*, la bande passante d’E/S est limitée 
 
 Lorsque vous atteignez la limite de stockage, le serveur commence à renvoyer des erreurs et empêchera toute autre modification. Cela peut également entraîner des problèmes avec d’autres activités opérationnelles, tels que les sauvegardes et l’archivage du journal WAL.
 
+Pour éviter une telle situation, quand l’utilisation du stockage atteint 95 % ou quand la capacité disponible est inférieure à 5 Gio, le serveur passe automatiquement en **mode Lecture seule**.
+
 Nous vous recommandons de surveiller activement l’espace disque en cours d’utilisation et d’augmenter la taille du disque avant d’atteindre un stockage insuffisant. Vous pouvez configurer une alerte pour vous avertir lorsque le stockage de votre serveur devient insuffisant, ce qui vous permet d’éviter tout problème de manque d’espace disque. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 

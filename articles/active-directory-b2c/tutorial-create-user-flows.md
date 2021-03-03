@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614266"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557150"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer un flux d’utilisateur de modification de profil
 > * Créer un flux d’utilisateur de réinitialisation du mot de passe
 
-Ensuite, découvrez comment ajouter des fournisseurs d’identité à vos applications pour permettre à vos utilisateurs de se connecter avec les fournisseurs que sont Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter.
+Ensuite, découvrez comment utiliser Azure AD B2C pour connecter et inscrire des utilisateurs dans une application. Suivez l’application web ASP.NET liée ci-dessous ou accédez à une autre application dans la table des matières, sous **Authentifier les utilisateurs**.
 
 > [!div class="nextstepaction"]
-> [Ajouter des fournisseurs d’identité à vos applications >](tutorial-add-identity-providers.md)
+> [Tutoriel : Activer l’authentification dans une application web à l’aide d’Azure AD B2C >](tutorial-web-app-dotnet.md)

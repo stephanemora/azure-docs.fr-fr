@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 32ec711309190d4bb7c6c98a05b6a75cf88a8f5c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920487"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390825"
 ---
 # <a name="data-source-schema-reference"></a>Informations de référence sur les schémas de source de données
 
@@ -37,6 +37,9 @@ Cet article répertorie les schémas de sources de données Azure et tiers pris 
 | **Réseau**                          | Journaux de flux NSG          | AzureNetworkAnalytics  | [Schéma et agrégation de données dans Traffic Analytics](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
+> [!NOTE]
+> Pour plus d'informations, consultez l'intégralité de la [référence de données Azure Monitor](/azure/azure-monitor/reference/).
+>
 ## <a name="3rd-party-vendor-data-sources"></a>Sources de données de fournisseurs tiers
 
 Le tableau suivant répertorie les fournisseurs tiers pris en charge et leur documentation Syslog ou Common Event Format (CEF) pour différents types de journaux pris en charge, contenant des mappages de champs CEF et des exemples de journaux pour chaque type de catégorie.

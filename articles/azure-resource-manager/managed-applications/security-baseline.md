@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2a5c31270f18c2e6149d93fa522818704b9747d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588610"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Ligne de base de sécurité Azure pour les Applications managées Azure
 
@@ -415,9 +415,9 @@ Azure Security Center peut également alerter dans le cas de certaines activité
 
 **Conseils** : Les journaux d’activité, disponibles automatiquement, contiennent toutes les opérations d’écriture (PUT, POST, DELETE) des ressources d’application managée, à l’exception des opérations de lecture (GET). Les journaux d’activité peuvent être utilisés pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -432,7 +432,7 @@ En outre, activez et intégrez les données dans Azure Sentinel ou une solution 
 
 De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les données « chaudes » qui sont utilisées fréquemment et Stockage Azure pour les données « froides » qui sont utilisées moins fréquemment.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -445,7 +445,7 @@ De nombreuses organisations choisissent d’utiliser Azure Sentinel pour les don
 **Conseils** : Veillez à ce que la période de rétention des journaux définie dans les comptes de stockage ou les espaces de travail Log Analytics utilisés pour le stockage des journaux créés par vos ressources d’applications managées soit conforme aux obligations réglementaires de votre organisation.
 Dans Azure Monitor, vous pouvez définir la période de rétention de votre espace de travail Log Analytics en fonction des règles de conformité de votre organisation. Utilisez des comptes Stockage Azure, Data Lake ou d’espace de travail Log Analytics pour le stockage à long terme et l’archivage.
 
-- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../../azure-monitor/platform/manage-cost-storage.md)
+- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../../azure-monitor/logs/manage-cost-storage.md)
 
 - [Stockage des journaux des ressources dans un compte de stockage Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
@@ -493,7 +493,7 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 
 - [Comment envoyer des alertes à Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

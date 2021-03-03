@@ -7,18 +7,18 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985918"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377752"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Placement d'un groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale
 
-Cet article repose sur un exemple qui illustre la façon dont les instances PostgreSQL du groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale sont placées sur les nœuds physiques du cluster Kubernetes qui les héberge. 
+Cet article repose sur un exemple qui illustre la façon dont les instances PostgreSQL du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc sont placées sur les nœuds physiques du cluster Kubernetes qui les héberge. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,13 +28,13 @@ Dans cet exemple, nous utilisons un cluster Azure Kubernetes Service (AKS) qui c
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="Cluster AKS à 4 nœuds sur le portail Azure":::
 
-Répertoriez les nœuds physiques du cluster Kubernetes en exécutant la commande suivante :
+Répertoriez les nœuds physiques du cluster Kubernetes. Exécutez la commande suivante :
 
 ```console
 kubectl get nodes
 ```
 
-Ce qui présente les quatre nœuds physiques contenus dans le cluster Kubernetes :
+`kubectl` retourne les quatre nœuds physiques contenus dans le cluster Kubernetes :
 
 ```output
 NAME                                STATUS   ROLES   AGE   VERSION
@@ -55,7 +55,7 @@ Répertoriez les pods à l'aide de la commande suivante :
 ```console
 kubectl get pods -n arc3
 ```
-Ce qui génère la sortie suivante :
+`kubectl` retourne :
 
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ postgres01c-0         3/3     Running   0          9h
 postgres01w-0         3/3     Running   0          9h
 postgres01w-1         3/3     Running   0          9h
 ```
-Chacun de ces pods héberge une instance PostgreSQL. L'ensemble forme le groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale :
+Chacun de ces pods héberge une instance PostgreSQL. Ensemble, les pods forment le groupe de serveurs PostgreSQL Hyperscale avec Azure Arc :
 
 ```output
 Pod name        Role in the server group
@@ -80,7 +80,7 @@ Voyons comment Kubernetes place les pods du groupe de serveurs. Décrivez chaque
 kubectl describe pod postgres01c-0 -n arc3
 ```
 
-Ce qui génère la sortie suivante :
+`kubectl` retourne :
 
 ```output
 Name:         postgres01c-0
@@ -104,7 +104,7 @@ Et notez également, dans la description des pods, les noms des conteneurs hébe
 kubectl describe pod postgres01w-1 -n arc3
 ```
 
-Ce qui génère la sortie suivante :
+`kubectl` retourne :
 
 ```output
 …
@@ -131,7 +131,7 @@ L’architecture ressemble à ceci :
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 pods, chacun placé sur un nœud distinct":::
 
-Cela signifie qu'à ce stade, chacune des instances PostgreSQL qui constituent le groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale est hébergée sur un hôte physique spécifique dans le conteneur Kubernetes. Il s'agit de la meilleure configuration pour optimiser les performances du groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale, car chaque rôle (coordinateur et Workers) utilise les ressources de chaque nœud physique. Ces ressources ne sont pas partagées entre plusieurs rôles PostgreSQL.
+Cela signifie qu'à ce stade, chacune des instances PostgreSQL qui constituent le groupe de serveurs Azure Arc enabled PostgreSQL Hyperscale est hébergée sur un hôte physique spécifique dans le conteneur Kubernetes. Il s’agit de la configuration la plus performante du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc, car chaque rôle (coordinateur et Workers) utilise les ressources de chaque nœud physique. Ces ressources ne sont pas partagées entre plusieurs rôles PostgreSQL.
 
 ## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Effectuer un scale-out d'Azure Arc enabled PostgreSQL Hyperscale
 
@@ -217,19 +217,19 @@ Les commandes déjà utilisées précédemment nous permettent de voir ce que ch
 
 |Noms des autres pods\* |Usage|Nœud physique Kubernetes hébergeant les pods
 |----|----|----
-|bootstrapper-jh48b|Il s’agit d’un service qui traite les demandes entrantes pour créer, modifier et supprimer des ressources personnalisées telles que des instances gérées SQL, des groupes de serveurs PostgreSQL Hyperscale et des contrôleurs de données.|aks-agentpool-42715708-vmss000003
+|bootstrapper-jh48b|Service qui traite les demandes entrantes pour créer, modifier et supprimer des ressources personnalisées telles que des instances gérées SQL, des groupes de serveurs PostgreSQL Hyperscale et des contrôleurs de données.|aks-agentpool-42715708-vmss000003
 |control-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0|Il s’agit du magasin de données du contrôleur qui est utilisé pour stocker la configuration et l’état du contrôleur de données.|aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7|Il s’agit du service « surveillant » du contrôleur qui garde un œil sur la disponibilité du contrôleur de données.|aks-agentpool-42715708-vmss000000
-|logsdb-0|Il s’agit d’une instance de recherche élastique qui est utilisée pour stocker tous les journaux collectés sur l’ensemble des pods des services de données Arc. Elasticsearch, reçoit les données du conteneur `Fluentbit` de chaque Pod|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5|Il s’agit d’une instance Kibana qui se trouve au-dessus de la base de données de recherche élastique pour présenter une interface graphique utilisateur Log Analytics.|aks-agentpool-42715708-vmss000003
-|metricsdb-0|Il s’agit d’une instance InfluxDB qui est utilisée pour stocker toutes les métriques collectées sur l’ensemble des pods des services de données Arc. InfluxDB, reçoit les données du conteneur `Telegraf` de chaque Pod|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000002
-|metricsdc-864kj|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l|Il s’agit d’un DaemonSet déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l|Il s’agit d’une instance Grafana qui se trouve au-dessus de la base de données InfluxDB pour présenter une interface utilisateur graphique de tableau de bord d’analyse.|aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp|Il s’agit d’une couche de proxy d’application web qui se trouve devant les instances Grafana et Kibana.|aks-agentpool-42715708-vmss000002
+|controldb-0|Magasin de données du contrôleur qui est utilisé pour stocker la configuration et l’état du contrôleur de données.|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|Service « surveillant » du contrôleur qui garde un œil sur la disponibilité du contrôleur de données.|aks-agentpool-42715708-vmss000000
+|logsdb-0|Instance de recherche élastique qui est utilisée pour stocker tous les journaux collectés sur l’ensemble des pods des services de données Arc. Elasticsearch, reçoit les données du conteneur `Fluentbit` de chaque Pod|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|Instance Kibana qui se trouve au-dessus de la base de données de recherche élastique pour présenter une interface graphique utilisateur Log Analytics.|aks-agentpool-42715708-vmss000003
+|metricsdb-0|Instance InfluxDB qui est utilisée pour stocker toutes les métriques collectées sur l’ensemble des pods des services de données Arc. InfluxDB, reçoit les données du conteneur `Telegraf` de chaque Pod|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|Jeu de démons déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|Jeu de démons déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Jeu de démons déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|Jeu de démons déployé sur tous les nœuds Kubernetes du cluster pour collecter des métriques au niveau du nœud à leur sujet.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Instance Grafana qui se trouve au-dessus de la base de données InfluxDB pour présenter une interface graphique utilisateur du tableau de bord d’analyse.|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Couche de proxy d’application web qui se trouve devant les instances Grafana et Kibana.|aks-agentpool-42715708-vmss000002
 
 > \* Le suffixe des noms de pods varie en fonction des autres déploiements. De plus, nous ne répertorions ici que les pods hébergés dans l'espace de noms Kubernetes du contrôleur de données Azure Arc.
 
@@ -237,7 +237,7 @@ L’architecture ressemble à ceci :
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Tous les pods de l'espace de noms, sur différents nœuds":::
 
-Cela signifie que les nœuds coordinateurs (Pod 1) du groupe de serveurs Azure Arc enabled Postgres Hyperscale partagent les mêmes ressources physiques que le troisième nœud Worker (Pod 4) du groupe de serveurs. Cette configuration est acceptable car le nœud coordinateur utilise généralement très peu de ressources par rapport à un nœud Worker. Vous pouvez en déduire que vous devez soigneusement choisir :
+Comme décrit ci-dessus, les nœuds coordinateurs (Pod 1) du groupe de serveurs PostgreSQL Hyperscale avec Azure Arc partagent les mêmes ressources physiques que le troisième nœud Worker (Pod 4) du groupe de serveurs. Cette configuration est acceptable, car le nœud coordinateur utilise généralement très peu de ressources par rapport à un nœud Worker. Pour cette raison, choisissez avec soin :
 - la taille du cluster Kubernetes et les caractéristiques de chacun de ses nœuds physiques (mémoire, vCore) ;
 - le nombre de nœuds physiques contenus dans le cluster Kubernetes ;
 - les applications ou charges de travail que vous hébergez sur le cluster Kubernetes.

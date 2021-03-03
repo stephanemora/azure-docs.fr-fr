@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 56afc81794bb18bfb7c9146eeb4ed61a0a75ea0f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356208"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587018"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -56,17 +56,23 @@ ms.locfileid: "96356208"
 | Durée maximale d’exécution de requête | 10 minutes | Consultez [Délais d’expiration](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) pour plus d’informations.  |
 | Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur Azure AD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
 
+**Connecteur des journaux Azure Monitor**
+| Category | Limite | Commentaires |
+|:---|:---|:---|
+| Nombre maximal d’enregistrements | 500 000 | |
+| Délai d’expiration maximal des requêtes | 110 secondes | |
+| Graphiques | | La visualisation dans la page Journaux et le connecteur utilisent des bibliothèques graphiques différentes, et certaines fonctionnalités ne sont actuellement pas disponibles dans le connecteur. |
+
 **Limites d’espace de travail général**
 
 | Category | Limite | Commentaires |
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
-| Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
 
 **<a name="data-ingestion-volume-rate">Débit d’ingestion de données</a>**
 
-Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. La limite du débit de volume vise à isoler les clients Azure Monitor des pics d’ingestion soudains dans un environnement multilocataire. Un seuil de débit de volume d’ingestion par défaut de 500 Mo (compressé) est défini dans les espaces de travail, ce qui se traduit par **6 Go/min** non compressé -- la taille réelle peut varier entre les types de données en fonction de la longueur du journal et du taux de compression. La limite du débit du volume s’applique aux données ingérées à partir des ressources Azure via les [Paramètres de diagnostic](../articles/azure-monitor/platform/diagnostic-settings.md). Lorsque la limite du débit du volume est atteinte, un mécanisme de nouvelle tentative tente d’ingérer les données 4 fois sur une période de 30 minutes et de les supprimer si l’opération échoue. Elle ne s’applique pas aux données ingérées à partir d’[agents](../articles/azure-monitor/platform/agents-overview.md) ou de l’[API du collecteur de données](../articles/azure-monitor/platform/data-collector-api.md).
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. La limite du débit de volume vise à isoler les clients Azure Monitor des pics d’ingestion soudains dans un environnement multilocataire. Un seuil de débit de volume d’ingestion par défaut de 500 Mo (compressé) est défini dans les espaces de travail, ce qui se traduit par **6 Go/min** non compressé -- la taille réelle peut varier entre les types de données en fonction de la longueur du journal et du taux de compression. La limite du débit du volume s’applique aux données ingérées à partir des ressources Azure via les [Paramètres de diagnostic](../articles/azure-monitor/platform/diagnostic-settings.md). Lorsque la limite du débit du volume est atteinte, un mécanisme de nouvelle tentative tente d’ingérer les données 4 fois sur une période de 30 minutes et de les supprimer si l’opération échoue. Elle ne s’applique pas aux données ingérées à partir d’[agents](../articles/azure-monitor/agents/agents-overview.md) ou de l’[API du collecteur de données](../articles/azure-monitor/platform/data-collector-api.md).
 
 Quand les données envoyées à un espace de travail sont à un débit supérieur à 80 % du seuil configuré dans votre espace de travail, un événement est envoyé au tableau *Opération* de votre espace de travail toutes les 6 heures tant que le seuil continue d’être dépassé. Quand le débit de volume ingéré est plus élevé que le seuil, des données sont supprimées et un événement est envoyé toutes les 6 heures au tableau *Opération* de votre espace de travail pendant que le seuil continue d’être dépassé. Si votre débit de volume d’ingestion continue de dépasser le seuil ou si vous pensez l’atteindre bientôt, vous pouvez demander de l’augmenter en effectuant une demande de support. 
 

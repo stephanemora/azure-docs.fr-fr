@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adcbf4efc4dfaa7701c18440531327949640cb53
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452384"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581989"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -260,7 +260,7 @@ Pour voir toutes les traces journalisées par un hub IoT, interrogez le magasin 
 
 ### <a name="query-using-log-analytics"></a>Interroger avec Log Analytics
 
-Si vous avez configuré [Log Analytics avec des journaux de ressources](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), exécutez une requête pour rechercher les journaux d’activité appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
+Si vous avez configuré [Log Analytics avec des journaux de ressources](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), exécutez une requête pour rechercher les journaux d’activité appartenant à la catégorie `DistributedTracing`. Par exemple, la requête suivante montre toutes les traces journalisées :
 
 ```Kusto
 // All distributed traces 

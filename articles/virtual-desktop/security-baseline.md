@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 01cd79afe3e718a32663544a76a2a43353bc082e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 42795e2dda6df24e656c9c06f6a9424bd9e4b5cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575379"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092984"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Base de sécurité Azure pour Windows Virtual Desktop
 
@@ -328,7 +328,7 @@ Utilisez en outre des rôles intégrés pour allouer les autorisations et créez
 
 - [Présentation du contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [Configurer le contrôle d'accès en fonction du rôle dans Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Comment configurer Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md)
 

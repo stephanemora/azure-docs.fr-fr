@@ -1,19 +1,19 @@
 ---
 title: Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 description: Cet article décrit le(s) rôle(s) RBAC Synapse intégré(s) requis pour accomplir des tâches spécifiques
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109791"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384450"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 
@@ -87,7 +87,7 @@ Afficher les journaux pour l’exécution des notebooks et des travaux |Opérate
 Annuler un notebook ou un travail Spark en cours d’exécution sur un pool Apache Spark|Opérateur de capacité de calcul Synapse sur le pool Apache Spark.|bigDataPools/useCompute
 Créer une définition de notebook ou de travail|Utilisateur Synapse, ou </br>Propriétaire, Contributeur ou Lecteur Azure sur l’espace de travail</br> *Des autorisations supplémentaires sont requises pour exécuter, publier ou valider des modifications*|lire</br></br></br></br></br> 
 Répertorier et ouvrir une définition de notebook ou de travail publiée, y compris la révision des sorties enregistrées|Utilisateur d'artefact Synapse, Éditeur d’artefacts Synapse, Contributor Synapse sur l’espace de travail|artifacts/read
-Exécuter un notebook et passer en revue sa sortie|Administrateur Apache Spark Synapse, Opérateur de capacité de calcul Synapse sur le pool Apache Spark sélectionné|bigDataPools/useCompute 
+Exécuter un notebook et examiner sa sortie, ou envoyer un travail Spark|Administrateur Apache Spark Synapse, Opérateur de capacité de calcul Synapse sur le pool Apache Spark sélectionné|bigDataPools/useCompute 
 Publier ou supprimer une définition de notebook ou de travail (y compris la sortie) dans le service|Éditeur d’artefacts sur l’espace de travail, Administrateur Apache Spark Synapse|notebooks/write, delete
 Valider les modifications apportées à une définition de notebook ou de tâche dans le référentiel Git|Autorisations Git|aucun
 PIPELINES, RUNTIMES D’INTÉGRATION, DATAFLOWS, JEUX DE DONNÉES ET DÉCLENCHEURS|

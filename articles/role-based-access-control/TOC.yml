@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: API REST
           href: role-assignments-list-rest.md
-    - name: Ajouter ou supprimer des attributions de rôles
+    - name: Attribuer des rôles
       items:
-        - name: Étapes pour ajouter une attribution de rôle
+        - name: Étapes pour attribuer un rôle
           href: role-assignments-steps.md
         - name: Portail
           items:
-            - name: Ajouter ou supprimer des attributions de rôles
+            - name: Attribuer des rôles
               href: role-assignments-portal.md
             - name: Administrateur d’abonnement
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Modèle ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Supprimer les attributions de rôles
+      href: role-assignments-remove.md
     - name: Répertorier les affectations de refus
       items:
         - name: Vue d’ensemble

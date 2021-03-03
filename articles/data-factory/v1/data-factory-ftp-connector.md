@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis un serveur FTP à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eeeb122d240d8c3eae4ebe1650f67cf0e4b9dac6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a8a8ca44fbdb7610f85bc53c23d502d2efb01c8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001641"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363948"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -76,7 +71,7 @@ Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP 
 | enableServerCertificateValidation |Indiquez si vous souhaitez activer la validation des certificats TLS/SSL lors de l’utilisation de FTP sur un canal SSL/TLS. |Non |true |
 
 >[!NOTE]
->Le connecteur FTP prend en charge l’accès au serveur FTP avec aucun chiffrement ou le chiffrement SSL/TLS explicite ; Il ne prend pas en charge le chiffrement SSL/TLS implicite.
+>Le connecteur FTP prend en charge l’accès au serveur FTP sans chiffrement ou avec un chiffrement SSL/TLS explicite ; il ne gère pas le chiffrement SSL/TLS implicite.
 
 ### <a name="use-anonymous-authentication"></a>Utiliser une authentification anonyme
 

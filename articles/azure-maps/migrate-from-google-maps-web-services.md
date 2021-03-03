@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624036"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386847"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutoriel : Migrer un service web à partir de Google Maps
 
@@ -54,7 +54,7 @@ Le tableau suivant présente les API du service Azure Maps, qui offrent des fonc
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
-- Géolocalisation
+- Géolocalisation - Azure Maps n’a pas de service appelé Géolocalisation : il fournit comme information l’adresse IP de l’emplacement, mais ne prend actuellement pas en charge la triangulation par antenne-relais ou WiFi.
 - Places details and photos (détails et photos des lieux) : les numéros de téléphone et URL de site web sont disponibles dans l’API de recherche Azure Maps.
 - URL de cartes
 - Nearest Roads (routes les plus proches) : cette fonctionnalité est proposée par le SDK web comme indiqué [ici](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic) mais n’est pas disponible comme service pour l’instant.

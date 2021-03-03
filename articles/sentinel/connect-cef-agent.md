@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747304"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585373"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Étape 1 : Déployer le redirecteur de journal
 
@@ -70,7 +70,7 @@ Au cours de cette étape, vous allez désigner et configurer la machine Linux qu
 >
 > Si vous envisagez d’utiliser cette machine de transfert de journaux pour transférer des [messages Syslog](connect-syslog.md) ainsi que des messages CEF, afin d’éviter la duplication des événements dans les tables Syslog et CommonSecurityLog :
 >
-> 1. Sur chaque machine source qui envoie des journaux au redirecteur au format CEF, vous devez modifier le fichier config Syslog pour supprimer les fonctionnalités utilisées pour envoyer des messages CEF. De cette façon, les fonctionnalités envoyées en CEF ne sont pas aussi envoyées au format Syslog. Pour obtenir des instructions détaillées sur la procédure à suivre, consultez [Configurer Syslog sur l’agent Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent).
+> 1. Sur chaque machine source qui envoie des journaux au redirecteur au format CEF, vous devez modifier le fichier config Syslog pour supprimer les fonctionnalités utilisées pour envoyer des messages CEF. De cette façon, les fonctionnalités envoyées en CEF ne sont pas aussi envoyées au format Syslog. Pour obtenir des instructions détaillées sur la procédure à suivre, consultez [Configurer Syslog sur l’agent Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent).
 >
 > 1. Vous devez exécuter la commande suivante sur ces machines pour désactiver la synchronisation de l’agent avec la configuration Syslog dans Azure Sentinel. Cela permet de s’assurer que la modification de configuration que vous avez apportée à l’étape précédente n’est pas remplacée.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

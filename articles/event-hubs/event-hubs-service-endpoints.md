@@ -2,17 +2,17 @@
 title: Points de terminaison de service de réseau virtuel - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’ajout d’un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556527"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Autoriser l'accès à un espace de noms Azure Event Hubs à partir de réseaux virtuels spécifiques 
 
-L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités.
+L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités. Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base**.
 
 Une fois configuré pour être lié à au moins un point de terminaison de service de sous-réseau de réseau virtuel, l’espace de noms Event Hubs respectif n’accepte que le trafic provenant de sous-réseaux autorisés dans les réseaux virtuels. Du point de vue du réseau virtuel, la liaison d’un espace de noms Event Hubs à un point de terminaison de service configure un tunnel de mise en réseau isolé allant du sous-réseau de réseau virtuel au service de messagerie. 
 
@@ -21,8 +21,8 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 >[!WARNING]
 > L’activation de réseaux virtuels pour votre espace de noms Event Hubs bloque vos demandes entrantes par défaut, sauf si les demandes proviennent d’un service opérant à partir de réseaux virtuels autorisés. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque les réseaux virtuels sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
 
-> [!NOTE]
-> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base**.
+> [!IMPORTANT]
+> Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 
@@ -46,8 +46,8 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 1. Accédez à votre **espace de noms Event Hubs** sur le [Portail Azure](https://portal.azure.com).
 4. Sous **Paramètres** sur le menu de gauche, sélectionnez **Mise en réseau**. L’onglet **Réseau** s’affiche uniquement pour les espaces de noms **standard** ou **dédiés**. 
 
-    > [!NOTE]
-    > Par défaut, l’option **Réseaux sélectionnés** est sélectionnée, comme indiqué dans l’image suivante. Si vous ne spécifiez pas de règle de pare-feu IP ou n’ajoutez pas de réseau virtuel sur cette page, l’espace de noms est accessible via l’**Internet public** (à l’aide de la clé d’accès). 
+    > [!WARNING]
+    > Si vous sélectionnez l’option **Réseaux sélectionnés** et n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’**Internet public** (à l’aide de la clé d’accès). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -58,6 +58,9 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 2. Dans la section **Réseau virtuel** de la page, sélectionnez **+Ajouter un réseau virtuel existant** _. Sélectionnez _ *+ Créer un réseau virtuel** si vous souhaitez créer un réseau virtuel. 
 
     ![ajouter un réseau virtuel existant](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Si vous sélectionnez l’option **Réseaux sélectionnés** et n’ajoutez pas au moins une règle de pare-feu IP ou un réseau virtuel sur cette page, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).
 3. Sélectionnez le réseau virtuel dans la liste des réseaux virtuels, puis choisissez le **sous-réseau**. Vous devez activer le point de terminaison de service avant d’ajouter le réseau virtuel à la liste. Si le point de terminaison de service n’est pas activé, le portail vous invite à l’activer.
    
    ![sélectionner un sous-réseau](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
@@ -79,28 +82,12 @@ Cette section montre comment utiliser le portail Azure pour ajouter un point de 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilisation d’un modèle Resource Manager
+Le modèle Resource Manager suivant ajoute une règle de réseau virtuel à un espace de noms Event Hubs. Pour la règle de réseau, elle spécifie l’ID d’un sous-réseau dans un réseau virtuel. 
 
-Le modèle Resource Manager suivant permet d’ajouter une règle de réseau virtuel à un espace de noms Event Hubs.
+L’ID est un chemin d’accès complet Resource Manager pour le sous-réseau de réseau virtuel. Par exemple, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
 
-Paramètres du modèle :
+Lorsque vous ajoutez des règles de réseau virtuel ou de pare-feu, affectez la valeur `defaultAction` à `Deny`.
 
-* `namespaceName` : espace de noms Event Hubs.
-* `vnetRuleName` : nom de la règle de réseau virtuel à créer.
-* `virtualNetworkingSubnetId` : chemin complet de Resource Manager pour le sous-réseau de réseau virtuel, par exemple `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` pour le sous-réseau par défaut d’un réseau virtuel.
-
-> [!NOTE]
-> Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
-> Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier **_« defaultAction »_**
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +189,9 @@ Paramètres du modèle :
 ```
 
 Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> S’il n’existe aucune règle d’adresse IP et de réseau virtuel, tout le trafic transite dans l’espace de noms, même si vous définissez `defaultAction` sur `deny`.  L’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

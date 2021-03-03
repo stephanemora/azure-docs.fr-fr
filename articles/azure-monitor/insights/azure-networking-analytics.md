@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: cdb43bd8b91881905b1734d0c0b36c33fb27d232
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707688"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577499"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -113,11 +113,11 @@ Le classeur Insights réseau vous permet de tirer profit des dernières capacit�
 
 * Console centralisée pour la surveillance et la résolution des problèmes avec des données de [métrique](../insights/network-insights-overview.md#resource-health-and-metrics) et de journal.
 
-* Canevas flexible permettant de créer des [visualisations](../platform/workbooks-overview.md#visualizations) riches et personnalisées.
+* Canevas flexible permettant de créer des [visualisations](../visualize/workbooks-overview.md#visualizations) riches et personnalisées.
 
-* Possibilité de consommer et de [partager des modèles de classeur](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) avec une communauté plus vaste.
+* Possibilité de consommer et de [partager des modèles de classeur](../visualize/workbooks-overview.md#workbooks-versus-workbook-templates) avec une communauté plus vaste.
 
-Pour plus d’informations sur les capacités de la nouvelle solution de classeurs, consultez [la page de présentation des classeurs](../platform/workbooks-overview.md).
+Pour plus d’informations sur les capacités de la nouvelle solution de classeurs, consultez [la page de présentation des classeurs](../visualize/workbooks-overview.md).
 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migration de la solution d’analyse Azure Gateway vers des classeurs Azure Monitor
 
@@ -129,7 +129,7 @@ Pour plus d’informations sur les capacités de la nouvelle solution de classeu
 > [!NOTE]
 > Toutes les données passées sont déjà disponibles dans le classeur à partir du moment où les paramètres de diagnostic ont été activés à l’origine. Aucun transfert de données n’est nécessaire.
 
-2. Accédez au [classeur Insights par défaut](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) pour votre ressource Application Gateway. Tous les insights existants pris en charge par la solution d’analyse Application Gateway seront déjà présents dans le classeur. Vous pouvez l’étendre en ajoutant des [visualisations](../platform/workbooks-overview.md#visualizations) personnalisées basées sur les données de journal et de métrique.
+2. Accédez au [classeur Insights par défaut](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) pour votre ressource Application Gateway. Tous les insights existants pris en charge par la solution d’analyse Application Gateway seront déjà présents dans le classeur. Vous pouvez l’étendre en ajoutant des [visualisations](../visualize/workbooks-overview.md#visualizations) personnalisées basées sur les données de journal et de métrique.
 
 3. Une fois que vous êtes en mesure de voir tous vos insights de métrique et de journal, pour nettoyer la solution d’analyse Azure Gateway à partir de votre espace de travail, vous pouvez supprimer la solution sur la page des ressources de la solution.
 
@@ -232,5 +232,5 @@ Les données collectées avant la modification ne seront pas visibles dans la no
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des diagnostics détaillés Azure.
+* Utilisez les [requêtes de journaux dans Azure Monitor](../logs/log-query-overview.md) pour afficher des diagnostics détaillés Azure.
 

@@ -2,19 +2,16 @@
 title: Format Binaire dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format Binaire dans Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348906"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393681"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Format Binaire dans Azure Data Factory
 
@@ -73,7 +70,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="binary-as-source"></a>Binaire en tant que source
 
-Les propriétés prises en charge dans la section **_\_source\*** * de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section ***\*source\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -88,7 +85,7 @@ Les propriétés prises en charge dans la section **_\_source\*** * de l’activ
 | type          | Le type de formatSettings doit être défini sur **BinaryReadSettings**. | Oui      |
 | compressionProperties | Groupe de propriétés permettant de décompresser les données d’un codec de compression spécifique. | Non       |
 | preserveZipFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `ZipDeflateReadSettings`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **ZipDeflate**. Indique si le nom du fichier zip source doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source zip file>/`.<br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers zip sources afin d’éviter toute course ou tout comportement inattendu.  | Non |
-| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` comme `TarGZipReadSettings` ou `TarReadSettings`* ) | S’applique lorsque le jeu de données d’entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers dupliqués dans les différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
+| preserveCompressionFileNameAsFolder<br>(*sous `compressionProperties`->`type` en tant que `TarGZipReadSettings` ou `TarReadSettings`* ) | S'applique lorsque le jeu de données d'entrée est configuré avec la compression **TarGzip**/**Tar**. Indique si le nom du fichier source compressé doit être conservé en tant que structure de dossiers lors de la copie.<br>– Lorsque la valeur est définie sur **true (par défaut)** , Data Factory écrit les fichiers décompressés dans `<path specified in dataset>/<folder named as source compressed file>/`. <br>– Lorsque la valeur est définie sur **false**, Data Factory écrit les fichiers décompressés directement dans `<path specified in dataset>`. Assurez-vous de ne pas avoir de noms de fichiers en double dans différents fichiers sources afin d’éviter toute course ou tout comportement inattendu. | Non |
 
 ```json
 "activities": [
@@ -120,7 +117,7 @@ Les propriétés prises en charge dans la section **_\_source\*** * de l’activ
 
 ### <a name="binary-as-sink"></a>Binaire en tant que récepteur
 
-Les propriétés prises en charge dans la section **_\_récepteur\*** * de l’activité de copie sont les suivantes.
+Les propriétés prises en charge dans la section ***\*récepteur\**** de l’activité de copie sont les suivantes.
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |

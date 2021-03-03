@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202298"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570853"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Base de référence de sécurité Azure pour Azure IoT Hub
 
@@ -148,9 +148,9 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Aide** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à Azure IoT Hub. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -185,9 +185,9 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 - [Configurer les journaux Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs)
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -205,7 +205,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Aide** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure IoT Hub conformément aux réglementations de conformité de votre organisation.
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -220,9 +220,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 - [Surveiller l’intégrité d’Azure IoT](monitor-iot-hub.md)
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [Effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -236,7 +236,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Alertes Azure Security Center pour IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -527,7 +527,7 @@ Azure IoT Hub fournit un chiffrement des données au repos et en transit, à mes
 
 **Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des instances de production Azure IoT Hub et autres ressources critiques ou associées.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

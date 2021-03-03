@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 08aa69db90901447297e06cd111b6b0174e6637a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881314"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575098"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Ligne de base de la sécurité Azure pour Azure Machine Learning
 
@@ -155,9 +155,9 @@ Si une ressource de votre réseau virtuel Azure Machine Learning prend en charge
 
 **Conseils** : utilisez le journal des activités Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à Azure Machine Learning. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -193,9 +193,9 @@ Si une ressource de votre réseau virtuel Azure Machine Learning prend en charge
 
 Vous pouvez également mettre en corrélation des journaux d’opérations de service Azure Machine Learning à des fins de sécurité et de conformité.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Activer la journalisation dans Azure Machine Learning](./how-to-track-experiments.md)
 
@@ -211,7 +211,7 @@ Vous pouvez également mettre en corrélation des journaux d’opérations de se
 
 Azure Machine Learning prend en charge les différentes ressources de calcul, y compris vos propres ressources de calcul, de manière variable. Pour toutes les ressources de calcul appartenant à votre organisation, utilisez Azure Security Center pour surveiller le système d’exploitation. 
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Présentation de la collecte de données Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
@@ -223,7 +223,7 @@ Azure Machine Learning prend en charge les différentes ressources de calcul, y 
 
 **Conseils** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure Machine Learning conformément aux réglementations de conformité de votre organisation.
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -241,9 +241,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Bien démarrer avec les requêtes Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -257,7 +257,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 - [Pour plus d’informations sur les alertes d’Azure Machine Learning](monitor-azure-machine-learning.md#alerts)
 
-- [Guide pratique pour générer une alerte sur des données de journal de l’espace de travail Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal de l’espace de travail Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -565,7 +565,7 @@ Microsoft gère l’infrastructure sous-jacente de la solution Machine Learning,
 
 **Conseils** : utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications d’instances de production d’Azure Machine Learning et d’autres ressources critiques ou associées.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

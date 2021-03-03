@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 154b9f526dd4df6aabaaf24687a534a28ed1a3a3
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: f231b50651764408a516f8e8e3275ea3c86bd388
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99253174"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "100530692"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Didacticiels pour l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -105,6 +105,7 @@ Pour accéder à d’autres didacticiels, reportez-vous à la table des matière
 | ![logo OneDesk](./media/tutorial-list/active-directory-saas-onedesk-tutorial.png)| [OneDesk](onedesk-tutorial.md)|
 | ![logo OpsGenie](./media/tutorial-list/active-directory-saas-opsgenie-tutorial.png)| [OpsGenie](opsgenie-tutorial.md)|
 | ![logo People](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [Personnes](people-tutorial.md)|
+| ![logo-Perimeter 81](./media/tutorial-list/active-directory-saas-perimeter-81-tutorial.png)| [Perimeter 81](perimeter-81-tutorial.md)|
 | ![logo productboard](./media/tutorial-list/active-directory-saas-productboard-tutorial.png)| [productboard](productboard-tutorial.md)|
 | ![logo PurelyHR](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
 | ![logo RingCentral](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|

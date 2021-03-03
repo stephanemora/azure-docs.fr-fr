@@ -33,8 +33,12 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Configurer le transfert de port dans l’équilibreur de charge
       href: tutorial-load-balancer-port-forwarding-portal.md
-    - name: Créer un équilibreur de charge interrégions - Portail
-      href: tutorial-cross-region-portal.md
+    - name: Équilibreur de charge inter-région
+      items:
+        - name: Créer un équilibreur de charge interrégional - Portail
+          href: tutorial-cross-region-portal.md
+        - name: Créer un équilibreur de charge interrégional - PowerShell
+          href: tutorial-cross-region-powershell.md
 - name: Exemples
   items:
     - name: Azure CLI
@@ -89,6 +93,8 @@
       href: backend-pool-management.md
     - name: Standard Load Balancer et Virtual Machine Scale Sets
       href: load-balancer-standard-virtual-machine-scale-sets.md
+    - name: Récupérer des informations avec Azure Instance Metadata Service
+      href: instance-metadata-service-load-balancer.md
 - name: Procédures
   items:
     - name: Paramètres du portail
@@ -144,6 +150,8 @@
           href: move-across-regions-internal-load-balancer-powershell.md
     - name: Configuration de l’équilibreur de charge en sortie uniquement
       href: egress-only.md
+    - name: Récupérer des métadonnées avec Azure IMDS
+      href: howto-load-balancer-imds.md
     - name: Dépanner
       items:
         - name: Résoudre les problèmes liés à Azure Load Balancer
@@ -181,6 +189,8 @@
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
+    - name: Codes d’erreur courants pour Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

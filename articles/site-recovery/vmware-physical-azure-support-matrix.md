@@ -3,12 +3,12 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550842"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534672"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -180,7 +180,7 @@ Redimensionner le disque sur la machine virtuelle répliquée | Pris en charge s
 Ajouter un disque à la machine virtuelle répliquée | Non pris en charge.<br/> Désactivez la réplication pour la machine virtuelle, ajoutez le disque, puis réactivez la réplication.
 
 > [!NOTE]
-> Aucune modification de l’identité du disque n’est prise en charge. Par exemple, si le partitionnement du disque a été modifié de GPT en MBR ou vice versa, cela modifie l’identité du disque. Dans ce scénario, la réplication s’interrompt et une nouvelle configuration est nécessaire. 
+> Aucune modification de l’identité du disque n’est prise en charge. Par exemple, si le partitionnement du disque a été modifié de GPT en MBR ou vice versa, cela modifie l’identité du disque. Dans ce scénario, la réplication s’interrompt et une nouvelle configuration est nécessaire. Pour les machines Linux, la modification du nom de l’appareil n’est pas prise en charge, car elle a un impact sur l’identité du disque.
 
 ## <a name="network"></a>Réseau
 
@@ -328,6 +328,17 @@ Activité des données maximale par jour prise en charge par un serveur de proce
 - Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cent.
 - Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles.
 - Ces valeurs supposent un backlog typique d’environ cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.
+
+## <a name="storage-account-limits"></a>Limites de compte de stockage
+
+Au fur et à mesure de l’augmentation de l’attrition moyenne des disques, le nombre de disques qu’un compte de stockage peut prendre en charge diminue. Le tableau ci-dessous peut être utilisé comme guide pour prendre des décisions par rapport au nombre de comptes de stockage qui doivent être approvisionnés.
+ 
+**Type de compte de stockage**    |    **Attrition = 4 Mbits/s par disque**    |    **Attrition = 8 Mbits/s par disque**
+---    |    ---    |    ---
+Compte de stockage V1    |    600 disques    |    300 disques
+Compte de stockage V2    |    1 500 disques    |    750 disques
+
+Notez que les limites ci-dessus s’appliquent uniquement aux scénarios de récupération d’urgence hybrides.
 
 ## <a name="vault-tasks"></a>Tâches de coffre
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651e7156faf8305edb0a1541e957dd2abf3a71b8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f346b997b5e0c785d066ce3a1edaab8cbea10212
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365750"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644117"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -75,7 +75,7 @@ Pour les appareils Windows 10 exécutant la version 1703 ou antérieure, si vo
 
 Tout d’abord, pour Windows 10 1803, même si un appareil tente une jonction Azure AD hybride dans un domaine fédéré par le biais d’AD FS et échoue, et si Azure AD Connect est configuré pour synchroniser les objets ordinateur/d’appareil avec Azure AD, l’appareil essaie d’effectuer la jonction Azure AD hybride en utilisant l’ordinateur/appareil synchronisé.
 
-Pour vérifier si l’appareil est en mesure d’accéder aux ressources Microsoft ci-dessus sous le compte système, vous pouvez utiliser le script [Tester la connectivité de l’inscription des appareils](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
+Pour vérifier si l’appareil est en mesure d’accéder aux ressources Microsoft ci-dessus sous le compte système, vous pouvez utiliser le script [Tester la connectivité de l’inscription des appareils](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="verify-configuration-steps"></a>Vérifier les étapes de configuration
 

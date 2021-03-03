@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168139"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584626"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
@@ -20,7 +20,7 @@ Il existe plusieurs options permettant de diagnostiquer les problèmes avec [Fon
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) est la méthode recommandée pour les diagnostics et la surveillance dans Azure Functions. Il en va de même pour Fonctions durables. Pour obtenir une vue d’ensemble montrant comment tirer parti d’Application Insights dans votre application de fonction, consultez [Surveiller l’exécution des fonctions Azure](../functions-monitoring.md).
 
-L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements de suivi sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md) dans le portail Azure.
+L’extension Fonctions durables d’Azure émet également des *événements de suivi* vous permettant de tracer l’exécution de bout en bout d’une orchestration. Ces événements de suivi sont accessibles et interrogés à l’aide de l’outil [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) dans le portail Azure.
 
 ### <a name="tracking-data"></a>Suivi des données
 
@@ -159,7 +159,7 @@ Lorsque vous examinez les journaux émis par l’infrastructure DTFx, il est imp
 * **DurableTask.Core** : contient des informations sur l’exécution de l’orchestration et la planification de bas niveau.
 * **DurableTask.AzureStorage** : contient des informations relatives aux interactions avec les artefacts de Stockage Azure, y compris les files d’attente internes, les objets blob et les tables de stockage utilisées pour stocker et extraire l’état de l’orchestration interne.
 
-Vous pouvez activer ces journaux en mettant à jour la section `logging/logLevel` du fichier**host.json** de votre application de fonction. L’exemple suivant montre comment activer les journaux d’avertissement et d’erreur depuis `DurableTask.Core` et `DurableTask.AzureStorage` :
+Vous pouvez activer ces journaux en mettant à jour la section `logging/logLevel` du fichier **host.json** de votre application de fonction. L’exemple suivant montre comment activer les journaux d’avertissement et d’erreur depuis `DurableTask.Core` et `DurableTask.AzureStorage` :
 
 ```json
 {

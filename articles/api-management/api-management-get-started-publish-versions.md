@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679082"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546650"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutoriel : Publier plusieurs versions de votre API 
 
@@ -87,6 +87,32 @@ Par exemple, pour ajouter la version au produit **Illimité** :
 1. Cliquez sur **Sélectionner**.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="Ajouter une version à un produit":::
+
+## <a name="use-version-sets"></a>Utiliser des ensembles de versions
+
+Lorsque vous créez plusieurs versions, le portail Azure crée un *ensemble de versions*, qui représente un ensemble de versions pour une API logique unique. Sélectionnez le nom d’une API qui a plusieurs versions. Le portail Azure affiche son **ensemble de versions**. Vous pouvez personnaliser le **nom** et la **description** d’un ensemble virtuel.
+
+Vous pouvez interagir directement avec les ensembles de versions à l’aide de l’interface Azure CLI :
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Pour afficher tous vos ensembles de versions, exécutez la commande [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) :
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Lorsque le portail Azure crée un ensemble de versions pour vous, il attribue un nom alphanumérique, qui apparaît dans la colonne **Nom** de la liste. Utilisez ce nom dans les autres commandes Azure CLI.
+
+Pour afficher les détails d’un ensemble de versions, exécutez la commande [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) :
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
+Pour plus d’informations sur les ensembles de versions, consultez [Versions dans Gestion des API Azure](api-management-versions.md#how-versions-are-represented).
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Parcourir le portail des développeurs pour afficher la version
 

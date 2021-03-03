@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546169"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645821"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres
 
@@ -45,8 +45,6 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 
 4. Sous **Restrictions d’accès de l’utilisateur invité (préversion)** , choisissez le niveau d’accès que les utilisateurs invités doivent avoir :
   
-    ![Paramètres de restrictions d’accès des utilisateurs invités](./media/delegate-invitations/guest-user-access.png)
-
    - **Les utilisateurs invités ont le même accès que les membres (le plus inclusif)**  : Cette option donne aux invités le même accès aux ressources Azure AD et aux données d’annuaire que les utilisateurs membres.
 
    - **Les utilisateurs invités ont un accès limité aux propriétés et aux appartenances des objets d’annuaire** : Ce paramètre empêche les invités d’effectuer certaines tâches d’annuaire, telles que l’énumération d’utilisateurs, de groupes ou d’autres ressources de répertoire. Les invités peuvent voir l’appartenance de tous les groupes non masqués.
@@ -69,24 +67,22 @@ Par défaut, tous les utilisateurs, notamment les invités, peuvent inviter des 
 
 6. Sous **Envoi d’un code secret à usage unique par e-mail pour les invités**, choisissez les paramètres appropriés (pour plus d’informations, consultez [Authentification par code secret à usage unique d’e-mail](one-time-passcode.md)) :
 
-   ![Paramètres d’envoi d’un code secret à usage unique par e-mail](./media/delegate-invitations/email-otp-settings.png)
+   - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en octobre 2021** (Par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
 
-   - **Activer automatiquement l’envoi d’un mot de passe à usage unique par e-mail pour les invités en mars 2021**. (par défaut) : si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement en mars 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
+   - **Activer dès maintenant l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
 
-   - **Activer le code à usage unique par e-mail pour les invités dès maintenant**. cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
-
-   - **Désactivez le code à usage unique par e-mail pour les invités**. cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en mars 2021.
+   - **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en octobre 2021.
 
    > [!NOTE]
    > Au lieu des options ci-dessus, vous verrez le bouton bascule suivant si vous avez activé ou désactivé cette fonctionnalité, ou si vous avez déjà choisi la préversion :
    >
    >![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. Sous **Activer l'inscription libre-service d'invité via des flux utilisateur (préversion)** , sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs permettant aux utilisateurs de s’inscrire à des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateur d’inscription en libre-service à une application (préversion)](self-service-sign-up-user-flow.md).
+7. Sous **Activer l’inscription en libre-service d’invité via des flux utilisateur**, sélectionnez **Oui** si vous souhaitez pouvoir créer des flux d’utilisateurs pour permettre aux utilisateurs de s’inscrire auprès des applications. Pour plus d’informations sur ce paramètre, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](self-service-sign-up-user-flow.md).
 
     ![Paramètre d’inscription en libre-service via des flux d’utilisateurs](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. Sous **Restrictions de collaboration**, choisissez d’autoriser ou de refuser des invitations dans les domaines que vous spécifiez. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](allow-deny-list.md).
+7. Sous **Restrictions de collaboration**, vous pouvez choisir d’autoriser ou de refuser les invitations aux domaines que vous spécifiez. Vous pouvez notamment entrer des noms de domaine spécifiques dans les zones de texte. Pour plusieurs domaines, entrez chaque domaine sur une nouvelle ligne. Pour plus d’informations, consultez [Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques](allow-deny-list.md).
 
     ![Paramètres des restrictions de collaboration](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Affecter le rôle Inviteur d’invités à un utilisateur

@@ -5,22 +5,20 @@ description: Mapper un domaine personnalisé à un point de terminaison de Stock
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/23/2020
+ms.date: 02/12/2021
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: dcc6f3bca80cb5860679327226d3e034c3e9b14a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 52fc7b9c1229421fd46b8110857a0a7a8a4f916a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996863"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520423"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure
 
 Vous pouvez mapper un domaine personnalisé à un point de terminaison de service blob ou de [site web statique](storage-blob-static-website.md). 
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Ce mappage fonctionne uniquement pour des sous-domaines (par exemple, `www.contoso.com`). Si vous souhaitez que votre point de terminaison web soit disponible sur le domaine racine (par exemple, `contoso.com`), vous devez utiliser Azure CDN. Pour obtenir de l’aide, voir la section [Mapper un domaine personnalisé avec le protocole HTTPS activé](#enable-https) de cet article. Étant donné que vous accédez à cette section de l’article pour activer le domaine racine de votre domaine personnalisé, l’étape de cette section visant à activer le protocole HTTPS est facultative. 
@@ -61,8 +59,11 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 2. Dans le volet du menu, sous **Paramètres**, sélectionnez **Propriétés**.  
 
 3. Copiez la valeur du **Point de terminaison de service blob principal** ou du **Point de terminaison de site web statique principal** dans un fichier texte. 
+  
+   > [!NOTE]
+   > Le point de terminaison de stockage Data Lake n’est pas pris en charge (par exemple, `https://mystorageaccount.dfs.core.windows.net/`).
 
-4. Supprimez l’identificateur de protocole (*par exemple*, HTTPS) et la barre oblique finale de cette URL. Le tableau suivant contient des exemples.
+4. Supprimez de cette chaîne l’identificateur de protocole (par exemple, `HTTPS`) et la barre oblique finale. Le tableau suivant contient des exemples.
 
    | Type de point de terminaison |  endpoint | nom de l’hôte |
    |------------|-----------------|-------------------|
@@ -75,7 +76,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 #### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>Étape 2 : Créez un enregistrement de nom canonique (CNAME) auprès de votre fournisseur de domaine.
 
-Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination.
+Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrement CNAME est un type d’enregistrement DNS qui mappe un nom de domaine source à un nom de domaine de destination.
 
 1. Connectez-vous au site web de votre bureau d’enregistrement de domaines, puis accédez à la page de gestion du paramètre DNS.
 
@@ -95,9 +96,14 @@ Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrem
 
 #### <a name="step-3-register-your-custom-domain-with-azure"></a>Étape 3 : Inscrivez votre domaine personnalisé auprès d’Azure.
 
+##### <a name="portal"></a>[Portail](#tab/azure-portal)
+
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.  
+2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.
+
+   > [!NOTE]
+   > Cette option ne figure pas dans les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée. Avec ces comptes, utilisez PowerShell ou Azure CLI pour effectuer cette étape.
 
    ![option de domaine personnalisé](./media/storage-custom-domain-name/custom-domain-button.png "domaine personnalisé")
 
@@ -111,18 +117,60 @@ Créez un enregistrement CNAME pointant vers votre nom d’hôte. Un enregistrem
 
    Une fois l’enregistrement CNAME propagé via les serveurs de noms de domaine (DNS), vos utilisateurs disposant des autorisations appropriées peuvent afficher les données blob à l’aide du domaine personnalisé.
 
+##### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Exécutez la commande PowerShell suivante :
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
+```
+
+- Remplacez l’espace réservé `<resource-group-name>` par le nom du groupe de ressources.
+
+- Remplacez l’espace réservé `<storage-account-name>` par le nom du compte de stockage.
+
+- Remplacez l’espace réservé `<custom-domain-name>` par le nom de votre domaine personnalisé, y compris le sous-domaine.
+
+  Par exemple, si votre domaine est *contoso.com* et votre alias de sous-domaine *www*, entrez `www.contoso.com`. Si votre sous-domaine est *photos*, entrez `photos.contoso.com`.
+
+Une fois l’enregistrement CNAME propagé via les serveurs de noms de domaine (DNS), vos utilisateurs disposant des autorisations appropriées peuvent afficher les données blob à l’aide du domaine personnalisé.
+
+##### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Exécutez la commande PowerShell suivante :
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain false
+  ```
+
+- Remplacez l’espace réservé `<resource-group-name>` par le nom du groupe de ressources.
+
+- Remplacez l’espace réservé `<storage-account-name>` par le nom du compte de stockage.
+
+- Remplacez l’espace réservé `<custom-domain-name>` par le nom de votre domaine personnalisé, y compris le sous-domaine.
+
+  Par exemple, si votre domaine est *contoso.com* et votre alias de sous-domaine *www*, entrez `www.contoso.com`. Si votre sous-domaine est *photos*, entrez `photos.contoso.com`.
+
+Une fois l’enregistrement CNAME propagé via les serveurs de noms de domaine (DNS), vos utilisateurs disposant des autorisations appropriées peuvent afficher les données blob à l’aide du domaine personnalisé.
+
+---
+
 #### <a name="step-4-test-your-custom-domain"></a>Étape 4 : Tester votre domaine personnalisé
 
 Pour confirmer que votre domaine personnalisé est mappé à votre point de terminaison de service blob, créez un objet blob dans un conteneur public au sein de votre compte de stockage. Dans un navigateur web, utilisez un URI au format suivant pour accéder à l’objet blob : `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Pour accéder à un formulaire web dans le conteneur *myforms* dans le sous-domaine personnalisé *photos.contoso.com*, vous pouvez par exemple utiliser l’URI suivant : `http://photos.contoso.com/myforms/applicationform.htm`
+Pour accéder à un formulaire web dans le conteneur `myforms` dans le sous-domaine personnalisé *photos.contoso.com*, vous pouvez par exemple utiliser l’URI suivant : `http://photos.contoso.com/myforms/applicationform.htm`
 
 <a id="zero-down-time"></a>
 
 ### <a name="map-a-custom-domain-with-zero-downtime"></a>Mapper un domaine personnalisé sans temps d’arrêt
 
 > [!NOTE]
-> Si vous ne vous souciez pas du fait que le domaine soit brièvement indisponible pour vos utilisateurs, envisagez de suivre les étapes décrites dans la section [Mapper un domaine personnalisé](#map-a-domain) de cet article. Il s’agit d’une approche plus simple, nécessitant moins d’étapes.  
+> Si vous ne vous souciez pas du fait que le domaine soit brièvement indisponible pour vos utilisateurs, vous pouvez suivre les étapes décrites dans la section [Mapper un domaine personnalisé](#map-a-domain) de cet article. Il s’agit d’une approche plus simple, nécessitant moins d’étapes.  
 
 Si votre domaine prend actuellement en charge une application adossée à un contrat de niveau de service (SLA) interdisant tout temps d’arrêt, suivez ces étapes pour vous assurer que les utilisateurs puissent accéder à votre domaine pendant l’exécution du mappage DNS. 
 
@@ -148,7 +196,10 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
 
 3. Copiez la valeur du **Point de terminaison de service blob principal** ou du **Point de terminaison de site web statique principal** dans un fichier texte. 
 
-4. Supprimez l’identificateur de protocole (*par exemple*, HTTPS) et la barre oblique finale de cette URL. Le tableau suivant contient des exemples.
+   > [!NOTE]
+   > Le point de terminaison de stockage Data Lake n’est pas pris en charge (par exemple, `https://mystorageaccount.dfs.core.windows.net/`).
+
+4. Supprimez de cette chaîne l’identificateur de protocole (par exemple, `HTTPS`) et la barre oblique finale. Le tableau suivant contient des exemples.
 
    | Type de point de terminaison |  endpoint | nom de l’hôte |
    |------------|-----------------|-------------------|
@@ -157,7 +208,7 @@ Le nom d’hôte est l’URL du point de terminaison de stockage sans l’identi
   
    Mettez cette valeur de côté pour plus tard.
 
-#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Étape 2 : Créez un enregistrement de nom canonique (CNAME) intermédiaire auprès de votre fournisseur de domaine.
+#### <a name="step-2-create-an-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>Étape 2 : Créer un enregistrement de nom canonique (CNAME) intermédiaire auprès de votre fournisseur de domaine
 
 Créez un enregistrement CNAME temporaire pointant vers votre nom d’hôte. Un enregistrement CNAME est un type de fonctionnalité DNS (Domain Name System) qui mappe un nom de domaine source à un nom de domaine de destination.
 
@@ -179,17 +230,18 @@ Créez un enregistrement CNAME temporaire pointant vers votre nom d’hôte. Un 
 
      Ajoutez le sous-domaine `asverify` au nom d’hôte. Par exemple : `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. Pour inscrire le domaine personnalisé, choisissez le bouton **Enregistrer**.
-
-   Si l’inscription réussit, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour. Votre domaine personnalisé a été vérifié par Azure, mais le trafic en direction de votre domaine n'est pas encore dirigé vers votre compte de stockage.
-
 #### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>Étape 3 : Pré-inscrivez votre domaine personnalisé auprès d’Azure.
 
 Lorsque vous pré-enregistrez votre domaine personnalisé auprès d’Azure, vous permettez à Azure de reconnaître votre domaine personnalisé sans avoir à modifier l’enregistrement DNS du domaine. Ainsi, lorsque vous modifiez l’enregistrement DNS pour le domaine, il est mappé au point de terminaison d’objet blob sans temps d’arrêt.
 
+##### <a name="portal"></a>[Portail](#tab/azure-portal)
+
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.  
+2. Dans le volet de menu, sous **Service blob**, sélectionnez **Domaine personnalisé**.
+
+   > [!NOTE]
+   > Cette option ne figure pas dans les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée. Avec ces comptes, utilisez PowerShell ou Azure CLI pour effectuer cette étape.
 
    ![option de domaine personnalisé](./media/storage-custom-domain-name/custom-domain-button.png "domaine personnalisé")
 
@@ -203,7 +255,49 @@ Lorsque vous pré-enregistrez votre domaine personnalisé auprès d’Azure, vou
 
 5. Pour inscrire le domaine personnalisé, choisissez le bouton **Enregistrer**.
   
-   Une fois l’enregistrement CNAME propagé via les serveurs de noms de domaine (DNS), vos utilisateurs disposant des autorisations appropriées peuvent afficher les données blob à l’aide du domaine personnalisé.
+   Si l’inscription réussit, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour. Votre domaine personnalisé a été vérifié par Azure, toutefois, le trafic en direction de votre domaine ne sera routé vers votre compte de stockage que lorsque vous aurez créé un enregistrement CNAME avec votre fournisseur de domaine. Vous le ferez dans la section suivante.
+
+##### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Exécutez la commande PowerShell suivante :
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $true
+```
+
+- Remplacez l’espace réservé `<resource-group-name>` par le nom du groupe de ressources.
+
+- Remplacez l’espace réservé `<storage-account-name>` par le nom du compte de stockage.
+
+- Remplacez l’espace réservé `<custom-domain-name>` par le nom de votre domaine personnalisé, y compris le sous-domaine.
+
+  Par exemple, si votre domaine est *contoso.com* et votre alias de sous-domaine *www*, entrez `www.contoso.com`. Si votre sous-domaine est *photos*, entrez `photos.contoso.com`.
+
+Le trafic en direction de votre domaine ne sera routé vers votre compte de stockage que lorsque vous aurez créé un enregistrement CNAME avec votre fournisseur de domaine. Vous le ferez dans la section suivante.
+
+##### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Exécutez la commande PowerShell suivante :
+
+```azurecli
+az storage account update \
+   --resource-group <resource-group-name> \ 
+   --name <storage-account-name> \
+   --custom-domain <custom-domain-name> \
+   --use-subdomain true
+  ```
+
+- Remplacez l’espace réservé `<resource-group-name>` par le nom du groupe de ressources.
+
+- Remplacez l’espace réservé `<storage-account-name>` par le nom du compte de stockage.
+
+- Remplacez l’espace réservé `<custom-domain-name>` par le nom de votre domaine personnalisé, y compris le sous-domaine.
+
+  Par exemple, si votre domaine est *contoso.com* et votre alias de sous-domaine *www*, entrez `www.contoso.com`. Si votre sous-domaine est *photos*, entrez `photos.contoso.com`.
+
+Le trafic en direction de votre domaine ne sera routé vers votre compte de stockage que lorsque vous aurez créé un enregistrement CNAME avec votre fournisseur de domaine. Vous le ferez dans la section suivante.
+
+---
 
 #### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>Étape 4 : Créez un enregistrement CNAME auprès de votre fournisseur de domaine.
 
@@ -227,15 +321,13 @@ Créez un enregistrement CNAME temporaire pointant vers votre nom d’hôte.
 
 Pour confirmer que votre domaine personnalisé est mappé à votre point de terminaison de service blob, créez un objet blob dans un conteneur public au sein de votre compte de stockage. Dans un navigateur web, utilisez un URI au format suivant pour accéder à l’objet blob : `http://<subdomain.customdomain>/<mycontainer>/<myblob>`
 
-Pour accéder à un formulaire web dans le conteneur *myforms* dans le sous-domaine personnalisé *photos.contoso.com*, vous pouvez par exemple utiliser l’URI suivant : `http://photos.contoso.com/myforms/applicationform.htm`
+Pour accéder à un formulaire web dans le conteneur `myforms` dans le sous-domaine personnalisé *photos.contoso.com*, vous pouvez par exemple utiliser l’URI suivant : `http://photos.contoso.com/myforms/applicationform.htm`
 
 ### <a name="remove-a-custom-domain-mapping"></a>Supprimer un mappage de domaine personnalisé
 
 Pour supprimer un mappage de domaine personnalisé, annulez l’inscription du domaine personnalisé. Suivez l’une des procédures suivantes.
 
 #### <a name="portal"></a>[Portail](#tab/azure-portal)
-
-Pour supprimer le paramètre de domaine personnalisé, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
@@ -246,29 +338,7 @@ Pour supprimer le paramètre de domaine personnalisé, procédez comme suit :
 
 4. Sélectionnez le bouton **Enregistrer**.
 
-Une fois le domaine personnalisé supprimé, une notification du portail s’affiche, indiquant que votre compte de stockage a été correctement mis à jour.
-
-#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour supprimer une inscription de domaine personnalisé, utilisez la commande d’interface de ligne de commande [az storage account update](/cli/azure/storage/account) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain`.
-
-* Format de commande :
-
-  ```azurecli
-  az storage account update \
-      --name <storage-account-name> \
-      --resource-group <resource-group-name> \
-      --custom-domain ""
-  ```
-
-* Exemple de commande :
-
-  ```azurecli
-  az storage account update \
-      --name mystorageaccount \
-      --resource-group myresourcegroup \
-      --custom-domain ""
-  ```
+Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -293,6 +363,28 @@ Pour supprimer une inscription de domaine personnalisé, utilisez l’applet de 
       -AccountName "mystorageaccount" `
       -CustomDomainName ""
   ```
+
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour supprimer une inscription de domaine personnalisé, utilisez la commande d’interface de ligne de commande [az storage account update](/cli/azure/storage/account) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain`.
+
+* Format de commande :
+
+  ```azurecli
+  az storage account update \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --custom-domain ""
+  ```
+
+* Exemple de commande :
+
+  ```azurecli
+  az storage account update \
+      --name mystorageaccount \
+      --resource-group myresourcegroup \
+      --custom-domain ""
+  ```
 ---
 
 <a id="enable-https"></a>
@@ -302,8 +394,6 @@ Pour supprimer une inscription de domaine personnalisé, utilisez l’applet de 
 Cette approche implique davantage d’étapes, mais active l’accès HTTPS. 
 
 Si vous n’avez pas besoin que les utilisateurs accèdent à votre objet blob ou à votre contenu web en utilisant le protocole HTTPS, consultez la section [Mapper un domaine personnalisé avec uniquement le protocole HTTP activé](#enable-http) de cet article. 
-
-Pour mapper un domaine personnalisé et activer l’accès HTTPS, procédez comme suit :
 
 1. Activez [Azure CDN](../../cdn/cdn-overview.md) sur votre objet blob ou votre point de terminaison web. 
 

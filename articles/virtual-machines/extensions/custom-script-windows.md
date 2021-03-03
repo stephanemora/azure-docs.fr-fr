@@ -2,21 +2,21 @@
 title: Extension de script personnalisé Azure pour Windows
 description: Automatiser les tâches de configuration de machine virtuelle Windows à l’aide de l’extension de script personnalisé
 services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
+manager: gwallace
+author: amjads1
 ms.service: virtual-machines-windows
 ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
-ms.author: robreed
-ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: amjads
+ms.openlocfilehash: d06be4efae895cfe6903be4451f892660ce689f3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258702"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390128"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -32,6 +32,7 @@ Ce document explique en détail l’utilisation de l’extension de script perso
 ### <a name="operating-system"></a>Système d’exploitation
 
 L’extension de script personnalisé pour Windows s’exécute sur les systèmes d’exploitation pris en charge par l’extension.
+
 ### <a name="windows"></a>Windows
 
 * Windows Server 2008 R2
@@ -67,7 +68,7 @@ Si votre script se trouve sur un serveur local, vous devrez peut-être encore ou
 * L’extension n’exécute un script qu’une seule fois. Si vous voulez exécuter un script à chaque démarrage, vous devez utiliser l’extension pour créer une tâche planifiée Windows.
 * Si vous souhaitez planifier le moment de l’exécution d’un script, vous devez utiliser l’extension pour créer une tâche planifiée Windows.
 * Lors de l’exécution du script, vous voyez seulement l’état de l’extension « transition en cours » dans le portail Azure ou l’interface Azure CLI. Si vous souhaitez que les mises à jour de l’état d’un script en cours d’exécution soient plus fréquentes, vous devez créer votre propre solution.
-* L’extension de script personnalisé ne prend pas en charge les serveurs proxy en mode natif, mais vous pouvez utiliser un outil de transfert de fichiers prenant en charge les serveurs proxy dans votre script, par exemple *Curl*.
+* L’extension de script personnalisé ne prend pas en charge les serveurs proxy de manière native. Toutefois, vous pouvez utiliser un outil de transfert de fichiers qui prend en charge les serveurs proxy dans votre script, par exemple *Invoke-WebRequest*
 * Tenez compte des emplacements de répertoire autres que par défaut, et qui sont susceptibles d’être utilisés pour vos scripts ou commandes. Gérez cette situation de façon logique.
 * L’extension de script personnalisé s’exécutera sous le compte LocalSystem
 * Si vous prévoyez d’utiliser les propriétés *storageAccountName* et *storageAccountKey*, celles-ci doivent être colocalisées dans *protectedSettings*.

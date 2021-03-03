@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589342"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Surveiller les opérations de gestion d'Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ La plupart des opérations de gestion sont des [opérations durables](management
 Différentes méthodes sont disponibles pour surveiller les opérations de gestion des instances gérées :
 
 - [Déploiements de groupes de ressources](../../azure-resource-manager/templates/deployment-history.md)
-- [Journal d’activité](../../azure-monitor/platform/activity-log.md)
+- [Journal d’activité](../../azure-monitor/essentials/activity-log.md)
 - [API Opérations d'instance gérée](#managed-instance-operations-api)
 
 
@@ -75,11 +75,11 @@ Les API disponibles sont les suivantes :
 
 Sur le portail Azure, utilisez la page de **présentation** de l'instance gérée pour surveiller les opérations d'instance gérée. 
 
-Par exemple, l' **opération Créer** est visible au début du processus de création sur la page de **présentation**  : 
+Par exemple, l'**opération Créer** est visible au début du processus de création sur la page de **présentation** : 
 
 ![Progression de la création d'une instance gérée](./media/management-operations-monitor/monitoring-create-operation.png)
 
-Sélectionnez **Opération en cours** pour ouvrir la page **Opération en cours** et accéder aux opérations **Créer** ou **Mettre à jour** . Vous pouvez également [Annuler](management-operations-cancel.md) des opérations à partir de cette page.  
+Sélectionnez **Opération en cours** pour ouvrir la page **Opération en cours** et accéder aux opérations **Créer** ou **Mettre à jour**. Vous pouvez également [Annuler](management-operations-cancel.md) des opérations à partir de cette page.  
 
 ![Détails des opérations d'instance gérée](./media/management-operations-monitor/monitoring-operation-details.png)
 

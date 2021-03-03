@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
-ms.openlocfilehash: 378a85ed77a6eedeb928dee541046db1909da553
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: f5304e7634cfb7b4d5c3c05036c0606ba03295ae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491989"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589058"
 ---
 # <a name="dependency-analysis"></a>Analyse des dépendances
 
@@ -34,7 +34,7 @@ Deux options permettent de déployer l’analyse des dépendances.
 **Option** | **Détails** | **Cloud public** | **Azure Government**
 ----  |---- | ---- 
 **Sans agent** | Interroge les données des machines virtuelles VMware à l’aide des API vSphere.<br/><br/> Vous n’avez pas besoin d’installer l’agent sur des machines virtuelles.<br/><br/> Cette option est en préversion pour les machines virtuelles VMware. | Pris en charge. | Pris en charge.
-**Analyse basée sur les agents** | Utilise la [solution Service Map](../azure-monitor/insights/service-map.md) dans Azure Monitor pour activer la visualisation et l’analyse des dépendances.<br/><br/> Vous devez installer des agents sur chaque machine locale à analyser. | Prise en charge | Non pris en charge.
+**Analyse basée sur les agents** | Utilise la [solution Service Map](../azure-monitor/vm/service-map.md) dans Azure Monitor pour activer la visualisation et l’analyse des dépendances.<br/><br/> Vous devez installer des agents sur chaque machine locale à analyser. | Prise en charge | Non pris en charge.
 
 
 ## <a name="agentless-analysis"></a>Analyse sans agent
@@ -58,7 +58,7 @@ Une fois la découverte des données de dépendance lancée, l’interrogation c
 
 ## <a name="agent-based-analysis"></a>Analyse basée sur les agents
 
-Pour l’analyse basée sur les agents, l’outil d’évaluation de serveur utilise la solution [Service Map](../azure-monitor/insights/service-map.md) dans Azure Monitor. Vous installez l’agent [Microsoft Monitoring Agent/Log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent) et l’[agent de dépendances](../azure-monitor/platform/agents-overview.md#dependency-agent) doit être installé sur chaque machine que vous souhaitez analyser.
+Pour l’analyse basée sur les agents, l’outil d’évaluation de serveur utilise la solution [Service Map](../azure-monitor/vm/service-map.md) dans Azure Monitor. Vous installez l’agent [Microsoft Monitoring Agent/Log Analytics](../azure-monitor/agents/agents-overview.md#log-analytics-agent) et l’[agent de dépendances](../azure-monitor/agents/agents-overview.md#dependency-agent) doit être installé sur chaque machine que vous souhaitez analyser.
 
 ### <a name="dependency-data"></a>Données de dépendance
 
@@ -78,7 +78,7 @@ Les différences entre la visualisation sans agent et la visualisation basée su
 --- | --- | ---
 **Support** | En version préliminaire pour les machines virtuelles VMware uniquement. [Vérifiez](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) quels sont les systèmes d’exploitation pris en charge. | En disponibilité générale.
 **Agent** | Aucun agent nécessaire sur les machines à analyser. | Agents requis sur chaque machine locale à analyser.
-**Log Analytics** | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/insights/service-map.md) dans les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) pour l’analyse des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics à un projet Azure Migrate. L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+**Log Analytics** | Non requis. | Azure Migrate utilise la solution [Service Map](../azure-monitor/vm/service-map.md) dans les [journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md) pour l’analyse des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics à un projet Azure Migrate. L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 **Processus** | Capture les données de connexion TCP. Après la découverte, il collecte des données toutes les cinq minutes. | Les agents Service Map installés sur un ordinateur collectent des données sur les processus TCP et sur les connexions entrantes/sortantes pour chaque processus.
 **Données** | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port. | Nom du serveur de l’ordinateur source, processus, nom de l’application.<br/><br/> Nom du serveur de l’ordinateur de destination, processus, nom de l’application et port.<br/><br/> Le nombre de connexions, la latence et les informations de transfert de données sont collectés et mis à la disposition des requêtes Log Analytics. 
 **Visualisation** | La carte des dépendances d’un serveur unique peut être affichée sur une durée allant d’une heure à 30 jours. | Carte des dépendances d’un serveur unique.<br/><br/> Carte des dépendances d’un groupe de serveurs.<br/><br/>  La carte peut être affichée pendant une heure uniquement.<br/><br/> Ajoutez et supprimez des serveurs dans un groupe à partir de la vue cartographique.

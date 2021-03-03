@@ -1,5 +1,5 @@
 ---
-title: Étapes pour ajouter une attribution de rôle – Azure RBAC
+title: Procédure d’attribution d’un rôle Azure - Azure RBAC
 description: Découvrez les étapes permettant d’attribuer des rôles Azure à des utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle Azure (Azure RBAC).
 services: active-directory
 author: rolyon
@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556035"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Étapes pour ajouter une attribution de rôle
+# <a name="steps-to-assign-an-azure-role"></a>Procédure d’attribution d’un rôle Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Cet article décrit les étapes principales visant à ajouter une attribution de rôle à l’aide du [portail Azure](role-assignments-portal.md), d’[Azure PowerShell](role-assignments-powershell.md), d’[Azure CLI](role-assignments-cli.md) ou de l’[API REST](role-assignments-rest.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Cet article décrit les étapes principales visant à attribuer des rôles Azure à l’aide du [portail Azure](role-assignments-portal.md), d’[Azure PowerShell](role-assignments-powershell.md), d’[Azure CLI](role-assignments-cli.md) ou de l’[API REST](role-assignments-rest.md).
 
 ## <a name="step-1-determine-who-needs-access"></a>Étape 1 : Déterminer qui a besoin d’un accès
 
@@ -79,16 +79,16 @@ Pour attribuer des rôles, vous devez être connecté avec un utilisateur auquel
 
 Si votre compte d’utilisateur ne dispose pas d’autorisations pour attribuer un rôle au sein de votre abonnement, un message d’erreur vous indiquera que votre compte « n’est pas autorisé à effectuer l’action "Microsoft.Authorization/roleAssignments/write" ». Dans ce cas, contactez les administrateurs de votre abonnement, car ils peuvent attribuer les autorisations à votre place.
 
-## <a name="step-5-add-role-assignment"></a>Étape 5. Ajouter une attribution de rôle
+## <a name="step-5-assign-role"></a>Étape 5. Affecter le rôle
 
-Une fois que vous connaissez le principal de sécurité, le rôle et l’étendue, vous pouvez attribuer le rôle. Vous pouvez ajouter des attributions de rôles à l’aide du portail Azure, d’Azure PowerShell, d’Azure CLI, des Kits de développement logiciel (SDK) Azure ou des API REST. Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Vous pouvez avoir jusqu’à **500** attributions de rôles dans chaque groupe d'administration.
+Une fois que vous connaissez le principal de sécurité, le rôle et l’étendue, vous pouvez attribuer le rôle. Vous pouvez attribuer des rôles en utilisant le portail Azure, Azure PowerShell, Azure CLI, des Kits de développement logiciel (SDK) Azure ou des API REST. Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Vous pouvez avoir jusqu’à **500** attributions de rôles dans chaque groupe d'administration.
 
-Consultez les articles suivants pour obtenir des instructions détaillées sur la façon d’ajouter des attributions de rôles.
+Consultez les articles suivants pour obtenir la procédure détaillée d’attribution de rôles.
 
-- [Ajouter ou supprimer des attributions de rôles Azure avec le portail Azure](role-assignments-portal.md)
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure PowerShell](role-assignments-powershell.md)
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure CLI](role-assignments-cli.md)
-- [Ajouter ou supprimer des attributions de rôle Azure à l’aide de l’API REST](role-assignments-rest.md)
+- [Attribuer des rôles Azure à l’aide du portail Azure](role-assignments-portal.md)
+- [Attribuer des rôles Azure à l’aide d’Azure PowerShell](role-assignments-powershell.md)
+- [Attribuer des rôles Azure à l’aide d’Azure CLI](role-assignments-cli.md)
+- [Attribuer des rôles Azure à l’aide de l’API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

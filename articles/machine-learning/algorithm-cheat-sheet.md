@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890975"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367054"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
 L'**Aide-mémoire d’algorithme Azure Machine Learning Studio** vous permet de choisir l’algorithme de concepteur adapté à un modèle d’analyse prédictif.
 
-Azure Machine Learning a une grande bibliothèque d’algorithmes à partir des familles ***classification***, ***systèmes de recommandation***, ***clustering***, ***détection des anomalies***, ***régression*** et ***analyse de texte***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
+Azure Machine Learning dispose d'une grande bibliothèque d'algorithmes des familles ***classification** _, _*_systèmes de recommandation_*_, _*_clustering_*_, _*_détection d'anomalie_*_, _*_régression_*_ et _ *_analyse de texte_* *. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
 
 Pour obtenir des instructions supplémentaires, consultez [Guide pratique pour sélectionner des algorithmes](how-to-select-algorithms.md).
 

@@ -3,18 +3,18 @@ title: Utiliser des stratégies de sécurité des pods dans Azure Kubernetes Ser
 description: Apprendre à contrôler les admissions pod à l’aide de PodSecurityPolicy dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 02/12/2021
+ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695994"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371224"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La fonctionnalité décrite dans ce document, Stratégie de sécurité des pods (préversion), sera bientôt dépréciée et ne sera plus disponible après le 31 mai 2021** ; elle sera remplacée par [Azure Policy pour AKS](use-pod-security-on-azure-policy.md). La date de dépréciation a été repoussée (il s’agit initialement du 15 octobre 2020).
+> **La fonctionnalité décrite dans ce document, Stratégie de sécurité des pods (préversion), sera bientôt déconseillée et ne sera plus disponible après le 30 juin 2021** ; elle sera remplacée par [Azure Policy pour AKS](use-pod-security-on-azure-policy.md). La date de dépréciation a été repoussée (il s’agit initialement du 15 octobre 2020).
 >
 > Une fois que la stratégie de sécurité des pods (préversion) sera déconseillée, vous devrez désactiver la fonctionnalité sur tous les clusters existants à l’aide de la fonctionnalité déconseillée pour effectuer les futures mises à niveau de cluster et continuer à bénéficier du support Azure.
 >

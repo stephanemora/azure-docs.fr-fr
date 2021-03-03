@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 356353da639ab97a1a4e5483abf56050f5a236f8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3c3d1930234c178a56227830ef0702450ddf4a8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676061"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580668"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Surveiller l’état d’exécution, examiner l’historique du déclencheur et configurer des alertes pour Azure Logic Apps
 
 Après avoir [créé et exécuté une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), vous pouvez vérifier son état d’exécution, son [historique des exécutions](#review-runs-history), son [historique du déclencheur](#review-trigger-history) et ses performances. Pour obtenir des notifications concernant des échecs ou d’autres problèmes éventuels, configurez des [alertes](#add-azure-alerts). Par exemple, vous pouvez créer une alerte qui détecte quand plus de cinq exécutions échouent en une heure.
 
-Pour une surveillance des événements en temps réel et un débogage enrichi, configurez une journalisation des diagnostics pour votre application logique à l’aide de [journaux Azure Monitor](../azure-monitor/overview.md). Ce service Azure vous aide à superviser vos environnements cloud et locaux afin pouvoir maintenir plus facilement leur disponibilité et leurs performances. Vous pouvez ensuite rechercher et consulter des événements, tels que des événements de déclencheur, des événements d’exécution et des événements d’action. En stockant ces informations dans des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md), vous pouvez créer des [requêtes de journal](../azure-monitor/log-query/log-query-overview.md) qui vous aident à rechercher et à analyser ces informations. Vous pouvez également utiliser ces données de diagnostic avec d’autres services Azure, tels que Stockage Azure et Azure Event Hubs. Pour plus d’informations, voir [Superviser les applications logiques à l’aide d’Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+Pour une surveillance des événements en temps réel et un débogage enrichi, configurez une journalisation des diagnostics pour votre application logique à l’aide de [journaux Azure Monitor](../azure-monitor/overview.md). Ce service Azure vous aide à superviser vos environnements cloud et locaux afin pouvoir maintenir plus facilement leur disponibilité et leurs performances. Vous pouvez ensuite rechercher et consulter des événements, tels que des événements de déclencheur, des événements d’exécution et des événements d’action. En stockant ces informations dans des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md), vous pouvez créer des [requêtes de journal](../azure-monitor/logs/log-query-overview.md) qui vous aident à rechercher et à analyser ces informations. Vous pouvez également utiliser ces données de diagnostic avec d’autres services Azure, tels que Stockage Azure et Azure Event Hubs. Pour plus d’informations, voir [Superviser les applications logiques à l’aide d’Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
 > Si vos applications logiques s’exécutent dans un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) créé pour utiliser un [point de terminaison d’accès interne](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), vous pouvez afficher les entrées et sorties de l’historique des exécutions de l’application logique, ainsi qu’y accéder, *uniquement depuis l’intérieur de votre réseau virtuel*. Vérifiez que vous disposez d’une connectivité réseau entre les points de terminaison privés et l’ordinateur à partir duquel vous souhaitez accéder à l’historique des exécutions. Par exemple, votre ordinateur client peut exister à l’intérieur du réseau virtuel de l’environnement de service d’intégration ou à l’intérieur d’un réseau virtuel connecté au réseau virtuel de l’environnement de service d’intégration, par exemple, par le biais d’un appairage (peering) ou d’un réseau privé virtuel. Pour plus d’informations, consultez [Accès aux points de terminaison de l’environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
@@ -40,7 +40,7 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
 
 1. Sélectionnez votre application logique, puis **Vue d’ensemble**.
 
-   Dans le volet Vue d’ensemble, sous **Historique des exécutions** , toutes les exécutions passées, actuelles et en attente de votre application logique s’affichent. Si la liste affiche de nombreuses exécutions et que vous ne trouvez pas l’entrée souhaitée, essayez de filtrer la liste.
+   Dans le volet Vue d’ensemble, sous **Historique des exécutions**, toutes les exécutions passées, actuelles et en attente de votre application logique s’affichent. Si la liste affiche de nombreuses exécutions et que vous ne trouvez pas l’entrée souhaitée, essayez de filtrer la liste.
 
    > [!TIP]
    > Si l’état d’exécution ne s’affiche pas, essayez d’actualiser la page de présentation en sélectionnant **Actualiser**. Aucune exécution ne se produit pour un déclencheur ignoré en raison de critères non respectés ou d’une absence de données.
@@ -56,11 +56,11 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
    | **Échec** | Au moins une action de l’exécution a échoué. Aucune action subséquente n’était configurée dans le flux de travail pour gérer l’échec. |
    | **Exécution** | L’exécution a été déclenchée et est en cours, mais cet état peut également apparaître pour une exécution limitée en raison de [limites d’action](logic-apps-limits-and-config.md) ou du [plan de tarification actuel](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Conseil** : Si vous configurez la [journalisation des diagnostics](monitor-logic-apps-log-analytics.md), vous pouvez obtenir des informations sur tous les événements de limitation qui se produisent. |
    | **Réussi** | L’exécution a réussi. Si une action a échoué, une action subséquente dans le flux de travail a géré cet échec. |
-   | **Délai dépassé** | L’exécution a expiré parce qu’elle a dépassé la limite de durée d’exécution qui est contrôlée par le [paramètre **Run history retention in days** (rétention de l’historique d’exécution en jours)](logic-apps-limits-and-config.md#run-duration-retention-limits). La durée d’une exécution est calculée en utilisant l’heure de début et la limite de durée d’exécution à cette heure. <p><p>**Remarque**  : Si la durée de l’exécution dépasse aussi la *limite actuelle de rétention de l’historique d’exécution* , qui est également contrôlée par le [paramètre **Run history retention in days** (Rétention de l’historique d’exécution en jours)](logic-apps-limits-and-config.md#run-duration-retention-limits), l’exécution est effacée de l’historique d’exécution par un travail de nettoyage quotidien. Que l’exécution expire ou se termine, la période de rétention est toujours calculée sur la base de l’heure de début de l’exécution et de la limite de rétention *actuelle*. Par conséquent, si vous réduisez la limite de durée pour une exécution en cours, l’exécution expire. Toutefois, l’exécution reste dans l’historique des exécutions ou est effacée de celui-ci selon que la durée de l’exécution a ou non dépassé la limite de rétention. |
+   | **Délai dépassé** | L’exécution a expiré parce qu’elle a dépassé la limite de durée d’exécution qui est contrôlée par le [paramètre **Run history retention in days** (rétention de l’historique d’exécution en jours)](logic-apps-limits-and-config.md#run-duration-retention-limits). La durée d’une exécution est calculée en utilisant l’heure de début et la limite de durée d’exécution à cette heure. <p><p>**Remarque** : Si la durée de l’exécution dépasse aussi la *limite actuelle de rétention de l’historique d’exécution*, qui est également contrôlée par le paramètre [**Run history retention in days** (Rétention de l’historique d’exécution en jours)](logic-apps-limits-and-config.md#run-duration-retention-limits), l’exécution est effacée de l’historique d’exécution par un travail de nettoyage quotidien. Que l’exécution expire ou se termine, la période de rétention est toujours calculée sur la base de l’heure de début de l’exécution et de la limite de rétention *actuelle*. Par conséquent, si vous réduisez la limite de durée pour une exécution en cours, l’exécution expire. Toutefois, l’exécution reste dans l’historique des exécutions ou est effacée de celui-ci selon que la durée de l’exécution a ou non dépassé la limite de rétention. |
    | **En attente** | L’exécution n’a pas démarré ou est suspendue, par exemple, en raison d’une instance de flux de travail antérieure qui est toujours en cours d’exécution. |
    |||
 
-1. Pour examiner les étapes et d’autres informations d’une exécution spécifique, sous **Historique des exécutions** , sélectionnez cette exécution.
+1. Pour examiner les étapes et d’autres informations d’une exécution spécifique, sous **Historique des exécutions**, sélectionnez cette exécution.
 
    ![Sélectionner une exécution spécifique à examiner](./media/monitor-logic-apps/select-specific-logic-app-run.png)
 
@@ -68,7 +68,7 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
 
    ![Chaque action dans l’exécution spécifique](./media/monitor-logic-apps/logic-app-run-pane.png)
 
-   Pour afficher ces informations sous forme de liste, dans la barre d’outils **exécution de l’application logique** , sélectionnez **Détails de l’exécution**.
+   Pour afficher ces informations sous forme de liste, dans la barre d’outils **exécution de l’application logique**, sélectionnez **Détails de l’exécution**.
 
    ![Dans la barre d’outils, sélectionner « Détails de l’exécution »](./media/monitor-logic-apps/select-run-details-on-toolbar.png)
 
@@ -76,15 +76,15 @@ Chaque fois que le déclencheur est activé pour un élément ou un événement,
 
    ![Examiner les détails de chaque étape de l’exécution](./media/monitor-logic-apps/review-logic-app-run-details.png)
 
-   Par exemple, vous pouvez obtenir la propriété **ID de corrélation** de l’exécution, dont vous pouvez avoir besoin lorsque vous utilisez l’ [API REST pour Logic Apps](/rest/api/logic).
+   Par exemple, vous pouvez obtenir la propriété **ID de corrélation** de l’exécution, dont vous pouvez avoir besoin lorsque vous utilisez l’[API REST pour Logic Apps](/rest/api/logic).
 
 1. Pour obtenir plus d’informations sur une étape spécifique, sélectionnez l’une des options suivantes :
 
-   * Dans le volet **Exécution d’application logique** , sélectionnez l’étape pour développer la forme. Vous pouvez désormais afficher des informations telles que des entrées, des sorties et des erreurs qui se sont produites dans cette étape, par exemple :
+   * Dans le volet **Exécution d’application logique**, sélectionnez l’étape pour développer la forme. Vous pouvez désormais afficher des informations telles que des entrées, des sorties et des erreurs qui se sont produites dans cette étape, par exemple :
 
      ![Dans le volet Exécution d’application logique, afficher l’étape en échec](./media/monitor-logic-apps/specific-step-inputs-outputs-errors.png)
 
-   * Dans le volet **Détails de l’exécution de l’application logique** , sélectionnez l’étape de votre choix.
+   * Dans le volet **Détails de l’exécution de l’application logique**, sélectionnez l’étape de votre choix.
 
      ![Dans le volet Détails de l’exécution, afficher l’étape en échec](./media/monitor-logic-apps/select-failed-step-in-failed-run.png)
 
@@ -111,7 +111,7 @@ Chaque exécution d’application logique démarre avec un déclencheur. L’his
 
 1. Sélectionnez votre application logique, puis **Vue d’ensemble**.
 
-1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. Dans la section **Résumé** , sous **Évaluation** , sélectionnez **Afficher l’historique du déclencheur**.
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. Dans la section **Résumé**, sous **Évaluation**, sélectionnez **Afficher l’historique du déclencheur**.
 
    ![Afficher l’historique du déclencheur pour votre application logique](./media/monitor-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
@@ -129,7 +129,7 @@ Chaque exécution d’application logique démarre avec un déclencheur. L’his
    |||
 
    > [!TIP]
-   > Vous pouvez revérifier le déclencheur sans attendre la prochaine récurrence. Dans la barre d’outils de la vue d’ensemble, sélectionnez **Déclencheur d’exécution** , puis choisissez le déclencheur, ce qui force une vérification. Vous pouvez également sélectionner **Exécuter** dans la barre d’outils du Concepteur d’applications logiques.
+   > Vous pouvez revérifier le déclencheur sans attendre la prochaine récurrence. Dans la barre d’outils de la vue d’ensemble, sélectionnez **Déclencheur d’exécution**, puis choisissez le déclencheur, ce qui force une vérification. Vous pouvez également sélectionner **Exécuter** dans la barre d’outils du Concepteur d’applications logiques.
 
 1. Pour afficher des informations sur une tentative de déclencheur spécifique, dans le volet Déclencheur, sélectionnez cet événement du déclencheur. Si la liste affiche plusieurs tentatives de déclencheur et que vous ne trouvez pas l’entrée souhaitée, essayez de filtrer la liste. Si vous ne trouvez pas les données que vous attendez, choisissez **Actualiser** dans la barre d’outils.
 
@@ -143,35 +143,35 @@ Chaque exécution d’application logique démarre avec un déclencheur. L’his
 
 ## <a name="set-up-monitoring-alerts"></a>Configurer des alertes de surveillance
 
-Pour recevoir des alertes basées sur des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure Monitor](../azure-monitor/platform/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../azure-monitor/platform/data-platform.md). Pour configurer des alertes sans utiliser [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), procédez comme suit.
+Pour recevoir des alertes basées sur des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure Monitor](../azure-monitor/alerts/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../azure-monitor/data-platform.md). Pour configurer des alertes sans utiliser [Azure Monitor](../azure-monitor/logs/log-query-overview.md), procédez comme suit.
 
-1. Dans le menu de votre application logique, sous **Surveillance** , sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
+1. Dans le menu de votre application logique, sous **Surveillance**, sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
 
    ![Ajouter une alerte pour votre application logique](./media/monitor-logic-apps/add-new-alert-rule.png)
 
-1. Dans le volet **Créer une règle** , sous **Ressource** , sélectionnez votre application logique si ce n’est déjà fait. Sous **Condition** , sélectionnez **Ajouter** afin de pouvoir définir la condition qui déclenche l’alerte.
+1. Dans le volet **Créer une règle**, sous **Ressource**, sélectionnez votre application logique si ce n’est déjà fait. Sous **Condition**, sélectionnez **Ajouter** afin de pouvoir définir la condition qui déclenche l’alerte.
 
    ![Ajouter une condition pour la règle](./media/monitor-logic-apps/add-condition-for-rule.png)
 
-1. Dans le volet **Configurer la logique de signal** , recherchez et sélectionnez le signal pour lequel vous souhaitez obtenir une alerte. Vous pouvez utiliser la zone de recherche ou, pour trier les signaux par ordre alphabétique, sélectionner l’en-tête de colonne **Nom du signal**.
+1. Dans le volet **Configurer la logique de signal**, recherchez et sélectionnez le signal pour lequel vous souhaitez obtenir une alerte. Vous pouvez utiliser la zone de recherche ou, pour trier les signaux par ordre alphabétique, sélectionner l’en-tête de colonne **Nom du signal**.
 
    Par exemple, si vous souhaitez envoyer une alerte en cas d’échec d’un déclencheur, procédez comme suit :
 
-   1. Dans la colonne **Nom du signal** , recherchez et sélectionnez le signal **Déclenchements ayant échoué**.
+   1. Dans la colonne **Nom du signal**, recherchez et sélectionnez le signal **Déclenchements ayant échoué**.
 
       ![Sélectionner un signal pour créer une alerte](./media/monitor-logic-apps/find-and-select-signal.png)
 
-   1. Dans le volet Informations qui s’ouvre pour le signal sélectionné, sous **Logique d’alerte** , configurez votre condition, par exemple :
+   1. Dans le volet Informations qui s’ouvre pour le signal sélectionné, sous **Logique d’alerte**, configurez votre condition, par exemple :
 
-   1. Pour **Opérateur** , sélectionnez **Supérieur ou égal à**.
+   1. Pour **Opérateur**, sélectionnez **Supérieur ou égal à**.
 
-   1. Pour **Type d’agrégation** , sélectionnez **Compte**.
+   1. Pour **Type d’agrégation**, sélectionnez **Compte**.
 
-   1. Pour **Valeur de seuil** , entrez `1`.
+   1. Pour **Valeur de seuil**, entrez `1`.
 
-   1. Sous **Aperçu de la condition** , vérifiez que votre condition s’affiche correctement.
+   1. Sous **Aperçu de la condition**, vérifiez que votre condition s’affiche correctement.
 
-   1. Sous **Évaluée sur la base de** , définissez l’intervalle et la fréquence pour l’exécution de la règle d’alerte. Pour **Précision d’agrégation (période)** , sélectionnez la période de regroupement des données. Pour **Fréquence d’évaluation** , sélectionnez la fréquence à laquelle vous souhaitez vérifier la condition.
+   1. Sous **Évaluée sur la base de**, définissez l’intervalle et la fréquence pour l’exécution de la règle d’alerte. Pour **Précision d’agrégation (période)** , sélectionnez la période de regroupement des données. Pour **Fréquence d’évaluation**, sélectionnez la fréquence à laquelle vous souhaitez vérifier la condition.
 
    1. Quand vous êtes prêt, sélectionnez **Terminé**.
 

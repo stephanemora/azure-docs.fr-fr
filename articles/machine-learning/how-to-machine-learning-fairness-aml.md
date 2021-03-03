@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222766"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366955"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 
@@ -214,10 +214,15 @@ L’exemple suivant explique comment utiliser le package d’impartialité. Nous
     1. Sélectionnez **Expériences** dans le volet gauche pour afficher la liste des expériences que vous avez exécutées sur Azure Machine Learning.
     1. Sélectionnez une expérience particulière pour afficher toutes les exécutions de cette expérience.
     1. Sélectionnez une exécution, puis l’onglet **Impartialité** pour afficher le tableau de bord de visualisation des explications.
+    1. Une fois arrivé dans l’onglet **Impartialité**, cliquez sur un **ID d’impartialité** dans le menu de droite.
+    1. Configurez votre tableau de bord en sélectionnant l’attribut sensible, la mesure des performances et la métrique d’impartialité qui vous intéressent pour atterrir sur la page d’évaluation de l’impartialité.
+    1. Passez d’un type de tableau à l’autre pour observer à la fois les préjudices liés à l’**allocation** et ceux liés à la **qualité du service**.
 
 
-    [![Tableau de bord Impartialité](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Allocation du tableau de bord Impartialité](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Qualité de service du tableau de bord Impartialité](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Volet Modèles**
     1. Si vous avez inscrit votre modèle d’origine en suivant les étapes précédentes, vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
     1. Sélectionnez un modèle, puis l’onglet **Impartialité** pour afficher le tableau de bord de visualisation des explications.

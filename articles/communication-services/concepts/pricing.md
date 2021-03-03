@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126188"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558473"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Les tarifs pour Azure Communication Services sont généralement basés sur un modèle de paiement à l’utilisation.
+Les tarifs pour Azure Communication Services sont généralement basés sur un modèle de paiement à l’utilisation. Les prix dans les exemples suivants sont fournis à titre indicatif et peuvent ne pas refléter les tarifs Azure les plus récents.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Appels vocaux/vidéo et partage d’écran
 
@@ -46,11 +46,34 @@ Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice 
 - 2 participants x 60 minutes x 0,004 USD par participant par minute = 0,48 USD [les flux vidéo et audio sont facturés au même tarif]
 - 1 participant x 43 minutes x 0,004 USD par participant par minute = 0,172 USD [les flux vidéo et audio sont facturés au même tarif]
 
-**Coût total de l’appel de groupe**  : 0,48 USD + 0,172 USD = 0,652 USD
+**Coût total de l’appel de groupe** : 0,48 USD + 0,172 USD = 0,652 USD
+
+### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemple de tarif : Un utilisateur de la bibliothèque de client Communication Services JS rejoint une réunion Microsoft Teams planifiée
+
+Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à la visite à partir de l’application Teams Desktop. Bob va recevoir un lien pour s’y joindre en utilisant le site web médical du fournisseur, qui se connecte à la réunion en utilisant la bibliothèque de client Communication Services JS. Bob va utiliser son téléphone mobile pour participer à la réunion en utilisant un navigateur web (iPhone avec Safari). Une conversation sera disponible pendant la visite virtuelle. 
+
+- L’appel dure 30 minutes au total.
+- Alice et Bob participent à la totalité de l’appel. Alice active sa vidéo 5 minutes après le démarrage de l’appel et partage son écran pendant 13 minutes. Bob a sa vidéo activée pendant toute la durée de l’appel.
+- Alice envoie 5 messages et Bob répond avec 3 messages.
+
+
+**Calculs des coûts**
+
+- 1 participant (Bob) x 30 minutes x 0,004 USD par participant par minute = 0,12 USD [les flux vidéo et audio sont facturés au même tarif]
+- 1 participant (Alice) x 30 minutes x 0,000 USD par participant par minute = 0,0 USD*. 
+- 1 participant (Bob) x 3 messages de conversation x 0,0008 USD = 0,0024 USD.
+- 1 participant (Alice) x 5 messages de conversation x 0,000 USD = 0,0 USD. 
+
+*La participation d’Alice est couverte par sa licence Teams. Votre facture Azure indique pour information les minutes et les messages de conversation que les utilisateurs Teams ont eus avec des utilisateurs Communication Services, mais ces minutes et ces messages provenant du client Teams, ils ne sont pas facturés.
+
+**Coût total de la visite** : 
+- Utilisateur se joignant en utilisant la bibliothèque de client Communication Services JS : 0,12 USD + 0,0024 USD = 0,1224 USD
+- Utilisateur se joignant à l’application Teams Desktop : 0 USD (couvert par une licence Teams) 
+
 
 ## <a name="chat"></a>Conversation
 
-Avec Communication Services, vous pouvez améliorer votre application en ajoutant la possibilité d’envoyer et de recevoir des messages de conversation entre 2 utilisateurs ou plus. Les bibliothèques de client Chat sont disponibles pour JavaScript, .NET, Python et Java. Reportez-vous à [cette page pour en savoir plus sur les bibliothèques de client](./sdk-options.md).
+Avec Communication Services, vous pouvez améliorer votre application en ajoutant la possibilité d’envoyer et de recevoir des messages de conversation entre deux utilisateurs ou plus. Les bibliothèques de client Chat sont disponibles pour JavaScript, .NET, Python et Java. Reportez-vous à [cette page pour en savoir plus sur les bibliothèques de client](./sdk-options.md).
 
 ### <a name="price"></a>Price
 
@@ -58,7 +81,7 @@ Il vous est facturé 0,0008 USD pour chaque message de conversation envoyé.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Exemple de tarif : Conversation entre deux utilisateurs 
 
-Geeta démarre un fil de conversation avec Emily pour partager une mise à jour et envoie 5 messages. La conversation dure 10 minutes, pendant lesquelles Geeta et Emily envoient encore 15 messages chacune.
+Geeta démarre un fil de conversation avec Emily pour partager une mise à jour et envoie 5 messages. La conversation dure 10 minutes. Geeta et Emily s’envoient chacune 15 messages.
 
 **Calculs des coûts** 
 - Nombre de messages envoyés (5 + 15 + 15) x 0,0008 USD = 0,028 USD

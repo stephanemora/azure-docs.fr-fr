@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601075"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530448"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gérer un graphique de jumeaux numériques à l’aide de relations
 
@@ -49,11 +49,11 @@ Pour créer une relation, vous devez spécifier :
 L’ID de relation doit être unique au sein du jumeau source donné. Il ne doit pas être globalement unique.
 Par exemple, pour le jumeau *foo*, chaque ID de relation spécifique doit être unique. Toutefois, un autre jumeau *bar* peut avoir une relation sortante qui correspond au même ID d’une relation *foo*.
 
-L’exemple de code suivant illustre la procédure de création d’une relation dans votre instance Azure Digital Twins.
+L’exemple de code suivant illustre la procédure de création d’une relation dans votre instance Azure Digital Twins. Il utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-Dans votre méthode main, vous pouvez maintenant appeler la fonction `CreateRelationship()` pour créer une relation _contient_ de ce type : 
+Cette fonction personnalisée peut désormais être appelée pour créer une relation _contains_ comme ceci : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -82,11 +82,11 @@ Pour accéder à la liste des relations **sortantes** pour un jumeau donné dans
 
 Cette méthode retourne `Azure.Pageable<T>` ou `Azure.AsyncPageable<T>`, selon que vous utilisez la version synchrone ou asynchrone de l’appel.
 
-Voici un exemple qui récupère une liste de relations :
+Voici un exemple qui récupère une liste de relations. Il utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod" highlight="8":::
 
-Vous pouvez maintenant appeler cette méthode pour voir les relations sortantes des jumeaux comme suit :
+Vous pouvez à présent appeler cette méthode personnalisée pour voir les relations sortantes des jumeaux comme ceci :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
@@ -96,33 +96,53 @@ Vous pouvez utiliser les relations récupérées pour accéder à d’autres jum
 
 Azure Digital Twins dispose également d’une API permettant de rechercher toutes les relations **entrantes** avec un jumeau donné. Cela s’avère souvent utile pour la navigation inverse ou lors de la suppression d’un jumeau.
 
-L’exemple de code précédent se concentrait sur la recherche des relations sortantes d’un jumeau. L’exemple suivant est structuré de la même façon, mais il recherche des relations *entrantes*.
+>[!NOTE]
+> Les appels à `IncomingRelationship` ne retournent pas le corps complet de la relation. Pour plus d’informations sur la classe `IncomingRelationship`, consultez sa [documentation de référence](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
 
-Notez que les appels `IncomingRelationship` ne retournent pas le corps complet de la relation.
+L’exemple de code de la section précédente s’est concentré sur la recherche des relations sortantes d’un jumeau. L’exemple suivant est structuré de la même façon, mais il recherche des relations *entrantes*. Cet exemple utilise également l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod" highlight="8":::
 
-Vous pouvez maintenant appeler cette méthode pour voir les relations entrantes des jumeaux comme suit :
+Vous pouvez à présent appeler cette méthode personnalisée pour voir les relations entrantes des jumeaux comme ceci :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Répertorier toutes les propriétés de jumeau et les relations
 
-En utilisant les méthodes ci-dessus pour répertorier les relations sortantes et entrantes en lien avec un jumeau, vous pouvez créer une méthode qui imprime des informations complètes sur le jumeau, notamment les propriétés et les deux types de ses relations. Voici un exemple de méthode, appelé `FetchAndPrintTwinAsync()`, qui montre comment procéder.
+En utilisant les méthodes ci-dessus pour répertorier les relations sortantes et entrantes en lien avec un jumeau, vous pouvez créer une méthode qui imprime des informations complètes sur le jumeau, notamment les propriétés et les deux types de ses relations. Voici un exemple de méthode personnalisée montrant comment combiner les méthodes personnalisées ci-dessus à cette fin.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-Vous pouvez maintenant appeler cette fonction dans votre méthode main comme suit : 
+Vous pouvez à présent appeler cette fonction personnalisée comme ceci : 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
+
+## <a name="update-relationships"></a>Mettre à jour les relations
+
+Les relations sont mises à jour à l’aide de la méthode `UpdateRelationship`. 
+
+>[!NOTE]
+>Cette méthode permet de mettre à jour les **propriétés** d’une relation. Si vous êtes amené à changer le jumeau source ou le jumeau cible de la relation, vous devez [supprimer la relation](#delete-relationships) et [en recréer une](#create-relationships) à l’aide des nouveaux jumeaux.
+
+Les paramètres obligatoires pour l’appel du client sont l’ID du jumeau source (jumeau d’où provient la relation), l’ID de la relation à mettre à jour ainsi qu’un document [JSON Patch](http://jsonpatch.com/) contenant les propriétés et les nouvelles valeurs à mettre à jour.
+
+Voici un exemple de code montrant comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
+
+Voici un exemple d’appel de cette méthode personnalisée, qui passe un document JSON Patch avec les informations nécessaires à la mise à jour d’une propriété.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
 ## <a name="delete-relationships"></a>Supprimer des relations
 
 Le premier paramètre spécifie le jumeau source (le jumeau à l’origine de la relation). L’autre paramètre est l’ID de relation. Vous avez besoin de l’ID de jumeau et de l’ID de relation, car les ID de relation ne sont uniques que dans l’étendue d’un jumeau.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
+Voici un exemple de code montrant comment utiliser cette méthode. Cet exemple utilise l’appel du kit SDK (en surbrillance) dans une méthode personnalisée pouvant apparaître au sein d’un programme plus volumineux.
 
-Vous pouvez maintenant appeler cette méthode pour supprimer une relation comme suit :
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
+
+Vous pouvez à présent appeler cette méthode personnalisée pour supprimer une relation comme ceci :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 

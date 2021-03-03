@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 0de0c5d53bd3195a24f75f4a2e65c19602e2a2b3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088919"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372006"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modèles de tarification et de facturation pour Azure Logic Apps
 
@@ -72,8 +72,8 @@ Un modèle de tarification fixe s’applique aux applications logiques qui s’e
 
 | Référence (SKU) de l’environnement de service d’intégration | Description |
 |---------|-------------|
-| **Premium** | L’unité de base a une capacité fixe et est [facturée à un tarif horaire pour le niveau tarifaire Premium](https://azure.microsoft.com/pricing/details/logic-apps). Si vous avez besoin d’un débit plus élevé, vous pouvez [ajouter des unités d’échelle supplémentaires](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) pendant ou après la création de votre ISE. Chaque unité d’échelle est facturée à un [tarif horaire qui correspond à peu près à la moitié du tarif de l’unité de base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Pour plus d’informations sur les limites, consultez [Limites ISE dans Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| **Développeur** | L’unité de base a une capacité fixe et est [facturée à un tarif horaire pour le niveau tarifaire Développeur](https://azure.microsoft.com/pricing/details/logic-apps). Ce niveau tarifaire n’a pas de capacité de scale-up, de contrat de niveau de service (SLA) ni des limites publiées. Utilisez ce niveau tarifaire uniquement à des fins d’exploration, d’expérimentation, de développement et de test, et non pour la production ou les tests de performances. |
+| **Premium** | L’unité de base a une [capacité fixe](logic-apps-limits-and-config.md#integration-service-environment-ise) et est [facturée à un tarif horaire pour le niveau tarifaire Premium](https://azure.microsoft.com/pricing/details/logic-apps). Si vous avez besoin d’un débit plus élevé, vous pouvez [ajouter des unités d’échelle supplémentaires](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) pendant ou après la création de votre ISE. Chaque unité d’échelle est facturée à un [tarif horaire qui correspond à peu près à la moitié du tarif de l’unité de base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Pour plus d’informations sur la capacité et les limites, consultez [Limites ISE dans Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Développeur** | L’unité de base a une [capacité fixe](logic-apps-limits-and-config.md#integration-service-environment-ise) et est [facturée à un tarif horaire pour le niveau tarifaire Développeur](https://azure.microsoft.com/pricing/details/logic-apps). Toutefois, cette référence SKU n’a pas de contrat de niveau de service (SLA), de fonctionnalité de scale-up ou de redondance pendant le recyclage, ce qui signifie que vous pouvez rencontrer des retards ou des temps d’arrêt. Les mises à jour du back-end peuvent interrompre le service par intermittence. <p><p>**Important !** Veillez à utiliser cette référence SKU uniquement à des fins d’exploration, d’expérimentation, de développement ou de test, et non pour la production ou les tests de performances. <p><p>Pour plus d’informations sur la capacité et les limites, consultez [Limites ISE dans Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 |||
 
 ### <a name="included-at-no-extra-cost"></a>Inclus sans frais supplémentaires

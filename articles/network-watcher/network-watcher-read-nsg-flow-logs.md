@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898094"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593049"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -189,6 +189,6 @@ Ce scénario est un exemple montrant comment lire les entrées dans les journaux
 
 Visitez [Utiliser Elasic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Utiliser Grafana](network-watcher-nsg-grafana.md) et [Utiliser Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) pour en savoir plus sur les façons de visualiser les journaux de flux NSG. Une approche Azure Function Open permettant de consommer directement les blobs et d’émettre vers les différents consommateurs de l’analytique des journaux d’activité est décrite ici : [Connecteur des journaux de flux de groupe de sécurité réseau Azure Network Watcher](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Vous pouvez utiliser [Azure Traffic Analytics](./traffic-analytics.md) pour obtenir des insights sur vos flux de trafic. Traffic Analytics utilise [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) pour rendre votre flux de trafic interrogeable.
+Vous pouvez utiliser [Azure Traffic Analytics](./traffic-analytics.md) pour obtenir des insights sur vos flux de trafic. Traffic Analytics utilise [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) pour rendre votre flux de trafic interrogeable.
 
 Pour en savoir plus sur les objets blob de stockage, visitez : [Liaisons de stockage Blob Azure Functions](../azure-functions/functions-bindings-storage-blob.md)

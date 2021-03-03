@@ -3,12 +3,12 @@ title: Exportation continue des données de télémétrie d’Application Insig
 description: Exportez les données de diagnostic et les données d’utilisation dans le stockage Microsoft Azure et téléchargez-les à partir de là.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674135"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584241"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code dont vous avez besoin pour les traiter.  
@@ -21,7 +21,7 @@ Avant de configurer l’exportation continue, d’autres options doivent être p
 
 * Le bouton Exporter en haut d’un onglet de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 
-* [Analytics](../log-query/log-query-overview.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
+* [Analytics](../logs/log-query-overview.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
 * Si vous cherchez à [explorer vos données dans Power BI](./export-power-bi.md), vous pouvez le faire sans utiliser l’exportation continue.
 * [L’API REST d’accès aux données](https://dev.applicationinsights.io/) vous permet d’accéder à vos données de télémétrie par programme.
 * Vous pouvez également configurer [l’exportation continue par le biais de Powershell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).

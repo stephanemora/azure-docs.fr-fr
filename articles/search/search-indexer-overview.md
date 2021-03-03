@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430460"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098093"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexeurs dans Recherche cognitive Azure
 
@@ -118,6 +118,7 @@ Vous pouvez surveiller l’état de l’indexeur dans le portail ou à l’aide 
 Vous pouvez à présent passer en revue les propriétés et paramètres des indexeurs, la planification et la supervision des indexeurs. Vous pouvez également revenir à la liste des [sources de données prises en charge](#supported-data-sources) pour plus d’informations sur une source spécifique.
 
 + [Créer des indexeurs](search-howto-create-indexers.md)
++ [Réinitialiser et exécuter des indexeurs](search-howto-run-reset-indexers.md)
 + [Planifier des indexeurs](search-howto-schedule-indexers.md)
 + [Définir des mappages de champs](search-indexer-field-mappings.md)
 + [Superviser l’état d’un indexeur](search-howto-monitor-indexers.md)

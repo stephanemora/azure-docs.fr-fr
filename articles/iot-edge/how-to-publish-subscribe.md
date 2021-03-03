@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621893"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633969"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -332,7 +332,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publier
+#### <a name="publish"></a>Publish
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 
@@ -366,8 +366,8 @@ Les [SDK d’appareil Azure IoT](https://github.com/Azure/azure-iot-sdks) permet
 
 L’envoi de données de télémétrie à IoT Hub est similaire à la publication sur une rubrique définie par l’utilisateur, mais en utilisant une rubrique IoT Hub spécifique :
 
-- Pour un appareil, les données de télémétrie sont envoyées sur la rubrique : `devices/<device_name>/messages/events`
-- Pour un module, les données de télémétrie sont envoyées sur la rubrique : `devices/<device_name>/<module_name>/messages/events`
+- Pour un appareil, les données de télémétrie sont envoyées sur la rubrique : `devices/<device_name>/messages/events/`
+- Pour un module, les données de télémétrie sont envoyées sur la rubrique : `devices/<device_name>/<module_name>/messages/events/`
 
 En outre, créez un itinéraire comme `FROM /messages/* INTO $upstream` pour envoyer des données de télémétrie à partir du répartiteur IoT Edge MQTT vers IoT Hub. Pour en savoir plus sur le routage, consultez [Déclarer des itinéraires](module-composition.md#declare-routes).
 

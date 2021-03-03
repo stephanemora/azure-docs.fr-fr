@@ -1,24 +1,18 @@
 ---
 title: 'Tutoriel : Utiliser l’API REST pour créer un pipeline Azure Data Factory '
 description: Dans ce tutoriel, vous utilisez l’API REST pour créer un pipeline Azure Data Factory avec une activité de copie afin de copier des données d’un stockage Blob Azure dans Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053809"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377021"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -351,7 +345,7 @@ Dans cette étape, vous créez une fabrique de données Azure nommée **ADFCopyT
 
 Notez les points suivants :
 
-* Le nom de la fabrique de données Azure doit être un nom global unique. Si vous voyez l’erreur suivante dans les résultats : **Le nom de fabrique de données « ADFCopyTutorialDF » n’est pas disponible**, effectuez les étapes suivantes :  
+* Le nom de la fabrique de données Azure doit être un nom global unique. Si vous voyez l’erreur suivante dans les résultats : **Le nom de fabrique de données « ADFCopyTutorialDF » n’est pas disponible**, procédez comme suit :  
   
   1. Modifiez le nom (par exemple, votrenomADFCopyTutorialDF) dans le fichier **datafactory.json** .
   2. Dans la première commande où une valeur est attribuée à la variable **$cmd** , remplacez ADFCopyTutorialDF par le nouveau nom, puis exécutez la commande. 
@@ -522,11 +516,11 @@ Pour chaque tranche, deux lignes de données tirées du fichier source sont copi
 ## <a name="summary"></a>Résumé
 Dans ce tutoriel, vous avez utilisé une API REST pour créer une fabrique de données Azure afin de copier des données d’un objet blob Azure vers Azure SQL Database. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :  
 
-1. Création d’une **fabrique de données**Azure.
+1. Création d’une **fabrique de données** Azure.
 2. Création de **services liés**:
    1. Un service lié Azure Storage pour lier votre compte Stockage Azure contenant des données d’entrée.     
    2. Un service lié Azure SQL pour lier votre base de données contenant les données de sortie. 
-3. Création des **jeux de données**qui décrivent les données d’entrée et de sortie des pipelines.
+3. Création des **jeux de données** qui décrivent les données d’entrée et de sortie des pipelines.
 4. Création d’un **pipeline** avec une activité de copie avec BlobSource en tant que source et SqlSink en tant que récepteur. 
 
 ## <a name="next-steps"></a>Étapes suivantes

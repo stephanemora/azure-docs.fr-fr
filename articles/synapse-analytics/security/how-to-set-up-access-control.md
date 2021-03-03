@@ -2,19 +2,19 @@
 title: Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse
 description: Cet article explique comment contrôler l’accès à un espace de travail Synapse à l’aide des rôles Azure, des rôles Synapse, des autorisations SQL et des autorisations Git.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218074"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368997"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse 
 
@@ -132,7 +132,7 @@ Pour créer des pools SQL, des pools Apache Spark et des runtimes d’intégrati
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>ÉTAPE 6 : Attribuer à SQL le rôle d’Administrateur Active Directory
 
-Le créateur de la station de travail est configuré automatiquement comme administrateur SQL Active Directory pour l’espace de travail.  Ce rôle ne peut être accordé qu’à un utilisateur ou un groupe unique. Dans cette étape, vous allez affecter l’administrateur SQL Active Directory de l’espace de travail au groupe de sécurité `workspace1_SQLAdmins`.  L’attribution de ce rôle donne à ce groupe un accès administrateur hautement privilégié à tous les pools SQL et à toutes les bases de données de l’espace de travail.   
+Le créateur de l'espace de travail est automatiquement configuré comme Administrateur SQL Active Directory de l'espace de travail.  Ce rôle ne peut être accordé qu’à un utilisateur ou un groupe unique. Dans cette étape, vous allez affecter l’administrateur SQL Active Directory de l’espace de travail au groupe de sécurité `workspace1_SQLAdmins`.  L’attribution de ce rôle donne à ce groupe un accès administrateur hautement privilégié à tous les pools SQL et à toutes les bases de données de l’espace de travail.   
 
 - Ouvrez le portail Azure
 - Accédez à `workspace1`.

@@ -3,12 +3,12 @@ title: Améliorer l’excellence opérationnelle avec Advisor
 description: Utilisez Azure Advisor pour améliorer et atteindre l’excellence opérationnelle de vos abonnements Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579961"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Atteindre l’excellence opérationnelle à l’aide d’Azure Advisor
 
@@ -38,7 +38,7 @@ Si votre pool utilise un composant interne déprécié, supprimez et recréez le
 
 ## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
 
-Azure Advisor détecte les règles d’alerte dont la section des conditions contient des requêtes non valides. Vous pouvez créer des règles d’alerte de journal dans Azure Monitor et les utiliser pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats de la requête déterminent si une alerte doit être déclenchée. Il arrive que des requêtes d’analytique deviennent non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor vous recommande alors de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement, et garantir ainsi une couverture de supervision complète de vos ressources dans Azure. [Découvrez-en plus sur la résolution des problèmes liés aux règles d’alerte.](../azure-monitor/platform/alerts-troubleshoot-log.md)
+Azure Advisor détecte les règles d’alerte dont la section des conditions contient des requêtes non valides. Vous pouvez créer des règles d’alerte de journal dans Azure Monitor et les utiliser pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats de la requête déterminent si une alerte doit être déclenchée. Il arrive que des requêtes d’analytique deviennent non valides au fil du temps en raison de modifications effectuées dans les ressources, les tables ou les commandes référencées. Advisor vous recommande alors de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement, et garantir ainsi une couverture de supervision complète de vos ressources dans Azure. [Découvrez-en plus sur la résolution des problèmes liés aux règles d’alerte.](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Utiliser les recommandations Azure Policy
 
@@ -50,9 +50,9 @@ Azure Policy est un service Azure que vous pouvez utiliser pour créer, affecter
 
 **Spécifier les références SKU de machine virtuelle autorisées pour les déploiements.** Cette stratégie vous permet de spécifier un ensemble de références de machine virtuelle que votre organisation peut déployer.
 
-**Appliquer *Auditer les machines virtuelles qui n’utilisent pas de disques managés* .**
+**Appliquer *Auditer les machines virtuelles qui n’utilisent pas de disques managés*.**
 
-**Activer *Hériter une étiquette du groupe de ressources* .** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
+**Activer *Hériter une étiquette du groupe de ressources*.** Cette stratégie ajoute ou remplace la balise spécifiée et la valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Vous pouvez corriger des ressources existantes en déclenchant une tâche de correction.
 
 Advisor recommande quelques stratégies Azure individuelles qui aident les clients à atteindre l’excellence opérationnelle en adoptant les meilleures pratiques. Si un client décide d’attribuer une stratégie recommandée, nous supprimons la recommandation. Si le client décide de supprimer la stratégie ultérieurement, Advisor continue de supprimer la recommandation, car nous interprétons sa suppression comme un signal fort de ce qui suit :
 

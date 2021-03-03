@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798208"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096206"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gérer vos appareils connectés à partir de la page Appareils
 
@@ -27,7 +27,12 @@ La page **Appareils** du portail **Mon compte** vous permet de gérer les appare
 - Désactiver les appareils que vous ne possédez plus, que vous avez perdus ou qui ont été volés.
 
 >[!Important]
->Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations des appareils connectés à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des appareils pour vos employés et d’autres utilisations, consultez la [documentation sur les identités des appareils](../devices/index.yml).
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations des appareils connectés à un compte professionnel ou scolaire. Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+>
+>   - https://myaccount.microsoft.com?tenantId=*votre_nom_de_domaine*
+>   - https://myaccount.microsoft.com?tenant=*votre_ID_de_locataire*
+>
+>Si vous êtes administrateur et que vous recherchez des informations sur la gestion des appareils pour vos employés et d’autres utilisations, consultez la [documentation sur les identités des appareils](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Afficher vos appareils connectés
 

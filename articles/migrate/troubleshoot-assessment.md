@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581786"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -160,12 +160,12 @@ Pour les machines virtuelles Windows :
 
     ![État MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent. Reportez-vous à cet autre [guide de résolution des problèmes](../azure-monitor/insights/service-map.md#post-installation-issues).
+Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour les commandes d’installation MMA et Dependency Agent. Reportez-vous à cet autre [guide de résolution des problèmes](../azure-monitor/vm/service-map.md#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-- **Agent MMS** : Passez en revue les systèmes d’exploitation [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems) et [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) pris en charge.
-- **Agent des dépendances** : les systèmes d’exploitation [Windows et Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pris en charge.
+- **Agent MMS** : Passez en revue les systèmes d’exploitation [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems) et [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) pris en charge.
+- **Agent des dépendances** : les systèmes d’exploitation [Windows et Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) pris en charge.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualiser les dépendances pendant > heure
 

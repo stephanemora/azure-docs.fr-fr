@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 5506d2da0ccf09de7db7aff744984ae93c59fd32
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051598"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571715"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Comprendre les indicateurs de performance pour Azure Spring Cloud
 
@@ -173,7 +173,7 @@ Pour plus d’informations, consultez [compteurs dotnet](/dotnet/core/diagnostic
 
 * [Démarrage rapide : Supervision des applications Azure Spring Cloud avec les journaux, les métriques et le suivi](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Bien démarrer avec Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+* [Bien démarrer avec Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 * [Analyser les journaux et les indicateurs de performance avec les paramètres de diagnostic](./diagnostic-services.md)
 

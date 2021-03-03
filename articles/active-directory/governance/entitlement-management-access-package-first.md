@@ -1,6 +1,6 @@
 ---
-title: Tutoriel – Créer un package d’accès – Gestion des droits d’utilisation Azure AD
-description: Ce tutoriel pas à pas vous explique comment créer votre premier package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
+title: Tutoriel – Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD
+description: Ce tutoriel pas à pas vous explique comment créer votre premier package d’accès, à l’aide du portail Azure, dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937903"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547398"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Tutoriel : Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD
 
 La gestion de l’accès à toutes les ressources dont les employés ont besoin, comme les groupes, les applications et les sites, est une fonction importante pour les organisations. Vous devez accorder aux employés le niveau d’accès dont ils ont besoin pour être productifs et leur retirer cet accès dès qu’il n’est plus nécessaire.
 
@@ -41,8 +41,6 @@ Dans ce tutoriel, vous allez apprendre à :
 Pour obtenir une démonstration pas à pas du processus de déploiement de la gestion des droits d'utilisation d’Azure Active Directory, notamment la création de votre premier package d’accès, regardez la vidéo suivante :
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-Vous pouvez également créer un package d’accès par programme à l’aide de Microsoft Graph. Pour obtenir un tutoriel qui montre comment créer un package d’accès par programme, consultez [API de gestion des droits d’utilisation](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prérequis
 

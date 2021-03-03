@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 
@@ -28,10 +28,10 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Coupa à Azure Active 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l'intégration d'Azure AD avec Coupa, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Coupa pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Coupa pour lequel l’authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Coupa, effec
     1. **[Créer un utilisateur de test Coupa](#create-coupa-test-user)** pour avoir un équivalent de B.Simon dans Coupa lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -128,17 +128,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-coupa-sso"></a>Configurer l’authentification unique Coupa
+## <a name="configure-coupa-sso"></a>Configurer l’authentification unique Coupa
 
 1. Connectez-vous à votre site d’entreprise Coupa en tant qu’administrateur.
 
 2. Accédez à **Setup \> Security controls**.
 
-    ![Contrôles de sécurité](./media/coupa-tutorial/ic791900.png "Security Controls")
+    ![Contrôles de sécurité](./media/coupa-tutorial/setup.png "Security Controls")
 
 3. Dans la section **Log in using Coupa credentials**, procédez comme suit :
 
-    ![Métadonnées SP Coupa](./media/coupa-tutorial/ic791901.png "Métadonnées SP Coupa")
+    ![Métadonnées SP Coupa](./media/coupa-tutorial/login.png "Métadonnées SP Coupa")
 
     a. Sélectionnez **Log in using SAML**.
 
@@ -158,15 +158,15 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
 
 2. Dans le menu en haut, cliquez sur **Setup**, puis sur **Users**.
 
-    ![Utilisateurs](./media/coupa-tutorial/ic791908.png "Utilisateurs")
+    ![Utilisateurs](./media/coupa-tutorial/user.png "Utilisateurs")
 
 3. Cliquez sur **Créer**.
 
-    ![Créer des utilisateurs](./media/coupa-tutorial/ic791909.png "Créer des utilisateurs")
+    ![Créer des utilisateurs](./media/coupa-tutorial/create.png "Créer des utilisateurs")
 
 4. Dans la section **User Create**, procédez comme suit :
 
-    ![Détails de l’utilisateur](./media/coupa-tutorial/ic791910.png "User Details")
+    ![Détails de l’utilisateur](./media/coupa-tutorial/details.png "User Details")
 
     a. Dans les zones de texte **Login**, **First name**, **Last Name**, **Single Sign-On ID** et **Email**, entrez les attributs d'un compte Azure Active Directory valide que vous voulez configurer.
 
@@ -179,7 +179,7 @@ Pour se connecter à Coupa, les utilisateurs d’Azure AD doivent être approvis
 >[!NOTE]
 >Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Coupa pour provisionner des comptes d’utilisateurs Azure AD.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 

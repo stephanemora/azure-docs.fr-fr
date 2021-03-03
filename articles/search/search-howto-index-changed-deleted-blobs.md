@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430558"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383532"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Comment configurer la détection des modifications et des suppressions de blobs dans l’indexation de Recherche cognitive Azure
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Détection des modifications et des suppressions dans l’indexation d’objets blob (Recherche cognitive Azure)
 
 Après avoir créé un index de recherche initial, vous souhaiterez peut-être que les travaux de l’indexeur récupèrent uniquement les documents nouveaux et changés. Pour le contenu de recherche en provenance du Stockage Blob Azure, la détection des modifications se produit automatiquement lorsque vous utilisez une planification pour déclencher l’indexation. Par défaut, le service réindexe uniquement les blobs modifiés, déterminés par l’horodateur `LastModified`. Contrairement à d’autres sources de données prises en charge par les indexeurs de recherche, les blobs ont toujours un horodateur, ce qui évite d’avoir à configurer manuellement une stratégie de détection des modifications.
 

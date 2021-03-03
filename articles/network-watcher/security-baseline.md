@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804986"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574430"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Base de référence de sécurité Azure pour Network Watcher
 
@@ -118,9 +118,9 @@ Network Watcher doit être activé
 
 **Aide** : Utilisez le journal d’activité Azure pour surveiller les modifications apportées à Azure Network Watcher. Vous pouvez créer des alertes dans Azure Monitor qui se déclenchent lorsque des modifications sont apportées.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -142,7 +142,7 @@ Network Watcher doit être activé
 
 **Aide** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations et détecter les changements apportés à vos instances Azure Network Watcher. À part le plan de contrôle (par exemple, le portail Azure), Network Watcher lui-même ne génère pas de journaux liés au trafic réseau. Network Watcher fournit des outils permettant d’effectuer une supervision et des diagnostics, d’afficher des métriques et d’activer et de désactiver les journaux d’activité des ressources se trouvant sur un réseau virtuel Azure.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Présentation de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ Network Watcher doit être activé
 
 **Aide** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations et détecter les changements apportés à instances Azure Network Watcher. À part le plan de contrôle (par exemple, le portail Azure), Network Watcher lui-même ne génère pas de journaux d’audit. Network Watcher fournit des outils permettant d’effectuer une supervision et des diagnostics, d’afficher des métriques et d’activer et de désactiver les journaux d’activité des ressources se trouvant sur un réseau virtuel Azure.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Présentation de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ Network Watcher doit être activé
 
 **Conseils** : Dans Azure Monitor, définissez la période de conservation des journaux pour les espaces de travail Log Analytics associés à Azure Network Watcher, conformément aux réglementations de conformité de votre organisation.
 
-* [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -184,7 +184,7 @@ Network Watcher doit être activé
 
 **Conseils** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations et détecter les changements apportés à vos instances Azure Network Watcher. À part le plan de contrôle (par exemple, le portail Azure), Network Watcher lui-même ne génère pas de journaux liés au trafic réseau. Network Watcher fournit des outils permettant d’effectuer une supervision et des diagnostics, d’afficher des métriques et d’activer et de désactiver les journaux d’activité des ressources se trouvant sur un réseau virtuel Azure.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Présentation de Network Watcher](./network-watcher-monitoring-overview.md)
 
@@ -295,7 +295,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 * [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+* [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -479,7 +479,7 @@ Pour utiliser les fonctionnalités de Network Watcher, le compte avec lequel vou
 
 **Aide** : utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées à Azure Network Watcher ainsi qu’à d’autres ressources critiques ou connexes.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 

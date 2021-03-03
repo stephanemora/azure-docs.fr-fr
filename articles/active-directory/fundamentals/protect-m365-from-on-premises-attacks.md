@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2e87196f9d4d38743847ee68983216b8790e0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 9913132ca6ff3ce2840b55aa771f7bd9be2404ea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257268"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650972"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -141,7 +141,7 @@ Nous vous recommandons d’utiliser les méthodes d’approvisionnement suivante
 
     *   Bloquez l'accès au portail Azure. Vous pouvez raréfier les exceptions nécessaires.  Créez une stratégie d’accès conditionnel qui comprend tous les invités et utilisateurs externes. [Implémentez ensuite une stratégie pour bloquer l’accès](../../role-based-access-control/conditional-access-azure-management.md). 
 
-* **Forêts déconnectées** : utilisez l’[approvisionnement cloud Azure AD](../cloud-provisioning/what-is-cloud-provisioning.md). Cette méthode vous permet de vous connecter à des forêts déconnectées, ce qui vous évite d’avoir à établir une connectivité ou des approbations entre forêts, lesquelles peuvent étendre l’effet d’une violation locale. 
+* **Forêts déconnectées** : utilisez l’[approvisionnement cloud Azure AD](../cloud-sync/what-is-cloud-sync.md). Cette méthode vous permet de vous connecter à des forêts déconnectées, ce qui vous évite d’avoir à établir une connectivité ou des approbations entre forêts, lesquelles peuvent étendre l’effet d’une violation locale. 
  
 ### <a name="limitations-and-tradeoffs"></a>Limitations et compromis
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: d4fbc566cb82eb3b728b37aa1f1cc20ff92f4fca
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896238"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580897"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Résoudre les problèmes de l’agent de mise à jour Windows
 
@@ -87,7 +87,7 @@ Les configurations du pare-feu et du proxy doivent permettre à l’agent Runboo
 
 Cette vérification détermine si l’agent Log Analytics pour Windows (`healthservice`) est en cours d’exécution sur l’ordinateur. Pour en savoir plus sur la résolution des problèmes de ce service, consultez [l’agent Log Analytics pour Windows ne s’exécute pas](hybrid-runbook-worker.md#mma-not-running).
 
-Si vous souhaitez réinstaller l’agent Log Analytics pour Windows, consultez [Installer l’agent Log Analytics pour Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+Si vous souhaitez réinstaller l’agent Log Analytics pour Windows, consultez [Installer l’agent Log Analytics pour Windows](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Événements de service de Monitoring Agent
 

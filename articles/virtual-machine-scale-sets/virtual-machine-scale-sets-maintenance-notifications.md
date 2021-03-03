@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564767"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594448"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -28,7 +28,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions) :
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/platform-logs-overview.md) Azure.  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/essentials/platform-logs-overview.md) Azure.  
 - La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, qui est généralement de 35 jours, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
@@ -89,7 +89,7 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Surveiller**. 
@@ -99,7 +99,7 @@ Azure communique une planification de maintenance planifiée en envoyant un e-ma
    - **Services** : sélectionnez **Groupes de machines virtuelles identiques et Machines virtuelles**.
    - **Type** : sélectionnez **Maintenance planifiée**. 
     
-Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts.md).
+Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../azure-monitor/alerts/activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Démarrer la maintenance sur votre groupe de machines virtuelles identiques à partir du portail

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ead05598c6ca4d096e1a68c8d640938ecd771c2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 42ed42a1fc9a2750cc928b5fd03eb4b32f770276
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355509"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644083"
 ---
 # <a name="identity-providers-for-external-identities"></a>Fournisseurs d’identité pour les identités externes
 
@@ -27,9 +27,6 @@ Cependant, vous pouvez leur permettre de se connecter avec différents fournisse
 - **Google** : la fédération des services Google permet à des utilisateurs externes de donner suite à des invitations que vous leur avez envoyées en se connectant à vos applications avec leurs propres comptes Gmail. Vous pouvez également utiliser la fédération des services Google dans vos flux d’utilisateurs d’inscription en libre-service.
    > [!IMPORTANT]
    > **À compter du 4 janvier 2021**, Google [déconseille la prise en charge de la connexion WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Si vous utilisez la fédération Google ou l’inscription en libre-service avec Gmail, [testez la compatibilité de vos applications métier natives](google-federation.md#deprecation-of-webview-sign-in-support).
-
-   > [!NOTE]
-   > Dans la préversion actuelle de l’inscription en libre-service, si un flux d’utilisateurs est associé à une application et que vous envoyez à une utilisateur une invitation à cette application, l’utilisateur ne peut pas utiliser un compte Gmail pour donner suite à l’invitation. Une solution de contournement pour l’utilisateur consiste à suivre le processus d’inscription en libre-service. Il peut également donner suite à l’invitation en accédant à une autre application ou en utilisant son portail Mes applications à l’adresse https://myapps.microsoft.com.
 
 - **Facebook** : lors de la création d’une application, vous pouvez configurer l’inscription en libre-service et activer un fédération Facebook afin que les utilisateurs puissent s’inscrire à votre application en utilisant leurs propres comptes Facebook. Facebook ne peut être utilisé que pour des flux d’utilisateurs d’inscription en libre-service, et n’est pas disponible en tant qu’option de connexion lorsque des utilisateurs donnent suite à des invitations de votre part.
 

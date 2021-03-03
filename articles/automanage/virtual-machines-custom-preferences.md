@@ -1,29 +1,29 @@
 ---
 title: Créer une préférence personnalisée dans Azure Automanage pour machines virtuelles
-description: Découvrez comment ajuster le profil de configuration dans Azure Automanage pour les machines virtuelles, et définir vos propres préférences.
+description: Découvrez comment modifier la configuration de l’environnement dans Azure Automanage, et comment définir vos propres préférences.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 377677c9e5e81487059241db68baff639a3de033
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 584a3503bf736fcf727a169611e6c79e0c374c90
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91715039"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647929"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Créer une préférence personnalisée dans Azure Automanage pour machines virtuelles
 
-Les meilleures pratiques en lien avec Azure Automanage pour machines virtuelles proposent des profils de configuration par défaut que vous pouvez modifier si nécessaire. Cet article explique comment vous pouvez définir vos propres préférences de profil de configuration lorsque vous activez la gestion automatique sur une machine virtuelle nouvelle ou existante.
+La fonctionnalité Azure Automanage des bonnes pratiques pour les machines virtuelles comporte des environnements par défaut qui peuvent être modifiés si nécessaire. Cet article explique comment définir vos propres préférences quand vous activez l’autogestion sur une machine virtuelle nouvelle ou déjà existante.
 
 Nous prenons actuellement en charge les personnalisations de [Sauvegarde Azure](..\backup\backup-azure-arm-vms-prepare.md#create-a-custom-policy) et de [Microsoft Antimalware](../security/fundamentals/antimalware.md#default-and-custom-antimalware-configuration).
 
 
 > [!NOTE]
-> Vous ne pouvez pas modifier le profil ou la préférence de configuration sur votre machine virtuelle tant que le service Automanage est activé. Vous devez désactiver le service Automanage pour cette machine virtuelle, puis le réactiver avec le profil de configuration et les préférences souhaités.
+> Vous ne pouvez pas changer l’environnement ou les préférences sur votre machine virtuelle tant qu’Automanage est activé. Vous devez désactiver Automanage pour cette machine virtuelle, puis réactiver Automanage avec l’environnement et les préférences de configuration souhaités.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -42,28 +42,31 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 
-## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Activer Automanage pour machines virtuelles sur une machine virtuelle existante
+## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Activer l’Autogestion pour machines virtuelles sur une machine virtuelle existante
 
-1. Dans la barre de recherche, recherchez puis sélectionnez **Automanage – Meilleures pratiques pour les machines virtuelles**.
+1. Dans la barre de recherche, recherchez et sélectionnez **Automanage - Azure machine best practices** (Automanage - Bonnes pratiques pour les machines virtuelles Azure).
 
 2. Sélectionnez l’option **Enable on existing VM** (Activer sur une machine virtuelle existante).
 
 3. Dans le panneau **Sélectionner des machines** :
-    1. Filtrez la liste des machines virtuelles sur votre **abonnement** et votre **groupe de ressources**.
-    1. Activez la case à cocher de chaque machine virtuelle à intégrer.
+    1. Filtrez la liste des machines virtuelles selon votre **abonnement** et votre **groupe de ressources**.
+    1. Cochez la case des machines virtuelles que vous souhaitez intégrer.
     1. Cliquez sur le bouton **Sélectionner**.
 
     :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
 
-4. Sous **Profil de configuration**, cliquez sur **Browse and change profiles and preferences** (Parcourir et modifier les profils et préférences).
+    > [!NOTE]
+    > Cliquez sur **Show ineligible machines** (Afficher les machines non éligibles) pour voir la liste des machines non prises en charge et la raison associée. 
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
+4. Sous **Configuration**, cliquez sur **Compare Environments** (Comparer les environnements).
 
-5. Dans le panneau **Sélectionnez le profil et les préférences de configuration**, sélectionnez un profil à gauche : *Dev/Test* à des fins de test, *Prod* à des fins de production.
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Comparer les environnements.":::
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
+5. Dans le panneau **Détails de l’environnement**, sélectionnez un environnement dans le menu déroulant : *Dev/Test* pour les tests, *Prod* pour la production, puis cliquez sur **OK**
 
-6. Dans le profil choisi, sous **Préférences de configuration**, il existe une liste déroulante dans laquelle vous pouvez ajuster certains services.
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Parcourir l’environnement de production.":::
+
+6. Après avoir sélectionné votre environnement, vous pouvez sélectionner **Configuration preferences** (Préférences de configuration). Par défaut, la préférence relative aux bonnes pratiques Azure est utilisée. Cette préférence contient et utilise les paramètres recommandés pour chaque service. Modifiez ces paramètres en créant une préférence personnalisée : 
     1. Cliquez sur **Créer des préférences**.
     1. Dans le panneau **Créer une préférence de configuration**, sous l’onglet De base, entrez les informations suivantes :
         1. Abonnement
@@ -71,36 +74,36 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
         1. Nom de la préférence
         1. Région
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Entrez les préférences de configuration.":::
 
-7. Accédez à l’onglet Préférences, puis ajustez les préférences de configuration comme vous le souhaitez.
+7. Modifiez les préférences de configuration souhaitées.
         
     > [!NOTE]
-    > Lors de la modification des configurations de profil, seuls les ajustements qui s’inscrivent dans les limites supérieure et inférieure de nos meilleures pratiques sont autorisés.
+    > Quand vous changez les configurations d’un environnement, seules les modifications qui s’inscrivent dans le respect de nos bonnes pratiques sont autorisées.
 
-8. Examinez votre profil de configuration.
+8. Passez en revue les détails de votre configuration.
 9. Cliquez sur le bouton **Créer**.
 
 10. Cliquez sur le bouton **Activer**.
 
 
-## <a name="disable-automanage-for-vms"></a>Désactiver Automanage pour machines virtuelles
+## <a name="disable-automanage-for-vms"></a>Désactiver l’Autogestion pour machines virtuelles
 
-Cessez rapidement d’utiliser Azure Automanage pour machines virtuelles en désactivant la gestion automatique.
+Vous pouvez cesser rapidement d’utiliser l’Autogestion Azure pour machines virtuelles en désactivant la gestion automatique.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Sélectionnez une machine virtuelle existante dans la liste des machines virtuelles disponibles.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Désactivation de l’Autogestion sur une machine virtuelle":::
 
-1. Accédez à la page **Automanage – Meilleures pratiques pour les machines virtuelles** qui répertorie toutes vos machines virtuelles gérées automatiquement.
-1. Activez la case à cocher en regard des machines virtuelles que vous souhaitez désactiver.
+1. Accédez à la page **Autogestion – Bonnes pratiques pour les machines virtuelles** qui liste toutes vos machines virtuelles qui sont gérées automatiquement.
+1. Cochez la case des machines virtuelles que vous souhaitez désactiver.
 1. Cliquez sur le bouton **Désactiver la gestion automatique**.
 1. Lisez attentivement le message dans la fenêtre contextuelle qui s’affiche avant d’accepter de **Désactiver**.
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si, pour essayer Azure Automanage pour machines virtuelles, vous avez créé un groupe de ressources dont vous n’avez plus besoin, vous pouvez le supprimer. La suppression du groupe a également pour effet de supprimer la machine virtuelle, ainsi que toutes les ressources du groupe de ressources.
+Si vous avez créé un nouveau groupe de ressources pour essayer l’Autogestion Azure pour machines virtuelles, et que vous n’en avez plus besoin, vous pouvez le supprimer. La suppression du groupe supprime également la machine virtuelle, ainsi que toutes les autres ressources se trouvant dans le groupe.
 
-Azure Automanage crée des groupes de ressources par défaut dans lesquels stocker les ressources. Vérifiez les groupes de ressources qui suivent la convention d’affectation de noms « DefaultResourceGroupRegionName » ou « AzureBackupRGRegionName » afin de nettoyer toutes les ressources.
+L’Autogestion Azure crée des groupes de ressources par défaut dans lesquels stocker les ressources. Vérifiez les groupes de ressources qui suivent la convention de nommage « DefaultResourceGroupRegionName » ou « AzureBackupRGRegionName » afin de nettoyer toutes les ressources.
 
 1. Sélectionnez le **groupe de ressources**.
 1. Dans la page du groupe de ressources, sélectionnez **Supprimer**.

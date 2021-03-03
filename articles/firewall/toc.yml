@@ -32,6 +32,12 @@
   items:
     - name: Fonctionnalités du Pare-feu Azure
       href: features.md
+    - name: Fonctionnalités du Pare-feu Azure Premium
+      href: premium-features.md
+    - name: Pare-feu Azure Premium dans le portail
+      href: premium-portal.md
+    - name: Certificats du Pare-feu Azure Premium
+      href: premium-certificates.md
     - name: Balises FQDN
       href: fqdn-tags.md
     - name: Noms de domaine complets d’infrastructure
@@ -91,6 +97,10 @@
       displayName: 'Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings'
     - name: Classeur du Pare-feu Azure
       href: firewall-workbook.md
+    - name: Déployer et configurer un pare-feu Premium
+      href: premium-deploy.md
+    - name: Migrer vers le Pare-feu Azure Premium
+      href: premium-migrate.md
 - name: Informations de référence
   items:
     - name: Azure CLI

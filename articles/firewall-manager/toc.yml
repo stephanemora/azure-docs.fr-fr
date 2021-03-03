@@ -10,6 +10,9 @@
     - name: Sécuriser un hub virtuel - Modèle ARM
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: "Déployer un pare-feu avec une stratégie - Modèle\_ARM"
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Tutoriels
   items:
     - name: Sécuriser votre hub virtuel - Portail

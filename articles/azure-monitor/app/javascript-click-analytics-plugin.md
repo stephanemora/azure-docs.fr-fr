@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593627"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Plug-in Click Analytics Auto-collection pour kit SDK JavaScript Application Insights
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Consultez les [référentiel GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) et [package NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) pour le plug-in Click Analytics Auto-collection.
 - Utilisez [l’analyse des événements dans l’expérience d’utilisation](usage-segmentation.md) pour analyser les clics principaux et les segmenter en utilisant des dimensions disponibles.
-- Recherchez les données de clic dans le champ de contenu de l’attribut customDimensions de la table CustomEvents dans [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Pour obtenir une aide supplémentaire, consultez [Exemple d’application](https://go.microsoft.com/fwlink/?linkid=2152871).
-- Générez un [classeur](../platform/workbooks-overview.md) pour créer des visualisations personnalisées des données de clic.
+- Recherchez les données de clic dans le champ de contenu de l’attribut customDimensions de la table CustomEvents dans [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Pour obtenir une aide supplémentaire, consultez [Exemple d’application](https://go.microsoft.com/fwlink/?linkid=2152871).
+- Générez un [classeur](../visualize/workbooks-overview.md) pour créer des visualisations personnalisées des données de clic.

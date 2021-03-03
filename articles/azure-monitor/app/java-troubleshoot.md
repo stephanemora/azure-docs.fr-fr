@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133240"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097549"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Guide de dépannage et questions-réponses concernant Application Insights pour le Kit de développement logiciel (SDK) Java
 
@@ -170,7 +170,7 @@ En supposant que vous avez [configuré votre application pour Application Insigh
 
 Oui, à condition que votre serveur puisse envoyer la télémétrie vers le portail Application Insights via l'Internet public.
 
-Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com et f5.services.visualstudio.com.
+Vous devrez peut-être [ouvrir certains ports sortants dans le pare-feu de votre serveur](./ip-addresses.md#outgoing-ports) pour autoriser le Kit de développement logiciel (SDK) d’envoyer des données au portail.
 
 ## <a name="data-retention"></a>Conservation des données
 **Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?**

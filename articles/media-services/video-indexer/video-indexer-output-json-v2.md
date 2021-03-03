@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831564"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530737"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examiner la sortie Video Indexer
 
@@ -104,7 +104,7 @@ Cette section présente le résumé des insights.
 |faces/animatedCharacters|Peut contenir zéro ou plusieurs visages. Pour plus d’informations, consultez la section [faces/animatedCharacters](#facesanimatedcharacters).|
 |mots clés|Peut contenir zéro ou plusieurs mots clés. Pour plus d’informations, consultez la section [keywords](#keywords).|
 |sentiments|Peut contenir zéro ou plusieurs sentiments. Pour plus d’informations, consultez la section [sentiments](#sentiments).|
-|audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioeffects).|
+|audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioeffects-public-preview).|
 |étiquettes| Peut contenir zéro ou plusieurs étiquettes. Pour plus d’informations, consultez la section [labels](#labels).|
 |brands| Peut contenir zéro ou plusieurs marques. Pour plus d’informations, consultez la section [brands](#brands).|
 |statistiques | Pour plus d’informations, consultez la section [statistics](#statistics).|
@@ -181,7 +181,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |étiquettes|L’insight [étiquettes](#labels).|
 |captures|L’insight [captures](#shots).|
 |brands|L’insight [brands](#brands).|
-|audioEffects|L’insight [audioEffects](#audioeffects).|
+|audioEffects|L’insight [audioEffects](#audioeffects-public-preview).|
 |sentiments|L’insight [sentiments](#sentiments).|
 |visualContentModeration|L’insight [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|L’insight [textualContentModeration](#textualcontentmoderation).|
@@ -590,26 +590,28 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 |SpeakerLongestMonolog|Monologue le plus long de l’intervenant. Si le monologue de l’intervenant comporte des silences, ils sont inclus. Les silences du début et de la fin du monologue sont supprimés.| 
 |SpeakerTalkToListenRatio|Le calcul est basé sur le temps passé sur le monologue de l’intervenant (sans les silences intermédiaires) divisé par la durée totale de la vidéo. L’heure est arrondie à la troisième décimale.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="audioeffects-public-preview"></a>audioEffects (préversion publique)
 
-|Nom|Description|
+|Nom|Description
 |---|---|
-|id|ID de l’effet audio.|
-|type|Type d’effet audio (par exemple, applaudissements, discours, silence).|
-|instances|Liste des intervalles de temps au cours desquels cet effet audio est apparu.|
+|id|ID de l’effet audio|
+|type|Type de l’effet audio|
+|instances|Liste des intervalles de temps au cours desquels cet effet audio est apparu. Chaque instance possède un champ de confiance.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]

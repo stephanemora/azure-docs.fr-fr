@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183717"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575986"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Enregistrements DNS pour les régions Azure utilisées par Azure Automation
 
@@ -21,7 +21,7 @@ Le service [Azure Automation](../automation-intro.md) utilise un certain nombre 
 * Webhooks
 
 >[!NOTE]
->L’inscription du Runbook Worker hybride Linux échoue avec les nouveaux enregistrements, sauf s’il s’agit de la version 1.6.10.2 ou d’une version supérieure. Vous devez effectuer une mise à niveau vers une version plus récente de l’[agent Log Analytics pour Linux](../../azure-monitor/platform/agent-linux.md) afin que l’ordinateur reçoive une version à jour du rôle de travail et utilise ces nouveaux enregistrements. Les ordinateurs existants continueront de fonctionner sans problème.  
+>L’inscription du Runbook Worker hybride Linux échoue avec les nouveaux enregistrements, sauf s’il s’agit de la version 1.6.10.2 ou d’une version supérieure. Vous devez effectuer une mise à niveau vers une version plus récente de l’[agent Log Analytics pour Linux](../../azure-monitor/agents/agent-linux.md) afin que l’ordinateur reçoive une version à jour du rôle de travail et utilise ces nouveaux enregistrements. Les ordinateurs existants continueront de fonctionner sans problème.  
 
 ## <a name="dns-records-per-region"></a>Enregistrements DNS par région
 

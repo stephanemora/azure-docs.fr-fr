@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783978"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379826"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -54,8 +54,8 @@ Il est important de concevoir votre application à des fins de haute disponibili
 Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute disponibilité pour vos données de Stockage Azure :
 
 - **Disques :** utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) pour sauvegarder les disques de machine virtuelle utilisés par vos machines virtuelles Azure. Vous pouvez aussi utiliser [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) pour protéger vos machines virtuelles en cas de sinistre régional.
-- **Objets blob de blocs :** activez la [suppression réversible](../blobs/soft-delete-blob-overview.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’ [AzCopy](./storage-use-azcopy-v10.md), d’ [Azure PowerShell](/powershell/module/az.storage/) ou de la [bibliothèque de déplacement de données Azure](storage-use-data-movement-library.md).
-- **Fichiers :** utilisez [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers vers un autre compte de stockage dans une région différente.
+- **Objets blob de blocs :** activez la [suppression réversible](../blobs/soft-delete-blob-overview.md) pour protéger contre les suppressions et remplacements au niveau objet, ou copiez les objets blob de blocs vers un autre compte de stockage dans une région différente à l’aide d’[AzCopy](./storage-use-azcopy-v10.md), d’[Azure PowerShell](/powershell/module/az.storage/) ou de la [bibliothèque de déplacement de données Azure](storage-use-data-movement-library.md).
+- **Fichiers :** Utilisez le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) pour sauvegarder vos partages de fichiers. Activez également la [suppression réversible](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) pour vous protéger des suppressions accidentelles de partages de fichiers. Afin de bénéficier de la géo-redondance lorsque GRS n'est pas disponible, utilisez [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) pour copier vos fichiers sur un autre compte de stockage situé dans une autre région.
 - [Tables :](./storage-use-azcopy-v10.md) utilisez **AzCopy** pour exporter les données de table vers un autre compte de stockage dans une région différente.
 
 ## <a name="track-outages"></a>Effectuer le suivi des pannes
@@ -102,7 +102,7 @@ La propriété **Dernière heure de synchronisation** indique l’heure la plus 
 
 En guise de bonne pratique, concevez votre application afin de pouvoir utiliser la dernière heure de synchronisation pour évaluer la perte de données attendue. Par exemple, si vous enregistrez dans le journal toutes les opérations d’écriture, vous pouvez comparer l’heure de vos dernières opérations d’écriture à la dernière heure de synchronisation pour identifier les écritures qui n’ont pas été synchronisées dans la région secondaire.
 
-Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation** , consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
+Pour plus d’informations sur la vérification de la propriété **Heure de la dernière synchronisation**, consultez [Vérification de la propriété Heure de la dernière synchronisation d’un compte de stockage](last-sync-time-get.md).
 
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Faire attention lors de la restauration automatique vers la région primaire
 

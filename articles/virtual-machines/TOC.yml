@@ -101,20 +101,12 @@
       href: ./workloads/oracle/oracle-database-quick-create.md
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
-    - name: Filtre de paquets de FreeBSD
-      href: ./linux/freebsd-pf-nat.md
     - name: Réhergement d’ordinateurs mainframe
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Bases de données
-      items:
-        - name: MongoDB
-        - name: MS SQL sur Linux
-          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: SQL sur les machines virtuelles
+      href: 'https://docs.microsoft.com/azure/azure-sql/virtual-machines/'
     - name: 'HPC (High-Performance Computing, calcul haute performance)'
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Conteneurs
-    - name: Visual Studio
-      href: ./windows/using-visual-studio-vm.md
 - name: Instances
   items:
     - name: Tailles
@@ -218,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Configuration des pilotes GPU AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: FPGA - Calcul accéléré
+          items:
+            - name: Vue d’ensemble
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: "Série\_NP"
+              href: np-series.md
         - name: Calcul haute performance
           displayName: H-series
           items:
@@ -264,7 +262,7 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
-    - name: Machines virtuelles Spot
+    - name: Machines virtuelles Azure Spot
       displayName: 'pre-empt, preempt, spot'
       items:
         - name: Vue d’ensemble
@@ -329,12 +327,13 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Créer une pile LAMP
           href: ./linux/tutorial-lamp-stack.md
-        - name: Sécuriser un serveur web avec SSL
+        - name: Sécuriser un serveur web avec TLS\SSL
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
             - name: Windows
               href: ./windows/tutorial-secure-web-server.md
+          displayname: SSL TLS
     - name: Se connecter à des machines virtuelles Linux
       items:
         - name: SSH pour les machines virtuelles Linux
@@ -363,8 +362,8 @@
           href: /azure/developer/chef/windows-vm-configure
         - name: Utiliser Java
           href: ./windows/java.md
-        - name: Utiliser Python
-          href: ./windows/python.md
+        - name: Python
+          href: 'https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context'
         - name: Utiliser un modèle ARM
           displayName: Azure Resource Manager template
           href: ./windows/ps-template.md
@@ -446,7 +445,7 @@
         - name: Azure Monitor
           items:
             - name: Agent Azure Monitor
-              href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
             - name: Extension Diagnostics
               href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
             - name: Log Analytics
@@ -592,6 +591,8 @@
               href: ./linux/flatcar-create-upload-vhd.md
             - name: FreeBSD
               href: ./linux/freebsd-intro-on-azure.md
+            - name: Filtre de paquets de FreeBSD
+              href: ./linux/freebsd-pf-nat.md
             - name: "Oracle\_Linux"
               href: ./linux/oracle-create-upload-vhd.md
             - name: OpenBSD
@@ -636,6 +637,8 @@
           href: ./windows/capture-image-resource.md
         - name: Créer une machine virtuelle à partir d’une image gérée
           href: ./windows/create-vm-generalized-managed.md
+        - name: Visual Studio
+          href: ./windows/using-visual-studio-vm.md
     - name: Galeries d’images partagées
       items:
         - name: Vue d'ensemble
@@ -947,6 +950,8 @@
           href: disks-reserved-capacity.md
         - name: Conception pour de hautes performances
           href: premium-storage-performance.md
+        - name: Métriques relatives aux disques
+          href: disks-metrics.md
         - name: Mode rafale des disques
           href: disk-bursting.md
         - name: Niveaux de performance des disques
@@ -987,7 +992,7 @@
       href: ephemeral-os-disks.md
     - name: Migration et conversion
       items:
-        - name: Convertir un disque Standard en disque Premium
+        - name: Convertir un disque en un autre type de disque
           items:
             - name: Interface de ligne de commande
               href: ./linux/convert-disk-storage.md
@@ -1140,6 +1145,8 @@
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Sécurité
   items:
+    - name: Vue d’ensemble
+      href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: Azure Security Center
       href: ../security-center/security-center-introduction.md
     - name: Bases de référence de sécurité
@@ -1225,6 +1232,8 @@
       href: maintenance-and-updates.md
     - name: Mise à jour corrective automatique des machines virtuelles (préversion)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Mise à niveau automatique des extensions (préversion)
+      href: ./automatic-extension-upgrade.md
     - name: Contrôle de la maintenance
       items:
         - name: Notifications de maintenance
@@ -1280,7 +1289,7 @@
     - name: Agents
       items:
         - name: Vue d’ensemble des agents
-          href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: Questions fréquentes (FAQ)
           href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
         - name: Extension Diagnostics Azure
@@ -1301,29 +1310,29 @@
             - name: Vue d’ensemble
               href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
             - name: Agents Linux
-              href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
             - name: Passerelle Log Analytics
               href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
             - name: Gestion des agents
-              href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
             - name: Agent Health
               href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
             - name: Sources de données
               items:
                 - name: Vue d’ensemble
-                  href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/agent-data-sources.md?context=/azure/virtual-machines/context/context
                 - name: Données JSON personnalisées
-                  href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
                 - name: Données de performance collectd
-                  href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: syslog
-                  href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-syslog.md?context=/azure/virtual-machines/context/context
                 - name: Compteurs de performance
-                  href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
                 - name: Performances des applications Linux
-                  href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
                 - name: Journaux d’activité personnalisés
-                  href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
                 - name: Champs personnalisés
                   href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
         - name: Dépanner
@@ -1332,7 +1341,7 @@
               href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
             - name: "Agent Linux de Log\_Analytics"
-              href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
         - name: Azure Monitor pour machines virtuelles
           items:

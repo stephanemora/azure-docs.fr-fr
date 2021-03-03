@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017710"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650386"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modèle de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Cet article se concentre sur le RBAC et les ACL Azure et sur la façon dont le s
 
 Azure RBAC utilise des attributions de rôles pour appliquer des ensembles d’autorisations aux [principaux de sécurité](../../role-based-access-control/overview.md#security-principal). Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini(e) dans Azure Active Directory (AD). Un jeu d’autorisations peut accorder à un principal de sécurité un niveau d’accès à « granularité grossière », tel qu’un accès en lecture ou en écriture à **toutes les** données dans un compte de stockage ou **toutes les** données dans un conteneur. 
 
-Les rôles suivants permettent à un principal de sécurité d’accéder aux données dans un compte de stockage. 
+Les rôles suivants permettent à un principal de sécurité d’accéder aux données dans un compte de stockage.
 
 |Rôle|Description|
 |--|--|

@@ -3,24 +3,23 @@ title: Configurer un pare-feu IP pour votre service Recherche cognitive Azure
 titleSuffix: Azure Cognitive Search
 description: Configurez les stratégies de contrôle IP pour restreindre l’accès à votre service Recherche cognitive Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.date: 02/16/2021
+ms.openlocfilehash: de34c2921c7829cb6d7e7354a1ebcff44271efd3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573243"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545545"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurer le pare-feu IP pour Recherche cognitive Azure
 
 Recherche cognitive Azure prend en charge les règles IP pour la prise en charge du pare-feu entrant. Ce modèle fournit une couche supplémentaire de sécurité pour votre service de recherche, similaire aux règles IP que vous trouverez dans un groupe de sécurité de réseau virtuel Azure. Avec ces règles IP, vous pouvez configurer votre service de recherche pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux données stockées dans votre service de recherche à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
 
-> [!Important]
-> Les règles IP sur votre service Recherche cognitive Azure peut être configurée à l’aide du Portail Azure ou de l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/).
+Vous pouvez définir des règles IP dans le portail Azure, comme décrit dans cet article. Vous pouvez également utiliser l’[API REST de gestion version 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search) ou [Azure CLI](/cli/azure/search).
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurer un pare-feu IP à l’aide du Portail Azure
 

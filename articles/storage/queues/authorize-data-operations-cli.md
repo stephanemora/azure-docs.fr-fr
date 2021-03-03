@@ -6,17 +6,17 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 01b78fa3250f371cfc4d713668531664ef8c139e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2f7092d8ce184d7021774814e96935e46d1ffb56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587602"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363166"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données de file d’attente avec Azure CLI
 
@@ -34,6 +34,9 @@ Les commandes Azure CLI pour la lecture et l’écriture de données de file d�
 
 Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI 2.0.46 ou une version ultérieure est installé. Exécutez `az --version` pour vérifier la version installée.
 
+> [!NOTE]
+> Quand un compte de stockage est verrouillé à l’aide d’un verrou **ReadOnly** Azure Resource Manager, l’opération [List Keys](/rest/api/storagerp/storageaccounts/listkeys) n’est pas autorisée pour ce compte de stockage. **List Keys** est une opération POST, et toutes les opérations POST sont empêchées lorsqu’un verrou **ReadOnly** est configuré pour le compte. Pour cette raison, lorsque le compte est verrouillé avec un verrou **ReadOnly**, les utilisateurs qui ne détiennent pas déjà les clés de compte doivent utiliser des informations d’identification Azure AD pour accéder aux données de file d’attente.
+
 > [!IMPORTANT]
 > Si vous omettez le paramètre `--auth-mode` ou si vous le définissez sur `key`, Azure CLI tente d’utiliser la clé d’accès au compte pour l’autorisation. Dans ce cas, Microsoft recommande de fournir la clé d’accès sur la commande ou dans la variable d’environnement `AZURE_STORAGE_KEY`. Pour plus d’informations sur les variables d’environnement, voir la section intitulée [Définir des variables d’environnement pour les paramètres d’autorisation](#set-environment-variables-for-authorization-parameters).
 >
@@ -41,7 +44,7 @@ Pour utiliser le paramètre `--auth-mode`, assurez-vous qu’Azure CLI 2.0.46 o
 
 ## <a name="authorize-with-azure-ad-credentials"></a>Autoriser avec des informations d’identification Azure AD
 
-Quand vous vous connectez à Azure CLI avec des informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par Azure CLI pour autoriser les opérations de données suivantes sur Stockage Blob ou Stockage File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
+Quand vous vous connectez à Azure CLI avec des informations d’identification Azure AD, un jeton d’accès OAuth 2.0 est retourné. Ce jeton est utilisé automatiquement par Azure CLI pour autoriser les opérations de données suivantes sur Stockage File d’attente. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
 Vous pouvez attribuer des autorisations sur les données de file d’attente à un principal de sécurité Azure AD via le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Pour plus d’informations sur les rôles Azure dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
 

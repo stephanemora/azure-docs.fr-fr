@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501291"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575450"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Surveillance en temps réel, métriques et journaux d’accès pour Azure CDN
 Grâce à Azure CDN de Microsoft, vous pouvez surveiller les ressources des manières suivantes pour vous aider à résoudre, suivre et déboguer les problèmes : 
@@ -173,7 +173,7 @@ Azure CDN du service Microsoft fournit actuellement des journaux bruts. Les jour
 | TimeTaken | Durée, en secondes, écoulée entre le premier octet de la requête Front Door et le dernier octet de la réponse. |
 | TrackingReference | Chaîne de référence unique qui identifie une requête traitée par Front Door, également envoyée en tant qu’en-tête X-Azure-Ref au client. Nécessaire pour pouvoir effectuer une recherche détaillée dans les journaux d’accès pour une requête spécifique. |
 | UserAgent | Type de navigateur utilisé par le client. |
-| ErrorInfo | Ce champ contient le type d’erreur spécifique permettant de réduire la zone de résolution des problèmes. </br> Les valeurs possibles incluent : </br> **NoError** : Indique qu’aucune erreur n’a été trouvée. </br> **CertificateError** : Erreur de certificat SSL générique.</br> **CertificateNameCheckFailed** : Le nom d’hôte dans le certificat SSL n’est pas valide ou ne correspond pas. </br> **ClientDisconnected** : Échec de la requête en raison de la connexion réseau du client. </br> **UnspecifiedClientError** : Erreur du client générique. </br> **InvalidRequest** : Requête non valide. Cela peut se produire en raison d’un en-tête, d’un corps et d’une URL incorrect(e)s. </br> **DNSFailure** : Échec DNS. </br> **DNSNameNotResolved** : Le nom ou l’adresse du serveur n’a pas pu être résolue. </br> **OriginConnectionAborted** : La connexion avec l’origine a été arrêtée brusquement. </br> **OriginConnectionError** : Erreur de connexion d’origine générique. </br> **OriginConnectionRefused** : La connexion avec l’origine n’a pas pu être établie. </br> **OriginError** : Erreur d’origine générique. </br> **OriginInvalidResponse** : L’origine a renvoyé une réponse non valide ou non reconnue. </br> **OriginTimeout** : Le délai d’expiration de la requête d’origine a expiré. </br> **ResponseHeaderTooBig** : L’origine a retourné un en-tête de réponse trop grand. </br> **RestrictedIP** : La requête a été bloquée en raison d’une adresse IP restreinte. </br> **SSLHandshakeError** : Impossible d’établir la connexion avec l’origine en raison d’un échec d’établissement d’une liaison SSL. </br> **UnspecifiedError** : Une erreur ne correspondant à aucune des erreurs dans le tableau s’est produite. |
+| ErrorInfo | Ce champ contient le type d’erreur spécifique permettant de réduire la zone de résolution des problèmes. </br> Les valeurs possibles incluent : </br> **NoError** : Indique qu’aucune erreur n’a été trouvée. </br> **CertificateError** : Erreur de certificat SSL générique.</br> **CertificateNameCheckFailed** : Le nom d’hôte dans le certificat SSL n’est pas valide ou ne correspond pas. </br> **ClientDisconnected** : Échec de la demande en raison de la connexion réseau du client. </br> **UnspecifiedClientError** : Erreur du client générique. </br> **InvalidRequest** : Demande non valide. Cela peut se produire en raison d’un en-tête, d’un corps et d’une URL incorrect(e)s. </br> **DNSFailure** : Échec DNS. </br> **DNSNameNotResolved** : Le nom ou l’adresse du serveur n’a pas pu être résolue. </br> **OriginConnectionAborted** : La connexion avec l’origine a été arrêtée brusquement. </br> **OriginConnectionError** : Erreur de connexion d’origine générique. </br> **OriginConnectionRefused** : La connexion avec l’origine n’a pas pu être établie. </br> **OriginError** : Erreur d’origine générique. </br> **OriginInvalidResponse** : L’origine a renvoyé une réponse non valide ou non reconnue. </br> **OriginTimeout** : Le délai d’expiration de la demande d’origine a expiré. </br> **ResponseHeaderTooBig** : L’origine a retourné un en-tête de réponse trop grand. </br> **RestrictedIP** : La demande a été bloquée en raison d’une adresse IP restreinte. </br> **SSLHandshakeError** : Impossible d’établir la connexion avec l’origine en raison d’un échec d’établissement d’une liaison SSL. </br> **UnspecifiedError** : Une erreur ne correspondant à aucune des erreurs dans le tableau s’est produite. |
 | TimeToFirstByte | Durée, en millisecondes, entre le moment où Microsoft CDN reçoit la requête et le moment où le premier octet est envoyé au client. La durée est mesurée uniquement du côté de Microsoft. Les données côté client ne sont pas mesurées. |
 > [!NOTE]
 > Vous pouvez voir les journaux sous votre profil Log Analytics en exécutant une requête. Voici un exemple de requête :
@@ -215,7 +215,7 @@ Les métriques sont affichées dans des graphiques et sont accessibles via Power
 
 Azure CDN de Microsoft mesure et envoie ses métriques par intervalles de 60 secondes. Les métriques peuvent prendre jusqu’à 3 minutes pour s’afficher dans le portail. 
 
-Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Métriques prises en charge par Azure CDN de Microsoft**
 
@@ -226,7 +226,7 @@ Pour plus d’informations, voir [Mesures Azure Monitor](../azure-monitor/platfo
 | ResponseSize | Nombre d’octets envoyés en tant que réponses de la périphérie de CDN aux clients. |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP. |
 | TotalLatency | Durée totale de la requête du client reçue par CDN **jusqu’au dernier octet de réponse envoyé de CDN au client**. |Point de terminaison </br> Pays du client. </br> Région du client. </br> État HTTP </br> Groupe d’états HTTP. |
 
-**_Taux d'accès par octet = (sortie de la périphérie - la sortie de l'origine)/sortie de la périphérie_*
+***Taux d’accès par octet = (sortie de la périphérie - la sortie de l’origine)/sortie de la périphérie**
 
 Scénarios exclus du calcul du taux d’accès par octet :
 
@@ -265,7 +265,7 @@ Sélectionnez **Nouvelle règle d’alerte** pour les métriques répertoriées 
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configurer des alertes pour le point de terminaison CDN." border="true":::
 
-L’alerte sera facturée conformément à Azure Monitor. Pour plus d’informations sur les alertes, consultez [Alertes Azure Monitor](../azure-monitor/platform/alerts-overview.md).
+L’alerte sera facturée conformément à Azure Monitor. Pour plus d’informations sur les alertes, consultez [Alertes Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métriques supplémentaires
 Vous pouvez activer des métriques supplémentaires à l’aide d’Azure Log Analytics et des journaux bruts pour un coût supplémentaire.
@@ -299,4 +299,4 @@ Pour plus d’informations sur Azure CDN et les autres services Azure mentionné
 
 * En savoir plus sur [Azure Monitor](../azure-monitor/overview.md).
 
-* Configurer [Log Analytics dans Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configurer [Log Analytics dans Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

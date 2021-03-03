@@ -9,16 +9,46 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430995"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375559"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) d’Azure Machine Learning.
+
+
+## <a name="2021-02-09"></a>09/02/2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1220"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.22.0
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    + Correction d'un bogue qui entraînait l'ajout d'une dépendance PIP supplémentaire au fichier Conda yml pour les modèles de vision.
+  + **azureml-automl-runtime**
+    + Correction d'un bogue qui permettait aux modèles de prévisions classiques (par exemple, AutoArima) de recevoir des données d'apprentissage dans lesquelles les lignes comportant des valeurs cibles imputées étaient absentes. Cela enfreignait le contrat de données de ces modèles. * Correction de divers bogues qui entraînaient un comportement de décalage par occurrence dans l'opérateur de décalage des séries chronologiques. Auparavant, l'opération de décalage par occurrence ne marquait pas correctement toutes les lignes imputées et ne générait donc pas toujours les valeurs de décalage d'occurrence appropriées. Correction de certains problèmes de compatibilité entre l'opérateur de décalage et l'opérateur de fenêtre dynamique en ce qui concerne le comportement de décalage par occurrence. Ainsi, auparavant, l'opérateur de fenêtre dynamique supprimait des données d'apprentissage certaines lignes qu'il aurait dû utiliser.
+  + **azureml-core**
+    + Ajout de la prise en charge de l'authentification par jeton par le public.
+    + Ajout de `process_count` à [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) pour prendre en charge les tâches PyTorch multiprocessus et à nœuds multiples.
+  + **azureml-pipeline-steps**
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) est désormais en GA et n'est donc plus expérimental.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py) : ajout d'argument allowed_failed_count et d'allowed_failed_percent pour vérifier le seuil d'erreur au niveau du mini-lot. Le seuil d'erreur comporte maintenant 3 saveurs :
+       + error_threshold : nombre d'éléments de mini-lots ayant échoué autorisés ; 
+       + allowed_failed_count : nombre de mini-lots ayant échoué autorisés ; 
+       + allowed_failed_percent : pourcentage de mini-lots ayant échoué. 
+       
+       Une tâche s'arrête si une de ces valeurs est dépassée. error_threshold est requis pour assurer la compatibilité descendante. Définissez la valeur sur -1 pour l'ignorer.
+    + Correction de la gestion des espaces blancs dans le nom AutoMLStep.
+    + ScriptRunConfig est désormais pris en charge par HyperDriveStep
+  + **azureml-train-core**
+    + Les exécutions HyperDrive appelées à partir d'un ScriptRun seront désormais considérées comme des exécutions enfants.
+    + Ajout de `process_count` à [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) pour prendre en charge les tâches PyTorch multiprocessus et à nœuds multiples.
+  + **azureml-widgets**
+    + Ajout du widget ParallelRunStepDetails pour visualiser l'état d'un ParallelRunStep.
+    + Permet aux utilisateurs d'HyperDrive d'afficher un axe supplémentaire sur le graphique des coordonnées parallèles, qui affiche la valeur de la métrique correspondant à chaque ensemble d'hyperparamètres pour chaque exécution enfant.
+
 
  ## <a name="2021-01-31"></a>2021-01-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de janvier)
@@ -35,6 +65,7 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
   + performances améliorées 
   + Amélioration de la vitesse et de la fiabilité du noyau
   
+
  ## <a name="2021-01-25"></a>25-01-2021
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.21.0
@@ -145,7 +176,7 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
     + HyperDriveRun.get_children_sorted_by_primary_metric() doit désormais se terminer plus rapidement.
     + Amélioration de la gestion des erreurs dans le Kit de développement logiciel (SDK) HyperDrive.
     +  Dépréciation de toutes les classes d’estimateur en faveur de l’utilisation de ScriptRunConfig pour configurer des exécutions d’expériences. Les classes déconseillées sont les suivantes :
-        + MMLBaseEstimator
+        + MMLBase
         + Estimateur
         + PyTorch 
         + TensorFlow 
@@ -162,7 +193,7 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de novembre)
 + **Nouvelles fonctionnalités**
-   + Terminal natif. Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le [terminal intégré](./how-to-run-jupyter-notebooks.md#terminal)
+   + Terminal natif. Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le [terminal intégré](./how-to-access-terminal.md)
   + Dossier dupliqué 
   + Baisse des coûts de calcul 
   + Calcul Pylance hors connexion 

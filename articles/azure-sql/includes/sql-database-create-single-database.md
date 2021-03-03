@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593946"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682444"
 ---
 Dans cette étape, vous créez un [serveur SQL logique](../database/logical-servers.md) et une [base de données unique](../database/single-database-overview.md) qui utilise des exemples de données AdventureWorksLT. Vous pouvez créer la base de données à l’aide des menus et écrans du portail Azure, ou à l’aide d’un script Azure CLI ou PowerShell dans Azure Cloud Shell.
 
@@ -69,6 +69,8 @@ Pour créer un groupe de ressources, un serveur et une base de données unique d
    Pour plus d’informations sur les paramètres de pare-feu, consultez [Autoriser les services et les ressources Azure à accéder à ce serveur](../database/network-access-controls-overview.md) et [Ajouter un point de terminaison privé](../database/private-endpoint-overview.md).
 
 1. Sous l’onglet **Paramètres supplémentaires**, dans la section **Source de données**, pour **Utiliser des données existantes**, sélectionnez **Exemple**.
+1. Si vous le souhaitez, activez [Azure Defender pour SQL](../database/azure-defender-for-sql.md).
+1. Si vous le souhaitez, définissez la [fenêtre de maintenance](../database/maintenance-window.md) afin que la maintenance planifiée soit effectuée au meilleur moment pour votre base de données.
 1. Au bas de la page, sélectionnez **Examiner et créer**.
 
    ![Onglet Paramètres supplémentaires](./media/sql-database-create-single-database/additional-settings.png)

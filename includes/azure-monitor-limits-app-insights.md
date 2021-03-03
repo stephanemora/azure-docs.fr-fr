@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 397011cfd862607932f671c1f2cacd25513bdeb2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e224faca3c384ee5b3df02b015199ac5eab403bc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026464"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370096"
 ---
 Il existe certaines limites au nombre de métriques et d’événements par application, c’est-à-dire, par clé d’instrumentation. Les limites varient selon le [plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
@@ -21,9 +21,9 @@ Il existe certaines limites au nombre de métriques et d’événements par appl
 | --- | --- | --- |
 | Total des données par jour | 100 Go | Vous pouvez réduire les données en définissant une limite. Si vous avez besoin de davantage de données, vous pouvez augmenter la limite dans le portail, jusqu’à 1 000 Go. Pour une capacité supérieure à 1 000 Go, envoyez un e-mail à AIDataCap@microsoft.com.
 | Limitation | 32 000 événements/seconde | La limite est mesurée par minute.
-| Conservation des données | 90 jours | Cette ressource est pour [Recherche](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/log-query/log-query-overview.md) et [Metrics Explorer](../articles/azure-monitor/platform/metrics-charts.md).
+| Conservation des données | [30 à 730 jours](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period) | Cette ressource est pour [Recherche](../articles/azure-monitor/app/diagnostic-search.md), [Analytics](../articles/azure-monitor/log-query/log-query-overview.md) et [Metrics Explorer](../articles/azure-monitor/platform/metrics-charts.md).
 | Rétention des résultats détaillés du [test de disponibilité à plusieurs étapes](../articles/azure-monitor/app/availability-multistep.md) | 90 jours | Cette ressource fournit des résultats détaillés de chaque étape.
-| Taille d’événement maximale | 64 millions d’octets |
+| Taille d’événement maximale | 64 000 octets |
 | Longueur des noms de propriétés et de mesures | 150 | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | Longueur de chaîne de valeur de propriété | 8 192 | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).
 | Longueur des messages de trace et d’exception | 32,768  | Consultez les [schémas par type](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).

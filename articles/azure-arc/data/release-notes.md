@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653569"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391454"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notes de publication – Services de données activés par Azure Arc (préversion)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Janvier 2021
+
+### <a name="new-capabilities-and-features"></a>Nouvelles capacités et fonctionnalités
+
+Numéro de version d’Azure Data CLI (`azdata`) : 20.3.0. Téléchargez à l’adresse [https://aka.ms/azdata](https://aka.ms/azdata). Vous pouvez installer `azdata` à partir de la section [Installer Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+
+Les mises à jour supplémentaires incluent :
+- Portail localisé disponible dans 17 nouvelles langues
+- Modifications mineures apportées aux fichiers .yaml Kube natifs
+- Nouvelles versions de Grafana et Kibana
+- Les problèmes affectant les environnements Python lors de l’utilisation d’azdata dans des notebooks dans Azure Data Studio ont été résolus
+- L’extension pg_audit est désormais disponible pour PostgreSQL Hyperscale
+- Aucun ID de sauvegarde n’est nécessaire pour effectuer une restauration complète d’une base de données PostgreSQL Hyperscale
+- L’état (état d’intégrité) est indiqué pour chacune des instances PostgreSQL qui constituent un groupe de serveurs
+
+   Dans les versions antérieures, l’état était agrégé au niveau du groupe de serveurs et n’était pas répertorié au niveau du nœud PostgreSQL.
+
+- Les déploiements PostgreSQL respectent désormais les paramètres de taille de volume indiqués dans les commandes create
+- Les paramètres de version du moteur sont désormais respectés lors de la modification d’un groupe de serveurs
+- La convention d’affectation de noms des pods pour Azure Arc prenant en charge l’hyperscale PostgreSQL a changé
+
+    Il se présente désormais sous la forme : `ServergroupName{c, w}-n`. Par exemple, un groupe de serveurs avec trois nœuds, un nœud coordinateur et deux nœuds Worker sont représentés comme suit :
+   - `Postgres01c-0` (nœud coordinateur)
+   - `Postgres01w-0` (nœud Worker)
+   - `Postgres01w-1` (nœud Worker)
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -132,7 +159,7 @@ Pour obtenir des instructions, consultez [Présentation des services de données
 > Démarrez rapidement avec [Démarrage rapide d’Azure Arc](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) sur AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou sur une machine virtuelle Azure.
 
 - [Installer les outils clients](install-client-tools.md)
-- [Créer le contrôleur de données Azure Arc](create-data-controller.md) (nécessite l’installation préalable des outils clients)
+- [Créer le contrôleur de données Azure Arc](create-data-controller.md) (nécessite l'installation préalable des outils clients)
 - [Créer une instance gérée Azure SQL sur Azure Arc](create-sql-managed-instance.md) (nécessite la création préalable d’un contrôleur de données Azure Arc)
 - [Créer un groupe de serveurs Azure Database pour PostgreSQL Hyperscale sur Azure Arc](create-postgresql-hyperscale-server-group.md) (nécessite la création préalable d’un contrôleur de données Azure Arc)
 - [Fournisseurs de ressources pour les services Azure](../../azure-resource-manager/management/azure-services-resource-providers.md)

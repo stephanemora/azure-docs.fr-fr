@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365767"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644916"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -82,7 +82,7 @@ Si vous n’utilisez pas le protocole WPAD, vous pouvez configurer des paramètr
 
 Si votre organisation nécessite un accès à Internet via un proxy sortant authentifié, vérifiez que vos ordinateurs Windows 10 parviennent à s’authentifier correctement auprès du proxy sortant. Dans la mesure où les ordinateurs Windows 10 effectuent l’inscription de l’appareil en fonction du contexte de la machine, configurez l’authentification du proxy sortant selon le contexte de la machine. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant.
 
-Vérifiez que l’appareil peut accéder aux ressources Microsoft ci-dessus sous le compte système en utilisant le script [Tester la connectivité d’inscription d’appareil](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
+Vérifiez que l’appareil peut accéder aux ressources Microsoft ci-dessus sous le compte système en utilisant le script [Tester la connectivité d’inscription d’appareil](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurer une jonction Azure AD hybride
 

@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données depuis Teradata à l’aide d’Azure Data Factory
 description: En savoir plus sur le connecteur Teradata pour le service Data Factory qui vous permet de déplacer des données depuis une base de données Teradata
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef992ed907bc070643f290e7fd536de05ebf9242
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019597"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387204"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Déplacer des données depuis Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -135,9 +130,9 @@ Dans un premier temps, configurez la passerelle de gestion des données. Les ins
 
 **Jeu de données d’entrée Teradata :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans Teradata et qu'elle contient une colonne appelée « timestamp » pour les données de série chronologique.
+L’exemple suppose que vous avez créé une table « MyTable » dans Teradata et qu’elle contient une colonne appelée « timestamp » pour les données de série chronologique.
 
-La définition de « external » : true sur informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de « external » sur true informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité de la fabrique de données.
 
 ```json
 {

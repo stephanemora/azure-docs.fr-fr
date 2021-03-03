@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: dc1e54106e2f31c7390d784cba6f92cf775e963c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615799"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572695"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -166,7 +166,7 @@ Avec l’intégration RBAC Azure, AKS utilise un serveur webhook d’autorisatio
 
 ![Azure RBAC pour le flux d’autorisation Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Comme indiqué dans le diagramme ci-dessus, lorsque vous utilisez l’intégration RBAC Azure, toutes les requêtes envoyées à l’API Kubernetes suivent le même processus d’authentification, comme expliqué dans la [section Intégration d’Azure Active](#azure-active-directory-integration). 
+Comme indiqué dans le diagramme ci-dessus, lorsque vous utilisez l’intégration Azure RBAC, toutes les requêtes envoyées à l’API Kubernetes suivent le même processus d’authentification, comme expliqué dans la [section Intégration d’Azure Active Directory](#azure-active-directory-integration). 
 
 Mais après cela, au lieu de s’appuyer uniquement sur le RBAC Kubernetes pour l’autorisation, la requête est en fait autorisée par Azure, à condition que l’identité qui a fait la demande existe dans AAD. Si l’identité n’existe pas dans AAD, par exemple un compte de service Kubernetes, le RBAC Azure ne démarrera pas et il s’agira du RBAC Kubernetes normal.
 
@@ -174,6 +174,8 @@ Dans ce scénario, vous pouvez donner aux utilisateurs l’un des quatre rôles 
 
 Cette fonctionnalité vous permet, par exemple, de fournir non seulement aux utilisateurs des autorisations d’accès à la ressource AKS sur tous les abonnements, mais aussi de les configurer et de leur attribuer le rôle et les autorisations qu’ils auront dans chacun de ces clusters qui contrôlent l’accès à l’API Kubernetes. Par exemple, vous pouvez accorder le rôle `Azure Kubernetes Service RBAC Viewer` sur l’étendue de l’abonnement et son destinataire peut répertorier et obtenir tous les objets Kubernetes de tous les clusters, mais pas les modifier.
 
+> [!IMPORTANT]
+> Notez que vous devez activer l’autorisation Azure RBAC pour Kubernetes avant de pouvoir utiliser cette fonctionnalité. Pour plus d’informations et pour obtenir une aide pas à pas, [voir ici](manage-azure-rbac.md).
 
 #### <a name="built-in-roles"></a>Rôles intégrés
 
@@ -186,7 +188,6 @@ AKS propose quatre rôles intégrés. Ils sont similaires aux rôles intégrés 
 | Azure Kubernetes Service RBAC Admin  | Autorise l’accès administrateur, normalement accordé au sein d’un espace de noms. Autorise l’accès en lecture/écriture à la plupart des ressources dans un espace de noms (ou dans l’étendue du cluster), y compris la possibilité de créer des rôles et des liaisons de rôles dans l’espace de noms. Ce rôle n’autorise pas l’accès en écriture au quota de ressources ou à l’espace de noms lui-même. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Autorise l’accès de super utilisateur qui permet d’effectuer n’importe quelle action sur toutes les ressources. Ce rôle donne un contrôle total sur l’ensemble des ressources dans le cluster et dans tous les espaces de noms. |
 
-**Pour savoir comment activer Azure RBAC pour l’autorisation Kubernetes [lisez cet article](manage-azure-rbac.md).**
 
 ## <a name="summary"></a>Résumé
 
@@ -235,4 +236,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

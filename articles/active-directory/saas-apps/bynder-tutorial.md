@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: d9e348d456d517cd20e899648b9e92b3cd802ffb
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9e233e30521e5c1fa05509fa6dc42a567f6ac4e2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806303"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653097"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>Tutoriel : Intégrer Bynder à Azure Active Directory
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Bynder à Azure Activ
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Bynder pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Bynder prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 * Bynder prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
-## <a name="adding-bynder-from-the-gallery"></a>Ajout de Bynder depuis la galerie
+## <a name="add-bynder-from-the-gallery"></a>Ajouter Bynder à partir de la galerie
 
 Pour configurer l’intégration de Bynder avec Azure AD, vous devez ajouter Bynder, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -56,7 +56,7 @@ Pour configurer l’intégration de Bynder avec Azure AD, vous devez ajouter Byn
 
 Configurez et testez l’authentification unique Azure AD avec Bynder en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Bynder associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Bynder, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification SSO Azure AD auprès de Bynder, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
@@ -65,13 +65,13 @@ Pour configurer et tester l’authentification unique Azure AD avec Bynder, suiv
    1. **[Créer un utilisateur de test Bynder](#create-bynder-test-user)** pour avoir un équivalent de Britta Simon dans Bynder lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Bynder**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 

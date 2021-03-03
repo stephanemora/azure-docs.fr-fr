@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347861"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586843"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Utiliser Stockage Table Azure pour gérer les prospects de marketplaces commerciaux
 
@@ -203,3 +203,7 @@ Pour vérifier que vous êtes bien connecté à une destination de prospect, sé
 >Vous devez terminer la configuration du reste de l'offre et la publier avant de pouvoir recevoir des prospects pour cette offre.
 
 Quand des prospects sont générés, Microsoft les envoie à la table Azure. Si vous avez configuré un flux, un message est également envoyé à l’adresse e-mail que vous avez configurée.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [FAQ et résolution des problèmes liés à la gestion des prospects](../lead-management-faq.md)

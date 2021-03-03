@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4246bc4c62fd8e5e73ff18e383b8bf115d25ede8
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168506"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643830"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>Qu’est-ce que le provisionnement inter-annuaires ?
 
@@ -33,7 +33,7 @@ Azure AD prend actuellement en charge trois méthodes pour effectuer le provisi
 
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) : outil Microsoft conçu pour vous permettre d’atteindre et de remplir vos objectifs en matière d’identité hybride, notamment le provisionnement inter-annuaires entre Active Directory et Azure AD.
 
-- [Provisionnement cloud Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) : nouvel agent Microsoft conçu pour vous permettre d’atteindre et de remplir vos objectifs en matière d’identité hybride.  Il propose une expérience de provisionnement inter-annuaires simplifiée entre Active Directory et Azure AD.
+- [Provisionnement cloud Azure AD Connect](../cloud-sync/what-is-cloud-sync.md) : nouvel agent Microsoft conçu pour vous permettre d’atteindre et de remplir vos objectifs en matière d’identité hybride.  Il propose une expérience de provisionnement inter-annuaires simplifiée entre Active Directory et Azure AD.
 
 - [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) : solution de gestion des identités et des accès en local de Microsoft qui vous permet de gérer les utilisateurs, informations d’identification, stratégies et accès au sein de votre organisation. De plus, MIM propose un provisionnement inter-annuaires avancé pour obtenir des environnements d’identités hybrides pour Active Directory, Azure AD et d’autres annuaires.
 

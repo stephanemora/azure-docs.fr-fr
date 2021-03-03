@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805932"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388530"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -193,19 +193,20 @@ Pour plus d’informations sur la définition de ressource de votre application 
 
 ### <a name="integration-service-environment-ise"></a>Environnement de service d’intégration (ISE)
 
-Les limites de débit pour la [référence SKU ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) sont les suivantes :
+* [Référence SKU de l’ISE Développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) : fournit jusqu’à 500 exécutions par minute, mais notez les considérations suivantes :
 
-| Nom | Limite | Notes |
-|------|-------|-------|
-| Limite d’exécution de l’unité de base | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Assure environ 4 000 exécutions d’action par minute, ce qui représente environ 160 millions d’exécutions d’action par mois | |
-| Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut assurer environ 2 000 exécutions d’action supplémentaires par minute, ce qui représente environ 80 millions d’exécutions d’action supplémentaires par mois | |
-| Nombre maximum d’unités d’échelle que vous pouvez ajouter | 10 | |
-||||
+  * Veillez à utiliser cette référence SKU uniquement à des fins d’exploration, d’expérimentation, de développement ou de test, et non pour la production ou les tests de performances. Cette référence SKU n’a pas de contrat de niveau de service (SLA), de fonctionnalité de scale-up ou de redondance pendant le recyclage, ce qui signifie que vous pouvez rencontrer des retards ou des temps d’arrêt.
 
-Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
+  * Les mises à jour du back-end peuvent interrompre le service par intermittence.
 
-> [!NOTE]
-> La [référence SKU ISE Développeur](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) n’a pas de limites publiées, aucune possibilité de montée en puissance et aucun contrat SLA. Utilisez cette référence SKU uniquement à des fins d’expérimentation, de développement et de test, pas pour la production ou les tests de performances.
+* [Référence SKU de l’ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) : le tableau suivant décrit les limites de débit de cette référence SKU, mais pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
+
+  | Nom | Limite | Notes |
+  |------|-------|-------|
+  | Limite d’exécution de l’unité de base | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Assure environ 4 000 exécutions d’action par minute, ce qui représente environ 160 millions d’exécutions d’action par mois | |
+  | Limite d’exécution de l’unité d’échelle | Limitation du système quand la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut assurer environ 2 000 exécutions d’action supplémentaires par minute, ce qui représente environ 80 millions d’exécutions d’action supplémentaires par mois | |
+  | Nombre maximum d’unités d’échelle que vous pouvez ajouter | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 

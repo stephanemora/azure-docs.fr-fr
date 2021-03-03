@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: troubleshooting
-ms.date: 09/04/2020
+ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696174"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654015"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
@@ -27,7 +27,7 @@ Si le problème lié à Azure n’est pas traité dans cet article, parcourez le
 **Quelles sont les conditions préalables requises pour activer Azure Automanage ?**
 
 Les conditions préalables à l’activation d’Azure Automanage sont les suivantes :
-- Les machines virtuelles concernées doivent être exclusivement Windows Server.
+- [Versions de Windows Server](automanage-windows-server.md#supported-windows-server-versions) et [Distributions Linux](automanage-linux.md#supported-linux-distributions-and-versions) prises en charge
 - Les machines virtuelles doivent se trouver dans une région prise en charge.
 - L’utilisateur doit disposer des autorisations appropriées.
 - Les machines virtuelles ne peuvent pas faire partie d’un groupe identique.
@@ -42,12 +42,12 @@ Si vous utilisez un nouveau compte Automanage lors de l’activation, vous devez
 
 **Quelles sont les régions prises en charge ?**
 
-Les machines virtuelles prises en charge sont situées dans les régions suivantes : Europe Ouest, USA Est, USA Ouest 2, Canada Centre, USA Centre-Ouest, Japon Est.
+La liste complète des régions prises en charge est disponible [ici](./automanage-virtual-machines.md#supported-regions).
 
 
 **Quelles sont les fonctionnalités qu’Azure Automanage automatise ?**
 
-Automanage inscrit, configure et surveille tout au long du cycle de vie de la machine virtuelle les services répertoriés [ici](virtual-machines-best-practices.md).
+Automanage inscrit, configure et surveille tout au long du cycle de vie de la machine virtuelle les services répertoriés [ici](automanage-virtual-machines.md).
 
 **Azure Automanage fonctionne-t-il avec les machines virtuelles avec Azure Arc ?**
 
@@ -55,12 +55,12 @@ Actuellement, Automanage ne prend pas en charge les machines virtuelles avec Azu
 
 **Puis-je personnaliser les configurations sur Azure Automanage ?**
 
-Les clients peuvent personnaliser les paramètres de services spécifiques, tels que la rétention de Sauvegarde Azure, par le biais de préférences de configuration. Pour obtenir la liste complète des paramètres qui peuvent être modifiés, consultez notre documentation [ici](virtual-machines-best-practices.md).
+Les clients peuvent personnaliser les paramètres de services spécifiques, tels que la rétention de Sauvegarde Azure, par le biais de préférences de configuration. Pour obtenir la liste complète des paramètres qui peuvent être modifiés, consultez notre documentation [ici](automanage-virtual-machines.md#customizing-an-environment-using-preferences).
 
 
 **Azure Automanage fonctionne-t-il avec les machines virtuelles tant Linux que Windows ?**
 
-Actuellement, Automanage prend en charge les machines virtuelles Azure Windows Server.
+Oui, consultez les informations sur les [versions de Windows Server](automanage-windows-server.md#supported-windows-server-versions) et [distributions Linux](automanage-linux.md#supported-linux-distributions-and-versions) prises en charge.
 
 
 **Puis-je appliquer Automanage de manière sélective uniquement à un ensemble de machines virtuelles ?**

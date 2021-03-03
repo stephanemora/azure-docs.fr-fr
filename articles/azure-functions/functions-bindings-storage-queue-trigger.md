@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001233"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381492"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -357,13 +357,15 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  |
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. |
-|**connection** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « MyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
+|**connection** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici.<br><br>Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « MyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Usage
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Default
 
 Accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. Vous pouvez lier aux types suivants :
 
@@ -374,7 +376,17 @@ Accédez aux données du message en utilisant un paramètre de méthode comme `s
 
 Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### <a name="additional-types"></a>Types supplémentaires
+
+Les applications qui utilisent la [version 5.0.0 ou ultérieure de l’extension de stockage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) peuvent également utiliser des types du [SDK Azure pour .NET](/dotnet/api/overview/azure/storage.queues-readme). Cette version ne prend plus en charge le type hérité `CloudQueueMessage`, mais elle prend désormais en charge les types suivants :
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+Pour obtenir des exemples d’utilisation de ces types, consultez [le dépôt GitHub pour l’extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
+
+### <a name="default"></a>Default
 
 Accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
 
@@ -384,6 +396,14 @@ Accédez aux données du message en utilisant un paramètre de méthode comme `s
 * [CloudQueueMessage]
 
 Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="additional-types"></a>Types supplémentaires
+
+Les applications qui utilisent la [version 5.0.0 ou ultérieure de l’extension de stockage](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) peuvent également utiliser des types du [SDK Azure pour .NET](/dotnet/api/overview/azure/storage.queues-readme). Cette version ne prend plus en charge le type hérité `CloudQueueMessage`, mais elle prend désormais en charge les types suivants :
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+Pour obtenir des exemples d’utilisation de ces types, consultez [le dépôt GitHub pour l’extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -448,7 +468,7 @@ Le déclencheur de la file d’attente empêche automatiquement une fonction de 
 
 ## <a name="hostjson-properties"></a>Propriétés host.json
 
-Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente. Consultez la section [Paramètres host.json](functions-bindings-storage-queue-output.md#hostjson-settings) pour plus d’informations concernant les paramètres disponibles.
+Le fichier [host.json](functions-host-json.md#queues) contient les paramètres qui contrôlent le comportement du déclencheur de file d’attente. Consultez la section [Paramètres host.json](functions-bindings-storage-queue.md#hostjson-settings) pour plus d’informations concernant les paramètres disponibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,21 +3,21 @@ title: Configurer des journaux de diagnostic - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment configurer les journaux d’activité et de diagnostic pour Event Hubs dans Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131982"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573172"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
 Vous pouvez afficher deux types de journaux d’activité pour Azure Event Hubs :
 
-* **[Journaux d’activité](../azure-monitor/platform/platform-logs-overview.md)** : Ces journaux comportent des informations sur les opérations effectuées sur un travail. Les journaux d’activité sont toujours activés. Vous pouvez consulter les entrées des journaux d’activité en sélectionnant **Journal des activités** dans le volet gauche de votre espace de noms Event Hub dans le portail Azure. Par exemple : « Créer ou mettre à jour un espace de noms », « Créer ou mettre à jour un hub d’événements ».
+* **[Journaux d’activité](../azure-monitor/essentials/platform-logs-overview.md)** : Ces journaux comportent des informations sur les opérations effectuées sur un travail. Les journaux d’activité sont toujours activés. Vous pouvez consulter les entrées des journaux d’activité en sélectionnant **Journal des activités** dans le volet gauche de votre espace de noms Event Hub dans le portail Azure. Par exemple : « Créer ou mettre à jour un espace de noms », « Créer ou mettre à jour un hub d’événements ».
 
     ![Journal d’activité d’un espace de noms Event Hubs](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md)** : Les journaux de diagnostic fournissent des informations plus détaillées sur les opérations et les actions qui sont effectuées en relation avec votre espace de noms à l’aide de l’API ou via les clients de gestion sur le Kit de développement logiciel (SDK) du langage. 
+* **[Journaux de diagnostic](../azure-monitor/essentials/platform-logs-overview.md)** : Les journaux de diagnostic fournissent des informations plus détaillées sur les opérations et les actions qui sont effectuées en relation avec votre espace de noms à l’aide de l’API ou via les clients de gestion sur le Kit de développement logiciel (SDK) du langage. 
     
     La section suivante montre comment activer les journaux de diagnostic pour un espace de noms Event Hubs.
 
@@ -36,7 +36,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
 
-    Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Catégories de journaux de diagnostic
 
@@ -165,7 +165,7 @@ Le code JSON des journaux du coordinateur Kafka inclut les éléments listés da
 | `SubscriptionId` | ID d’abonnement Azure |
 | `Message` | Message d’information ou d’avertissement, qui fournit des détails sur les actions effectuées pendant la coordination du groupe |
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 ```json
 {

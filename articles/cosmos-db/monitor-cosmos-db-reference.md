@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: 04103de47e82764f7ec4effa84a9b2b7b90b9363
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 5f542b35110a6d967640ad91faead75f6cc0e0c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593284"
 ---
 # <a name="monitoring-azure-cosmos-db-data-reference"></a>Supervision des informations de référence sur les données Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Cet article fournit des informations de référence sur les données de journal 
 
 ## <a name="metrics"></a>Mesures
 
-Toutes les métriques correspondant à Azure Cosmos DB sont stockées dans l’espace de noms **Métriques standard Cosmos DB**. Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Monitor (y compris Azure Cosmos DB), consultez [Métriques prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md). Cette section répertorie toutes les métriques de plateforme collectées automatiquement pour Azure Cosmos DB.  
+Toutes les métriques correspondant à Azure Cosmos DB sont stockées dans l’espace de noms **Métriques standard Cosmos DB**. Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Monitor (y compris Azure Cosmos DB), consultez [Métriques prises en charge avec Azure Monitor](../azure-monitor/essentials/metrics-supported.md). Cette section répertorie toutes les métriques de plateforme collectées automatiquement pour Azure Cosmos DB.  
 
 ### <a name="request-metrics"></a>Métriques de demande
 
@@ -71,7 +71,7 @@ Toutes les métriques correspondant à Azure Cosmos DB sont stockées dans l’e
 | CassandraRequestCharges (Frais des requêtes Cassandra) | Count (Sum, Min, Max, Avg) | Unités de requête consommées par l’API Cassandra | DatabaseName, CollectionName, Region, OperationType, ResourceType| Tous| Permet de surveiller les unités de requête utilisées par minute par un compte d’API Cassandra.|
 | CassandraConnectionClosures (Fermetures de connexion Cassandra) |Count (Nombre) |Nombre de connexions Cassandra fermées| ClosureReason, Region| Tous | Permet de surveiller la connectivité entre les clients et l’API Cassandra Azure Cosmos DB.|
 
-Pour plus d’informations, consultez la liste de [toutes les métriques de plateforme prises en charge dans Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Pour plus d’informations, consultez la liste de [toutes les métriques de plateforme prises en charge dans Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
 
@@ -100,7 +100,7 @@ Le tableau suivant répertorie les propriétés des journaux de ressources dans 
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Cette valeur n’est pas vide lorsque des [jetons de ressource](./secure-access-to-data.md#resource-tokens) sont utilisés pour l’authentification. La valeur pointe vers l’ID de ressource de l’utilisateur. |
 | **responseLength** | **responseLength_s** | Longueur de la réponse, en octets.|
 
-Pour obtenir la liste de toutes les catégories Azure Monitor et des liens vers les schémas associés, consultez la section consacrée aux [catégories et schémas Azure Monitor](../azure-monitor/platform/resource-logs-schema.md). 
+Pour obtenir la liste de toutes les catégories Azure Monitor et des liens vers les schémas associés, consultez la section consacrée aux [catégories et schémas Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md). 
 
 ## <a name="azure-monitor-logs-tables"></a>Tables Azure Monitor Logs
 
@@ -109,4 +109,4 @@ Azure Cosmos DB utilise les tables Kusto des journaux Azure Monitor. Vous pouvez
 ## <a name="see-also"></a>Voir aussi
 
 - Pour obtenir une description de la supervision Azure Cosmos DB, consultez [Surveiller Azure Cosmos DB](monitor-cosmos-db.md).
-- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md).
+- Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).

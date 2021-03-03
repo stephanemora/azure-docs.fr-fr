@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Vue d’ensemble de l’utilisation de nœuds virtuels avec Azure Kubernetes Services (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684772"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634445"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels
 
@@ -45,7 +45,6 @@ Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de foncti
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploie pas les pods dans les nœuds virtuels.
 * Les nœuds virtuels prennent en charge la planification des pods Linux. Vous pouvez installer manuellement le fournisseur d’[ACI Virtual Kubelet](https://github.com/virtual-kubelet/azure-aci) open source pour planifier des conteneurs Windows Server sur ACI.
 * Les nœuds virtuels nécessitent des clusters AKS avec mise en réseau Azure CNI.
-* Nœuds virtuels avec clusters privés.
 * Utilisation des plages d’adresses IP autorisées du serveur d’API pour AKS.
 * Le montage de volumes avec le partage Azure Files prend en charge les comptes [Usage général V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Suivez les instructions pour monter [un volume avec le partage Azure Files](azure-files-volume.md)
 * L’utilisation du protocole IPv6 n’est pas prise en charge.

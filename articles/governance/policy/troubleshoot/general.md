@@ -3,12 +3,12 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917741"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592614"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Résolution des erreurs liées à Azure Policy
 
@@ -87,7 +87,7 @@ Si vous rencontrez toujours un problème avec votre définition de stratégie in
 
 #### <a name="issue"></a>Problème
 
-Azure Policy n’agit pas sur une ressource sur laquelle il est censé le faire, et il n’y a aucune entrée dans le [journal d’activité Azure](../../../azure-monitor/platform/platform-logs-overview.md).
+Azure Policy n’agit pas sur une ressource sur laquelle il est censé le faire, et il n’y a aucune entrée dans le [journal d’activité Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### <a name="cause"></a>Cause
 
@@ -123,7 +123,7 @@ Une attribution de stratégie définie sur l’étendue de la nouvelle ressource
 
 #### <a name="resolution"></a>Résolution
 
-Le message d’erreur d’une attribution de stratégie de refus comprend la définition de stratégie et les ID d’attribution de la stratégie. Si vous avez besoin de retrouver les informations d’erreur indiquées dans le message, elles sont également disponibles dans le [journal d’activité](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Utilisez ces informations pour obtenir plus de détails afin de comprendre les restrictions relatives aux ressources et d’ajuster les propriétés de ressource dans votre demande pour qu’elles correspondent aux valeurs autorisées.
+Le message d’erreur d’une attribution de stratégie de refus comprend la définition de stratégie et les ID d’attribution de la stratégie. Si vous avez besoin de retrouver les informations d’erreur indiquées dans le message, elles sont également disponibles dans le [journal d’activité](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Utilisez ces informations pour obtenir plus de détails afin de comprendre les restrictions relatives aux ressources et d’ajuster les propriétés de ressource dans votre demande pour qu’elles correspondent aux valeurs autorisées.
 
 ## <a name="template-errors"></a>Erreurs de modèle
 

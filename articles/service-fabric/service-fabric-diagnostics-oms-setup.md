@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258655"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570347"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurer les journaux Azure Monitor pour un cluster
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 Ensuite, suivez les étapes décrites dans la section précédente pour connecter les journaux Azure Monitor au compte de stockage approprié.
 
-Vous pouvez également ajouter d’autres solutions ou apporter d’autres modifications à votre espace de travail Log Analytics avec PowerShell. Pour en savoir plus, consultez [Gérer les journaux Azure Monitor à l’aide de PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+Vous pouvez également ajouter d’autres solutions ou apporter d’autres modifications à votre espace de travail Log Analytics avec PowerShell. Pour en savoir plus, consultez [Gérer les journaux Azure Monitor à l’aide de PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployez l’agent Log Analytics](service-fabric-diagnostics-oms-agent.md) sur vos nœuds pour collecter les compteurs de performances, ainsi que les statistiques et les journaux d’activité Docker de vos conteneurs
-* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/log-query/log-query-overview.md) proposées par Journaux Azure Monitor
-* [Utilisez le Concepteur de vues pour créer des vues personnalisées dans Journaux Azure Monitor](../azure-monitor/platform/view-designer.md)
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../azure-monitor/logs/log-query-overview.md) proposées par Journaux Azure Monitor
+* [Utilisez le Concepteur de vues pour créer des vues personnalisées dans Journaux Azure Monitor](../azure-monitor/visualize/view-designer.md)

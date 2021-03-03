@@ -4,12 +4,12 @@ description: Analysez les performances et diagnostiquez les problèmes dans les 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611013"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585755"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -425,7 +425,7 @@ Ces propriétés étant spécifiques au client, vous pouvez configurer `appInsig
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Navigation et tableaux de bord dans le portail Application Insights](./overview-dashboard.md)
-* [Écrire des requêtes Analytics via vos données de télémétrie](../log-query/log-analytics-tutorial.md)
+* [Écrire des requêtes Analytics via vos données de télémétrie](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

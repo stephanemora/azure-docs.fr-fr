@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a214e91307308e191ce92b6461c1454d2cc7dd2b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132548"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370476"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -162,9 +162,7 @@ Oui, vous pouvez lier votre ID partenaire pour Azure Stack.
 
 **Comment puis-je lier mon ID partenaire si ma société utilise [Azure Lighthouse](../../lighthouse/overview.md) pour accéder aux ressources client ?**
 
-Si vous intégrez des clients à la gestion des ressources déléguées Azure en [publiant une offre de services managés sur la Place de marché Azure](../../lighthouse/how-to/publish-managed-services-offers.md), votre ID MPN est automatiquement associé.
-
-Si vous [intégrez des clients en déployant des modèles Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), vous devez associer votre ID MPN à au moins un compte d’utilisateur qui a accès à chacun de vos abonnements intégrés. Notez que vous devez faire cela dans votre locataire de fournisseur de services et non dans le locataire de chaque client. Pour simplifier, nous vous recommandons de créer un compte de principal de service dans votre locataire, de l’associer à votre ID MPN, puis d’accorder à chaque client que vous intégrez un accès à ce compte avec un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec). Pour plus d’informations, consultez [Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées](../../lighthouse/how-to/partner-earned-credit.md).
+Pour que les activités Azure Lighthouse soient reconnues, vous devez associer votre ID MPN à au moins un compte d’utilisateur qui a accès à chacun de vos abonnements intégrés. Notez que vous devez faire cela dans votre locataire de fournisseur de services et non dans le locataire de chaque client. Pour simplifier, nous vous recommandons de créer un compte de principal de service dans votre locataire, de l’associer à votre ID MPN, puis d’accorder à chaque client que vous intégrez un accès à ce compte avec un [rôle intégré Azure éligible au crédit Partenaires](/partner-center/azure-roles-perms-pec). Pour plus d’informations, consultez [Lier votre ID de partenaire pour suivre votre impact sur les ressources déléguées](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Comment expliquer Partner Admin Link (PAL) à mon client ?**
 

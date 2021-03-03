@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796497"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534700"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -26,7 +26,7 @@ Pour plus d’informations sur Key Vault, consultez [À propos d’Azure Key Vau
 
 L’accès à un coffre de clés est contrôlé par le biais de deux interfaces : le **plan de gestion** et le **plan de données**. Le plan de gestion vous permet de gérer le coffre de clés. Dans ce plan, vous pouvez notamment créer et supprimer des coffres de clés, récupérer des propriétés Key Vault et mettre à jour des stratégies d’accès. Le plan de données vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
 
-Les deux plans utilisent [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le [contrôle d’accès en fonction du rôle (Azure RBAC) Azure](../../role-based-access-control/overview.md) et le plan de données utilise une [stratégie d’accès Key Vault](./assign-access-policy-portal.md) et [Azure RBAC pour les opérations du plan de données Key Vault (préversion)](./rbac-guide.md).
+Les deux plans utilisent [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le [contrôle d’accès en fonction du rôle (Azure RBAC) Azure](../../role-based-access-control/overview.md) et le plan de données utilise une [stratégie d’accès Key Vault](./assign-access-policy-portal.md) et [Azure RBAC pour les opérations du plan de données Key Vault](./rbac-guide.md).
 
 Pour accéder à un coffre de clés dans l’un ou l’autre de ces plans, tout appelant (utilisateur ou application) doit être authentifié et autorisé. L’authentification établit l’identité de l’appelant. L’autorisation détermine les opérations que l’appelant peut exécuter. L’authentification auprès de Key Vault fonctionne conjointement avec [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), qui est chargé d’authentifier l’identité de chaque **principal de sécurité** donné.
 
@@ -111,7 +111,7 @@ Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Az
 
 Les principaux avantages liés à l’utilisation de l’autorisation Azure RBAC par rapport à celle des stratégies d’accès au coffre sont la gestion centralisée du contrôle d’accès et l’intégration à [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). Privileged Identity Management assure une activation de rôle basée sur l’heure et l’approbation pour atténuer les risques d’autorisations d’accès excessives, injustifiées ou malveillantes sur les ressources qui vous intéressent.
 
-Pour plus d’informations sur le plan de données Key Vault avec Azure RBAC, consultez [Clés, certificats et secrets Key Vault avec un contrôle d’accès en fonction du rôle Azure (préversion)](rbac-guide.md)
+Pour plus d’informations sur le plan de données Key Vault avec Azure RBAC, consultez [Clés, certificats et secrets Key Vault avec un contrôle d’accès en fonction du rôle Azure](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Pare-feu et réseaux virtuels
 
@@ -182,13 +182,13 @@ Nous devons autoriser les opérations suivantes pour nos rôles :
 
 Le tableau suivant récapitule les autorisations d’accès pour nos rôles et notre application.
 
-| Role | Autorisations de plan de gestion | Autorisations du plan de données - Stratégies d’accès au coffre | Autorisations du plan de données - Azure RBAC (préversion)  |
+| Role | Autorisations de plan de gestion | Autorisations du plan de données - Stratégies d’accès au coffre | Autorisations du plan de données - Azure RBAC  |
 | --- | --- | --- | --- |
-| Équipe de sécurité | [Contributeur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | [Administrateur Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Équipe de sécurité | [Contributeur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificats : toutes les opérations <br> Clés : toutes les opérations <br> Secrets : toutes les opérations | [Administrateur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque** : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None | None |
-| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur de Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Utilisateur du service de chiffrement de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | [Lecteur Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Utilisateur secret Key Vault (préversion)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditeurs | None | Certificates : liste <br> Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. | [Lecteur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Compte Stockage Azure | None | Clés : obtenir, lister, wrapKey, unwrapKey <br> | [Utilisateur du service de chiffrement de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Application | None | Secrets : obtenir, lister <br> Certificats : obtenir, lister | [Lecteur Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Utilisateur secret Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin de déployer l’accès. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux d’activité Key Vault sont stockés.
 

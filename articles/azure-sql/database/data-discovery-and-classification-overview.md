@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185352"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392763"
 ---
 # <a name="data-discovery--classification"></a>Découverte et classification des données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -183,6 +183,13 @@ Vous pouvez utiliser l’API REST pour gérer par programme les classifications 
 - [Obtenir](/rest/api/sql/sensitivitylabels/get) : Obtient l’étiquette de sensibilité de la colonne spécifiée.
 - [Afficher la liste actuelle par base de données](/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : Obtient les étiquettes de sensibilité actuelles de la base de données spécifiée.
 - [Liste recommandée par base de données](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : Obtient les étiquettes de sensibilité recommandées pour la base de données spécifiée.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>Questions fréquentes (FAQ) - Fonctionnalités de classification avancées
+
+**Question** : [Azure Purview](https://docs.microsoft.com/azure/purview/overview) remplacera-t-il la fonctionnalité Découverte et classification des données SQL ou celle-ci sera-t-elle bientôt mise hors service ?
+**Réponse** : Nous continuons à prendre en charge la fonctionnalité Découverte et classification des données SQL et vous encourageons à adopter [Azure Purview](https://docs.microsoft.com/azure/purview/overview), qui offre des fonctionnalités plus riches en termes de classification avancée et de gouvernance des données. Si nous décidons de retirer un service, une fonctionnalité, une API ou une référence SKU, vous recevez des notifications préalables indiquant comment opérer une migration ou une transition. Découvrez-en plus sur les stratégies de cycle de vie Microsoft ici.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Étapes suivantes
 

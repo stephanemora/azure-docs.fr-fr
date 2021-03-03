@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505663"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575459"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Bien démarrer avec l’audit Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,7 +223,7 @@ Pour consommer les données des journaux d’audit à partir d’Event Hubs, vou
 
 Si les journaux d’audit sont écrits dans des journaux Azure Monitor, ils sont disponibles dans l’espace de travail Log Analytics où vous pouvez exécuter des recherches avancées sur les données d’audit. Comme point de départ, accédez à l’espace de travail Log Analytics. Dans la section **Général**, cliquez sur **Journaux** et entrez une requête simple, telle que : `search "SQLSecurityAuditEvents"` pour afficher les journaux d’audit.  
 
-Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

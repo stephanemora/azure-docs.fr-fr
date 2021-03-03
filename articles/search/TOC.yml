@@ -96,6 +96,8 @@
   items:
     - name: Recherche en texte intégral
       href: search-lucene-query-architecture.md
+    - name: Recherche sémantique
+      href: semantic-search-overview.md
     - name: Scoring de pertinence
       href: index-similarity-and-scoring.md
     - name: Indexeurs
@@ -218,6 +220,8 @@
           href: search-howto-schedule-indexers.md
         - name: Définir des mappages de champs
           href: search-indexer-field-mappings.md
+        - name: Propriétés des métadonnées de contenu
+          href: search-blob-metadata-properties.md
         - name: Se connecter à des identités managées
           items:
             - name: Vue d’ensemble des identités managées
@@ -228,6 +232,8 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
+        - name: SharePoint Online
+          href: search-howto-index-sharepoint-online.md
         - name: Objets blob Azure
           items:
             - name: Rechercher sur des objets blob
@@ -248,8 +254,6 @@
               href: search-howto-index-json-blobs.md
             - name: Indexer des objets blob chiffrés
               href: search-howto-index-encrypted-blobs.md
-            - name: Propriétés de métadonnées pour le contenu d’objets blob
-              href: search-blob-metadata-properties.md
         - name: Tables Azure
           href: search-howto-indexing-azure-tables.md
         - name: Azure Cosmos DB
@@ -306,6 +310,10 @@
       items:
         - name: Créer une requête de base
           href: search-query-create.md
+        - name: Créer une requête sémantique
+          href: semantic-how-to-query-request.md
+        - name: Ajouter une vérification orthographique aux requêtes
+          href: speller-how-to-add.md
         - name: Types de requêtes et composition
           href: search-query-overview.md
         - name: Utiliser une syntaxe simple (exemples)
@@ -348,6 +356,8 @@
       items:
         - name: Utiliser les résultats
           href: search-pagination-page-layout.md
+        - name: Structurer une réponse sémantique
+          href: semantic-how-to-query-response.md
         - name: Profils de score
           href: index-add-scoring-profiles.md
         - name: Algorithme de similarité
@@ -388,6 +398,8 @@
           href: search-manage.md
         - name: PowerShell
           href: search-manage-powershell.md
+        - name: Azure CLI
+          href: search-manage-azure-cli.md
         - name: Déplacer un service d’une région à l’autre
           href: search-howto-move-across-regions.md
         - name: Accès administrateur basé sur le rôle

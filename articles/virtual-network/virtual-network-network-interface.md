@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 6cf082aa33d2063982d85cf0c2fdd68d61072217
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 74e09b4798a648b6a881fb05f1128831ad5f4aff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216935"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586433"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -90,7 +90,7 @@ Vous pouvez afficher et modifier la plupart des paramètres d’une interface r�
    - **Propriétés :** affiche des paramètres clés concernant l’interface réseau, dont son adresse MAC (vide si l’interface réseau n’est pas attachée à une machine virtuelle), ainsi que l’abonnement dans lequel elle existe.
    - **Obtenir les règles de sécurité effectives :**  les règles de sécurité sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution, tandis qu’un groupe de sécurité réseau est associé à l’interface réseau et/ou au sous-réseau auquel il est assigné. Pour en savoir plus sur ce qui est affiché, consultez [Voir les règles de sécurité effectives](#view-effective-security-rules). Pour en savoir plus sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](./network-security-groups-overview.md).
    - **Obtenir les routages effectifs :** les routes sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution. Les itinéraires sont une combinaison d’itinéraires par défaut d’Azure, d’itinéraires définis par l’utilisateur et de tous les itinéraires BGP existants pour le sous-réseau auquel l’interface réseau est assignée. Pour en savoir plus sur ce qui est affiché, consultez [Voir les itinéraires effectifs](#view-effective-routes). Pour plus d’informations sur les itinéraires par défaut Azure et les itinéraires définis par l’utilisateur, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
-Paramètres courants d’Azure Resource Manager : Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md), [Contrôle d’accès (IAM)](../role-based-access-control/overview.md), [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/templates/export-template-portal.md).
+Paramètres courants d’Azure Resource Manager : Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/essentials/platform-logs-overview.md), [Contrôle d’accès (IAM)](../role-based-access-control/overview.md), [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Commandes**
 

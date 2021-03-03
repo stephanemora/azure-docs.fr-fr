@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257944"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526661"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
 > [!IMPORTANT]
 > Vous devez immédiatement activer la suppression réversible sur vos coffres de clés. la possibilité de refuser la suppression réversible sera bientôt dépréciée. Vous trouverez plus de détails [ici](soft-delete-change.md).
+
+> [!IMPORTANT]
+> Un coffre supprimé de manière réversible déclenche les paramètres de suppression pour l’intégration aux services Key Vault, c’est-à-dire les attributions de rôles Azure RBAC, les abonnements Event Grid, et les paramètres de diagnostic Azure Monitor. Après la récupération des paramètres Key Vault supprimés de manière réversible pour les services intégrés, vous devez les recréer manuellement. 
 
 La fonctionnalité de suppression réversible de Key Vault permet la récupération des coffres et des objets de coffres supprimés (par exemple, des clés, secrets ou certificats). Nous aborderons en particulier les scénarios suivants :  Cette sécurité offre les protections suivantes :
 
@@ -27,7 +30,7 @@ La fonctionnalité de suppression réversible de Key Vault permet la récupérat
 
 ## <a name="supporting-interfaces"></a>Prise en charge des interfaces
 
-La fonctionnalité de suppression réversible est disponible par le biais de l’[API REST](/rest/api/keyvault/), d’[Azure CLI](./key-vault-recovery.md), d’[Azure PowerShell](./key-vault-recovery.md), des interfaces [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) et des [modèles Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+La fonctionnalité de suppression réversible est disponible par le biais de l’[API REST](/rest/api/keyvault/), d’[Azure CLI](./key-vault-recovery.md), d’[Azure PowerShell](./key-vault-recovery.md), des interfaces [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) et des [modèles Resource Manager](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Scénarios
 

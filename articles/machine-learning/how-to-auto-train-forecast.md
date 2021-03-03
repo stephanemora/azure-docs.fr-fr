@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392321"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+La quantité de données nécessaire pour entraîner un modèle de prévision avec le ML automatisé dépend des valeurs `forecast_horizon`, `n_cross_validations`, `target_lags` ou `target_rolling_window_size` qui sont spécifiées lors de la configuration de votre `AutoMLConfig`. 
+
+La formule suivante calcule la quantité de données d’historique nécessaire à la construction de fonctionnalités de série chronologique.
+
+Quantité minimale de données d’historique nécessaire : (2x `forecast_horizon`) + #`n_cross_validations` + max(max(`target_lags`), `target_rolling_window_size`)
+
+Une exception d’erreur est levée pour toutes les séries du jeu de données qui ne respectent pas la quantité de données d’historique nécessaire pour les paramètres appropriés spécifiés. 
+
 ### <a name="featurization-steps"></a>Étapes de caractérisation
 
 Dans chaque expérience de Machine Learning automatisée, des techniques de mise à l’échelle automatique et de normalisation sont appliquées par défaut à vos données. Ces techniques sont des types de **caractérisation** qui aident *certains* algorithmes sensibles aux caractéristiques à des échelles différentes. En savoir plus sur les étapes de caractérisation par défaut dans [Caractérisation dans AutoML](how-to-configure-auto-features.md#automatic-featurization)
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Répétez les étapes nécessaires pour charger ces données futures dans une trame de données, puis exécutez `best_run.predict(test_data)` pour prédire les valeurs futures.
 
 > [!NOTE]
-> Les valeurs ne peuvent pas être prédites pour un nombre de périodes supérieur à `forecast_horizon`. Le modèle doit être ré-entraîné à un horizon plus lointain pour prédire les valeurs futures au-delà de l’horizon actuel.
+> Les prédictions de l’exemple ne sont pas prises en charge pour les prévisions avec le ML automatisé lorsque `target_lags` et/ou `target_rolling_window_size` sont activés.
 
 
 ## <a name="example-notebooks"></a>Exemples de notebooks

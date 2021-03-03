@@ -3,12 +3,12 @@ title: Informations détaillées sur la structure d’attribution des stratégie
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219564"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581947"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -63,7 +63,7 @@ Vous utilisez **displayName** et **description** pour identifier l’attribution
 
 ## <a name="enforcement-mode"></a>Mode d’application
 
-La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/platform/platform-logs-overview.md). Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées. **enforcementMode** diffère de l’effet [Disabled](./effects.md#disabled), car cet effet empêche l’évaluation des ressources de se produire.
+La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées. **enforcementMode** diffère de l’effet [Disabled](./effects.md#disabled), car cet effet empêche l’évaluation des ressources de se produire.
 
 Cette propriété a les valeurs suivantes :
 
@@ -98,7 +98,7 @@ Pour définir un message personnalisé décrivant la raison pour laquelle une re
 ]
 ```
 
-Si l’affectation concerne une initiative, différents messages peuvent être configurés pour chaque définition de stratégie de l’initiative. Les messages utilisent la valeur `policyDefinitionReferenceId` configurée dans la définition de l’initiative. Pour plus d’informations, consultez [Propriétés des définitions de propriétés](./initiative-definition-structure.md#policy-definition-properties).
+Si l’affectation concerne une initiative, différents messages peuvent être configurés pour chaque définition de stratégie de l’initiative. Les messages utilisent la valeur `policyDefinitionReferenceId` configurée dans la définition de l’initiative. Pour plus d’informations, consultez [Propriétés des définitions des stratégies](./initiative-definition-structure.md#policy-definition-properties).
 
 ```json
 "nonComplianceMessages": [

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e7e8d51b8227acd033c95583d6e61d78a56d62a3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698782"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590279"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -130,17 +130,17 @@ Pour surveiller l’état de la sécurité de vos [machines virtuelles Windows](
 
 Security Center peut surveiller activement les menaces qui apparaissent alors sous la forme d’alertes de sécurité. Les menaces corrélées sont regroupées sous la forme d’un incident de sécurité.
 
-Security Center stocke les données dans les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md). Les journaux Azure Monitor fournissent un langage de requête et le moteur analytique vous donne des insights sur le fonctionnement de vos applications et de vos ressources. Les données sont également collectées à partir d’[Azure Monitor](../../batch/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
+Security Center stocke les données dans les [journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md). Les journaux Azure Monitor fournissent un langage de requête et le moteur analytique vous donne des insights sur le fonctionnement de vos applications et de vos ressources. Les données sont également collectées à partir d’[Azure Monitor](../../batch/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
 
 Les organisations qui n’appliquent pas une sécurité renforcée à leurs machines virtuelles ne parviennent pas à détecter les actions des utilisateurs non autorisés visant à contourner les contrôles de sécurité mis en place.
 
 ## <a name="monitor-vm-performance"></a>Analyser les performances des machines virtuelles
 Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser problème. Une machine virtuelle insuffisamment performante peut entraîner une interruption de service, réduisant ainsi la disponibilité. Cela s’applique particulièrement aux machines virtuelles qui hébergent IIS ou d’autres serveurs web, car une utilisation élevée du processeur ou de la mémoire peut indiquer une attaque par déni de service (DoS). Il est impératif de surveiller l’accès aux machines virtuelles de façon réactive (lorsqu’un problème survient) et de façon proactive (par rapport à des performances de référence mesurées pendant un fonctionnement normal).
 
-Nous vous recommandons d’utiliser [Azure Monitor](../../azure-monitor/platform/data-platform.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources. Fonctionnalités d’Azure Monitor :
+Nous vous recommandons d’utiliser [Azure Monitor](../../azure-monitor/data-platform.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources. Fonctionnalités d’Azure Monitor :
 
-- [Fichiers journaux de diagnostic des ressources](../../azure-monitor/platform/platform-logs-overview.md) : effectuent le monitoring des ressources de machines virtuelles et identifient les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances.
-- [Extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) : offre des fonctionnalités de monitoring et de diagnostic pour les machines virtuelles Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md).
+- [Fichiers journaux de diagnostic des ressources](../../azure-monitor/essentials/platform-logs-overview.md) : effectuent le monitoring des ressources de machines virtuelles et identifient les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances.
+- [Extension Diagnostics Azure](../../azure-monitor/agents/diagnostics-extension-overview.md) : offre des fonctionnalités de monitoring et de diagnostic pour les machines virtuelles Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../../virtual-machines/extensions/diagnostics-template.md).
 
 Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations de performances sont normales ou pas. Si une machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque provenant d’une ressource externe ou d’un processus compromis en cours d’exécution sur la machine virtuelle.
 

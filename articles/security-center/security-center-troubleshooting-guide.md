@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460416"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570823"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 
@@ -42,7 +42,7 @@ Les clients peuvent partager des commentaires sur la description et la pertinenc
 
 ## <a name="audit-log"></a>Journal d’audit
 
-Vous pouvez résoudre la majorité des problèmes rencontrés dans Security Center, en commençant par examiner les enregistrements du [journal d’audit](../azure-monitor/platform/platform-logs-overview.md) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
+Vous pouvez résoudre la majorité des problèmes rencontrés dans Security Center, en commençant par examiner les enregistrements du [journal d’audit](../azure-monitor/essentials/platform-logs-overview.md) pour le composant en échec. Les journaux d’audit vous permettent de déterminer :
 
 * Les opérations ayant eu lieu.
 * Qui a initié l’opération.
@@ -87,8 +87,8 @@ Il existe deux scénarios qui peuvent produire des résultats différents lors d
 | État d’alimentation hors tension | La machine virtuelle est arrêtée.  L'agent Log Analytics ne peut être installé que sur une machine virtuelle en cours d'exécution. | Redémarrez la machine virtuelle. |
 | Agent de machine virtuelle Azure manquant ou non valide | L'agent Log Analytics n'est pas encore installé.  Un agent de machine virtuelle Azure valide est requis pour que Security Center installe l’extension. | Installer, réinstaller ou mettre à niveau l’agent de machine virtuelle Azure sur la machine virtuelle. |
 | État de la machine virtuelle non prêt pour l’installation  | L'agent Log Analytics n'est pas encore installé car la machine virtuelle n'est pas prête pour l'installation. La machine virtuelle n’est pas prête pour l’installation en raison d’un problème avec l’agent de machine virtuelle ou l’approvisionnement de la machine virtuelle. | Vérifiez l’état de votre machine virtuelle. Revenez sur **Machines virtuelles** dans le portail, puis sélectionnez la machine virtuelle pour les informations sur l’état. |
-|Échec de l’installation - erreur générale | L'agent Log Analytics a été installé, mais a échoué en raison d'une erreur. | [Installez manuellement l’extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou désinstallez-la pour que Security Center tente de l’installer à nouveau. |
-| Échec de l'installation : agent local déjà installé | L'installation de l'agent Log Analytics a échoué. Security Center a identifié un agent local (Log Analytics ou System Center Operations Manager) déjà installé sur la machine virtuelle. Pour éviter une configuration multihébergement, où la machine virtuelle fait un rapport à deux espaces de travail distincts, l'installation de l'agent Log Analytics est arrêtée. | Il existe deux manières de résoudre ce problème : [installer manuellement l’extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) et la connecter à l’espace de travail souhaité. Ou, définir l’espace de travail souhaité comme espace de travail par défaut et activer l’approvisionnement automatique de l’agent.  Consultez la section [Activer l’approvisionnement automatique](security-center-enable-data-collection.md). |
+|Échec de l’installation - erreur générale | L'agent Log Analytics a été installé, mais a échoué en raison d'une erreur. | [Installez manuellement l’extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou désinstallez-la pour que Security Center tente de l’installer à nouveau. |
+| Échec de l'installation : agent local déjà installé | L'installation de l'agent Log Analytics a échoué. Security Center a identifié un agent local (Log Analytics ou System Center Operations Manager) déjà installé sur la machine virtuelle. Pour éviter une configuration multihébergement, où la machine virtuelle fait un rapport à deux espaces de travail distincts, l'installation de l'agent Log Analytics est arrêtée. | Il existe deux manières de résoudre ce problème : [installer manuellement l’extension](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) et la connecter à l’espace de travail souhaité. Ou, définir l’espace de travail souhaité comme espace de travail par défaut et activer l’approvisionnement automatique de l’agent.  Consultez la section [Activer l’approvisionnement automatique](security-center-enable-data-collection.md). |
 | L’agent ne peut pas se connecter à l’espace de travail | L'agent Log Analytics a été installé, mais a échoué suite à un problème de connectivité réseau.  Vérifiez que l’agent dispose d’un accès Internet ou qu’un proxy HTTP valide lui a été défini. | Consultez la section Configuration réseau requise pour Monitoring Agent. |
 | Agent connecté à un espace de travail manquant ou inconnu | Security Center a identifié que l'agent Log Analytics installé sur la machine virtuelle est connecté à un espace de travail auquel il n'a pas accès. | Cela peut se produire dans deux cas. L’espace de travail a été supprimé et n’existe plus. Réinstallez l’agent avec le bon espace de travail ou désinstallez l’agent et autorisez Security Center à terminer l’installation de l’approvisionnement automatique. Dans le deuxième cas, l’espace de travail fait partie d’un abonnement pour lequel Security Center ne possède pas d’autorisation. Security Center requiert des abonnements pour permettre au fournisseur de ressources de Microsoft Security d’y accéder. Pour l’activer, enregistrez l’abonnement dans le fournisseur de ressources de Microsoft Security. Cela peut être réalisé à l’aide d’une API, PowerShell, d’un portail ou simplement en filtrant l’abonnement dans le tableau de bord **Vue d’ensemble** de Security Center. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
 | L’agent ne répond pas ou l’ID est manquant | Security Center ne peut pas récupérer les données de sécurité analysées de la machine virtuelle, même si l’agent est installé. | L’agent ne rapporte aucune donnée, y compris les pulsations. L’agent peut être endommagé ou quelque chose bloque le trafic. Ou, l’agent rapporte des données mais il manque un ID de ressource Azure. Il est donc impossible de faire correspondre les données à la machine virtuelle Azure. Pour résoudre les problèmes associés à Linux, consultez [Troubleshooting Guide for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guide de résolution des problèmes pour Agent OMS pour Linux). Pour résoudre les problèmes associés à Windows, consultez [Troubleshooting Windows Virtual Machines](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support) (Résolution des problèmes de machines virtuelles Windows). |
@@ -98,7 +98,7 @@ Il existe deux scénarios qui peuvent produire des résultats différents lors d
 
 Pour que les agents se connectent et s’inscrivent auprès de Security Center, ils doivent accéder aux ressources réseau, y compris les numéros de port et les URL de domaine.
 
-* Pour les serveurs proxy, vous devez vous assurer que les ressources de serveur proxy appropriées sont configurées dans les paramètres de l’agent. Lisez cet article pour obtenir plus d’informations sur la façon de [modifier les paramètres proxy](../azure-monitor/platform/agent-windows.md).
+* Pour les serveurs proxy, vous devez vous assurer que les ressources de serveur proxy appropriées sont configurées dans les paramètres de l’agent. Lisez cet article pour obtenir plus d’informations sur la façon de [modifier les paramètres proxy](../azure-monitor/agents/agent-windows.md).
 * Si un pare-feu restreint l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès à Log Analytics. Aucune action n’est nécessaire dans les paramètres de l’agent.
 
 Le tableau suivant présente les ressources nécessaires pour la communication.

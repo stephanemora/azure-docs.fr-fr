@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488865"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592082"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ L’exemple suivant montre Intelligent Insights dans Azure SQL Analytics :
 
 ### <a name="set-up-with-event-hubs"></a>Configurer avec Event Hubs
 
-Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en streaming dans Event Hubs, consultez [Journalisation des métriques et diagnostics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) et [Diffuser en streaming des journaux de diagnostics Azure vers Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Pour utiliser Intelligent Insights avec Event Hubs et configurer les données du journal Intelligent Insights afin de les diffuser en streaming dans Event Hubs, consultez [Journalisation des métriques et diagnostics](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) et [Diffuser en streaming des journaux de diagnostics Azure vers Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 Pour utiliser Event Hubs afin de personnaliser la supervision et les alertes, consultez [Que faire des journaux de métriques et diagnostics dans Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

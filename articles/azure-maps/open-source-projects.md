@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601591"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386745"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
@@ -66,11 +66,14 @@ La liste suivante répertorie les projets open source qui étendent les fonction
 | [Implémenter l’analytique spatiale IoT avec Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. |
 
 **Plug-ins de contrôle de carte de tiers**
+<a name="third-part-map-control-plugins"></a>
 
 | Nom du projet | Description |
 |-|-|
+| [Plug-in Cesium Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Plug-in [Cesium JS](https://cesium.com/cesiumjs/) qui facilite l’intégration de services Azure Maps tels que les [couches de mosaïques](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) et les [services de géocodage](https://docs.microsoft.com/rest/api/maps/search). |
 | [Plug-in Azure Maps Leaflet](https://github.com/azure-samples/azure-maps-leaflet) | Plug-in JavaScript de [Leaflet](https://leafletjs.com/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- 
+ | [Plug-in OpenLayers Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Plug-in JavaScript [OpenLayers](https://www.openlayers.org/) qui facilite la superposition des couches de mosaïques à partir des [services de mosaïques Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Outils et ressources**
 
 | Nom du projet | Description |

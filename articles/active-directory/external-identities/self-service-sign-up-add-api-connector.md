@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807018"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647385"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur
 
@@ -30,7 +30,7 @@ Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d�
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
-4. Sélectionnez **tous les connecteurs d’API (version préliminaire)** , puis sélectionnez **Nouveau connecteur d’API**.
+4. Sélectionnez **All API connectors** (Tous les connecteurs d’API), puis **New API connector** (Nouveau connecteur d’API).
 
    ![Ajoutez un nouveau connecteur d'API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -97,7 +97,7 @@ Procédez comme suit pour ajouter un connecteur d’API à un workflow d’utili
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur Azure AD.
 2. Sous **Services Azure**, sélectionnez **Azure Active Directory**.
 3. Dans le menu de gauche, sélectionnez **Identités externes**.
-4. Sélectionnez **Flux d’utilisateurs (préversion)** , puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
+4. Sélectionnez **Flux d’utilisateurs**, puis sélectionnez le flux utilisateur auquel vous souhaitez ajouter le connecteur d’API.
 5. Sélectionnez **Connecteurs d’API**, puis sélectionnez les points de terminaison d’API que vous souhaitez appeler aux étapes suivantes dans le workflow d’utilisateur :
 
    - **Après la connexion avec un fournisseur d’identité**

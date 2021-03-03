@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509382"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676477"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Création d’indexeurs dans Recherche cognitive Azure
 
@@ -143,6 +143,20 @@ Le traitement planifié coïncide généralement avec un besoin d’indexation i
 + [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
+## <a name="change-detection-and-indexer-state"></a>Détection des modifications et état de l’indexeur
+
+Les indexeurs peuvent détecter les modifications apportées aux données sous-jacentes et traiter uniquement les documents nouveaux ou mis à jour à chaque exécution d’indexeur. Par exemple, si l’état de l’indexeur indique qu’une exécution a réussi avec `0/0` documents traités, cela signifie que l’indexeur n’a pas trouvé de lignes ou de blobs nouveaux ou modifiés dans la source de données sous-jacente.
+
+La façon dont un indexeur prend en charge la détection des modifications varie selon la source de données :
+
++ Stockage Blob Azure, Stockage Table Azure et Azure Data Lake Storage Gen2 estampillent chaque mise à jour de blob ou de ligne avec la date et l’heure. Les différents indexeurs utilisent ces informations pour déterminer les documents à mettre à jour dans l’index. La détection intégrée des modifications signifie qu’un indexeur peut reconnaître des documents nouveaux et mis à jour, sans qu’aucune configuration supplémentaire ne soit requise de votre part.
+
++ Azure SQL et Cosmos DB fournissent des fonctionnalités de détection des modifications dans leurs plateformes. Vous pouvez spécifier la stratégie de détection des modifications dans la définition de votre source de données.
+
+Pour les charges d’indexation volumineuses, un indexeur effectue également le suivi du dernier document traité par le bais d’une « limite supérieure » interne. Le marqueur n’est jamais exposé dans l’API, mais en interne, l’indexeur garde une trace de l’endroit où il s’est arrêté. Lorsque l’indexation reprend, par le biais d’une exécution planifiée ou d’un appel à la demande, l’indexeur fait référence à la limite supérieure afin de pouvoir reprendre là où il s’était arrêté.
+
+Si vous devez effacer la limite supérieure pour réindexer entièrement, vous pouvez utiliser l’option [Réinitialiser l’indexeur](/rest/api/searchservice/reset-indexer). Pour une réindexation plus sélective, utilisez [Réinitialiser les compétences](/rest/api/searchservice/preview-api/reset-skills) ou [Réinitialiser les documents](/rest/api/searchservice/preview-api/reset-documents). Grâce aux API de réinitialisation, vous pouvez effacer l’état interne, ainsi que vider le cache si vous avez activé l’[enrichissement incrémentiel](search-howto-incremental-index.md). Pour plus d’informations et une comparaison de chaque option de réinitialisation, consultez [Exécuter ou réinitialiser des indexeurs, des compétences et des documents](search-howto-run-reset-indexers.md).
+
 ## <a name="know-your-data"></a>Connaître vos données
 
 Les indexeurs s’attendent à un ensemble de lignes tabulaires, où chaque ligne devient un document de recherche complet ou partiel dans l’index. Souvent, il y a une correspondance biunivoque entre une ligne et le document de recherche qui en résulte, où tous les champs de l’ensemble de lignes remplissent entièrement chaque document. Toutefois, vous pouvez utiliser des indexeurs pour générer une partie seulement d’un document, par exemple si vous utilisez plusieurs indexeurs ou approches pour créer l’index. 
@@ -151,7 +165,7 @@ Pour aplatir les données relationnelles dans un ensemble de lignes, vous devez 
 
 En plus des données aplaties, il est important d’extraire uniquement les données interrogeables. Les données interrogeables sont alphanumériques. Recherche cognitive ne peut pas effectuer de recherche dans des données binaires dans n’importe quel format, bien que le service puisse extraire et déduire des descriptions de texte de fichiers images (voir [Enrichissement par IA](cognitive-search-concept-intro.md)) pour créer du contenu pouvant faire l’objet d’une recherche. De même, grâce à l’enrichissement par IA, les grands textes peuvent être analysés par des modèles de langage naturel pour trouver la structure ou les informations pertinentes, générant ainsi un nouveau contenu que vous pouvez ajouter à un document de recherche.
 
-Étant donné que les indexeurs ne corrigent pas les problèmes de données, d’autres formes de nettoyage ou de manipulation des données peuvent être nécessaires. Pour plus d’informations, reportez-vous à la documentation de votre [produit de base de données Azure](/azure/?product=databases).
+Étant donné que les indexeurs ne corrigent pas les problèmes de données, d’autres formes de nettoyage ou de manipulation des données peuvent être nécessaires. Pour plus d’informations, reportez-vous à la documentation de votre [produit de base de données Azure](../index.yml?product=databases).
 
 ## <a name="know-your-index"></a>Connaître votre index
 

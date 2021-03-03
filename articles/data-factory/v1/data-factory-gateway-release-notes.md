@@ -1,22 +1,18 @@
 ---
 title: Notes de version pour la passerelle de gestion des données
 description: Notes de version pour la passerelle de gestion des données
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363914"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]
@@ -46,12 +42,12 @@ Nous ne conservons plus les notes de publication ici. Pour obtenir les dernière
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Améliorations
--   Vous pouvez ajouter des entrées DNS pour autoriser Service Bus plutôt que d’autoriser toutes les adresses IP Azure à partir de votre pare-feu (si nécessaire). Plus de détails ici.
--   Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
--   Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
--   Résolu : problème d’index hors plage durant la copie de Document DB vers SQL Server avec la fonctionnalité d’idempotence.
--   Résolu : le script de nettoyage SQL ne fonctionne pas avec SQL Server à partir de l’Assistant de copie.
--   Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
+-    Vous pouvez ajouter des entrées DNS pour autoriser Service Bus plutôt que d’autoriser toutes les adresses IP Azure à partir de votre pare-feu (si nécessaire). Plus de détails ici.
+-    Vous pouvez maintenant copier les données vers ou à partir d’un seul objet blob de blocs jusqu’à 4,75 To. Il s’agit de la taille maximale prise en charge pour ces objets (la limite antérieure était de 195 Go).
+-    Résolu : problème de mémoire insuffisante lors de la décompression de plusieurs petits fichiers pendant l’activité de copie.
+-    Résolu : problème d’index hors plage durant la copie de Document DB vers SQL Server avec la fonctionnalité d’idempotence.
+-    Résolu : le script de nettoyage SQL ne fonctionne pas avec SQL Server à partir de l’Assistant de copie.
+-    Résolu : le nom de colonne avec un espace à la fin ne fonctionne pas dans l’activité de copie.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Améliorations

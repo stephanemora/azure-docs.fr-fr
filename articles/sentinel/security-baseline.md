@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807205"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571652"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Base de référence de sécurité Azure pour Azure Sentinel
 
@@ -37,9 +37,9 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 - [Guide pratique pour activer l’audit dans Azure Sentinel](resources.md)
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -73,7 +73,7 @@ Cette base de référence de sécurité applique les conseils du [benchmark de s
 
 **Conseils** : Dans Azure Monitor, définissez la période de conservation des journaux pour les espaces de travail Log Analytics associés à vos espaces de travail Azure Sentinel conformément aux réglementations de conformité de votre organisation.
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -167,7 +167,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 - [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -341,7 +341,7 @@ En outre, chaque classeur Sentinel constitue une ressource Azure et vous pouvez 
 
 **Aide** : Actuellement, les espaces de travail Azure Sentinel and Azure Monitor Log Analytics utilisent des clés gérées par Microsoft pour chiffrer les données contenues au repos. La possibilité d’apporter votre propre clé n’est pas encore entièrement prise en charge pour Sentinel, mais le sera prochainement.
 
-- [Présentation des clés gérées par le client dans Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Présentation des clés gérées par le client dans Azure Monitor](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Comprendre les clés gérées par le client dans Azure Sentinel (préversion)](customer-managed-keys.md)
 

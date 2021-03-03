@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 118ab33c8d8ce46559957236daa21ba494655e69
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9dfd950303d1cb838d44ae672fed33dd4cd7b5ec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381900"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -26,7 +26,7 @@ La prise en charge des langues varie selon les fonctionnalités du service Speec
 
 Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). 
 
-Afin d'améliorer la précision, la personnalisation est proposée pour une partie des langues en chargeant des **transcriptions audio + étiquetées à la main** ou des **textes associés : Phrases.** Pour en savoir plus sur la personnalisation, consultez [Bien démarrer avec Custom Speech](./custom-speech-overview.md).
+Afin d'améliorer la précision, la personnalisation est proposée pour une partie des langues en chargeant des **transcriptions audio + étiquetées à la main** ou des **textes associés : Phrases.** La prise en charge de la personnalisation du modèle acoustique incluant des **données audio + transcriptions étiquetées à la main** se limite aux modèles de base spécifiques listés ci-dessous. Les autres langues et modèles de base utilisent uniquement le texte des transcriptions pour l’entraînement des modèles personnalisés, comme avec **Texte associé : Phrases.** Pour en savoir plus sur la personnalisation, consultez [Bien démarrer avec Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -53,48 +53,48 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabe (Émirats arabes unis)      | `ar-AE` | Modèle de langage                                   |                           |
 | Bulgare (Bulgarie)               | `bg-BG` | Modèle de langage                                   |                           |
 | Catalan (Espagne)                    | `ca-ES` | Modèle de langage                                   | Oui                          |
-| Chinois (cantonais, traditionnel)   | `zh-HK` | Modèle acoustique<br>Modèle de langage                 |        Oui                   |
-| Chinois (mandarin, simplifié)     | `zh-CN` | Modèle acoustique<br>Modèle de langage                 |     Oui                      |
-| Chinois (mandarin, taïwanais)       | `zh-TW` | Modèle acoustique<br>Modèle de langage                 |           Oui                |
+| Chinois (cantonais, traditionnel)   | `zh-HK` | Modèle acoustique (20201015)<br>Modèle de langage                 |        Oui                   |
+| Chinois (mandarin, simplifié)     | `zh-CN` | Modèle acoustique (20200910)<br>Modèle de langage                 |     Oui                      |
+| Chinois (mandarin, taïwanais)       | `zh-TW` | Modèle acoustique (20190701, 20201015)<br>Modèle de langage                 |           Oui                |
 | Croate (Croatie)                 | `hr-HR` | Modèle de langage                                   |                           |
 | Tchèque (République tchèque)             | `cs-CZ` | Modèle de langage                                   |                           |
 | Danois (Danemark)                   | `da-DK` | Modèle de langage                                   | Oui                          |
-| Néerlandais (Pays-Bas)                | `nl-NL` | Modèle de langage                                   |    Oui                       |
-| Anglais (Australie)                | `en-AU` | Modèle acoustique<br>Modèle de langage                 | Oui                          |
-| Anglais (Canada)                   | `en-CA` | Modèle acoustique<br>Modèle de langage                 | Oui                          |
+| Néerlandais (Pays-Bas)                | `nl-NL` | Modèle acoustique (20201015)<br>Modèle de langage                                   |    Oui                       |
+| Anglais (Australie)                | `en-AU` | Modèle acoustique (20201019)<br>Modèle de langage                 | Oui                          |
+| Anglais (Canada)                   | `en-CA` | Modèle acoustique (20201019)<br>Modèle de langage                 | Oui                          |
 | Anglais (Hong Kong)                | `en-HK` | Modèle de langage                                   |                           |
-| Anglais (Inde)                    | `en-IN` | Modèle acoustique<br>Modèle de langage                 | Oui                          |
+| Anglais (Inde)                    | `en-IN` | Modèle acoustique (20200923)<br>Modèle de langage                 | Oui                          |
 | Anglais (Irlande)                  | `en-IE` | Modèle de langage                                   |                           |
-| Anglais (Nouvelle-Zélande)              | `en-NZ` | Modèle acoustique<br>Modèle de langage                 |  Oui                         |
+| Anglais (Nouvelle-Zélande)              | `en-NZ` | Modèle acoustique (20201019)<br>Modèle de langage                 |  Oui                         |
 | Anglais (Nigeria)                  | `en-NG` | Modèle de langage                                   |                           |
 | Anglais (Philippines)              | `en-PH` | Modèle de langage                                   |                           |
 | Anglais (Singapour)                | `en-SG` | Modèle de langage                                   |                           |
 | Anglais (Afrique du Sud)             | `en-ZA` | Modèle de langage                                   |                           |
-| Anglais (Royaume-Uni)           | `en-GB` | Modèle acoustique<br>Modèle de langage<br>Prononcer| Oui                          |
-| Anglais (États-Unis)            | `en-US` | Modèle acoustique<br>Modèle de langage<br>Prononcer| Oui                          |
+| Anglais (Royaume-Uni)           | `en-GB` | Modèle acoustique (20201019)<br>Modèle de langage<br>Prononcer| Oui                          |
+| Anglais (États-Unis)            | `en-US` | Modèle acoustique (20201019)<br>Modèle de langage<br>Prononcer| Oui                          |
 | Estonien (Estonie)                  | `et-EE` | Modèle de langage                                   |                           |
 | Finnois (Finlande)                  | `fi-FI` | Modèle de langage                                   |     Oui                      |
-| Français (Canada)                    | `fr-CA` | Modèle acoustique<br>Modèle de langage                 |     Oui                      |
-| Français (France)                    | `fr-FR` | Modèle acoustique<br>Modèle de langage<br>Prononcer|      Oui                     |
-| Allemand (Allemagne)                   | `de-DE` | Modèle acoustique<br>Modèle de langage<br>Prononcer|  Oui                         |
+| Français (Canada)                    | `fr-CA` | Modèle acoustique (20201015)<br>Modèle de langage                 |     Oui                      |
+| Français (France)                    | `fr-FR` | Modèle acoustique (20201015)<br>Modèle de langage<br>Prononcer|      Oui                     |
+| Allemand (Allemagne)                   | `de-DE` | Modèle acoustique (20190701, 20200619, 20201127)<br>Modèle de langage<br>Prononcer|  Oui                         |
 | Grec (Grèce)                     | `el-GR` | Modèle de langage                                   |                           |
 | Goudjrati (Inde)                  | `gu-IN` | Modèle de langage                                   |                           |
-| Hindi (Inde)                      | `hi-IN` | Modèle acoustique<br>Modèle de langage                 |     Oui                      |
+| Hindi (Inde)                      | `hi-IN` | Modèle acoustique (20200701)<br>Modèle de langage                 |     Oui                      |
 | Hongrois (Hongrie)                | `hu-HU` | Modèle de langage                                   |                           |
 | Irlandais (Irlande)                     | `ga-IE` | Modèle de langage                                   |                           |
-| Italien (Italie)                    | `it-IT` | Modèle acoustique<br>Modèle de langage<br>Prononcer|      Oui                     |
-| Japonais (Japon)                   | `ja-JP` | Modèle acoustique<br>Modèle de langage                 |      Oui                     |
-| Coréen (Corée)                     | `ko-KR` | Modèle acoustique<br>Modèle de langage                 |      Oui                     |
+| Italien (Italie)                    | `it-IT` | Modèle acoustique (20201016)<br>Modèle de langage<br>Prononcer|      Oui                     |
+| Japonais (Japon)                   | `ja-JP` | Modèle de langage                                   |      Oui                     |
+| Coréen (Corée)                     | `ko-KR` | Modèle acoustique (20201015)<br>Modèle de langage                 |      Oui                     |
 | Letton (Lettonie)                   | `lv-LV` | Modèle de langage                                   |                           |
 | Lituanien (Lituanie)             | `lt-LT` | Modèle de langage                                   |                           |
 | Maltais (Malte)                     | `mt-MT` | Modèle de langage                                   |                           |
 | Marathi (Inde)                    | `mr-IN` | Modèle de langage                                   |                           |
 | Norvégien (bokmål, Norvège)         | `nb-NO` | Modèle de langage                                   |     Oui                      |
 | Polonais (Pologne)                    | `pl-PL` | Modèle de langage                                   |       Oui                    |
-| Portugais (Brésil)                | `pt-BR` | Modèle acoustique<br>Modèle de langage<br>Prononcer|          Oui                 |
+| Portugais (Brésil)                | `pt-BR` | Modèle acoustique (20190620, 20201015)<br>Modèle de langage<br>Prononcer|          Oui                 |
 | Portugais (Portugal)              | `pt-PT` | Modèle de langage                                   |             Oui              |
 | Roumain (Roumanie)                 | `ro-RO` | Modèle de langage                                   |                           |
-| Russe (Russie)                   | `ru-RU` | Modèle acoustique<br>Modèle de langage                 |                Oui           |
+| Russe (Russie)                   | `ru-RU` | Modèle acoustique (20200907)<br>Modèle de langage                 |                Oui           |
 | Slovaque (Slovaquie)                  | `sk-SK` | Modèle de langage                                   |                           |
 | Slovène (Slovénie)               | `sl-SI` | Modèle de langage                                   |                           |
 | Espagnol (Argentine)                | `es-AR` | Modèle de langage                                   |                           |
@@ -109,13 +109,13 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Espagnol (Guinée équatoriale)        | `es-GQ` | Modèle de langage                                   |                           |
 | Espagnol (Guatemala)                | `es-GT` | Modèle de langage                                   |                           |
 | Espagnol (Honduras)                 | `es-HN` | Modèle de langage                                   |                           |
-| Espagnol (Mexique)                   | `es-MX` | Modèle acoustique<br>Modèle de langage                 |    Oui                       |
+| Espagnol (Mexique)                   | `es-MX` | Modèle acoustique (20200907)<br>Modèle de langage                 |    Oui                       |
 | Espagnol (Nicaragua)                | `es-NI` | Modèle de langage                                   |                           |
 | Espagnol (Panama)                   | `es-PA` | Modèle de langage                                   |                           |
 | Espagnol (Paraguay)                 | `es-PY` | Modèle de langage                                   |                           |
 | Espagnol (Pérou)                     | `es-PE` | Modèle de langage                                   |                           |
 | Espagnol (Porto Rico)              | `es-PR` | Modèle de langage                                   |                           |
-| Espagnol (Espagne)                    | `es-ES` | Modèle acoustique<br>Modèle de langage                 |  Oui                         |
+| Espagnol (Espagne)                    | `es-ES` | Modèle acoustique (20201015)<br>Modèle de langage                 |  Oui                         |
 | Espagnol (Uruguay)                  | `es-UY` | Modèle de langage                                   |                           |
 | Espagnol (États-Unis)                      | `es-US` | Modèle de langage                                   |                           |
 | Espagnol (Venezuela)                | `es-VE` | Modèle de langage                                   |                           |

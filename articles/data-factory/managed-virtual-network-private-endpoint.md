@@ -1,24 +1,20 @@
 ---
 title: Réseau virtuel managé et points de terminaison privés managés
 description: Découvrez le réseau virtuel managé et les points de terminaison privés managés dans Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980357"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379571"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
 
@@ -51,7 +47,7 @@ Les points de terminaison privés managés sont des points de terminaison privé
 
 ![Nouveau point de terminaison privé managé](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que le Stockage Azure, Azure Cosmos DB, Azure Synapse Analytics (anciennement SQL Data Warehouse).
+Azure Data Factory prend en charge les liaisons privées. Une liaison privée vous permet d’accéder aux services Azure (PaaS), tels que Stockage Azure, Azure Cosmos DB, Microsoft Azure Synapse Analytics.
 
 Quand vous utilisez une liaison privée, le trafic entre vos magasins de données et le réseau virtuel managé transite intégralement par le réseau principal de Microsoft. Une liaison privée assure une protection contre les risques liés à l’exfiltration des données. Vous établissez une liaison privée vers une ressource en créant un point de terminaison privé.
 
@@ -86,7 +82,7 @@ Les sources de données suivantes sont prises en charge pour établir une connex
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (sans Azure SQL Managed Instance)
-- Azure Synapse Analytics (anciennement SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL Azure Cosmos DB
 - Azure Key Vault
 - Service Azure Private Link

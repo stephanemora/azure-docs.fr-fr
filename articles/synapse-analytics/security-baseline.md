@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e2f6d8ca1f3911959f396eb1ed77ce8377c0e3c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 9831f70a88aba497eb7d6a759233c3d7d7be62c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807833"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585126"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Base de référence de la sécurité Azure pour Azure Synapse Analytics
 
@@ -167,9 +167,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Conseils** : Utilisez le journal d’activité Azure pour surveiller les configurations des ressources réseau et détecter les modifications des ressources réseau associées à votre pool SQL dédié. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -237,7 +237,7 @@ L’audit peut être activé au niveau de la base de données ou du serveur, mai
 
 * [Gérer le cycle de vie du stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Définir les paramètres de rétention des journaux dans un espace de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Définir les paramètres de rétention des journaux dans un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Capturer des événements de streaming dans Event Hubs](../event-hubs/event-hubs-capture-overview.md)
 
@@ -629,7 +629,7 @@ L’autorisation est contrôlée par les appartenances aux rôles de base de don
 
 En outre, vous pouvez configurer des alertes pour les bases de données de votre pool Synapse SQL à l’aide du portail Azure. Les alertes peuvent vous envoyer un e-mail ou appeler un webhook lorsqu'une métrique (taille de la base de données ou utilisation du processeur, par exemple) atteint le seuil.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Guide pratique pour créer des alertes pour Azure Synapse SQL](../azure-sql/database/alerts-insights-configure-portal.md)
 

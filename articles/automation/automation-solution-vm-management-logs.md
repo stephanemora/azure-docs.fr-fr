@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827554"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593855"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Interroger les journaux à partir de Start/Stop VMs during off-hours
 
-Azure Automation transmet deux types d'enregistrements à l'espace de travail Log Analytics lié : les journaux d'activité des tâches et les flux de tâches. Cet article passe en revue les données disponibles pour les [requête](../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor.
+Azure Automation transmet deux types d'enregistrements à l'espace de travail Log Analytics lié : les journaux d'activité des tâches et les flux de tâches. Cet article passe en revue les données disponibles pour les [requête](../azure-monitor/logs/log-query-overview.md) dans Azure Monitor.
 
 ## <a name="job-logs"></a>Journaux d’activité de tâches
 
@@ -72,5 +72,5 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer la fonctionnalité, consultez [Configurer Start/Stop VMs during off-hours](automation-solution-vm-management-config.md).
-* Pour plus d’informations sur les alertes de journal pendant le déploiement des fonctionnalités, consultez [créer des alertes de journal avec Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Pour plus d’informations sur les alertes de journal pendant le déploiement des fonctionnalités, consultez [créer des alertes de journal avec Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 * Pour résoudre les erreurs liées à la fonctionnalité, consultez [Résoudre les problèmes liés à Start/Stop VMs during off-hours](troubleshoot/start-stop-vm.md).

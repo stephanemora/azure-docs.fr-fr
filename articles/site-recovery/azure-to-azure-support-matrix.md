@@ -4,12 +4,12 @@ description: Résume la prise en charge de la récupération d’urgence des mac
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550115"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534671"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -35,6 +35,7 @@ Cet article récapitule la prise en charge et les conditions préalables pour la
 **Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
 **Migrer des machines virtuelles entre des régions dans les clusters géographiques pris en charge (dans un même abonnement et entre plusieurs abonnements)** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
 **Migrer des machines virtuelles au sein de la même région** | Non pris en charge.
+**Hôtes dédiés Azure** | Non pris en charge.
 
 ## <a name="region-support"></a>Prise en charge de la région
 
@@ -72,6 +73,16 @@ Comptes de stockage V2 à usage général (niveaux chaud et froid) | Prise en ch
 Stockage Premium | Non pris en charge | Les comptes de stockage standard sont utilisés pour le stockage du cache, afin d’optimiser les coûts.
 Pare-feux du Stockage Azure pour réseaux virtuels  | Prise en charge | Si vous utilisez un compte de stockage de cache ou cible autorisé par le pare-feu, vérifiez que l’option « [Autoriser les services Microsoft approuvés](../storage/common/storage-network-security.md#exceptions) » est activée.<br></br>Vérifiez également que vous autorisez l’accès à au moins un sous-réseau de réseau virtuel source.
 
+Le tableau ci-dessous répertorie les limites en termes de nombre de disques pouvant être répliqués sur un seul compte de stockage.
+
+**Type de compte de stockage**    |    **Attrition = 4 Mbits/s par disque**    |    **Attrition = 8 Mbits/s par disque**
+---    |    ---    |    ---
+Compte de stockage V1    |    300 disques    |    150 disques
+Compte de stockage V2    |    750 disques    |    375 disques
+
+Au fur et à mesure de l’augmentation de l’attrition moyenne des disques, le nombre de disques qu’un compte de stockage peut prendre en charge diminue. Le tableau ci-dessus peut être utilisé comme guide pour prendre des décisions par rapport au nombre de comptes de stockage qui doivent être approvisionnés.
+
+Notez que les limites ci-dessus sont spécifiques aux scénarios de récupération d’urgence d’Azure à Azure et de zone à zone. 
 
 ## <a name="replicated-machine-operating-systems"></a>Systèmes d’exploitation de machine répliquée
 
@@ -125,19 +136,19 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5
 --- | --- | --- |
 14.04 LTS | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 3.13.0-24-generic à 3.13.0-170-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-148-generic,<br/>4.15.0-1023-azure à 4.15.0-1045-azure |
 |||
-LTS 16.04 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.4.0-21-generic à 4.4.0-197-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-128-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1102-azure </br> 4.15.0-132-generic, 4.4.0-200-generic au correctif logiciel à chaud 9.40**|
+LTS 16.04 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.4.0-21-generic à 4.4.0-197-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-128-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1102-azure </br> 4.15.0-132-generic, 4.4.0-200-generic, 4.15.0-1106-azure, 4.15.0-133-generic, 4.4.0-201-generic au correctif logiciel à chaud 9.40**|
 LTS 16.04 | [9.39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-generic à 4.4.0-194-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-123-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1098-azure </br> 4.4.0-197-generic, 4.15.0-126-generic, 4.15.0-128-generic, 4.15.0-1100-azure, 4.15.0-1102-azure à 9.39 correctif logiciel à chaud**|
 LTS 16.04 | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-generic à 4.4.0-190-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-118-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1096-azure </br> 4.4.0-193-generic, 4.15.0-120-generic, 4.15.0-122-generic, 4.15.0-1098-azure à 9.38 (correctif logiciel à chaud)**|
 LTS 16.04 | [9.37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generic à 4.4.0-189-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-115-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1093-azure </br> 4.4.0-190-generic, 4.15.0-117-generic, 4.15.0-118-generic, 4.15.0-1095-azure et 4.15.0-1096-azure à 9.37 (correctif logiciel à chaud)**|
 LTS 16.04 | [9.36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-generic à 4.4.0-187-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-112-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1092-azure |
 |||
-18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-generic à 4.15.0-129-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-63-generic </br> 5.3.0-19-generic à 5.3.0-69-generic </br> 5.4.0-37-generic à 5.4.0-59-generic</br> 4.15.0-1009-azure à 4.15.0-1103-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1035-azure </br> 5.4.0-1020-azure à 5.4.0-1035-azure </br> 4.15.0-1104-azure, 4.15.0-130-generic, 4.15.0-132-generic, 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-62-generic au correctif logiciel à chaud 9.40**|
+18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-generic à 4.15.0-129-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-63-generic </br> 5.3.0-19-generic à 5.3.0-69-generic </br> 5.4.0-37-generic à 5.4.0-59-generic</br> 4.15.0-1009-azure à 4.15.0-1103-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1035-azure </br> 5.4.0-1020-azure à 5.4.0-1035-azure </br> 4.15.0-1104-azure, 4.15.0-130-generic, 4.15.0-132-generic, 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-62-generic, 4.15.0-1106-azure, 4.15.0-134-generic, 4.15.0-135-generic, 5.4.0-1039-azure, 5.4.0-64-generic, 5.4.0-65-generic au correctif logiciel à chaud 9.40**|
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-generic à 4.15.0-123-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-63-generic </br> 5.3.0-19-generic à 5.3.0-69-generic </br> 5.4.0-37-generic à 5.4.0-53-generic</br> 4.15.0-1009-azure à 4.15.0-1099-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1035-azure </br> 5.4.0-1020-azure à 5.4.0-1031-azure </br> 4.15.0-124-generic, 5.4.0-54-generic, 5.4.0-1032-azure, 5.4.0-56-generic, 4.15.0-1100-azure, 4.15.0-126-generic, 4.15.0-128-generic, 5.4.0-58-generic, 4.15.0-1102-azure, 5.4.0-1034-azure à 9.39 correctif logiciel à chaud**|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-generic à 4.15.0-118-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-61-generic </br> 5.3.0-19-generic à 5.3.0-67-generic </br> 5.4.0-37-generic à 5.4.0-48-generic</br> 4.15.0-1009-azure à 4.15.0-1096-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1035-azure </br> 5.4.0-1020-azure à 5.4.0-1026-azure </br> 4.15.0-121-generic, 4.15.0-122-generic, 5.0.0-62-generic, 5.3.0-68-generic, 5.4.0-51-generic, 5.4.0-52-generic, 4.15.0-1099-azure,  5.4.0-1031-azure à 9.38 (correctif logiciel à chaud)**|
 18.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-generic à 4.15.0-115-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-60-generic </br> 5.3.0-19-generic à 5.3.0-66-generic </br> 5.4.0-37-generic à 5.4.0-45-generic</br> 4.15.0-1009-azure à 4.15.0-1093-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1035-azure </br> 5.4.0-1020-azure à 5.4.0-1023-azure</br> 4.15.0-117-generic, 4.15.0-118-generic, 5.0.0-61-generic, 5.3.0-67-generic, 5.4.0-47-generic, 5.4.0-48-generic, 4.15.0-1095-azure, 4.15.0-1096-azure, 5.4.0-1025-azure, 5.4.0-1026-azure avec correctif logiciel à chaud** 9.37|
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic à 4.15.0-112-generic </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-generic à 5.0.0-58-generic </br> 5.3.0-19-generic à 5.3.0-65-generic </br> 5.4.0-37-generic à 5.4.0-42-generic</br> 4.15.0-1009-azure à 4.15.0-1092-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1036-azure </br> 5.3.0-1007-azure à 5.3.0-1032-azure </br> 5.4.0-1020-azure à 5.4.0-1022-azure </br> 5.0.0-60-generic et 5.3.0-1035-azure via le correctif logiciel à chaud 9.36**|
 |||
-20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic à 5.4.0-59 </br> -generic 5.4.0-1010-azure à 5.4.0-1035-azure </br> 5.8.0-29-generic à 5.8.0-34-generic </br> 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-62-generic, 5.8.0-36-generic, 5.8.0-38-generic au correctif logiciel à chaud 9.40**|
+20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic à 5.4.0-59 </br> -generic 5.4.0-1010-azure à 5.4.0-1035-azure </br> 5.8.0-29-generic à 5.8.0-34-generic </br> 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-62-generic, 5.8.0-36-azure, 5.8.0-38-generic, 5.4.0-1039-generic, 5.4.0-64-azure, 5.4.0-65-generic, 5.8.0-40-generic, 5.8.0-41-azure, 9.40-generic, 5.4.0-65-generic au correctif logiciel à chaud 9.40**|
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-generic à 5.4.0-53 </br> -generic 5.4.0-1010-azure à 5.4.0-1031-azure </br> 5.4.0-54-generic, 5.8.0-29-generic, 5.4.0-1032-azure, 5.4.0-56-generic, 5.8.0-31-generic, 5.8.0-33-generic, 5.4.0-58-generic, 5.4.0-1034-azure à 9.39 correctif logiciel à chaud**
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-generic à 5.4.0-53 </br> -generic 5.4.0-1010-azure à 5.4.0-1031-azure </br> 5.4.0-54-generic, 5.8.0-29-generic, 5.4.0-1032-azure, 5.4.0-56-generic, 5.8.0-31-generic, 5.8.0-33-generic, 5.4.0-58-generic, 5.4.0-1034-azure à 9.39 correctif logiciel à chaud**
 20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic à 5.4.0-48 </br> -generic 5.4.0-1010-azure à 5.4.0-1026-azure </br> 5.4.0-51-generic, 5.4.0-52-generic, 5.8.0-23-generic, 5.8.0-25-generic, 5.4.0-1031-azure via le correctif logiciel à chaud 9.38**
@@ -205,7 +216,7 @@ Machines virtuelles migrées à l’aide de Site Recovery | Prise en charge | Si
 Stratégies Azure RBAC | Non pris en charge | Les stratégies de contrôle d’accès en fonction du rôle Azure (Azure RBAC) sur les machines virtuelles ne sont pas répliquées sur la machine virtuelle de basculement dans la région cible.
 Extensions | Non pris en charge | Les extensions ne sont pas répliquées sur la machine virtuelle de basculement dans la région cible. Elles doivent être installées manuellement après le basculement.
 Groupes de placement de proximité | Prise en charge | Les machines virtuelles situées à l’intérieur d’un groupe de placement de proximité peuvent être protégées avec Site Recovery.
-Étiquettes  | Prise en charge | Les étiquettes générées par l’utilisateur appliquées aux machines virtuelles sources sont reportées sur les machines virtuelles cibles après le basculement de test ou le basculement.
+Étiquettes  | Prise en charge | Les étiquettes générées par l’utilisateur appliquées aux machines virtuelles sources sont reportées sur les machines virtuelles cibles après le basculement de test ou le basculement. Les balises de la ou des machines virtuelles sont répliquées une fois toutes les 24 heures pendant que la ou les machines virtuelles sont présentes dans la région cible.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Machines répliquées - Actions de disque
@@ -265,7 +276,7 @@ Disques NVMe | Non pris en charge
 Disques partagés Azure | Non pris en charge
 Option de transfert sécurisé | Prise en charge
 Disques avec accélérateur d’écriture | Non pris en charge
-Étiquettes  | Les étiquettes générées par l’utilisateur sont répliquées toutes les 24 heures.
+Étiquettes  | Prise en charge | Les étiquettes générées par l’utilisateur sont répliquées toutes les 24 heures.
 
 >[!IMPORTANT]
 > Pour éviter des problèmes de performances, veillez à respecter les cibles de scalabilité et de niveau de performance des [disques managés](../virtual-machines/disks-scalability-targets.md) de machines virtuelles. Si vous utilisez les paramètres par défaut, Site Recovery crée les disques et comptes de stockage requis en fonction de la configuration de la source. Si vous personnalisez et sélectionnez vos propres paramètres, suivez les cibles de scalabilité et de performances de disque de vos machines virtuelles sources.

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f0a9298b6d8ee011052a20dc34d314adbc5a0b1e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355764"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646399"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
@@ -27,9 +27,9 @@ Cet article décrit l’inscription d’application, les objets application et l
 ## <a name="application-registration"></a>Inscription de l’application
 Afin de pouvoir déléguer les fonctions de gestion des identités et des accès, une application doit être inscrite auprès d’un [client](developer-glossary.md#tenant) Azure AD. Lorsque vous inscrivez votre application auprès d’Azure AD, vous créez une configuration d’identité pour votre application, ce qui lui permet de s’intégrer avec Azure AD. Quand vous inscrivez une application dans le [portail Azure][AZURE-Portal], vous choisissez s’il s’agit d’une application monolocataire (accessible uniquement dans votre locataire) ou multilocataire (accessible dans d’autres locataires). De plus, vous pouvez éventuellement définir un URI de redirection (auquel le jeton d’accès est envoyé).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Capture d’écran du volet Enregistrer une application du Portail Azure":::
+Pour obtenir des instructions pas à pas sur l’inscription d’une application, consultez le [guide de démarrage rapide relatif à l’inscription des applications](quickstart-register-app.md).
 
-Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application (objet application) qui réside dans votre locataire ou annuaire de base.  Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client).  Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
+Une fois l’inscription de l’application terminée, vous disposez d’une instance globale unique de l’application ([objet application](#application-object)) qui réside dans votre locataire ou annuaire de base.  Vous disposez également d’un ID global unique pour votre application (l’ID de l’application ou du client).  Dans le portail, vous pouvez ensuite ajouter des secrets ou des certificats, ainsi que des étendues pour que votre application fonctionne, personnaliser votre application dans la boîte de dialogue de connexion, et bien plus.
 
 Si vous inscrivez une application dans le portail, un objet application et un objet principal de service sont automatiquement créés dans votre locataire de base.  Si vous inscrivez/créez une application à l’aide des API Microsoft Graph, la création de l’objet principal de service est une étape distincte.
 
@@ -65,10 +65,9 @@ L’objet application fait office de modèle à partir duquel les propriétés c
 
 Un principal de service doit être créé dans chaque locataire sur lequel l’application est utilisée, ce qui lui permet d’établir une identité pour la connexion et/ou l’accès aux ressources sécurisées par le locataire. Une application à locataire unique n’a qu’un seul principal de service (dans son locataire de base), créé et pouvant être utilisé pendant l’inscription de l’application. Une application web/API multi-locataire a également un principal de service créé dans chaque locataire où un utilisateur de ce locataire a consenti à son utilisation.
 
-> [!NOTE]
-> Toute modification apportée à l’objet application de votre application est également répercutée dans son objet principal du service, uniquement dans le client de base de l’application (le client où elle a été inscrite). Pour l’accès mutualisé, les modifications apportées à l’objet application ne sont pas répercutées dans les objets principal de service des clients consommateurs jusqu’à ce que l’accès soit supprimé via le [volet d’accès à l’application](https://myapps.microsoft.com) et à nouveau octroyé.
->
-> Notez également que les applications natives sont enregistrées en tant que mutualisées par défaut.
+Tous les changements que vous apportez à votre objet d’application, notamment les suppressions, sont reflétés dans son objet de principal de service, uniquement au sein du locataire de base de l’application (le locataire où il a été inscrit). Pour l’accès mutualisé, les modifications apportées à l’objet application ne sont pas répercutées dans les objets principal de service des clients consommateurs jusqu’à ce que l’accès soit supprimé via le [volet d’accès à l’application](https://myapps.microsoft.com) et à nouveau octroyé.
+
+Les applications natives sont inscrites en tant qu’applications multilocataires par défaut.
 
 ## <a name="example"></a>Exemple
 

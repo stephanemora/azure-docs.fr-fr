@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle Azure Resource Manager - Azure RBAC'
+title: 'Démarrage rapide : Attribuer un rôle Azure en utilisant un modèle Azure Resource Manager - Azure RBAC'
 description: Découvrez comment accorder un accès aux ressources Azure pour un utilisateur sur l’étendue du groupe de ressources à l’aide de modèles Azure Resource Manager et du contrôle d’accès en fonction du rôle Azure (RBAC Azure).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690440"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559271"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Démarrage rapide : Ajouter une attribution de rôle Azure à l’aide d’un modèle ARM
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Démarrage rapide : Attribuer un rôle Azure en utilisant un modèle ARM
 
 Le [contrôle d’accès en fonction du rôle Azure (RBAC Azure)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce démarrage rapide, vous allez créer un groupe de ressources et autoriser un utilisateur à créer et à gérer des machines virtuelles dans le groupe de ressources. Ce guide de démarrage rapide utilise un modèle Azure Resource Manager (modèle ARM) pour accorder l’accès.
 
@@ -29,11 +29,11 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ajouter des attributions de rôles, vous devez disposer :
+Pour attribuer des rôles et supprimer des attributions de rôles, voici ce dont vous devez disposer :
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
-- Pour ajouter une attribution de rôle, vous devez spécifier trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour ce démarrage rapide, vous ou un autre utilisateur dans votre annuaire avez le rôle de principal de sécurité, la définition de rôle est [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) et l’étendue est un groupe de ressources que vous spécifiez.
+- Pour attribuer un rôle, vous devez spécifier trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour ce démarrage rapide, vous ou un autre utilisateur dans votre annuaire avez le rôle de principal de sécurité, la définition de rôle est [Contributeur de machine virtuelle](built-in-roles.md#virtual-machine-contributor) et l’étendue est un groupe de ressources que vous spécifiez.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 

@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735858"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369456"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -36,6 +36,7 @@ Cet article aborde les sujets suivants :
 - Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être de type **RSA 2048** uniquement et doivent être à l’état **activé**.
 
 - Le déplacement d’un coffre Recovery Services chiffré par clé CMK d’un groupe de ressources ou d’un abonnement vers un autre n’est pas actuellement pris en charge.
+- Lorsque vous déplacez un coffre Recovery Services déjà chiffré avec des clés gérées par le client vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et sa CMK (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
 
 - Cette fonctionnalité peut être configurée à l’aide du portail Azure ou de PowerShell.
 
@@ -119,32 +120,6 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 
 1. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées à la stratégie d’accès du coffre de clés Azure.
 
-**Avec PowerShell :**
-
-Utilisez la commande [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) pour activer le chiffrement à l’aide de clés gérées par le client, et attribuer ou mettre à jour la clé de chiffrement à utiliser.
-
-Exemple :
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Sortie :
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
 
 Vous devez **activer la suppression réversible et la protection contre le vidage**  sur votre coffre de clés Azure qui stocke votre clé de chiffrement. Cette opération s’effectue dans l’interface utilisateur d’Azure Key Vault comme indiqué ci-dessous. (Vous pouvez aussi définir ces propriétés au moment de créer le coffre de clés). Pour en savoir plus sur ces propriétés Key Vault, consultez [cette page](../key-vault/general/soft-delete-overview.md).
@@ -197,7 +172,7 @@ Vous pouvez aussi activer la suppression réversible et la protection contre le 
 
 Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la clé de chiffrement de votre coffre.
 
-Pour affecter la clé :
+#### <a name="to-assign-the-key-in-the-portal"></a>Pour attribuer la clé dans le portail :
 
 1. Accédez à votre coffre Recovery Services -> **Propriétés**.
 
@@ -230,6 +205,32 @@ Pour affecter la clé :
     Les mises à jour de la clé de chiffrement sont également consignées dans le journal d’activité du coffre.
 
     ![Journal d’activité](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### <a name="to-assign-the-key-with-powershell"></a>Pour attribuer la clé avec PowerShell :
+
+Utilisez la commande [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) pour activer le chiffrement à l’aide de clés gérées par le client, et attribuer ou mettre à jour la clé de chiffrement à utiliser.
+
+Exemple :
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Sortie :
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > Ce processus est le même quand vous souhaitez mettre à jour ou modifier la clé de chiffrement. Si vous souhaitez mettre à jour et utiliser une clé d’un autre coffre de clés (différent de celui actuellement utilisé), vérifiez que :

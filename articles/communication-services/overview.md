@@ -8,22 +8,20 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 45ce295ceee9d5bd1c2393eaed854e8f2c5643ba
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888604"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659237"
 ---
 # <a name="what-is-azure-communication-services"></a>Qu’est-ce qu’Azure Communication Services ?
-
-[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Azure Communication Services vous permet d’ajouter facilement des fonctionnalités multimédias vocales, vidéos et de communication par téléphonie sur IP en temps réel à vos applications. Les bibliothèques de client Communication Services vous permettent également d’ajouter des fonctionnalités de conversation et SMS à vos solutions de communication.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+> [!VIDEO https://www.youtube.com/embed/apBX7ASurgM]
 
 <br>
 <br>
@@ -43,6 +41,7 @@ Les ressources suivantes constituent un excellent point de départ si vous ne co
 
 | Ressource                               |Description                           |
 |---                                    |---                                   |
+|**[Joindre votre application d’appel à une réunion Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services peut être utilisé pour créer des expériences de réunion personnalisées qui interagissent avec Microsoft Teams. Les utilisateurs de vos solutions Communication Services peuvent interagir avec des participants Teams via l’audio, la vidéo, la conversation et le partage d’écran.|
 |**[Créer une ressource Communication Services](./quickstarts/create-communication-resource.md)**|Vous pouvez commencer à utiliser Azure Communication Services à l’aide du portail Azure ou de la bibliothèque de client Communication Services Administration afin de provisionner votre première ressource Communication Services. Une fois que vous disposez de la chaîne de connexion de votre ressource Communication Services, vous pouvez provisionner vos premiers jetons d’accès utilisateur.|
 |**[Créer votre premier jeton d’accès utilisateur](./quickstarts/access-tokens.md)**|Les jetons d’accès utilisateur servent à authentifier vos services auprès de votre ressource Azure Communication Services. Ces jetons sont provisionnés et réémis à l’aide de la bibliothèque de client Communication Services Administration.|
 |**[Obtenir un numéro de téléphone](./quickstarts/telephony-sms/get-phone-number.md)**|Vous pouvez utiliser Azure Communication Services pour provisionner et diffuser des numéros de téléphone. Ces numéros de téléphone peuvent être utilisés pour établir des appels sortants et créer des solutions de communication SMS.|

@@ -2,13 +2,13 @@
 title: Fonctions définies par l’utilisateur dans les modèles
 description: Explique comment définir et utiliser des fonctions définies par l'utilisateur dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934677"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379622"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Fonctions définies par l'utilisateur dans un modèle Azure Resource Manager
 
@@ -44,7 +44,7 @@ Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter to
 
 ## <a name="use-the-function"></a>Utiliser la fonction
 
-L'exemple suivant illustre un modèle qui comprend une fonction définie par l'utilisateur. Il utilise cette fonction afin d'obtenir un nom unique pour un compte de stockage. Le modèle comprend un paramètre `storageNamePrefix` qu'il transmet à la fonction sous forme de paramètre.
+L’exemple suivant montre un modèle qui comprend une fonction définie par l’utilisateur pour obtenir un nom unique pour un compte de stockage. Le modèle comprend un paramètre `storageNamePrefix` qu’il transmet à la fonction sous forme de paramètre.
 
 ```json
 {
@@ -92,6 +92,12 @@ L'exemple suivant illustre un modèle qui comprend une fonction définie par l'u
  ]
 }
 ```
+
+Pendant le déploiement, le paramètre `storageNamePrefix` est transmis à la fonction :
+
+* Le modèle définit un paramètre `storageNamePrefix`.
+* La fonction utilise `namePrefix` parce que vous ne pouvez utiliser que des paramètres définis dans la fonction. Pour plus d’informations, consultez [Limitations](#limitations).
+* Dans la section `resources` du modèle, l’élément `name` utilise la fonction et transmet la valeur `storageNamePrefix` au paramètre `namePrefix` de la fonction.
 
 ## <a name="limitations"></a>Limites
 

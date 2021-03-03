@@ -1,17 +1,17 @@
 ---
 title: Architecture de connectivité - Azure Database pour PostgreSQL - Serveur unique
 description: Décrit l’architecture de connectivité de votre serveur Azure Database pour PostgreSQL - Serveur unique
-author: mksuni
-ms.author: sumuth
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 2/11/2021
+ms.openlocfilehash: 97778951777677ce02adec59d906c1246494457a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877677"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369405"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
@@ -49,14 +49,14 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | Brésil Sud |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Centre du Canada |40.85.224.249  | | |
 | Est du Canada | 40.86.226.166    | | |
-| USA Centre | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
+| USA Centre | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
 | Chine orientale | 139.219.130.35    | | |
 | Chine orientale 2 | 40.73.82.1  | | |
 | Chine du Nord | 139.219.15.17    | | |
 | Chine Nord 2 | 40.73.50.0     | | |
 | Asie Est | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     | | |
 | USA Est |40.71.8.203, 40.71.83.113 |40.121.158.30|191.238.6.43 |
-| USA Est 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  | | |
+| USA Est 2 | 40.70.144.38, 52.167.105.38  | 52.177.185.181 | |
 | France Centre | 40.79.137.0, 40.79.129.1  | | |
 | France Sud | 40.79.177.0     | | |
 | Centre de l’Allemagne | 51.4.144.100     | | |
@@ -64,22 +64,22 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database 
 | Inde Centre | 104.211.96.159     | | |
 | Sud de l’Inde | 104.211.224.146  | | |
 | Inde Ouest | 104.211.160.80    | | |
-| Japon Est | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
-| OuJapon Est | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    | | |
-| Centre de la Corée | 52.231.32.42   | | |
-| Corée du Sud | 52.231.200.86    | | |
-| Centre-Nord des États-Unis | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    | | |
-| Europe Nord | 52.138.224.6, 52.138.224.7  |40.113.93.91 |191.235.193.75 |
+| Japon Est | 40.79.192.23 | 13.78.61.196 | |
+| OuJapon Est | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
+| Centre de la Corée | 52.231.17.13   | 52.231.32.42 | |
+| Corée du Sud | 52.231.145.3     | 52.231.200.86 | |
+| Centre-Nord des États-Unis | 52.162.104.35, 52.162.104.36    | 23.96.178.199 | |
+| Europe Nord | 52.138.224.6, 52.138.224.7  | 40.113.93.91 |191.235.193.75 |
 | Afrique du Sud Nord  | 102.133.152.0    | | |
 | Afrique du Sud Ouest | 102.133.24.0   | | |
 | États-Unis - partie centrale méridionale |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
-| Asie Sud-Est | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     | | |
+| Asie Sud-Est | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
 | Émirats arabes unis Centre | 20.37.72.64  | | |
 | Émirats arabes unis Nord | 65.52.248.0    | | |
 | Sud du Royaume-Uni | 51.140.184.11   | | |
 | Ouest du Royaume-Uni | 51.141.8.11  | | |
 | Centre-USA Ouest | 13.78.145.25     | | |
-| Europe Ouest |13.69.105.208,104.40.169.187 |40.68.37.158 | 191.237.232.75|
+| Europe Ouest |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | USA Ouest |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | USA Ouest 2 | 13.66.226.202  | | |
 ||||

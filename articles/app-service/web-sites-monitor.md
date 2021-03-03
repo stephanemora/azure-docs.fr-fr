@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509551"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586097"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Superviser les applications dans Azure App Service
 [Azure App Service](./overview.md) fournit des fonctionnalités de supervision intégrées pour les applications web, mobiles et d’API dans le [portail Azure](https://portal.azure.com).
@@ -136,7 +136,7 @@ Deux métriques reflètent l’utilisation du processeur  :
 **Pourcentage processeur** : Utile pour les applications hébergées dans des plans De base, Standard et Premium qui peuvent faire l’objet d’un scale-out. Le pourcentage CPU est une bonne indication de l’utilisation globale de toutes les instances.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularité des métriques et stratégie de conservation
-Les métriques d’une application et d’un plan App Service sont consignées et agrégées par le service et [conservées conformément à ces règles](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
+Les métriques d’une application et d’un plan App Service sont consignées et agrégées par le service et [conservées conformément à ces règles](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Supervision des quotas et des métriques dans le portail Azure
 Pour examiner l’état des différents quotas et métriques qui affectent une application, accédez au [portail Azure](https://portal.azure.com).
@@ -153,14 +153,14 @@ Pour rechercher des quotas, sélectionnez **Paramètres** > **Quotas**. Sur le g
 
 Cliquez sur l’un de ces graphiques pour accéder à l’affichage des métriques dans lequel vous pouvez créer des graphiques personnalisés, interroger différentes métriques et bien plus encore. 
 
-Pour plus d’informations sur les métriques, consultez [Superviser les métriques des services](../azure-monitor/platform/data-platform.md).
+Pour plus d’informations sur les métriques, consultez [Superviser les métriques des services](../azure-monitor/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertes et mise à l’échelle automatique
-Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour plus d’informations, consultez [Réception de notifications d’alerte](../azure-monitor/platform/alerts-classic-portal.md).
+Les métriques pour une application ou un plan App Service peuvent être rattachées à des alertes. Pour plus d’informations, consultez [Réception de notifications d’alerte](../azure-monitor/alerts/alerts-classic-portal.md).
 
 Les applications App Service hébergées dans les plans App Service De base ou de niveau supérieur prennent en charge la mise à l’échelle automatique. La mise à l’échelle automatique vous permet de configurer des règles qui supervisent les métriques du plan App Service. Les règles peuvent diminuer ou augmenter le nombre d’instances, ce qui permet de fournir des ressources supplémentaires si nécessaire. Les règles peuvent aussi vous permettre d’économiser de l’argent quand l’application est surprovisionnée.
 
-Pour plus d’informations sur la mise à l’échelle automatique, consultez [Guide pratique pour mettre à l’échelle](../azure-monitor/platform/autoscale-get-started.md) et [Bonnes pratiques pour la mise à l’échelle automatique Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Pour plus d’informations sur la mise à l’échelle automatique, consultez [Guide pratique pour mettre à l’échelle](../azure-monitor/autoscale/autoscale-get-started.md) et [Bonnes pratiques pour la mise à l’échelle automatique Azure Monitor](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

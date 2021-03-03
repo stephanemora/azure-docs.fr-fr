@@ -3,16 +3,16 @@ title: Série NC - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles de la série NC.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: hpc
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 759ae69784e9e9e1c472ffa7f00ae07e28f9b37e
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c3899e9a38aee9531d61678c77ab3d54d5220100
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091695"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670274"
 ---
 # <a name="nc-series"></a>Série NC
 
@@ -24,7 +24,7 @@ Les machines virtuelles de la série NC sont pilotées par la carte [Tesla K80 d
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
-[Disques de système d'exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
 Interconnexion Nvidia/NVLink : Non pris en charge<br>
 <br>
 

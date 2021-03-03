@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951325"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385028"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Utilisez le mode Apprenti pour effectuer l'apprentissage de Personalizer sans affecter l'application existante
 
@@ -63,7 +63,7 @@ L'apprentissage n'est pas le même en mode Apprenti et en mode En ligne.
 |--|--|--|
 |Impact sur l'expérience utilisateur|Vous pouvez utiliser le comportement utilisateur existant pour effectuer l'apprentissage de Personalizer en le laissant observer (et non pas influencer) ce qu'aurait été votre **action par défaut** et la récompense obtenue. Autrement dit, l'expérience et les résultats de vos utilisateurs ne seront pas affectés.|Afficher la première action retournée par l'appel de l'API Rank pour influencer le comportement de l'utilisateur.|
 |Vitesse d'apprentissage|Personalizer apprendra plus lentement en mode Apprenti qu'en mode En ligne. Le mode Apprenti permet uniquement d'apprendre en observant les récompenses obtenues par votre **action par défaut**, ce qui limite la vitesse d'apprentissage car aucune exploration ne peut être effectuée.|Permet d'apprendre plus vite car il est à la fois possible d'exploiter le modèle en cours et d'explorer de nouvelles tendances.|
-|Efficacité d'apprentissage « plafond »|Personalizer peut se rapprocher des performances de votre logique métier de base (récompenses totales obtenues par l'**action par défaut** de chaque appel de l'API Rank), mais il est très rare qu'il fasse aussi bien, et il ne fait jamais mieux.|Personalizer doit offrir de meilleures performances que la référence de l'application et, avec le temps, lorsqu'il stagne, vous devez procéder à une évaluation hors connexion et à une évaluation des caractéristiques pour continuer à améliorer le modèle. |
+|Efficacité d'apprentissage « plafond »|Personalizer peut se rapprocher des performances de votre logique métier de base (récompenses totales obtenues par l'**action par défaut** de chaque appel de l'API Rank), mais il est très rare qu'il fasse aussi bien, et il ne fait jamais mieux. Ce plafond d’approximation est réduit par l’exploration. Par exemple, avec une exploration à 20 %, il est très peu probable que les performances du mode Apprenti dépassent 80 %. 60 % est un objectif raisonnable pour passer au mode En ligne.|Personalizer doit offrir de meilleures performances que la référence de l'application et, avec le temps, lorsqu'il stagne, vous devez procéder à une évaluation hors connexion et à une évaluation des caractéristiques pour continuer à améliorer le modèle. |
 |Valeur de l'API Rank pour rewardActionId|L'expérience des utilisateurs n'est pas affectée, car _rewardActionId_ est toujours la première action que vous envoyez dans la requête Rank. En d'autres termes, l'API Rank ne fait rien de visible pour votre application en mode Apprenti. Les API Reward de votre application ne doivent pas modifier la façon dont elle les utilise d'un mode à l'autre.|L'expérience des utilisateurs sera modifiée par le paramètre _rewardActionId_ que Personalizer choisit pour votre application. |
 |Évaluations|Personalizer compare les récompenses totales obtenues par votre logique métier par défaut et les récompense totales que Personalizer obtiendrait s'il était en mode En ligne. Une comparaison est disponible sur le portail Azure pour cette ressource|Évaluez l'efficacité de Personalizer en procédant à des [évaluations hors connexion](concepts-offline-evaluation.md) afin de pouvoir comparer les récompenses totales obtenues par Personalizer et les récompenses potentielles de la référence de l'application.|
 

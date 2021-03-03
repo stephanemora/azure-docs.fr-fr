@@ -3,16 +3,16 @@ title: Échanger des messages avec Azure Service Bus
 description: Créer des tâches et des flux de travail automatisés pour envoyer et recevoir des messages en utilisant Azure Service Bus dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019705"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367416"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -169,7 +169,7 @@ Lorsque vous créez une application logique, vous pouvez sélectionner le modèl
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retards dans l’entrée en vigueur des mises à jour de votre application logique
 
-Si l’intervalle d’interrogation d’un déclencheur Service Bus est faible, par exemple 10 secondes, les mises à jour de votre application logique peuvent ne pas prendre effet avant 10 minutes. Pour contourner ce problème, vous pouvez augmenter temporairement l’intervalle d’interrogation à une valeur plus élevée, par exemple 30 secondes ou 1 minute, avant de mettre à jour votre application logique. Après avoir effectué la mise à jour, vous pouvez rétablir la valeur d’origine de l’intervalle d’interrogation. 
+Si l’intervalle d’interrogation d’un déclencheur Service Bus est faible, par exemple 10 secondes, les mises à jour de votre application logique peuvent ne pas prendre effet avant 10 minutes. Pour contourner ce problème, vous pouvez désactiver l'application logique, effectuer les modifications, puis réactiver l'application logique.
 
 <a name="connector-reference"></a>
 

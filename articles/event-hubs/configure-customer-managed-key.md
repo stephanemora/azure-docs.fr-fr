@@ -3,12 +3,12 @@ title: Configurer votre propre clé pour chiffrer les données Azure Event Hubs 
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Event Hubs au repos.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595994"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Le service Azure Event Hubs utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l'aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l'aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft est chiffrée à l'aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire tourner, de désactiver et de révoquer l'accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
@@ -70,7 +70,7 @@ La révocation de l'accès aux clés de chiffrement ne videra pas les données d
 Une fois la clé de chiffrement révoquée, le service Event Hubs devient inutilisable sur l'espace de noms chiffré. Si l'accès à la clé est activé ou si la clé de suppression est restaurée, le service Event Hubs choisira la clé afin de vous permettre d'accéder aux données à partir de l'espace de noms Event Hubs chiffré.
 
 ## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic 
-En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/platform-logs-overview.md).
+En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Activer les journaux utilisateur
 Pour activer les journaux relatifs aux clés gérées par le client, procédez comme suit.

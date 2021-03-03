@@ -25,6 +25,8 @@
   items:
     - name: Sécurité
       items:
+        - name: "Protéger Microsoft\_365 contre les attaques locales"
+          href: protect-m365-from-on-premises-attacks.md
         - name: Collaboration externe sécurisée
           items:
             - name: Vue d’ensemble de l’accès externe sécurisé
@@ -47,8 +49,20 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Sécuriser l’accès à Teams, SharePoint et OneDrive'
               href: 9-secure-access-teams-sharepoint.md
-        - name: "Protéger Microsoft\_365 contre les attaques locales"
-          href: protect-m365-from-on-premises-attacks.md
+        - name: Sécuriser les comptes de service
+          items:
+            - name: Présentation des comptes de service locaux
+              href: service-accounts-on-premises.md
+            - name: Sécurisation des MSA de groupe
+              href: service-accounts-group-managed.md
+            - name: Sécurisation des MSA autonomes
+              href: service-accounts-standalone-managed.md
+            - name: Sécurisation des comptes d’ordinateur
+              href: service-accounts-computer.md
+            - name: Sécurisation des comptes de service basés sur les utilisateurs
+              href: service-accounts-user-on-premises.md
+            - name: Administrer les comptes de service locaux
+              href: service-accounts-govern-on-premises.md
         - name: "Activer la\_MFA"
           href: concept-fundamentals-mfa-get-started.md
         - name: Paramètres de sécurité par défaut
@@ -143,6 +157,8 @@
                   href: resilience-client-app.md
                 - name: Applications de démon
                   href: resilience-daemon-app.md
+            - name: Superviser l’intégrité des applications pour la résilience
+              href: monitor-sign-in-health-for-resilience.md
         - name: Autorités de certification utilisées dans Azure
           href: certificate-authorities.md
     - name: Guide de déploiement

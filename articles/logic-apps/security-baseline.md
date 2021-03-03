@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e47dfeab7466faf9a60b161b05d8b3bf39ebdb6a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: cf4e02f925e0c8c4024137589c0c9c4074c0aa11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203301"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596754"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Ligne de base de sécurité Azure pour Logic Apps
 
@@ -216,9 +216,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Conseils** : Utilisez le journal d’activité Azure pour surveiller les configurations des ressources réseau et détecter les modifications de celles-ci associées à vos instances Azure Logic Apps. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -242,7 +242,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 Vous pouvez également activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce. 
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Guide pratique pour configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 Vous pouvez également activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce. 
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Guide pratique pour configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -284,7 +284,7 @@ Dans Azure Monitor, définissez la période de rétention des journaux associés
 
 - [Guide pratique pour superviser l’état d’exécution, examiner l’historique des déclencheurs et configurer des alertes pour Azure Logic Apps](monitor-logic-apps.md)
 
-- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Guide pratique pour définir les paramètres de conservation des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -300,9 +300,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Guide pratique pour collecter et analyser des journaux d’activité Azure dans Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Guide pratique pour collecter et analyser des journaux d’activité Azure dans Log Analytics dans Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -320,7 +320,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -685,7 +685,7 @@ Quand vous créez un environnement de service d’intégration (ISE) pour héber
 
 **Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des changements sont apportés à Logic Apps ainsi qu’à d’autres ressources critiques ou connexes.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 

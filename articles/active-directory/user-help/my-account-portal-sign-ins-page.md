@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834147"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096070"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Afficher et rechercher votre activité de connexion récente à partir de la page Mes connexions
 
@@ -25,6 +25,12 @@ Vous pouvez consulter toutes les activités récentes de connexion de votre comp
 - Si quelqu’un tente de deviner votre mot de passe.
 - Si un attaquant s’est connecté à votre compte et depuis quel emplacement.
 - Les applications auxquelles l’attaquant a tenté d’accéder.
+
+>[!Note]
+> Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+>
+>   - https://myaccount.microsoft.com?tenantId=*votre_nom_de_domaine*
+>   - https://myaccount.microsoft.com?tenant=*votre_ID_de_locataire*
 
 ## <a name="view-your-recent-sign-in-activity"></a>Afficher votre activité de connexion récente
 

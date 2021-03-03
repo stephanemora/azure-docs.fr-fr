@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979218"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095557"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Prise en charge du flux de modification dans Stockage Blob Azure
 
@@ -268,7 +268,7 @@ Pour obtenir une description de chaque propriété, consultez [Schéma d’évé
 
 - Les enregistrements d’événements de modification pour lesquelles `eventType`a une valeur de `Control` sont des enregistrements système internes et ne reflètent pas une modification apportée aux objets de votre compte. Vous pouvez ignorer ces enregistrements sans risque.
 
-- Les valeurs du conteneur des propriétés `storageDiagnonstics` sont destinées à un usage interne uniquement et ne sont pas conçues pour être utilisées par votre application. Vos applications ne doivent pas avoir de dépendance contractuelle sur ces données. Vous pouvez ignorer ces propriétés sans risque.
+- Les valeurs du conteneur des propriétés `storageDiagnostics` sont destinées à un usage interne uniquement et ne sont pas conçues pour être utilisées par votre application. Vos applications ne doivent pas avoir de dépendance contractuelle sur ces données. Vous pouvez ignorer ces propriétés sans risque.
 
 - Le temps représenté par le segment est **approximatif** avec des limites de 15 minutes. Ainsi, pour garantir l’utilisation de tous les enregistrements dans un intervalle de temps spécifié, utilisez le segment consécutif de l’heure précédente et de l’heure suivante.
 

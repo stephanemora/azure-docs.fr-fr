@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 09/03/2020
-ms.openlocfilehash: cb7a441a6d86cd64847300d1e597cf6f86067282
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.date: 01/27/2021
+ms.openlocfilehash: c0e86cad252da1b5484944c12351d4ee1e39edbe
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740944"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656299"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Démarrage rapide : Créer une base de données Azure SQL
 
@@ -70,6 +70,8 @@ Pour créer une base de données unique dans le portail Azure, ce guide de déma
   
 
 1. Sous l’onglet **Paramètres supplémentaires**, dans la section **Source de données**, pour **Utiliser des données existantes**, sélectionnez **Exemple**. Vous créez ainsi un exemple de base de données AdventureWorksLT, de sorte qu’il existe des tables et des données à interroger et expérimenter, par opposition à une base de données vide.
+1. Si vous le souhaitez, activez [Azure Defender pour SQL](../database/azure-defender-for-sql.md).
+1. Si vous le souhaitez, définissez la [fenêtre de maintenance](../database/maintenance-window.md) afin que la maintenance planifiée soit effectuée au meilleur moment pour votre base de données.
 1. Au bas de la page, sélectionnez **Vérifier + créer** :
 
    ![Onglet Paramètres supplémentaires](./media/single-database-create-quickstart/additional-settings.png)

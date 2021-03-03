@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données à partir de Cassandra avec Data Factory
 description: Découvrez comment déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019631"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387408"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -290,14 +285,14 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
 Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données Cassandra et copier des données à partir de cette dernière. Pour les types de collection, notamment les cartes, ensembles et listes, le pilote renormalise les données dans des tables virtuelles correspondantes. En particulier, si une table contient des colonnes de n’importe quelle collection, le pilote génère les tables virtuelles suivantes :
 
 * Une **table de base**, qui contient les mêmes données que la table réelle, à l’exception des colonnes de collection. La table de base utilise le même nom que la table réelle qu’elle représente.
-* Une **table virtuelle** pour chaque colonne de collection, qui étend les données imbriquées. Le nom des tables virtuelles qui représentent des collections est composé du nom de la table réelle, du séparateur «*vt*» et du nom de la colonne.
+* Une **table virtuelle** pour chaque colonne de collection, qui étend les données imbriquées. Le nom des tables virtuelles qui représentent des collections est composé du nom de la table réelle, du séparateur « *vt* » et du nom de la colonne.
 
 Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Consultez la section Exemple pour plus d’informations. Vous pouvez accéder au contenu des collections Cassandra en interrogeant et en joignant les tables virtuelles.
 
 Vous pouvez utiliser l’[Assistant de copie](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) afin d’afficher de manière intuitive la liste des tables dans la base de données Cassandra, y compris les tables virtuelles, et de prévisualiser les données qui s’y trouvent. Vous pouvez également construire une requête dans l’Assistant de copie et valider pour voir le résultat.
 
 ### <a name="example"></a>Exemple
-Par exemple, « ExampleTable » ci-après est une table de base de données Cassandra qui contient une colonne clé primaire entière nommée « pk_int », une colonne de texte nommée « value », une colonne de liste, une colonne de mappage et une colonne de jeu (nommée « StringSet »).
+Par exemple, « ExampleTable » ci-après est une table de base de données Cassandra qui contient une colonne de clé primaire entière nommée « pk_int », une colonne de texte nommée value, une colonne de liste, une colonne de mappage et une colonne de jeu (nommée « StringSet »).
 
 | pk_int | Valeur | List | Mappage | StringSet |
 | --- | --- | --- | --- | --- |
@@ -306,7 +301,7 @@ Par exemple, « ExampleTable » ci-après est une table de base de données Cass
 
 Le pilote génère plusieurs tables virtuelles pour représenter cette table. Les colonnes de clés étrangères dans les tables virtuelles font référence aux colonnes de clés primaires dans la table réelle, et indiquent à quelles lignes de la table réelle les lignes de la table virtuelle correspondent.
 
-La première table virtuelle est la table de base nommée « ExampleTable » affichée dans le tableau suivant. La table de base contient les mêmes données que la table de base de données d’origine, à l’exception des collections, qui sont omises de cette table et développées dans d’autres tables virtuelles.
+La première table virtuelle est la table de base nommée « ExampleTable » affichée dans le tableau suivant. La table de base contient les mêmes données que la table de base de données d’origine, à l’exception des collections, qui sont omises de cette table et développées dans d’autres tables virtuelles.
 
 | pk_int | Valeur |
 | --- | --- |
@@ -315,7 +310,7 @@ La première table virtuelle est la table de base nommée « ExampleTable » aff
 
 Les tableaux suivants montrent les tables virtuelles qui renormalisent les données des colonnes Liste, Mappage et StringSet. Les colonnes portant des noms se terminant par « _index » ou « _key » indiquent la position des données dans la liste ou le mappage d’origine. Les colonnes portant des noms se terminant par « _value » contiennent les données étendues de la collection.
 
-#### <a name="table-exampletable_vt_list"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_list"></a>Table « ExampleTable_vt_List » :
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -326,14 +321,14 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletable_vt_map"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_map"></a>Table « ExampleTable_vt_Map » :
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |Un |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletable_vt_stringset"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_stringset"></a>Table « ExampleTable_vt_StringSet » :
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |Un |

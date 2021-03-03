@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609466"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095118"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>Collections d’utilisateurs (préversion) dans Mes applications
 
@@ -33,6 +33,12 @@ Cet article explique comment effectuer les opérations suivantes :
 - Masquer des collections
 - Afficher des collections masquées
 - Supprimer des collections
+
+>[!Note]
+>Si vous voyez une erreur lors de la connexion avec un compte Microsoft personnel, vous pouvez toujours vous connecter en utilisant le nom de domaine de votre organisation (par exemple, contoso.com) ou l’**ID de locataire** de votre organisation obtenu auprès de votre administrateur dans l’une des URL suivantes :
+>
+>   - https://myapplications.microsoft.com?tenantId=*votre_nom_de_domaine*
+>   - https://myapplications.microsoft.com?tenant=*votre_ID_locataire*
 
 ## <a name="create-a-collection"></a>Création d'une collection
 
@@ -103,6 +109,7 @@ Pour masquer une collection :
 Pour rendre visible une collection masquée :
 
 1. Accédez à [Mes collections d’applications](https://myapplications.microsoft.com/?endUserCollections) et connectez-vous à l’aide de votre compte professionnel ou scolaire.
+
 1. Ouvrez le menu de la page :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Sélectionnez l’icône points de suspension pour le menu de niveau page":::, puis sélectionnez **Gérer**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="Le menu de la page contient la commande Gérer pour gérer vos applications":::

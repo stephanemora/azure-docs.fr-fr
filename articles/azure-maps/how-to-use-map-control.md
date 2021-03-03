@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413375"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378704"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
 La bibliothèque JavaScript côté client Map Control vous permet d’effectuer le rendu de cartes et des fonctionnalités Azure Maps intégrées dans votre application web ou mobile.
+
+Cette documentation utilise le SDK web Azure Maps, mais les services Azure Maps peuvent être utilisés avec n’importe quel contrôle de carte. [Voici](open-source-projects.md#third-part-map-control-plugins) quelques contrôles de carte open source populaires pour lesquels l’équipe Azure Maps a créé des plug-ins.
 
 ## <a name="prerequisites"></a>Prérequis
 

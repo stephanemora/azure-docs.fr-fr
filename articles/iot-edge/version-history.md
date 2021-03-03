@@ -4,16 +4,16 @@ description: Découvrez les nouveautés d’IoT Edge avec des informations sur l
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/08/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e7b85f3e01a1c9a9c354599cfed8359b4a56d549
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 9db51fe9298b7f3329d35df375d027046e1f272e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631452"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366147"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Versions d’Azure IoT Edge et notes de publication
 
@@ -23,9 +23,11 @@ Azure IoT Edge est un produit créé à partir du projet open source IoT Edge h�
 
 La documentation IoT Edge sur ce site est disponible pour deux versions différentes du produit, ce qui vous permet de choisir le contenu qui s’applique à votre environnement IoT Edge. Actuellement, les deux versions prises en charge sont les suivantes :
 
-* **IoT Edge 1.0.10** couvre toutes les fonctionnalités et capacités par le biais de la toute dernière version mise à la disposition générale : [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10).
-* **IoT Edge 1.2 (préversion)** contient du contenu supplémentaire pour les fonctionnalités et les capacités qui se trouvent dans la préversion la plus récente : [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1).
+* **IoT Edge 1.1 (LTS)** est la première version de la prise en charge à long terme (LTS) d'IoT Edge. La documentation de cette version couvre l'ensemble des fonctionnalités de toutes les versions précédentes, jusqu'à la version 1.1. Cette version de la documentation sera stable pendant toute la durée de vie de la version 1.1, et ne reflétera pas les nouvelles fonctionnalités des versions ultérieures. La version 1.1 est la dernière version mise à la disposition générale d'IoT Edge.
+* **IoT Edge 1.2 (préversion)** bénéficie de contenu supplémentaire pour les fonctionnalités de la dernière version préliminaire, [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1)
   * Si IoT Edge 1.2 est en préversion, vous devez installer les versions Release Candidate. Pour plus d’informations, consultez [Installation hors connexion ou d’une version spécifique](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation-optional).
+
+Pour plus d'informations sur les versions d'IoT Edge, consultez [Systèmes pris en charge par Azure IoT Edge](support.md).
 
 ## <a name="version-history"></a>Historique des versions
 
@@ -33,6 +35,7 @@ Ce tableau fournit l’historique des versions récentes des packages IoT Edge e
 
 | Notes de publication et ressources | Type | Date | Points forts |
 | ------------------------ | ---- | ---- | ---------- |
+| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | Prise en charge à long terme (LTS) | Février 2021 | [Plan de prise en charge à long terme et mises à jour des systèmes pris en charge](support.md) |
 | [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | PRÉVERSION | Novembre 2020 | [Appareils IoT Edge derrière des passerelles](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[Répartiteur MQTT IoT Edge](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true) |
 | [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10) | Stable | Octobre 2020 | [Méthode directe UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)<br>[Charger des métriques de runtime](how-to-access-built-in-metrics.md)<br>[Priorité de routage et durée de vie](module-composition.md#priority-and-time-to-live)<br>[Ordre de démarrage du module](module-composition.md#configure-modules)<br>[Approvisionnement manuel X.509](how-to-register-device.md) |
 | [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | Mars 2020 | [Approvisionnement automatique X.509 avec DPS](how-to-auto-provision-x509-certs.md)<br>[Méthode directe RestartModule](how-to-edgeagent-direct-method.md#restart-module)<br>[Commande support-bundle](troubleshoot.md#gather-debug-information-with-support-bundle-command) |

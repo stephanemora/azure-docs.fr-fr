@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593635"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664129"
 ---
-# <a name="call-flows"></a>Flux d’appels
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+# <a name="call-flow-basics"></a>Principes de base des flux d’appels
 
 La section ci-dessous offre une vue d’ensemble des flux d’appels dans Azure Communication Services. Les flux multimédias et de signalisation dépendent des types d’appels que vos utilisateurs effectuent. Des exemples de types d’appels incluent VoIP un-à-un, RTPC un-à-un et les appels de groupe combinant des participants connectés par VoIP et RTPC. Passez en revue [Types d’appels](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>À propos des protocoles de signalisation et multimédias
 
-Lorsque vous établissez un appel d’égal à égal ou de groupe, deux protocoles sont utilisés en arrière-plan : HTTP (REST) pour la signalisation et SRTP pour les flux multimédias. 
+Lorsque vous établissez un appel d’égal à égal ou de groupe, deux protocoles sont utilisés en arrière-plan : HTTP (REST) pour la signalisation et SRTP pour les flux multimédias.
 
-La signalisation entre bibliothèques de client ou entre les bibliothèques de client et les contrôleurs de signalisation des services de communication est gérée avec HTTP REST (TLS). Pour le trafic multimédia en temps réel (RTP), le protocole UDP (User Datagram Protocol) est préféré. Si l’utilisation du protocole UDP est bloquée par votre pare-feu, la bibliothèque de client utilise le protocole TCP (Transmission Control Protocol) pour le contenu multimédia. 
+La signalisation entre bibliothèques de client ou entre les bibliothèques de client et les contrôleurs de signalisation des services de communication est gérée avec HTTP REST (TLS). Pour le trafic multimédia en temps réel (RTP), le protocole UDP (User Datagram Protocol) est préféré. Si l’utilisation du protocole UDP est bloquée par votre pare-feu, la bibliothèque de client utilise le protocole TCP (Transmission Control Protocol) pour le contenu multimédia.
 
-Passons en revue les protocoles de signalisation et multimédias dans différents scénarios. 
+Passons en revue les protocoles de signalisation et multimédias dans différents scénarios.
 
 ## <a name="call-flow-cases"></a>Cas de flux d’appels
 
@@ -40,7 +38,7 @@ Dans des appels VoIP un-à-un ou des appels vidéo, le trafic préfère le chemi
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Cas n° 2 : VoIP où une connexion directe entre les appareils n’est pas possible, mais où la connexion entre les périphériques NAT est possible
 
-Si deux appareils se trouvent dans des sous-réseaux qui ne peuvent pas s’atteindre mutuellement (par exemple, Alice travaille dans un café et Bob travaille dans son bureau à domicile), mais que la connexion entre les périphériques NAT est possible, les bibliothèques de client côté client établissent la connexion via les périphériques NAT. 
+Si deux appareils se trouvent dans des sous-réseaux qui ne peuvent pas s’atteindre mutuellement (par exemple, Alice travaille dans un café et Bob travaille dans son bureau à domicile), mais que la connexion entre les périphériques NAT est possible, les bibliothèques de client côté client établissent la connexion via les périphériques NAT.
 
 Pour Alice, il s’agit du traducteur d’adresses réseau (NAT) du café et, pour Bob, du traducteur d’adresses réseau de son bureau à domicile. L’appareil d’Alice envoie l’adresse externe de son traducteur d’adresses réseau et Bob fait de même. Les bibliothèques de client apprennent ces adresses externes à partir d’un service STUN (Session Traversal Utilities for NAT) qu’Azure Communication Services fournit gratuitement. La logique qui gère la négociation entre Alice et Bob est incorporée dans les bibliothèques de client fournies par Azure Communication Services. (Vous n’avez pas besoin d’une configuration supplémentaire)
 
@@ -51,7 +49,7 @@ Pour Alice, il s’agit du traducteur d’adresses réseau (NAT) du café et, po
 Si un appareil client ou les deux se trouvent derrière un traducteur d’adresses réseau symétrique, un service cloud distinct servant à relayer le contenu multimédia entre les deux bibliothèques de client est requis. Ce service est appelé TURN (Traversal Using Relays around NAT) et est également fourni par Communication Services. La bibliothèque de client Communication Services Calling utilise automatiquement les services TURN en fonction des conditions de réseau détectées. L’utilisation du service TURN de Microsoft fait l’objet d’une facturation distincte.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Schéma montrant un appel VoIP exploitant une connexion TURN.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Cas 4 : Appels de groupe avec RTPC
 
 Dans le cadre des appels RTPC, la signalisation et le contenu multimédia utilisent tous les deux la ressource de téléphonie d’Azure Communication Services. Cette ressource est interconnectée avec d’autres opérateurs.
@@ -76,6 +74,14 @@ Si la bibliothèque de client ne peut pas utiliser le protocole UDP pour le cont
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Schéma montrant le flux du processus multimédia TCP dans Communication Services.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Case 5 : Bibliothèque cliente de Communication Services et Microsoft Teams dans une réunion Teams planifiée
+
+La signalisation transite par le contrôleur de signalisation. Les flux multimédias transitent par le processeur multimédia. Le contrôleur de signalisation et le processeur multimédia sont partagés entre Communication Services et Microsoft Teams.
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramme montrant la bibliothèque cliente de Communication Services et le client Teams dans une réunion Teams planifiée.":::
+
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
@@ -85,3 +91,4 @@ Les documents suivants peuvent vous intéresser :
 
 - En savoir plus sur les [types d’appels](../concepts/voice-video-calling/about-call-types.md)
 - En savoir plus sur l’[architecture client-serveur](./client-and-server-architecture.md)
+- En savoir plus sur les [Topologies de flux d’appels](./detailed-call-flows.md)

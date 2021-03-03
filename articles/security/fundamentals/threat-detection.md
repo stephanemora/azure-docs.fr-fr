@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549925"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590346"
 ---
 # <a name="azure-threat-protection"></a>Protection contre les menaces Azure
 
@@ -89,7 +89,7 @@ En plus de fournir de précieux services de manière autonome, les journaux Azur
 Les journaux Azure Monitor vous permettent de comprendre rapidement et facilement les conditions de sécurité globales de n’importe quel environnement, dans le contexte des opérations informatiques, notamment : évaluation des mises à jour logicielles, évaluation des logiciels anti-programmes malveillants et référentiels de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
 
 ### <a name="insight-and-analytics"></a>Avis et analyses
-Au cœur des [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) se trouve le référentiel qui est hébergé par Azure.
+Au cœur des [journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md) se trouve le référentiel qui est hébergé par Azure.
 
 ![Diagramme Insight et Analytics](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Vous collectez des données dans le référentiel à partir de sources connecté
 Les sources de données et les solutions créent chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais vous pouvez toujours les analyser ensemble dans des requêtes vers le référentiel. Vous pouvez utiliser les mêmes outils et méthodes pour utiliser diverses données collectées par différentes sources.
 
 La plupart de vos interactions avec les journaux Azure Monitor s’effectuent via le portail Azure qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser les données collectées et agir sur celles-ci. À partir du portail, vous pouvez utiliser :
-* [Recherche dans les journaux](../../azure-monitor/log-query/log-query-overview.md) où vous avez élaboré des requêtes pour analyser des données collectées.
-* [Tableaux de bord](../../azure-monitor/learn/tutorial-logs-dashboards.md), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
+* [Recherche dans les journaux](../../azure-monitor/logs/log-query-overview.md) où vous avez élaboré des requêtes pour analyser des données collectées.
+* [Tableaux de bord](../../azure-monitor/visualize/tutorial-logs-dashboards.md), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
 * [Solutions](../../azure-monitor/insights/solutions.md), qui fournissent des outils d’analyse et des fonctionnalités supplémentaires.
 
 Les solutions permettent d’ajouter des fonctionnalités aux journaux Azure Monitor. Elles s’exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel Log Analytics. Ces solutions peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord Log Analytics.

@@ -3,18 +3,18 @@ title: Superviser les changements de délégation dans votre locataire gérant
 description: Découvrez comment superviser l’activité de délégation à votre locataire gérant à partir des locataires clients.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089413"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593129"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Superviser les changements de délégation dans votre locataire gérant
 
 En tant que fournisseur de services, vous souhaiterez peut-être savoir quand les abonnements clients ou les groupes de ressources sont délégués à votre locataire par le biais d’[Azure Lighthouse](../overview.md) ou quand des ressources déléguées sont supprimées.
 
-Dans le locataire gérant, le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) effectue le suivi de l’activité de délégation au niveau du locataire. Cette activité journalisée comprend les délégations ajoutées ou supprimées de tous les locataires clients.
+Dans le locataire gérant, le [journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md) effectue le suivi de l’activité de délégation au niveau du locataire. Cette activité journalisée comprend les délégations ajoutées ou supprimées de tous les locataires clients.
 
 Cette rubrique décrit les autorisations nécessaires pour superviser l’activité de délégation à votre locataire (parmi tous vos clients). Elle comprend également un exemple de script qui illustre une méthode d’interrogation et de création de rapports sur ces données.
 
@@ -104,7 +104,7 @@ Lors de l’interrogation de ces données, gardez à l’esprit les points suiva
 - Si plusieurs groupes de ressources sont délégués dans un déploiement unique, des entrées distinctes sont retournées pour chaque groupe de ressources.
 - Les modifications apportées à une délégation précédente (par exemple, la mise à jour de la structure d’autorisation) sont journalisées en tant que délégation ajoutée.
 - Comme indiqué plus haut, un compte doit avoir le rôle intégré Lecteur d’analyse Azure au niveau de l’étendue racine (/) pour pouvoir accéder à ces données au niveau du locataire.
-- Vous pouvez utiliser ces données dans vos propres workflows et rapports. Par exemple, vous pouvez utiliser l’[API Collecte de données HTTP (préversion publique)](../../azure-monitor/platform/data-collector-api.md) pour journaliser les données dans Azure Monitor à partir d’un client d’API REST, puis utiliser des [groupes d’actions](../../azure-monitor/platform/action-groups.md) pour créer des notifications ou des alertes.
+- Vous pouvez utiliser ces données dans vos propres workflows et rapports. Par exemple, vous pouvez utiliser l’[API Collecte de données HTTP (préversion publique)](../../azure-monitor/logs/data-collector-api.md) pour journaliser les données dans Azure Monitor à partir d’un client d’API REST, puis utiliser des [groupes d’actions](../../azure-monitor/alerts/action-groups.md) pour créer des notifications ou des alertes.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment intégrer des clients à [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
-- Découvrez [Azure Monitor](../../azure-monitor/index.yml) et le [journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Découvrez [Azure Monitor](../../azure-monitor/index.yml) et le [journal d’activité Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Consultez l’exemple de classeur [Journaux d’activité par domaine](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) pour savoir comment afficher les journaux d’activité Azure des différents abonnements avec une option permettant un filtrage par nom de domaine.

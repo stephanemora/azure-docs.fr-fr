@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 0f541df091733c081c77e41ebff4d0d0d93dca96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576389"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573914"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -37,7 +37,7 @@ Le service Analyse des changements d'application prend en charge les modificatio
 - App Service
 - Azure Kubernetes Service
 - Fonction Azure
-- Ressources réseau : groupe de sécurité réseau, réseau virtuel, Application Gateway, etc.
+- Ressources réseau : groupe de sécurité réseau, réseau virtuel, passerelle applicative, etc.
 - Services de données : Stockage, SQL, Cache Redis, Cosmos DB, etc.
 
 ## <a name="data-sources"></a>Sources de données
@@ -60,24 +60,29 @@ L’analyse des changements capture l’état de déploiement et la configuratio
 
 ### <a name="dependency-changes"></a>Changements de dépendances
 
-Les modifications apportées aux dépendances de ressources peuvent également occasionner des problèmes dans une ressource. Par exemple, si une application web appelle un cache Redis, la référence SKU du cache Redis peut affecter les performances de l’application web. Autre exemple. La fermeture du port 22 dans un groupe de sécurité réseau de machine virtuelle entraîne des erreurs de connectivité. 
+Les modifications apportées aux dépendances de ressources peuvent également occasionner des problèmes dans une ressource. Par exemple, si une application web appelle un cache Redis, la référence SKU du cache Redis peut affecter les performances de l’application web. Autre exemple. La fermeture du port 22 dans un groupe de sécurité réseau de machine virtuelle entraîne des erreurs de connectivité.
 
 #### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>Navigateur pour le diagnostic et la résolution de problèmes d’application web (préversion)
+
 Pour détecter les modifications dans les dépendances, l’analyse des changements vérifie les enregistrements DNS de l’application web. De cette façon, elle identifie les modifications dans tous les composants d’application qui peuvent entraîner des problèmes.
 Actuellement, les dépendances suivantes sont prises en charge dans le **Navigateur pour le diagnostic et la résolution de problèmes d’application web (préversion)**  :
+
 - Web Apps
 - Stockage Azure
 - Azure SQL
 
 #### <a name="related-resources"></a>Ressources associées
-La fonctionnalité Analyse des changements d'application détecte les ressources associées. Exemples courants : groupe de sécurité réseau, réseau virtuel, passerelle applicative et équilibreur de charge en lien avec une machine virtuelle. Les ressources réseau étant généralement approvisionnées automatiquement dans le même groupe de ressources que les ressources qui utilisent celui-ci, le filtrage des modifications par groupe de ressources affiche toutes les modifications de la machine virtuelle et des ressources réseau associées.
+
+La fonctionnalité Analyse des changements d'application détecte les ressources associées. Exemples courants : groupe de sécurité réseau, réseau virtuel, passerelle applicative et équilibreur de charge en lien avec une machine virtuelle.
+Les ressources réseau étant généralement approvisionnées automatiquement dans le même groupe de ressources que les ressources qui utilisent celui-ci, le filtrage des modifications par groupe de ressources affiche toutes les modifications de la machine virtuelle et des ressources réseau associées.
 
 ![Capture d’écran des modifications de réseau](./media/change-analysis/network-changes.png)
 
 ## <a name="application-change-analysis-service-enablement"></a>Activation du service Analyse des changements d’application
 
 Le service d’analyse des changements d’application calcule et agrège les données modifiées à partir des sources de données mentionnées ci-dessus. Il fournit un ensemble d’analytiques permettant aux utilisateurs de parcourir facilement toutes les modifications apportées aux ressources, et d’identifier quelle modification est pertinente dans le contexte de dépannage ou de supervision.
-Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez l’onglet autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit. Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez la section [Analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) plus loin dans cet article.
+Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez l’onglet autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit.
+Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez la section [Analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) plus loin dans cet article.
 
 ## <a name="cost"></a>Coût
 Le service Analyse des changements d'application est gratuit. Il n’entraîne aucun coût de facturation pour les abonnements sur lesquels il est activé. Il n’a pas non plus d’incidence sur les performances d’analyse des modifications de propriétés de ressources Azure. L’activation de l’analyse des changements dans l’invité d’applications web (ou de l’outil de diagnostic et résolution des problèmes) n’entraîne qu’un impact négligeable sur les performances de l’application web et aucun coût de facturation.
@@ -150,15 +155,14 @@ Accédez à l’outil Diagnostiquer et résoudre les problèmes d’une machine 
 ![Analyseur des changements dans les outils de dépannage](./media/change-analysis/analyze-recent-changes.png)
 
 ### <a name="activity-log-change-history"></a>Journal d’activité - Historique des modifications
-La fonctionnalité [Affichage de l’historique des modifications](../platform/activity-log.md#view-change-history) dans le Journal d’activité demande au serveur principal du service Analyse des changements d’application d’obtenir les modifications associées à une opération. L’**historique des modifications** appelait directement [Azure Resource Graph](../../governance/resource-graph/overview.md), mais demandait au serveur principal d’appeler Analyse des changements d’application de sorte que les modifications retournées incluent les modifications au niveau des ressources d’[Azure Resource Graph](../../governance/resource-graph/overview.md), les propriétés de ressource d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md) et les modifications dans l’invité de services PaaS tels que l’application web App Services. Pour que le service Analyse des changements d’application puisse analyser les modifications apportées aux abonnements des utilisateurs, un fournisseur de ressources doit être inscrit. La première fois que vous accédez à l’onglet **Historique des modifications**, l’outil commence automatiquement à inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Une fois inscrit, les modifications d’**Azure Resource Graph** sont immédiatement disponibles et couvrent les 14 derniers jours. Les modifications d’autres sources sont disponibles 4 heures environ après l’intégration de l’abonnement.
+La fonctionnalité [Affichage de l’historique des modifications](../essentials/activity-log.md#view-change-history) dans le Journal d’activité demande au serveur principal du service Analyse des changements d’application d’obtenir les modifications associées à une opération. L’**historique des modifications** appelait directement [Azure Resource Graph](../../governance/resource-graph/overview.md), mais demandait au serveur principal d’appeler Analyse des changements d’application de sorte que les modifications retournées incluent les modifications au niveau des ressources d’[Azure Resource Graph](../../governance/resource-graph/overview.md), les propriétés de ressource d’[Azure Resource Manager](../../azure-resource-manager/management/overview.md) et les modifications dans l’invité de services PaaS tels que l’application web App Services. Pour que le service Analyse des changements d’application puisse analyser les modifications apportées aux abonnements des utilisateurs, un fournisseur de ressources doit être inscrit. La première fois que vous accédez à l’onglet **Historique des modifications**, l’outil commence automatiquement à inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Une fois inscrit, les modifications d’**Azure Resource Graph** sont immédiatement disponibles et couvrent les 14 derniers jours. Les modifications d’autres sources sont disponibles 4 heures environ après l’intégration de l’abonnement.
 
 ![Journal d’activité : Intégration de l’historique des modifications](./media/change-analysis/activity-log-change-history.png)
 
 ### <a name="vm-insights-integration"></a>Intégration de VM Insights
-Les utilisateurs disposant de [VM Insights](../insights/vminsights-overview.md) activé peuvent voir ce qui a changé dans leurs machines virtuelles, ce qui peut entraîner des pics dans un graphique de métriques, comme le processeur ou la mémoire, et se demander ce qui l’a provoqué. Les données modifiées sont intégrées à la barre de navigation côté VM Insights. L’utilisateur peut voir si des modifications sont apportées à la machine virtuelle, puis cliquer sur **Examiner les modifications** pour afficher les détails des modifications dans l’interface utilisateur autonome d’Analyse des changements d’application.
+Les utilisateurs disposant de [VM Insights](../vm/vminsights-overview.md) activé peuvent voir ce qui a changé dans leurs machines virtuelles, ce qui peut entraîner des pics dans un graphique de métriques, comme le processeur ou la mémoire, et se demander ce qui l’a provoqué. Les données modifiées sont intégrées à la barre de navigation côté VM Insights. L’utilisateur peut voir si des modifications sont apportées à la machine virtuelle, puis cliquer sur **Examiner les modifications** pour afficher les détails des modifications dans l’interface utilisateur autonome d’Analyse des changements d’application.
 
 [![Intégration de VM Insights](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
-
 
 
 ## <a name="enable-change-analysis-at-scale"></a>Activez l’analyse des changements à l’échelle
@@ -195,57 +199,9 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Dépanner
-
-### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problèmes d’inscription du fournisseur de ressources Microsoft.Change Analysis à partir de l’onglet Historique des modifications
-Si vous affichez l’historique des modifications pour la première fois après son intégration à Analyse des changements d’application, vous verrez qu’il inscrit automatiquement un fournisseur de ressources **Microsoft.ChangeAnalysis**. Dans de rares cas, cela peut échouer pour les raisons suivantes :
-
-- **Vous ne disposez pas d’autorisations suffisantes pour inscrire le fournisseur de ressources Microsoft.ChangeAnalysis**. Ce message d’erreur signifie que votre rôle dans l’abonnement actuel n’est pas associé à l’étendue **Microsoft.Support/register/action**. Cela peut se produire si vous n’êtes pas le propriétaire d’un abonnement et que vous disposez d’autorisations d’accès partagé par le biais d’un collègue. Par exemple, accès en lecture à un groupe de ressources. Pour résoudre ce problème, vous pouvez contacter le propriétaire de votre abonnement pour inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Vous pouvez le faire dans le portail Azure via **Abonnements | Fournisseurs de ressources**, en recherchant ```Microsoft.ChangeAnalysis``` et en l’inscrivant dans l’interface utilisateur ou via Azure PowerShell ou Azure CLI.
-
-    Inscrire le fournisseur de ressources par le biais de PowerShell : 
-    ```PowerShell
-    # Register resource provider
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-    ```
-
-- **Échec de l’inscription du fournisseur de ressources Microsoft.ChangeAnalysis**. Ce message signifie que l’opération a échoué immédiatement quand l’interface utilisateur a envoyé la demande d’inscription du fournisseur de ressources, et que ce problème n’est pas lié à un problème d’autorisation. Il peut s’agir d’un problème de connectivité à Internet temporaire. Essayez d’actualiser la page et de vérifier votre connexion Internet. Si l’erreur persiste, contactez changeanalysishelp@microsoft.com
-
-- **Cela prend plus de temps que prévu.** Ce message signifie que l’inscription prend plus de 2 minutes. Cela est inhabituel, mais cela ne signifie pas nécessairement qu’une erreur s’est produite. Vous pouvez accéder à **Abonnements | Fournisseur de ressources** pour vérifier l’état d’inscription du fournisseur de ressources **Microsoft.ChangeAnalysis**. Vous pouvez essayer d’utiliser l’interface utilisateur pour annuler l’inscription, procéder à une nouvelle inscription ou actualiser pour voir si cela vous aide. Si le problème persiste, contactez changeanalysishelp@microsoft.com pour obtenir de l’aide.
-    ![Résolution des problèmes d’inscription de RP trop longue](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
-
-![Capture d’écran de l’outil Diagnostiquer et résoudre les problèmes d’une machine virtuelle avec Outils de dépannage sélectionné.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![Capture d’écran de la vignette de l’outil de dépannage Analyser les changements récents d’une machine virtuelle.](./media/change-analysis/analyze-recent-changes.png)
-
-### <a name="azure-lighthouse-subscription-is-not-supported"></a>L’abonnement Azure Lighthouse n’est pas pris en charge
-
-- **Échec de l’interrogation du fournisseur de ressources Microsoft.ChangeAnalysis** avec le message *L’abonnement à Azure Lighthouse n’est pas pris en charge, les modifications ne sont disponibles que dans le locataire d’accueil de l’abonnement*. Il existe actuellement une limite pour le fournisseur de ressources Analyse des changements pour s’inscrire par le biais d’un abonnement à Azure Lighthouse pour les utilisateurs qui ne sont pas dans le locataire d’accueil. Nous pensons que cette limite sera résolue dans un avenir proche. Si ce problème vous bloque, il existe une solution de contournement qui implique la création d’un principal de service et l’attribution explicite du rôle pour autoriser l’accès.  Pour en savoir plus, contactez changeanalysishelp@microsoft.com.
-
-### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Une erreur s’est produite lors de la récupération des modifications. Actualisez cette page ou revenez plus tard pour afficher les modifications
-
-Il s’agit du message d’erreur général présenté par le service Analyse des changements d’application lorsque les modifications n’ont pas pu être chargées. Voici quelques causes connues :
-- Erreur de connectivité Internet à partir de l’appareil client
-- Service Analyse des changements d’application temporairement indisponible, actualiser la page après quelques minutes corrige généralement ce problème. Si l’erreur persiste, contactez changeanalysishelp@micorosoft.com
-
-### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Vous n’avez pas les autorisations suffisantes pour afficher des modifications. Contactez votre administrateur d’abonnement Azure
-
-Il s’agit du message d’erreur général non autorisé, expliquant que l’utilisateur actuel ne dispose pas des autorisations suffisantes pour afficher les modifications. Au moins un accès lecteur est requis sur la ressource pour afficher les modifications d’infrastructure retournées par Azure Resource Graph et Azure Resource Manager. Pour les modifications de fichier dans l’application web dans l’invité et les modifications de configuration, un rôle de contributeur au moins est nécessaire.
-
-### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Échec de l’inscription du fournisseur de ressources Microsoft.ChangeAnalysis
-Ce message signifie que l’opération a échoué immédiatement quand l’interface utilisateur a envoyé la demande d’inscription du fournisseur de ressources, et que ce problème n’est pas lié à un problème d’autorisation. Il peut s’agir d’un problème de connectivité à Internet temporaire. Essayez d’actualiser la page et de vérifier votre connexion Internet. Si l’erreur persiste, contactez changeanalysishelp@microsoft.com
- 
-### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Vous ne disposez pas d’autorisations suffisantes pour inscrire le fournisseur de ressources Microsoft.ChangeAnalysis. Contactez votre administrateur d’abonnement Azure.
-Ce message d’erreur signifie que votre rôle dans l’abonnement actuel n’est pas associé à l’étendue **Microsoft.Support/register/action**. Cela peut se produire si vous n’êtes pas le propriétaire d’un abonnement et que vous disposez d’autorisations d’accès partagé par le biais d’un collègue. Par exemple, accès en lecture à un groupe de ressources. Pour résoudre ce problème, vous pouvez contacter le propriétaire de votre abonnement pour inscrire le fournisseur de ressources **Microsoft.ChangeAnalysis**. Vous pouvez le faire dans le portail Azure via **Abonnements | Fournisseurs de ressources**, en recherchant ```Microsoft.ChangeAnalysis``` et en l’inscrivant dans l’interface utilisateur ou via Azure PowerShell ou Azure CLI.
-
-Inscrire le fournisseur de ressources par le biais de PowerShell : 
-
-```PowerShell
-# Register resource provider
-Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrez les [visualisations dans l’Analyse des changements](change-analysis-visualizations.md).
+- Découvrez comment [résoudre les problèmes liés à l’Analyse des changements](change-analysis-troubleshoot.md).
 - Activez application Insights pour les [applications Azure App Services](azure-web-apps.md).
 - Activez Application Insights pour les [applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure](azure-vm-vmss-apps.md).
-- Apprenez-en davantage sur [Azure Resource Graph](../../governance/resource-graph/overview.md), qui vous aide à exécuter l’analyse des changements.

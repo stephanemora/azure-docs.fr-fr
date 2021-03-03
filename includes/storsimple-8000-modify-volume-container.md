@@ -2,42 +2,42 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71f18cf8448060385ea38be9b2719b1ed545c5d2
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67177109"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545297"
 ---
 > [!NOTE] 
 > Vous ne pouvez pas modifier les paramètres de chiffrement ni les informations d’identification de compte de stockage associés à un conteneur de volumes après sa création.
 
 #### <a name="to-modify-a-volume-container"></a>Pour modifier un conteneur de volumes
 
-1. Accédez à votre service StorSimple Device Manager, puis accédez à **Gestion > Conteneurs de volumes**.
+1. Accédez à votre service StorSimple Device Manager, puis accédez à **Gestion > Conteneurs de volumes**.
 
 2. Dans la liste tabulaire des conteneurs de volumes, sélectionnez le conteneur de volumes à modifier. Sur la page **Appareils**, sélectionnez l’appareil, double-cliquez dessus, puis cliquez sur l’onglet **Conteneurs de volumes**.
 
-2. Dans la liste tabulaire des conteneurs de volumes, sélectionnez le conteneur de volumes à modifier. Dans le panneau qui s’ouvre, cliquez sur **Modifier** à partir de la barre de commandes.
+3. Dans la liste tabulaire des conteneurs de volumes, sélectionnez le conteneur de volumes à modifier. Dans le panneau qui s’ouvre, cliquez sur **Modifier** à partir de la barre de commandes.
 
-    ![Modifier un conteneur de volumes](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
+    ![Modifier un conteneur de volumes](./media/storsimple-8000-modify-volume-container/modify-volume-container-01.png)
 
-3. Dans le panneau **Modifier le conteneur de volumes**, procédez comme suit :
+4. Dans le panneau **Modifier le conteneur de volumes**, effectuez les étapes suivantes :
    
-   1. Une fois spécifiés, le nom, la clé de chiffrement et le compte de stockage associés au conteneur de volumes ne peuvent plus être modifiés. Modifier le paramètre de bande passante associée.
+   1. Une fois spécifiés, le nom, la clé de chiffrement et le compte de stockage associés au conteneur de volumes ne peuvent plus être modifiés. Modifier le paramètre de bande passante associée.<!--STEPS NEED WORK. Updated screen doesn't show alternative to Unlimited or subsequent steps if they customize bandwidth. Can we talk them through this (briefly)?-->
       
-       ![Modifier le paramètre de bande passante](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
+       ![Modifier le paramètre de bande passante](./media/storsimple-8000-modify-volume-container/modify-volume-container-02.png)<!--New graphic based on: modify-volume-container-bw-setting.png-->
 
-   2.  Cliquez sur **OK**.
-4. Dans la page suivante de la boîte de dialogue **Modifier le conteneur de volumes** , procédez comme suit :
+   1.  Cliquez sur **OK**.<!--If they choose Custom, do they still click OK, or are there more steps?-->
+
+5. Dans la page suivante de la boîte de dialogue **Modifier le conteneur de volumes** , procédez comme suit :<!--This step happens only if they choose Custom bandwidth? Are the steps similar to those in "Add volume container," step 3f, above?"-->
    
    1. Dans la liste déroulante, sélectionnez un modèle de bande passante.
-   2. Examinez les paramètres de planification du modèle de bande passante spécifié.
-   3. Cliquez sur **Enregistrer** et confirmez les modifications.
+   1. Examinez les paramètres de planification du modèle de bande passante spécifié.
+   1. Cliquez sur **Enregistrer** et confirmez les modifications.
       
-       ![Confirmer les modifications](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
+       ![Confirmer les modifications](./media/storsimple-8000-modify-volume-container/modify-volume-container-03.png)
 
-   3. Le panneau **Conteneurs de volumes** est mis à jour pour refléter les modifications.
-
+      Le panneau **Conteneurs de volumes** est mis à jour pour refléter les modifications.

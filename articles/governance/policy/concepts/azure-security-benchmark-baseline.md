@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573070"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Base de référence de sécurité Azure Policy pour le benchmark de sécurité Azure
 
@@ -31,9 +31,9 @@ Azure Policy utilise le terme de _Propriété_ à la place de _Responsabilité_.
 
 **Aide** : Azure Policy utilise les journaux d’activité, qui sont automatiquement activés, pour inclure la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles.
 
-* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Présentation de la journalisation et des différents types de journaux dans Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Présentation de la journalisation et des différents types de journaux dans Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Supervision d’Azure Security Center** : actuellement non disponible
@@ -81,7 +81,7 @@ Vous pouvez également activer une solution JIT (Juste-à-temps)/JEA (Just-Enoug
 * [Comment configurer Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
-**Supervision d’Azure Security Center** : actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -89,7 +89,7 @@ Vous pouvez également activer une solution JIT (Juste-à-temps)/JEA (Just-Enoug
 
 **Aide** : Utilisez Azure Monitor avec les journaux d’activités pour créer des alertes lorsque des modifications sont apportées à Azure Policy.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Supervision d’Azure Security Center** : actuellement non disponible

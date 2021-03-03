@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509585"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572282"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ Pour configurer l’écriture des journaux d’audit dans un espace de travail L
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](../../azure-monitor/platform/design-logs-deployment.md).
+Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics, consultez [Conception de votre déploiement de journaux Azure Monitor](../../azure-monitor/logs/design-logs-deployment.md).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
@@ -170,7 +170,7 @@ Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure M
     ![Insights sur la sécurité Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général**, cliquez sur **Journaux d’activité**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
-    Vous pouvez également utiliser les [journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) pour exécuter des recherches avancées sur les données de votre journal d’audit. Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+    Vous pouvez également utiliser les [journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md) pour exécuter des recherches avancées sur les données de votre journal d’audit. Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événements :
 

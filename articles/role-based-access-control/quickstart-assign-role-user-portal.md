@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362010"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559322"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure
 
@@ -58,7 +58,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Dans le contrôle d’accès en fonction du rôle Azure, vous créez une attribution de rôle pour accorder l’accès.
+Dans le RBAC Azure, vous attribuez un rôle Azure pour accorder l’accès.
 
 1. Dans la liste **Groupes de ressources**, cliquez sur le nouveau groupe de ressources **rbac-resource-group**.
 
@@ -82,7 +82,7 @@ Dans le contrôle d’accès en fonction du rôle Azure, vous créez une attribu
 
 1. Dans la liste **Sélectionner**, sélectionnez un utilisateur : vous-même ou un autre.
 
-1. Cliquez sur **Enregistrer** pour créer l’attribution de rôle.
+1. Cliquez sur **Enregistrer** pour attribuer le rôle.
 
    Après quelques instants, l’utilisateur se voit attribuer le rôle Contributeur de machines virtuelles dans l’étendue du groupe de ressources rbac-resource-group.
 

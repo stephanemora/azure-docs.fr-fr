@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661083"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652128"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ L’utilisateur consommateur peut se connecter aux applications sécurisées par
 
 Vous pouvez spécifier les données qui sont collectées lorsqu’un compte d’utilisateur consommateur est créé. Pour plus d’informations, consultez [Ajouter des attributs utilisateur et personnaliser l’entrée utilisateur](configure-user-input.md).
 
-Pour plus d’informations sur la gestion des comptes de consommateur, consultez [Gérer des comptes d’utilisateur Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md).
+Pour plus d’informations sur la gestion des comptes de consommateur, consultez [Gérer des comptes d’utilisateur Azure AD B2C avec Microsoft Graph](./microsoft-graph-operations.md).
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrer des comptes d’utilisateurs consommateurs
 

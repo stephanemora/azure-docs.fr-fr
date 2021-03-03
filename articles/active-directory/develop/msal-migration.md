@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 6517cdd7aafa7ae2fe351b349e62a66104469dcd
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218228"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653777"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Migration d’applications vers la Bibliothèque d’authentification Microsoft (MSAL)
 
@@ -73,7 +73,7 @@ __Q : Comment MSAL fonctionne-t-il avec AD FS ?__
 A : MSAL.NET prend en charge certains scénarios pour s’authentifier auprès d’AD FS 2019. Si votre application doit acquérir des jetons directement à partir d’une version antérieure d’AD FS, vous devez rester sur ADAL. [Plus d’informations](msal-net-adfs-support.md)
 
 __Q : Comment obtenir de l’aide sur la migration de mon application ?__  
-A : Consultez la section [Conseils de migration](#migration-guidance) de cet article. Si, après avoir lu le guide de la plateforme de votre application, vous avez des questions supplémentaires, vous pouvez publier sur [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) avec l'étiquette `[azure-ad-adal-deprecation]` ou ouvrir un problème dans le référentiel GitHub de la bibliothèque. Consultez la section [Langages et infrastructures](msal-overview.md#languages-and-frameworks) de l’article de présentation de MSAL pour obtenir des liens vers les référentiel de chaque bibliothèque.
+A : Consultez la section [Conseils de migration](#migration-guidance) de cet article. Si, après avoir lu le guide de la plateforme de votre application, vous avez des questions supplémentaires, vous pouvez publier sur [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) avec l'étiquette `[azure-ad-adal-deprecation]` ou ouvrir un problème dans le référentiel GitHub de la bibliothèque. Consultez la section [Langages et infrastructures](msal-overview.md#languages-and-frameworks) de l’article de présentation de MSAL pour obtenir des liens vers les référentiel de chaque bibliothèque.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

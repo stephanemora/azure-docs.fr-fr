@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683120"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596471"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Résoudre les problèmes liés à l’utilisation du kit SDK Java v4 Azure Cosmos DB avec des comptes d’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,7 +54,7 @@ Le kit de développement logiciel (SDK) Cosmos DB, en cas d’échec d’e/s, re
 Pour un résultat optimal :
 * Vérifiez que l’application s’exécute dans la même région que votre compte Azure Cosmos DB. 
 * Vérifiez l’utilisation du processeur sur l’ordinateur hôte où l’application est en cours d’exécution. Si l’utilisation du processeur est supérieure ou égale à 50 %, exécutez votre application sur un hôte disposant d’une configuration plus élevée. Vous pouvez aussi distribuer la charge sur plusieurs ordinateurs.
-    * Si vous exécutez votre application sur Azure Kubernetes Service, vous pouvez [vous servir d’Azure Monitor pour superviser l’utilisation du processeur](../azure-monitor/insights/container-insights-analyze.md).
+    * Si vous exécutez votre application sur Azure Kubernetes Service, vous pouvez [vous servir d’Azure Monitor pour superviser l’utilisation du processeur](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitation de la connexion
 La limitation de la connexion peut se produire en raison d’une [Limite de connexion sur un ordinateur hôte] ou d’une [insuffisance de ports Azure SNAT (PAT)].

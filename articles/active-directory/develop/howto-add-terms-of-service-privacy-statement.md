@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013666"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104193"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
@@ -58,11 +58,11 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>À l’aide du Portail Azure
 Suivez les étapes ci-dessous dans le portail Azure.
 
-1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>, puis sélectionnez le locataire Azure AD approprié (pas B2C).
+1. Connectez-vous au <a href="https://portal.azure.com/" target="_blank">portail Azure</a>, puis sélectionnez le locataire Azure AD approprié (pas B2C).
 2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
-3. Ouvrez le volet **Personnalisation**.
+3. Dans **Gérer**, sélectionnez **Personnalisation**.
 4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
-5. Enregistrez vos modifications.
+5. Sélectionnez **Enregistrer**.
 
     ![Les propriétés de l’application contiennent les URL des conditions d’utilisation du service et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 

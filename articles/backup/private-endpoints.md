@@ -3,12 +3,12 @@ title: Points de terminaison privés
 description: Apprenez à créer des points de terminaison privés pour le service Sauvegarde Azure et découvrez les scénarios où l’utilisation des points de terminaison privés contribue à maintenir la sécurité de vos ressources.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a22da7341e3ebeff29bc784cfff0cc8aeb87fb9b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054870"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362499"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
 
@@ -27,26 +27,29 @@ Cet article vous aidera à comprendre le processus de création de points de ter
 - Les réseaux virtuels avec des stratégies réseau ne sont pas compatibles avec les points de terminaison privés. Vous devez donc désactiver les stratégies réseau avant de continuer.
 - Vous devrez réinscrire le fournisseur de ressources Recovery Services auprès de l’abonnement si vous l’avez enregistré avant le 1er mai 2020. Pour réinscrire le fournisseur, accédez à votre abonnement dans le portail Azure, accédez à **Fournisseur de ressources** dans la barre de navigation de gauche, sélectionnez **Microsoft.RecoveryServices**, puis sélectionnez **Réinscrire**.
 - Les [restaurations inter-régions](backup-create-rs-vault.md#set-cross-region-restore) pour les sauvegardes de bases de données SQL et SAP HANA ne sont pas prises en charge si les points de terminaison privés sont activés dans le coffre.
+- Lorsque vous déplacez un coffre Recovery Services utilisant déjà des points de terminaison privés vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et créer des points de terminaison privés si nécessaire (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
 
 ## <a name="recommended-and-supported-scenarios"></a>Scénarios recommandés et pris en charge
 
 Même si des points de terminaison privés sont activés dans un coffre, ils sont uniquement utilisés pour la sauvegarde et la restauration des charges de travail SQL et SAP HANA en cas de sauvegarde de machines virtuelles Azure et de sauvegarde à l’aide de l’agent MARS. Vous pouvez également utiliser le coffre pour la sauvegarde d’autres charges de travail (cependant, cela ne nécessiterait pas de point de terminaison privé). En plus de la sauvegarde des charges de travail SQL et SAP HANA et de la sauvegarde à l’aide de l’agent MARS, les points de terminaison privés servent également à effectuer des récupérations de fichiers pour la sauvegarde de machines virtuelles Azure. Pour plus d’informations, voir le tableau suivant :
 
-| Sauvegarde de charges de travail dans une machine virtuelle Azure (SQL, SAP HANA) à l’aide de l’agent MARS | Nous vous recommandons d’utiliser des points de terminaison privés pour permettre la sauvegarde et la restauration sans avoir à créer de liste d’autorisation des adresses IP/noms de domaine complets (FQDN) pour les services Sauvegarde Azure ou Stockage Azure depuis vos réseaux virtuels. Dans ce scénario, assurez-vous que les machines virtuelles hébergeant des bases de données SQL peuvent atteindre des adresses IP ou des noms de domaine complets Azure AD. |
+| Sauvegarde de charges de travail dans une machine virtuelle Azure (SQL, SAP HANA) à l’aide de l’agent MARS | Nous vous recommandons d’utiliser des points de terminaison privés pour permettre la sauvegarde et la restauration sans avoir à ajouter à une liste d’autorisation les adresses IP ou les noms de domaine complets pour Sauvegarde Azure ou Stockage Azure depuis vos réseaux virtuels. Dans ce scénario, assurez-vous que les machines virtuelles hébergeant des bases de données SQL peuvent atteindre des adresses IP ou des noms de domaine complets Azure AD. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Sauvegarde des machines virtuelles Azure**                                         | La sauvegarde de machine virtuelle ne vous oblige pas à autoriser l’accès à des adresses IP ou des noms de domaine complets. Ainsi, les points de terminaison privés ne sont pas requis pour la sauvegarde et la restauration des disques.  <br><br>   Toutefois, la récupération de fichiers à partir d’un coffre contenant des points de terminaison privés est limitée aux réseaux virtuels qui contiennent un point de terminaison privé associé au coffre. <br><br>    Lorsque vous utilisez des disques non managés ACL, assurez-vous que le compte de stockage contenant les disques autorise l’accès à des **services Microsoft approuvés** s’il est ACL. |
 | **Sauvegarde Azure Files**                                      | Les sauvegardes du service Azure Files sont stockées dans le compte de stockage local. Ainsi, vous n’avez pas besoin de points de terminaison privés pour la sauvegarde et la restauration. |
 
-## <a name="creating-and-using-private-endpoints-for-backup"></a>Création et utilisation de points de terminaison privés pour le service Sauvegarde Azure
+## <a name="get-started-with-creating-private-endpoints-for-backup"></a>Prise en main de la création de points de terminaison privés pour Sauvegarde Azure
 
-Cette section décrit les étapes de création et d’utilisation des points de terminaison privés pour le service Sauvegarde Azure à l’intérieur de vos réseaux virtuels.
+Les sections suivantes traitent des étapes de création et d’utilisation des points de terminaison privés pour Sauvegarde Azure au sein de vos réseaux virtuels.
 
 >[!IMPORTANT]
 > Nous vous recommandons vivement de suivre l’ordre des étapes établi dans ce document. Si vous ne le faites pas, le coffre rendu risque d’être incompatible avec l’utilisation des points de terminaison privés. Cela vous obligera à recommencer la procédure avec un nouveau coffre.
 
-[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
-Consultez [cette section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) pour savoir comment créer un coffre à l’aide du client Azure Resource Manager. Cela crée un coffre dont l’identité managée est déjà activée. [En savoir plus](./backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
+Les points de terminaison privés pour Sauvegarde Azure ne peuvent être créés que pour les coffres Recovery Services qui n’ont pas d’éléments protégés (ou qui n’ont pas été tentés d’être protégés ou inscrits auparavant). Nous vous suggérons donc de créer un coffre pour commencer. Pour plus d’informations sur la création d’un coffre, consultez [Créer et configurer un coffre Recovery Services](backup-create-rs-vault.md).
+
+Consultez [cette section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) pour savoir comment créer un coffre à l’aide du client Azure Resource Manager. Cela crée un coffre dont l’identité managée est déjà activée.
 
 ## <a name="enable-managed-identity-for-your-vault"></a>Activer une identité managée sur votre machine virtuelle
 
@@ -69,7 +72,7 @@ Pour créer les points de terminaison privés requis pour le service Sauvegarde 
 
 - Le groupe de ressources qui contient le réseau virtuel (VNet) cible.
 - Le groupe de ressources dans lequel les points de terminaison privés doivent être créés.
-- Le groupe de ressources qui contient Private DNS Zones, comme discuté en détail [ici](#creating-private-endpoints-for-backup)
+- Le groupe de ressources qui contient Private DNS Zones, comme discuté en détail [ici](#create-private-endpoints-for-azure-backup)
 
 Nous vous recommandons d’accorder le rôle **Contributor** (Contributeur) à ces trois groupes de ressources pour le coffre (identité managée). Les étapes suivantes expliquent comment effectuer cette opération pour un groupe de ressources particulier (cette opération doit être effectuée pour chacun des trois groupes de ressources) :
 
@@ -84,41 +87,39 @@ Nous vous recommandons d’accorder le rôle **Contributor** (Contributeur) à c
 
 Pour gérer les autorisations plus précisément, consultez la section [Créer manuellement des rôles et des autorisations](#create-roles-and-permissions-manually).
 
-## <a name="creating-and-approving-private-endpoints-for-azure-backup"></a>Création et approbation de points de terminaison privés pour le service Sauvegarde Azure
+## <a name="create-private-endpoints-for-azure-backup"></a>Créer des points de terminaison privés pour Sauvegarde Azure
 
-### <a name="creating-private-endpoints-for-backup"></a>Création de points de terminaison privés pour le service Sauvegarde Azure
+Cette section explique comment créer un point de terminaison privé pour votre coffre.
 
-Cette section décrit le processus de création d’un point de terminaison privé pour votre coffre.
+1. Accédez à votre coffre créé ci-dessus et rendez-vous dans **Connexions de point de terminaison privé** dans la barre de navigation de gauche. Sélectionnez **+Point de terminaison privé** en haut pour commencer à créer un nouveau point de terminaison privé pour ce coffre.
 
-1. Dans la barre de recherche, recherchez et sélectionnez **Private Link** (Liaison privée). Vous accédez alors au **Private Link Center** (Centre de liaison privée).
-
-    ![Rechercher un cloud privé](./media/private-endpoints/search-for-private-link.png)
-
-1. Dans la barre de navigation de gauche, sélectionnez **points de terminaison privés**. Une fois dans le volet **Points de terminaison privés**, sélectionnez **+Ajouter** pour démarrer le processus de création d’un point de terminaison privé pour votre coffre.
-
-    ![Ajouter un point de terminaison privé dans le Centre de liaison privée](./media/private-endpoints/add-private-endpoint.png)
+    ![Créer un point de terminaison privé](./media/private-endpoints/new-private-endpoint.png)
 
 1. Une fois dans le processus **Create Private Endpoint** (Créer un point de terminaison privé), vous devez entrer des informations requises pour créer la connexion de votre point de terminaison privé.
+  
+    1. **Paramètres de base**: Entrez les informations de base de vos points de terminaison privés. La région doit être la même que celle du coffre et de la ressource sauvegardés.
 
-    1. **Paramètres de base**: Entrez les informations de base de vos points de terminaison privés. La région doit être la même que celle de votre coffre et votre ressource.
+        ![Capture d’écran montrant les champs d’informations de base à remplir](./media/private-endpoints/basics-tab.png)
 
-        ![Capture d’écran montrant les champs d’informations de base à remplir](./media/private-endpoints/basic-details.png)
+    1. **Ressource** : Dans cet onglet, vous devez sélectionner la ressource PaaS pour laquelle vous souhaitez créer votre connexion. Sélectionnez **Microsoft.RecoveryServices/vaults** à partir du type de ressource pour l’abonnement souhaité. Lorsque vous avez terminé, choisissez le nom de votre coffre Recovery Services dans la section **Resource** (Ressource) et **AzureBackup** dans la section **Target sub-resource** (Sous-ressource cible).
 
-    1. **Ressource** : Dans cet onglet, vous devez mentionner la ressource PaaS pour laquelle vous souhaitez créer votre connexion. Sélectionnez **Microsoft.RecoveryServices/vaults** à partir du type de ressource pour l’abonnement souhaité. Lorsque vous avez terminé, choisissez le nom de votre coffre Recovery Services dans la section **Resource** (Ressource) et **AzureBackup** dans la section **Target sub-resource** (Sous-ressource cible).
+        ![Sélectionner la ressource pour votre connexion](./media/private-endpoints/resource-tab.png)
 
-        ![Capture d’écran montrant les champs à remplir de l’onglet Resource (Ressource)](./media/private-endpoints/resource-tab.png)
+    1. **Configuration** : Dans Configuration, spécifiez le réseau virtuel et le sous-réseau où vous souhaitez que le point de terminaison privé soit créé. Il s’agit du réseau virtuel sur lequel se trouve la machine virtuelle.
 
-    1. **Configuration** : Dans Configuration, spécifiez le réseau virtuel et le sous-réseau où vous souhaitez que le point de terminaison privé soit créé. Il s’agit du réseau virtuel sur lequel se trouve la machine virtuelle. Vous pouvez **intégrer votre point de terminaison privé** à une zone DNS privée. Vous pouvez également utiliser votre serveur DNS personnalisé ou créer une zone DNS privée.
+        Pour vous connecter de manière privée, vous devez disposer des enregistrements DNS requis. En fonction de la configuration de votre réseau, vous pouvez choisir l’une des options suivantes :
 
-        ![Capture d’écran montrant l’onglet Configuration](./media/private-endpoints/configuration-tab.png)
+          - Intégrer votre point de terminaison privé à une zone DNS privée : sélectionnez **Oui** si vous souhaitez l’intégrer.
+          - Utiliser votre serveur DNS personnalisé : sélectionnez **Non** si vous souhaitez utiliser votre propre serveur DNS.
 
-        Reportez-vous à [cette section](#dns-changes-for-custom-dns-servers) si vous souhaitez utiliser vos serveurs DNS personnalisés au lieu de les intégrer à Azure Private DNS Zones.  
+        La gestion des enregistrements DNS pour ces deux options est [décrite plus loin](#manage-dns-records) dans cet article.
+
+          ![Spécifier le réseau virtuel et le sous-réseau](./media/private-endpoints/configuration-tab.png)
 
     1. Si vous le souhaitez, vous pouvez ajouter des **balises** à votre point de terminaison privé.
-
     1. Passez à **Vérifier + créer** lorsque vous avez terminé la saisie des informations requises. Une fois la validation terminée, sélectionnez **Créer** pour créer le point de terminaison privé.
 
-## <a name="approving-private-endpoints"></a>Approbation des points de terminaison privés
+## <a name="approve-private-endpoints"></a>Approuver des points de terminaison privés
 
 Si l’utilisateur qui crée le point de terminaison privé est également le propriétaire du coffre Recovery Services, le point de terminaison privé créé précédemment est approuvé automatiquement. Dans le cas contraire, le propriétaire du coffre doit approuver le point de terminaison privé avant de pouvoir l’utiliser. Cette section présente l’approbation manuelle des points de terminaison privés via le portail Azure.
 
@@ -130,7 +131,90 @@ Si vous souhaitez utiliser le client Azure Resource Manager pour approuver vos p
 
     ![Capture d’écran montrant la procédure d’approbation d’un point de terminaison privé](./media/private-endpoints/approve-private-endpoints.png)
 
-## <a name="using-private-endpoints-for-backup"></a>Points de terminaison privés pour le service Sauvegarde Azure
+## <a name="manage-dns-records"></a>Gestion des enregistrements DNS
+
+Comme décrit précédemment, vous avez besoin des enregistrements DNS requis dans vos zones ou serveurs DNS privés afin de vous connecter de manière privée. Vous pouvez intégrer votre point de terminaison privé directement aux zones DNS privées Azure ou utiliser vos serveurs DNS personnalisés pour y parvenir, en fonction de vos préférences réseau. Cela devra être fait pour les trois services : Sauvegarde, Blobs et Files d’attente.
+
+### <a name="when-integrating-private-endpoints-with-azure-private-dns-zones"></a>Lors de l’intégration de points de terminaison privés à des zones DNS privées Azure
+
+Si vous choisissez d’intégrer votre point de terminaison privé à des zones DNS privées, Sauvegarde Azure ajoutera les enregistrements DNS requis. Vous pouvez afficher les zones DNS privées utilisées sous la rubrique **Configuration DNS** du point de terminaison privé. Si ces zones DNS ne sont pas présentes, elles sont créées automatiquement lors de la création du point de terminaison privé. Toutefois, vous devez vérifier que votre réseau virtuel (qui contient les ressources à sauvegarder) est correctement lié aux trois zones DNS privées, comme décrit ci-dessous.
+
+![Configuration DNS dans la zone DNS privée Azure](./media/private-endpoints/dns-configuration.png)
+
+#### <a name="validate-virtual-network-links-in-private-dns-zones"></a>Valider les liaisons de réseau virtuel dans les zones DNS privées
+
+Pour **chaque zone DNS privée** indiquée ci-dessus (pour Sauvegarde, Blobs et Files d’attente), procédez comme suit :
+
+1. Accédez à l’option **Liens de réseau virtuel** respective dans la barre de navigation de gauche.
+1. Vous devriez pouvoir voir une entrée pour le réseau virtuel pour lequel vous avez créé le point de terminaison privé, comme celui illustré ci-dessous :
+
+    ![Réseau virtuel pour le point de terminaison privé](./media/private-endpoints/virtual-network-links.png)
+
+1. Si vous ne voyez pas d’entrée, ajoutez un lien de réseau virtuel à toutes les zones DNS qui n’en ont pas.
+
+    ![Ajouter un lien de réseau virtuel](./media/private-endpoints/add-virtual-network-link.png)
+
+### <a name="when-using-custom-dns-server-or-host-files"></a>Lors de l’utilisation d’un serveur DNS personnalisé ou de fichiers d’hôtes
+
+Si vous utilisez vos serveurs DNS personnalisés, vous devez créer les zones DNS nécessaires et ajouter les enregistrements DNS requis par les points de terminaison privés à vos serveurs DNS. Pour les blobs et les files d’attente, vous pouvez également utiliser des redirecteurs conditionnels.
+
+#### <a name="for-the-backup-service"></a>Pour le service Sauvegarde Azure
+
+1. Sur votre serveur DNS, créez une zone DNS pour Sauvegarde Azure en respectant la convention d’affectation de noms suivante :
+
+    |Zone |Service |
+    |---------|---------|
+    |`privatelink.<geo>.backup.windowsazure.com`   |  Sauvegarde        |
+
+    >[!NOTE]
+    > Dans le texte ci-dessus, `<geo>` fait référence au code de région (par exemple, *eus* et *ne* pour les régions USA Est et Europe Nord, respectivement). Consultez les listes suivantes pour connaître les codes de régions :
+    >
+    > - [Tous les clouds publics](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+    > - [Chine](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+    > - [Allemagne](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
+    > - [Gouvernement des États-Unis](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+
+1. Ensuite, nous devons ajouter les enregistrements DNS requis. Pour afficher les enregistrements qui doivent être ajoutés à la zone DNS de Sauvegarde Azure, accédez au point de terminaison privé que vous avez créé ci-dessus, puis accédez à l’option **Configuration DNS** sous la barre de navigation de gauche.
+
+    ![Configuration DNS pour le serveur DNS personnalisé](./media/private-endpoints/custom-dns-configuration.png)
+
+1. Ajoutez une entrée pour chaque nom de domaine complet et adresse IP affichés sous la forme d’enregistrements de type A dans votre zone DNS pour Sauvegarde Azure. Si vous utilisez un fichier d’hôte pour la résolution de noms, effectuez les entrées correspondantes dans le fichier d’hôte pour chaque adresse IP et nom de domaine complet selon le format suivant :
+
+    `<private ip><space><backup service privatelink FQDN>`
+
+>[!NOTE]
+>Comme indiqué dans la capture d’écran ci-dessus, les noms de domaine complets indiquent `xxxxxxxx.<geo>.backup.windowsazure.com` et non `xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`. Dans ce cas, veillez à inclure (et, le cas échéant, à ajouter) le `.privatelink.` conformément au format indiqué.
+
+#### <a name="for-blob-and-queue-services"></a>Pour les services de Blob et de File d’attente
+
+Pour les blobs et les files d’attente, vous pouvez utiliser des redirecteurs conditionnels ou créer des zones DNS sur votre serveur DNS.
+
+##### <a name="if-using-conditional-forwarders"></a>En cas d’utilisation de redirecteurs conditionnels
+
+Si vous utilisez des redirecteurs conditionnels, ajoutez des redirecteurs pour les noms de domaine complets des blobs et des files d’attente comme suit :
+
+|FQDN  |IP  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  168.63.129.16       |
+|`privatelink.queue.core.windows.net`     | 168.63.129.16        |
+
+##### <a name="if-using-private-dns-zones"></a>En cas d’utilisation de zones DNS privées
+
+Si vous utilisez des zones DNS pour les blobs et les files d’attente, vous devez d’abord créer ces zones DNS et ajouter ultérieurement les enregistrements A requis.
+
+|Zone |Service  |
+|---------|---------|
+|`privatelink.blob.core.windows.net`     |  Objet blob     |
+|`privatelink.queue.core.windows.net`     | File d'attente        |
+
+Pour l’instant, nous ne créerons les zones pour les blobs et les files d’attente que lorsque nous utiliserons des serveurs DNS personnalisés. L’ajout d’enregistrements DNS sera effectué plus tard en deux étapes :
+
+1. Lorsque vous inscrivez la première instance de sauvegarde, c’est-à-dire lorsque vous configurez la sauvegarde pour la première fois.
+1. Lorsque vous exécutez la première sauvegarde.
+
+Nous effectuerons ces étapes dans les sections suivantes.
+
+## <a name="use-private-endpoints-for-backup"></a>Utiliser des points de terminaison privés pour Sauvegarde Azure
 
 Après l’approbation des points de terminaison privés créés pour le coffre de votre réseau virtuel, vous pouvez commencer à les utiliser pour effectuer vos sauvegardes et restaurations.
 
@@ -138,21 +222,80 @@ Après l’approbation des points de terminaison privés créés pour le coffre 
 >Avant de continuer, vérifiez que vous avez suivi toutes les étapes précédentes de ce document. Voici une liste des de ces étapes :
 >
 >1. Créer un (nouveau) coffre Recovery Services
->1. Activer le coffre pour utiliser l’identité managée affectée par le système
->1. Attribuer les autorisations appropriées à l’identité managée du coffre
->1. Créer un point de terminaison privé pour votre coffre
->1. Approuver le point de terminaison privé (s’il n’a pas été approuvé automatiquement)
+>2. Activer le coffre pour utiliser l’identité managée affectée par le système
+>3. Attribuer les autorisations appropriées à l’identité managée du coffre
+>4. Créer un point de terminaison privé pour votre coffre
+>5. Approuver le point de terminaison privé (s’il n’a pas été approuvé automatiquement)
+>6. Vérifier que tous les enregistrements DNS sont correctement ajoutés (à l’exception des enregistrements de blob et de file d’attente pour les serveurs personnalisés, qui seront abordés dans les sections suivantes)
 
-### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-sap-hana"></a>Sauvegarde et restauration des charges de travail dans une machine virtuelle Azure (SQL, SAP HANA)
+### <a name="check-vm-connectivity"></a>Vérifier la connectivité des machines virtuelles
 
-Lorsque le point de terminaison privé est créé et approuvé, aucune modification supplémentaire n’est requise côté client pour utiliser le point de terminaison privé. Toutes les communications et tous les transferts de données de votre réseau sécurisé vers le coffre sont effectués via le point de terminaison privé.
-Toutefois, si vous supprimez des points de terminaison privés associés au coffre après l’enregistrement d’un serveur (SQL/SAP HANA), vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
+Dans la machine virtuelle du réseau verrouillé, vérifiez les points suivants :
+
+1. La machine virtuelle doit avoir accès à AAD.
+2. Exécutez **nslookup** sur l’URL de sauvegarde (`xxxxxxxx.privatelink.<geo>.backup. windowsazure.com`) à partir de votre machine virtuelle pour garantir la connectivité. Cette opération doit renvoyer l’adresse IP privée attribuée dans votre réseau virtuel.
+
+### <a name="configure-backup"></a>Configurer une sauvegarde
+
+Une fois que vous vous êtes assuré que la liste de vérification ci-dessus et l’accès ont été correctement effectués, vous pouvez continuer à configurer la sauvegarde des charges de travail dans le coffre. Si vous utilisez un serveur DNS personnalisé, vous devez ajouter des entrées DNS pour les blobs et les files d’attente disponibles après la configuration de la première sauvegarde.
+
+#### <a name="dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration"></a>Enregistrements DNS pour les blobs et les files d’attente (uniquement pour les fichiers d’hôtes/serveurs DNS personnalisés) après la première inscription
+
+Une fois que vous avez configuré la sauvegarde pour au moins une ressource d’un coffre pour lequel un point de terminaison privé est activé, ajoutez les enregistrements DNS requis pour les blobs et les files d’attente, comme décrit ci-dessous.
+
+1. Accédez à votre groupe de ressources, puis recherchez le point de terminaison privé que vous avez créé.
+1. Hormis le nom du point de terminaison privé que vous avez donné, vous verrez deux autres points de terminaison privés en cours de création. Ces derniers commencent par `<the name of the private endpoint>_ecs` et sont suivis des suffixes `_blob` et `_queue` respectivement.
+
+    ![Ressources de point de terminaison privé](./media/private-endpoints/private-endpoint-resources.png)
+
+1. Accédez à chacun de ces points de terminaison privés. Dans l’option Configuration DNS pour chacun des deux points de terminaison privés, vous verrez un enregistrement avec un nom de domaine complet et une adresse IP. Ajoutez ces deux éléments à votre serveur DNS personnalisé, en plus de ceux décrits précédemment.
+Si vous utilisez un fichier d’hôte, effectuez les entrées correspondantes dans le fichier d’hôte pour chaque adresse IP/nom de domaine complet selon le format suivant :
+
+    `<private ip><space><blob service privatelink FQDN>`<br>
+    `<private ip><space><queue service privatelink FQDN>`
+
+    ![Configuration DNS de blobs](./media/private-endpoints/blob-dns-configuration.png)
+
+Outre les éléments ci-dessus, une autre entrée est nécessaire après la première sauvegarde, dont il est question [plus loin](#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
+
+### <a name="backup-and-restore-of-workloads-in-azure-vm-sql-and-sap-hana"></a>Sauvegarde et restauration de charges de travail dans une machine virtuelle Azure (SQL et SAP HANA)
+
+Une fois le point de terminaison privé créé et approuvé, aucune autre modification n’est requise côté client pour utiliser le point de terminaison privé (à moins que vous n’utilisiez des groupes de disponibilité SQL, cas que nous aborderons plus loin dans cette section). Toutes les communications et tous les transferts de données de votre réseau sécurisé vers le coffre sont effectués via le point de terminaison privé. Toutefois, si vous supprimez des points de terminaison privés associés au coffre après l’inscription d’un serveur (SQL ou SAP HANA), vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
+
+#### <a name="dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup"></a>Enregistrements DNS pour les blobs (uniquement pour les fichiers d’hôtes/serveurs DNS personnalisés) après la première sauvegarde
+
+Une fois que vous avez exécuté la première sauvegarde et que vous utilisez un serveur DNS personnalisé (sans transfert conditionnel), il est probable que votre sauvegarde échoue. Si cela se produit :
+
+1. Accédez à votre groupe de ressources, puis recherchez le point de terminaison privé que vous avez créé.
+1. En plus des trois points de terminaison privés abordés précédemment, vous allez maintenant voir un quatrième point de terminaison privé dont le nom commence par `<the name of the private endpoint>_prot` et est suivi du suffixe `_blob`.
+
+    ![Point de terminaison privé avec le suffixe « prot »](./media/private-endpoints/private-endpoint-prot.png)
+
+1. Accédez à ce nouveau point de terminaison privé. Dans l’option Configuration DNS, vous verrez un enregistrement avec un nom de domaine complet et une adresse IP. Ajoutez-les à votre serveur DNS privé, en plus de ceux décrits précédemment.
+
+    Si vous utilisez un fichier d’hôte, effectuez les entrées correspondantes dans le fichier d’hôte pour chaque adresse IP et nom de domaine complet selon le format suivant :
+
+    `<private ip><space><blob service privatelink FQDN>`
+
+>[!NOTE]
+>À ce stade, vous devriez être en mesure d’exécuter **nslookup** à partir de la machine virtuelle et de résoudre les adresses IP privées sur les URL de sauvegarde et de stockage du coffre.
+
+### <a name="when-using-sql-availability-groups"></a>Lors de l’utilisation de groupes de disponibilité SQL
+
+Lorsque vous utilisez des groupes de disponibilité (AG) SQL, vous devez configurer le transfert conditionnel dans le DNS AG personnalisé comme décrit ci-dessous :
+
+1. Connectez-vous à votre contrôleur de domaine.
+1. Sous l’application DNS, ajoutez des redirecteurs conditionnels pour les trois zones DNS (Sauvegarde, Blobs et Files d’attente) vers l’adresse IP de l’hôte 168.63.129.16 ou l’adresse IP du serveur DNS personnalisé, le cas échéant. Les captures d’écran suivantes illustrent le moment où vous effectuez un transfert vers l’adresse IP de l’hôte Azure. Si vous utilisez votre propre serveur DNS, remplacez-la par l’adresse IP de votre serveur DNS.
+
+    ![Redirecteurs conditionnels dans Gestionnaire DNS](./media/private-endpoints/dns-manager.png)
+
+    ![Nouveau redirecteur conditionnel](./media/private-endpoints/new-conditional-forwarder.png)
 
 ### <a name="backup-and-restore-through-mars-agent"></a>Sauvegarde et restauration par le biais de l’agent MARS
 
 Lorsque vous utilisez l’agent MARS pour sauvegarder vos ressources locales, assurez-vous que votre réseau local (contenant vos ressources à sauvegarder) est homologué avec le réseau virtuel Azure qui contient un point de terminaison privé pour le coffre, afin de pouvoir l’utiliser. Vous pouvez ensuite continuer à installer l’agent MARS et configurer la sauvegarde comme indiqué ici. Toutefois, vous devez vous assurer que toutes les communications pour la sauvegarde s’effectuent uniquement par le biais du réseau homologué.
 
-Si vous supprimez des points de terminaison privés pour le coffre après l’enregistrement d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
+Cependant, si vous supprimez des points de terminaison privés pour le coffre après l’inscription d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
 
 ## <a name="additional-topics"></a>Rubriques supplémentaires
 
@@ -337,7 +480,11 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
         -Name $privateEndpointConnectionName `
         -PrivateLinkServiceId $vault.ID `
         -GroupId "AzureBackup"  
-  
+
+$vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $VMResourceGroupName
+$subnet = $vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq '<subnetName>'}
+
+
 $privateEndpoint = New-AzPrivateEndpoint `
         -ResourceGroupName $vmResourceGroupName `
         -Name $privateEndpointName `
@@ -382,65 +529,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
     }
     ```
 
-### <a name="dns-changes-for-custom-dns-servers"></a>Modifications de DNS pour créer des serveurs DNS personnalisés
-
-#### <a name="create-dns-zones-for-custom-dns-servers"></a>Créer des zones DNS pour des serveurs DNS personnalisés
-
-Vous devez créer trois zones DNS privées et les lier à votre réseau virtuel. N’oubliez pas que, contrairement à Blob et à File d’attente, les URL publiques du service Sauvegarde ne s’inscrivent pas dans le DNS public Azure pour la redirection vers les zones DNS Private Link. 
-
-| **Zone**                                                     | **Service** |
-| ------------------------------------------------------------ | ----------- |
-| `privatelink.<geo>.backup.windowsazure.com`      | Sauvegarde      |
-| `privatelink.blob.core.windows.net`                            | Objet blob        |
-| `privatelink.queue.core.windows.net`                           | File d'attente       |
-
->[!NOTE]
->Dans le texte ci-dessus, *geo* fait référence au code de région. Par exemple, *wcus* et *ne* représentent les régions USA Centre-Ouest et Europe Nord.
-
-[Cette liste](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) répertorie tous les codes de région. Consultez les liens suivants pour les conventions d'affectation de noms d’URL dans les régions nationales :
-
-- [Chine](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Allemagne](../germany/germany-developer-guide.md#endpoint-mapping)
-- [Gouvernement des États-Unis](../azure-government/documentation-government-developer-guide.md)
-
-#### <a name="adding-dns-records-for-custom-dns-servers"></a>Ajout d’enregistrements DNS pour les serveurs DNS personnalisés
-
-Pour cela, vous devez créer des entrées pour chaque FQDN (nom de domaine complet) de votre point de terminaison privé dans votre zone de DNS privée.
-
-Notez que nous allons utiliser les points de terminaison privés créés pour les services Sauvegarde, Blob et File d’attente.
-
-- Le point de terminaison privé du coffre utilise le nom spécifié lors de la création du point de terminaison privé
-- Les points de terminaison privés pour les services d’objets BLOB et de files d’attente ont pour préfixe le nom du coffre.
-
-Par exemple, l’illustration suivante montre les trois points de terminaison privés créés pour une connexion de point de terminaison privée nommée *pee2epe* :
-
-![Capture d’écran montrant trois points de terminaison privés d’une connexion de point de terminaison privé](./media/private-endpoints/three-private-endpoints.png)
-
-Zone DNS pour le service Sauvegarde Azure (`privatelink.<geo>.backup.windowsazure.com`) :
-
-1. Accédez à votre point de terminaison privé pour le service Sauvegarde dans le **Private Link Center** (Centre de liaison privé). La page Overview (Vue d’ensemble) répertorie le nom de domaine complet (FQDN) et les adresses IP privées de votre point de terminaison privé.
-
-1. Ajoutez une entrée pour chaque nom de domaine complet (FQDN) et adresse IP privée en tant qu’enregistrement de type.
-
-    ![Capture d’écran montrant l’ajout d’une entrée pour chaque nom de domaine complet (FQDN) et adresse IP privée](./media/private-endpoints/add-entry-for-each-fqdn-and-ip.png)
-
-Zone DNS du service BLOB (`privatelink.blob.core.windows.net`) :
-
-1. Accédez à votre point de terminaison privé pour le service Blob dans le **Private Link Center** (Centre de liaison privé). La page Overview (Vue d’ensemble) répertorie le nom de domaine complet (FQDN) et les adresses IP privées de votre point de terminaison privé.
-
-1. Ajoutez une entrée pour le nom de domaine complet (FQDN) et l’adresse IP privée en tant qu’enregistrement A type (Type A).
-
-    ![Capture d’écran montrant une entrée pour le nom de domaine complet (FQDN) et l’adresse IP privée en tant qu’enregistrement A type (Type A) pour le service Blob](./media/private-endpoints/add-type-a-record-for-blob.png)
-
-Zone DNS du service de File d’attente Azure (`privatelink.queue.core.windows.net`) :
-
-1. Accédez à votre point de terminaison privé pour le service File d’attente dans le **Private Link Center** (Centre de liaison privé). La page Overview (Vue d’ensemble) répertorie le nom de domaine complet (FQDN) et les adresses IP privées de votre point de terminaison privé.
-
-1. Ajoutez une entrée pour le nom de domaine complet (FQDN) et l’adresse IP privée en tant qu’enregistrement A type (Type A).
-
-    ![Capture d’écran montrant une entrée pour le nom de domaine complet (FQDN) et l’adresse IP privée en tant qu’enregistrement A type (Type A) pour le service de File d’attente](./media/private-endpoints/add-type-a-record-for-queue.png)
-
-## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Q. Puis-je créer un point de terminaison privé pour un coffre de sauvegarde existant ?<br>
 R. Non, les points de terminaison privés ne peuvent être créés que pour les nouveaux coffres de sauvegarde. Le coffre ne doit donc pas contenir d’éléments protégés. En fait, aucune tentative de protection des éléments dans le coffre ne peut être effectuée avant de créer des points de terminaison privés.

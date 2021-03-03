@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007004"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593839"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
-La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/platform/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios.
+La fonctionnalité Start/Stop VMs during off-hours démarre ou arrête les machines virtuelles Azure activées. Elle démarre ou arrête les machines selon une planification définie par l’utilisateur. En outre, elle fournit des informations via Azure les Azure journaux Azure Monitor et peut envoyer des e-mails à l’aide de [groupes d’actions](../azure-monitor/alerts/action-groups.md). La fonctionnalité peut être activée sur Azure Resource Manager et les machines virtuelles classiques dans la plupart des scénarios. 
 
 Cette fonctionnalité utilise l’applet de commande [Start-AzVm](/powershell/module/az.compute/start-azvm) pour démarrer des machines virtuelles. Elle utilise [Stop-AzVM](/powershell/module/az.compute/stop-azvm) pour l’arrêt des machines virtuelles.
 

@@ -1,23 +1,18 @@
 ---
 title: Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis une base de données Sybase à l’aide d’Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/02/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8142ec51f93a066faafa1f3e44d0f87517187425
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707359"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387238"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -146,9 +141,9 @@ Dans un premier temps, configurez la passerelle de gestion des données. Les ins
 
 **Jeu de données d’entrée Sybase :**
 
-L'exemple suppose que vous avez créé une table « MyTable » dans Sybase et qu'elle contient une colonne appelée « timestamp » pour les données de série chronologique.
+L’exemple suppose que vous avez créé une table « MyTable » dans Sybase et qu’elle contient une colonne appelée « timestamp » pour les données de série chronologique.
 
-La définition de external sur true informe le service Data Factory que le jeu de données est externe à la Data Factory et non produite par une activité dans la Data Factory. Notez que le **type** du service lié est défini sur **RelationalTable**.
+La définition de external sur true informe le service Data Factory que le jeu de données est externe à la fabrique de données et non produite par une activité dans la fabrique de données. Notez que le **type** du service lié est défini sur **RelationalTable**.
 
 ```JSON
 {

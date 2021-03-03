@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477521"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515057"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client. Les tailles isolées vivent et fonctionnent sur une génération de matériel spécifique et seront déconseillées lors de sa mise hors service.
 
@@ -23,14 +23,14 @@ Les tailles de machines virtuelles sont les mieux adaptées aux charges de trava
 En outre, comme les machines virtuelles de taille isolée sont volumineuses, les clients peuvent choisir de subdiviser les ressources de ces machines virtuelles à l’aide de la [prise en charge des machines virtuelles imbriquées par Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 Les offres actuelles de machines virtuelles isolées sont les suivantes :
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Dépréciation des tailles de machines virtuelles isolées
 
-Étant donné que les tailles de machines virtuelles isolées sont liées au matériel, Azure enverra des rappels 12 mois avant la dépréciation officielle des tailles.  Azure proposera également une taille isolée mise à jour sur la prochaine version matérielle sur laquelle le client pourrait envisager de déplacer sa charge de travail.
+Les tailles de machines virtuelles isolées ont une durée de vie matérielle limitée. Azure publiera des rappels 12 mois avant la date officielle de dépréciation des tailles et fournira une offre isolée mise à jour à votre intention.
 
 | Taille | Date de mise hors service de l’isolation | 
 | --- | --- |
@@ -49,7 +49,7 @@ Les offres actuelles de machines virtuelles isolées sont les suivantes :
 
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>Q : La taille sera-t-elle mise hors service ou cela concerne-t-il seulement la fonctionnalité « isolation » ?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>Q : La taille sera-t-elle mise hors service ou cela concerne-t-il seulement sa fonctionnalité « isolation » ?
 **R** : Si la taille de la machine virtuelle ne porte pas l’indice « i », seule la fonctionnalité « isolation » sera supprimée. Si l’isolation n’est pas nécessaire, aucune action n’est requise et la machine virtuelle continue de fonctionner comme prévu. Exemples : Standard_DS15_v2, Standard_D15_v2, Standard_M128ms, etc. Si la taille de la machine virtuelle comprend l’indice « i », la taille sera bientôt mise hors service.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q : Y a-t-il un temps d’arrêt lorsque ma machine virtuelle arrive sur un matériel non isolé ?

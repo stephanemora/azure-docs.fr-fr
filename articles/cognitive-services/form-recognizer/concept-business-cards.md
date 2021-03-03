@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585090"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546021"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer 
 
@@ -76,7 +76,11 @@ Quand le champ **status** a la valeur de **succeeded**, la réponse JSON inclut 
 
 ### <a name="sample-json-output"></a>Exemple de sortir JSON
 
-Voici un exemple de réponse JSON correcte : Le nœud readResults contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. Le nœud documentResults contient les valeurs spécifiques à la carte de visite découvertes par le modèle. C’est là que vous trouverez des informations de contact utiles comme le prénom, le nom, le nom de la société, etc.
+La réponse à l’opération d’obtention du résultat de l’analyse de la carte de visite va correspondre à la représentation structurée de la carte de visite avec toutes les informations extraites.  Consultez ici un [exemple de fichier de carte de visite](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) et sa sortie structurée dans l’[exemple de sortie de carte de visite](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
+
+Voici un exemple de réponse JSON correcte :
+* Le nœud `"readResults"` contient tout le texte reconnu. Le texte est organisé par page, puis par ligne, puis par mots individuels. 
+* Le nœud `"documentResults"` contient les valeurs spécifiques de la carte de visite découvertes par le modèle. C’est là que vous trouverez des informations de contact utiles comme le prénom, le nom, le nom de la société, etc.
 
 ```json
 {

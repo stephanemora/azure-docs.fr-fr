@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654810"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374046"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -39,6 +39,7 @@ L’exemple de fichier *host.json* suivant pour la version 2.x+ contient toutes 
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -216,6 +217,10 @@ Pour plus d’informations sur les instantanés, consultez [Captures instantané
 | thresholdForSnapshotting | 1 | Nombre de fois où Application Insights doit voir une exception avant de demander des captures instantanées. |
 | uploaderProxy | null | Remplace le serveur proxy utilisé dans le processus du chargeur de captures instantanées. Vous devrez peut-être utiliser ce paramètre si votre application se connecte à Internet via un serveur proxy. Le Snapshot Collector s’exécute dans le processus de votre application et utilise les mêmes paramètres de proxy. Toutefois, le chargeur de captures instantanées s’exécute en tant que processus distinct et vous devrez peut-être configurer le serveur proxy manuellement. Si cette valeur est null, Snapshot Collector tentera de détecter automatiquement l’adresse du proxy en examinant System.Net.WebRequest.DefaultWebProxy et en transmettant la valeur au téléchargeur de captures instantanées. Dans le cas contraire, la détection automatique n’est pas utilisée et le serveur proxy spécifié ici sera utilisé dans le téléchargeur de captures instantanées. |
 
+## <a name="blobs"></a>blobs
+
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons d’objets blob de stockage](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -378,7 +383,7 @@ La dépendance managée est une fonctionnalité qui est actuellement prise en ch
 
 ## <a name="queues"></a>queues
 
-Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue-output.md#host-json).  
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>retry
 

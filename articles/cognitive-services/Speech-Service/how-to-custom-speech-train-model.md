@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968464"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373366"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entraîner et déployer un modèle Custom Speech
 
@@ -40,7 +40,19 @@ La première étape pour entraîner un modèle consiste à charger des données 
 3. Sélectionnez **Effectuer l’apprentissage du modèle**.
 4. Attribuez à votre apprentissage un **Nom** et une **Description**.
 5. Dans la liste **Scénario et modèle de référence**, sélectionnez le scénario qui correspond le mieux à votre domaine. Si hésitez sur le choix du scénario, sélectionnez **Général**. Le modèle de référence est le point de départ de votre entraînement. Le modèle le plus récent est généralement le meilleur choix.
-6. Dans la page **Sélectionner les données d’entraînement**, choisissez un ou plusieurs jeux de données de transcription étiquetée à la main + audio à utiliser pour l’apprentissage. Lorsque vous entraînez un nouveau modèle, commencez par le texte associé. L’apprentissage avec transcription étiquetée à la main + audio peut prendre plus de temps (jusqu’à [plusieurs jours](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. Dans la page **Sélectionner les données d’entraînement**, choisissez un ou plusieurs jeux de données de transcription étiquetée à la main + audio à utiliser pour l’apprentissage.
+
+> [!NOTE]
+> Quand vous entraînez un nouveau modèle, commencez par le texte associé. L’entraînement avec transcription étiquetée à la main + audio peut prendre plus de temps **(jusqu’à [plusieurs jours](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)** ).
+
+> [!NOTE]
+> Tous les modèles de base ne prennent pas en charge l’audio. Si un modèle de base ne le prend pas en charge, le service vocal utilise uniquement le texte des transcriptions et ignore l’audio. Pour obtenir la liste des modèles de base prenant en charge l’entraînement avec des données audio, consultez les informations relatives à la [prise en charge des langues](language-support.md#speech-to-text).
+
+> [!NOTE]
+> Si vous changez le modèle de base utilisé pour l’entraînement et si vous avez du contenu audio dans le jeu de données d’entraînement, vérifiez *toujours* si le nouveau modèle de base sélectionné [prend en charge l’entraînement avec des données audio](language-support.md#speech-to-text). Si le modèle de base utilisé jusqu’à maintenant ne prend pas en charge l’entraînement avec des données audio, et si le jeu de données d’entraînement contient de l’audio, le temps d’entraînement du nouveau modèle de base va **considérablement** augmenter. Il peut facilement passer de plusieurs heures à plusieurs jours, voire davantage. Cela est particulièrement vrai si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
+>
+> Si vous êtes confronté au problème décrit dans le paragraphe ci-dessus, vous pouvez rapidement faire baisser le temps d’entraînement en réduisant la quantité du contenu audio dans le jeu de données, ou en supprimant complètement le contenu audio pour ne garder que le texte. Cette dernière option est fortement recommandée si votre abonnement au service Speech ne se situe **pas** dans une [région disposant du matériel dédié](custom-speech-overview.md#set-up-your-azure-account) à l’entraînement.
+
 7. Une fois l’apprentissage du modèle terminé, vous pouvez effectuer des tests d’exactitude sur celui-ci. Cette étape est facultative.
 8. Sélectionnez **Create** pour générer votre modèle personnalisé.
 

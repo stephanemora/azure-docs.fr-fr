@@ -3,15 +3,15 @@ title: Journaux des requêtes lentes - Azure Database for MariaDB
 description: Décrit les journaux d’activité disponibles dans Azure Database for MariaDB et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664161"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570813"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -53,7 +53,7 @@ Une rotation des journaux d’activité s’effectue toutes les 24 heures ou un
 > La rétention du journal ci-dessus ne s’applique pas aux journaux qui sont acheminés à l’aide des journaux de diagnostic Azure Monitor. Vous pouvez modifier la période de rétention pour les récepteurs de données émises (par exemple, Stockage Azure).
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database for MariaDB est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MariaDB, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, des hubs d’événements et le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database for MariaDB est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MariaDB, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, des hubs d’événements et le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/essentials/platform-logs-overview.md).
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 

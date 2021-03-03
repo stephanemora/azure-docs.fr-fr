@@ -1,23 +1,18 @@
 ---
 title: Haute disponibilité avec la passerelle de gestion des données dans Azure Data Factory
 description: Cet article explique comment effectuer un scale-out d’une passerelle de gestion des données en ajoutant des nœuds et comment effectuer un scale-up en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003614"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391726"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -98,7 +93,7 @@ Cette section part du principe que vous avez parcouru les deux articles suivants
         > Consultez la section [Configuration requise des certificats TSL/SSL](#tlsssl-certificate-requirements) pour obtenir la liste des conditions préalables à l’utilisation d’un certificat TLS/SSL. 
     5. Une fois que la passerelle est correctement installée, cliquez sur Lancer le Gestionnaire de configuration :
     
-        ![Installation manuelle - Lancer le Gestionnaire de configuration](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Installation manuelle - Lancer le Gestionnaire de configuration](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. Le Gestionnaire de configuration de passerelle de gestion des données (ordinateur Windows local) apparaît et indique l’état de la connectivité, le **nom de la passerelle** et le **nom du nœud**.  
 
         ![Passerelle de gestion des données - Installation terminée](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -200,7 +195,7 @@ Role | Il existe deux types de rôles : répartiteur et rôle de travail. Tous 
 
 Le tableau suivant indique les états possibles d’un **nœud de passerelle** : 
 
-Statut  | Commentaires/Scénarios
+Statut    | Commentaires/Scénarios
 :------- | :------------------
 En ligne | Nœud connecté au service Data Factory.
 Hors connexion | Le nœud est hors connexion.

@@ -1,18 +1,17 @@
 ---
 title: Résoudre les problèmes du runtime d’intégration auto-hébergé dans Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés au runtime d’intégration auto-hébergé dans Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551074"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376460"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Résoudre les problèmes liés au runtime d’intégration auto-hébergé
 
@@ -83,8 +82,8 @@ Exemple de scénario : la valeur maximale de travaux simultanés est actuelleme
 La limite du nombre de travaux simultanés dépend de la mémoire et du cœur logique de l’ordinateur. Essayez d’ajuster la valeur vers le bas jusqu’à une valeur telle que 24, puis affichez le résultat.
 
 > [!TIP] 
-> - Pour en savoir plus sur le nombre de cœurs logiques et pour déterminer le nombre de cœurs logiques de votre ordinateur, consultez [Quatre façons de trouver le nombre de cœurs dans votre UC sur Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Pour savoir comment calculer le fichier math.log, accédez à la [calculatrice de logarithme](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    Pour en savoir plus sur le nombre de cœurs logiques et pour déterminer le nombre de cœurs logiques de votre ordinateur, consultez [Quatre façons de trouver le nombre de cœurs dans votre UC sur Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Pour savoir comment calculer le fichier math.log, accédez à la [calculatrice de logarithme](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Problème de certificat SSL à haute disponibilité de l’IR auto-hébergé
@@ -472,9 +471,9 @@ Pour les clients Azure Data Factory v2 :
 
 
 Pour les clients Azure Data Factory v1 :
-- Le runtime d’intégration auto-hébergé 5.X ne prend pas en charge Azure Data Factory  v1.
+- Le runtime d'intégration auto-hébergé 5.X ne prend pas en charge Azure Data Factory v1.
 - Le runtime d’intégration auto-hébergé sera automatiquement mis à niveau vers la version 4.x la plus récente. Et la version la plus récente de 4.x n’expire pas. 
-- Si vous essayez d’installer manuellement le runtime d’intégration auto-hébergé 5.x et d’inscrire la clé, vous êtes informé que le runtime d’intégration auto-hébergé 5.x ne prend pas en charge Azure Data Factory v1.
+- Si vous essayez d'installer manuellement le runtime d'intégration auto-hébergé 5.x et d'inscrire la clé, vous serez informé que le runtime d'intégration auto-hébergé 5.x ne prend pas en charge Azure Data Factory v1.
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problème de connexion de l’IR auto-hébergé

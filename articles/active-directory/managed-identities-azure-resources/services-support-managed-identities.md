@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555610"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650071"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -176,7 +176,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 
 Reportez-vous à la liste suivante pour configurer l’identité managée du service Azure Digital Twins (dans les régions où il est disponible) :
 
-- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
@@ -213,7 +213,7 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 | Attribuée par le système | ![Disponible][check] | ![Disponible][check] | Non disponible | ![Disponible][check] |
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
-Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Data Factory V2 (dans les régions où il est disponible) :
+Reportez-vous à la liste suivante pour configurer l’identité managée du service Azure IoT Hub (dans les régions où il est disponible) :
 
 - [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
@@ -355,6 +355,17 @@ Type d'identité managée | Toutes mises à la disposition générale<br>Région
 Reportez-vous à la liste suivante pour configurer l’identité managée d’Azure SignalR Service (dans les régions où il est disponible) :
 
 - [Modèle Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
+
+### <a name="azure-resource-mover"></a>Azure Resource Mover
+
+Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Attribuée par le système | Disponible dans les régions où le service Azure Resource Mover est disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+
+Reportez-vous au document suivant pour utiliser Azure Resource Mover :
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD
 

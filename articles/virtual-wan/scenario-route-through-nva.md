@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626658"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519794"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scénario : Router le trafic via une NVA
 
@@ -30,9 +30,9 @@ Lorsque vous travaillez avec le routage de hub virtuel Virtual WAN, il existe un
 
 Dans ce scénario, nous allons utiliser la convention d’affectation de noms :
 
-* « Réseaux virtuels NVA » pour les réseaux virtuels où les utilisateurs ont déployé une NVA et ont connecté d’autres réseaux virtuels en tant que spokes (VNet 2 et VNet 4 dans la **matrice de connectivité** ci-dessous).
-* « Spokes NVA » pour les réseaux virtuels connectés à un réseau virtuel NVA (VNet 5, VNet 6, VNet 7 et VNet 8 dans la **matrice de connectivité** ci-dessous).
-* « Réseaux virtuels non-NVA » pour les réseaux virtuels connectés à Azure Virtual WAN qui n’ont pas de NVA ni d’autres réseaux virtuels appairés avec eux (VNet 1 et VNet 3 dans la **matrice de connectivité** ci-dessous).
+* « Réseaux virtuels NVA » pour les réseaux virtuels où les utilisateurs ont déployé une NVA et ont connecté d’autres réseaux virtuels en tant que spokes (VNet 2 et VNet 4 de la **Figure 2** plus loin dans cet article).
+* « Spokes NVA » pour les réseaux virtuels connectés à un réseau virtuel NVA (VNet 5, VNet 6, VNet 7 et VNet 8 de la **Figure 2** plus loin dans cet article).
+* « Réseaux virtuels non-NVA » pour les réseaux virtuels connectés à Azure Virtual WAN qui n’ont pas de NVA ni d’autres réseaux virtuels appairés avec eux (VNet 1 et VNet 3 de la **Figure 2** plus loin dans cet article).
 * « Hubs » pour les hubs Virtual WAN gérés par Microsoft, où les réseaux virtuels NVA sont connectés. Les réseaux virtuels spokes NVA n’ont pas besoin d’être connectés aux hubs Virtual WAN, mais uniquement à aux réseaux virtuels NVA.
 
 La matrice de connectivité suivante résume les flux pris en charge dans ce scénario :
@@ -49,7 +49,7 @@ La matrice de connectivité suivante résume les flux pris en charge dans ce sc�
 Chacune des cellules de la matrice de connectivité indique comment un réseau virtuel ou une branche (côté « De » du flux, les en-têtes de lignes dans la table) communique avec u réseau virtuel ou une branche de destination (côté « À » du flux, en-têtes de colonne en italique dans la table). « Direct » signifie que la connectivité est fournie en mode natif par Virtual WAN, « Appairage » signifie que la connectivité est assurée par un itinéraire défini par l’utilisateur dans le réseau virtuel, « Sur le réseau virtuel NVA » signifie que la connectivité traverse les appliance virtuelle réseau (NVA) déployées dans le réseau virtuel NVA. Tenez compte des éléments suivants :
 
 * Les spokes NVA ne sont pas gérés par Virtual WAN. Par conséquent, les mécanismes avec lesquels ils communiquent avec d’autres réseaux virtuels ou branches sont gérés par l’utilisateur. La connectivité au réseau virtuel NVA est assurée par un appairage de réseaux virtuels, et un itinéraire par défaut vers 0.0.0.0/0 pointant vers la NVA en tant que tronçon suivant doit couvrir la connectivité à Internet, à d’autres spokes et à des branches
-* Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans le Tableau 1, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes tels que VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA
+* Les réseaux virtuels NVA connaîtront leurs propres spokes NVA, mais pas les spokes NVA connectés à d’autres réseaux virtuels NVA. Par exemple, dans la Figure 2 plus loin dans cet article, VNet 2 connaît VNet 5 et VNet 6, mais pas les autres spokes comme VNet 7 et VNet 8. Un itinéraire statique est requis pour injecter les préfixes d’autres spokes dans des réseaux virtuels NVA
 * De même, les branches et les réseaux virtuels NVA ne connaissent aucun spoke NVA, étant donné que les spokes NVA ne sont pas connectés aux hubs Virtual WAN. Par conséquent, les itinéraires statiques seront également nécessaires ici.
 
 Compte tenu du fait que les spokes NVA ne sont pas gérés par Virtual WAN, toutes les autres lignes affichent le même modèle de connectivité. Par conséquent, une seule table de routage (celle par défaut) effectue les opérations suivantes :

@@ -4,18 +4,14 @@ description: Cet article décrit les rôles et autorisations requis pour créer 
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053769"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364475"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -54,14 +50,13 @@ Le rôle **Contributeur de Data Factory**, au niveau du groupe de ressources ou 
 
 Les autorisations pour les référentiels Azure et GitHub sont indépendantes des autorisations Data Factory. Par conséquent, un utilisateur disposant des autorisations de référentiel et uniquement membre du rôle Lecteur peut modifier les ressources enfant Data Factory et apporter des modifications au référentiel, mais il ne peut pas publier ces modifications.
 
+
 > [!IMPORTANT]
 > Le déploiement du modèle Resource Manager avec le rôle **Contributeur de Data Factory** ne permet pas d’accroître vos autorisations. Par exemple, si vous déployez un modèle qui crée une machine virtuelle Azure et si vous n’êtes pas autorisé à créer des machines virtuelles, le déploiement échoue et renvoie une erreur d’autorisation.
 
-> [!IMPORTANT]
-> L'autorisation **Microsoft.DataFactory/factories/write** est requise pour les deux modes dans le contexte de publication.
-
-- Cette autorisation n'est requise en mode Réel que lorsque le client modifie les paramètres globaux.
-- Cette autorisation est toujours requise en mode Git après une publication du client car l'objet de fabrique contenant l'ID de la dernière validation est mis à jour.
+   Dans un contexte de publication, l’autorisation **Microsoft.DataFactory/factories/write** s’applique aux modes suivants.
+- Cette autorisation n’est requise en Mode réel que lorsque le client modifie les paramètres globaux.
+- Cette autorisation est toujours requise en Mode Git, car, après chaque publication du client, l’objet de fabrique présentant l’ID de la dernière validation doit être mis à jour.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scénarios et rôles personnalisés
 
@@ -95,6 +90,7 @@ Voici quelques exemples qui illustrent l’intérêt d’utiliser des rôles per
 - Vous permettez à un utilisateur de mettre à jour une fabrique de données à partir de PowerShell ou du SDK, mais pas dans le portail Microsoft Azure.
 
   Vous attribuez le rôle **Contributeur** à l’utilisateur pour la ressource de fabrique de données. Ce rôle permet à l’utilisateur de voir les ressources dans le portail Azure, mais pas d’accéder aux boutons **Publier** et **Publier tout**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

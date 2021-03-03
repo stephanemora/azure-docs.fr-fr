@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: e0a5074061b190088441ed4f6787b112fb11fe5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: aad28df218973cf07231262ccd8b9a07f263424f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966001"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652749"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extension du pilote GPU AMD pour Windows
 
@@ -151,7 +151,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 La sortie de l’exécution de l’extension est enregistrée dans le répertoire suivant :
 
 ```cmd
-C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
+C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.AmdGpuDriverMicrosoft\
 ```
 
 ### <a name="error-codes"></a>Codes d’erreur

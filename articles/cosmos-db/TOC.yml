@@ -860,6 +860,9 @@
           items:
             - name: Configurer le partage de ressources cross-origin (CORS)
               href: how-to-configure-cross-origin-resource-sharing.md
+            - name: Configurer le contrôle d’accès en fonction du rôle
+              href: how-to-setup-rbac.md
+              displayName: 'aad, active directory, rbac'
             - name: Utiliser des identités managées pour accéder aux données
               href: managed-identity-based-authentication.md
               displayName: 'msi, managed service identity, aad, azure active directory, identity'
@@ -932,7 +935,7 @@
         - name: REST (plan de gestion)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1050,7 +1053,7 @@
         - name: Fournisseur de ressources REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API MongoDB
@@ -1068,7 +1071,7 @@
         - name: Node.js
           href: create-mongodb-nodejs.md
         - name: Python
-          href: create-mongodb-flask.md
+          href: ./mongodb-introduction.md
         - name: Xamarin
           href: create-mongodb-xamarin.md
         - name: Golang
@@ -1103,9 +1106,11 @@
           href: tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
-        - name: Prise en charge du protocole filaire (3.6)
+        - name: API version 4.0
+          href: mongodb-feature-support-40.md
+        - name: API version 3.6
           href: mongodb-feature-support-36.md
-        - name: Prise en charge du protocole filaire (3.2)
+        - name: API version 3.2
           href: mongodb-feature-support.md
         - name: Questions fréquentes (FAQ)
           href: mongodb-api-faq.md
@@ -1117,13 +1122,15 @@
           items:
             - name: Guide de prémigration
               href: mongodb-pre-migration.md
+            - name: Outils natifs MongoDB (hors connexion)
+              href: tutorial-mongotools-cosmos-db.md
             - name: "Azure\_Database\_Migration\_Service (en ligne)"
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (hors ligne)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Guide de post-migration
               href: mongodb-post-migration.md
-        - name: "Mettre à niveau de MongoDB\_3.2 vers 3.6"
+        - name: Mettre à niveau vers la version 4.0 ou 3.6 de l’API
           href: mongodb-version-upgrade.md
         - name: Obtenir la chaîne de connexion
           href: connect-mongodb-account.md
@@ -1144,6 +1151,8 @@
           href: mongodb-change-streams.md
         - name: Gérer l’indexation des données
           href: mongodb-indexing.md
+        - name: Utiliser des transactions multidocuments
+          href: use-multi-document-transactions.md
         - name: Créer un conteneur - API MongoDB
           href: how-to-create-container-mongodb.md
         - name: Provisionner le débit - API MongoDB
@@ -1175,7 +1184,7 @@
         - name: Fournisseur de ressources REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API Gremlin
@@ -1253,7 +1262,7 @@
         - name: En-têtes de réponse
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Fournisseur de ressources REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modèle Resource Manager
@@ -1339,7 +1348,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: API REST du Stockage de table
           href: /rest/api/storageservices/table-service-rest-api
 - name: Guides pratiques
@@ -1372,6 +1381,8 @@
           href: configure-synapse-link.md
         - name: Se connecter à Azure Synapse Link
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Magasin analytique et points de terminaison privés
+          href: analytical-store-private-endpoints.md
         - name: Interroger avec Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Interroger avec un pool SQL serverless
@@ -1419,7 +1430,7 @@
           href: monitor-cosmos-db.md
         - name: Utiliser les métriques Azure Monitor
           items:
-            - name: Azure Monitor pour Cosmos (préversion)
+            - name: Azure Monitor pour Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scénarios à superviser
               href: use-metrics.md

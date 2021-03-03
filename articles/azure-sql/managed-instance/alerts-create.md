@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499269"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592708"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Créer des alertes pour Azure SQL Managed Instance à l’aide du portail Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Vous pouvez configurer une alerte pour effectuer les opérations suivantes lors 
 * Appeler un runbook Azure
 * Appeler un système de tickets externe compatible ITSM
 
-Vous pouvez configurer et obtenir des informations sur les règles d'alerte à l'aide [du portail Azure, de PowerShell ou d'Azure CLI](../../azure-monitor/platform/alerts-classic-portal.md) ou de l'[API REST Azure Monitor](/rest/api/monitor/alertrules). 
+Vous pouvez configurer et obtenir des informations sur les règles d'alerte à l'aide [du portail Azure, de PowerShell ou d'Azure CLI](../../azure-monitor/alerts/alerts-classic-portal.md) ou de l'[API REST Azure Monitor](/rest/api/monitor/alertrules). 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>Métriques d’alerte disponibles pour l’instance gérée
 
@@ -113,7 +113,7 @@ La nouvelle règle d’alerte est active en quelques minutes et est déclenchée
 ## <a name="verifying-alerts"></a>Vérification des alertes
 
 > [!NOTE]
-> Pour supprimer les alertes inutiles, consultez [Suppression des alertes à l’aide de règles d’action](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> Pour supprimer les alertes inutiles, consultez [Suppression des alertes à l’aide de règles d’action](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Lors de la configuration d’une règle d’alerte, vérifiez que vous êtes satisfait du déclencheur d’alerte et de sa fréquence. Dans l’exemple indiqué sur cette page pour la configuration d’une alerte sur l’espace de stockage utilisé, si votre option d’alerte est E-mail, vous pouvez recevoir un e-mail comme celui indiqué ci-dessous.
 
@@ -142,8 +142,8 @@ Pour afficher, suspendre, activer, modifier et supprimer des alertes existantes�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur le système d’alertes Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
-* Pour en savoir plus sur les alertes de métrique, consultez [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md).
-* Pour en savoir plus sur la configuration d’un webhook dans des alertes, consultez [Appeler un webhook avec une alerte de métrique classique](../../azure-monitor/platform/alerts-webhooks.md)
+* Pour plus d’informations sur le système d’alertes Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+* Pour en savoir plus sur les alertes de métrique, consultez [Comprendre le fonctionnement des alertes de métrique dans Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+* Pour en savoir plus sur la configuration d’un webhook dans des alertes, consultez [Appeler un webhook avec une alerte de métrique classique](../../azure-monitor/alerts/alerts-webhooks.md)
 * Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de PowerShell, consultez [Règles d’action](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * Pour en savoir plus sur la configuration et la gestion des alertes à l’aide de l’API, consultez [Informations de référence sur l’API REST Azure Monitor](/rest/api/monitor/)

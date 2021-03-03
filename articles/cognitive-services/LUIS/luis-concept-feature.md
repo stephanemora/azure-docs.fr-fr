@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372001"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546055"
 ---
 # <a name="machine-learning-features"></a>Caractéristiques issues de l’apprentissage automatique
 
@@ -160,11 +160,9 @@ Adresse de livraison (entité issue du Machine Learning)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Caractéristique requise utilisant des entités prédéfinies
 
-Les informations de localité/ville, département/province et pays/région sont généralement constitués d’un ensemble fermé de listes qui ne changent pas beaucoup au fil du temps. Ces entités peuvent avoir des caractéristiques recommandées pertinentes et ces caractéristiques peuvent être définies comme « requises ». Cela signifie que l’adresse de livraison entière n’est pas renvoyée si les entités qui ont des caractéristiques requises sont introuvables.
+Les entités prédéfinies, par exemple localité/ville, département/province et pays/région, correspondent généralement à un ensemble fermé de listes, ce qui signifie qu’elles ne changent pas beaucoup au fil du temps. Ces entités peuvent avoir des caractéristiques recommandées pertinentes et ces caractéristiques peuvent être définies comme « requises ». Toutefois, l’indicateur `isRequired` est uniquement lié à l’entité à laquelle il est affecté et n’affecte pas la hiérarchie. Si la caractéristique d’une sous-entité prédéfinie est introuvable, cela n’affecte pas la détection et le retour de l’entité parente.
 
-Que se passe-t-il si des informations de localité/ville, département/province et pays/région figurent dans l’énoncé, mais sont exprimées dans un dialecte ou un argot que LUIS ne comprend pas ? Si vous souhaitez utiliser un post-traitement pour résoudre l’entité (par exemple, si LUIS retourne un score de confiance faible), ne marquez pas la caractéristique comme « requise ».
-
-Un autre exemple de caractéristique requise pour l’adresse de livraison consiste à définir le numéro de rue en tant que numéro [prédéfini](luis-reference-prebuilt-entities.md) requis. Cela permet à un utilisateur d’entrer « 1 rue Microsoft » ou « un rue Microsoft ». Les deux correspondent à la valeur numérique « 1 » pour la sous-entité de numéro de rue.
+À titre d’exemple de caractéristique obligatoire, supposons que vous souhaitiez détecter les adresses. Vous pouvez être amené à imposer l’entrée du numéro de rue. Cela permet à un utilisateur d’entrer « 1 Microsoft Way » ou « One Microsoft Way ». Les deux formes comportent la valeur « 1 » en tant que sous-entité correspondant au numéro de rue. Pour plus d’informations, consultez l’article consacré aux [entités prédéfinies](luis-reference-prebuilt-entities.md).
 
 ### <a name="required-feature-using-list-entities"></a>Caractéristique requise utilisant des entités de listes
 
@@ -226,7 +224,7 @@ Après avoir créé l'entité d'apprentissage automatique, vous devez ajouter de
 
 Pour l'exemple de réservation de billets, étiquetez les exemples d'énoncés de l'intention avec l'entité `TicketBooking` et les sous-entités du texte.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Schéma de l'entité de réservation de billets":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Étiqueter les exemples d’énoncés":::
 
 ### <a name="example-pizza-ordering-app"></a>Exemple : application de commande de pizzas
 
@@ -234,13 +232,13 @@ Prenons maintenant l'exemple d'une application de pizzeria qui reçoit des comma
 
 L'entité d'apprentissage automatique de cet exemple est plus complexe, avec des sous-entités imbriquées, des listes d'expressions, des entités prédéfinies et des entités personnalisées.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schéma de l'entité de réservation de billets":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Schéma de l'entité de commande de pizzas":::
 
 Cet exemple utilise des caractéristiques aux niveaux de la sous-entité et de l'enfant de la sous-entité. La détermination du niveau qui reçoit tel ou tel type de liste d'expressions ou de modèle comme caractéristique constitue une partie importante de la conception de votre entité.
 
 Tandis que les sous-entités peuvent disposer de nombreuses listes d'expressions comme caractéristiques pour la détection de l'entité, chaque sous-entité ne dispose que d'un seul modèle comme caractéristique. Dans cette [application de commandes de pizzas](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), ces modèles sont principalement des listes.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Schéma de l'entité de réservation de billets":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Intention de commande de pizzas avec des exemples d'énoncés étiquetés":::
 
 Les exemples d'énoncés correctement étiquetés illustrent la façon dont les entités sont imbriquées. 
 

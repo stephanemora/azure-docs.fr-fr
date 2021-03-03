@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.date: 02/09/2021
+ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979179"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368011"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurer Azure Private Link pour un espace de travail Azure Machine Learning
 
@@ -31,8 +31,9 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous prévoyez d’utiliser un espace de travail avec un lien privé activé avec une clé gérée par le client, vous devez demander cette fonctionnalité à l’aide d’un ticket de support. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Si vous prévoyez d’utiliser un espace de travail avec un lien privé activé avec une clé gérée par le client, vous devez demander cette fonctionnalité à l’aide d’un ticket de support. Pour plus d’informations, consultez [Gérer et augmenter les quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+* Vous devez disposer d’un réseau virtuel existant dans lequel créer le point de terminaison privé. Vous devez également [désactiver les stratégies réseau pour les points de terminaison privés](../private-link/disable-private-endpoint-network-policy.md) avant d’ajouter le point de terminaison privé.
 ## <a name="limitations"></a>Limites
 
 * L’utilisation d’un espace de travail Azure Machine Learning avec un lien privé n’est pas disponible dans les régions Azure Government ou Azure China 21Vianet.
@@ -73,6 +74,19 @@ L’[extension Azure CLI pour Machine Learning](reference-azure-machine-learning
 * `--pe-vnet-name`: Réseau virtuel existant dans lequel créer le point de terminaison privé.
 * `--pe-subnet-name`: Nom du sous-réseau dans lequel créer le point de terminaison privé. La valeur par défaut est `default`.
 
+Ces paramètres s’ajoutent à d’autres paramètres obligatoires pour la commande create. Par exemple, la commande suivante crée un nouvel espace de travail dans la région USA Ouest en utilisant un groupe de ressources et un réseau virtuel existants :
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
 L’onglet __Mise en réseau__ d’Azure Machine Learning Studio vous permet de configurer un point de terminaison privé. Toutefois, il nécessite un réseau virtuel existant. Pour plus d’informations, consultez [Créer des espaces de travail dans le portail](how-to-manage-workspace.md).
@@ -82,10 +96,6 @@ L’onglet __Mise en réseau__ d’Azure Machine Learning Studio vous permet de 
 ## <a name="add-a-private-endpoint-to-a-workspace"></a>Ajouter un point de terminaison privé à un espace de travail
 
 Utilisez l’une des méthodes suivantes pour ajouter un point de terminaison privé à un espace de travail existant :
-
-> [!IMPORTANT]
->
-> Vous devez disposer d’un réseau virtuel existant dans lequel créer le point de terminaison privé. Vous devez également [désactiver les stratégies réseau pour les points de terminaison privés](../private-link/disable-private-endpoint-network-policy.md) avant d’ajouter le point de terminaison privé.
 
 > [!WARNING]
 >

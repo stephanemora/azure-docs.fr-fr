@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490804"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592731"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -58,17 +58,17 @@ Cette télémétrie de diagnostic peut être transmise en continu vers l’une d
 
 - **[Espace de travail Log Analytics](#stream-into-sql-analytics)**  :
 
-  Les données transmises en continu à un [espace de travail Log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) peuvent être consommées par [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics est une solution de supervision cloud uniquement permettant une surveillance intelligente de vos bases de données, avec des rapports de performances, des alertes et des recommandations d’atténuation. Les données transmises en continu vers un espace de travail Log Analytics peuvent être analysées avec d’autres données de surveillance collectées, ce qui vous permet également d’exploiter d’autres fonctionnalités Azure Monitor, notamment les alertes et les visualisations.
+  Les données transmises en continu à un [espace de travail Log Analytics](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) peuvent être consommées par [SQL Analytics](../../azure-monitor/insights/azure-sql.md). SQL Analytics est une solution de supervision cloud uniquement permettant une surveillance intelligente de vos bases de données, avec des rapports de performances, des alertes et des recommandations d’atténuation. Les données transmises en continu vers un espace de travail Log Analytics peuvent être analysées avec d’autres données de surveillance collectées, ce qui vous permet également d’exploiter d’autres fonctionnalités Azure Monitor, notamment les alertes et les visualisations.
 - **[Azure Event Hubs](#stream-into-event-hubs)** :
 
-  Les données transmises en continu à un [Event Hub Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) offrent les fonctionnalités suivantes :
+  Les données transmises en continu à un [Event Hub Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) offrent les fonctionnalités suivantes :
 
   - **Transmettre en continu des journaux vers des systèmes tiers de journalisation et de télémétrie** : Diffusion en continu de toutes vos métriques et de tous vos journaux de ressources vers un Event Hub unique pour envoyer les données de journal vers un outil SIEM ou d’analytique des journaux d’activité tiers.
   - **Créer une plateforme de journalisation et de télémétrie personnalisée** : La nature hautement évolutive d’Event Hubs et de son modèle publication-abonnement vous permet d’ingérer de manière flexible les métriques et les journaux de ressources dans une plateforme de télémétrie personnalisée. Pour plus d’informations, consultez [Conception et dimensionnement d’une plateforme de télémétrie à échelle mondiale sur Azure Event Hubs](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
   - **Afficher l’intégrité du service en transmettant en continu des données vers Power BI** : Utilisez Event Hubs, Stream Analytics et Power BI pour transformer vos données de diagnostic en informations en quasi temps réel sur vos services Azure. Consultez [Stream Analytics et Power BI : tableau de bord d’analyse en temps réel pour les données de streaming](../../stream-analytics/stream-analytics-power-bi-dashboard.md) pour plus de détails sur cette solution.
 - **[Stockage Azure](#stream-into-azure-storage)** :
 
-  Les données transmises en continu à [Stockage Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) vous permettent d’archiver de grandes quantités de télémétrie de diagnostic pour une fraction du coût des deux options de diffusion en continu précédentes.
+  Les données transmises en continu à [Stockage Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) vous permettent d’archiver de grandes quantités de télémétrie de diagnostic pour une fraction du coût des deux options de diffusion en continu précédentes.
 
 Cette télémétrie de diagnostic transmise à l’une de ces destinations peut être utilisée pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête afin de faciliter la supervision des performances.
 
@@ -89,7 +89,7 @@ Vous pouvez activer et gérer la journalisation des métriques et de la télém�
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic
 
-Le menu **Paramètres de diagnostic** du Portail Azure vous permet d’activer et de configurer la diffusion en continu de la télémétrie de diagnostic. En outre, vous pouvez utiliser PowerShell, Azure CLI, l'[API REST](/rest/api/monitor/diagnosticsettings) et les [modèles Resource Manager](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) pour configurer la diffusion en continu des données de télémétrie de diagnostic. Vous pouvez définir les destinations suivantes pour diffuser en continu la télémétrie de diagnostic : Stockage Azure, Azure Event Hubs et les journaux Azure Monitor.
+Le menu **Paramètres de diagnostic** du Portail Azure vous permet d’activer et de configurer la diffusion en continu de la télémétrie de diagnostic. En outre, vous pouvez utiliser PowerShell, Azure CLI, l'[API REST](/rest/api/monitor/diagnosticsettings) et les [modèles Resource Manager](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md) pour configurer la diffusion en continu des données de télémétrie de diagnostic. Vous pouvez définir les destinations suivantes pour diffuser en continu la télémétrie de diagnostic : Stockage Azure, Azure Event Hubs et les journaux Azure Monitor.
 
 > [!IMPORTANT]
 > L’exportation en continu de la télémétrie de diagnostic n’est pas activée par défaut.
@@ -335,7 +335,7 @@ Vous pouvez surveiller des collections de bases de données avec Azure SQL Analy
 2. Créez un espace de travail Log Analytics dans la solution.
 3. Configurez les bases de données pour qu’elles diffusent en continu la télémétrie de diagnostic dans l’espace de travail.
 
-Vous pouvez configurer l’exportation en continu de cette télémétrie de diagnostics à l’aide de l’option intégrée **Envoyer à Log Analytics** dans l’onglet Paramètres de diagnostic du Portail Azure. Vous pouvez également activer la diffusion en continu vers un espace de travail Log Analytics à l’aide des paramètres de diagnostic via des [cmdlets PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), l’[interface de ligne de commande Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), l’[API REST Azure Monitor](/rest/api/monitor/diagnosticsettings) ou des [modèles Resource Manager](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
+Vous pouvez configurer l’exportation en continu de cette télémétrie de diagnostics à l’aide de l’option intégrée **Envoyer à Log Analytics** dans l’onglet Paramètres de diagnostic du Portail Azure. Vous pouvez également activer la diffusion en continu vers un espace de travail Log Analytics à l’aide des paramètres de diagnostic via des [cmdlets PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), l’[interface de ligne de commande Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry), l’[API REST Azure Monitor](/rest/api/monitor/diagnosticsettings) ou des [modèles Resource Manager](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Créer une ressource Azure SQL Analytics
 
@@ -428,7 +428,7 @@ Si vous utilisez Azure SQL Analytics, vous pouvez superviser votre ingestion de 
 
 ## <a name="metrics-and-logs-available"></a>Métriques et journaux d’activité disponibles
 
-La supervision des données de télémétrie disponibles pour les bases de données uniques, bases de données mises en pool, pools élastiques, instances gérées et bases de données d’instance est décrite dans cette section de l’article. Les données de télémétrie de supervision collectées au sein de SQL Analytics peuvent être utilisées pour votre propre analyse et développement d’application à l’aide du langage [des requêtes de journal Azure Monitor](../../azure-monitor/log-query/get-started-queries.md).
+La supervision des données de télémétrie disponibles pour les bases de données uniques, bases de données mises en pool, pools élastiques, instances gérées et bases de données d’instance est décrite dans cette section de l’article. Les données de télémétrie de supervision collectées au sein de SQL Analytics peuvent être utilisées pour votre propre analyse et développement d’application à l’aide du langage [des requêtes de journal Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
 ### <a name="basic-metrics"></a>Métriques de base
 
@@ -747,8 +747,8 @@ Apprenez-en davantage sur le [format de journal Intelligent Insights](intelligen
 
 Pour savoir comment activer la journalisation et comprendre les catégories de journaux et de métriques prises en charge par les différents services Azure, consultez :
 
-- [Vue d’ensemble des mesures dans Microsoft Azure](../../azure-monitor/platform/data-platform.md)
-- [Vue d’ensemble des journaux de plateforme Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Vue d’ensemble des mesures dans Microsoft Azure](../../azure-monitor/data-platform.md)
+- [Vue d’ensemble des journaux de plateforme Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 Pour plus d’informations sur les concentrateurs d’événements, lisez :
 

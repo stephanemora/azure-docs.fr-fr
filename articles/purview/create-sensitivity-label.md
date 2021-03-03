@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630274"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669622"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -41,17 +41,17 @@ Les étiquettes de confidentialité proposées dans Azure Purview peuvent être 
 Pour plus d'informations, consultez les pages suivantes :
 
 - [En savoir plus sur les étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) dans la documentation de Microsoft 365
-- [Présentation des règles d’étiquetage automatique](#what-are-autolabeling-rules)
+- [Présentation des règles d’étiquetage automatique](#what-are-auto-labeling-rules)
 - [Types de données pris en charge pour les étiquettes de confidentialité dans Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Étiquetage des colonnes de base de données SQL](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>Présentation des règles d’étiquetage automatique
+#### <a name="what-are-auto-labeling-rules"></a>Présentation des règles d’étiquetage automatique
 
 Les données s’enrichissent et évoluent constamment. S’il est fastidieux de suivre des données non étiquetées et d’y appliquer manuellement des étiquettes, ce n’est pas non plus nécessaire. 
 
 Les règles d’étiquetage automatique sont des conditions indiquant quand une étiquette particulière doit être appliquée. Lorsque ces conditions sont remplies, l’étiquette est automatiquement affectée aux données. Ce système permet de maintenir la cohérence des étiquettes de confidentialité sur les données, à grande échelle.
 
-Lorsque vous créez vos étiquettes, veillez à définir des règles d’étiquetage automatique pour les [fichiers](#define-autolabeling-rules-for-files) et pour les [colonnes de base de données](#define-autolabeling-rules-for-database-columns) pour appliquer automatiquement les étiquettes à chaque analyse des données. 
+Lorsque vous créez vos étiquettes, veillez à définir des règles d’étiquetage automatique pour les [fichiers](#define-auto-labeling-rules-for-files) et pour les [colonnes de base de données](#define-auto-labeling-rules-for-database-columns) pour appliquer automatiquement les étiquettes à chaque analyse des données. 
 
 Après avoir analysé vos données dans Purview, vous pouvez consulter les étiquettes appliquées automatiquement dans le catalogue Purview et les rapports Insight.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Types de données pris en charge pour les étiquettes de confidentialité dans Azure Purview
@@ -125,8 +125,8 @@ Une fois que vous avez étendu l’étiquetage aux ressources dans Azure Purview
 
     Plus précisément, définissez des règles d’étiquetage automatique pour les fichiers et les colonnes de base de données :
 
-    - [Définition de règles d’étiquetage automatique pour les fichiers](#define-autolabeling-rules-for-files)
-    - [Définition de règles d’étiquetage automatique pour les colonnes de base de données](#define-autolabeling-rules-for-database-columns)
+    - [Définir des règles d’étiquetage automatique pour les fichiers](#define-auto-labeling-rules-for-files)
+    - [Définir des règles d’étiquetage automatique pour les colonnes de base de données](#define-auto-labeling-rules-for-database-columns)
 
     Pour plus d’informations sur les options de l’Assistant, consultez [Fonctions des étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) dans la documentation de Microsoft 365.
 
@@ -156,7 +156,7 @@ Ensuite, [analysez vos données pour appliquer automatiquement des étiquettes](
 - [Affichage des étiquettes sur les ressources](#view-labels-on-assets)
 - [Affichage des rapports d’analyse pour les classifications et les étiquettes de confidentialité](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Définition de règles d’étiquetage automatique pour les fichiers
+#### <a name="define-auto-labeling-rules-for-files"></a>Définir des règles d’étiquetage automatique pour les fichiers
 
 Définissez des règles d’étiquetage automatique pour les fichiers dans l’Assistant lorsque vous créez ou modifiez votre étiquette. 
 
@@ -164,11 +164,11 @@ Sur la page **Étiquetage automatique pour les applications Office**, activez **
 
 Par exemple :
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Définition de règles d’étiquetage automatique pour les fichiers dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Définir des règles d’étiquetage automatique pour les fichiers dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
 Pour plus d’informations, consultez [Application automatique d’une étiquette de confidentialité aux données](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) dans la documentation de Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Définition de règles d’étiquetage automatique pour les colonnes de base de données
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Définir des règles d’étiquetage automatique pour les colonnes de base de données
 
 Définissez des règles d’étiquetage automatique pour les colonnes de base de données dans l’Assistant lorsque vous créez ou modifiez votre étiquette. 
 
@@ -180,7 +180,7 @@ Sous l’option **Ressources Azure Purview (préversion)**  :
 
 Par exemple :
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Définition de règles d’étiquetage automatique pour les colonnes SQL dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Définir des règles d’étiquetage automatique pour les colonnes SQL dans le Centre de sécurité et conformité Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## <a name="scan-your-data-to-apply-labels-automatically"></a>Analyse des données pour appliquer automatiquement des étiquettes
 
@@ -197,7 +197,7 @@ Pour savoir comment configurer des analyses sur différentes ressources dans Azu
 
 ## <a name="view-labels-on-assets"></a>Affichage des étiquettes sur les ressources
 
-Une fois que vous avez défini les règles d’étiquetage automatique de vos étiquettes dans Microsoft 365 et analysé vos données dans Azure Purview, les étiquettes sont automatiquement appliquées à vos ressources. 
+Une fois que vous avez défini les règles d’étiquetage automatique de vos étiquettes dans Microsoft 365 et analysé vos données dans Azure Purview, les étiquettes sont automatiquement appliquées à vos ressources. 
 
 **Pour afficher les étiquettes appliquées à vos ressources dans le catalogue Azure Purview :**
 
@@ -218,5 +218,3 @@ Retrouvez des insights sur vos données classées et étiquetées dans Azure Pur
 
 > [!div class="nextstepaction"]
 > [Insights relatifs aux étiquettes de confidentialité](sensitivity-insights.md)
-
-

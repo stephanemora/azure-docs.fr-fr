@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c176fcafe13749ba89c04b34854f036aa5aea516
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96550227"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677658"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Résoudre les problèmes liés à vos connexions dans Azure Purview
 
@@ -34,7 +34,7 @@ Il existe des instructions spécifiques pour chaque type de source :
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
 ## <a name="storing-your-credential-in-your-key-vault-and-using-the-right-secret-name-and-version"></a>Stockage de vos informations d’identification dans votre coffre de clés et utilisation du nom et de la version appropriés pour le secret
 
 Vous devez également stocker vos informations d’identification dans votre instance Azure Key Vault et utiliser le nom et la version appropriés pour le secret.
@@ -53,7 +53,10 @@ Vérifiez que les autorisations appropriées ont été configurées pour que l�
 Pour cela, procédez comme suit :
 
 1. Accédez à votre coffre de clés et à la section **Stratégies d’accès**.
-1. Vérifiez que votre identité managée Purview s’affiche sous la section *Stratégies d’accès actuelles* avec au minimum des autorisations **get** sur les secrets.
+
+1. Vérifiez que votre identité managée Purview s’affiche sous la section *Stratégies d’accès actuelles* avec au minimum des autorisations **Get** et **List** sur les secrets.
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Image représentant la liste déroulante des options pour les autorisations Get et List":::
 
 Si vous ne voyez pas votre identité managée Purview dans la liste, suivez les étapes décrites dans [Créer et gérer des informations d’identification pour les analyses](manage-credentials.md) afin de pouvoir l’ajouter. 
 

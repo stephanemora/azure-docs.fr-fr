@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654827"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092126"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -34,6 +34,16 @@ Avant d’utiliser l’API Analyse de texte, vous devrez créer une ressource Az
 2.  Sélectionnez la région que votre point de terminaison doit utiliser.  Notez que les points de terminaison `/analyze` et `/health` sont uniquement disponibles dans les régions suivantes : USA Ouest 2, USA Est 2, USA Centre, Europe Nord et Europe Ouest.
 
 3.  Créez la ressource d’Analyse de texte et accédez au panneau « Clés et point de terminaison » dans la partie gauche de la page. Copiez la clé à utiliser ultérieurement lors de l’appel des API. Vous l’ajouterez plus tard en tant que valeur pour l’en-tête `Ocp-Apim-Subscription-Key`.
+
+## <a name="change-your-pricing-tier"></a>Changer votre niveau tarifaire 
+
+Si vous disposez d’une ressource Analyse de texte avec un niveau tarifaire compris entre S0 et S4, vous pouvez la mettre à jour pour utiliser le [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Standard (S) :
+
+1. Accédez à votre ressource Analyse de texte dans le [portail Azure](https://portal.azure.com/).
+2. Dans le menu de navigation de gauche, sélectionnez **Niveau tarifaire**. Il se trouve sous **GESTION DES RESSOURCES**. 
+3. Choisissez le niveau tarifaire Standard (S). Puis cliquez sur **Sélectionner**.
+
+Vous pouvez également créer une ressource Analyse de texte avec le niveau tarifaire Standard (S), et migrer vos applications pour utiliser les informations d’identification de la nouvelle ressource. 
 
 ## <a name="using-the-api-synchronously"></a>Utilisation de l’API de manière asynchrone
 

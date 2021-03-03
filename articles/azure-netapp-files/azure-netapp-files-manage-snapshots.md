@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629661"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379112"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gérer les instantanés avec Azure NetApp Files
 
@@ -187,7 +187,9 @@ Si vous ne souhaitez pas [restaurer l’intégralité de l’instantané sur un 
 
 Le volume monté contient un répertoire d’instantanés nommé `.snapshot` (sur les clients NFS) ou `~snapshot` (sur les clients SMB) accessible au client. Le répertoire d’instantanés contient des sous-répertoires correspondant aux instantanés du volume. Chaque sous-répertoire contient les fichiers de l’instantané. Si vous supprimez ou remplacez accidentellement un fichier, vous pouvez le restaurer dans le répertoire de lecture-écriture parent en le copiant à partir d’un sous-répertoire d’instantanés et en le collant dans le répertoire de lecture-écriture. 
 
-Si vous ne voyez pas le répertoire de l’instantané, il est possible qu’il soit masqué, car l’option Masquer le chemin d’instantané est actuellement activée. Vous pouvez [modifier l’option Masquer le chemin d’instantané](#edit-the-hide-snapshot-path-option) pour la désactiver.  
+Vous pouvez contrôler l’accès aux répertoires d’instantanés avec l’option [Masquer le chemin des instantanés](#edit-the-hide-snapshot-path-option). Cette option détermine si le répertoire doit être masqué pour les clients. Par conséquent, il contrôle également l’accès aux fichiers et aux dossiers des instantanés.  
+
+NFS v4.1 n’affiche pas le répertoire `.snapshot` (`ls -la`). Toutefois, même lorsque l’option Masquer le chemin des instantanés n’est pas définie, vous pouvez accéder au répertoire `.snapshot` avec NFS v4.1 en exécutant la commande `cd <snapshot-path>` à partir de la ligne de commande du client. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurer un fichier à l’aide d’un client NFS Linux 
 

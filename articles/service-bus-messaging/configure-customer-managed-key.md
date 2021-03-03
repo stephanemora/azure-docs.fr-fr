@@ -2,16 +2,16 @@
 title: Configurer votre propre clé pour chiffrer les données Azure Service Bus au repos
 description: Cet article vous explique comment configurer votre propre clé pour chiffrer les données Azure Service Bus au repos.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928087"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378313"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
-Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l’aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l’aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft sera chiffrée à l’aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire pivoter, de désactiver et de révoquer l’accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
+Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise Stockage Azure pour stocker les données. Toutes les données stockées avec Stockage Azure sont chiffrées à l'aide de clés gérées par Microsoft. Si vous utilisez votre propre clé (méthode également appelée Bring Your Own Key (BYOK) ou clé gérée par le client), les données sont toujours chiffrées à l'aide de la clé gérée par Microsoft, mais, en outre, la clé gérée par Microsoft est chiffrée à l'aide de la clé gérée par le client. Cette fonctionnalité vous permet de créer, de faire tourner, de désactiver et de révoquer l'accès aux clés gérées par le client et utilisées pour chiffrer les clés gérées par Microsoft. L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
 
 Il existe quelques inconvénients à la clé gérée par le client pour le chiffrement côté service. 
 - Cette fonctionnalité est prise en charge par le niveau de service [Azure Service Bus Premium](service-bus-premium-messaging.md). Elle ne peut pas être activée pour les espaces de noms Service Bus de niveau standard.
@@ -94,6 +94,17 @@ Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécan
 La révocation de l’accès aux clés de chiffrement ne videra pas les données de Service Bus. Cependant, il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. Vous pouvez révoquer la clé de chiffrement en appliquant une stratégie d'accès ou en supprimant la clé. Pour en savoir plus sur les stratégies d'accès et sur la sécurisation de votre coffre de clés, consultez [Sécuriser l'accès à un coffre de clés](../key-vault/general/secure-your-key-vault.md).
 
 Une fois la clé de chiffrement révoquée, le service Service Bus devient inutilisable sur l’espace de noms chiffré. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, le service Service Bus choisira la clé afin de vous permettre d’accéder aux données à partir de l’espace de noms Service Bus chiffré.
+
+## <a name="caching-of-keys"></a>Mise en cache des clés
+L’instance de Service Bus interroge ses clés de chiffrement répertoriées toutes les 5 minutes. Elle les met en cache et les utilise jusqu’à la prochaine interrogation, soit après 5 minutes. Tant qu’au moins une clé est disponible, les files d’attente et les rubriques restent accessibles. Si toutes les clés répertoriées ne sont pas accessibles lors de l’interrogation, toutes les files d’attente et rubriques ne seront plus disponibles. 
+
+Voici des informations détaillées concernant ces options : 
+
+- Toutes les 5 minutes, le service Service Bus interroge toutes les clés gérées par le client et répertoriées dans l’enregistrement de l’espace de noms :
+    - Si une clé a pivoté, l’enregistrement est mis à jour avec la nouvelle clé.
+    - Si une clé a été révoquée, la clé est supprimée de l’enregistrement.
+    - Si toutes les clés ont été révoquées, l’état de chiffrement de l’espace de noms est défini sur **Révoqué**. Il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Utiliser un modèle Resource Manager pour activer le chiffrement
 Cette section montre comment effectuer les tâches suivantes à l’aide de **modèles Azure Resource Manager**. 

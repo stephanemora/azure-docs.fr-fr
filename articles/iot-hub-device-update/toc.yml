@@ -1,0 +1,94 @@
+- name: Documentation de Device Update pour IoT Hub
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: Présentation du service Device Update pour IoT Hub
+      href: understand-device-update.md
+- name: Tutoriels
+  items:
+    - name: Mise à jour d’image sur Raspberry Pi
+      href: device-update-raspberry-pi.md
+    - name: Utiliser la mise à jour des appareils sur un simulateur
+      href: device-update-simulator.md
+    - name: "Mise à jour de package sur Ubuntu Server\_18.04 x64"
+      href: device-update-ubuntu-agent.md
+- name: Concepts
+  items:
+    - name: Compte et instance de mise à jour des appareils
+      href: device-update-resources.md
+    - name: Rôles d’utilisateur et accès à la mise à jour des appareils
+      href: device-update-control-access.md
+    - name: Manifeste APT de la mise à jour des appareils
+      href: device-update-apt-manifest.md
+    - name: Conformité de la mise à jour des appareils
+      href: device-update-compliance.md
+    - name: Groupes de mises à jour des appareils
+      href: device-update-groups.md
+    - name: Utilisation du Plug-and-Play par la mise à jour des appareils
+      href: device-update-plug-and-play.md
+    - name: Exigences réseau pour la mise à jour des appareils
+      href: device-update-networking.md
+    - name: Agent de mise à jour des appareils
+      href: device-update-agent-overview.md
+    - name: Fichier de configuration de la mise à jour des appareils
+      href: device-update-configuration-file.md
+    - name: Manifeste de la mise à jour des appareils
+      href: update-manifest.md
+    - name: Sécurisation de la mise à jour des appareils
+      href: device-update-security.md
+    - name: Prise en charge des appareils déconnectés
+      href: connected-cache-disconnected-device-update.md
+    - name: Configurer le cache connecté Microsoft pour le service Device Update pour IoT Hub
+      href: connected-cache-configure.md
+- name: Guides pratiques
+  items:
+    - name: Créer un compte de mise à jour d’appareil
+      href: create-device-update-account.md
+    - name: Provisionnement de l’agent de mise à jour des appareils
+      href: device-update-agent-provisioning.md
+    - name: Importer une mise à jour
+      href: import-update.md
+    - name: Créer un groupe de mises à jour d’appareil
+      href: create-update-group.md
+    - name: Déployer une mise à jour d’appareil
+      href: deploy-update.md
+    - name: Déployer une mise à jour d’appareil
+      href: deploy-update.md
+    - name: Cache connecté Microsoft mononiveau
+      href: connected-cache-single-level.md
+    - name: Cache connecté Microsoft à niveaux imbriqués
+      href: connected-cache-nested-level.md
+    - name: Cache connecté Microsoft pour l’IoT industriel (IIoT)
+      href: connected-cache-industrial-iot-nested.md
+    - name: Dépanner
+      items:
+        - name: Résoudre les problèmes liés aux mises à jour des appareils
+          href: troubleshoot-device-update.md
+- name: Informations de référence
+  items:
+    - name: Codes d’erreur du client de mise à jour des appareils
+      href: device-update-error-codes.md
+- name: Ressources
+  items:
+    - name: Options d’aide et de support
+      href: ../iot-fundamentals/iot-support-help.md
+    - name: Services Azure IoT
+      items:
+        - name: IoT Hub
+          href: ./index.yml
+        - name: Service IoT Hub Device Provisioning
+          href: ../iot-dps/index.yml
+        - name: IoT Central
+          href: /microsoft-iot-central/
+        - name: IoT Edge
+          href: ../iot-edge/index.yml
+        - name: Accélérateurs de solution IoT
+          href: ../iot-accelerators/index.yml
+        - name: IoT Plug-and-Play
+          href: ../iot-pnp/index.yml
+        - name: Azure Maps
+          href: ../azure-maps/index.yml
+        - name: Time Series Insights
+          href: ../time-series-insights/index.yml
+    - name: Optimisation de la distribution
+      href: 'https://github.com/microsoft/do-client'

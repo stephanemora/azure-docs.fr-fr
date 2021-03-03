@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: e3bff61cfbf89aee3566d677ccf593b102cff36d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 23ce17844a0113f63931c6ece7d36bfefedc2de5
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376246"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552673"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Pour ajouter une stratégie de sauvegarde StorSimple
 
@@ -17,21 +17,21 @@ ms.locfileid: "93376246"
 
 2. Dans le panneau **Stratégie de sauvegarde**, cliquez sur **+ Ajouter une stratégie** dans la barre de commandes.
    
-    ![Ajout d’une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/addbupol1.png)
+    ![Ajout d’une stratégie de sauvegarde](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-01.png)
 
 3. Dans le panneau **Créer la stratégie de sauvegarde**, procédez comme suit :
    
    1. **Sélectionner un appareil** est rempli automatiquement en fonction de l’appareil que vous avez sélectionné.
    
-   2. Spécifiez un **Nom de stratégie** de sauvegarde (entre 3 et 150 caractères). Une fois la stratégie créée, vous ne pourrez plus la renommer.
+   2. Spécifiez un **Nom de stratégie** de sauvegarde comprenant entre 3 et 150 caractères. Une fois la stratégie créée, vous ne pourrez plus la renommer.
        
    3. Pour affecter des volumes à cette stratégie de sauvegarde, sélectionnez **Ajouter des volumes** puis, dans la liste tabulaire des volumes, cliquez sur les cases à cocher pour affecter un ou plusieurs volumes à cette stratégie de sauvegarde.
 
-       ![Ajouter une stratégie de sauvegarde 2](./media/storsimple-8000-add-backup-policy-u2/addbupol2.png)
+       ![Ajouter une stratégie de sauvegarde 2](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-02.png)<!--Replacement screen source: create-backup-policy-addvolumes.png-->
 
-   4. Pour définir une planification pour cette stratégie de sauvegarde, cliquez sur **Première planification**, puis modifiez les paramètres suivants :
+   4. Pour définir une planification pour cette stratégie de sauvegarde, cliquez sur **Première planification**, puis modifiez les paramètres suivants :<!--Do the substeps remain the same? Can they follow without a screenshot?-->
 
-       ![Ajout d’une stratégie de sauvegarde 3](./media/storsimple-8000-add-backup-policy-u2/addbupol3.png)
+       ![Ajout d’une stratégie de sauvegarde 3](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-03.png)<!--Replacement screen source: create-backup-policy-first-schedule.png-->
 
        1. Pour **Type d’instantané**, sélectionnez **Cloud** ou **Local**.
 
@@ -44,10 +44,7 @@ ms.locfileid: "93376246"
        5. Cliquez sur **OK** pour définir la planification.
 
    5. Cliquez sur **Créer** pour créer une stratégie de sauvegarde.
-
-       ![Ajout d’une stratégie de sauvegarde 4](./media/storsimple-8000-add-backup-policy-u2/addbupol4.png)
    
    6. Un message s’affiche une fois la stratégie de sauvegarde créée. La stratégie ajoutée s’affiche dans le tableau du panneau **Stratégies de sauvegarde**.
 
-       ![Ajout d’une stratégie de sauvegarde 5](./media/storsimple-8000-add-backup-policy-u2/addbupol7.png)
-
+       ![Ajout d’une stratégie de sauvegarde 5](./media/storsimple-8000-add-backup-policy-u2/add-backup-policy-07.png)

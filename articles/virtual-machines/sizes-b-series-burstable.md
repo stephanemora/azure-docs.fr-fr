@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097688"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594389"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
@@ -109,7 +109,7 @@ Pour un D16s_v3 disposant de 16 processeurs virtuels et de 64 Gio de mémoire, l
 
 **R** : La métrique **Credit** vous permet d’afficher le nombre de crédits cumulés par votre machine virtuelle et la métrique **ConsumedCredit** le nombre de crédits de processeur consommés par votre machine virtuelle.    Ces mesures figurent sur le volet des mesures du portail ou sont visibles par programme via les API Azure Monitor.
 
-Pour en savoir plus sur l’accès aux données de mesure pour Azure, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Pour en savoir plus sur l’accès aux données de mesure pour Azure, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q : Comment les crédits sont-ils accumulés et consommés ?
 

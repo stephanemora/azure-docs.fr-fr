@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 387c5e70d50e53f922530cfb1fa91494fa7cc624
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab4f92c9723dc98d0b6c32d3a49df8d4f724ebfa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376307"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585475"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Base de référence de sécurité Azure pour Azure Data Factory
 
@@ -175,9 +175,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Aide** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les modifications de ces ressources associées à vos instances Azure Data Factory. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -201,7 +201,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 Vous pouvez également activer et intégrer des données à Azure Sentinel ou à des outils tiers d’Informations de sécurité et gestion d'événements (SIEM). Vous pouvez également intégrer Azure Data Factory à Git pour tirer parti de plusieurs avantages du contrôle de code source, tels que la possibilité de suivre/d’auditer les modifications et la possibilité de restaurer des modifications qui introduisent des bogues.
 
-* [Comment configurer les paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md)
+* [Comment configurer les paramètres de diagnostic](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -219,7 +219,7 @@ Vous pouvez également activer et intégrer des données à Azure Sentinel ou à
 
 Utilisez les paramètres de diagnostic pour configurer les journaux de diagnostic des ressources non dédiées au calcul dans Azure Data Factory, telles que les mesures et les données d’exécution de pipeline. Azure Data Factory stocke les données d’exécution du pipeline pendant 45 jours. Pour conserver ces données pendant une période plus longue, enregistrez vos journaux de diagnostic dans un compte de stockage à des fins d’audit ou d’inspection manuelle et spécifiez la durée de rétention en jours. Vous pouvez également diffuser les journaux dans Azure Event Hubs ou les envoyer dans un espace de travail Log Analytics pour analyse.
 
-* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+* [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Comprendre les journaux de diagnostic Azure Data Factory](./monitor-using-azure-monitor.md)
 
@@ -233,7 +233,7 @@ Utilisez les paramètres de diagnostic pour configurer les journaux de diagnosti
 
 Si votre organisation souhaite conserver les données du journal des événements de sécurité, elles peuvent être stockées dans une couche de collecte des données, à partir de laquelle elles peuvent être interrogées dans Log Analytics.
 
-* [Procédure de collecte de données à partir de machines virtuelles Azure avec Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Procédure de collecte de données à partir de machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Collecte de données dans Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -247,7 +247,7 @@ Si votre organisation souhaite conserver les données du journal des événement
 
 * [Procédure d’activation des journaux de diagnostic dans Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -263,7 +263,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 * [Schéma Log Analytics](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [Procédure de collecte de données à partir d’une machine virtuelle Azure avec Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Procédure de collecte de données à partir d’une machine virtuelle Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -281,9 +281,9 @@ En outre, veillez à activer les paramètres de diagnostic pour les services li�
 
 * [Alertes dans Azure Data Factory](./monitor-visually.md#alerts)
 
-* [Page de toutes les mesures prises en charge](../azure-monitor/platform/metrics-supported.md)
+* [Page de toutes les mesures prises en charge](../azure-monitor/essentials/metrics-supported.md)
 
-* [Comment configurer les alertes dans un espace de travail Log Analytics](../azure-monitor/platform/alerts-log.md)
+* [Comment configurer les alertes dans un espace de travail Log Analytics](../azure-monitor/alerts/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Oui
 
@@ -652,9 +652,9 @@ Vous pouvez stocker des informations d’identification ou des valeurs secrètes
 
 **Aide** : Utilisez Azure Monitor avec le journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à Azure Data Factory et aux ressources associées.
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Journalisation Azure Storage Analytics](../storage/common/storage-analytics-logging.md)
 

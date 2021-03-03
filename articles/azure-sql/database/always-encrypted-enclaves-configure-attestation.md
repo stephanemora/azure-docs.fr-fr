@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733814"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555669"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurer Azure Attestation pour votre serveur logique Azure SQL
 
@@ -114,7 +114,7 @@ Pendant le flux de travail d’attestation, le serveur logique Azure SQL contena
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Utiliser le portail Azure pour attribuer l’autorisation
 
-Pour attribuer l’identité d’un serveur Azure SQL au rôle Lecteur d’attestation pour un fournisseur d’attestation, suivez les instructions générales dans [Ajouter ou supprimer des attributions de rôle Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md). Quand vous êtes dans le volet **Ajouter une attribution de rôle** :
+Pour attribuer l’identité d’un serveur Azure SQL au rôle Lecteur d’attestation pour un fournisseur d’attestation, suivez les instructions générales dans [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md). Quand vous êtes dans le volet **Ajouter une attribution de rôle** :
 
 1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Lecteur d’attestation**.
 1. Dans le champ **Sélectionner**, entrez le nom de votre serveur Azure SQL pour le rechercher.
@@ -143,7 +143,7 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôle Azure à l’aide d’Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Pour plus d’informations, consultez [Attribuer des rôles Azure en utilisant Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

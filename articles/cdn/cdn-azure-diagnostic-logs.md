@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352114"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573217"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Journaux de diagnostic – Azure Content Delivery Network
 
@@ -78,7 +78,7 @@ Pour utiliser un compte de stockage afin de stocker les journaux d’activité, 
 Pour utiliser Log Analytics pour les journaux, suivez ces étapes :
 
 >[!NOTE] 
->Un espace de travail Log Analytics est nécessaire pour effectuer ces étapes. Consultez : **[Créer un espace de travail Log Analytics sur le portail Azure](../azure-monitor/learn/quick-create-workspace.md)** pour plus d’informations.
+>Un espace de travail Log Analytics est nécessaire pour effectuer ces étapes. Consultez : **[Créer un espace de travail Log Analytics sur le portail Azure](../azure-monitor/logs/quick-create-workspace.md)** pour plus d’informations.
     
 1. Pour **Nom des paramètres de diagnostic**, entrez un nom pour les paramètres du journal de diagnostic.
 
@@ -369,7 +369,7 @@ Exemple de propriétés :
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Journaux de diagnostic Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Journaux de diagnostic Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Core Analytics via le portail supplémentaire Azure CDN](./cdn-analyze-usage-patterns.md)
-* [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [API REST Azure Log Analytics](/rest/api/loganalytics)

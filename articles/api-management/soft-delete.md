@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
-ms.openlocfilehash: 72e91715398b4920c62afae5f36aa09954a577f9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092140"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652383"
 ---
 # <a name="api-management-soft-delete-preview"></a>Suppression réversible de Gestion des API (version préliminaire)
 
 Avec la fonctionnalité de suppression réversible (préversion) de Gestion des API, vous pouvez récupérer et restaurer des instances de Gestion des API (APIM) supprimées récemment.
 
 > [!IMPORTANT]
-> Seules les instances de Gestion des API supprimées à l’aide de `2020-01-01-preview` et versions ultérieures d’API seront supprimées de façon réversible et récupérables à l’aide des étapes décrites dans cet article. Les instances APIM supprimées à l’aide des versions précédentes de l’API continueront d’être supprimées définitivement. Azure PowerShell et Azure CLI n’utilisent pas actuellement la version `2020-06-01-preview` et entraînent également un comportement de suppression irréversible.
+> Seules les instances de Gestion des API supprimées à l’aide de `2020-06-01-preview` et versions ultérieures d’API seront supprimées de façon réversible et récupérables à l’aide des étapes décrites dans cet article. Les instances APIM supprimées à l’aide des versions précédentes de l’API continueront d’être supprimées définitivement. Azure PowerShell et Azure CLI n’utilisent pas actuellement la version `2020-06-01-preview` et entraînent également un comportement de suppression irréversible.
 
 ## <a name="supporting-interfaces"></a>Prise en charge des interfaces
 
@@ -31,14 +31,14 @@ La fonctionnalité de suppression réversible est disponible via [API REST](/res
 |--|--|--|--|
 | [Créer ou mettre à jour](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Crée ou met à jour un service Gestion des API.  | Service Gestion des API | Quelconque |
 | [Créer ou mettre à jour](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) avec la propriété `restore` définie sur **true** | Supprime le service Gestion des API s’il a été précédemment supprimé de manière réversible. Si `restore` est spécifié et défini sur `true`, toutes les autres propriétés seront ignorées.  | Service Gestion des API |  2020-06-01-preview |
-| [Supprimer](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Supprime un service Gestion des API existant. | Service Gestion des API | 2020-01-01-preview|
+| [Supprimer](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Supprime un service Gestion des API existant. | Service Gestion des API | 2020-06-01-preview|
 | [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Procurez-vous le service Gestion des API supprimé de manière réversible par nom. | Services supprimés | 2020-06-01-preview |
 | [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Répertorie tous les services supprimés de manière réversible et disponibles pour l’annulation de la suppression pour l’abonnement donné. | Services supprimés | 2020-06-01-preview
 | [Purge](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Vide le service Gestion des API (le supprime sans option d’annulation de suppression). | Services supprimés | 2020-06-01-preview
 
 ## <a name="soft-delete-behavior"></a>Comportement de la suppression réversible
 
-Vous pouvez utiliser n’importe quelle version d’API pour créer votre instance Gestion des API. Toutefois, vous devez utiliser `2020-01-01-preview` ou versions ultérieures pour supprimer de manière réversible votre instance APIM (et avoir la possibilité de la récupérer).
+Vous pouvez utiliser n’importe quelle version d’API pour créer votre instance Gestion des API. Toutefois, vous devez utiliser `2020-06-01-preview` ou versions ultérieures pour supprimer de manière réversible votre instance APIM (et avoir la possibilité de la récupérer).
 
 Lors de la suppression d’une instance Gestion des API, le service existe dans un état supprimé, ce qui le rend inaccessible à toutes les opérations APIM. Dans cet état, l’instance APIM peut uniquement être listée, récupérée ou vidée (supprimée définitivement).
 

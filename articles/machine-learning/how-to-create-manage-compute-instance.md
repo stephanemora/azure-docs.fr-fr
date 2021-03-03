@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842887"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097192"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -44,7 +44,7 @@ Les instances de calcul peuvent exécuter des travaux en toute sécurité dans u
 
 **Durée estimée** : 5 minutes environ.
 
-La création d’une instance de calcul est un processus unique pour votre espace de travail. Vous pouvez réutiliser ce calcul en tant que station de travail de développement ou en tant que cible de calcul pour l’entraînement. Plusieurs instances de calcul peuvent être attachées à votre espace de travail.
+La création d’une instance de calcul est un processus unique pour votre espace de travail. Vous pouvez réutiliser le calcul en tant que station de travail de développement ou en tant que cible de calcul pour l’entraînement. Plusieurs instances de calcul peuvent être attachées à votre espace de travail.
 
 Le quota de cœurs dédiés par région par famille de machine virtuelle et le quota régional total, qui s’appliquent à la création d’une instance de calcul, sont unifiés et partagés avec le quota de clusters de calcul d’entraînement Azure Machine Learning. L’arrêt de l’instance de calcul n’a pas pour effet de libérer le quota pour s’assurer que vous puissiez redémarrer l’instance de calcul. Notez qu’il n’est pas possible de changer la taille de machine virtuelle de l’instance de calcul une fois celle-ci créée.
 
@@ -226,7 +226,7 @@ Pour chaque instance de calcul de votre espace de travail que vous avez créée 
 
 ---
 
-Le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler quels utilisateurs dans l’espace de travail peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L’instance de calcul utilisera une connexion d’utilisateur unique et toutes les actions utiliseront l’identité de cet utilisateur pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’attribution d’exécutions d’expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
+Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L’instance de calcul utilise une connexion mono-utilisateur et toutes les actions utilisent l’identité de cet utilisateur pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’attribution des exécutions d’expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
 
 Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -236,62 +236,8 @@ Ces actions peuvent être contrôlées par Azure RBAC :
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-
-## <a name="access-the-terminal-window"></a>Accéder à la fenêtre de terminal
-
-Ouvrez la fenêtre de terminal de votre instance de calcul de l’une des manières suivantes :
-
-* RStudio : Sélectionnez l’onglet **Terminal** en haut à gauche.
-* Lab Jupyter :  Sélectionnez la vignette **Terminal** sous le titre **Autre** de l’onglet Lanceur.
-* Jupyter :  Sélectionnez **Nouveau > Terminal** en haut à droite dans l’onglet Fichiers.
-* Connectez-vous en mode SSH à la machine, si vous avez activé l’accès SSH lors de la création de l’instance de calcul.
-
-Utilisez la fenêtre de terminal pour installer des packages et créer des noyaux supplémentaires.
-
-## <a name="install-packages"></a>Installer des packages
-
-Vous pouvez installer des packages directement dans Jupyter Notebook ou RStudio :
-
-* RStudio utilise l’onglet **Packages** en bas à droite, ou l’onglet **Console** en haut à gauche.  
-* Python : Ajoutez le code d’installation et exécutez-le dans une cellule Jupyter Notebook.
-
-Vous pouvez aussi effectuer l’installation à partir d’une fenêtre de terminal. Installez les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
-
-> [!NOTE]
-> Pour la gestion des packages au sein d’un notebook, utilisez les fonctions magic **%pip** ou **%conda** pour installer automatiquement des packages dans le **noyau en cours d’exécution**, au lieu de **!pip** ou **!conda** qui se réfèrent à tous les packages (y compris les packages en dehors du noyau en cours d’exécution).
-
-## <a name="add-new-kernels"></a>Ajouter de nouveaux noyaux
-
-> [!WARNING]
->  Lors de la personnalisation de l’instance de calcul, veillez à ne pas supprimer l’environnement conda **azureml_py36** ou le noyau **Python 3.6 - AzureML**. Cela est nécessaire pour le bon fonctionnement de Jupyter/JupyterLab.
-
-Pour ajouter un nouveau noyau Jupyter à l’instance de calcul :
-
-1. Créez un terminal à partir de Jupyter, de JupyterLab ou du volet des notebooks ou connectez-vous en mode SSH à l’instance de calcul.
-2. Utilisez la fenêtre de terminal pour créer un environnement.  Par exemple, le code ci-dessous crée `newenv` :
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Active l’environnement.  Par exemple, après la création de `newenv` :
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Installer pip et le package ipykernel dans le nouvel environnement et créer un noyau pour ce conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Vous pouvez installer n’importe lequel des [noyaux Jupyter disponibles](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
-
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Accéder au terminal d’une instance de calcul](how-to-access-terminal.md)
+* [Créer et gérer des fichiers](how-to-manage-files.md)
 * [Soumettre une exécution d’entraînement](how-to-set-up-training-targets.md)

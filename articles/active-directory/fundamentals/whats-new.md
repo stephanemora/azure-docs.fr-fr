@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: c767d114ad6a1b5cb8b9c6bf4c0fe4f2ccd1dae6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988878"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650122"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -181,7 +181,7 @@ Pour plus d’informations, consultez [Qu’est ce que le provisionnement automa
 
 En janvier 2021, nous avons ajouté les 29 applications suivantes à notre Galerie d’applications avec prise en charge de la fédération :
 
-[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](https://docs.microsoft.com/azure/active-directory/saas-apps/burp-suite-enterprise-edition-tutorial)
+[mySCView](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [Bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [Supportbench](https://account.supportbench.net/agent/login/),[Bienvenue Formation](https://formation.bienvenue.pro/login), [AIDA Healthcare SSO](https://aidaforparents.com/login/organizations), [International SOS Assistance Products](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX One](../saas-apps/navex-one-tutorial.md), [LabLog](../saas-apps/lablog-tutorial.md), [Oktopost SAML](../saas-apps/oktopost-saml-tutorial.md), [EPHOTO DAM](../saas-apps/ephoto-dam-tutorial.md), [Notion](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [Nalco E-data](https://www.ecolab.com/), [Vacancy Filler](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [Synerise AI Growth Ecosystem](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva Data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [Proware](../saas-apps/proware-tutorial.md), [Splan Visitor](../saas-apps/splan-visitor-tutorial.md), [Aruba User Experience Insight](../saas-apps/aruba-user-experience-insight-tutorial.md), [Contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [Perimeter 81](../saas-apps/perimeter-81-tutorial.md), [Burp Suite Enterprise Edition](../saas-apps/burp-suite-enterprise-edition-tutorial.md)
 
 La documentation de toutes ces applications est disponible ici https://aka.ms/AppsTutorial
 
@@ -806,11 +806,11 @@ L’actualisation de la préversion publique de provisionnement cloud Azure AD C
 
 - Expérience de mappage d’attributs par le biais du portail Azure
 
-    Avec cette fonctionnalité, les administrateurs informatiques peuvent mapper des attributs d’utilisateur, de groupe ou de contact entre Active Directory et Azure AD à l’aide de différents types de mappage présents aujourd’hui. Le mappage d’attributs est une fonctionnalité utilisée pour standardiser les valeurs des attributs qui circulent d’Active Directory vers Azure Active Directory. Vous pouvez déterminer s’il faut mapper la valeur d’attribut telle quelle d’Active Directory vers Azure AD, ou utiliser des expressions pour transformer les valeurs d’attributs lors du provisionnement des utilisateurs. [En savoir plus](../cloud-provisioning/how-to-attribute-mapping.md)
+    Avec cette fonctionnalité, les administrateurs informatiques peuvent mapper des attributs d’utilisateur, de groupe ou de contact entre Active Directory et Azure AD à l’aide de différents types de mappage présents aujourd’hui. Le mappage d’attributs est une fonctionnalité utilisée pour standardiser les valeurs des attributs qui circulent d’Active Directory vers Azure Active Directory. Vous pouvez déterminer s’il faut mapper la valeur d’attribut telle quelle d’Active Directory vers Azure AD, ou utiliser des expressions pour transformer les valeurs d’attributs lors du provisionnement des utilisateurs. [En savoir plus](../cloud-sync/how-to-attribute-mapping.md)
 
 - Provisionnement à la demande ou expérience de test utilisateur
 
-    Une fois que vous avez paramétré votre configuration, vous souhaiterez peut-être effectuer un test pour voir si la transformation utilisateur fonctionne comme prévu avant de l’appliquer à tous les utilisateurs dans l’étendue. Avec le provisionnement à la demande, les administrateurs informatiques peuvent entrer le nom unique d’un utilisateur Active Directory et voir si la synchronisation fonctionne comme prévu. Le provisionnement à la demande offre un excellent moyen de s’assurer que les mappages d’attributs que vous avez effectués auparavant fonctionnent comme prévu. [En savoir plus](../cloud-provisioning/how-to-on-demand-provision.md)
+    Une fois que vous avez paramétré votre configuration, vous souhaiterez peut-être effectuer un test pour voir si la transformation utilisateur fonctionne comme prévu avant de l’appliquer à tous les utilisateurs dans l’étendue. Avec le provisionnement à la demande, les administrateurs informatiques peuvent entrer le nom unique d’un utilisateur Active Directory et voir si la synchronisation fonctionne comme prévu. Le provisionnement à la demande offre un excellent moyen de s’assurer que les mappages d’attributs que vous avez effectués auparavant fonctionnent comme prévu. [En savoir plus](../cloud-sync/how-to-on-demand-provision.md)
  
 ---
 
@@ -1139,6 +1139,3 @@ Auparavant, seul l’Administrateur général pouvait gérer la [propriété d�
 Un [correctif cumulatif (build 4.6.263.0)](https://support.microsoft.com/help/4576473/hotfix-rollup-package-build-4-6-263-0-is-available-for-microsoft-ident) est disponible pour Microsoft Identity Manager (MIM) 2016 Service Pack 2 (SP2). Ce package cumulatif contient des mises à jour pour les composants MIM CM, Gestionnaire de synchronisation MIM et PAM. En outre, la build de connecteurs génériques MIM 1.1.1301.0 inclut des mises à jour du connecteur Graph.
 
 ---
- 
-
-

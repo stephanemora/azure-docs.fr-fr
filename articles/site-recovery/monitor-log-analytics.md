@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499813"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571683"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
-Cet article explique comment superviser des machines répliquées par Azure [Site Recovery](site-recovery-overview.md) à l’aide des [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) et de [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Cet article explique comment superviser des machines répliquées par Azure [Site Recovery](site-recovery-overview.md) à l’aide des [journaux Azure Monitor](../azure-monitor/logs/data-platform-logs.md) et de [Log Analytics](../azure-monitor/logs/log-query-overview.md).
 
 Les journaux Azure Monitor constituent une plateforme permettant de collecter les données des journaux d’activité et des journaux de ressources, ainsi que d’autres données de supervision. Dans les journaux Azure Monitor, vous utilisez Log Analytics pour écrire et tester des requêtes de journal, ainsi que pour analyser interactivement les données de journal. Vous pouvez visualiser et interroger les résultats du journal, et configurer des alertes en fonction des données analysées.
 
@@ -35,8 +35,8 @@ L’utilisation des journaux Azure Monitor avec Site Recovery est prise en charg
 Voici ce dont vous avez besoin :
 
 - Au moins une machine protégée dans un coffre Recovery Services
-- Un espace de travail Log Analytics pour stocker les journaux Site Recovery. [Découvrez comment configurer un espace de travail](../azure-monitor/learn/quick-create-workspace.md)
-- Des connaissances de base concernant l’écriture, l’exécution et l’analyse des requêtes de journal dans Log Analytics. [Plus d’informations](../azure-monitor/log-query/log-analytics-tutorial.md)
+- Un espace de travail Log Analytics pour stocker les journaux Site Recovery. [Découvrez comment configurer un espace de travail](../azure-monitor/logs/quick-create-workspace.md)
+- Des connaissances de base concernant l’écriture, l’exécution et l’analyse des requêtes de journal dans Log Analytics. [Plus d’informations](../azure-monitor/logs/log-analytics-tutorial.md)
 
 Avant de commencer, il est recommandé de consulter les [questions courantes concernant la supervision](monitoring-common-questions.md).
 
@@ -62,9 +62,9 @@ Vous pouvez capturer les informations relatives au taux d’évolution des donn�
 1. Accédez à l’espace de travail Log Analytics et cliquez sur **Paramètres avancés**.
 2. Cliquez sur la page **Sources connectées**, puis sélectionnez **Serveurs Windows**.
 3. Téléchargez l’agent Windows (64 bits) sur le serveur de processus. 
-4. [Obtenir l’ID et la clé de l’espace de travail](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
-5. [Configurer l’Agent de façon à utiliser TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Terminez l’installation de l’agent](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) en fournissant l’ID et la clé de l’espace de travail obtenu.
+4. [Obtenir l’ID et la clé de l’espace de travail](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+5. [Configurer l’Agent de façon à utiliser TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Terminez l’installation de l’agent](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) en fournissant l’ID et la clé de l’espace de travail obtenu.
 7. Une fois l’installation terminée, accédez à l’espace de travail Log Analytics, puis cliquez sur **Paramètres avancés**. Accédez à la page **Données**, puis cliquez sur **Compteur de performances Windows**. 
 8. Cliquez sur **« + »** pour ajouter les deux compteurs suivants avec un intervalle d’échantillonnage de 300 secondes :
 
@@ -76,7 +76,7 @@ Les données de taux d’évolution et de vitesse de chargement vont commencer �
 
 ## <a name="query-the-logs---examples"></a>Interroger les journaux - Exemples
 
-Vous pouvez récupérer les données des journaux à l’aide de requêtes de journal écrites à l’aide du [langage de requête Kusto](../azure-monitor/log-query/get-started-queries.md). Cette section fournit quelques exemples de requêtes courantes que vous pouvez utiliser pour la supervision Site Recovery.
+Vous pouvez récupérer les données des journaux à l’aide de requêtes de journal écrites à l’aide du [langage de requête Kusto](../azure-monitor/logs/get-started-queries.md). Cette section fournit quelques exemples de requêtes courantes que vous pouvez utiliser pour la supervision Site Recovery.
 
 > [!NOTE]
 > Certains de ces exemples utilisent **replicationProviderName_s** avec une valeur de **A2A**. Cela permet de récupérer les machines virtuelles Azure qui ont été répliquées dans une région Azure secondaire à l’aide de Site Recovery. Dans ces exemples, vous pouvez remplacer **A2A** par **InMageAzureV2** si vous souhaitez récupérer des machines virtuelles VMware locales ou des serveurs physiques ayant été répliqués dans Azure à l’aide de Site Recovery.
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurer des alertes - Exemples
 
-Vous pouvez configurer des alertes Site Recovery en fonction des données Azure Monitor. [En savoir plus sur la configuration des alertes de journaux](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 
+Vous pouvez configurer des alertes Site Recovery en fonction des données Azure Monitor. [En savoir plus sur la configuration des alertes de journaux](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) 
 
 > [!NOTE]
 > Certains de ces exemples utilisent **replicationProviderName_s** avec une valeur de **A2A**. Cela permet de configurer des alertes pour les machines virtuelles Azure qui ont été répliquées dans une région Azure secondaire. Dans ces exemples, vous pouvez remplacer **A2A** par **InMageAzureV2** si vous souhaitez configurer des alertes pour des machines virtuelles VMware locales ou des serveurs physiques ayant été répliqués dans Azure.

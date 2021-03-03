@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600513"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530431"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -86,7 +86,7 @@ Vous pouvez accéder aux détails de n’importe quel jumeau numérique en appel
 
 Cet appel retourne des données de jumeau sous forme de type d’objet fortement typé tel que `BasicDigitalTwin`. `BasicDigitalTwin` est une classe d’assistance de sérialisation incluse avec le Kit de développement logiciel (SDK), qui retourne les propriétés et les métadonnées de base du jumeau dans un format préalablement analysé. Voici un exemple d’utilisation pour afficher les détails du jumeau :
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Seules les propriétés qui ont été définies au moins une fois sont retournées lorsque vous récupérez un jumeau avec la méthode `GetDigitalTwin()`.
 
@@ -208,9 +208,9 @@ Les deux appels qui modifient *Twin1* sont exécutés l’un après l’autre, e
 
 Vous pouvez supprimer des jumeaux à l’aide de la méthode `DeleteDigitalTwin()`. Toutefois, vous ne pouvez supprimer un jumeau que s’il n’a plus de relations. Ainsi, supprimez d’abord les relations entrantes et sortantes du jumeau.
 
-Voici un exemple de code permettant de supprimer des jumeaux et leurs relations :
+Voici un exemple de code permettant de supprimer des jumeaux et leurs relations. L’appel du kit SDK à `DeleteDigitalTwin` est mis en surbrillance pour clarifier son emplacement par rapport au contexte de l’exemple.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 

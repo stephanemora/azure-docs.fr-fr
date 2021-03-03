@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 4f14f006283b7430458d67d2bd3bee787c08411d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326016"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573378"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
 La solution Agent Health dans Azure vous permet de savoir quels agents, parmi tous ceux au service de l’espace de travail Log Analytics dans Azure Monitor ou d’un groupe d’administration System Center Operations Manager connecté à Azure Monitor, ne répondent pas et envoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
-## <a name="prerequisites"></a>Conditions préalables requises
-Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../platform/agent-windows.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../platform/om-agents.md) inclut dans votre espace de travail.
+## <a name="prerequisites"></a>Prérequis
+Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../agents/agent-windows.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../agents/om-agents.md) inclut dans votre espace de travail.
 
 ## <a name="solution-components"></a>Composants de la solution
 Cette solution se compose des ressources suivantes qui sont ajoutées à votre espace de travail et d’agents directement connectés ou d’un groupe d’administration Operations Manager connecté.
@@ -28,7 +28,7 @@ Si votre groupe d’administration System Center Operations Manager est connect�
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../platform/om-agents.md).
+Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../agents/om-agents.md).
 
 ## <a name="configuration"></a>Configuration
 Ajoutez la solution Agent Health à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](solutions.md). Aucune configuration supplémentaire n’est requise.
@@ -110,5 +110,5 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la génération d’alertes à partir de requêtes de journal, consultez [Alertes dans Azure Monitor](../platform/alerts-overview.md). 
+* Pour plus d’informations sur la génération d’alertes à partir de requêtes de journal, consultez [Alertes dans Azure Monitor](../alerts/alerts-overview.md). 
 

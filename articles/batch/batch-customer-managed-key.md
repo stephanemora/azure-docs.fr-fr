@@ -3,14 +3,14 @@ title: Configurer des clés managées par le client pour votre compte Azure Batc
 description: En savoir plus sur le chiffrement des données Batch à l’aide de clés gérées par le client.
 author: pkshultz
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 02/11/2021
 ms.author: peshultz
-ms.openlocfilehash: 01dc21f067b03ad8e07a05a18aa6312ed7f7189e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d3f10436b95aaeb5eb35a873c2a3862c1492bd47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789411"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385062"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurer des clés managées par le client pour votre compte Azure Batch avec Azure Key Vault et l’identité managée
 
@@ -21,11 +21,6 @@ Les clés que vous fournissez doivent être générées dans [Azure Key Vault](.
 Il existe deux types d’identités managées : [*celles affectées par le système* et *celles affectées par l’utilisateur*](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 Vous pouvez soit créer votre compte Batch avec une identité managée affectée par le système, soit créer une identité managée distincte affectée par l’utilisateur qui aura accès aux clés gérées par le client. Consultez le [tableau comparatif](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) pour comprendre les différences et déterminer l’option qui convient le mieux à votre solution. Par exemple, si vous souhaitez utiliser la même identité managée pour accéder à plusieurs ressources Azure, vous aurez besoin d’une identité managée affectée par l’utilisateur. Sinon, une identité managée affectée par le système associée à votre compte Batch peut suffire. L’utilisation d’une identité managée affectée par l’utilisateur vous donne également la possibilité d’appliquer des clés gérées par le client au moment de la création du compte Batch, comme indiqué [dans l’exemple ci-dessous](#create-a-batch-account-with-user-assigned-managed-identity-and-customer-managed-keys).
-
-> [!IMPORTANT]
-> Dans Azure Batch, la prise en charge des clés gérées par le client est actuellement disponible en préversion publique pour les régions Europe Ouest, Europe Nord, Suisse Nord, USA Centre, USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest 2, US Gov Virginie et US Gov Arizona.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Créer un compte Batch avec une identité managée affectée par le système
 
@@ -68,7 +63,7 @@ az batch account show \
 ```
 
 > [!NOTE]
-> L’identité managée affectée par le système créée dans un compte Batch est utilisée uniquement pour récupérer des clés gérées par le client dans le coffre de clés. Cette identité n’est pas disponible sur les pools Batch.
+> L’identité managée affectée par le système créée dans un compte Batch est utilisée uniquement pour récupérer des clés gérées par le client dans le coffre de clés. Cette identité n’est pas disponible sur les pools Batch. Pour utiliser une identité managée affectée par l’utilisateur dans un pool, consultez [Configurer des identités managées dans des pools Batch](managed-identity-pools.md).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur
 
@@ -202,7 +197,7 @@ az batch account set \
 - **Après la restauration de l’accès, combien de temps faut-il pour que le compte Batch fonctionne à nouveau ?** Cela peut prendre jusqu’à 10 minutes pour que le compte soit à nouveau accessible après la restauration.
 - **Qu’arrive-t-il à mes ressources lorsque le compte Batch est indisponible ?** Les pools en cours d’exécution continuent à s’exécuter lorsque l’accès Batch aux clés managées par le client est perdu. Toutefois, les nœuds passent à l’état indisponible et les tâches cessent de s’exécuter (elles sont replacées dans la file d’attente). Une fois l’accès restauré, les nœuds sont à nouveau disponibles et les tâches redémarrent.
 - **Ce mécanisme de chiffrement s’applique-t-il aux disques de machine virtuelle dans un pool Batch ?** Non. Pour les pools de configuration de service Cloud, aucun chiffrement n’est appliqué pour le système d’exploitation et le disque temporaire. Pour les pools de configuration de machine virtuelle, le système d’exploitation et les disques de données spécifiés sont chiffrés par défaut avec une clé managée par la plate-forme Microsoft. Actuellement, vous ne pouvez pas spécifier votre propre clé pour ces disques. Pour chiffrer le disque temporaire des machines virtuelles pour un pool Batch avec une clé managée par la plate-forme Microsoft, vous devez activer la propriété [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) dans votre pool de [configuration de machine virtuelle](/rest/api/batchservice/pool/add#virtualmachineconfiguration). Pour les environnements très sensibles, nous vous recommandons d’activer le chiffrement de disque temporaire et d’éviter de stocker des données sensibles sur le système d’exploitation et les disques de données. Pour plus d’informations, consultez [Créer un pool avec le chiffrement de disque activé](./disk-encryption.md).
-- **L’identité managée affectée par le système sur le compte Batch est-elle disponible sur les nœuds de calcul ?** Non. L’identité managée affectée par le système est actuellement utilisée uniquement pour accéder au coffre de clés Azure pour la clé gérée par le client.
+- **L’identité managée affectée par le système sur le compte Batch est-elle disponible sur les nœuds de calcul ?** Non. L’identité managée affectée par le système est actuellement utilisée uniquement pour accéder au coffre de clés Azure pour la clé gérée par le client. Pour utiliser une identité managée affectée par l’utilisateur sur des nœuds de calcul, consultez [Configurer des identités managées dans des pools Batch](managed-identity-pools.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

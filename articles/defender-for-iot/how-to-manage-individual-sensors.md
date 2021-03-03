@@ -4,15 +4,15 @@ description: Découvrez comment gérer des capteurs individuels, y compris comme
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508758"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526916"
 ---
 # <a name="manage-individual-sensors"></a>Gérer des capteurs individuels
 
@@ -86,7 +86,7 @@ Vous recevrez un message d’erreur si le chargement du fichier d’activation a
 
 - **Pour les capteurs connectés au cloud** : Le capteur ne peut pas se connecter à Internet. Vérifiez la configuration du réseau du capteur. Si votre capteur doit se connecter par le biais d’un proxy web pour accéder à Internet, vérifiez que votre serveur proxy est correctement configuré sur l’écran **Configuration réseau du capteur**. Vérifiez que \*.azure-devices.net:443 est autorisé dans le pare-feu et/ou le proxy. Si les caractères génériques ne sont pas pris en charge ou si vous souhaitez davantage de contrôle, le nom de domaine complet pour votre hub Defender pour IoT spécifique doit être ouvert dans votre pare-feu et/ou proxy. Pour plus d’informations, consultez [Référence - Points de terminaison IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **Pour les capteurs connectés au cloud** : Le fichier d’activation est valide mais Defender pour IoT l’a rejeté. Si vous ne parvenez pas à résoudre ce problème, vous pouvez télécharger un autre fichier d’activation à partir de la page **Gestion du capteur** du portail Defender pour IoT. Si cela ne fonctionne pas, contactez le support Microsoft.
+- **Pour les capteurs connectés au cloud** : Le fichier d’activation est valide mais Defender pour IoT l’a rejeté. Si vous ne parvenez pas à résoudre ce problème, vous pouvez télécharger un autre fichier d’activation à partir de la page Sites et capteurs du portail Defender pour IoT. Si cela ne fonctionne pas, contactez le support Microsoft.
 
 ## <a name="manage-certificates"></a>Gérer des certificats
 
@@ -114,7 +114,7 @@ Le capteur Defender pour IoT et la console de gestion locale utilisent SSL et de
  
  - sécuriser les communications entre les capteurs et une console de gestion locale. 
 
-Une fois installée, l’appliance génère un certificat auto-signé local pour permettre un accès préliminaire à la console web. Les certificats SSL et TLS d’entreprise peuvent être installés à l’aide de l’outil de ligne de commande [`cyberx-xsense-certificate-import`](#cli-commands). 
+Une fois installée, l’appliance génère un certificat auto-signé local pour permettre un accès préliminaire à la console web. Les certificats SSL et TLS d’entreprise peuvent être installés à l’aide de l’outil de ligne de commande [`cyberx-xsense-certificate-import`](#cli-commands).
 
  > [!NOTE]
  > Pour les intégrations et les règles de transfert où l’appliance est le client et l’initiateur de la session, des certificats spécifiques sont utilisés et ne sont pas associés aux certificats du système.  
@@ -363,15 +363,23 @@ Si votre capteur a été inscrit en tant que capteur connecté au cloud, le nom 
 
 Pour modifier le nom :
 
-1. Dans le portail Azure Defender pour IoT, accédez à la page **Gestion des capteurs**.
+1. Dans le portail Azure Defender pour IoT, accédez à la page Sites et capteurs.
 
-1. Supprimez le capteur de la fenêtre **Gestion du capteur**.
+1. Supprimez le capteur de la page Sites et capteurs.
 
-1. Réinscrivez-vous avec le nouveau nom.
+1. Inscrivez-vous avec le nouveau nom en sélectionnant **Capteur intégré** dans la page Prise en main.
 
 1. Téléchargez le nouveau fichier d’activation.
 
-1. Connectez-vous au capteur et chargez le nouveau fichier d’activation.
+1. Connectez-vous à la console de capteur Defender pour IoT.
+
+1. Dans la console du capteur, sélectionnez **Paramètres système** puis **Réactivation**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Chargez votre fichier d’activation pour réactiver le capteur.":::
+
+1. Sélectionnez **Télécharger** et sélectionnez le fichier que vous avez enregistré.
+
+1. Sélectionnez **Activer**.
 
 ## <a name="update-the-sensor-network-configuration"></a>Mettre à jour la configuration réseau du capteur
 
@@ -387,7 +395,7 @@ Pour modifier la configuration :
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configurez vos paramètres réseau.":::
 
-3. Définissez les paramètres de la façon suivante :
+3. Définissez les paramètres :
 
     | Paramètre | Description |
     |--|--|
@@ -410,7 +418,7 @@ Vous pouvez configurer l’heure et la région du capteur afin que tous les util
 |--|--|
 | Fuseau horaire | Définition du fuseau horaire pour :<br />- les alertes<br />- les widgets de tendances et de statistiques<br />- les rapports d’exploration de données<br />   \- les rapports d’évaluation des risques<br />- les vecteurs d’attaque |
 | Format de la date | Sélectionnez l’une des options de format suivantes :<br />- jj/MM/aaaa HH:mm:ss<br />- MM/jj/aaaa HH:mm:ss<br />- aaaa/mm/jj HH:mm:ss |
-| Date et heure | Affiche la date et l’heure locale actuelles au format que vous avez sélectionné.<br />Par exemple, si votre emplacement réel est Amérique et plus précisément New York, mais que le fuseau horaire est défini sur Europe et Berlin, l’heure est affichée en fonction de l’heure locale de Berlin. |
+| Date et heure | Affiche la date et l’heure locale actuelles au format que vous avez sélectionné.<br />Par exemple, si votre emplacement réel est États-Unis et plus précisément New York, mais que le fuseau horaire est défini sur Europe et Berlin, l’heure est affichée en fonction de l’heure locale de Berlin. |
 
 Pour configurer l’heure du capteur :
 
@@ -458,7 +466,7 @@ Pour enregistrer la sauvegarde sur un serveur SMB externe :
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. Modifiez `fstab`: 
+3. Modifiez `fstab`:
 
     - `sudo nano /etc/fstab`
 
@@ -526,7 +534,7 @@ La procédure suivante décrit comment mettre à jour un capteur autonome à l�
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Capture d’écran de la version de mise à niveau qui s’affiche lorsque vous êtes connecté.":::
 
-## <a name="forward-sensor-failure-alerts"></a>Transférer des alertes de défaillance du capteur 
+## <a name="forward-sensor-failure-alerts"></a>Transférer des alertes de défaillance du capteur
 
 Vous pouvez transférer des alertes à des tiers pour fournir des détails sur :
 

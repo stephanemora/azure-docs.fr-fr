@@ -7,12 +7,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 8150a172c49b2b0e969ff35928976e5909b7daa8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626254"
+ms.locfileid: "100635470"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Démarrage rapide : Envoyer le journal d’activité Azure à un espace de travail Log Analytics à l’aide d’un modèle Resource Manager
 
@@ -260,7 +260,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
@@ -277,7 +277,7 @@ az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-000
 
 ## <a name="generate-log-data"></a>Générer des données de journal
 
-Seules les nouvelles entrées du journal d’activité étant envoyées à l’espace de travail Log Analytics, effectuez certaines actions dans votre abonnement qui seront journalisées, telles que le démarrage ou l’arrêt d’une machine virtuelle ou la création ou la modification d’une autre ressource. Vous devrez peut-être attendre quelques minutes pour que le paramètre de diagnostic soit créé et pour que les données soient écrites initialement dans l’espace de travail. Après ce délai, tous les événements écrits dans le journal d’activité sont envoyés à l’espace de travail en quelques secondes.
+Seules les nouvelles entrées du journal d’activité sont envoyées à l’espace de travail Log Analytics. Par conséquent, effectuez certaines actions dans votre abonnement qui seront journalisées, comme le démarrage ou l’arrêt d’une machine virtuelle, ou la création ou la modification d’une autre ressource. Vous devrez peut-être attendre quelques minutes pour que le paramètre de diagnostic soit créé et pour que les données soient écrites initialement dans l’espace de travail. Après ce délai, tous les événements écrits dans le journal d’activité sont envoyés à l’espace de travail en quelques secondes.
 
 ## <a name="retrieve-data-with-a-log-query"></a>Récupérer des données à l’aide d’une requête de journal
 
@@ -285,11 +285,11 @@ Utilisez le portail Azure pour récupérer des données de l’espace de travail
 
 ![Portail Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Sélectionnez **Journaux** dans le menu **Azure Monitor**. Fermez la page **Exemples de requêtes**. Si l’étendue n’est pas définie sur l’espace de travail que vous avez créé, cliquez sur **Sélectionner une étendue** et recherchez-le.
+Sélectionnez **Journaux** dans le menu **Azure Monitor**. Fermez la page **Exemples de requêtes**. Si l’étendue n’est pas définie sur l’espace de travail que vous avez créé, cliquez sur **Sélectionner l’étendue**, puis recherchez-la.
 
 ![Étendue Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Dans la fenêtre de requête, tapez `AzureActivity`, puis cliquez sur **Exécuter**. Il s’agit d’une requête simple qui retourne tous les enregistrements de la table *AzureActivity*, qui contient tous les enregistrements envoyés à partir du journal d’activité.
+Dans la fenêtre de requête, tapez `AzureActivity`, puis cliquez sur **Exécuter**. Il s’agit d’une requête simple qui retourne tous les enregistrements de la table *AzureActivity*, laquelle contient tous les enregistrements envoyés à partir du journal d’activité.
 
 ![Requête simple](media/quick-collect-activity-log/query-01.png)
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez configuré le journal d’activité à envoyer à un espace de travail Log Analytics. Vous pouvez à présent configurer d’autres données à collecter dans l’espace de travail, où vous pouvez les analyser à l’aide de [requêtes de journal](../log-query/log-query-overview.md) dans Azure Monitor et tirer parti de fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs ](../visualize/workbooks-overview.md). Ensuite, vous devriez collecter les [journaux des ressources](../essentials/resource-logs.md) à partir de vos ressources Azure, qui complètent les données du journal d’activité en fournissant un insight sur les opérations qui ont été effectuées au sein de chaque ressource.
+Dans ce guide de démarrage rapide, vous avez configuré le journal d’activité à envoyer à un espace de travail Log Analytics. Vous pouvez à présent configurer d’autres données à collecter dans l’espace de travail, où vous pouvez les analyser à l’aide de [requêtes de journal](../log-query/log-query-overview.md) dans Azure Monitor et tirer parti de fonctionnalités telles que les [alertes de journal](../alerts/alerts-log-query.md) et les [classeurs ](../visualize/workbooks-overview.md). Vous devez ensuite collecter les [journaux de ressources](../essentials/resource-logs.md) à partir de vos ressources Azure qui complètent les données du journal d’activité en fournissant des insights sur les opérations qui ont été effectuées au sein de chaque ressource.
 
 > [!div class="nextstepaction"]
 > [Collecter et analyser des journaux de ressources avec Azure Monitor](../essentials/tutorial-resource-logs.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77af95f2decbfb81ed930591b03f71fb71780def
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e71beb4e4b5d23dcd1cffa1f60462d782d37db2e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572194"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Ligne de base de sécurité Azure pour Sauvegarde Azure
 
@@ -116,9 +116,9 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 **Aide** : Si vous utilisez l’agent MARS sur une machine virtuelle Azure protégée par un NSG ou un Pare-feu Azure, utilisez le journal d’activité Azure pour surveiller la configuration du groupe de sécurité réseau ou du Pare-feu. Vous pouvez créer des alertes dans Azure Monitor qui se déclenchent lorsque des modifications sont apportées à ces ressources.
 
-- [Afficher et récupérer les événements du journal d’activité Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Afficher et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -142,7 +142,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de s�
 
 Ingérez également les journaux via Azure Monitor pour agréger les données de sécurité générées par Sauvegarde Azure. Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, puis utilisez les comptes de stockage pour le stockage à long terme/d’archivage. Vous pouvez également activer et intégrer des données dans Azure Sentinel ou une solution SIEM (Security Information and Event Management) tierce.
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](./backup-azure-diagnostic-events.md)
 
@@ -158,7 +158,7 @@ Ingérez également les journaux via Azure Monitor pour agréger les données de
 
 En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent être collectés et utilisés à des fins d’analyse, d’alerte et de création de rapports. Vous pouvez configurer les paramètres de diagnostic d’un coffre Recovery Services par le biais du portail Azure. Vous pouvez envoyer un ou plusieurs événements de diagnostic à un compte de stockage, un Event Hub ou un espace de travail Log Analytics.
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Utilisation des paramètres de diagnostic pour les coffres Recovery Services](./backup-azure-diagnostic-events.md)
 
@@ -178,7 +178,7 @@ En outre, Sauvegarde Azure envoie des événements de diagnostic qui peuvent êt
 
 **Aide** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos coffres Recovery Services conformément aux réglementations de conformité de votre organisation.
 
-- [Définition des paramètres de rétention des journaux](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Définition des paramètres de rétention des journaux](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -192,9 +192,9 @@ Activez les paramètres de diagnostic des journaux d’activité Azure et envoye
 
 - [Surveillance des charges de travail de Sauvegarde Azure](./backup-azure-monitoring-built-in-monitor.md)
 
-- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/platform/activity-log.md)
+- [Activation des paramètres de diagnostic pour le journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -212,7 +212,7 @@ Vous pouvez également intégrer un espace de travail Log Analytics à Azure Sen
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -314,7 +314,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 - [Stations de travail d’accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Planifier un déploiement informatique d'Azure AD Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planifier un déploiement d'Azure AD Multi-Factor Authentication basé sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -518,7 +518,7 @@ Lorsque vous sauvegardez avec l’agent MARS ou à l’aide d’un coffre Recove
 
 **Aide** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes en cas de modifications sur des coffres Azure Recovery Services en production et d’autres ressources cruciales ou associées.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 

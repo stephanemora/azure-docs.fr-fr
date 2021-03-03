@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: d9e01ee8b1f6c1cd04e665ad9f7bc57155abfaab
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 652be939136139620f6ec024fe98463113c6fb4a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028979"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657517"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.2) : fonctionnalités et syntaxe prises en charge
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 À l’aide de l’API Azure Cosmos DB pour MongoDB, vous pouvez profiter des avantages de MongoDB que vous connaissez déjà, ainsi que de toutes les fonctionnalités d’entreprise fournies par Cosmos DB : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partitioning-overview.md), garanties de disponibilité et latence, indexation automatique de tous les champs, chiffrement au repos, sauvegardes et bien plus encore.
 
 > [!NOTE]
-> Cet article concerne l’API Azure Cosmos DB pour MongoDB 3.2. Pour la version MongoDB 3.6, consultez [Fonctionnalités et syntaxe prises en charge de MongoDB 3.6](mongodb-feature-support-36.md).
+> Cet article concerne l’API Azure Cosmos DB pour MongoDB 3.2. Pour les versions 3.6 et 4.0 de MongoDB, consultez les articles [Fonctionnalités et syntaxe prises en charge avec MongoDB 3.6](mongodb-feature-support-36.md) et [Fonctionnalités et syntaxe prises en charge avec MongoDB 4.0](mongodb-feature-support-40.md).
 
 ## <a name="protocol-support"></a>Prise en charge du protocole
 
@@ -367,5 +367,3 @@ Azure Cosmos DB prend en charge le partitionnement automatique côté serveur. I
 - Découvrez comment [utiliser Studio 3T](mongodb-mongochef.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Découvrez comment [utiliser Robo 3T](mongodb-robomongo.md) avec l’API Azure Cosmos DB pour MongoDB.
 - Explorez les [exemples](mongodb-samples.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.
-
-<sup>Remarque : Cet article décrit une fonctionnalité d’Azure Cosmos DB qui assure la compatibilité des protocoles de transmission avec les bases de données MongoDB. Microsoft n’exécute pas les bases de données MongoDB pour fournir ce service. Azure Cosmos DB n’est pas affilié à MongoDB, Inc.</sup>

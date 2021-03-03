@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573188"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361704"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -64,7 +64,7 @@ Voici les limites de la taille des données qui peuvent être copiées sur un co
 
 | Type de données             | Limite par défaut          |
 |--------------------------|------------------------|
-| objet blob de blocs, objet blob de pages.    | Pour des informations actualisées sur ces limites, voir [Objectifs de mise à l'échelle du stockage Azure Blob](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage) , [Objectifs de mise à l'échelle du stockage Azure standard](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) et [Objectifs de mise à l'échelle du stockage Azure Files](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> Les limites comprennent les données à partir de toutes les sources, notamment Data Box Disk.|
+| objet blob de blocs, objet blob de pages.    | Pour des informations actualisées sur ces limites, consultez [Objectifs de mise à l’échelle du stockage Azure Blob](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Objectifs de mise à l’échelle du stockage Azure standard](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) et [Objectifs de mise à l’échelle du stockage Azure Files](../storage/files/storage-files-scale-targets.md). <br /><br /> Les limites comprennent les données à partir de toutes les sources, notamment Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Limites de taille des objets Azure

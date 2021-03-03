@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182867"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581214"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 
@@ -72,7 +72,7 @@ Les paramètres de diagnostic d’Automation prennent en charge le transfert des
 * DSCNodeStatus
 * Métriques : Nombre total de travaux, Nombre total d’exécutions de déploiement de mises à jour de machines, Nombre total d’exécutions de déploiement de mises à jour
 
-Pour commencer à envoyer vos journaux Automation aux journaux d’activité d’Azure Monitor, consultez [Créer des paramètres de diagnostic](../azure-monitor/platform/diagnostic-settings.md) pour comprendre la fonction et les méthodes disponibles pour configurer les paramètres de diagnostic afin d’envoyer les journaux de la plateforme.
+Pour commencer à envoyer vos journaux Automation aux journaux d’activité d’Azure Monitor, consultez [Créer des paramètres de diagnostic](../azure-monitor/essentials/diagnostic-settings.md) pour comprendre la fonction et les méthodes disponibles pour configurer les paramètres de diagnostic afin d’envoyer les journaux de la plateforme.
 
 ## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
 
@@ -140,7 +140,7 @@ Pour créer une règle d’alerte, commencez par créer une recherche de journal
 
    Si vous avez configuré des journaux d’activité dans votre espace de travail sur plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation. Le nom du compte Automation se trouve dans le champ `Resource` de la recherche de `JobLogs`.
 
-3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. Pour ouvrir l’écran **Créer une règle**, cliquez sur **Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, voir [Alertes de journaux dans Azure](../azure-monitor/alerts/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Rechercher tous les travaux qui ont rencontré des erreurs
 
@@ -192,8 +192,8 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour savoir comment construire des requêtes de recherche et consulter les journaux d’activité de travaux Automation avec les journaux Azure Monitor, consultez [Recherches dans les journaux d’activité dans les journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+* Pour savoir comment construire des requêtes de recherche et consulter les journaux d’activité de travaux Automation avec les journaux Azure Monitor, consultez [Recherches dans les journaux d’activité dans les journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 * Pour savoir comment créer et récupérer la sortie et les messages d’erreur de runbooks, consultez [Superviser la sortie des runbooks](automation-runbook-output-and-messages.md).
 * Pour plus d’informations sur l’exécution des runbooks, sur la supervision des travaux de runbook et sur d’autres détails techniques, consultez [Exécution d’un Runbook dans Azure Automation](automation-runbook-execution.md).
-* Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans les journaux Azure Monitor – Vue d’ensemble](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
-* Pour obtenir de l’aide sur la résolution des problèmes Log Analytics, consultez [Dépannage si Log Analytics ne collecte plus de données](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
+* Pour plus d’informations sur les journaux Azure Monitor et sur les sources de collecte de données, consultez la page [Collecter des données de stockage Azure dans les journaux Azure Monitor – Vue d’ensemble](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+* Pour obtenir de l’aide sur la résolution des problèmes Log Analytics, consultez [Dépannage si Log Analytics ne collecte plus de données](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

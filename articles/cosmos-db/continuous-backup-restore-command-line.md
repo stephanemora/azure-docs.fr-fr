@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539189"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377327"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Configurer et gérer la sauvegarde en continu et la restauration à un instant dans le passé (préversion) – Azure CLI
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ Cet article explique comment approvisionner un compte avec sauvegarde continue e
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>Approvisionner un compte d’API SQL avec sauvegarde continue
 
-Pour approvisionner un compte d’API SQL avec sauvegarde continue, un argument supplémentaire `--backup-policy-type Continuous` doit être transmis avec la commande d’approvisionnement standard. La commande suivante est un exemple de compte d’écriture à région unique nommé `pitracct2` avec une stratégie de sauvegarde continue créée dans la région « USA Ouest » sous le groupe de ressources « myrg » :
+Pour approvisionner un compte d’API SQL avec sauvegarde continue, un argument supplémentaire `--backup-policy-type Continuous` doit être transmis avec la commande d’approvisionnement standard. La commande suivante est un exemple de compte d’écriture à région unique nommé `pitracct2` avec une stratégie de sauvegarde continue créée dans la région *USA Ouest* sous le groupe de ressources *myrg* :
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>Approvisionner un compte d’API Azure Cosmos DB pour MongoDB avec sauvegarde continue
 
-La commande suivante montre un exemple de compte d’écriture à région unique nommé `pitracct3` avec une stratégie de sauvegarde continue créée dans la région « USA Ouest » sous le groupe de ressources « myrg » :
+La commande suivante montre un exemple de compte d’écriture à région unique nommé `pitracct3` avec une stratégie de sauvegarde continue créée dans la région *USA Ouest* sous le groupe de ressources *myrg* :
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ La réponse comprend tous les comptes de base de données (à la fois actifs et 
   }
 ```
 
-Tout comme « CreationTime » ou « DeletionTime » pour le compte, il existe également un « CreationTime » ou un « DeletionTime » pour la région. Ces heures vous permettent de choisir la bonne région et une plage horaire valide pour restaurer dans cette région.
+À l’instar de l’heure `CreationTime` ou `DeletionTime` pour le compte, il y a également une heure `CreationTime` ou `DeletionTime` pour la région. Ces heures vous permettent de choisir la bonne région et une plage horaire valide pour restaurer dans cette région.
 
 **Répertorier toutes les versions des bases de données dans un compte de base de données actif**
 
 L’énumération de toutes les versions de bases de données vous permet de choisir la base de données appropriée dans un scénario où le moment réel de l’existence de la base de données est inconnu.
 
-Exécutez la commande CLI suivante pour répertorier toutes les versions des bases de données. Cette commande fonctionne uniquement avec des comptes actifs. Les paramètres « instanceId » et « location » sont obtenus à partir des propriétés « name » et « location » dans la réponse de la commande `az cosmosdb restorable-database-account list`. L’attribut instanceId est également une propriété du compte de base de données source en cours de restauration :
+Exécutez la commande CLI suivante pour répertorier toutes les versions des bases de données. Cette commande fonctionne uniquement avec des comptes actifs. Les paramètres `instanceId` et `location` sont obtenus à partir des propriétés `name` et `location` dans la réponse de la commande `az cosmosdb restorable-database-account list`. L’attribut instanceId est également une propriété du compte de base de données source en cours de restauration :
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ Cette sortie de commande indique désormais quand une base de données a été c
 
 **Répertorier toutes les versions des conteneurs SQL d’une base de données dans un compte de base de données actif**
 
-Utilisez la commande suivante pour répertorier toutes les versions des conteneurs SQL. Cette commande fonctionne uniquement avec des comptes actifs. Le paramètre « databaseRid » correspond au « ResourceId » de la base de données que vous souhaitez restaurer. Il s’agit de la valeur de l’attribut « ownerResourceid » trouvé dans la réponse de la commande `az cosmosdb sql restorable-database list`.
+Utilisez la commande suivante pour répertorier toutes les versions des conteneurs SQL. Cette commande fonctionne uniquement avec des comptes actifs. Le paramètre `databaseRid` est le `ResourceId` de la base de données que vous souhaitez restaurer. Il s’agit de la valeur de l’attribut `ownerResourceid` trouvé dans la réponse de la commande `az cosmosdb sql restorable-database list`.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>Énumérer les ressources restaurables pour le compte d’API MongoDB
 
-Les commandes d’énumération décrites ci-dessous vous aident à découvrir les ressources disponibles pour la restauration à différents moments. En outre, elles fournissent également un flux d’événements clés sur les ressources du compte, des bases de données et des conteneurs restaurables. Comme avec l’API SQL, vous pouvez utiliser la commande `az cosmosdb`, mais avec « mongodb » comme paramètre au lieu de « sql ». Ces commandes fonctionnent uniquement pour les comptes actifs.
+Les commandes d’énumération décrites ci-dessous vous aident à découvrir les ressources disponibles pour la restauration à différents moments. En outre, elles fournissent également un flux d’événements clés sur les ressources du compte, des bases de données et des conteneurs restaurables. Comme avec l’API SQL, vous pouvez utiliser la commande `az cosmosdb`, mais avec `mongodb` comme paramètre au lieu de `sql`. Ces commandes fonctionnent uniquement pour les comptes actifs.
 
 **Répertorier toutes les versions des bases de données mongodb dans un compte de base de données actif**
 

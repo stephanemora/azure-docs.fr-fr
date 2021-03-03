@@ -1,16 +1,16 @@
 ---
 title: Prise en main des files d’attente Azure Service Bus | Microsoft Docs
 description: Dans ce tutoriel, vous créez des applications console .NET Core afin d’échanger des messages avec une file d’attente Service Bus.
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 09/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c862fda5ee2bb5b7418fda1b4e45cd06742cf95
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: e8e70884838d56003694e2da09668527ce5b6c7b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819034"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652987"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 Dans ce tutoriel, vous créez des applications console .NET Core afin d’échanger des messages avec une file d’attente Service Bus.

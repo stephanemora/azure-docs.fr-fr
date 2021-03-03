@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576341"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight
 
@@ -21,7 +21,7 @@ Découvrez des scénarios de base sur l'utilisation des journaux Azure Monitor p
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir configuré un cluster HDInsight pour utiliser les journaux Azure Monitor, et ajouté les solutions de supervision des journaux Azure Monitor propres au cluster HDInsight à l'espace de travail. Pour obtenir des instructions, consultez [Utiliser les journaux Azure Monitor avec des clusters HDInsight](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
@@ -31,7 +31,7 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 1. Sous **Général**, sélectionnez **Journaux**.
-1. Tapez la requête suivante dans la zone de recherche afin de rechercher toutes les métriques disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **Exécuter**. Passez en revue les résultats.
+1. Tapez la requête suivante dans la zone de recherche afin de rechercher toutes les métriques disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **Exécuter**. Examinez les résultats.
 
     ```kusto
     search *
@@ -122,9 +122,9 @@ La première étape pour créer une alerte consiste à définir une requête qui
 
     ![HDInsight, journaux Azure Monitor, alerte, supprimer, modifier](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
-* [Créer des vues personnalisées à l'aide du Concepteur de vues d'Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+* [Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor](../azure-monitor/visualize/view-designer.md)

@@ -4,22 +4,16 @@ description: Découvrez comment Azure Content Delivery Network peut optimiser la
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004498"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387918"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimiser Azure CDN pour le type de distribution de contenu
 
@@ -64,7 +58,11 @@ Microsoft vous recommande de tester les écarts de performances entre les diffé
 
 ## <a name="select-and-configure-optimization-types"></a>Sélectionner et configurer les types d’optimisations
 
-Lorsque vous créez un point de terminaison CDN, sélectionnez le type d’optimisation qui correspond le mieux au scénario et au type de contenu que le point de terminaison doit distribuer. **Livraison web générale** est la sélection par défaut. Pour les points de terminaison **Azure CDN Standard fourni par Akamai** existants uniquement, vous pouvez mettre à jour l’option d’optimisation à tout moment. Cette modification n’interrompt pas la distribution à partir d’Azure CDN. 
+Lorsque vous créez un point de terminaison CDN, sélectionnez le type d’optimisation qui correspond le mieux au scénario et au type de contenu que le point de terminaison doit distribuer. 
+
+**Livraison web générale** est la sélection par défaut. Vous pouvez uniquement mettre à jour à tout moment l’optimisation des points de terminaison **Azure CDN Standard fourni par Akamai**. 
+
+Cela n’est pas possible pour **Azure CDN Standard fourni par Microsoft**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**.
 
 1. Dans un profil **Azure CDN Standard fourni par Akamai**, sélectionnez un point de terminaison.
 

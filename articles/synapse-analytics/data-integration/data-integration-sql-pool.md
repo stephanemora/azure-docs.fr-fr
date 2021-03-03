@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6156bd72e3f4965a74798a3f91496eb8a321444e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a02abff712fc26f653307108fcc3bb284444d0c7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219520"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676645"
 ---
 # <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingérer les données dans un pool SQL dédié
 
@@ -23,7 +23,7 @@ Cet article explique comment ingérer les données d’un compte de stockage Azu
 ## <a name="prerequisites"></a>Prérequis
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) pour découvrir comment procéder.
+* **Compte de stockage Azure** : Vous utilisez Azure Data Lake Storage Gen2 comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte Stockage Azure](../../storage/common/storage-account-create.md) pour découvrir comment procéder.
 * **Azure Synapse Analytics** : Vous utilisez un pool SQL dédié en tant que magasin de données *récepteur*. Si vous ne disposez pas d’une instance Synapse Analytics, consultez [Créer un pool SQL dédié](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) pour savoir comment procéder.
 
 ## <a name="create-linked-services"></a>Créez des services liés
@@ -58,7 +58,7 @@ Une fois la configuration de votre pipeline terminée, avant de publier vos arte
 
 1. Pour déboguer le pipeline, sélectionnez **Déboguer** dans la barre d’outils. L’état d’exécution du pipeline apparaît dans l’onglet **Sortie** au bas de la fenêtre. 
 1. Une fois que le pipeline peut s’exécuter correctement, sélectionnez **Publier tout** dans la barre d’outils supérieure. Cette action publie les entités (jeux de données et pipelines) que vous avez créées dans le service Synapse Analytics.
-1. Patientez jusqu’à voir le message **Publication réussie**. Pour afficher les messages de notification, sélectionnez le bouton avec l’icône de cloche en haut à droite. 
+1. Patientez jusqu’à voir le message **Publication réussie**. Pour voir les messages de notification, sélectionnez le bouton avec l’icône de cloche en haut à droite. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Déclencher et surveiller le pipeline

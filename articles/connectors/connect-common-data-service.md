@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355116"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382347"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Création et gestion d’enregistrements dans Common Data Service (Microsoft Dataverse) avec Azure Logic Apps
 
 > [!NOTE]
 > En novembre 2020, Common Data Service a été renommé Microsoft Dataverse.
 
-Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service (maintenant Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Common Data Service et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Common Data Service, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Common Data Service](/connectors/commondataservice/), vous pouvez créer des flux de travail automatisés qui gèrent les enregistrements dans votre base de données [Common Data Service (maintenant Microsoft Dataverse)](/powerapps/maker/common-data-service/data-platform-intro). Ces flux de travail peuvent créer des enregistrements, mettre à jour des enregistrements et exécuter d’autres opérations. Vous pouvez également obtenir des informations à partir de votre base de données Dataverse et rendre la sortie disponible pour d’autres actions à utiliser dans votre application logique. Par exemple, lorsqu’un enregistrement est mis à jour dans votre base de données Dataverse, vous pouvez envoyer un e-mail à l’aide du connecteur Office 365 Outlook.
 
 Cet article vous explique comment générer une application logique qui crée un enregistrement de tâche quand un enregistrement de prospect est créé.
 
@@ -32,7 +32,7 @@ Cet article vous explique comment générer une application logique qui crée un
   * [Découvrir : Prise en main de Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Power Platform - Présentation des environnements](/power-platform/admin/environments-overview)
 
-* Connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md) et application logique à partir de laquelle vous voulez accéder aux enregistrements dans votre base de données Common Data Service. Pour démarrer votre application logique avec un déclencheur Common Data Service, vous avez besoin d’une application logique vide. Si vous débutez avec les applications logiques Azure, consultez le guide de [Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md) et application logique à partir de laquelle vous voulez accéder aux enregistrements dans votre base de données Dataverse. Pour démarrer votre application logique avec un déclencheur Common Data Service, vous avez besoin d’une application logique vide. Si vous débutez avec les applications logiques Azure, consultez le guide de [Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Ajouter un déclencheur Common Data Service
 
@@ -170,6 +170,62 @@ Cet exemple montre comment l'action **Créer un enregistrement** crée un nouvel
 ## <a name="connector-reference"></a>Référence de connecteur
 
 Pour des informations techniques sur la description Swagger du connecteur, comme les déclencheurs, les actions, les limites et d’autres détails, consultez la [page de référence du connecteur](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Résolution des problèmes
+
+### <a name="calls-from-multiple-environments"></a>Appels à partir de plusieurs environnements
+
+Les connecteurs Common Data Service et Common Data Service (environnement actuel) stockent des informations sur les flux de travail d’application logique qui nécessitent et reçoivent des notifications sur les modifications d’entité à l’aide de l’entité `callbackregistrations` de votre Microsoft Dataverse. Si vous copiez une organisation Dataverse, tous les Webhooks sont également copiés. Si vous copiez votre organisation avant de désactiver les workflows mappés à celle-ci, les Webhooks copiés pointent également vers les mêmes applications logiques, qui reçoivent alors des notifications provenant de plusieurs organisations.
+
+Pour arrêter les notifications indésirables, supprimez l’inscription de rappel de l’organisation qui envoie ces notifications en procédant comme suit :
+
+1. Identifiez l’organisation Dataverse à partir de laquelle vous souhaitez supprimer des notifications, puis connectez-vous à cette organisation.
+
+1. Dans le navigateur Chrome, recherchez l’inscription de rappel que vous souhaitez supprimer en procédant comme suit :
+
+   1. Passez en revue la liste générique de toutes les inscriptions de rappel au niveau de l’URI OData suivant, afin d’afficher les données à l’intérieur de l’entité `callbackregistrations` :
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Si aucune valeur n’est retournée, vous n’êtes peut-être pas autorisé à afficher ce type d’entité, ou vous n’êtes peut-être pas connecté à l’organisation appropriée.
+
+   1. Filtrez selon le nom logique de l’entité de déclenchement `entityname` et l’événement de notification qui correspond au workflow de votre application logique (message). Chaque type d’événement est mappé à l’entier du message, comme suit :
+
+      | Type d'événement | Entier du message |
+      |------------|-----------------|
+      | Créer | 1 |
+      | DELETE | 2 |
+      | Update | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Cet exemple montre comment filtrer les notifications `Create` selon une entité nommée `nov_validation`, en utilisant l’URI OData suivant pour un exemple d’organisation :
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Capture d’écran montrant une fenêtre de navigateur et l’URI OData dans la barre d’adresse.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Si plusieurs déclencheurs existent pour la même entité ou le même événement, vous pouvez filtrer la liste à l’aide de filtres supplémentaires, par exemple attributs `createdon` et `_owninguser_value`. Le nom de l’utilisateur propriétaire s’affiche sous `/api/data/v9.0/systemusers({id})`.
+
+   1. Après avoir trouvé l’ID de l’inscription de rappel que vous souhaitez supprimer, procédez comme suit :
+   
+      1. Dans votre navigateur Chrome, ouvrez les outils de développement Chrome (raccourci clavier : F12).
+
+      1. En haut de la fenêtre, sélectionnez l’onglet **Console**.
+
+      1. Dans l’invite de ligne de commande, entrez la commande suivante, qui envoie une demande de suppression de l’inscription de rappel spécifiée :
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Veillez à effectuer la demande à partir d’une page de l’interface client non unifiée (UCI), par exemple à partir de la page de réponse OData ou API elle-même. Sinon, la logique dans le fichier app.js risque d’interférer avec cette opération.
+
+   1. Pour confirmer que l’inscription de rappel n’existe plus, consultez la liste des inscriptions de rappel.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

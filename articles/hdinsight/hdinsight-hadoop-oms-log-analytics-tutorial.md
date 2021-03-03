@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945627"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590817"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
 Découvrez comment activer les journaux Azure Monitor pour superviser les opérations de cluster Hadoop dans HDInsight et comment ajouter une solution de supervision HDInsight.
 
-Les [journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) sont un service Azure Monitor qui supervise vos environnements Cloud et locaux. La supervision consiste à maintenir leur disponibilité et leurs performances. Elle collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils de supervision. Les données sont utilisées pour fournir une analyse englobant plusieurs sources.
+Les [journaux Azure Monitor](../azure-monitor/logs/log-query-overview.md) sont un service Azure Monitor qui supervise vos environnements Cloud et locaux. La supervision consiste à maintenir leur disponibilité et leurs performances. Elle collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils de supervision. Les données sont utilisées pour fournir une analyse englobant plusieurs sources.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail Log Analytics. Considérez cet espace de travail comme un environnement des journaux d’activité Azure Monitor avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Un espace de travail Log Analytics. Considérez cet espace de travail comme un environnement des journaux d’activité Azure Monitor avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * Un cluster Azure HDInsight. Vous pouvez actuellement utiliser les journaux d’activité Azure Monitor avec les types de cluster HDInsight suivants :
 
@@ -144,7 +144,7 @@ Pour obtenir des instructions sur les solutions de gestion, consultez [Solutions
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
 
-Azure Monitor prend en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations, consultez [Sources de données de performances Linux dans Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+Azure Monitor prend en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations, consultez [Sources de données de performances Linux dans Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Audit de cluster
 

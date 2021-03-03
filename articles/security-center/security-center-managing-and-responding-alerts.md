@@ -11,21 +11,16 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563345"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633475"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
-
-> [!TIP]
-> Les informations de cette page font référence à la nouvelle expérience d’alertes (en préversion) disponible dans la bannière en haut de la page alertes de sécurité. 
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Bannière avec un lien vers la nouvelle expérience d’alertes en préversion":::
 
 Cette rubrique montre comment afficher et traiter les alertes du Security Center et protéger vos ressources.
 

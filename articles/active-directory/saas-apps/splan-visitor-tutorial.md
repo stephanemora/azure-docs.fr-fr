@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/14/2020
 ms.author: jeedes
-ms.openlocfilehash: ed136d06f18190124abe4598d580f40e41bf8592
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 20f49c174dde90bc7f1a9b34f3dea3132e9b177e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704218"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644693"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-splan-visitor"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à Splan Visitor
 
@@ -120,8 +120,8 @@ Créez un utilisateur de test nommé **Britta Simon** dans Splan Visitor. Rappro
 Testez votre configuration de l’authentification unique Azure AD avec l’une des options suivantes :
 
 * **Portail Azure**: Sélectionnez **Tester cette application** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique.
-* **Portail Mes applications Microsoft** : Sélectionnez **Splan Visitor** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* **Portail Mes applications Microsoft** : Sélectionnez **Splan Visitor** pour vous connecter automatiquement à l’application Splan Visitor pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le portail Mes applications, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Splan Visitor, vous pouvez [découvrir comment appliquer des contrôles de session dans Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app). Les contrôles de session offrent une protection contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel.
+Après avoir configuré Splan Visitor, vous pouvez [découvrir comment appliquer des contrôles de session dans Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app). Les contrôles de session offrent une protection contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel.

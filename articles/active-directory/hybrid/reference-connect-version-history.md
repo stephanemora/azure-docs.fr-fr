@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636875"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376358"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -45,17 +45,17 @@ Toutefois, si vous souhaitez bénéficier des dernières fonctionnalités et mis
 Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> À partir du 1er novembre 2020, nous entamerons un processus de dépréciation dans le cadre duquel les versions d'Azure AD Connect publiées depuis plus de 18 mois seront dépréciées. À ce moment-là, nous commencerons à déprécier Azure AD Connect 1.3.20.0 (publié le 24/04/2019) et ses versions antérieures, et nous procéderons à l’évaluation de la dépréciation des anciennes versions d’Azure AD Connect chaque fois qu’une nouvelle version sera publiée.
+> À compter du 1er avril 2024, nous mettrons hors service les versions d'Azure AD Connect publiées avant le 1er mai 2018 - version 1.1.751.0 et versions antérieures. 
 >
 > Vous devez vous assurer que vous exécutez une version récente d'Azure AD Connect pour bénéficier d'une expérience de support optimale. 
 >
->Si vous exécutez une version obsolète d'Azure AD Connect, vous risquez de ne pas bénéficier des correctifs de sécurité, améliorations des performances, outils de diagnostic et de résolution des problèmes et améliorations des services les plus récents, et si vous avez besoin d'assistance, nous ne serons peut-être pas en mesure de vous fournir le niveau de service dont votre organisation a besoin.
+>Si vous exécutez une version hors service d'Azure AD Connect, vous risquez de ne pas bénéficier des correctifs de sécurité, améliorations des performances, outils de diagnostic et de résolution des problèmes et améliorations des services les plus récents, et si vous avez besoin d'assistance, nous ne serons peut-être pas en mesure de vous fournir le niveau de service dont votre organisation a besoin.
 >
->Si vous avez activé Azure AD Connect pour la synchronisation, vous commencerez bientôt à recevoir automatiquement des notifications d'intégrité qui vous avertiront des dépréciations à venir lorsque vous exécuterez une version ancienne.
+
 >
 >Veuillez consulter [cet article](./how-to-upgrade-previous-version.md) pour en savoir plus sur la mise à niveau d'Azure AD Connect vers la version la plus récente.
 >
->Pour obtenir des informations sur l’historique des versions déconseillées, consultez [Archive de l’historique des versions Azure AD Connect](reference-connect-version-history-archive.md).
+>Pour obtenir des informations sur l'historique des versions mises hors service, consultez [Archive de l'historique des versions d'Azure AD Connect](reference-connect-version-history-archive.md).
 
 ## <a name="15450"></a>1.5.45.0
 

@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/24/2020
-ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/17/2021
+ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196535"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666522"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
 Ce guide pratique explique comment accéder aux rapports Purview « Insights relatifs aux classifications » qui concernent vos données.
 
-Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure Synapse Analytics (anciennement SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server.
+Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure Synapse Analytics (anciennement SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, compartiments Amazon S3.
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 
@@ -33,7 +33,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview (préversion)](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
